@@ -43,7 +43,7 @@ En un nivel alto, el proceso de migración de la base de datos es parecido a est
 
 ## <a name="assess-sql-managed-instance-compatibility"></a>Evaluación de la compatibilidad de Instancia administrada de SQL
 
-En primer lugar, determine si Instancia administrada de SQL es compatible con los requisitos de base de datos de la aplicación. Instancia administrada de SQL se ha diseñado para poder migrar mediante lift-and-shit la mayoría de las aplicaciones existentes que usan SQL Server. Sin embargo, a veces podría necesitar características o funcionalidades que todavía no se admiten y el costo de implementar una solución alternativa es demasiado alto.
+En primer lugar, determine si Instancia administrada de SQL es compatible con los requisitos de base de datos de la aplicación. Instancia administrada de SQL se ha diseñado para poder migrar mediante lift-and-shift la mayoría de las aplicaciones existentes que usan SQL Server. Sin embargo, a veces podría necesitar características o funcionalidades que todavía no se admiten y el costo de implementar una solución alternativa es demasiado alto.
 
 Use [Data Migration Assistant](/sql/dma/dma-overview) para detectar posibles problemas de compatibilidad que afecten a la funcionalidad de la base de datos en Azure SQL Database. Si se ha notificado algún problema de bloqueo, quizá deba considerar una alternativa, como [SQL Server en VM de Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). Estos son algunos ejemplos:
 
