@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
 ms.date: 03/30/2021
-ms.openlocfilehash: dfd219b6fcfc01613d68a2bd439022651ed0bbe2
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 54880f22fae7f9a193a13745702345f5f7efdc32
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106110179"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210924"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Autenticar el acceso a los recursos de Azure mediante identidades administradas en Azure Logic Apps
 
@@ -99,7 +99,7 @@ A diferencia de las identidades asignadas por el usuario, no tiene que crear man
 
    ![Identificador de objeto para la identidad asignada por el sistema](./media/create-managed-service-identity/object-id-system-assigned-identity.png)
 
-   | Propiedad | Valor | Descripción |
+   | Propiedad | Value | Descripción |
    |----------|-------|-------------|
    | **Id. de objeto** | <*identity-resource-ID*> | Identificador único global (GUID) que representa la identidad asignada por el sistema de la aplicación lógica en un inquilino de Azure AD. |
    ||||
@@ -434,7 +434,7 @@ Para ejecutar la [operación blob de instantáneas](/rest/api/storageservices/sn
 |----------|----------|---------------|-------------|
 | **Método** | Sí | `PUT`| El método HTTP que utiliza la operación blob de instantáneas |
 | **URI** | Sí | `https://{storage-account-name}.blob.core.windows.net/{blob-container-name}/{folder-name-if-any}/{blob-file-name-with-extension}` | El identificador de recurso de un archivo Azure Blob Storage en el entorno de Azure Global (público), que usa esta sintaxis |
-| **Encabezados** | Para Azure Storage | `x-ms-blob-type` = `BlockBlob` <p>`x-ms-version` = `2019-02-02` <p>`x-ms-date` = `@{formatDateTime(utcNow(),'r'}` | Los valores de encabezado `x-ms-blob-type`, `x-ms-version` y `x-ms-date` son necesarios para las operaciones de Azure Storage. <p><p>**Importante**: En el desencadenador HTTP saliente y en las solicitudes de acción de Azure Storage, el encabezado requiere la propiedad `x-ms-version` y la versión de la API para la operación que se desea ejecutar. El valor `x-ms-date` debe ser la fecha actual. En caso contrario, se produce un error de tipo `403 FORBIDDEN` en la aplicación lógica. Para obtener la fecha actual en el formato requerido, puede usar la expresión del valor de ejemplo. <p>Para más información, consulte los temas siguientes: <p><p>- [Encabezados de solicitud - Blob de instantáneas](/rest/api/storageservices/snapshot-blob#request) <br>- [Control de versiones para servicios de Azure Storage](/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests) |
+| **Encabezados** | Para Azure Storage | `x-ms-blob-type` = `BlockBlob` <p>`x-ms-version` = `2019-02-02` <p>`x-ms-date` = `@{formatDateTime(utcNow(),'r')}` | Los valores de encabezado `x-ms-blob-type`, `x-ms-version` y `x-ms-date` son necesarios para las operaciones de Azure Storage. <p><p>**Importante**: En el desencadenador HTTP saliente y en las solicitudes de acción de Azure Storage, el encabezado requiere la propiedad `x-ms-version` y la versión de la API para la operación que se desea ejecutar. El valor `x-ms-date` debe ser la fecha actual. En caso contrario, se produce un error de tipo `403 FORBIDDEN` en la aplicación lógica. Para obtener la fecha actual en el formato requerido, puede usar la expresión del valor de ejemplo. <p>Para más información, consulte los temas siguientes: <p><p>- [Encabezados de solicitud - Blob de instantáneas](/rest/api/storageservices/snapshot-blob#request) <br>- [Control de versiones para servicios de Azure Storage](/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests) |
 | **Consultas** | Solo para la operación del blob de instantáneas | `comp` = `snapshot` | El nombre y el valor del parámetro de consulta para la operación. |
 |||||
 
@@ -562,7 +562,7 @@ Durante el tiempo de ejecución, el servicio Logic Apps comprueba si las accione
 
 ## <a name="arm-template-for-managed-connections-and-managed-identities"></a>Plantilla de ARM para conexiones e identidades administradas
 
-Si automatiza la implementación con una plantilla de ARM y la aplicación lógica incluye un desencadenador o una acción de conector administrado que usa una identidad administrada, confirme que la definición de recurso de conexión subyacente incluye la propiedad `parameterValueType` con `Alternative` como valor de propiedad. De lo contrario, la implementación de ARM no configurará la conexión de uso de la identidad administrada para la autenticación y la conexión no funcionará en el flujo de trabajo de la aplicación lógica. Este requisito solo se aplica a [desencadenadores y acciones de conectores administrados específicos](#managed-connectors-managed-identity) en los que se ha seleccionado la [opción **Conectar con identidad administrada** ](#authenticate-managed-connector-managed-identity).
+Si automatiza la implementación con una plantilla de ARM y la aplicación lógica incluye un desencadenador o una acción de conector administrado que usa una identidad administrada, confirme que la definición de recurso de conexión subyacente incluye la propiedad `parameterValueType` con `Alternative` como valor de propiedad. De lo contrario, la implementación de ARM no configurará la conexión de uso de la identidad administrada para la autenticación y la conexión no funcionará en el flujo de trabajo de la aplicación lógica. Este requisito solo se aplica a [desencadenadores y acciones de conectores administrados específicos](#managed-connectors-managed-identity) en los que se ha seleccionado la [opción **Conectar con identidad administrada**](#authenticate-managed-connector-managed-identity).
 
 Por ejemplo, esta es la definición de recurso de conexión subyacente para una acción Azure Automation que usa una identidad administrada en la que la definición incluye la propiedad `parameterValueType`, que se establece en `Alternative` como el valor de la propiedad:
 

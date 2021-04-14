@@ -9,10 +9,10 @@ ms.date: 08/07/2019
 ms.author: menchi
 ms.custom: include file
 ms.openlocfilehash: a5c1ddd085ae65b9920d73f50f993f4646785a69
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "68883828"
 ---
 ## <a name="create-a-module-identity"></a>Creación de una identidad de módulo
@@ -23,7 +23,7 @@ Cuando se ejecuta esta aplicación de consola, genera una clave y un identificad
 
 1. Abra Visual Studio y seleccione **Crear un proyecto**.
 
-1. En **Crear un proyecto**, seleccione **Aplicación de consola (.NET Framework)** .
+1. En **Crear un proyecto**, seleccione **Aplicación de consola (.NET Framework)**.
 
 1. Seleccione **Siguiente** para abrir **Configurar el nuevo proyecto**. Llame *CreateIdentities* al proyecto e *IoTHubGetStarted* a la solución. Asegúrese de que la versión de .NET Framework sea 4.6.1 o una posterior.
 

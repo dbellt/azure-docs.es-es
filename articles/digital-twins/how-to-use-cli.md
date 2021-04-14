@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 05/25/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: a24b8b18dd109f1d8ed5acaa7de55ce5a3cc1eb9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5037450d401153811899b8d769ca92af7ce4068e
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102201114"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107103783"
 ---
 # <a name="use-the-azure-digital-twins-cli"></a>Uso de la CLI de Azure Digital Twins
 
@@ -25,7 +25,7 @@ Además de administrar la instancia de Azure Digital Twins en Azure Portal, Azur
 * Administración de [rutas](concepts-route-events.md)
 * Configuración de la [seguridad](concepts-security.md) mediante el control de acceso basado en rol de Azure (RBAC de Azure)
 
-El conjunto de comandos se llama **az dt** y forma parte de la [extensión de Azure IoT para la CLI de Azure](https://github.com/Azure/azure-iot-cli-extension). Puede ver la lista completa de comandos y su uso como parte de la documentación de referencia del conjunto de comandos `az iot`: [referencia del comando *az dt*](/cli/azure/ext/azure-iot/dt).
+El conjunto de comandos se llama **az dt** y forma parte de la [extensión de Azure IoT para la CLI de Azure](https://github.com/Azure/azure-iot-cli-extension). Puede ver la lista completa de comandos y su uso como parte de la documentación de referencia del conjunto de comandos `az iot`: [referencia del comando *az dt*](/cli/azure/dt).
 
 ## <a name="uses-deploy-and-validate"></a>Usos (implementación y validación)
 
@@ -50,11 +50,15 @@ Para obtener instrucciones sobre cómo instalar o actualizar la CLI de Azure a u
 
 ### <a name="get-the-extension"></a>Obtener la extensión
 
-Puede asegurarse de que tiene la última versión de la extensión `azure-iot` con estos pasos. Puede ejecutar estos comandos en [Azure Cloud Shell](../cloud-shell/overview.md) o en una [CLI de Azure local](/cli/azure/install-azure-cli).
+La CLI de Azure le solicitará automáticamente que instale la extensión la primera vez que use algún comando que la necesite.
 
-[!INCLUDE [digital-twins-cloud-shell-extensions.md](../../includes/digital-twins-cloud-shell-extensions.md)]
+Como alternativa, puede usar el siguiente comando para instalar la extensión usted mismo en cualquier momento (o actualizarla si tiene una versión anterior). El comando se puede ejecutar en [Azure Cloud Shell](../cloud-shell/overview.md) o en una [CLI de Azure local](/cli/azure/install-azure-cli).
+
+```azurecli-interactive
+az extension add --upgrade -n azure-iot
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Explore la CLI y su conjunto completo de comandos a través de los documentos de referencia:
-* [Referencia del comando *az dt*](/cli/azure/ext/azure-iot/dt)
+* [Referencia del comando *az dt*](/cli/azure/dt)

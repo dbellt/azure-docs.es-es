@@ -2,21 +2,20 @@
 title: Obtención de métricas en Application Insights de Azure Monitor
 description: Aprenda a usar eficazmente la llamada a GetMetric() para capturar métricas previamente agregadas de forma local para aplicaciones .NET y .NET Core con Application Insights de Azure Monitor
 ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 0ce2651d5cfcb1578d78982af109a004aaac11f4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 22baa1ae9554601a72ffdb848b87d99281067967
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101719787"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384296"
 ---
 # <a name="custom-metric-collection-in-net-and-net-core"></a>Recopilación de métricas personalizadas en .NET y .NET Core
 
 Los SDK de Application Insights de Azure Monitor para .NET y .NET Core tienen dos métodos diferentes para recopilar métricas personalizadas, `TrackMetric()`y `GetMetric()`. La diferencia principal entre estos dos métodos es la agregación local. `TrackMetric()` no dispone de agregación previa, en tanto que `GetMetric()` tiene agregación previa. El enfoque recomendado es usar agregación, por lo que `TrackMetric()` ya no es el método preferido para recopilar métricas personalizadas. En este artículo se le guiará por el uso del método GetMetric () y parte de la lógica en la que se basa en su funcionamiento.
 
-## <a name="trackmetric-versus-getmetric"></a>TrackMetric frente a GetMetric
+## <a name="pre-aggregating-vs-non-pre-aggregating-api"></a>API de agregación previa frente a la de no agregación previa
 
 `TrackMetric()` envía datos de telemetría sin procesar que denotan una métrica. No es eficaz para enviar un elemento de telemetría único para cada valor. `TrackMetric()` también es ineficaz en términos de rendimiento, ya que cada elemento `TrackMetric(item)` pasa a través de la canalización completa del SDK de inicializadores y procesadores de telemetría. A diferencia de `TrackMetric()`, `GetMetric()` controla la agregación previa local automáticamente y, a continuación, solo envía una métrica de resumen agregada cada intervalo fijo de un minuto. Por lo tanto, si necesita supervisar de cerca algunas métricas personalizadas en el nivel de segundos o incluso en el de milisegundos, puede hacerlo y además solo se incurre en el costo de almacenamiento y tráfico de red de la supervisión en cada minuto. Esto también reduce en gran medida el riesgo de que se produzca una limitación, ya que se reduce considerablemente el número total de elementos de telemetría que se deben enviar para una métrica agregada.
 
@@ -204,13 +203,13 @@ Y para ver las agregaciones de métricas para cada dimensión _FormFactor_:
 
 ![Factores de forma](./media/get-metric/formfactor.png)
 
-### <a name="how-to-use-metricidentifier-when-there-are-more-than-three-dimensions"></a>Uso de MetricIdentifier cuando hay más de tres dimensiones
+### <a name="how-to-use-metricidentifier-when-there-are-more-than-three-dimensions&quot;></a>Uso de MetricIdentifier cuando hay más de tres dimensiones
 
 En la actualidad se admiten 10 dimensiones, pero si hay más de tres dimensiones se requiere el uso de `MetricIdentifier`:
 
 ```csharp
-// Add "using Microsoft.ApplicationInsights.Metrics;" to use MetricIdentifier
-// MetricIdentifier id = new MetricIdentifier("[metricNamespace]","[metricId],"[dim1]","[dim2]","[dim3]","[dim4]","[dim5]");
+// Add &quot;using Microsoft.ApplicationInsights.Metrics;&quot; to use MetricIdentifier
+// MetricIdentifier id = new MetricIdentifier(&quot;[metricNamespace]&quot;,&quot;[metricId],&quot;[dim1]&quot;,&quot;[dim2]&quot;,&quot;[dim3]&quot;,&quot;[dim4]&quot;,&quot;[dim5]");
 MetricIdentifier id = new MetricIdentifier("CustomMetricNamespace","ComputerSold", "FormFactor", "GraphicsCard", "MemorySpeed", "BatteryCapacity", "StorageCapacity");
 Metric computersSold  = _telemetryClient.GetMetric(id);
 computersSold.TrackValue(110,"Laptop", "Nvidia", "DDR4", "39Wh", "1TB");
@@ -286,7 +285,7 @@ computersSold.TrackValue(100, "Dim1Value1", "Dim2Value3");
 // The above call does not track the metric, and returns false.
 ```
 
-* `seriesCountLimit` es el número máximo de series temporales de datos que puede contener una métrica. Una vez alcanzado este límite, no se realizará un seguimiento de las llamadas a `TrackValue()`.
+* `seriesCountLimit` es el número máximo de series temporales de datos que puede contener una métrica. Una vez alcanzado este límite, las llamadas a `TrackValue()` que normalmente generarían una nueva serie devolverán false.
 * `valuesPerDimensionLimit` limita el número de valores distintos por dimensión de forma similar.
 * `restrictToUInt32Values` determina si solo se debe realizar el seguimiento de los valores enteros no negativos.
 

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/21/2021
+ms.date: 04/05/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 67870a458138101f3b8a009f7c96c74991396284
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0dcb959184e12ffa22ae25443087684123598e47
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98675193"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106382475"
 ---
 # <a name="register-a-microsoft-graph-application"></a>Registro de una aplicación de Microsoft Graph
 
@@ -56,31 +56,38 @@ Antes de que los scripts y las aplicaciones puedan interactuar con [Microsoft Gr
 1. Seleccione **Registrar**.
 1. Registre el valor **Id. de aplicación (cliente)** que se muestra en la página de información general de la aplicación. Se usará este valor en un paso posterior.
 
-### <a name="grant-api-access"></a>Concesión de acceso de API
+## <a name="grant-api-access"></a>Concesión de acceso de API
 
-A continuación, conceda los permisos de aplicación registrados para manipular los recursos de inquilino mediante llamadas a Microsoft Graph API.
+Para que la aplicación tenga acceso a los datos de Microsoft Graph, conceda a la aplicación registrada los [permisos de aplicación](https://docs.microsoft.com/graph/permissions-reference) pertinentes. Los permisos efectivos de la aplicación son el nivel completo de privilegios que concede el permiso. Por ejemplo, para *crear*, *leer*, *actualizar* y *eliminar* cada usuario de su inquilino de Azure AD B2C, agregue el permiso **User.ReadWrite.All**. 
+
+> [!NOTE]
+> El permiso **User.ReadWrite.All** no incluye la capacidad actualizar las contraseñas de las cuentas de usuario. Si la aplicación tiene que actualizar las contraseñas de las cuentas de usuario, [conceda el rol Administrador de usuarios](#optional-grant-user-administrator-role). Al conceder el rol [Administrador de usuarios](../active-directory/roles/permissions-reference.md#user-administrator), no se requiere **User.ReadWrite.All**. El rol de administrador de usuarios incluye todo lo necesario para administrar usuarios.
+
+Puede conceder a la aplicación varios permisos de aplicación. Por ejemplo, si la aplicación también tiene que administrar grupos en el inquilino de Azure AD B2C, agregue también el permiso **Group.ReadWrite.All**. 
 
 [!INCLUDE [active-directory-b2c-permissions-directory](../../includes/active-directory-b2c-permissions-directory.md)]
 
-### <a name="create-client-secret"></a>Creación de un secreto de cliente
 
-[!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
+## <a name="optional-grant-user-administrator-role"></a>[Opcional] Concesión del rol Administrador de usuarios
 
-Ahora tiene una aplicación con permisos para *crear*, *leer*, *actualizar* y *eliminar* usuarios en el inquilino de Azure AD B2C. Continúe en la siguiente sección para agregar permisos de *actualización de contraseñas*.
+Si la aplicación o el script tienen que actualizar las contraseñas de los usuarios, asigne a la aplicación el rol *Administrador de usuarios*. El rol [Administrador de usuarios](../active-directory/roles/permissions-reference.md#user-administrator) tiene un conjunto fijo de permisos que se conceden a la aplicación. 
 
-## <a name="enable-user-delete-and-password-update"></a>Habilitación de eliminación de usuarios y de actualización de contraseñas
-
-El permiso *Leer y escribir datos de directorio* **NO** incluye la capacidad de eliminar usuarios o actualizar contraseñas de cuentas de usuarios.
-
-Si la aplicación o el script debe eliminar usuarios o actualizar sus contraseñas, asigne el rol *Administrador de usuarios* a la aplicación:
+Para agregar el rol *Administrador de usuarios*, siga estos pasos:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) y utilice el filtro **Directorio + suscripción** para cambiar al inquilino de Azure AD B2C.
 1. Busque y seleccione **Azure AD B2C**.
 1. En **Administrar**, seleccione **Roles y administradores**.
-1. Seleccione el rol **Administrador de usuarios**.
+1. Seleccione el rol **Administrador de usuarios**. 
 1. Seleccione **Agregar asignaciones**.
-1. En el cuadro de texto **Seleccionar**, escriba el nombre de la aplicación que registró antes; por ejemplo, *managementapp1*. Seleccione su aplicación cuando aparezca en los resultados de búsqueda.
+1. En el cuadro de texto **Seleccionar**, escriba el nombre o el identificador de la aplicación que registró antes; por ejemplo, *managementapp1*. Seleccione la aplicación cuando aparezca en los resultados de la búsqueda.
 1. Seleccione **Agregar**. Los permisos pueden tardar unos minutos en propagarse por completo.
+
+## <a name="create-client-secret"></a>Creación de un secreto de cliente
+
+La aplicación necesita un secreto de cliente para demostrar su identidad al solicitar un token. Para agregar el secreto de cliente, siga estos pasos:
+
+[!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

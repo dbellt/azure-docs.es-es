@@ -11,12 +11,12 @@ ms.date: 10/26/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e5168d5e5e3935da267fb26f38735a88bdfd7837
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a633a7656a287c0b8df050b6d14afb73c27a7460
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101654483"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106382150"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>Solicitud de token de acceso en Azure Active Directory B2C
 
@@ -71,6 +71,8 @@ En el ejemplo siguiente, reemplace estos valores:
 - `<tenant-name>`: el nombre de su inquilino de Azure AD B2C.
 - `<policy-name>`: el nombre de su directiva o flujo de usuarios personalizados.
 - `<application-ID>`: el identificador de la aplicación web que ha registrado para admitir el flujo de usuario.
+- `<application-ID-URI>`: El URI del identificador de la aplicación que estableció en la hoja **Exponer una API** de la aplicación cliente.
+- `<scope-name>`: El nombre del ámbito que ha agregado en la hoja **Exponer una API** de la aplicación cliente.
 - `<redirect-uri>`: el **identificador URI de redirección** que especificó al registrar la aplicación cliente.
 
 ```http
@@ -78,7 +80,7 @@ GET https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/<policy-nam
 client_id=<application-ID>
 &nonce=anyRandomValue
 &redirect_uri=https://jwt.ms
-&scope=https://<tenant-name>.onmicrosoft.com/api/read
+&scope=<application-ID-URI>/<scope-name>
 &response_type=code
 ```
 
@@ -97,7 +99,7 @@ Content-Type: application/x-www-form-urlencoded
 
 grant_type=authorization_code
 &client_id=<application-ID>
-&scope=https://<tenant-name>.onmicrosoft.com/api/read
+&scope=<application-ID-URI>/<scope-name>
 &code=eyJraWQiOiJjcGltY29yZV8wOTI1MjAxNSIsInZlciI6IjEuMC...
 &redirect_uri=https://jwt.ms
 &client_secret=2hMG2-_:y12n10vwH...

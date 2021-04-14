@@ -4,12 +4,12 @@ description: En este artículo se describe el host del procesador de eventos de 
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: de5d8f0f8bf9f64a473b18a50434cac83e8e38c3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d97b446993d3f0a280c1f4fadb237726ac09228a
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98622069"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313426"
 ---
 # <a name="event-processor-host"></a>Host del procesador de eventos
 > [!NOTE]
@@ -199,5 +199,5 @@ Ahora que está familiarizado con el host del procesador de eventos, consulte lo
     - [JavaScript](event-hubs-node-get-started-send.md)
 * [Guía de programación de Event Hubs](event-hubs-programming-guide.md)
 * [Disponibilidad y coherencia en Event Hubs](event-hubs-availability-and-consistency.md)
-* [Preguntas más frecuentes sobre Event Hubs](event-hubs-faq.md)
+* [Preguntas más frecuentes sobre Event Hubs](event-hubs-faq.yml)
 * [Ejemplos de Event Hubs en GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples)

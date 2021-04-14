@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 03/02/2021
+ms.date: 04/07/2021
 ms.topic: how-to
-ms.openlocfilehash: facb7db73bf7a709b9ed07e460d8653d79f1ed2f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f7bc90f2748d230ad50868cff5d7a8f7b69d850a
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101687606"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107029546"
 ---
 # <a name="create-azure-arc-data-controller-using-the-azure-data-cli-azdata"></a>Creación de un controlador de datos de Azure Arc mediante [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]
 
@@ -57,131 +57,6 @@ kubectl get namespace
 kubectl config current-context
 ```
 
-### <a name="connectivity-modes"></a>Modos de conectividad
-
-Como se describe en [Modos de conectividad y requisitos](./connectivity.md), el controlador de datos de Azure Arc se puede implementar con el modo de conectividad `direct` o `indirect`. Con el modo de conectividad `direct`, los datos de uso se envían automática y continuamente a Azure. En este artículo, los ejemplos especifican el modo de conectividad `direct` de la siguiente manera:
-
-   ```console
-   --connectivity-mode direct
-   ```
-
-   Para crear el controlador con el modo de conectividad `indirect`, actualice los scripts del ejemplo tal y como se especifica a continuación:
-
-   ```console
-   --connectivity-mode indirect
-   ```
-
-#### <a name="create-service-principal"></a>Creación de una entidad de servicio
-
-Si va a implementar el controlador de datos de Azure Arc con el modo de conectividad `direct`, las credenciales de la entidad de servicio son necesarias para la conectividad de Azure. La entidad de servicio se usa para cargar datos y métricas de uso. 
-
-Use estos comandos para crear la entidad de servicio de carga de métricas:
-
-> [!NOTE]
-> Para crear una entidad de servicio se necesitan [determinados permisos en Azure](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
-
-Para crear una entidad de servicio, actualice el siguiente ejemplo. Reemplace `<ServicePrincipalName>` por el nombre de la entidad de servicio y ejecute el comando:
-
-```azurecli
-az ad sp create-for-rbac --name <ServicePrincipalName>
-``` 
-
-Si ha creado la entidad de servicio anteriormente y solo necesita obtener las credenciales actuales, ejecute el siguiente comando para restablecer las credenciales.
-
-```azurecli
-az ad sp credential reset --name <ServicePrincipalName>
-```
-
-Por ejemplo, para crear una entidad de servicio denominada `azure-arc-metrics`, ejecute el comando siguiente:
-
-```console
-az ad sp create-for-rbac --name azure-arc-metrics
-```
-
-Salida de ejemplo:
-
-```output
-"appId": "2e72adbf-de57-4c25-b90d-2f73f126e123",
-"displayName": "azure-arc-metrics",
-"name": "http://azure-arc-metrics",
-"password": "5039d676-23f9-416c-9534-3bd6afc78123",
-"tenant": "72f988bf-85f1-41af-91ab-2d7cd01ad1234"
-```
-
-Guarde los valores `appId`, `password` y `tenant` en una variable de entorno para su uso posterior. 
-
-#### <a name="save-environment-variables-in-windows"></a>Almacenamiento de las variables de entorno en Windows
-
-```console
-SET SPN_CLIENT_ID=<appId>
-SET SPN_CLIENT_SECRET=<password>
-SET SPN_TENANT_ID=<tenant>
-SET SPN_AUTHORITY=https://login.microsoftonline.com
-```
-
-#### <a name="save-environment-variables-in-linux-or-macos"></a>Almacenamiento de las variables de entorno en Linux o macOS
-
-```console
-export SPN_CLIENT_ID='<appId>'
-export SPN_CLIENT_SECRET='<password>'
-export SPN_TENANT_ID='<tenant>'
-export SPN_AUTHORITY='https://login.microsoftonline.com'
-```
-
-#### <a name="save-environment-variables-in-powershell"></a>Almacenamiento de las variables de entorno en PowerShell
-
-```console
-$Env:SPN_CLIENT_ID="<appId>"
-$Env:SPN_CLIENT_SECRET="<password>"
-$Env:SPN_TENANT_ID="<tenant>"
-$Env:SPN_AUTHORITY="https://login.microsoftonline.com"
-```
-
-Una vez creada la entidad de servicio, asígnele el rol adecuado. 
-
-### <a name="assign-roles-to-the-service-principal"></a>Asignación de roles a la entidad de servicio
-
-Ejecute este comando para asignar la entidad de servicio al rol `Monitoring Metrics Publisher` en la suscripción donde se encuentran los recursos de la instancia de base de datos:
-
-#### <a name="run-the-command-on-windows"></a>Ejecución del comando en Windows
-
-> [!NOTE]
-> Debe usar comillas dobles para los nombres de rol cuando se ejecuta desde un entorno de Windows.
-
-```azurecli
-az role assignment create --assignee <appId> --role "Monitoring Metrics Publisher" --scope subscriptions/<Subscription ID>
-az role assignment create --assignee <appId> --role "Contributor" --scope subscriptions/<Subscription ID>
-```
-
-#### <a name="run-the-command-on-linux-or-macos"></a>Ejecución del comando en Linux o macOS
-
-```azurecli
-az role assignment create --assignee <appId> --role 'Monitoring Metrics Publisher' --scope subscriptions/<Subscription ID>
-az role assignment create --assignee <appId> --role 'Contributor' --scope subscriptions/<Subscription ID>
-```
-
-#### <a name="run-the-command-in-powershell"></a>Ejecución del comando en PowerShell
-
-```powershell
-az role assignment create --assignee <appId> --role 'Monitoring Metrics Publisher' --scope subscriptions/<Subscription ID>
-az role assignment create --assignee <appId> --role 'Contributor' --scope subscriptions/<Subscription ID>
-```
-
-```output
-{
-  "canDelegate": null,
-  "id": "/subscriptions/<Subscription ID>/providers/Microsoft.Authorization/roleAssignments/f82b7dc6-17bd-4e78-93a1-3fb733b912d",
-  "name": "f82b7dc6-17bd-4e78-93a1-3fb733b9d123",
-  "principalId": "5901025f-0353-4e33-aeb1-d814dbc5d123",
-  "principalType": "ServicePrincipal",
-  "roleDefinitionId": "/subscriptions/<Subscription ID>/providers/Microsoft.Authorization/roleDefinitions/3913510d-42f4-4e42-8a64-420c39005123",
-  "scope": "/subscriptions/<Subscription ID>",
-  "type": "Microsoft.Authorization/roleAssignments"
-}
-```
-
-Con la entidad de servicio asignada al rol adecuado y las variables de entorno establecidas, puede continuar con la creación del controlador de datos. 
-
 ## <a name="create-the-azure-arc-data-controller"></a>Creación del controlador de datos de Azure Arc
 
 > [!NOTE]
@@ -203,10 +78,10 @@ De forma predeterminada, el perfil de implementación de AKS usa la clase de alm
 Si va a usar `managed-premium` como clase de almacenamiento, puede ejecutar el siguiente comando para implementar el controlador de datos. Sustituya los marcadores de posición del comando por el nombre del grupo de recursos, el identificador de la suscripción y la ubicación de Azure.
 
 ```console
-azdata arc dc create --profile-name azure-arc-aks-premium-storage --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode direct
+azdata arc dc create --profile-name azure-arc-aks-premium-storage --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
 
 #Example:
-#azdata arc dc create --profile-name azure-arc-aks-premium-storage --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode direct
+#azdata arc dc create --profile-name azure-arc-aks-premium-storage --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode indirect
 ```
 
 Si no está seguro de qué clase de almacenamiento debe utilizar, indique la clase de almacenamiento `default`, que es compatible con cualquier tipo de máquina virtual que esté usando. No le ofrecerá el rendimiento más rápido.
@@ -214,10 +89,10 @@ Si no está seguro de qué clase de almacenamiento debe utilizar, indique la cla
 Si desea usar la clase de almacenamiento `default`, puede ejecutar este comando:
 
 ```console
-azdata arc dc create --profile-name azure-arc-aks-default-storage --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode direct
+azdata arc dc create --profile-name azure-arc-aks-default-storage --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
 
 #Example:
-#azdata arc dc create --profile-name azure-arc-aks-default-storage --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode direct
+#azdata arc dc create --profile-name azure-arc-aks-default-storage --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode indirect
 ```
 
 Una vez ejecutado el comando, continúe en [Supervisión del estado de creación](#monitoring-the-creation-status).
@@ -229,10 +104,10 @@ De forma predeterminada, el perfil de implementación utiliza la clase de almace
 Puede ejecutar el siguiente comando para implementar el controlador de datos con la clase de almacenamiento managed-premium:
 
 ```console
-azdata arc dc create --profile-name azure-arc-aks-premium-storage --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode direct
+azdata arc dc create --profile-name azure-arc-aks-premium-storage --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
 
 #Example:
-#azdata arc dc create --profile-name azure-arc-aks-premium-storage --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode direct
+#azdata arc dc create --profile-name azure-arc-aks-premium-storage --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode indirect
 ```
 
 Si no está seguro de qué clase de almacenamiento debe utilizar, indique la clase de almacenamiento `default`, que es compatible con cualquier tipo de máquina virtual que esté usando. En Azure Stack Hub, los discos premium y los discos estándar cuentan con el respaldo de la misma infraestructura de almacenamiento. Por lo tanto, se espera que proporcionen el mismo rendimiento general, pero con distintos límites de IOPS.
@@ -240,10 +115,10 @@ Si no está seguro de qué clase de almacenamiento debe utilizar, indique la cla
 Si desea usar la clase de almacenamiento `default`, puede ejecutar este comando.
 
 ```console
-azdata arc dc create --profile-name azure-arc-aks-default-storage --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode direct
+azdata arc dc create --profile-name azure-arc-aks-default-storage --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
 
 #Example:
-#azdata arc dc create --profile-name azure-arc-aks-premium-storage --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode direct
+#azdata arc dc create --profile-name azure-arc-aks-default-storage --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode indirect
 ```
 
 Una vez ejecutado el comando, continúe en [Supervisión del estado de creación](#monitoring-the-creation-status).
@@ -255,10 +130,10 @@ De forma predeterminada, el perfil de implementación utiliza una clase de almac
 Puede ejecutar el siguiente comando para implementar el controlador de datos con la clase de almacenamiento `default` y el tipo de servicio `LoadBalancer`.
 
 ```console
-azdata arc dc create --profile-name azure-arc-aks-hci --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode direct
+azdata arc dc create --profile-name azure-arc-aks-hci --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
 
 #Example:
-#azdata arc dc create --profile-name azure-arc-aks-hci --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode direct
+#azdata arc dc create --profile-name azure-arc-aks-hci --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode indirect
 ```
 
 Una vez ejecutado el comando, continúe en [Supervisión del estado de creación](#monitoring-the-creation-status).
@@ -290,10 +165,10 @@ Puede ejecutar el comando siguiente para crear el controlador de datos:
 > Use el mismo espacio de nombres aquí que en los comandos `oc adm policy add-scc-to-user` anteriores. Un ejemplo es `arc`.
 
 ```console
-azdata arc dc create --profile-name azure-arc-azure-openshift --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode direct
+azdata arc dc create --profile-name azure-arc-azure-openshift --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
 
 #Example
-#azdata arc dc create --profile-name azure-arc-azure-openshift --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode direct
+#azdata arc dc create --profile-name azure-arc-azure-openshift --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode indirect
 ```
 
 Una vez ejecutado el comando, continúe en [Supervisión del estado de creación](#monitoring-the-creation-status).
@@ -381,10 +256,10 @@ Ahora ya puede crear el controlador de datos con el siguiente comando.
 
 
 ```console
-azdata arc dc create --path ./custom --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode direct
+azdata arc dc create --path ./custom --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
 
 #Example:
-#azdata arc dc create --path ./custom --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode direct
+#azdata arc dc create --path ./custom --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode indirect
 ```
 
 Una vez ejecutado el comando, continúe en [Supervisión del estado de creación](#monitoring-the-creation-status).
@@ -425,10 +300,10 @@ azdata arc dc config replace --path ./custom/control.json --json-values "$.spec.
 Ahora ya puede crear el controlador de datos con el siguiente comando.
 
 ```console
-azdata arc dc create --path ./custom --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode direct
+azdata arc dc create --path ./custom --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
 
 #Example:
-#azdata arc dc create --path ./custom --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode direct
+#azdata arc dc create --path ./custom --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode indirect
 ```
 
 Una vez ejecutado el comando, continúe en [Supervisión del estado de creación](#monitoring-the-creation-status).
@@ -440,10 +315,10 @@ De forma predeterminada, la clase de almacenamiento de EKS es `gp2` y el tipo de
 Ejecute el siguiente comando para crear el controlador de datos mediante el perfil de implementación de EKS proporcionado.
 
 ```console
-azdata arc dc create --profile-name azure-arc-eks --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode direct
+azdata arc dc create --profile-name azure-arc-eks --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
 
 #Example:
-#azdata arc dc create --profile-name azure-arc-eks --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode direct
+#azdata arc dc create --profile-name azure-arc-eks --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode indirect
 ```
 
 Una vez ejecutado el comando, continúe en [Supervisión del estado de creación](#monitoring-the-creation-status).
@@ -455,10 +330,10 @@ De forma predeterminada, la clase de almacenamiento de GKE es `standard` y el ti
 Ejecute el siguiente comando para crear el controlador de datos mediante el perfil de implementación de GKE proporcionado.
 
 ```console
-azdata arc dc create --profile-name azure-arc-gke --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode direct
+azdata arc dc create --profile-name azure-arc-gke --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
 
 #Example:
-#azdata arc dc create --profile-name azure-arc-gke --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode direct
+#azdata arc dc create --profile-name azure-arc-gke --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode indirect
 ```
 
 Una vez ejecutado el comando, continúe en [Supervisión del estado de creación](#monitoring-the-creation-status).

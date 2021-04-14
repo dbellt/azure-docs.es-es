@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71a29a2a7e379e253b52813eb7a76f669abbf668
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a8779ee2d3c4d83c06a2c1803e65219d43f0ef14
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101653837"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106275811"
 ---
 # <a name="enable-passwordless-security-key-sign-in"></a>Habilitación del inicio de sesión con clave de seguridad sin contraseña 
 
@@ -89,6 +89,8 @@ Si quiere compartir comentarios o detectar problemas con esta característica, c
 ### <a name="security-key-provisioning"></a>Aprovisionamiento de claves de seguridad
 
 El aprovisionamiento y desaprovisionamiento de administrador de claves de seguridad no está disponible.
+
+**Nota:** El inicio de sesión almacenado en caché de FIDO2 produce un error en una máquina unida a Azure AD híbrido específica con la versión win10 20H2 (cuando LOS a DC no están disponibles). Esto se encuentra actualmente en investigación con ingeniería.
 
 ### <a name="upn-changes"></a>Cambios de UPN
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3acaf4929158b24ff50655aa18c05b41aeec4b53
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dc20ca3f3cf6197f8a3ed3a7e0362046f129d369
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96435457"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305878"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procedimientos: Planeación de la implementación de la unión a Azure AD
 
@@ -168,13 +168,11 @@ Los usuarios obtienen inicio de sesión único desde dispositivos unidos a Azure
 
 ### <a name="on-premises-network-shares"></a>Recursos compartidos de red local
 
-Los usuarios disponen de inicio de sesión único desde dispositivos unidos a Azure AD cuando un dispositivo tiene acceso a un controlador de dominio local.
+Los usuarios disponen de inicio de sesión único desde dispositivos unidos a Azure AD cuando un dispositivo tiene acceso a un controlador de dominio local. [Obtener información sobre cómo funciona](azuread-join-sso.md).
 
 ### <a name="printers"></a>Impresoras
 
-Para las impresoras, deberá implementar la [impresión en la nube híbrida](/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy) para detectar impresoras en dispositivos unidos a Azure AD. 
-
-Mientras que las impresoras no se pueden detectar automáticamente en un entorno solo de nube, los usuarios también pueden usar la ruta de acceso UNC de las impresoras para agregarlas directamente. 
+Se recomienda implementar la [Impresión universal](/universal-print/fundamentals/universal-print-whatis) para tener una solución de administración de impresiones basada en la nube sin dependencias locales. 
 
 ### <a name="on-premises-applications-relying-on-machine-authentication"></a>Aplicaciones locales basadas en la autenticación del equipo
 
@@ -221,7 +219,7 @@ Elija el enfoque o los enfoques de implementación. Para ello, revise la tabla a
 
 ## <a name="configure-your-device-settings"></a>Configuración de las opciones del dispositivo
 
-Azure Portal permite controlar la implementación de dispositivos unidos a Azure AD en su organización. Para configurar las opciones relacionadas, en la **página Azure Active Directory**, seleccione `Devices > Device settings`.
+Azure Portal permite controlar la implementación de dispositivos unidos a Azure AD en su organización. Para configurar las opciones relacionadas, en la **página Azure Active Directory**, seleccione `Devices > Device settings`. [Más información](device-management-azure-portal.md)
 
 ### <a name="users-may-join-devices-to-azure-ad"></a>Los usuarios pueden unir dispositivos a Azure AD
 
@@ -235,11 +233,13 @@ Elija **Seleccionados** y elija los usuarios que quiere agregar al grupo de admi
 
 ![Administradores locales adicionales en dispositivos unidos a Azure AD](./media/azureadjoin-plan/02.png)
 
-### <a name="require-multi-factor-auth-to-join-devices"></a>Requerir Multi-factor Authentication para unir dispositivos
+### <a name="require-multi-factor-authentication-mfa-to-join-devices"></a>Exigencia de autenticación multifactor (MFA) para unir dispositivos
 
 Seleccione **Sí** si necesita que los usuarios ejecuten MFA al unir dispositivos a Azure AD. Para los usuarios que unen dispositivos a Azure AD con MFA, el propio dispositivo se convierte en un segundo factor.
 
 ![Requerir Multi-factor Authentication para unir dispositivos](./media/azureadjoin-plan/03.png)
+
+**Recomendación:** Use la acción de usuario [Registrar o unir dispositivos](/azure/active-directory/conditional-access/concept-conditional-access-cloud-apps#user-actions) en el acceso condicional para aplicar MFA durante la unión de dispositivos.
 
 ## <a name="configure-your-mobility-settings"></a>Configurar las opciones de movilidad
 

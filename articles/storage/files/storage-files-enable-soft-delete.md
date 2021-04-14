@@ -4,16 +4,16 @@ description: Obtenga información sobre cómo habilitar la eliminación temporal
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/01/2020
+ms.date: 03/23/2021
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: 77381700f4257006b50e56ab7ffc037ef99d297c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 428ef41340cd565bef0fa3c1e6519fb8862b091a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102218560"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105727576"
 ---
 # <a name="enable-soft-delete-on-azure-file-shares"></a>Habilitación de la eliminación temporal en recursos compartidos de archivos de Azure
 
@@ -26,12 +26,12 @@ En las secciones siguientes se muestra cómo habilitar y usar la eliminación te
 ## <a name="getting-started"></a>Introducción
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
-1. Vaya a la cuenta de almacenamiento y seleccione **Eliminación temporal** en **Servicio de archivos**.
-1. Seleccione **Habilitada** en **Eliminación temporal de recursos compartidos de archivos**.
+1. Vaya a la cuenta de almacenamiento y seleccione **Recursos compartidos de archivos** en **File service**.
+1. Seleccione **Enabled** (Habilitado) para **Soft delete for all file shares** (Eliminación temporal para todos los recursos compartidos de archivos).
 1. Seleccione **File share retention period in days** (Período de retención del recurso compartido de archivos en días) y escriba el número que prefiera.
 1. Seleccione **Guardar** para confirmar la configuración de retención de datos.
 
-:::image type="content" source="media/storage-how-to-recover-deleted-account/enable-soft-delete-files.png" alt-text="Captura de pantalla del panel de configuración de la eliminación temporal de la cuenta de almacenamiento. Resalte la sección de recursos compartidos de archivos, habilite la alternancia, establezca un período de retención y guárdelo. De esta forma, habilitará la eliminación temporal para todos los recursos compartidos de archivos de la cuenta de almacenamiento.":::
+:::image type="content" source="media/storage-how-to-recover-deleted-account/enable-soft-delete-files.png" alt-text="Captura de pantalla del panel de configuración de la eliminación temporal de la cuenta de almacenamiento. Se resaltan la sección de eliminación temporal de recursos compartidos de archivos, el botón de alternancia para habilitar, se establece un período de retención y se guarda. De esta forma, se habilitará la eliminación temporal para todos los recursos compartidos de archivos de la cuenta de almacenamiento.":::
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
@@ -125,12 +125,12 @@ Restore-AzRmStorageShare -ResourceGroupName $rgname -StorageAccountName $account
 
 ## <a name="disable-soft-delete"></a>Deshabilitación de la eliminación temporal
 
-Si desea detener la eliminación temporal o eliminar permanentemente un recurso compartido de archivos, siga estas instrucciones:
+Si desea dejar de usar la eliminación temporal, siga estas instrucciones. Para eliminar de forma permanente un recurso compartido de archivos que se ha eliminado temporalmente, debe recuperarlo, deshabilitar la eliminación temporal y, a continuación, eliminarlo de nuevo. 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. Vaya a la cuenta de almacenamiento y seleccione **Eliminación temporal** en **Configuración**.
-1. En **Recursos compartidos de archivos** seleccione **Deshabilitado** en **Soft delete for file shares** (Eliminación temporal para recursos compartidos de archivos).
+1. Vaya a la cuenta de almacenamiento y seleccione **Recursos compartidos de archivos** en **File service**.
+1. Seleccione **Disabled** (Deshabilitado) para **Soft delete for all file shares** (Eliminación temporal para todos los recursos compartidos de archivos).
 1. Seleccione **Guardar** para confirmar la configuración de retención de datos.
 
     :::image type="content" source="media/storage-how-to-recover-deleted-account/disable-soft-delete-files.png" alt-text="Deshabilitar la eliminación temporal le permitirá eliminar de forma inmediata y permanente todos los recursos compartidos de archivos de la cuenta de almacenamiento cuando descanse.":::

@@ -8,12 +8,12 @@ author: vamahtan
 ms.author: vamahtan
 ms.reviewer: stmummer
 ms.date: 3/17/2021
-ms.openlocfilehash: e67219e0b029ce401ffc05c009a5cc4a96680a9f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 28fdd8b10c7106380c296c8131ade909ee88d0f8
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104593397"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107098"
 ---
 # <a name="co-sell-requirements"></a>Requisitos de venta conjunta
 
@@ -35,7 +35,7 @@ Para que una oferta obtenga el estado Listo para la venta conjunta, debe cumplir
 
 **Todos los partners**:
 
-- Deben tener un identificador de MPN y una [cuenta de marketplace comercial activa en el centro de Partners](./partner-center-portal/create-account.md).
+- Deben tener un identificador de MPN y una [cuenta de marketplace comercial activa en el centro de Partners](create-account.md).
 - Asegúrese de que tiene un [perfil de negocio](/partner-center/create-a-marketing-profile) completo en el Centro de partners. Como partner de Microsoft calificado, puede crear un perfil de negocio para presentar su negocio a los clientes que buscan sus soluciones únicas y la experiencia para satisfacer sus necesidades empresariales, lo cual luego dará como resultado la obtención de [referencias](/partner-center/referrals) para su negocio.
 - Complete la pestaña **Venta conjunta con Microsoft** y publique la oferta en el marketplace comercial.
 - Proporcione un contacto de ventas para cada zona geográfica que cumpla los requisitos de venta conjunta y la lista de materiales necesaria.
@@ -59,7 +59,7 @@ Se proporcionan plantillas para ayudarle a crear estos documentos. Si desea cono
 
 ### <a name="publish-your-offer-live"></a>Publicación de la oferta
 
-Para participar en el estado Listo para la venta conjunta, su oferta o solución debe publicarse en directo al menos en una de las tiendas de marketplace comercial en línea: Azure Marketplace o Microsoft AppSource. Para más información sobre la publicación de ofertas en el marketplace comercial, consulte la [Guía de publicación por tipo de oferta](publisher-guide-by-offer-type.md). Si no ha publicado anteriormente ninguna oferta en el marketplace comercial, asegúrese de que tiene una [cuenta en el marketplace comercial](./partner-center-portal/create-account.md).
+Para participar en el estado Listo para la venta conjunta, su oferta o solución debe publicarse en directo al menos en una de las tiendas de marketplace comercial en línea: Azure Marketplace o Microsoft AppSource. Para más información sobre la publicación de ofertas en el marketplace comercial, consulte la [Guía de publicación por tipo de oferta](publisher-guide-by-offer-type.md). Si no ha publicado anteriormente ninguna oferta en el marketplace comercial, asegúrese de que tiene una [cuenta en el marketplace comercial](create-account.md).
 
 ## <a name="requirements-for-azure-ip-co-sell-incentivized-status"></a>Requisitos del estado de incentivos de venta conjunta de direcciones IP de Azure
 

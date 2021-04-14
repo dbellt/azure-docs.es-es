@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 9/15/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: de16932f1f77e569302b222fe2948de3046fabd6
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: a5e00ef81afc709a9072eedbb07983057f57eb08
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104950604"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107304316"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Ingesta de telemetría de IoT Hub en Azure Digital Twins
 
@@ -45,7 +45,7 @@ Siempre que el dispositivo de termostato envía un evento de telemetría de temp
 
 En esta sección, configurará un [gemelo digital](concepts-twins-graph.md) en Azure Digital Twins que representará el dispositivo de termostato, y se actualizará con información de IoT Hub.
 
-Para crear un gemelo de tipo termostato, primero debe cargar el [modelo](concepts-models.md) de termostato en la instancia, que describe las propiedades de un termostato y que se usará más adelante para crear el gemelo. 
+Para crear un gemelo de tipo termostato, primero debe cargar el [modelo](concepts-models.md) de termostato en la instancia, que describe las propiedades de un termostato y que se usará más adelante para crear el gemelo.
 
 [!INCLUDE [digital-twins-thermostat-model-upload.md](../../includes/digital-twins-thermostat-model-upload.md)]
 

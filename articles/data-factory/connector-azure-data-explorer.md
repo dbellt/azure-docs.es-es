@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/18/2020
-ms.openlocfilehash: 16126e8b9e5c34529016018273edcf65a31e2280
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/24/2020
+ms.openlocfilehash: f343cf820632c8b53f74a938a039820ea4f56eac
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100379988"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105027404"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-by-using-azure-data-factory"></a>Copia de datos con Azure Data Explorer como origen o destino mediante Azure Data Factory
 
@@ -52,7 +52,14 @@ En las secciones siguientes se proporcionan detalles sobre las propiedades que s
 
 ## <a name="linked-service-properties"></a>Propiedades del servicio vinculado
 
-El conector de Azure Data Explorer utiliza la autenticación de entidad de servicio. Siga estos pasos para obtener una entidad de servicio y concederle permisos:
+El conector de Azure Data Explorer admite los siguientes tipos de autenticación. Consulte las secciones correspondientes para más información:
+
+- [Autenticación de entidad de servicio](#service-principal-authentication)
+- [Identidades administradas para la autenticación de recursos de Azure](#managed-identity)
+
+### <a name="service-principal-authentication"></a>Autenticación de entidad de servicio
+
+Para usar la autenticación de la entidad de servicio, siga estos pasos para obtener una entidad de servicio y para conceder permisos:
 
 1. Registre una entidad de aplicación en Azure Active Directory como se indica en [Registro de la aplicación con un inquilino de Azure AD](../storage/common/storage-auth-aad-app.md#register-your-application-with-an-azure-ad-tenant). Anote los siguientes valores; los usará para definir el servicio vinculado:
 
@@ -66,7 +73,7 @@ El conector de Azure Data Explorer utiliza la autenticación de entidad de servi
     - **Como receptor**, conceder al menos el rol **Agente de ingesta de base de datos** a la base de datos.
 
 >[!NOTE]
->Cuando utiliza la interfaz de usuario de Data Factory para crear, se usa la cuenta de usuario de inicio de sesión para enumerar los clústeres, bases de datos y tablas de Azure Data Explorer. Escriba manualmente el nombre si no tiene permiso para realizar estas operaciones.
+>Cuando utiliza la interfaz de usuario de Data Factory para crear, de forma predeterminada, se usa la cuenta de usuario de inicio de sesión para enumerar los clústeres, bases de datos y tablas de Azure Data Explorer. Para mostrar los objetos mediante la entidad de servicio, haga clic en la lista desplegable situada junto al botón Actualizar o escriba manualmente el nombre si no tiene permiso para estas operaciones.
 
 Las siguientes propiedades son compatibles con el servicio vinculado de Azure Data Explorer:
 
@@ -78,8 +85,9 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Azure Da
 | tenant | Especifique la información del inquilino (nombre de dominio o identificador de inquilino) en el que reside la aplicación. Esto se conoce como "Id. de autoridad" en la [cadena de conexión de Kusto](/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Para recuperarlo, mantenga el puntero del mouse en la esquina superior derecha de Azure Portal. | Sí |
 | servicePrincipalId | Especifique el id. de cliente de la aplicación. Esto se conoce como "Id. del cliente de aplicación de AAD" en la [cadena de conexión de Kusto](/azure/kusto/api/connection-strings/kusto#application-authentication-properties). | Sí |
 | servicePrincipalKey | Especifique la clave de la aplicación. Esto se conoce como "Clave de aplicación de AAD" en la [cadena de conexión de Kusto](/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Marque este campo como **SecureString** para almacenarlo de forma segura en Data Factory, o bien [haga referencia a datos seguros almacenados en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
+| connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Si el almacén de datos está en una red privada, se puede usar Azure Integration Runtime o un entorno de ejecución de integración autohospedado. Si no se especifica, se usa el valor predeterminado de Azure Integration Runtime. |No |
 
-**Ejemplo de propiedades del servicio vinculado:**
+**Ejemplo: uso de la autenticación de claves de entidad de servicio**
 
 ```json
 {
@@ -95,6 +103,44 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Azure Da
                 "type": "SecureString",
                 "value": "<service principal key>"
             }
+        }
+    }
+}
+```
+
+### <a name="managed-identities-for-azure-resources-authentication"></a><a name="managed-identity"></a> Identidades administradas para la autenticación de recursos de Azure
+
+Para usar las identidades administradas para la autenticación de recursos de Azure, siga estos pasos para conceder los permisos:
+
+1. [Recupere la información de la identidad administrada de Data Factory](data-factory-service-identity.md#retrieve-managed-identity) mediante la copia del valor de **Id. del objeto de identidad administrada** que se ha generado junto con la factoría.
+
+2. Conceda a la identidad administrada los permisos correctos en Azure Data Explorer. Consulte [Administración de permisos de base de datos de Azure Data Explorer](/azure/data-explorer/manage-database-permissions) para obtener información detallada sobre los roles y los permisos, así como información sobre la administración de permisos. En general, debe:
+
+    - **Como origen**, conceder al menos el rol **Visor de base de datos** a la base de datos.
+    - **Como receptor**, conceder al menos el rol **Agente de ingesta de base de datos** a la base de datos.
+
+>[!NOTE]
+>Cuando utiliza la interfaz de usuario de Data Factory para crear, se usa la cuenta de usuario de inicio de sesión para enumerar los clústeres, bases de datos y tablas de Azure Data Explorer. Escriba manualmente el nombre si no tiene permiso para realizar estas operaciones.
+
+Las siguientes propiedades son compatibles con el servicio vinculado de Azure Data Explorer:
+
+| Propiedad | Descripción | Obligatorio |
+|:--- |:--- |:--- |
+| type | La propiedad **type** se debe establecer en **AzureDataExplorer**. | Sí |
+| endpoint | Dirección URL del punto de conexión del clúster de Azure Data Explorer, con el formato como `https://<clusterName>.<regionName>.kusto.windows.net`. | Sí |
+| database | Nombre de la base de datos. | Sí |
+| connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Si el almacén de datos está en una red privada, se puede usar Azure Integration Runtime o un entorno de ejecución de integración autohospedado. Si no se especifica, se usa el valor predeterminado de Azure Integration Runtime. |No |
+
+**Ejemplo: Uso de la autenticación de identidad administrada**
+
+```json
+{
+    "name": "AzureDataExplorerLinkedService",
+    "properties": {
+        "type": "AzureDataExplorer",
+        "typeProperties": {
+            "endpoint": "https://<clusterName>.<regionName>.kusto.windows.net ",
+            "database": "<database name>",
         }
     }
 }

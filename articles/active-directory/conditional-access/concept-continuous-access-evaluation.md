@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80ee161944a48135778d12942964a88455ab756e
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: d707106d66c77ad1f3a1156906add8bb85fd0ce0
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106055780"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305980"
 ---
 # <a name="continuous-access-evaluation"></a>Evaluación continua de acceso
 
@@ -142,7 +142,7 @@ En esta página, puede limitar opcionalmente los usuarios y grupos que estarán 
 En el caso de CAE, solo tenemos información sobre ubicaciones con nombre basadas en IP. No tenemos información sobre otras opciones de configuración de ubicación, como las [direcciones IP de confianza de MFA](../authentication/howto-mfa-mfasettings.md#trusted-ips) o las ubicaciones basadas en países. Cuando el usuario procede de una dirección IP de confianza de MFA o de ubicaciones de confianza que incluyen las direcciones IP de confianza de MFA o la ubicación de país, CAE no se aplica después de que el usuario se mueva a otra ubicación. En esos casos, se emitirá un token de CAE de 1 hora sin comprobación de cumplimiento de IP instantánea.
 
 > [!IMPORTANT]
-> Al configurar ubicaciones para la evaluación continua de acceso, use solo la [condición de ubicación de acceso condicional basado en IP](../conditional-access/location-condition.md#preview-features) y configure todas las direcciones IP, **incluidas las IPv4 e IPv6**, que el proveedor de identidades y el proveedor de recursos podrán ver. No use condiciones de ubicación de país o la característica de direcciones IP de confianza que está disponible en la página de configuración del servicio Multi-Factor Authentication de Azure AD.
+> Al configurar ubicaciones para la evaluación continua de acceso, use solo la [condición de ubicación de acceso condicional basado en IP](../conditional-access/location-condition.md) y configure todas las direcciones IP, **incluidas las IPv4 e IPv6**, que el proveedor de identidades y el proveedor de recursos podrán ver. No use condiciones de ubicación de país o la característica de direcciones IP de confianza que está disponible en la página de configuración del servicio Multi-Factor Authentication de Azure AD.
 
 ### <a name="ip-address-configuration"></a>Configuración de dirección IP
 

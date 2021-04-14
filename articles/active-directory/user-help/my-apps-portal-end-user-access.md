@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 01/19/2021
+ms.date: 03/26/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 6dd9d65ee56bcbf8ca1da72f7d99d4545c5d7fbb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e72667ab562a9e12d233f45dc50efc9b70d2141b
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100095008"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105642104"
 ---
 # <a name="sign-in-and-start-apps-from-the-my-apps-portal"></a>Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones
 
@@ -39,11 +39,12 @@ Si no tiene acceso al portal **Aplicaciones**, póngase en contacto con el depar
 
 ## <a name="supported-browsers"></a>Exploradores compatibles
 
-Puede obtener acceso al portal **Mis aplicaciones** desde cualquiera de los exploradores web siguientes:
+Puede obtener acceso al portal **Mis aplicaciones** desde cualquiera de los exploradores web siguientes. Microsoft recomienda usar el explorador más actualizado compatible con el sistema operativo.
 
-- Microsoft Edge (la versión móvil de Edge es actualmente el único explorador móvil admitido)
-- Google Chrome
-- Mozilla Firefox, versión 26.0 o posterior
+- Microsoft Edge (versión más reciente, escritorio y móvil)
+- Safari (versión más reciente, Mac e iOS)
+- Chrome (versión más reciente, escritorio y móvil)
+- Firefox (versión más reciente)
 
 Puede acceder al portal Aplicaciones y usarlo en su equipo o desde la versión móvil del explorador web Edge en un dispositivo móvil iOS o Android.
 

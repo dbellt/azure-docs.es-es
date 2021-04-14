@@ -3,12 +3,12 @@ title: '¿Qué es Azure Event Hubs? : un servicio de ingesta de macrodatos | Mic
 description: Obtenga más información sobre Azure Event Hubs, un servicio de streaming de macrodatos que ingiere millones de eventos por segundo.
 ms.topic: overview
 ms.date: 01/13/2021
-ms.openlocfilehash: 36eeb38d9ed1696c9524ae9b346065756ce49c46
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 35e89f60e93ec759d852641653ad138d7672cc37
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98195776"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107303056"
 ---
 # <a name="azure-event-hubs--a-big-data-streaming-platform-and-event-ingestion-service"></a>Azure Event Hubs: una plataforma de streaming de macrodatos y un servicio de ingesta de eventos
 Azure Event Hubs es una plataforma de streaming de macrodatos y un servicio de ingesta de eventos. Puede recibir y procesar millones de eventos por segundo. Los datos enviados a un centro de eventos se pueden transformar y almacenar con cualquier proveedor de análisis en tiempo real o adaptadores de procesamiento por lotes y almacenamiento.
@@ -92,4 +92,4 @@ Para empezar a usar Event Hubs, consulte los tutoriales sobre **envío y recepc
 Para obtener más información sobre Event Hubs, consulte los siguientes artículos:
 
 - [Información general de las características de Event Hubs](event-hubs-features.md)
-- [Preguntas más frecuentes](event-hubs-faq.md).
+- [Preguntas más frecuentes](event-hubs-faq.yml).

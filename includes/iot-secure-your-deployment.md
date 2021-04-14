@@ -9,10 +9,10 @@ ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 08cca67455df4b2d28bba0a7410fccc11446fcdc
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96010712"
 ---
 En este artículo se proporciona el siguiente nivel de detalle para proteger la infraestructura de Internet de las cosas (IoT) basada en IoT de Azure. Incluye vínculos a detalles de niveles de implementación para configurar e implementar cada componente. También se proporcionan comparaciones y opciones entre diversos métodos que compiten entre sí.
@@ -33,7 +33,7 @@ Los aceleradores de soluciones de IoT protegen los dispositivos de IoT según lo
 
 * Proporciona una clave de identidad única (tokens de seguridad) para cada dispositivo, que puede usar el dispositivo para comunicarse con el centro de IoT.
 
-* Uso de un [certificado X.509](https://www.itu.int/rec/T-REC-X.509-201210-S) y una clave privada en el dispositivo como medio para autenticarlo en IoT Hub. Este método de autenticación garantiza que la clave privada que lleva el dispositivo no se conoce externamente en ningún momento, lo que proporciona un nivel de seguridad más alto.
+* Usa un [certificado X.509](https://www.itu.int/rec/T-REC-X.509-201210-S) y una clave privada en el dispositivo como medio para autenticarlo en IoT Hub. Este método de autenticación garantiza que la clave privada que lleva el dispositivo no se conoce externamente en ningún momento, lo que proporciona un nivel de seguridad más alto.
 
 El método de token de seguridad proporciona autenticación para cada llamada realizada por el dispositivo a IoT Hub mediante la asociación de la clave simétrica a cada llamada. La autenticación basada en X.509 permite la autenticación de un dispositivo IoT en la capa física como parte del establecimiento de la conexión TLS. El método basado en tokens de seguridad se puede usar sin la autenticación de X.509, que es un patrón menos seguro. La elección de un método u otro viene determinada principalmente por lo segura que deba ser la autenticación del dispositivo y la disponibilidad de almacenamiento seguro en este (para almacenar la clave privada de forma segura).
 
@@ -47,7 +47,7 @@ Puede encontrar más detalles sobre la estructura del token de seguridad y su us
 
 * [Uso de tokens de SAS como dispositivo](../articles/iot-hub/iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app)
 
-Cada instancia de IoT Hub tiene un [Registro de identidad](../articles/iot-hub/iot-hub-devguide-identity-registry.md) que se usa para crear recursos en el servicio para cada dispositivo, como una cola que contiene los mensajes de nube a dispositivo en curso y para permitir el acceso a los puntos de conexión accesibles desde el dispositivo. El Registro de identidades de IoT Hub proporciona un almacenamiento seguro de las identidades y las claves de seguridad de los dispositivos de una solución. Se pueden agregar identidades de dispositivo individuales o en grupo a una lista de elementos permitidos o bloqueados, de forma que se tiene un completo control sobre el acceso a los dispositivos. En los artículos siguientes se proporcionan más detalles sobre la estructura del Registro de identidad y las operaciones admitidas.
+Cada instancia de IoT Hub tiene un [Registro de identidad](../articles/iot-hub/iot-hub-devguide-identity-registry.md) que se usa para crear recursos en el servicio para cada dispositivo, como una cola que contiene los mensajes de nube a dispositivo en curso, y para permitir el acceso a los puntos de conexión accesibles desde el dispositivo. El Registro de identidades de IoT Hub proporciona un almacenamiento seguro de las identidades y las claves de seguridad de los dispositivos de una solución. Se pueden agregar identidades de dispositivo individuales o en grupo a una lista de elementos permitidos o bloqueados, de forma que se tiene un completo control sobre el acceso a los dispositivos. En los artículos siguientes se proporcionan más detalles sobre la estructura del Registro de identidad y las operaciones admitidas.
 
 [IoT Hub admite protocolos como MQTT, AMQP y HTTP](../articles//iot-hub/iot-hub-devguide-security.md). Cada uno de estos protocolos usa tokens de seguridad entre el dispositivo IoT y IoT Hub de manera diferente:
 
@@ -57,7 +57,7 @@ Cada instancia de IoT Hub tiene un [Registro de identidad](../articles/iot-hub/i
 
 * HTTP: el token válido está en el encabezado de la solicitud de autorización.
 
-Puede usar el Registro de identidad de IoT Hub para configurar las credenciales de seguridad de cada dispositivo y el control de acceso. Sin embargo, si una solución de IoT ya tiene una inversión importante en un [Registro de identidad del dispositivo o un esquema de autenticación personalizados](../articles/iot-hub/iot-hub-devguide-security.md#custom-device-and-module-authentication), se puede integrar en una infraestructura existente con IoT Hub mediante la creación de un servicio de token.
+Puede usar el Registro de identidad de IoT Hub para configurar las credenciales de seguridad de cada dispositivo y el control de acceso. Sin embargo, si una solución de IoT ya realizó una inversión importante en un [Registro de identidad del dispositivo o un esquema de autenticación personalizados](../articles/iot-hub/iot-hub-devguide-security.md#custom-device-and-module-authentication), se puede integrar en una infraestructura existente con IoT Hub mediante la creación de un servicio de token.
 
 ### <a name="x509-certificate-based-device-authentication"></a>Autenticación de dispositivos basada en certificados X.509
 
@@ -81,7 +81,7 @@ La conexión a Internet entre el dispositivo IoT y Azure IoT Hub está protegida
 
 ## <a name="securing-the-cloud"></a>Protección de la nube
 
-Azure IoT Hub permite la definición de [directivas de control de acceso](../articles/iot-hub/iot-hub-devguide-security.md) para cada clave de seguridad. Para conceder acceso a cada uno de los puntos de conexión de IoT Hub, se utiliza el siguiente conjunto de permisos. Los permisos limitan el acceso a un centro de IoT según la funcionalidad.
+Azure IoT Hub permite la definición de [directivas de control de acceso](../articles/iot-hub/iot-hub-devguide-security.md) para cada clave de seguridad. Para conceder acceso a cada uno de los puntos de conexión de IoT Hub, se utiliza el siguiente conjunto de permisos. Los permisos limitan el acceso a una instancia de IoT Hub según la funcionalidad.
 
 * **RegistryRead**. Concede acceso de lectura al Registro de identidad. Para más información, consulte [Registro de identidades](../articles/iot-hub/iot-hub-devguide-identity-registry.md).
 
@@ -93,7 +93,7 @@ Azure IoT Hub permite la definición de [directivas de control de acceso](../art
 
 Existen dos maneras de obtener permisos **DeviceConnect** con IoT Hub con [tokens de seguridad](../articles/iot-hub/iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app): mediante una clave de identidad de dispositivo o una clave de acceso compartido. Además, es importante tener en cuenta que puede acceder a toda la funcionalidad desde los dispositivos expuestos por diseño en los puntos de conexión con el prefijo `/devices/{deviceId}`.
 
-Los [componentes del servicio solo pueden generar tokens de seguridad](../articles/iot-hub/iot-hub-devguide-security.md#use-security-tokens-from-service-components) mediante directivas de acceso compartido que conceden los permisos apropiados.
+Los [componentes de servicio solo pueden generar tokens de seguridad](../articles/iot-hub/iot-hub-devguide-security.md#use-security-tokens-from-service-components) mediante directivas de acceso compartido que conceden los permisos apropiados.
 
 Azure IoT Hub y otros servicios que pueden formar parte de la solución permiten la administración de usuarios mediante Azure Active Directory.
 
@@ -103,11 +103,11 @@ Los datos consumidos por Azure IoT Hub se pueden usar en una gran variedad de se
 
 * [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/): procesamiento de transmisiones en tiempo real en la nube que permite desarrollar e implementar rápidamente una solución de análisis de bajo costo para desvelar datos detallados en tiempo real de dispositivos, sensores, infraestructura y aplicaciones. Los datos de este servicio completamente administrado se pueden escalar a cualquier volumen, sin dejar de obtener alto rendimiento, baja latencia y resistencia.
 
-* [Azure App Service](https://azure.microsoft.com/services/app-service/): plataforma en la nube que sirve para crear sólidas aplicaciones web y móviles desde las que se puede acceder a datos en cualquier lugar, ya sea en la nube o desde la infraestructura local. Cree atractivas aplicaciones móviles para iOS, Android y Windows. Realice integraciones con aplicaciones de Software como servicio (SaaS) y empresariales gracias a la conectividad de serie a docenas de aplicaciones empresariales y servicios basados en la nube. Codifique en su lenguaje e IDE (.NET, Node.js, PHP, Python o Java) preferidos para crear aplicaciones web y API con más rapidez que nunca.
+* [Azure App Services](https://azure.microsoft.com/services/app-service/): plataforma en la nube que sirve para crear sólidas aplicaciones web y móviles desde las que se puede obtener acceso a datos desde cualquier lugar, ya sea en la nube o desde la infraestructura local. Cree atractivas aplicaciones móviles para iOS, Android y Windows. Realice integraciones con aplicaciones de Software como servicio (SaaS) y empresariales gracias a la conectividad de serie a docenas de aplicaciones empresariales y servicios basados en la nube. Codifique en su lenguaje e IDE (.NET, Node.js, PHP, Python o Java) preferidos para crear aplicaciones web y API con más rapidez que nunca.
 
 * [Logic Apps](https://azure.microsoft.com/services/app-service/logic/): la característica Logic Apps de Azure App Service sirve para integrar la solución de IoT con los sistemas de línea de negocio existentes y para automatizar los procesos de flujo de trabajo. Logic Apps permite a los desarrolladores diseñar flujos de trabajo que se inician desde un desencadenador y ejecutan luego una serie de pasos: reglas y acciones que usan eficaces conectores para la integración con los procesos de negocio. Logic Apps ofrece conectividad de serie a un gran ecosistema de aplicaciones SaaS, basadas en la nube y locales.
 
-* [Azure Blob Storage](https://azure.microsoft.com/services/storage/): almacenamiento en la nube de confianza y económico para los datos que los dispositivos envían a la nube.
+* [Azure Blob Storage](https://azure.microsoft.com/services/storage/): almacenamiento en la nube confiable y económico para los datos que los dispositivos envían a la nube.
 
 ## <a name="conclusion"></a>Conclusión
 

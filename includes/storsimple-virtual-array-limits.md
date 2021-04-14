@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 658fd9178495f14274c85eab2129c9dcd3be7693
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "67186346"
 ---
-| **Identificador de límites** | **Límite** | **Comentarios** |
+| **Identificador de límites** | **LIMIT** | **Comentarios** |
 | --- | --- | --- |
 | Capacidad total (incluida la nube) |Hasta 64 TB por dispositivo virtual |Puede conmutar por error una matriz virtual de StorSimple completa en otra matriz vacía. Si intenta restaurar al mismo dispositivo, asegúrese de que tiene suficiente espacio en el dispositivo para completar esta operación. Después de haber excedido 32 TB, no puede realizar la restauración en el mismo dispositivo. |
 | Número máximo de credenciales de la cuenta de almacenamiento por dispositivo |1 | |

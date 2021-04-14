@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/26/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 337275cef0f2159cb5fac40ac0435408baf3bbef
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9fee7965e7834f0e05dba91f8652a0e155087b14
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96170929"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257881"
 ---
 # <a name="tutorial-for-configuring-theaccesshub-admin-tool-with-azure-active-directory-b2c"></a>Tutorial para configurar TheAccessHub Admin Tool con Azure Active Directory B2C
 
@@ -44,7 +44,7 @@ Para empezar, necesitará lo siguiente:
 
 - [Opcional] Información de conexión y credenciales para cualquier base de datos o protocolo ligero de acceso a directorios (LDAP) desde el que quiere migrar los datos del cliente.
 
-- [Opcional] Entorno configurado de Azure AD B2C para el uso de [directivas personalizadas](./custom-policy-get-started.md), si quiere integrar TheAccessHub Admin Tool en el flujo de directivas de registro.
+- [Opcional] Entorno configurado de Azure AD B2C para el uso de [directivas personalizadas](./tutorial-create-user-flows.md?pivots=b2c-custom-policy), si quiere integrar TheAccessHub Admin Tool en el flujo de directivas de registro.
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
@@ -358,7 +358,7 @@ Para sincronizar los datos de Azure AD B2C en TheAccessHub Admin Tool:
 
 ## <a name="configure-azure-ad-b2c-policies"></a>Configuración de directivas de Azure AD B2C
 
-Ocasionalmente, la sincronización de TheAccessHub Admin Tool está limitada por su capacidad para mantener su estado actualizado con Azure AD B2C. Podemos aprovechar las directivas de Azure AD B2C y la API de TheAccessHub Admin Tool para informar a TheAccessHub Admin Tool de los cambios a medida que se producen. Esta solución requiere conocimientos técnicos de las [directivas personalizadas de Azure AD B2C](./custom-policy-get-started.md). En la siguiente sección, le daremos los detalles de un ejemplo de directiva y un certificado seguro para notificar a TheAccessHub Admin Tool de cuentas nuevas en las directivas personalizadas de registro.
+Ocasionalmente, la sincronización de TheAccessHub Admin Tool está limitada por su capacidad para mantener su estado actualizado con Azure AD B2C. Podemos aprovechar las directivas de Azure AD B2C y la API de TheAccessHub Admin Tool para informar a TheAccessHub Admin Tool de los cambios a medida que se producen. Esta solución requiere conocimientos técnicos de las [directivas personalizadas de Azure AD B2C](./user-flow-overview.md). En la siguiente sección, le daremos los detalles de un ejemplo de directiva y un certificado seguro para notificar a TheAccessHub Admin Tool de cuentas nuevas en las directivas personalizadas de registro.
 
 ### <a name="create-a-secure-credential-to-invoke-theaccesshub-admin-tools-api"></a>Creación de una credencial segura para invocar a la API de TheAccessHub Admin Tool
 
@@ -386,7 +386,7 @@ Ocasionalmente, la sincronización de TheAccessHub Admin Tool está limitada por
 
 5. Seleccione **Download** (Descargar) para obtener un archivo ZIP con directivas básicas que agreguen clientes a TheAccessHub Admin Tool a medida que los clientes se registren.
 
-6. Siga este [tutorial](./custom-policy-get-started.md) para empezar a diseñar directivas personalizadas en Azure AD B2C.
+6. Siga este [tutorial](./tutorial-create-user-flows.md?pivots=b2c-custom-policy) para empezar a diseñar directivas personalizadas en Azure AD B2C.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -394,4 +394,4 @@ Para más información, consulte los artículos siguientes:
 
 - [Directivas personalizadas de Azure AD B2C](./custom-policy-overview.md)
 
-- [Introducción a las directivas personalizadas en Azure AD B2C](./custom-policy-get-started.md?tabs=applications)
+- [Introducción a las directivas personalizadas en Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)

@@ -13,12 +13,12 @@ ms.reviewer: ''
 ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b47a4a79fd423806693e86aef1edd132d844069e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 53cdbfb3ba531330c37f86233cbed990da4efaf4
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105557911"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258391"
 ---
 # <a name="resilient-end-user-experience"></a>Experiencia del usuario final resistente
 
@@ -40,9 +40,9 @@ Para ayudarle a configurar las tareas de identidad más comunes, Azure AD B2C 
 
 Elija los flujos de usuario integrados si pueden cumplir sus requisitos de negocios. Dado que Microsoft los ha probado exhaustivamente, puede minimizar las pruebas necesarias para validar la funcionalidad, el rendimiento o la escala a nivel de directiva de estos flujos de usuario de identidad. Recuerde que todavía tiene que probar la funcionalidad, el rendimiento y la escala de las aplicaciones.
 
-Si [elige directivas personalizadas](../../active-directory-b2c/custom-policy-get-started.md) debido a sus requisitos de negocio, asegúrese de que realiza pruebas a nivel de directiva en cuanto a la funcionalidad, el rendimiento o la escala, además de las pruebas del nivel de la aplicación.
+Si [elige directivas personalizadas](../../active-directory-b2c/user-flow-overview.md) debido a sus requisitos de negocio, asegúrese de que realiza pruebas a nivel de directiva en cuanto a la funcionalidad, el rendimiento o la escala, además de las pruebas del nivel de la aplicación.
 
-Consulte el artículo [Comparación de los flujos de usuario y las directivas personalizadas](../../active-directory-b2c/custom-policy-overview.md#comparing-user-flows-and-custom-policies) para ayudarle a decidir.
+Consulte el artículo [Comparación de los flujos de usuario y las directivas personalizadas](../../active-directory-b2c/user-flow-overview.md#comparing-user-flows-and-custom-policies) para ayudarle a decidir.
 
 ## <a name="choose-multiple-idps"></a>Elección de varios IDP
 

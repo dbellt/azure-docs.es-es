@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 03/31/2021
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: ab661943542b3621792dfe0ca8c3fb26f64508a5
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+manager: femila
+ms.openlocfilehash: f82b831d887f0ebdd659167935f2134583b3bb87
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106120714"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551958"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts-in-windows-virtual-desktop-classic"></a>Expansión de un grupo de hosts existente con nuevos hosts de sesión en Windows Virtual Desktop (clásico)
 
@@ -39,7 +39,7 @@ También necesitará la siguiente información de la primera vez que creó el gr
 Las tres secciones siguientes son tres métodos que puede usar para expandir el grupo de hosts. Puede hacerlo con cualquier herramienta de implementación con la que esté familiarizado.
 
 >[!NOTE]
->Durante la fase de implementación, verá mensajes de error de los anteriores recursos de máquina virtual de host de sesión si están apagados. Estos errores se producen porque Azure no puede ejecutar la extensión DSC de PowerShell para validar que las máquinas virtuales de host de sesión se hayan registrado correctamente en el grupo de hosts existente. Puede omitir estos errores de forma segura o puede evitarlos si inicia todas las máquinas virtuales de host de sesión en el grupo de hosts existente antes de iniciar el proceso de implementación.
+>Durante la fase de implementación, verá mensajes de error de los anteriores recursos de máquina virtual de host de sesión si están apagados. Estos errores se producen porque Azure no puede ejecutar la extensión DSC de PowerShell para validar que las máquinas virtuales de host de sesión se hayan registrado correctamente en el grupo de hosts existente. El host de sesión cuyo nombre termina en "-0" debe estar en ejecución. Sin embargo, puede omitir estos errores para otros hosts de sesión de forma segura, o bien evitar los errores al iniciar todas las máquinas virtuales de host de sesión en el grupo de hosts existente antes de iniciar el proceso de implementación.
 
 ## <a name="redeploy-from-azure"></a>Nueva implementación desde Azure
 

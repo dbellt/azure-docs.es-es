@@ -2,207 +2,152 @@
 title: Configuración del desarrollo local para Azure Static Web Apps
 description: Aprenda a configurar su entorno de desarrollo local para Azure Static Web Apps
 services: static-web-apps
-author: burkeholland
+author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: how-to
-ms.date: 05/08/2020
-ms.author: buhollan
+ms.date: 04/02/2021
+ms.author: cshoe
 ms.custom: devx-track-js
-ms.openlocfilehash: 4d6dae8a4f4ed83af3103e95e711bacdb62cf522
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8a45d490d060febc18d77c8487c9f562fd2a914a
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91326174"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106275523"
 ---
 # <a name="set-up-local-development-for-azure-static-web-apps-preview"></a>Configuración del desarrollo local para Azure Static Web Apps (versión preliminar)
 
-Una instancia de Azure Static Web Apps se compone de dos tipos distintos de aplicación. La primera es una aplicación web para el contenido estático. A menudo, las aplicaciones web se crean con marcos y bibliotecas front-end o con generadores de sitios estáticos. El segundo aspecto es la API, que es una aplicación de Azure Functions que proporciona un entorno de desarrollo de back-end enriquecido.
+Cuando se publica en la nube, un sitio de Azure Static Web Apps tiene muchos servicios que funcionan juntos como si fueran la misma aplicación. Estos servicios incluyen:
 
-Cuando se ejecuta en la nube, Azure Static Web Apps asigna fácilmente las solicitudes a la ruta de `api` desde la aplicación web a la aplicación de Azure Functions sin requerir la configuración de CORS. Localmente, debe configurar la aplicación para que imite este comportamiento.
+- La aplicación web estática
+- API de Azure Functions
+- Servicios de autenticación y autorización
+- Servicios de enrutamiento y configuración
 
-En este artículo se muestran los procedimientos recomendados para el desarrollo local, incluidos los siguientes conceptos:
+Estos servicios deben comunicarse entre sí y Azure Static Web Apps controla esta integración en la nube.
 
-- Configuración de la aplicación web para contenido estático
-- Configuración de la aplicación de Azure Functions para la API de la aplicación
-- Depuración y ejecución de la aplicación
-- Procedimientos recomendados para la estructura de archivos y carpetas de la aplicación
+Sin embargo, cuando se ejecutan de forma local, estos servicios no se vinculan automáticamente.
+
+Para proporcionar una experiencia similar a la que se obtiene en Azure, la [CLI de Azure Static Web Apps](https://github.com/Azure/static-web-apps-cli) proporciona los siguientes servicios:
+
+- Un servidor de sitio estático local
+- Un proxy para el servidor de desarrollo del marco front-end
+- Un proxy para los puntos de conexión de API: disponible mediante Azure Functions Core Tools
+- Un servidor ficticio de autenticación y autorización
+- Aplicación de opciones de configuración y rutas locales
+
+## <a name="how-it-works"></a>Funcionamiento
+
+En el gráfico siguiente se muestra cómo se administran las solicitudes localmente.
+
+:::image type="content" source="media/local-development/cli-conceptual.png" alt-text="Flujo de solicitud y respuesta de la CLI de Azure Static Web Apps":::
+
+> [!IMPORTANT]
+> Vaya a [http://localhost:4280](http://localhost:4280) para acceder a la aplicación suministrada por la CLI.
+
+- Las **solicitudes** realizadas al puerto `4280` se reenvían al servidor adecuado según el tipo de solicitud.
+
+- Las solicitudes de **contenido estático**, como HTML o CSS, se administran mediante el servidor interno de contenido estático de la CLI o el servidor del marco de front-end para la depuración.
+
+- Las solicitudes de **autenticación y autorización** se administran mediante un emulador, que proporciona un perfil de identidad falso a la aplicación.
+
+- El **entorno de ejecución de Functions Core Tools** administra las solicitudes a la API del sitio.
+
+- Las **respuestas** de todos los servicios se devuelven al explorador como si fueran toda ellas una sola aplicación.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- [Visual Studio Code](https://code.visualstudio.com/)
-- [Extensión de Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) para Visual Studio Code
-- [Extensión Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) para Visual Studio Code
-  - Solo es necesario si no usa un marco de trabajo de JavaScript de front-end o la CLI del generador de sitios estáticos.
+- **Sitio existente de Azure Static Web Apps**: si no tiene una, empiece por la aplicación de inicio [vanilla-api](https://github.com/staticwebdev/vanilla-api/generate?return_to=/staticwebdev/vanilla-api/generate).
+- **[Node.js](https://nodejs.org) con npm**: ejecute la versión [LTS de Node.js](https://nodejs.org), que incluye acceso a [npm](https://www.npmjs.com/).
+- **[Visual Studio Code](https://code.visualstudio.com/)** : se usa para depurar la aplicación de API, pero no es necesario para la CLI.
 
-## <a name="run-projects-locally"></a>Ejecución local de proyectos
+## <a name="get-started"></a>Introducción
 
-La ejecución local de una aplicación de Azure Static Web Apps implica tres procesos, en función de si el proyecto contiene una API o no.
+Abra un terminal en la carpeta raíz del sitio existente de Azure Static Web Apps.
 
-- Ejecución de un servidor web local
-- Ejecución de la API
-- Conexión del proyecto web a la API
+1. Instale la CLI.
 
-En función de cómo se ha creado un sitio web, es posible que se necesite un servidor web local o no para ejecutar la aplicación en el explorador. Al usar marcos de JavaScript de front-end y generadores de sitios estáticos, esta funcionalidad está integrada en sus respectivas CLI (interfaces de línea de comandos). Los siguientes vínculos apuntan a la referencia de la CLI para una selección de marcos, bibliotecas y generadores.
+    `npm install -g @azure/static-web-apps-cli`
 
-### <a name="javascript-frameworks-and-libraries"></a>Marcos y bibliotecas de JavaScript
+1. Compile la aplicación si es necesario.
 
-- [Angular CLI](https://angular.io/cli)
-- [Vue CLI](https://cli.vuejs.org/guide/creating-a-project.html)
-- [React CLI](https://create-react-app.dev/)
+    Ejecute `npm run build` o el comando equivalente para el proyecto.
 
-### <a name="static-site-generators"></a>Generadores de sitios estáticos
+1. Cambie al directorio de salida de la aplicación. Las carpetas de salida se denominan a menudo _build_ o algo parecido.
 
-- [Gatsby CLI](https://www.gatsbyjs.org/docs/gatsby-cli/)
-- [Hugo](https://gohugo.io/getting-started/quick-start/)
-- [Jekyll](https://jekyllrb.com/docs/usage/)
+1. Inicie la CLI.
 
-Si usa una herramienta de la CLI para entregar su sitio, puede ir directamente a la sección [Ejecución de la API](#run-api-locally).
+    `swa start`
 
-### <a name="running-a-local-web-server-with-live-server"></a>Ejecución de un servidor web local con Live Server
+1. Vaya a [http://localhost:4280](http://localhost:4280) para ver la aplicación en el explorador.
 
-La extensión Live Server para Visual Studio Code ofrece un servidor web de desarrollo local que entrega el contenido estático.
+### <a name="other-ways-to-start-the-cli"></a>Otras maneras de iniciar la CLI
 
-#### <a name="create-a-repository"></a>Creación de un repositorio
+| Descripción | Comando |
+|--- | --- |
+| Servir una carpeta específica | `swa start ./output-folder` |
+| Usar un servidor de desarrollo de marco en ejecución | `swa start http://localhost:3000` |
+| Iniciar una aplicación de Functions en una carpeta | `swa start ./output-folder --api ./api` |
+| Usar una aplicación de Functions en ejecución | `swa start ./output-folder --api http://localhost:7071` |
 
-1. Asegúrese de que ha iniciado sesión en GitHub, vaya a [https://github.com/staticwebdev/vanilla-api/generate](https://github.com/staticwebdev/vanilla-api/generate) y cree un proyecto de GitHub denominado **vanilla-api** con esta plantilla.
+## <a name="authorization-and-authentication-emulation"></a>Emulación de autorización y autenticación
 
-    :::image type="content" source="media/local-development/vanilla-api.png" alt-text="Ventana Nuevo repositorio de GitHub":::
+La CLI de Static Web Apps emula el [flujo de seguridad](./authentication-authorization.md) implementado en Azure. Cuando un usuario inicia sesión, puede definir un perfil de identidad falso que se devuelva a la aplicación.
 
-1. Abra Visual Studio Code.
+Por ejemplo, al intentar ir a `/.auth/login/github`, se devuelve una página que le permite definir un perfil de identidad.
 
-1. Presione **F1** para abrir la paleta de comandos.
+> [!NOTE]
+> El emulador funciona con cualquier proveedor de seguridad, no solo con GitHub.
 
-1. Escriba **clone** en el cuadro de búsqueda y seleccione **Git: Clone**.
+:::image type="content" source="media/local-development/auth-emulator.png" alt-text="Funcionamiento de la autenticación y la autorización":::
 
-    :::image type="content" source="media/local-development/command-palette-git-clone.png" alt-text="Opción git clone en Visual Studio Code":::
+El emulador ofrece una página que le permite proporcionar los siguientes valores de [entidad de seguridad del cliente](./user-information.md#client-principal-data):
 
-1. Escriba el siguiente valor en **Dirección URL del repositorio**.
+| Value | Descripción |
+| --- | --- |
+| **Nombre de usuario** | Nombre de cuenta asociado al proveedor de seguridad. Este valor aparece como la propiedad `userDetails` en la entidad de seguridad del cliente y se genera automáticamente si no se proporciona ningún valor. |
+| **Id. de usuario** | Valor generado automáticamente por la CLI.  |
+| **Roles** | Una lista de nombres de rol, donde cada nombre está en una nueva línea.  |
 
-   ```http
-   git@github.com:<YOUR_GITHUB_ACCOUNT>/vanilla-api.git
-   ```
+Una vez que ha iniciado sesión:
 
-1. Seleccione la ubicación de la carpeta para el nuevo proyecto.
+- Puede usar el punto de conexión `/.auth/me` o un punto de conexión de función para recuperar la [entidad de seguridad del cliente](./user-information.md) del usuario.
 
-1. Cuando se le pida que abra el repositorio clonado, seleccione **Abrir**.
+- Al desplazarse a `./auth/logout` se borra la entidad de seguridad del cliente y se cierra la sesión del usuario ficticio.
 
-    :::image type="content" source="media/local-development/open-new-window.png" alt-text="Abrir en nueva ventana":::
+## <a name="debugging"></a>Depuración
 
-Visual Studio Code abre el proyecto clonado en el editor.
+En una aplicación web estática, hay dos contextos de depuración. El primero es para el sitio de contenido estático y el segundo es para las funciones de API. La depuración local es posible al permitir que la CLI de Static Web Apps use servidores de desarrollo para uno o ambos contextos.
 
-### <a name="run-the-website-locally-with-live-server"></a>Ejecución del sitio web localmente con Live Server
+En los pasos siguientes se muestra un escenario común en el que se emplean servidores de desarrollo para los contextos de depuración.
 
-1. Presione **F1** para abrir la paleta de comandos.
+1. Inicie el servidor de desarrollo de sitio estático. Este comando es específico del marco de front-end que se usa, pero a menudo se incluye en forma de comandos como `npm run build`, `npm start` o `npm run dev`.
 
-1. Escriba **Live Server** en el cuadro de búsqueda y seleccione **Live Server: Open with Live Server** (Abrir con Live Server).
+1. Abra la carpeta de la aplicación de API en Visual Studio Code e inicie una sesión de depuración.
 
-    Se abre una pestaña del explorador para mostrar la aplicación.
+1. Pase las direcciones del servidor estático y el servidor de API al comando `swa start` en orden.
 
-    :::image type="content" source="media/local-development/vanilla-api-site.png" alt-text="Sitio estático simple que se ejecuta en el explorador":::
+    `swa start http://localhost:<DEV-SERVER-PORT-NUMBER> --api=http://localhost:7071`
 
-    Esta aplicación realiza una solicitud HTTP al punto de conexión `api/message`. En este momento, se produce un error en la solicitud porque es necesario iniciar la parte de la API de esta aplicación.
+Las siguientes capturas de pantallas muestran los terminales en un escenario de depuración típico:
 
-### <a name="run-api-locally"></a>Ejecución local de la API
+El sitio de contenido estático se está ejecutando mediante `npm run dev`.
 
-Las API de Azure Static Web Apps se basan en tecnología de Azure Functions. Consulte [Incorporación de una API en Azure Static Web Apps con Azure Functions](add-api.md) para obtener más información sobre cómo agregar una API a un proyecto de Azure Static Web Apps.
+:::image type="content" source="media/local-development/run-dev-static-server.png" alt-text="Servidor de desarrollo de sitio estático":::
 
-Como parte del proceso de creación de la API, se crea una configuración de inicio para Visual Studio Code. Esta configuración se encuentra en la carpeta _.vscode_. Esta carpeta contiene toda la configuración necesaria para compilar y ejecutar la API de forma local.
+La aplicación de API de Azure Functions ejecuta una sesión de depuración en Visual Studio Code.
 
-1. En Visual Studio Code, presione **F5** para iniciar la API.
+:::image type="content" source="media/local-development/visual-studio-code-debugging.png" alt-text="Depuración con la API de Visual Studio Code":::
 
-1. Se abre una nueva instancia del terminal que muestra la salida del proceso de compilación de la API.
+La CLI de Static Web Apps se inicia con ambos servidores de desarrollo.
 
-    :::image type="content" source="media/local-development/terminal-api-debug.png" alt-text="API en ejecución en el terminal de Visual Studio Code":::
+:::image type="content" source="media/local-development/static-web-apps-cli-terminal.png" alt-text="Terminal de la CLI de Azure Static Web Apps":::
 
-   La barra de estado de Visual Studio Code ahora está naranja. Este color indica que la API se está ejecutando ahora y que el depurador está conectado.
+Ahora, las solicitudes que pasan por el puerto `4280` se enrutan al servidor de desarrollo de contenido estático o a la sesión de depuración de la API.
 
-1. A continuación, presione **CTRL/Cmd** y haga clic en la dirección URL en el terminal para abrir una ventana del explorador que llama a la API.
-
-    :::image type="content" source="media/local-development/hello-from-api-endpoint.png" alt-text="Resultado de visualización del explorador de la llamada a la API":::
-
-### <a name="debugging-the-api"></a>Depuración de la API
-
-1. Abra el archivo _api/GetMessage/index.js_ en Visual Studio Code.
-
-1. Haga clic en el margen izquierdo de la línea 2 para establecer un punto de interrupción. Aparece un punto rojo que indica que el punto de interrupción está establecido.
-
-    :::image type="content" source="media/local-development/breakpoint-set.png" alt-text="Punto de interrupción en Visual Studio Code":::
-
-1. En el explorador, actualice la página en ejecución en <http://127.0.0.1:7071/api/message>.
-
-1. Se alcanza el punto de interrupción en Visual Studio Code y se pausa la ejecución del programa.
-
-   :::image type="content" source="media/local-development/breakpoint-hit.png" alt-text="Punto de interrupción alcanzado en Visual Studio Code":::
-
-   Hay disponible una [experiencia de depuración completa en Visual Studio Code](https://code.visualstudio.com/Docs/editor/debugging) para la API.
-
-1. Presione el botón **Continuar** de la barra de depuración para continuar con la ejecución.
-
-    :::image type="content" source="media/local-development/continue-button.png" alt-text="Botón Continuar en Visual Studio Code":::
-
-### <a name="calling-the-api-from-the-application"></a>Llamada a la API desde la aplicación
-
-Tras la implementación, Azure Static Web Apps asigna automáticamente estas solicitudes a los puntos de conexión en la carpeta de _api_. Esta asignación se asegura de que las solicitudes de la aplicación a la API sean similares a las del ejemplo siguiente.
-
-```javascript
-let response = await fetch("/api/message");
-```
-
-En función de si la aplicación se ha compilado con una CLI con marco de JavaScript, hay dos maneras de configurar la ruta de acceso a la ruta `api` cuando la aplicación se ejecuta localmente.
-
-- Archivos de configuración del entorno (recomendado para los marcos y bibliotecas de JavaScript)
-- Proxy local
-
-### <a name="environment-configuration-files"></a>Archivos de configuración del entorno
-
-Si va a compilar la aplicación con marcos de front-end que tienen una CLI, debe usar los archivos de configuración del entorno. Cada marco o biblioteca tiene una forma diferente de administrar estos archivos de configuración del entorno. Es habitual tener un archivo de configuración para desarrollo, que se usa cuando la aplicación se ejecuta localmente, y otro para producción, que se usa cuando la aplicación se ejecuta en producción. La CLI para el marco de JavaScript o el generador de sitios estáticos que uses sabrá automáticamente usar el archivo de desarrollo localmente y el archivo de producción cuando Azure Static Web Apps compile la aplicación.
-
-En el archivo de configuración de desarrollo, puede especificar la ruta de acceso a la API, que apunta a la ubicación local de `http:127.0.0.1:7071` donde la API de su sitio se ejecuta localmente.
-
-```
-API=http:127.0.0.1:7071/api
-```
-
-En el archivo de configuración de producción, especifique la ruta de acceso a la API como `api`. De esta manera, la aplicación llamará a la API a través de "susitio.com/api" cuando se ejecute en producción.
-
-```
-API=api
-```
-
-Se puede hacer referencia a estos valores de configuración como variables de entorno de Node en JavaScript de la aplicación web.
-
-```js
-let response = await fetch(`${process.env.API}/message`);
-```
-
-Cuando se usa la CLI para ejecutar el sitio en modo de desarrollo o para compilar el sitio para producción, el valor `process.env.API` se reemplaza por el valor del archivo de configuración adecuado.
-
-Para obtener más información sobre la configuración de archivos de entorno para los marcos y bibliotecas de JavaScript para front-end, consulte estos artículos:
-
-- [Variable de entorno de Angular](https://angular.io/guide/build#configuring-application-environments)
-- [React: Adding Custom Environment Variables](https://create-react-app.dev/docs/adding-custom-environment-variables/)
-- [Vue: Modes and Environment Variables](https://cli.vuejs.org/guide/mode-and-env.html)
-
-[!INCLUDE [static-web-apps-local-proxy](../../includes/static-web-apps-local-proxy.md)]
-
-##### <a name="restart-live-server"></a>Reinicio de Live Server
-
-1. Presione **F1** para abrir la paleta de comandos en Visual Studio Code.
-
-1. Escriba **Live Server** y seleccione **Live Server: Stop Live Server** (Detener Live Server).
-
-    :::image type="content" source="media/local-development/stop-live-server.png" alt-text="Comando Stop Live Server en la paleta de comandos de Visual Studio":::
-
-1. Presione **F1** para abrir la paleta de comandos.
-
-1. Escriba **Live Server** y seleccione **Live Server: Open with Live Server** (Abrir con Live Server).
-
-1. Actualice la aplicación que se ejecuta en `http://locahost:3000`. Ahora, el explorador muestra el mensaje devuelto desde la API.
-
-    :::image type="content" source="media/local-development/hello-from-api.png" alt-text="Hello from the API en el explorador":::
+Para más información sobre los distintos escenarios de depuración, con instrucciones sobre cómo personalizar los puertos y las direcciones del servidor, consulte el [repositorio de la CLI de Azure Static Web Apps](https://github.com/Azure/static-web-apps-cli).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Configuración de aplicaciones](application-settings.md)
+> [Configuración de la aplicación](configuration.md)

@@ -3,12 +3,18 @@
 - name: Información general
   expanded: true
   items:
-    - name: ¿Qué es Anomaly Detector?
+    - name: ¿Qué es Anomaly Detector (multivariante)?
+      href: overview-multivariate.md
+    - name: ¿Qué es Anomaly Detector (univariante)?
       href: overview.md
     - name: Precios y límites
       href: 'https://aka.ms/adpricing'
-- name: Inicio rápido de Anomaly Detector
-  href: ./quickstarts/client-libraries.md
+- name: Inicios rápidos de Anomaly Detector
+  items:
+    - name: Bibliotecas cliente multivariante
+      href: ./quickstarts/client-libraries-multivariate.md
+    - name: Bibliotecas cliente univariante
+      href: ./quickstarts/client-libraries.md
 - name: Ejemplos
   items:
     - name: Demostración interactiva
@@ -39,10 +45,18 @@
               href: how-to/deploy-anomaly-detection-on-container-instances.md
 - name: Conceptos
   items:
-    - name: Procedimientos recomendados de Anomaly Detector API
+    - name: Procedimientos recomendados de Anomaly Detector API (multivariante)
+      href: concepts/best-practices-multivariate.md
+    - name: Procedimientos recomendados de Anomaly Detector API (univariante)
       href: concepts/anomaly-detection-best-practices.md
+    - name: Arquitectura de mantenimiento predictivo (multivariante)
+      href: concepts/multivariate-architecture.md
+    - name: Solución de problemas multivariante
+      href: concepts/troubleshoot.md
     - name: Detección de anomalías de Spectral Residual (SR) y Convolutional Neural Net (CNN)
       href: 'https://arxiv.org/abs/1906.03821'
+    - name: Detección de anomalías de serie temporal multivariante a través de la red de atención de grafos
+      href: 'https://arxiv.org/abs/2009.02040'
 - name: Tutoriales
   items:
     - name: Visualización de anomalías como un lote mediante Power BI

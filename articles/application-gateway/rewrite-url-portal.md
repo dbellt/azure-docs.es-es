@@ -2,24 +2,24 @@
 title: 'Reescritura de la dirección y la cadena de consulta de URL con Azure Application Gateway: Azure Portal'
 description: Aprenda a usar Azure Portal para configurar una instancia de Azure Application Gateway para reescribir la dirección y la cadena de consulta URL
 services: application-gateway
-author: surajmb
+author: azhar2005
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 7/16/2020
-ms.author: surmb
-ms.openlocfilehash: ec58c6f97efdbcb91071bcea98bbbc614833246d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 4/05/2021
+ms.author: azhussai
+ms.openlocfilehash: b8ddc5e57b9ce56d6bce7e220bc840ba0fa43ae2
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92215780"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384764"
 ---
-# <a name="rewrite-url-with-azure-application-gateway---azure-portal-preview"></a>Reescritura de la dirección URL con Azure Application Gateway: Azure Portal (versión preliminar)
+# <a name="rewrite-url-with-azure-application-gateway---azure-portal"></a>Reescritura de la dirección URL con Azure Application Gateway: Azure Portal
 
 En este artículo se describe cómo usar Azure Portal para configurar una instancia de [Application Gateway SKU v2](application-gateway-autoscaling-zone-redundant.md) para reescribir la dirección URL.
 
 >[!NOTE]
-> La característica de reescritura de direcciones URL está en versión preliminar y solo está disponible para las SKU Standard_v2 y WAF_v2 de Application Gateway. No es aconsejable en entornos de producción. Para obtener más información sobre las versiones preliminares, consulte los [términos de uso aquí](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> La característica de reescritura de direcciones URL solo está disponible para las SKU Standard_v2 y WAF_v2 de Application Gateway. Cuando la reescritura de direcciones URL se configure en una puerta de enlace habilitada para WAF, la evaluación de WAF se realizará en los encabezados de solicitud y la dirección URL reescritos. [Más información](rewrite-http-headers-url.md#using-url-rewrite-or-host-header-rewrite-with-web-application-firewall-waf_v2-sku).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 

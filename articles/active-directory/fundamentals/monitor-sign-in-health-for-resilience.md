@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2092c3f6402d5c6e7a0bc8c93015d3a900b9e38
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 47691ae404f65f04ace36485cb01fc5617d00a9a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104588006"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105031773"
 ---
 # <a name="monitoring-application-sign-in-health-for-resilience"></a>Supervisión del estado de inicio de sesión de la aplicación para la resistencia
 
@@ -100,7 +100,7 @@ Para obtener más información sobre cómo crear, ver y administrar alertas de r
 
    Se abre el registro de consultas.
 
-   [![Captura de pantalla en la que se muestra el registro de consultas.](./media/monitor-sign-in-health-for-resilience/query-log.png)](/media/monitor-sign-in-health-for-resilience/query-log.png)
+   [![Captura de pantalla en la que se muestra el registro de consultas.](./media/monitor-sign-in-health-for-resilience/query-log.png)](./media/monitor-sign-in-health-for-resilience/query-log.png)
 ‎
 
 2. Copie uno de los scripts de ejemplo para una nueva consulta de Kusto.  

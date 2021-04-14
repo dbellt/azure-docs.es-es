@@ -2,18 +2,18 @@
 author: memildin
 ms.service: security-center
 ms.topic: include
-ms.date: 03/14/2021
+ms.date: 03/21/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: c142f6a00275b4b21b6bbc64e51a5c4d7d957258
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.openlocfilehash: 5fc36e327a9530105182f0a23b3ef22ab324e01c
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103467989"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104803267"
 ---
-- Se debe restringir el acceso a las cuentas de almacenamiento con configuraciones de red virtual y firewall. Las cuentas de almacenamiento deben tener el acceso de red restringido.
-- Las variables de la cuenta de Automation deben cifrarse. Las variables de la cuenta de Automation deben cifrarse.
+- Se debe restringir el acceso a las cuentas de almacenamiento con configuraciones de red virtual y firewall
+- Las variables de cuenta de automatización deben cifrarse
 - Azure Cache for Redis debe residir en una red virtual
 - Las cuentas de Azure Cosmos DB deben usar claves administradas por el cliente para cifrar los datos en reposo
 - Las áreas de trabajo de Azure Machine Learning deben cifrarse con una clave administrada por el cliente (CMK).
@@ -31,21 +31,21 @@ ms.locfileid: "103467989"
 - Los almacenes de claves deben tener habilitada la protección contra operaciones de purga
 - Los almacenes de claves deben tener habilitada la eliminación temporal
 - Deben aplicarse funcionalidades de Linux con privilegios mínimos para los contenedores
-- Solo deben habilitarse las conexiones seguras a su instancia de Redis Cache. Solo deben habilitarse las conexiones seguras a su instancia de Azure Cache for Redis.
+- Solo se deben habilitar las conexiones seguras a Redis Cache
 - La opción de reemplazar o deshabilitar el perfil de AppArmor de los contenedores debe estar restringida.
 - Deben evitarse los contenedores con privilegios.
 - Debe evitar la ejecución de contenedores como usuario raíz.
-- La transferencia segura a las cuentas de almacenamiento debe habilitarse. La transferencia segura a las cuentas de almacenamiento debe estar habilitada.
-- Los clústeres de Service Fabric deben tener la propiedad ClusterProtectionLevel establecida en EncryptAndSign Service Fabric. Los clústeres deben tener la propiedad ClusterProtectionLevel establecida en EncryptAndSign.
-- Los clústeres de Service Fabric solo deben usar Azure Active Directory para la autenticación de cliente. Los clústeres de Service Fabric solo deben usar Azure Active Directory para la autenticación de cliente.
+- Se debe habilitar la transferencia segura a las cuentas de almacenamiento
+- Se debe establecer la propiedad ClusterProtectionLevel en EncryptAndSign en los clústeres de Service Fabric
+- Los clústeres de Service Fabric solo deben usar Azure Active Directory para la autenticación de cliente
 - Los servicios solo deben escuchar en los puertos permitidos.
 - No se debe permitir el acceso público a la cuenta de almacenamiento
-- Las cuentas de almacenamiento se deben migrar a nuevos recursos de Azure Resource Manager. Las cuentas de almacenamiento se deben migrar a nuevos recursos de Azure Resource Manager.
+- Se deben migrar las cuentas de almacenamiento a los nuevos recursos de Azure Resource Manager
 - Las cuentas de almacenamiento deben restringir el acceso a la red mediante el uso de reglas de red virtual
 - El uso de puertos y redes de hosts debe estar restringido.
 - El uso de montajes de volúmenes HostPath de pod debe restringirse a una lista conocida, con el fin de restringir el acceso a los nodos de los contenedores en peligro
 - El período de validez de los certificados almacenados en Azure Key Vault no debe superar los 12 meses
-- Las máquinas virtuales se deben migrar a nuevos recursos de Azure Resource Manager. Las máquinas virtuales se deben migrar a nuevos recursos de Azure Resource Manager.
+- Se deben migrar las máquinas virtuales a nuevos recursos de Azure Resource Manager
 - El firewall de aplicaciones web (WAF) debe estar habilitado para Application Gateway
 - Web Application Firewall (WAF) debe estar habilitado en Azure Front Door Service
 

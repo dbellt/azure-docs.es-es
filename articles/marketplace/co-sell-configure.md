@@ -8,12 +8,12 @@ author: palanis-MSFT
 ms.author: palanis
 ms.reviewer: stmummer
 ms.date: 3/17/2021
-ms.openlocfilehash: db502f4652a6ae541a504249475898e3e771f90d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ab7a0c3fa947fdf62672013b5a557d0447eb67c5
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105563402"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107106860"
 ---
 # <a name="configure-co-sell-for-a-commercial-marketplace-offer"></a>Configuración de la venta conjunta para una oferta del marketplace comercial
 
@@ -38,7 +38,7 @@ La opción de venta conjunta está disponible para los siguientes tipos de ofert
 1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/home).
 1. En el menú de navegación izquierdo, seleccione **Marketplace comercial** > **Información general**.
     > [!TIP]
-    > Si no ve la opción **Marketplace comercial** en el menú de navegación izquierdo, [cree una cuenta de marketplace comercial en el Centro de partners](./partner-center-portal/create-account.md) y asegúrese de que su cuenta esté inscrita en el programa del marketplace comercial.
+    > Si no ve la opción **Marketplace comercial** en el menú de navegación izquierdo, [cree una cuenta de marketplace comercial en el Centro de partners](create-account.md) y asegúrese de que su cuenta esté inscrita en el programa del marketplace comercial.
 1. En la pestaña **Información general**, seleccione la oferta para la que quiere realizar una venta conjunta.
     > [!NOTE]
     > Puede configurar la venta conjunta para una nueva oferta que aún no se ha publicado o para una oferta que ya está publicada.
