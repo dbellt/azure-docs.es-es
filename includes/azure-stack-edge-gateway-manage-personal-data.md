@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/16/2019
 ms.author: alkohli
 ms.openlocfilehash: af4c3829c8b12bfcaae0602dde8f459de7e50f3a
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96465888"
 ---
 - **Detalles de pedido**. Una vez creado el pedido, la dirección de envío, la dirección de correo electrónico y la información de contacto del usuario se almacenan en Azure Portal. Entre la información guardada se incluyen los siguientes datos:

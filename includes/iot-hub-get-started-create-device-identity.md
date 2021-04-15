@@ -9,10 +9,10 @@ ms.date: 09/07/2018
 ms.author: dobett
 ms.custom: include file, devx-track-azurecli
 ms.openlocfilehash: b1a863498603006e37ab98b838ffd426b962d788
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92756042"
 ---
 En esta sección, se usa la CLI de Azure para crear una identidad del dispositivo para este artículo. Los identificadores de dispositivos distinguen mayúsculas de minúsculas.

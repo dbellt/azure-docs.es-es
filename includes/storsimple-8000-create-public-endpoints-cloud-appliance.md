@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: a5a286753e438b7d65f3d33a82669c4f7e79a282
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "86544199"
 ---
 #### <a name="to-create-public-endpoints-on-the-cloud-appliance"></a>Creación de puntos de conexión públicos en la aplicación en la nube
 
 1. Inicie sesión en Azure Portal.
-2. Vaya a **Máquinas virtuales**y, a continuación, haga clic en la máquina virtual que se utiliza como aplicación en la nube.
+2. Vaya a **Máquinas virtuales** y, a continuación, haga clic en la máquina virtual que se utiliza como aplicación en la nube.
     
 3. Debe crear una regla de grupo de seguridad de red (NSG) para controlar el flujo de tráfico de entrada y salida de la máquina virtual. Realice los siguientes pasos para crear una regla de NSG.
     1. Seleccione **Grupo de seguridad de red**.

@@ -6,16 +6,16 @@ ms.topic: include
 ms.date: 10/16/2019
 ms.author: billmath
 ms.openlocfilehash: 6d95e40623f17a39145778a2fc067dccc68fd872
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95556190"
 ---
 ## <a name="steps-to-enable-single-sign-on"></a>Pasos para habilitar el inicio de sesión único
 El aprovisionamiento en la nube funciona con el inicio de sesión único.  Actualmente no hay ninguna opción para habilitar el inicio de sesión único (SSO) cuando se instala el agente; sin embargo, puede usar los pasos siguientes para habilitar el inicio de sesión único y usarlo. 
 
-### <a name="step-1-download-and-extract-azure-ad-connect-files"></a>Paso 1: Descarga y extracción de archivos de Azure AD Connect
+### <a name="step-1-download-and-extract-azure-ad-connect-files"></a>Paso 1: Descarga y extracción de archivos de Azure AD Connect
 1.  En primer lugar, descargue la versión más reciente de [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594).
 2.  Abra un símbolo del sistema con privilegios de administración y vaya al msi que acaba de descargar.
 3.  Ejecute lo siguiente: `msiexec /a C:\filepath\AzureADConnect.msi /qb TARGETDIR=C:\filepath\extractfolder`.

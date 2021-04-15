@@ -3,12 +3,12 @@ title: Entrega y reintento de entrega de Azure Event Grid
 description: Describe cómo Azure Event Grid entrega eventos y cómo administra los mensajes no entregados.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 3c4ed6ec2c9eae4dbcf70a831e3e7f70a28a57a0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e24b7540ea1ac41774e2c23781265f9a61940cb1
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98247376"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106276746"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Entrega y reintento de entrega de mensajes de Event Grid
 
@@ -17,7 +17,7 @@ En este artículo se describe cómo Azure Event Grid administra los eventos cuan
 Event Grid ofrece entrega duradera. Entrega cada mensaje **por lo menos una vez** en cada suscripción. Los eventos se envían inmediatamente al punto de conexión registrado de cada suscripción. Si un punto de conexión no acusa recibo de un evento, Event Grid reintenta la entrega del evento.
 
 > [!NOTE]
-> Event Grid no garantiza el orden de entrega de los eventos, por lo que el suscriptor puede recibirlos de forma desordenada. 
+> Event Grid no garantiza el orden de entrega de los eventos, por lo que los suscriptores pueden recibirlos de forma desordenada. 
 
 ## <a name="batched-event-delivery"></a>Entrega de eventos por lotes
 
@@ -55,11 +55,11 @@ Para más información sobre el uso de la CLI de Azure con Event Grid, consulte 
 
 ## <a name="retry-schedule-and-duration"></a>Programación y duración de los reintentos
 
-Cuando Event Grid recibe un error para un intento de entrega de eventos, Event Grid decide si se debe reintentar la entrega o los mensajes fallidos o anular el evento según el tipo de error. 
+Cuando Event Grid recibe un error para un intento de entrega de eventos, Event Grid decide si se debe reintentar la entrega del mensaje con problemas de entrega del evento o anular el evento según el tipo de error. 
 
 Si el error devuelto por el punto de conexión suscrito es un error relacionado con la configuración que no se puede corregir con los reintentos (por ejemplo, si se elimina el punto de conexión), Event Grid ejecutará los mensajes con problemas de entrega del evento o anulará el evento si no se ha configurado un método para los mensajes con problemas de entrega.
 
-A continuación, se indican los tipos de puntos de conexión para los que no se produce el reintento:
+En la tabla siguiente se describen los tipos de puntos de conexión y errores para los que no se produce el reintento:
 
 | Tipo de punto de conexión | Códigos de error |
 | --------------| -----------|
@@ -67,7 +67,7 @@ A continuación, se indican los tipos de puntos de conexión para los que no se 
 | webhook | 400 Solicitud incorrecta, 413 Entidad de solicitud demasiado larga, 403 Prohibido, 404 No encontrado, 401 No autorizado |
  
 > [!NOTE]
-> Si no se han configurado los mensajes con problemas de entrega para el punto de conexión, los eventos se eliminarán cuando se planteen los errores anteriores. Considere la posibilidad de configurar los mensajes con problemas de entrega si no desea que se eliminen estos tipos de eventos.
+> Si no se han configurado los mensajes con problemas de entrega para un punto de conexión, los eventos se eliminarán cuando se produzcan los errores anteriores. Considere la posibilidad de configurar los mensajes con problemas de entrega si no desea que se eliminen estos tipos de eventos.
 
 Si el error devuelto por el punto de conexión suscrito no está en la lista anterior, Event Grid realiza el reintento con las directivas que se describen a continuación:
 
@@ -97,7 +97,7 @@ De forma predeterminada, Event Grid expira todos los eventos que no se entregan 
 
 Cuando un punto de conexión experimenta errores de entrega, Event Grid comienza a retrasar la entrega y a reintentar los eventos a ese punto de conexión. Por ejemplo, si se produce un error en los 10 primeros eventos publicados en un punto de conexión, Event Grid asumirá que el punto de conexión está experimentando problemas y retrasará todos los reintentos posteriores y las *nuevas entregas* durante algún tiempo; en algunos casos, hasta varias horas.
 
-El propósito funcional de la entrega retrasada es proteger los puntos de conexión incorrectos, así como el sistema Event Grid. Sin los mecanismos de retroceso y el retraso de la entrega a puntos de conexión incorrectos, la directiva de reintentos de Event Grid y las funcionalidades del volumen pueden sobrecargar fácilmente un sistema.
+El propósito funcional de la entrega retrasada es proteger los puntos de conexión incorrectos y el sistema Event Grid. Sin los mecanismos de retroceso y el retraso de la entrega a puntos de conexión incorrectos, la directiva de reintentos de Event Grid y las funcionalidades del volumen pueden sobrecargar fácilmente un sistema.
 
 ## <a name="dead-letter-events"></a>Eventos fallidos
 Cuando Event Grid no puede entregar un evento en un período de tiempo determinado o después de intentar entregarlo un número concreto de veces, puede enviar el evento sin entregar a una cuenta de almacenamiento. Este proceso se conoce como **colas de mensajes fallidos**. Event Grid pone en la cola de mensajes fallidos un evento cuando se cumple **una de las siguientes** condiciones. 
@@ -288,6 +288,15 @@ Todos los demás códigos que no están en el conjunto anterior (200-204) se con
 | Servicio no disponible 503 | Reintentar después de 30 segundos o más |
 | Todos los demás | Reintentar después de 10 segundos o más |
 
+## <a name="custom-delivery-properties"></a>Propiedades de entrega personalizadas
+Las suscripciones a eventos permiten configurar encabezados HTTP que se incluyen en los eventos entregados. Esta capacidad permite establecer encabezados personalizados que un destino requiere. Puede configurar hasta 10 encabezados al crear una suscripción de eventos. Cada valor de encabezado no debe ser mayor que 4 096 (4 K) bytes. Puede establecer encabezados personalizados en los eventos que se entregan a los destinos siguientes:
+
+- webhooks
+- Temas y colas de Azure Service Bus
+- Azure Event Hubs
+- Retransmisión de conexiones híbridas
+
+Para obtener más información, vea [Propiedades de entrega personalizadas](delivery-properties.md). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

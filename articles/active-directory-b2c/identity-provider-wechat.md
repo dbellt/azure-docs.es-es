@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: c7538cf052fcf51d03d1ac854d4da50db02004ea
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 0baf0e7f6d0a81aabd6c2db459572b6a3b10ca61
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103488573"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107028820"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-wechat-account-using-azure-active-directory-b2c"></a>Configuración de la suscripción y del inicio de sesión con una cuenta de WeChat mediante Azure Active Directory B2C
 
@@ -170,7 +170,7 @@ Puede definir una cuenta de WeChat como proveedor de notificaciones si la agrega
 ## <a name="test-your-custom-policy"></a>Prueba de la directiva personalizada
 
 1. Seleccione la directiva de usuarios de confianza, por ejemplo `B2C_1A_signup_signin`.
-1. En **Aplicación**, seleccione la aplicación web que [registró anteriormente](troubleshoot-custom-policies.md#troubleshoot-the-runtime). La **dirección URL de respuesta** debe mostrar `https://jwt.ms`.
+1. En **Aplicación**, seleccione la aplicación web que [registró anteriormente](tutorial-register-applications.md). La **dirección URL de respuesta** debe mostrar `https://jwt.ms`.
 1. Seleccione el botón **Ejecutar ahora**.
 1. En la página de registro o de inicio de sesión, seleccione **WeChat** para iniciar sesión con la cuenta de WeChat.
 

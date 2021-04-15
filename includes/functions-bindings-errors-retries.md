@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/01/2020
 ms.author: glenga
 ms.openlocfilehash: 2ccff72be66a88b9bf0a5e9eb9c29ade8397804b
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96356200"
 ---
 Los errores que se producen en una instancia de Azure Functions pueden provenir de cualquiera de los orígenes siguientes:

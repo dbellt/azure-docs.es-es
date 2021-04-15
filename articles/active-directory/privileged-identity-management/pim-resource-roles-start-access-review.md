@@ -11,20 +11,27 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 03/16/2021
+ms.date: 04/05/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 110a94c78427087f4ca5555f59055ab8e3bebcee
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 87c0ce72348f67c22759915a3a15c69193ad2f60
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104592702"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552804"
 ---
 # <a name="create-an-access-review-of-azure-resource-roles-in-privileged-identity-management"></a>Creación de una revisión de acceso de los roles de recursos de Azure en Privileged Identity Management
 
 La necesidad de acceso a los roles de recursos de Azure con privilegios para los empleados cambia con el tiempo. Para reducir el riesgo asociado con las asignaciones de roles obsoletas, debe revisar el acceso periódicamente. Puede usar Azure Active Directory (Azure AD) Privileged Identity Management (PIM) para crear revisiones de acceso para obtener acceso con privilegios a los roles de recursos de Azure. También puede configurar revisiones de acceso periódicas que se produzcan automáticamente. En este artículo se describe cómo crear una o varias revisiones de acceso.
+
+## <a name="prerequisite-license"></a>Licencia de requisitos previos
+
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]. Para más información sobre las licencias para PIM, consulte [Requisitos de licencia para usar Privileged Identity Management](subscription-requirements.md).
+
+> [!Note]
+>  Actualmente, se puede limitar el ámbito de una revisión de acceso a las entidades de servicio con acceso a Azure AD y roles de recursos de Azure (versión preliminar) con una edición de Azure Active Directory Premium P2 activa en el inquilino. El modelo de licencia de las entidades de servicio finalizará con la disponibilidad general de esta característica y es posible que se requieran licencias adicionales.
 
 ## <a name="prerequisite-role"></a>Rol necesario
 
@@ -34,9 +41,9 @@ La necesidad de acceso a los roles de recursos de Azure con privilegios para los
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con un usuario que esté asignado a uno de los roles necesarios.
 
-1. Abra **Azure AD Privileged Identity Management**.
-
-1. En el menú izquierdo, seleccione **Recursos de Azure**.
+1. Seleccione **Identity Governance**.
+ 
+1. En el menú de la izquierda, seleccione **Recursos de Azure** en **Azure AD Privileged Identity Management**.
 
 1. Seleccione el recurso que quiere administrar, por ejemplo, una suscripción.
 
@@ -58,9 +65,12 @@ La necesidad de acceso a los roles de recursos de Azure con privilegios para los
 
 1. Use el valor **Fin** para especificar cómo finalizar la serie de revisión de acceso periódica. La serie puede terminar de tres formas: se ejecuta continuamente para iniciar revisiones indefinidamente, hasta una fecha concreta, o hasta que se haya completado un número definido de veces. Un administrador de usuarios o un administrador de empresa puede detener la serie después de su creación cambiando la fecha en **Configuración**, de manera que termine en esa fecha.
 
-1. En la sección **Usuarios**, seleccione uno o varios roles cuya pertenencia quiere revisar.
+1. En la sección **Usuarios**, seleccione el ámbito de la revisión. Para revisar los usuarios, seleccione **Usuarios, o bien seleccione (versión preliminar) Entidades de servicio** para revisar las cuentas de equipo con acceso al rol de Azure.   
 
     ![Ámbito de los usuarios para revisar la pertenencia a rol de](./media/pim-resource-roles-start-access-review/users.png)
+
+
+1. En **Revisar la pertenencia al rol**, seleccione los roles de Azure con privilegios que se deben revisar. 
 
     > [!NOTE]
     > - Los roles seleccionados aquí incluyen [roles permanentes y elegibles](../privileged-identity-management/pim-how-to-add-role-to-user.md).
@@ -77,9 +87,9 @@ La necesidad de acceso a los roles de recursos de Azure con privilegios para los
 
     ![Lista de los revisores de los usuarios o miembros (por sí mismos) seleccionados](./media/pim-resource-roles-start-access-review/reviewers.png)
 
-    - **Usuarios seleccionados**: use esta opción cuando no sepa quién necesita acceso. Con esta opción, puede asignar la revisión a un propietario de recursos o al administrador de grupos.
-    - **Miembros (por sí mismos)** : use esta opción para hacer que los usuarios revisen sus propias asignaciones de roles. 
-    - **Administrador**: use esta opción para que el administrador del usuario revise su asignación de roles. Tras seleccionar Administrador, también tendrá la opción de especificar un revisor de reserva. Se pide a los revisores de reserva que revisen a un usuario cuando este no tiene ningún administrador especificado en el directorio. 
+    - **Usuarios seleccionados**: use esta opción para designar un usuario específico para completar la revisión. Esta opción está disponible independientemente del ámbito de la revisión, y los revisores seleccionados pueden revisar los usuarios y las entidades de servicio. 
+    - **Miembros (por sí mismos)** : use esta opción para hacer que los usuarios revisen sus propias asignaciones de roles. Esta opción solo está disponible si la revisión está en el ámbito de **Usuarios**.
+    - **Administrador**: use esta opción para que el administrador del usuario revise su asignación de roles. Esta opción solo está disponible si la revisión está en el ámbito de **Usuarios**. Tras seleccionar Administrador, también tendrá la opción de especificar un revisor de reserva. Se pide a los revisores de reserva que revisen a un usuario cuando este no tiene ningún administrador especificado en el directorio. 
 
 ### <a name="upon-completion-settings"></a>Configuración de finalización
 

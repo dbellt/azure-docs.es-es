@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 03/04/2021
+ms.date: 04/04/2021
 ms.author: memildin
-ms.openlocfilehash: a00c11924d2c0f6860c297ab7e58da21da5e1975
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ecdaf6a8509583cf93857e24fabc059e38d23b67
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102634709"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106383463"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Archivo de novedades de Azure Security Center
 
@@ -24,6 +24,157 @@ En este página se proporciona información acerca de lo siguiente:
 - Corrección de errores
 - Funciones obsoletas
 
+
+## <a name="october-2020"></a>Octubre de 2020
+
+Las actualizaciones de octubre incluyen:
+- [Evaluación de vulnerabilidades para máquinas locales y en varias nubes (versión preliminar)](#vulnerability-assessment-for-on-premise-and-multi-cloud-machines-preview)
+- [Recomendación sobre Azure Firewall agregada (versión preliminar)](#azure-firewall-recommendation-added-preview)
+- [La recomendación de que los intervalos IP autorizados deben definirse en los servicios de Kubernetes se ha actualizado con una corrección rápida](#authorized-ip-ranges-should-be-defined-on-kubernetes-services-recommendation-updated-with-quick-fix)
+- [El panel de cumplimiento normativo ahora incluye la opción para eliminar estándares](#regulatory-compliance-dashboard-now-includes-option-to-remove-standards)
+- [Tabla Microsoft.Security/securityStatuses quitada de Azure Resource Graph (ARG)](#microsoftsecuritysecuritystatuses-table-removed-from-azure-resource-graph-arg)
+
+### <a name="vulnerability-assessment-for-on-premise-and-multi-cloud-machines-preview"></a>Evaluación de vulnerabilidades para máquinas locales y en varias nubes (versión preliminar)
+
+El analizador de evaluación de vulnerabilidades integrado de [Azure Defender para servidores](defender-for-servers-introduction.md) (con tecnología de Qualys) ahora analiza los servidores habilitados para Azure Arc.
+
+Al habilitar Azure Arc en máquinas que no son de Azure, Security Center le ofrecerá la opción de implementar en ellas el analizador de vulnerabilidades integrado, manualmente y a escala.
+
+Con esta actualización, puede aprovechar toda la capacidad de **Azure Defender para servidores** para consolidar su programa de administración de vulnerabilidades en todos sus recursos, tanto si son de Azure como si no.
+
+Principales funcionalidades:
+
+- Supervisión del estado de aprovisionamiento del analizador de evaluación de vulnerabilidades en máquinas de Azure Arc.
+- Aprovisionamiento del agente de evaluación de vulnerabilidades integrado en máquinas de Azure Arc Windows y Linux (manualmente y a escala).
+- Recepción y análisis de vulnerabilidades detectadas por agentes implementados (manualmente y a escala).
+- Experiencia unificada para máquinas virtuales de Azure y máquinas de Azure Arc.
+
+[Obtenga más información sobre la implementación del analizador de vulnerabilidades integrado en las máquinas híbridas](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines).
+
+[Obtenga más información sobre los servidores habilitados para Azure Arc](../azure-arc/servers/index.yml).
+
+
+### <a name="azure-firewall-recommendation-added-preview"></a>Recomendación sobre Azure Firewall agregada (versión preliminar)
+
+Se ha agregado una nueva recomendación para proteger todas las redes virtuales con Azure Firewall.
+
+La recomendación **Azure Firewall debe proteger las redes virtuales** le aconseja restringir el acceso a las redes virtuales y evitar posibles amenazas mediante el uso de Azure Firewall.
+
+Más información acerca de [Azure Firewall](https://azure.microsoft.com/services/azure-firewall/).
+
+
+### <a name="authorized-ip-ranges-should-be-defined-on-kubernetes-services-recommendation-updated-with-quick-fix"></a>La recomendación de que los intervalos IP autorizados deben definirse en los servicios de Kubernetes se ha actualizado con una corrección rápida
+
+La recomendación **Authorized IP ranges should be defined on Kubernetes Services** (Los intervalos IP autorizados deben definirse en los servicios de Kubernetes) ahora tiene una opción de corrección rápida.
+
+Para más información sobre esta y todas las demás recomendaciones de Security Center, consulte [Guía de referencia sobre las recomendaciones de seguridad](recommendations-reference.md).
+
+:::image type="content" source="./media/release-notes/authorized-ip-ranges-recommendation.png" alt-text="La recomendación Authorized IP ranges should be defined on Kubernetes Services (Los intervalos IP autorizados deben definirse en los servicios de Kubernetes) con la opción de corrección rápida":::
+
+
+### <a name="regulatory-compliance-dashboard-now-includes-option-to-remove-standards"></a>El panel de cumplimiento normativo ahora incluye la opción para eliminar estándares
+
+En el panel de cumplimiento normativo de Security Center se proporciona información sobre su postura de cumplimiento en función de cómo cumple los requisitos y controles de cumplimiento específicos.
+
+El panel incluye un conjunto predeterminado de estándares normativos. Si alguno de ellos no es pertinente para su organización, quitarlo de la interfaz de usuario ahora es un proceso sencillo en una suscripción. Los estándares se pueden quitar solo en el nivel de *suscripción*, no en el ámbito del grupo de administración.
+
+Encontrará más información en [Eliminación de un estándar del panel](update-regulatory-compliance-packages.md#remove-a-standard-from-your-dashboard).
+
+
+### <a name="microsoftsecuritysecuritystatuses-table-removed-from-azure-resource-graph-arg"></a>Tabla Microsoft.Security/securityStatuses quitada de Azure Resource Graph (ARG)
+
+Azure Resource Graph es un servicio de Azure diseñado para proporcionar una exploración de recursos eficaz con la capacidad de consultar a escala a través de un conjunto especificado de suscripciones para que pueda controlar eficazmente el entorno. 
+
+Para Azure Security Center, puede usar ARG y el [lenguaje de consulta Kusto (KQL)](/azure/data-explorer/kusto/query/) para consultar una amplia variedad de datos de posición de seguridad. Por ejemplo:
+
+- El inventario de recursos utiliza ARG.
+- Hemos documentado una consulta de ARG de ejemplo sobre la [Identificación de cuentas sin Multi-Factor Authentication (MFA) habilitado](security-center-identity-access.md#identify-accounts-without-multi-factor-authentication-mfa-enabled).
+
+En ARG hay tablas de datos que se pueden usar en las consultas.
+
+:::image type="content" source="./media/release-notes/azure-resource-graph-tables.png" alt-text="Explorador de Azure Resource Graph y tablas disponibles":::
+
+> [!TIP]
+> La documentación de ARG muestra todas las tablas disponibles en la [tabla de Azure Resource Graph y la referencia de tipo de recurso](../governance/resource-graph/reference/supported-tables-resources.md).
+
+A partir de esta actualización, se ha quitado la tabla **Microsoft.Security/securityStatuses**. La API securityStatuses sigue estando disponible.
+
+La tabla Microsoft.Security/Assessments puede usar sustitución de datos.
+
+La diferencia principal entre Microsoft.Security/securityStatuses y Microsoft.Security/Assessments es que, mientras que la primera muestra la agregación de las evaluaciones, la segunda contienen un único registro para cada una.
+
+Por ejemplo, Microsoft.Security/securityStatuses devolvería un resultado con una matriz de dos policyAssessments:
+
+```
+{
+id: "/subscriptions/449bcidd-3470-4804-ab56-2752595 felab/resourceGroups/mico-rg/providers/Microsoft.Network/virtualNetworks/mico-rg-vnet/providers/Microsoft.Security/securityStatuses/mico-rg-vnet",
+name: "mico-rg-vnet",
+type: "Microsoft.Security/securityStatuses",
+properties:  {
+    policyAssessments: [
+        {assessmentKey: "e3deicce-f4dd-3b34-e496-8b5381bazd7e", category: "Networking", policyName: "Azure DDOS Protection Standard should be enabled",...},
+        {assessmentKey: "sefac66a-1ec5-b063-a824-eb28671dc527", category: "Compute", policyName: "",...}
+    ],
+    securitystateByCategory: [{category: "Networking", securityState: "None" }, {category: "Compute",...],
+    name: "GenericResourceHealthProperties",
+    type: "VirtualNetwork",
+    securitystate: "High"
+}
+```
+Por su parte, Microsoft.Security/Assessments contendrá un registro para cada una de estas evaluaciones de directivas como se indica a continuación:
+
+```
+{
+type: "Microsoft.Security/assessments",
+id:  "/subscriptions/449bc1dd-3470-4804-ab56-2752595f01ab/resourceGroups/mico-rg/providers/Microsoft. Network/virtualNetworks/mico-rg-vnet/providers/Microsoft.Security/assessments/e3delcce-f4dd-3b34-e496-8b5381ba2d70",
+name: "e3deicce-f4dd-3b34-e496-8b5381ba2d70",
+properties:  {
+    resourceDetails: {Source: "Azure", Id: "/subscriptions/449bc1dd-3470-4804-ab56-2752595f01ab/resourceGroups/mico-rg/providers/Microsoft.Network/virtualNetworks/mico-rg-vnet"...},
+    displayName: "Azure DDOS Protection Standard should be enabled",
+    status: (code: "NotApplicable", cause: "VnetHasNOAppGateways", description: "There are no Application Gateway resources attached to this Virtual Network"...}
+}
+
+{
+type: "Microsoft.Security/assessments",
+id:  "/subscriptions/449bc1dd-3470-4804-ab56-2752595f01ab/resourcegroups/mico-rg/providers/microsoft.network/virtualnetworks/mico-rg-vnet/providers/Microsoft.Security/assessments/80fac66a-1ec5-be63-a824-eb28671dc527",
+name: "8efac66a-1ec5-be63-a824-eb28671dc527",
+properties: {
+    resourceDetails: (Source: "Azure", Id: "/subscriptions/449bc1dd-3470-4804-ab56-2752595f01ab/resourcegroups/mico-rg/providers/microsoft.network/virtualnetworks/mico-rg-vnet"...),
+    displayName: "Audit diagnostic setting",
+    status:  {code: "Unhealthy"}
+}
+```
+
+**Ejemplo de conversión de una consulta de ARG existente usando securityStatuses para usar ahora la tabla Assessments:**
+
+Consulta que hace referencia a SecurityStatuses:
+
+```kusto
+SecurityResources 
+| where type == 'microsoft.security/securitystatuses' and properties.type == 'virtualMachine'
+| where name in ({vmnames}) 
+| project name, resourceGroup, policyAssesments = properties.policyAssessments, resourceRegion = location, id, resourceDetails = properties.resourceDetails
+```
+
+Consulta de sustitución para la tabla Assessments:
+
+```kusto
+securityresources
+| where type == "microsoft.security/assessments" and id contains "virtualMachine"
+| extend resourceName = extract(@"(?i)/([^/]*)/providers/Microsoft.Security/assessments", 1, id)
+| extend source = tostring(properties.resourceDetails.Source)
+| extend resourceId = trim(" ", tolower(tostring(case(source =~ "azure", properties.resourceDetails.Id,
+source =~ "aws", properties.additionalData.AzureResourceId,
+source =~ "gcp", properties.additionalData.AzureResourceId,
+extract("^(.+)/providers/Microsoft.Security/assessments/.+$",1,id)))))
+| extend resourceGroup = tolower(tostring(split(resourceId, "/")[4]))
+| where resourceName in ({vmnames}) 
+| project resourceName, resourceGroup, resourceRegion = location, id, resourceDetails = properties.additionalData
+```
+
+Para más información, consulte los siguientes vínculos:
+- [Creación de consultas con Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md)
+- [Lenguaje de consulta de Kusto (KQL)](/azure/data-explorer/kusto/query/)
 
 
 ## <a name="september-2020"></a>Septiembre de 2020
@@ -298,8 +449,8 @@ Para garantizar una experiencia coherente para todos los usuarios, independiente
 
 |Recomendación unificada|Descripción del cambio|
 |----|:----|
-|**Debe habilitarse una solución de evaluación de vulnerabilidades en sus máquinas virtuales**|Reemplaza las dos recomendaciones siguientes:<br> **•** Habilitar la solución de evaluación de vulnerabilidades integrada en las máquinas virtuales (con tecnología de Qualys) (ahora en desuso) (se incluye con el nivel Estándar).<br> **•** La solución de evaluación de vulnerabilidades debe instalarse en sus máquinas virtuales (ahora en desuso) (niveles gratuito y Estándar).|
-|**Es necesario corregir las vulnerabilidades de las máquinas virtuales**|Reemplaza las dos recomendaciones siguientes:<br>**•** Corregir las vulnerabilidades que se encontraron en las máquinas virtuales (con tecnología de Qualys) (ahora en desuso).<br>**•** Se deben corregir las vulnerabilidades mediante una solución de evaluación de vulnerabilidades (ahora en desuso).|
+|**Debe habilitarse una solución de evaluación de vulnerabilidades en sus máquinas virtuales**|Reemplaza las dos recomendaciones siguientes:<br> ***** Habilitar la solución de evaluación de vulnerabilidades integrada en las máquinas virtuales (con tecnología de Qualys) (ahora en desuso) (se incluye con el nivel Estándar).<br> ***** La solución de evaluación de vulnerabilidades debe instalarse en sus máquinas virtuales (ahora en desuso) (niveles gratuito y Estándar).|
+|**Es necesario corregir las vulnerabilidades de las máquinas virtuales**|Reemplaza las dos recomendaciones siguientes:<br>***** Corregir las vulnerabilidades que se encontraron en las máquinas virtuales (con tecnología de Qualys) (ahora en desuso).<br>***** Se deben corregir las vulnerabilidades mediante una solución de evaluación de vulnerabilidades (ahora en desuso).|
 |||
 
 Ahora usará la misma recomendación para implementar la extensión de evaluación de vulnerabilidades de Security Center o una solución con licencia privada ("BYOL") de un asociado como Qualys o Rapid7.
@@ -312,20 +463,20 @@ Si tiene scripts, consultas o automatizaciones que hacen referencia a las recome
 
 ##### <a name="before-august-2020"></a>Antes de agosto de 2020
 
-|Recomendación|Ámbito|
+| Recomendación|Ámbito|
 |----|:----|
 |**Habilitar la solución de evaluación de vulnerabilidades integrada en las máquinas virtuales (con tecnología de Qualys)**<br>Clave: 550e890b-e652-4d22-8274-60b3bdb24c63|Integrada|
 |**Corregir las vulnerabilidades que se encontraron en las máquinas virtuales (con tecnología de Qualys)**<br>Clave: 1195afff-c881-495e-9bc5-1486211ae03f|Integrada|
 |**La solución de evaluación de vulnerabilidades debe instalarse en sus máquinas virtuales**<br>Clave: 01b1ed4c-b733-4fee-b145-f23236e70cf3|BYOL|
 |**Se deben corregir las vulnerabilidades mediante una solución de evaluación de vulnerabilidades**<br>Clave: 71992a2a-d168-42e0-b10e-6b45fa2ecddb|BYOL|
-||||
+|||
 
 
 |Directiva|Ámbito|
 |----|:----|
 |**La evaluación de vulnerabilidades debe estar habilitada en las máquinas virtuales**<br>Id. de directiva: 501541f7-f7e7-4cd6-868c-4190fdad3ac9|Integrada|
 |**Se deben corregir las vulnerabilidades mediante una solución de evaluación de vulnerabilidades**<br>Id. de directiva: 760a85ff-6162-42b3-8d70-698e268f648c|BYOL|
-||||
+|||
 
 
 ##### <a name="from-august-2020"></a>Desde agosto de 2020
@@ -334,12 +485,12 @@ Si tiene scripts, consultas o automatizaciones que hacen referencia a las recome
 |----|:----|
 |**Debe habilitarse una solución de evaluación de vulnerabilidades en sus máquinas virtuales**<br>Clave: ffff0522-1e88-47fc-8382-2a80ba848f5d|Integrada + BYOL|
 |**Es necesario corregir las vulnerabilidades de las máquinas virtuales**<br>Clave: 1195afff-c881-495e-9bc5-1486211ae03f|Integrada + BYOL|
-||||
+|||
 
 |Directiva|Ámbito|
 |----|:----|
 |[**La evaluación de vulnerabilidades debe estar habilitada en las máquinas virtuales**](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f501541f7-f7e7-4cd6-868c-4190fdad3ac9)<br>Id. de directiva: 501541f7-f7e7-4cd6-868c-4190fdad3ac9 |Integrada + BYOL|
-||||
+|||
 
 
 ### <a name="new-aks-security-policies-added-to-asc_default-initiative--for-use-by-private-preview-customers-only"></a>Se han agregado nuevas directivas de seguridad de AKS a la iniciativa de ASC_default para su uso solo por parte de clientes de versión preliminar privada
@@ -787,7 +938,7 @@ Más información acerca de la [creación de Logic Apps](../logic-apps/logic-app
 
 ### <a name="integration-of-azure-security-center-with-windows-admin-center"></a>Integración de Azure Security Center con Windows Admin Center
 
-Ahora es posible migrar los servidores de Windows locales desde Windows Admin Center directamente al Azure Security Center. Security Center, a continuación, se convierte en el único panel para ver la información de seguridad de todos los recursos de Windows Admin Center, incluidos los servidores locales, las máquinas virtuales y las cargas de trabajo PaaS adicionales.
+Ahora es posible migrar los servidores de Windows locales desde Windows Admin Center directamente a Azure Security Center. Security Center, a continuación, se convierte en el único panel para ver la información de seguridad de todos los recursos de Windows Admin Center, incluidos los servidores locales, las máquinas virtuales y las cargas de trabajo PaaS adicionales.
 
 Después de mover un servidor de Windows Admin Center a Azure Security Center, podrá realizar lo siguiente:
 
@@ -899,7 +1050,7 @@ La protección contra amenazas para Azure Storage ofrece nuevas detecciones basa
 
 Organizaciones con seguridad administrada centralmente y de TI/operaciones que implementan procesos de flujo de trabajo internos para impulsar la acción necesaria dentro de la organización cuando se detectan discrepancias en sus entornos. En muchos casos, estos flujos de trabajo son procesos repetibles y la automatización puede optimizar considerablemente los procesos dentro de la organización.
 
-Hoy estamos presentando una nueva funcionalidad en Security Center que permite a los clientes crear configuraciones de automatización que aprovechan Azure Logic Apps y crear directivas que las desencadenarán automáticamente en función de determinados resultados de ASC, como recomendaciones o alertas. La aplicación lógica de Azure se puede configurar para realizar cualquier acción personalizada compatible con la amplia comunidad de conectores de aplicaciones lógicas, o bien usar una de las plantillas proporcionadas por Security Center como enviar un correo electrónico o abrir un vale de ServiceNow™.
+Hoy estamos presentando una nueva funcionalidad en Security Center que permite a los clientes crear configuraciones de automatización que aprovechan Azure Logic Apps y crear directivas que las desencadenarán automáticamente en función de determinados resultados de ASC, como recomendaciones o alertas. La aplicación lógica de Azure se puede configurar para realizar cualquier acción personalizada compatible con la amplia comunidad de conectores de aplicaciones lógicas, o bien usar una de las plantillas proporcionadas por Security Center como enviar un correo electrónico o abrir un vale de ServiceNow&trade;.
 
 Para más información acerca de las capacidades de Security Center automática y manual para ejecutar los flujos de trabajo, consulte [ automatización de flujos de trabajo](workflow-automation.md).
 
@@ -983,7 +1134,7 @@ Use Security Center para recibir recomendaciones no solo de Microsoft, sino tamb
 
 ### <a name="advanced-integrations-with-export-of-recommendations-and-alerts-preview"></a>Integraciones avanzadas con la exportación de recomendaciones y alertas (versión preliminar)
 
-Con el fin de habilitar escenarios de nivel empresarial sobre Security Center, ahora es posible consumir alertas y recomendaciones de Security Center en otros lugares, excepto el Azure Portal o la API. Estos se pueden exportar directamente a un centro de eventos y áreas de trabajo de Log Analytics. Estos son algunos de los flujos de trabajo que puede crear en torno a estas nuevas capacidades:
+Con el fin de habilitar escenarios de nivel empresarial sobre Security Center, ahora es posible consumir alertas y recomendaciones de Security Center en otros lugares, excepto Azure Portal o la API. Estos se pueden exportar directamente a un centro de eventos y áreas de trabajo de Log Analytics. Estos son algunos de los flujos de trabajo que puede crear en torno a estas nuevas capacidades:
 
 - Con la exportación al área de trabajo de Log Analytics, puede crear paneles personalizados con Power BI.
 - Con la exportación al centro de eventos, podrá exportar alertas y recomendaciones de Security Center a los SIEM de terceros, a una solución de terceros en tiempo real o a Azure Data Explorer.
@@ -1012,7 +1163,7 @@ Se ha mejorado la experiencia de administración de reglas para máquinas virtua
 
 ### <a name="control-container-security-recommendation-using-azure-policy"></a>Controlar la recomendación de seguridad del contenedor mediante Azure Policy
 
-La recomendación de Azure Security Center para corregir vulnerabilidades en la seguridad de los contenedores ahora puede habilitarse o deshabilitarse a través de Azure Policy.
+La recomendación de Azure Security Center para corregir vulnerabilidades en la seguridad de los contenedores ahora puede habilitarse o deshabilitarse mediante Azure Policy.
 
 Para ver las directivas de seguridad habilitadas, en Security Center abra la página Directiva de seguridad.
 

@@ -9,10 +9,10 @@ ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 28609ad27330ae4ea5ea7c0d02d5a61181fbe0df
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95560966"
 ---
 Cuando se diseña un sistema, es importante conocer las posibles amenazas a las que puede estar expuesto y agregar las defensas adecuadas según corresponda durante su diseño y arquitectura. Es importante diseñar el producto desde el principio teniendo en cuenta la seguridad, ya que conocer la forma en que un atacante podría poner en peligro un sistema ayuda a tomar las medidas pertinentes desde el principio.

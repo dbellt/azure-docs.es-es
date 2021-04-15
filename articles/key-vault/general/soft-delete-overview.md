@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: ShaneBala-keyvault
 ms.author: sudbalas
 ms.date: 12/15/2020
-ms.openlocfilehash: 7aeca89ed09182b7947b10f24c65b0cb58ed67ea
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 6d691c4c510f5ff00c34d03b7b8d7a7bcaa53c3f
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102452142"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106554100"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Información general sobre la eliminación temporal de Azure Key Vault
 
@@ -20,7 +20,7 @@ ms.locfileid: "102452142"
 > Debe habilitar inmediatamente la eliminación temporal en los almacenes de claves. la posibilidad de rechazar la eliminación temporal pronto estará en desuso. Consulte los detalles completos [aquí](soft-delete-change.md).
 
 > [!IMPORTANT]
-> Los desencadenadores de almacén eliminados temporalmente eliminan la configuración de la integración con los servicios de Key Vault, es decir, las asignaciones de roles RBAC, las suscripciones de Event Grid y la configuración de diagnóstico de Azure Monitor. Una vez recuperada la configuración de Key Vault eliminada temporalmente para la integración, los servicios deberán volver a crearse manualmente. 
+> Los desencadenadores de almacén eliminados temporalmente eliminan la configuración de la integración con los servicios de Key Vault, es decir, las asignaciones de roles RBAC de Azure y las suscripciones de Event Grid. Una vez recuperada la configuración de Key Vault eliminada temporalmente para la integración, los servicios deberán volver a crearse manualmente. 
 
 La característica de eliminación temporal de Key Vault permite la recuperación de los almacenes y los objetos de Key Vault eliminados (por ejemplo, claves, secretos, certificados), lo que se conoce como eliminación temporal. En concreto, se tratan los siguientes escenarios:  Las protecciones que se ofrecen son las siguientes:
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 2058e5362a65b6cd5f3e5b7cb9c20ce32d020d30
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 84e6f76bcae55ed905e11c46df66478908529970
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96928705"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258034"
 ---
 # <a name="tutorial-for-configuring-experian-with-azure-active-directory-b2c"></a>Tutorial para configurar Experian con Azure Active Directory B2C
 
@@ -133,7 +133,7 @@ En las [directivas personalizadas](https://github.com/azure-ad-b2c/partner-integ
 
 ### <a name="part-6---configure-the-azure-ad-b2c-policy"></a>Parte 6: configuración de la directiva de Azure AD B2C
 
-Consulte este [documento](./custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack) para obtener instrucciones sobre cómo configurar el inquilino de Azure AD B2C y las directivas.
+Consulte este [documento](./tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack) para obtener instrucciones sobre cómo configurar el inquilino de Azure AD B2C y las directivas.
 
 >[!NOTE]
 >Esta directiva de ejemplo se basa en el [paquete de inicio de cuentas locales](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts).
@@ -169,4 +169,4 @@ Para más información, consulte los artículos siguientes:
 
 - [Directivas personalizadas de Azure AD B2C](./custom-policy-overview.md)
 
-- [Introducción a las directivas personalizadas en Azure AD B2C](./custom-policy-get-started.md?tabs=applications)
+- [Introducción a las directivas personalizadas en Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)

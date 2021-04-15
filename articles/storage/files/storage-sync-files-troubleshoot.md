@@ -4,15 +4,15 @@ description: Solucione los problemas comunes de una implementación en Azure Fil
 author: jeffpatt24
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 2/1/2021
+ms.date: 4/12/2021
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: f20ebfdf9bdd1272ac1cb16e1ad88b4cbc287e5d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 54a2493d930069142a8cd6965421dd588b8d76b8
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105727610"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107366307"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Solución de problemas de Azure Files Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -329,7 +329,7 @@ Para ver estos errores, ejecute el script de PowerShell **FileSyncErrorsReport.p
 #### <a name="troubleshooting-per-filedirectory-sync-errors"></a>Solución de errores de sincronización de archivo o directorio
 **Registro de ItemResults: errores de sincronización por elemento**  
 
-| HRESULT | HRESULT (decimal) | Cadena de error | Problema | Corrección |
+| HRESULT | HRESULT (decimal) | Cadena de error | Incidencia | Corrección |
 |---------|-------------------|--------------|-------|-------------|
 | 0x80070043 | -2147942467 | ERROR_BAD_NET_NAME | No se puede acceder al archivo en niveles en el servidor. Este problema se produce si no se ha recuperado el archivo en niveles antes de eliminar un punto de conexión de servidor. | Para resolver este problema, consulte [No se puede acceder a los archivos en niveles en el servidor después de eliminar un punto de conexión de servidor](?tabs=portal1%252cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint). |
 | 0x80c80207 | -2134375929 | ECS_E_SYNC_CONSTRAINT_CONFLICT | El cambio de archivo o de directorio no se puede sincronizar todavía porque una carpeta dependiente aún no se ha sincronizado. Este elemento se sincronizará después de sincronizar los cambios dependientes. | No es necesaria ninguna acción. Si el error persiste durante varios días, use el script de PowerShell FileSyncErrorsReport.ps1 para determinar por qué la carpeta dependiente todavía no se ha sincronizado. |
@@ -1054,24 +1054,6 @@ if ($role -eq $null) {
 ```
 ---
 
-### <a name="how-do-i-prevent-users-from-creating-files-containing-unsupported-characters-on-the-server"></a>¿Cómo evito que los usuarios creen archivos que contengan caracteres no admitidos en el servidor?
-Puede utilizar los [filtros de archivos del Administrador de recursos del servidor de archivos (FSRM)](/windows-server/storage/fsrm/file-screening-management) para bloquear la creación en el servidor de archivos con caracteres no admitidos en sus nombres. Puede que tenga que hacerlo mediante PowerShell ya que la mayoría de los caracteres no admitidos no se pueden imprimir y por lo tanto necesita convertir primero sus representaciones hexadecimales como caracteres.
-
-En primer lugar va a crear un grupo de archivos FSRM mediante el [cmdlet New-FsrmFileGroup](/powershell/module/fileserverresourcemanager/new-fsrmfilegroup). En este ejemplo se define que el grupo contiene solo dos de los caracteres no admitidos, pero puede incluir tantos caracteres como sea necesario en su grupo de archivos.
-
-```powershell
-New-FsrmFileGroup -Name "Unsupported characters" -IncludePattern @(("*"+[char]0x00000090+"*"),("*"+[char]0x0000008F+"*"))
-```
-
-Una vez definido un grupo de archivos FSRM, puede crear un filtro de archivos FSRM utilizando el cmdlet New-FsrmFileScreen.
-
-```powershell
-New-FsrmFileScreen -Path "E:\AFSdataset" -Description "Filter unsupported characters" -IncludeGroup "Unsupported characters"
-```
-
-> [!Important]  
-> Tenga en cuenta que los filtros de archivos solo deben utilizarse para bloquear la creación de caracteres no compatibles con Azure File Sync. Si se utilizan filtros de archivos en otros escenarios, la sincronización intentará descargar continuamente los archivos del recurso compartido de archivos de Azure al servidor y se bloqueará debido al filtro de archivos, lo que resultará en una elevada salida de datos. 
-
 ## <a name="cloud-tiering"></a>Niveles de nube 
 Los errores en la organización en niveles en la nube pueden producirse de dos formas:
 
@@ -1128,7 +1110,7 @@ Si no se pueden apilar archivos en Azure Files:
 
 ### <a name="tiering-errors-and-remediation"></a>Establecimiento en capas de errores y corrección
 
-| HRESULT | HRESULT (decimal) | Cadena de error | Problema | Corrección |
+| HRESULT | HRESULT (decimal) | Cadena de error | Incidencia | Corrección |
 |---------|-------------------|--------------|-------|-------------|
 | 0x80c86045 | -2134351803 | ECS_E_INITIAL_UPLOAD_PENDING | El archivo se pudo organizar en niveles debido a que la carga inicial está en curso. | No es necesaria ninguna acción. El archivo se almacenarán en capas una vez que se complete la carga inicial. |
 | 0x80c86043 | -2134351805 | ECS_E_GHOSTING_FILE_IN_USE | No se pudo establecer en capas el archivo porque está en uso. | No es necesaria ninguna acción. El archivo se establecerá en capas cuando ya no esté en uso. |
@@ -1171,7 +1153,7 @@ Si no se pueden recuperar archivos:
 
 ### <a name="recall-errors-and-remediation"></a>Errores de coincidencia y corrección
 
-| HRESULT | HRESULT (decimal) | Cadena de error | Problema | Corrección |
+| HRESULT | HRESULT (decimal) | Cadena de error | Incidencia | Corrección |
 |---------|-------------------|--------------|-------|-------------|
 | 0x80070079 | -2147942521 | ERROR_SEM_TIMEOUT | El archivo no se recuperó debido a un tiempo de expiración de E/S. Este problema puede aparecer por varias razones: las restricciones de recursos del servidor, una conectividad de red deficiente o un problema de Azure Storage (por ejemplo, la limitación). | No es necesaria ninguna acción. Si el error persiste durante varias horas, abra una incidencia de soporte técnico. |
 | 0x80070036 | -2147024842 | ERROR_NETWORK_BUSY | El archivo no se recuperó debido a una incidencia en la red.  | Si el error no desaparece, compruebe la conectividad de red con el recurso compartido de archivos de Azure. |

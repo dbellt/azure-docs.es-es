@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 3338f7b6bd418cea2bfdbbcd40692b9342f48cfa
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 33bafac9247f007978fef568469d643f1a1098df
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98744100"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106383593"
 ---
 # <a name="frequently-asked-questions-for-azure-cloud-services-extended-support"></a>Preguntas más frecuentes sobre Azure Cloud Services (soporte extendido)
 En este artículo se tratan las preguntas frecuentes relacionadas con Azure Cloud Services (soporte extendido).
@@ -58,6 +58,9 @@ La implementación de Cloud Services (soporte extendido) solo admite el estado d
 ### <a name="do-cloud-services-extended-support-deployments-support-scaling-across-clusters-availability-zones-and-regions"></a>¿Las implementaciones de Cloud Services (soporte extendido) admiten el escalado entre clústeres, zonas de disponibilidad y regiones?
 Las implementaciones de Cloud Services (soporte extendido) no se pueden escalar entre varios clústeres, zonas de disponibilidad y regiones. 
 
+### <a name="how-can-i-get-the-deployment-id-for-my-cloud-service-extended-support"></a>¿Cómo se puede obtener el identificador de implementación para Cloud Services (soporte extendido)?
+Se puede acceder al identificador de implementación, conocido como identificador privado, mediante la API [CloudServiceInstanceView](https://docs.microsoft.com/rest/api/compute/cloudservices/getinstanceview#cloudserviceinstanceview). También está disponible en Azure Portal en la hoja Rol e instancias de Cloud Services (soporte extendido).
+
 ### <a name="are-there-any-pricing-differences-between-cloud-services-classic-and-cloud-services-extended-support"></a>¿Existen diferencias de precio entre Cloud Services (clásico) y Cloud Services (soporte extendido)?
 Cloud Services (soporte extendido) utiliza direcciones IP públicas de Azure Key Vault y básicas (ARM). Los clientes que necesiten certificados deben usar Azure Key Vault para la administración de certificados ([más información](https://azure.microsoft.com/pricing/details/key-vault/) sobre los precios de Azure Key Vault).  Cada dirección IP pública de Cloud Services (soporte extendido) se cobra por separado ([más información](https://azure.microsoft.com/pricing/details/ip-addresses/) sobre los precios de las direcciones IP públicas). 
 ## <a name="resources"></a>Recursos 
@@ -82,6 +85,8 @@ Los archivos de plantilla y de parámetro solo se usan para la automatización d
 ### <a name="how-does-my-application-code-change-on-cloud-services-extended-support"></a>¿Cómo cambia el código de la aplicación en Cloud Services (soporte extendido)?
 No se requieren cambios en el código de aplicación empaquetado en cspkg. Las aplicaciones existentes seguirán funcionando como de costumbre. 
 
+### <a name="does-cloud-services-extended-support-allow-ctp-package-format"></a>¿Permite Cloud Services (soporte extendido) el formato de paquete CTP?
+El formato de paquete CTP no se admite en Cloud Services (soporte extendido). Sin embargo, permite un límite de tamaño de paquete mejorado, de 800 MB.
 
 ## <a name="migration"></a>Migración
 
@@ -91,7 +96,7 @@ No, las implementaciones de Cloud Services (soporte extendido) están vinculadas
 ### <a name="when-do-i-need-to-migrate"></a>¿Cuándo es necesario migrar? 
 La estimación del tiempo necesario y la complejidad de la migración depende de una serie de variables. La planificación es el paso más eficaz para comprender el ámbito del trabajo, los inhibidores y la complejidad de la migración.
 
-## <a name="networking"></a>Redes
+## <a name="networking"></a>Redes 
 
 ### <a name="why-cant-i-create-a-deployment-without-virtual-network"></a>¿Por qué no se puede crear una implementación sin una red virtual?
 Las redes virtuales son un recurso necesario para cualquier implementación en Azure Resource Manager. La implementación de Cloud Services (soporte extendido) debe residir en una red virtual. 
@@ -110,6 +115,9 @@ A los clientes se les factura el uso de la dirección IP en Cloud Services (sopo
 
 ### <a name="can-i-use-a-dns-name-with-cloud-services-extended-support"></a>¿Puedo usar un nombre DNS con Cloud Services (soporte extendido)? 
 Sí. También se puede asignar un nombre DNS a Cloud Services (soporte extendido). Con Azure Resource Manager, la etiqueta DNS es una propiedad opcional de la dirección IP pública que se asigna al servicio en la nube. El formato del nombre DNS en las implementaciones basadas en Azure Resource Manager es `<userlabel>.<region>.cloudapp.azure.com`.
+
+### <a name="can-i-update-or-change-the-virtual-network-reference-for-an-existing-cloud-service-extended-support"></a>¿Puedo actualizar o cambiar la referencia de red virtual de una instancia existente de Cloud Services (soporte extendido)? 
+No. La referencia de red virtual es obligatoria durante la creación de un servicio en la nube. Para un servicio en la nube existente, no se puede cambiar la referencia de red virtual. El espacio de direcciones de red virtual mismo se puede modificar mediante las API de red virtual. 
 
 ## <a name="certificates--key-vault"></a>Certificados y Key Vault
 

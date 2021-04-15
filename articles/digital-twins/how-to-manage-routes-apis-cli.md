@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 11/18/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 97fad1b984ad34722a952a31d8245eb68417a2ab
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: e6b35031d976a11bdac6f38d74f9e02a0fc83302
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104779977"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105936315"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Administración de puntos de conexión y rutas en Azure Digital Twins (API y CLI)
 
@@ -158,7 +158,7 @@ Una vez configurado el punto de conexión con mensajes fallidos, los mensajes fa
 
 Los mensajes fallidos en cola coinciden con el esquema del evento original que se diseñó para entregarse al punto de conexión original.
 
-A continuación se muestra un ejemplo de un mensaje fallido en cola de una [notificación de creación gemela](how-to-interpret-event-data.md#digital-twin-life-cycle-notifications):
+A continuación se muestra un ejemplo de un mensaje fallido en cola de una [notificación de creación gemela](how-to-interpret-event-data.md#digital-twin-lifecycle-notifications):
 
 ```json
 {
@@ -234,12 +234,14 @@ Para obtener más información sobre el uso de la CLI y los comandos disponibles
 Sin realizar el filtrado, los puntos de conexión reciben una serie de eventos de Azure Digital Twins:
 * Telemetría que desencadena [Digital Twins](concepts-twins-graph.md) mediante la API del servicio Azure Digital Twins.
 * Notificaciones relativas a cambios de propiedades de gemelos, desencadenadas en los cambios de una propiedad de cualquier gemelo en la instancia de Azure Digital Twins.
-* Eventos de ciclo de vida, desencadenados cuando se crean o se eliminan gemelos o relaciones.
+* Eventos del ciclo de vida, que se activa cuando se crean o eliminan gemelos o relaciones
 
 Puede restringir los eventos que se envían mediante la incorporación de un **filtro** para un punto de conexión a una ruta de evento.
 
 >[!NOTE]
-> Los filtros **distinguen mayúsculas de minúsculas** y deben coincidir en el caso de carga útil (que puede no coincidir necesariamente con el caso del modelo).
+> Los filtros **distinguen mayúsculas de minúsculas** y deben coincidir con el caso de la carga útil. 
+>
+> En el caso de los filtros de telemetría, esto significa que el uso de mayúsculas debe coincidir con el de la telemetría enviada por el dispositivo, y no necesariamente con el uso de mayúsculas definido en el modelo del gemelo. 
 
 Para agregar un filtro, puede usar una solicitud PUT a *https://{Your-azure-digital-twins-hostname}/eventRoutes/{event-route-name}?api-version=2020-10-31* con el siguiente cuerpo:
 

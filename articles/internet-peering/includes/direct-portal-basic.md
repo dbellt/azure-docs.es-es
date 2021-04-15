@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 5/22/2020
 ms.author: derekol
 ms.openlocfilehash: e2804c8f9b1af89ac0ea86ec14136df66d900060
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "83846189"
 ---
 1. Seleccione **Crear un recurso** > **Ver todo**.
@@ -47,9 +47,9 @@ ms.locfileid: "83846189"
 
         > [!IMPORTANT]
         > * Solo puede elegir un ASN con el valor de ValidationState como aprobado antes de enviar una solicitud de emparejamiento. Si acaba de enviar la solicitud de PeerAsn, espere 12 horas aproximadamente a que el estado de la asociación de ASN sea "aprobado". Si el ASN seleccionado está pendiente de validación, verá un mensaje de error. 
-        > * Si no ve el ASN que debe elegir, compruebe que haya seleccionado la suscripción correcta. Si es así, compruebe si ya ha creado PeerAsn con [Asociación de un ASN del mismo nivel a una suscripción de Azure](../howto-subscription-association-portal.md).
+        > * Si no ve el ASN que debe elegir, compruebe que haya seleccionado la suscripción correcta. Si es así, compruebe si ya ha creado PeerAsn con [Associate Peer ASN to Azure subscription (Asociar ASN del mismo nivel a suscripción de Azure)](../howto-subscription-association-portal.md) .
 
         > [!div class="mx-imgBorder"]
         > ![Aspectos básicos del emparejamiento rellenados](../media/setup-direct-basics-filled-tab.png)
 
-    * Seleccione **Siguiente: Configuración >** para continuar.
+    * Seleccione **Siguiente: Configuración >** para continuar.

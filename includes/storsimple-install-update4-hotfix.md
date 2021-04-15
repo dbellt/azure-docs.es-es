@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: cc42c22579346c272ee5a6f41147e6b5b09643ba
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95558992"
 ---
 #### <a name="to-download-hotfixes"></a>Descargar revisiones
@@ -107,7 +107,7 @@ Realice los pasos siguientes para instalar y comprobar las revisiones de modo no
      > Antes de aplicar la siguiente actualización, debe reiniciar el controlador activo a través del cmdlet `Restart-HcsController`.
      
 7. Repita los pasos 3 a 5 para instalar el agente de Cis/MDS descargado en la carpeta _FirstOrderUpdate_. 
-8. Repita los pasos 3 a 5 para instalar las actualizaciones de segundo orden. **Para las actualizaciones de segundo orden. se pueden instalar varias actualizaciones mediante la ejecución de `Start-HcsHotfix cmdlet` y señalando a la carpeta en que se encuentran las actualizaciones de segundo orden. El cmdlet ejecutará todas las actualizaciones disponibles en la carpeta.** Si una actualización ya está instalada, la lógica de la actualización la detectará y no aplicará esa actualización. 
+8. Repita los pasos 3 a 5 para instalar las actualizaciones de segundo orden. **En el caso de las actualizaciones de segundo orden, para instalar varias actualizaciones solo hay que ejecutar `Start-HcsHotfix cmdlet` y señalar a la carpeta en que se encuentran dichas actualizaciones. El cmdlet ejecutará todas las actualizaciones disponibles en la carpeta.** Si una actualización ya está instalada, la lógica de la actualización la detectará y no aplicará esa actualización. 
 
 Después de instalar las revisiones, use el cmdlet `Get-HcsSystem`. Las versiones deben ser:
 
@@ -123,7 +123,7 @@ Tenga en cuenta que, si el firmware del disco ya está actualizado, no será nec
 
 Para instalar las actualizaciones de firmware de disco, siga las instrucciones a continuación.
 
-1. Active el modo de mantenimiento del dispositivo. **Tenga en cuenta que no debe usar la conexión remota de Windows PowerShell al conectarse a un dispositivo en modo de mantenimiento. En su lugar, ejecute este cmdlet en el controlador del dispositivo cuando esté conectado a través de la consola serie del dispositivo.** Escriba:
+1. Active el modo de mantenimiento del dispositivo. **Tenga en cuenta que no debe usar la comunicación remota de Windows PowerShell al conectarse a un dispositivo en modo de mantenimiento. En mejor que ejecute este cmdlet en el controlador del dispositivo cuando esté conectado a través de la consola serie del dispositivo.** Escriba:
    
     `Enter-HcsMaintenanceMode`
    

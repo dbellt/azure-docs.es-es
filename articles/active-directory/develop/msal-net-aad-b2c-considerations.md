@@ -13,12 +13,12 @@ ms.date: 05/07/2020
 ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 84a65e9ce7360a38f552c0dea61a33ff8a94b9cc
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: cdbba1618815dbc8b52195169b7de2bcec2986d8
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106055525"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107255586"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Use MSAL.NET para que los usuarios inicien sesión con identidades de redes sociales
 
@@ -178,7 +178,7 @@ Un síntoma de este escenario es que MSAL.NET devuelve `Missing from the token r
 
 La solución recomendada es usar la [directiva de caché](#acquire-a-token-to-apply-a-policy) descrita anteriormente.
 
-Como alternativa, puede usar la notificación `tid` si usa [directivas personalizadas](../../active-directory-b2c/custom-policy-get-started.md) en Azure AD B2C. Las directivas personalizadas pueden devolver notificaciones adicionales a la aplicación mediante la [transformación de notificaciones](../../active-directory-b2c/claims-transformation-technical-profile.md).
+Como alternativa, puede usar la notificación `tid` si usa [directivas personalizadas](../../active-directory-b2c/user-flow-overview.md) en Azure AD B2C. Las directivas personalizadas pueden devolver notificaciones adicionales a la aplicación mediante la [transformación de notificaciones](../../active-directory-b2c/claims-transformation-technical-profile.md).
 
 #### <a name="mitigation-for-missing-from-the-token-response"></a>Mitigación de "Missing from token response" (Falta en la respuesta del token)
 

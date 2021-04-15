@@ -7,16 +7,16 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 06/17/2020
-ms.openlocfilehash: bcb334074d842fa5c35e4619f1c5d654405388a7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 01370a8d7710292858fe28d263fe5456b012c40f
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96459570"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107387"
 ---
 # <a name="create-an-azure-container-offer-in-azure-marketplace"></a>Creación de una oferta de contenedor de Azure en Azure Marketplace
 
-En este artículo se explica cómo crear y publicar una oferta de contenedor para Azure Marketplace. Antes de comenzar, debe [crear una cuenta de marketplace comercial en el Centro de partners](./partner-center-portal/create-account.md), si aún no lo ha hecho. Asegúrese de que la cuenta está inscrita en el programa Marketplace comercial.
+En este artículo se explica cómo crear y publicar una oferta de contenedor para Azure Marketplace. Antes de comenzar, debe [crear una cuenta de marketplace comercial en el Centro de partners](create-account.md), si aún no lo ha hecho. Asegúrese de que la cuenta está inscrita en el programa Marketplace comercial.
 
 ## <a name="create-a-new-offer"></a>Crear una nueva oferta
 
@@ -237,7 +237,7 @@ Muestra los resultados de la búsqueda en Azure Portal:
 
 :::image type="content" source="./partner-center-portal/media/azure-create-container-offer-images/azure-create-9-search-results-portal.png" alt-text="Muestra los resultados de la búsqueda en Azure Portal.":::
 
-## <a name="preview"></a>Vista previa
+## <a name="preview"></a>Versión preliminar
 
 En la pestaña Versión preliminar puede elegir un **público preliminar** limitado para validar la oferta antes de su publicación.
 

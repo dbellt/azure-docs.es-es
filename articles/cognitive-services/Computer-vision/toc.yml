@@ -48,14 +48,12 @@
               href: /azure/cognitive-services/containers/index?context=/azure/cognitive-services/computer-vision/context/context
     - name: Referencia
       items:
-        - name: "Versión preliminar de API REST de OCR\_v3.2"
-          href: 'https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f21b'
+        - name: "API REST de OCR\_v3.2"
+          href: 'https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005'
         - name: "API REST de OCR\_v3.1"
           href: 'https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005'
         - name: "API REST de OCR\_v2.1"
           href: 'https://westus.dev.cognitive.microsoft.com/docs/services/5cd27ec07268f6c679a3e641'
-        - name: "API REST de OCR\_v1.0"
-          href: 'https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739'
         - name: .NET
           href: /dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet
         - name: Node.js
@@ -75,7 +73,7 @@
     - name: Introducción a Análisis de imágenes
       href: overview-image-analysis.md
     - name: Inicio rápido de Análisis de imágenes
-      href: quickstarts-sdk/client-library.md
+      href: quickstarts-sdk/image-analysis-client-library.md
     - name: Ejemplos
       items:
         - name: Exploración de una aplicación de procesamiento de imágenes
@@ -120,14 +118,12 @@
           href: Tutorials/storage-lab-tutorial.md
     - name: Referencia
       items:
-        - name: "Versión preliminar de API REST de Introducción a Análisis de imágenes\_v3.2"
-          href: 'https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f21b'
-        - name: "Versión preliminar de API REST de Análisis de imágenes\_v3.1"
+        - name: "API REST de Image Analysis\_v3.2"
+          href: 'https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b'
+        - name: "API REST de Image Analysis\_v3.1"
           href: 'https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005'
-        - name: "API REST de Análisis de imágenes\_v2.1"
+        - name: "API REST de Image Analysis\_v2.1"
           href: 'https://westus.dev.cognitive.microsoft.com/docs/services/5cd27ec07268f6c679a3e641'
-        - name: "API REST de Análisis de imágenes\_v1.0"
-          href: 'https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739'
         - name: .NET
           href: /dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet
         - name: Node.js
@@ -146,8 +142,6 @@
   items:
     - name: Introducción al análisis espacial
       href: intro-to-spatial-analysis-public-preview.md
-    - name: Configuración de la máquina host y ejecución del contenedor
-      href: spatial-analysis-container.md
     - name: Uso responsable de la inteligencia artificial
       items:
         - name: Notas de transparencia
@@ -170,6 +164,8 @@
       items:
         - name: Uso del contenedor de análisis espacial
           items:
+            - name: Configuración de la máquina host y ejecución del contenedor
+              href: spatial-analysis-container.md
             - name: Configuración de operaciones
               href: spatial-analysis-operations.md
             - name: Implementación de una aplicación web de recuento de personas

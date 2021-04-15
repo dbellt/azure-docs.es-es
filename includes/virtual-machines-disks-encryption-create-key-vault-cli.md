@@ -9,10 +9,10 @@ ms.date: 06/15/2020
 ms.author: rogarana
 ms.custom: include file, devx-track-azurecli
 ms.openlocfilehash: 5c17c1b7fed50c311d356aadcb7ca2837cc20abd
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92741753"
 ---
 1. Asegúrese de que ha instalado la versión más reciente de la [CLI de Azure](/cli/azure/install-az-cli2) e iniciado sesión en una cuenta de Azure con [az login](/cli/azure/reference-index).

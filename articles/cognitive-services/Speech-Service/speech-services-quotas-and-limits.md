@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/24/2021
+ms.date: 03/27/2021
 ms.author: alexeyo
-ms.openlocfilehash: f6c7ec3f66d0ab9186645654adf3c062c241e5d0
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 7ef6ed5293ec9ecf49c16f8dfb0b6604942408f0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102449856"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105937063"
 ---
 # <a name="speech-services-quotas-and-limits"></a>Límites y cuotas de los servicios de voz
 
@@ -27,6 +27,7 @@ Ir a [Cuotas y límites de la conversión de texto a voz](#text-to-speech-quotas
 En las tablas siguientes, los parámetros sin la fila "Ajustable" **no** se pueden ajustar en todos los planes de tarifa.
 
 #### <a name="online-transcription"></a>Transcripción en línea
+Para su uso con el [SDK de voz](speech-sdk.md) y/o la [API de REST de conversión de voz en texto para audios breves](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio).
 
 | Quota | Gratis (F0)<sup>1</sup> | Estándar (S0) |
 |--|--|--|
@@ -38,7 +39,7 @@ En las tablas siguientes, los parámetros sin la fila "Ajustable" **no** se pued
 #### <a name="batch-transcription"></a>Transcripción de Azure Batch
 | Quota | Gratis (F0)<sup>1</sup> | Estándar (S0) |
 |--|--|--|
-| Límite de API REST | La transcripción por lotes no está disponible para F0 | 300 solicitudes por minuto |
+| Límite de [API REST v2.0 y v3.0 de conversión de voz en texto](rest-speech-to-text.md#speech-to-text-rest-api-v30) | La transcripción por lotes no está disponible para F0 | 300 solicitudes por minuto |
 | Tamaño máximo del archivo de entrada de audio | N/D | 1 GB |
 | Tamaño máximo de blob de entrada (puede contener más de un archivo, por ejemplo, en un archivo .zip; asegúrese de anotar el límite de tamaño de archivo anterior) | N/D | 2,5 GB |
 | Tamaño máximo de contenedor de blobs | N/D | 5 GB |
@@ -62,19 +63,19 @@ En las tablas siguientes, los parámetros sin la fila "Ajustable" **no** se pued
 ### <a name="text-to-speech-quotas-and-limits-per-speech-resource"></a>Cuotas y límites de la conversión de texto en voz por recurso de voz
 En la tabla siguiente, los parámetros sin la fila "Ajustable" **no** son ajustables para todos los planes de tarifa.
 
-| Quota | Gratis (F0)<sup>3</sup> | Estándar (S0) |
-|--|--|--|
-| **Número máximo de transacciones por segundo (TPS) para las voces estándar y neuronal** | 200<sup>4</sup> | 200<sup>4</sup> |  |
-| **Límite de solicitudes simultáneas para la voz personalizada** |  |  |
-| Valor predeterminado | 10 | 10 |
-| Ajustable | No<sup>5</sup> | Sí<sup>5</sup> |
-| **Cuotas específicas de HTTP** |  |
-| Longitud máxima de audio generada por solicitud | 10 min | 10 min |
-| Número máximo de etiquetas `<voice>` distintivas en SSML | 50 | 50 |
-| **Cuotas específicas de WebSocket** |  |  |
-|Longitud máxima de audio generada por turno | 10 min | 10 min |
-|Tamaño máximo de mensaje SSML por turno |64 KB |64 KB |
-| **Límite de API REST** | 20 solicitudes por minuto | 25 solicitudes por 5 segundos |
+| Quota                                                                          | Gratis (F0)<sup>3</sup>  | Estándar (S0)   |
+|--------------------------------------------------------------------------------|------------------------|-----------------|
+| **Número máximo de transacciones por segundo (TPS) para las voces estándar y neuronal** | 200<sup>4</sup>        | 200<sup>4</sup> |
+| **Límite de solicitudes simultáneas para la voz personalizada**                                  |                        |                 |
+| Valor predeterminado                                                                  | 10                     | 10              |
+| Ajustable                                                                     | No<sup>5</sup>         | Sí<sup>5</sup> |
+| **Cuotas específicas de HTTP**                                                       |                        |                 |
+| Longitud máxima de audio generada por solicitud                                          | 10 min                 | 10 min          |
+| Número máximo de etiquetas `<voice>` distintivas en SSML                                  | 50                     | 50              |
+| **Cuotas específicas de WebSocket**                                                  |                        |                 |
+| Longitud máxima de audio generada por turno                                             | 10 min                 | 10 min          |
+| Tamaño máximo de mensaje SSML por turno                                                 | 64 KB                  | 64 KB           |
+| **Límite de API REST**                                                             | 20 solicitudes por minuto | 300 solicitudes por minuto |
 
 
 <sup>3</sup> Para el plan de tarifa **Gratis (F0)** , consulte también las asignaciones mensuales en la [página de precios](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>

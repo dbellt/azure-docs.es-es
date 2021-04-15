@@ -8,12 +8,12 @@ ms.date: 02/23/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: dad8661de55fc90c9f3d3782c402deb519d16536
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 44ff938d0990a1a7794140a82c0e9222bb69a5d7
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104596015"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384262"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Regiones y Availability Zones en Azure
 
@@ -101,7 +101,7 @@ Como se mencionó anteriormente, Azure clasifica los servicios en tres categorí
 > | Azure ExpressRoute                     | Azure Bastion                                     | 
 > | IP pública de Azure                        | Azure Cache for Redis                             | 
 > | Azure SQL Database                     | Azure Cognitive Search                            | 
-> | Instancia administrada de Azure SQL             | Azure Cognitive Services                          | 
+> | Azure SQL Managed Instance             | Azure Cognitive Services                          | 
 > | Disk Storage                           | Azure Cognitive Services: Computer Vision         | 
 > | Event Hubs                             | Azure Cognitive Services: Content Moderator       | 
 > | Key Vault                              | Azure Cognitive Services: Caras                    | 

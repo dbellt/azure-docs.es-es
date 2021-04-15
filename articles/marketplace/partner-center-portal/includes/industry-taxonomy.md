@@ -10,10 +10,10 @@ ms.custom: include file
 author: mingshen-ms
 ms.author: mingshen
 ms.openlocfilehash: 3b18bba04d313091cb579498febb3f383f018bff
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88604623"
 ---
 Opcionalmente, seleccione hasta dos sectores y segmentos verticales en cada sector. Estas categorías se usan para mostrar la oferta, cuando el sector y los segmentos verticales se usan en filtros de búsqueda y se aplican en la tienda en línea. Si la oferta está dirigida a un sector o segmento vertical específico, explique cómo la oferta es compatible con los sectores o los segmentos verticales seleccionados en la descripción de la oferta. En caso contrario, si la oferta no es específica del sector, no realice una selección y deje esta sección en blanco.

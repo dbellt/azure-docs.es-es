@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 07/17/2019
 ms.author: pafarley
 ms.openlocfilehash: 07e7cc991f127bf4bb4f466c0108962786e45bce
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96018395"
 ---
 Observe el control deslizante **Probability Threshold** (Umbral de probabilidad) situado en el panel izquierdo de la pestaña **Performance** (Rendimiento). Este es el nivel de confianza que debe tener una predicción para que se considere correcta (para los fines de calcular la precisión y la coincidencia). 

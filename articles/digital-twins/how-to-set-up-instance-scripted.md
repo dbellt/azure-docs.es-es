@@ -8,12 +8,12 @@ ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: 13f5db52917cd9659438c551ac2f01c477cc1c7b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4ef4e1f11018c82d96907518b79cc5737c49b946
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102201301"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107104055"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Configuración de una instancia de Azure Digital Twins y autenticación (con scripts)
 
@@ -123,7 +123,7 @@ Si la comprobación no se ha realizado correctamente, también puede rehacer su 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Pruebe las llamadas individuales de la API de REST en su instancia mediante los comandos de la CLI de Azure Digital Twins: 
-* [Referencia de az dt](/cli/azure/ext/azure-iot/dt)
+* [Referencia de az dt](/cli/azure/dt)
 * [*Procedimiento: Uso de la CLI de Azure Digital Twins*](how-to-use-cli.md).
 
 O bien consulte cómo conectar una aplicación cliente a la instancia mediante el código de autenticación:

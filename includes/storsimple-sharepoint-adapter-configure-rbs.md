@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 45b2ac73ffcb4b777572f9ad62d8aae0e8277e1c
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95564028"
 ---
 > [!NOTE]
@@ -18,18 +18,18 @@ ms.locfileid: "95564028"
 
 #### <a name="to-configure-rbs"></a>Para configurar RBS
 1. Abra la página Administración central de SharePoint y vaya a **Configuración del sistema**. 
-2. En la sección **Azure StorSimple**, haga clic en **Configure StorSimple Adapter** (Configurar adaptador de StorSimple).
+2. En la sección **Azure StorSimple**, haga clic en **Configurar el adaptador de StorSimple**.
    
     ![Configuración del adaptador de StorSimple](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_SSASP_ConfigRBS1-include.png) 
-3. En la página **Configuración del adaptador de StorSimple** :
+3. En la página **Configurar el adaptador de StorSimple**:
    
-   1. Asegúrese de que la casilla **Habilitar ruta de edición** está seleccionada.
+   1. Asegúrese de que la casilla **Habilitar la edición de la ruta de acceso** está seleccionada.
    2. En el cuadro de texto, escriba la ruta de acceso de convención de nomenclatura universal (UNC) del almacén de datos de blob.
       
       > [!NOTE]
       > El volumen de almacenamiento de blobs debe alojarse en un volumen iSCSI configurado en el dispositivo de StorSimple.
 
-   3. Haga clic en el botón **Habilitar** situado debajo de cada una de las bases de datos de contenido que desea configurar para el almacenamiento remoto.
+   3. Haga clic en el botón **Habilitar** debajo de cada base de datos de contenido que desea configurar para el almacenamiento remoto.
       
       > [!NOTE]
       > El almacén de blobs debe ser compartido y accesible para todos los servidores web front-end (WFE) y la cuenta de usuario que está configurada para la granja de servidores de SharePoint debe tener acceso al recurso compartido.
@@ -40,12 +40,12 @@ ms.locfileid: "95564028"
       
       ![Configuración del adaptador de StorSimple: habilitar y deshabilitar](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_ConfigureStorSimpleAdapterEnableDisableMessage-include.png)
 
-   4. Haga clic en el botón **Actualizar** para aplicar la configuración. Al hacer clic en el botón **Actualizar** , se actualiza el estado de configuración de RBS en todos los servidores WFE y toda la granja de servidores estará habilitada para RBS. Aparece el mensaje siguiente.
+   4. Haga clic en el botón **Actualizar** para aplicar la configuración. Al hacer clic en el botón **Actualizar**, el estado de la configuración de RBS se actualizará en todos los servidores WEF, y toda la granja tendrá RBS habilitado. Aparece el mensaje siguiente.
       
       ![Mensaje de configuración del adaptador](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_SSASP_ConfigRBS3-include.png)
       
       > [!NOTE]
-      > Si va a configurar RBS para una granja de SharePoint que contiene un gran número de bases de datos (más de 200), podría agotarse el tiempo de espera de la página Administración central de SharePoint. Si esto sucede, actualice la página. Esto no afecta al proceso de configuración.
+      > Si va a configurar RBS para una granja de SharePoint con un gran número de bases de datos (más de 200), podría agotarse el tiempo de espera de la página web Administración central de SharePoint. Si esto sucede, actualice la página. Esto no afecta al proceso de configuración.
 
 4. Verifique la configuración:
    
@@ -55,7 +55,7 @@ ms.locfileid: "95564028"
    
    1. Cargue un documento en SharePoint. 
    2. Vaya a la ruta de acceso UNC que configuró. Asegúrese de que se ha creado la estructura de directorios de RBS y que contiene el objeto cargado.
-6. (Opcional) Puede usar el cmdlet de PowerShell `Migrate()` de Microsoft RBS incluido con SharePoint para migrar el contenido de BLOB existente para el dispositivo StorSimple. Para más información, consulte [Migrar contenido a RBS o desde RBS en SharePoint Server 2013][6] o [Migración de contenido a RBS o desde RBS (SharePoint Foundation 2010)][7].
+6. (Opcional) Puede usar el cmdlet de PowerShell `Migrate()` de Microsoft RBS incluido con SharePoint para migrar el contenido de BLOB existente para el dispositivo StorSimple. Para más información, consulte [Migrar contenido a o desde EDR en SharePoint 2013][6] o [Migración de contenido dentro o fuera de RBS (SharePoint Foundation 2010)][7].
 7. (Opcional) En instalaciones de prueba, puede comprobar que los blobs se han extraído de la base de datos de contenido como sigue: 
    
    1. Inicie SQL Management Studio

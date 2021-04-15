@@ -7,18 +7,18 @@ ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 12/02/2020
-ms.openlocfilehash: bcb7f2d008c54981223b4839f9a750e6ee9ac5cc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dc3566634948df3ce8ecb747148eb10f48bfc582
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97355162"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107106894"
 ---
 # <a name="create-a-dynamics-365-for-operations-offer"></a>Creación de una oferta de Dynamics 365 for Operations
 
 En este artículo se explica cómo crear una oferta de Dynamics 365 for Operations. [Microsoft Dynamics 365 for Finance and Operations](https://dynamics.microsoft.com/finance-and-operations) es un servicio de planeación de recursos empresariales (ERP) que admite finanzas avanzadas, operaciones, fabricación y administración de la cadena de suministro. Todas las ofertas de Dynamics 365 for Operations deben pasar por nuestro proceso de certificación.
 
-Antes de comenzar, [cree una cuenta de Marketplace comercial en el Centro de partners](create-account.md), si aún no lo ha hecho. Asegúrese de que la cuenta está inscrita en el programa Marketplace comercial.
+Antes de comenzar, [cree una cuenta de Marketplace comercial en el Centro de partners](../create-account.md), si aún no lo ha hecho. Asegúrese de que la cuenta está inscrita en el programa Marketplace comercial.
 
 >[!NOTE]
 > Una vez publicada la oferta, las modificaciones en ella solo se actualizarán en el Centro de partners y en la tienda en línea después de volver a enviar la oferta para su publicación.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: c0c7a6b25c15be2e521e0985c315baf819650aa5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 48f8445e30bd186681d1a4384d16f228a3382473
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99491763"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107012444"
 ---
 # <a name="api-management-transformation-policies"></a>Directivas de transformación de API Management
 En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](./api-management-policies.md).
@@ -366,7 +366,7 @@ La directiva `set-body` se puede configurar para usar el lenguaje de plantillas 
 > [!IMPORTANT]
 > La implementación de Liquid que se utiliza en la directiva `set-body` está configurada en el modo de C#. Esto es especialmente importante al realizar tareas como el filtrado. Por ejemplo, para usar un filtro de fecha se requiere usar las mayúsculas y minúsculas de Pascal y el formato de fecha de C#; por ejemplo:
 >
-> {{body.foo.startDateTime| Date:"yyyyMMddTHH:mm:ddZ"}}
+> {{body.foo.startDateTime| Date:"yyyyMMddTHH:mm:ssZ"}}
 
 > [!IMPORTANT]
 > Para enlazar correctamente con un cuerpo XML mediante la plantilla Liquid, use una directiva `set-header` para establecer que Content-Type sea application/xml, text/xml (o cualquier tipo que termine en +xml); para un cuerpo JSON, debe ser application/json, texto/json (o cualquier tipo que termine en +json).

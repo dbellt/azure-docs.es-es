@@ -11,19 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c8024a2083d09fcbd53a37f0d391c4589748eea
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 80ec5133ad12dda4a6883c663007b8b7fec2e81a
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105605083"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551941"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Acceso condicional: Aplicaciones o acciones en la nube
 
 Las aplicaciones o acciones en la nube son una señal esencial en una directiva de acceso condicional. Las directivas de acceso condicional permiten que los administradores asignen controles a determinadas aplicaciones o acciones.
 
 - Los administradores pueden elegir en la lista de aplicaciones entre aplicaciones integradas de Microsoft y cualquier [aplicación integrada de Azure AD](../manage-apps/what-is-application-management.md), incluidas aplicaciones de la galería, aplicaciones que no son de la galería y aplicaciones publicadas a través de [Application Proxy](../manage-apps/what-is-application-proxy.md).
-- Los administradores pueden optar por definir una directiva que no se base en una aplicación en la nube, sino en una acción del usuario. La única acción admitida es Registrar la información de seguridad (versión preliminar), que permite que el acceso condicional aplique controles en torno a la [experiencia de registro de la información de seguridad combinado](../authentication/howto-registration-mfa-sspr-combined.md).
+- Los administradores pueden optar por definir una directiva que no se base en una aplicación en la nube, sino en una acción del usuario. Se admiten dos acciones de usuario.
+   - Registrar la información de seguridad (versión preliminar), para aplicar controles en torno a la [experiencia de registro combinado de la información de seguridad](../authentication/howto-registration-mfa-sspr-combined.md). 
+   - Registrar o unir dispositivos (versión preliminar), para aplicar controles cuando los usuarios [registran](../devices/concept-azure-ad-register.md) o [unen](../devices/concept-azure-ad-join.md) dispositivos a Azure AD. 
 
 ![Definición de una directiva de acceso condicional y especificación de aplicaciones en la nube](./media/concept-conditional-access-cloud-apps/conditional-access-cloud-apps-or-actions.png)
 
@@ -131,9 +133,10 @@ Las acciones del usuario son tareas que un usuario puede realizar. Actualmente, 
 
 - **Registro de la información de seguridad**: esta acción del usuario permite que la directiva de Acceso condicional se aplique cuando los usuarios que están habilitados para el registro combinado intentan registrar su información de seguridad. Para más información, consulte el artículo [Registro de información de seguridad combinado](../authentication/concept-registration-mfa-sspr-combined.md).
 
-- **Registro o unión de dispositivos (versión preliminar)** : esta acción del usuario permite a los administradores aplicar la directiva de Acceso condicional cuando los usuarios [registran](../devices/concept-azure-ad-register.md) o [unen](../devices/concept-azure-ad-join.md) dispositivos a Azure AD. Existen dos consideraciones clave con esta acción del usuario: 
+- **Registro o unión de dispositivos (versión preliminar)** : esta acción del usuario permite a los administradores aplicar la directiva de Acceso condicional cuando los usuarios [registran](../devices/concept-azure-ad-register.md) o [unen](../devices/concept-azure-ad-join.md) dispositivos a Azure AD. Proporciona granularidad en la configuración de la autenticación multifactor para registrar o unir dispositivos en lugar de la directiva para todo el inquilino que existe actualmente. Existen tres consideraciones principales con esta acción de usuario: 
    - `Require multi-factor authentication` es el único control de acceso disponible con esta acción del usuario y todos los demás están deshabilitados. Esta restricción evita conflictos con controles de acceso que dependen del registro de dispositivos de Azure AD o que no se pueden aplicar al registro de dispositivos de Azure AD. 
-   - Cuando se habilita una directiva de Acceso condicional con esta acción del usuario, debe establecer **Azure Active Directory** > **Dispositivos** > **Configuración del dispositivo** - `Devices to be Azure AD joined or Azure AD registered require Multi-Factor Authentication` en **No**. De lo contrario, la directiva de Acceso condicional no se aplica correctamente con esta acción del usuario. Puede encontrar más información sobre esta configuración de dispositivo en [Configuración de las opciones de dispositivo](../devices/device-management-azure-portal.md#configure-device-settings). Esta acción del usuario proporciona flexibilidad para requerir la autenticación multifactor a fin de registrar o unir dispositivos a usuarios y grupos específicos, en lugar de tener una directiva para todo el inquilino en la configuración del dispositivo. 
+   - Las condiciones `Client apps` y `Device state` no están disponibles con esta acción de usuario, ya que dependen del registro de dispositivos de Azure AD para aplicar directivas de acceso condicional.
+   - Cuando se habilita una directiva de Acceso condicional con esta acción del usuario, debe establecer **Azure Active Directory** > **Dispositivos** > **Configuración del dispositivo** - `Devices to be Azure AD joined or Azure AD registered require Multi-Factor Authentication` en **No**. De lo contrario, no se aplica correctamente la directiva de acceso condicional con esta acción de usuario. Puede encontrar más información sobre esta configuración de dispositivo en [Configuración de las opciones de dispositivo](../devices/device-management-azure-portal.md#configure-device-settings). 
    
 ## <a name="next-steps"></a>Pasos siguientes
 

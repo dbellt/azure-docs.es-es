@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/03/2021
+ms.date: 04/05/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 1035f43642f3884e7cc0f6ab47e9c9afd1f29170
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 652bc9a236a4e4b9d3f99dab640919f2be985984
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102107141"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257728"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registrar una aplicación SAML en Azure AD B2C
 
@@ -47,7 +47,7 @@ Las organizaciones que usan Azure AD B2C como solución de administración de a
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* Realice los pasos del artículo [Introducción a las directivas personalizadas en Azure AD B2C](custom-policy-get-started.md). Necesita la directiva personalizada *SocialAndLocalAccounts* del paquete de inicio de la directiva personalizada que se describe en el artículo.
+* Realice los pasos del artículo [Introducción a las directivas personalizadas en Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy). Necesita la directiva personalizada *SocialAndLocalAccounts* del paquete de inicio de la directiva personalizada que se describe en el artículo.
 * Conocimientos básicos del protocolo SAML y familiaridad con la implementación de SAML de la aplicación.
 * Una aplicación web configurada como una aplicación SAML. En este tutorial, puede usar una [aplicación de prueba SAML][samltest] que proporcionamos.
 
@@ -78,15 +78,35 @@ Para crear una relación de confianza entre la aplicación y Azure AD B2C, ambo
 
 | Uso | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
-| Firma de respuesta SAML | Sí | Certificado con una clave privada almacenada en Azure AD B2C. Azure AD B2C usa este certificado para firmar la respuesta SAML enviada a la aplicación. La aplicación lee la clave pública de metadatos de Azure AD B2C para validar la firma de la respuesta SAML. |
+| Firma de respuesta SAML | Sí  | Certificado con una clave privada almacenada en Azure AD B2C. Azure AD B2C usa este certificado para firmar la respuesta SAML enviada a la aplicación. La aplicación lee la clave pública de metadatos de Azure AD B2C para validar la firma de la respuesta SAML. |
+| Firma de aserciones SAML | Sí | Certificado con una clave privada almacenada en Azure AD B2C. Azure AD B2C usa este certificado para firmar la aserción de la respuesta SAML. La parte `<saml:Assertion>` de la respuesta de SAML.  |
 
 En un entorno de producción, se recomienda usar certificados emitidos por una entidad de certificación pública. Sin embargo, también puede completar este procedimiento con certificados autofirmados.
 
-### <a name="prepare-a-self-signed-certificate-for-saml-response-signing"></a>Preparación de un certificado autofirmado para la firma de respuesta SAML
+### <a name="create-a-policy-key"></a>Creación de una clave de directiva
 
-Debe crear un certificado de firma de respuesta SAML para que la aplicación pueda confiar en la aserción de Azure AD B2C.
+Para tener una relación de confianza entre la aplicación y Azure AD B2C, cree un certificado de firma de respuesta de SAML. Azure AD B2C usa este certificado para firmar la respuesta SAML enviada a la aplicación. La aplicación lee la clave pública de metadatos de Azure AD B2C para validar la firma de la respuesta SAML. 
+
+> [!TIP]
+> Puede usar la clave de directiva que cree en esta sección para otros fines, como el inicio de sesión de la [aserción SAML](saml-service-provider-options.md#saml-assertions-signature). 
+
+### <a name="obtain-a-certificate"></a>Obtener un certificado
 
 [!INCLUDE [active-directory-b2c-create-self-signed-certificate](../../includes/active-directory-b2c-create-self-signed-certificate.md)]
+
+### <a name="upload-the-certificate"></a>Carga del certificado
+
+Debe almacenar el certificado en el inquilino de Azure AD B2C.
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el filtro **Directorio y suscripciones** del menú superior y elija el directorio que contiene el inquilino.
+1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
+1. En la página de introducción, seleccione **Identity Experience Framework**.
+1. Seleccione **Claves de directiva** y luego **Agregar**.
+1. En **Opciones**, elija `Upload`.
+1. Escriba un **nombre** para la clave de directiva. Por ejemplo, `SamlIdpCert`. Se agregará el prefijo `B2C_1A_` automáticamente al nombre de la clave.
+1. Busque el archivo .pfx de certificado con la clave privada y selecciónelo.
+1. Haga clic en **Crear**.
 
 ## <a name="enable-your-policy-to-connect-with-a-saml-application"></a>Habilitación de la directiva para conectarse con una aplicación SAML
 
@@ -111,6 +131,7 @@ Busque la sección `<ClaimsProviders>`y agregue el siguiente fragmento de códig
       </Metadata>
       <CryptographicKeys>
         <Key Id="SamlAssertionSigning" StorageReferenceId="B2C_1A_SamlIdpCert"/>
+        <Key Id="SamlMessageSigning" StorageReferenceId="B2C_1A_SamlIdpCert"/>
       </CryptographicKeys>
       <InputClaims/>
       <OutputClaims/>
@@ -147,51 +168,6 @@ Puede cambiar el valor del elemento de metadatos `IssuerUri` en el perfil técni
     </TechnicalProfile>
 ```
 
-#### <a name="sign-the-azure-ad-b2c-idp-saml-metadata-optional"></a>Firma de los metadatos de SAML del IdP de Azure AD B2C (opcional)
-
-Puede indicar Azure AD B2C para firmar su documento de metadatos de IdP de SAML, si lo requiere la aplicación. Para ello, genere y cargue una clave de directiva de firma de metadatos de IdP de SAML, como se muestra en [Preparación de un certificado autofirmado para la firma de respuesta SAML](#prepare-a-self-signed-certificate-for-saml-response-signing). A continuación, configure el elemento de metadatos `MetadataSigning` en el perfil técnico del emisor del token de SAML. `StorageReferenceId` debe hacer referencia al nombre de la clave de la directiva.
-
-```xml
-<ClaimsProvider>
-  <DisplayName>Token Issuer</DisplayName>
-  <TechnicalProfiles>
-    <!-- SAML Token Issuer technical profile -->
-    <TechnicalProfile Id="Saml2AssertionIssuer">
-      <DisplayName>Token Issuer</DisplayName>
-      <Protocol Name="SAML2"/>
-      <OutputTokenFormat>SAML2</OutputTokenFormat>
-        ...
-      <CryptographicKeys>
-        <Key Id="MetadataSigning" StorageReferenceId="B2C_1A_SamlMetadataCert"/>
-        ...
-      </CryptographicKeys>
-    ...
-    </TechnicalProfile>
-```
-
-#### <a name="sign-the-azure-ad-b2c-idp-saml-response-element-optional"></a>Firma del elemento de respuesta SAML del IdP de Azure AD B2C (opcional)
-
-Puede especificar un certificado que se utilizará para firmar los mensajes SAML. El mensaje es el elemento `<samlp:Response>` dentro de la respuesta SAML enviada a la aplicación.
-
-Para especificar un certificado, genere y cargue una clave de directiva, tal como se muestra en [Preparación de un certificado autofirmado para la firma de respuesta SAML](#prepare-a-self-signed-certificate-for-saml-response-signing). A continuación, configure el elemento de metadatos `SamlMessageSigning` en el perfil técnico del emisor del token de SAML. `StorageReferenceId` debe hacer referencia al nombre de la clave de la directiva.
-
-```xml
-<ClaimsProvider>
-  <DisplayName>Token Issuer</DisplayName>
-  <TechnicalProfiles>
-    <!-- SAML Token Issuer technical profile -->
-    <TechnicalProfile Id="Saml2AssertionIssuer">
-      <DisplayName>Token Issuer</DisplayName>
-      <Protocol Name="SAML2"/>
-      <OutputTokenFormat>SAML2</OutputTokenFormat>
-        ...
-      <CryptographicKeys>
-        <Key Id="SamlMessageSigning" StorageReferenceId="B2C_1A_SamlMessageCert"/>
-        ...
-      </CryptographicKeys>
-    ...
-    </TechnicalProfile>
-```
 ## <a name="configure-your-policy-to-issue-a-saml-response"></a>Configuración de la directiva para emitir una respuesta SAML
 
 Ahora que la directiva puede crear respuestas SAML, debe configurarla para emitir una respuesta SAML en lugar de la respuesta JWT predeterminada a la aplicación.

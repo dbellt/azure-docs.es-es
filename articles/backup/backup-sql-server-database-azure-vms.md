@@ -1,16 +1,16 @@
 ---
-title: Copia de seguridad de bases de datos de SQL Server en máquinas virtuales de Azure
-description: En este artículo, aprenderá a realizar copias de seguridad de bases de datos de SQL Server en máquinas virtuales de Azure con Azure Backup.
+title: Copia de seguridad de varias máquinas virtuales con SQL Server desde el almacén
+description: En este artículo, aprenderá a realizar copias de seguridad de bases de datos de SQL Server en máquinas virtuales de Azure con Azure Backup desde el almacén de Recovery Services.
 ms.topic: conceptual
-ms.date: 09/11/2019
-ms.openlocfilehash: 4cfd8233b9a696b5b4b1981eefa81aa9723f6431
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 04/07/2021
+ms.openlocfilehash: c03b833be6c5e4c352125f31ad8c5ed072674b49
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538981"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258476"
 ---
-# <a name="back-up-sql-server-databases-in-azure-vms"></a>Copia de seguridad de bases de datos de SQL Server en máquinas virtuales de Azure
+# <a name="back-up-multiple-sql-server-vms-from-the-recovery-services-vault"></a>Copia de seguridad de varias VM con SQL Server desde el almacén de Recovery Services
 
 Las bases de datos SQL Server son cargas de trabajo críticas que requieren un bajo objetivo de punto de recuperación (RPO) y retención a largo plazo. Puede hacer una copia de seguridad de las bases de datos de SQL Server que se ejecutan en máquinas virtuales de Azure mediante [Azure Backup](backup-overview.md).
 
@@ -24,10 +24,6 @@ En este artículo, aprenderá a:
 > * Detectar bases de datos y configurar copias de seguridad.
 > * Configurar la protección automática de las bases de datos.
 
->[!NOTE]
->**La eliminación temporal de SQL Server en máquinas virtuales de Azure y la eliminación temporal de SAP HANA en cargas de trabajo de máquinas virtuales de Azure** están ahora disponible en versión preliminar.<br>
->Para suscribirse a la versión preliminar, escriba a AskAzureBackupTeam@microsoft.com.
-
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para poder realizar copias de seguridad de la base de datos de SQL Server, primero debe comprobar si reúne los siguientes criterios:
@@ -35,8 +31,9 @@ Para poder realizar copias de seguridad de la base de datos de SQL Server, prime
 1. Identifique o cree un [almacén de Recovery Services](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) en la misma región y suscripción que la máquina virtual que hospeda la instancia de SQL Server.
 1. Compruebe que la máquina virtual tenga [conectividad de red](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
 1. Asegúrese de que las bases de datos de SQL Server siguen las [directrices de nomenclatura de bases de datos para Azure Backup](#database-naming-guidelines-for-azure-backup).
-1. Asegúrese de que la longitud combinada del nombre de la máquina virtual de SQL Server y el nombre del grupo de recursos no supere los 84 caracteres en el caso de Azure Resource Manager (máquinas virtuales ARM_) y los 77 caracteres en el caso de las máquinas virtuales clásicas. Esta limitación se debe a que algunos caracteres están reservados por el servicio.
+1. Asegúrese de que la longitud combinada del nombre de VM con SQL Server y el nombre del grupo de recursos no supere los 84 caracteres en el caso de las máquinas virtuales de Azure Resource Manager o los 77 caracteres en el caso de las máquinas virtuales clásicas. Esta limitación se debe a que algunos caracteres están reservados por el servicio.
 1. Compruebe que no dispone de otras soluciones de copia de seguridad habilitadas para la base de datos. Deshabilite todas las demás copias de seguridad de SQL Server antes de hacer una copia de seguridad de la base de datos.
+1. Al usar SQL Server 2008 R2 o SQL Server 2012, es posible que se encuentre con el problema de la zona horaria de la copia de seguridad descrito [aquí](https://support.microsoft.com/help/2697983/kb2697983-fix-an-incorrect-value-is-stored-in-the-time-zone-column-of). Asegúrese de que tiene las actualizaciones acumulativas más recientes para evitar el problema relacionado con la zona horaria que se ha descrito anteriormente. Si no resulta factible aplicar las actualizaciones a la instancia de SQL Server de la máquina virtual de Azure, deshabilite el horario de verano (DST) de la zona horaria de la máquina virtual.
 
 > [!NOTE]
 > Puede habilitar Azure Backup para una máquina virtual de Azure y también para una base de datos de SQL Server que se ejecute en la máquina virtual sin que se produzcan conflictos.
@@ -63,7 +60,7 @@ Los puntos de conexión privados permiten conectar de forma segura desde los ser
 
 #### <a name="nsg-tags"></a>Etiquetas de NSG
 
-Si emplea grupos de seguridad de red (NSG), use la etiqueta de servicio de *AzureBackup* para permitir el acceso de salida a Azure Backup. Además de la etiqueta de Azure Backup, también necesita permitir la conectividad para la autenticación y la transferencia de datos mediante la creación de [reglas de NSG](../virtual-network/security-overview.md#service-tags) similares para *Azure AD* y *Azure Storage*.  En los pasos siguientes se describe el proceso para crear una regla para la etiqueta de Azure Backup:
+Si emplea grupos de seguridad de red (NSG), use la etiqueta de servicio de *AzureBackup* para permitir el acceso de salida a Azure Backup. Además de la etiqueta de Azure Backup, también debe permitir la conectividad para la autenticación y la transferencia de datos mediante la creación de [reglas de NSG](../virtual-network/network-security-groups-overview.md#service-tags) similares para Azure AD (*AzureActiveDirectory*) y Azure Storage (*Storage*).  En los pasos siguientes se describe el proceso para crear una regla para la etiqueta de Azure Backup:
 
 1. En **Todos los servicios**, vaya a **Grupos de seguridad de red** y seleccione el grupo de seguridad de red.
 
@@ -71,7 +68,7 @@ Si emplea grupos de seguridad de red (NSG), use la etiqueta de servicio de *Azur
 
 1. Seleccione **Agregar**. Escriba todos los detalles necesarios para crear una nueva regla, como se explica en [Configuración de reglas de seguridad](../virtual-network/manage-network-security-group.md#security-rule-settings). Asegúrese de que la opción **Destino** esté establecida en *Etiqueta de servicio* y de que **Etiqueta de servicio de destino** esté establecido en *AzureBackup*.
 
-1. Haga clic en **Agregar** para guardar la regla de seguridad de salida recién creada.
+1. Seleccione **Agregar** para guardar la regla de seguridad de salida recién creada.
 
 Puede crear reglas de seguridad de salida de NSG para Azure Storage y Azure AD de forma similar.
 
@@ -87,11 +84,11 @@ Si decide permitir el acceso a las direcciones IP del servicio, vea los interval
 
 También puede usar los siguientes FQDN para permitir el acceso a los servicios necesarios desde los servidores:
 
-| Servicio    | Nombres de dominio a los que se va a acceder                             |
-| -------------- | ------------------------------------------------------------ |
-| Azure Backup  | `*.backup.windowsazure.com`                             |
-| Azure Storage | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` |
-| Azure AD      | Permitir el acceso a los FQDN conforme a las secciones 56 y 59 según [este artículo](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online) |
+| Servicio    | Nombres de dominio a los que se va a acceder                             | Puertos
+| -------------- | ------------------------------------------------------------ | ---
+| Azure Backup  | `*.backup.windowsazure.com`                             | 443
+| Azure Storage | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` | 443
+| Azure AD      | Permitir el acceso a los FQDN conforme a las secciones 56 y 59 según [este artículo](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online) | Según corresponda
 
 #### <a name="use-an-http-proxy-server-to-route-traffic"></a>Empleo de un servidor proxy HTTP para enrutar el tráfico
 
@@ -110,7 +107,7 @@ Evite el uso de los elementos siguientes en los nombres de las bases de datos:
 El establecimiento de alias está permitido para los caracteres no admitidos, pero se recomienda evitarlos. Para obtener más información, consulte [Descripción del modelo de datos del servicio Tabla](/rest/api/storageservices/understanding-the-table-service-data-model).
 
 >[!NOTE]
->La operación **Configurar protección** no se admite en las bases de datos con caracteres especiales como "+" o "&" en su nombre. Puede cambiar el nombre de la base de datos o habilitar la opción **Auto Protection** (Protección automática), que le permitirá proteger correctamente estas bases de datos.
+>La operación **Configurar protección** no se admite en bases de datos con caracteres especiales, como "+" o "&" en su nombre. Puede cambiar el nombre de la base de datos o habilitar la opción **Auto Protection** (Protección automática), que le permitirá proteger correctamente estas bases de datos.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -161,7 +158,7 @@ Detección de las bases de datos que se ejecutan en la máquina virtual:
 
    ![Seleccionar Configurar copia de seguridad](./media/backup-azure-sql-database/backup-goal-configure-backup.png)
 
-1. Haga clic en **Agregar recursos** para ver todos los grupos de disponibilidad registrados y las instancias de SQL Server independientes.
+1. Seleccione **Agregar recursos** para ver todos los grupos de disponibilidad registrados y las instancias de SQL Server independientes.
 
     ![Seleccionar Agregar recursos](./media/backup-azure-sql-database/add-resources.png)
 
@@ -189,7 +186,7 @@ Detección de las bases de datos que se ejecutan en la máquina virtual:
 
      ![Seleccionar directiva de copia de seguridad](./media/backup-azure-sql-database/select-backup-policy.png)
 
-1. Haga clic en **Habilitar copia de seguridad** para enviar la operación **Configurar protección** y realizar un seguimiento del progreso de la configuración en el área **Notificaciones** del portal.
+1. Seleccione **Habilitar copia de seguridad** para enviar la operación **Configurar protección** y realizar un seguimiento del progreso de la configuración en el área **Notificaciones** del portal.
 
    ![Seguimiento del progreso de la configuración](./media/backup-azure-sql-database/track-configuration-progress.png)
 
@@ -214,7 +211,7 @@ Para crear una directiva de copia de seguridad:
 
     ![Escribir nombre de la directiva](./media/backup-azure-sql-database/policy-name.png)
 
-1. Haga clic en el vínculo **Editar** correspondiente a **Copia de seguridad completa** para modificar la configuración predeterminada.
+1. Seleccione el vínculo **Editar** correspondiente a **Copia de seguridad completa** para modificar la configuración predeterminada.
 
    * Seleccione una **frecuencia de copia de seguridad**. Elija **Diario** o **Semanal**.
    * En **Diariamente**, seleccione la hora y zona horaria en la que comienza el trabajo de copia de seguridad. No puede crear copias de seguridad diferenciales para copias de seguridad completas diarias.
@@ -231,7 +228,7 @@ Para crear una directiva de copia de seguridad:
        ![Configuración del intervalo de la duración de retención](./media/backup-azure-sql-database/retention-range-interval.png)
 
 1. Seleccione **Aceptar** para aceptar la configuración de las copias de seguridad completas.
-1. Haga clic en el vínculo **Editar** correspondiente a **Copia de seguridad diferencial** para modificar la configuración predeterminada.
+1. Seleccione el vínculo **Editar** correspondiente a **Copia de seguridad diferencial** para modificar la configuración predeterminada.
 
     * En **Differential Backup policy** (Directiva de copia de seguridad diferencial), seleccione **Enable** (Habilitar) para abrir los controles de retención y frecuencia.
     * Puede desencadenar una copia de seguridad diferencial al día. No se puede desencadenar una copia de seguridad diferencial y una copia de seguridad completa en el mismo día.
@@ -240,11 +237,11 @@ Para crear una directiva de copia de seguridad:
 
       ![Directiva de copia de seguridad diferencial](./media/backup-azure-sql-database/differential-backup-policy.png)
 
-1. Haga clic en el vínculo **Editar** correspondiente a **Copia de seguridad de registros** para modificar la configuración predeterminada.
+1. Seleccione el vínculo **Editar** correspondiente a **Copia de seguridad de registros** para modificar la configuración predeterminada.
 
     * En el menú **Log Backup** (Copia de seguridad de registros), seleccione **Enable** (Habilitar) y, luego, establezca los controles de retención y frecuencia.
     * Las copia de seguridad de registros pueden realizarse cada 15 minutos y se pueden retener durante un período máximo de 35 días.
-    * Si la base de datos se encuentra en el [modelo de recuperación simple](/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-ver15), se pausará la programación de copias de seguridad de registros de esa base de datos y, por tanto, no se desencadenará ninguna copia de seguridad de registros.
+    * Si la base de datos se encuentra en el [modelo de recuperación simple](/sql/relational-databases/backup-restore/recovery-models-sql-server), se pausará la programación de copias de seguridad de registros de esa base de datos y, por tanto, no se desencadenará ninguna copia de seguridad de registros.
     * Si el modelo de recuperación de la base de datos cambia de **Completa** a **Simple**, las copias de seguridad de registros se pausarán en un plazo de 24 horas después del cambio en el modelo de recuperación. Del mismo modo, si el modelo de recuperación cambia desde **Simple**, lo que implica que puedan admitirse copias de seguridad de registros en la base de datos, las programaciones de copias de seguridad de registros se habilitarán en un plazo de 24 horas después del cambio en el modelo de recuperación.
 
       ![Directiva de copia de seguridad de registros](./media/backup-azure-sql-database/log-backup-policy.png)
@@ -254,7 +251,7 @@ Para crear una directiva de copia de seguridad:
 1. Después de completar las modificaciones en la directiva de copia de seguridad, seleccione **Aceptar**.
 
 > [!NOTE]
-> Cada copia de seguridad de registros está encadenada a la copia de seguridad completa anterior para formar una cadena de recuperación. Esta copia de seguridad completa se conservará hasta que expire la retención de la última copia de seguridad de registros. Esto puede significar que la copia de seguridad completa se conservará durante un período adicional para asegurarse de que se pueden recuperar todos los registros. Supongamos que el usuario tiene una copia de seguridad completa semanal, una copia diferencial diaria y registros de 2 horas. Todos ellos se conservan 30 días. Sin embargo, la copia completa semanal puede limpiarse o eliminarse en realidad solo después de que esté disponible la siguiente copia de seguridad completa, es decir, después de 30+7 días. Por ejemplo, una copia de seguridad completa semanal se produce el 16 de noviembre. Según la directiva de retención, debe conservarse hasta el 16 de diciembre. La última copia de seguridad de registros de esta copia completa se produce antes de la siguiente copia completa programada, el 22 de noviembre. Hasta que este registro esté disponible el 22 de diciembre, no se puede eliminar la copia completa del 16 de noviembre. Por lo tanto, la copia completa del 16 de noviembre se conserva hasta el 22 de diciembre.
+> Cada copia de seguridad de registros está encadenada a la copia de seguridad completa anterior para formar una cadena de recuperación. Esta copia de seguridad completa se conservará hasta que expire la retención de la última copia de seguridad de registros. Esto puede significar que la copia de seguridad completa se conservará durante un período adicional para asegurarse de que se pueden recuperar todos los registros. Supongamos que tiene una copia de seguridad completa semanal, una copia diferencial diaria y registros de 2 horas. Todos ellos se conservan 30 días. Sin embargo, la copia completa semanal puede limpiarse o eliminarse en realidad solo después de que esté disponible la siguiente copia de seguridad completa, es decir, después de 30+7 días. Por ejemplo, una copia de seguridad completa semanal se produce el 16 de noviembre. Según la directiva de retención, debe conservarse hasta el 16 de diciembre. La última copia de seguridad de registros de esta copia completa se produce antes de la siguiente copia completa programada, el 22 de noviembre. Hasta que este registro esté disponible el 22 de diciembre, no se puede eliminar la copia completa del 16 de noviembre. Por lo tanto, la copia completa del 16 de noviembre se conserva hasta el 22 de diciembre.
 
 ## <a name="enable-auto-protection"></a>Habilitación de la protección automática  
 

@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
-ms.date: 12/26/2020
-ms.openlocfilehash: e0b9eea7be97b9b67e75c314c4a1d9e69322e5b5
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/26/2021
+ms.openlocfilehash: 4d497adf5229819527608157a7a840d514f4292c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104594264"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732353"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Uso de grupos de conmutación por error automática para permitir la conmutación por error de varias bases de datos de manera transparente y coordinada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -178,6 +178,12 @@ Al realizar operaciones OLTP, use `<fog-name>.database.windows.net` como direcci
 
 Si tiene una carga de trabajo de solo lectura que es tolerante a una cierta obsolescencia de los datos, puede usar la base de datos secundaria en la aplicación. Para las sesiones de solo lectura, use `<fog-name>.secondary.database.windows.net` como dirección URL del servidor y la conexión se redirigirá automáticamente a la base de datos secundaria. También se recomienda indicar la intención de lectura en la cadena de conexión mediante `ApplicationIntent=ReadOnly`.
 
+> [!NOTE]
+> En los niveles de servicio Prémium, Crítico para la empresa e Hiperescala, SQL Database admite el uso de [réplicas de solo lectura](read-scale-out.md) para descargar las cargas de trabajo de consulta de solo lectura, mediante el parámetro `ApplicationIntent=ReadOnly` de la cadena de conexión. Cuando se ha configurado una base de datos secundaria con replicación geográfica, puede usar esta funcionalidad para conectarse a una réplica de solo lectura de la ubicación principal o de la ubicación con replicación geográfica.
+>
+> - Para conectarse a una réplica de solo lectura en la ubicación principal, use `ApplicationIntent=ReadOnly` y `<fog-name>.database.windows.net`.
+> - Para conectarse a una réplica de solo lectura en la ubicación secundaria, use `ApplicationIntent=ReadOnly`y `<fog-name>.secondary.database.windows.net`.
+
 ### <a name="preparing-for-performance-degradation"></a>Preparación para la degradación del rendimiento
 
 Una aplicación de Azure típica usa varios servicios de Azure y consta de varios componentes. La conmutación por error automatizada del grupo de conmutación por error se desencadena en función del estado de los componentes de Azure SQL. Es posible que otros servicios de Azure de la región primaria no se vean afectados por la interrupción y que sus componentes sigan estando disponibles en esa región. Una vez que las bases de datos principales cambien a la región de DR, la latencia entre los componentes dependientes puede aumentar. Para evitar el impacto de una mayor latencia en el rendimiento de la aplicación, compruebe la redundancia de todos los componentes de la aplicación en la región de DR y siga estas [instrucciones de seguridad de red](#failover-groups-and-network-security).
@@ -267,7 +273,7 @@ Al realizar operaciones OLTP, use `<fog-name>.zone_id.database.windows.net` como
 Si tiene una carga de trabajo de solo lectura que es tolerante a una cierta obsolescencia de los datos, puede usar la base de datos secundaria en la aplicación. Para conectarse directamente a la base de datos secundaria con replicación geográfica, use `<fog-name>.secondary.<zone_id>.database.windows.net` como dirección URL del servidor y la conexión se realizará directamente a dicha base de datos.
 
 > [!NOTE]
-> En los niveles de servicio prémium, crítico para la empresa e hiperescala, SQL Database admite el uso de [réplicas de solo lectura](read-scale-out.md) para ejecutar las cargas de trabajo de consultas de solo lectura mediante la capacidad de una réplica de solo lectura (o más), con el uso del parámetro `ApplicationIntent=ReadOnly` en la cadena de conexión. Cuando se ha configurado una base de datos secundaria con replicación geográfica, puede usar esta funcionalidad para conectarse a una réplica de solo lectura de la ubicación principal o de la ubicación con replicación geográfica.
+> En el niveI Crítico para la empresa, SQL Managed Instance admite el uso de [réplicas de solo lectura](read-scale-out.md) para cargar cargas de trabajo de solo lectura, mediante el parámetro `ApplicationIntent=ReadOnly` de la cadena de conexión. Cuando se ha configurado una base de datos secundaria con replicación geográfica, puede usar esta funcionalidad para conectarse a una réplica de solo lectura de la ubicación principal o de la ubicación con replicación geográfica.
 >
 > - Para conectarse a una réplica de solo lectura en la ubicación principal, use `ApplicationIntent=ReadOnly` y `<fog-name>.<zone_id>.database.windows.net`.
 > - Para conectarse a una réplica de solo lectura en la ubicación secundaria, use `ApplicationIntent=ReadOnly`y `<fog-name>.secondary.<zone_id>.database.windows.net`.

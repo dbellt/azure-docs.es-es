@@ -1,19 +1,16 @@
 ---
 title: Preparación de Azure para la recuperación ante desastres en el entorno local con Azure Site Recovery
 description: Obtenga información sobre cómo preparar Azure para la recuperación ante desastres de máquinas locales mediante Azure Site Recovery.
-services: site-recovery
-author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 09/09/2019
-ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 0d697f2100360732666c9f5ea8050800dad154b4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 340b60cccbabeef404f0de13d493e171a5132331
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88653824"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106579268"
 ---
 # <a name="prepare-azure-for-on-premises-disaster-recovery-to-azure"></a>Preparación de Azure para la recuperación ante desastres en el entorno local en Azure
 

@@ -9,10 +9,10 @@ ms.date: 09/30/2020
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: ef9efe389894af7c792e980922ca422e9d05929b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96026185"
 ---
 En la tabla siguiente se describen los límites predeterminados para las cuentas de blob en bloques, Blob Storage y de uso general v1 y v2 de Azure. El límite de *entrada* hace referencia a todos los datos que se envían a una cuenta de almacenamiento. El límite de *salida* hace referencia a todos los datos que se reciben de una cuenta de almacenamiento.

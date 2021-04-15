@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 4f236679d0662df852581a6a8408ed6bc0d4e3fe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 26363031aea37c53cce098e2b6cbc2b4d93b918f
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91535696"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307085"
 ---
 # <a name="understand-data-retention-in-azure-time-series-insights-gen1"></a>Descripción de la retención de datos en Azure Time Series Insights Gen1
 
@@ -85,7 +85,7 @@ En ese momento, el entorno muestra el mismo conjunto de datos hasta que se reanu
 Cuando se reanuda la entrada:
 
 - Los datos fluyen en el orden en que se recibieron por el origen del evento.
-- Los eventos se indexan en función de su marca de tiempo, a menos que se hayan superado las directivas de retención en el origen del evento. Para obtener más información sobre la configuración de la retención del origen del evento, consulte [Preguntas frecuentes sobre Event Hubs](../event-hubs/event-hubs-faq.md).
+- Los eventos se indexan en función de su marca de tiempo, a menos que se hayan superado las directivas de retención en el origen del evento. Para obtener más información sobre la configuración de la retención del origen del evento, consulte [Preguntas frecuentes sobre Event Hubs](../event-hubs/event-hubs-faq.yml).
 
 > [!IMPORTANT]
 > Debe establecer alertas para proporcionar un aviso que ayude a evitar que el ingreso se pause. Es posible que se pierdan datos, ya que el tiempo predeterminado de retención es de 1 día para orígenes de eventos de Azure. Por lo tanto, cuando se pausa la entrada, es probable que pierdan los datos más recientes, a menos que se realice alguna acción adicional. Debe aumentar la capacidad, o cambiar el comportamiento a **Purgar datos antiguos** para evitar la posible pérdida de datos.

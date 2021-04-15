@@ -2,27 +2,26 @@
 title: puntos de conexión de servicio de red virtual - Azure Event Hubs | Microsoft Docs
 description: En este artículo se proporciona información sobre cómo agregar el punto de conexión de servicio de Microsoft.EventHub a una red virtual.
 ms.topic: article
-ms.date: 02/12/2021
-ms.openlocfilehash: 1deef5b8bb4b883ec9c01c50a2a603d254b9caef
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/29/2021
+ms.openlocfilehash: f7f0f3ff480018c9bfc5d9c6f34cf7e2935f8d6a
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100556534"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105959966"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-virtual-networks"></a>Permitir el acceso al espacio de nombres de Event Hubs desde redes virtuales específicas 
 
-La integración de Event Hubs con los [puntos de conexión de servicio de red virtual (VNet)][vnet-sep] permite el acceso seguro a las funcionalidades de mensajería desde cargas de trabajo tales como máquinas virtuales que están enlazadas a redes virtuales, con una ruta de acceso del tráfico de red que está protegida en ambos extremos. Las redes virtuales se admiten en los niveles **estándar** y **dedicado** de Event Hubs. No se admiten en el nivel **básico**.
+La integración de Event Hubs con los [puntos de conexión de servicio de red virtual (VNet)][vnet-sep] permite el acceso seguro a las funcionalidades de mensajería desde cargas de trabajo tales como máquinas virtuales que están enlazadas a redes virtuales, con una ruta de acceso del tráfico de red que está protegida en ambos extremos. 
 
 Una vez realizada la configuración para enlazarse con al menos un punto de conexión de servicio de subred de red virtual, el espacio de nombres respectivo de Event Hubs ya solo aceptará el tráfico procedente de redes virtuales autorizadas. Desde la perspectiva de la red virtual, el enlace de un espacio de nombres de Event Hubs a un punto de conexión de servicio configura un túnel de redes aislado desde la subred de la red virtual al servicio de mensajería. 
 
 El resultado es una relación privada y aislada entre las cargas de trabajo enlazadas a la subred y el espacio de nombres respectivo de Event Hubs, a pesar de que la dirección de red que se puede observar en el punto de conexión de servicio de mensajería esté en un intervalo IP público. Hay una excepción a este comportamiento. Al habilitar un punto de conexión de servicio, de forma predeterminada, se habilita la regla `denyall` en el [firewall de IP](event-hubs-ip-filtering.md) asociado a la red virtual. Puede agregar direcciones IP específicas en el firewall de IP para habilitar el acceso al punto de conexión público del centro de eventos. 
 
->[!WARNING]
-> La activación de las redes virtuales en el espacio de nombres de Event Hubs bloquea las solicitudes entrantes de manera predeterminada, a menos que las solicitudes se originen en un servicio que funciona desde redes virtuales permitidas. Las solicitudes que bloquean incluyen aquellas de otros servicios de Azure, desde Azure Portal, desde los servicios de registro y de métricas, etc. Como excepción, puede permitir el acceso a los recursos de Event Hubs desde determinados servicios de confianza, incluso cuando las redes virtuales están habilitadas. Para ver una lista de servicios de confianza, consulte [Servicios de confianza](#trusted-microsoft-services).
-
-> [!IMPORTANT]
-> Especifique al menos una regla de IP o una regla de red virtual para que el espacio de nombres permita el tráfico solo desde las direcciones IP o la subred especificadas de una red virtual. Si no hay ninguna regla de red virtual y de IP, se puede acceder al espacio de nombres a través de la red pública de Internet (mediante la clave de acceso).  
+## <a name="important-points"></a>Observaciones importantes
+- Esta característica se admite en los niveles tanto **estándar** como **dedicado**. No se admiten en el nivel **básico**.
+- La activación de las redes virtuales en el espacio de nombres de Event Hubs bloquea las solicitudes entrantes de manera predeterminada, a menos que las solicitudes se originen en un servicio que funciona desde redes virtuales permitidas. Las solicitudes que bloquean incluyen aquellas de otros servicios de Azure, desde Azure Portal, desde los servicios de registro y de métricas, etc. Como excepción, puede permitir el acceso a los recursos de Event Hubs desde determinados **servicios de confianza**, incluso cuando las redes virtuales están habilitadas. Para ver una lista de servicios de confianza, consulte [Servicios de confianza](#trusted-microsoft-services).
+- Especifique **al menos una regla de IP o una regla de red virtual** para que el espacio de nombres permita el tráfico solo desde las direcciones IP o la subred especificadas de una red virtual. Si no hay ninguna regla de red virtual y de IP, se puede acceder al espacio de nombres a través de la red pública de Internet (mediante la clave de acceso).  
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Escenarios de seguridad avanzados que habilita la integración de VNet 
 

@@ -3,22 +3,17 @@ title: 'Configuración de scripts de PowerShell para asociación de aplicaciones
 description: Cree scripts de PowerShell para la asociación de aplicaciones en formato MSIX para Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 04/13/2021
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 5e45c51735e0b7ab4b263d3f3047b5848c82439d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+manager: femila
+ms.openlocfilehash: 143f0a9d23cdc70425147faa95258ec753b92691
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98185774"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107365387"
 ---
-# <a name="create-powershell-scripts-for-msix-app-attach-preview"></a>Creación de scripts de PowerShell para la asociación de aplicaciones en formato MSIX (versión preliminar)
-
-> [!IMPORTANT]
-> La asociación de aplicaciones en formato MSIX está actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="create-powershell-scripts-for-msix-app-attach"></a>Creación de scripts de PowerShell para la asociación de aplicaciones en formato MSIX (versión preliminar)
 
 Este tema le guiará a través de la configuración de scripts de PowerShell para la asociación de aplicaciones en formato MSIX.
 
