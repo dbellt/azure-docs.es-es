@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 30348d7ca12ded2d1f4b0522a7cabeadf0553a07
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 37ff3300935e90304754b5f2b375df0adecdaefa
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94953362"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256249"
 ---
 # <a name="overview-of-policy-keys-in-azure-active-directory-b2c"></a>Introducción a las claves de directiva en Azure Active Directory B2C
 
@@ -28,7 +28,7 @@ Azure Active Directory B2C (Azure AD B2C) almacena secretos y certificados en
  En este artículo se explica lo que necesita saber sobre las claves de directiva que usa Azure AD B2C.
 
 > [!NOTE]
-> Actualmente, la configuración de las claves de directiva solo se limita a las [directivas personalizadas](./custom-policy-get-started.md).
+> Actualmente, la configuración de las claves de directiva solo se limita a las [directivas personalizadas](./user-flow-overview.md).
 
 Puede configurar secretos y certificados para establecer la confianza entre servicios en Azure Portal, en el menú **Claves de directiva**. Las claves pueden ser simétricas o asimétricas. La criptografía *simétrica*, o criptografía de clave privada, es donde se usa un secreto compartido para cifrar y descifrar los datos. La criptografía *asimétrica*, o la criptografía de clave pública, es un sistema de cifrado que usa pares de claves, que se componen de claves públicas que se comparten con la aplicación de usuario de confianza y las claves privadas que solo conoce Azure AD B2C.
 

@@ -9,26 +9,23 @@ ms.author: mariusu
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 824fd19e8acfed75ab3d64048a00f579b70286d2
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 35c3bd0213b6d895a81605f5858f924182e1e307
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103496242"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106168865"
 ---
 # <a name="get-started-with-the-web-calling-sample"></a>Introducción al ejemplo de llamada web
 
-El ejemplo de la llamada web es una aplicación web que sirve como tutorial detallado de las distintas funcionalidades que proporciona la biblioteca cliente de llamadas web de Communication Services.
+El ejemplo de llamada web es una aplicación web que sirve como tutorial paso a paso de las distintas funcionalidades que proporciona el SDK de llamadas web de Communication Services.
 
 Este ejemplo se ha creado para desarrolladores y hace que sea muy fácil empezar a trabajar con Communication Services. Su interfaz de usuario se divide en varias secciones, y cada una de ellas incluye un botón "Mostrar código" que permite copiar código directamente desde el explorador en su propia aplicación de Communication Services.
 
 ## <a name="get-started-with-the-web-calling-sample"></a>Introducción al ejemplo de llamada web
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
-
-
 > [!IMPORTANT]
-> [Este ejemplo está disponible en GitHub](https://github.com/Azure-Samples/communication-services-web-calling-tutorial/).
+> [Este ejemplo está disponible **en Github**.](https://github.com/Azure-Samples/communication-services-web-calling-tutorial/).
 
 Siga /Project/readme.md para configurar el proyecto y ejecutarlo en la máquina de manera local.
 Cuando el [ejemplo de llamada web](https://github.com/Azure-Samples/communication-services-web-calling-tutorial) se esté ejecutando en la máquina, verá la página de aterrizaje siguiente:
@@ -51,7 +48,7 @@ Ya está listo para empezar a realizar llamadas mediante el recurso de Communica
 
 ## <a name="placing-and-receiving-calls"></a>Realización y recepción de llamadas
 
-El SDK de llamada web de Communication Services permite llamadas **1:1**, **1: N** y **grupales**.
+El SDK de llamadas web de Communication Services permite llamadas **1:1**, **1:N** y **de grupo**.
 
 En el caso de las llamadas salientes 1:1 o 1:N, puede especificar varias identidades de usuario de Communication Services a las que llamar mediante valores separados por comas. También puede especificar números de teléfono tradicionales (RTC) a los que llamar mediante valores separados por comas.
 
@@ -86,7 +83,7 @@ En este ejemplo también se proporcionan fragmentos de código para las siguient
 
 Para más información, consulte los siguientes artículos.
 
-- Familiarícese con [el uso de la biblioteca cliente de llamada](../quickstarts/voice-video-calling/calling-client-samples.md)
+- Familiarícese con el [uso del SDK de llamadas](../quickstarts/voice-video-calling/calling-client-samples.md).
 - Más información sobre [cómo funciona la llamada](../concepts/voice-video-calling/about-call-types.md)
 - Examine la [documentación de referencia de la API](/javascript/api/azure-communication-services/@azure/communication-calling/)
 - Examen del ejemplo de [Contoso Med App](https://github.com/Azure-Samples/communication-services-contoso-med-app)

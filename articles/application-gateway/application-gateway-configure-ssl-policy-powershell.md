@@ -8,18 +8,21 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: cb0f9ef64cb8032c02f2ccd4b42028103b6d3ec6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ed81ca2c8f409b7f6c4a6f30f9bf75e594c6c208
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93397933"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106221711"
 ---
 # <a name="configure-tls-policy-versions-and-cipher-suites-on-application-gateway"></a>Configuración de versiones de directivas TLS y conjuntos de cifrado en Application Gateway
 
 Aprenda a configurar versiones de directivas TLS/SSL y conjuntos de cifrado en Application Gateway. Puede seleccionar en una lista de directivas predefinidas que contienen diferentes configuraciones de las versiones de directivas TLS y conjuntos de cifrado habilitados. También tiene la posibilidad de definir una [directiva TLS personalizada](#configure-a-custom-tls-policy) según sus requisitos.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+> [!NOTE]
+> Se recomienda usar TLS 1.2 como versión mínima del protocolo TLS para mejorar la seguridad en Application Gateway. 
 
 ## <a name="get-available-tls-options"></a>Obtención de las opciones TLS disponibles
 
@@ -217,4 +220,6 @@ $SetGW = Set-AzApplicationGateway -ApplicationGateway $AppGW
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Visite [Introducción a la redirección de Application Gateway](./redirect-overview.md) para aprender a redirigir el tráfico HTTP a un punto de conexión HTTPS.
+Visite [Introducción a la redirección de Application Gateway](./redirect-overview.md) para aprender a redirigir el tráfico HTTP a un punto de conexión HTTPS. 
+
+Consulte la configuración de directivas SSL específicas del cliente de escucha en la [configuración de una directiva específica del cliente de escucha SSL a través del Portal](./application-gateway-configure-listener-specific-ssl-policy.md)

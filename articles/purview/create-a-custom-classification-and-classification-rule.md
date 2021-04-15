@@ -6,13 +6,13 @@ ms.author: anmuk
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 2/5/2021
-ms.openlocfilehash: 2966618619aa40ed60c2f3d0fb2c8e080d34a016
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 3/24/2021
+ms.openlocfilehash: 7d6baee49250509e50cdeeea8cf8ca6cec5b362d
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102617053"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106222177"
 ---
 # <a name="custom-classifications-in-azure-purview"></a>Clasificaciones personalizadas en Azure Purview
 
@@ -28,7 +28,7 @@ También tiene la posibilidad de crear clasificaciones personalizadas, si alguna
 
 ## <a name="steps-to-create-a-custom-classification"></a>Pasos para crear una clasificación personalizada
 
-Para crear una clasificación personalizada, haga lo siguiente:
+Para crear una clasificación personalizada, siga estos pasos:
 
 1. En el catálogo, seleccione **Centro de administración** en el menú de la izquierda.
 
@@ -68,7 +68,7 @@ Estos detalles incluyen información sobre cuántas instancias hay, el nombre fo
 
 ## <a name="custom-classification-rules"></a>Reglas de clasificación personalizadas
 
-El servicio de catálogo proporciona un conjunto de reglas de clasificación predeterminadas que el analizador usa para detectar automáticamente determinados tipos de datos. También puede agregar sus propias reglas de clasificación personalizadas para detectar otros tipos de datos que puede que le interese encontrar en su patrimonio de datos. Esta capacidad puede ser muy eficaz cuando quiere buscar datos en su patrimonio de datos.
+El servicio de catálogo proporciona un conjunto de reglas de clasificación predeterminadas que el analizador usa para detectar automáticamente determinados tipos de datos. También puede agregar sus propias reglas de clasificación personalizadas para detectar otros tipos de datos que puede que le interese encontrar en su patrimonio de datos. Esta capacidad puede ser eficaz cuando quiere buscar datos en su patrimonio de datos.
 
 Por ejemplo, supongamos que una empresa llamada Contoso tiene id. de empleados que están normalizados en toda la empresa con la palabra \"Employee\" seguido de un GUID para crear EMPLOYEE{GUID}. Por ejemplo, una instancia de un ID de empleado tiene el siguiente aspecto `EMPLOYEE9c55c474-9996-420c-a285-0d0fc23f1f55`.
 
@@ -109,7 +109,7 @@ Para crear una regla de clasificación personalizada:
 
    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/create-new-regex-rule.png" alt-text="Creación de nueva regla de regex" border="true":::
 
-1. Si decide generar una sugerencia de patrón de regex, después de cargar un archivo, seleccione una de las sugerencias de patrón y haga clic en **Add to Patterns** (Agregar a patrones) para usar los datos y columnas del patrón sugerido. Puede retocar los patrones sugeridos o también puede escribir sus propios patrones sin cargar un archivo.
+1. Si decide generar un patrón de regex sugerido, después de cargar un archivo, seleccione uno de los patrones sugeridos y seleccione **Add to Patterns** (Agregar a patrones) para usar los patrones de datos y columnas sugeridos. Puede retocar los patrones sugeridos o también puede escribir sus propios patrones sin cargar un archivo.
 
    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/suggested-regex.png" alt-text="Generación del patrón sugerido" border="true":::
 
@@ -128,6 +128,14 @@ Para crear una regla de clasificación personalizada:
 
    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/verify-rule.png" alt-text="Comprobación de la regla antes de crearla" border="true":::
 
+1. Pruebe la regla de clasificación antes de completar el proceso de creación para validar que se aplicarán etiquetas a los recursos. Las clasificaciones de la regla se aplicarán a los datos de ejemplo cargados, tal como lo haría en un examen. Esto significa que todas las clasificaciones del sistema y su clasificación personalizada coincidirán con los datos del archivo.
+
+   Los archivos de entrada pueden incluir contenido de archivos delimitados (CSV, PSV, SSV, TSV), JSON o XML. El contenido se analizará en función de la extensión del archivo de entrada. Los datos delimitados pueden tener una extensión de archivo que coincida con cualquiera de los tipos mencionados. Por ejemplo, los datos TSV pueden existir en un archivo denominado MySampleData.csv. El contenido delimitado también debe tener un mínimo de 3 columnas.
+
+   :::image type="content" source="media/create-a-custom-classification-and-classification-rule/test-rule-screen.png" alt-text="Comprobación de la regla antes de crearla" border="true":::
+
+   :::image type="content" source="media/create-a-custom-classification-and-classification-rule/test-rule-uploaded-file-result-screen.png" alt-text="Visualización de las clasificaciones aplicadas después de cargar un archivo de prueba" border="true":::
+
 ### <a name="creating-a-dictionary-rule"></a>Creación de una regla de diccionario
 
 1. Si crea una regla de diccionario, verá la siguiente pantalla. Cargue un archivo que contenga todos los valores posibles para la clasificación que va a crear en una sola columna.
@@ -136,9 +144,9 @@ Para crear una regla de clasificación personalizada:
 
 1. Una vez generado el diccionario, puede ajustar la coincidencia de valores únicos y los umbrales de coincidencia mínimos, y enviar la regla.
 
-   :::image type="content" source="media/create-a-custom-classification-and-classification-rule/dictionary-generated.png" alt-text="Regla de diccionario de Purview: ajustar el umbral de coincidencia distintiva y el umbral de coincidencia mínimo" border="true":::
+- **Umbral de coincidencia único**: es el número total de valores de datos únicos que deben encontrarse en una columna antes de que el escáner ejecute el patrón de datos en ella. Un umbral de coincidencia único no tiene nada que ver con la coincidencia de patrones, pero es un requisito previo de la coincidencia de patrones. El valor sugerido es 8. Este valor se puede ajustar manualmente en un rango de 2 a 32. Asimismo, el sistema necesita este valor para asegurarse de que la columna contiene suficientes datos para que el escáner pueda clasificarla con precisión. Por ejemplo, una columna que contenga varias filas con el valor 1 no se clasificará. Tampoco se clasificarán las columnas que contengan una fila con un valor y el resto de las filas con valores NULL. Recuerde que si especifica varios patrones, este valor se aplica a cada uno de ellos.
 
-   :::image type="content" source="media/create-a-custom-classification-and-classification-rule/dictionary-generated.png" alt-text="Crear regla de diccionario, con marca de verificación de diccionario generado." border="true":::
+   :::image type="content" source="media/create-a-custom-classification-and-classification-rule/dictionary-generated.png" alt-text="Cree una regla de diccionario, con marca de verificación generada por el diccionario." border="true":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

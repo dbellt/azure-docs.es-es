@@ -4,14 +4,14 @@ description: Lista de métricas disponibles para cada tipo de recurso con Azure 
 author: rboucher
 services: azure-monitor
 ms.topic: reference
-ms.date: 02/06/2021
+ms.date: 04/01/2021
 ms.author: robb
-ms.openlocfilehash: 2437ab80a23ffc39c180bcdf72921fdf13768541
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 6f664450d5450782d9a01d75abfb5a96b3e0bba6
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102033510"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106221201"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas compatibles con Azure Monitor
 
@@ -55,7 +55,6 @@ Para más información, consulte [Información general sobre los agentes de Azur
 
 > [!IMPORTANT] 
 > Esta actualización más reciente agrega una nueva columna y reordena las métricas para que estén en orden alfabético. La información adicional significa que las tablas siguientes pueden tener una barra de desplazamiento horizontal en la parte inferior, en función del ancho de la ventana del explorador. Si cree que falta información, use la barra de desplazamiento para ver la totalidad de la tabla.
-
 ## <a name="microsoftaadiamazureadmetrics"></a>microsoft.aadiam/azureADMetrics
 
 |Métrica|¿Se puede exportar con la configuración de diagnóstico?|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Descripción|Dimensions|
@@ -148,7 +147,6 @@ Para más información, consulte [Información general sobre los agentes de Azur
 |HttpIncomingRequestDuration|Sí|HttpIncomingRequestDuration|Count|Average|Latencia de una solicitud HTTP.|StatusCode, Authentication|
 |ThrottledHttpRequestCount|Sí|ThrottledHttpRequestCount|Count|Count|Throttled http requests.|Sin dimensiones|
 
-
 ## <a name="microsoftappplatformspring"></a>Microsoft.AppPlatform/Spring
 
 |Métrica|¿Se puede exportar con la configuración de diagnóstico?|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Descripción|Dimensions|
@@ -203,7 +201,6 @@ Para más información, consulte [Información general sobre los agentes de Azur
 |tomcat.threads.current|Sí|tomcat.threads.current|Count|Total|Número de subprocesos actuales de Tomcat|Deployment, AppName, Pod|
 |total-requests|Sí|total-requests|Count|Average|Número total de solicitudes durante el proceso|Deployment, AppName, Pod|
 |working-set|Sí|working-set|Count|Average|Cantidad de memoria del espacio de trabajo usada por el proceso (MB)|Deployment, AppName, Pod|
-
 
 ## <a name="microsoftautomationautomationaccounts"></a>Microsoft.Automation/automationAccounts
 
@@ -376,8 +373,8 @@ Para más información, consulte [Información general sobre los agentes de Azur
 
 |Métrica|¿Se puede exportar con la configuración de diagnóstico?|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Descripción|Dimensions|
 |---|---|---|---|---|---|---|
-|RequestLatency|Sí|Latencia de las solicitudes|Milisegundos|Total|Tiempo que tarda el servidor en procesar la solicitud|Operación, autenticación, protocolo|
-|RequestsTraffic|Sí|Tráfico de solicitudes|Percent|Count|Número de solicitudes realizadas|Operación, autenticación, protocolo, StatusCode, StatusCodeClass|
+|RequestLatency|Sí|Latencia de las solicitudes|Milisegundos|Total|Tiempo que tarda el servidor en procesar la solicitud|Operación, autenticación, protocolo, centro de datos|
+|RequestsTraffic|Sí|Tráfico de solicitudes|Percent|Count|Número de solicitudes realizadas|Operación, autenticación, protocolo, StatusCode, StatusCodeClass, centro de datos|
 
 
 ## <a name="microsoftcacheredis"></a>Microsoft.Cache/redis
@@ -604,7 +601,6 @@ Para más información, consulte [Información general sobre los agentes de Azur
 |totalkeys|Sí|Total de claves|Count|Máxima||Sin dimensiones|
 |usedmemory|Sí|Memoria usada|Bytes|Máxima||Sin dimensiones|
 |usedmemorypercentage|Sí|Porcentaje de memoria usado|Percent|Máxima||InstanceId|
-|usedmemoryRss|Sí|Memoria RSS usada|Bytes|Máxima||InstanceId|
 
 
 ## <a name="microsoftcdncdnwebapplicationfirewallpolicies"></a>Microsoft.Cdn/cdnwebapplicationfirewallpolicies
@@ -619,7 +615,7 @@ Para más información, consulte [Información general sobre los agentes de Azur
 |Métrica|¿Se puede exportar con la configuración de diagnóstico?|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Descripción|Dimensions|
 |---|---|---|---|---|---|---|
 |ByteHitRatio|Sí|Proporción de aciertos de bytes|Percent|Average|Esta es la proporción del total de bytes enviados desde la memoria caché en comparación con el total de bytes de respuesta|Punto de conexión|
-|OriginHealthPercentage|Sí|Porcentaje de estado origen|Percent|Average|El porcentaje de sondeos de estado correctos de AFDX a los servidores back-ends.|Origen, OriginPool|
+|OriginHealthPercentage|Sí|Porcentaje de estado origen|Percent|Average|El porcentaje de sondeos de estado correctos de AFDX a los servidores back-ends.|Origen, OriginGroup|
 |OriginLatency|Sí|Latencia de origen|MilliSeconds|Average|Tiempo calculado desde que el perímetro de AFDX envía la solicitud al servidor back-end hasta que AFDX recibe el último byte de respuesta del servidor back-end.|Origen, punto de conexión|
 |OriginRequestCount|Sí|Recuento de solicitudes de origen|Count|Total|Número de solicitudes enviadas desde AFDX al origen.|HttpStatus, HttpStatusGroup, origen, punto de conexión|
 |Percentage4XX|Sí|Porcentaje de 4XX|Percent|Average|El porcentaje de todas las solicitudes de cliente para las que el código de estado de respuesta es 4XX|Punto de conexión, ClientRegion, ClientCountry|
@@ -804,8 +800,8 @@ Para más información, consulte [Información general sobre los agentes de Azur
 
 |Métrica|¿Se puede exportar con la configuración de diagnóstico?|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Descripción|Dimensions|
 |---|---|---|---|---|---|---|
-|Créditos de CPU consumidos|Sí|Créditos de CPU consumidos|Count|Average|Número total de créditos consumidos por la máquina virtual|Sin dimensiones|
-|Créditos de CPU restantes|Sí|Créditos de CPU restantes|Count|Average|Número total de créditos disponibles para irrumpir|Sin dimensiones|
+|Créditos de CPU consumidos|Sí|Créditos de CPU consumidos|Count|Average|Número total de créditos consumidos por la máquina virtual. Solo disponible en máquinas virtuales ampliables de la serie B|Sin dimensiones|
+|Créditos de CPU restantes|Sí|Créditos de CPU restantes|Count|Average|Número total de créditos disponibles para ampliar. Solo disponible en máquinas virtuales ampliables de la serie B|Sin dimensiones|
 |Porcentaje de ancho de banda consumido del disco de datos|Sí|Porcentaje de ancho de banda consumido del disco de datos|Percent|Average|Porcentaje de ancho de banda de disco de datos consumido por minuto|LUN|
 |Porcentaje de consumo de IOPS de disco de datos|Sí|Porcentaje de consumo de IOPS de disco de datos|Percent|Average|Porcentaje de operaciones de E/S de disco de datos consumido por minuto|LUN|
 |Ancho de banda máximo de expansión de disco de datos|Sí|Ancho de banda máximo de expansión de disco de datos|Count|Average|Rendimiento máximo en bytes por segundos que el disco de datos puede conseguir mediante la expansión|LUN|
@@ -859,8 +855,8 @@ Para más información, consulte [Información general sobre los agentes de Azur
 
 |Métrica|¿Se puede exportar con la configuración de diagnóstico?|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Descripción|Dimensions|
 |---|---|---|---|---|---|---|
-|Créditos de CPU consumidos|Sí|Créditos de CPU consumidos|Count|Average|Número total de créditos consumidos por la máquina virtual|Sin dimensiones|
-|Créditos de CPU restantes|Sí|Créditos de CPU restantes|Count|Average|Número total de créditos disponibles para irrumpir|Sin dimensiones|
+|Créditos de CPU consumidos|Sí|Créditos de CPU consumidos|Count|Average|Número total de créditos consumidos por la máquina virtual. Solo disponible en máquinas virtuales ampliables de la serie B|Sin dimensiones|
+|Créditos de CPU restantes|Sí|Créditos de CPU restantes|Count|Average|Número total de créditos disponibles para ampliar. Solo disponible en máquinas virtuales ampliables de la serie B|Sin dimensiones|
 |Porcentaje de ancho de banda consumido del disco de datos|Sí|Porcentaje de ancho de banda consumido del disco de datos|Percent|Average|Porcentaje de ancho de banda de disco de datos consumido por minuto|LUN, VMName|
 |Porcentaje de consumo de IOPS de disco de datos|Sí|Porcentaje de consumo de IOPS de disco de datos|Percent|Average|Porcentaje de operaciones de E/S de disco de datos consumido por minuto|LUN, VMName|
 |Ancho de banda máximo de expansión de disco de datos|Sí|Ancho de banda máximo de expansión de disco de datos|Count|Average|Rendimiento máximo en bytes por segundos que el disco de datos puede conseguir mediante la expansión|LUN, VMName|
@@ -914,8 +910,8 @@ Para más información, consulte [Información general sobre los agentes de Azur
 
 |Métrica|¿Se puede exportar con la configuración de diagnóstico?|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Descripción|Dimensions|
 |---|---|---|---|---|---|---|
-|Créditos de CPU consumidos|Sí|Créditos de CPU consumidos|Count|Average|Número total de créditos consumidos por la máquina virtual|Sin dimensiones|
-|Créditos de CPU restantes|Sí|Créditos de CPU restantes|Count|Average|Número total de créditos disponibles para irrumpir|Sin dimensiones|
+|Créditos de CPU consumidos|Sí|Créditos de CPU consumidos|Count|Average|Número total de créditos consumidos por la máquina virtual. Solo disponible en máquinas virtuales ampliables de la serie B|Sin dimensiones|
+|Créditos de CPU restantes|Sí|Créditos de CPU restantes|Count|Average|Número total de créditos disponibles para ampliar. Solo disponible en máquinas virtuales ampliables de la serie B|Sin dimensiones|
 |Porcentaje de ancho de banda consumido del disco de datos|Sí|Porcentaje de ancho de banda consumido del disco de datos|Percent|Average|Porcentaje de ancho de banda de disco de datos consumido por minuto|LUN|
 |Porcentaje de consumo de IOPS de disco de datos|Sí|Porcentaje de consumo de IOPS de disco de datos|Percent|Average|Porcentaje de operaciones de E/S de disco de datos consumido por minuto|LUN|
 |Ancho de banda máximo de expansión de disco de datos|Sí|Ancho de banda máximo de expansión de disco de datos|Count|Average|Rendimiento máximo en bytes por segundos que el disco de datos puede conseguir mediante la expansión|LUN|
@@ -992,11 +988,25 @@ Para más información, consulte [Información general sobre los agentes de Azur
 |Métrica|¿Se puede exportar con la configuración de diagnóstico?|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Descripción|Dimensions|
 |---|---|---|---|---|---|---|
 |apiserver_current_inflight_requests|No|Solicitudes en proceso|Count|Average|Número máximo de solicitudes en proceso usadas actualmente en apiserver por tipo de solicitud en el último segundo|requestKind|
+|cluster_autoscaler_cluster_safe_to_autoscale|No|Estado del clúster|Count|Average|Determina si la escalabilidad automática de clústeres realizará alguna acción en el clúster.||
+|cluster_autoscaler_scale_down_in_cooldown|No|Reducción vertical de recuperación|Count|Average|Determina si la reducción vertical está en recuperación: no se quitarán nodos durante este período de tiempo.||
+|cluster_autoscaler_unneeded_nodes_count|No|Nodos innecesarios|Count|Average|La escalabilidad automática del clúster marca esos nodos como candidatos para su eliminación y al final se eliminan.||
+|cluster_autoscaler_unschedulable_pods_count|No|Pods no programables|Count|Average|Número de pods que actualmente no se pueden programar en el clúster.||
 |kube_node_status_allocatable_cpu_cores|No|Número total de núcleos de CPU disponibles en un clúster administrado|Count|Average|Número total de núcleos de CPU disponibles en un clúster administrado||
 |kube_node_status_allocatable_memory_bytes|No|Cantidad total de memoria disponible en un clúster administrado|Bytes|Average|Cantidad total de memoria disponible en un clúster administrado||
 |kube_node_status_condition|No|Estados de diversas condiciones de nodo|Count|Average|Estados de diversas condiciones de nodo|condition, status, status2, node|
 |kube_pod_status_phase|No|Número de pods por fase|Count|Average|Número de pods por fase|fase, espacio de nombres, pod|
 |kube_pod_status_ready|No|Número de pods con estado Listo|Count|Average|Número de pods con estado Listo|espacio de nombres, pod, condición|
+|node_cpu_usage_millicores|Sí|Milinúcleos de uso de CPU|Milinúcleos|Average|Medida agregada del uso de CPU en milinúcleos en el clúster.|nodo, grupo de nodos|
+|node_cpu_usage_percentage|Sí|CPU Usage Percentage (Porcentaje de uso de CPU)|Percent|Average|Uso medio agregado de la CPU medido como porcentaje en el clúster|nodo, grupo de nodos|
+|node_disk_usage_bytes|Sí|Bytes usados de disco|Bytes|Average|Espacio en disco usado en bytes por dispositivo|nodo, grupo de nodos, dispositivo|
+|node_disk_usage_percentage|Sí|Porcentaje usado de disco|Percent|Average|Espacio en disco usado en porcentaje por dispositivo|nodo, grupo de nodos, dispositivo|
+|node_memory_rss_bytes|Sí|Bytes de RSS de memoria|Bytes|Average|Memoria RSS de contenedor usada, en bytes|nodo, grupo de nodos|
+|node_memory_rss_percentage|Sí|Porcentaje de memoria RSS|Percent|Average|Memoria RSS del contenedor usada, en porcentaje|nodo, grupo de nodos|
+|node_memory_working_set_bytes|Sí|Bytes de memoria del conjunto de trabajo|Bytes|Average|Memoria del conjunto de trabajo de contenedor usada, en bytes|nodo, grupo de nodos|
+|node_memory_working_set_percentage|Sí|Porcentaje de memoria de conjunto de trabajo|Percent|Average|Memoria del conjunto de trabajo de contenedor usada, en porcentaje|nodo, grupo de nodos|
+|node_network_in_bytes|Sí|Red en bytes|Bytes|Average|Bytes recibidos de la red|nodo, grupo de nodos|
+|node_network_out_bytes|Sí|Bytes de salida de la red|Bytes|Average|Bytes transmitidos de la red|nodo, grupo de nodos|
 
 
 ## <a name="microsoftcustomprovidersresourceproviders"></a>Microsoft.CustomProviders/resourceproviders
@@ -1199,6 +1209,20 @@ Para más información, consulte [Información general sobre los agentes de Azur
 |txlogs_storage_used|Sí|Almacenamiento del registro de transacciones usado|Bytes|Average|Almacenamiento del registro de transacciones usado|Sin dimensiones|
 |write_iops|Sí|IOPS de escritura|Count|Average|Número de operaciones de escritura de E/S de disco de datos por segundo|Sin dimensiones|
 |write_throughput|Sí|Rendimiento de escritura en bytes/seg.|Count|Average|Bytes escritos por segundo en el disco de datos durante el período de supervisión|Sin dimensiones|
+
+
+## <a name="microsoftdbforpostgresqlservergroupsv2"></a>Microsoft.DBForPostgreSQL/serverGroupsv2
+
+|Métrica|¿Se puede exportar con la configuración de diagnóstico?|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Descripción|Dimensions|
+|---|---|---|---|---|---|---|
+|active_connections|Sí|Conexiones activas|Count|Average|Conexiones activas|nombreDeServidor|
+|cpu_percent|Sí|Porcentaje de CPU|Percent|Average|Porcentaje de CPU|nombreDeServidor|
+|iops|Sí|E/S|Count|Average|Operaciones de E/S por segundo|nombreDeServidor|
+|memory_percent|Sí|Porcentaje de memoria|Percent|Average|Porcentaje de memoria|nombreDeServidor|
+|network_bytes_egress|Sí|Red interna|Bytes|Total|Red externa a través de conexiones activas|nombreDeServidor|
+|network_bytes_ingress|Sí|Red interna|Bytes|Total|Red interna a través de conexiones activas|nombreDeServidor|
+|storage_percent|Sí|Porcentaje de almacenamiento|Percent|Average|Porcentaje de almacenamiento|nombreDeServidor|
+|storage_used|Sí|Almacenamiento utilizado|Bytes|Average|Almacenamiento utilizado|nombreDeServidor|
 
 
 ## <a name="microsoftdbforpostgresqlservers"></a>Microsoft.DBforPostgreSQL/servers
@@ -1444,6 +1468,7 @@ Para más información, consulte [Información general sobre los agentes de Azur
 |CassandraTableUpdate|No|Tabla de Cassandra actualizada|Count|Count|Tabla de Cassandra actualizada|ResourceName, ChildResourceName, |
 |CreateAccount|Sí|Cuenta creada|Count|Count|Cuenta creada|Sin dimensiones|
 |DataUsage|No|Uso de datos|Bytes|Total|Uso total de datos notificado a una granularidad de cinco minutos|CollectionName, DatabaseName, Region|
+|DedicatedGatewayRequests|Sí|DedicatedGatewayRequests|Count|Count|Solicitudes en la puerta de enlace dedicada|DatabaseName, CollectionName, CacheExercised, OperationName, región|
 |DeleteAccount|Sí|Cuenta eliminada|Count|Count|Cuenta eliminada|Sin dimensiones|
 |DocumentCount|No|Recuento de documentos|Count|Total|Recuento total de documentos notificado a una granularidad de cinco minutos|CollectionName, DatabaseName, Region|
 |DocumentQuota|No|Cuota de documentos|Bytes|Total|Cuota total de almacenamiento notificada a una granularidad de cinco minutos|CollectionName, DatabaseName, Region|
@@ -1679,12 +1704,16 @@ Para más información, consulte [Información general sobre los agentes de Azur
 |CategorizedGatewayRequests|Sí|Solicitudes de puerta de enlace categorizadas|Count|Total|Número de solicitudes de puerta de enlace por categorías (1xx/2xx/3xx/4xx/5xx)|HttpStatus|
 |GatewayRequests|Sí|Solicitudes de puerta de enlace|Count|Total|Número de solicitudes de puerta de enlace|HttpStatus|
 |KafkaRestProxy.ConsumerRequest.m1_delta|Sí|Rendimiento de las solicitudes de consumidor de proxy de REST|CountPerSecond|Total|Número de solicitudes de consumidor al proxy de REST de Kafka|Máquina, tema|
+|KafkaRestProxy.ConsumerRequestFail.m1_delta|Sí|Solicitudes incorrectas del consumidor del proxy de REST|CountPerSecond|Total|Excepciones de solicitud de consumidor|Máquina, tema|
 |KafkaRestProxy.ConsumerRequestTime.p95|Sí|Latencia de las solicitudes de consumidor del proxy de REST|Milisegundos|Average|Latencia de mensajes en una solicitud de consumidor a través del proxy de REST de Kafka|Máquina, tema|
+|KafkaRestProxy.ConsumerRequestWaitingInQueueTime.p95|Sí|Trabajo pendiente de las solicitudes de consumidor del proxy de REST|Milisegundos|Average|Longitud de cola de proxy de REST de consumidor|Máquina, tema|
 |KafkaRestProxy.MessagesIn.m1_delta|Sí|Rendimiento del mensaje del productor del proxy de REST|CountPerSecond|Total|Número de mensajes del productor a través del proxy de REST de Kafka|Máquina, tema|
 |KafkaRestProxy.MessagesOut.m1_delta|Sí|Rendimiento del mensaje del consumidor del proxy de REST|CountPerSecond|Total|Número de mensajes del consumidor a través del proxy de REST de Kafka|Máquina, tema|
 |KafkaRestProxy.OpenConnections|Sí|Conexiones simultáneas del proxy de REST|Count|Total|Número de conexiones simultáneas a través del proxy de REST de Kafka|Máquina, tema|
 |KafkaRestProxy.ProducerRequest.m1_delta|Sí|Rendimiento de las solicitudes del productor del proxy de REST|CountPerSecond|Total|Número de solicitudes del productor al proxy de REST de Kafka|Máquina, tema|
+|KafkaRestProxy.ProducerRequestFail.m1_delta|Sí|Solicitudes incorrectas del productor del proxy de REST|CountPerSecond|Total|Excepciones de solicitud de productor|Máquina, tema|
 |KafkaRestProxy.ProducerRequestTime.p95|Sí|Latencia de las solicitudes del productor del proxy de REST|Milisegundos|Average|Latencia de mensajes en una solicitud de productor a través del proxy de REST de Kafka|Máquina, tema|
+|KafkaRestProxy.ProducerRequestWaitingInQueueTime.p95|Sí|Trabajo pendiente de las solicitudes del productor del proxy de REST|Milisegundos|Average|Longitud de cola del proxy de REST del consumidor|Máquina, tema|
 |NumActiveWorkers|Sí|Número de trabajos activos|Count|Máxima|Número de trabajos activos|MetricName|
 
 
@@ -1705,9 +1734,6 @@ Para más información, consulte [Información general sobre los agentes de Azur
 |IoTConnectorMeasurementIngestionLatencyMs|Sí|Latencia de la fase de grupo promedio|Milisegundos|Average|El período de tiempo transcurrido entre el momento en que el conector de IoT recibió los datos del dispositivo y el momento en que la fase de conversión de FHIR procesa los datos.|Operación, ConnectorName|
 |IoTConnectorNormalizedEvent|Sí|Número de mensajes normalizados|Count|Sum|El número total de valores normalizados asignados que genera la fase de normalización del conector de Azure IoT para FHIR.|Operación, ConnectorName|
 |IoTConnectorTotalErrors|Sí|Recuento total de errores|Count|Sum|El número total de errores registrados por el conector de Azure IoT para FHIR|Nombre, operación, ErrorType, ErrorSeverity, ConnectorName|
-|ServiceApiErrors|Sí|Errores de servicio|Count|Sum|Número total de errores internos del servidor generados por el servicio.|Protocolo, autenticación, operación, ResourceType, StatusCode, StatusCodeClass, StatusCodeText|
-|ServiceApiLatency|Sí|Latencia del servicio|Milisegundos|Average|Latencia de respuesta del servicio.|Protocolo, autenticación, operación, ResourceType, StatusCode, StatusCodeClass, StatusCodeText|
-|ServiceApiRequests|Sí|Service Requests|Count|Sum|Número total de solicitudes recibidas por el servicio.|Protocolo, autenticación, operación, ResourceType, StatusCode, StatusCodeClass, StatusCodeText|
 |TotalErrors|Sí|Total de errores|Count|Sum|Número total de errores internos del servidor encontrados por el servicio.|Protocolo, StatusCode, StatusCodeClass, StatusCodeText|
 |TotalLatency|Sí|Latencia total|Milisegundos|Average|Latencia de respuesta del servicio.|Protocolo|
 |TotalRequests|Sí|Total de solicitudes|Count|Sum|Número total de solicitudes recibidas por el servicio.|Protocolo|
@@ -1790,18 +1816,6 @@ Para más información, consulte [Información general sobre los agentes de Azur
 |dataExport.messages.filtered|Sí|Mensajes de exportación de datos filtrados|Count|Total|Número de mensajes que han pasado a través de filtros en la exportación de datos|exportId, exportDisplayName, destinationId, destinationDisplayName|
 |dataExport.messages.received|Sí|Mensajes de exportación de datos recibidos|Count|Total|Número de mensajes entrantes en la exportación de datos, antes del filtrado y el procesamiento del enriquecimiento|exportId, exportDisplayName, destinationId, destinationDisplayName|
 |dataExport.messages.written|Sí|Mensajes de exportación de datos escritos|Count|Total|Número de mensajes escritos en un destino|exportId, exportDisplayName, destinationId, destinationDisplayName|
-
-
-## <a name="microsoftiotspacesgraph"></a>Microsoft.IoTSpaces/Graph
-
-|Métrica|¿Se puede exportar con la configuración de diagnóstico?|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Descripción|Dimensions|
-|---|---|---|---|---|---|---|
-|ApiLatency|No|ApiLatency|6|0|Mide la latencia de las solicitudes de API realizadas a Microsoft.IoTSpaces en milisegundos|Sin dimensiones|
-|FunctionExecutionLatency|No|FunctionExecutionLatency|6|0|Mide la latencia de la ejecución de funciones definidas por el usuario en milisegundos para Microsoft.IoTSpaces|Sin dimensiones|
-|MessageEgressFailure|No|MessageEgressFailure|2|3|Busca una cadena traducida similar a un evento de número de medidas con errores en el recuento de Microsoft.IoTSpaces|Sin dimensiones|
-|MessageEgressLatency|No|MessageEgressLatency|6|0|Mide la latencia del distribuidor a otros puntos de conexión en milisegundos para Microsoft.IoTSpaces|Sin dimensiones|
-|MessageEgressSuccess|No|MessageEgressSuccess|2|3|Busca una cadena traducida similar a un evento de número de medidas completadas en el recuento de Microsoft.IoTSpaces|Sin dimensiones|
-|ProcessingLatency|No|ProcessingLatency|6|0|Mide la latencia del mensaje ingerido en el evento distribuido en milisegundos para Microsoft.IoTSpaces|Sin dimensiones|
 
 
 ## <a name="microsoftkeyvaultmanagedhsms"></a>microsoft.keyvault/managedhsms
@@ -2021,6 +2035,8 @@ Para más información, consulte [Información general sobre los agentes de Azur
 |ContentKeyPolicyCount|Sí|Número de directivas de clave de contenido|Count|Average|Cantidad de directivas de clave de contenido creadas en la cuenta de servicio multimedia actual|Sin dimensiones|
 |ContentKeyPolicyCount|Sí|Cuota de directiva de clave de contenido|Count|Average|Cantidad de directivas de clave de contenido permitida para la cuenta de servicio multimedia actual|Sin dimensiones|
 |ContentKeyPolicyQuotaUsedPercentage|Sí|Porcentaje utilizado de la cuota de directivas de clave de contenido|Percent|Average|Porcentaje de directivas de clave de contenido usado en la cuenta de servicio multimedia actual|Sin dimensiones|
+|MaxChannelsAndLiveEventsCount|Sí|Cuota máxima de eventos en directo|Count|Máxima|El número máximo de eventos en directo permitidos en la cuenta de Media Services actual|Sin dimensiones|
+|MaxRunningChannelsAndLiveEventsCount|Sí|Cuota máxima de eventos en directo en ejecución|Count|Máxima|El número máximo de eventos en directo en ejecución permitidos en la cuenta de Media Services actual|Sin dimensiones|
 |RunningChannelsAndLiveEventsCount|Sí|Número de eventos en directo en ejecución|Count|Average|El número total de eventos en directo en ejecución de la cuenta de Media Services actual|Sin dimensiones|
 |StreamingPolicyCount|Sí|Número de directivas de streaming|Count|Average|Cantidad de directivas de streaming creadas en la cuenta de servicio multimedia actual|Sin dimensiones|
 |StreamingPolicyQuota|Sí|Cuota de directivas de streaming|Count|Average|Cantidad de directivas de streaming permitidas para la cuenta de servicio multimedia actual|Sin dimensiones|
@@ -2041,9 +2057,9 @@ Para más información, consulte [Información general sobre los agentes de Azur
 
 |Métrica|¿Se puede exportar con la configuración de diagnóstico?|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Descripción|Dimensions|
 |---|---|---|---|---|---|---|
-|CPU|Sí|Uso de CPU|Percent|Average|Uso de CPU para puntos de conexión de streaming prémium. Estos datos no están disponibles para los puntos de conexión de streaming estándar.|VmId|
+|CPU|Sí|Uso de CPU|Percent|Average|Uso de CPU para puntos de conexión de streaming prémium. Estos datos no están disponibles para los puntos de conexión de streaming estándar.|Sin dimensiones|
 |Salida|Sí|Salida|Bytes|Total|Cantidad de datos de salida, en bytes.|OutputFormat|
-|EgressBandwidth|No|Ancho de banda de salida|BitsPerSecond|Average|Ancho de banda de salida en bits por segundo.|VmId|
+|EgressBandwidth|No|Ancho de banda de salida|BitsPerSecond|Average|Ancho de banda de salida en bits por segundo.|Sin dimensiones|
 |Requests|Sí|Requests|Count|Total|Solicitudes a un punto de conexión de streaming.|OutputFormat, HttpStatusCode, ErrorCode|
 |SuccessE2ELatency|Sí|Latencia correcta de extremo a extremo|Milisegundos|Average|Latencia media de las solicitudes correctas en milisegundos.|OutputFormat|
 
@@ -2086,7 +2102,7 @@ Para más información, consulte [Información general sobre los agentes de Azur
 |---|---|---|---|---|---|---|
 |AverageReadLatency|Sí|Latencia de lectura media|MilliSeconds|Average|Latencia de lectura media en milisegundos por operación|Sin dimensiones|
 |AverageWriteLatency|Sí|Latencia de escritura media|MilliSeconds|Average|Latencia de escritura media en milisegundos por operación|Sin dimensiones|
-|CbsVolumeBackupActive|Sí|¿Se ha suspendido la copia de seguridad del volumen?|Count|Average|¿Está la directiva de copia de seguridad suspendida para el volumen? 1 si es así, 0 si no lo es.|Sin dimensiones|
+|CbsVolumeBackupActive|Sí|¿Se ha suspendido la copia de seguridad del volumen?|Count|Average|¿Está la directiva de copia de seguridad suspendida para el volumen? 0 si es así, 1 si no lo es.|Sin dimensiones|
 |CbsVolumeLogicalBackupBytes|Sí|Bytes de copia de seguridad del volumen|Bytes|Average|Total de bytes de copia de seguridad para este volumen.|Sin dimensiones|
 |CbsVolumeOperationComplete|Sí|¿Se ha completado la operación de copia de seguridad del volumen?|Count|Average|¿Se completó correctamente la última operación de copia de seguridad o restauración del volumen? 1 si es así, 0 si no lo es.|Sin dimensiones|
 |CbsVolumeOperationTransferredBytes|Sí|Últimos bytes transferidos de la copia de seguridad del volumen|Bytes|Average|Bytes totales transferidos de la última operación de copia de seguridad o restauración.|Sin dimensiones|
@@ -2154,6 +2170,17 @@ Para más información, consulte [Información general sobre los agentes de Azur
 |Throughput|No|Throughput|BitsPerSecond|Average|Rendimiento procesado por este firewall|Sin dimensiones|
 
 
+## <a name="microsoftnetworkbastionhosts"></a>microsoft.network/bastionHosts
+
+|Métrica|¿Se puede exportar con la configuración de diagnóstico?|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Descripción|Dimensions|
+|---|---|---|---|---|---|---|
+|Pingmesh|No|Estado de la comunicación de Bastion|Count|Average|El estado de la comunicación muestra 1 si toda la comunicación es correcta y 0 si es incorrecta.||
+|sesiones|No|Recuento de sesiones|Count|Total|Recuento de sesiones de Bastion. Ver en suma y por instancia.|host|
+|total|Sí|Memoria total|Count|Average|Estadísticas de memoria total.|host|
+|usage_user|No|CPU usada|Count|Average|Estadísticas de uso de CPU.|CPU, host|
+|usados|Sí|Memoria usada|Count|Average|Estadísticas de uso de memoria.|host|
+
+
 ## <a name="microsoftnetworkconnections"></a>Microsoft.Network/connections
 
 |Métrica|¿Se puede exportar con la configuración de diagnóstico?|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Descripción|Dimensions|
@@ -2201,10 +2228,10 @@ Para más información, consulte [Información general sobre los agentes de Azur
 |ErGatewayConnectionBitsOutPerSecond|No|BitsOutPerSecond|BitsPerSecond|Average|Bits que egresan de Azure por segundo|ConnectionName|
 |ExpressRouteGatewayCountOfRoutesAdvertisedToPeer|Sí|Recuento de rutas anunciadas al par (versión preliminar)|Count|Máxima|Recuento de rutas anunciadas al par por ExpressRouteGateway|roleInstance|
 |ExpressRouteGatewayCountOfRoutesLearnedFromPeer|Sí|Recuento de rutas aprendidas del par (versión preliminar)|Count|Máxima|Recuento de rutas aprendidas del par por ExpressRouteGateway|roleInstance|
-|ExpressRouteGatewayCpuUtilization|Sí|Uso de CPU (versión preliminar)|Count|Average|Uso de CPU de la puerta de enlace de ExpressRoute|roleInstance|
+|ExpressRouteGatewayCpuUtilization|Sí|Uso de CPU|Count|Average|Uso de CPU de la puerta de enlace de ExpressRoute|roleInstance|
 |ExpressRouteGatewayFrequencyOfRoutesChanged|No|Frecuencia de cambio de rutas (versión preliminar)|Count|Total|Frecuencia de cambio de rutas en la puerta de enlace de ExpressRoute|roleInstance|
 |ExpressRouteGatewayNumberOfVmInVnet|No|Número de máquinas virtuales en la red virtual (versión preliminar)|Count|Máxima|Número de máquinas virtuales en la red virtual|Sin dimensiones|
-|ExpressRouteGatewayPacketsPerSecond|No|Paquetes por segundo (versión preliminar)|CountPerSecond|Average|Recuento de paquetes de puerta de enlace de ExpressRoute|roleInstance|
+|ExpressRouteGatewayPacketsPerSecond|No|Paquetes por segundo|CountPerSecond|Average|Recuento de paquetes de puerta de enlace de ExpressRoute|roleInstance|
 
 
 ## <a name="microsoftnetworkexpressrouteports"></a>Microsoft.Network/expressRoutePorts
@@ -2366,10 +2393,10 @@ Para más información, consulte [Información general sobre los agentes de Azur
 |AverageBandwidth|Sí|Ancho de banda S2S de puerta de enlace|BytesPerSecond|Average|Ancho de banda de sitio a sitio medio de una puerta de enlace en bytes por segundo|Sin dimensiones|
 |ExpressRouteGatewayCountOfRoutesAdvertisedToPeer|Sí|Recuento de rutas anunciadas al par (versión preliminar)|Count|Máxima|Recuento de rutas anunciadas al par por ExpressRouteGateway|roleInstance|
 |ExpressRouteGatewayCountOfRoutesLearnedFromPeer|Sí|Recuento de rutas aprendidas del par (versión preliminar)|Count|Máxima|Recuento de rutas aprendidas del par por ExpressRouteGateway|roleInstance|
-|ExpressRouteGatewayCpuUtilization|Sí|Uso de CPU (versión preliminar)|Count|Average|Uso de CPU de la puerta de enlace de ExpressRoute|roleInstance|
+|ExpressRouteGatewayCpuUtilization|Sí|Uso de CPU|Count|Average|Uso de CPU de la puerta de enlace de ExpressRoute|roleInstance|
 |ExpressRouteGatewayFrequencyOfRoutesChanged|No|Frecuencia de cambio de rutas (versión preliminar)|Count|Total|Frecuencia de cambio de rutas en la puerta de enlace de ExpressRoute|roleInstance|
 |ExpressRouteGatewayNumberOfVmInVnet|No|Número de máquinas virtuales en la red virtual (versión preliminar)|Count|Máxima|Número de máquinas virtuales en la red virtual|Sin dimensiones|
-|ExpressRouteGatewayPacketsPerSecond|No|Paquetes por segundo (versión preliminar)|CountPerSecond|Average|Recuento de paquetes de puerta de enlace de ExpressRoute|roleInstance|
+|ExpressRouteGatewayPacketsPerSecond|No|Paquetes por segundo|CountPerSecond|Average|Recuento de paquetes de puerta de enlace de ExpressRoute|roleInstance|
 |P2SBandwidth|Sí|Ancho de banda P2S de puerta de enlace|BytesPerSecond|Average|Ancho de banda de punto a sitio medio de una puerta de enlace en bytes por segundo|Sin dimensiones|
 |P2SConnectionCount|Sí|Recuento de conexiones P2S|Count|Máxima|Recuento de conexiones de punto a sitio de una puerta de enlace|Protocolo|
 |TunnelAverageBandwidth|Sí|Ancho de banda de túnel|BytesPerSecond|Average|Media de ancho de banda de un túnel en bytes por segundo|ConnectionName, RemoteIP|
@@ -2379,6 +2406,13 @@ Para más información, consulte [Información general sobre los agentes de Azur
 |TunnelIngressBytes|Sí|Bytes de salida de túnel|Bytes|Total|Bytes de entrada de un túnel|ConnectionName, RemoteIP|
 |TunnelIngressPacketDropTSMismatch|Sí|Colocación de paquetes con error de coincidencia del selector de tráfico de túnel de entrada|Count|Total|Recuento de paquetes entrantes con error de coincidencia del selector de tráfico de un túnel|ConnectionName, RemoteIP|
 |TunnelIngressPackets|Sí|Paquetes de entrada de túnel|Count|Total|Recuento de paquetes entrantes de un túnel|ConnectionName, RemoteIP|
+|TunnelNatAllocations|No|Asignaciones de NAT de túnel|Count|Total|Recuento de asignaciones para una regla NAT en un túnel|NatRule, ConnectionName, RemoteIP|
+|TunnelNatedBytes|No|Bytes de túnel con NAT|Bytes|Total|Número de bytes a los que una regla NAT ha aplicado NAT en un túnel |NatRule, ConnectionName, RemoteIP|
+|TunnelNatedPackets|No|Paquetes de túnel con NAT|Count|Total|Número de paquetes a los que una regla NAT ha aplicado NAT en un túnel|NatRule, ConnectionName, RemoteIP|
+|TunnelNatFlowCount|No|Flujos NAT de túnel|Count|Total|Número de flujos NAT en un túnel por tipo de flujo y regla NAT|NatRule, ConnectionName, RemoteIP, FlowType|
+|TunnelNatPacketDrop|No|Paquetes NAT de túnel descartados|Count|Total|Número de paquetes con NAT en un túnel descartados por tipo de eliminación y regla NAT|NatRule, ConnectionName, RemoteIP, DropType|
+|TunnelReverseNatedBytes|No|Bytes con NAT inverso de túnel|Bytes|Total|Número de bytes a los que una regla NAT ha aplicado NAT inverso en un túnel|NatRule, ConnectionName, RemoteIP|
+|TunnelReverseNatedPackets|No|Paquetes con NAT inverso de túnel|Count|Total|Número de paquetes de un túnel a los que una regla NAT ha aplicado NAT inverso|NatRule, ConnectionName, RemoteIP|
 
 
 ## <a name="microsoftnetworkvirtualnetworks"></a>Microsoft.Network/virtualNetworks
@@ -2408,6 +2442,13 @@ Para más información, consulte [Información general sobre los agentes de Azur
 |TunnelIngressBytes|Sí|Bytes de salida de túnel|Bytes|Total|Bytes de entrada de un túnel|ConnectionName, RemoteIP|
 |TunnelIngressPacketDropTSMismatch|Sí|Colocación de paquetes con error de coincidencia del selector de tráfico de túnel de entrada|Count|Total|Recuento de paquetes entrantes con error de coincidencia del selector de tráfico de un túnel|ConnectionName, RemoteIP|
 |TunnelIngressPackets|Sí|Paquetes de entrada de túnel|Count|Total|Recuento de paquetes entrantes de un túnel|ConnectionName, RemoteIP|
+|TunnelNatAllocations|No|Asignaciones de NAT de túnel|Count|Total|Recuento de asignaciones para una regla NAT en un túnel|NatRule, ConnectionName, RemoteIP|
+|TunnelNatedBytes|No|Bytes de túnel con NAT|Bytes|Total|Número de bytes a los que una regla NAT ha aplicado NAT en un túnel |NatRule, ConnectionName, RemoteIP|
+|TunnelNatedPackets|No|Paquetes de túnel con NAT|Count|Total|Número de paquetes a los que una regla NAT ha aplicado NAT en un túnel|NatRule, ConnectionName, RemoteIP|
+|TunnelNatFlowCount|No|Flujos NAT de túnel|Count|Total|Número de flujos NAT en un túnel por tipo de flujo y regla NAT|NatRule, ConnectionName, RemoteIP, FlowType|
+|TunnelNatPacketDrop|No|Paquetes NAT de túnel descartados|Count|Total|Número de paquetes con NAT en un túnel descartados por tipo de eliminación y regla NAT|NatRule, ConnectionName, RemoteIP, DropType|
+|TunnelReverseNatedBytes|No|Bytes con NAT inverso de túnel|Bytes|Total|Número de bytes a los que una regla NAT ha aplicado NAT inverso en un túnel|NatRule, ConnectionName, RemoteIP|
+|TunnelReverseNatedPackets|No|Paquetes con NAT inverso de túnel|Count|Total|Número de paquetes de un túnel a los que una regla NAT ha aplicado NAT inverso|NatRule, ConnectionName, RemoteIP|
 
 
 ## <a name="microsoftnotificationhubsnamespacesnotificationhubs"></a>Microsoft.NotificationHubs/Namespaces/NotificationHubs
@@ -2574,16 +2615,6 @@ Para más información, consulte [Información general sobre los agentes de Azur
 |QueryPoolJobQueueLength|Sí|Longitud de la cola de trabajos del grupo de consultas (conjuntos de datos) (Gen1)|Count|Average|Número de trabajos en la cola del grupo de subprocesos de consultas. Solo se admite para recursos de Power BI Embedded Generation 1.|Sin dimensiones|
 
 
-## <a name="microsoftprojectbabylonaccounts"></a>Microsoft.ProjectBabylon/accounts
-
-|Métrica|¿Se puede exportar con la configuración de diagnóstico?|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Descripción|Dimensions|
-|---|---|---|---|---|---|---|
-|ScanCancelled|Sí|Examen cancelado|Count|Total|Indica el número de exámenes cancelados.|ResourceId|
-|ScanCompleted|Sí|Examen completado|Count|Total|Indica el número de exámenes completados correctamente.|ResourceId|
-|ScanFailed|Sí|Examen con errores|Count|Total|Indica el número de exámenes con errores.|ResourceId|
-|ScanTimeTaken|Sí|Tiempo invertido en el examen|Segundos|Total|Indica el tiempo de examen total en segundos.|ResourceId|
-
-
 ## <a name="microsoftpurviewaccounts"></a>microsoft.purview/accounts
 
 |Métrica|¿Se puede exportar con la configuración de diagnóstico?|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Descripción|Dimensions|
@@ -2682,6 +2713,15 @@ Para más información, consulte [Información general sobre los agentes de Azur
 |OutboundTraffic|Sí|Tráfico saliente|Bytes|Total|Tráfico saliente del servicio|Sin dimensiones|
 |SystemErrors|Sí|Errores de sistema|Percent|Máxima|Porcentaje de errores del sistema|Sin dimensiones|
 |UserErrors|Sí|Errores de usuario|Percent|Máxima|Porcentaje de errores de usuario|Sin dimensiones|
+
+
+## <a name="microsoftsignalrservicewebpubsub"></a>Microsoft.SignalRService/WebPubSub
+
+|Métrica|¿Se puede exportar con la configuración de diagnóstico?|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Descripción|Dimensions|
+|---|---|---|---|---|---|---|
+|ConnectionCount|Sí|Número de conexiones|Count|Máxima|Cantidad de conexiones de usuario.|Sin dimensiones|
+|InboundTraffic|Sí|Tráfico entrante|Bytes|Total|Tráfico entrante del servicio|Sin dimensiones|
+|OutboundTraffic|Sí|Tráfico saliente|Bytes|Total|Tráfico saliente del servicio|Sin dimensiones|
 
 
 ## <a name="microsoftsqlmanagedinstances"></a>Microsoft.Sql/managedInstances
@@ -2902,6 +2942,7 @@ Para más información, consulte [Información general sobre los agentes de Azur
 |---|---|---|---|---|---|---|
 |ServerSyncSessionResult|Sí|Resultado de la sesión de sincronización|Count|Average|Métrica que registra un valor de 1 cada vez que el punto de conexión del servidor completa correctamente una sesión de sincronización con el punto de conexión en la nube|SyncGroupName, ServerEndpointName, SyncDirection|
 |StorageSyncBatchTransferredFileBytes|Sí|Bytes sincronizados|Bytes|Total|Tamaño total del archivo transferido para las sesiones de sincronización|SyncGroupName, ServerEndpointName, SyncDirection|
+|StorageSyncRecallComputedSuccessRate|Sí|Tasa de éxito de recuperación de nube por niveles|Percent|Average|Porcentaje de todas las recuperaciones correctas|SyncGroupName, ServerName|
 |StorageSyncRecalledNetworkBytesByApplication|Sí|Tamaño de recuperación de nube por niveles por aplicación|Bytes|Total|Tamaño de los datos recuperados por aplicación|SyncGroupName, ServerName, ApplicationName|
 |StorageSyncRecalledTotalNetworkBytes|Sí|Tamaño de recuperación de nube por niveles|Bytes|Total|El tamaño de los datos que se recuperan|SyncGroupName, ServerName|
 |StorageSyncRecallIOTotalSizeBytes|Sí|Recuperación de niveles de la nube|Bytes|Total|Tamaño total de datos recuperados por el servidor|nombreDeServidor|
@@ -2956,6 +2997,7 @@ Para más información, consulte [Información general sobre los agentes de Azur
 |LateInputEvents|Sí|Eventos de entrada retrasada|Count|Total|Eventos de entrada retrasada|LogicalName, PartitionId|
 |OutputEvents|Sí|Eventos de salida|Count|Total|Eventos de salida|LogicalName, PartitionId|
 |OutputWatermarkDelaySeconds|Sí|Retraso de la marca de agua|Segundos|Máxima|Retraso de la marca de agua|LogicalName, PartitionId|
+|ProcessCPUUsagePercentage|Sí|Porcentaje de uso de CPU (versión preliminar)|Percent|Máxima|Porcentaje de uso de CPU (versión preliminar)|LogicalName, PartitionId|
 |ResourceUtilization|Sí|SU % uso|Percent|Máxima|SU % uso|LogicalName, PartitionId|
 
 
@@ -3136,7 +3178,7 @@ Para más información, consulte [Información general sobre los agentes de Azur
 |AverageResponseTime|Sí|Tiempo medio de respuesta (en desuso)|Segundos|Average|Tiempo promedio en segundos necesario para que la aplicación atienda solicitudes.|Instancia|
 |BytesReceived|Sí|Entrada de datos|Bytes|Total|Cantidad de ancho de banda entrante consumido por la aplicación, en MiB.|Instancia|
 |BytesSent|Sí|Salida de datos|Bytes|Total|Cantidad de ancho de banda saliente consumido por la aplicación, en MiB.|Instancia|
-|CpuTime|Sí|Tiempo de CPU|Segundos|Total|Cantidad de CPU consumida por la aplicación, en segundos. Para más información acerca de esta métrica, consulte https://docs.microsoft.com/azure/app-service/web-sites-monitor#cpu-time-vs-cpu-percentage (Tiempo de CPU y porcentaje de CPU). No se aplica a Azure Functions.|Instancia|
+|CpuTime|Sí|Tiempo de CPU|Segundos|Total|Cantidad de CPU consumida por la aplicación, en segundos. Para más información acerca de esta métrica, No se aplica a Azure Functions. consulte https://aka.ms/website-monitor-cpu-time-vs-cpu-percentage (Tiempo de CPU y porcentaje de CPU).|Instancia|
 |CurrentAssemblies|Sí|Ensamblados actuales|Count|Average|Número actual de los ensamblados cargados en todos los dominios de aplicación de esta aplicación.|Instancia|
 |FileSystemUsage|Sí|Uso del sistema de archivos|Bytes|Average|Porcentaje de la cuota de sistema de archivos consumida por la aplicación.|Sin dimensiones|
 |FunctionExecutionCount|Sí|Recuento de ejecución de funciones|Count|Total|Recuento de ejecución de funciones. Solo está presente para Azure Functions.|Instancia|
@@ -3180,7 +3222,7 @@ Para más información, consulte [Información general sobre los agentes de Azur
 |AverageResponseTime|Sí|Tiempo medio de respuesta (en desuso)|Segundos|Average|Tiempo promedio en segundos necesario para que la aplicación atienda solicitudes.|Instancia|
 |BytesReceived|Sí|Entrada de datos|Bytes|Total|Cantidad de ancho de banda entrante consumido por la aplicación, en MiB.|Instancia|
 |BytesSent|Sí|Salida de datos|Bytes|Total|Cantidad de ancho de banda saliente consumido por la aplicación, en MiB.|Instancia|
-|CpuTime|Sí|Tiempo de CPU|Segundos|Total|Cantidad de CPU consumida por la aplicación, en segundos. Para más información acerca de esta métrica, consulte https://docs.microsoft.com/azure/app-service/web-sites-monitor#cpu-time-vs-cpu-percentage (Tiempo de CPU y porcentaje de CPU).|Instancia|
+|CpuTime|Sí|Tiempo de CPU|Segundos|Total|Cantidad de CPU consumida por la aplicación, en segundos. Para más información acerca de esta métrica, No se aplica a Azure Functions. consulte https://aka.ms/website-monitor-cpu-time-vs-cpu-percentage (Tiempo de CPU y porcentaje de CPU).|Instancia|
 |CurrentAssemblies|Sí|Ensamblados actuales|Count|Average|Número actual de los ensamblados cargados en todos los dominios de aplicación de esta aplicación.|Instancia|
 |FileSystemUsage|Sí|Uso del sistema de archivos|Bytes|Average|Porcentaje de la cuota de sistema de archivos consumida por la aplicación.|Sin dimensiones|
 |FunctionExecutionCount|Sí|Recuento de ejecución de funciones|Count|Total|Recuento de ejecución de funciones|Instancia|
@@ -3224,7 +3266,6 @@ Para más información, consulte [Información general sobre los agentes de Azur
 |FunctionHits|Sí|FunctionHits|Count|Total|FunctionHits|Instancia|
 |SiteErrors|Sí|SiteErrors|Count|Total|SiteErrors|Instancia|
 |SiteHits|Sí|SiteHits|Count|Total|SiteHits|Instancia|
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

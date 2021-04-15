@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: dfddc024255d90e8a89f49454e42eb5e94df083a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 51a9635d42b07eb27b05312d292ca890c7963b4f
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104579984"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107028237"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-linkedin-account-using-azure-active-directory-b2c"></a>Configuración de la suscripción y del inicio de sesión con una cuenta de LinkedIn mediante Azure Active Directory B2C
 
@@ -221,7 +221,7 @@ Agregue el elemento **BuildingBlocks** cerca de la parte superior del archivo *T
 ## <a name="test-your-custom-policy"></a>Prueba de la directiva personalizada
 
 1. Seleccione la directiva de usuarios de confianza, por ejemplo `B2C_1A_signup_signin`.
-1. En **Aplicación**, seleccione la aplicación web que [registró anteriormente](troubleshoot-custom-policies.md#troubleshoot-the-runtime). La **dirección URL de respuesta** debe mostrar `https://jwt.ms`.
+1. En **Aplicación**, seleccione la aplicación web que [registró anteriormente](tutorial-register-applications.md). La **dirección URL de respuesta** debe mostrar `https://jwt.ms`.
 1. Seleccione el botón **Ejecutar ahora**.
 1. En la página de registro o de inicio de sesión, seleccione **LinkedIn** para iniciar sesión con la cuenta de LinkedIn.
 

@@ -12,12 +12,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: b7b7f1c5fb0a7991707a26b4a7f54fb3ffaf7bab
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: eff33a8670ee8eb9ee32655956ee0e913ddaa4c1
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102033527"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258152"
 ---
 # <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Habilitación de la autenticación multifactor en Azure Active Directory B2C
 
@@ -56,6 +56,6 @@ Se crea una cuenta de cliente en el inquilino antes de que se produzca el paso d
 
 ::: zone pivot="b2c-custom-policy"
 
-Para habilitar la autenticación multifactor, obtenga los paquetes de inicio de las directivas personalizadas en GitHub y, luego, actualice los archivos XML del paquete de inicio **SocialAndLocalAccountsWithMFA** con el nombre del inquilino de Azure AD B2C. **SocialAndLocalAccountsWithMFA** habilita opciones de autenticación sociales, locales y multifactor. Para obtener más información, vea [Introducción a las directivas personalizadas en Active Directory B2C](custom-policy-get-started.md). 
+Para habilitar la autenticación multifactor, obtenga los paquetes de inicio de las directivas personalizadas en GitHub y, luego, actualice los archivos XML del paquete de inicio **SocialAndLocalAccountsWithMFA** con el nombre del inquilino de Azure AD B2C. **SocialAndLocalAccountsWithMFA** habilita opciones de autenticación sociales, locales y multifactor. Para obtener más información, vea [Introducción a las directivas personalizadas en Active Directory B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy). 
 
 ::: zone-end

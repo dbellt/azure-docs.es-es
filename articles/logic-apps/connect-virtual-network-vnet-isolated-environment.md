@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 12/18/2020
-ms.openlocfilehash: 315de18539bf083515658b40fa70f3c214d7c909
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/30/2021
+ms.openlocfilehash: a56a41b704b12da08cf86b450ac1c734409c8032
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97739746"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219321"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Conectarse a redes virtuales de Azure desde Azure Logic Apps mediante un entorno del servicio de integración (ISE)
 
@@ -37,7 +37,7 @@ También puede crear un ISE mediante el [ejemplo de plantilla de inicio rápido 
 * [Creación de un entorno del servicio de integración (ISE) mediante la API REST de Logic Apps](../logic-apps/create-integration-service-environment-rest-api.md)
 * [Configuración de claves administradas por el cliente para cifrar datos en reposo en los ISE](../logic-apps/customer-managed-keys-integration-service-environment.md)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una cuenta y una suscripción de Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
@@ -91,7 +91,7 @@ Para asegurarse de que el ISE sea accesible y de que las aplicaciones lógicas d
 
   Al configurar las [reglas de seguridad de NSG](../virtual-network/network-security-groups-overview.md#security-rules), debe usar *ambos* protocolos, **TCP** y **UDP**, o bien seleccionar **Cualquiera** en su lugar para no tener que crear reglas independientes para cada protocolo. Las reglas de seguridad de NSG describen los puertos que debe abrir para las direcciones IP que necesitan acceder a esos puertos. Asegúrese de que todo firewall, enrutador u otro elemento que exista entre estos puntos de conexión también mantengan esos puertos accesibles para esas direcciones IP.
 
-* Si configura la tunelización forzada a través del firewall para redirigir el tráfico enlazado a Internet, revise los [requisitos adicionales de la tunelización forzada](#forced-tunneling).
+* Si configura la tunelización forzada a través del firewall para redirigir el tráfico enlazado a Internet, revise los [requisitos de la tunelización forzada](#forced-tunneling).
 
 <a name="network-ports-for-ise"></a>
 
@@ -108,9 +108,9 @@ En esta tabla se describen los puertos que necesita el ISE para ser accesible y 
 |---------|------------------------------------|--------------|-----------------------------------------|-------------------|-------|
 | Comunicación entre subredes en una red virtual | Espacio de direcciones de la red virtual con subredes del ISE | * | Espacio de direcciones de la red virtual con subredes del ISE | * | Necesario para que el tráfico fluya *entre* las subredes de la red virtual. <p><p>**Importante**: Para que el tráfico fluya entre los *componentes* de cada subred, asegúrese de abrir todos los puertos de cada subred. |
 | Ambos: <p>Comunicación con la aplicación lógica <p><p>Historial de ejecución de aplicación lógica| ISE interno: <br>**VirtualNetwork** <p><p>ISE externo: **Internet** o consulte **Notas** | * | **VirtualNetwork** | 443 | En lugar de usar la etiqueta de servicio **Internet**, puede especificar la dirección IP de origen de estos elementos: <p><p>- Equipo o servicio que llama a cualquier desencadenador de solicitud o webhook de la aplicación lógica <p>- Equipo o servicio desde el que se quiere acceder al historial de ejecución de la aplicación lógica <p><p>**Importante**: El cierre o bloqueo de este puerto evita las llamadas a aplicaciones lógicas con desencadenadores de solicitud o webhooks. También se evita que acceda a las entradas y salidas de cada paso del historial de ejecución. Pero no se evita que acceda al historial de ejecución de la aplicación lógica.|
-| Diseñador de Logic Apps: propiedades dinámicas | **LogicAppsManagement** | * | **VirtualNetwork** | 454 | Las solicitudes proceden de las [direcciones IP entrantes](../logic-apps/logic-apps-limits-and-config.md#inbound) del punto de conexión de acceso de Logic Apps de esa región. |
-| Implementación del conector | **AzureConnectors** | * | **VirtualNetwork** | 454 | Necesario para implementar y actualizar conectores. El cierre o bloqueo de este puerto da lugar a errores de las implementaciones de ISE y evita las actualizaciones y correcciones del conector. |
-| Comprobación del estado de la red | **LogicApps** | * | **VirtualNetwork** | 454 | Las solicitudes proceden de las [direcciones IP entrantes](../logic-apps/logic-apps-limits-and-config.md#inbound) del punto de conexión de acceso de Logic Apps y las [direcciones IP salientes](../logic-apps/logic-apps-limits-and-config.md#outbound) de esa región. |
+| Diseñador de Logic Apps: propiedades dinámicas | **LogicAppsManagement** | * | **VirtualNetwork** | 454 | Las solicitudes proceden de las [direcciones IP entrantes](../logic-apps/logic-apps-limits-and-config.md#inbound) del punto de conexión de acceso de Logic Apps de esa región. <p><p>**Importante**: Si está trabajando con la nube de Azure Government, la etiqueta de servicio **LogicAppsManagement** no funcionará. En su lugar, debe proporcionar las [direcciones IP de entrada](../logic-apps/logic-apps-limits-and-config.md#azure-government-inbound) de Logic Apps para Azure Government. |
+| Comprobación del estado de la red | **LogicApps** | * | **VirtualNetwork** | 454 | Las solicitudes proceden de las [direcciones IP entrantes](../logic-apps/logic-apps-limits-and-config.md#inbound) del punto de conexión de acceso de Logic Apps y las [direcciones IP salientes](../logic-apps/logic-apps-limits-and-config.md#outbound) de esa región. <p><p>**Importante**: Si está trabajando con la nube de Azure Government, la etiqueta de servicio **LogicApps** no funcionará. En su lugar, debe proporcionar las [direcciones IP de entrada](../logic-apps/logic-apps-limits-and-config.md#azure-government-inbound) y las [direcciones IP de salida](../logic-apps/logic-apps-limits-and-config.md#azure-government-outbound) de Logic Apps para Azure Government. |
+| Implementación del conector | **AzureConnectors** | * | **VirtualNetwork** | 454 | Necesario para implementar y actualizar conectores. El cierre o bloqueo de este puerto da lugar a errores de las implementaciones de ISE y evita las actualizaciones y correcciones del conector. <p><p>**Importante**: Si está trabajando con la nube de Azure Government, la etiqueta de servicio **AzureConnectors** no funcionará. En su lugar, debe proporcionar las [direcciones IP de salida del conector administrado](../logic-apps/logic-apps-limits-and-config.md#azure-government-outbound) para Azure Government. |
 | Dependencia de administración de App Service | **AppServiceManagement** | * | **VirtualNetwork** | 454, 455 ||
 | Comunicación de Azure Traffic Manager | **AzureTrafficManager** | * | **VirtualNetwork** | ISE interno: 454 <p><p>ISE externo: 443 ||
 | Ambos: <p>Implementación de la directiva de conectores <p>API Management: punto de conexión de administración | **APIManagement** | * | **VirtualNetwork** | 3443 | Para la implementación de la directiva de conectores, es necesario el acceso a los puertos para implementar y actualizar conectores. El cierre o bloqueo de este puerto da lugar a errores de las implementaciones de ISE y evita las actualizaciones y correcciones del conector. |
@@ -148,7 +148,7 @@ Si configura o usa la [tunelización forzada](../firewall/forced-tunneling.md) a
 
 Si no permite el acceso a estas dependencias, se produce un error en la implementación de ISE, y el ISE implementado deja de funcionar.
 
-* rutas definidas por el usuario
+* Rutas definidas por el usuario
 
   Para evitar el enrutamiento asimétrico, debe definir una ruta para cada una de las direcciones IP que se enumeran a continuación con **Internet** como el próximo salto.
   
@@ -193,7 +193,7 @@ Si no permite el acceso a estas dependencias, se produce un error en la implemen
    | **Nombre del entorno del servicio de integración** | Sí | <*nombre del entorno*> | El nombre de ISE, que solo puede contener letras, números, guiones (`-`), caracteres de subrayado (`_`) y puntos (`.`). |
    | **Ubicación** | Sí | <*región del centro de datos de Azure*> | La región del centro de datos de Azure donde se implementará el entorno. |
    | **SKU** | Sí | **Premium** o **Desarrollador (sin SLA)** | La SKU de ISE que se va a crear y a usar. Si quiere conocer las diferencias entre estas SKU, consulte las [SKU de ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level). <p><p>**Importante**: Esta opción solo está disponible durante la creación del ISE y no se puede cambiar más adelante. |
-   | **Capacidad adicional** | Premium: <br>Sí <p><p>Desarrollador: <br>No aplicable | Premium: <br>De 0 a 10 <p><p>Desarrollador: <br>No aplicable | Número de unidades de procesamiento adicionales que se usarán para este recurso ISE. Para agregar capacidad después de crearla, consulte [Add ISE capacity](../logic-apps/ise-manage-integration-service-environment.md#add-capacity) (Agregar capacidad ISE). |
+   | **Capacidad adicional** | Premium: <br>Sí <p><p>Desarrollador: <br>No aplicable | Premium: <br>De 0 a 10 <p><p>Desarrollador: <br>No aplicable | Número de unidades de procesamiento adicionales que se utilizará para este recurso ISE. Para agregar capacidad después de crearla, consulte [Add ISE capacity](../logic-apps/ise-manage-integration-service-environment.md#add-capacity) (Agregar capacidad ISE). |
    | **Punto de conexión de acceso** | Sí | **Interno** o **externo** | Tipo de puntos de conexión de acceso que se usan para el ISE. Estos puntos de conexión determinan si los desencadenadores de solicitudes o de webhooks de las aplicaciones lógicas del ISE pueden recibir llamadas desde fuera de la red virtual o no. <p><p>Por ejemplo, si quiere usar los siguientes desencadenadores basados en webhook, asegúrese de seleccionar **Externos**: <p><p>- Azure DevOps <br>- Azure Event Grid <br>- Common Data Service <br>- Office 365 <br>- SAP (versión ISE) <p><p>La selección también afecta a la manera en que puede ver y acceder a las entradas y salidas en el historial de ejecuciones de la aplicación lógica. Para obtener más información, consulte [Acceso al punto de conexión del ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). <p><p>**Importante**: Puede seleccionar el punto de conexión de acceso solo durante la creación del ISE y no puede cambiar esta opción más adelante. |
    | **Red virtual** | Sí | <*Azure-virtual-network-name*> | La red virtual de Azure donde quiere insertar su entorno para que las aplicaciones lógicas de ese entorno puedan acceder a la red virtual. Si no tiene una red, [cree primero una red virtual de Azure](../virtual-network/quick-create-portal.md). <p><p>**Importante**: *Solo* puede realizar esta inserción cuando se crea el ISE. |
    | **Subredes** | Sí | <*subnet-resource-list*> | Un ISE necesita cuatro subredes *vacías*, que son necesarias para crear e implementar recursos en el ISE y que usan los componentes internos de Logic Apps, como los conectores y el almacenamiento en caché, para mejorar el rendimiento. <p>**Importante**: Asegúrese de [revisar los requisitos de las subredes antes de continuar con estos pasos para crearlas](#create-subnet). |

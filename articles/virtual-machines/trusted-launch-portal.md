@@ -9,12 +9,12 @@ ms.subservice: trusted-launch
 ms.topic: how-to
 ms.date: 03/03/2021
 ms.custom: template-how-to
-ms.openlocfilehash: dec9c7581bbcf55196b04e0a76e9e61f81a27244
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: daf4ad39f0379f7e903c40b9d5073ab87f455bab
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104582075"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106218777"
 ---
 # <a name="deploy-a-vm-with-trusted-launch-enabled-preview"></a>Implementación de una máquina virtual con el inicio seguro habilitado (versión preliminar)
 
@@ -32,27 +32,30 @@ El [inicio seguro](trusted-launch.md) es una manera de mejorar la seguridad de l
 Cree una máquina virtual con el inicio seguro habilitado.
 
 1. Inicie sesión en [Azure Portal](https://aka.ms/TL_preview).
-1. Busque **Máquinas virtuales**.
-1. En **Servicios**, seleccione **Máquinas virtuales**.
-1. En la página **Máquinas virtuales**, seleccione **Agregar** y, después, **Máquina virtual**.
-1. En **Detalles del proyecto**, asegúrese de que está seleccionada la suscripción correcta.
-1. En **Grupo de recursos**, seleccione **Crear nuevo** y especifique un nombre para el grupo de recursos, o bien seleccione un grupo de recursos existente en la lista desplegable.
-1. En **Detalles de la instancia**, escriba un nombre para la máquina virtual y elija una región que admita el [inicio seguro](trusted-launch.md#public-preview-limitations).
-1. En **Imagen**, seleccione una [imagen que admita el inicio seguro](trusted-launch.md#public-preview-limitations). Es posible que solo vea la versión de la generación 1 de la imagen; es correcto, continúe en el paso siguiente.
-1. Seleccione **Avanzado** en la parte superior de la página para pasar a esta pestaña.
-1. Desplácese hacia abajo hasta la sección **Generación de VM** y seleccione **Gen 2**.
-1. Todavía en la pestaña **Avanzado**, desplácese hacia abajo hasta **Inicio seguro** y active la casilla **Inicio seguro**. Esto hará que aparezcan dos opciones más: Arranque seguro y vTPM. Seleccione las opciones adecuadas para su implementación.
+   > [!NOTE] 
+   > El vínculo del portal es único de la versión preliminar de inicio seguro.
+   >  
+2. Busque **Máquinas virtuales**.
+3. En **Servicios**, seleccione **Máquinas virtuales**.
+4. En la página **Máquinas virtuales**, seleccione **Agregar** y, después, **Máquina virtual**.
+5. En **Detalles del proyecto**, asegúrese de que está seleccionada la suscripción correcta.
+6. En **Grupo de recursos**, seleccione **Crear nuevo** y especifique un nombre para el grupo de recursos, o bien seleccione un grupo de recursos existente en la lista desplegable.
+7. En **Detalles de la instancia**, escriba un nombre para la máquina virtual y elija una región que admita el [inicio seguro](trusted-launch.md#public-preview-limitations).
+8. En **Imagen**, seleccione una [imagen que admita el inicio seguro](trusted-launch.md#public-preview-limitations). Es posible que solo vea la versión de la generación 1 de la imagen; es correcto, continúe en el paso siguiente.
+9. Seleccione **Avanzado** en la parte superior de la página para pasar a esta pestaña.
+10. Desplácese hacia abajo hasta la sección **Generación de VM** y seleccione **Gen 2**.
+11. Todavía en la pestaña **Avanzado**, desplácese hacia abajo hasta **Inicio seguro** y active la casilla **Inicio seguro**. Esto hará que aparezcan dos opciones más: Arranque seguro y vTPM. Seleccione las opciones adecuadas para su implementación.
 
     :::image type="content" source="media/trusted-launch/trusted-launch-portal.png" alt-text="Captura de pantalla que muestra las opciones de inicio seguro.":::
 
-1. Retroceda a la pestaña **Información básica**, en **Imagen**, y asegúrese de que aparece el siguiente mensaje: **Esta imagen admite la versión preliminar del inicio seguro. Configúrela en la pestaña Avanzado**. Ahora debería aparecer seleccionada la imagen de generación 2.
+12. Retroceda a la pestaña **Información básica**, en **Imagen**, y asegúrese de que aparece el siguiente mensaje: **Esta imagen admite la versión preliminar del inicio seguro. Configúrela en la pestaña Avanzado**. Ahora debería aparecer seleccionada la imagen de generación 2.
 
     :::image type="content" source="media/trusted-launch/gen-2-image.png" alt-text="Captura de pantalla que muestra el mensaje que confirma que se trata de una imagen de generación 2 compatible con el inicio seguro.":::
 
-1.  Seleccione un tamaño de máquina virtual que admita el inicio seguro. Consulte la lista de [tamaños compatibles](trusted-launch.md#public-preview-limitations).
-1.  Rellene la información de **Cuenta de administrador** y **Reglas del puerto de entrada**.
-1.  En la parte inferior de la página, seleccione **Revisar y crear**.
-1.  En la página **Crear una máquina virtual** verá los detalles de la máquina virtual que va a implementar. Cuando esté preparado, seleccione **Crear**.
+13. Seleccione un tamaño de máquina virtual que admita el inicio seguro. Consulte la lista de [tamaños compatibles](trusted-launch.md#public-preview-limitations).
+14. Rellene la información de **Cuenta de administrador** y **Reglas del puerto de entrada**.
+15. En la parte inferior de la página, seleccione **Revisar y crear**.
+16. En la página **Crear una máquina virtual** verá los detalles de la máquina virtual que va a implementar. Cuando esté preparado, seleccione **Crear**.
 
     :::image type="content" source="media/trusted-launch/validation.png" alt-text="Captura de pantalla de la página de validación, donde se muestran las opciones de inicio seguro incluidas.":::
 
@@ -64,10 +67,10 @@ La implementación de la máquina virtual tardará unos minutos.
 Puede implementar máquinas virtuales con inicio seguro mediante una plantilla de inicio rápido:
 
 **Linux**:    
-[![Implementar en Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fprash200%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-linux%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2Fprash200%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-linux%2FcreateUiDefinition.json)
+[![Implementar en Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-linux%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-linux%2FcreateUiDefinition.json)
 
 **Windows**:    
-[![Implementar en Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fprash200%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-windows%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2Fprash200%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-windows%2FcreateUiDefinition.json)
+[![Implementar en Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-windows%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-windows%2FcreateUiDefinition.json)
 
 ## <a name="view-and-update"></a>Consulta y actualización
 

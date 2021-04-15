@@ -5,13 +5,13 @@ author: rboucher
 ms.author: robb
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 01/12/2020
-ms.openlocfilehash: b7e9318ee34836f8fbd2ae7a330134d8174e6a60
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/10/2021
+ms.openlocfilehash: c89b352954f114ec9da22cad6751bb57ef59899b
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102031402"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106381804"
 ---
 # <a name="azure-monitor-metrics-metrics-aggregation-and-display-explained"></a>Explicación de la visualización y agregación de métricas de Azure Monitor
 
@@ -26,6 +26,7 @@ Al agregar una métrica a un gráfico, el Explorador de métricas preselecciona 
 Primero, vamos a definir claramente algunos términos:
 
 - **Valor de métrica**: valor de medida único que se recopila para un recurso específico.
+- **Base de datos de serie temporal**: Una base de datos optimizada para el almacenamiento y la recuperación de puntos de datos, donde todos contienen un valor y una marca de tiempo correspondiente. 
 - **Período de tiempo**: período de tiempo genérico.
 - **Intervalo de tiempo**: período de tiempo entre la recopilación de dos valores de métrica. 
 - **Intervalo de tiempo**: período de tiempo que se muestra en un gráfico. El valor predeterminado típico es 24 horas. Solo están disponibles intervalos específicos. 
@@ -33,7 +34,9 @@ Primero, vamos a definir claramente algunos términos:
 - **Tipo de agregación**: tipo de estadística calculada a partir de varios valores de métrica.  
 - **Agregado**: proceso de tomar varios valores de entrada y usarlos después para generar un valor de salida único a través de las reglas definidas por el tipo de agregación. Por ejemplo, tomar un promedio de varios valores.  
 
-Las métricas son una serie de valores de métricas capturados en intervalos de tiempo regulares. Al trazar un gráfico, los valores de la métrica seleccionada se agregan por separado en la granularidad de tiempo (que también se denomina intervalo de agregación). Puede seleccionar el tamaño de la granularidad de tiempo mediante el [panel de selector de tiempo del Explorador de métricas](../essentials/metrics-getting-started.md#select-a-time-range). Si no realiza una selección explícita, la granularidad de tiempo se selecciona automáticamente en función del intervalo de tiempo seleccionado actualmente. Una vez se haya seleccionado, los valores de métricas que se capturaron durante cada intervalo de granularidad de tiempo se agregan y se colocan en el gráfico: un punto de datos por cada intervalo.
+## <a name="summary-of-process"></a>Resumen del proceso
+
+Las métricas son una serie de valores almacenados con una marca de tiempo. En Azure, la mayoría de las métricas se almacenan en la base de datos de la serie temporal de Métricas de Azure. Al trazar un gráfico, los valores de las métricas seleccionadas se recuperan de la base de datos y, a continuación, se agregan por separado en función de la granularidad de tiempo elegida (también conocida como intervalo de agregación). Puede seleccionar el tamaño de la granularidad de tiempo mediante el [panel de selector de tiempo del Explorador de métricas](../essentials/metrics-getting-started.md#select-a-time-range). Si no realiza una selección explícita, la granularidad de tiempo se selecciona automáticamente en función del intervalo de tiempo seleccionado actualmente. Una vez se haya seleccionado, los valores de métricas que se capturaron durante cada intervalo de granularidad de tiempo se agregan y se colocan en el gráfico: un punto de datos por cada intervalo.
 
 ## <a name="aggregation-types"></a>Tipos de agregación 
 
@@ -82,9 +85,11 @@ Es importante establecer lo que es "normal" para que la carga de trabajo sepa qu
 
 ## <a name="how-the-system-collects-metrics"></a>Recopilación de las métricas por parte del sistema
 
-La recopilación de datos varía según la métrica. Existen dos tipos de períodos de recopilación.
+La recopilación de datos varía según la métrica. 
 
 ### <a name="measurement-collection-frequency"></a>Frecuencia de recopilación de medidas 
+
+Existen dos tipos de períodos de recopilación.
 
 - **Regular**: la métrica se recopila en un intervalo de tiempo coherente que no varía.
 

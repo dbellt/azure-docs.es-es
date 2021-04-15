@@ -8,19 +8,20 @@ ms.author: bobazile
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: d5e4920dcc422e848266f35c8a59175b5149b924
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7aebb10fb3855936d930685f1a8eef2588140ad1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103492751"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105930462"
 ---
 # <a name="telephony-concepts"></a>Conceptos de telefonía
 
-[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include-phone-numbers.md)]
+
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
-Las bibliotecas cliente de llamada de Azure Communication Services se pueden usar para agregar telefonía y RTC a las aplicaciones. En esta página se resumen las funcionalidades y los conceptos clave de la telefonía. Para más información sobre los lenguajes y funcionalidades específicos de la biblioteca cliente, consulte la [biblioteca de llamada](../../quickstarts/voice-video-calling/calling-client-samples.md).
+Los SDK de llamadas de Azure Communication Services se pueden usar para agregar telefonía y RTC a las aplicaciones. En esta página se resumen las funcionalidades y los conceptos clave de la telefonía. Para más información sobre los lenguajes y funcionalidades específicos del SDK, consulte la [biblioteca de llamadas](../../quickstarts/voice-video-calling/calling-client-samples.md).
 
 ## <a name="overview-of-telephony"></a>Introducción a la telefonía
 Siempre que los usuarios interactúan con un número de teléfono tradicional, las llamadas se facilitan mediante llamadas de voz de RTC (red telefónica conmutada). Para hacer y recibir llamadas RTC, tiene que agregar funcionalidades de telefonía a su recurso de Azure Communication Services. En este caso, las señales y los elementos multimedia usan una combinación de tecnologías basadas en IP y en RTC para conectar a los usuarios. Communication Services proporciona dos formas discretas de acceder a la red de RTC: Azure Cloud Calling e interfaz SIP.

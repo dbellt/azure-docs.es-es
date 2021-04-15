@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/20/2020
 ms.author: trbye
-ms.openlocfilehash: 502729e4c90a6d6ffa424ea7f379e2b426b3e3e0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d2fae1c08132c855f570750a4528a9a37343434e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102444850"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105104707"
 ---
 ## <a name="install-the-speech-sdk"></a>Instalación de Speech SDK
 
@@ -17,7 +17,7 @@ En primer lugar, deberá instalar <a href="https://www.npmjs.com/package/microso
 
 - <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=nodejs#get-the-speech-sdk" target="_blank">Node.js <span 
 class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=browser#get-the-speech-sdk" target="_blank">Explorador web </a>
+- <a href="/azure/cognitive-services/speech-service/speech-sdk?tabs=browser#get-the-speech-sdk" target="_blank">Explorador web </a>
 
 ## <a name="create-voice-signatures"></a>Creación de firmas de voz
 

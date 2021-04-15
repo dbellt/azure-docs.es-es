@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/18/2021
 ms.author: tyao
 ms.custom: references_regions
-ms.openlocfilehash: 88c000c96e632f970db075fafb13ea5eb4bbddfc
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: c927682231bab1fc92f198c56a2f6aeff2f4c516
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104799942"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106553539"
 ---
 # <a name="secure-your-origin-with-private-link-in-azure-front-door-standardpremium-preview"></a>Protección del origen con Private Link en Azure Front Door Estándar/Prémium (versión preliminar)
 
@@ -43,7 +43,7 @@ Al habilitar Private Link para su origen en la configuración de Azure Front Doo
 
 ## <a name="limitations"></a>Limitaciones
 
-Los puntos de conexión privados de Azure Front Door están disponibles en las siguientes regiones durante la versión preliminar pública: Este de EE. UU., Oeste de EE. UU. 2 y Centro-sur de EE. UU.
+Los puntos de conexión privados de Azure Front Door están disponibles en las siguientes regiones durante la versión preliminar pública: Este de EE. UU., Oeste de EE. UU. 2, Centro y Sur de EE. UU y Sur de Reino Unido.
 
 Para lograr la mejor latencia, siempre debe elegir una región de Azure más cercana a su origen al habilitar el punto de conexión de vínculo privado de Front Door.
 

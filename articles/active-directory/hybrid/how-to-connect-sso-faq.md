@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2dac4b461d4506015f0ef374eae37f67c445791d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 52b450ecc8aff379dbdb8d58f9b7609cf730ad27
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98107878"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105731673"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Inicio de sesión único de conexión directa de Azure Active Directory: Preguntas más frecuentes
 
@@ -126,7 +126,7 @@ Siga estos pasos en el servidor local donde se ejecuta Azure AD Connect:
 
    Cuando haya finalizado con el asistente, el SSO de conexión directa estará deshabilitado en su inquilino. Sin embargo, verá un mensaje en pantalla en el que se anuncia lo siguiente:
 
-   "El inicio de sesión único ya está deshabilitado, pero es necesario completar otros pasos manualmente para finalizar el proceso. Más información".
+   "El inicio de sesión único ya está deshabilitado, pero es necesario completar otros pasos manualmente para finalizar el proceso. [Más información](tshoot-connect-sso.md#step-3-disable-seamless-sso-for-each-active-directory-forest-where-youve-set-up-the-feature)"
 
    Para completar el proceso de limpieza, siga los pasos 2 y 3 en el servidor local donde se ejecuta Azure AD Connect.
 

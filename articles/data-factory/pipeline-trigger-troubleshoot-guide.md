@@ -3,16 +3,16 @@ title: Solución de problemas relacionados con orquestaciones y desencadenadores
 description: Use distintos métodos para solucionar problemas de desencadenadores de canalizaciones en Azure Data Factory.
 author: ssabat
 ms.service: data-factory
-ms.date: 03/13/2021
+ms.date: 04/01/2021
 ms.topic: troubleshooting
 ms.author: susabat
 ms.reviewer: susabat
-ms.openlocfilehash: f5039e5a49da202b2dbfa20e56639365ed597c79
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 49205025e26f7c0eb609638e70a58c9c0c14748e
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103462004"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106385418"
 ---
 # <a name="troubleshoot-pipeline-orchestration-and-triggers-in-azure-data-factory"></a>Solución de problemas relacionados con orquestaciones y desencadenadores de canalizaciones en Azure Data Factory
 
@@ -83,7 +83,26 @@ Ha alcanzado el límite de capacidad del entorno de ejecución de integración. 
 - Ejecute las canalizaciones en distintos momentos del desencadenador.
 - Cree un nuevo entorno de ejecución de integración y divida sus canalizaciones entre varios entornos de ejecución de integración.
 
-### <a name="how-to-perform-activity-level-errors-and-failures-in-pipelines"></a>Realización de errores en el nivel de actividad y en las canalizaciones
+### <a name="a-pipeline-run-error-while-invoking-rest-api-in-a-web-activity"></a>Error de ejecución de canalización al invocar la API REST en una actividad web
+
+**Problema**
+
+Mensaje de error:
+
+`
+Operation on target Cancel failed: {“error”:{“code”:”AuthorizationFailed”,”message”:”The client ‘<client>’ with object id ‘<object>’ does not have authorization to perform action ‘Microsoft.DataFactory/factories/pipelineruns/cancel/action’ over scope ‘/subscriptions/<subscription>/resourceGroups/<resource group>/providers/Microsoft.DataFactory/factories/<data factory name>/pipelineruns/<pipeline run id>’ or the scope is invalid. If access was recently granted, please refresh your credentials.”}}
+`
+
+**Causa**
+
+Las canalizaciones pueden utilizar la actividad web para llamar a los métodos de la API REST de ADF si y solo si se asigna el rol de colaborador al miembro de Azure Data Factory. Primero debe configurar la incorporación de la identidad administrada de Azure Data Factory al rol de seguridad de colaborador. 
+
+**Resolución**
+
+Antes de usar la API REST de Azure Data Factory en la pestaña Configuración de una actividad web, se debe configurar la seguridad. Las canalizaciones de Azure Data Factory pueden utilizar la actividad web para llamar a los métodos de la API REST de ADF si y solo si se asigna el rol de *colaborador* a la identidad administrada de Azure Data Factory. Comience abriendo Azure Portal y haciendo clic en el vínculo **Todos los recursos** en el menú de la izquierda. Seleccione **Azure Data Factory** para agregar la identidad administrada de ADF con el rol de colaborador; para ello, haga clic en el botón **Agregar** en el cuadro *Agregar una asignación de roles*.
+
+
+### <a name="how-to-check-and-branch-on-activity-level-success-and-failure-in-pipelines"></a>Comprobación y ramificación en el éxito y el error del nivel de actividad en las canalizaciones
 
 **Causa**
 
@@ -95,7 +114,7 @@ Azure Data Factory evalúa el resultado de todas las actividades de nivel de hoj
 
 * Implemente comprobaciones en el nivel de actividad con las indicaciones de [Control de errores de canalización](https://techcommunity.microsoft.com/t5/azure-data-factory/understanding-pipeline-failures-and-error-handling/ba-p/1630459).
 * Use Azure Logic Apps para supervisar las canalizaciones a intervalos regulares con las indicaciones de [Consulta por factoría](/rest/api/datafactory/pipelineruns/querybyfactory).
-* [Supervisión visual de la canalización](https://docs.microsoft.com/azure/data-factory/monitor-visually)
+* [Supervisión visual de la canalización](./monitor-visually.md)
 
 ### <a name="how-to-monitor-pipeline-failures-in-regular-intervals"></a>Supervisión de errores de canalización en intervalos regulares
 
@@ -105,7 +124,7 @@ Quizá necesite supervisar las canalizaciones de Data Factory con errores a inte
 
 **Resolución**
 * Puede configurar una aplicación lógica de Azure para consultar todas las canalizaciones con error cada 5 minutos, como se describe en [Consulta por factoría](/rest/api/datafactory/pipelineruns/querybyfactory). A continuación, puede notificar los incidentes en nuestro sistema de incidencias.
-* [Supervisión visual de la canalización](https://docs.microsoft.com/azure/data-factory/monitor-visually)
+* [Supervisión visual de la canalización](./monitor-visually.md)
 
 ### <a name="degree-of-parallelism--increase-does-not-result-in-higher-throughput"></a>El aumento del grado de paralelismo no deriva en un rendimiento mayor.
 
@@ -115,7 +134,7 @@ El grado de paralelismo de *ForEach* es realmente el grado máximo de paralelism
 
 Hechos conocidos sobre *ForEach*
  * ForEach tiene una propiedad denominada número de lote(n), donde el valor predeterminado es 20 y el máximo es 50.
- * El número de lote, n, se usa para construir n colas. Más adelante analizaremos algunos detalles sobre cómo se construyen estas colas.
+ * El número de lote, n, se usa para construir n colas. 
  * Cada cola se ejecuta secuencialmente, pero puede tener varias colas ejecutándose en paralelo.
  * Las colas se crean previamente. Esto significa que no hay ningún reequilibrio de las colas durante el tiempo de ejecución.
  * En cualquier momento, hay al menos un elemento que se está procesando en cada cola. Esto significa que, como máximo, se procesan n elementos en un momento dado.
@@ -124,7 +143,8 @@ Hechos conocidos sobre *ForEach*
 **Resolución**
 
  * No debe utilizar la actividad *SetVariable* dentro de *For Each* que se ejecute en paralelo.
- * Teniendo en cuenta la forma en que se construyen las colas, el cliente puede mejorar el rendimiento de ForEach estableciendo varios *foreaches*, donde cada valor de ForEach tendrá elementos con un tiempo de procesamiento similar. Esto garantizará que las ejecuciones largas se procesen en paralelo y no de forma secuencial.
+ * Teniendo en cuenta la forma en que se crean las colas, el cliente puede mejorar el rendimiento de foreach estableciendo varios *foreach*, donde cada valor de *foreach* tenga elementos con un tiempo de procesamiento similar. 
+ * Esto garantizará que las ejecuciones largas se procesen en paralelo y no de forma secuencial.
 
  ### <a name="pipeline-status-is-queued-or-stuck-for-a-long-time"></a>El estado de la canalización está en cola o bloqueado durante mucho tiempo
  
@@ -146,8 +166,8 @@ Esto puede ocurrir si no ha implementado la característica de período de vida 
 
 **Resolución**
 
-* Si cada actividad de copia tarda hasta dos minutos en iniciarse y el problema se produce principalmente en una unión de red virtual (frente a Azure IR), puede tratarse de un problema de rendimiento de la copia. Para revisar los pasos para la solución de problemas, vaya a [Mejora del rendimiento de la actividad de copia.](https://docs.microsoft.com/azure/data-factory/copy-activity-performance-troubleshooting)
-* Puede usar la característica de período de vida para reducir el tiempo de inicio del clúster en las actividades de flujo de datos. Revise [Entorno de ejecución de integración de Data Flow.](https://docs.microsoft.com/azure/data-factory/control-flow-execute-data-flow-activity#data-flow-integration-runtime)
+* Si cada actividad de copia tarda hasta dos minutos en iniciarse y el problema se produce principalmente en una unión de red virtual (frente a Azure IR), puede tratarse de un problema de rendimiento de la copia. Para revisar los pasos para la solución de problemas, vaya a [Mejora del rendimiento de la actividad de copia.](./copy-activity-performance-troubleshooting.md)
+* Puede usar la característica de período de vida para reducir el tiempo de inicio del clúster en las actividades de flujo de datos. Revise [Entorno de ejecución de integración de Data Flow.](./control-flow-execute-data-flow-activity.md#data-flow-integration-runtime)
 
  ### <a name="hitting-capacity-issues-in-shirself-hosted-integration-runtime"></a>Problemas de capacidad en SHIR (Integration Runtime autohospedado)
  
@@ -157,7 +177,7 @@ Esto puede ocurrir si no ha escalado verticalmente SHIR en función de la carga 
 
 **Resolución**
 
-* Si encuentra un problema de capacidad de SHIR, actualice la máquina virtual para aumentar el nodo con el fin de equilibrar las actividades. Si recibe un mensaje de error sobre un error o un error general de IR autohospedado, una actualización de IR autohospedado o problemas de conectividad de IR autohospedado, que pueden generar una cola larga, vaya a [Solución de problemas del entorno de ejecución de integración autohospedado](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-troubleshoot-guide).
+* Si encuentra un problema de capacidad de SHIR, actualice la máquina virtual para aumentar el nodo con el fin de equilibrar las actividades. Si recibe un mensaje de error sobre un error o un error general de IR autohospedado, una actualización de IR autohospedado o problemas de conectividad de IR autohospedado, que pueden generar una cola larga, vaya a [Solución de problemas del entorno de ejecución de integración autohospedado](./self-hosted-integration-runtime-troubleshoot-guide.md).
 
 ### <a name="error-messages-due-to-long-queues-for-adf-copy-and-data-flow"></a>Mensajes de error debidos a colas largas en la copia de ADF y en Data Flow
 
@@ -166,10 +186,10 @@ Esto puede ocurrir si no ha escalado verticalmente SHIR en función de la carga 
 Los mensajes de error de colas largas pueden aparecer por varias razones. 
 
 **Resolución**
-* Si recibe un mensaje de error de cualquier origen o destino a través de conectores, que puede generar una cola larga, vaya a la [guía de solución de problemas de conectores](https://docs.microsoft.com/azure/data-factory/connector-troubleshoot-guide).
-* Si recibe un mensaje de error sobre el flujo de datos de asignación, que puede generar una cola larga, consulte la [guía de solución de problemas de flujos de datos](https://docs.microsoft.com/azure/data-factory/data-flow-troubleshoot-guide).
-* Si recibe un mensaje de error sobre otras actividades, como Databricks, las actividades personalizadas o HDI, que pueden generar una cola larga, vaya a la [guía de solución de problemas de actividades](https://docs.microsoft.com/azure/data-factory/data-factory-troubleshoot-guide).
-* Si recibe un error al ejecutar paquetes de SSIS, que pueden generar una cola larga, vaya a la [guía de solución de problemas de ejecución de paquetes de Azure-SSIS](https://docs.microsoft.com/azure/data-factory/ssis-integration-runtime-ssis-activity-faq) y a la [guía de solución de problemas de administración de Integration Runtime](https://docs.microsoft.com/azure/data-factory/ssis-integration-runtime-management-troubleshoot).
+* Si recibe un mensaje de error de cualquier origen o destino a través de conectores, que puede generar una cola larga, vaya a la [guía de solución de problemas de conectores](./connector-troubleshoot-guide.md).
+* Si recibe un mensaje de error sobre el flujo de datos de asignación, que puede generar una cola larga, consulte la [guía de solución de problemas de flujos de datos](./data-flow-troubleshoot-guide.md).
+* Si recibe un mensaje de error sobre otras actividades, como Databricks, las actividades personalizadas o HDI, que pueden generar una cola larga, vaya a la [guía de solución de problemas de actividades](./data-factory-troubleshoot-guide.md).
+* Si recibe un error al ejecutar paquetes de SSIS, que pueden generar una cola larga, vaya a la [guía de solución de problemas de ejecución de paquetes de Azure-SSIS](./ssis-integration-runtime-ssis-activity-faq.md) y a la [guía de solución de problemas de administración de Integration Runtime](./ssis-integration-runtime-management-troubleshoot.md).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

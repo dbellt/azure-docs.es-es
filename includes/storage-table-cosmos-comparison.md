@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/08/2021
 ms.author: mimig
 ms.custom: include file
-ms.openlocfilehash: a7e34f077ce1b2541168df40f2806fdb24a63a79
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 698219a446240950b9a661f923109fbb2f863556
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98050766"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106178457"
 ---
 Si actualmente usa Azure Table Storage, obtendrá las siguientes ventajas al actualizar a Table API de Azure Cosmos DB:
 
@@ -21,7 +21,7 @@ Si actualmente usa Azure Table Storage, obtendrá las siguientes ventajas al act
 | --- | --- | --- |
 | Latencia | Rápido, pero no hay límites máximos en la latencia. | Latencia en milisegundos de un solo dígito para lecturas y escrituras, respaldada con lecturas con una latencia inferior a 10 ms y escrituras con una latencia inferior a 15 ms en el percentil 99, a cualquier escala, en cualquier lugar del mundo. |
 | Throughput | Modelo de rendimiento variable. Las tablas tienen un límite de escalabilidad de 20.000 operaciones por segundo. | Altamente escalable con [rendimiento reservado dedicado por tabla](../articles/cosmos-db/request-units.md) respaldado por los SLA. Las cuentas no tienen límite máximo en el rendimiento y admiten más de 10 millones de operaciones por segundo por tabla (en el modo de rendimiento aprovisionado). |
-| Distribución global | Una sola región, con una región de lectura secundaria legible opcional para alta disponibilidad. No se puede iniciar la conmutación por error. | [Distribución global inmediata](../articles/cosmos-db/distribute-data-globally.md) desde 1 a más de 30 regiones. Admite [conmutaciones por error automáticas y manuales](../articles/cosmos-db/high-availability.md) en cualquier momento y en cualquier lugar del mundo. |
+| Distribución global | Una sola región con una región de lectura secundaria legible opcional para alta disponibilidad que admite la conmutación por error de cuentas automática y manual. | [Distribución global inmediata](../articles/cosmos-db/distribute-data-globally.md) desde 1 a más de 30 regiones. Admite [conmutaciones por error automáticas y manuales](../articles/cosmos-db/high-availability.md) en cualquier momento y en cualquier lugar del mundo. |
 | Indización | Índice principal solo en PartitionKey y RowKey. No hay índices secundarios. | Indexación automática y completa en todas las propiedades, sin administración de índices. |
 | Consultar | La ejecución de consultas usa el índice de la clave principal y, en caso contrario, examina. | Las consultas pueden aprovechar la indexación automática en las propiedades para reducir el tiempo de consulta. |
 | Coherencia | Seguro dentro de la región principal. Ocasional en la región secundaria. | [Cinco niveles de coherencia bien definidos](../articles/cosmos-db/consistency-levels.md) para compensar la disponibilidad, la latencia, el rendimiento y la coherencia en función de las necesidades de la aplicación. |

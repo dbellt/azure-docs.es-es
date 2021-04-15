@@ -8,10 +8,10 @@ author: emuench
 ms.author: mingshen
 ms.date: 10/09/2020
 ms.openlocfilehash: f4e34e850391696506beed9f6f386f85528dff24
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92283385"
 ---
 Si seleccionó una de las máquinas virtuales preconfiguradas con un sistema operativo (y, opcionalmente, otros servicios) ya ha seleccionado un tamaño de máquina virtual de Azure estándar. Iniciar la solución con un sistema operativo configurado previamente es el enfoque recomendado. Pero si va a instalar un sistema operativo manualmente, debe ajustar el tamaño del disco duro virtual principal en la imagen de la máquina virtual. Asegúrese de que el tamaño del disco del sistema operativo esté dentro de los límites de Linux o Windows.

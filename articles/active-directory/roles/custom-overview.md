@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3fad2c683890776908afbfbf15ee91d46d564783
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.openlocfilehash: 0bddb03094b73dbd6d3b8d44c76ab242caa515dc
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103466769"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105727865"
 ---
 # <a name="overview-of-role-based-access-control-in-azure-active-directory"></a>Introducción al control de acceso basado en rol en Azure Active Directory
 
@@ -30,15 +30,13 @@ En este artículo se describe el control de acceso basado en rol de Azure Active
 Ambos sistemas contienen definiciones de rol y asignaciones de roles que se usan igual. Sin embargo, los permisos de rol de Azure AD no se pueden usar en los roles personalizados de Azure ni viceversa.
 
 ## <a name="understand-azure-ad-role-based-access-control"></a>Información sobre el control de acceso basado en rol de Azure AD
-Azure AD admite dos tipos de definiciones de roles: 
+Azure AD admite dos tipos de definiciones de roles:
 * [Roles integrados](./permissions-reference.md)
 * [Roles personalizados](./custom-create.md)
 
 Los roles integrados son roles predefinidos que tienen un conjunto fijo de permisos. Estas definiciones de roles no se pueden modificar. Azure AD admite muchos [roles integrados](./permissions-reference.md) y la lista está creciendo. Para redondear los bordes y cumplir los sofisticados requisitos, Azure AD también admite [roles personalizados](./custom-create.md). La concesión de permisos mediante roles personalizados de Azure AD es un proceso de dos pasos que implica la creación de una definición de roles personalizados y su asignación mediante una asignación de roles. Una definición de roles personalizada es una colección de permisos que se agregan desde una lista preestablecida. Estos permisos son los mismos que se usan en los roles integrados.  
 
 Una vez que se haya creado la definición de roles personalizados (o mediante un rol integrado), puede asignarla a un usuario mediante la creación de una asignación de roles. Una asignación de roles concede al usuario los permisos de una definición de roles en un ámbito específico. Este proceso de dos pasos permite crear una sola definición de roles y asignarla muchas veces en distintos ámbitos. Un ámbito define el conjunto de recursos de Azure AD a los que tiene acceso el miembro del rol. El ámbito más común es el de toda la organización. Un rol personalizado se puede asignar en el ámbito de toda la organización, lo que significa que el miembro del rol tiene los permisos de rol en todos los recursos de la organización. También se puede asignar un rol personalizado en un ámbito de objeto. Un ejemplo del ámbito de objeto sería una aplicación única. Se puede asignar el mismo rol a un usuario en todas las aplicaciones de la organización y, luego, a otro usuario que solo tenga un ámbito de la aplicación de informes de gastos de Contoso.  
-
-Los roles personalizados e integrados de Azure AD funcionan sobre conceptos parecidos al [control de acceso basado en rol de Azure (Azure RBAC)](../develop/access-tokens.md#payload-claims). La [diferencia entre estos dos sistemas de control de acceso basado en rol](../../role-based-access-control/rbac-and-directory-admin-roles.md) es que RBAC de Azure controla el acceso a los recursos de Azure (como máquinas virtuales o almacenamiento) mediante la administración de recursos de Azure, mientras que los roles personalizados de Azure AD controlan el acceso a los recursos de Azure AD mediante Graph API. Ambos sistemas aprovechan el concepto de definiciones de roles y asignaciones de roles. Los permisos de RBAC de Azure AD no se pueden incluir en los roles de Azure y viceversa.
 
 ### <a name="how-azure-ad-determines-if-a-user-has-access-to-a-resource"></a>Cómo determina Azure AD si un usuario tiene acceso a un recurso
 

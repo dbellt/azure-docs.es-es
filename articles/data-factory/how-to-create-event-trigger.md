@@ -7,12 +7,12 @@ ms.author: chez
 ms.reviewer: jburchel
 ms.topic: conceptual
 ms.date: 03/11/2021
-ms.openlocfilehash: ae8b1eab81e3c898c25a613f552a49c8de64f49d
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: 3021d049a38f1d883518fc7c45aa8ca0a906c2f7
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889134"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106221592"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-a-storage-event"></a>Creación de un desencadenador que ejecuta una canalización en respuesta a un evento de almacenamiento
 
@@ -71,9 +71,12 @@ En esta sección se muestra cómo crear un desencadenador de eventos de almacena
 
 1. Si la canalización tiene parámetros, puede especificarlos en el parámetro de ejecución del desencadenador. El desencadenador de eventos de almacenamiento captura el nombre de archivo y la ruta de acceso del blob en las propiedades `@triggerBody().folderPath` y `@triggerBody().fileName`. Para usar los valores de estas propiedades en una canalización, debe asignar las propiedades a los parámetros de la canalización. Después de asignar las propiedades a los parámetros, puede tener acceso a los valores capturados por el desencadenador mediante la expresión `@pipeline().parameters.parameterName` en toda la canalización. Para obtener una explicación detallada, consulte [Referencia de metadatos de desencadenador en Pipelines](how-to-use-trigger-parameterization.md)
 
-    :::image type="content" source="media/how-to-create-event-trigger/event-based-trigger-image4.png" alt-text="Captura de pantalla de la asignación de propiedades del desencadenador de eventos de almacenamiento a parámetros de canalización.":::
+   :::image type="content" source="media/how-to-create-event-trigger/event-based-trigger-image4.png" alt-text="Captura de pantalla de la asignación de propiedades del desencadenador de eventos de almacenamiento a parámetros de canalización.":::
 
-    En el ejemplo anterior, el desencadenador está configurado para activarse cuando se crea una ruta de acceso de blob que termina en .csv en la carpeta _prueba-de-eventos_ en el contenedor _datos-de-ejemplo_. Las propiedades **folderPath** y **fileName** capturan la ubicación del nuevo blob. Por ejemplo, cuando se agrega MoviesDB.csv a la ruta de acceso datos-de-ejemplo/prueba-de-eventos, `@triggerBody().folderPath` tiene un valor de `sample-data/event-testing` y `@triggerBody().fileName` tiene un valor de `moviesDB.csv`. Estos valores se asignan en el ejemplo a los parámetros de canalización `sourceFolder` y `sourceFile`, que se pueden utilizar en toda la canalización como `@pipeline().parameters.sourceFolder` y `@pipeline().parameters.sourceFile` respectivamente.
+   En el ejemplo anterior, el desencadenador está configurado para activarse cuando se crea una ruta de acceso de blob que termina en .csv en la carpeta _prueba-de-eventos_ en el contenedor _datos-de-ejemplo_. Las propiedades **folderPath** y **fileName** capturan la ubicación del nuevo blob. Por ejemplo, cuando se agrega MoviesDB.csv a la ruta de acceso datos-de-ejemplo/prueba-de-eventos, `@triggerBody().folderPath` tiene un valor de `sample-data/event-testing` y `@triggerBody().fileName` tiene un valor de `moviesDB.csv`. Estos valores se asignan en el ejemplo a los parámetros de canalización `sourceFolder` y `sourceFile`, que se pueden utilizar en toda la canalización como `@pipeline().parameters.sourceFolder` y `@pipeline().parameters.sourceFile` respectivamente.
+
+   > [!NOTE]
+   > Si va a crear la canalización y el desencadenador en [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md), debe usar `@trigger().outputs.body.fileName` y `@trigger().outputs.body.folderPath` como parámetros. Esas dos propiedades capturan información del blob. Utilice esas propiedades en lugar de usar `@triggerBody().fileName` y `@triggerBody().folderPath`.
 
 1. Cuando haya terminado, haga clic en **Finalizar**.
 
