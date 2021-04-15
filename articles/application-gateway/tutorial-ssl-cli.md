@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 24dafd63de1a37140c6a56547c4701729df1c8fb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9ae15503e8f12f7ba70aa5a9d306306fa79745f9
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94566561"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220392"
 ---
 # <a name="create-an-application-gateway-with-tls-termination-using-the-azure-cli"></a>Creación de una puerta de enlace de aplicaciones con terminación TLS mediante la CLI de Azure
 
-Puede usar la CLI de Azure para crear una [puerta de enlace de aplicaciones](overview.md) con un certificado para la [terminación TLS](ssl-overview.md). En el caso de los servidores back-end, puede usar un [conjunto de escalado de máquinas virtuales](../virtual-machine-scale-sets/overview.md). En este ejemplo, el conjunto de escalado contiene dos instancias de máquina virtual que se agregan al grupo de servidores back-end predeterminado de la puerta de enlace de aplicaciones.
+Puede usar la CLI de Azure para crear una [puerta de enlace de aplicaciones](overview.md) con un certificado para la [terminación TLS](ssl-overview.md). En el caso de los servidores backend, puede usar un [conjunto de escalado de máquinas virtuales](../virtual-machine-scale-sets/overview.md). En este ejemplo, el conjunto de escalado contiene dos instancias de máquina virtual que se agregan al grupo de servidores back-end predeterminado de la puerta de enlace de aplicaciones.
 
 En este artículo aprenderá a:
 

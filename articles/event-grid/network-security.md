@@ -5,12 +5,12 @@ author: VidyaKukke
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: vkukke
-ms.openlocfilehash: 10c9b165041f0a4a1f09511f17bef3629353c3b2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d58e8b5ce9fb444fa501f897cca722613d9c51fe
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94917535"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105967581"
 ---
 # <a name="network-security-for-azure-event-grid-resources"></a>Seguridad de red para recursos de Azure Event Grid
 En este artículo se describe cómo usar las siguientes características de seguridad con Azure Event Grid: 
@@ -33,7 +33,7 @@ Puede usar etiquetas de servicio para definir controles de acceso a la red en [g
 ## <a name="ip-firewall"></a>Firewall de dirección IP 
 Azure Event Grid admite controles de acceso basados en IP para la publicación en temas y dominios. Con los controles basados en IP, puede limitar los publicadores de un tema o dominio a solo un conjunto aprobado de máquinas y servicios en la nube. Esta característica complementa los [mecanismos de autenticación](security-authentication.md) compatibles con Event Grid.
 
-De forma predeterminada, el tema y el dominio son accesibles desde Internet siempre que la solicitud venga con una autenticación y una autorización válidas. Con el firewall de IP, puede restringirlo aún más a solo un conjunto de direcciones IP o intervalos de direcciones IP en la notación [CIDR (Enrutamiento de interdominios sin clases)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). Los publicadores que se originen desde cualquier otra dirección IP se rechazarán y recibirán una respuesta 403 (Prohibido).
+De forma predeterminada, el tema y el dominio son accesibles desde Internet siempre y cuando la solicitud venga con una autenticación y una autorización válidas. Con el firewall de IP, puede restringirlo aún más a solo un conjunto de direcciones IP o intervalos de direcciones IP en la notación [CIDR (Enrutamiento de interdominios sin clases)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). Los publicadores que se originen desde cualquier otra dirección IP se rechazarán y recibirán una respuesta 403 (Prohibido).
 
 A fin de obtener instrucciones paso a paso para configurar el firewall de IP para temas y dominios, consulte [configurar el firewall de IP](configure-firewall.md).
 
@@ -69,7 +69,7 @@ Cuando se resuelve desde la red virtual que hospeda el punto de conexión privad
 | Nombre                                          | Tipo      | Value                                         |
 | --------------------------------------------- | ----------| --------------------------------------------- |  
 | `topicA.westus.eventgrid.azure.net`             | CNAME     | `topicA.westus.privatelink.eventgrid.azure.net` |
-| `topicA.westus.privatelink.eventgrid.azure.net` | Un         | 10.0.0.5
+| `topicA.westus.privatelink.eventgrid.azure.net` | A         | 10.0.0.5
 
 Este enfoque permite el acceso al tema o dominio mediante la misma cadena de conexión para los clientes de la red virtual que hospeda los puntos de conexión privados y los clientes que están fuera de esta.
 

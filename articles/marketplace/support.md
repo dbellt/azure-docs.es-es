@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 01/19/2020
-ms.openlocfilehash: a1726b29c153bf680d29fe821ac34aa958064335
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cfe365af868f01b868e737a409724e92f1d57f81
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98879248"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107106996"
 ---
 # <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>Soporte técnico para el programa de marketplace comercial en el Centro de partners
 
@@ -24,7 +24,7 @@ Microsoft ofrece soporte para una amplia variedad de productos y servicios. Enco
 
 ## <a name="get-help-or-open-a-support-ticket"></a>Obtención de ayuda o apertura de una incidencia de soporte técnico
 
-1. Inicia sesión con la cuenta profesional. Si aún no lo ha hecho, tendrá que [crear una cuenta del Centro de partners](partner-center-portal/create-account.md).
+1. Inicia sesión con la cuenta profesional. Si aún no lo ha hecho, tendrá que [crear una cuenta del Centro de partners](create-account.md).
 
 1. En el menú que se encuentra en la parte superior derecha de la página, seleccione el icono **Soporte técnico**. El panel **Ayuda y soporte técnico** aparece en el lado derecho de la página.
 

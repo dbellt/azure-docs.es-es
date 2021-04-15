@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 2/26/2021
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: d155d0c4a18b254f66ff5fb58ea91dbee22d2c34
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 578befe3e26ebb42fa2172976e07d0a5836e3743
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103496616"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107166"
 ---
 # <a name="tutorial-create-an-azure-digital-twins-graph-using-the-azure-cli"></a>Tutorial: Creación de un grafo de Azure Digital Twins mediante la CLI de Azure
 
@@ -20,7 +20,7 @@ ms.locfileid: "103496616"
 
 En este tutorial creará un grafo en Azure digital gemelos con modelos, gemelos y relaciones. La herramienta para este tutorial es el [conjunto de comandos de Azure Digital Twins para la **CLI de Azure**](how-to-use-cli.md). 
 
-Puede usar estos comandos de la CLI para realizar acciones básicas de Azure Digital Twins, como cargar modelos, crear y modificar gemelos, y crear relaciones. También puede consultar la [documentación de referencia del conjunto de comandos *az dt*](/cli/azure/ext/azure-iot/dt?preserve-view=true&view=azure-cli-latest) para ver el conjunto completo de comandos de la CLI.
+Puede usar estos comandos de la CLI para realizar acciones básicas de Azure Digital Twins, como cargar modelos, crear y modificar gemelos, y crear relaciones. También puede consultar la [documentación de referencia del conjunto de comandos *az dt*](/cli/azure/dt) para ver el conjunto completo de comandos de la CLI.
 
 En este tutorial:
 > [!div class="checklist"]
@@ -91,7 +91,7 @@ Después de diseñar los modelos, debe cargarlos en la instancia de Azure Digita
     
     Vaya al archivo *Room.json* en la máquina y pulse "Open" (Abrir). A continuación, repita este paso para *Floor.json*.
 
-1. A continuación, use el comando [**az dt model create**](/cli/azure/ext/azure-iot/dt/model?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_model_create) como se muestra a continuación para cargar el modelo *Room* actualizado en la instancia de Azure Digital Twins. El segundo comando carga otro modelo, *Floor*, que también usará en la sección siguiente para crear distintos tipos de gemelos.
+1. A continuación, use el comando [**az dt model create**](/cli/azure/dt/model#az_dt_model_create) como se muestra a continuación para cargar el modelo *Room* actualizado en la instancia de Azure Digital Twins. El segundo comando carga otro modelo, *Floor*, que también usará en la sección siguiente para crear distintos tipos de gemelos.
 
     ```azurecli-interactive
     az dt model create -n <ADT_instance_name> --models Room.json
@@ -101,9 +101,9 @@ Después de diseñar los modelos, debe cargarlos en la instancia de Azure Digita
     La salida de cada comando mostrará información sobre el modelo cargado correctamente.
 
     >[!TIP]
-    >También puede cargar todos los modelos dentro de un directorio al mismo tiempo mediante la opción `--from-directory` para el comando model create. Para más información, consulte [Parámetros opcionales para *az dt model create*](/cli/azure/ext/azure-iot/dt/model?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_model_create-optional-parameters).
+    >También puede cargar todos los modelos dentro de un directorio al mismo tiempo mediante la opción `--from-directory` para el comando model create. Para más información, consulte [Parámetros opcionales para *az dt model create*](/cli/azure/dt/model#az_dt_model_create-optional-parameters).
 
-1. Compruebe que los modelos se crearon con el comando [**az dt model list**](/cli/azure/ext/azure-iot/dt/model?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_model_list), como se muestra a continuación. Así se imprimirá una lista de todos los modelos que se han cargado en la instancia de Azure Digital Twins con toda su información. 
+1. Compruebe que los modelos se crearon con el comando [**az dt model list**](/cli/azure/dt/model#az_dt_model_list), como se muestra a continuación. Así se imprimirá una lista de todos los modelos que se han cargado en la instancia de Azure Digital Twins con toda su información. 
 
     ```azurecli-interactive
     az dt model list -n <ADT_instance_name> --definition
@@ -129,7 +129,7 @@ Dado que los modelos no se pueden sobrescribir, esto devolverá un código de er
 
 Ahora que algunos modelos se han cargado en la instancia de Azure Digital Twins, puede crear [**gemelos digitales**](concepts-twins-graph.md) basados en las definiciones de modelo. Los gemelos digitales representan las entidades del entorno empresarial, como los sensores de una granja, las salas de un edificio o las luces de un coche. 
 
-Para crear un gemelo digital, se usa el comando [**az dt twin create**](/cli/azure/ext/azure-iot/dt/twin?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_twin_create). Se debe hacer referencia al modelo en el que se basa el gemelo y, opcionalmente, puede definir los valores iniciales de las propiedades del modelo. En esta fase, no es necesario pasar ninguna información de relación.
+Para crear un gemelo digital, se usa el comando [**az dt twin create**](/cli/azure/dt/twin#az_dt_twin_create). Se debe hacer referencia al modelo en el que se basa el gemelo y, opcionalmente, puede definir los valores iniciales de las propiedades del modelo. En esta fase, no es necesario pasar ninguna información de relación.
 
 1. Ejecute este código en Cloud Shell para crear varios gemelos, según el modelo *Room* que ha actualizado anteriormente y otro modelo, *Floor*. Recuerde que *Room* tiene tres propiedades, por lo que puede proporcionar argumentos con los valores iniciales de estas. (La inicialización de los valores de propiedad es opcional en general, pero son necesarios para este tutorial).
 
@@ -151,7 +151,7 @@ Para crear un gemelo digital, se usa el comando [**az dt twin create**](/cli/azu
     
     La salida de cada comando mostrará información sobre el gemelo creado correctamente (incluidas las propiedades de los gemelos de Room que se inicializaron con ellos).
 
-1. Puede comprobar la creación de los gemelos con el comando [**az dt twin query**](/cli/azure/ext/azure-iot/dt/twin?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_twin_query), como se muestra a continuación. La consulta mostrada busca todos los gemelos digitales en la instancia de Azure Digital Twins.
+1. Puede comprobar la creación de los gemelos con el comando [**az dt twin query**](/cli/azure/dt/twin#az_dt_twin_query), como se muestra a continuación. La consulta mostrada busca todos los gemelos digitales en la instancia de Azure Digital Twins.
     
     ```azurecli-interactive
     az dt twin query -n <ADT_instance_name> -q "SELECT * FROM DIGITALTWINS"
@@ -165,7 +165,7 @@ Para crear un gemelo digital, se usa el comando [**az dt twin create**](/cli/azu
 
 También puede modificar las propiedades de un gemelo que haya creado. 
 
-1. Pruebe a ejecutar el comando [**az dt twin update**](/cli/azure/ext/azure-iot/dt/twin?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_twin_update) para cambiar la propiedad RoomName de *room0* de *Room0* a *PresidentialSuite*:
+1. Pruebe a ejecutar el comando [**az dt twin update**](/cli/azure/dt/twin#az_dt_twin_update) para cambiar la propiedad RoomName de *room0* de *Room0* a *PresidentialSuite*:
 
     ```azurecli-interactive
     az dt twin update -n <ADT_instance_name> --twin-id room0 --json-patch '{"op":"add", "path":"/RoomName", "value": "PresidentialSuite"}'
@@ -183,7 +183,7 @@ También puede modificar las propiedades de un gemelo que haya creado.
 
     :::image type="content" source="media/tutorial-command-line/cli/output-update-twin.png" alt-text="Captura de pantalla de Cloud Shell que muestra el resultado del comando update, que incluye una propiedad RoomName como PresidentialSuite." lightbox="media/tutorial-command-line/cli/output-update-twin.png":::
 
-1. Para comprobar que la actualización se ha realizado correctamente, ejecute el comando [**az dt twin show**](/cli/azure/ext/azure-iot/dt/twin?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_twin_show) para ver la información de *room0*:
+1. Para comprobar que la actualización se ha realizado correctamente, ejecute el comando [**az dt twin show**](/cli/azure/dt/twin#az_dt_twin_show) para ver la información de *room0*:
 
     ```azurecli-interactive
     az dt twin show -n <ADT_instance_name> --twin-id room0
@@ -197,7 +197,7 @@ A continuación, puede crear algunas **relaciones** entre estos gemelos para con
 
 Los tipos de relaciones que puede crear de un gemelo a otro se definen dentro de los [modelos](#model-a-physical-environment-with-dtdl) que cargó anteriormente. La [definición del modelo para *Floor*](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json) especifica que las plantas pueden tener un tipo de relación denominado *contains*. Esto permite crear una relación de tipo *contains* a partir de cada gemelo de *Floor* en la planta correspondiente que lo contiene.
 
-Para agregar una relación, use el comando [**az dt twin relationship create**](/cli/azure/ext/azure-iot/dt/twin/relationship?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_twin_relationship_create). Especifique el gemelo del que procede la relación, el tipo de relación y el gemelo con el que conecta la relación. Por último, asígnele un identificador único a la relación. Si se definió una relación para que tenga propiedades, también puede inicializar las propiedades de la relación en este comando.
+Para agregar una relación, use el comando [**az dt twin relationship create**](/cli/azure/dt/twin/relationship#az_dt_twin_relationship_create). Especifique el gemelo del que procede la relación, el tipo de relación y el gemelo con el que conecta la relación. Por último, asígnele un identificador único a la relación. Si se definió una relación para que tenga propiedades, también puede inicializar las propiedades de la relación en este comando.
 
 1. Ejecute el código siguiente para agregar una relación de tipo *contains* a partir de los gemelos de *Floor* que creó anteriormente en el gemelo de *Room* correspondiente. Las relaciones se denominan *relationship0* y *relationship1*.
 
@@ -240,7 +240,7 @@ Los gemelos y las relaciones que ha configurado en este tutorial forman el sigui
 
 ## <a name="query-the-twin-graph-to-answer-environment-questions"></a>Consulta del gráfico de gemelos para responder a las preguntas del entorno
 
-Una de las principales características de Azure Digital Twins es la posibilidad de [consultar](concepts-query-language.md) el gráfico de gemelos de forma fácil y eficaz para responder a las preguntas sobre el entorno. En la CLI de Azure, esto se hace con el comando [**az dt twin query**](/cli/azure/ext/azure-iot/dt/twin?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_twin_query).
+Una de las principales características de Azure Digital Twins es la posibilidad de [consultar](concepts-query-language.md) el gráfico de gemelos de forma fácil y eficaz para responder a las preguntas sobre el entorno. En la CLI de Azure, esto se hace con el comando [**az dt twin query**](/cli/azure/dt/twin#az_dt_twin_query).
 
 Ejecute las siguientes consultas en Cloud Shell para responder a algunas preguntas sobre el entorno de ejemplo.
 
@@ -308,7 +308,7 @@ Después de completar este tutorial, puede elegir los recursos que desea quitar 
 
 * **Si va a continuar con el siguiente tutorial**, puede conservar los recursos que configure aquí y volver a usar la instancia de Azure Digital Twins sin borrar nada.
 
-* **Si desea seguir usando la instancia de Azure Digital Twins, pero borrar todos sus modelos, gemelos y relaciones**, puede usar los comandos [**az dt twin rellationship delete**](/cli/azure/ext/azure-iot/dt/twin/relationship?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_twin_relationship_delete), [**az dt twin delete**](/cli/azure/ext/azure-iot/dt/twin?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_twin_delete) y [**az ddt model delete**](/cli/azure/ext/azure-iot/dt/model?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_model_delete) para borrar las relaciones, los gemelos y los modelos de la instancia, respectivamente.
+* **Si desea seguir usando la instancia de Azure Digital Twins, pero borrar todos sus modelos, gemelos y relaciones**, puede usar los comandos [**az dt twin rellationship delete**](/cli/azure/dt/twin/relationship#az_dt_twin_relationship_delete), [**az dt twin delete**](/cli/azure/dt/twin#az_dt_twin_delete) y [**az ddt model delete**](/cli/azure/dt/model#az_dt_model_delete) para borrar las relaciones, los gemelos y los modelos de la instancia, respectivamente.
 
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 

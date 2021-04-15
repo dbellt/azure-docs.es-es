@@ -4,12 +4,12 @@ description: Obtenga información sobre el escalado en Azure Kubernetes Service 
 services: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.openlocfilehash: b72ed7cefc6a16eb484e1337dbd64e5f069a2201
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f6d2121403361c4225a7e0e64411875d83d93194
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94686045"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305742"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Opciones de escalado de aplicaciones en Azure Kubernetes Service (AKS)
 
@@ -26,7 +26,7 @@ En este artículo se presentan los conceptos básicos para ayudarle a escalar ap
 
 Puede escalar manualmente las réplicas (pods) y nodos para probar cómo responde la aplicación a un cambio en los recursos disponibles y el estado. El escalado manual de recursos también le permite definir una cantidad establecida de recursos que se usarán para mantener un costo fijo como el número de nodos. Para realizar un escalado manual, defina el número de réplicas o de nodos. Luego, Kubernetes API programará la creación de pods adicionales o el drenaje de nodos en función del número de réplicas o de nodos.
 
-Al reducir verticalmente los nodos, la API de Kubernetes llama a la API de proceso de Azure correspondiente asociada al tipo de proceso que usa el clúster. Por ejemplo, para los clústeres basados en VM Scale Sets, la lógica para seleccionar los nodos que se van a quitar vienen determinada por la API de VM Scale Sets. Para obtener más información sobre cómo se seleccionan los nodos para su eliminación al reducir verticalmente, vea las [preguntas más frecuentes sobre VMSS](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.md#if-i-reduce-my-scale-set-capacity-from-20-to-15-which-vms-are-removed).
+Al reducir verticalmente los nodos, la API de Kubernetes llama a la API de proceso de Azure correspondiente asociada al tipo de proceso que usa el clúster. Por ejemplo, para los clústeres basados en VM Scale Sets, la lógica para seleccionar los nodos que se van a quitar vienen determinada por la API de VM Scale Sets. Para obtener más información sobre cómo se seleccionan los nodos para su eliminación al reducir verticalmente, vea las [preguntas más frecuentes sobre VMSS](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.yml#if-i-reduce-my-scale-set-capacity-from-20-to-15--which-vms-are-removed-).
 
 Para empezar con el escalado manual de pods y nodos, consulte [Escalado de aplicaciones en AKS][aks-scale].
 

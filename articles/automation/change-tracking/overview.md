@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 01/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: e2371f3de8ed73250bca6639e6c749811c5559ad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ed29def305bfa33a0a947a331775de89275e5f7f
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100572617"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220873"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Información general de Change Tracking e Inventario
 
@@ -40,6 +40,8 @@ Las máquinas conectadas al área de trabajo de Log Analytics usan el [agente de
 
 > [!NOTE]
 > Change Tracking e Inventario requiere vincular un área de trabajo de Log Analytics a la cuenta de Automation. Para ver una lista definitiva de regiones admitidas, consulte [Asignaciones de áreas de trabajo](../how-to/region-mappings.md). Las asignaciones de regiones no afectan a la capacidad de administrar VM en una región independiente de la cuenta de Automation.
+
+Como proveedor de servicios, es posible que haya incorporado varios inquilinos de cliente para [Azure Lighthouse](../../lighthouse/overview.md). Azure Lighthouse permite realizar operaciones a gran escala en varios inquilinos de Azure Active Directory (Azure AD) a la vez, lo que hace que las tareas de administración, como Seguimiento de cambios e inventario, sean más eficaces en aquellos inquilinos de los que es responsable. Seguimiento de cambios e inventario puede administrar máquinas de varias suscripciones del mismo inquilino o en varios inquilinos mediante la [Administración de recursos delegados de Azure](../../lighthouse/concepts/azure-delegated-resource-management.md).
 
 ## <a name="current-limitations"></a>Limitaciones actuales
 

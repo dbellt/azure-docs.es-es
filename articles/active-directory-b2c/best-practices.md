@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: vigunase
 ms.subservice: B2C
-ms.openlocfilehash: d8c0a5ce6f3befd41c0e1399363fd73726693837
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2c8a9121d0e36eb51cd02c2c884ddcaa0dd79a79
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96750227"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107226216"
 ---
 # <a name="recommendations-and-best-practices-for-azure-active-directory-b2c"></a>Recomendaciones y procedimientos recomendados para Azure Active Directory B2C
 
@@ -26,7 +26,7 @@ Los siguientes procedimientos recomendados y recomendaciones cubren algunos de l
 
 | Procedimiento recomendado | Descripción |
 |--|--|
-| Elección de flujos de usuario para la mayoría de los escenarios | Identity Experience Framework de Azure AD B2C es el punto fuerte del servicio. Las directivas describen totalmente las experiencias de identidad tales como el registro, el inicio de sesión y la edición de perfil. Para ayudarle a configurar las tareas más comunes de identidad, el portal de Azure AD B2C incluye directivas predefinidas y configurables denominadas flujos de usuario. Con los flujos de usuario, puede crear experiencias de usuario excelentes en cuestión de minutos, con unos pocos clics. [Obtenga información sobre cuándo usar flujos de usuario frente a directivas personalizadas](custom-policy-overview.md#comparing-user-flows-and-custom-policies).|
+| Elección de flujos de usuario para la mayoría de los escenarios | Identity Experience Framework de Azure AD B2C es el punto fuerte del servicio. Las directivas describen totalmente las experiencias de identidad tales como el registro, el inicio de sesión y la edición de perfil. Para ayudarle a configurar las tareas más comunes de identidad, el portal de Azure AD B2C incluye directivas predefinidas y configurables denominadas flujos de usuario. Con los flujos de usuario, puede crear experiencias de usuario excelentes en cuestión de minutos, con unos pocos clics. [Obtenga información sobre cuándo usar flujos de usuario frente a directivas personalizadas](user-flow-overview.md#comparing-user-flows-and-custom-policies).|
 | Registros de aplicaciones | Las aplicaciones (web, nativa) y API que se protegen deben registrarse en Azure AD B2C. Si una aplicación tiene tanto una versión web como una nativa de iOS y Android, puede registrarse como una aplicación en Azure AD B2C con el mismo id. de cliente. Obtenga información sobre cómo [registrar aplicaciones OIDC, SAML, web y nativas](./tutorial-register-applications.md?tabs=applications). Obtenga más información sobre los [tipos de aplicaciones que se pueden usar en Azure AD B2C](./application-types.md). |
 | Traslado a la facturación de usuarios activos mensuales | Azure AD B2C ha pasado de las autenticaciones activas mensuales a la facturación de usuarios activos mensuales (MAU). La mayoría de los clientes encontrarán este modelo rentable. [Obtenga más información sobre la facturación de usuarios activos mensuales](https://azure.microsoft.com/updates/mau-billing/). |
 

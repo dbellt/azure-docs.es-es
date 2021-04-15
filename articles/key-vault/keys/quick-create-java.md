@@ -2,18 +2,18 @@
 title: 'Inicio rápido: Biblioteca cliente de claves de Azure Key Vault para Java'
 description: Proporciona un inicio rápido para la biblioteca cliente de claves de Azure Key Vault para Java.
 author: msmbaldwin
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java
 ms.author: mbaldwin
 ms.date: 01/05/2021
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
-ms.openlocfilehash: cb5abf59c446ef0835375bac45d1e852144a6f28
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 124e56fad35be0f3ac5b08ee9dd66454b9d077c5
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97935281"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107374699"
 ---
 # <a name="quickstart-azure-key-vault-key-client-library-for-java"></a>Inicio rápido: Biblioteca cliente de claves de Azure Key Vault para Java
 Comience a trabajar con la biblioteca cliente de claves de Azure Key Vault para Java. Siga estos pasos para instalar el paquete y probar el código de ejemplo para realizar tareas básicas.
@@ -25,7 +25,7 @@ Recursos adicionales:
 * [Documentación del producto](index.yml)
 * [Muestras](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-keys/src/samples/java/com/azure/security/keyvault/keys)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 - Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Kit de desarrollo de Java (JDK)](/java/azure/jdk/), versión 8 o posterior
 - [Apache Maven](https://maven.apache.org)

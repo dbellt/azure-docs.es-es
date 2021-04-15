@@ -1,6 +1,6 @@
 ---
 title: Asignación de una directiva de acceso de Azure Key Vault (CLI)
-description: Cómo se usa la CLI de Azure para asignar una directiva de acceso de Key Vault a una identidad de aplicación o una entidad de servicio.
+description: Cómo se usa la CLI de Azure para asignar una directiva de acceso de Key Vault a una identidad de aplicación o una entidad de seguridad.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,16 +10,16 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 0c7910ac149c8de43eeac92913a0d314fcc1854e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a9dc03f776ac430072e456332955cbfc75d73bf2
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97934584"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105968856"
 ---
 # <a name="assign-a-key-vault-access-policy"></a>Asignación de una directiva de acceso de Key Vault
 
-Las directivas de acceso de Key Vault determinan si una entidad de servicio determinada, es decir, una aplicación o un grupo de usuarios, puede realizar distintas operaciones en los [secretos](../secrets/index.yml), las [claves](../keys/index.yml) y los [certificados](../certificates/index.yml) de Key Vault. Las directivas de acceso se pueden asignar mediante [Azure Portal](assign-access-policy-portal.md), la [CLI de Azure](assign-access-policy-powershell.md) (este artículo) o Azure PowerShell.
+Una directiva de acceso de Key Vault determina si una entidad de seguridad concreta, es decir, un usuario, una aplicación o un grupo de usuarios, puede realizar distintas operaciones en los [secretos](../secrets/index.yml), las [claves](../keys/index.yml) y los [certificados](../certificates/index.yml) de Key Vault. Las directivas de acceso se pueden asignar mediante [Azure Portal](assign-access-policy-portal.md), la [CLI de Azure](assign-access-policy-powershell.md) (este artículo) o Azure PowerShell.
 
 [!INCLUDE [key-vault-access-policy-limits.md](../../../includes/key-vault-access-policy-limits.md)]
 
@@ -69,7 +69,7 @@ Use el comando [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-poli
 az keyvault set-policy --name myKeyVault --object-id <object-id> --secret-permissions <secret-permissions> --key-permissions <key-permissions> --certificate-permissions <certificate-permissions>
 ```
 
-Reemplace `<object-id>` por el identificador de objeto de la entidad de servicio.
+Reemplace `<object-id>` por el identificador de objeto de la entidad de seguridad.
 
 Solo necesita incluir `--secret-permissions`, `--key-permissions` y `--certificate-permissions` al asignar permisos a esos tipos concretos. Los valores que se permiten para `<secret-permissions>`, `<key-permissions>`y `<certificate-permissions>` se especifican en la documentación de [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy).
 
