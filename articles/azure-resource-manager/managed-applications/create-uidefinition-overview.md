@@ -3,14 +3,14 @@ title: Archivo CreateUiDefinition.jso para el panel del portal
 description: Describe cómo crear definiciones de interfaz de usuario para Azure Portal. Se usa al definir Azure Managed Applications.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 03/26/2021
 ms.author: tomfitz
-ms.openlocfilehash: 327fa1d7eb73d8e65bb4f81c1dff0fe2bec2913b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 586237c6dd909312780163cf316220d2f3fddd8c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "89319581"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105641646"
 ---
 # <a name="createuidefinitionjson-for-azure-managed-applications-create-experience"></a>CreateUiDefinition.json para la experiencia de creación de aplicaciones administradas de Azure
 
@@ -63,25 +63,29 @@ La propiedad `config` es opcional. Utilícela para invalidar el comportamiento p
             "constraints": {
                 "validations": [
                     {
-                        "isValid": "[expression for checking]",
-                        "message": "Please select a valid subscription."
+                        "isValid": "[not(contains(subscription().displayName, 'Test'))]",
+                        "message": "Can't use test subscription."
                     },
                     {
-                        "permission": "<Resource Provider>/<Action>",
-                        "message": "Must have correct permission to complete this step."
+                        "permission": "Microsoft.Compute/virtualmachines/write",
+                        "message": "Must have write permission for the virtual machine."
+                    },
+                    {
+                        "permission": "Microsoft.Compute/virtualMachines/extensions/write",
+                        "message": "Must have write permission for the extension."
                     }
                 ]
             },
             "resourceProviders": [
-                "<Resource Provider>"
+                "Microsoft.Compute"
             ]
         },
         "resourceGroup": {
             "constraints": {
                 "validations": [
                     {
-                        "isValid": "[expression for checking]",
-                        "message": "Please select a valid resource group."
+                        "isValid": "[not(contains(resourceGroup().name, 'test'))]",
+                        "message": "Resource group name can't contain 'test'."
                     }
                 ]
             },
@@ -103,11 +107,13 @@ La propiedad `config` es opcional. Utilícela para invalidar el comportamiento p
 },
 ```
 
+Para la propiedad `isValid`, escriba una expresión que se resuelva en true o en false. Para la propiedad `permission`, especifique una de las [acciones del proveedor de recursos](../../role-based-access-control/resource-provider-operations.md).
+
 ### <a name="wizard"></a>Asistente
 
 La propiedad `isWizard` le permite solicitar la validación correcta de cada paso antes de continuar con el paso siguiente. Cuando no se especifica la propiedad `isWizard`, el valor predeterminado es **falso** y la validación paso a paso no es necesaria.
 
-Cuando `isWizard` está habilitado, es decir, se ha establecido en **true**, la pestaña **Aspectos básicos** está disponible y las demás pestañas están deshabilitadas. Cuando se selecciona el botón **Siguiente**, el icono de la pestaña indica si una pestaña se ha validado correctamente o no. Una vez que se han rellenado y validado los campos obligatorios de una pestaña, el botón **Siguiente** permite desplazarse a la pestaña siguiente. Cuando todas las pestañas se han validado correctamente, puede ir a la página **Revisar y crear** y seleccionar el botón **Crear** para comenzar la implementación.
+Cuando `isWizard` está habilitado, es decir, se ha establecido en **true**, la pestaña **Aspectos básicos** está disponible y las demás pestañas están deshabilitadas. Cuando se selecciona el botón **Siguiente**, el icono de la pestaña indica si una pestaña se ha validado correctamente o no. Una vez que se han rellenado y validado los campos obligatorios de una pestaña, el botón **Siguiente** permite desplazarse a la pestaña siguiente. Cuando todas las pestañas superan la validación, puede ir a la página **Revisar y crear** y seleccionar el botón **Crear** para comenzar la implementación.
 
 :::image type="content" source="./media/create-uidefinition-overview/tab-wizard.png" alt-text="Asistente para pestañas":::
 
@@ -117,7 +123,7 @@ La configuración básica permite personalizar el paso básico.
 
 En `description`, proporcione una cadena habilitada para Markdown que describa el recurso. Se admiten vínculos y formato de varias líneas.
 
-Los elementos `subscription` y `resourceGroup` permiten especificar validaciones adicionales. La sintaxis para especificar validaciones es idéntica a la de la validación personalizada de [cuadro de texto](microsoft-common-textbox.md). También puede especificar validaciones de `permission` en la suscripción o el grupo de recursos.  
+Los elementos `subscription` y `resourceGroup` permiten especificar más validaciones. La sintaxis para especificar validaciones es idéntica a la de la validación personalizada de [cuadro de texto](microsoft-common-textbox.md). También puede especificar validaciones de `permission` en la suscripción o el grupo de recursos.  
 
 El control de suscripción acepta una lista de espacios de nombres del proveedor de recursos. Por ejemplo, puede especificar **Microsoft.Compute**. En este caso, se muestra un mensaje de error cuando el usuario selecciona una suscripción que no admite el proveedor de recursos. El error se produce cuando el proveedor de recursos no está registrado en esa suscripción y el usuario no tiene permiso para registrarlo.  
 
@@ -150,7 +156,7 @@ En el ejemplo siguiente se muestra un cuadro de texto que se ha agregado a los e
 
 ## <a name="steps"></a>Pasos
 
-La propiedad steps contiene cero o más pasos adicionales que se muestran después de los aspectos básicos. Cada paso contiene uno o varios elementos. Considere la posibilidad de agregar pasos por rol o nivel de aplicación que se está implementando. Por ejemplo, agregue un paso para las entradas de los nodos principales y un paso para los nodos de trabajo de un clúster.
+La propiedad steps contiene cero o más pasos que se muestran después de los aspectos básicos. Cada paso contiene uno o varios elementos. Considere la posibilidad de agregar pasos por rol o nivel de aplicación que se está implementando. Por ejemplo, agregue un paso para las entradas del nodo principal y otro para los nodos de trabajo de un clúster.
 
 ```json
 "steps": [

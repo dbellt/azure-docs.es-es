@@ -6,15 +6,15 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
 ms.workload: identity
-ms.author: kenwith
-author: kenwith
-manager: daveba
-ms.openlocfilehash: 81898875af85becf1766f02a5b7e077cb388a173
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.author: iangithinji
+author: iantheninja
+manager: CelesteDG
+ms.openlocfilehash: 17dca502d3c65563cb9e4d2c382afb79f4d612e9
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106450045"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107376059"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Administración de aplicaciones en Azure Active Directory: Novedades
 
@@ -40,7 +40,7 @@ Le damos la bienvenida a las novedades sobre la documentación de administració
 - [Solucionar problemas de las configuraciones de delegación restringida de Kerberos para el proxy de aplicación](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
 - [Inicio rápido: Configuración del inicio de sesión único (SSO) basado en SAML de una aplicación en el inquilino de Azure Active Directory (Azure AD)](add-application-portal-setup-sso.md)
 - [Administración de aplicaciones en Azure Active Directory: Novedades](whats-new-docs.md)
-- [Preguntas más frecuentes sobre Active Directory (Azure AD) Application Proxy](application-proxy-faq.md)
+- [Preguntas más frecuentes sobre Active Directory (Azure AD) Application Proxy](application-proxy-faq.yml)
 - [Solución de problemas al iniciar sesión en una aplicación desde Aplicaciones de Azure AD](application-sign-in-other-problem-access-panel.md)
 - [Tutorial: Adición de una aplicación local para el acceso remoto mediante el proxy de aplicación en Azure Active Directory](application-proxy-add-on-premises-application.md)
 - [Optimización del flujo de tráfico con Application Proxy de Azure Active Directory](application-proxy-network-topology.md)
@@ -75,7 +75,7 @@ Le damos la bienvenida a las novedades sobre la documentación de administració
 - [Procedimientos recomendados de administración de aplicaciones](application-management-fundamentals.md)
 - [Guía de introducción a la integración de Azure Active Directory con las aplicaciones](plan-an-application-integration.md)
 - [¿Qué es la administración de aplicaciones?](what-is-application-management.md)
-- [Preguntas más frecuentes sobre Active Directory (Azure AD) Application Proxy](application-proxy-faq.md)
+- [Preguntas más frecuentes sobre Active Directory (Azure AD) Application Proxy](application-proxy-faq.yml)
 - [Tutorial: Adición de una aplicación local para el acceso remoto mediante el proxy de aplicación en Azure Active Directory](application-proxy-add-on-premises-application.md)
 - [Trabajo con servidores proxy locales existentes](application-proxy-configure-connectors-with-proxy-servers.md)
 - [Desarrollo de aplicaciones de línea de negocio para Azure Active Directory](../develop/v2-overview.md)

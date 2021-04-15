@@ -10,16 +10,16 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: 87076febd4597556fd2b28245f47442308cd6e6c
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: d257a77940b460bf8be64e3f8376353a859365f7
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106108371"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106284726"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>Instalación y ejecución del contenedor de análisis espacial (versión preliminar)
 
-El contenedor de análisis espacial permite analizar vídeo en streaming en tiempo real para comprender las relaciones espaciales entre los usuarios, su movimiento y las interacciones con objetos de los entornos físicos. Los contenedores son excelentes para requisitos específicos de control de datos y seguridad.
+El contenedor de análisis espacial permite analizar vídeo en streaming en tiempo real para comprender las relaciones espaciales entre las personas, su movimiento y las interacciones con objetos de los entornos físicos. Los contenedores son excelentes para requisitos específicos de control de datos y seguridad.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -529,15 +529,15 @@ sudo az iot edge set-modules --hub-name "<iothub-name>" --device-id "<device-nam
 | `--target-condition` | Nombre del dispositivo IoT Edge para el equipo host. |
 | `-–subscription` | Nombre o id. de la suscripción. |
 
-Este comando iniciará la implementación. Vaya a la página de la instancia de Azure IoT Hub en Azure Portal para ver el estado de la implementación. El estado se puede mostrar como *417: La configuración de implementación del dispositivo no está establecida* hasta que el dispositivo termine de descargar las imágenes de contenedor y empiece a ejecutarse.
+Este comando iniciará la implementación. Vaya a la página de la instancia de Azure IoT Hub en Azure Portal para ver el estado de la implementación. El estado se puede mostrar como *417: La configuración de la implementación del dispositivo no se ha establecido* hasta que el dispositivo termine de descargar las imágenes de contenedor y empiece a ejecutarse.
 
 ## <a name="validate-that-the-deployment-is-successful"></a>Comprobación de una implementación correcta
 
-Hay varias maneras de comprobar que el contenedor está en ejecución. Localice el *estado en tiempo de ejecución* en la **Configuración de módulo IoT Edge Module** del módulo de análisis espacial en la instancia de Azure IoT Hub en Azure Portal. Compruebe que el **valor deseado** y el **valor notificado** del *estado en tiempo de ejecución* sea *En ejecución*.
+Hay varias maneras de comprobar que el contenedor está en ejecución. Localice *Estado en tiempo de ejecución* en **Configuración de módulo IoT Edge** del módulo de análisis espacial en la instancia de Azure IoT Hub en Azure Portal. Compruebe que el **valor deseado** y el **valor notificado** del *estado en tiempo de ejecución* sea *En ejecución*.
 
 ![Comprobación de implementación de ejemplo](./media/spatial-analysis/deployment-verification.png)
 
-Una vez que se complete la implementación y que el contenedor esté en ejecución, el **equipo host** empezará a enviar eventos a Azure IoT Hub. Si usaba la versión `.debug` de las operaciones, verá una ventana del visualizador para cada cámara que configuró en el manifiesto de implementación. Ahora puede definir las líneas y zonas que quiere supervisar en el manifiesto de implementación y siga las instrucciones para volver a realizar la implementación. 
+Una vez que se complete la implementación y que el contenedor esté en ejecución, el **equipo host** empezará a enviar eventos a Azure IoT Hub. Si usó la versión `.debug` de las operaciones, verá una ventana del visualizador para cada cámara que configuró en el manifiesto de implementación. Ahora puede definir las líneas y zonas que quiere supervisar en el manifiesto de implementación y siga las instrucciones para volver a realizar la implementación. 
 
 ## <a name="configure-the-operations-performed-by-spatial-analysis"></a>Configuración de las operaciones realizadas por el análisis espacial
 
@@ -547,8 +547,8 @@ Tendrá que usar [operaciones de análisis espacial](spatial-analysis-operations
 
 Si quiere empezar a usar la salida generada por el contenedor, consulte los artículos siguientes:
 
-*   Use el SDK del Centro de eventos de Azure del lenguaje de programación elegido para conectarse al punto de conexión de Azure IoT Hub y recibir los eventos. Para más información, consulte [Leer mensajes del dispositivo a la nube desde el punto de conexión integrado](../../iot-hub/iot-hub-devguide-messages-read-builtin.md). 
-*   Configure el enrutamiento de mensajes en la instancia de Azure IoT Hub para enviar los eventos a otros puntos de conexión o guardar los eventos en Azure Blob Storage, etc. Para más información, consulte [Enrutamiento de mensajes de IoT Hub](../../iot-hub/iot-hub-devguide-messages-d2c.md). 
+*    Use el SDK del Centro de eventos de Azure del lenguaje de programación elegido para conectarse al punto de conexión de Azure IoT Hub y recibir los eventos. Para más información, consulte [Leer mensajes del dispositivo a la nube desde el punto de conexión integrado](../../iot-hub/iot-hub-devguide-messages-read-builtin.md). 
+*    Configure el enrutamiento de mensajes en la instancia de Azure IoT Hub para enviar los eventos a otros puntos de conexión o guardar los eventos en Azure Blob Storage, etc. Para más información, consulte [Enrutamiento de mensajes de IoT Hub](../../iot-hub/iot-hub-devguide-messages-d2c.md). 
 
 ## <a name="running-spatial-analysis-with-a-recorded-video-file"></a>Ejecución de un análisis espacial con un archivo de vídeo grabado
 
@@ -605,7 +605,7 @@ En este artículo, aprendió los conceptos y el flujo de trabajo para la descarg
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Implementación de una aplicación web de recuento de personas](spatial-analysis-web-app.md)
-* [Configuración de operaciones de análisis espaciales](spatial-analysis-operations.md)
+* [Configuración de las operaciones de análisis espacial](spatial-analysis-operations.md)
 * [Registro y solución de problemas](spatial-analysis-logging.md)
 * [Guía de selección de ubicación de la cámara](spatial-analysis-camera-placement.md)
 * [Guía de selección de ubicación de zonas y líneas](spatial-analysis-zone-line-placement.md)

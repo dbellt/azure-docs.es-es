@@ -8,20 +8,16 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: cc470d12377f50f9f9ae4b362bcabf3a5ce34e8f
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: d61314dc89d341e376de7d3904568825ad3cfb04
+ms.sourcegitcommit: af6eba1485e6fd99eed39e507896472fa930df4d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106169290"
+ms.lasthandoff: 04/04/2021
+ms.locfileid: "106293879"
 ---
 # <a name="about-azure-cloud-services-extended-support"></a>Acerca de Azure Cloud Services (soporte extendido)
 
-> [!IMPORTANT]
-> Cloud Services (soporte extendido) está actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Cloud Services (soporte extendido) es un nuevo modelo de implementación basado en  [Azure Resource Manager](../azure-resource-manager/management/overview.md) del producto  [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services/), y se encuentra actualmente en versión preliminar pública. Cloud Services (soporte extendido) tiene la ventaja principal de proporcionar resistencia regional junto con la paridad de características con Azure Cloud Services implementado mediante Azure Service Manager. También ofrece algunas funcionalidades de ARM como el control de acceso basado en rol (RBAC), etiquetas y directivas, y admite plantillas de implementación.  
+Cloud Services (soporte extendido) es un nuevo modelo de implementación basado en  [Azure Resource Manager](../azure-resource-manager/management/overview.md) del producto  [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services/), y ahora está disponible con carácter general. Cloud Services (soporte extendido) tiene la ventaja principal de proporcionar resistencia regional junto con la paridad de características con Azure Cloud Services implementado mediante Azure Service Manager. También ofrece algunas funcionalidades de ARM, como el control de acceso basado en roles (RBAC), etiquetas y directivas, y admite plantillas de implementación.  
 
 Con este cambio, el modelo de implementación basado en Azure Service Manager para Cloud Services pasará a llamarse [Cloud Services (clásico)](../cloud-services/cloud-services-choose-me.md). Conservará la capacidad de compilar e implementar rápidamente sus aplicaciones y servicios web y en la nube. Podrá escalar su infraestructura de servicios en la nube en función de la demanda actual y garantizar que se mantiene el rendimiento de sus aplicaciones al tiempo que se reducen los costes.  
 

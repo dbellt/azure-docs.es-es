@@ -9,15 +9,15 @@ ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 03/29/2021
 ms.author: aahi
 keywords: local, Docker, contenedor, análisis de sentimiento, procesamiento de lenguaje natural
-ms.openlocfilehash: ac82781ed4a05fbbca7f5b16edb0b5349dfc400a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 012e725e31097af5af634a1aba7693048c4c6b3e
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102432084"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106277477"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Instalación y ejecución de contenedores de Text Analytics
 
@@ -32,7 +32,7 @@ Los contenedores permiten ejecutar las API Text Analytics en su propio entorno y
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de empezar.
 
 > [!IMPORTANT]
-> La cuenta gratuita se limita a 5.000 transacciones al mes y solo las **gratis** y **estándar** <a href="https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics" target="_blank">los planes de tarifa</a> son válidas para los contenedores. Para más información sobre las tasas de solicitudes de las transacciones, consulte [Límites de datos](../overview.md#data-limits).
+> La cuenta gratuita se limita a 5.000 transacciones al mes y solo las **gratis** y **estándar** <a href="https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics" target="_blank">los planes de tarifa</a> son válidas para los contenedores. Para más información sobre las tasas de solicitudes de las transacciones, consulte [Límites de datos](../concepts/data-limits.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -49,6 +49,8 @@ Debe cumplir los siguientes requisitos previos para poder usar contenedores de T
 |Recurso de Text Analytics |Para poder usar el contenedor, debe tener:<br><br>Un recurso de Azure [Text Analytics](../../cognitive-services-apis-create-account.md) con el [plan de tarifa](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) gratis (F0) o estándar (S). Necesitará obtener la clave de API y el URI del punto de conexión asociados. Para ello, vaya a la página **Key and Endpoint** (Clave y punto de conexión) del recurso en Azure Portal. <br><br>**{API_KEY}** : una de las dos claves de recurso disponibles. <br><br>**{ENDPOINT_URI}** : el punto de conexión del recurso. |
 
 [!INCLUDE [Gathering required parameters](../../containers/includes/container-gathering-required-parameters.md)]
+
+Si usa Text Analytics para el contenedor de mantenimiento, la confirmación de [IA responsable](https://docs.microsoft.com/legal/cognitive-services/text-analytics/transparency-note-health) (RAI) también debe estar presente con un valor de `accept`.
 
 ## <a name="the-host-computer"></a>El equipo host
 

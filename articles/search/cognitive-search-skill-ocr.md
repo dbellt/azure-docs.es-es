@@ -8,19 +8,19 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 8b6a7c3e05b26cbda80ebf1a3fc0d4fed8255e6b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aa9c8e1d5579538df11358edc08eb7e2043cea74
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91950812"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285848"
 ---
 # <a name="ocr-cognitive-skill"></a>Aptitud cognitiva de OCR
 
 La aptitud de **reconocimiento óptico de caracteres (OCR)** reconoce texto impreso y manuscrito en archivos de imágenes. Esta aptitud utiliza los modelos de aprendizaje automático proporcionados por [Computer Vision](../cognitive-services/computer-vision/overview.md) API [v3.0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) de Cognitive Services. La aptitud de **reconocimiento óptico de caracteres** se asocia a la siguiente funcionalidad:
 
-+ En inglés, español, alemán, francés, italiano, portugués y holandés, se usa ["Read"](../cognitive-services/computer-vision/concept-recognizing-text.md#read-api) API.
-+ En todos los demás idiomas se usa ["OCR"](../cognitive-services/computer-vision/concept-recognizing-text.md#ocr-api) API.
++ En inglés, español, alemán, francés, italiano, portugués y holandés, se usa ["Read"](../cognitive-services/computer-vision/overview-ocr.md#read-api) API.
++ En todos los demás idiomas se usa la API [OCR heredado](../cognitive-services/computer-vision/overview-ocr.md#ocr-api).
 
 La aptitud de **OCR** extrae texto de los archivos de imagen. Entre otros, estos son los formatos de archivos admitidos:
 
@@ -43,8 +43,8 @@ Los parámetros distinguen mayúsculas de minúsculas.
 
 | Nombre de parámetro     | Descripción |
 |--------------------|-------------|
-| `detectOrientation`   | Permite la detección automática de la orientación de la imagen. <br/> Valores válidos: true / false.|
-| `defaultLanguageCode` | <p>   Código de idioma del texto de entrada. Los lenguajes compatibles incluyen: <br/> zh-Hans (chino simplificado) <br/> zh-Hant (chino tradicional) <br/>cs (checo) <br/>da (danés) <br/>nl (neerlandés) <br/>en (inglés) <br/>fi (finés)  <br/>fr (francés) <br/>  de (alemán) <br/>el (griego) <br/> hu (húngaro) <br/> it (italiano) <br/>  ja (japonés) <br/> ko (coreano) <br/> nb (noruego) <br/>   pl (polaco) <br/> pt (portugués) <br/>  ru (ruso) <br/>  es (español) <br/>  sv (sueco) <br/>  tr (turco) <br/> ar (árabe) <br/> ro (rumano) <br/> sr-Cyrl (serbio cirílico) <br/> sr-Latn (serbio latino) <br/>  sk (eslovaco) <br/>  unk (desconocido) <br/><br/> Si el código de idioma no está especificado o es nulo, el idioma que se establezca será "inglés". Si el idioma se establece explícitamente en "unk", el idioma se detectará automáticamente. </p> |
+| `detectOrientation`    | Permite la detección automática de la orientación de la imagen. <br/> Valores válidos: true / false.|
+| `defaultLanguageCode` | <p>    Código de idioma del texto de entrada. Los lenguajes compatibles incluyen: <br/> zh-Hans (chino simplificado) <br/> zh-Hant (chino tradicional) <br/>cs (checo) <br/>da (danés) <br/>nl (neerlandés) <br/>en (inglés) <br/>fi (finés)  <br/>fr (francés) <br/>  de (alemán) <br/>el (griego) <br/> hu (húngaro) <br/> it (italiano) <br/>  ja (japonés) <br/> ko (coreano) <br/> nb (noruego) <br/>   pl (polaco) <br/> pt (portugués) <br/>  ru (ruso) <br/>  es (español) <br/>  sv (sueco) <br/>  tr (turco) <br/> ar (árabe) <br/> ro (rumano) <br/> sr-Cyrl (serbio cirílico) <br/> sr-Latn (serbio latino) <br/>  sk (eslovaco) <br/>  unk (desconocido) <br/><br/> Si el código de idioma no está especificado o es nulo, el idioma que se establezca será "inglés". Si el idioma se establece explícitamente en "unk", el idioma se detectará automáticamente. </p> |
 | `lineEnding` | Valor que se va a usar entre cada línea detectada. Valores posibles: "Space", "CarriageReturn", "LineFeed".  El valor predeterminado es "Space". |
 
 Anteriormente, había un parámetro denominado "textExtractionAlgorithm" para especificar si la aptitud debe extraer texto "impreso" o "escrito a mano".  Este parámetro está en desuso y ya no es necesario, porque el algoritmo de Read API más reciente es capaz de extraer ambos tipos de texto a la vez.  Si la definición de la aptitud ya incluye este parámetro, no necesita quitarlo, pero ya no se usará y ambos tipos de texto se extraerán independientemente de su configuración.
@@ -57,9 +57,9 @@ Anteriormente, había un parámetro denominado "textExtractionAlgorithm" para es
 
 
 ## <a name="skill-outputs"></a>Salidas de la aptitud
-| Nombre de salida     | Descripción                   |
+| Nombre de salida      | Descripción                   |
 |---------------|-------------------------------|
-| `text`            | Texto sin formato extraído de la imagen.   |
+| `text`             | Texto sin formato extraído de la imagen.   |
 | `layoutText`    | Tipo complejo que describe el texto extraído, así como la ubicación donde se encontró.|
 
 

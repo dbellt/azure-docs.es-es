@@ -3,12 +3,12 @@ title: Información general de las características de Azure Event Hubs | Micros
 description: En este artículo se proporcionan detalles acerca de las características y la terminología de Azure Event Hubs.
 ms.topic: article
 ms.date: 03/15/2021
-ms.openlocfilehash: da59d62cb7060389ea94b3af5e6f66a4b6347d7d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8ec4b7cdd13c3407747261ef54cb6b1fc58fdb69
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104602628"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310096"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Características y terminología de Azure Event Hubs
 
@@ -177,5 +177,5 @@ Para obtener más información acerca de Event Hubs, visite los vínculos siguie
     - [JavaScript](event-hubs-node-get-started-send.md)
 * [Guía de programación de Event Hubs](event-hubs-programming-guide.md)
 * [Disponibilidad y coherencia en Event Hubs](event-hubs-availability-and-consistency.md)
-* [Preguntas más frecuentes sobre Event Hubs](event-hubs-faq.md)
+* [Preguntas más frecuentes sobre Event Hubs](event-hubs-faq.yml)
 * [Ejemplos de Event Hubs](event-hubs-samples.md)

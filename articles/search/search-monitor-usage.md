@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 3f348a5005f28fdd1d02be706ca2742d77368288
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: aa224a09317aafd49ae10c89ae0c50455ddd4602
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100592375"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105709929"
 ---
 # <a name="monitor-operations-and-activity-of-azure-cognitive-search"></a>Supervisión de operaciones y actividades de Azure Cognitive Search
 
@@ -38,9 +38,9 @@ La captura de pantalla siguiente le ayuda a buscar la información de supervisi�
 
 * En la pestaña **Supervisión** de la página Información general principal se muestran el volumen de la consulta, la latencia y si el servicio está bajo presión.
 * **Registro de actividad**, en el panel de navegación de la izquierda, está conectado a Azure Resource Manager. El registro de actividad informa sobre las acciones emprendidas por Resource Manager: disponibilidad y estado del servicio, cambios en la capacidad (réplicas y particiones), y actividades relacionadas con las claves de API.
-* Los valores de **Supervisión** (más abajo) proporcionan alertas, métricas y registros de diagnóstico configurables. Créelos cuando los necesite. Una vez que los datos se recopilan y almacenan, puede consultar o visualizar los detalles de la información.
+* La configuración de **Supervisión** (más abajo) proporciona alertas, visualización de métricas y registros de diagnóstico configurables. Créelos cuando los necesite. Una vez que los datos se recopilan y almacenan, puede consultar o visualizar los detalles de la información.
 
-![Integración de Azure Monitor en un servicio de búsqueda](./media/search-monitor-usage/azure-monitor-search.png
+  ![Integración de Azure Monitor en un servicio de búsqueda](./media/search-monitor-usage/azure-monitor-search.png
  "Integración de Azure Monitor en un servicio de búsqueda")
 
 > [!NOTE]
@@ -94,7 +94,7 @@ Azure Monitor tiene su propia estructura de facturación y los registros de diag
 
 ## <a name="monitor-user-access"></a>Supervisión del acceso de los usuarios
 
-Dado que los índices de búsqueda son un componente de una aplicación cliente mayor, no hay ninguna metodología integrada para controlar o supervisar el acceso a un índice por usuario. Se asume que las solicitudes provienen de una aplicación cliente, tanto para las solicitudes de consulta como del administrador. Las operaciones de escritura y lectura del administrador incluyen la creación, actualización y eliminación de objetos en todo el servicio. Las operaciones de solo lectura son consultas a la colección de documentos, cuyo ámbito es un solo índice. 
+Dado que los índices de búsqueda son un componente de una aplicación cliente mayor, no hay ninguna metodología integrada para controlar o supervisar el acceso a un índice por usuario. Se supone que las solicitudes provienen de una aplicación cliente que presenta una solicitud de administración o consulta. Las operaciones de escritura y lectura del administrador incluyen la creación, actualización y eliminación de objetos en todo el servicio. Las operaciones de solo lectura son consultas a la colección de documentos, cuyo ámbito es un solo índice. 
 
 De por sí, lo que verá en los registros de actividad son referencias a llamadas mediante claves de administrador o claves de consulta. La clave apropiada se incluye en las solicitudes que parten del código de cliente. El servicio no está equipado para administrar los tokens de identidad o la suplantación.
 

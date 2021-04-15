@@ -8,20 +8,20 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: sstein
-ms.date: 03/01/2021
-ms.openlocfilehash: 0bc00aea67fa2f71599ee62e657e1ca1b0627681
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.date: 03/31/2021
+ms.openlocfilehash: 8e78db5b9d496c2ac13c9f1214b386770c11e21e
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102199856"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075907"
 ---
 # <a name="migrate-databases-from-sql-server-to-sql-managed-instance-by-using-log-replay-service-preview"></a>Migración de bases de datos de SQL Server a SQL Managed Instance mediante el servicio de reproducción de registros (versión preliminar)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 En este artículo se explica cómo configurar manualmente la migración de bases de datos de SQL Server 2008-2019 a Azure SQL Managed Instance mediante el servicio de reproducción de registros (LRS) actualmente en versión preliminar pública. Se trata de un servicio en la nube habilitado para SQL Managed Instance y basado en la tecnología de trasvase de registros de SQL Server. 
 
-[Azure Database Migration Service](/azure/dms/tutorial-sql-server-to-managed-instance) y LRS usan la misma tecnología de migración subyacente y las mismas API. LRS permite realizar migraciones personalizadas complejas y utilizar arquitectura híbrida entre la instancia de SQL Server local y SQL Managed Instance.
+[Azure Database Migration Service](../../dms/tutorial-sql-server-to-managed-instance.md) y LRS usan la misma tecnología de migración subyacente y las mismas API. LRS permite realizar migraciones personalizadas complejas y utilizar arquitectura híbrida entre la instancia de SQL Server local y SQL Managed Instance.
 
 ## <a name="when-to-use-log-replay-service"></a>Cuándo usar el servicio de reproducción de registros
 
@@ -34,6 +34,7 @@ Puede considerar el uso de LRS en los siguientes casos:
 - El archivo ejecutable de Database Migration Service no tiene acceso a los archivos de copia de seguridad de la base de datos.
 - No dispone de acceso al sistema operativo del host o no tiene privilegios de administrador.
 - No puede abrir puertos de red entre su entorno y Azure.
+- Limitación de la red o problemas de bloqueo del proxy en el entorno.
 - Las copias de seguridad se almacenan directamente en Azure Blob Storage con la opción `TO URL`.
 - Necesita usar copias de seguridad diferenciales.
 
@@ -66,11 +67,11 @@ Una vez detenido LRS, ya sea automáticamente con autocompletar o manualmente co
     
 | Operación | Detalles |
 | :----------------------------- | :------------------------- |
-| **1. Realice la copia de seguridad de las bases de datos de SQL Server en Blob Storage**. | Realice copias de seguridad completas, diferenciales y de registros de SQL Server en un contenedor de Blob Storage mediante [Azcopy](/azure/storage/common/storage-use-azcopy-v10) o el [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/). <br /><br />Use cualquier nombre de archivo. En LRS no hace falta seguir una convención de nomenclatura de archivos específica.<br /><br />Si migra varias bases de datos, necesitará una carpeta independiente para cada una de ellas. |
+| **1. Realice la copia de seguridad de las bases de datos de SQL Server en Blob Storage**. | Realice copias de seguridad completas, diferenciales y de registros de SQL Server en un contenedor de Blob Storage mediante [Azcopy](../../storage/common/storage-use-azcopy-v10.md) o el [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/). <br /><br />Use cualquier nombre de archivo. En LRS no hace falta seguir una convención de nomenclatura de archivos específica.<br /><br />Si migra varias bases de datos, necesitará una carpeta independiente para cada una de ellas. |
 | **2. Inicie LRS en la nube**. | Puede reiniciar el servicio con una selección de cmdlets: PowerShell ([start-azsqlinstancedatabaselogreplay](/powershell/module/az.sql/start-azsqlinstancedatabaselogreplay)) o la CLI de Azure ([cmdlets az_sql_midb_log_replay_start](/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_start)). <br /><br /> Inicie LRS por separado para cada base de datos que apunte a una carpeta de copia de seguridad en Blob Storage. <br /><br /> Una vez iniciado el servicio, realizará copias de seguridad del contenedor de Blob Storage y comenzará a restaurarlas en SQL Managed Instance.<br /><br /> Si inició LRS en modo continuo, después de restaurar todas las copias de seguridad inicialmente cargadas, el servicio comprobará si se han cargado nuevos archivos en la carpeta. El servicio aplicará continuamente registros basados en la cadena de números de secuencia de registro (LSN) hasta que se detenga. |
 | **2.1. Supervise el progreso de la operación**. | Puede supervisar el progreso de la operación de restauración con una selección de cmdlets: PowerShell ([get-azsqlinstancedatabaselogreplay](/powershell/module/az.sql/get-azsqlinstancedatabaselogreplay)) o la CLI de Azure ([cmdlets az_sql_midb_log_replay_show](/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_show)). |
 | **2.2. Detenga la operación si es necesario**. | Si necesita detener el proceso de migración, dispone de varios cmdlets: PowerShell ([stop-azsqlinstancedatabaselogreplay](/powershell/module/az.sql/stop-azsqlinstancedatabaselogreplay)) o la CLI de Azure ([az_sql_midb_log_replay_stop](/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_stop)). <br /><br /> Al detener la operación se eliminará la base de datos que se está restaurando en SQL Managed Instance. Después de detener una operación, no se puede reanudar el servicio LRS para una base de datos. Deberá reiniciar el proceso de migración desde el principio. |
-| **3. Realice la migración total a la nube cuando esté listo**. | Detenga la aplicación y la carga de trabajo. Realice la última copia de seguridad del final del registro y cárguela en Azure Blob Storage.<br /><br /> Complete la migración total iniciando una operación `complete` de LRS con una selección de cmdlets: PowerShell ([complete-azsqlinstancedatabaselogreplay](/powershell/module/az.sql/complete-azsqlinstancedatabaselogreplay)) o la CLI de Azure ([az_sql_midb_log_replay_complete](/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_complete)). Esta operación detendrá LRS y hará que la base de datos pase a estar en línea para la lectura y escritura en SQL Managed Instance.<br /><br /> Vuelva a apuntar la cadena de conexión de la aplicación de SQL Server a SQL Managed Instance. |
+| **3. Realice la migración total a la nube cuando esté listo**. | Detenga la aplicación y la carga de trabajo. Realice la última copia de seguridad del final del registro y cárguela en Azure Blob Storage.<br /><br /> Complete la migración total iniciando una operación `complete` de LRS con una selección de cmdlets: PowerShell ([complete-azsqlinstancedatabaselogreplay](/powershell/module/az.sql/complete-azsqlinstancedatabaselogreplay)) o la CLI de Azure ([az_sql_midb_log_replay_complete](/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_complete)). Esta operación detendrá LRS y hará que la base de datos pase a estar en línea para la lectura y escritura en SQL Managed Instance.<br /><br /> Vuelva a apuntar la cadena de conexión de la aplicación de SQL Server a SQL Managed Instance. Deberá organizar este paso por sí mismo, ya sea a través de un cambio manual en la cadena de conexión de la aplicación o automáticamente (si la aplicación puede, por ejemplo, leer la cadena de conexión de una propiedad o una base de datos). |
 
 ## <a name="requirements-for-getting-started"></a>Requisitos para comenzar
 
@@ -164,7 +165,7 @@ Azure Blob Storage se utiliza como almacenamiento intermedio para los archivos d
 
 Cuando migra bases de datos a una instancia administrada mediante LRS, puede usar los métodos siguientes para cargar las copias de seguridad en Blob Storage:
 - Usar la funcionalidad [BACKUP TO URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url) nativa de SQL Server
-- Usar [Azcopy](/azure/storage/common/storage-use-azcopy-v10) o el [Explorador de Azure Storage](https://azure.microsoft.com/en-us/features/storage-explorer) para cargar las copias de seguridad en un contenedor de blobs
+- Usar [Azcopy](../../storage/common/storage-use-azcopy-v10.md) o el [Explorador de Azure Storage](https://azure.microsoft.com/en-us/features/storage-explorer) para cargar las copias de seguridad en un contenedor de blobs
 - Usar el Explorador de Storage en Azure Portal
 
 ### <a name="make-backups-from-sql-server-directly-to-blob-storage"></a>Creación de copias de seguridad de SQL Server directamente en Blob Storage

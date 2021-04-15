@@ -11,12 +11,12 @@ ms.date: 2/19/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: d778844fee8cad9359532ffa23e177bf7b13c4b8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9bdc4b2fed40817c7173468180e34de1ed0506fb
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98117697"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105962686"
 ---
 # <a name="capacity-limits-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Límites de capacidad para el grupo de SQL dedicado en Azure Synapse Analytics
 
@@ -84,17 +84,17 @@ Valores máximos permitidos para los distintos componentes del grupo de SQL dedi
 
 ## <a name="metadata"></a>Metadatos
 
+La DMV se restablecerá cuando un grupo de SQL dedicado esté en pausa o cuando se escale.
+
 | Vista de sistema | Número máximo de filas |
 |:--- |:--- |
-| sys.dm_pdw_component_health_alerts |10 000 |
-| sys.dm_pdw_dms_cores |100 |
-| sys.dm_pdw_dms_workers |Número total de trabajadores de DMS para las 1000 solicitudes de SQL más recientes. |
-| sys.dm_pdw_errors |10 000 |
-| sys.dm_pdw_exec_requests |10 000 |
-| sys.dm_pdw_exec_sessions |10 000 |
-| sys.dm_pdw_request_steps |Número total de pasos para las 1000 solicitudes SQL más recientes que se almacenan en sys.dm_pdw_exec_requests. |
-| sys.dm_pdw_os_event_logs |10 000 |
-| sys.dm_pdw_sql_requests |Las 1000 solicitudes SQL más recientes que se almacenan en sys.dm_pdw_exec_requests. |
+| [sys.dm_pdw_dms_cores](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-dms-cores-transact-sql?view=azure-sqldw-latest&preserve-view=true) |100 |
+| [sys.dm_pdw_dms_workers](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-dms-workers-transact-sql?view=azure-sqldw-latest&preserve-view=true) |Número total de trabajadores de DMS para las 1000 solicitudes de SQL más recientes. |
+| [sys.dm_pdw_errors](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-errors-transact-sql?view=azure-sqldw-latest&preserve-view=true) |10 000 |
+| [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest&preserve-view=true) |10 000 |
+| [sys.dm_pdw_exec_sessions](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-sessions-transact-sql?view=azure-sqldw-latest&preserve-view=true) |10 000 |
+| [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?view=azure-sqldw-latest&preserve-view=true) |Número total de pasos para las 1000 solicitudes SQL más recientes que se almacenan en sys.dm_pdw_exec_requests. |
+| [sys.dm_pdw_sql_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-sql-requests-transact-sql?view=azure-sqldw-latest&preserve-view=true) |Las 1000 solicitudes SQL más recientes que se almacenan en sys.dm_pdw_exec_requests. |
 |||
 
 ## <a name="next-steps"></a>Pasos siguientes

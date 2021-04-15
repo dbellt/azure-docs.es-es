@@ -8,12 +8,12 @@ ms.author: amjads
 author: amjads1
 ms.collection: windows
 ms.date: 07/20/2019
-ms.openlocfilehash: 33db214013111b0dd4540a1b1d2947b7d1854db9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bd845c5ef5a06e3a0bca1cebe54ded2e49355617
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104607490"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107309822"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Información general del agente de máquina virtual de Azure
 El agente de máquina virtual de Microsoft Azure (agente VM) es un proceso ligero y seguro que administra la interacción de máquinas virtuales (VM) con el controlador de tejido de Azure. El agente de VM tiene un rol principal que consiste en habilitar y ejecutar extensiones de máquina virtual de Azure. Las extensiones de máquina virtual habilitan la configuración posterior a la implementación de máquinas virtuales, como la instalación y la configuración de software. Las extensiones de máquina virtual también habilitan características de recuperación, como el restablecimiento de la contraseña administrativa de una máquina virtual. Sin el agente de máquina virtual de Azure, no se pueden ejecutar extensiones de máquina virtual.
@@ -121,7 +121,7 @@ Para eliminar un certificado de forma permanente, tendrá que quitarlo de `OSPro
 
 En el caso de una máquina virtual, use [Remove-AzVMSecret]() para quitar certificados de `OSProfile`.
 
-Para obtener más información sobre los certificados del conjunto de escalado de máquinas virtuales, consulte [Conjuntos de escalado de máquinas virtuales: ¿Cómo se quitan los certificados en desuso?](../../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.md#how-do-i-remove-deprecated-certificates)
+Para obtener más información sobre los certificados del conjunto de escalado de máquinas virtuales, consulte [Conjuntos de escalado de máquinas virtuales: ¿Cómo se quitan los certificados en desuso?](../../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.yml#how-do-i-remove-deprecated-certificates-)
 
 
 ## <a name="next-steps"></a>Pasos siguientes

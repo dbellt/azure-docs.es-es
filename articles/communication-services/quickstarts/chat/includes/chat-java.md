@@ -10,12 +10,12 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 7fe50a6236cf67f1048dddecbf46fea836ec05c5
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: e5b5433be4a95a9df9d3b3527473c3004d24acac
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106125771"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107326983"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -134,12 +134,15 @@ Use el método `createChatThread` para crear un subproceso de chat.
 Contiene un método `getChatThread()` que devuelve el objeto `ChatThread` que se puede utilizar para obtener el cliente de la conversación de la que se puede obtener `ChatThreadClient` para realizar operaciones en la conversación creada: agregar participantes, enviar mensaje, etc. El objeto `ChatThread` también contiene el método `getId()` que recupera el identificador único de la conversación.
 
 ```Java
+CommunicationUserIdentifier identity1 = new CommunicationUserIdentifier("<USER_1_ID>");
+CommunicationUserIdentifier identity2 = new CommunicationUserIdentifier("<USER_2_ID>");
+
 ChatParticipant firstThreadParticipant = new ChatParticipant()
-    .setCommunicationIdentifier(firstUser)
+    .setCommunicationIdentifier(identity1)
     .setDisplayName("Participant Display Name 1");
 
 ChatParticipant secondThreadParticipant = new ChatParticipant()
-    .setCommunicationIdentifier(secondUser)
+    .setCommunicationIdentifier(identity2)
     .setDisplayName("Participant Display Name 2");
 
 CreateChatThreadOptions createChatThreadOptions = new CreateChatThreadOptions("Topic")
@@ -239,12 +242,15 @@ Utilice el método `addParticipants` para agregar participantes a la conversaci�
 ```Java
 List<ChatParticipant> participants = new ArrayList<ChatParticipant>();
 
+CommunicationUserIdentifier identity3 = new CommunicationUserIdentifier("<USER_3_ID>");
+CommunicationUserIdentifier identity4 = new CommunicationUserIdentifier("<USER_4_ID>");
+
 ChatParticipant thirdThreadParticipant = new ChatParticipant()
-    .setCommunicationIdentifier(user3)
+    .setCommunicationIdentifier(identity3)
     .setDisplayName("Display Name 3");
 
 ChatParticipant fourthThreadParticipant = new ChatParticipant()
-    .setCommunicationIdentifier(user4)
+    .setCommunicationIdentifier(identity4)
     .setDisplayName("Display Name 4");
 
 participants.add(thirdThreadParticipant);

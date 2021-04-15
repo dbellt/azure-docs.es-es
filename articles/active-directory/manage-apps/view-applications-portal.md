@@ -2,22 +2,22 @@
 title: 'Inicio rápido: Visualización de la lista de aplicaciones que usan el inquilino de Azure Active Directory (Azure AD) para la administración de identidades'
 description: En este inicio rápido, use Azure Portal para ver la lista de aplicaciones registradas para usar el inquilino de Azure Active Directory (Azure AD) para la administración de identidades.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: quickstart
 ms.date: 04/09/2019
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: arvinh
 ms.custom: it-pro
-ms.openlocfilehash: 4bf0353148a5f8474270b314a85d55c3cfd753ab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c4a03e85798d4406068bd5923dbc753d8e5d31b6
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99257568"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107376450"
 ---
 # <a name="quickstart-view-the-list-of-applications-that-are-using-your-azure-active-directory-azure-ad-tenant-for-identity-management"></a>Inicio rápido: Visualización de la lista de aplicaciones que usan el inquilino de Azure Active Directory (Azure AD) para la administración de identidades
 

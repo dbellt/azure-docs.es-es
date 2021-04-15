@@ -3,12 +3,12 @@ title: Configuración de puerto de Azure Relay | Microsoft Docs
 description: En este artículo se incluye una tabla que describe la configuración que se requiere para los valores de los puertos de Azure Relay.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 97640debe81041ff7e2b082c6a9ac606d6088664
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 81551055d967babaac6f12c3a23ce6b1e78afbd5
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85314278"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107314174"
 ---
 # <a name="azure-relay-port-settings"></a>Configuración de puerto de Relay de Azure
 
@@ -42,4 +42,4 @@ Las conexiones híbridas emplean protocolos WebSocket en el puerto 443 con TLS c
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre Azure Relay, visite estos vínculos:
 * [¿Qué es Relay de Azure?](relay-what-is-it.md)
-* [Preguntas más frecuentes acerca de Relay](relay-faq.md)
+* [Preguntas más frecuentes acerca de Relay](relay-faq.yml)

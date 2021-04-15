@@ -1,14 +1,14 @@
 ---
 title: Creación de directivas para propiedades de matriz en recursos
 description: Aprenda a trabajar con parámetros de matriz y expresiones de lenguaje de matriz, evaluar el alias [*] y anexar elementos con las reglas de definición de Azure Policy.
-ms.date: 10/22/2020
+ms.date: 03/31/2021
 ms.topic: how-to
-ms.openlocfilehash: 75f4fcfb88bd4cb1ac0c8bfeac236b452479b8c6
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: d4e059f3691554aa91dfd15cf308ef62afa58928
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104721620"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106089974"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Creación de directivas para propiedades de matriz en recursos de Azure
 
@@ -99,7 +99,7 @@ Para usar esta cadena con cada SDK, use los siguientes comandos:
 
 ## <a name="using-arrays-in-conditions"></a>Uso de matrices en condiciones
 
-### <a name="in-and-notin"></a>`In` y `notIn`
+### <a name="in-and-notin"></a>In y notIn
 
 Las condiciones `in` y `notIn` solo funcionan con valores de matriz. Comprueban la existencia de un valor en una matriz. La matriz puede ser una matriz JSON literal o una referencia a un parámetro de matriz. Por ejemplo:
 
@@ -243,7 +243,7 @@ Las propiedades de recursos de matriz normalmente se representan mediante dos ti
 
 #### <a name="referencing-the-array"></a>Referencia a la matriz
 
-El primer alias representa un valor único, el valor de la propiedad `stringArray` del contenido de la solicitud. Dado que el valor de esa propiedad es una matriz, no resulta muy útil en las condiciones de la directiva. Por ejemplo:
+El primer alias representa un valor único, el valor de la propiedad `stringArray` del contenido de la solicitud. Dado que el valor de esa propiedad es una matriz, no resulta útil en las condiciones de la directiva. Por ejemplo:
 
 ```json
 {
@@ -290,9 +290,9 @@ Si la matriz contiene objetos, se puede usar un alias `[*]` para seleccionar el 
 }
 ```
 
-Esta condición es true si los valores de todas las propiedades `property` en `objectArray` son iguales que `"value"`. Para obtener más ejemplos, vea [Ejemplos de alias \[\*\] adicionales](#appendix--additional--alias-examples).
+Esta condición es true si los valores de todas las propiedades `property` en `objectArray` son iguales que `"value"`. Para obtener más ejemplos, vea [Ejemplos de alias \[\*\] adicionales](#additional--alias-examples).
 
-Cuando use la función `field()` para hacer referencia a un alias de matriz, el valor devuelto es una matriz de todos los valores seleccionados. Este comportamiento implica que el caso de uso común de la función `field()`, la capacidad de aplicar funciones de plantilla a los valores de propiedad de los recursos, es muy limitado. Las únicas funciones de plantilla que se pueden usar en este caso son las que aceptan argumentos de matriz. Por ejemplo, se puede obtener la longitud de la matriz con `[length(field('Microsoft.Test/resourceType/objectArray[*].property'))]`. Sin embargo, los escenarios más complejos, como la aplicación de una función de plantilla a cada uno de los miembro de la matriz y su comparación con un valor deseado, solo son posibles cuando se usa la expresión `count`. Para obtener más información, vea [Expresiones de recuento de campos](#field-count-expressions).
+Cuando use la función `field()` para hacer referencia a un alias de matriz, el valor devuelto es una matriz de todos los valores seleccionados. Este comportamiento implica que el caso de uso común de la función `field()`, la capacidad de aplicar funciones de plantilla a los valores de propiedad de los recursos, es limitado. Las únicas funciones de plantilla que se pueden usar en este caso son las que aceptan argumentos de matriz. Por ejemplo, se puede obtener la longitud de la matriz con `[length(field('Microsoft.Test/resourceType/objectArray[*].property'))]`. Sin embargo, los escenarios más complejos, como la aplicación de una función de plantilla a cada miembro de la matriz y su comparación con un valor deseado, solo son posibles cuando se usa la expresión `count`. Para obtener más información, vea [Expresiones de recuento de campos](#field-count-expressions).
 
 En resumen, consulte el contenido de recurso del siguiente ejemplo y los valores seleccionados que devolvieron diversos alias:
 
@@ -371,7 +371,7 @@ Cuando se usa sin una condición `where`, `count` simplemente devuelve la longit
 }
 ```
 
-Este comportamiento también funciona con matrices anidadas. Por ejemplo, la siguiente expresión `count` |se evalúa como `true`, ya que hay cuatro miembros de matriz en las matrices `nestedArray`:
+Este comportamiento también funciona con matrices anidadas. Por ejemplo, la siguiente expresión `count` se evalúa como `true`, ya que hay cuatro miembros de matriz en las matrices `nestedArray`:
 
 ```json
 {
@@ -382,7 +382,7 @@ Este comportamiento también funciona con matrices anidadas. Por ejemplo, la sig
 }
 ```
 
-La eficacia de `count` reside en la condición `where`. Cuando esta se especifica, Azure Policy enumera los miembros de la matriz y los evalúa con la condición, de modo que cuenta el número de miembros de la matriz que se han evaluado como `true`. En concreto, en cada iteración de la evaluación de la condición `where`, Azure Policy selecciona un único miembro de la matriz ***i** _ y evalúa el contenido del recurso con la condición `where` _*como si **_i_*_ fuera el único miembro de la matriz_*. Disponer de un solo miembro de la matriz en cada iteración proporciona una manera de aplicar condiciones complejas en cada miembro de la matriz individual.
+La eficacia de `count` reside en la condición `where`. Cuando esta se especifica, Azure Policy enumera los miembros de la matriz y los evalúa con la condición, de modo que cuenta el número de miembros de la matriz que se han evaluado como `true`. En concreto, en cada iteración de la evaluación de la condición `where`, Azure Policy selecciona un único miembro de la matriz ***i** _ y evalúa el contenido del recurso con la condición `where` _*como si ***i**_ fuera el único miembro de la matriz_*. Disponer de un solo miembro de la matriz en cada iteración proporciona una manera de aplicar condiciones complejas en cada miembro de la matriz individual.
 
 Ejemplo:
 
@@ -398,7 +398,9 @@ Ejemplo:
   "equals": 1
 }
 ```
-Para evaluar la expresión `count`, Azure Policy evalúa la condición `where` tres veces; una vez por cada miembro de `stringArray`, de modo que cuenta el número de veces que se evaluó como `true`. Cuando la condición `where` hace referencia a los miembros de la matriz `Microsoft.Test/resourceType/stringArray[*]`, en lugar de seleccionar todos los miembros de `stringArray`, solo selecciona un miembro de la matriz cada vez:
+
+Para evaluar la expresión `count`, Azure Policy evalúa la condición `where` tres veces, una vez por cada miembro de `stringArray`, de modo que cuenta el número de veces que se ha evaluado como `true`.
+Cuando la condición `where` hace referencia a los miembros de la matriz `Microsoft.Test/resourceType/stringArray[*]`, en lugar de seleccionar todos los miembros de `stringArray`, solo selecciona un miembro de la matriz cada vez:
 
 | Iteración | Valores seleccionados de `Microsoft.Test/resourceType/stringArray[*]` | Resultado de la evaluación de `where` |
 |:---|:---|:---|
@@ -406,7 +408,7 @@ Para evaluar la expresión `count`, Azure Policy evalúa la condición `where` t
 | 2 | `"b"` | `false` |
 | 3 | `"c"` | `false` |
 
-Por lo tanto, `count` devolverá `1`.
+`count` devuelve `1`.
 
 La siguiente es una expresión más compleja:
 
@@ -436,7 +438,7 @@ La siguiente es una expresión más compleja:
 | 1 | `Microsoft.Test/resourceType/objectArray[*].property` => `"value1"` </br> `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `1`, `2` | `false` |
 | 2 | `Microsoft.Test/resourceType/objectArray[*].property` => `"value2"` </br> `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `3`, `4`| `true` |
 
-Y, por tanto, `count` devuelve `1`.
+`count` devuelve `1`.
 
 El hecho de que la expresión `where` se evalúe con **todo** el contenido de la solicitud (con cambios solo en el miembro de la matriz que se está enumerando actualmente) implica que la condición `where` también puede hacer referencia a los campos que se encuentran fuera de la matriz:
 
@@ -480,9 +482,9 @@ Las expresiones de recuento anidadas se pueden usar para aplicar condiciones a l
 | 1 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `1`, `2` | `nestedArray[*]` tiene 2 miembros => `true` |
 | 2 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `3`, `4` | `nestedArray[*]` tiene 2 miembros => `true` |
 
-Puesto que ambos miembros de `objectArray[*]` tienen una matriz secundaria `nestedArray[*]` con 2 miembros, la expresión de recuento exterior devuelve `2`.
+Puesto que ambos miembros de `objectArray[*]` tienen una matriz secundaria `nestedArray[*]` con 2 miembros, la expresión de recuento exterior devuelve `2`.
 
-Ejemplo más complejo: compruebe que la matriz `objectArray[*]` tiene exactamente 2 miembros con `nestedArray[*]` con cualquier miembro igual a `2` o `3`:
+Ejemplo más complejo: compruebe que la matriz `objectArray[*]` tiene exactamente 2 miembros con `nestedArray[*]` con cualquier miembro igual a `2` o `3`:
 
 ```json
 {
@@ -538,8 +540,8 @@ Si emplea funciones de plantilla, use la función `current()` para acceder al va
 
 #### <a name="the-field-function-inside-where-conditions"></a>Función field dentro de condiciones where
 
-La función `field()` también se puede usar para acceder al valor del miembro de la matriz actual siempre que la expresión **count** no esté dentro de una **condición de existencia** (la función `field()` siempre hace referencia al recurso evaluado en la condición **if**).
-El comportamiento de `field()` cuando hace referencia a la matriz evaluada se basa en los siguientes conceptos:
+La función `field()` también se puede usar para acceder al valor del miembro de la matriz actual siempre que la expresión **count** no esté dentro de una **condición de existencia** (la función `field()` siempre hace referencia al recurso evaluado en la condición **if**). El comportamiento de `field()` cuando hace referencia a la matriz evaluada se basa en los siguientes conceptos:
+
 1. Los alias de matriz se resuelven en una colección de valores seleccionados a partir de todos los miembros de la matriz.
 1. Las funciones `field()` que hacen referencia a alias de matriz devuelven una matriz con los valores seleccionados.
 1. Al hacer referencia al alias de matriz que se contó dentro de la condición `where`, se devuelve una colección con un solo valor seleccionado en el miembro de la matriz, que se evalúa en la iteración actual.
@@ -608,9 +610,9 @@ Para obtener ejemplos útiles, vea [Ejemplos de field count](../concepts/definit
 
 Para obtener más información, consulte [Ejemplos de append](../concepts/effects.md#append-examples).
 
-## <a name="appendix--additional--alias-examples"></a>Apéndice: Ejemplos de alias [*] adicionales
+## <a name="additional--alias-examples"></a>Ejemplos de alias [*] adicionales
 
-Se recomienda usar las [expresiones de recuento de campos](#field-count-expressions) para comprobar si "todos" o "cualquiera" de los miembros de una matriz del contenido de la solicitud cumplen una condición. Pero en algunas condiciones sencillas es posible obtener el mismo resultado mediante un descriptor de acceso de campo con un alias de matriz (como se describe en [Referencia a una colección de miembros de matriz](#referencing-the-array-members-collection)). Esto puede ser útil en reglas de directiva que superan el límite de expresiones **count** permitidas. Estos son algunos ejemplos de casos de uso comunes:
+Se recomienda usar las [expresiones de recuento de campos](#field-count-expressions) para comprobar si "todos" o "cualquiera" de los miembros de una matriz del contenido de la solicitud cumplen una condición. Pero en algunas condiciones sencillas es posible obtener el mismo resultado mediante un descriptor de acceso de campo con un alias de matriz (como se describe en [Referencia a una colección de miembros de matriz](#referencing-the-array-members-collection)). Este modelo puede ser útil en reglas de directiva que superan el límite de expresiones **count** permitidas. Estos son algunos ejemplos de casos de uso comunes:
 
 La regla de directiva siguiente es un ejemplo para la tabla de escenario:
 

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/15/2020
 ms.author: alkohli
 ms.openlocfilehash: 160f85b34b3730b14ed96854d5f60ad81f4eb63b
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96581384"
 ---
 Su dispositivo está asociado a una cuenta de almacenamiento que se utiliza como destino para los datos en Azure. El acceso a la cuenta de almacenamiento se controla mediante la suscripción y las dos claves de acceso de almacenamiento de 512 bits asociadas a esa cuenta de almacenamiento.

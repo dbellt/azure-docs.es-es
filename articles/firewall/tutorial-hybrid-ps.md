@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 03/26/2021
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: e60c829831bde3b454ab180d1a39ec46cb346963
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: db60c26ed50dae3b4b28a6c44d152a921eb96a69
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94658662"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105627564"
 ---
 # <a name="deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Implementación y configuración de Azure Firewall en una red híbrida con Azure PowerShell
 
@@ -61,9 +61,9 @@ Hay tres requisitos clave para que este escenario funcione correctamente:
 Consulte la sección [Creación de rutas](#create-the-routes) en este artículo para ver cómo se crean estas rutas.
 
 >[!NOTE]
->Azure Firewall debe tener conectividad directa a Internet. Si AzureFirewallSubnet aprende una ruta predeterminada a la red local mediante BGP, debe reemplazarla por una UDR 0.0.0.0/0 con el valor **NextHopType** establecido como **Internet** para mantener la conectividad directa a Internet.
+>Azure Firewall debe tener conectividad directa a Internet. Si la instancia de AzureFirewallSubnet aprende una ruta predeterminada a la red local mediante BGP, debe configurar Azure Firewall en el modo de tunelización forzada. Si se trata de una instancia de Azure Firewall existente, que no se puede volver a configurar en el modo de tunelización forzada, se recomienda agregar una UDR 0.0.0.0/0 en AzureFirewallSubnet con el valor **NextHopType** establecido como **Internet** para mantener la conectividad directa a Internet.
 >
->Azure Firewall puede configurarse para admitir la tunelización forzada. Para más información, consulte [Tunelización forzada de Azure Firewall](forced-tunneling.md).
+>Para más información, consulte [Tunelización forzada de Azure Firewall](forced-tunneling.md).
 
 >[!NOTE]
 >El tráfico entre redes virtuales emparejadas directamente se enruta directamente aunque una ruta definida por el usuario apunte a Azure Firewall como puerta de enlace predeterminada. Para enviar tráfico de subred a subred al firewall en este escenario, una UDR debe contener el prefijo de red de la subred de destino de forma explícita en ambas subredes.

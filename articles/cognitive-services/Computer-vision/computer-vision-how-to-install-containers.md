@@ -12,12 +12,12 @@ ms.date: 03/02/2021
 ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: entorno local, reconocimiento óptico de caracteres, Docker, contenedor
-ms.openlocfilehash: 1c9e681e3c02cb65b2a54070cc778051a0e7ac53
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 53d59822b378a658f8b6c048de1a32db53a795d1
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102432560"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285729"
 ---
 # <a name="install-read-ocr-docker-containers-preview"></a>Instalación de contenedores de Docker de OCR de Read desde Computer Vision (versión preliminar) 
 
@@ -25,7 +25,7 @@ ms.locfileid: "102432560"
 
 Los contenedores le permiten ejecutar las API de Computer Vision en su propio entorno. Los contenedores son excelentes para requisitos específicos de control de datos y seguridad. En este artículo, aprenderá a descargar, instalar y ejecutar contenedores de Computer Vision.
 
-El contenedor OCR de *Read* permite extraer texto impreso y manuscrito de imágenes y documentos con compatibilidad con los formatos de archivo JPEG, PNG, BMP, PDF y TIFF. Para obtener más información, consulte la [documentación de la API Read](concept-recognizing-text.md#read-api).
+El contenedor OCR de *Read* permite extraer texto impreso y manuscrito de imágenes y documentos con compatibilidad con los formatos de archivo JPEG, PNG, BMP, PDF y TIFF. Para más información, consulte la [guía de procedimientos de Read API](Vision-API-How-to-Topics/call-read-api.md).
 
 ## <a name="read-32-preview-container"></a>Contenedor Read 3.2-preview
 
@@ -96,7 +96,7 @@ Hay imágenes de contenedor para Leer disponibles.
 
 Use el comando [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) para descargar una imagen de contenedor.
 
-### <a name="docker-pull-for-the-read-container"></a>Docker pull para el contenedor Leer
+### <a name="docker-pull-for-the-read-ocr-container"></a>Docker pull para el contenedor OCR de lectura
 
 # <a name="version-32-preview"></a>[Versión 3.2-preview](#tab/version-3-2)
 
@@ -139,7 +139,7 @@ ApiKey={API_KEY}
 
 Este comando:
 
-* Ejecuta el contenedor Leer desde la imagen de contenedor.
+* Ejecuta el contenedor OCR de lectura desde la imagen de contenedor.
 * Asigna un núcleo de 8 CPU y 18 gigabytes (GB) de memoria.
 * Expone el puerto TCP 5000 y asigna un seudo-TTY para el contenedor.
 * Una vez que se produce la salida, quita automáticamente el contenedor. La imagen del contenedor sigue estando disponible en el equipo host.
@@ -156,7 +156,7 @@ ApiKey={API_KEY}
 
 Este comando:
 
-* Ejecuta el contenedor Leer desde la imagen de contenedor.
+* Ejecuta el contenedor OCR de lectura desde la imagen de contenedor.
 * Asigna un núcleo de 8 CPU y 16 gigabytes (GB) de memoria.
 * Expone el puerto TCP 5000 y asigna un seudo-TTY para el contenedor.
 * Una vez que se produce la salida, quita automáticamente el contenedor. La imagen del contenedor sigue estando disponible en el equipo host.
@@ -392,7 +392,7 @@ El elemento `operation-location` es la dirección URL completa y se obtiene acce
 ---
 
 > [!IMPORTANT]
-> Si implementa varios contenedores de Read detrás de un equilibrador de carga en, por ejemplo, Docker Compose o Kubernetes, debe tener una caché externa. Dado que el contenedor de procesamiento y el contenedor de la solicitud GET podrían no ser los mismos, una caché externa almacena los resultados y los comparte entre contenedores. Para más información sobre la configuración de caché, consulte [Configuración de contenedores de Docker de Computer Vision](./computer-vision-resource-container-config.md).
+> Si implementa varios contenedores OCR de lectura detrás de un equilibrador de carga en, por ejemplo, Docker Compose o Kubernetes, debe tener una caché externa. Dado que el contenedor de procesamiento y el contenedor de la solicitud GET podrían no ser los mismos, una caché externa almacena los resultados y los comparte entre contenedores. Para más información sobre la configuración de caché, consulte [Configuración de contenedores de Docker de Computer Vision](./computer-vision-resource-container-config.md).
 
 ### <a name="synchronous-read"></a>Lectura sincrónica
 
@@ -445,7 +445,7 @@ En este artículo, ha aprendido los conceptos y el flujo de trabajo para la desc
 * Computer Vision proporciona un contenedor de Linux para Docker que incluye Leer.
 * Las imágenes de contenedor se descargan desde el registro de contenedores "Contenedor (versión preliminar)" en Azure.
 * Las imágenes de contenedor se ejecutan en Docker.
-* Puede usar la API REST o el SDK para llamar a operaciones en contenedores de Read mediante la especificación del URI del host del contenedor.
+* Puede usar la API de REST o el SDK para llamar a operaciones en contenedores de OCR de lectura mediante la especificación del URI del host del contenedor.
 * Debe especificar la información de facturación al crear una instancia de un contenedor.
 
 > [!IMPORTANT]
@@ -454,7 +454,7 @@ En este artículo, ha aprendido los conceptos y el flujo de trabajo para la desc
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Revise [Configure containers](computer-vision-resource-container-config.md) (Configuración de contenedores) para ver las opciones de configuración.
-* Revise [Introducción a Computer Vision](overview.md) para obtener más información sobre el reconocimiento de texto escrito a mano e impreso.
-* Consulte [Computer Vision API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) para obtener más información acerca de los métodos que admite el contenedor.
+* Revise [Introducción a OCR](overview-ocr.md) para obtener más información sobre el reconocimiento de texto escrito a mano e impreso.
+* Consulte [Read API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) para obtener más información acerca de los métodos que admite el contenedor.
 * Consulte [Preguntas más frecuentes (P+F)](FAQ.md) para resolver problemas relacionados con la funcionalidad de Computer Vision.
 * Uso de [Contenedores de Cognitive Services](../cognitive-services-container-support.md)

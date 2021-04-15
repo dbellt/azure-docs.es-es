@@ -5,16 +5,16 @@ author: rashi-ms
 ms.author: rajosh
 ms.topic: conceptual
 ms.date: 02/07/2021
-ms.openlocfilehash: e4e726f742d46a4b63563f55c191cf21e49d06fc
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: a22fa184f91cb409f7a4d7795a4bc34bdd83e598
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104778328"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077812"
 ---
 # <a name="assessment-overview-migrate-to-azure-sql"></a>Información general sobre la evaluación (migración a Azure SQL)
 
-En este artículo se proporciona información general sobre las evaluaciones para migrar las instancias locales de SQL Server desde un entorno de VMware a bases de datos o instancias administradas de Azure SQL mediante la [herramienta de detección y evaluación de Azure Migrate](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-server-assessment-tool).
+En este artículo se proporciona información general sobre las evaluaciones para migrar las instancias locales de SQL Server desde un entorno de VMware a bases de datos o instancias administradas de Azure SQL mediante la [herramienta de detección y evaluación de Azure Migrate](./migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool).
 
 ## <a name="whats-an-assessment"></a>¿Qué es una evaluación?
 Una evaluación con la herramienta de detección y evaluación es una instantánea en un momento dado de los datos, mide la preparación y estima el efecto de la migración de servidores locales a Azure.
@@ -28,6 +28,9 @@ Existen tres tipos de evaluaciones que puede crear con la herramienta de detecci
 **MV de Azure** | Evaluaciones para la migración de los servidores locales a máquinas virtuales de Azure. <br/><br/> Con este tipo de evaluación, puede evaluar los servidores locales en los entornos de [VMware](how-to-set-up-appliance-vmware.md) e [Hyper-V](how-to-set-up-appliance-hyper-v.md) y los [servidores físicos](how-to-set-up-appliance-physical.md) para la migración a máquinas virtuales de Azure.
 **SQL de Azure** | Evaluaciones para migrar las instancias locales de SQL Server desde su entorno de VMware a Azure SQL Database o a Azure SQL Managed Instance.
 **Azure VMware Solution (AVS)** | Evaluaciones para la migración de los servidores locales a [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). <br/><br/> Puede evaluar las [máquinas virtuales de VMware](how-to-set-up-appliance-vmware.md) locales para la migración a Azure VMware Solution (AVS) con este tipo de evaluación. [Más información](concepts-azure-vmware-solution-assessment-calculation.md)
+
+> [!NOTE]
+> Si el número de evaluaciones de la máquina virtual de Azure o de AVS no es correcto en la herramienta de detección y evaluación, haga clic en el número total de evaluaciones para desplazarse a todas ellas y volver a calcularlas. La herramienta de detección y evaluación mostrará el recuento correcto de ese tipo de evaluación. 
 
 Una evaluación de Azure SQL proporciona un criterio de dimensionamiento:
 
@@ -80,7 +83,7 @@ En las propiedades de evaluación de Azure SQL se incluye lo siguiente:
 **Uso de percentil** | El uso de percentil especifica el valor de percentil de la muestra de rendimiento que se usa para elegir el tamaño adecuado.
 **Factor de confort** | Búfer usado durante la evaluación. Tiene en cuenta problemas como el uso estacional, el historial de rendimiento corto y los posibles aumentos en el uso futuro.<br/><br/> Por ejemplo, una instancia de 10 núcleos con un uso del 20 % normalmente genera una instancia de dos núcleos. Con un factor de confort de 2.0, el resultado es una instancia de cuatro núcleos.
 **Programa de ofertas o licencias** | La [oferta de Azure](https://azure.microsoft.com/support/legal/offer-details/) en la que está inscrito. En la actualidad, solo puede elegir entre Pago por uso y Desarrollo/pruebas - Pago por uso. Tenga en cuenta que puede beneficiarse de descuentos adicionales combinando capacidad reservada y la Ventaja híbrida de Azure con la oferta de pago por uso.
-**Nivel de servicio** | La opción de nivel de servicio más adecuada para satisfacer sus necesidades de negocio y realizar la migración a Azure SQL Database o a Azure SQL Managed Instance:<br/><br/>**Opción recomendada** si desea que Azure Migrate recomiende el nivel de servicio que se ajuste mejor a los servidores. Puede ser Uso general o Crucial para la empresa. <br/><br/> **De uso general** si desea utilizar una configuración de Azure SQL diseñada para cargas de trabajo orientadas al presupuestos. [Más información](https://docs.microsoft.com/azure/azure-sql/database/service-tier-general-purpose) <br/><br/> **Crítico para la empresa** si desea utilizar una configuración de Azure SQL diseñada para cargas de trabajo de baja latencia con alta resistencia a errores y conmutaciones por error rápidas. [Más información](https://docs.microsoft.com/azure/azure-sql/database/service-tier-business-critical)
+**Nivel de servicio** | La opción de nivel de servicio más adecuada para satisfacer sus necesidades de negocio y realizar la migración a Azure SQL Database o a Azure SQL Managed Instance:<br/><br/>**Opción recomendada** si desea que Azure Migrate recomiende el nivel de servicio que se ajuste mejor a los servidores. Puede ser Uso general o Crucial para la empresa. <br/><br/> **De uso general** si desea utilizar una configuración de Azure SQL diseñada para cargas de trabajo orientadas al presupuestos. [Más información](../azure-sql/database/service-tier-general-purpose.md) <br/><br/> **Crítico para la empresa** si desea utilizar una configuración de Azure SQL diseñada para cargas de trabajo de baja latencia con alta resistencia a errores y conmutaciones por error rápidas. [Más información](../azure-sql/database/service-tier-business-critical.md)
 **Moneda** | Moneda de facturación de la cuenta.
 **Descuento (%)** | Cualquier descuento específico de la suscripción que recibe además de la oferta de Azure. La configuración predeterminada es 0 %.
 **Ventaja híbrida de Azure** | Especifica si ya tiene una licencia de SQL Server. <br/><br/> Si la tiene y está incluida en las suscripciones activas de Software Assurance para SQL Server, podrá solicitar la Ventaja híbrida de Azure cuando traiga sus licencias a Azure.
@@ -124,7 +127,7 @@ Si selecciona el tipo de implementación de destino como **Recomendado** en las 
 Si la instancia de SQL no está lista para Azure SQL Database y Azure SQL Managed Instance, el tipo de implementación recomendado se marca como *Potentially ready for Azure VM* (Potencialmente listo para VM de Azure).
 - Se recomienda que el usuario cree una evaluación en Azure Migrate con el tipo de evaluación como "Azure VM" para determinar si el servidor en el que se ejecuta la instancia está listo para migrarse a una máquina virtual de Azure en su lugar. Observe lo siguiente:
     - Las evaluaciones de máquinas virtuales de Azure en Azure Migrate siguen actualmente el enfoque de migración mediante lift-and-shift y no tendrán en cuenta las métricas de rendimiento específicas para ejecutar instancias y bases de datos de SQL en la máquina virtual de Azure. 
-    - Al ejecutar una evaluación de máquinas virtuales de Azure en un servidor, el tamaño recomendado y las estimaciones de costos serán para todas las instancias que se ejecutan en ese servidor y se pueden migrar a una máquina virtual de Azure mediante la herramienta Server Migration. Antes de migrar, [revise las directrices de rendimiento](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices) para SQL Server en máquinas virtuales de Azure.
+    - Al ejecutar una evaluación de máquinas virtuales de Azure en un servidor, el tamaño recomendado y las estimaciones de costos serán para todas las instancias que se ejecutan en ese servidor y se pueden migrar a una máquina virtual de Azure mediante la herramienta Server Migration. Antes de migrar, [revise las directrices de rendimiento](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md) para SQL Server en máquinas virtuales de Azure.
 
 
 ## <a name="calculate-sizing"></a>Cálculo del dimensionamiento

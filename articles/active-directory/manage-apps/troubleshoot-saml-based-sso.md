@@ -2,20 +2,20 @@
 title: Solución de problemas del inicio de sesión único basado en SAML en Azure Active Directory
 description: Solución de problemas relacionados con una aplicación de Azure AD configurada para el inicio de sesión único basado en SAML.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: kenwith
-ms.openlocfilehash: b169616042892c379196dd1d38c2343704aa1030
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: iangithinji
+ms.openlocfilehash: c4a4f7bfad4254e7c3fa5851e62532ed427ced8b
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99257533"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107376433"
 ---
 # <a name="troubleshoot-saml-based-single-sign-on-in-azure-active-directory"></a>Solución de problemas del inicio de sesión único basado en SAML en Azure Active Directory
 Si se produce un problema al configurar una aplicación. Compruebe que ha seguido todos los pasos del tutorial de la aplicación. En la configuración de la aplicación, tiene documentación en línea sobre cómo configurarla. También para instrucciones detalladas paso a paso, acceda a la [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](../saas-apps/tutorial-list.md).

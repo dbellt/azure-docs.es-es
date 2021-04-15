@@ -1,0 +1,64 @@
+### YamlMime:Landing
+title: Documentación de análisis espacial
+summary: El servicio de análisis espacial ayuda a las organizaciones a maximizar el valor de sus espacios físicos mediante la comprensión de los movimientos y la presencia de personas dentro de un área determinada. Le permite ingerir vídeos de cámaras de CCTV o de vigilancia, ejecutar operaciones de inteligencia artificial para extraer información de las secuencias de vídeo y generar eventos para que los usen otros sistemas.
+metadata:
+  title: 'Documentación de análisis espacial: inicios rápidos, tutoriales, referencia de API (Azure Cognitive Services) | Microsoft Docs'
+  description: El servicio de análisis espacial ayuda a las organizaciones a maximizar el valor de sus espacios físicos mediante la comprensión de los movimientos y la presencia de personas dentro de un área determinada. Le permite ingerir vídeos de cámaras de CCTV o de vigilancia, ejecutar operaciones de inteligencia artificial para extraer información de las secuencias de vídeo y generar eventos para que los usen otros sistemas.
+  services: cognitive-services
+  ms.service: cognitive-services
+  ms.subservice: computer-vision
+  ms.topic: landing-page
+  author: PatrickFarley
+  ms.author: pafarley
+  ms.date: 30/31/2021
+  ms.openlocfilehash: b57a90d1897fc7dce92cdebd0c0f81e9f59854b7
+  ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 04/03/2021
+  ms.locfileid: "106287498"
+landingContent:
+- title: Acerca del análisis espacial
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Introducción al análisis espacial
+      url: intro-to-spatial-analysis-public-preview.md
+  - linkListType: quickstart
+    links:
+    - text: Configuración de la máquina host y ejecución del contenedor
+      url: spatial-analysis-container.md
+- title: Desarrollo con análisis espacial
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Configuración de operaciones
+      url: spatial-analysis-operations.md
+  - linkListType: concept
+    links:
+    - text: Selección de ubicación de zonas y líneas
+      url: spatial-analysis-zone-line-placement.md
+    - text: Selección de ubicación de la cámara
+      url: spatial-analysis-camera-placement.md
+    - text: Registro y solución de problemas
+      url: spatial-analysis-logging.md
+- title: Uso responsable de la inteligencia artificial
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Nota de transparencia del análisis espacial
+      url: /legal/cognitive-services/computer-vision/transparency-note-spatial-analysis?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
+  - linkListType: concept
+    links:
+    - text: Uso responsable en la implementación de IA
+      url: /legal/cognitive-services/computer-vision/responsible-use-deployment?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
+    - text: Directrices de diseño de divulgación de información
+      url: /legal/cognitive-services/computer-vision/disclosure-design?context=/azure/cognitive-services/computer-vision/context/context
+    - text: Datos, privacidad y seguridad
+      url: /legal/cognitive-services/computer-vision/compliance-privacy-security-2?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
+- title: Ayuda y comentarios
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Opciones de ayuda y soporte técnico
+      url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/computer-vision/context/context
