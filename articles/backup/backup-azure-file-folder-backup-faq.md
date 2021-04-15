@@ -2,13 +2,13 @@
 title: 'Agente de Microsoft Azure Recovery Services (MARS): Preguntas frecuentes'
 description: Responde las preguntas habituales acerca de la realización de copias de seguridad de archivos y carpetas con Azure Backup.
 ms.topic: conceptual
-ms.date: 07/29/2019
-ms.openlocfilehash: 1edfaed99e60409774496c5ae75df8be99a8fe1f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/05/2021
+ms.openlocfilehash: 98f558c091f1680c165ee26ffb20a8022ab15520
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94917365"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107183"
 ---
 # <a name="frequently-asked-questions---microsoft-azure-recovery-services-mars-agent"></a>Preguntas más frecuentes: agente de Microsoft Azure Recovery Services (MARS)
 
@@ -100,6 +100,10 @@ Esta advertencia puede aparecer aunque se haya configurado una directiva de copi
 
 * Cuando el servidor o la configuración se recuperan a un estado válido conocido, las programaciones de copia de seguridad pueden perder la sincronización.
 * Si recibe esta advertencia, vuelva a [configurar](backup-azure-manage-windows-server.md) la directiva de copia de seguridad y ejecute una copia de seguridad a petición para volver a sincronizar el servidor local con Azure.
+
+### <a name="i-see-a-few-jobs-are-stuck-in-the-in-progress-state-for-a-long-time-under-backup-jobs-in-the-azure-portal-how-can-i-resolve-these"></a>Veo que algunos trabajos están atascados en el estado En curso durante mucho tiempo en la sección Trabajos de copia de seguridad en Azure Portal. ¿Cómo se resuelve esto?
+
+Esto puede ocurrir si un trabajo no se pudo completar debido a motivos como, por ejemplo, problemas de conectividad de red, apagado de la máquina o terminación del proceso. En este caso, no se requiere ninguna acción del usuario. Estos trabajos se marcarán automáticamente como **Error** después de 30 días. [Obtenga más información](backup-windows-with-mars-agent.md#run-an-on-demand-backup) para ejecutar un trabajo de copia de seguridad a petición mediante el agente de MARS.
 
 ## <a name="manage-the-backup-cache-folder"></a>Administración de la carpeta de caché de las copias de seguridad
 

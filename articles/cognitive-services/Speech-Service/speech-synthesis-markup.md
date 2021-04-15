@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: ffa8528da454fd29c937a2d49accdda617fe62dd
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: e5a3459c0264d087759572bffc497430cdb69ac9
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104869028"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105966952"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Mejora de la síntesis con el Lenguaje de marcado de síntesis de voz (SSML)
 
@@ -117,7 +117,7 @@ Dependiendo del lenguaje del SDK de Voz, establecerá la propiedad `"SpeechServi
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-Para más información, consulte <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.setproperty" target="_blank"> `SetProperty` </a>.
+Para más información, consulte <a href="/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.setproperty" target="_blank"> `SetProperty` </a>.
 
 ```csharp
 speechConfig.SetProperty(
@@ -126,7 +126,7 @@ speechConfig.SetProperty(
 
 # <a name="c"></a>[C++](#tab/cpp)
 
-Para más información, consulte <a href="https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#setproperty" target="_blank"> `SetProperty` </a>.
+Para más información, consulte <a href="/cpp/cognitive-services/speech/speechconfig#setproperty" target="_blank"> `SetProperty` </a>.
 
 ```cpp
 speechConfig->SetProperty(
@@ -135,7 +135,7 @@ speechConfig->SetProperty(
 
 # <a name="java"></a>[Java](#tab/java)
 
-Para más información, consulte <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setproperty#com_microsoft_cognitiveservices_speech_SpeechConfig_setProperty_String_String_" target="_blank"> `setProperty` </a>.
+Para más información, consulte <a href="/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setproperty#com_microsoft_cognitiveservices_speech_SpeechConfig_setProperty_String_String_" target="_blank"> `setProperty` </a>.
 
 ```java
 speechConfig.setProperty(
@@ -144,7 +144,7 @@ speechConfig.setProperty(
 
 # <a name="python"></a>[Python](#tab/python)
 
-Para más información, consulte <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig#set-property-by-name-property-name--str--value--str-" target="_blank"> `set_property_by_name` </a>.
+Para más información, consulte <a href="/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig#set-property-by-name-property-name--str--value--str-" target="_blank"> `set_property_by_name` </a>.
 
 ```python
 speech_config.set_property_by_name(
@@ -153,7 +153,7 @@ speech_config.set_property_by_name(
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Para más información, consulte <a href="https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig#setproperty-string--string-" target="_blank"> `setProperty`</a>.
+Para más información, consulte <a href="/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig#setproperty-string--string-" target="_blank"> `setProperty`</a>.
 
 ```javascript
 speechConfig.setProperty(
@@ -162,7 +162,7 @@ speechConfig.setProperty(
 
 # <a name="objective-c"></a>[Objective-C](#tab/objectivec)
 
-Para más información, consulte <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` </a>.
+Para más información, consulte <a href="/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` </a>.
 
 ```objectivec
 [speechConfig setPropertyTo:@"false" byName:@"SpeechServiceResponse_Synthesis_WordBoundaryEnabled"];
@@ -170,7 +170,7 @@ Para más información, consulte <a href="https://docs.microsoft.com/objectivec/
 
 # <a name="swift"></a>[Swift](#tab/swift)
 
-Para más información, consulte <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` </a>.
+Para más información, consulte <a href="/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` </a>.
 
 ```swift
 speechConfig!.setPropertyTo(
@@ -213,14 +213,9 @@ Actualmente, los ajustes de estilo de habla son compatibles con estas voces neur
 * `zh-CN-XiaoxuanNeural` (versión preliminar)
 * `zh-CN-XiaoruiNeural` (versión preliminar)
 
-La intensidad del estilo de habla se puede cambiar aún más para ajustarse mejor a su caso de uso. Puede especificar un estilo más seguro o más suave con `styledegree` para que la voz sea más expresiva o moderada.
+La intensidad del estilo de habla se puede cambiar aún más para ajustarse mejor a su caso de uso. Puede especificar un estilo más seguro o más suave con `styledegree` para que la voz sea más expresiva o moderada. Actualmente, se admiten ajustes del estilo de habla de las voces neuronales en chino (mandarín y simplificado).
 
-Actualmente, los ajustes de estilo de habla son compatibles con estas voces neuronales:
-* `zh-CN-XiaoxiaoNeural`
-
-Además de ajustar los estilos de habla y el grado de estilo, también puede ajustar el parámetro `role` para que la voz parezca que es de alguien de otra edad y género. Por ejemplo, una voz masculina puede aumentar el tono y cambiar la entonación para que parezca femenina.
-
-Actualmente, los ajustes de representación son compatibles con estas voces neuronales:
+Además de ajustar los estilos de habla y el grado de estilo, también puede ajustar el parámetro `role` para que la voz parezca que es de alguien de otra edad y género. Por ejemplo, una voz masculina puede subir el tono y cambiar la entonación para que parezca femenina, pero el nombre de la voz no cambiará. Actualmente, se admiten ajustes de la representación de estas voces neuronales en chino (mandarín y simplificado):
 * `zh-CN-XiaomoNeural`
 * `zh-CN-XiaoxuanNeural`
 
@@ -238,15 +233,15 @@ Los cambios anteriores se aplican en el nivel de la oración y tanto los estilos
 <mstts:express-as role="string" style="string"></mstts:express-as>
 ```
 > [!NOTE]
-> En este momento, `styledegree` solo admite zh-CN-XiaoxiaoNeural. `role` solo admite zh-CN-XiaomoNeural y zh-CN-XiaoxuanNeural.
+> En este momento, `styledegree` solo admite voces neuronales en chino (mandarín y simplificado). `role` solo admite zh-CN-XiaomoNeural y zh-CN-XiaoxuanNeural.
 
 **Atributos**
 
 | Atributo | Descripción | Obligatorio u opcional |
 |-----------|-------------|---------------------|
 | `style` | Especifica el estilo de habla. Actualmente, los estilos de habla son específicos de la voz. | Se necesita si se ajusta el estilo de habla para una voz neuronal. Si se usa `mstts:express-as`, se debe especificar el estilo. Si se proporciona un valor no válido, se omitirá este elemento. |
-| `styledegree` | Especifica la intensidad del estilo de voz. **Valores aceptados**: 0,01 a 2, inclusivo. El valor predeterminado es 1, que señala la intensidad de estilo predefinida. La unidad mínima es 0,01, que da como resultado una ligera tendencia hacia el estilo de destino. Un valor de 2, como resultado, duplica la intensidad de estilo predeterminada.  | Opcional (en este momento, `styledegree` solo admite zh-CN-XiaoxiaoNeural).|
-| `role` | Especifica la representación del habla. La voz actuará como si fuera de otra edad y género.  | Opcional (en este momento, `role` solo admite zh-CN-XiaomoNeural y zh-CN-XiaoxuanNeural).|
+| `styledegree` | Especifica la intensidad del estilo de voz. **Valores aceptados**: 0,01 a 2, inclusivo. El valor predeterminado es 1, que señala la intensidad de estilo predefinida. La unidad mínima es 0,01, que da como resultado una ligera tendencia hacia el estilo de destino. Un valor de 2, como resultado, duplica la intensidad de estilo predeterminada.  | Opcional (en este momento, `styledegree` solo admite voces neuronales en chino [mandarín y simplificado]).|
+| `role` | Especifica la representación del habla. La voz actuará de una edad y un sexo diferentes, pero su nombre no se cambiará.  | Opcional (en este momento, `role` solo admite zh-CN-XiaomoNeural y zh-CN-XiaoxuanNeural).|
 
 Utilice esta tabla para determinar qué estilos de habla son compatibles para cada voz neuronal.
 
@@ -254,6 +249,7 @@ Utilice esta tabla para determinar qué estilos de habla son compatibles para ca
 |-------------------------|---------------------------|-------------------------------------------------------------|
 | `en-US-AriaNeural`      | `style="newscast-formal"` | Expresa un tono formal, seguro y autoritario para la difusión informativa. |
 |                         | `style="newscast-casual"` | Expresa un tono versátil e informal para la difusión de noticias generales.        |
+|                         | `style="narration-professional"` | Exprese un tono objetivo y profesional para la lectura de contenido        |
 |                         | `style="customerservice"` | Expresa un tono amistoso y servicial para atender a clientes  |
 |                         | `style="chat"`            | Expresa un tono casual y relajado                         |
 |                         | `style="cheerful"`        | Expresa un tono positivo y feliz                         |
@@ -321,17 +317,19 @@ Utilice esta tabla para determinar qué estilos de habla son compatibles para ca
 |                         | `style="angry"`           | Expresa un tono enfadado y molesto, grave, con mayor intensidad y energía vocal más alta. El hablante está en un estado de ira, disgustado y ofendido.       |
 |                         | `style="fearful"`         | Expresa un tono asustado y nervioso, agudo, con energía vocal alta y más velocidad. El hablante está en un estado de tensión y ansiedad.                          |
 
-Utilice esta tabla para determinar qué roles son compatibles para cada voz neuronal.
+Use esta tabla para comprobar los roles admitidos y sus definiciones.
 
-| Voz                   | Rol                       | Descripción                                                 |
-|-------------------------|----------------------------|-------------------------------------------------------------|
-| `zh-CN-XiaomoNeural`    | `role="YoungAdultFemale"`  | La voz imita a la de una mujer adulta joven.                 |
-|                         | `role="OlderAdultMale"`    | La voz imita a la de un hombre adulto anciano.                   |
-|                         | `role="Girl"`              | La voz imita a la de una chica.                               |
-|                         | `role="Boy"`               | La voz imita a la de un chico.                                |
-| `zh-CN-XiaoxuanNeural`  | `role="YoungAdultFemale"`  | La voz imita la de una mujer adulta joven.                 |
-|                         | `role="OlderAdultFemale"`  | La voz imita a la de una mujer adulta anciana.                 |
-|                         | `role="OlderAdultMale"`    | La voz imita a la de un hombre adulto anciano.                   |
+|Role                     | Descripción                |
+|-------------------------|----------------------------|
+|`role="Girl"`            | La voz imita a la de una chica. |
+|`role="Boy"`             | La voz imita a la de un chico. |
+|`role="YoungAdultFemale"`| La voz imita la de una mujer adulta joven.|
+|`role="YoungAdultMale"`  | La voz imita la de un hombre adulto joven.|
+|`role="OlderAdultFemale"`| La voz imita a la de una mujer adulta anciana.|
+|`role="OlderAdultMale"`  | La voz imita a la de un hombre adulto anciano.|
+|`role="SeniorFemale"`    | La voz imita la de una mujer anciana.|
+|`role="SeniorMale"`      | La voz imita la de un hombre anciano.|
+
 
 **Ejemplo**
 
@@ -876,7 +874,7 @@ No se leerán los elementos de marcador.
 El elemento de marcador se puede usar para hacer referencia a una ubicación específica en la secuencia de texto o etiqueta.
 
 > [!NOTE]
-> El elemento `bookmark` solo funciona para voces `en-US-AriaNeural` de la región oeste de EE. UU. (`westus`).
+> Por ahora, el elemento `bookmark` solo funciona para la voz `en-US-AriaNeural`.
 
 **Sintaxis**
 

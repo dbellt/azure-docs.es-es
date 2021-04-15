@@ -10,12 +10,12 @@ ms.date: 03/05/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 54e703b096ea4e3572a6fc00aa6b7b2b99c4bcad
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: af9d520bab3ff49b30672717414fbd651c915dd4
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104800751"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552384"
 ---
 # <a name="soft-delete-for-containers-preview"></a>Eliminación temporal de contenedores (versión preliminar)
 
@@ -37,7 +37,7 @@ Al habilitar la eliminación temporal de contenedores, puede especificar un per�
 Al restaurar un contenedor, también se restauran los blobs del contenedor y las versiones de blob. Sin embargo, solo puede usar la eliminación temporal de contenedores para restaurar blobs si se eliminó el propio contenedor. Para restaurar un blob eliminado cuando su contenedor principal no se ha eliminado, debe usar la eliminación temporal de blobs o el control de versiones de blobs.
 
 > [!WARNING]
-> La eliminación temporal de contenedores solo puede restaurar contenedores completos y los blobs que contenían en el momento de la eliminación. No se puede restaurar un blob eliminado dentro de un contenedor mediante la eliminación temporal del contenedor.
+> La eliminación temporal de contenedores solo puede restaurar contenedores completos y su contenido en el momento de la eliminación. No se puede restaurar un blob eliminado dentro de un contenedor mediante la eliminación temporal del contenedor. Microsoft también recomienda habilitar la eliminación temporal y el control de versiones de blobs para proteger blobs individuales en un contenedor.
 
 En el diagrama siguiente se muestra cómo se puede restaurar un contenedor eliminado cuando está habilitada la eliminación temporal de contenedores:
 
@@ -50,7 +50,7 @@ Una vez que haya expirado el período de retención, el contenedor se eliminará
 La deshabilitación de la eliminación temporal de contenedores no provoca la eliminación permanente de los contenedores que se eliminaron temporalmente. Los contenedores que ya haya eliminado temporalmente se eliminarán de forma permanente en el momento de expiración del período de retención que estaba en vigor en el momento en que se eliminó el contenedor.
 
 > [!IMPORTANT]
-> La eliminación temporal de contenedores no protege contra la eliminación de una cuenta de almacenamiento, sino solo contra la eliminación de los contenedores de esa cuenta. Para proteger una cuenta de almacenamiento de la eliminación, configure un bloqueo en el recurso de la cuenta de almacenamiento. Para obtener más información sobre el bloqueo de recursos de Azure Resource Manager, consulte [Bloqueo de recursos para impedir cambios inesperados](../../azure-resource-manager/management/lock-resources.md).
+> La eliminación temporal de contenedores no protege contra la eliminación de una cuenta de almacenamiento. Solo protege contra la eliminación de contenedores en esa cuenta. Para proteger una cuenta de almacenamiento de la eliminación, configure un bloqueo en el recurso de la cuenta de almacenamiento. Para más información sobre el bloqueo de una cuenta de almacenamiento, consulte [Aplicación de un bloqueo de Azure Resource Manager a una cuenta de almacenamiento](../common/lock-account-resource.md).
 
 ## <a name="about-the-preview"></a>Acerca de la versión preliminar
 

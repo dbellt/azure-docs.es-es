@@ -1,6 +1,6 @@
 ---
 title: Asignación de una directiva de acceso de Azure Key Vault (Azure Portal)
-description: Cómo se usa Azure Portal para asignar una directiva de acceso de Key Vault a una identidad de aplicación o una entidad de servicio.
+description: Cómo se usa Azure Portal para asignar una directiva de acceso de Key Vault a una identidad de aplicación o una entidad de seguridad.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,16 +10,16 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 910b8dae10036cc2e396be13495fd28363dc971d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a64a91e6f41f3fba7584630380ffb878979b4389
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97934567"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105968771"
 ---
 # <a name="assign-a-key-vault-access-policy-using-the-azure-portal"></a>Asignación de una directiva de acceso de Key Vault mediante Azure Portal
 
-Las directivas de acceso de Key Vault determinan si una entidad de servicio determinada, es decir, una aplicación o un grupo de usuarios, puede realizar distintas operaciones en los [secretos](../secrets/index.yml), las [claves](../keys/index.yml) y los [certificados](../certificates/index.yml) de Key Vault. Las directivas de acceso se pueden asignar mediante Azure Portal (este artículo), la [CLI de Azure](assign-access-policy-cli.md)o [Azure PowerShell](assign-access-policy-powershell.md).
+Las directivas de acceso de Key Vault determinan si una entidad de seguridad concreta, es decir, un usuario, una aplicación o un grupo de usuarios, puede realizar distintas operaciones en los [secretos](../secrets/index.yml), las [claves](../keys/index.yml) y los [certificados](../certificates/index.yml) de Key Vault. Las directivas de acceso se pueden asignar mediante Azure Portal (este artículo), la [CLI de Azure](assign-access-policy-cli.md)o [Azure PowerShell](assign-access-policy-powershell.md).
 
 [!INCLUDE [key-vault-access-policy-limits.md](../../../includes/key-vault-access-policy-limits.md)]
 
@@ -37,15 +37,15 @@ Para más información sobre cómo crear grupos en Azure Active Directory median
 
     ![Especificación de permisos de la directiva de acceso](../media/authentication/assign-policy-portal-02.png)
 
-1. En **Seleccionar la entidad de seguridad**, elija el vínculo **Ninguna seleccionada** para abrir el panel de selección **Entidad de seguridad**. Escriba el nombre de la aplicación o entidad de servicio en el campo de búsqueda, seleccione el resultado adecuado y elija **Seleccionar**.
+1. En **Seleccionar la entidad de seguridad**, elija el vínculo **Ninguna seleccionada** para abrir el panel de selección **Entidad de seguridad**. Escriba el nombre del usuario, la aplicación o entidad de servicio en el campo de búsqueda, seleccione el resultado adecuado y elija **Seleccionar**.
 
-    ![Selección de la entidad de servicio para la directiva de acceso](../media/authentication/assign-policy-portal-03.png)
+    ![Selección de la entidad de seguridad para la directiva de acceso](../media/authentication/assign-policy-portal-03.png)
 
     Si usa una identidad administrada para la aplicación, busque y seleccione el nombre de la propia aplicación (para más información sobre la identidad administrada y las entidades de servicio, consulte [Autenticación en Key Vault:Identidad de la aplicación y entidades de servicio](authentication.md#app-identity-and-security-principals)).
  
 1.  En el panel **Agregar directivas de acceso**, seleccione **Agregar** para guardar la directiva de acceso.
 
-    ![Adición de la directiva de acceso con la entidad de servicio asignada](../media/authentication/assign-policy-portal-04.png)
+    ![Adición de la directiva de acceso con la entidad de seguridad asignada](../media/authentication/assign-policy-portal-04.png)
 
 1. En la página **Directivas de acceso**, compruebe que la directiva de acceso aparece en **Directivas de acceso actuales** y seleccione **Guardar**. Las directivas de acceso no se aplican hasta que se guardan.
 

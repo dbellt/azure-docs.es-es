@@ -4,12 +4,12 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/19/2020
-ms.openlocfilehash: f731e07de4936bc8de396c4f9bcd3a52913cb502
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 38a29aa765bde4adb390423a9d180132b57d4fee
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99616335"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104582805"
 ---
 ## <a name="model-id-announcement"></a>Anuncio del id. de modelo
 
@@ -28,7 +28,7 @@ La nueva sobrecarga `ClientOptions` está disponible en todos los métodos de `D
 > Para los módulos e IoT Edge, use `ModuleClient` en lugar de `DeviceClient`.
 
 > [!TIP]
-> Esta es la única vez que un dispositivo puede establecer el identificador de modelo, no se puede actualizar después de que el dispositivo se conecte.
+> Esta es la única vez que un dispositivo puede establecer el identificador de modelo; después de que el dispositivo se conecte, no se puede actualizar.
 
 ## <a name="dps-payload"></a>Carga de DPS
 
@@ -42,7 +42,7 @@ Los dispositivos que usan [Device Provisioning Service (DPS)](../articles/iot-dp
 
 ## <a name="implement-telemetry-properties-and-commands"></a>Implementación de telemetría, propiedades y comandos
 
-Como se describe en [Descripción de componentes de los modelos de IoT Plug and Play](../articles/iot-pnp/concepts-components.md), los creadores de dispositivos deben decidir si quieren usar componentes para describir sus dispositivos. Cuando se usan componentes, los dispositivos deben seguir las reglas descritas en esta sección.
+Como se describe en [Descripción de componentes de los modelos de IoT Plug and Play](../articles/iot-pnp/concepts-modeling-guide.md), los creadores de dispositivos deben decidir si quieren usar componentes para describir sus dispositivos. Cuando se usan componentes, los dispositivos deben seguir las reglas descritas en esta sección.
 
 ### <a name="telemetry"></a>Telemetría
 

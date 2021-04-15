@@ -9,10 +9,10 @@ ms.workload: infrastructure-services
 ms.date: 02/18/2021
 ms.author: duau
 ms.openlocfilehash: db026c4903aa30a0a4c8154af8ad6eeb4b72b706
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101098233"
 ---
 # <a name="what-is-azure-front-door-standardpremium-preview-route"></a>¿Cuál es la ruta de Azure Front Door Estándar/Prémium (versión preliminar)?
@@ -76,7 +76,7 @@ Si las siguientes solicitudes entrantes se enviaron a Front Door, coincidirían 
 
 ### <a name="path-matching"></a>Coincidencia de ruta de acceso
 
-Después de que Azure Front Door Estándar/Prémium determina el host de front-end específico y filtra las posibles reglas de enrutamiento a solo las rutas con ese host de front-end, filtra las reglas de enrutamiento en función de la ruta de acceso de la solicitud. Front Door then filters the routing rules based on the request path. Utilizamos una lógica similar que los hosts de front-end:
+Después de que Azure Front Door Estándar/Prémium determina el host de front-end específico y filtra las posibles reglas de enrutamiento a solo las rutas con ese host de front-end, filtra las reglas de enrutamiento en función de la ruta de acceso de la solicitud. Luego, Front Door filtra las reglas de enrutamiento en función de la ruta de acceso de la solicitud. Utilizamos una lógica similar que los hosts de front-end:
 
 1. Busque cualquier regla enrutamiento con una coincidencia exacta con la ruta de acceso.
 2. Si ninguna ruta de acceso presenta una coincidencia exacta, busque las reglas de enrutamiento con una ruta de acceso con un carácter comodín que coincida.

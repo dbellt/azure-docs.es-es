@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: a5c62c67cd401c043352b06e6e6070a7fc0f1296
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95995442"
 ---
 #### <a name="to-connect-through-the-serial-console"></a>Para conectarse a través de la consola serie
@@ -27,7 +27,7 @@ ms.locfileid: "95995442"
    * Paridad: ninguno
    * Control de flujo: ninguno
      
-     Esta configuración se muestra en la siguiente ilustración.
+      Esta configuración se muestra en la siguiente ilustración.
      
      ![Configuración de PuTTY](./media/storsimple-use-putty/HCS_PuttyConfig-include.png) 
      
@@ -35,5 +35,5 @@ ms.locfileid: "95995442"
      > Si la opción de control de flujo predeterminado no funciona, pruebe a establecer el control de flujo en XON/XOFF.
      > 
      > 
-7. Haga clic en **Abrir** para iniciar una sesión en serie.
+7. Haga clic en **Abrir** para iniciar una sesión de serie.
 

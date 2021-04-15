@@ -5,10 +5,10 @@ ms.service: iot-pnp
 ms.topic: include
 ms.date: 10/20/2020
 ms.openlocfilehash: a92e37326cf9db0eba186b2bdca44c452c02ea91
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92521423"
 ---
 Los recursos siguientes también están disponibles:
@@ -51,7 +51,7 @@ Console.WriteLine($"Update the targetTemperature property to {desiredTargetTempe
 await registryManager.UpdateTwinAsync(deviceTwinId, twinPatch, twin.ETag);
 ```
 
-En el siguiente fragmento se muestra cómo actualizar la propiedad `targetTemperature` en el componente. En el ejemplo se muestra qué debe hacer para obtener el `ETag` del gemelo antes de actualizarlo. La propiedad se define en el componente **Thermostat1** :
+En el siguiente fragmento se muestra cómo actualizar la propiedad `targetTemperature` en el componente. En el ejemplo se muestra qué debe hacer para obtener el `ETag` del gemelo antes de actualizarlo. La propiedad se define en el componente **Thermostat1**:
 
 ```csharp
 Twin twin = await registryManager.GetTwinAsync(deviceTwinId);
@@ -115,7 +115,7 @@ catch (DeviceNotFoundException)
 }
 ```
 
-En el siguiente fragmento de código se muestra cómo llamar al comando `getMaxMinReport` de un componente. El comando se define en el componente **Thermostat1** :
+En el siguiente fragmento de código se muestra cómo llamar al comando `getMaxMinReport` de un componente. El comando se define en el componente **Thermostat1**:
 
 ```csharp
 // Create command name to invoke for component. The command is formatted as <component name>*<command name>
@@ -258,7 +258,7 @@ HttpOperationHeaderResponse<DigitalTwinUpdateHeaders> updateDigitalTwinResponse 
 Console.WriteLine($"Update {digitalTwinId} digital twin response: {updateDigitalTwinResponse.Response.StatusCode}.");
 ```
 
-En el siguiente fragmento se muestra cómo actualizar la propiedad `targetTemperature` en el componente. La propiedad se define en el componente **Thermostat1** :
+En el siguiente fragmento se muestra cómo actualizar la propiedad `targetTemperature` en el componente. La propiedad se define en el componente **Thermostat1**:
 
 ```csharp
 int desiredTargetTemperature = 60;
@@ -327,7 +327,7 @@ catch (HttpOperationException e)
 }
 ```
 
-En el siguiente fragmento de código se muestra cómo llamar al comando `getMaxMinReport` de un componente. El comando se define en el componente **Thermostat1** :
+En el siguiente fragmento de código se muestra cómo llamar al comando `getMaxMinReport` de un componente. El comando se define en el componente **Thermostat1**:
 
 ```csharp
 DateTimeOffset since = DateTimeOffset.Now.Subtract(TimeSpan.FromMinutes(2));

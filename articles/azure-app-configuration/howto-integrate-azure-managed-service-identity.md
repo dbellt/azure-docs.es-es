@@ -7,13 +7,13 @@ ms.author: alkemper
 ms.service: azure-app-configuration
 ms.custom: devx-track-csharp, fasttrack-edit
 ms.topic: conceptual
-ms.date: 2/25/2020
-ms.openlocfilehash: 386a0e27c0f73f5bcd42397ed515f7561d5097fd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/08/2021
+ms.openlocfilehash: b4b67a6bf4eea72b3a81bd01398cc60cc33c0d0a
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104955064"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107227048"
 ---
 # <a name="use-managed-identities-to-access-app-configuration"></a>Uso de identidades administradas para acceder a App Configuration
 
@@ -145,7 +145,7 @@ Para configurar una identidad administrada en el portal, primero crea una aplica
     >config.AddAzureAppConfiguration(options =>
     >   options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential(<your_clientId>)));
     >```
-    >Como se explica en las [preguntas más frecuentes sobre identidades administradas para recursos de Azure](../active-directory/managed-identities-azure-resources/known-issues.md#what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request), hay una manera predeterminada de resolver qué identidad administrada se usa. En este caso, la biblioteca de identidades de Azure le exige que especifique la identidad deseada para evitar posibles problemas de tiempo de ejecución en el futuro (por ejemplo, si se agrega una nueva identidad administrada asignada por el usuario o si está habilitada la identidad administrada asignada por el sistema). Por lo tanto, tendrá que especificar el valor de clientId incluso si solo se define una identidad administrada asignada por el usuario y no hay ninguna identidad administrada asignada por el sistema.
+    >Como se explica en las [preguntas más frecuentes sobre identidades administradas para recursos de Azure](../active-directory/managed-identities-azure-resources/managed-identities-faq.md#what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request), hay una manera predeterminada de resolver qué identidad administrada se usa. En este caso, la biblioteca de identidades de Azure le exige que especifique la identidad deseada para evitar posibles problemas de tiempo de ejecución en el futuro (por ejemplo, si se agrega una nueva identidad administrada asignada por el usuario o si está habilitada la identidad administrada asignada por el sistema). Por lo tanto, tendrá que especificar el valor de clientId incluso si solo se define una identidad administrada asignada por el usuario y no hay ninguna identidad administrada asignada por el sistema.
 
 
 1. Para usar los valores de App Configuration y las referencias de Key Vault, actualice *Program.cs* como se muestra a continuación. Este código llama a `SetCredential` como parte de `ConfigureKeyVault` para indicar al proveedor de configuración qué credencial debe usar al autenticarse en Key Vault.

@@ -4,14 +4,14 @@ ms.service: databox
 ms.topic: include
 ms.date: 01/15/2021
 ms.author: alkohli
-ms.openlocfilehash: 71d5a910e36762d096763c4f45a13cbdad47414d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: f166413507afb9aff814eaddaade099d2e34ae68
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101730632"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106554683"
 ---
-Para poder implementar VM en el dispositivo Azure Stack Edge, debe configurar el cliente para que se conecte al dispositivo mediante Azure Resource Manager con Azure PowerShell. Para consultar las instrucciones detalladas, vaya a [Conexión a Azure Resource Manager en un dispositivo Azure Stack Edge Pro](../articles/databox-online/azure-stack-edge-j-series-connect-resource-manager.md).
+Para poder implementar VM en el dispositivo Azure Stack Edge, debe configurar el cliente para que se conecte al dispositivo mediante Azure Resource Manager con Azure PowerShell. Para consultar las instrucciones detalladas, vaya a [Conexión a Azure Resource Manager en un dispositivo Azure Stack Edge Pro](../articles/databox-online/azure-stack-edge-gpu-connect-resource-manager.md).
 
 Asegúrese de que se pueden usar los pasos siguientes para acceder al dispositivo desde el cliente. Ya ha realizado esta configuración cuando se conectó a Azure Resource Manager y ahora está comprobando que la configuración se ha realizado correctamente. 
 
@@ -23,9 +23,9 @@ Asegúrese de que se pueden usar los pasos siguientes para acceder al dispositiv
 
 1. Para llamar a las API de dispositivo local para autenticarse, escriba: 
 
-    `login-AzureRMAccount -EnvironmentName <Environment Name>`
+    `login-AzureRMAccount -EnvironmentName <Environment Name> -TenantId c0257de7-538f-415c-993a-1b87a031879d`
 
-    Para conectarse mediante Azure Resource Manager, proporcione el nombre de usuario *EdgeARMuser* y la contraseña.
+    Para conectarse mediante Azure Resource Manager, proporcione el nombre de usuario *EdgeArmUser* y la contraseña.
 
 1. Si configuró el proceso para Kubernetes, puede omitir este paso. De lo contrario, asegúrese de que ha habilitado una interfaz de red para el proceso de la siguiente manera: 
 
@@ -38,5 +38,3 @@ Asegúrese de que se pueden usar los pasos siguientes para acceder al dispositiv
 
     > [!NOTE]
     > Si va a crear máquinas virtuales de GPU, seleccione una interfaz de red conectada a Internet, ya que ello le permite instalar una extensión de GPU en el dispositivo.
-
-

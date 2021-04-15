@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/3/2020
-ms.openlocfilehash: d84f56e5ae0f3c364a0fd3a08ccb173d7c65a5e2
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: 1be15c16a1897797326ea869c34c3590ffb07691
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106121768"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107363876"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>Versiones admitidas de servidores de Azure Database for MySQL
 
@@ -33,7 +33,7 @@ En el servicio Azure Database for MySQL, los nodos de puerta de enlace escuchan 
 ## <a name="azure-database-for-mysql-currently-supports-the-following-major-and-minor-versions-of-mysql"></a>Actualmente, Azure Database for MySQL admite las siguientes versiones principales y secundarias de MySQL:
 
 
-| Versión | [Servidor único](overview.md) <br/> Versión secundaria actual |[Servidor flexible (versión preliminar)](/../flexible-server/overview.md) <br/> Versión secundaria actual  |
+| Versión | [Servidor único](overview.md) <br/> Versión secundaria actual |[Servidor flexible (versión preliminar)](/azure/mysql/flexible-server/overview) <br/> Versión secundaria actual  |
 |:-------------------|:-------------------------------------------|:---------------------------------------------|
 |MySQL versión 5.6 |  [5.6.47](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-47.html) (retirada) | No compatible|
 |MySQL versión 5.7 | [5.7.29](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html) | [5.7.29](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html)|

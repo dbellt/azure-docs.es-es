@@ -4,12 +4,12 @@ description: Aprenda a crear y administrar grupos de varios nodos para un clúst
 services: container-service
 ms.topic: article
 ms.date: 02/11/2021
-ms.openlocfilehash: 8f18e19eca8895549f17c9f0f6822ecb4da2914b
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: bb10e2023187c74a9e8b9a2e4c72115841e89a84
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104773511"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552604"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Creación y administración de varios grupos de nodos para un clúster de Azure Kubernetes Service (AKS)
 
@@ -738,6 +738,34 @@ En el caso de los clústeres de AKS que ya existan, también puede agregar un nu
 az aks nodepool add -g MyResourceGroup2 --cluster-name MyManagedCluster -n nodepool2 --enable-node-public-ip
 ```
 
+### <a name="use-a-public-ip-prefix"></a>Uso de un prefijo de dirección IP pública
+
+Existen varias [ventajas al usar un prefijo de dirección IP pública][public-ip-prefix-benefits]. AKS admite el uso de direcciones de un prefijo de dirección IP pública existente para los nodos pasando el identificador de recurso con la marca `node-public-ip-prefix` al crear un nuevo clúster o agregar un grupo de nodos.
+
+En primer lugar, cree un prefijo de dirección IP pública mediante [az network public-ip prefix create][az-public-ip-prefix-create]:
+
+```azurecli-interactive
+az network public-ip prefix create --length 28 --location eastus --name MyPublicIPPrefix --resource-group MyResourceGroup3
+```
+
+Vea la salida y tome nota de `id` para el prefijo:
+
+```output
+{
+  ...
+  "id": "/subscriptions/<subscription-id>/resourceGroups/myResourceGroup3/providers/Microsoft.Network/publicIPPrefixes/MyPublicIPPrefix",
+  ...
+}
+```
+
+Por último, al crear un nuevo clúster o al agregar un nuevo grupo de nodos, use la marca `node-public-ip-prefix` y pase el identificador de recurso del prefijo:
+
+```azurecli-interactive
+az aks create -g MyResourceGroup3 -n MyManagedCluster -l eastus --enable-node-public-ip --node-public-ip-prefix /subscriptions/<subscription-id>/resourcegroups/MyResourceGroup3/providers/Microsoft.Network/publicIPPrefixes/MyPublicIPPrefix
+```
+
+### <a name="locate-public-ips-for-nodes"></a>Búsqueda de direcciones IP públicas para nodos
+
 Puede buscar las direcciones IP públicas de los nodos de varias maneras:
 
 * Use el comando [az vmss list-instance-public-ips][az-list-ips] de la CLI de Azure.
@@ -821,3 +849,5 @@ Use [grupos con ubicación por proximidad][reduce-latency-ppg] para disminuir la
 [vmss-commands]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine
 [az-list-ips]: /cli/azure/vmss?view=azure-cli-latest&preserve-view=true#az_vmss_list_instance_public_ips
 [reduce-latency-ppg]: reduce-latency-ppg.md
+[public-ip-prefix-benefits]: ../virtual-network/public-ip-address-prefix.md#why-create-a-public-ip-address-prefix
+[az-public-ip-prefix-create]: /cli/azure/network/public-ip/prefix?view=azure-cli-latest&preserve-view=true#az_network_public_ip_prefix_create

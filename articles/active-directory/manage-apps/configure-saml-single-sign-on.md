@@ -2,21 +2,21 @@
 title: Descripción del inicio de sesión único (SSO) basado en SAML para aplicaciones en Azure Active Directory
 description: Descripción del inicio de sesión único (SSO) basado en SAML para aplicaciones en Azure Active Directory
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 07/28/2020
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: f6422c3f751a7aaa430b93ee68ca1a3520ac915f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b7468f33c75dd58e70c344f3ef19c51e220a7abb
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99257699"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107374495"
 ---
 # <a name="understand-saml-based-single-sign-on"></a>Configuración del inicio de sesión único basado en SAML
 

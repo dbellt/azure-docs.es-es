@@ -3,12 +3,12 @@ title: Habilitación de la identidad administrada en temas y dominios personaliz
 description: En este artículo se describe cómo habilitar una identidad de servicio administrada de un tema o un dominio personalizados de Azure Event Grid.
 ms.topic: how-to
 ms.date: 03/25/2021
-ms.openlocfilehash: 06fd4d6e472b33496e773596b0f3afc8e70be948
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b93fd44282d9e19e7111dd52c73d8d4c01c67a10
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105629791"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106278225"
 ---
 # <a name="assign-a-system-managed-identity-to-an-event-grid-custom-topic-or-domain"></a>Asignación de una identidad administrada por el sistema a un tema o un dominio personalizados de Event Grid 
 En este artículo se muestra cómo habilitar una identidad administrada por el sistema para un tema o un dominio personalizados de Event Grid. Para más información sobre las identidades administradas, consulte [¿Qué son las identidades administradas de recursos de Azure?](../active-directory/managed-identities-azure-resources/overview.md).
@@ -59,4 +59,4 @@ El comando para actualizar un dominio existente es similar (`az eventgrid domain
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Agregue la identidad a un rol adecuado (por ejemplo, Remitente de los datos de Service Bus) en el destino (por ejemplo, una cola de Service Bus). Para obtener pasos detallados, consulte [Adición de identidad a roles de Azure en destinos](add-identity-roles.md). 
+Agregue la identidad a un rol adecuado (por ejemplo, Remitente de los datos de Service Bus) en el destino (por ejemplo, una cola de Service Bus). Para los pasos detallados, consulte [Concesión a la identidad administrada el acceso al destino de Event Grid](add-identity-roles.md). 

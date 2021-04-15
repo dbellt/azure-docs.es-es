@@ -1,14 +1,14 @@
 ---
 title: Publicación de una oferta de servicio administrado en Azure Marketplace
 description: Aprenda a publicar una oferta de servicio administrado que incorpore clientes a Azure Lighthouse.
-ms.date: 02/17/2021
+ms.date: 03/31/2021
 ms.topic: how-to
-ms.openlocfilehash: b906ba9961ae4f77ca16890fd0a9036123343111
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f59d9708925b52bcf9432663fe6d3137a54b37ad
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101092152"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107455"
 ---
 # <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Publicación de una oferta de servicio administrado en Azure Marketplace
 
@@ -16,7 +16,7 @@ En este artículo, aprenderá a publicar una oferta de servicio administrado pú
 
 ## <a name="publishing-requirements"></a>Requisitos de publicación
 
-Debe tener una [cuenta en el Centro de partners](../../marketplace/partner-center-portal/create-account.md) valida para crear y publicar ofertas. Si aún no tiene una cuenta, el [proceso de registro](https://aka.ms/joinmarketplace) le guiará por los pasos necesarios para crear una cuenta en el Centro de partners e inscribirse en el programa comercial de Marketplace.
+Debe tener una [cuenta en el Centro de partners](../../marketplace/create-account.md) valida para crear y publicar ofertas. Si aún no tiene una cuenta, el [proceso de registro](https://aka.ms/joinmarketplace) le guiará por los pasos necesarios para crear una cuenta en el Centro de partners e inscribirse en el programa comercial de Marketplace.
 
 Según los [Requisitos de certificación de la oferta de servicio administrado](/legal/marketplace/certification-policies#700-managed-services), debe tener un [nivel de competencia de plataforma en la nube Silver o Gold](/partner-center/learn-about-competencies) o ser un [MSP experto de Azure](https://partner.microsoft.com/membership/azure-expert-msp) para publicar una oferta de servicio administrado. También debe [escribir un destino de clientes potenciales que creará un registro en el sistema CRM](../../marketplace/plan-managed-service-offer.md#customer-leads) cada vez que un cliente implemente la oferta.
 
@@ -26,13 +26,14 @@ La tabla siguiente puede ayudar a determinar si se deben incorporar clientes med
 
 |**Consideración**  |**Oferta de servicio administrado**  |**Plantillas de ARM**  |
 |---------|---------|---------|
-|Se necesita una [cuenta del Centro de partners](../../marketplace/partner-center-portal/create-account.md).   |Sí         |No        |
+|Se necesita una [cuenta del Centro de partners](../../marketplace/create-account.md).   |Sí         |No        |
 |Se necesita un [nivel de competencia de la plataforma de nube Silver o Gold](/partner-center/learn-about-competencies) o un [MSP experto de Azure](https://partner.microsoft.com/membership/azure-expert-msp).      |Sí         |No         |
 |Disponible para nuevos clientes mediante Azure Marketplace     |Sí     |No       |
 |Se puede limitar la oferta a clientes específicos     |Sí (solo con ofertas privadas, que no son compatibles con las suscripciones que se establecen a través de un revendedor del programa Proveedor de soluciones en la nube [CSP]).         |Sí         |
 |Se requiere la aceptación del cliente en Azure Portal     |Sí     |No   |
 |Se puede usar automatización para incorporar varias suscripciones, grupos de recursos o clientes |No     |Sí    |
 |Acceso inmediato a nuevos roles integrados y características de Azure Lighthouse     |No siempre (disponible generalmente después de un pequeño retraso)         |Sí         |
+|Los clientes pueden revisar y aceptar las ofertas actualizadas en Azure Portal | Sí | No |
 
 > [!NOTE]
 > Es posible que las ofertas de servicios administrados no estén disponibles en Azure Government y otras nubes nacionales.
@@ -62,6 +63,8 @@ Una vez que un cliente agregue su oferta, podrá [delegar uno o varios grupos de
 > La delegación debe realizarse desde una cuenta que no sea de invitado en el inquilino del cliente, que tenga el rol con el permiso `Microsoft.Authorization/roleAssignments/write`, como [Propietario](../../role-based-access-control/built-in-roles.md#owner), para la suscripción que se va a incorporar (o que contenga los grupos de recursos que se están incorporando). Para buscar usuarios que puedan delegar la suscripción, un usuario del inquilino del cliente puede seleccionar la suscripción en Azure Portal, abrir **Control de acceso (IAM)** y [ver todos los usuarios con el rol Propietario](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
 
 Una vez que el cliente delega una suscripción (o uno o varios grupos de recursos dentro de una suscripción), el proveedor de recursos **Microsoft.ManagedServices** se registrará para esa suscripción y los usuarios del inquilino podrán acceder a los recursos delegados según las autorizaciones de la oferta.
+
+Si publica una versión actualizada de la oferta, el cliente puede [revisar los cambios en Azure Portal y aceptar la nueva versión](view-manage-service-providers.md#update-service-provider-offers).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,7 +1,7 @@
 ---
 title: Novedades en el aprovisionamiento de aplicaciones de Azure Active Directory
 description: Documentación nueva y actualizada sobre el aprovisionamiento de aplicaciones de Azure Active Directory.
-ms.date: 03/08/2021
+ms.date: 04/05/2021
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
@@ -9,16 +9,27 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: daveba
-ms.openlocfilehash: abee58607a5492548e4d64f44c15fd365876f3f5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8bb8dfbaf7ee1758811016dd3ddf08367a44bfae
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102453689"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106443515"
 ---
 # <a name="azure-active-directory-application-provisioning-whats-new"></a>Aprovisionamiento de aplicaciones de Azure Active Directory: Novedades
 
 Le damos la bienvenida a las novedades sobre la documentación de aprovisionamiento de aplicaciones de Azure Active Directory. En este artículo se enumeran los documentos nuevos que se han agregado y los que han tenido actualizaciones importantes en los últimos tres meses. Para conocer las novedades del servicio de aprovisionamiento, consulte [Novedades de Azure Active Directory](../fundamentals/whats-new.md).
+
+## <a name="march-2021"></a>Marzo de 2021
+
+### <a name="updated-articles"></a>Artículos actualizados
+
+- [Sincronización de atributos de extensión para el aprovisionamiento de aplicaciones](user-provisioning-sync-attributes-for-mapping.md)
+- [Aprovisionamiento de aplicaciones en el estado de cuarentena](application-provisioning-quarantine-status.md)
+- [Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales en el portal de Azure](configure-automatic-user-provisioning-portal.md)
+- [Referencia para la escritura de expresiones para la asignación de atributos en Azure AD](functions-for-customizing-application-data.md)
+- [Tutorial: Desarrollo un punto de conexión SCIM de ejemplo](use-scim-to-build-users-and-groups-endpoints.md)
+
 
 ## <a name="february-2021"></a>Febrero de 2021
 

@@ -3,12 +3,12 @@ title: Entrega de eventos de WebHook
 description: En este artículo se describe la entrega de eventos de webhook y la validación de puntos de conexión al usar webhooks.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: e9a52d0cb3e4e880d91e1b748d97ef3041298930
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 42ba36a21d307ca85d9cdae850c0c9a991e4f30e
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "87461245"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105968006"
 ---
 # <a name="webhook-event-delivery"></a>Entrega de eventos de webhook
 Los webhooks son una de las muchas maneras de recibir eventos de Azure Event Grid. Cuando un nuevo evento está preparado, el servicio EventGrid publica una solicitud HTTP en el punto de conexión configurado con el evento en el cuerpo de la solicitud.
@@ -74,7 +74,7 @@ Para comprobar la propiedad del punto de conexión, devuelva el código de valid
 }
 ```
 
-Debe devolver un código de estado de respuesta HTTP 200 OK. HTTP 202 Aceptado no se reconoce como una respuesta válida de validación de suscripción a Event Grid. La solicitud http debe completarse en 30 segundos. Si la operación no finaliza en 30 segundos, se cancelará y puede que se vuelva a intentar pasados cinco segundos. Si se producen errores en todos los intentos, se tratará como un error de protocolo de enlace de validación.
+Debe devolver un código de estado de respuesta HTTP 200 OK. HTTP 202 Aceptado no se reconoce como una respuesta válida de validación de suscripción a Event Grid. La solicitud HTTP debe completarse en 30 segundos. Si la operación no finaliza en 30 segundos, se cancelará y puede que se vuelva a intentar pasados cinco segundos. Si se producen errores en todos los intentos, se tratará como un error de protocolo de enlace de validación.
 
 O bien, puede enviar una solicitud GET a la dirección URL de validación para validar la suscripción manualmente. La suscripción a eventos permanece en estado pendiente hasta que se valida. La dirección URL de validación usa el puerto 553. Si las reglas de firewall bloquean el puerto 553, puede que sea necesario actualizarlas para aplicar el protocolo de enlace manual de forma satisfactoria.
 

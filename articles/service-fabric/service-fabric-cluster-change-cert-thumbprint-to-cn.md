@@ -3,12 +3,12 @@ title: Actualización de un clúster para usar el nombre común del certificado
 description: Obtenga información sobre cómo convertir en nombres comunes un certificado de clúster de Azure Service Fabric basado en huella digital.
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: f719b1eb39da776827c6babec61e9e6701bb4602
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: daf8d55e156f30b1f9e9ec5c50d60714e6f17884
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97900797"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107308020"
 ---
 # <a name="convert-cluster-certificates-from-thumbprint-based-declarations-to-common-names"></a>Conversión de certificados de Azure basados en huella digital en nombres comunes
 
@@ -45,7 +45,7 @@ Con fines de prueba, un certificado autofirmado *podría* ser declarado mediante
 
 ## <a name="upload-the-certificate-and-install-it-in-the-scale-set"></a>Cargar el certificado e instalarlo en el conjunto de escalado
 
-En Azure, el mecanismo recomendado para obtener y aprovisionar certificados implica Azure Key Vault y sus herramientas. En todos los nodos de los conjuntos de escalado de máquinas virtuales que componen el clúster se debe aprovisionar un certificado que coincida con la declaración de certificado de clúster. Para obtener más información, vea [Secretos de conjuntos de escalado de máquinas virtuales](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.md#how-do-i-securely-ship-a-certificate-to-the-vm).
+En Azure, el mecanismo recomendado para obtener y aprovisionar certificados implica Azure Key Vault y sus herramientas. En todos los nodos de los conjuntos de escalado de máquinas virtuales que componen el clúster se debe aprovisionar un certificado que coincida con la declaración de certificado de clúster. Para obtener más información, vea [Secretos de conjuntos de escalado de máquinas virtuales](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.yml#how-do-i-securely-ship-a-certificate-to-the-vm-).
 
 Es importante instalar los certificados de clúster actuales y de destino en las máquinas virtuales de cada tipo de nodo del clúster antes de realizar cambios en las declaraciones de certificado del clúster. El recorrido de la emisión del certificado al aprovisionamiento en un nodo de Service Fabric se analiza en profundidad en [Recorrido de un certificado](cluster-security-certificate-management.md#the-journey-of-a-certificate).
 

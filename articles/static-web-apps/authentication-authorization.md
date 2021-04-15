@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: ab41a336c32a1827c23f4c4619f47dc294a4d2ea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9c8dd723c9cde5c0534d9fd5ca4084c7ed15d213
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103419293"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106218641"
 ---
 # <a name="authentication-and-authorization-for-azure-static-web-apps-preview"></a>Autenticación y autorización para Azure Static Web Apps (versión preliminar)
 
@@ -156,7 +156,13 @@ Puede usar una [regla de ruta](./configuration.md#routes) para asignar un provee
 
 ### <a name="post-login-redirect"></a>Redireccionamiento posterior al inicio de sesión
 
-Si quiere que un usuario vuelva a una página específica después de iniciar sesión, proporcione una dirección URL en el parámetro de cadena de consulta `post_login_redirect_uri`.
+Si quiere que un usuario vuelva a una página específica después de iniciar sesión, proporcione una dirección URL completa en el parámetro de cadena de consulta `post_login_redirect_uri`.
+
+Por ejemplo:
+
+```html
+<a href="/.auth/login/github?post_login_redirect_uri=https://zealous-water.azurestaticapps.net/success">Login</a>
+```
 
 ## <a name="logout"></a>Logout
 

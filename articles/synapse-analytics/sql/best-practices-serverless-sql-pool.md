@@ -10,18 +10,27 @@ ms.subservice: sql
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: a47982012dcaa2eabda93c93508b23f30525812d
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: dcd48354372a196ea903c335e5e22caf20e25996
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104720396"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219661"
 ---
 # <a name="best-practices-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Procedimientos recomendados para el grupo de SQL sin servidor en Azure Synapse Analytics
 
 En este artículo, encontrará una colección de procedimientos recomendados para usar un grupo de SQL sin servidor. Un grupo de SQL sin servidor es un recurso de Azure Synapse Analytics.
 
 El grupo de SQL sin servidor permite consultar archivos de las cuentas de almacenamiento de Azure. No tiene funcionalidades de ingesta o almacenamiento local. Por ello, todos los archivos de destino de la consulta son externos al grupo de SQL sin servidor. Todo lo relacionado con la lectura de archivos desde el almacenamiento puede afectar el rendimiento de las consultas.
+
+Estas son algunas directrices generales:
+- Asegúrese de que las aplicaciones cliente se colocan con el grupo de SQL sin servidor.
+  - Si usa aplicaciones cliente fuera de Azure (por ejemplo Power BI Desktop, SSMS, ADS), asegúrese de que esté usando el grupo sin servidor en una región cercana a su equipo cliente.
+- Asegúrese de que el almacenamiento (Azure Data Lake, Cosmos DB) y el grupo SQL sin servidor se encuentren en la misma región.
+- Intente [optimizar el diseño de almacenamiento](#prepare-files-for-querying) mediante la creación de particiones y manteniendo los archivos en el intervalo entre 100 MB y 10 GB.
+- Si devuelve un gran número de resultados, asegúrese de que esté usando SSMS o ADS, y no Synapse Studio. Synapse Studio es una herramienta web que no está diseñada para grandes conjuntos de resultados. 
+- Si está filtrando los resultados por la columna de cadena, intente usar alguna intercalación `BIN2_UTF8`.
+- Intente almacenar en caché los resultados en el lado cliente mediante el modo de importación de Power BI o Azure Analysis Services y, a continuación, actualícelos periódicamente. Los grupos de SQL sin servidor no pueden proporcionar experiencia interactiva en el modo de consulta directa de Power BI si usa consultas complejas o procesa una gran cantidad de datos.
 
 ## <a name="client-applications-and-network-connections"></a>Aplicaciones cliente y conexiones de red
 
@@ -66,7 +75,11 @@ Si es posible, puede preparar los archivos para mejorar el rendimiento:
 
 ### <a name="colocate-your-cosmosdb-analytical-storage-and-serverless-sql-pool"></a>Coloque su almacenamiento analítico de CosmosDB y su grupo de SQL sin servidor
 
-Asegúrese de que el almacenamiento analítico de CosmosDB se encuentra en la misma región que el área de trabajo de Synapse. Las consultas entre regiones pueden producir latencias enormes.
+Asegúrese de que el almacenamiento analítico de CosmosDB se encuentra en la misma región que el área de trabajo de Synapse. Las consultas entre regiones pueden producir latencias enormes. Use la propiedad "region" de la cadena de conexión para especificar explícitamente la región en la que está ubicado el almacén analítico (consulte [Consulta de CosmosDb mediante el grupo de SQL sin servidor](query-cosmos-db-analytical-store.md#overview)):
+
+```
+'account=<database account name>;database=<database name>;region=<region name>'
+```
 
 ## <a name="csv-optimizations"></a>Optimizaciones de archivo .csv
 

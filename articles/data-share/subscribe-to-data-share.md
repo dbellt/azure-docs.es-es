@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
-ms.date: 11/12/2020
-ms.openlocfilehash: a225989f0670e9b62b00a35bac719c9357c8a130
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/24/2021
+ms.openlocfilehash: ccfda4975b6453ed67edc2640520bc0a76df5709
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96017056"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105644887"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>Tutorial: Aceptación y recepción de datos con Azure Data Share  
 
@@ -42,23 +42,10 @@ Asegúrese de que se cumplen todos los requisitos previos antes de aceptar una i
 Si opta por recibir datos en Azure SQL Database, Azure Synapse Analytics, esta es la lista de requisitos previos. 
 
 #### <a name="prerequisites-for-receiving-data-into-azure-sql-database-or-azure-synapse-analytics-formerly-azure-sql-dw"></a>Requisitos previos para recibir datos en Azure SQL Database o Azure Synapse Analytics (anteriormente Azure SQL DW)
-Puede seguir la [demostración paso a paso](https://youtu.be/aeGISgK1xro) para configurar los requisitos previos.
 
 * Una instancia de Azure SQL Database o Azure Synapse Analytics (anteriormente Azure SQL DW).
 * Permisos para escribir en las bases de datos de SQL Server, que se encuentra en *Microsoft.Sql/servers/databases/write*. Este permiso existe en el rol de **colaborador**. 
-* Permiso para que la identidad administrada del recurso compartido de Data Share tenga acceso a Azure SQL Database o Azure Synapse Analytics. Esto se puede hacer mediante los siguientes pasos: 
-    1. En Azure Portal, vaya al servidor SQL Server y establézcase como **administrador de Azure Active Directory**.
-    1. Conéctese a Azure SQL Database/Data Warehouse con el [Editor de consultas](../azure-sql/database/connect-query-portal.md#connect-using-azure-active-directory) o SQL Server Management Studio mediante la autenticación de Azure Active Directory. 
-    1. Ejecute el siguiente script para agregar la identidad administrada de Data Share como "db_datareader, db_datawriter o db_ddladmin". Debe conectarse mediante Active Directory y no con la autenticación de SQL Server. 
-
-        ```sql
-        create user "<share_acc_name>" from external provider; 
-        exec sp_addrolemember db_datareader, "<share_acc_name>"; 
-        exec sp_addrolemember db_datawriter, "<share_acc_name>"; 
-        exec sp_addrolemember db_ddladmin, "<share_acc_name>";
-        ```      
-        Tenga en cuenta que *<share_acc_name>* es el nombre del recurso de Data Share. Si aún no ha creado un recurso de Data Share, puede volver a este requisito previo más adelante.         
-
+* **Administrador de Azure Active Directory** del servidor SQL Server
 * Acceso al firewall de SQL Server. Esto se puede hacer mediante los siguientes pasos: 
     1. En SQL Server en Azure Portal, vaya a *Firewalls y redes virtuales*.
     1. Haga clic en **Sí** en *Permitir que los servicios y recursos de Azure accedan a este servidor*.
@@ -92,7 +79,6 @@ Puede seguir la [demostración paso a paso](https://youtu.be/aeGISgK1xro) para c
 
 * Un clúster de Azure Data Explorer en el mismo centro de datos de Azure que el clúster de Data Explorer del proveedor de datos: Si aún no tiene uno, puede crear un [clúster de Azure Data Explorer](/azure/data-explorer/create-cluster-database-portal). Si no conoce el centro de datos de Azure del clúster del proveedor de datos, puede crear el clúster más adelante en el proceso.
 * Permisos para escribir en el clúster de Azure Data Explorer, que se encuentra en *Microsoft.Kusto/clusters/write*. Este permiso existe en el rol de colaborador. 
-* Permisos para agregar la asignación de roles al clúster de Azure Data Explorer, que se encuentra en *Microsoft.Authorization/role assignments/write*. Este permiso existe en el rol de propietario. 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
@@ -175,13 +161,13 @@ Siga los pasos que se indican a continuación para configurar dónde quiere reci
 
    ![Asignación a destino](./media/dataset-map-target.png "Asignar a destino") 
 
-1. Seleccione un tipo de datos de destino en el que quiera colocar los datos. Los archivos de datos o las tablas del almacén de datos de destino se sobrescribirán con la misma ruta de acceso y nombre. 
+1. Seleccione un tipo de datos de destino en el que quiera colocar los datos. Los archivos de datos o las tablas del almacén de datos de destino se sobrescribirán con la misma ruta de acceso y nombre. Si recibe datos en Azure SQL Database o Azure Synapse Analytics (anteriormente Azure SQL DW), active la casilla **Allow Data Share to run the above 'create user' script on my behalf** (Permitir que Data Share ejecute el script "create user" anterior en mi nombre).
 
    Para el uso compartido en contexto, seleccione un almacén de datos en la ubicación especificada. La ubicación es el centro de datos de Azure donde se encuentra el almacén de datos de origen del proveedor de datos. Una vez que se asigna un conjunto de datos, puede seguir el vínculo de la ruta de acceso de destino para acceder a los datos.
 
    ![Cuenta de almacenamiento de destino](./media/dataset-map-target-sql.png "Almacenamiento de destino") 
 
-1. En el caso del uso compartido basado en instantáneas, si el proveedor de datos ha creado una programación de instantáneas para proporcionar una actualización periódica de los datos, también puede habilitarla seleccionando la pestaña **Programación de instantáneas**. Active la casilla situada junto a la programación de instantáneas y seleccione **+ Habilitar**.
+1. En el caso del uso compartido basado en instantáneas, si el proveedor de datos ha creado una programación de instantáneas para proporcionar una actualización periódica de los datos, también puede habilitarla seleccionando la pestaña **Programación de instantáneas**. Active la casilla situada junto a la programación de instantáneas y seleccione **+ Habilitar**. Tenga en cuenta que la primera instantánea programada se iniciará en un minuto desde el tiempo de programación y las instantáneas posteriores comenzarán en cuestión de segundos desde la hora programada.
 
    ![Habilitación de la programación de instantáneas](./media/enable-snapshot-schedule.png "Habilitación de la programación de instantáneas")
 

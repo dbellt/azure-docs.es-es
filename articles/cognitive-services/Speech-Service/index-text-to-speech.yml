@@ -11,12 +11,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/10/2020
   ms.author: trbye
-  ms.openlocfilehash: 74cc0686c2eec631b0be84285ab88365bf8b3a2d
-  ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+  ms.openlocfilehash: 96ae0980a3962c07372a97c38af8f6f2256c4184
+  ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 03/30/2021
-  ms.locfileid: "99507600"
+  ms.lasthandoff: 04/09/2021
+  ms.locfileid: "107226659"
 landingContent:
 - title: Acerca de la conversión de texto a voz
   linkLists:
@@ -50,8 +50,6 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
-    - text: Compatibilidad con voz estándar
-      url: language-support.md#standard-voices
     - text: Compatibilidad con voz neuronal
       url: language-support.md#neural-voices
     - text: Conjuntos fonéticos de SSML

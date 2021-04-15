@@ -1,14 +1,14 @@
 ---
 title: Obtención de los cambios del recurso
 description: Aprenda los métodos para identificar cuándo un recurso se cambió, obtener una lista de las propiedades que cambiaron y evaluar las diferencias.
-ms.date: 01/27/2021
+ms.date: 03/31/2021
 ms.topic: how-to
-ms.openlocfilehash: 5ad86ec2598cd7f24b8e0cd2208889bb7a088568
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 500a2d58c5fc9e1b63a544978c4b583eba60a63e
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100594652"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219083"
 ---
 # <a name="get-resource-changes"></a>Obtención de los cambios del recurso
 
@@ -145,6 +145,10 @@ Cada evento de cambio detectado para el **resourceId** tiene las siguientes prop
 - **beforeSnapshot**: contiene el valor de **snapshotId** y de **timestamp** de la instantánea de recursos que se tomó antes de que se detectara un cambio.
 - **afterSnapshot**: contiene el valor de **snapshotId** y de **timestamp** de la instantánea de recursos que se tomó después de que se detectara un cambio.
 - **changeType**: describe el tipo de cambio detectado para el registro de cambios completo entre **beforeSnapshot** y **afterSnapshot**. Los valores son: _Create_ (Crear), _Update_ (Actualizar) y _Delete_ (Eliminar). La matriz de propiedades **propertyChanges** solo se incluye cuando **changeType** es _Update_.
+
+  > [!IMPORTANT]
+  > _Create_ solo está disponible en los recursos que existían previamente y se eliminaron en los últimos 14 días.
+
 - **propertyChanges**: esta matriz de propiedades detalla todas las propiedades de los recursos que se actualizaron entre **beforeSnapshot** y **afterSnapshot**:
   - **propertyName**: el nombre de la propiedad de recurso que se modificó.
   - **changeCategory**: describe lo que hizo el cambio. Los valores son: _System_ (Sistema) y _User_ (Usuario).

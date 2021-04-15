@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 12/01/2020
+ms.date: 03/30/2021
 ms.author: victorh
-ms.openlocfilehash: 923c6b685d20ff68788e7d9cfcb45ebaecb535e3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 622fde49a31105b2f66a678d3e55d48fabea9487
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96490115"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105966918"
 ---
 # <a name="what-are-security-partner-providers"></a>¿Qué son los proveedores de seguridad asociados?
 
@@ -32,15 +32,21 @@ Puede usar los asociados de seguridad para filtrar el tráfico de Internet en lo
 
 - De red virtual (VNet) a Internet
 
-   Aproveche la protección de Internet avanzada con reconocimiento del usuario para sus cargas de trabajo en la nube que se ejecutan en Azure.
+   Use la protección de Internet avanzada con reconocimiento del usuario para sus cargas de trabajo en la nube que se ejecutan en Azure.
 
 - De rama a Internet
 
-   Aproveche la conectividad de Azure y la distribución global para agregar fácilmente el filtrado de NSaaS de terceros para escenarios de rama a Internet. Puede crear la red de tránsito global y el perímetro de seguridad mediante Azure Virtual WAN.
+   Use la conectividad de Azure y la distribución global para agregar fácilmente el filtrado NSaaS de terceros para escenarios de rama a Internet. Puede crear la red de tránsito global y el perímetro de seguridad mediante Azure Virtual WAN.
 
 Se admiten los escenarios siguientes:
-- De red virtual o rama a Internet a través de un proveedor de seguridad asociado y el resto del tráfico (de radio a radio, de radio a rama, de rama a radio) a través de Azure Firewall.
-- De red virtual o rama a Internet a través del proveedor de seguridad asociado
+- Dos proveedores de seguridad en el centro de conectividad
+
+   De red virtual o rama a Internet a través de un proveedor de seguridad asociado y el resto del tráfico (de radio a radio, de radio a rama, de rama a radio) a través de Azure Firewall.
+- Proveedor único en el centro de conectividad
+
+   - Todo el tráfico (de radio a radio, de radio a rama, de rama a radio, de red virtual o de rama a Internet) protegido por Azure Firewall<br>
+      or
+   - De red virtual o rama a Internet a través del proveedor de seguridad asociado
 
 ## <a name="best-practices-for-internet-traffic-filtering-in-secured-virtual-hubs"></a>Procedimientos recomendados para el filtrado de tráfico de Internet en los centros virtuales protegidos
 

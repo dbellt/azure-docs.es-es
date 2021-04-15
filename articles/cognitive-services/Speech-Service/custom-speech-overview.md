@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: trbye
 ms.custom: contperf-fy21q2; references_regions
-ms.openlocfilehash: 13bf0f2430e0d58dd9ef28061aad897acf94ac3f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5ffae530bcd8a7274b4b75c447591cf619012661
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103493057"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106387067"
 ---
 # <a name="what-is-custom-speech"></a>¿Qué es Custom Speech?
 
@@ -81,7 +81,7 @@ Para crear el primer proyecto, seleccione **Speech-to-text/Custom speech** (Conv
 
 ## <a name="model-and-endpoint-lifecycle"></a>Ciclo de vida del modelo y el punto de conexión
 
-Los modelos anteriores normalmente dejan pierden utilidad con el tiempo, ya que el modelo más reciente suele tener mayor precisión. Por lo tanto, los modelos base, así como los modelos y puntos de conexión personalizados creados a través del portal, están sujetos a expiración después de un año para la adaptación y dos años para la descodificación. Consulte una descripción detallada en el artículo sobre el [ciclo de vida del modelo y el punto de conexión](./how-to-custom-speech-model-and-endpoint-lifecycle.md).
+Los modelos anteriores normalmente dejan pierden utilidad con el tiempo, ya que el modelo más reciente suele tener mayor precisión. Por lo tanto, los modelos base, así como los modelos y puntos de conexión personalizados creados a través del portal, están sujetos a expiración después de un año para la adaptación y dos años para la descodificación. Consulte una descripción detallada en el artículo [Ciclo de vida del modelo y el punto de conexión](./how-to-custom-speech-model-and-endpoint-lifecycle.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

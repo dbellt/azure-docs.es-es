@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 03/10/2021
+ms.date: 04/02/2021
 ms.author: victorh
-ms.openlocfilehash: 21bb1856409b7fbea1eeffb8b3769dd63119da50
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8dbfb23d4314f8ceb13ad36ca9733e446e176090
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102612854"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106278191"
 ---
 # <a name="azure-firewall-features"></a>Características de Azure Firewall
 
@@ -55,7 +55,7 @@ Availability Zones de Azure Firewall está disponible en las regiones que lo adm
 > [!NOTE]
 > Availability Zones solo se puede configurar durante la implementación. No se puede configurar un firewall existente para incluirlo.
 
-Para más información sobre Availability Zones, consulte [Regiones y Availability Zones en Azure](../availability-zones/az-overview.md)
+Para más información sobre Availability Zones, consulte [¿Qué son las zonas de disponibilidad en Azure?](../availability-zones/az-overview.md)
 
 ## <a name="unrestricted-cloud-scalability"></a>Escalabilidad a la nube sin restricciones
 
@@ -86,6 +86,8 @@ El filtrado basado en [inteligencia sobre amenazas](threat-intel.md) puede habil
 Todas las direcciones IP de tráfico de red virtual salientes se convierten a direcciones IP públicas de Azure Firewall (traducción de direcciones de red de origen). Puede identificar y permitir el tráfico que se origina en la red virtual y se dirige a los destinos de Internet remotos. Azure Firewall no aplica SNAT cuando la dirección IP de destino es un intervalo de direcciones IP privadas por [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). 
 
 Si su organización usa un intervalo de direcciones IP públicas para las redes privadas, Azure Firewall aplicará SNAT al tráfico para una de las direcciones IP privadas de firewall en AzureFirewallSubnet. Puede configurar Azure Firewall de modo que **no** aplique SNAT al intervalo de direcciones IP públicas. Para más información, consulte [Aplicación de SNAT por parte de Azure Firewall a intervalos de direcciones IP privadas](snat-private-range.md).
+
+Puede supervisar el uso de los puertos SNAT en las métricas de Azure Firewall. Obtenga más información y vea nuestra recomendación sobre el uso de puertos SNAT en nuestra [documentación sobre los registros y las métricas de firewall](logs-and-metrics.md#metrics).
 
 ## <a name="inbound-dnat-support"></a>Compatibilidad con DNAT entrante
 

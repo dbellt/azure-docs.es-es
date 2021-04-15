@@ -10,14 +10,14 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c7f3de20ea3e86e3b56dc71d698354f7eaf782d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 67018a2ec6b9239661a7022ad7fb9eeb6c9a5f64
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105709725"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106385588"
 ---
-# <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migración a la autenticación en la nube mediante un lanzamiento preconfigurado (versión preliminar)
+# <a name="migrate-to-cloud-authentication-using-staged-rollout"></a>Migración a la autenticación en la nube mediante un lanzamiento almacenado preconfigurado
 
 El lanzamiento preconfigurado le permite probar de forma selectiva grupos de usuarios con funcionalidades de autenticación en la nube, como Azure AD Multi-Factor Authentication (MFA), Acceso condicional, Identity Protection para credenciales filtradas, Identity Governance y otros, antes de utilizar sus propios dominios.  En este artículo se describe cómo realizar el cambio. Sin embargo, antes de comenzar el lanzamiento preconfigurado, debe tener en cuenta las consecuencias en caso de que se cumplan las condiciones siguientes:
     
@@ -79,7 +79,7 @@ Los siguientes escenarios no se admiten en el lanzamiento preconfigurado:
 - El administrador puede implementar la autenticación en la nube mediante grupos de seguridad. Para evitar la latencia de la sincronización cuando se usan grupos de seguridad de Active Directory locales, se recomienda usar grupos de seguridad de nube. Se aplican las siguientes condiciones:
 
     - Puede usar hasta 10 grupos por característica. Es decir, puede usar 10 grupos por cada *sincronización de hash de contraseña*, *autenticación de paso a través* e *inicio de sesión único de conexión directa*.
-    - *No se admiten* grupos anidados. Este ámbito se aplica también a la versión preliminar pública.
+    - *No se admiten* grupos anidados. 
     - Los grupos dinámicos *no se admiten* en el lanzamiento preconfigurado.
     - Los objetos de contacto dentro del grupo impedirán que se agregue el grupo.
 
@@ -168,19 +168,19 @@ Puede implementar una de estas opciones:
 
 Haga lo siguiente:
 
-1. Para acceder a la versión preliminar de la experiencia de usuario, inicie sesión en el [portal de Azure AD](https://aka.ms/stagedrolloutux).
+1. Para acceder a la experiencia de usuario, inicie sesión en el [portal de Azure AD](https://aka.ms/stagedrolloutux).
 
-2. Seleccione el vínculo **Habilitar el lanzamiento preconfigurado para el inicio de sesión de usuarios administrados (versión preliminar)** .
+2. Seleccione el vínculo **Habilitar el lanzamiento preconfigurado para el inicio de sesión de usuarios administrados**.
 
    Por ejemplo, si quiere habilitar la *Opción A*, deslice los controles **Sincronización de hash de contraseña** e **Inicio de sesión de conexión directa** a **Activado**, como se muestra en las imágenes siguientes.
 
-   ![Página de Azure AD Connect](./media/how-to-connect-staged-rollout/sr4.png)
+   
 
-   ![Página "Habilitación de las características de lanzamiento preconfigurado (versión preliminar)"](./media/how-to-connect-staged-rollout/sr5.png)
+  
 
 3. Agregue los grupos a la característica para habilitar la *autenticación de paso a través* y el *inicio de sesión único de conexión directa*. Para evitar tiempo de espera en la experiencia del usuario, asegúrese de que los grupos de seguridad no contengan más de 200 miembros inicialmente.
 
-   ![Página "Manage groups for Password Hash Sync (Preview)" (Administración de grupos de sincronización de hash se contraseña [versión preliminar])](./media/how-to-connect-staged-rollout/sr6.png)
+   
 
    >[!NOTE]
    >Los miembros de un grupo se habilitan automáticamente para el lanzamiento preconfigurado. No se admiten grupos anidados y dinámicos en el lanzamiento preconfigurado.

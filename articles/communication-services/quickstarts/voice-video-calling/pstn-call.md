@@ -8,19 +8,16 @@ ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-web-ios-android
-ms.openlocfilehash: 65a968747e7ed12e6ee03bd5fea4b7b4af7ee10e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a24b62875fedcb976b06517cf61ddd69ab9abcf1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104729522"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105726743"
 ---
 # <a name="quickstart-call-to-phone"></a>Inicio rápido: Llamada a teléfono
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
-
-Para empezar a usar Azure Communication Services, utilice la biblioteca cliente de llamadas telefónicas de Communication Services para agregar llamadas RTC a la aplicación.
+Para empezar a usar Azure Communication Services, utilice el SDK de llamadas de Communication Services para agregar llamadas RTC a la aplicación.
 
 ::: zone pivot="platform-web"
 [!INCLUDE [Calling with JavaScript](./includes/pstn-call-js.md)]
@@ -42,5 +39,5 @@ Si quiere limpiar y quitar una suscripción a Communication Services, puede elim
 
 Para más información, consulte los siguientes artículos.
 
-- Más información sobre las [funcionalidades de la biblioteca cliente de llamada](./calling-client-samples.md)
+- Más información sobre las [Funcionalidades del SDK de llamadas](./calling-client-samples.md)
 - Más información sobre [cómo funciona la llamada](../../concepts/voice-video-calling/about-call-types.md)

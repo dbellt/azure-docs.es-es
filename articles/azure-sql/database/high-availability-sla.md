@@ -12,12 +12,12 @@ author: emlisa
 ms.author: emlisa
 ms.reviewer: sstein, emlisa
 ms.date: 10/28/2020
-ms.openlocfilehash: 1c210eab0332d01fc6514edc790d729172ed2174
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: 7204f32b8fec411fba2afa39b011a8755aea3744
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889066"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107309686"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Alta disponibilidad para Azure SQL Database e Instancia administrada de SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -48,22 +48,22 @@ Siempre que se actualice el motor de base de datos o el sistema operativo, o se 
 
 ## <a name="general-purpose-service-tier-zone-redundant-availability-preview"></a>Disponibilidad con redundancia de zona del nivel de servicio De uso general (versión preliminar)
 
-La configuración con redundancia de zona para el nivel de servicio De uso general emplea [Azure Availability Zones](../../availability-zones/az-overview.md)  para replicar las bases de datos entre varias ubicaciones físicas dentro de una región de Azure. Al seleccionar la redundancia de zona, puede hacer que las bases de datos De uso general nuevas o existentes y los grupos elásticos sean capaces de resistir a un número mucho mayor de errores, como interrupciones catastróficas de los centros de datos, sin necesidad de cambiar la lógica de la aplicación.
+La configuración con redundancia de zona para el nivel de servicio de uso general se ofrece tanto para el proceso de aprovisionamiento como sin servidor. Esta configuración emplea [Azure Availability Zones](../../availability-zones/az-overview.md)  para replicar las bases de datos entre varias ubicaciones físicas dentro de una región de Azure.Al seleccionar la redundancia de zona, puede hacer que las bases de datos de uso general sin servidor o aprovisionadas existentes y los grupos elásticos sean capaces de resistir a un número mucho mayor de errores, como interrupciones catastróficas de los centros de datos, sin necesidad de cambiar la lógica de la aplicación.
 
 La configuración con redundancia de zona para el nivel De uso general tiene dos capas:  
 
-- Una capa de datos con estado con los archivos de base de datos (.mdf o .ldf) que se almacenan en ZRS PFS ([recurso compartido de archivos Premium con almacenamiento](../../storage/files/storage-how-to-create-file-share.md) con redundancia de zona. El uso de [almacenamiento con redundancia de zona](../../storage/common/storage-redundancy.md), los archivos de datos y de registro se copian de forma sincrónica en tres zonas de disponibilidad de Azure aisladas físicamente.
-- Una capa de proceso sin estado que ejecuta el proceso sqlservr.exe y que solo contiene datos transitorios y en caché, como las bases de datos modelo y TempDB en la memoria SSD conectada, y la memoria caché de planes, el grupo de búferes y el grupo de almacén de columnas en memoria. Azure Service Fabric controla este nodo sin estado, que inicializa sqlservr.exe, controla el estado del nodo y realiza la conmutación por error a otro nodo si es necesario. En el caso de las bases de datos de uso general con redundancia de zona, los nodos con capacidad de reserva están disponibles fácilmente en otras zonas de disponibilidad para la conmutación por error.
+- Una capa de datos con estado con los archivos de base de datos (.mdf o .ldf) que se almacenan en ZRS (almacenamiento con redundancia de zona). Con [ZRS](../../storage/common/storage-redundancy.md), los archivos de datos y de registro se copian de forma sincrónica en tres zonas de disponibilidad de Azure aisladas físicamente.
+- Una capa de proceso sin estado que ejecuta el proceso sqlservr.exe y que solo contiene datos transitorios y en caché, como las bases de datos modelo y TempDB en la memoria SSD conectada, y la memoria caché de planes, el grupo de búferes y el grupo de almacén de columnas en memoria. Azure Service Fabric controla este nodo sin estado, que inicializa sqlservr.exe, controla el estado del nodo y realiza la conmutación por error a otro nodo si es necesario. En el caso de las bases de datos de uso general sin servidor y aprovisionadas, con redundancia de zona, los nodos con capacidad de reserva están disponibles fácilmente en otras zonas de disponibilidad para la conmutación por error.
 
 En el diagrama siguiente se ilustra la versión con redundancia de zona de la arquitectura de alta disponibilidad para el nivel de servicio De uso general:
 
 ![Configuración con redundancia de zona para De uso general](./media/high-availability-sla/zone-redundant-for-general-purpose.png)
 
 > [!IMPORTANT]
-> La configuración de redundancia de zona solo está disponible cuando se selecciona el hardware de proceso Gen5. Esta característica no está disponible en Instancia administrada de SQL. La configuración con redundancia de zona de uso general solo está disponible en las siguientes regiones: Este de EE. UU., Este de EE. UU. 2, Oeste de EE. UU. 2, Oeste de Europa, Sudeste Asiático, Este de Australia, Japón Oriental, Sur de Reino Unido y Centro de Francia.
+> La configuración de redundancia de zona solo está disponible cuando se selecciona el hardware de proceso Gen5. Esta característica no está disponible en Instancia administrada de SQL. La configuración con redundancia de zona para el nivel de uso general sin servidor y aprovisionado solo está disponible en las siguientes regiones: Este de EE. UU., Este de EE. UU. 2, Oeste de EE. UU. 2, Norte de Europa, Oeste de Europa, Sudeste Asiático, Este de Australia, Japón Oriental, Sur de Reino Unido y Centro de Francia.
 
 > [!NOTE]
-> Las bases de datos De uso general con un tamaño de 80 núcleos virtuales pueden experimentar una degradación del rendimiento con la configuración con redundancia de zona. Además, las operaciones como las de copia de seguridad, restauración, copia de bases de datos y configuración de relaciones de Geo-DR pueden experimentar un rendimiento más lento en las bases de datos únicas de más de 1 TB. 
+> Las bases de datos De uso general con un tamaño de 80 núcleos virtuales pueden experimentar una degradación del rendimiento con la configuración con redundancia de zona. Además, las operaciones como copia de seguridad, restauración, copia de base de datos, establecimiento de relaciones de recuperación ante desastres con localización geográfica y la degradación de una base de datos con redundancia de zona de Crítico para la empresa a De uso general pueden experimentar un rendimiento más lento en las bases de datos única de más de 1 TB. Consulte nuestra [documentación sobre la latencia sobre el escalado de una base de datos](single-database-scale.md) para más información.
 > 
 > [!NOTE]
 > La versión preliminar no está incluida en la instancia reservada.
@@ -119,14 +119,14 @@ Para más información sobre la alta disponibilidad en Hiperescala, consulte [Al
 
 ## <a name="testing-application-fault-resiliency"></a>Prueba de la resistencia a errores de la aplicación
 
-La alta disponibilidad es una parte fundamental de la plataforma SQL Database e Instancia administrada de SQL que funciona de modo transparente para la aplicación de base de datos. Sin embargo, podría ser conveniente probar el modo en que las operaciones de conmutación por error automáticas iniciadas durante los eventos planeados o no planeados afectarían a una aplicación antes de implementarla para producción. Puede desencadenar manualmente una conmutación por error mediante una llamada a una API especial para reiniciar una base de datos, un grupo elástico o una instancia administrada. En el caso de una base de datos con redundancia de zona o un grupo elástico, la llamada a la API daría lugar a la redirección de las conexiones de cliente al nuevo elemento principal en una zona de disponibilidad diferente a la zona principal anterior. Por lo tanto, además de probar cómo afecta la conmutación por error a las sesiones de base de datos existentes, también puede comprobar si cambia el rendimiento de un extremo a otro debido a los cambios en la latencia de la red. Como la operación de reinicio es intrusiva y un gran número de ellas podría agotar la plataforma, solo se permite una llamada de conmutación por error cada 15 minutos para cada base de datos, grupo elástico o instancia administrada.
+La alta disponibilidad es una parte fundamental de la plataforma SQL Database e Instancia administrada de SQL que funciona de modo transparente para la aplicación de base de datos. Sin embargo, podría ser conveniente probar el modo en que las operaciones de conmutación por error automáticas iniciadas durante los eventos planeados o no planeados afectarían a una aplicación antes de implementarla para producción. Puede desencadenar manualmente una conmutación por error mediante una llamada a una API especial para reiniciar una base de datos, un grupo elástico o una instancia administrada. En el caso de una base de datos de propósito general aprovisionada o sin servidor con redundancia de zona o un grupo elástico, la llamada a la API daría lugar a la redirección de las conexiones de cliente al nuevo elemento principal en una zona de disponibilidad diferente a la zona principal anterior. Por lo tanto, además de probar cómo afecta la conmutación por error a las sesiones de base de datos existentes, también puede comprobar si cambia el rendimiento de un extremo a otro debido a los cambios en la latencia de la red. Como la operación de reinicio es intrusiva y un gran número de ellas podría agotar la plataforma, solo se permite una llamada de conmutación por error cada 15 minutos para cada base de datos, grupo elástico o instancia administrada.
 
 Se puede iniciar una conmutación por error mediante PowerShell, la API REST o la CLI de Azure:
 
 |Tipo de implementación|PowerShell|API DE REST| Azure CLI|
 |:---|:---|:---|:---|
 |Base de datos|[Invoke-AzSqlDatabaseFailover](/powershell/module/az.sql/invoke-azsqldatabasefailover)|[Conmutación por error de la base de datos](/rest/api/sql/databases/failover)|[az rest](/cli/azure/reference-index#az-rest) se puede usar para invocar una llamada a la API REST desde la CLI de Azure.|
-|Grupo elástico|[Invoke-AzSqlElasticPoolFailover](/powershell/module/az.sql/invoke-azsqlelasticpoolfailover)|[Conmutación por error del grupo elástico](/rest/api/sql/elasticpools/failover)|[az rest](/cli/azure/reference-index#az-rest) se puede usar para invocar una llamada a la API REST desde la CLI de Azure.|
+|Grupo elástico|[Invoke-AzSqlElasticPoolFailover](/powershell/module/az.sql/invoke-azsqlelasticpoolfailover)|[Conmutación por error del grupo elástico](/javascript/api/@azure/arm-sql/elasticpools#failover_string__string__string__msRest_RequestOptionsBase)|[az rest](/cli/azure/reference-index#az-rest) se puede usar para invocar una llamada a la API REST desde la CLI de Azure.|
 |de SQL DB|[Invoke-AzSqlInstanceFailover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[Instancias administradas: conmutación por error](/rest/api/sql/managed%20instances%20-%20failover/failover)|[az sql mi failover](/cli/azure/sql/mi/#az-sql-mi-failover)|
 
 > [!IMPORTANT]
