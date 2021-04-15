@@ -2,25 +2,27 @@
 title: Definición de varias instancias de una propiedad
 description: Use la operación de copia en una plantilla de Azure Resource Manager (plantilla de ARM) para realizar varias iteraciones cuando cree una propiedad en un recurso.
 ms.topic: conceptual
-ms.date: 09/15/2020
-ms.openlocfilehash: 1bee4fb672fc0794d5372a4af60b1270105f1755
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/01/2021
+ms.openlocfilehash: 94bc153a49f80694ab9b2d5b04fdf57e8a12e8c8
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104889015"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106385758"
 ---
 # <a name="property-iteration-in-arm-templates"></a>Iteración de propiedades en las plantillas de ARM
 
-En este artículo, se explica cómo se crean varias instancias de una propiedad en la plantilla de Azure Resource Manager (plantilla de ARM). Al agregar el elemento `copy` a la sección de propiedades de un recurso, puede establecer de forma dinámica el número de elementos de una variable durante la implementación. Asimismo, evitará tener que repetir la sintaxis de la plantilla.
+En este artículo, se explica cómo se crean varias instancias de una propiedad en la plantilla de Azure Resource Manager (plantilla de ARM). Al agregar el bucle de copia a la sección de propiedades de un recurso, puede establecer de forma dinámica el número de elementos de una variable durante la implementación. Asimismo, evitará tener que repetir la sintaxis de la plantilla.
 
-Solo se puede usar `copy` con recursos de nivel superior, incluso al aplicar `copy` a una propiedad. Para obtener información sobre cómo cambiar un recurso secundario a un recurso de nivel superior, vea [Iteración para un recurso secundario](copy-resources.md#iteration-for-a-child-resource).
+Solo se puede usar el bucle de copia con recursos de nivel superior, incluso cuando se aplica el bucle de copia a una propiedad. Para obtener información sobre cómo cambiar un recurso secundario a un recurso de nivel superior, vea [Iteración para un recurso secundario](copy-resources.md#iteration-for-a-child-resource).
 
-También puede usar el elemento copy con [recursos](copy-resources.md), [variables](copy-variables.md) y [salidas](copy-outputs.md).
+También puede usar el bucle de copia con [recursos](copy-resources.md), [variables](copy-variables.md) y [salidas](copy-outputs.md).
 
 ## <a name="syntax"></a>Sintaxis
 
-El elemento copy tiene el siguiente formato general:
+# <a name="json"></a>[JSON](#tab/json)
+
+Agregue el elemento `copy` a la sección de recursos de la plantilla para establecer el número de elementos de una propiedad. El elemento copy tiene el siguiente formato general:
 
 ```json
 "copy": [
@@ -38,22 +40,54 @@ La propiedad `count` especifica el número de iteraciones que desea realizar en 
 
 La propiedad `input` especifica las propiedades que desea repetir. Tiene que crear una matriz de elementos construida a partir del valor de la propiedad `input`.
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+Los bucles se pueden usar para declarar varias propiedades al:
+
+- Iterar una matriz:
+
+  ```bicep
+  <property-name>: [for <item> in <collection>: {
+    <properties>
+  }
+  ```
+
+- Iterar los elementos de una matriz:
+
+  ```bicep
+  <property-name>: [for (<item>, <index>) in <collection>: {
+    <properties>
+  }
+  ```
+
+- Usar el índice de bucle:
+
+  ```bicep
+  <property-name>: [for <index> in range(<start>, <stop>): {
+    <properties>
+  }
+  ```
+
+---
+
 ## <a name="copy-limits"></a>Límites de copia
 
 El valor de count no puede superar 800.
 
 El valor de count no puede ser un número negativo. Puede ser cero si implementa la plantilla con una versión reciente de la CLI de Azure, PowerShell o la API de REST. Concretamente, se debe usar:
 
-* Azure PowerShell **2.6** o posterior
-* CLI de Azure **2.0.74** o posterior
-* API de REST versión **2019-05-10** o posterior
-* Las [implementaciones vinculadas](linked-templates.md) deben usar la versión **10-05-2019** o posterior de la API para el tipo de recurso de implementación
+- Azure PowerShell **2.6** o posterior
+- CLI de Azure **2.0.74** o posterior
+- API de REST versión **2019-05-10** o posterior
+- Las [implementaciones vinculadas](linked-templates.md) deben usar la versión **10-05-2019** o posterior de la API para el tipo de recurso de implementación
 
 Las versiones anteriores de PowerShell, la CLI y API REST no admiten un valor de count de cero.
 
 ## <a name="property-iteration"></a>Iteración de propiedades
 
-En el ejemplo siguiente se muestra cómo aplicar `copy` a la propiedad `dataDisks` en una máquina virtual:
+En el ejemplo siguiente se muestra cómo aplicar el bucle de copia a la propiedad `dataDisks` en una máquina virtual:
+
+# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -74,7 +108,7 @@ En el ejemplo siguiente se muestra cómo aplicar `copy` a la propiedad `dataDisk
   "resources": [
     {
       "type": "Microsoft.Compute/virtualMachines",
-      "apiVersion": "2017-03-30",
+      "apiVersion": "2020-06-01",
       ...
       "properties": {
         "storageProfile": {
@@ -84,13 +118,14 @@ En el ejemplo siguiente se muestra cómo aplicar `copy` a la propiedad `dataDisk
               "name": "dataDisks",
               "count": "[parameters('numberOfDataDisks')]",
               "input": {
-                "diskSizeGB": 1023,
                 "lun": "[copyIndex('dataDisks')]",
-                "createOption": "Empty"
+                "createOption": "Empty",
+                "diskSizeGB": 1023
               }
             }
           ]
         }
+        ...
       }
     }
   ]
@@ -99,13 +134,13 @@ En el ejemplo siguiente se muestra cómo aplicar `copy` a la propiedad `dataDisk
 
 Tenga en cuenta que, cuando se usa `copyIndex` dentro de una iteración de propiedad, debe proporcionar el nombre de la iteración. La iteración de propiedades también admite un argumento de desplazamiento. El desplazamiento debe aparecer después del nombre de la iteración, como `copyIndex('dataDisks', 1)`.
 
-Resource Manager expande la matriz `copy` durante la implementación. El nombre de la matriz se convierte en el nombre de la propiedad. Los valores de entrada se convierten en las propiedades del objeto. La plantilla implementada se convierte en:
+La plantilla implementada se convierte en:
 
 ```json
 {
   "name": "examplevm",
   "type": "Microsoft.Compute/virtualMachines",
-  "apiVersion": "2017-03-30",
+  "apiVersion": "2020-06-01",
   "properties": {
     "storageProfile": {
       "dataDisks": [
@@ -134,57 +169,57 @@ En la plantilla de ejemplo siguiente se crea un grupo de conmutación por error 
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "primaryServerName": {
-            "type": "string"
-        },
-        "secondaryServerName": {
-            "type": "string"
-        },
-        "databaseNames": {
-            "type": "array",
-            "defaultValue": [
-                "mydb1",
-                "mydb2",
-                "mydb3"
-            ]
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "primaryServerName": {
+      "type": "string"
     },
-    "variables": {
-        "failoverName": "[concat(parameters('primaryServerName'),'/', parameters('primaryServerName'),'failovergroups')]"
+    "secondaryServerName": {
+      "type": "string"
     },
-    "resources": [
-        {
-            "type": "Microsoft.Sql/servers/failoverGroups",
-            "apiVersion": "2015-05-01-preview",
-            "name": "[variables('failoverName')]",
-            "properties": {
-                "readWriteEndpoint": {
-                    "failoverPolicy": "Automatic",
-                    "failoverWithDataLossGracePeriodMinutes": 60
-                },
-                "readOnlyEndpoint": {
-                    "failoverPolicy": "Disabled"
-                },
-                "partnerServers": [
-                    {
-                        "id": "[resourceId('Microsoft.Sql/servers', parameters('secondaryServerName'))]"
-                    }
-                ],
-                "copy": [
-                    {
-                        "name": "databases",
-                        "count": "[length(parameters('databaseNames'))]",
-                        "input": "[resourceId('Microsoft.Sql/servers/databases', parameters('primaryServerName'), parameters('databaseNames')[copyIndex('databases')])]"
-                    }
-                ]
-            }
-        }
-    ],
-    "outputs": {
+    "databaseNames": {
+      "type": "array",
+      "defaultValue": [
+        "mydb1",
+        "mydb2",
+        "mydb3"
+      ]
     }
+  },
+  "variables": {
+    "failoverName": "[concat(parameters('primaryServerName'),'/', parameters('primaryServerName'),'failovergroups')]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Sql/servers/failoverGroups",
+      "apiVersion": "2015-05-01-preview",
+      "name": "[variables('failoverName')]",
+      "properties": {
+        "readWriteEndpoint": {
+          "failoverPolicy": "Automatic",
+          "failoverWithDataLossGracePeriodMinutes": 60
+        },
+        "readOnlyEndpoint": {
+          "failoverPolicy": "Disabled"
+        },
+        "partnerServers": [
+          {
+            "id": "[resourceId('Microsoft.Sql/servers', parameters('secondaryServerName'))]"
+          }
+        ],
+        "copy": [
+          {
+            "name": "databases",
+            "count": "[length(parameters('databaseNames'))]",
+            "input": "[resourceId('Microsoft.Sql/servers/databases', parameters('primaryServerName'), parameters('databaseNames')[copyIndex('databases')])]"
+          }
+        ]
+      }
+    }
+  ],
+  "outputs": {
+  }
 }
 ```
 
@@ -216,7 +251,64 @@ El elemento `copy` es una matriz, por lo que puede especificar más de una propi
 }
 ```
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+@minValue(0)
+@maxValue(16)
+@description('The number of dataDisks to be returned in the output array.')
+param numberOfDataDisks int = 16
+
+resource vmName 'Microsoft.Compute/virtualMachines@2020-06-01' = {
+  ...
+  properties: {
+    storageProfile: {
+      ...
+      dataDisks: [for i in range(0, numberOfDataDisks): {
+        lun: i
+        createOption: 'Empty'
+        diskSizeGB: 1023
+      }]
+    }
+    ...
+  }
+}
+```
+
+La plantilla implementada se convierte en:
+
+```json
+{
+  "name": "examplevm",
+  "type": "Microsoft.Compute/virtualMachines",
+  "apiVersion": "2020-06-01",
+  "properties": {
+    "storageProfile": {
+      "dataDisks": [
+        {
+          "lun": 0,
+          "createOption": "Empty",
+          "diskSizeGB": 1023
+        },
+        {
+          "lun": 1,
+          "createOption": "Empty",
+          "diskSizeGB": 1023
+        },
+        {
+          "lun": 2,
+          "createOption": "Empty",
+          "diskSizeGB": 1023
+        }
+      ],
+      ...
+```
+
+---
+
 Puede usar la iteración de recursos y propiedades conjuntamente. Haga referencia a la iteración de la propiedad por el nombre.
+
+# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -250,6 +342,30 @@ Puede usar la iteración de recursos y propiedades conjuntamente. Haga referenci
 }
 ```
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+resource vnetname_resource 'Microsoft.Network/virtualNetworks@2018-04-01' = [for i in range(0, 2): {
+  name: concat(vnetname, i)
+  location: resourceGroup().location
+  properties: {
+    addressSpace: {
+      addressPrefixes: [
+        addressPrefix
+      ]
+    }
+    subnets: [for j in range(0, 2): {
+      name: 'subnet-${j}'
+      properties: {
+        addressPrefix: subnetAddressPrefix[j]
+      }
+    }]
+  }
+}]
+```
+
+---
+
 ## <a name="example-templates"></a>Plantillas de ejemplo
 
 En los ejemplos siguientes, se muestran escenarios comunes en los que se crean varios valores para una propiedad.
@@ -260,10 +376,10 @@ En los ejemplos siguientes, se muestran escenarios comunes en los que se crean v
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para realizar un tutorial, consulte [Tutorial: Creación de varias instancias de recursos con plantillas de Resource Manager](template-tutorial-create-multiple-instances.md).
-* Para otros usos del elemento copy, consulte:
-  * [Iteración de recursos en las plantillas de ARM](copy-resources.md)
-  * [Iteración de variables en las plantillas de ARM](copy-variables.md)
-  * [Iteración de salida en las plantillas de ARM](copy-outputs.md)
-* Si quiere conocer las secciones de una plantilla, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).
-* Para información sobre cómo implementar una plantilla, consulte [Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell](deploy-powershell.md).
+- Para realizar un tutorial, consulte [Tutorial: Creación de varias instancias de recursos con plantillas de Resource Manager](template-tutorial-create-multiple-instances.md).
+- Para otros usos del bucle de copia, consulte:
+  - [Iteración de recursos en las plantillas de ARM](copy-resources.md)
+  - [Iteración de variables en las plantillas de ARM](copy-variables.md)
+  - [Iteración de salida en las plantillas de ARM](copy-outputs.md)
+- Si quiere conocer las secciones de una plantilla, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).
+- Para información sobre cómo implementar una plantilla, consulte [Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell](deploy-powershell.md).

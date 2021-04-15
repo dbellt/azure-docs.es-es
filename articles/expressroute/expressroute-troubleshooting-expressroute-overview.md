@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 10/31/2019
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: af4ef156cccded6afe2db09628446a6ffe1ad53a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6213e17f1232bd505ba1edf185a851bf669b9809
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92204646"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106553437"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Comprobación de la conectividad de ExpressRoute
 En este artículo encontrará información útil para comprobar y solucionar problemas de conectividad de ExpressRoute. ExpressRoute amplía las redes locales en la nube de Microsoft a través de una conexión privada que suele facilitar un proveedor de conectividad. La conectividad de ExpressRoute implica tradicionalmente tres zonas de red distintas, como se indica a continuación:

@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 02/03/2021
+ms.date: 04/06/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2998c3ea0d65bd3c96bd1ac5bdfa8ff148c6c4cc
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: d0396698fe63cb62fc1cfaf5d930b8a97a7b1bbc
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104780436"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552264"
 ---
-# <a name="reset-redemption-status-for-a-guest-user"></a>Restablecimiento del estado de canje para un usuario invitado
+# <a name="reset-redemption-status-for-a-guest-user-preview"></a>Restablecimiento del estado de canje para un usuario invitado (versión preliminar)
 
 Una vez que un usuario invitado ha canjeado su invitación para la colaboración B2B, puede haber ocasiones en las que tenga que actualizar la información de inicio de sesión, por ejemplo, cuando:
 

@@ -6,12 +6,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 09/30/2020
 ms.custom: mvc, contperf-fy21q1
-ms.openlocfilehash: ebe34735a84e44526e6b96821a2a1da090884886
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 7bad0b17bb2fed9d9f54cdd44042ec88708f35fd
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106383259"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107103732"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Creación de paneles de indicadores clave de rendimiento (KPI) personalizados con Azure Application Insights
 
@@ -59,7 +59,7 @@ Un solo panel puede contener recursos de varias aplicaciones, grupos de recursos
 5. Busque el icono **Markdown** y arrástrelo hasta el panel.  Este icono le permite agregar texto en formato Markdown, que es idóneo para agregar texto descriptivo al panel. Para más información, consulte [Uso de un icono de Markdown en los paneles de Azure para mostrar contenido personalizado](../../azure-portal/azure-portal-markdown-tile.md).
 6. Agregue texto a las propiedades del icono y cambie su tamaño en el lienzo del panel.
 
-    [![Edición del mosaico de Markdown](media/tutorial-app-dashboards/markdown.png)](media/tutorial-app-dashboards/dashboard-edit-mode.png#lightbox)
+    [![Edición del mosaico de Markdown](media/tutorial-app-dashboards/markdown.png)](media/tutorial-app-dashboards/markdown.png#lightbox)
 
 7. Seleccione **Personalización finalizada** en la parte superior de la pantalla para salir del modo de personalización de iconos.
 

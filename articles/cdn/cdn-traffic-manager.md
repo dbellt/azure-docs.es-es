@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: d2d3bd43a0f17167e855d7e678a96cd79fe42237
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a003becba0bc1e42d8fe0c0c5b199402a430a8e1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92777748"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105034765"
 ---
 # <a name="failover-across-multiple-endpoints-with-azure-traffic-manager"></a>Configuración de la conmutación por error entre varios puntos de conexión con Traffic Manager
 
@@ -94,7 +94,10 @@ Después de configurar los perfiles de CDN y Traffic Manager, siga estos pasos p
     > [!NOTE]
     > Si el dominio está actualmente activo y no se puede interrumpir, realice este paso al final. Compruebe que los puntos de conexión de CDN y los dominios de Traffic Manager estén activos antes de actualizar el DNS de dominio personalizado a Traffic Manager.
     >
-
+   
+    > [!NOTE]
+    > Para implementar este escenario de conmutación por error, ambos puntos de conexión deben estar en diferentes perfiles, y los diferentes perfiles deben ser de diferentes proveedores de CDN para evitar conflictos de nombres de dominio.
+    > 
 
 2.  En el perfil de Azure CDN, seleccione el primer punto de conexión de CDN (Akamai). Seleccione **Agregar dominio personalizado** y especifique **cdndemo101.dustydogpetcare.online**. Compruebe que la marca de verificación para validar el dominio personalizado sea de color verde. 
 

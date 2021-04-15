@@ -5,15 +5,15 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 04/09/2021
 ms.author: cshoe
 ms.custom: devx-track-js
-ms.openlocfilehash: d5a1d810c357aa83b8069023b00d76352da124df
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9aca1e76c825de52744da817f6a0bf236eef617c
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94844802"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313613"
 ---
 # <a name="accessing-user-information-in-azure-static-web-apps-preview"></a>Acceso a la información del usuario en la versión preliminar de Azure Static Web Apps
 
@@ -25,12 +25,12 @@ Muchas interfaces de usuario dependen en gran medida de los datos de autenticaci
 
 El objeto de datos de la entidad de seguridad de cliente expone información de identificación del usuario a la aplicación. Las siguientes propiedades están incluidas en el objeto de entidad de seguridad de cliente:
 
-| Propiedad  | Descripción |
-|-----------|---------|
-| `identityProvider` | Nombre del [proveedor de identidades](authentication-authorization.md). |
-| `userId` | Identificador único específico de Azure Static Web Apps para el usuario. <ul><li>El valor es único para cada aplicación. Por ejemplo, el mismo usuario devuelve un valor `userId` diferente en un recurso de Static Web Apps diferente.<li>El valor se conserva durante la duración de un usuario. Si elimina y vuelve a agregar el mismo usuario a la aplicación, se genera un nuevo `userId`.</ul>|
-| `userDetails` | Nombre de usuario o dirección de correo electrónico del usuario. Algunos proveedores devuelven la [dirección de correo electrónico del usuario](authentication-authorization.md), mientras que otros envían el [identificador de usuario](authentication-authorization.md). |
-| `userRoles`     | Matriz de los [roles asignados del usuario](authentication-authorization.md). |
+| Propiedad           | Descripción                                                                                                                                                                                                                                                                                                                                                        |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `identityProvider` | Nombre del [proveedor de identidades](authentication-authorization.md).                                                                                                                                                                                                                                                                                              |
+| `userId`           | Identificador único específico de Azure Static Web Apps para el usuario. <ul><li>El valor es único para cada aplicación. Por ejemplo, el mismo usuario devuelve un valor `userId` diferente en un recurso de Static Web Apps diferente.<li>El valor se conserva durante la duración de un usuario. Si elimina y vuelve a agregar el mismo usuario a la aplicación, se genera un nuevo `userId`.</ul> |
+| `userDetails`      | Nombre de usuario o dirección de correo electrónico del usuario. Algunos proveedores devuelven la [dirección de correo electrónico del usuario](authentication-authorization.md), mientras que otros envían el [identificador de usuario](authentication-authorization.md).                                                                                                                                                                    |
+| `userRoles`        | Matriz de los [roles asignados del usuario](authentication-authorization.md).                                                                                                                                                                                                                                                                                          |
 
 El ejemplo siguiente es una muestra de un objeto de entidad de seguridad de cliente:
 
@@ -39,7 +39,7 @@ El ejemplo siguiente es una muestra de un objeto de entidad de seguridad de clie
   "identityProvider": "facebook",
   "userId": "d75b260a64504067bfc5b2905e3b8182",
   "userDetails": "user@example.com",
-  "userRoles": [ "anonymous", "authenticated" ]
+  "userRoles": ["anonymous", "authenticated"]
 }
 ```
 
@@ -53,7 +53,7 @@ Con la API [Fetch](https://developer.mozilla.org/docs/Web/API/Fetch_API/Using_Fe
 
 ```javascript
 async function getUserInfo() {
-  const response = await fetch("/.auth/me");
+  const response = await fetch('/.auth/me');
   const payload = await response.json();
   const { clientPrincipal } = payload;
   return clientPrincipal;
@@ -64,7 +64,7 @@ console.log(getUserInfo());
 
 ## <a name="api-functions"></a>Funciones de API
 
-Las funciones de API disponibles en Static Web Apps a través del back-end de Azure Functions tienen acceso a la misma información de usuario que una aplicación cliente. Aunque la API recibe información de identificación del usuario, no realiza sus propias comprobaciones si el usuario está autenticado o si coincide con un rol requerido. Las reglas de control de acceso se definen en el archivo [`routes.json`](routes.md).
+Las funciones de API disponibles en Static Web Apps a través del back-end de Azure Functions tienen acceso a la misma información de usuario que una aplicación cliente. Aunque la API recibe información de identificación del usuario, no realiza sus propias comprobaciones si el usuario está autenticado o si coincide con un rol requerido. Las reglas de control de acceso se definen en el archivo [`staticwebapp.config.json`](routes.md).
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -74,14 +74,14 @@ En la función de ejemplo siguiente se muestra cómo leer y devolver la informac
 
 ```javascript
 module.exports = async function (context, req) {
-  const header = req.headers["x-ms-client-principal"];
-  const encoded = Buffer.from(header, "base64");
-  const decoded = encoded.toString("ascii");
+  const header = req.headers['x-ms-client-principal'];
+  const encoded = Buffer.from(header, 'base64');
+  const decoded = encoded.toString('ascii');
 
   context.res = {
     body: {
-      clientPrincipal: JSON.parse(decoded)
-    }
+      clientPrincipal: JSON.parse(decoded),
+    },
   };
 };
 ```
@@ -90,7 +90,7 @@ Suponiendo que la función anterior se denomine `user`, puede usar la API [Fetch
 
 ```javascript
 async function getUser() {
-  const response = await fetch("/api/user");
+  const response = await fetch('/api/user');
   const payload = await response.json();
   const { clientPrincipal } = payload;
   return clientPrincipal;

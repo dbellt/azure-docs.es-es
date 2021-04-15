@@ -8,10 +8,10 @@ ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 02fc142a08176aa577250417c0e394218e832f34
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100387349"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Copia de datos con una instancia local de Oracle como origen o destino mediante Azure Data Factory
@@ -49,7 +49,7 @@ La puerta de enlace es necesaria incluso si Oracle está hospedado en una máqui
 
 Este conector de Oracle admite dos versiones de controladores:
 
-- **Controlador de Microsoft para Oracle (recomendado)** : a partir de Data Management Gateway versión 2.7, se instala automáticamente un controlador de Microsoft para Oracle con la puerta de enlace. No es necesario instalar ni actualizar el controlador para establecer la conectividad con Oracle. También puede experimentar un mejor rendimiento de la copia mediante el uso de este controlador. Se admiten las siguientes versiones de bases de datos de Oracle:
+- **Controlador de Microsoft para Oracle (recomendado)**: a partir de Data Management Gateway versión 2.7, se instala automáticamente un controlador de Microsoft para Oracle con la puerta de enlace. No es necesario instalar ni actualizar el controlador para establecer la conectividad con Oracle. También puede experimentar un mejor rendimiento de la copia mediante el uso de este controlador. Se admiten las siguientes versiones de bases de datos de Oracle:
   - Oracle 12c R1 (12.1)
   - Oracle 11g R1, R2 (11.1, 11.2)
   - Oracle 10g R1, R2 (10.1, 10.2)
@@ -63,7 +63,7 @@ Este conector de Oracle admite dos versiones de controladores:
     > Actualmente, el controlador de Microsoft para Oracle solo permite la copia de datos desde Oracle. El controlador no admite la escritura en Oracle. La funcionalidad de conexión de prueba de la pestaña **Diagnósticos de Data Management Gateway** no admite este controlador. Como alternativa, puede usar al Asistente para copiar para validar la conectividad.
     >
 
-- **Proveedor de datos de Oracle para .NET**: es posible usar el proveedor de datos de Oracle para copiar datos desde Oracle o en Oracle. Este componente se incluye en [Oracle Data Access Components for Windows](https://www.oracle.com/technetwork/topics/dotnet/downloads/) (Componentes de acceso a datos Oracle para Windows). Instale la versión adecuada (32 o 64 bits) en la máquina en la que está instalada la puerta de enlace. [Proveedor de datos de Oracle para NET 12.1](https://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) puede tener acceso a bases de datos Oracle 10g Release 2 o versiones posteriores.
+- **Proveedor de datos de Oracle para .NET:** es posible usar el proveedor de datos de Oracle para copiar datos desde Oracle o en Oracle. Este componente se incluye en [Oracle Data Access Components for Windows](https://www.oracle.com/technetwork/topics/dotnet/downloads/) (Componentes de acceso a datos Oracle para Windows). Instale la versión adecuada (32 o 64 bits) en la máquina en la que está instalada la puerta de enlace. [Proveedor de datos de Oracle para NET 12.1](https://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) puede tener acceso a bases de datos Oracle 10g Release 2 o versiones posteriores.
 
     Si selecciona **Instalación de XCopy**, complete los pasos que se describen en el archivo readme.htm. Se recomienda seleccionar el instalador que tiene interfaz de usuario (no el instalador de XCopy).
 
@@ -75,9 +75,9 @@ Si utiliza el asistente para copia para crear la canalización de copia, el tipo
 
 Puede crear una canalización con una actividad de copia. La canalización mueve los datos a o desde una base de datos de Oracle local mediante el uso de diferentes herramientas o API.
 
-La manera más fácil de crear una canalización es usar el Asistente para copiar. Consulte [Tutorial: Creación de una canalización mediante el Asistente para copia](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización utilizando el Asistente para copia de datos.
+La manera más fácil de crear una canalización es usar el Asistente para copiar. Consulte [Tutorial: Creación de una canalización con la actividad de copia mediante el Asistente para copia de Data Factory](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización utilizando el Asistente para copia de datos.
 
-Puede usar una las siguientes herramientas para crear una canalización: **Visual Studio**, **Azure PowerShell**, una **plantilla de Azure Resource Manager**, la **API de .NET** o **API REST**. Consulte el [tutorial de la actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso sobre cómo crear una canalización que tenga una actividad de copia.
+También puede usar una de las siguientes herramientas para crear una canalización: **Visual Studio**, **Azure PowerShell**, una **plantilla de Azure Resource Manager**, la **API de .NET** o la **API REST**. Consulte el [tutorial de la actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso sobre cómo crear una canalización que tenga una actividad de copia.
 
 Tanto si usa las herramientas como las API, complete los pasos siguientes para crear una canalización que mueva datos de un almacén de datos de origen a un almacén de datos receptor:
 
@@ -104,7 +104,7 @@ En la tabla siguiente se describen los elementos JSON específicos del servicio 
 **Ejemplo: Uso del controlador de Microsoft**
 
 > [!TIP]
-> Si ve un error "ORA-01025: parámetro UPI fuera del intervalo" y tiene la versión 8i de Oracle, agregue `WireProtocolMode=1` a la cadena de conexión y vuelva a intentarlo.
+> Si aparece un error que dice "ORA-01025: parámetro UPI fuera del intervalo" y tiene la versión 8i de Oracle, agregue `WireProtocolMode=1` a la cadena de conexión y vuelva a intentarlo:
 
 ```json
 {
@@ -177,7 +177,7 @@ En la actividad de copia, si el origen es de tipo **OracleSource**, están dispo
 | writeBatchTimeout |Tiempo de espera para que la operación de inserción por lotes se complete antes de que se agote el tiempo de espera. |**timespan**<br/><br/> Ejemplo: 00:30:00 (30 minutos) |No |
 | writeBatchSize |Inserta datos en la tabla SQL cuando el tamaño del búfer alcanza el valor de **writeBatchSize**. |Entero (número de filas) |No (valor predeterminado: 100) |
 | sqlWriterCleanupScript |Especifica una consulta para que se ejecute la actividad de copia para que se limpien los datos de un segmento específico. |Una instrucción de consulta. |No |
-| sliceIdentifierColumnName |Especifica el nombre de columna para que la actividad de copia rellene un identificador de segmento generado automáticamente. El valor de **sliceIdentifierColumnName** se usa para borrar datos de un determinado segmento al volver a ejecutar. |Nombre de una columna con el tipo de datos **binary(32)** . |No |
+| sliceIdentifierColumnName |Especifica el nombre de columna para que la actividad de copia rellene un identificador de segmento generado automáticamente. El valor de **sliceIdentifierColumnName** se usa para borrar datos de un determinado segmento al volver a ejecutar. |Nombre de una columna con el tipo de datos **binary(32)**. |No |
 
 ## <a name="json-examples-for-copying-data-to-and-from-the-oracle-database"></a>Ejemplos de JSON para copiar datos a la base de datos de Oracle y desde esta
 
@@ -566,8 +566,8 @@ Copy activity met invalid parameters: 'UnknownParameterName', Detailed message: 
 * Si ve el mensaje de error incluso después de instalar el proveedor, lleve a cabo los siguientes pasos:
     1. Abra el archivo machine.config de .NET 2.0 desde la carpeta: <system disk\>:\Windows\Microsoft.NET\Framework64\v2.0.50727\CONFIG\machine.config.
     2. Busque **Proveedor de datos de Oracle para .NET**. Debería encontrar una entrada, tal como se muestra en el siguiente ejemplo, en **system.data** > **DbProviderFactories**: `<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />`
-* Copie esta entrada en el archivo machine.config en la siguiente carpeta NET 4.0: <system disk\>:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config. A continuación, cambie la versión a 4.xxx.x.x.
-* Instale <Ruta de instalación de ODP.NET\>\11.2.0\client_1\odp.net\bin\4\Oracle.DataAccess.dll en la caché global de ensamblados (GAC) ejecutando **gacutil /i [ruta de acceso del proveedor]** .
+* Copie esta entrada en el archivo machine.config en la siguiente carpeta .NET 4.0: \><disco del sistema\>:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config. Después, cambie la versión a 4.xxx.x.x.
+* Instale <Ruta de instalación de ODP.NET\>\11.2.0\client_1\odp.net\bin\4\Oracle.DataAccess.dll en la caché global de ensamblados (GAC) ejecutando **gacutil /i [ruta de acceso del proveedor]**.
 
 ### <a name="problem-2-datetime-formatting"></a>Problema 2: formato de fecha y hora
 

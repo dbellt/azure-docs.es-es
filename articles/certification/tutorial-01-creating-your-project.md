@@ -1,18 +1,18 @@
 ---
 title: 'Programa Azure Certified Device: Tutorial sobre la creación de un proyecto'
 description: Guía para crear un proyecto en el portal de Azure Certified Device
-author: nikuntjo
+author: nkuntjoro
 ms.author: nikuntjo
 ms.service: certification
 ms.topic: tutorial
 ms.date: 03/01/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: e5602e133ac8ab13779c9dfebca21d97265d9d76
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 11d72847209a2e706d4aa32d38af1b2c8af3dfa0
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105975558"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107314004"
 ---
 # <a name="tutorial-create-your-project"></a>Tutorial: Creación de un proyecto
 

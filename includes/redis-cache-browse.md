@@ -9,10 +9,10 @@ ms.date: 03/28/2018
 ms.author: wesmc
 ms.custom: include file
 ms.openlocfilehash: 7f03072c2b7ee1f08fc5fa306da6c5b8368742ae
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "67186885"
 ---
 Si no ancló la memoria caché en el panel, búsquela en [Azure Portal](https://portal.azure.com) a través de **Todos los servicios**.

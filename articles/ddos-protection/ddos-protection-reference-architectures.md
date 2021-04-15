@@ -3,7 +3,7 @@ title: Arquitecturas de referencia de Azure DDoS Protection
 description: Aprenda las arquitecturas de referencia de Azure DDoS Protection.
 services: ddos-protection
 documentationcenter: na
-author: yitoh
+author: aletheatoh
 ms.service: ddos-protection
 ms.devlang: na
 ms.topic: article
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: e5472620fe9b07d152a5325b0654044cb1505fd7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b74ebf332790fd9a08840c8c76d99e2b014dac43
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94992444"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107103086"
 ---
 # <a name="ddos-protection-reference-architectures"></a>Arquitecturas de referencia de DDoS Protection
 
@@ -59,6 +59,20 @@ Todo el tráfico de Internet con destino a la aplicación web se enruta a la [di
 Se recomienda configurar la SKU de WAF de Application Gateway (modo de prevención) para protegerse contra ataques de nivel 7 (WebSocket, HTTP o HTTPS). Además, las aplicaciones web están configuradas para [aceptar tráfico solo desde la dirección IP de Application Gateway](https://azure.microsoft.com/blog/ip-and-domain-restrictions-for-windows-azure-web-sites/).
 
 Consulte [este artículo](/azure/architecture/reference-architectures/app-service-web-app/multi-region) para más información acerca de esta arquitectura de referencia.
+
+## <a name="protecting-on-premises-resources"></a>Protección de los recursos locales
+
+Puede aprovechar la escala, la capacidad y la eficacia de Azure DDoS Protection Standard para proteger los recursos locales, hospedando una dirección IP pública en Azure y redirigiendo al entorno local el tráfico dirigido al origen de back-end.
+
+![Protección de recursos locales](./media/reference-architectures/ddos-on-prem.png)
+
+Si tiene una aplicación web que recibe tráfico de Internet, puede hospedar la aplicación web detrás de Application Gateway y, luego, protegerla con WAF frente a ataques web de capa 7, como inyección de código SQL y Slowloris. Los orígenes de back-end de la aplicación estarán en el entorno local, que se conecta a través de la VPN. 
+
+Los recursos de back-end del entorno local no estarán expuestos a la red pública de Internet. Solo la IP pública de AppGW/WAF queda expuesta a Internet, y el nombre DNS de la aplicación se asigna a esa dirección IP pública. 
+
+Cuando DDoS Protection Standard está habilitado en la red virtual que contiene AppGW/WAF, DDoS Protection Standard protegerá su aplicación mediante la mitigación del tráfico malintencionado y el enrutamiento a la aplicación del tráfico supuestamente legítimo. 
+
+En este [artículo](https://docs.microsoft.com/azure/azure-vmware/protect-azure-vmware-solution-with-application-gateway) se muestra cómo puede usar DDoS Protection Standard junto a Application Gateway para proteger una aplicación web que se ejecuta en Azure VMware Solution.
 
 ## <a name="mitigation-for-non-web-paas-services"></a>Mitigación para servicios de PaaS que no son web
 

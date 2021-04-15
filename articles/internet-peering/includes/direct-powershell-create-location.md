@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: dbaa0b5fc87cb5393b323b8a9b7a38b72efe9518
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "81680745"
 ---
 El cmdlet **Get-AzPeeringLocation** de PowerShell devuelve una lista de ubicaciones de emparejamiento con el parámetro obligatorio `Kind`, que se usará en pasos posteriores:

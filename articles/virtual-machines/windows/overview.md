@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 799a7ea6d76df06cea9d3960f43fc78de9bdf5b6
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 07562641ef866074dcf14cb01afd4d7ce071e467
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106067799"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107311012"
 ---
 # <a name="windows-virtual-machines-in-azure"></a>Máquinas virtuales Windows en Azure
 
@@ -48,9 +48,9 @@ En esta tabla se muestran algunas de las formas en que puede obtener una lista d
 
 | Método | Descripción |
 | --- | --- |
-| Azure Portal |Seleccione una ubicación en la lista cuando cree una máquina virtual. |
+| Portal de Azure |Seleccione una ubicación en la lista cuando cree una máquina virtual. |
 | Azure PowerShell |Use el comando [Get-AzLocation](/powershell/module/az.resources/get-azlocation). |
-| API DE REST |Use la operación para [mostrar la lista de ubicaciones](/rest/api/resources/subscriptions/subscriptions/listlocations). |
+| API DE REST |Use la operación para [mostrar la lista de ubicaciones](/rest/api/resources/subscriptions/listlocations). |
 | Azure CLI |Use la operación[az account list-locations](/cli/azure/account). |
 
 ## <a name="availability"></a>Disponibilidad
@@ -74,7 +74,7 @@ En esta tabla se muestran algunas maneras de encontrar la información sobre una
 
 | Método | Descripción |
 | --- | --- |
-| Azure Portal |Los valores se especifican automáticamente cuando se selecciona una imagen para usarla. |
+| Portal de Azure |Los valores se especifican automáticamente cuando se selecciona una imagen para usarla. |
 | Azure PowerShell |[Get-AzVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) -Location *location*<BR>[Get-AzVMImageOffer](/powershell/module/az.compute/get-azvmimageoffer) -Location *location* -Publisher *publisherName*<BR>[Get-AzVMImageSku](/powershell/module/az.compute/get-azvmimagesku) -Location *location* -Publisher *publisherName* -Offer *offerName* |
 | API de REST |[List image publishers](/rest/api/compute/platformimages/platformimages-list-publishers) (Lista de publicadores de imágenes)<BR>[List image offers](/rest/api/compute/platformimages/platformimages-list-publisher-offers) (Lista de ofertas de imágenes)<BR>[List image skus](/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) (Lista de SKU de imágenes) |
 | Azure CLI |[az vm image list-publishers](/cli/azure/vm/image) --location *ubicación*<BR>[az vm image list-offers](/cli/azure/vm/image) --location *location* --publisher *publisherName*<BR>[az vm image list-skus](/cli/azure/vm) --location *location* --publisher *publisherName* --offer *offerName*|
@@ -93,7 +93,7 @@ Pueden llevarse a cabo estas tareas comunes mediante las extensiones:
 ### <a name="related-resources"></a>Recursos relacionados
 Los recursos de esta tabla se usan en la máquina virtual y deben ya existir o crearse al tiempo que la máquina virtual.
 
-| Recurso | Obligatorio | Descripción |
+| Resource | Obligatorio | Descripción |
 | --- | --- | --- |
 | [Grupos de recursos](../../azure-resource-manager/management/overview.md) |Sí |La máquina virtual debe encontrarse en un grupo de recursos. |
 | [Cuenta de almacenamiento](../../storage/common/storage-account-create.md) |Sí |La máquina virtual necesita la cuenta de almacenamiento para almacenar sus discos duros virtuales. |

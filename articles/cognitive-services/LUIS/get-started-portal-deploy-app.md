@@ -4,13 +4,13 @@ description: En este inicio rápido se muestra cómo implementar una aplicación
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 05/06/2020
-ms.openlocfilehash: b051f349716b5597adee4509cfe774978a8f61aa
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.date: 03/29/2021
+ms.openlocfilehash: f7d5d473b8fe24d8dd5018a718ea96f286b1c030
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95972524"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106275845"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Inicio rápido: Implementación de una aplicación en el portal de LUIS
 
@@ -121,4 +121,4 @@ Cuando haya terminado con este inicio rápido, seleccione **Mis aplicaciones** e
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Identificación de intenciones y entidades habituales](./tutorial-machine-learned-entity.md)
+> [Desarrollo iterativo de aplicaciones para LUIS](./luis-concept-app-iteration.md)

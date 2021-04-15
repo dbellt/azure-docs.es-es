@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 03/15/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 860f167913211ee7c511e515937f29ba5bf954cf
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2ab93a8742d210969ef6ad10683bed92221c1a57
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103491576"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256708"
 ---
 # <a name="migrate-an-owin-based-web-api-to-b2clogincom-or-a-custom-domain"></a>Migración de una API web basada en OWIN a b2clogin.com o a un dominio personalizado
 
@@ -30,7 +30,7 @@ En las secciones siguientes se muestra un ejemplo de cómo habilitar varios emis
 
 Antes de continuar con los pasos de este artículo, necesita tener los siguientes recursos de Azure AD B2C:
 
-* [Flujos de usuario](tutorial-create-user-flows.md) o [directivas personalizadas](custom-policy-get-started.md) creadas en el inquilino
+* [Flujos de usuario](tutorial-create-user-flows.md?pivots=b2c-user-flow) o [directivas personalizadas](tutorial-create-user-flows.md?pivots=b2c-custom-policy) creadas en el inquilino
 
 ## <a name="get-token-issuer-endpoints"></a>Obtención de los puntos de conexión de emisores de tokens
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 659f61734001163ada6fd26caabe2fb007892f61
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 4a8d46b5ff10fdaa62f7747aac654e0b1ca78c42
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104774497"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259156"
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Operacionalización de modelos de aprendizaje automático creados con Spark
 
@@ -374,7 +374,8 @@ print "Time taken to execute above cell: " + str(timedelta) + " seconds";
 Tiempo empleado en ejecutar la celda anterior: 19,22 segundos
 
 ## <a name="score-a-linear-regression-model"></a>Puntuación de un modelo de regresión lineal
-Usamos [LinearRegressionWithSGD](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.regression.LinearRegressionWithSGD) para entrenar un modelo de regresión lineal que usa descenso de gradiente estocástico (SGD) para predecir los importes de las propinas de forma óptima. 
+Usamos [LinearRegressionWithSGD](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.mllib.regression.LinearRegressionWithSGD.html
+) para entrenar un modelo de regresión lineal que usa descenso de gradiente estocástico (SGD) para predecir los importes de las propinas de forma óptima. 
 
 El código de esta sección muestra cómo cargar un modelo de regresión lineal desde Almacenamiento de blobs de Azure, puntuarlo mediante variables con ajuste de la escala y, después, guardar los resultados en el blob.
 

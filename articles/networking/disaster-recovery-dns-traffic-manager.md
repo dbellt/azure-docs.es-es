@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/08/2018
+ms.date: 04/06/2021
 ms.author: kumud
-ms.openlocfilehash: 8cb1a490ac8edf2630253b45d99c3394bbe721b8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 077e92b67f0cf6dac673cc870b7ff8c86fbe60dd
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98234161"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551295"
 ---
 # <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>Recuperación ante desastres mediante Azure DNS y Traffic Manager
 
@@ -33,7 +33,7 @@ La mayoría de los clientes de empresa eligen una arquitectura de varias regione
     
     *Figura: configuración de recuperación ante desastres activo/pasivo con espera pasiva*
 
-- **Activo/pasivo con luz piloto**: en esta solución de conmutación por error, el entorno en espera se establece con una configuración mínima. La configuración tiene únicamente en ejecución los servicios necesarios para admitir un conjunto mínimo y crítico de aplicaciones. En su formato nativo, este escenario solo puede ejecutar una funcionalidad mínima, pero puede escalar verticalmente y generar servicios adicionales para realizar la mayor parte de la carga de producción si se produce una conmutación por error.
+- **Activo/pasivo con luz piloto**: en esta solución de conmutación por error, el entorno en espera se establece con una configuración mínima. La configuración tiene únicamente en ejecución los servicios necesarios para admitir un conjunto mínimo y crítico de aplicaciones. En su formato nativo, este escenario solo puede ejecutar una funcionalidad mínima, pero puede escalar verticalmente y generar más servicios para realizar la mayor parte de la carga de producción si se produce una conmutación por error.
     
     ![Activo/pasivo con luz piloto](./media/disaster-recovery-dns-traffic-manager/active-passive-with-pilot-light.png)
     
@@ -94,7 +94,7 @@ Dentro de esta zona debe crear tres registros (por ejemplo: www\.contoso.com, pr
 
 *Figura: creación de registros de zona DNS en Azure*
 
-En este escenario, el sitio www\.contoso.com tiene un valor de TTL de 30 minutos, muy inferior al RTO indicado, y apunta al sitio de producción prod.contoso.com. Esta es la configuración durante las operaciones normales del negocio. El TTL de prod.contoso.com y dr.contoso.com se ha establecido en 300 segundos o 5 minutos. Puede usar un servicio de supervisión de Azure como Azure Monitor o Azure App Insights o bien cualquier solución de supervisión de los asociados, como Dynatrace. También puede usar soluciones desarrolladas internamente que pueden supervisar o detectar errores en el nivel de infraestructura virtual o de aplicación.
+En este escenario, el sitio www\.contoso.com tiene un valor de TTL de 30 minutos, muy inferior al RTO indicado, y apunta al sitio de producción prod.contoso.com. Esta es la configuración durante las operaciones normales del negocio. El TTL de prod.contoso.com y dr.contoso.com se ha establecido en 300 segundos o 5 minutos. Puede usar un servicio de supervisión de Azure, como Azure Monitor o Azure App Insights, o cualquier solución de supervisión de asociados, como Dynatrace. Incluso puede usar soluciones domésticas que puedan supervisar o detectar errores de nivel de infraestructura virtual o de aplicación.
 
 ### <a name="step-3-update-the-cname-record"></a>Paso 3: actualización del registro CNAME
 
@@ -129,7 +129,7 @@ Sin embargo, la región principal es la única que controla activamente las soli
 Este escenario es ideal para el uso de Azure Traffic Manager, que dispone de sondeos integrados para varios tipos de comprobaciones de mantenimiento incluidas HTTP, HTTPS y TCP. Azure Traffic Manager también tiene un motor de reglas que se puede configurar para conmutar por error cuando se produce un error, como se describe a continuación. Veamos la solución siguiente con Traffic Manager:
 - El cliente tiene el punto de conexión de la región 1, conocido como prod.contoso.com, con la dirección IP estática 100.168.124.44 y un punto de conexión en la región 2, conocido como dr.contoso.com, con la dirección IP estática 100.168.124.43. 
 -   Cada uno de estos entornos tiene como front-end una propiedad de cara al público; por ejemplo, un equilibrador de carga. El equilibrador de carga se puede configurar para que tenga un punto de conexión basado en DNS o un nombre de dominio completo (FQDN), como se muestra a continuación.
--   Todas las instancias en la región 2 tienen replicación casi en tiempo real con la región 1. Además, las imágenes de las máquinas están actualizadas y todo el software y los datos de configuración tienen aplicadas las actualizaciones y están en consonancia con la región 1.  
+-   Todas las instancias en la región 2 tienen replicación casi en tiempo real con la región 1. Además, las imágenes de las máquinas están actualizadas y todo el software y los datos de configuración tienen aplicadas las actualizaciones y están en consonancia con la región 1.  
 -   El escalado automático está preconfigurado con antelación. 
 
 Los pasos seguidos para configurar la conmutación por error con Azure Traffic Manager son los siguientes:
@@ -146,7 +146,7 @@ Cree un nuevo perfil de Azure Traffic Manager con el nombre contoso123 y selecci
 
 ### <a name="step-2-create-endpoints-within-the-traffic-manager-profile"></a>Paso 2: creación de puntos de conexión en el perfil de Traffic Manager
 
-En este paso, creará los puntos de conexión que apuntan a los sitios de producción y de recuperación ante desastres. A continuación, elija el **Tipo** como un punto de conexión externo, pero si el recurso está hospedado en Azure, también puede elegir **Punto de conexión de Azure**. Si elige **Punto de conexión de Azure**, a continuación, seleccione un **Recurso de destino**, que puede ser una instancia de **App Service** o una **Dirección IP pública** que es asignada por Azure. La prioridad se establece en **1**, ya que es el servicio principal para la región 1.
+En este paso, creará los puntos de conexión que apuntan a los sitios de producción y de recuperación ante desastres. A continuación, elija el **Tipo** como un punto de conexión externo, pero si el recurso está hospedado en Azure, también puede elegir **Punto de conexión de Azure**. Si elige **Punto de conexión de Azure**, a continuación, seleccione un **Recurso de destino**, que puede ser una instancia de **App Service** o una **Dirección IP pública** que es asignada por Azure. La prioridad se establece en **1**, ya que es el servicio principal para la región 1.
 Del mismo modo, cree también el punto de conexión de recuperación ante desastres en Traffic Manager.
 
 ![Creación de puntos de conexión de recuperación ante desastres](./media/disaster-recovery-dns-traffic-manager/create-disaster-recovery-endpoint.png)
@@ -165,7 +165,7 @@ Si los reintentos se establecen en 1 y el valor de TTL se establece en 10 segund
 
 ### <a name="how-automatic-failover-works-using-traffic-manager"></a>Funcionamiento de la conmutación por error automática con Traffic Manager
 
-Durante un desastre, se sondea el punto de conexión principal y el estado cambia a **degradado** y el sitio de recuperación ante desastres permanece **En línea**. De forma predeterminada, Traffic Manager envía todo el tráfico al punto de conexión principal (prioridad más alta). Si el punto de conexión principal aparece degradado, Traffic Manager enruta el tráfico al segundo punto de conexión mientras no funcione correctamente. Es posible configurar más puntos de conexión en Traffic Manager que pueden actuar como puntos de conexión de conmutación por error adicional o como equilibradores de carga para compartir la carga entre puntos de conexión.
+Durante un desastre, se sondea el punto de conexión principal y el estado cambia a **degradado** y el sitio de recuperación ante desastres permanece **En línea**. De forma predeterminada, Traffic Manager envía todo el tráfico al punto de conexión principal (prioridad más alta). Si el punto de conexión principal aparece degradado, Traffic Manager enruta el tráfico al segundo punto de conexión mientras no funcione correctamente. Es posible configurar más puntos de conexión en Traffic Manager que pueden actuar como puntos de conexión de conmutación por error adicionales o como equilibradores de carga para compartir la carga entre puntos de conexión.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Más información acerca de [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md).

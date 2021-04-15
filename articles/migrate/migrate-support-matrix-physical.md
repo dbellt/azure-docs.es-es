@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 03/18/2021
-ms.openlocfilehash: b62160861f686c6ea5a8ebfd03d904da2ad5d80a
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 09110bb15f853f20b0be9d8c4c6f5088e7a55d8b
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104869453"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106382987"
 ---
 # <a name="support-matrix-for-physical-server-discovery-and-assessment"></a>Matriz de compatibilidad con la detección y la evaluación físicas de servidores 
 
@@ -39,6 +39,8 @@ Para evaluar los servidores físicos, creará un proyecto y le agregará la herr
 **Permisos:**
 
 - En el caso de servidores Windows, use una cuenta de dominio para los servidores que se hayan unido a un dominio y una cuenta local para los que no. Debe agregar la cuenta de usuario a estos grupos: Usuarios de administración remota, Usuarios de Monitor de rendimiento y Usuarios del registro de rendimiento.
+    > [!Note]
+    > En Windows Server 2008 y 2008 R2, asegúrese de que WMF 3.0 esté instalado en los servidores y de que el dominio o la cuenta local usados para acceder a los servidores se haya agregado a estos grupos: Usuarios del monitor de rendimiento, Usuarios del registro de rendimiento y WinRMRemoteWMIUsers.
 - Para los servidores Linux, necesita una cuenta raíz en los servidores Linux que desee detectar. Como alternativa, puede establecer una cuenta que no sea raíz con las funcionalidades necesarias mediante los siguientes comandos:
 
 **Comando** | **Propósito**

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/19/2021
+ms.date: 04/06/2021
 ms.author: b-juche
-ms.openlocfilehash: abbae7f8cb047f2f2ad3d998966bc00b02a002d4
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: d5ff0f2444aac153116e8e33a6ed2af74c93f057
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104864030"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106553522"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Arquitecturas de las soluciones con Azure NetApp Files
 En este artículo se proporcionan referencias a los procedimientos recomendados que pueden ayudarle a comprender las arquitecturas de soluciones para usar Azure NetApp Files.  
@@ -54,10 +54,11 @@ En esta sección se proporcionan referencias para las aplicaciones de Windows y 
 
 ### <a name="sql-server"></a>SQL Server
 
+* [SQL Server en la guía de implementación de Azure con Azure NetApp Files](https://www.netapp.com/pdf.html?item=/media/27154-tr-4888.pdf)
+* [Ventajas del uso de Azure NetApp Files para la implementación de SQL Server](solutions-benefits-azure-netapp-files-sql-server.md)
 * [Implementar SQL Server a través de SMB con Azure NetApp Files](https://www.youtube.com/watch?v=x7udfcYbibs)
 * [Implementar el clúster de conmutación por error AlwaysOn de SQL Server en SMB con Azure NetApp Files](https://www.youtube.com/watch?v=zuNJ5E07e8Q) 
 * [Implementar grupos de disponibilidad AlwaysOn con Azure NetApp Files](https://www.youtube.com/watch?v=y3VQmzzeyvc) 
-* [Ventajas del uso de Azure NetApp Files para la implementación de SQL Server](solutions-benefits-azure-netapp-files-sql-server.md)
 
 ## <a name="sap-on-azure-solutions"></a>Soluciones de SAP en Azure
 
@@ -100,6 +101,8 @@ En esta sección se proporcionan referencias de soluciones de SAP en Azure.
 * [Volúmenes en la nube ONTAP y Azure NetApp Files: simplificación de la migración del sistema SAP HANA](https://blog.netapp.com/cloud-volumes-ontap-and-azure-netapp-files-sap-hana-system-migration-made-easy/)
 * [Decisiones arquitectónicas para maximizar la inversión de ANF en la arquitectura con escalabilidad horizontal de HANA N + M, parte 1](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/architectural-decisions-to-maximize-anf-investment-in-hana-n-m/ba-p/2078737)
 * [Decisiones arquitectónicas para maximizar la inversión de ANF en la arquitectura con escalabilidad horizontal de HANA N + M, parte 2](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/architectural-decisions-to-maximize-anf-investment-in-hana-n-m/ba-p/2117130)
+* [Decisiones arquitectónicas para maximizar la inversión de ANF en la arquitectura con escalabilidad horizontal de HANA N + M, parte 3](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/architectural-decisions-to-maximize-anf-investment-in-hana-n-m/ba-p/2215948)
+* [Cambio de tamaño y consolidación de volúmenes de SAP con Azure NetApp Files](https://techcommunity.microsoft.com/t5/sap-on-microsoft/sap-landscape-sizing-and-volume-consolidation-with-anf/m-p/2145572/highlight/true#M14)
 
 ## <a name="azure-vmware-solutions"></a>Soluciones de VMware en Azure
 

@@ -9,12 +9,12 @@ ms.subservice: monitoring
 ms.date: 11/30/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 6861fd7a92c26fad883f14fb430a03b237c90122
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ba730adaa1e3b111586012ba1849c6dc84d6db00
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105609265"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106553998"
 ---
 # <a name="use-azure-monitor-with-your-azure-synapse-analytics-workspace"></a>Uso de Azure Monitor con el área de trabajo de Azure Synapse Analytics
 
@@ -103,10 +103,14 @@ Inicie sesión en Azure Portal y haga clic en **Monitor** > **Alertas** para cr
 
 Estos son los registros emitidos por las áreas de trabajo de Azure Synapse Analytics:
 
-| Nombre de la tabla de Log Analytics | Nombre de la categoría del registro                 | Descripción |
-|-------------------------------|-------------------------------------------------|-------------|
-| SynapseGatewayApiRequests     | GatewayApiRequests             | Solicitudes de API de puerta de enlace de Azure Synapse. |
-| SynapseRbacOperations         | SynapseRbacOperations          | Operaciones de control de acceso basado en rol (SRBAC) de Azure Synapse. |
+| Nombre de la tabla de Log Analytics       | Nombre de la categoría del registro              | Descripción          |
+|--------------------------------|--------------------------------|----------------------|
+| SynapseGatewayApiRequests      | GatewayApiRequests             | Solicitudes de API de puerta de enlace de Azure Synapse. |
+| SynapseRbacOperations          | SynapseRbacOperations          | Operaciones de control de acceso basado en rol (SRBAC) de Azure Synapse. |
+| SynapseBuiltinSqlReqsEnded     | BuiltinSqlReqsEnded            | Solicitudes finalizadas de grupo de SQL sin servidor integradas de Azure Synapse. |
+| SynapseIntegrationPipelineRuns | IntegrationPipelineRuns        | Ejecuciones de canalización de integración de Azure Synapse. |
+| SynapseIntegrationActivityRuns | IntegrationActivityRuns        | Ejecuciones de actividad de integración de Azure Synapse. |
+| SynapseIntegrationTriggerRuns  | IntegrationTriggerRuns         | Ejecuciones de desencadenador de integración de Azure Synapse. |
 
 ### <a name="dedicated-sql-pool-logs"></a>Registros de grupo de SQL dedicado
 

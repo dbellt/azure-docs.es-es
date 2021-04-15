@@ -3,12 +3,12 @@ title: 'Inicio rápido: Creación de un grupo de administración con la API REST
 description: En este inicio rápido, se usa la API REST para crear un grupo de administración para organizar los recursos en una jerarquía de recursos.
 ms.date: 02/05/2021
 ms.topic: quickstart
-ms.openlocfilehash: ff1487bf25945c733402ddb74d1e102bea80b4b1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 26a1c0a8025a00155bcf0498e6dfa89a8a73d983
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99592507"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259139"
 ---
 # <a name="quickstart-create-a-management-group-with-rest-api"></a>Inicio rápido: Creación de un grupo de administración con la API REST
 
@@ -16,7 +16,7 @@ Los grupos de administración son contenedores que ayudan a administran el acces
 
 El primer grupo de administración creado en el directorio puede tardar hasta 15 minutos en completarse. Hay procesos que se ejecutan la primera vez para configurar el servicio de grupos de administración dentro de Azure para su directorio. Recibirá una notificación cuando finalice el proceso. Para obtener más información, vea [Instalación inicial de los grupos de administración](./overview.md#initial-setup-of-management-groups).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -28,7 +28,7 @@ El primer grupo de administración creado en el directorio puede tardar hasta 15
 
 ### <a name="create-in-rest-api"></a>Creación en la API REST
 
-En el caso de la API REST, use el punto de conexión [Grupos de administración: crear o actualizar](/rest/api/resources/managementgroups/createorupdate) para crear un grupo de administración. En este ejemplo, el valor de **groupId** del grupo de administración es _Contoso_.
+En el caso de la API REST, use el punto de conexión [Grupos de administración: crear o actualizar](/rest/api/managementgroups/managementgroups/createorupdate) para crear un grupo de administración. En este ejemplo, el valor de **groupId** del grupo de administración es _Contoso_.
 
 - URI DE LA API REST
 
@@ -81,7 +81,7 @@ En los ejemplos anteriores, se crea el nuevo grupo de administración en el grup
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Para quitar el grupo de administración que ha creado anteriormente, use el punto de conexión[Grupos de administración: eliminar](/rest/api/resources/managementgroups/delete):
+Para quitar el grupo de administración que ha creado anteriormente, use el punto de conexión[Grupos de administración: eliminar](/rest/api/managementgroups/managementgroups/delete):
 
 - URI DE LA API REST
 

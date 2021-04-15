@@ -7,12 +7,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: e071692a1c6fe423b048dab884164d9b3c98f1fd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e606e21fe2b80683737970b92d57ce87b9103144
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102613619"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107106877"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Preguntas más frecuentes sobre la transición de Cloud Partner Portal al Centro de partners
 
@@ -24,7 +24,7 @@ Puede seguir haciendo negocios en el Centro de partners:
 
 | Área | Cambios |
 | --- | --- |
-| Cuenta | No es necesario crear una cuenta del Centro de partners; puede usar las credenciales de Cloud Partner Portal existentes para iniciar sesión en el Centro de partners, donde podrá administrar la cuenta, los usuarios, los permisos y la facturación. El contrato de publicación y la información de perfil de empresa se migran a la nueva cuenta del Centro de partners, junto con cualquier información de perfil de pago de cuenta, permisos y cuentas de usuario, y ofertas activas. Obtenga más información en [Administración de la cuenta de marketplace comercial en el Centro de partners](partner-center-portal/manage-account.md). |
+| Cuenta | No es necesario crear una cuenta del Centro de partners; puede usar las credenciales de Cloud Partner Portal existentes para iniciar sesión en el Centro de partners, donde podrá administrar la cuenta, los usuarios, los permisos y la facturación. El contrato de publicación y la información de perfil de empresa se migran a la nueva cuenta del Centro de partners, junto con cualquier información de perfil de pago de cuenta, permisos y cuentas de usuario, y ofertas activas. Obtenga más información en [Administración de la cuenta de marketplace comercial en el Centro de partners](manage-account.md). |
 | Experiencia de administración y publicación de ofertas | Los datos de la oferta se han migrado de Cloud Partner Portal al Centro de partners. Ahora accederá a las ofertas en el Centro de partners, que ofrece una mejor experiencia de usuario y una interfaz intuitiva. Aprenda a [actualizar una oferta existente en el marketplace comercial](partner-center-portal/update-existing-offer.md). |
 | Disponibilidad de las ofertas en el marketplace comercial | Sin cambios. Si la oferta está activa en el marketplace comercial, lo seguirá estando. |
 | Nuevas compras e implementaciones | Sin cambios. Los clientes pueden seguir comprando e implementando las ofertas sin interrupciones. |

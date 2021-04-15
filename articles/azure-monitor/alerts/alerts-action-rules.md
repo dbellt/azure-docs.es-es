@@ -3,16 +3,16 @@ title: Reglas de acción para las alertas de Azure Monitor
 description: Descripción de qué son las reglas de acción en Azure Monitor y cómo configurarlas y administrarlas.
 ms.topic: conceptual
 ms.date: 03/15/2021
-ms.openlocfilehash: f70d798270ad82193f7ae5935d34f8f418d35e05
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 12e7cf8e72c5423b4a2edd6ea2a0f4537e328b08
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103471681"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105036788"
 ---
 # <a name="action-rules-preview"></a>Reglas de acción (versión preliminar)
 
-Las reglas de acción le ayudan a definir o suprimir acciones en cualquier ámbito de Azure Resource Manager (suscripción, grupo de recursos o recurso de destino de Azure). Disponen de varios filtros que le ayudan a reducir el subconjunto específico de instancias de alerta sobre las que quiere actuar.
+Las reglas de acción permiten agregar o suprimir los grupos de acciones de las alertas desencadenadas. Una sola regla puede abarcar diferentes ámbitos de recursos de destino, por ejemplo: cualquier alerta sobre un recurso específico (como una máquina virtual específica) o cualquier alerta desencadenada sobre cualquier recurso de una suscripción. Opcionalmente, puede agregar varios filtros para controlar las alertas que están sujetas a una regla y definir una programación para ella; por ejemplo, para que solo esté en vigor fuera del horario comercial o durante una ventana de mantenimiento planificada.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4rBZ2]
 
@@ -31,7 +31,7 @@ Aunque las reglas de alertas le ayudan a definir el grupo de acciones que se des
 Las reglas de acción le ayudan a simplificar este proceso. Al definir acciones a escala, se puede desencadenar un grupo de acciones para cualquier alerta que se genere en el ámbito configurado. En el ejemplo anterior, el equipo ahora puede definir una regla de acción sobre **ContosoRG** que desencadenará el mismo grupo de acciones para todas las alertas generadas dentro de él.
 
 > [!NOTE]
-> Actualmente, las reglas de acción no se aplican a las alertas de Azure Service Health.
+> Actualmente, las reglas de acciones no se aplican a las alertas de Azure Service Health.
 
 ## <a name="configuring-an-action-rule"></a>Configuración de una regla de acciones
 
@@ -59,9 +59,9 @@ En primer lugar, elija el ámbito (suscripción, grupo de recursos o recurso de 
 
 ![Ámbito de la regla de acción](media/alerts-action-rules/action-rules-new-rule-creation-flow-scope.png)
 
-### <a name="filter-criteria"></a>Criterios de filtro
+### <a name="filter-criteria&quot;></a>Criterios de filtro
 
-Opcionalmente, puede definir filtros para que la regla se aplique a un subconjunto específico de alertas o a eventos específicos de cada alerta (por ejemplo, solo "Activada" o "Resuelta").
+Opcionalmente, puede definir filtros para que la regla se aplique a un subconjunto específico de alertas o a eventos específicos de cada alerta (por ejemplo, solo &quot;Activada&quot; o &quot;Resuelta").
 
 Los filtros disponibles son:
 
@@ -308,7 +308,7 @@ En la [página de lista de alertas](./alerts-managing-alert-instances.md), puede
 
 La supresión siempre tiene prioridad en el mismo ámbito.
 
-### <a name="what-happens-if-i-have-a-resource-thats-monitored-in-two-separate-action-rules-do-i-get-one-or-two-notifications-for-example-vm2-in-the-following-scenario"></a>¿Qué ocurre si tengo un recurso supervisado en dos reglas de acción independientes? ¿Puedo obtener una o dos notificaciones? Por ejemplo, **VM2** en el escenario siguiente:
+### <a name="what-happens-if-i-have-a-resource-that-is-covered-by-two-action-rules-do-i-get-one-or-two-notifications-for-example-vm2-in-the-following-scenario"></a>¿Qué ocurre si tengo un recurso que está cubierto por dos reglas de acción? ¿Puedo obtener una o dos notificaciones? Por ejemplo, **VM2** en el escenario siguiente:
 
    `action rule AR1 defined for VM1 and VM2 with action group AG1`
 

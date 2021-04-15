@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: ccad323c1834894367cca0ef0d3f98eb1b1b1ec3
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: dc4450fb1e21211b43bc178d94cf4bdfe6da58e1
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105639909"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256793"
 ---
 # <a name="embedded-sign-in-experience"></a>Experiencia de inicio de sesión insertada
 
@@ -49,7 +49,7 @@ Al usar el iframe, tenga en cuenta lo siguiente:
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* Siga los pasos de [Introducción a las directivas personalizadas en Active Directory B2C](custom-policy-get-started.md).
+* Siga los pasos de [Introducción a las directivas personalizadas en Active Directory B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy).
 * [Habilite los dominios personalizados](custom-domain.md) para sus directivas.
 
 ## <a name="configure-your-policy"></a>Configuración de la directiva

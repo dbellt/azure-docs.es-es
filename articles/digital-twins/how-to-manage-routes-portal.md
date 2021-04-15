@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: df826a682eec15d09b60857e63c363b0f9941c01
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 31f960b39e771e7bfbf67c6e52c5da8e1fc6e0ec
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104779943"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105932461"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Administración de puntos de conexión y rutas en Azure Digital Twins (portal)
 
@@ -153,7 +153,9 @@ Para agregar un filtro de evento mientras se crea una ruta de evento, use la sec
 Puede seleccionar entre algunas opciones básicas de filtros comunes o usar las opciones avanzadas de filtro para escribir sus propios filtros personalizados.
 
 >[!NOTE]
-> Los filtros **distinguen mayúsculas de minúsculas** y deben coincidir en el caso de carga útil (que puede no coincidir necesariamente con el caso del modelo).
+> Los filtros **distinguen mayúsculas de minúsculas** y deben coincidir con las mayúsculas y minúsculas de la carga útil. 
+>
+> Para los filtros de telemetría, esto significa que el uso de mayúsculas debe coincidir con el de la telemetría enviada por el dispositivo, y no necesariamente con el uso de mayúsculas definido en el modelo del gemelo.
 
 #### <a name="use-the-basic-filters"></a>Uso de los filtros básicos
 

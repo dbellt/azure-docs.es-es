@@ -10,17 +10,27 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 11/24/2020
-ms.openlocfilehash: e078fb91b3279b6f4321cd51dfb094f82bbe5f14
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6218715878ec40fecee79f1c93bf2ca1820af007
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98696386"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106277018"
 ---
 # <a name="azure-sql-edge-release-notes"></a>Notas de la versión de Azure SQL Edge 
 
 En este artículo se describen las novedades y los cambios en cada nueva versión de Azure SQL Edge.
 
+## <a name="azure-sql-edge-103"></a>Azure SQL Edge 1.0.3
+
+Número de versión del motor de SQL: 15.0.2000.1554
+
+### <a name="fixes"></a>Correcciones
+
+- Actualización del entorno en tiempo de ejecución de ONNX a la versión 1.5.3
+- Actualización a Microsoft.SqlServer.DACFx versión 150.5084.2
+- Correcciones de errores varios  
+   
 ## <a name="azure-sql-edge-102"></a>Azure SQL Edge 1.0.2
 
 Número de versión del motor de SQL: 15.0.2000.1554

@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 03/11/2021
-ms.openlocfilehash: bc8f7aa6827ce251799acd0673d43344c0833c3a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 28a647949fdb3ff4d8527268919dbd7e49b27ea4
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103149331"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106276661"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Creación y conexión de un clúster de Azure Kubernetes Service
 
@@ -48,12 +48,8 @@ Azure Machine Learning puede implementar modelos de Machine Learning entrenados 
 
 - Si quiere usar un clúster de AKS privado (mediante Azure Private Link), primero debe crear el clúster y, a continuación, **adjuntarlo** al área de trabajo. Para obtener más información, consulte [Creación de un clúster privado de Azure Kubernetes Service](../aks/private-clusters.md).
 
-- El nombre de proceso del clúster de AKS DEBE ser único en el área de trabajo de Azure ML.
-    - El nombre es obligatorio y debe tener una longitud de entre 3 y 24 caracteres.
-    - Los caracteres válidos son mayúsculas y minúsculas, dígitos y el carácter -.
-    - El nombre debe empezar con una letra.
-    - El nombre debe ser único en todos los procesos existentes dentro de una región de Azure. Verá una alerta si el nombre elegido no es único.
-   
+- El nombre de proceso del clúster de AKS DEBE ser único en el área de trabajo de Azure ML. Puede incluir letras, dígitos y guiones. Debe empezar por una letra, terminar con una letra o un dígito y tener una longitud de entre 3 y 24 caracteres.
+ 
  - Si quiere implementar modelos en nodos de **GPU** o en nodos de **FPGA** (o en cualquier SKU específica), debe crear un clúster con la SKU específica. No se admite la creación de un grupo de nodos secundarios en un clúster existente ni la implementación de modelos en el grupo de nodos secundarios.
  
 - Al crear o adjuntar un clúster, puede seleccionar si quiere crearlo para __desarrollo y pruebas__ o __producción__. Si quiere crear un clúster de AKS para __desarrollo__,  __validación__ y __pruebas__, en lugar de producción, especifique el __propósito del clúster__ en __desarrollo y pruebas__. Si no especifica el propósito del clúster, se crea un clúster de __producción__. 

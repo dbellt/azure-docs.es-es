@@ -9,13 +9,13 @@ ms.date: 03/02/2020
 ms.author: rolyon
 ms.custom: include file
 ms.openlocfilehash: 894c4bc3325ca6aa0671fe9263be1f1bb11ee727
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97964208"
 ---
-| Recurso | Límite |
+| Resource | Límite |
 | --- | --- |
 | [Asignaciones de roles para recursos de Azure por suscripción de Azure](../../articles/role-based-access-control/overview.md) | 2\.000 |
 | [Asignaciones de roles para los recursos de Azure por grupo de administración](../../articles/role-based-access-control/overview.md) | 500 |

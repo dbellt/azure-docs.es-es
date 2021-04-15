@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2020
+ms.date: 04/06/2021
 ms.author: duau
-ms.openlocfilehash: 50e047325ad17710794b1640715ab1938373fe85
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0a7e81c57552fdc24262522343a08fdabba71bfd
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96019470"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552587"
 ---
 # <a name="load-balancing-with-azures-application-delivery-suite"></a>Equilibrio de carga con el conjunto de entrega de aplicaciones de Azure
 
@@ -40,7 +40,7 @@ Al combinar estos servicios globales y regionales, la aplicación se beneficiar�
 
 ## <a name="global-load-balancing"></a>Equilibrio de carga global
 **Traffic Manager** proporciona equilibrio de carga de DNS global. Examina las solicitudes de DNS entrantes y responde con un back-end con estado correcto, de acuerdo con la directiva de enrutamiento que el cliente haya seleccionado. Las opciones de los métodos de enrutamiento son:
-- ** El enrutamiento de rendimiento, que envía solicitudes al back-end más cercano con la menor latencia.
+- El **enrutamiento de rendimiento**, que envía solicitudes al back-end más cercano con la menor latencia.
 - El **enrutamiento de prioridad**, que dirige todo el tráfico a un back-end, con otros back-ends como respaldo.
 - El **enrutamiento round robin ponderado**, que distribuye el tráfico según la ponderación asignada a cada back-end.
 - El **enrutamiento geográfico**, que garantiza que las solicitudes que proceden de regiones geográficas específicas se controlan mediante los back-ends asignados a esas regiones. Por ejemplo, todas las solicitudes de España deben dirigirse a la región de Azure Centro de Francia.

@@ -13,12 +13,12 @@ ms.date: 10/30/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 55cecc658b11b7a09665af7128df25fbbff800ef
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 90e81e30e26846bf05032dddf1441e8428bc7158
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100559520"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106550989"
 ---
 # <a name="overview-of-the-microsoft-authentication-library-msal"></a>Introducción a la Biblioteca de autenticación de Microsoft (MSAL)
 La Biblioteca de autenticación de Microsoft (MSAL) permite que los desarrolladores adquieran [tokens](developer-glossary.md#security-token) desde la Plataforma de identidad de Microsoft para autenticar usuarios y acceder a API web protegidas. Se puede usar para ofrecer acceso seguro a Microsoft Graph, otras API de Microsoft, API web de terceros o su propia API web. MSAL es compatible con muchas arquitecturas y plataformas de aplicación distintas, incluidas .NET, JavaScript, Java, Python, Android e iOS.
@@ -53,6 +53,7 @@ MSAL se puede usar en muchos escenarios de aplicación, incluidos:
 | [MSAL para Android](https://github.com/AzureAD/microsoft-authentication-library-for-android)|Android|
 | [MSAL Angular](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-angular)| Aplicaciones de una sola página con los marcos de trabajo Angular y Angular.js|
 | [MSAL para iOS y macOS](https://github.com/AzureAD/microsoft-authentication-library-for-objc)|iOS y macOS|
+| [MSAL Go (versión preliminar)](https://github.com/AzureAD/microsoft-authentication-library-for-go)|Windows, macOS, Linux|
 | [Java de MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-java)|Windows, macOS, Linux|
 | [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser)| Marcos de trabajo JavaScript/TypeScript, como Vue.js, Ember.js, o Durandal.js|
 | [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)| .NET Framework, .NET Core, Xamarin Android, Xamarin iOS, Plataforma universal de Windows|

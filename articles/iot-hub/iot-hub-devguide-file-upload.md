@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 3286b464051b8fea88d2797d4f82b20fe432b4b8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d106021d90304a06ea7c08494d626511bb903df0
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90019536"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106553046"
 ---
 # <a name="upload-files-with-iot-hub"></a>Carga de archivos con IoT Hub
 
@@ -44,7 +44,13 @@ Para utilizar la funcionalidad de carga de archivos, primero debe vincular una c
 Las guías paso a paso de [Carga de archivos de un dispositivo a la nube con IoT Hub](iot-hub-csharp-csharp-file-upload.md) proporcionan un tutorial completo sobre el proceso de carga de archivos. Estas guías paso a paso muestran cómo usar Azure Portal para asociar una cuenta de almacenamiento a un centro de IoT.
 
 > [!NOTE]
-> Los [SDK de IoT de Azure](iot-hub-devguide-sdks.md) administran automáticamente la recuperación del URI de SAS: cargan el archivo y notifican a IoT Hub que la carga se ha completado.
+> Los [SDK de Azure IoT](iot-hub-devguide-sdks.md) administran automáticamente la recuperación del URI de firma de acceso compartido: cargan el archivo y notifican a IoT Hub que la carga se ha completado. Si un firewall bloquea el acceso al punto de conexión de Blob Storage, pero permite el acceso al punto de conexión de IoT Hub, se produce un error en el proceso de carga de archivos y se muestra el siguiente error para el SDK de dispositivo de C# de IoT:
+>
+> `---> System.Net.Http.HttpRequestException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond`
+>
+> Para que la característica de carga de archivos funcione, el acceso al punto de conexión de IoT Hub y al punto de conexión de Blob Storage debe estar disponible en el dispositivo.
+> 
+
 
 ## <a name="initialize-a-file-upload"></a>Inicialización de una carga de archivos
 IoT Hub tiene un punto de conexión concreto para dispositivos para solicitar un URI de SAS para el almacenamiento para cargar un archivo. Para iniciar el proceso de carga de archivos, el dispositivo envía una solicitud POST a `{iot hub}.azure-devices.net/devices/{deviceId}/files` con el cuerpo JSON siguiente:

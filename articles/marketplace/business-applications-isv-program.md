@@ -7,12 +7,12 @@ ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 11/19/2020
-ms.openlocfilehash: ce9927a66da64d64e83f10e3dfd906005635e5ed
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e4cd22418c4f8a2f9504baf665c67a4a57f7f6f5
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99507543"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107103392"
 ---
 # <a name="microsoft-business-applications-independent-software-vendor-isv-connect-program-onboarding-guide"></a>Guía de incorporación del programa Connect para fabricantes de software independientes (ISV) de Microsoft Business Applications
 
@@ -25,7 +25,7 @@ Con el fin de inscribirse y aprovechar todas las ventajas técnicas, de marketin
 
 ## <a name="set-up-your-microsoft-partner-center-account"></a>Configurar su cuenta del Centro de partners de Microsoft
 
-Para configurar y administrar su cuenta para el programa Connect para ISV, complete los pasos del artículo: [Creación de una cuenta de Marketplace comercial en el Centro de partners](./partner-center-portal/create-account.md). En este artículo se proporcionan todos los pasos necesarios para crear una cuenta, así como información sobre cómo agregar nuevos publicadores al programa de Marketplace comercial.
+Para configurar y administrar su cuenta para el programa Connect para ISV, complete los pasos del artículo: [Creación de una cuenta de Marketplace comercial en el Centro de partners](create-account.md). En este artículo se proporcionan todos los pasos necesarios para crear una cuenta, así como información sobre cómo agregar nuevos publicadores al programa de Marketplace comercial.
 
 > [!NOTE]
 > Este paso requiere un rol de *Propietario* o *Administrador* en el Centro de partners.

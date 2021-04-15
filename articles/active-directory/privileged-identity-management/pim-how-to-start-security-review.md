@@ -10,22 +10,29 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 3/16/2021
+ms.date: 4/05/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 310122177d4bd1603f5f498aa2a51620eeda4a20
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2aba8d9de5e068cd98675f67cb26b0eac8d1ad6d
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104592855"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552838"
 ---
 # <a name="create-an-access-review-of-azure-ad-roles-in-privileged-identity-management"></a>Cree una revisión de acceso para los roles de Azure AD en Azure AD Privileged Identity Management (PIM).
 
 Para reducir el riesgo asociado con las asignaciones de roles obsoletas, debe revisar el acceso periódicamente. Puede usar Azure AD Privileged Identity Management (PIM) para crear revisiones de acceso para roles de Azure AD con privilegios. También puede configurar revisiones de acceso periódicas que se produzcan automáticamente.
 
 En este artículo se describe cómo crear una o varias revisiones de acceso para los roles de Azure AD con privilegios.
+
+## <a name="prerequisite-license"></a>Licencia de requisitos previos
+
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]. Para más información sobre las licencias para PIM, consulte [Requisitos de licencia para usar Privileged Identity Management](subscription-requirements.md).
+
+> [!Note]
+>  Actualmente, se puede limitar el ámbito de una revisión de acceso a las entidades de servicio con acceso a Azure AD y roles de recursos de Azure (versión preliminar) con una edición de Azure Active Directory Premium P2 activa en el inquilino. El modelo de licencia de las entidades de servicio finalizará con la disponibilidad general de esta característica y es posible que se requieran licencias adicionales.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -35,9 +42,11 @@ En este artículo se describe cómo crear una o varias revisiones de acceso para
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con un usuario que sea miembro del rol Administrador de roles con privilegios.
 
-1. Abra **Azure AD Privileged Identity Management**.
-
-1. Seleccione **Roles de Azure AD**.
+1. Seleccione **Identity Governance**.
+ 
+1. Seleccione **Roles de Azure AD** en **Azure AD Privileged Identity Management**.
+ 
+1. Vuelve a seleccionar **Roles de Azure AD** en **Administrar**.
 
 1. En Administrar, seleccione **Revisiones de acceso** y, a continuación, seleccione **Nueva**.
 
@@ -57,9 +66,11 @@ Haga clic en **Nuevo** para crear una revisión de acceso nueva.
 
 1. Use el valor **Fin** para especificar cómo finalizar la serie de revisión de acceso periódica. La serie puede terminar de tres formas: se ejecuta continuamente para iniciar revisiones indefinidamente, hasta una fecha concreta, o hasta que se haya completado un número definido de veces. Un administrador de usuarios o un administrador de empresa puede detener la serie después de su creación cambiando la fecha en **Configuración**, de manera que termine en esa fecha.
 
-1. En la sección **Usuarios**, seleccione uno o varios roles cuya pertenencia quiere revisar.
+1. En la sección **Ámbito de los usuarios**, seleccione el ámbito de la revisión. Para revisar los usuarios y grupos con acceso al rol de Azure AD, seleccione **Usuarios y grupos** o seleccione **(versión preliminar) Entidades de servicio** para revisar las cuentas de equipo con acceso al rol de Azure AD.
 
     ![Ámbito de los usuarios para revisar la pertenencia a rol de](./media/pim-how-to-start-security-review/users.png)
+
+1. En **Revisar la pertenencia al rol**, seleccione los roles de Azure AD con privilegios que se deben revisar. 
 
     > [!NOTE]
     > - Los roles seleccionados aquí incluyen [roles permanentes y elegibles](../privileged-identity-management/pim-how-to-add-role-to-user.md).
@@ -77,9 +88,9 @@ Haga clic en **Nuevo** para crear una revisión de acceso nueva.
 
     ![Lista de los revisores de los usuarios o miembros (por sí mismos) seleccionados](./media/pim-how-to-start-security-review/reviewers.png)
 
-    - **Usuarios seleccionados**: use esta opción cuando no sepa quién necesita acceso. Con esta opción, puede asignar la revisión a un propietario de recursos o al administrador de grupos.
-    - **Miembros (por sí mismos)** : use esta opción para hacer que los usuarios revisen sus propias asignaciones de roles. Cuando se selecciona esta opción, los grupos asignados al rol no formarán parte de la revisión.
-    - **Administrador**: use esta opción para que el administrador del usuario revise su asignación de roles. Tras seleccionar Administrador, también tendrá la opción de especificar un revisor de reserva. Se pide a los revisores de reserva que revisen a un usuario cuando este no tiene ningún administrador especificado en el directorio. Los grupos asignados al rol serán revisados por el revisor de reserva si se selecciona uno. 
+    - **Usuarios seleccionados**: use esta opción para designar un usuario específico para completar la revisión. Esta opción está disponible independientemente del ámbito de la revisión, y los revisores seleccionados pueden revisar los usuarios y las entidades de servicio. 
+    - **Miembros (por sí mismos)** : use esta opción para hacer que los usuarios revisen sus propias asignaciones de roles. Cuando se selecciona esta opción, los grupos asignados al rol no formarán parte de la revisión. Esta opción solo está disponible si la revisión está en el ámbito de **Usuarios y grupos**.
+    - **Administrador**: use esta opción para que el administrador del usuario revise su asignación de roles. Esta opción solo está disponible si la revisión está en el ámbito de **Usuarios y grupos**. Tras seleccionar Administrador, también tendrá la opción de especificar un revisor de reserva. Se pide a los revisores de reserva que revisen a un usuario cuando este no tiene ningún administrador especificado en el directorio. Los grupos asignados al rol serán revisados por el revisor de reserva si se selecciona uno. 
 
 ### <a name="upon-completion-settings"></a>Configuración de finalización
 

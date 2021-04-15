@@ -10,19 +10,21 @@ ms.workload: identity
 ms.topic: end-user-help
 ms.date: 08/12/2019
 ms.author: curtand
-ms.openlocfilehash: 9dd9853bae324a047c673852f14d2b4c1639d914
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c77672ce895cc63a04973c4cb3e752ca319e269d
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "83739216"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106553420"
 ---
 # <a name="set-up-an-office-phone-as-your-two-factor-verification-method"></a>Configuración del teléfono de la oficina como método de verificación en dos fases
 
 Es posible configurar el teléfono de la oficina para que actúe como método de verificación en dos fases.
 
->[!Note]
-> Si la opción de teléfono de la oficina está atenuada, es posible que su organización no le permita usar un número de teléfono de la oficina para la verificación. En este caso, tendrá que seleccionar otro método o ponerse en contacto con su administrador para obtener más ayuda.
+> [!Note]
+> Si la opción de **teléfono de la oficina** no está disponible para su selección, es posible que su organización no le permita usar un número de teléfono de la oficina para la verificación. En este caso, tendrá que seleccionar otro método o ponerse en contacto con su administrador para obtener más ayuda. 
+> 
+> Los usuarios de registro combinado no verán una opción para usar una extensión con la opción de **teléfono de la oficina**.
 
 ## <a name="set-up-your-office-phone-number-as-your-verification-method"></a>Configuración del número de teléfono de la oficina como método de verificación
 

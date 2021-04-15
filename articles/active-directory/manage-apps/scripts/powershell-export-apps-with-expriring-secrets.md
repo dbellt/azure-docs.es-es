@@ -2,21 +2,21 @@
 title: 'Ejemplo de PowerShell: Exportación de aplicaciones con certificados y secretos que van a expirar en el inquilino de Azure Active Directory.'
 description: Ejemplo de PowerShell que exporta todas las aplicaciones con secretos y certificados que van a expirar para las aplicaciones especificadas en el inquilino de Azure Active Directory.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: sample
 ms.date: 03/09/2021
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: mifarca
-ms.openlocfilehash: def9b55a1d873cccda5d1c48921e3f098beeced1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7f129e06904497b43eff8a3f0221fb57565ac112
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103149722"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107375413"
 ---
 # <a name="export-apps-with-expiring-secrets-and-certificates"></a>Exportación de aplicaciones con certificados y secretos que van a expirar
 

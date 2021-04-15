@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: b1889a693c08ce78a8bd06b6fe348c0c67bf3812
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fe5a2114a99b7867ac5e51b6bf9ec542ad47ca13
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103465681"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257898"
 ---
 # <a name="tutorial-for-configuring-saviynt-with-azure-active-directory-b2c"></a>Tutorial para configurar Saviynt con Azure Active Directory B2C
 
@@ -135,6 +135,6 @@ Para más información, consulte los artículos siguientes:
 
 - [Directivas personalizadas de Azure AD B2C](./custom-policy-overview.md)
 
-- [Introducción a las directivas personalizadas en Azure AD B2C](./custom-policy-get-started.md?tabs=applications)
+- [Introducción a las directivas personalizadas en Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)
 
 - [Creación de una aplicación de API web](./add-web-api-application.md)

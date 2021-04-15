@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 1/5/2021
 ms.author: v-jawe
-ms.openlocfilehash: 2c771509de5ac246bac0d8e006a5d0b884a410b0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b9198fa6fdd52c91b5be5697fcecbda89a3dbdb3
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101706816"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106276899"
 ---
 # <a name="how-to-mitigate-latency-when-using-the-face-service"></a>Mitigación de la latencia cuando se usa el servicio Face
 
@@ -86,6 +86,7 @@ Si el equipo tiene una conexión lenta con el servicio Face, el tiempo de respue
 Mitigaciones:
 - Al crear la suscripción de Face, asegúrese de elegir la región más cercana a la ubicación en la que se hospede su aplicación.
 - Si necesita llamar a varios métodos de servicio, considere la posibilidad de llamarlos en paralelo si el diseño de la aplicación lo permite. Vea la sección anterior para obtener un ejemplo.
+- Si las latencias más largas afectan a la experiencia del usuario, elija un umbral de tiempo de espera (por ejemplo, un máximo de 5 s) antes de volver a intentar la llamada API. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

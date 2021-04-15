@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 03/18/2021
+ms.date: 03/25/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: a2b001d34d265c8e7246b03875c32168f2c5c962
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: f1e509156beea0b3da3539306dc055291cbff0c8
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104598905"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107314191"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Novedades de Text Analytics API
 
@@ -39,7 +39,7 @@ Text Analytics API se actualiza constantemente. Para mantenerse al día con los 
     * [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics)
     * [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/)
     * [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)
-    * [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples/javascript)
+    * [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples/v5/javascript)
     
 > [!div class="nextstepaction"]
 > [Más información sobre Text Analytics API v3.1-Preview.4](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-4/operations/Languages)
@@ -51,11 +51,12 @@ Text Analytics API se actualiza constantemente. Para mantenerse al día con los 
     * Nuevo tipo de entidad `Date`.
     * Detección de aserciones que reemplaza la detección de negaciones (solo disponible en la API v3.1-preview.4).
     * Nueva propiedad `name` preferida para las entidades vinculadas que se ha normalizado a partir de varias ontologías y varios sistemas de codificación (solo disponible en la API v3.1-preview.4). 
-* Se ha publicado una nueva imagen de contenedor con la etiqueta `3.0.015370001-onprem-amd64` y la nueva versión de modelo `2021-03-01` en el repositorio de vista previa de contenedores. 
-* La imagen de contenedor de Text Analytics for Health se trasladará a un nuevo repositorio el próximo mes.  Busque una comunicación de correo electrónico sobre dónde se encuentra su nueva ubicación.
+* Se ha publicado una nueva imagen de contenedor con la etiqueta `3.0.015490002-onprem-amd64` y la nueva versión de modelo `2021-03-01` en el repositorio de vista previa de contenedores. 
+    * A partir del 26 de abril de 2021 la imagen de este contenedor no volverá a estar disponible para la descarga desde `containerpreview.azurecr.io`.
+* Ahora hay disponible una nueva instancia de Text Analytics para la imagen de contenedor de estado con estos mismos modelo-versión en `mcr.microsoft.com/azure-cognitive-services/textanalytics/healthcare`. A partir del 26 de abril, el contenedor solo se podrá descargar desde este repositorio.
+
 > [!div class="nextstepaction"]
 > [Más información sobre Text Analytics para el estado](how-tos/text-analytics-for-health.md)
->
 
 ### <a name="text-analytics-resource-portal-update"></a>Actualización del portal de recursos de Text Analytics
 * Los **registros de texto procesados** ahora están disponibles como una métrica en la sección **Supervisión** del recurso de Text Analytics en Azure Portal.  

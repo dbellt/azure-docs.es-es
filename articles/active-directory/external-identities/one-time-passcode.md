@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 04/06/2021
 ms.author: mimart
 author: msmimart
 manager: CelesteDG
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7961997c6a6736c154b6217ee3f21682d0c4c3fc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 30f22282b00a7ead2e19805f32d78338126e8087
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101688474"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552757"
 ---
 # <a name="email-one-time-passcode-authentication"></a>Autenticación con código de acceso de un solo uso por correo electrónico
 
@@ -64,7 +64,7 @@ Para saber si un usuario invitado se autentica mediante códigos de acceso de un
 ![Captura de pantalla que muestra un usuario de código de acceso único con el valor origen de OTP.](media/one-time-passcode/guest-user-properties.png)
 
 > [!NOTE]
-> Cuando un usuario canjea un código de acceso de un solo uso y más adelante obtiene una MSA, una cuenta de Azure AD u otra cuenta federada, seguirá autenticándose con un código de acceso de un solo uso. Si quiere actualizar el método de autenticación, puede eliminar la cuenta de usuario invitado y volver a invitarlo.
+> Cuando un usuario canjea un código de acceso de un solo uso y más adelante obtiene una MSA, una cuenta de Azure AD u otra cuenta federada, seguirá autenticándose con un código de acceso de un solo uso. Si desea actualizar el método de autenticación del usuario, puede [restablecer su estado de canje](reset-redemption-status.md).
 
 ### <a name="example&quot;></a>Ejemplo
 
@@ -76,7 +76,7 @@ A partir de octubre de 2021, la característica de código de acceso de un solo 
 
 > [!NOTE]
 >
-> Si la característica de código de acceso de un solo uso por correo electrónico se ha habilitado en el inquilino y la desactiva, los usuarios invitados que hayan canjeado un código de acceso de un solo uso no podrán iniciar sesión. Puede eliminar los usuarios invitados y volver a invitarlos para que puedan volver a iniciar sesión con otro método de autenticación.
+> Si la característica de código de acceso de un solo uso por correo electrónico se ha habilitado en el inquilino y la desactiva, los usuarios invitados que hayan canjeado un código de acceso de un solo uso no podrán iniciar sesión. Puede [restablecer el estado de canje](reset-redemption-status.md) para que puedan iniciar sesión de nuevo con otro método de autenticación.
 
 ### <a name="to-disable-the-email-one-time-passcode-feature"></a>Para deshabilitar la característica de código de acceso de un solo uso por correo electrónico
 

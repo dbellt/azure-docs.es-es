@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 08/06/2020
+ms.date: 04/05/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74c9cd1c55f1b0dde173a7ffbeac92e5518db81e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0d0428f73c4df3d97002def03823ff8cced1d647
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88005812"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552638"
 ---
 # <a name="license-requirements-to-use-privileged-identity-management"></a>Requisitos de licencia para usar Privileged Identity Management
 
@@ -30,7 +30,7 @@ Para Azure Active Directory (Azure AD) Privileged Identity Management (PIM), un 
 
 ## <a name="valid-licenses"></a>Licencias válidas
 
-[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
+Necesitará [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)] para usar PIM y toda su configuración. Actualmente, se puede limitar el ámbito de una revisión de acceso a las entidades de servicio con acceso a Azure AD y roles de recursos de Azure (versión preliminar) con una edición de Azure Active Directory Premium P2 activa en el inquilino. El modelo de licencia de las entidades de servicio finalizará con la disponibilidad general de esta característica y es posible que se requieran licencias adicionales.
 
 ## <a name="licenses-you-must-have"></a>Licencias que debe tener
 
@@ -73,3 +73,5 @@ Si expira una licencia de Azure AD Premium P2, EMS E5 o una licencia de evaluaci
 - [Implementación de Privileged Identity Management](pim-deployment-plan.md)
 - [Empiece a usar Privileged Identity Management](pim-getting-started.md)
 - [Roles que no se pueden administrar en Privileged Identity Management](pim-roles.md)
+- [Creación de una revisión de acceso de los roles de recursos de Azure en PIM](pim-resource-roles-start-access-review.md)
+- [Crear una revisión de acceso de roles de Azure AD en PIM](pim-how-to-start-security-review.md)

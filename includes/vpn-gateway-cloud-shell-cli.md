@@ -9,10 +9,10 @@ ms.date: 03/11/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: c39a51c66a96dccc3ef759ee3f1cabddbb840c66
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "80337330"
 ---
 En este artículo se usa la CLI de Azure. Para ejecutar comandos, puede usar Azure Cloud Shell. Azure Cloud Shell es un shell interactivo gratuito que puede usar para ejecutar los pasos de este artículo. Tiene las herramientas comunes de Azure preinstaladas y configuradas para usarlas en la cuenta.

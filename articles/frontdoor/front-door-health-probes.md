@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: 4cbeea8ad20d41daff3d4ad086a36df5e988991f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dd56740b7153cdbafdfa847a22d34b57f862cdf3
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91449236"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106550750"
 ---
 # <a name="health-probes"></a>Sondeos de estado
 
@@ -24,6 +24,9 @@ Con el fin de determinar el estado y la proximidad de cada back-end de un entorn
 
 > [!WARNING]
 > Como Front Door tiene muchos entornos perimetrales en todo el mundo, el volumen de solicitudes de sondeo de estado a los back-end puede ser bastante superior, desde 25 solicitudes por minuto hasta un máximo de 1200 solicitudes por minuto, dependiendo de la frecuencia de sondeo de estado configurada. Con la frecuencia de sondeo predeterminada de 30 segundos, el volumen de sondeo del back-end debe ser de aproximadamente 200 solicitudes por minuto.
+
+> [!NOTE]
+> Los sondeos HTTP/HTTPS de Front Door se envían con el encabezado `User-Agent` establecido en el valor: `Edge Health Probes`. 
 
 ## <a name="supported-protocols"></a>Protocolos admitidos
 
