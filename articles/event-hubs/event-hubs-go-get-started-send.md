@@ -3,12 +3,12 @@ title: 'Inicio rápido: Envío y recepción de eventos mediante Go en Azure Even
 description: 'Inicio rápido: En este artículo se incluye un tutorial para crear una aplicación de Go que envía eventos de Azure Event Hubs.'
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 59cd0d757108e7579ce389d216b0ee4d569e12fd
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ededd042dadd6059bd7b2d689cff78fe1bd6af0b
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "87002461"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107311097"
 ---
 # <a name="quickstart-send-events-to-or-receive-events-from-event-hubs-using-go"></a>Inicio rápido: Envío o recepción de eventos en Event Hubs mediante Go
 Azure Event Hubs es una plataforma de streaming de macrodatos y servicio de ingesta de eventos de gran escalabilidad capaz de recibir y procesar millones de eventos por segundo. Event Hubs puede procesar y almacenar eventos, datos o telemetría generados por dispositivos y software distribuido. Los datos enviados a un centro de eventos se pueden transformar y almacenar con cualquier proveedor de análisis en tiempo real o adaptadores de procesamiento por lotes y almacenamiento. Para más información sobre Event Hubs, consulte [Introducción a Event Hubs](event-hubs-about.md) y [Características de Event Hubs](event-hubs-features.md).
@@ -279,7 +279,7 @@ Lea los siguientes artículos:
 
 - [EventProcessorHost](event-hubs-event-processor-host.md)
 - [Características y terminología de Azure Event Hubs](event-hubs-features.md)
-- [Preguntas más frecuentes sobre Event Hubs](event-hubs-faq.md)
+- [Preguntas más frecuentes sobre Event Hubs](event-hubs-faq.yml)
 
 
 <!-- Links -->

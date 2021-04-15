@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/23/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: ee2e4fca697c086b95e83feb9d40ce8e07dc344c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7b421877b2a41074bf901817c7ad8922083c3e77
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102611902"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285680"
 ---
 # <a name="configure-read-ocr-docker-containers"></a>Configuración de contenedores OCR de Read en Docker
 
@@ -34,8 +34,8 @@ El contenedor también tiene los siguientes valores de configuración específic
 |Obligatorio|Configuración|Propósito|
 |--|--|--|
 |No|ReadEngineConfig:ResultExpirationPeriod| Solo contenedores con la versión 2.0. Período de expiración del resultado en horas. El valor predeterminado es 48 horas. Este valor especifica cuándo debe borrar el sistema los resultados de reconocimiento. Por ejemplo, si es `resultExpirationPeriod=1`, el sistema borra el resultado del reconocimiento 1 hora después del proceso. Si es `resultExpirationPeriod=0`, el sistema borra el resultado del reconocimiento una vez recuperado el resultado.|
-|No|Cache:Redis| Solo contenedores con la versión 2.0. Habilita el almacenamiento en Redis para guardar los resultados. Se *necesita* una memoria caché si se colocan varios contenedores de lectura detrás de un equilibrador de carga.|
-|No|Queue:RabbitMQ|Solo contenedores con la versión 2.0. Habilita RabbitMQ para el envío de tareas. Este valor resulta útil cuando se colocan varios contenedores de lectura detrás de un equilibrador de carga.|
+|No|Cache:Redis| Solo contenedores con la versión 2.0. Habilita el almacenamiento en Redis para guardar los resultados. Se *necesita* una memoria caché si se colocan varios contenedores OCR de lectura detrás de un equilibrador de carga.|
+|No|Queue:RabbitMQ|Solo contenedores con la versión 2.0. Habilita RabbitMQ para el envío de tareas. Este valor resulta útil cuando se colocan varios contenedores OCR de lectura detrás de un equilibrador de carga.|
 |No|Queue:Azure:QueueVisibilityTimeoutInMilliseconds | Solo contenedores con la versión 3.x. Tiempo que un mensaje es invisible cuando otro trabajo lo procesa. |
 |No|Storage::DocumentStore::MongoDB|Solo contenedores con la versión 2.0. Habilita MongoDB para el almacenamiento de resultados permanente. |
 |No|Storage:ObjectStore:AzureBlob:ConnectionString| Solo contenedores con la versión 3.x. Cadena de conexión de Azure Blob Storage. |
@@ -119,7 +119,7 @@ Reemplace {_argument_name_} por sus propios valores:
 
 ## <a name="container-docker-examples"></a>Ejemplos de contenedor de Docker
 
-Los siguientes ejemplos de Docker son del contenedor Lectura.
+Los siguientes ejemplos de Docker son del contenedor OCR de lectura.
 
 
 # <a name="version-32-preview"></a>[Versión 3.2-preview](#tab/version-3-2)

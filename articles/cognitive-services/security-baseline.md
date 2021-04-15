@@ -4,22 +4,20 @@ description: La línea base de seguridad de Cognitive Services proporciona orien
 author: msmbaldwin
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 02/17/2021
+ms.date: 03/30/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b243fa18b17fdd15f3c39545b7d81f5796bd8429
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a7f9570a68102eb20c84942ddf9ac73de033f01c
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101699868"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106076605"
 ---
 # <a name="azure-security-baseline-for-cognitive-services"></a>Línea base de seguridad de Azure para Cognitive Services
 
-Esta línea base de seguridad aplica la guía de la [versión 1.0 de Azure Security Benchmark](../security/benchmarks/overview-v1.md) en Cognitive Services. Azure Security Benchmark proporciona recomendaciones sobre cómo puede proteger sus soluciones de nube en Azure.
-El contenido se agrupa mediante los **controles de seguridad** definidos en Azure Security Benchmark y las directrices relacionadas aplicables a Cognitive Services. Se han excluido los **controles** no aplicables a Cognitive Services.
+Esta línea de base de seguridad aplica la guía de la [versión 1.0 de Azure Security Benchmark](../security/benchmarks/overview-v1.md) en Cognitive Services. Azure Security Benchmark proporciona recomendaciones sobre cómo puede proteger sus soluciones de nube en Azure. El contenido se agrupa mediante los **controles de seguridad** definidos en Azure Security Benchmark y las directrices relacionadas aplicables a Cognitive Services. Se han excluido los **controles** que no son aplicables a Cognitive Services o cuya responsabilidad es de Microsoft.
 
- 
 Para ver cómo Cognitive Services se asigna por completo a Azure Security Benchmark, consulte el [archivo completo de asignación de la línea base de seguridad de Cognitive Services](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 ## <a name="network-security"></a>Seguridad de redes
@@ -259,9 +257,9 @@ Configure los valores de diagnóstico para el contenedor de Cognitive Services y
 
 **Guía**: Azure Active Directory (Azure AD) tiene roles integrados que se deben asignar explícitamente y son consultables. Use el módulo de PowerShell de Azure AD para realizar consultas ad hoc para detectar cuentas que son miembros de grupos administrativos.
 
-- [Obtención de un rol de directorio en Azure AD con PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&amp;preserve-view=true)
+- [Obtención de un rol de directorio en Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-- [Obtención de los miembros de un rol de directorio en Azure AD con PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&amp;preserve-view=true)
+- [Obtención de los miembros de un rol de directorio en Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 **Responsabilidad**: Customer
 
@@ -379,7 +377,7 @@ Los clientes que mantienen el inventario de cuentas de usuario de API Management
 
 - [Administración de cuentas de usuario en Azure API Management](../api-management/api-management-howto-create-or-invite-developers.md)
 
-- [Obtención de una lista de usuarios de API Management](https://docs.microsoft.com/powershell/module/az.apimanagement/get-azapimanagementuser?view=azps-4.8.0&amp;preserve-view=true)
+- [Obtención de una lista de usuarios de API Management](/powershell/module/az.apimanagement/get-azapimanagementuser)
 
 - [Procedimiento para usar las revisiones de acceso de identidad de Azure](../active-directory/governance/access-reviews-overview.md)
 
@@ -542,7 +540,7 @@ Aunque los recursos clásicos de Azure se pueden detectar a través de Resource 
 
 - [Creación de consultas con Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Visualización de las suscripciones de Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&amp;preserve-view=true)
+- [Visualización de las suscripciones de Azure](/powershell/module/az.accounts/get-azsubscription)
 
 - [Descripción de Azure RBAC](../role-based-access-control/overview.md)
 
@@ -628,7 +626,7 @@ Además, use Azure Resource Graph para consultar o detectar recursos dentro de l
 
 **Guía**: defina e implemente configuraciones de seguridad estándar para el contenedor de Cognitive Services con Azure Policy. Use alias de Azure Policy en el espacio de nombres "Microsoft.CognitiveServices" para crear directivas personalizadas a fin de auditar o aplicar la configuración de las instancias de Azure Cache for Redis.
 
-- [Visualización de los alias de Azure Policy disponibles](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [Visualización de los alias de Azure Policy disponibles](/powershell/module/az.resources/get-azpolicyalias)
 
 - [Configuración y administración de Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -652,9 +650,9 @@ Además, use Azure Resource Graph para consultar o detectar recursos dentro de l
 
 **Guía**: si usa definiciones de Azure Policy personalizadas o plantillas de Azure Resource Manager para los contenedores y recursos relacionados de Azure Cognitive Services, use Azure Repos para almacenar y administrar el código de forma segura.
 
-- [Almacenamiento de código en Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [Almacenamiento de código en Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
-- [Documentación de Azure Repos](https://docs.microsoft.com/azure/devops/repos/?view=azure-devops&amp;preserve-view=true)
+- [Documentación de Azure Repos](/azure/devops/repos/)
 
 **Responsabilidad**: Customer
 
@@ -768,7 +766,7 @@ También puede usar la característica de administración del ciclo de vida para
 
 - [Introducción a Azure Automation](../automation/automation-intro.md)
 
-- [Creación de una copia de seguridad de las claves del almacén de claves en Azure](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [Creación de una copia de seguridad de las claves del almacén de claves en Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey)
 
 **Responsabilidad**: Customer
 
@@ -780,7 +778,7 @@ También puede usar la característica de administración del ciclo de vida para
 
 - [Implementación de recursos con Azure Portal y plantillas de Resource Manager](../azure-resource-manager/templates/deploy-portal.md)
 
-- [Restauración de las claves del almacén de claves en Azure](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [Restauración de las claves del almacén de claves en Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey)
 
 **Responsabilidad**: Customer
 
@@ -792,7 +790,7 @@ También puede usar la característica de administración del ciclo de vida para
 
 Use el control de acceso basado en roles de Azure para proteger las claves administradas por el cliente. Habilite la eliminación temporal y la protección de purga en Key Vault para proteger las claves contra la eliminación accidental o malintencionada. 
 
-- [Almacenamiento de código en Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [Almacenamiento de código en Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
 - [Acerca de los permisos y los grupos en Azure DevOps](/azure/devops/organizations/security/about-permissions)
 

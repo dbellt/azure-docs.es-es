@@ -8,12 +8,12 @@ ms.date: 01/29/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 85d5d5b484163c4c65e7ec14c5d5ce5aea339669
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b106c82e3755fbd0e02f12a769d80ce4761cf026
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104593210"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285865"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planeamiento de una implementación de Azure Files Sync
 
@@ -351,13 +351,22 @@ Si está habilitada la nube por niveles, no se deben usar soluciones que realice
 Si prefiere usar una solución de copia de seguridad local, las copias de seguridad deben realizarse en un servidor del grupo de sincronización que tenga deshabilitada la nube por niveles. Al realizar una restauración, use las opciones de restauración de nivel de volumen o de archivo. Los archivos restaurados con la opción de restauración a nivel de archivo se sincronizarán con todos los puntos de conexión del grupo de sincronización y los archivos existentes se reemplazarán con la versión restaurada desde la copia de seguridad.  Las restauraciones a nivel de volumen no reemplazarán las versiones de archivo más recientes en el recurso compartido de archivos de Azure u otros puntos de conexión del servidor.
 
 > [!WARNING]
-> El modificador /B de Robocopy no es compatible con Azure File Sync. El uso del modificador /B de Robocopy con un punto de conexión del servidor de Azure File Sync como origen puede provocar daños en los archivos.
+> Si necesita usar Robocopy /B con un agente de Azure File Sync que se ejecuta en el servidor de origen o de destino, actualice al agente de Azure File Sync versión v12.0 o posterior. El uso de Robocopy /B con versiones de agente inferiores a v12.0 dará lugar a daños en los archivos en niveles durante la copia.
 
 > [!Note]  
 > La reconstrucción completa (BMR) puede causar resultados inesperados y actualmente no se admite.
 
 > [!Note]  
 > Con la versión 9 del agente de Azure File Sync, las instantáneas de VSS (incluida la pestaña Versiones anteriores) ya se admiten en los volúmenes que tienen habilitada la nube por niveles. Sin embargo, debe habilitar la compatibilidad con la versión anterior a través de PowerShell. [Más información](storage-sync-files-deployment-guide.md#self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service).
+
+## <a name="data-classification"></a>Clasificación de datos
+Si tiene instalado software de clasificación de datos, habilitar la nube por niveles puede aumentar el costo por dos motivos:
+
+1. Con la nube por niveles habilitada, los archivos de uso más frecuentes se almacenan en la memoria caché local y los archivos de acceso esporádico se organizan por niveles en el recurso compartido de archivos de Azure en la nube. Si la clasificación de datos examina periódicamente todos los archivos del recurso compartido de archivos, los archivos en niveles de la nube deben volver a llamarse cada vez que se examinan. 
+
+2. Si el software de clasificación de datos utiliza los metadatos del flujo de datos de un archivo, este debe volver a llamarse por completo para que el software pueda ver la clasificación. 
+
+El aumento del número de llamadas y de la cantidad de datos que se llaman puede aumentar los costos.
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Directiva de actualización del agente de Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/04/2021
 ms.topic: conceptual
-ms.openlocfilehash: c38a6236fe3ad9164d11d94e5563a7dddf5b4b32
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b8f1fbdcb3b268c24eb19517a0686c6c72c50842
+ms.sourcegitcommit: af6eba1485e6fd99eed39e507896472fa930df4d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102452788"
+ms.lasthandoff: 04/04/2021
+ms.locfileid: "106294015"
 ---
 # <a name="use-runbooks-and-modules-in-powershell-gallery"></a>Uso de runbooks y módulos en la Galería de PowerShell
 
@@ -44,6 +44,22 @@ La lista siguiente contiene algunos runbooks que admiten escenarios comunes. Par
    * [Copy-ItemFromAzureVM](https://www.powershellgallery.com/packages/Copy-ItemFromAzureVM/): Copia un archivo remoto de una máquina virtual Windows de Azure.
    * [Copy-ItemToAzureVM](https://www.powershellgallery.com/packages/Copy-ItemToAzureVM/): copia un archivo local en una máquina virtual de Azure.
 
+## <a name="import-a-powershell-runbook-from-github-with-the-azure-portal"></a>Importación de un runbook de PowerShell desde GitHub con Azure Portal
+
+1. En Azure Portal, abra su cuenta de Automation.
+1. Seleccione **Galería de runbooks** en **Automatización de procesos**.
+1. Seleccione **Origen: GitHub**.
+1. Puede usar los filtros situados encima de la lista para restringir la presentación por publicador, tipo y ordenación. Busque el elemento de la galería que desee y selecciónelo para ver sus detalles.
+
+   :::image type="content" source="media/automation-runbook-gallery/browse-gallery-github-sm.png" alt-text="Examen de la galería de GitHub." lightbox="media/automation-runbook-gallery/browse-gallery-github-lg.png":::
+
+1. Para importar un elemento, haga clic en **Importar** en la hoja de detalles.
+
+   :::image type="content" source="media/automation-runbook-gallery/gallery-item-details-blade-github-sm.png" alt-text="Vista detallada de un runbook de la galería de GitHub." lightbox="media/automation-runbook-gallery/gallery-item-details-blade-github-lg.png":::
+
+1. Si lo desea, cambie el nombre del runbook y después haga clic en **Aceptar** para importarlo.
+1. El runbook aparecerá en la pestaña **Runbooks** para la cuenta de Automation.
+
 ## <a name="import-a-powershell-runbook-from-the-runbook-gallery-with-the-azure-portal"></a>Importación de un runbook de PowerShell de la galería de runbooks con Azure Portal
 
 1. En Azure Portal, abra su cuenta de Automation.
@@ -56,22 +72,6 @@ La lista siguiente contiene algunos runbooks que admiten escenarios comunes. Par
 1. Para importar un elemento, haga clic en **Importar** en la hoja de detalles.
 
    :::image type="content" source="media/automation-runbook-gallery/gallery-item-detail-sm.png" alt-text="Mostrar detalles de un elemento de la galería de runbooks." lightbox="media/automation-runbook-gallery/gallery-item-detail-lg.png":::
-
-1. Si lo desea, cambie el nombre del runbook y después haga clic en **Aceptar** para importarlo.
-1. El runbook aparecerá en la pestaña **Runbooks** para la cuenta de Automation.
-
-## <a name="import-a--powershell-runbook-from-github-with-the-azure-portal"></a>Importación de un runbook de PowerShell desde GitHub con Azure Portal
-
-1. En Azure Portal, abra su cuenta de Automation.
-1. Seleccione **Galería de runbooks** en **Automatización de procesos**.
-1. Seleccione **Origen: GitHub**.
-1. Puede usar los filtros situados encima de la lista para restringir la presentación por publicador, tipo y ordenación. Busque el elemento de la galería que desee y selecciónelo para ver sus detalles.
-
-   :::image type="content" source="media/automation-runbook-gallery/browse-gallery-github-sm.png" alt-text="Examen de la galería de GitHub." lightbox="media/automation-runbook-gallery/browse-gallery-github-lg.png":::
-
-1. Para importar un elemento, haga clic en **Importar** en la hoja de detalles.
-
-   :::image type="content" source="media/automation-runbook-gallery/gallery-item-details-blade-github-sm.png" alt-text="Vista detallada de un runbook de la galería de GitHub." lightbox="media/automation-runbook-gallery/gallery-item-details-blade-github-lg.png":::
 
 1. Si lo desea, cambie el nombre del runbook y después haga clic en **Aceptar** para importarlo.
 1. El runbook aparecerá en la pestaña **Runbooks** para la cuenta de Automation.

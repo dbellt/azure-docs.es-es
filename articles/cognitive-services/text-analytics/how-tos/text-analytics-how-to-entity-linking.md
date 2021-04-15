@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 03/15/2021
 ms.author: aahi
-ms.openlocfilehash: 0876dd00933203c943417d87978567cf555a3e4f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 903147b6c9f102b83f65d67cf41d4df0c62c7b54
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104599007"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106280571"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Uso del reconocimiento de entidades con nombre en Text Analytics
 
@@ -206,7 +206,7 @@ La versión 3.0 solo incluye operaciones sincrónicas. El siguiente código JSON
 
 ## <a name="post-the-request"></a>Publicar la solicitud
 
-El análisis se realiza tras la recepción de la solicitud. Consulte la sección de [límites de datos](../overview.md#data-limits) de la introducción para obtener información sobre el tamaño y el número de solicitudes que puede enviar por minuto y segundo.
+El análisis se realiza tras la recepción de la solicitud. Consulte el artículo sobre [límites de datos](../overview.md#data-limits) para información sobre el tamaño y el número de solicitudes que puede enviar por minuto y segundo.
 
 La API Text Analytics no tiene estado. No se almacenan datos en la cuenta y los resultados se devuelven inmediatamente en la respuesta.
 

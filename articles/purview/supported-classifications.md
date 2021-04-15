@@ -6,20 +6,20 @@ ms.author: anmuk
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: reference
-ms.date: 02/05/2021
-ms.openlocfilehash: 37df9a276339b80a81e6ac5d5db14872de9edff4
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.date: 4/1/2021
+ms.openlocfilehash: e1d3d495d958465e966701aa7ce91bc2706b48e0
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106065861"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219593"
 ---
 # <a name="supported-classifications-in-azure-purview"></a>Clasificaciones admitidas en Azure Purview
 
 En este artículo se enumeran las clasificaciones del sistema admitidas y definidas en Azure Purview (versión preliminar).
 
 
-- **Umbral de coincidencia único**: es el número total de valores de datos únicos que deben encontrarse en una columna antes de que el escáner ejecute el patrón de datos en ella. Nuestras reglas de clasificación del sistema requieren que haya al menos 8 valores distintos en cada columna para someterlos a clasificación. Asimismo, el sistema necesita este valor para asegurarse de que la columna contiene suficientes datos para que el escáner pueda clasificarla con precisión. Por ejemplo, una columna que contenga varias filas con el valor 1 no se clasificará. Tampoco se clasificarán las columnas que contengan una fila con un valor y el resto de las filas con valores NULL. Recuerde que si especifica varios patrones, este valor se aplica a cada uno de ellos.
+- **Umbral de coincidencia único**: es el número total de valores de datos únicos que deben encontrarse en una columna antes de que el escáner ejecute el patrón de datos en ella. Un umbral de coincidencia único no tiene nada que ver con la coincidencia de patrones, pero es un requisito previo de la coincidencia de patrones. Nuestras reglas de clasificación del sistema requieren que haya al menos 8 valores distintos en cada columna para someterlos a clasificación. Asimismo, el sistema necesita este valor para asegurarse de que la columna contiene suficientes datos para que el escáner pueda clasificarla con precisión. Por ejemplo, una columna que contenga varias filas con el valor 1 no se clasificará. Tampoco se clasificarán las columnas que contengan una fila con un valor y el resto de las filas con valores NULL. Recuerde que si especifica varios patrones, este valor se aplica a cada uno de ellos.
 
 - **Umbral de coincidencia mínimo**: es el porcentaje mínimo de coincidencias de valores de datos que debe encontrar el escáner en una columna para que se aplique la clasificación. El valor de clasificación del sistema se establece en 60 %.
 

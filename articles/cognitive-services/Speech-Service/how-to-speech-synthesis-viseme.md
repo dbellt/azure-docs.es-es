@@ -12,17 +12,17 @@ ms.date: 03/03/2021
 ms.author: yulili
 ms.custom: references_regions
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
-ms.openlocfilehash: 15fa1dd230b7f07846653278533805fa66ed2195
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: e97c48d4e42627d0fc2caaa4f66e81b9a0cafa86
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104870403"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105643893"
 ---
 # <a name="get-facial-pose-events"></a>Obtención de eventos de postura facial
 
 > [!NOTE]
-> Visema solo funciona para `en-US-AriaNeural` la voz en la región oeste de EE. UU. (`westus`) y estará disponible para todas `en-US` las voces a finales de abril de 2021.
+> El viseña solo funciona por voz `en-US-AriaNeural` en este momento.
 
 Un visema es la descripción visual de un fonema en lenguaje hablado.
 Define la posición de la esfera y la boca al hablar de una palabra.
@@ -31,7 +31,7 @@ No hay una correspondencia uno a uno entre visemas y fonemas.
 A menudo, varios fonemas se corresponden con un solo visema, ya que varios fonemas tienen el mismo aspecto en la superficie cuando se producen, como `s` y `z`.
 Vea la [tabla de asignación entre visemas y fonemas](#map-phonemes-to-visemes).
 
-Mediante las visemas, puede crear asistentes de difusión de noticias más naturales e inteligentes, juegos interactivos y personajes animados, así como vídeos de aprendizaje de lenguaje más intuitivos. El contenido de voz de la audición también puede recoger sonidos de forma visual y "lectura de labios", que muestra visemas en una superficie animada.
+Mediante las visemas, puede crear asistentes de difusión de noticias más naturales e inteligentes, juegos interactivos y personajes animados, así como vídeos de aprendizaje de lenguaje más intuitivos. Las personas con deficiencias auditivas también pueden captar los sonidos de forma visual y "leer los labios" del contenido de voz que muestra los visemas en una cara animada.
 
 ## <a name="get-viseme-events-with-the-speech-sdk"></a>Obtención de eventos de visema con el SDK de voz
 

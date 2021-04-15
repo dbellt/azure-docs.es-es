@@ -5,14 +5,14 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet
 author: DaleKoetke
 ms.author: dalek
-ms.date: 2/7/2021
-ms.reviewer: mbullwin
-ms.openlocfilehash: 1f19366ac8fd7aedadcca0287540262516ad060c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 3/30/2021
+ms.reviewer: lagayhar
+ms.openlocfilehash: e048e788e674e90a62b15784c590c07e5d36b816
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101726195"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078407"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Administración del uso y los costos de Application Insights
 
@@ -25,7 +25,7 @@ Si tiene preguntas sobre cómo funcionan los precios para Application Insights, 
 
 ## <a name="pricing-model"></a>Modelo de precios
 
-Los precios de [Azure Application Insights][start] son de un modelo de **pago por uso**, que se basa en el volumen de datos ingeridos y, opcionalmente, para obtener una mayor retención de datos. Cada recurso de Application Insights se cobra como un servicio independiente y contribuye a la factura de la suscripción a Azure. El volumen de datos se mide como el tamaño del paquete de datos JSON sin comprimir que recibe Application Insights de su aplicación. No hay ningún cargo por volumen de datos para usar [Live Metrics Stream](./live-stream.md).
+Los precios de [Azure Application Insights][start] son de un modelo de **pago por uso**, que se basa en el volumen de datos ingeridos y, opcionalmente, para obtener una mayor retención de datos. Cada recurso de Application Insights se cobra como un servicio independiente y contribuye a la factura de la suscripción a Azure. El volumen de datos se mide como el tamaño del paquete de datos JSON sin comprimir que recibe Application Insights de su aplicación. El volumen de datos se mide en GB (10^9 bytes). No hay ningún cargo por volumen de datos para usar [Live Metrics Stream](./live-stream.md).
 
 Las [pruebas web de varios pasos](./availability-multistep.md) conllevan un cargo adicional. Las pruebas web de varios pasos son pruebas web que realizan una secuencia de acciones. No hay ningún cargo aparte para las *pruebas de ping* de una sola página. La telemetría de las pruebas de ping y de las de varios pasos se carga igual que el resto de la telemetría de su aplicación.
 
@@ -43,7 +43,10 @@ Hay dos enfoques para abordar esta cuestión: usar la supervisión predeterminad
 
 ### <a name="data-collection-when-using-sampling"></a>Colección de datos al usar el muestreo
 
-Con el [muestreo adaptable](sampling.md#adaptive-sampling) del SDK de ASP.NET, el volumen de datos se ajusta automáticamente para mantener una velocidad de tráfico máxima específica para la supervisión predeterminada de Application Insights. Si la aplicación genera una cantidad baja de telemetría, como al depurar o debido a un uso bajo, el procesador de muestreo no podrá descargar los elementos mientras el volumen se encuentre por debajo del nivel configurado de eventos por segundo. En el caso de una aplicación de gran volumen, con el umbral predeterminado de cinco eventos por segundo, el muestreo adaptable limitará el número de eventos diarios a 432 000. Con un tamaño de evento promedio típico de 1 KB, corresponde a 13,4 GB de telemetría por mes de 31 días por nodo que hospeda la aplicación (ya que el muestreo se realiza de forma local en cada nodo). 
+Con el [muestreo adaptable](sampling.md#adaptive-sampling) del SDK de ASP.NET, el volumen de datos se ajusta automáticamente para mantener una velocidad de tráfico máxima específica para la supervisión predeterminada de Application Insights. Si la aplicación genera una cantidad baja de telemetría, como al depurar o debido a un uso bajo, el procesador de muestreo no podrá descargar los elementos mientras el volumen se encuentre por debajo del nivel configurado de eventos por segundo. En el caso de una aplicación de gran volumen, con el umbral predeterminado de cinco eventos por segundo, el muestreo adaptable limitará el número de eventos diarios a 432 000. Con un tamaño de evento promedio típico de 1 KB, corresponde a 13,4 GB de telemetría por mes de 31 días por nodo que hospeda la aplicación, ya que el muestreo se realiza de forma local en cada nodo.
+
+> [!NOTE]
+> El tamaño de los datos de registro de Azure Monitor se calcula en GB (1 GB = 10^9 bytes).
 
 En el caso de los SDK que no admiten el muestreo adaptable, puede emplear el [muestreo de ingesta](./sampling.md#ingestion-sampling), que toma muestras cuando Application Insights recibe los datos en función de un porcentaje de datos que se deben conservar, o el [muestreo de frecuencia fija para sitios web ASP.NET, ASP.NET Core y Java](sampling.md#fixed-rate-sampling) para reducir el tráfico enviado desde el servidor web y los exploradores web.
 
