@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/15/2021
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 2cb203a00bb00767126f95e1fdc2f5aff8990f01
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.openlocfilehash: 1dd78ba3799573e05e4ebbf55887bae3d9674b7c
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103601288"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310090"
 ---
 Event Hubs organiza las secuencias de eventos que se envían a un centro de eventos en una o más particiones. A medida que llegan eventos más recientes, se agregan al final de esta secuencia. 
 
@@ -32,7 +32,7 @@ Event Hubs está diseñado para ayudar en el procesamiento de grandes volúmenes
 ### <a name="number-of-partitions"></a>Número de particiones
 El número de particiones se especifica en el momento de la creación y debe estar comprendido entre 1 y 32 en Event Hubs Estándar. El número de particiones puede llegar hasta 2000 particiones por unidad de capacidad en Event Hubs dedicado. 
 
-Se recomienda elegir al menos tantas particiones como [unidades de procesamiento (TU)](../articles/event-hubs/event-hubs-faq.md#what-are-event-hubs-throughput-units) sostenidas que espera necesitar durante la carga máxima de la aplicación para ese centro de eventos específico. Debe hacer los cálculos con una sola partición que tenga una capacidad de procesamiento de 1 TU (1 MB de entrada, 2 MB de salida). Puede escalar las unidades de procesamiento del espacio de nombres o las unidades de capacidad del clúster independientemente del número de particiones. Un centro de eventos con 32 particiones y un centro de eventos con 1 partición incurren en el mismo costo cuando el espacio de nombres se establece en una capacidad de 1 TU. 
+Se recomienda elegir al menos tantas particiones como [unidades de procesamiento (TU)](../articles/event-hubs/event-hubs-faq.yml#what-are-event-hubs-throughput-units-) sostenidas que espera necesitar durante la carga máxima de la aplicación para ese centro de eventos específico. Debe hacer los cálculos con una sola partición que tenga una capacidad de procesamiento de 1 TU (1 MB de entrada, 2 MB de salida). Puede escalar las unidades de procesamiento del espacio de nombres o las unidades de capacidad del clúster independientemente del número de particiones. Un centro de eventos con 32 particiones y un centro de eventos con 1 partición incurren en el mismo costo cuando el espacio de nombres se establece en una capacidad de 1 TU. 
 
 El número de particiones de un centro de eventos de un [clúster de Event Hubs dedicado](../articles/event-hubs/event-hubs-dedicated-overview.md) se puede [aumentar](../articles/event-hubs/dynamically-add-partitions.md) tras su creación, pero la distribución de flujos entre las particiones cambiará cuando se realice como la asignación de claves de partición a cambios de las particiones, por lo que es preciso evitar a toda costa ese tipo de cambios si el orden relativo de los es importante en la aplicación.
 

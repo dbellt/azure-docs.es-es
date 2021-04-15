@@ -5,15 +5,15 @@ author: ealsur
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 08/15/2019
+ms.date: 04/01/2021
 ms.author: maquaran
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a44557d15f437317c2b5fa659ab8d4ca3c208edf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5d4e461b25a25ecdf0d4d89ee7f1c82b9d4a0737
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93339849"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220171"
 ---
 # <a name="use-the-change-feed-estimator"></a>Uso del calculador de la fuente de cambios
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -22,7 +22,7 @@ En este artículo se describe cómo puede supervisar el progreso de las instanci
 
 ## <a name="why-is-monitoring-progress-important"></a>¿Por qué es importante el progreso de la supervisión?
 
-El procesador de la fuente de cambios actúa como un puntero que avanza por [la fuente de cambios](./change-feed.md) y entrega los cambios a una implementación de delegado. 
+El procesador de la fuente de cambios actúa como un puntero que avanza por [la fuente de cambios](./change-feed.md) y entrega los cambios a una implementación de delegado.
 
 La implementación del procesador de la fuente de cambios puede procesar los cambios a una velocidad determinada en función de los recursos disponibles, como la CPU, la memoria, la red, etc.
 
@@ -32,7 +32,9 @@ La identificación de este escenario ayuda a comprender si es necesario escalar 
 
 ## <a name="implement-the-change-feed-estimator"></a>Implementación del calculador de la fuente de cambios
 
-Al igual que el [procesador de la fuente de cambios](./change-feed-processor.md), el calculador de la fuente de cambios funciona como un modelo de extracción. El calculador medirá la diferencia entre el último elemento procesado (definido por el estado del contenedor de concesiones) y el cambio más reciente en el contenedor, e insertará este valor en un delegado. El intervalo en el que se toma la medida también puede personalizarse con un valor predeterminado de 5 segundos.
+### <a name="as-a-push-model-for-automatic-notifications"></a>Como modelo de inserción para las notificaciones automáticas
+
+Al igual que el [procesador de la fuente de cambios](./change-feed-processor.md), el estimador de la fuente de cambios funciona como un modelo de inserción. El calculador medirá la diferencia entre el último elemento procesado (definido por el estado del contenedor de concesiones) y el cambio más reciente en el contenedor, e insertará este valor en un delegado. El intervalo en el que se toma la medida también puede personalizarse con un valor predeterminado de 5 segundos.
 
 Por ejemplo, si el procesador de la fuente de cambios se define de la siguiente manera:
 
@@ -52,8 +54,29 @@ Un ejemplo de un delegado que recibe la estimación es:
 
 Puede enviarla a su solución de supervisión y usarla para saber cómo se comporta el progreso con el tiempo.
 
+### <a name="as-an-on-demand-detailed-estimation"></a>Como una estimación detallada a petición
+
+A diferencia del modelo de inserción, hay una alternativa que le permite obtener la estimación a petición. Este modelo también proporciona información más detallada:
+
+* Retardo estimado por concesión.
+* Instancia que posee y procesa cada concesión, de modo que puede identificar si hay algún problema en una instancia.
+
+Si el procesador de la fuente de cambios se define de la siguiente manera:
+
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=StartProcessorEstimatorDetailed)]
+
+Puede crear el estimador con la misma configuración de concesión:
+
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=StartEstimatorDetailed)]
+
+Y siempre que quiera, con la frecuencia que necesite, puede obtener la estimación detallada:
+
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=GetIteratorEstimatorDetailed)]
+
+Cada `ChangeFeedProcessorState` contendrá la información de la concesión y del retardo, y también quién es la instancia actual propietaria. 
+
 > [!NOTE]
-> No es necesario implementar el calculador de la fuente de cambios como parte del procesador de la fuente de cambios ni que formen parte del mismo proyecto. Puede ser independiente y ejecutarse en una instancia completamente diferente. Solo debe usar el mismo nombre y la misma configuración de concesión.
+> No es necesario implementar el calculador de la fuente de cambios como parte del procesador de la fuente de cambios ni que formen parte del mismo proyecto. Puede ser independiente y ejecutarse en una instancia completamente diferente, que es lo recomendado. Solo debe usar el mismo nombre y la misma configuración de concesión.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

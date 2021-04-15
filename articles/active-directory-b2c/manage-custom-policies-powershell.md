@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fcc482e215e646fec20516f35641bd05398d2f2d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cbe465c41363e8c0779440affeae78f999b4632d
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96928722"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257439"
 ---
 # <a name="manage-azure-ad-b2c-custom-policies-with-azure-powershell"></a>Administración de las directivas personalizadas de Azure AD B2C con Azure PowerShell
 
@@ -30,7 +30,7 @@ Azure PowerShell proporciona varios cmdlets para la administración de directiva
 ## <a name="prerequisites"></a>Prerrequisitos
 
 * [Inquilino de Azure AD B2C](tutorial-create-tenant.md) y credenciales para un usuario en el directorio con el rol [Administrador de directivas IEF de B2C](../active-directory/roles/permissions-reference.md#b2c-ief-policy-administrator)
-* [Directivas personalizadas](custom-policy-get-started.md) cargadas en el inquilino
+* [Directivas personalizadas](tutorial-create-user-flows.md?pivots=b2c-custom-policy) cargadas en el inquilino
 * [**Módulo de versión preliminar** de Azure AD PowerShell for Graph](/powershell/azure/active-directory/install-adv2)
 
 ## <a name="connect-powershell-session-to-b2c-tenant"></a>Conexión de la sesión de PowerShell con el inquilino de B2C

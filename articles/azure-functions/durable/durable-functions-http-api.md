@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 4e4081ecca4714c713d105d363a83a4f96a0d3fc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0ab9f33616547c073e8e3a2128a441238bf3a17d
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84697850"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220460"
 ---
 # <a name="http-api-reference"></a>Referencia a las API de HTTP
 
@@ -128,6 +128,7 @@ GET /admin/extensions/DurableTaskExtension/instances/{instanceId}
     &showHistory=[true|false]
     &showHistoryOutput=[true|false]
     &showInput=[true|false]
+    &returnInternalServerErrorOnFailure=[true|false]
 ```
 
 En la versión 2.x del entorno de ejecución de Functions, el formato de dirección URL tiene los mismos parámetros, pero un prefijo ligeramente diferente:
@@ -140,6 +141,7 @@ GET /runtime/webhooks/durabletask/instances/{instanceId}
     &showHistory=[true|false]
     &showHistoryOutput=[true|false]
     &showInput=[true|false]
+    &returnInternalServerErrorOnFailure=[true|false]
 ```
 
 Los parámetros de solicitud de esta API incluyen el conjunto predeterminado mencionado anteriormente, así como los siguientes parámetros únicos:
@@ -153,16 +155,17 @@ Los parámetros de solicitud de esta API incluyen el conjunto predeterminado men
 | **`createdTimeFrom`**   | Cadena de consulta    | Parámetro opcional. Cuando se especifica, se filtra la lista de instancias devueltas que se crearon durante la marca de tiempo ISO8601 especificada o después de esta.|
 | **`createdTimeTo`**     | Cadena de consulta    | Parámetro opcional. Cuando se especifica, se filtra la lista de instancias devueltas que se crearon durante la marca de tiempo ISO8601 especificada o antes de esta.|
 | **`runtimeStatus`**     | Cadena de consulta    | Parámetro opcional. Cuando se especifica, se filtra la lista de instancias devueltas según su estado en tiempo de ejecución. Para ver la lista de valores posibles del estado en tiempo de ejecución, consulte el artículo [Consulta de instancias](durable-functions-instance-management.md). |
+| **`returnInternalServerErrorOnFailure`**  | Cadena de consulta    | Parámetro opcional. Si se establece en `true`, esta API devolverá una respuesta HTTP 500, en lugar de HTTP 200, si la instancia esta en estado de error. Este parámetro está pensado para escenarios automatizados de sondeo de estado. |
 
 ### <a name="response"></a>Response
 
 Se pueden devolver varios valores de código de estado.
 
-* **HTTP 200 (correcto)** : la instancia especificada está en estado completado.
+* **HTTP 200 (correcto)** : la instancia especificada está en estado completado o de error.
 * **HTTP 202 (aceptado)** : la instancia especificada está en curso.
 * **HTTP 400 (solicitud incorrecta)** : se produjo un error en la instancia especificada o esta se ha finalizado.
 * **HTTP 404 (no se encuentra)** : la instancia especificada no existe o no ha empezado a ejecutarse.
-* **HTTP 500 (error interno del servidor)** : error de la instancia especificada con una excepción no controlada.
+* **HTTP 500 (error interno del servidor)** : solo se devuelve cuando `returnInternalServerErrorOnFailure` está establecido en `true` y la instancia especificada ha generado una excepción no controlada.
 
 La carga de respuesta para los casos **HTTP 200** y **HTTP 202** es un objeto JSON con los siguientes campos:
 

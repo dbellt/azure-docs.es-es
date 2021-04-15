@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 5f408699cae9580188a3780fc8f8654eaa97c26b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 362704368958d2600d16cd907421917b824a59cb
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97108440"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256606"
 ---
 # <a name="tutorial-for-configuring-lexisnexis-with-azure-active-directory-b2c"></a>Tutorial para configurar LexisNexis con Azure Active Directory B2C
 
@@ -122,7 +122,7 @@ En la directiva de [TrustFrameworkExtensions](https://github.com/azure-ad-b2c/pa
 
 ### <a name="part-7---configure-the-azure-ad-b2c-policy"></a>Parte 7: configuración de la directiva de Azure AD B2C
 
-Consulte este [documento](./custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack) para descargar el [paquete de inicio de cuentas locales](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts) y configure la [directiva](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/policy) para el inquilino de Azure AD B2C.
+Consulte este [documento](tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack) para descargar el [paquete de inicio de cuentas locales](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts) y configure la [directiva](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/policy) para el inquilino de Azure AD B2C.
 
 >[!NOTE]
 >Actualice las directivas proporcionadas para que se relacionen con su inquilino específico.
@@ -155,4 +155,4 @@ Para más información, consulte los artículos siguientes:
 
 - [Directivas personalizadas de Azure AD B2C](./custom-policy-overview.md)
 
-- [Introducción a las directivas personalizadas en Azure AD B2C](./custom-policy-get-started.md?tabs=applications)
+- [Introducción a las directivas personalizadas en Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)

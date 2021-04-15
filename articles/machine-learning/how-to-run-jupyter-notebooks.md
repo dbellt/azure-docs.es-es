@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: 5748bf3d428102e296067dc5d1927ba487d575bc
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 953b987e908736df703c354067ee27fc27d56073
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102518728"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220715"
 ---
 # <a name="run-jupyter-notebooks-in-your-workspace"></a>Ejecución de cuadernos de Jupyter Notebook en el área de trabajo
 
@@ -24,7 +24,10 @@ Aprenda a ejecutar sus cuadernos de Jupyter directamente en el área de trabajo 
 
 Para obtener información sobre cómo crear y administrar archivos, incluidos los cuadernos, consulte [Creación y administración de archivos en el área de trabajo](how-to-manage-files.md).
 
-## <a name="prerequisites"></a>Prerrequisitos
+> [!IMPORTANT]
+> Las características marcadas como (versión preliminar) se ofrecen sin Acuerdo de nivel de servicio y no se recomiendan para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+## <a name="prerequisites"></a>Requisitos previos
 
 * Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://aka.ms/AMLFree) antes de empezar.
 * Un área de trabajo de Machine Learning. Consulte [Creación de un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
@@ -43,22 +46,35 @@ También puede iniciar Jupyter o JupyterLab desde la barra de herramientas del c
 
 Use el modo de enfoque para expandir la vista actual de forma que pueda centrarse en las pestañas activas. El modo de enfoque oculta el explorador de archivos de Notebooks.
 
-1. En la barra de herramientas de la ventana del terminal, seleccione **Modo de enfoque** para activar el modo de enfoque. En función del ancho de la ventana, es posible que se encuentre bajo el elemento de menú **...** de la barra de herramientas.
+1. En la barra de herramientas de la ventana del terminal, seleccione **Modo de enfoque** para activar el modo de enfoque. En función del ancho de la ventana, la herramienta puede encontrarse en el elemento de menú **...** de la barra de herramientas.
 1. En el modo de enfoque, seleccione **Vista estándar** para volver a la vista estándar.
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/focusmode.gif" alt-text="Cambio entre el modo de enfoque y la vista estándar":::
 
-## <a name="use-intellisense"></a>Usar IntelliSense
+## <a name="code-completion-intellisense"></a>Finalización de código (IntelliSense)
 
-[IntelliSense](https://code.visualstudio.com/docs/editor/intellisense) es una ayuda de finalización de código que incluye una serie de características: enumerar miembros, información de parámetros, información rápida y completar palabra. Estas características le ayudan a obtener más información sobre el código que está usando, realizar un seguimiento de los parámetros que está escribiendo y agregar llamadas a propiedades y métodos con solo unas cuantas pulsaciones de tecla.  
+[IntelliSense](https://code.visualstudio.com/docs/editor/intellisense) es una ayuda de finalización de código que incluye una serie de características: enumerar miembros, información de parámetros, información rápida y completar palabra. Con solo unas cuantas pulsaciones de tecla, puede:
+* Obtener información sobre el código que usa
+* Realizar un seguimiento de los parámetros que escribe
+* Agregar llamadas a propiedades y métodos 
 
-Al escribir código, use Ctrl + barra espaciadora para desencadenar IntelliSense.
+### <a name="insert-code-snippets-preview"></a>Insertar fragmentos de código (versión preliminar)
+
+Use **Ctrl+Space** para desencadenar los fragmentos de código de IntelliSense.  Desplácese por las sugerencias o comience a escribir el código que quiere insertar.  Una vez insertado el código, recorra los argumentos para personalizar el código para su propio uso.
+
+:::image type="content" source="media/how-to-run-jupyter-notebooks/insert-snippet.gif" alt-text="Insertar un fragmento de código":::
+
+Estos mismos fragmentos de código están disponibles al abrir el cuaderno en VS Code. Para obtener una lista completa de los fragmentos de código disponibles, consulte [Fragmentos de código de VS Code para Azure Machine Learning](https://github.com/Azure/azureml-snippets/blob/main/snippets/snippets.md).
+
+Puede examinar y buscar en la lista de fragmentos de código mediante la barra de herramientas del cuaderno para abrir el panel de fragmentos de código.
+
+:::image type="content" source="media/how-to-run-jupyter-notebooks/open-snippet-panel.png" alt-text="Abrir la herramienta del panel de fragmentos de código en la barra de herramientas del cuaderno":::
+
+En el panel fragmentos de código, también puede enviar una solicitud para agregar nuevos fragmentos de código.
+
+:::image type="content" source="media/how-to-run-jupyter-notebooks/propose-new-snippet.png" alt-text="El panel de fragmentos de código permite proponer un nuevo fragmento de código.":::
 
 ## <a name="clean-your-notebook-preview"></a>Limpieza del cuaderno (versión preliminar)
-
-> [!IMPORTANT]
-> La característica de recopilación actualmente está en versión preliminar pública.
-> Se ofrece la versión preliminar sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Durante la creación de un cuaderno, normalmente acaba con las celdas usadas para la exploración o la depuración de datos. La característica de *recopilación* le ayudará a crear un cuaderno limpio sin estas celdas extrañas.
 
@@ -78,7 +94,7 @@ En la barra de herramientas del cuaderno, seleccione el menú y luego, **Archivo
 
 :::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="Captura de pantalla de la herramienta guardar en la barra de herramientas del cuaderno":::
 
-Cada cuaderno se guarda automáticamente cada 30 segundos. El guardado automático actualiza solo el archivo *ipynb* inicial, no el archivo de punto de control.
+Cada cuaderno se guarda automáticamente cada 30 segundos. El guardado automático actualiza solo el archivo *ipynb* inicial, no el archivo de puntos de control.
  
 Seleccione **Puntos de control** en el menú del cuaderno para crear un punto de control con nombre y revertir el cuaderno a un punto de control guardado.
 
@@ -158,7 +174,7 @@ Estas acciones restablecerán el estado del cuaderno y todas las variables del m
 
 ## <a name="add-new-kernels"></a>Incorporación de nuevos kernels
 
-[Use el terminal](how-to-access-terminal.md#add-new-kernels) para crear y agregar nuevos kernels a la instancia de proceso. El cuaderno buscará automáticamente todos los kernels de Jupyter instalados en la instancia de proceso conectada.
+[Use el terminal](how-to-access-terminal.md#add-new-kernels) para crear y agregar kernels nuevos a la instancia de proceso. El cuaderno buscará automáticamente todos los kernels de Jupyter instalados en la instancia de proceso conectada.
 
 Use la lista desplegable Kernel de la derecha para cambiar a cualquiera de los kernels instalados.  
 
@@ -271,9 +287,9 @@ Con los siguientes métodos abreviados de teclado, puede navegar y ejecutar cód
 
 ## <a name="troubleshooting"></a>Solucionar problemas
 
-* Si no puede conectarse a un cuaderno, asegúrese de que la comunicación de socket web **no** está deshabilitada. Para que la funcionalidad de Jupyter de instancia de proceso haga su trabajo, debe habilitarse la comunicación de socket web. Asegúrese de que la red permita las conexiones WebSocket a *.instances.azureml.net e *.instances.azureml.ms. 
+* Si no puede conectarse a un cuaderno, asegúrese de que la comunicación de socket web **no** está deshabilitada. Para que la funcionalidad de Jupyter de instancia de proceso haga su trabajo, debe habilitarse la comunicación de socket web. Asegúrese de que la red permite conexiones de websocket a *.instances.azureml.net y *.instances.azureml.ms. 
+* Cuando la instancia de proceso se implementa en un área de trabajo de Private Link, solo se puede [acceder a ella desde la red virtual](./how-to-secure-training-vnet.md#compute-instance). Si usa un archivo de hosts o DNS personalizado, agregue una entrada para <nombre-de-instancia>.<región>.instances.azureml.ms con la dirección IP privada del punto de conexión privado del área de trabajo. Para obtener más información, consulte el artículo [DNS personalizado](./how-to-custom-dns.md?tabs=azure-cli).
 
-* Cuando la instancia de proceso se implementa en un área de trabajo de Private Link, solo se puede [acceder a ella desde la red virtual](https://docs.microsoft.com/azure/machine-learning/how-to-secure-training-vnet#compute-instance). Si usa un archivo de hosts o DNS personalizado, agregue una entrada para <nombre-de-instancia>.<región>.instances.azureml.ms con la dirección IP privada del punto de conexión privado del área de trabajo. Para obtener más información, consulte el artículo [DNS personalizado](./how-to-custom-dns.md?tabs=azure-cli).
     
 ## <a name="next-steps"></a>Pasos siguientes
 

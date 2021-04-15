@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 78972c4db1802b479a698a22c456561170add4bf
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9d2c42a664c8d8a591d95a312cdf1c0034c4d031
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105932920"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305470"
 ---
 # <a name="configure-azure-ad-multi-factor-authentication-settings"></a>Configuración de Azure AD Multi-Factor Authentication
 
@@ -236,7 +236,7 @@ La característica _IP de confianza_ de Azure AD Multi-Factor Authentication om
 > [!NOTE]
 > Las direcciones IP de confianza pueden incluir intervalos de direcciones IP privadas solo cuando se usa un servidor MFA. En el caso de Azure AD Multi-Factor Authentication basado en la nube, solo puede usar intervalos de direcciones IP públicas.
 >
-> Los intervalos de IPv6 solo se admiten en la interfaz de [Ubicaciones con nombre (versión preliminar)](../conditional-access/location-condition.md#preview-features).
+> Los intervalos de IPv6 solo se admiten en la interfaz de [Ubicaciones con nombre (versión preliminar)](../conditional-access/location-condition.md).
 
 Si su organización implementa la extensión NPS para proporcionar Multi-Factor Authentication en aplicaciones locales, tenga en cuenta que la dirección IP de origen siempre parecerá ser el servidor NPS a través del que fluye el intento de autenticación.
 

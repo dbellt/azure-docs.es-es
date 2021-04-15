@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/08/2021
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 76b4a749bff94cbf218d3cd3c7d132eef119b7ef
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 0c041d64b3dbd0c38979f4d8d0fa563a72f6a4b1
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104606912"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106168202"
 ---
 # <a name="speech-to-text-rest-api"></a>Speech-to-text REST API
 
@@ -153,7 +153,7 @@ var pronAssessmentHeader = Convert.ToBase64String(pronAssessmentParamsBytes);
 Se recomienda encarecidamente la carga en streaming (fragmentada) al publicar los datos de audio, ya que puede reducir considerablemente la latencia. Consulte el [código de ejemplo en diferentes lenguajes de programación](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/PronunciationAssessment) para saber cómo habilitar el streaming.
 
 >[!NOTE]
->La característica de valoración de la pronunciación solo está disponible actualmente en `en-US`.
+> Actualmente, la característica de evaluación de pronunciación admite el idioma `en-US`, que está disponible en todas las [regiones de conversión de voz en texto](regions.md#speech-to-text). La compatibilidad con los idiomas `en-GB` y `zh-CN` se encuentra en versión preliminar, que está disponible en las regiones `westus`, `eastasia` y `centralindia`.
 
 ### <a name="sample-request"></a>Solicitud de ejemplo
 
@@ -236,7 +236,7 @@ Los resultados se proporcionan como JSON. El formato `simple` incluye los siguie
 
 El campo `RecognitionStatus` puede contener estos valores:
 
-| Status | Descripción |
+| Estado | Descripción |
 |--------|-------------|
 | `Success` | El reconocimiento es correcto y el campo `DisplayText` está presente. |
 | `NoMatch` | Se detectó voz en la secuencia de audio, pero no se encontraron coincidencias de palabras en el idioma de destino. Normalmente significa que el idioma de reconocimiento es un idioma distinto al que habla el usuario. |

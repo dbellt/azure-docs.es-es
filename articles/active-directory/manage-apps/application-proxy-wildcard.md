@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2f3d1d47bd26167253296f06af5470818760850
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a532ae9485efa9571137130d32ba0827728e8094
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99257987"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106166877"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Aplicaciones con comodín en Azure Active Directory Application Proxy
 
@@ -68,11 +68,23 @@ Por motivos de seguridad, se trata de un requisito de disco duro y no se admiten
 
 ### <a name="dns-updates"></a>Actualizaciones del servicio de nombres de dominio
 
-Al usar dominios personalizados, debe crear una entrada DNS con un registro CNAME para la dirección URL externa (por ejemplo, `*.adventure-works.com`) que apunte a la dirección URL externa del punto de conexión del proxy de la aplicación. Para las aplicaciones con comodín, este registro debe apuntar a las direcciones URL externas pertinentes:
+Cuando utilice dominios personalizados, debe crear una entrada DNS con un registro CNAME para la dirección URL externa (por ejemplo, `*.adventure-works.com`) que apunte a la dirección URL externa del punto de conexión proxy de la aplicación. En el caso de las aplicaciones con caracteres comodín, el registro CNAME debe apuntar a la dirección URL externa pertinente:
 
 > `<yourAADTenantId>.tenant.runtime.msappproxy.net`
 
 Para confirmar que ha configurado CNAME correctamente, puede usar [nslookup](/windows-server/administration/windows-commands/nslookup) en uno de los puntos de conexión de destino, por ejemplo, `expenses.adventure-works.com`.  La respuesta debe incluir el alias ya mencionado (`<yourAADTenantId>.tenant.runtime.msappproxy.net`).
+
+### <a name="using-connector-groups-assigned-to-an-app-proxy-cloud-service-region-other-than-the-default-region"></a>Uso de grupos de conectores asignados a una región de servicio en la nube del proxy de aplicación distinta de la región predeterminada
+Si tiene conectores instalados en regiones distintas de la región de inquilino predeterminada, puede que sea necesario cambiar para qué región está optimizado el grupo de conectores a fin de mejorar el rendimiento al acceder a estas aplicaciones. Para más información, consulte [Optimización de los grupos de conectores para usar el servicio en la nube de Application Proxy más cercano](application-proxy-network-topology.md#optimize-connector-groups-to-use-closest-application-proxy-cloud-service-preview).
+ 
+Si el grupo de conectores asignado a la aplicación de caracteres comodín usa una **región distinta de la predeterminada**, deberá actualizar el registro CNAME para que apunte a una dirección URL externa específica de la región. Utilice la tabla siguiente para determinar la dirección URL pertinente:
+
+| Región asignada del conector | Dirección URL externa |
+| ---   | ---         |
+| Asia | `<yourAADTenantId>.asia.tenant.runtime.msappproxy.net`|
+| Australia  | `<yourAADTenantId>.aus.tenant.runtime.msappproxy.net` |
+| Europa  | `<yourAADTenantId>.eur.tenant.runtime.msappproxy.net`|
+| Norteamérica  | `<yourAADTenantId>.nam.tenant.runtime.msappproxy.net` |
 
 ## <a name="considerations"></a>Consideraciones
 

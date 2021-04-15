@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/06/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 4fc14083b0912cf18f98c229adcb297b89bc8971
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 4732abacc80a24d268f0e5cb7d100079e5a8d90b
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95559684"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105104412"
 ---
 Cree una Conexión a Escritorio remoto para conectarse a una máquina virtual implementada en la red virtual. La mejor manera de verificar que puede conectarse a la máquina virtual es hacerlo mediante su dirección IP privada, en lugar del nombre de equipo. Con este método prueba si puede conectarse, no si la resolución de nombres está configurada correctamente. 
 
@@ -32,4 +32,4 @@ Si tiene problemas para conectarse a una máquina virtual a través de su conexi
 - Si puede conectarse a la máquina virtual mediante la dirección IP privada, pero no el nombre del equipo, compruebe que ha configurado el DNS correctamente. Para más información acerca de cómo funciona la resolución de nombres para las máquinas virtuales, consulte [Resolución de nombres para las máquinas virtuales e instancias de rol](../articles/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 - Compruebe que el paquete de configuración de cliente de VPN se generó después de que se especificaran las direcciones IP del servidor DNS para la red virtual. Si actualizó las direcciones IP de servidor DNS, genere un nuevo paquete de configuración de cliente de VPN e instálelo.
 
-Para más información acerca de la solución de problemas, consulte [Solución de problemas de conexiones del Escritorio remoto a una máquina virtual de Azure](../articles/virtual-machines/troubleshooting/troubleshoot-rdp-connection.md).
+Para más información acerca de la solución de problemas, consulte [Solución de problemas de conexiones del Escritorio remoto a una máquina virtual de Azure](/troubleshoot/azure/virtual-machines/troubleshoot-rdp-connection).

@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 03/22/2021
+ms.date: 03/29/2021
 ms.author: yushwang
-ms.openlocfilehash: 8ca50ae77d9d9e200db3318b8e087b72697c343a
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 3d29e99f3b539fdbea2a19df7ffc25d4e41a5376
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104953483"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105731265"
 ---
 # <a name="vpn-gateway-faq"></a>Preguntas más frecuentes sobre VPN Gateway
 
@@ -195,6 +195,10 @@ Esta sección se aplica al modelo de implementación de Resource Manager.
 ## <a name="vnet-to-vnet-and-multi-site-connections"></a><a name="V2VMulti"></a>Conexiones entre dos redes virtuales y multisitio
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq-include](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
+
+### <a name="how-do-i-enable-routing-between-my-site-to-site-vpn-connection-and-my-expressroute"></a>¿Cómo habilito el enrutamiento entre mi conexión VPN de sitio a sitio y mi ExpressRoute?
+
+Si quiere habilitar el enrutamiento entre la rama conectada a ExpressRoute y la rama conectada a una conexión VPN de sitio a sitio, debe configurar [Azure Route Server](../route-server/expressroute-vpn-support.md).
 
 ### <a name="can-i-use-azure-vpn-gateway-to-transit-traffic-between-my-on-premises-sites-or-to-another-virtual-network"></a>¿Puedo usar la puerta de enlace de VPN de Azure para el tráfico en tránsito entre mis sitios locales o a otra red virtual?
 

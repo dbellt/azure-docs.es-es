@@ -3,12 +3,12 @@ title: 'Inicio rápido: Recepción de eventos mediante Apache Storm: Azure Event
 description: 'Inicio rápido: En este artículo se proporciona información sobre cómo usar Apache Storm para recibir eventos de Azure Event Hubs.'
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 099a3ff1ad57616de0d7929d787b82e9d55c9e00
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b79c2958a10d0193b706c92a28b1792d63c24b82
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "87087584"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107302971"
 ---
 # <a name="quickstart-receive-events-from-event-hubs-using-apache-storm"></a>Inicio rápido: Recepción de eventos desde Event Hubs mediante Apache Storm
 
@@ -235,7 +235,7 @@ Para más información acerca de Event Hubs, visite los vínculos siguientes:
 
 * [Información general de Event Hubs][Event Hubs overview]
 * [Creación de un centro de eventos](event-hubs-create.md)
-* [Preguntas más frecuentes sobre Event Hubs](event-hubs-faq.md)
+* [Preguntas más frecuentes sobre Event Hubs](event-hubs-faq.yml)
 
 <!-- Links -->
 [Event Hubs overview]: ./event-hubs-about.md
