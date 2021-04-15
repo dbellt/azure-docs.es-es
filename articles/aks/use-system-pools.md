@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 06/18/2020
 ms.author: mlearned
 ms.custom: fasttrack-edit, devx-track-azurecli
-ms.openlocfilehash: 9c53cb53517c4696a1bb47c2cb72335979d58d3a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c3c65d3a7316d431c57d9fb75775e271bf9f34ca
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102178837"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106223275"
 ---
 # <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>Administración de grupos de nodos del sistema en Azure Kubernetes Service (AKS)
 
@@ -43,7 +43,8 @@ Los grupos de nodos del sistema tienen las siguientes restricciones:
 * El valor de osType para los grupos del sistema debe ser Linux.
 * En el caso de los grupos de nodos del usuario puede ser Linux o Windows.
 * Los grupos del sistema deben contener al menos un nodo mientras que los grupos de nodos del usuario pueden contener varios nodos o ninguno.
-* Los grupos de nodos del sistema requieren una SKU de máquina virtual de 2 vCPUs y 4 GB de memoria como mínimo.
+* Los grupos de nodos del sistema requieren una SKU de máquina virtual de 2 vCPUs y 4 GB de memoria como mínimo. Sin embargo, no se recomienda una máquina virtual ampliable de la serie B.
+* Se recomienda un mínimo de dos nodos y 4 vCPU (por ejemplo, Standard_DS4_v2), especialmente para clústeres de gran tamaño (varias réplicas de pod de CoreDNS, 3-4 + complementos, etc.).
 * Los grupos de nodos del sistema deben admitir al menos 30 pods como se indica en la [fórmula del valor mínimo y máximo de los pods][maximum-pods].
 * Los grupos de nodos de zona requieren grupos de nodos del usuario.
 * La adición de un grupo de nodos del sistema adicional o el cambio del grupo de nodos que es un grupo de nodos del sistema *NO* moverá automáticamente los pods del sistema. Los pods del sistema pueden continuar ejecutándose en el mismo grupo de nodos, incluso si se cambia a un grupo de nodos de usuario. Si elimina o reduce verticalmente un grupo de nodos que ejecuta pods del sistema que anteriormente era un grupo de nodos del sistema, esos pods del sistema se implementan de nuevo con la programación preferida en el nuevo grupo de nodos del sistema.

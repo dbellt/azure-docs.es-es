@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 05/02/2019
 ms.author: magottei
 ms.openlocfilehash: c4d727ffdd7e6517638b46f1f809890f5bb46354
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "91403623"
 ---
 * PDF
-* Formatos de Microsoft Office: DOCX/DOC/DOCM, XLSX/XLS/XLSM, PPTX/PPT/PPTM, MSG (correos electrónicos de Outlook), XML(2003 y 2006 WORD XML)
-* Formatos de documentos abiertos: ODT, ODS, ODP  
+* Formatos de Microsoft Office: DOCX/DOC/DOCM, XLSX/XLS/XLSM, PPTX/PPT/PPTM, MSG (correos electrónicos de Outlook), XML(WORD XML 2003 y 2006)
+* Formatos de Open Document: ODT, ODS, ODP  
 * HTML
 * XML
 * ZIP

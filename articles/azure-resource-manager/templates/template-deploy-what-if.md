@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 03/09/2021
 ms.author: tomfitz
-ms.openlocfilehash: 3f35f00e5fcd26c7aa4bb685dc80f48eabb88b6d
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: ff024ff97baa8a80ae6b1fcdafba010e482afd98
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102547941"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106074629"
 ---
 # <a name="arm-template-deployment-what-if-operation"></a>Operación what-if de la implementación de plantilla de Resource Manager
 
@@ -32,7 +32,7 @@ Para más información sobre cómo instalar los módulos, consulte [Instalación
 
 ## <a name="install-azure-cli-module"></a>Instalación del módulo de la CLI de Azure
 
-Para usar what-if en la CLI de Azure, debe tener la CLI de Azure versión 2.5.0 o posterior. Si es necesario, [instale la versión más reciente de la CLI de Azure](/cli/azure/install-azure-cli).
+Para usar what-if en la CLI de Azure, debe tener la CLI de Azure versión 2.14.0 o posterior. Si es necesario, [instale la versión más reciente de la CLI de Azure](/cli/azure/install-azure-cli).
 
 ## <a name="see-results"></a>Ver los resultados
 
@@ -364,17 +364,17 @@ Scope: /subscriptions/./resourceGroups/ExampleGroup
 
       id:
 "/subscriptions/./resourceGroups/ExampleGroup/providers/Microsoft.Network/virtualNet
-works/vnet-001"
-      location:        "centralus"
-      name:            "vnet-001"
-      tags.CostCenter: "12345"
-      tags.Owner:      "Team A"
-      type:            "Microsoft.Network/virtualNetworks"
+works/vnet-001&quot;
+      location:        &quot;centralus&quot;
+      name:            &quot;vnet-001&quot;
+      tags.CostCenter: &quot;12345&quot;
+      tags.Owner:      &quot;Team A&quot;
+      type:            &quot;Microsoft.Network/virtualNetworks&quot;
 
 Resource changes: 1 to delete.
 
 Are you sure you want to execute the deployment?
-[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"):
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is &quot;Y"):
 ```
 
 Verá los cambios esperados y puede confirmar que desea que se ejecute la implementación.

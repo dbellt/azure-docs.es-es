@@ -4,7 +4,7 @@ description: Conozca los procedimientos recomendados para diseñar, compilar y a
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: barbkess
+manager: rkarlin
 editor: techlake
 ms.assetid: ''
 ms.service: security
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2019
+ms.date: 03/29/2021
 ms.author: terrylan
-ms.openlocfilehash: 77a2a32b9a6358c39a14cfe37eeb44f7cb90af0a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d28d55c8dff16df987f6535b0f1452b840b35c43
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94841995"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105960510"
 ---
 # <a name="securing-paas-deployments"></a>Protección de implementaciones de PaaS
 
@@ -127,10 +127,8 @@ Estas son algunos procedimientos recomendados para usar App Service.
 **Procedimiento recomendado**: supervise el estado de seguridad de los entornos de App Service.   
 **Detalles**: use Azure Security Center para supervisar los entornos de App Service. Cuando Security Center identifica posibles vulnerabilidades de seguridad, crea [recomendaciones](../../security-center/asset-inventory.md) que lo guiarán por el proceso de configuración de los controles necesarios.
 
-> [!NOTE]
-> La supervisión de App Service se encuentra en versión preliminar y solo está disponible en el [nivel estándar](../../security-center/security-center-pricing.md) de Security Center.
->
->
+## <a name="azure-cloud-services"></a>Azure Cloud Services
+[Azure Cloud Services](../../cloud-services/cloud-services-choose-me.md) es un ejemplo de PaaS. Al igual que Azure App Service, esta tecnología está diseñada para ser compatible con aplicaciones escalables, confiables y de funcionamiento asequible. En la misma manera que App Service se hospeda en máquinas virtuales (VM), así ocurre también con Azure Cloud Services. Sin embargo, tiene más control sobre las máquinas virtuales. Puede instalar su propio software en las máquinas virtuales que usan Azure Cloud Services y puede tener acceso a ellas remotamente.
 
 ## <a name="install-a-web-application-firewall"></a>Instalar un firewall de aplicaciones web
 Las aplicaciones web son cada vez más los objetivos de ataques malintencionados que aprovechan vulnerabilidades comunes conocidas, como ataques por inyección de código SQL o ataques de scripts de sitios, por nombrar unos pocos. Impedir tales ataques en el código de aplicación puede ser un verdadero desafío y requerir tareas rigurosas de mantenimiento, aplicación de revisiones y supervisión en varias capas de la topología de aplicación. Un firewall de aplicaciones web centralizado facilita enormemente la administración de la seguridad y proporciona mayor protección a los administradores de la aplicación frente a amenazas o intrusiones. Las soluciones de WAF también pueden reaccionar más rápido ante una amenaza de la seguridad aplicando revisiones que aborden una vulnerabilidad conocida en una ubicación central en lugar de proteger cada una de las aplicaciones web por separado. Las puertas de enlace de aplicaciones existentes pueden transformarse rápidamente en puertas de enlace con un firewall de aplicaciones web habilitado.
@@ -149,13 +147,13 @@ Validar defensas de seguridad es tan importante como probar cualquier otra carac
 
 Las pruebas de vulnerabilidad ante datos aleatorios o inesperados son un método para buscar errores de programa (errores de código), proporcionando los datos de entrada con formato incorrecto para interfaces de programación (puntos de entrada) que analizan y consumen estos datos. [Detección de riesgos de seguridad de Microsoft](https://www.microsoft.com/en-us/security-risk-detection/) es una herramienta en la nube que puede usar para buscar errores y otras vulnerabilidades de seguridad en el software antes de implementarlo en Azure. La herramienta está diseñada para detectar vulnerabilidades antes de implementar software para que no tenga que aplicar revisiones a un error, controlar bloqueos o responder a un ataque después del lanzamiento del software.
 
-
 ## <a name="next-steps"></a>Pasos siguientes
-Este artículo se centra en las ventajas de seguridad que ofrece una implementación de PaaS de Azure y los procedimientos de seguridad recomendados para aplicaciones en la nube. Después, conocerá los procedimientos recomendados para proteger las soluciones móviles y web de PaaS mediante determinados servicios de Azure. Empezaremos con Azure App Service, Azure SQL Database, Azure Synapse Analytics y Azure Storage. A medida que estén disponibles los artículos sobre procedimientos recomendados para otros servicios de Azure, se proporcionarán los vínculos correspondientes en la lista siguiente:
+Este artículo se centra en las ventajas de seguridad que ofrece una implementación de PaaS de Azure y los procedimientos de seguridad recomendados para aplicaciones en la nube. Después, conocerá los procedimientos recomendados para proteger las soluciones móviles y web de PaaS mediante determinados servicios de Azure. Empezaremos con Azure App Service, Azure SQL Database, Azure Synapse Analytics, Azure Storage y Azure Cloud Services. A medida que estén disponibles los artículos sobre procedimientos recomendados para otros servicios de Azure, se proporcionarán los vínculos correspondientes en la lista siguiente:
 
 - [Azure App Service](paas-applications-using-app-services.md)
 - [Azure SQL Database y Azure Synapse Analytics](paas-applications-using-sql.md)
 - [Almacenamiento de Azure](paas-applications-using-storage.md)
+- [Azure Cloud Services](../../cloud-services/security-baseline.md)
 - Azure Cache for Redis
 - Azure Service Bus
 - Firewall de aplicaciones web
@@ -165,5 +163,6 @@ Vea [Desarrollo de aplicaciones seguras en Azure](https://azure.microsoft.com/re
 Vea [Patrones y procedimientos recomendados de seguridad en Azure](best-practices-and-patterns.md) para obtener más procedimientos recomendados de seguridad que pueda aplicar cuando diseñe, implemente y administre las soluciones en la nube mediante Azure.
 
 En los siguientes recursos se ofrece más información general sobre la seguridad de Azure y los servicios de Microsoft relacionados:
-* [Blog del equipo de seguridad de Azure](/archive/blogs/azuresecurity/): ofrece información actualizada sobre lo último en seguridad de Azure
-* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx): aquí podrá notificar vulnerabilidades de seguridad de Microsoft, incluidos problemas con Azure, o también mediante correo electrónico a secure@microsoft.com.
+
+- [Blog del equipo de seguridad de Azure](/archive/blogs/azuresecurity/): ofrece información actualizada sobre lo último en seguridad de Azure
+- [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx): aquí podrá notificar vulnerabilidades de seguridad de Microsoft, incluidos problemas con Azure, o también mediante correo electrónico a secure@microsoft.com.

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/30/2020
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: 61858a478ead93b3709bb3e05c26335c9acbc24d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1bbc549a9ba457d5f515df25d6fdce0c2ede6f2e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98698096"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105582609"
 ---
 ## <a name="for-users-in-your-directory"></a>para los usuarios del directorio
 
@@ -27,7 +27,7 @@ Siga estos pasos si quiere que los usuarios que están en el directorio puedan s
 
 1. Seleccione una de las siguientes opciones:
 
-    |  |  |
+    |  | Descripción |
     | --- | --- |
     | **Usuarios y grupos específicos** | Elija esta opción si desea que solo los usuarios y grupos del directorio que especifique puedan solicitar este paquete de acceso. |
     | **Todos los miembros (excepto invitados)** | Elija esta opción si desea que todos los usuarios miembros del directorio puedan solicitar este paquete de acceso. Esta opción no incluye ningún usuario invitado al que pueda haber invitado en su directorio. |
@@ -62,7 +62,7 @@ Siga estos pasos si quiere que los usuarios que no están en el directorio solic
 
 1. Seleccione una de las siguientes opciones:
 
-    |  |  |
+    |  | Descripción |
     | --- | --- |
     | **Organizaciones conectadas específicas** | Elija esta opción si desea seleccionar de una lista de organizaciones que el administrador haya agregado anteriormente. Todos los usuarios de las organizaciones seleccionadas pueden solicitar este paquete de acceso. |
     | **Todas las organizaciones conectadas** | Elija esta opción si todos los usuarios de las organizaciones conectadas pueden solicitar este paquete de acceso. |

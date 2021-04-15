@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: atsenthi
-ms.openlocfilehash: e51b247f8c1a5a9ed8f6ec8e24363015afb2f7de
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e94b809513bda8edc7a51baf79ec05a2c9c77489
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102614418"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448561"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Revisión del sistema operativo Windows en el clúster de Service Fabric
 
@@ -120,7 +120,7 @@ POA consta de los siguientes subcomponentes:
 > [!NOTE]
 > POA usa el servicio de administrador de reparaciones de Service Fabric para habilitar o deshabilitar el nodo, y llevar a cabo comprobaciones de estado. La tarea de reparación creada por POA sigue el progreso de Windows Update en cada nodo.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 > [!NOTE]
 > La versión mínima requerida de .NET framework es 4.6.
@@ -222,7 +222,7 @@ Puede configurar el comportamiento de POA para satisfacer sus necesidades. Inval
 | WUOperationTimeOutInMinutes | Int <br>(Valor predeterminado: *90*)                   | Especifica el tiempo de espera para cualquier operación de Windows Update (buscar, descargar o instalar). Si la operación no se realiza en el tiempo de espera especificado, se anula.       |
 | WURescheduleCount     | Int <br> (Valor predeterminado: *5*)                  | El número máximo de veces que el servicio vuelve a programar la actualización de Windows si se produce un error de la operación de forma persistente.          |
 | WURescheduleTimeInMinutes | Int <br>(Valor predeterminado: *30*) | El intervalo en el que el servicio vuelve a programar la actualización de Windows si el error persiste. |
-| WUFrequency           | Cadena separada por comas (valor predeterminado: *Weekly, Wednesday, 7:00:00*)     | Frecuencia para la instalación de actualizaciones de Windows. El formato y los valores posibles son: <br>- Monthly, DD, HH:MM:SS (ejemplo: *Monthly, 5, 12:22:32*). Los valores permitidos para el campo _DD_ (día) son números comprendidos entre 1 y 28, y _last_. <br>- Weekly, día, HH:MM:SS (ejemplo: *Weekly, martes, 12:22:32*)  <br>- Daily, HH:MM:SS (ejemplo: *Daily, 12:22:32*)  <br>- Semana, día, HH:MM:SS (ejemplo: *2, viernes, 21:00:00* indica 9:00 PM UTC el viernes de la segunda semana de cada mes) <br>- *None* indica que no deben aplicarse actualizaciones de Windows.  <br><br> Las horas se muestran en UTC.|
+| WUFrequency           | Cadena separada por comas (valor predeterminado: *Weekly, Wednesday, 7:00:00*)     | Frecuencia para la instalación de actualizaciones de Windows. El formato y los valores posibles son: <br>- Monthly, DD, HH:MM:SS (ejemplo: *Monthly, 5, 12:22:32*). Los valores permitidos para el campo _DD_ (día) son números comprendidos entre 1 y 28, y _last_. <br>- Weekly, día, HH:MM:SS (ejemplo: *Weekly, martes, 12:22:32*)  <br>- Daily, HH:MM:SS (ejemplo: *Daily, 12:22:32*)  <br>- MonthlyByWeekAndDay, semana, día, HH:MM:SS (ejemplo: *MonthlyByWeekAndDay, 2, viernes, 21:00:00* indica 9:00 PM UTC del viernes de la segunda semana de cada mes) <br>- *None* indica que no deben aplicarse actualizaciones de Windows.  <br><br> Las horas se muestran en UTC.|
 | AcceptWindowsUpdateEula | Boolean <br>(Valor predeterminado: *true*) | Al establecer esta marca, la aplicación acepta el contrato de licencia del usuario final para Windows Update en nombre del propietario del equipo.              |
 
 > [!TIP]

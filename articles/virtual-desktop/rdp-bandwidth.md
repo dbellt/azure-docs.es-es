@@ -6,18 +6,19 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: c9ef72241ac62efd8555de59bb52949321364035
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6fe12c985f5d9a519380d1d9b5a7d6c2820630c6
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96325186"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105932342"
 ---
 # <a name="remote-desktop-protocol-rdp-bandwidth-requirements"></a>Requisitos de ancho de banda del protocolo de escritorio remoto (RDP)
 
 Protocolo de escritorio remoto (RDP) es una tecnología sofisticada que usa varias técnicas para perfeccionar la entrega de gráficos remotos del servidor al dispositivo cliente. En función del caso de uso, la disponibilidad de los recursos informáticos y el ancho de banda de red, el RDP ajusta dinámicamente varios parámetros para ofrecer la mejor experiencia de usuario.
 
-El protocolo de escritorio remoto multiplexa varios canales virtuales dinámicos (DVC) en un solo canal de datos enviado a través de diferentes transportes de red. Hay canales virtuales dinámicos independientes para los gráficos remotos, la entrada, la redirección de dispositivos, la impresión, etc. Los asociados de Windows Virtual Desktop también pueden implementar sus extensiones que usan interfaces de DVC.
+El protocolo de escritorio remoto multiplexa varios canales virtuales dinámicos (DVC) en un solo canal de datos enviado a través de diferentes transportes de red. Existen canales virtuales dinámicos independientes para gráficos remotos, entrada, redireccionamiento de dispositivos, impresión, etc. Los asociados de Windows Virtual Desktop también pueden usar sus extensiones que emplean interfaces de DVC.
+
 La cantidad de datos enviados a través del RDP depende de la actividad del usuario. Por ejemplo, un usuario puede trabajar con contenido textual básico durante la mayor parte de la sesión y consumir un ancho de banda mínimo, pero generar una copia impresa de un documento de 200 páginas en la impresora local. Este trabajo de impresión usará una significativa cantidad de ancho de banda de red.
 
 Al usar una sesión remota, el ancho de banda disponible de la red afecta drásticamente a la calidad de la experiencia. Las distintas aplicaciones y resoluciones de pantalla requieren configuraciones de red diferentes, por lo que es esencial asegurarse de que la configuración de la red satisfaga sus necesidades.

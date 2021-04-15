@@ -2,26 +2,27 @@
 title: Solución de problemas de red con el registro
 description: Síntomas, causas y resolución de problemas comunes al acceder a un registro de contenedor de Azure en una red virtual o detrás de un firewall
 ms.topic: article
-ms.date: 10/01/2020
-ms.openlocfilehash: 75c94d40663a7058dab7ed691183dd578964edcc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/30/2021
+ms.openlocfilehash: ae75959028e19ec61e6dcf41308e54df38139d59
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101699613"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220120"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>Solución de problemas de red con el registro
 
-Este artículo le ayuda a solucionar problemas que pueden surgir al acceder a un registro de contenedor de Azure en una red virtual o detrás de un firewall. 
+Este artículo le ayuda a solucionar problemas que pueden surgir al acceder a un registro de contenedor de Azure en una red virtual o detrás de un firewall o un servidor proxy. 
 
 ## <a name="symptoms"></a>Síntomas
 
 Puede encontrarse con uno o varios de los siguientes:
 
 * No es posible insertar o extraer imágenes, y se recibe un error `dial tcp: lookup myregistry.azurecr.io`
+* No es posible insertar o extraer imágenes, y se recibe un error `Client.Timeout exceeded while awaiting headers`
 * No es posible insertar o extraer imágenes, y se recibe un error de la CLI de Azure `Could not connect to the registry login server`
 * No es posible extraer imágenes del registro en Azure Kubernetes Service u otro servicio de Azure
-* No se puede acceder a un registro detrás de un proxy HTTPS, y se recibe el error `Error response from daemon: login attempt failed with status: 403 Forbidden`
+* No se puede acceder a un registro detrás de un proxy HTTPS, y se recibe el error `Error response from daemon: login attempt failed with status: 403 Forbidden` o `Error response from daemon: Get <registry>: proxyconnect tcp: EOF Login failed`
 * No se puede establecer la configuración de red virtual, y se recibe el error `Failed to save firewall and virtual network settings for container registry`
 * No se puede acceder a la configuración del registro ni verla en Azure Portal; tampoco se puede administrar el registro mediante la CLI de Azure
 * No se puede agregar o modificar la configuración de red virtual o las reglas de acceso público
@@ -41,7 +42,7 @@ Ejecute el comando [az acr check-helth](/cli/azure/acr#az-acr-check-health) para
 
 Puede encontrar ejemplos de comandos en [Comprobación del mantenimiento de un registro de contenedor de Azure](container-registry-check-health.md). Si se notifican errores, revise la [referencia de error](container-registry-health-error-reference.md) y las siguientes secciones para ver las soluciones recomendadas.
 
-Si tiene problemas al usar el Registro con Azure Kubernetes Service, ejecute el comando [az aks check-acr](/cli/azure/aks#az_aks_check_acr) para validar que se puede acceder al Registro desde el clúster de AKS.
+Si tiene problemas al usar el Registro con Azure Kubernetes Service con un registro integrado, ejecute el comando [az aks check-acr](/cli/azure/aks#az_aks_check_acr) para validar que el clúster de AKS puede acceder al Registro.
 
 > [!NOTE]
 > Algunos síntomas de conectividad de red también pueden producirse cuando hay problemas con la autenticación o la autorización del registro. Consulte [Solución de problemas de inicio de sesión del registro](container-registry-troubleshoot-login.md).
@@ -57,7 +58,7 @@ Para acceder a un registro desde detrás de un firewall de cliente o de un servi
 
 En el caso de un registro con replicación geográfica, configure el acceso al punto de conexión de datos en cada réplica regional.
 
-Detrás del proxy HTTPS, compruebe que tanto el cliente como el demonio de Docker estén configurados para admitir el comportamiento del proxy.
+Detrás del proxy HTTPS, compruebe que tanto el cliente como el demonio de Docker estén configurados para admitir el comportamiento del proxy. Si cambia la configuración de proxy para el demonio de Docker, asegúrese de reiniciar el demonio. 
 
 Los registros de recursos del registro de la tabla ContainerRegistryLoginEvents pueden ayudar a diagnosticar los intentos de conexión bloqueados.
 

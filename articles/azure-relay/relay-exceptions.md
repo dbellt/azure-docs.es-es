@@ -3,12 +3,12 @@ title: Excepciones de Azure Relay y cómo resolverlas | Microsoft Docs
 description: Lista de excepciones de Azure Relay y las acciones sugeridas que puede seguir para ayudar a resolverlas.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 44eeba6eb7b8cfd4e81a923c2d9a3155f1709f2c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e3f9fe2e8aac826bd63d9842bd3380be10e1b87e
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98625155"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313953"
 ---
 # <a name="azure-relay-exceptions"></a>Excepciones de Azure Relay
 
@@ -80,7 +80,7 @@ Hay dos causas comunes de este error:
     En ocasiones, el servicio Relay podría experimentar retrasos en el procesamiento de solicitudes. Esto puede ocurrir, por ejemplo, durante los períodos de mucho tráfico. Si esto ocurre, vuelva a intentar la operación después de un retraso hasta que la operación sea correcta. Si la misma operación aún experimenta errores después de varios intentos, visite el [sitio de estado del servicio de Azure](https://azure.microsoft.com/status/) para ver si hay interrupciones del servicio conocidas.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Preguntas frecuentes sobre Azure Relay](relay-faq.md)
+* [Preguntas frecuentes sobre Azure Relay](relay-faq.yml)
 * [Crear un espacio de nombres de Relay](relay-create-namespace-portal.md)
 * [Introducción a Azure Relay y .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Introducción a Azure Relay y Node](relay-hybrid-connections-node-get-started.md)

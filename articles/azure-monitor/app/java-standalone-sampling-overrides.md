@@ -6,23 +6,22 @@ ms.date: 03/22/2021
 author: trask
 ms.custom: devx-track-java
 ms.author: trstalna
-ms.openlocfilehash: 03d3093f14d97b2cc64d91e0d1b7adf34204a021
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 7602392b78f53e5b896e92058836fca60de39d64
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104962374"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448889"
 ---
 # <a name="sampling-overrides-preview---azure-monitor-application-insights-for-java"></a>Invalidaciones de muestreo (versión preliminar): Azure Monitor Application Insights para Java
 
 > [!NOTE]
-> La característica de invalidaciones de muestreo está en versión preliminar.
+> La característica de invalidaciones de muestreo está en versión preliminar, a partir de 3.0.3.
 
-Estos son algunos casos en los que se usa esta característica:
- * Eliminación de la recopilación de datos de telemetría en las comprobaciones del estado.
- * Eliminación de la recopilación de datos de telemetría en las llamadas de dependencia con ruido.
- * Reducción el ruido en las comprobaciones de estado o las llamadas de dependencia con ruido, pero sin llegar a suprimirlo por completo.
- * Recopile el 100 % de la telemetría para un tipo de solicitud importante (por ejemplo, `/login`) aunque tenga un muestreo predeterminado configurado en un valor inferior.
+Las invalidaciones de muestreo permiten invalidar el [porcentaje de muestreo predeterminado](./java-standalone-config.md#sampling), por ejemplo:
+ * Establezca el porcentaje de muestreo en 0 (o algún valor pequeño) para las comprobaciones de estado ruidosas.
+ * Establezca el porcentaje de muestreo en 0 (o algún valor pequeño) para las llamadas de dependencia ruidosas.
+ * Establezca el porcentaje de muestreo en 100 para un tipo de solicitud importante (por ejemplo, `/login`) aunque tenga el muestreo predeterminado configurado en un valor inferior.
 
 ## <a name="terminology"></a>Terminología
 
@@ -79,10 +78,10 @@ Solo se utiliza la primera invalidación de muestreo que coincida.
 
 Si no coincide ninguna invalidación de muestreo:
 
-* Si es el primer intervalo del seguimiento, se utiliza el [porcentaje de muestreo normal](./java-standalone-config.md#sampling).
+* Si es el primer intervalo del seguimiento, se usa el [porcentaje de muestreo predeterminado](./java-standalone-config.md#sampling).
 * No obstante, si no lo es, se utiliza la dirección de muestreo primaria.
 
-> [!IMPORTANT]
+> [!WARNING]
 > Si se ha tomado la decisión de no recopilar un intervalo, tampoco se recopilarán los intervalos de flujo descendente, aunque haya invalidaciones de muestreo que coincidan con el intervalo de flujo descendente.
 > Este comportamiento es necesario porque, de lo contrario, se generarían seguimientos interrumpidos, en los que se recopilan con intervalos de flujo descendente cuyo intervalo primario no se ha recopilado.
 

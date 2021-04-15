@@ -6,15 +6,15 @@ ms.service: virtual-machines
 ms.subservice: networking
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 1/12/2020
+ms.date: 04/01/2021
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aadf4000da4ab88a3c3b4dee37d2179eb49d39d7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 42c53e72de7f6b2943086544f607042957f4b849
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98132071"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220086"
 ---
 # <a name="create-a-fully-qualified-domain-name-in-the-azure-portal-for-a-linux-vm"></a>Creación de un nombre de dominio completo en Azure Portal para una máquina virtual Linux
 
@@ -25,11 +25,12 @@ En este artículo se supone que ya ha creado una máquina virtual. Si es necesar
 
 
 1. Seleccione la máquina virtual en el portal. 
-1. En el menú de la izquierda, seleccione **Configuración**.
-1. En **Etiqueta de nombre de DNS**, escriba el prefijo que desea usar.
-1. En la parte superior de la página, seleccione **Guardar**.
-1. Vuelva a la hoja de información general de la máquina virtual; para ello, seleccione **Información general** en el menú de la izquierda. 
-1. Compruebe que el *nombre DNS* se muestra correctamente. 
+1. En el menú de la izquierda, seleccione **Propiedades**.
+1. En **Dirección IP pública\Etiqueta de nombre DNS**, seleccione su dirección IP.
+2. En **Etiqueta de nombre de DNS**, escriba el prefijo que desea usar.
+3. En la parte superior de la página, seleccione **Guardar**.
+4. Seleccione **Información general** en el menú de la izquierda para volver a la hoja de información general del la máquina virtual.
+5. Compruebe que el **nombre DNS** se muestra correctamente. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

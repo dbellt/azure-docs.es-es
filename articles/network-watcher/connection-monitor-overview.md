@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 7abaae033d2dbdb329a1f99d8f9845e5965d806c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 24c181c17e49fe5b7c3001c1cb2839bc957ef463
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101712324"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490495"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor"></a>Supervisión de conectividad de red con Connection Monitor
 
@@ -358,6 +358,8 @@ En el caso de las redes cuyos orígenes son máquinas virtuales de Azure, se pue
     * El túnel entre dos puertas de enlace está desconectado o falta.
     * El túnel no encontró la segunda puerta de enlace.
     * No se encontró información de emparejamiento.
+> [!NOTE]
+> Si hay dos puertas de enlace conectadas y una de ellas no se encuentra en la misma región que el punto de conexión de origen, CM la identifica como "No hay ninguna ruta aprendida" para la vista de topología. La conectividad no se ve afectada. Este es un problema conocido y la corrección está en curso. 
 * Falta la ruta en Microsoft Edge.
 * Tráfico detenido debido a rutas del sistema o UDR.
 * BGP no está habilitado en la conexión de puerta de enlace.

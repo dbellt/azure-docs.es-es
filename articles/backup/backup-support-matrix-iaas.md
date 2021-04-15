@@ -4,12 +4,12 @@ description: Proporciona un resumen de opciones de compatibilidad y limitaciones
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: 82de73944bd833ec5f921e07a29960ac6d175f8d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a0150a4c1a8fbd756de6fc16142f0115b05098ed
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102609794"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105967836"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de compatibilidad para copias de seguridad de máquinas virtuales de Azure
 
@@ -153,6 +153,7 @@ Copia de seguridad de máquinas virtuales de Azure con bloqueos | No se admite p
 [Máquinas virtuales de Spot](../virtual-machines/spot-vms.md) | No compatible. Azure Backup restaura las máquinas virtuales de Spot como máquinas virtuales de Azure convencionales.
 [Azure Dedicated Host](../virtual-machines/dedicated-hosts.md) | Compatible
 Configuración de Espacios de almacenamiento de Windows de máquinas virtuales de Azure independientes | Compatible
+[Azure VM Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration) | Compatible con los modelos de orquestación uniforme y flexible para realizar copias de seguridad de máquinas virtuales de Azure únicas y restaurarlas.
 
 ## <a name="vm-storage-support"></a>Compatibilidad con almacenamiento de máquina virtual
 

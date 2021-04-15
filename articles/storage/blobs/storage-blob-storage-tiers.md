@@ -1,19 +1,19 @@
 ---
 title: 'Niveles de acceso de Azure Blob Storage: frecuente, esporádico y archivo'
 description: Lea información sobre los niveles de acceso frecuente, esporádico y de archivo para Azure Blob Storage. Revise las cuentas de almacenamiento que admiten niveles.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.date: 03/18/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: klaasl
-ms.openlocfilehash: 1a1cb8e1676405cbfbb3f4f61c86d8136b688b88
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 957973cc4f53dba10ed9d635c8e3f69fd66ee33b
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104656845"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106278429"
 ---
 # <a name="access-tiers-for-azure-blob-storage---hot-cool-and-archive"></a>Niveles de acceso de Azure Blob Storage: frecuente, esporádico y archivo
 
@@ -86,7 +86,7 @@ Entre los ejemplos de escenarios de uso del nivel de acceso de archivo se incluy
 - Datos de cumplimiento y archivado que se deben almacenar durante un largo período de tiempo y a los que casi nunca se accede
 
 > [!NOTE]
-> El nivel de archivo no se admite en las cuentas de ZRS, GZRS o RA-GZRS. No se admite la migración de LRS a GRS si la cuenta de almacenamiento contiene blobs en el nivel de archivo.
+> El nivel de archivo no se admite en las cuentas de ZRS, GZRS o RA-GZRS. Se admite la migración de LRS a GRS siempre que no se hayan trasladado blobs al nivel de archivo mientras la cuenta estaba establecida en LRS. Una cuenta se puede devolver a GRS si la actualización se realiza en menos de 30 días desde el momento en que la cuenta se convirtió en LRS y no se ha movido ningún blob al nivel de archivo mientras la cuenta estaba establecida en LRS.
 
 ## <a name="account-level-tiering"></a>Almacenamiento por niveles de cuenta
 

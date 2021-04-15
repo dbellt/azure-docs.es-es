@@ -7,12 +7,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 9/21/2020
-ms.openlocfilehash: bdd52ba77fd9a65ce27985ff3c86a93fc887ddf9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 6fc8e08757ee067e0616cc701a3037a9dbf4c6fd
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105109997"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106491753"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mysql---flexible-server"></a>Solución de problemas de conexión a Azure Database for MySQL: servidor flexible
 
@@ -32,7 +32,7 @@ En este artículo, veremos cómo puede solucionar algunos de los errores más co
 
 Si la aplicación no se puede conectar a Azure Database for MySQL con servidor flexible de forma persistente, esto normalmente indica un problema con uno de los siguientes elementos:
 
-* Conexión cifrada mediante TLS/SSL: el servidor flexible solo admite conexiones cifradas mediante la Seguridad de la capa de transporte (TLS 1.2) y **se denegarán todas las conexiones entrantes con TLS 1.0 y TLS 1.1**. No se puede deshabilitar o cambiar la versión de TLS. Obtenga más información sobre la [conectividad cifrada con Seguridad de la capa de transporte (TLS 1.2) en Azure Database for MySQL con servidor flexible](./how-to-connect-tls-ssl.md).
+* Conexión cifrada mediante TLS/SSL: el servidor flexible admite conexiones cifradas mediante la Seguridad de la capa de transporte (TLS 1.2) y **se denegarán todas las conexiones entrantes con TLS 1.0 y TLS 1.1** de manera predeterminada. Puede deshabilitar la aplicación de conexiones cifradas o cambiar la versión de TLS. Obtenga más información sobre la [conectividad cifrada con Seguridad de la capa de transporte (TLS 1.2) en Azure Database for MySQL con servidor flexible](./how-to-connect-tls-ssl.md).
 - Servidor flexible en *Acceso privado (integración con red virtual)* : asegúrese de conectarse desde la misma red virtual que el servidor flexible. Consulte la información sobre [redes virtuales en Azure Database for MySQL con servidor flexible].<!--(./concepts-networking-virtual-network.md)-->
 - Servidor flexible con *Acceso público (direcciones IP permitidas)* : asegúrese de que el firewall está configurado para permitir conexiones desde el cliente. Para obtener más información, consulte [Creación y administración de reglas de servidor flexible mediante Azure Portal](./how-to-manage-firewall-portal.md).
 * Configuración del firewall del cliente: El firewall en el cliente debe permitir las conexiones con el servidor de bases de datos. La direcciones IP y los puertos del servidor se deben permitir, así como los nombres de aplicación como MySQL en algunos servidores de seguridad.

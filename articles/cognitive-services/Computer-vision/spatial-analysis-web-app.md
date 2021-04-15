@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: de011fb0f827ea90efe33e237bbf1c5100dc76a7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6d3be90cc81b1bcd9a55fc8e53cb9f2238e8c6de
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98183479"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285984"
 ---
 # <a name="how-to-deploy-a-people-counting-web-application"></a>Procedimientos: Implementación de una aplicación web de recuento de personas
 
@@ -172,7 +172,7 @@ docker tag rtvsofficial.azurecr.io/acceleratorapp.personcount:1.0 [desired local
 docker push [desired local image name]
 ```
 
-Para instalar el contenedor, cree una nueva instancia de Azure Web App for Containers y rellene los parámetros obligatorios. Luego vaya a la pestaña **Docker**, seleccione **Contenedor único** y, luego, **Azure Container Registry**. Use la instancia de Azure Container Registry en la que insertó la imagen anterior.
+Para instalar el contenedor, cree una nueva instancia de Azure App Service y rellene los parámetros obligatorios. Luego vaya a la pestaña **Docker**, seleccione **Contenedor único** y, luego, **Azure Container Registry**. Use la instancia de Azure Container Registry en la que insertó la imagen anterior.
 
 ![Ingreso de los detalles de la imagen](./media/spatial-analysis/solution-app-create-screen.png)
 
@@ -189,7 +189,7 @@ Una vez que se agreguen estas dos configuraciones, haga clic en **Guardar**. Lue
 
 ### <a name="test-the-app"></a>Prueba de la aplicación
 
-Vaya a la aplicación web de Azure y compruebe que la implementación se realizó correctamente y que la aplicación web está en ejecución. Vaya a la dirección URL configurada: `<yourapp>.azurewebsites.net` para ver la aplicación en ejecución.
+Vaya a Azure Service y compruebe que la implementación se realizó correctamente y que la aplicación web está en ejecución. Vaya a la dirección URL configurada: `<yourapp>.azurewebsites.net` para ver la aplicación en ejecución.
 
 ![Prueba de la implementación](./media/spatial-analysis/solution-app-output.png)
 
@@ -198,7 +198,7 @@ Si desea ver o modificar el código fuente de esta aplicación, puede encontrarl
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Configuración de operaciones de análisis espaciales](./spatial-analysis-operations.md)
+* [Configuración de las operaciones de análisis espacial](./spatial-analysis-operations.md)
 * [Registro y solución de problemas](spatial-analysis-logging.md)
 * [Guía de selección de ubicación de la cámara](spatial-analysis-camera-placement.md)
 * [Guía de selección de ubicación de zonas y líneas](spatial-analysis-zone-line-placement.md)

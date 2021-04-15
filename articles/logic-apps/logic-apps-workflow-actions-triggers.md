@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 04/05/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: ea4a4a47e91e88c00ca8a4e886d0372a24482907
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 95f2e47d3cf0b967f42b988b565da3643796534d
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98784315"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490767"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Guía de referencia de esquema para los tipos de desencadenador y de acción en Azure Logic Apps
 
@@ -2413,11 +2413,11 @@ De forma predeterminada, todas las instancias del flujo de trabajo de la aplicac
 
 Al activar el control de simultaneidad del desencadenador, las instancias de desencadenador se ejecutan en paralelo hasta el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para cambiar este límite predeterminado de simultaneidad, puede usar el editor de la vista Código o el Diseñador de Logic Apps, ya que al cambiar el valor de simultaneidad mediante el Diseñador se agrega o actualiza la propiedad `runtimeConfiguration.concurrency.runs` en la definición del desencadenador subyacente y viceversa. Esta propiedad controla el número máximo de nuevas instancias de flujo de trabajo que se pueden ejecutar en paralelo.
 
-Estas son algunas consideraciones que debe plantearse cuando quiera usar el control de simultaneidad en un desencadenador:
-
-* Cuando la simultaneidad está habilitada, se reduce significativamente el [límite SplitOn](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) para [matrices de desagrupación](#split-on-debatch). Si el número de elementos supera este límite, se deshabilita la funcionalidad de SplitOn.
+Estas son algunas consideraciones que debe revisar antes de habilitar la simultaneidad en un desencadenador:
 
 * No se puede deshabilitar la simultaneidad después de habilitar el control de simultaneidad.
+
+* Cuando la simultaneidad está habilitada, se reduce significativamente el [límite SplitOn](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) para [matrices de desagrupación](#split-on-debatch). Si el número de elementos supera este límite, se deshabilita la funcionalidad de SplitOn.
 
 * Cuando la simultaneidad está habilitada, una instancia de aplicación lógica de larga duración puede provocar que las nuevas instancias de aplicación lógica entren en un estado de espera. Este estado impide que Azure Logic Apps cree instancias y se produce incluso cuando el número de ejecuciones simultáneas es menor que el número máximo de ejecuciones simultáneas especificado.
 
@@ -2450,9 +2450,9 @@ Estas son algunas consideraciones que debe plantearse cuando quiera usar el cont
 
 #### <a name="edit-in-code-view"></a>Edición en la vista Código 
 
-En la definición del desencadenador subyacente, agregue la propiedad `runtimeConfiguration.concurrency.runs`, que puede tener un valor comprendido entre `1` y `50`.
+En la definición del desencadenador subyacente, agregue la propiedad `runtimeConfiguration.concurrency.runs` y establezca el valor en función de los [límites de simultaneidad del desencadenador](logic-apps-limits-and-config.md#concurrency-debatching). Para ejecutar el flujo de trabajo secuencialmente, establezca el valor de la propiedad en `1`.
 
-Este es un ejemplo que limita las ejecuciones simultáneas a 10 instancias:
+Este ejemplo limita las ejecuciones simultáneas a 10 instancias:
 
 ```json
 "<trigger-name>": {

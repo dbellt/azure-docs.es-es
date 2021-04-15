@@ -9,29 +9,23 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 03/13/2021
+ms.date: 03/29/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64f74f3aff1153118c54c83bf526c036a775da40
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: a99cf6a73e0afb60c644cf38fcfa810a97a9fce4
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104955249"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285814"
 ---
 # <a name="azure-ad-built-in-roles"></a>Roles integrados de Azure AD
 
 En Azure Active Directory (Azure AD), si otro administrador o no administrador necesita administrar los recursos de Azure AD, se les asigna un rol de Azure AD que les proporcione los permisos que necesitan. Por ejemplo, puede asignar roles para permitir la adición o modificación de usuarios, el restablecimiento de contraseñas de usuario, la administración de licencias de usuario o la administración de nombres de dominio.
 
 En este artículo se enumeran los roles integrados de Azure AD que se pueden asignar para permitir la administración de recursos de Azure AD. Para más información sobre la asignación de roles, consulte [Asignar roles de Azure AD a los usuarios](manage-roles-portal.md).
-
-## <a name="limit-use-of-global-administrator"></a>Limitación del uso de Administrador global
-
-Los usuarios que tienen asignado el rol Administrador global pueden leer y modificar cada configuración administrativa de la organización de Azure AD. De forma predeterminada, cuando un usuario se suscribe a un servicio en la nube de Microsoft, se crea un nuevo inquilino de Azure AD y el usuario se convierte en miembro del rol Administradores globales. Cuando se agrega una suscripción a un inquilino existente, no se le asigna el rol Administrador global. Solo los Administradores globales y los administradores que tengan un rol con privilegios pueden delegar roles de administrador. Para reducir el riesgo para su negocio, le recomendamos asignar este rol a la menor cantidad posible de personas de su organización.
-
-Como procedimiento recomendado, aconsejamos que se asigne este rol a menos de cinco personas de su organización. Si tiene más de cinco usuarios asignados al rol Administrador global en la organización, estas son algunas maneras de reducir el uso.
 
 ## <a name="all-roles"></a>Todos los roles
 
@@ -241,7 +235,7 @@ El rol [Administrador de directivas de autenticación](#authentication-policy-ad
 >* Usuarios no administradores como empleados ejecutivos, de asesoramiento jurídico y de recursos humanos que pueden tener acceso a información confidencial o privada.
 
 > [!IMPORTANT]
-> Actualmente, este rol no es capaz de administrar la MFA por usuario en el portal heredado de administración de MFA. Se pueden realizar las mismas funciones mediante el commandlet [Set-MsolUser](/powershell/module/msonline/set-msoluser) del módulo de Azure AD PowerShell.
+> Este rol no puede administrar la configuración de MFA en el portal de administración de MFA o en los tokens OATH de hardware heredados. Se pueden realizar las mismas funciones mediante el commandlet [Set-MsolUser](/powershell/module/msonline/set-msoluser) del módulo de Azure AD PowerShell.
 
 > [!div class="mx-tableFixed"]
 > | Acciones | Descripción |
@@ -267,7 +261,7 @@ Los roles [Administrador de autenticación](#authentication-administrator) y [Ad
 | Administrador de directivas de autenticación | No | No | Sí | Sí | Sí |
 
 > [!IMPORTANT]
-> Actualmente, este rol no es capaz de administrar la configuración de MFA en el portal heredado de administración de MFA.
+> Este rol no puede administrar la configuración de MFA en el portal de administración de MFA o en los tokens OATH de hardware heredados. 
 
 > [!div class="mx-tableFixed"]
 > | Acciones | Descripción |
@@ -673,7 +667,7 @@ Los usuarios con este rol pueden leer y actualizar información básica de usuar
 > | microsoft.directory/servicePrincipals/synchronizationCredentials/manage | Administrar las credenciales y los secretos de aprovisionamiento de aplicaciones |
 > | microsoft.directory/servicePrincipals/synchronizationJobs/manage | Iniciar, reiniciar y pausar los trabajos de sincronización del aprovisionamiento de aplicaciones |
 > | microsoft.directory/servicePrincipals/synchronizationSchema/manage | Crear y administrar esquemas y trabajos de sincronización de aprovisionamiento de aplicaciones |
-> | microsoft.directory/servicePrincipals/managePermissionGrantsForGroup.microsoft-all-application-permissions | Conceder a un servicio acceso directo de entidad a los datos de un grupo |
+> | microsoft.directory/servicePrincipals/managePermissionGrantsForGroup.microsoft-all-application-permissions | Conceder a una entidad de servicio el acceso directo a los datos de un grupo |
 > | microsoft.directory/servicePrincipals/appRoleAssignedTo/update | Actualiza las asignaciones de rol de la entidad de servicio. |
 > | microsoft.directory/users/assignLicense | Administrar licencias de usuario |
 > | microsoft.directory/users/create | Agregar usuarios |
@@ -772,6 +766,9 @@ Este administrador administra la federación entre las organizaciones de Azure 
 
 Los usuarios con este rol tienen acceso a todas las características administrativas en Azure Active Directory, así como también a los servicios que usan las identidades de Azure Active Directory, como el Centro de seguridad de Microsoft 365, el Centro de cumplimiento de Microsoft 365, Exchange Online, SharePoint Online y Skype Empresarial Online. Además, los Administradores globales pueden [elevar el acceso](../../role-based-access-control/elevate-access-global-admin.md) para administrar todas las suscripciones y los grupos de administración de Azure. Esto les permite tener acceso completo a todos los recursos de Azure mediante el inquilino de Azure AD correspondiente. La persona que se registra en la organización de Azure AD se convierte en Administrador global. Puede haber más de un Administrador global en su empresa. Los Administradores globales pueden restablecer la contraseña de todos los usuarios y de todos los demás administradores.
 
+> [!NOTE]
+> Como procedimiento recomendado, Microsoft recomienda que se asigne el rol Administrador global a menos de cinco personas de la organización. Para más información, consulte [Procedimientos recomendados para los roles de Azure AD](best-practices.md).
+
 > [!div class="mx-tableFixed"]
 > | Acciones | Descripción |
 > | --- | --- |
@@ -826,7 +823,7 @@ Los usuarios con este rol tienen acceso a todas las características administrat
 > | microsoft.directory/serviceAction/getAvailableExtentionProperties | Poder realizar la acción de servicio Getavailableextentionproperties |
 > | microsoft.directory/servicePrincipals/allProperties/allTasks | Crear y eliminar entidades de servicio, y leer y actualizar todas las propiedades |
 > | microsoft.directory/servicePrincipals/managePermissionGrantsForAll.microsoft-company-admin | Conceder consentimiento para cualquier permiso a cualquier aplicación |
-> | microsoft.directory/servicePrincipals/managePermissionGrantsForGroup.microsoft-all-application-permissions | Conceder a un servicio acceso directo de entidad a los datos de un grupo |
+> | microsoft.directory/servicePrincipals/managePermissionGrantsForGroup.microsoft-all-application-permissions | Conceder a una entidad de servicio el acceso directo a los datos de un grupo |
 > | microsoft.directory/servicePrincipals/synchronization/standard/read | Lectura de la configuración de aprovisionamiento asociada a la entidad de servicio |
 > | microsoft.directory/signInReports/allProperties/read | Leer todas las propiedades de los informes de inicio de sesión, incluidas las propiedades con privilegios |
 > | microsoft.directory/subscribedSkus/allProperties/allTasks | Comprar y administrar suscripciones, y eliminar suscripciones |
@@ -941,7 +938,7 @@ Los usuarios de este rol pueden crear y administrar grupos y su configuración c
 > | microsoft.directory/groups/owners/update | Actualiza los propietarios de los grupos, salvo los grupos a los que se pueden asignar roles. |
 > | microsoft.directory/groups/settings/update | Actualizar la configuración de los grupos |
 > | microsoft.directory/groups/visibility/update | Actualizar la propiedad de visibilidad de los grupos |
-> | microsoft.directory/servicePrincipals/managePermissionGrantsForGroup.microsoft-all-application-permissions | Conceder a un servicio acceso directo de entidad a los datos de un grupo |
+> | microsoft.directory/servicePrincipals/managePermissionGrantsForGroup.microsoft-all-application-permissions | Conceder a una entidad de servicio el acceso directo a los datos de un grupo |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Leer y configurar Azure Service Health |
 > | microsoft.azure.supportTickets/allEntities/allTasks | Crear y administrar incidencias de Soporte técnico de Azure |
 > | microsoft.office365.serviceHealth/allEntities/allTasks | Leer y configurar Service Health en el centro de administración de Microsoft 365 |
@@ -1700,7 +1697,7 @@ los usuarios con este rol pueden administrar todos los aspectos de la carga de t
 > | microsoft.directory/groups.unified/basic/update | Actualizar las propiedades básicas de los grupos de Microsoft 365, a excepción de los grupos a los que se pueden asignar roles |
 > | microsoft.directory/groups.unified/members/update | Actualizar los miembros de los grupos de Microsoft 365, a excepción de los grupos a los que se pueden asignar roles |
 > | microsoft.directory/groups/unified/owners/update | Actualizar los propietarios de los grupos de Microsoft 365, a excepción de los grupos a los que se pueden asignar roles |
-> | microsoft.directory/servicePrincipals/managePermissionGrantsForGroup.microsoft-all-application-permissions | Conceder a un servicio acceso directo de entidad a los datos de un grupo |
+> | microsoft.directory/servicePrincipals/managePermissionGrantsForGroup.microsoft-all-application-permissions | Conceder a una entidad de servicio el acceso directo a los datos de un grupo |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Leer y configurar Azure Service Health |
 > | microsoft.azure.supportTickets/allEntities/allTasks | Crear y administrar incidencias de Soporte técnico de Azure |
 > | microsoft.office365.network/performance/allProperties/read | Leer todas las propiedades de rendimiento de red en el centro de administración de Microsoft 365 |
@@ -1841,6 +1838,23 @@ Los usuarios con este rol pueden crear y administrar todos los aspectos de los u
 > | microsoft.office365.serviceHealth/allEntities/allTasks | Leer y configurar Service Health en el centro de administración de Microsoft 365 |
 > | microsoft.office365.supportTickets/allEntities/allTasks | Crear y administrar las solicitudes de servicio de Microsoft 365 |
 > | microsoft.office365.webPortal/allEntities/standard/read | Leer las propiedades básicas de todos los recursos en el centro de administración de Microsoft 365 |
+
+## <a name="how-to-understand-role-permissions"></a>Cómo comprender los permisos de rol
+
+El esquema de los permisos sigue de forma general el formato REST de Microsoft Graph:
+
+`<namespace>/<entity>/<propertySet>/<action>`
+
+Por ejemplo:
+
+`microsoft.directory/applications/credentials/update`
+
+| Elemento de permiso | Descripción |
+| --- | --- |
+| espacio de nombres | Producto o servicio que expone la tarea y al que se le antepone `microsoft`. Por ejemplo, todas las tareas de Azure AD usar el espacio de nombres `microsoft.directory`. |
+| Entidad | Característica o componente lógicos que expone el servicio en Microsoft Graph. Por ejemplo, Azure AD expone usuarios y grupos, OneNote expone notas y Exchange expone buzones y calendarios. Existe la palabra clave especial `allEntities` para especificar todas las entidades de un espacio de nombres. Se utiliza a menudo en roles que conceden acceso a un producto completo. |
+| propertySet | Propiedades específicas o aspectos de la entidad para los que se concede el acceso. Por ejemplo, `microsoft.directory/applications/authentication/read` permite leer la dirección URL de respuesta, la dirección URL de cierre de sesión y la propiedad de flujo implícita en el objeto de aplicación en Azure AD.<ul><li>`allProperties` designa todas las propiedades de la entidad, incluidas las propiedades con privilegios.</li><li>`standard` designa las propiedades comunes, pero excluye las que tienen privilegios relacionados con la acción `read`. Por ejemplo, `microsoft.directory/user/standard/read` incluye la capacidad de leer propiedades estándar, como el número de teléfono público y la dirección de correo electrónico, pero no el número de teléfono secundario privado o la dirección de correo electrónico que se usa para la autenticación multifactor.</li><li>`basic` designa las propiedades comunes, pero excluye las que tienen privilegios relacionados con la acción `update`. El conjunto de propiedades que puede leer puede ser diferente de lo que puede actualizar. Este es el motivo por el que existen las palabras clave `standard` y `basic` para reflejarlo.</li></ul> |
+| action | Operación que se concede, normalmente crear, leer, actualizar o eliminar (CRUD). Existe la palabra clave especial `allTasks` para especificar todas las capacidades anteriores (crear, leer, actualizar y eliminar). |
 
 ## <a name="deprecated-roles"></a>Roles en desuso
 
