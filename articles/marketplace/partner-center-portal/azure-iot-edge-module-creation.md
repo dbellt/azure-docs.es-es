@@ -7,16 +7,16 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 08/07/2020
-ms.openlocfilehash: 9f07a6376e3fdde46e9e0cb161acc97c5771d905
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 6de387605a8c127485b68773b6cd1b19c7136d17
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106166758"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107506"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Creación de una oferta de módulo de IoT Edge
 
-En este artículo se explica cómo crear y publicar una entrada de oferta de módulo IoT Edge para Azure Marketplace. Antes de comenzar, [cree una cuenta de Marketplace comercial en el Centro de partners](create-account.md), si aún no lo ha hecho. Asegúrese de que la cuenta está inscrita en el programa Marketplace comercial.
+En este artículo se explica cómo crear y publicar una entrada de oferta de módulo IoT Edge para Azure Marketplace. Antes de comenzar, [cree una cuenta de Marketplace comercial en el Centro de partners](../create-account.md), si aún no lo ha hecho. Asegúrese de que la cuenta está inscrita en el programa Marketplace comercial.
 
 ## <a name="create-a-new-offer"></a>Crear una nueva oferta
 
@@ -273,7 +273,7 @@ Este es un ejemplo de cómo aparece la información de la oferta en Azure Market
 
 <br>Seleccione **Guardar borrador** antes de continuar con la siguiente sección, Versión preliminar.
 
-## <a name="preview"></a>Vista previa
+## <a name="preview"></a>Versión preliminar
 
 La **pestaña Versión preliminar** permite elegir un **público preliminar** limitado para validar la oferta antes de ponerla a disposición de un público más amplio de Marketplace.
 

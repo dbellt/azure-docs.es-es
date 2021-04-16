@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52b450ecc8aff379dbdb8d58f9b7609cf730ad27
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 87b9371bfe3b0bd8ff8b3bd509cc1431f0c2e1c6
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105731673"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305776"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Inicio de sesión único de conexión directa de Azure Active Directory: Preguntas más frecuentes
 
@@ -90,7 +90,7 @@ Siga estos pasos en el servidor local donde se ejecuta Azure AD Connect:
    **Paso 1. Obtención de la lista de bosques de AD en los que se habilitó SSO de conexión directa**
 
    1. Primero, descargue e instale [Azure AD PowerShell](/powershell/azure/active-directory/overview).
-   2. Vaya a la carpeta `%programfiles%\Microsoft Azure Active Directory Connect`.
+   2. Vaya a la carpeta `$env:programfiles\Microsoft Azure Active Directory Connect`.
    3. Importe el módulo de PowerShell de SSO de conexión directa mediante este comando: `Import-Module .\AzureADSSO.psd1`.
    4. Ejecute PowerShell como administrador. En PowerShell, llame a `New-AzureADSSOAuthenticationContext`. Este comando debería mostrar un cuadro emergente para escribir las credenciales de administrador global del inquilino.
    5. Llame a `Get-AzureADSSOStatus | ConvertFrom-Json`. Aparecerá la lista de bosques de AD (examine la lista "Dominios") en la que se ha habilitado esta característica.
@@ -135,7 +135,7 @@ Siga estos pasos en el servidor local donde se ejecuta Azure AD Connect:
    Ejecute los pasos siguientes en el servidor local donde se ejecuta Azure AD Connect:
 
    1. Primero, descargue e instale [Azure AD PowerShell](/powershell/azure/active-directory/overview).
-   2. Vaya a la carpeta `%programfiles%\Microsoft Azure Active Directory Connect`.
+   2. Vaya a la carpeta `$env:ProgramFiles\Microsoft Azure Active Directory Connect`.
    3. Importe el módulo de PowerShell de SSO de conexión directa mediante este comando: `Import-Module .\AzureADSSO.psd1`.
    4. Ejecute PowerShell como administrador. En PowerShell, llame a `New-AzureADSSOAuthenticationContext`. Este comando debería mostrar un cuadro emergente para escribir las credenciales de administrador global del inquilino.
    5. Llame a `Enable-AzureADSSO -Enable $false`.
@@ -150,7 +150,7 @@ Siga estos pasos en el servidor local donde se ejecuta Azure AD Connect:
    Realice las tareas 1 a 4 a continuación si ha deshabilitado el inicio de sesión único de conexión directa con Azure AD Connect. Si, en cambio, ha deshabilitado el inicio de sesión único de conexión directa con PowerShell, avance a la tarea 5 a continuación.
 
    1. Primero, descargue e instale [Azure AD PowerShell](/powershell/azure/active-directory/overview).
-   2. Vaya a la carpeta `%programfiles%\Microsoft Azure Active Directory Connect`.
+   2. Vaya a la carpeta `$env:ProgramFiles\Microsoft Azure Active Directory Connect`.
    3. Importe el módulo de PowerShell de SSO de conexión directa mediante este comando: `Import-Module .\AzureADSSO.psd1`.
    4. Ejecute PowerShell como administrador. En PowerShell, llame a `New-AzureADSSOAuthenticationContext`. Este comando debería mostrar un cuadro emergente para escribir las credenciales de administrador global del inquilino.
    5. Llame a `Get-AzureADSSOStatus | ConvertFrom-Json`. Aparecerá la lista de bosques de AD (examine la lista "Dominios") en la que se ha habilitado esta característica.

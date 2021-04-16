@@ -1,18 +1,19 @@
 ---
-title: Consideraciones para aprovisionar recursos compartidos de archivos de Azure
-description: Aprovisione recursos compartidos de archivos de Azure para usar con Azure File Sync. Un bloque de texto común, compartido entre documentos de migración.
+title: archivo de inclusión
+description: archivo de inclusión
+services: storage
 author: fauhse
 ms.service: storage
-ms.topic: conceptual
+ms.topic: include
 ms.date: 2/20/2020
 ms.author: fauhse
-ms.subservice: files
-ms.openlocfilehash: d48baba5ee60a2bf5a4cb5e4d1ce840fce8eec43
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: include file
+ms.openlocfilehash: c003e765574d764b6653823e8554d0718ea85e0e
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82143544"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106081116"
 ---
 Un recurso compartido de archivos de Azure en la nube en una cuenta de almacenamiento de Azure.
 Aquí hay otro nivel de consideraciones de rendimiento.
@@ -22,7 +23,7 @@ Si tiene recursos compartidos muy activos (recursos compartidos que usan muchos 
 Un procedimiento recomendado es implementar cuentas de almacenamiento con un recurso compartido de archivos cada una.
 Puede agrupar varios recursos compartidos de archivos de Azure en la misma cuenta de almacenamiento, en caso de que tenga recursos compartidos de archivo o que espere que tengan escasa actividad diaria.
 
-Estas consideraciones se aplican más al acceso directo a la nube (a través de una VM de Azure) que a Azure File Sync. Si tiene pensado usar Azure File Sync solo en estos recursos compartidos, es correcta la agrupación de varios en una sola cuenta de almacenamiento de Azure.
+Estas consideraciones se aplican más al acceso directo a la nube (a través de una máquina virtual de Azure) que a Azure File Sync. Si tiene pensado usar Azure File Sync solo en estos recursos compartidos, es correcta la agrupación de varios en una sola cuenta de almacenamiento de Azure.
 
 Si ha creado una lista de recursos compartidos, debe asignar cada recurso compartido a la cuenta de almacenamiento en la que residirán.
 

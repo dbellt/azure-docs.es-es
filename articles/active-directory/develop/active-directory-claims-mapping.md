@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 2d65889a841655fe27994d3855f30f7a7e20e1ed
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4c7474b001284286ed589f6b7995db6bc7fd50af
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94647603"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075073"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Procedimientos: Personalizar las notificaciones emitidas en tokens para una determinada aplicación de un inquilino (versión preliminar)
 
@@ -287,7 +287,7 @@ El elemento ID identifica la propiedad en el origen que proporciona el valor de 
 
 #### <a name="table-3-valid-id-values-per-source"></a>Tabla 3: Valores de Id. válidos por origen
 
-| Source | id | Descripción |
+| Source | ID | Descripción |
 |-----|-----|-----|
 | Usuario | surname | Nombre de familia |
 | Usuario | givenname | Nombre propio |
@@ -304,7 +304,7 @@ El elemento ID identifica la propiedad en el origen que proporciona el valor de 
 | Usuario | streetaddress | Dirección |
 | Usuario | postalcode | Código postal |
 | Usuario | preferredlanguage | Idioma preferido |
-| Usuario | onpremisesuserprincipalname | UPN local |*
+| Usuario | onpremisesuserprincipalname | UPN local |
 | Usuario | mailNickname | Alias de correo |
 | Usuario | extensionattribute1 | Atributo de extensión 1 |
 | Usuario | extensionattribute2 | Atributo de extensión 2 |
@@ -390,7 +390,7 @@ En función del método elegido, se espera un conjunto de entradas y salidas. De
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tabla 5: Atributos permitidos como origen de datos en NameID de SAML
 
-|Source|id|Descripción|
+|Source|ID|Descripción|
 |-----|-----|-----|
 | Usuario | mail|Dirección de correo electrónico|
 | Usuario | userprincipalname|Nombre principal del usuario|
@@ -418,16 +418,6 @@ En función del método elegido, se espera un conjunto de entradas y salidas. De
 | ----- | ----- |
 | ExtractMailPrefix | None |
 | Join | El sufijo que se combine debe ser un dominio comprobado del inquilino del recurso. |
-
-### <a name="custom-signing-key"></a>Clave de firma de personalizada
-
-Debe asignarse una clave de firma personalizada al objeto de entidad de servicio para que una directiva de asignación de notificaciones surta efecto. Esto garantiza que el creador de la directiva de asignación de notificaciones es el que ha modificado los tokens y protege a las aplicaciones frente a directivas de asignación de notificaciones creadas por actores malintencionados. Para agregar una clave de firma personalizada, puede usar el cmdlet [`New-AzureADApplicationKeyCredential`](/powerShell/module/Azuread/New-AzureADApplicationKeyCredential) de Azure PowerShell para crear una credencial de clave de certificado para el objeto de aplicación.
-
-Las aplicaciones que tienen habilitada la asignación de notificaciones deben validar sus claves de firma de tokens mediante la anexión de `appid={client_id}` a las [solicitudes de metadatos de OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). A continuación se muestra el formato del documento de metadatos de OpenID Connect que se debe usar:
-
-```
-https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration?appid={client-id}
-```
 
 ### <a name="cross-tenant-scenarios"></a>Escenarios de varios inquilinos
 
@@ -531,6 +521,33 @@ En este ejemplo se crea una directiva que emite una notificación "JoinedData" p
       ``` powershell
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```
+
+## <a name="security-considerations"></a>Consideraciones sobre la seguridad
+
+Las aplicaciones que reciben tokens se basan en el hecho de que los valores de notificación se emiten de forma autoritaria por parte de Azure AD y no se pueden alterar. Sin embargo, al modificar el contenido del token a través de las directivas de asignación de notificaciones, es posible que estas suposiciones ya no sean correctas. Las aplicaciones deben reconocer explícitamente que el creador de la directiva de asignación de notificaciones ha modificado los tokens para protegerse de las directivas de asignación de notificaciones creadas por actores malintencionados. Esto puede hacerse de las siguientes maneras:
+
+- Configurar una clave de firma personalizada
+- Actualizar el manifiesto de aplicación para aceptar notificaciones asignadas.
+ 
+Sin esto, Azure AD devolverá un [código de error `AADSTS50146`](reference-aadsts-error-codes.md#aadsts-error-codes).
+
+### <a name="custom-signing-key"></a>Clave de firma de personalizada
+
+Para agregar una clave de firma personalizada al objeto de la entidad de servicio, puede usar el cmdlet [`New-AzureADApplicationKeyCredential`](/powerShell/module/Azuread/New-AzureADApplicationKeyCredential) de Azure PowerShell para crear una credencial de clave de certificado para el objeto de aplicación.
+
+Las aplicaciones que tienen habilitada la asignación de notificaciones deben validar sus claves de firma de tokens mediante la anexión de `appid={client_id}` a las [solicitudes de metadatos de OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). A continuación se muestra el formato del documento de metadatos de OpenID Connect que se debe usar:
+
+```
+https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration?appid={client-id}
+```
+
+### <a name="update-the-application-manifest"></a>Actualización del manifiesto de aplicación
+
+Como alternativa, puede establecer la propiedad `acceptMappedClaims` en `true` en el [manifiesto de aplicación](reference-app-manifest.md). Como se documenta en el [tipo de recurso apiApplication](/graph/api/resources/apiapplication#properties), esto permite que una aplicación use la asignación de notificaciones sin especificar una clave de firma personalizada.
+
+Esto requiere que la audiencia de tokens solicitada use un nombre de dominio comprobado del inquilino de Azure AD, lo que significa que debe asegurarse de establecer `Application ID URI` (representado por `identifierUris` en el manifiesto de aplicación), por ejemplo, en `https://contoso.com/my-api` o (simplemente mediante el nombre de inquilino predeterminado) `https://contoso.onmicrosoft.com/my-api`.
+
+Si no usa un dominio comprobado, Azure AD devolverá un código de error `AADSTS501461` con *el mensaje "AcceptMappedClaims solo se admite para una audiencia de tokens que coincida con el GUID de la aplicación o con una audiencia dentro de los dominios comprobados del inquilino. Cambie el identificador de recursos o use una clave de firma específica de la aplicación".*
 
 ## <a name="see-also"></a>Consulte también
 

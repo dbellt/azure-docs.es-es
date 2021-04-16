@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 04/06/2021
 ms.author: alkohli
-ms.openlocfilehash: 566ca1598857f67e25faea9f19d134c4a91bfb18
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: be4348359e6b53c3e7454e9ab7c1af8ce8a7020a
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106555986"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305568"
 ---
 # <a name="manage-vm-tags-on-azure-stack-edge-via-azure-powershell"></a>Administración de etiquetas de máquinas virtuales en el dispositivo Azure Stack Edge a través de Azure PowerShell
 
@@ -36,17 +36,7 @@ Antes de poder implementar una máquina virtual en el dispositivo a través de P
 
 ## <a name="verify-connection-to-local-azure-resource-manager"></a>Comprobación de la conexión a Azure Resource Manager local
 
-Asegúrese de que se pueden usar los pasos siguientes para acceder al dispositivo desde el cliente.
-
-Compruebe que el cliente puede conectarse a Azure Resource Manager local. 
-
-1. Llame a las API del dispositivo local para autenticarse:
-
-    ```powershell
-    login-AzureRMAccount -EnvironmentName <Environment Name> -TenantId c0257de7-538f-415c-993a-1b87a031879d  
-    ```
-
-1. Proporcione el nombre de usuario `EdgeArmUser` y la contraseña para conectarse mediante Azure Resource Manager. Si no recuerda la contraseña, consulte [Restablecimiento de la contraseña de Azure Resource Manager](azure-stack-edge-gpu-set-azure-resource-manager-password.md) y use esta contraseña para iniciar la sesión.
+[!INCLUDE [azure-stack-edge-gateway-verify-azure-resource-manager-connection](../../includes/azure-stack-edge-gateway-verify-azure-resource-manager-connection.md)]
 
 
 ## <a name="add-a-tag-to-a-vm"></a>Adición de una etiqueta a una máquina virtual

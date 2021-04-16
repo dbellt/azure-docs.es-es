@@ -2,10 +2,8 @@
 title: 'Administración de aplicaciones: Procedimientos recomendados y recomendaciones | Microsoft Docs'
 description: Obtenga información sobre los procedimiento recomendados y recomendaciones para administrar aplicaciones en Azure Active Directory. Aprenda a usar el aprovisionamiento automático y la publicación de aplicaciones locales con el proxy de aplicación.
 services: active-directory
-documentationcenter: ''
-author: kenwith
-manager: daveba
-editor: ''
+author: iantheninja
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.devlang: na
@@ -14,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/13/2019
 ms.subservice: app-mgmt
-ms.author: kenwith
+ms.author: iangithinji
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23c688d9b2e118ef29303d435bb83ef02ad36105
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b9b7f312781fd4f14c5e403ad72e5978f4d01487
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99259141"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107379334"
 ---
 # <a name="application-management-best-practices"></a>Procedimientos recomendados de administración de aplicaciones
 

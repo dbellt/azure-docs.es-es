@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/19/2021
+ms.date: 03/30/2021
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 412e5ac661761d5fda1d375c59511c053a6354a6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ce3bda82e634cd80560d7915a08fa33218173779
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101714789"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105967206"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Cambio en la forma en que se replican las cuentas de almacenamiento
 
@@ -122,25 +122,30 @@ La migración manual debe realizarse en los siguientes casos:
 - Quiere migrar datos de ZRS a LRS, GRS o RA-GRS.
 - La cuenta de almacenamiento incluye datos en el nivel de archivo.
 
-Puede solicitar la migración en vivo mediante el [Portal de soporte técnico de Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). En el portal, seleccione la cuenta de almacenamiento que quiere convertir a ZRS.
+Puede solicitar la migración en vivo mediante el [Portal de soporte técnico de Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). 
 
-1. Seleccione **Nueva solicitud de soporte técnico**.
-2. Complete los **aspectos básicos** según la información de su cuenta: 
+> [!IMPORTANT]
+> Si necesita migrar más de una cuenta de almacenamiento, cree una incidencia de soporte técnico y, en la pestaña **Detalles**, especifique los nombres de las cuentas que se van a convertir.
+
+Siga estos pasos para solicitar una migración en vivo:
+
+1. En Azure Portal, vaya a la cuenta de almacenamiento que quiere migrar.
+1. En **Soporte técnico y solución de problemas**, elija **Nueva solicitud de soporte técnico**.
+1. Rellene la pestaña **Aspectos básicos** según la información de su cuenta:
     - **Tipo de problema**: seleccione **Técnico**.
-    - **Servicio**: seleccione **Mis servicios** y **Administración de cuentas de almacenamiento**.
-    - **Recursos**: seleccione el recurso que quiera convertir a ZRS.
-3. Seleccione **Next** (Siguiente).
-4. Especifique los siguientes valores en la sección **Problema**:
-    - **Gravedad**: deje el valor predeterminado tal cual.
-    - **Tipo de problema**: seleccione **Migración de datos**.
-    - **Categoría**: seleccione **Migración a ZRS**.
-    - **Título**: escriba un título descriptivo, por ejemplo, **migración de cuentas de ZRS**.
-    - **Detalles**: escriba información adicional en el cuadro **Detalles**; por ejemplo, me gustaría migrar a ZRS desde [LRS, GRS] en la región \_\_.
-5. Seleccione **Next** (Siguiente).
-6. Compruebe que la información de contacto sea correcta en la hoja **Información de contacto**.
-7. Seleccione **Crear**.
+    - **Servicio**: seleccione **Mis servicios** y, luego, **Storage Account Management** (Administración de cuentas de almacenamiento).
+    - **Recurso**: seleccione una cuenta de almacenamiento para migrar. Si tiene que especificar varias cuentas de almacenamiento, puede hacerlo en la sección **Detalles**.
+    - **Tipo de problema**: elija **Migración de datos**.
+    - **Subtipo de problema**: elija **Migrate to ZRS, GZRS, or RA-GZRS** (Migrar a ZRS, GZRS o RA-GZRS).
 
-Un responsable de soporte técnico se pondrá en contacto con usted para proporcionarle la asistencia que necesite.
+    :::image type="content" source="media/redundancy-migration/request-live-migration-basics-portal.png" alt-text="Captura de pantalla que muestra cómo solicitar una migración en vivo: pestaña Aspectos básicos":::
+
+1. Seleccione **Next** (Siguiente). En la pestaña **Soluciones**, puede comprobar la idoneidad de las cuentas de almacenamiento para la migración.
+1. Seleccione **Next** (Siguiente). Si tiene más de una cuenta de almacenamiento para migrar, en la pestaña **Detalles**, especifique el nombre de cada cuenta separado por punto y coma.
+
+    :::image type="content" source="media/redundancy-migration/request-live-migration-details-portal.png" alt-text="Captura de pantalla que muestra cómo solicitar una migración en vivo: pestaña Detalles":::
+
+1. Rellene la información adicional necesaria en la pestaña **Detalles** y, luego, seleccione **Revisar y crear** para revisar y enviar la incidencia de soporte técnico. Un responsable de soporte técnico se pondrá en contacto con usted para proporcionarle la asistencia que necesite.
 
 > [!NOTE]
 > Los recursos compartidos de archivos prémium (cuentas de FileStorage) solo están disponibles para LRS y ZRS.

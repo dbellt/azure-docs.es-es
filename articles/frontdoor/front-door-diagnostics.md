@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/23/2020
 ms.author: yuajia
-ms.openlocfilehash: 58db217ca173acbe0356596de916216c4ab7f241
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a972123604cafbfc4c6753c1fe3ad21147b53b2d
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101715554"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106550666"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door"></a>Supervisión de métricas y registro en Azure Front Door
 
@@ -71,7 +71,7 @@ Para configurar los registros de diagnóstico para Front Door:
 
 3. Seleccione **Activar diagnósticos**. Archive los registros de diagnóstico junto con las métricas en una cuenta de almacenamiento, transmítalos en secuencias a un centro de eventos o envíelos a los registros de Azure Monitor.
 
-Front Door actualmente proporciona los registros de diagnóstico (agrupados por lotes cada hora). Los registros de diagnóstico proporcionan solicitudes API individuales con cada entrada con el siguiente esquema:
+Front Door actualmente proporciona los registros de diagnóstico. Los registros de diagnóstico proporcionan solicitudes API individuales con cada entrada con el siguiente esquema:
 
 | Propiedad  | Descripción |
 | ------------- | ------------- |
