@@ -7,12 +7,12 @@ ms.date: 11/06/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 36329987e510372ff286a10584a115ea259afc60
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 39bab52a564439d34b8702de11edabe7f0d6dfbc
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98119091"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106492263"
 ---
 # <a name="use-properties-in-an-azure-iot-central-solution"></a>Uso de las propiedades en una solución de Azure IoT Central
 
@@ -80,7 +80,7 @@ En este ejemplo se muestran dos propiedades. Estas se relacionan con la definici
 * `@type` especifica el tipo de funcionalidad: `Property`. En el ejemplo anterior también se muestra el tipo semántico `Temperature` para ambas propiedades.
 * `name` para la propiedad.
 * `schema` especifica el tipo de datos de la propiedad. Este valor puede ser un tipo primitivo, como doble, entero, booleano o cadena. También se admiten tipos de objetos complejos y mapas.
-* `writable` De forma predeterminada, las propiedades son de solo lectura. Puede marcar una propiedad como editable mediante este campo.
+* `writable` De forma predeterminada, las propiedades son de solo lectura. Puede marcar una propiedad como editable utilizando este campo.
 
 Los campos opcionales, como el nombre para mostrar y la descripción, permiten agregar más detalles a la interfaz y las funcionalidades.
 
@@ -183,7 +183,7 @@ En el siguiente fragmento de código de un modelo de dispositivo se muestra la d
 }
 ```
 
-Para definir y controlar las propiedades con posibilidad de escritura a las que responda el dispositivo, puede usar el código siguiente:
+Para definir y controlar las propiedades editables a las que responde el dispositivo, puede usar el código siguiente:
 
 ``` javascript
 hubClient.getTwin((err, twin) => {
@@ -219,7 +219,7 @@ El mensaje de respuesta debe incluir los campos `ac` y `av`. El campo `ad` es op
 
 Para obtener más información sobre los dispositivos gemelos, consulte [Configuración de dispositivos desde un servicio back-end](../../iot-hub/tutorial-device-twins.md).
 
-Cuando el operador establece una propiedad que se puede escribir en la aplicación de Azure IoT Central, la aplicación usa una propiedad deseada del dispositivo gemelo para enviar el valor al dispositivo. A continuación, el dispositivo responde con una propiedad notificada del dispositivo gemelo. Cuando Azure IoT Central recibe el valor de la propiedad notificada, actualiza la vista de la propiedad con el estado **Aceptada**.
+Cuando el operador establece una propiedad editable en la aplicación de Azure IoT Central, la aplicación utiliza la propiedad especificada en el dispositivo gemelo para enviar el valor al dispositivo. A continuación, el dispositivo responde con una propiedad notificada del dispositivo gemelo. Cuando Azure IoT Central recibe el valor de la propiedad notificada, actualiza la vista de la propiedad con el estado **Aceptada**.
 
 En la vista siguiente se muestran las propiedades editables. Al escribir el valor y seleccionar **Guardar**, el estado inicial es **Pendiente**. Cuando el dispositivo acepta el cambio, el estado cambia a **Aceptado**.
 
