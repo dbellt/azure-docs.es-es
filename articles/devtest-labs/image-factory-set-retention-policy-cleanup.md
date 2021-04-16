@@ -3,12 +3,12 @@ title: Configuración de directivas de laboratorio en Azure DevTest Labs | Mic
 description: Obtenga información sobre cómo configurar una directiva de retención, limpiar la fábrica y retirar imágenes antiguas de DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 85384e88f8d456c7bf67302a57618d7a9703a5ee
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4e642d7dc0733e55caa4ed62e3382ef4422030f9
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102550032"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105727542"
 ---
 # <a name="set-up-retention-policy-in-azure-devtest-labs"></a>Configuración de la directiva de retención en Azure DevTest Labs
 Este artículo abarca el establecimiento de una directiva de retención, la limpieza de la fábrica y la retirada de las imágenes anteriores de todos los otros laboratorios de DevTes Labs de la organización. 
@@ -60,11 +60,11 @@ Ahora que ha completado la definición de compilación, ponga en cola una nueva 
 ## <a name="summary"></a>Resumen
 Ahora tiene un generador de imágenes en ejecución que puede crear y distribuir imágenes personalizadas para los laboratorios a petición. En este punto, lo que tiene que hacer es configurar adecuadamente sus imágenes e identificar los laboratorios de destino. Como se mencionó en el artículo anterior, el archivo **Labs.json** ubicado en la carpeta **Configuración** especifica las imágenes que deben estar disponibles en cada uno de los laboratorios de destino. Para sumar otros laboratorios de DevTest Labs a su organización, solo tiene que agregar una entrada en Labs.json para el nuevo laboratorio.
 
-También es sencillo agregar una nueva imagen al generador. Cuando quiera incluir una nueva imagen en el generador, abra [Azure Portal](https://portal.azure.com), vaya al generador de DevTest Labs, seleccione el botón para agregar una máquina virtual y elija la imagen y los artefactos del Marketplace deseados. En lugar de seleccionar el botón **Crear** para la nueva máquina virtual, seleccione **Ver plantilla de Azure Resource Manager.** y guarde la plantilla como un archivo .json en algún lugar dentro de la carpeta **GoldenImages** en el repositorio. La próxima vez que ejecute el generador de imágenes, creará la imagen personalizada.
+También es sencillo agregar una nueva imagen al generador. Cuando quiera incluir una nueva imagen en el generador, abra [Azure Portal](https://portal.azure.com), vaya al generador de DevTest Labs, seleccione el botón para agregar una máquina virtual y elija la imagen y los artefactos del Marketplace deseados. En lugar de seleccionar el botón **Crear** para la nueva VM, seleccione **Ver plantilla de Azure Resource Manager.** y guárdela como un archivo .json en algún lugar dentro de la carpeta **GoldenImages** en el repositorio. La próxima vez que ejecute el generador de imágenes, creará la imagen personalizada.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 1. [Programe la compilación o versión](/azure/devops/pipelines/build/triggers?tabs=designer) para ejecutar periódicamente el generador de imágenes. Actualiza las imágenes creadas por el generador de forma periódica.
 2. Cree más imágenes maestras para el generador. También puede considerar la [creación de artefactos](devtest-lab-artifact-author.md) para aplicar scripts a otras piezas de las tareas de configuración de la máquina virtual e incluir los artefactos en las imágenes del generador.
-4. Cree [otra compilación/versión](/azure/devops/pipelines/overview?view=azure-devops-2019) para ejecutar el script **DistributeImages** por separado. Puede ejecutar este script al realizar cambios en Labs.json y obtener las imágenes copiadas en los laboratorios de destino sin tener que volver a crear todas las imágenes de nuevo.
+4. Cree [otra compilación/versión](/azure/devops/pipelines/overview) para ejecutar el script **DistributeImages** por separado. Puede ejecutar este script al realizar cambios en Labs.json y obtener las imágenes copiadas en los laboratorios de destino sin tener que volver a crear todas las imágenes de nuevo.
 

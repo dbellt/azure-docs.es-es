@@ -9,14 +9,14 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 1/14/2020
+ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 6a2c6495ca3685aec1bc132ec7f8a88809ad2d87
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d021267c38f0043d2361b1a6392fbacd0634a164
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104598293"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106279704"
 ---
 # <a name="live-streaming-scenario-based-migration-guidance"></a>Guía de migración basada en escenarios de streaming en vivo
 
@@ -35,12 +35,12 @@ Azure Portal ahora es compatible con la configuración y administración de even
 
 Pruebe la nueva forma de entregar eventos en directo con Media Services antes de migrar el contenido de v2 a v3. Estas son las características de v3 con las que se puede trabajar y que debe tener en cuenta para la migración.
 
-- Cree un nuevo [evento en directo](live-events-outputs-concept.md#live-events) de v3 para la codificación. Puede habilitar los [valores preestablecidos de codificación 1080P y 720P](live-event-types-comparison.md#system-presets).
-- Use la entidad [salida en directo](live-events-outputs-concept.md#live-outputs) en lugar de programas.
-- Cree [localizadores de streaming](streaming-locators-concept.md).
-- Determine si necesita streaming en vivo [HLS y DASH](dynamic-packaging-overview.md).
-- Si necesita del inicio rápido de eventos en directo, explore las nuevas características de [modo de espera](live-events-outputs-concept.md#standby-mode).
-- Si quiere transcribir su evento en directo mientras sucede, explore la nueva característica [transcripción en directo](live-transcription.md).
+- Cree un nuevo [evento en directo](live-event-outputs-concept.md#live-events) de v3 para la codificación. Puede habilitar los [valores preestablecidos de codificación 1080P y 720P](live-event-types-comparison-reference.md#system-presets).
+- Use la entidad [salida en directo](live-event-outputs-concept.md#live-outputs) en lugar de programas.
+- Cree [localizadores de streaming](stream-streaming-locators-concept.md).
+- Determine si necesita streaming en vivo [HLS y DASH](encode-dynamic-packaging-concept.md).
+- Si necesita del inicio rápido de eventos en directo, explore las nuevas características de [modo de espera](live-event-outputs-concept.md#standby-mode).
+- Si quiere transcribir su evento en directo mientras sucede, explore la nueva característica [transcripción en directo](live-event-live-transcription-how-to.md).
 - Cree eventos en directo ininterrumpidos en v3 si necesita un streaming de mayor duración.
 - Use [Event Grid](monitoring/monitor-events-portal-how-to.md) para supervisar los eventos en directo.
 
@@ -50,27 +50,23 @@ Consulte los conceptos, tutoriales y guías de procedimientos de eventos en dire
 
 ### <a name="concepts"></a>Conceptos
 
-- [Streaming en vivo con Azure Media Services v3](live-streaming-overview.md)
-- [Eventos en directo y salidas activas en Media Services](live-events-outputs-concept.md)
-- [Codificadores de streaming en vivo locales comprobados](recommended-on-premises-live-encoders.md)
-- [Uso de cambio de tiempo y salidas activas para crear la reproducción de vídeo a petición](live-event-cloud-dvr.md)
-- [Transcripción en directo (versión preliminar)](live-transcription.md)
-- [Comparación de tipos de objetos LiveEvent](live-event-types-comparison.md)
-- [Estados y facturación de eventos en directo](live-event-states-billing.md)
-- [Configuración de latencia baja en eventos en directo](live-event-latency.md)
-- [Códigos de error de eventos en directo de Media Services](live-event-error-codes.md)
+- [Streaming en vivo con Azure Media Services v3](stream-live-streaming-concept.md)
+- [Eventos en directo y salidas activas en Media Services](live-event-outputs-concept.md)
+- [Codificadores de streaming en vivo locales comprobados](encode-recommended-on-premises-live-encoders.md)
+- [Uso de cambio de tiempo y salidas activas para crear la reproducción de vídeo a petición](live-event-cloud-dvr-time-how-to.md)
+- [live-event-live-transcription-how-to (versión preliminar)](live-event-live-transcription-how-to.md)
+- [Comparación de tipos de objetos LiveEvent](live-event-types-comparison-reference.md)
+- [Estados y facturación de eventos en directo](live-event-states-billing-concept.md)
+- [Configuración de latencia baja en eventos en directo](live-event-latency-reference.md)
+- [Códigos de error de eventos en directo de Media Services](live-event-error-codes-reference.md)
 
 ### <a name="tutorials-and-quickstarts"></a>Tutoriales y guías de inicio rápido
 
 - [Tutorial: Streaming en vivo con Media Services](stream-live-tutorial-with-api.md)
-- [Creación de un streaming en vivo de Azure Media Services con OBS](live-events-obs-quickstart.md)
-- [Inicio rápido: Carga, codificación y streaming de contenido con el portal](manage-assets-quickstart.md)
-- [Inicio rápido: Creación de un streaming en vivo de Azure Media Services con Wirecast](live-events-wirecast-quickstart.md)
+- [Creación de un streaming en vivo de Azure Media Services con OBS](live-event-obs-quickstart.md)
+- [Inicio rápido: Carga, codificación y streaming de contenido con el portal](asset-create-asset-upload-portal-quickstart.md)
+- [Inicio rápido: Creación de un streaming en vivo de Azure Media Services con Wirecast](live-event-wirecast-quickstart.md)
 
 ## <a name="samples"></a>Ejemplos
 
 También puede [comparar el código de la versión v2 y v3 en los ejemplos de código](migrate-v-2-v-3-migration-samples.md).
-
-## <a name="next-steps"></a>Pasos siguientes
-
-[!INCLUDE [migration guide next steps](./includes/migration-guide-next-steps.md)]

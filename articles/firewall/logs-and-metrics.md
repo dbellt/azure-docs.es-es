@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 02/16/2021
+ms.date: 04/02/2021
 ms.author: victorh
-ms.openlocfilehash: 8922e6e0d5137a3a900e0f57f685d449c08b3f47
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4514717274cfb66fbfc0eee25b09aa9e1234ffad
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100596962"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106280333"
 ---
 # <a name="azure-firewall-logs-and-metrics"></a>Métricas y registros de Azure Firewall
 
@@ -181,6 +181,8 @@ Las siguientes métricas están disponibles para Azure Firewall:
     Unit: porcentaje
 
    Al agregar más direcciones IP públicas al firewall, hay más puertos SNAT disponibles, lo que reduce el uso de estos puertos. Además, cuando el firewall se escala horizontalmente por distintos motivos (por ejemplo, CPU o rendimiento), los puertos SNAT adicionales también pasan a estar disponibles. De forma eficaz, un porcentaje determinado del uso de puertos SNAT puede reducirse sin agregar ninguna dirección IP pública, simplemente porque el servicio se ha escalado horizontalmente. Puede controlar directamente el número de direcciones IP públicas disponibles para aumentar los puertos disponibles en el firewall. Sin embargo, no puede controlar directamente el escalado del firewall.
+
+   Si el firewall agota los puertos SNAT, debe agregar al menos cinco direcciones IP públicas. Así se aumenta el número de puertos SNAT disponibles. Para más información, consulte [Características de Azure Firewall](features.md#multiple-public-ip-addresses).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

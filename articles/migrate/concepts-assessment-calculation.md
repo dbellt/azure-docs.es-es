@@ -6,16 +6,16 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 05/27/2020
-ms.openlocfilehash: 7d756b53247206ab4dd4f955c954e6bd105afa1d
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: c8d625095fc979151ed904fb355b5953e41309b4
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104778498"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078713"
 ---
 # <a name="assessment-overview-migrate-to-azure-vms"></a>Introducción a la evaluación (migración a máquinas virtuales de Azure)
 
-Este artículo sirve de introducción a las evaluaciones en la herramienta [Azure Migrate: Detección y evaluación de servidores](migrate-services-overview.md). La herramienta puede evaluar servidores locales en entornos virtuales VMware e Hyper-V, y servidores físicos para su migración a Azure.
+Este artículo sirve de introducción a las evaluaciones en la herramienta [Azure Migrate: Detección y evaluación](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool). La herramienta puede evaluar servidores locales en entornos virtuales VMware e Hyper-V, y servidores físicos para su migración a Azure.
 
 ## <a name="whats-an-assessment"></a>¿Qué es una evaluación?
 
@@ -33,6 +33,9 @@ Existen tres tipos de evaluaciones que puede crear con Azure Migrate: Detección
 **MV de Azure** | Evaluaciones para la migración de los servidores locales a máquinas virtuales de Azure. Con este tipo de evaluación, puede evaluar los servidores locales en los entornos de [VMware](how-to-set-up-appliance-vmware.md) e [Hyper-V](how-to-set-up-appliance-hyper-v.md) y los [servidores físicos](how-to-set-up-appliance-physical.md) para la migración a máquinas virtuales de Azure.
 **SQL de Azure** | Evaluaciones para migrar las instancias locales de SQL Server desde su entorno de VMware a Azure SQL Database o a Azure SQL Managed Instance.
 **Azure VMware Solution (AVS)** | Evaluaciones para la migración de los servidores locales a [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). Puede evaluar las [máquinas virtuales de VMware](how-to-set-up-appliance-vmware.md) locales para la migración a Azure VMware Solution (AVS) con este tipo de evaluación. [Más información](concepts-azure-vmware-solution-assessment-calculation.md)
+
+> [!NOTE]
+> Si el número de evaluaciones de la máquina virtual de Azure o de AVS no es correcto en la herramienta de detección y evaluación, haga clic en el número total de evaluaciones para desplazarse a todas ellas y volver a calcularlas. La herramienta de detección y evaluación mostrará el recuento correcto de ese tipo de evaluación. 
 
 Las evaluaciones que crea con Azure Migrate son una instantánea de los datos de un momento dado. La evaluación de máquinas virtuales de Azure proporciona dos opciones de criterios de dimensionamiento:
 

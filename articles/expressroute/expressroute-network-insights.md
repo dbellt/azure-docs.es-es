@@ -5,32 +5,40 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 03/23/2021
+ms.date: 04/05/2021
 ms.author: duau
-ms.openlocfilehash: 7033ea6a1ba6d85f9aa15e14bb9577b2439c59a8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a5e01a4fc84f852b43e5a76114bebe145da10793
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105050343"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106443596"
 ---
 # <a name="azure-expressroute-insights-using-network-insights"></a>Azure ExpressRoute Insights mediante Network Insights
 
 En este artículo se explica cómo Network Insights puede ayudarle a ver las métricas y configuraciones de ExpressRoute en un solo lugar. A través de Network Insights, puede ver mapas topológicos y paneles de mantenimiento que contienen información importante de ExpressRoute sin necesidad de realizar ninguna configuración adicional.
 
-:::image type="content" source="./media/expressroute-network-insights/monitor-landing-page.png" alt-text="Captura de pantalla de la página de aterrizaje de supervisión de ExpressRoute." lightbox="./media/expressroute-network-insights/monitor-landing-page-expanded.png":::
+:::image type="content" source="./media/expressroute-network-insights/network-monitor-page.png" alt-text="Captura de pantalla de la página de aterrizaje del Monitor de redes." lightbox="./media/expressroute-network-insights/monitor-landing-page-expanded.png":::
 
 ## <a name="visualize-functional-dependencies"></a>Visualización de las dependencias funcionales
 
-Para ver esta solución, vaya a la página *Azure Monitor*, seleccione *Redes* y, a continuación, seleccione la tarjeta *Circuitos ExpressRoute*. A continuación, seleccione el botón de topología del circuito que desea ver.
+1. Vaya a la página *Azure Monitor* y seleccione *Redes*.
 
-La vista de dependencia funcional proporciona una imagen clara de la configuración de ExpressRoute y describe la relación entre distintos componentes de ExpressRoute (emparejamientos, conexiones, puertas de enlace).
+    :::image type="content" source="./media/expressroute-network-insights/monitor-page.png" alt-text="Captura de pantalla de la página de aterrizaje Monitor.":::
 
-:::image type="content" source="./media/expressroute-network-insights/topology-view.png" alt-text="Captura de pantalla de la vista de topología para Network Insights." lightbox="./media/expressroute-network-insights/topology-view-expanded.png":::
+1. Seleccione la tarjeta *Circuitos ExpressRoute*. 
 
-Mantenga el mouse sobre cualquier componente del mapa de topología para ver la información de configuración. Por ejemplo, mantenga el mouse sobre un componente de emparejamiento de ExpressRoute para ver detalles como el ancho de banda del circuito y la habilitación de la Global Reach.
+1. A continuación, seleccione el botón de topología del circuito que desea ver.
 
-:::image type="content" source="./media/expressroute-network-insights/topology-hovered.png" alt-text="Captura de pantalla manteniendo el mouse sobre los recursos de la vista de topología." lightbox="./media/expressroute-network-insights/topology-hovered-expanded.png":::
+   :::image type="content" source="./media/expressroute-network-insights/monitor-landing-page.png" alt-text="Captura de pantalla de la página de aterrizaje de supervisión de ExpressRoute." lightbox="./media/expressroute-network-insights/monitor-landing-page-expanded.png"::: 
+
+1. La vista de dependencia funcional proporciona una imagen clara de la configuración de ExpressRoute y describe la relación entre distintos componentes de ExpressRoute (emparejamientos, conexiones, puertas de enlace).
+
+    :::image type="content" source="./media/expressroute-network-insights/topology-view.png" alt-text="Captura de pantalla de la vista de topología para Network Insights." lightbox="./media/expressroute-network-insights/topology-view-expanded.png":::
+
+1. Mantenga el mouse sobre cualquier componente del mapa de topología para ver la información de configuración. Por ejemplo, mantenga el mouse sobre un componente de emparejamiento de ExpressRoute para ver detalles como el ancho de banda del circuito y la habilitación de la Global Reach.
+
+    :::image type="content" source="./media/expressroute-network-insights/topology-hovered.png" alt-text="Captura de pantalla manteniendo el mouse sobre los recursos de la vista de topología." lightbox="./media/expressroute-network-insights/topology-hovered-expanded.png":::
 
 ## <a name="view-a-detailed-and-pre-loaded-metrics-dashboard"></a>Visualización de un panel de métricas detallado y cargado previamente
 

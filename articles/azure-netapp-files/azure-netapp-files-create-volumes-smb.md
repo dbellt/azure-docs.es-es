@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 03/19/2021
+ms.date: 03/29/2021
 ms.author: b-juche
-ms.openlocfilehash: c673f7a9556193fb05e05ea372bfccd17cd3c5ed
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: d386b504475b308c2fb5146b47d3977cb87510f8
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104868518"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105935687"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Creación de un volumen de SMB para Azure NetApp Files
 
@@ -128,10 +128,12 @@ El acceso a un volumen SMB se administra mediante permisos.
 
 ### <a name="share-permissions"></a>Permisos de recursos compartidos  
 
-De forma predeterminada, un nuevo volumen tiene los permisos de recursos compartidos **Todos/Control total**. Los miembros del grupo Admins. del dominio pueden cambiar los permisos de recursos compartido mediante Administración de equipos en la cuenta de equipo que se usa para el volumen de Azure NetApp Files.
+De forma predeterminada, un nuevo volumen tiene los permisos de recursos compartidos **Todos/Control total**. Los miembros del grupo Administradores de dominio pueden cambiar los permisos de los recursos compartidos de la siguiente manera:  
 
-![Ruta de montaje de SMB](../media/azure-netapp-files/smb-mount-path.png) 
-![Establecer permisos de recurso compartido](../media/azure-netapp-files/set-share-permissions.png) 
+1. Asigne el recurso compartido a una unidad.  
+2. Haga clic con el botón derecho en la unidad, seleccione **Propiedades** y, luego, vaya a la pestaña **Seguridad**.
+
+[ ![Establecimiento de permisos de recursos compartidos](../media/azure-netapp-files/set-share-permissions.png)](../media/azure-netapp-files/set-share-permissions.png#lightbox)
 
 ### <a name="ntfs-file-and-folder-permissions"></a>Permisos de carpetas y archivos NTFS  
 

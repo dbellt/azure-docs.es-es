@@ -6,14 +6,14 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 03/21/2021
+ms.date: 04/05/2021
 ms.custom: references_regions
-ms.openlocfilehash: f77bd69f8266d9461481cd0a12a7b70107622de5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 751d475fcb2e8c96d05daa5b5e2144909d21a409
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104773460"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106382307"
 ---
 # <a name="azure-purview-connector-for-amazon-s3"></a>Conector de Azure Purview para Amazon S3
 
@@ -38,6 +38,7 @@ Para más información, consulte los límites documentados de Purview en:
 
 - [Administración y aumento de las cuotas de los recursos con Azure Purview](how-to-manage-quotas.md)
 - [Tipos de archivo y orígenes de datos admitidos en Azure Purview](sources-and-scans.md)
+- [Uso de puntos de conexión privados para la cuenta de Purview](catalog-private-link.md)
 ### <a name="storage-and-scanning-regions"></a>Regiones de almacenamiento y examen
 
 En la tabla siguiente se asignan las regiones en las que se almacenan los datos a la región en la que se examinarán con Azure Purview.
@@ -77,9 +78,13 @@ En la tabla siguiente se asignan las regiones en las que se almacenan los datos 
 
 Asegúrese de que ha completado los siguientes requisitos previos antes de agregar los cubos de Amazon S3 como orígenes de datos de Purview y examinar los datos de S3.
 
-- Tenga en cuenta que debe ser Administrador de orígenes de datos de Azure Purview.
-
-- Al agregar los cubos como recursos de Purview, necesitará los valores del [ARN de AWS](#retrieve-your-new-role-arn), el [nombre de cubo](#retrieve-your-amazon-s3-bucket-name) y, en ocasiones, el [identificador de cuenta de AWS](#locate-your-aws-account-id).
+> [!div class="checklist"]
+> * Tenga en cuenta que debe ser Administrador de orígenes de datos de Azure Purview.
+> * [Cree una cuenta de Purview](#create-a-purview-account) si aún no tiene una.
+> * [Creación de una credencial de Purview para el examen del cubo de AWS](#create-a-purview-credential-for-your-aws-bucket-scan)
+> * [Cree un nuevo rol de AWS para usar con Purview](#create-a-new-aws-role-for-purview).
+> * [Configure el examen de cubos de Amazon S3 cifrados](#configure-scanning-for-encrypted-amazon-s3-buckets), si corresponde.
+> * Al agregar los cubos como recursos de Purview, necesitará los valores del [ARN de AWS](#retrieve-your-new-role-arn), el [nombre de cubo](#retrieve-your-amazon-s3-bucket-name) y, en ocasiones, el [identificador de cuenta de AWS](#locate-your-aws-account-id).
 
 ### <a name="create-a-purview-account"></a>Creación de una cuenta de Purview
 
@@ -138,6 +143,13 @@ Para más información sobre las credenciales de Purview, consulte la [documenta
 1. En el área **Create role > Attach permissions policies** (Crear rol > Asociar directiva de permisos), filtre los permisos que se muestran por **S3**. Seleccione **AmazonS3ReadOnlyAccess** y, a continuación, seleccione **Next: Tags** (Siguiente: Etiquetas).
 
     ![Seleccione la directiva ReadOnlyAccess para el nuevo rol de examen de Amazon S3.](./media/register-scan-amazon-s3/aws-permission-role-amazon-s3.png)
+
+    > [!IMPORTANT]
+    > La directiva **AmazonS3ReadOnlyAccess** brinda los permisos mínimos necesarios para examinar los cubos S3, y también puede incluir otros permisos.
+    >
+    >Para aplicar solo los permisos mínimos necesarios para examinar los cubos, cree una nueva directiva con los permisos enumerados en [Permisos mínimos para la directiva de AWS](#minimum-permissions-for-your-aws-policy), en función de si quiere examinar un único cubo o todos los cubos de la cuenta. 
+    >
+    >Aplique la nueva directiva al rol en lugar de a **AmazonS3ReadOnlyAccess**.
 
 1. En el área **Add tags (optional)** (Agregar etiquetas [opcional]), puede optar por crear una etiqueta descriptiva para este nuevo rol. Las etiquetas útiles permiten organizar, realizar un seguimiento y controlar el acceso de cada rol que se crea.
 
@@ -396,6 +408,90 @@ Use las otras áreas de Purview para obtener información detallada sobre el con
     Todos los informes de Insights de Purview incluyen los resultados del examen de Amazon S3, junto con el resto de los resultados de los orígenes de datos de Azure. Cuando procede, se ha agregado un tipo de recurso adicional **Amazon S3** a las opciones de filtrado del informe.
 
     Para más información, consulte [Descripción de Insights en Azure Purview](concept-insights.md).
+
+## <a name="minimum-permissions-for-your-aws-policy"></a>Permisos mínimos para la directiva de AWS
+
+El procedimiento predeterminado para [crear un rol de AWS para Purview](#create-a-new-aws-role-for-purview) para usar al examinar los cubos S3 usa la directiva **AmazonS3ReadOnlyAccess**.
+
+La directiva **AmazonS3ReadOnlyAccess** brinda los permisos mínimos necesarios para examinar los cubos S3, y también puede incluir otros permisos.
+
+Para aplicar solo los permisos mínimos necesarios para examinar los cubos, cree una nueva directiva con los permisos enumerados en las secciones siguientes, en función de si quiere examinar un único cubo o todos los cubos de la cuenta.
+
+Aplique la nueva directiva al rol en lugar de a **AmazonS3ReadOnlyAccess**.
+
+### <a name="individual-buckets"></a>Cubos individuales
+
+Al examinar cubos S3 individuales, los permisos de AWS mínimos incluyen:
+
+- `GetBucketLocation`
+- `GetBucketPublicAccessBlock`
+- `GetObject`
+- `ListBucket`
+
+Asegúrese de definir el recurso con el nombre de cubo específico. Por ejemplo:
+
+```json
+{
+"Version": "2012-10-17",
+"Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetBucketLocation",
+                "s3:GetBucketPublicAccessBlock",
+                "s3:GetObject",
+                "s3:ListBucket"
+            ],
+            "Resource": "arn:aws:s3:::<bucketname>"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Resource": "arn:aws:s3::: <bucketname>/*"
+        }
+    ]
+}
+```
+
+### <a name="all-buckets-in-your-account"></a>Todos los cubos en su cuenta
+
+Al examinar todos los cubos en la cuenta de AWS, los permisos de AWS mínimos incluyen:
+
+- `GetBucketLocation`
+- `GetBucketPublicAccessBlock`
+- `GetObject`
+- `ListAllMyBuckets`
+- `ListBucket`.
+
+Asegúrese de definir el recurso con un carácter comodín. Por ejemplo:
+
+```json
+{
+"Version": "2012-10-17",
+"Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetBucketLocation",
+                "s3:GetBucketPublicAccessBlock",
+                "s3:GetObject",
+                "s3:ListAllMyBuckets",
+                "s3:ListBucket"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

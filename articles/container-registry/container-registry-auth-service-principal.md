@@ -2,17 +2,17 @@
 title: Autenticación con una entidad de servicio
 description: Proporcione acceso a las imágenes de su registro de contenedor privado mediante una entidad de servicio de Azure Active Directory.
 ms.topic: article
-ms.date: 10/04/2019
-ms.openlocfilehash: 8d49628576a1c337efaea3e5286fef00e39def17
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/15/2021
+ms.openlocfilehash: a32538e5fc5354427bafc5098634becdcedd1239
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "86259147"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285542"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>Autenticación de Azure Container Registry con entidades de servicio
 
-Puede usar una entidad de servicio de Azure Active Directory (Azure AD) para proporcionar a las imágenes de contenedor `docker push` y `pull` acceso a su registro de contenedor. Al usar una entidad de servicio, podrá proporcionar acceso a aplicaciones y servicios de "equipos sin periféricos".
+Puede usar una entidad de servicio de Azure Active Directory (Azure AD) para proporcionar el acceso de inserción, extracción u otro para su registro de contenedor. Al usar una entidad de servicio, podrá proporcionar acceso a aplicaciones y servicios de "equipos sin periféricos".
 
 ## <a name="what-is-a-service-principal"></a>¿Qué es una entidad de servicio?
 
@@ -52,7 +52,7 @@ Cuando disponga de una entidad de servicio con acceso a su registro de contenedo
 * **Nombre de usuario**: identificador de aplicación de la entidad de servicio (también denominado *identificador de cliente*)
 * **Contraseña**: contraseña de la entidad de servicio (también denominada *secreto de cliente*)
 
-Cada valor es un identificador único global con el formato `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. 
+Cada valor tiene el formato `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. 
 
 > [!TIP]
 > Puede volver a generar la contraseña de una entidad de servicio mediante el comando [az ad sp reset-credentials](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset).
@@ -66,7 +66,7 @@ Por ejemplo, use las credenciales para extraer una imagen de un registro de cont
 
 ### <a name="use-with-docker-login"></a>Uso con el inicio de sesión de Docker
 
-Puede ejecutar `docker login` mediante una entidad de servicio. En el ejemplo siguiente, el identificador de aplicación de la entidad de servicio se pasa en la variable de entorno `$SP_APP_ID` y la contraseña en la variable `$SP_PASSWD`. Si desea ver procedimientos recomendados para administrar credenciales de Docker, consulte la referencia del comando [docker login](https://docs.docker.com/engine/reference/commandline/login/).
+Puede ejecutar `docker login` mediante una entidad de servicio. En el ejemplo siguiente, el identificador de aplicación de la entidad de servicio se pasa en la variable de entorno `$SP_APP_ID` y la contraseña en la variable `$SP_PASSWD`. Si quiere ver los procedimientos recomendados para administrar credenciales de Docker, consulte la referencia del comando [docker login](https://docs.docker.com/engine/reference/commandline/login/).
 
 ```bash
 # Log in to Docker with service principal credentials

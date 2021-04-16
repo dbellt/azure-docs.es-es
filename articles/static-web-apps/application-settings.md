@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/08/2020
 ms.author: buhollan
 ms.custom: devx-track-js
-ms.openlocfilehash: 2886cb6433c4f8a65eb0661eded0ddd08248e137
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 152b96bee63b6d2280a807ca53842ed3a67ab67d
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102219189"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106279772"
 ---
 # <a name="configure-application-settings-for-azure-static-web-apps-preview"></a>Configuración de las opciones de la aplicación para la versión preliminar de Azure Static Web Apps
 
@@ -31,7 +31,7 @@ A las opciones de configuración de la aplicación también se les conoce a vece
 >
 > Para obtener información sobre el uso de variables de entorno con la aplicación web de front-end, consulte la documentación de su [marco de JavaScript](#javascript-frameworks-and-libraries) o [generador de sitios estáticos](#static-site-generators).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Una aplicación de Azure Static Web Apps
 - [CLI de Azure](/cli/azure/install-azure-cli)
@@ -168,4 +168,4 @@ La configuración de la aplicación está disponible para visualizarse a través
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Configuración del desarrollo local](local-development.md)
+> [Configuración de marcos de front-end](front-end-frameworks.md)

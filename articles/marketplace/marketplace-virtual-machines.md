@@ -8,18 +8,18 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: 0b5d0a8b12ad07c5be3a4cfc0840acc81aa0c395
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 6e391ca79c9dcf9ab533a7e67961c654b5f8630b
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106060740"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107103375"
 ---
 # <a name="plan-a-virtual-machine-offer"></a>Planificación de una oferta de máquina virtual
 
 En este artículo se explican los distintos requisitos y opciones para publicar una oferta de máquina virtual en el marketplace comercial. Las ofertas de máquinas virtuales son ofertas de transacciones que se implementan y facturan mediante Azure Marketplace.
 
-Antes de empezar, [cree una cuenta de marketplace comercial en el Centro de partners](./partner-center-portal/create-account.md) y asegúrese de que su cuenta esté inscrita en el programa de Marketplace comercial.
+Antes de empezar, [cree una cuenta de marketplace comercial en el Centro de partners](create-account.md) y asegúrese de que su cuenta esté inscrita en el programa de Marketplace comercial.
 
 ### <a name="technical-fundamentals"></a>Aspectos fundamentales técnicos
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/02/2019
 ms.author: sutalasi
-ms.openlocfilehash: 1b02b089fea7e883bdc6c58c7a2845af12b50a37
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ab2eb8a43fc75eea61a03bc25b2b6afc850d30aa
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96011955"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105644412"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>Configuración de la recuperación ante desastres para SQL Server
 
@@ -34,9 +34,9 @@ La elección de una tecnología de BCDR para recuperar instancias de SQL Server 
 
 Tipo de implementación | Tecnología de BCDR | RTO esperado para SQL Server | RPO esperado para SQL Server |
 --- | --- | --- | ---
-SQL Server en una máquina virtual de infraestructura como servicio (IaaS) de Azure o en un entorno local.| [Grupos de disponibilidad AlwaysOn](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server?view=sql-server-2017) | El tiempo necesario para convertir la réplica secundaria en principal. | Como la replicación a la réplica secundaria es asincrónica, se produce una pérdida de datos.
-SQL Server en una máquina virtual IaaS de Azure o en un entorno local.| [Clústeres de conmutación por error (FCI AlwaysOn)](/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server?view=sql-server-2017) | El tiempo necesario para realizar la conmutación por error entre los nodos. | Como Always On FCI usa almacenamiento compartido, está disponible la misma vista de la instancia de almacenamiento en la conmutación por error.
-SQL Server en una máquina virtual IaaS de Azure o en un entorno local.| [Creación de reflejo (modo de alto rendimiento)](/sql/database-engine/database-mirroring/database-mirroring-sql-server?view=sql-server-2017) | El tiempo necesario para forzar el servicio, que utiliza el servidor reflejado como servidor en espera semiactiva. | La replicación es asincrónica. La base de datos reflejada puede retrasarse un poco respecto a la base de datos principal. El retraso suele ser pequeño. Pero puede ser grande si el sistema de la entidad de seguridad o del servidor reflejado están sobrecargados.<br/><br/>El trasvase de registros puede ser un complemento a la creación de reflejo de la base de datos. Es una alternativa favorable a la creación de reflejo de la base de datos asincrónica.
+SQL Server en una máquina virtual de infraestructura como servicio (IaaS) de Azure o en un entorno local.| [Grupos de disponibilidad AlwaysOn](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) | El tiempo necesario para convertir la réplica secundaria en principal. | Como la replicación a la réplica secundaria es asincrónica, se produce una pérdida de datos.
+SQL Server en una máquina virtual IaaS de Azure o en un entorno local.| [Clústeres de conmutación por error (FCI AlwaysOn)](/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | El tiempo necesario para realizar la conmutación por error entre los nodos. | Como Always On FCI usa almacenamiento compartido, está disponible la misma vista de la instancia de almacenamiento en la conmutación por error.
+SQL Server en una máquina virtual IaaS de Azure o en un entorno local.| [Creación de reflejo (modo de alto rendimiento)](/sql/database-engine/database-mirroring/database-mirroring-sql-server) | El tiempo necesario para forzar el servicio, que utiliza el servidor reflejado como servidor en espera semiactiva. | La replicación es asincrónica. La base de datos reflejada puede retrasarse un poco respecto a la base de datos principal. El retraso suele ser pequeño. Pero puede ser grande si el sistema de la entidad de seguridad o del servidor reflejado están sobrecargados.<br/><br/>El trasvase de registros puede ser un complemento a la creación de reflejo de la base de datos. Es una alternativa favorable a la creación de reflejo de la base de datos asincrónica.
 SQL como plataforma como servicio (PaaS) en Azure.<br/><br/>Este tipo de implementación incluye las bases de datos únicas y los grupos elásticos. | Replicación geográfica activa | 30 segundos después de que se desencadene la conmutación por error.<br/><br/>Cuando se activa la conmutación por error a una de las bases de datos secundarias, las demás bases de datos secundarias se vinculan automáticamente a la nueva base de datos principal. | RPO de cinco segundos.<br/><br/>La replicación geográfica activa usa la tecnología Always On de SQL Server. Esta permite replicar de forma asincrónica las transacciones confirmadas en la base de datos principal a una base de datos secundaria mediante el aislamiento de instantánea.<br/><br/>Se garantiza que los datos secundarios nunca tengan transacciones parciales.
 SQL como PaaS configurado con replicación geográfica activa en Azure.<br/><br/>Este tipo de implementación incluye instancias administradas, grupos elásticos y bases de datos únicas. | Grupos de conmutación por error automática | RTO de una hora. | RPO de cinco segundos.<br/><br/>Los grupos de conmutación por error automática proporcionan la semántica de grupo sobre la replicación geográfica activa. Pero se usa el mismo mecanismo de replicación asincrónico.
 SQL Server en una máquina virtual IaaS de Azure o en un entorno local.| Replicación con Azure Site Recovery | El RTO es normalmente de menos de 15 minutos. Para más información, lea el [contrato de nivel de servicio de RTO proporcionado por Site Recovery](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). | Una hora para la coherencia de la aplicación y cinco minutos para la coherencia de bloqueo. Si busca un RPO más bajo, use otras tecnologías BCDR.

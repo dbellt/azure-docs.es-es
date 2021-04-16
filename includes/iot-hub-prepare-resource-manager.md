@@ -5,10 +5,10 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
 ms.openlocfilehash: 26c158145de6ce729d8a7060152b19fb14b63d58
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95563406"
 ---
 ## <a name="prepare-to-authenticate-azure-resource-manager-requests"></a>Prepararse para autenticar solicitudes de Azure Resource Manager
@@ -40,10 +40,10 @@ En los pasos siguientes se muestra cómo configurar la autenticación de contras
 2. Anote los valores de **TenantId** y **SubscriptionId**. Los necesitará más adelante.
 3. Cree una nueva aplicación de Azure Active Directory con el siguiente comando, reemplazando los marcadores de posición:
    
-   * **{Nombre para mostrar}** : nombre para mostrar de la aplicación, por ejemplo, **MySampleApp**.
+   * **{Nombre para mostrar}**: nombre para mostrar de la aplicación, por ejemplo, **MySampleApp**.
    * **{Dirección URL de la página principal}:** la dirección URL de la página principal de la aplicación, por ejemplo, **http:\//mysampleapp/home**. Esta dirección URL no tiene que señalar a una aplicación real.
-   * **{Application identifier}:** Un identificador único, como **http:\//mysampleapp**. Esta dirección URL no tiene que señalar a una aplicación real.
-   * **{Password}:** una contraseña que se usa para autenticarse en la aplicación.
+   * **{Identificador de aplicación}** : identificador único, por ejemplo, **http:\//mysampleapp**. Esta dirección URL no tiene que señalar a una aplicación real.
+   * **{Contraseña}:** una contraseña que se usa para autenticarse en la aplicación.
      
      ```powershell
      $SecurePassword=ConvertTo-SecureString {password} –asplaintext –force

@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 04/05/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: f22a55a65b7dc4fd4f714d880804e6fd65dbbe46
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0f5586b43143763ebf36adb15d96fdb2a91b5f5c
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101654381"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106443481"
 ---
 # <a name="configure-tokens-in-azure-active-directory-b2c"></a>Configuración de tokens en Azure Active Directory B2C
 
@@ -228,6 +228,10 @@ El elemento OutputClaim contiene los atributos siguientes:
 - **AlwaysUseDefaultValue**: fuerza el uso del valor predeterminado.
 
 ::: zone-end
+
+## <a name="authorization-code-lifetime"></a>Vigencia de los códigos de autorización
+
+Al usar el [flujo de código de autorización de OAuth 2.0](authorization-code-flow.md), la aplicación puede usar el código de autorización para solicitar un token de acceso para un recurso de destino. Los códigos de autorización son de corta duración y normalmente expiran después de unos 10 minutos. No se puede configurar la vigencia de los códigos de autorización. Asegúrese de que la aplicación canjee los códigos de autorización en un plazo de 10 minutos. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

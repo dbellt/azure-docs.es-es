@@ -1,18 +1,15 @@
 ---
 title: Escale la recuperación ante desastres de VMware/física con Azure Site Recovery
 description: Obtenga información sobre cómo configurar la recuperación ante desastres en Azure para grandes cantidades de servidores físicos o máquinas virtuales de VMware locales con Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
-ms.author: raynew
-ms.openlocfilehash: cc87429f269fba5083b87e2c328f0e21de9707ff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 869702c9eaac4a38f6b0e64311c772892ddd6d90
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102454354"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106580440"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Configuración de recuperación ante desastres a escala para servidores físicos o máquinas virtuales de VMware
 

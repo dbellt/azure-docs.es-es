@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 04/05/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9434bd4042798dc05a33401e1884e11a73774936
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 21f31a21921953148ae0438cee04d846706161cc
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102448343"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106382936"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-openid-connect-using-azure-active-directory-b2c"></a>Configuración de la suscripción y el inicio de sesión con OpenID Connect mediante Azure Active Directory B2C
 
@@ -43,7 +43,7 @@ Para permitir que los usuarios inicien sesión, el proveedor de identidades pide
 
 ## <a name="scope"></a>Ámbito
 
-Los ámbitos definen la información y los permisos que quiere recopilar del proveedor de identidades personalizado. Las solicitudes de OpenID Connect deben contener el valor del ámbito `openid` con el fin de recibir el token de id. del proveedor de identidades. Sin ese token de identificador, los usuarios no pueden iniciar sesión en Azure AD B2C mediante el proveedor de identidades personalizado. Pueden anexarse otros ámbitos separados con espacios. Consulte la documentación del proveedor de identidades personalizado para ver otros ámbitos disponibles.
+El ámbito define la información y los permisos que quiere recopilar del proveedor de identidades, por ejemplo `openid profile`. Para recibir el token de identificación del proveedor de identidades, se debe especificar el ámbito `openid`. Sin ese token de identificador, los usuarios no pueden iniciar sesión en Azure AD B2C mediante el proveedor de identidades personalizado. Pueden anexarse otros ámbitos separados con espacios. Consulte la documentación del proveedor de identidades personalizado para ver otros ámbitos disponibles.
 
 ## <a name="response-type"></a>Tipo de respuesta
 

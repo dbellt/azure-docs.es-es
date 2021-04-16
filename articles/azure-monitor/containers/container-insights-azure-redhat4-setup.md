@@ -3,12 +3,12 @@ title: Configuración de Red Hat OpenShift en Azure v4.x con Container insights
 description: En este artículo se describe cómo configurar la supervisión de un clúster de Kubernetes con Azure Monitor hospedado en la versión 4 o posterior de Red Hat OpenShift en Azure.
 ms.topic: conceptual
 ms.date: 03/05/2021
-ms.openlocfilehash: 02cb794463b965ebafef0b6861477dbf69227511
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7c44a7c6eea6182316d626e3e8501f9aa63eef78
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102506419"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106221524"
 ---
 # <a name="configure-azure-red-hat-openshift-v4x-with-container-insights"></a>Configuración de Red Hat OpenShift en Azure v4.x con Container insights
 
@@ -34,6 +34,8 @@ Container Insights admite la supervisión de la versión 4.x de Red Hat OpenShi
 - La CLI de Azure, versión 2.0.72 o posterior  
 
 - La herramienta de la CLI [Helm 3](https://helm.sh/docs/intro/install/)
+
+- La versión más reciente de la [CLI de OpenShift](https://docs.openshift.com/container-platform/4.7/cli_reference/openshift_cli/getting-started-cli.html)
 
 - [Bash versión 4](https://www.gnu.org/software/bash/)
 

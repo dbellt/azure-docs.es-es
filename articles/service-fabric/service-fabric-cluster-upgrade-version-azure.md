@@ -1,117 +1,185 @@
 ---
-title: Actualización de la versión de Azure Service Fabric de un clúster
-description: Actualice el código de Service Fabric o la configuración que ejecuta un clúster de Service Fabric, incluida la configuración del modo de actualización del clúster, la incorporación de puertos de aplicación, las revisiones del sistema operativo, etc. ¿Qué se puede esperar cuando se realizan actualizaciones?
-ms.topic: conceptual
-ms.date: 11/12/2018
-ms.openlocfilehash: 01fe916f0ee78c8481ac6b17b8f7409b47c852ee
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+title: Administración de actualizaciones del clúster de Service Fabric
+description: Administre cuándo y cómo se actualiza el entorno de ejecución del clúster de Service Fabric.
+ms.topic: how-to
+ms.date: 03/26/2021
+ms.openlocfilehash: 98c3300e5cc51c32d894397839879e25190d979b
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "90564294"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105731174"
 ---
-# <a name="upgrade-the-service-fabric-version-of-a-cluster"></a>Actualización de la versión de Service Fabric de un clúster
+# <a name="manage-service-fabric-cluster-upgrades"></a>Administración de actualizaciones del clúster de Service Fabric
 
-Para cualquier sistema moderno, diseñar la capacidad de actualización es clave para lograr el éxito a largo plazo de su producto. Un clúster de Azure Service Fabric es un recurso de su propiedad que está parcialmente administrado por Microsoft. En este artículo se describe cómo actualizar la versión de Service Fabric que se ejecuta en el clúster de Azure.
+Un clúster de Azure Service Fabric es un recurso de su propiedad, pero que está parcialmente administrado por Microsoft. Aquí se muestra cómo administrar cuándo y cómo Microsoft actualiza el clúster de Azure Service Fabric.
 
-Puede configurar el clúster para recibir las actualizaciones automáticas cuando Microsoft las publica o puede seleccionar la versión compatible de Service Fabric que desea que tenga el clúster.
+Para más información sobre los conceptos y los procesos de actualización de clústeres, consulte [Actualización de los clústeres de Azure Service Fabric](service-fabric-cluster-upgrade.md).
 
-Para ello, establezca el modo de actualización en la configuración del clúster en el portal o mediante Resource Manager en el momento de creación, o posteriormente en un clúster activo 
+## <a name="set-upgrade-mode"></a>Establecimiento del modo de actualización
+
+Puede configurar el clúster para recibir actualizaciones automáticas de Service Fabric a medida que se publican en Microsoft o elegir manualmente de una lista de versiones admitidas en la actualidad mediante la configuración del modo de actualización del clúster. Para ello, se puede usar el control *Modo de actualización de tejido* en Azure Portal o la opción `upgradeMode` de la plantilla de implementación del clúster.
+
+### <a name="azure-portal"></a>Azure Portal
+
+Con Azure Portal, elegirá entre actualizaciones automáticas o manuales al crear un clúster de Service Fabric.
+
+:::image type="content" source="media/service-fabric-cluster-upgrade/portal-new-cluster-upgrade-mode.png" alt-text="Elección entre actualizaciones automáticas o manuales al crear un clúster en Azure Portal a partir de las opciones avanzadas":::
+
+También puede alternar entre actualizaciones automáticas y manuales desde la sección **Actualizaciones de tejido** de un recurso de clúster existente.
+
+:::image type="content" source="./media/service-fabric-cluster-upgrade/fabric-upgrade-mode.png" alt-text="Selección de actualizaciones automáticas o manuales en la sección &quot;Actualizaciones de tejido&quot; del recurso de clúster en Azure Portal.":::
+
+### <a name="manual-upgrades-with-azure-portal"></a>Actualizaciones manuales con Azure Portal
+
+Al seleccionar la opción de actualización manual, lo único que se necesita para iniciar una actualización es seleccionar una de las versiones disponibles del menú desplegable y, luego, hacer clic en *Guardar*. A partir de ahí, la actualización del clúster se inicia de inmediato.
+
+Las [directivas de mantenimiento del clúster](#custom-policies-for-manual-upgrades) (una combinación del estado del nodo y el mantenimiento de todas las aplicaciones que se ejecutan en el clúster) se cumplen mientras dura la actualización. Si no se cumplen las directivas de mantenimiento del clúster, la actualización se revierte.
+
+Una vez que se hayan solucionado los problemas que provocó la reversión, deberá iniciar la actualización de nuevo, siguiendo los mismos pasos que antes.
+
+### <a name="resource-manager-template"></a>Plantilla de Resource Manager
+
+Para cambiar el modo de actualización del clúster mediante una plantilla de Resource Manager, especifique *Automática* o *Manual* en la propiedad `upgradeMode` de la definición del recurso *Microsoft.ServiceFabric/clusters*. Si elige actualizaciones manuales, establezca también `clusterCodeVersion` en una [versión de tejido compatible](#query-for-supported-cluster-versions) actualmente.
+
+:::image type="content" source="./media/service-fabric-cluster-upgrade/ARMUpgradeMode.PNG" alt-text="Captura de pantalla que muestra una plantilla, en la que se ha aplicado sangría al texto no cifrado para reflejar la estructura, y se han resaltado las propiedades &quot;clusterCodeVersion&quot; y &quot;upgradeMode&quot;.":::
+
+Después de una implementación correcta de la plantilla, se aplicarán los cambios al modo de actualización del clúster. Si el clúster está en modo manual, la actualización del clúster se iniciará automáticamente.
+
+Las [directivas de mantenimiento del clúster](#custom-policies-for-manual-upgrades) (una combinación del estado del nodo y el mantenimiento de todas las aplicaciones que se ejecutan en el clúster) se cumplen mientras dura la actualización. Si no se cumplen las directivas de mantenimiento del clúster, la actualización se revierte.
+
+Una vez que se hayan solucionado los problemas que provocó la reversión, deberá iniciar la actualización de nuevo, siguiendo los mismos pasos que antes.
+
+## <a name="wave-deployment-for-automatic-upgrades"></a>Implementación por oleadas para actualizaciones automáticas
+
+Con el modo de actualización automática, tiene la opción de habilitar el clúster para la implementación por oleadas. Con la implementación por oleadas, puede crear una canalización para actualizar los clústeres de prueba, ensayo y producción en secuencia, separados por el "tiempo de preparación" integrado para validar las próximas versiones de Service Fabric antes de que se actualicen los clústeres de producción.
+
+### <a name="enable-wave-deployment"></a>Habilitación de la implementación por oleadas
 
 > [!NOTE]
-> Asegúrese de que tiene siempre una versión admitida de Service Fabric en ejecución en el clúster. Cuando anunciamos el lanzamiento de una nueva versión de Service Fabric, se marca la versión anterior para que finalice el soporte después de un mínimo de 60 días a partir de esa fecha. Las nuevas versiones se anuncian [en el blog del equipo de Service Fabric](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric). La nueva versión estará disponible para su elección a partir de ese momento. 
-> 
-> 
+> La implementación por oleadas requiere la versión de API `2020-12-01-preview` (o posterior) del recurso *Microsoft.ServiceFabric/clusters*.
 
-14 días antes de la expiración de la versión que se está ejecutando en el clúster, se genera un evento de mantenimiento que coloca el clúster en un estado de mantenimiento de advertencia. El clúster permanece en un estado de advertencia hasta que actualiza a una versión compatible de Service Fabric.
+Para habilitar la implementación por oleadas para la actualización automática, determine primero la oleada que asignará el clúster:
 
-## <a name="set-the-upgrade-mode-in-the-azure-portal"></a>Establecimiento del modo de actualización en Azure Portal
-Puede establecer el clúster en Automático o en Manual al crearlo.
+* **Oleada 0** (`Wave0`): los clústeres se actualizan en cuanto se publica una nueva compilación de Service fabric. Prevista para clústeres de desarrollo y pruebas.
+* **Oleada 1** (`Wave1`): los clústeres se actualizan una semana (siete días) después de que se lance una nueva compilación. Prevista para clústeres de preproducción y ensayo.
+* **Oleada 2** (`Wave2`): los clústeres se actualizan dos semanas (14 días) después de que se lance una nueva compilación. Prevista para los clústeres de producción.
 
-![Captura de pantalla en la que se muestra el panel Crear clúster de Service Fabric con la opción 2 Configuración de clúster seleccionada y el panel Configuración de clúster abierto.][Create_Manualmode]
+A continuación, agregue simplemente una propiedad `upgradeWave` a la plantilla de recursos del clúster con uno de los valores de oleada enumerados anteriormente. Asegúrese de que la versión de API de recursos del clúster sea `2020-12-01-preview` o posterior.
 
-Puede establecer el clúster en Automático o en Manual en un clúster activo, mediante la experiencia de administración. 
-
-### <a name="upgrading-to-a-new-version-on-a-cluster-that-is-set-to-manual-mode-via-portal"></a>Actualización a una nueva versión en un clúster que está establecido en modo Manual a través del portal.
-Para actualizar a una nueva versión, solo tiene que seleccionar la versión disponible en la lista desplegable y guardar. La actualización de Service Fabric se pondrá en marcha automáticamente. Las directivas de mantenimiento del clúster (una combinación del estado del nodo y el estado de todas las aplicaciones que se ejecutan en el clúster) se cumplen mientras dura la actualización.
-
-Si no se cumplen las directivas de mantenimiento del clúster, la actualización se revierte. Desplácese hacia abajo en este documento para más información sobre cómo configurar las directivas de mantenimiento personalizado. 
-
-Una vez que haya solucionado los problemas que provocaron la reversión, debe iniciar la actualización de nuevo, siguiendo los mismos pasos que antes.
-
-![Captura de pantalla en la que se muestra la ventana Clústeres de Service Fabric con el panel Actualizaciones de tejido abierto y las opciones de actualización resaltadas, como Automática y Manual.][Manage_Automaticmode]
-
-## <a name="set-the-upgrade-mode-using-a-resource-manager-template"></a>Establecimiento del modo de actualización con una plantilla de Resource Manager
-Agregue la configuración de "upgradeMode" a la definición de recursos de Microsoft.ServiceFabric/clusters y establezca "clusterCodeVersion" en una de las versiones compatibles de Service Fabric como se muestra a continuación y, después, implemente la plantilla. Los valores válidos para "upgradeMode" son "Manual" o "Automático"
-
-![Captura de pantalla en la que se muestra una plantilla, en la que se ha aplicado sangría al texto no cifrado para reflejar la estructura, y se ha resaltado clusterCodeVersion y upgradeMode.][ARMUpgradeMode]
-
-### <a name="upgrading-to-a-new-version-on-a-cluster-that-is-set-to-manual-mode-via-a-resource-manager-template"></a>Actualización a una nueva versión en un clúster que está establecido en modo Manual a través de una plantilla de Resource Manager.
-Si el clúster está en modo Manual, para actualizar a una nueva versión, cambie "clusterCodeVersion" a una versión compatible e impleméntela. La implementación de la plantilla hace que se ponga en marcha automáticamente la actualización de Service Fabric. Las directivas de mantenimiento del clúster (una combinación del estado del nodo y el estado de todas las aplicaciones que se ejecutan en el clúster) se cumplen mientras dura la actualización.
-
-Si no se cumplen las directivas de mantenimiento del clúster, la actualización se revierte.  
-
-Una vez que haya solucionado los problemas que provocaron la reversión, debe iniciar la actualización de nuevo, siguiendo los mismos pasos que antes.
-
-## <a name="set-custom-health-polices-for-upgrades"></a>Establecimiento de las directivas de mantenimiento personalizado para las actualizaciones
-Puede especificar directivas de mantenimiento personalizado para la actualización de Service Fabric. Si ha configurado el clúster para que las actualizaciones de Service Fabric se realicen automáticamente, estas directivas se aplicarán en la [fase 1 de las actualizaciones automáticas de Service Fabric.](service-fabric-cluster-upgrade.md#fabric-upgrade-behavior-during-automatic-upgrades)
-Si ha configurado el clúster para que las actualizaciones de Service Fabric se realicen de forma manual, estas directivas se aplicarán cada vez que seleccione una nueva versión, lo cual hará que el sistema ponga en marcha la actualización de Service Fabric en el clúster. Si no reemplaza las directivas, se usarán los valores predeterminados.
-
-Puede especificar las directivas de mantenimiento personalizado o revisar la configuración actual en la hoja "actualización de Service Fabric", seleccionando la configuración avanzada de la actualización. Revise la siguiente imagen sobre cómo hacerlo. 
-
-![Administración de las directivas de mantenimiento personalizado][HealthPolices]
-
-## <a name="list-all-available-versions-for-all-environments-for-a-given-subscription"></a>Obtención de la lista de todas las versiones disponibles para todos los entornos de una suscripción determinada
-Ejecute el siguiente comando, debería obtener una salida similar a esta.
-
-"supportExpiryUtc" le indica cuándo expira o ha expirado una determinada versión. La última versión no tiene una fecha válida: tiene un valor de "9999-12-31T23:59:59.9999999", lo que significa simplemente que la fecha de expiración no se ha establecido aún.
-
-```REST
-GET https://<endpoint>/subscriptions/{{subscriptionId}}/providers/Microsoft.ServiceFabric/locations/{{location}}/clusterVersions?api-version=2016-09-01
-
-Example: https://management.azure.com/subscriptions/1857f442-3bce-4b96-ad95-627f76437a67/providers/Microsoft.ServiceFabric/locations/eastus/clusterVersions?api-version=2016-09-01
-
-Output:
+```json
 {
-                  "value": [
-                    {
-                      "id": "subscriptions/35349203-a0b3-405e-8a23-9f1450984307/providers/Microsoft.ServiceFabric/environments/Windows/clusterVersions/5.0.1427.9490",
-                      "name": "5.0.1427.9490",
-                      "type": "Microsoft.ServiceFabric/environments/clusterVersions",
-                      "properties": {
-                        "codeVersion": "5.0.1427.9490",
-                        "supportExpiryUtc": "2016-11-26T23:59:59.9999999",
-                        "environment": "Windows"
-                      }
-                    },
-                    {
-                      "id": "subscriptions/35349203-a0b3-405e-8a23-9f1450984307/providers/Microsoft.ServiceFabric/environments/Windows/clusterVersions/4.0.1427.9490",
-                      "name": "5.1.1427.9490",
-                      "type": " Microsoft.ServiceFabric/environments/clusterVersions",
-                      "properties": {
-                        "codeVersion": "5.1.1427.9490",
-                        "supportExpiryUtc": "9999-12-31T23:59:59.9999999",
-                        "environment": "Windows"
-                      }
-                    },
-                    {
-                      "id": "subscriptions/35349203-a0b3-405e-8a23-9f1450984307/providers/Microsoft.ServiceFabric/environments/Windows/clusterVersions/4.4.1427.9490",
-                      "name": "4.4.1427.9490",
-                      "type": " Microsoft.ServiceFabric/environments/clusterVersions",
-                      "properties": {
-                        "codeVersion": "4.4.1427.9490",
-                        "supportExpiryUtc": "9999-12-31T23:59:59.9999999",
-                        "environment": "Linux"
-                      }
-                    }
-                  ]
-                }
+    "apiVersion": "2020-12-01-preview",
+    "type": "Microsoft.ServiceFabric/clusters",
+     ...
+        "fabricSettings": [...],
+        "managementEndpoint": ...,
+        "nodeTypes": [...],
+        "provisioningState": ...,
+        "reliabilityLevel": ...,
+        "upgradeMode": "Automatic",
+        "upgradeWave": "Wave1",
+       ...
 ```
 
+Una vez que implemente la plantilla actualizada, el clúster se inscribirá en la oleada especificada en el siguiente período de actualización y con posterioridad a este.
+
+Puede [registrarse para recibir notificaciones por correo electrónico](#register-for-notifications) con vínculos a ayuda adicional por si se produce un error en una actualización del clúster.
+
+### <a name="register-for-notifications"></a>Registro de notificaciones
+
+Puede registrarse para recibir notificaciones cuando se produzca un error en una actualización del clúster. Se enviará un correo electrónico a las direcciones de correo electrónico designadas con más detalles sobre el error de actualización y vínculos a ayuda adicional.
+
+> [!NOTE]
+> No es necesario inscribirse en la implementación por oleadas para recibir notificaciones de errores de actualización.
+
+Para inscribirse en las notificaciones, agregue una sección `notifications` a la plantilla de recursos del clúster y designe una o varias direcciones de correo electrónico (*destinatarios*) para recibir notificaciones:
+
+```json
+    "apiVersion": "2020-12-01-preview",
+    "type": "Microsoft.ServiceFabric/clusters",
+     ...
+        "upgradeMode": "Automatic",
+        "upgradeWave": "Wave1",
+        "notifications": [
+        {
+            "isEnabled": true,
+            "notificationCategory": "WaveProgress",
+            "notificationLevel": "Critical",
+            "notificationTargets": [
+            {
+                "notificationChannel": "EmailUser",
+                "receivers": [
+                    "devops@contoso.com"
+                ]
+            }]
+        }]
+```
+
+Una vez que implemente la plantilla actualizada, se le inscribirá en las notificaciones de errores de actualización.
+
+## <a name="custom-policies-for-manual-upgrades"></a>Directivas personalizadas para actualizaciones manuales
+
+Puede especificar directivas de mantenimiento personalizadas para las actualizaciones manuales del clúster. Estas directivas se aplican cada vez que se selecciona una nueva versión de tiempo de ejecución, que hace que el sistema inicie la actualización del clúster. Si no reemplaza las directivas, se usarán los valores predeterminados.
+
+Puede especificar las directivas de mantenimiento personalizadas o revisar la configuración actual en la sección **Actualizaciones de tejido** del recurso de clúster en Azure Portal; para ello, seleccione la opción *Personalizada* de **Directiva de actualización**.
+
+:::image type="content" source="./media/service-fabric-cluster-upgrade/custom-upgrade-policy.png" alt-text="Selección de la opción de directiva de actualización &quot;Personalizada&quot; en la sección &quot;Actualizaciones de tejido&quot; del recurso de clúster en Azure Portal para establecer directivas de mantenimiento personalizadas durante la actualización":::
+
+## <a name="query-for-supported-cluster-versions"></a>Consulta de las versiones de clúster compatibles
+
+Puede usar la [API REST de Azure](/rest/api/azure/) para enumerar todas las versiones del entorno de ejecución de Service Fabric ([clusterVersions](/rest/api/servicefabric/sfrp-api-clusterversions_list)) disponibles para la ubicación y la suscripción especificadas.
+
+También puede consultar las [versiones de Service Fabric](service-fabric-versions.md) para más información sobre las versiones y los sistemas operativos compatibles.
+
+```REST
+GET https://<endpoint>/subscriptions/{{subscriptionId}}/providers/Microsoft.ServiceFabric/locations/{{location}}/clusterVersions?api-version=2018-02-01
+
+"value": [
+  {
+    "id": "subscriptions/########-####-####-####-############/providers/Microsoft.ServiceFabric/environments/Windows/clusterVersions/5.0.1427.9490",
+    "name": "5.0.1427.9490",
+    "type": "Microsoft.ServiceFabric/environments/clusterVersions",
+    "properties": {
+      "codeVersion": "5.0.1427.9490",
+      "supportExpiryUtc": "2016-11-26T23:59:59.9999999",
+      "environment": "Windows"
+    }
+  },
+  {
+    "id": "subscriptions/########-####-####-####-############/providers/Microsoft.ServiceFabric/environments/Windows/clusterVersions/4.0.1427.9490",
+    "name": "5.1.1427.9490",
+    "type": " Microsoft.ServiceFabric/environments/clusterVersions",
+    "properties": {
+      "codeVersion": "5.1.1427.9490",
+      "supportExpiryUtc": "9999-12-31T23:59:59.9999999",
+      "environment": "Windows"
+    }
+  },
+  {
+    "id": "subscriptions/########-####-####-####-############/providers/Microsoft.ServiceFabric/environments/Windows/clusterVersions/4.4.1427.9490",
+    "name": "4.4.1427.9490",
+    "type": " Microsoft.ServiceFabric/environments/clusterVersions",
+    "properties": {
+      "codeVersion": "4.4.1427.9490",
+      "supportExpiryUtc": "9999-12-31T23:59:59.9999999",
+      "environment": "Linux"
+    }
+  }
+]
+}
+```
+
+`supportExpiryUtc` en la salida informa de cuando una versión determinada expira o ha expirado. La última versión no tiene una fecha válida, sino un valor de *9999-12-31T23:59:59.9999999*, lo que significa simplemente que la fecha de expiración no se ha establecido aún.
+
+
 ## <a name="next-steps"></a>Pasos siguientes
-* Aprender a personalizar la [configuración de Service Fabric para el clúster](service-fabric-cluster-fabric-settings.md)
-* Aprenda cómo [escalar o reducir horizontalmente el clúster](service-fabric-cluster-scale-in-out.md)
+
+* [Administración de actualizaciones de Service Fabric](service-fabric-cluster-upgrade-version-azure.md)
+* [Personalización de la configuración de un clúster de Service Fabric](service-fabric-cluster-fabric-settings.md)
+* [Escalar o reducir horizontalmente el clúster](service-fabric-cluster-scale-in-out.md)
 * Obtenga información sobre [actualizaciones de aplicaciones](service-fabric-application-upgrade.md)
+
 
 <!--Image references-->
 [CertificateUpgrade]: ./media/service-fabric-cluster-upgrade/CertificateUpgrade2.png

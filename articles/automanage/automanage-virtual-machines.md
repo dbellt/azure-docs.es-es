@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/23/2021
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: 1d3b2174df5dd83852ce120ec6693ae187a3e795
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e4e1d22e2e7175135e88a08ed5a6d5ae7f021d49
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101643533"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106491291"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Azure Automanage para máquinas virtuales
 
@@ -70,12 +70,14 @@ Si va a habilitar Automanage con una cuenta de Automanage nueva:
 Si va a habilitar Automanage con una cuenta de Automanage existente:
 * Rol de **Colaborador** en el grupo de recursos que contiene las máquinas virtuales
 
+Se concederá a la cuenta de Automanage permisos de **Colaborador** y **Colaborador de directivas de recursos** para realizar acciones en las máquinas de Automanage.
+
 > [!NOTE]
 > Si quiere usar Automanage en una máquina virtual que está conectada a un área de trabajo en una suscripción diferente, debe tener los permisos descritos anteriormente en cada suscripción.
 
 ## <a name="participating-services"></a>Servicios participantes
 
-:::image type="content" source="media\automanage-virtual-machines\intelligently-onboard-services.png" alt-text="Incorporación inteligente de servicios.":::
+:::image type="content" source="media\automanage-virtual-machines\intelligently-onboard-services-1.png" alt-text="Incorporación inteligente de servicios.":::
 
 Para obtener una lista completa de los servicios de Azure participantes, así como su entorno compatible, consulte estos temas:
 - [Automanage para Linux](automanage-linux.md)
@@ -94,6 +96,19 @@ Si es la primera vez que habilita Automanage en la máquina virtual, puede busca
 
 El único caso en que podría tener que interactuar con esta máquina virtual para administrar estos servicios es si intentamos corregir la máquina virtual, pero no lo conseguimos. Si hemos corregido la máquina virtual correctamente, la devolveremos a su estado de conformidad sin avisarle. Para más información, consulte [Estado de las máquinas virtuales](#status-of-vms).
 
+## <a name="enabling-automanage-for-vms-using-azure-policy"></a>Habilitación de Automanage para las máquinas virtuales mediante Azure Policy
+También puede habilitar Automanage en las máquinas virtuales a escala mediante la instancia de Azure Policy integrada. La directiva tiene un efecto de DeployIfNotExists, lo que significa que todas las máquinas virtuales que se encuentren dentro del ámbito de la directiva se incorporarán automáticamente a los procedimientos recomendados de VM de Automanage.
+
+[Este es un vínculo directo ](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F270610db-8c04-438a-a739-e8e6745b22d3) a la directiva.
+
+### <a name="how-to-apply-the-policy"></a>Cómo aplicar la directiva
+1. Haga clic en el botón **Asignar** mientras visualiza la definición de directiva.
+1. Seleccione el ámbito en el que quiere aplicar la directiva (puede ser un grupo de administración, suscripción o grupo de recursos).
+1. En **Parámetros**, especifique los parámetros de la cuenta de Automanage, el perfil de configuración y el efecto (normalmente, el efecto debe ser DeployIfNotExists)
+    1. Si no tiene ninguna cuenta de Automanage, deberá [crear una](#create-an-automanage-account).
+1. En **Corrección**, active la casilla "Click a remediation task" (Hacer clic en una tarea de corrección). Esto llevará a cabo la incorporación a Automanage.
+1. Haga clic en **Revisar y crear** y asegúrese de que toda la configuración sea correcta.
+1. Haga clic en **Crear**.
 
 ## <a name="environment-configuration"></a>Configuración del entorno
 
@@ -142,6 +157,43 @@ Si habilita Automanage con una cuenta de Automanage existente, debe tener el rol
 > [!NOTE]
 > Al deshabilitar los procedimientos recomendados de Automanage, se conservarán los permisos de la cuenta de Automanage en las suscripciones asociadas. Para quitar manualmente los permisos, vaya a la página IAM de la suscripción o elimine la cuenta de Automanage. No se puede eliminar la cuenta de Automanage si sigue administrando las máquinas.
 
+### <a name="create-an-automanage-account"></a>Creación de una cuenta de Automanage
+Puede crear una cuenta de Automanage mediante el portal o mediante una plantilla de ARM.
+
+#### <a name="portal"></a>Portal
+1. Vaya a la hoja **Automanage** del portal.
+1. Haga clic en **Habilitar en la máquina existente**.
+1. En **Avanzado**, haga clic en "Crear una nueva cuenta".
+1. Rellene los campos obligatorios y haga clic en **Crear**.
+
+#### <a name="arm-template"></a>Plantilla ARM
+Guarde la siguiente plantilla de ARM como `azuredeploy.json` y ejecute el siguiente comando: `az deployment group create --resource-group <resource group name> --template-file azuredeploy.json`.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "automanageAccountName": {
+            "type": "String"
+        },
+        "location": {
+            "type": "String"
+        }
+    },
+    "resources": [
+        {
+            "apiVersion": "2020-06-30-preview",
+            "type": "Microsoft.Automanage/accounts",
+            "name": "[parameters('automanageAccountName')]",
+            "location": "[parameters('location')]",
+            "identity": {
+                "type": "SystemAssigned"
+            }
+        }
+    ]
+}
+```
 
 ## <a name="status-of-vms"></a>Estado de las máquinas virtuales
 

@@ -2,14 +2,14 @@
 title: Simulación de errores en microservicios de Azure
 description: En este artículo se habla sobre las acciones de capacidad de prueba que se encuentra en el servicio de Microsoft Azure Fabric.
 ms.topic: conceptual
-ms.date: 06/07/2017
+ms.date: 03/26/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c57f54096a9593f5ab25a5722d3f2d2b9878b511
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9f8221d92ded33350b182cce5d28dd889beae4a5
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100595023"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732880"
 ---
 # <a name="testability-actions"></a>Acciones de Testability
 Para simular una infraestructura no confiable, Azure Service Fabric proporciona a los desarrolladores distintas formas de simular varios errores y transiciones de estados que se producen en escenarios reales. Dichas formas se exponen como acciones de Testability. Las acciones son las API de bajo nivel que provocan una inserción de errores específicos, una transición de estado o una validación. Mediante la combinación de estas acciones, puede escribir escenarios de prueba completos para los servicios.
@@ -34,6 +34,7 @@ Para mejorar la calidad de la validación, ejecute la carga de trabajo del servi
 | InvokeQuorumLoss |Coloca una partición determinada del servicio con estado en pérdida de quórum. |InvokeQuorumLossAsync |Invoke-ServiceFabricQuorumLoss |Estable |
 | MovePrimary |Mueve la réplica principal especificada del servicio con estado al nodo de clúster especificado. |MovePrimaryAsync |Move-ServiceFabricPrimaryReplica |Estable |
 | MoveSecondary |Mueve la réplica secundaria actual de un servicio con estado a otro nodo de clúster. |MoveSecondaryAsync |Move-ServiceFabricSecondaryReplica |Estable |
+| MoveInstance | Mueve la instancia actual de un servicio sin estado a otro nodo del clúster. | MoveInstanceAsync | Move-ServiceFabricInstance | Estable |
 | RemoveReplica |Simula un error de réplica mediante la eliminación de una réplica de un clúster. Esto cerrará la réplica y realizará su transición al rol 'None', con lo que quitará todo su estado del clúster. |RemoveReplicaAsync |Remove-ServiceFabricReplica |Estable |
 | RestartDeployedCodePackage |Simula un error de proceso del paquete de código mediante el reinicio de un paquete de código implementado en un nodo de un clúster. Esto anula el proceso del paquete de código que reiniciará todas las réplicas del servicio de usuario hospedadas en dicho proceso. |RestartDeployedCodePackageAsync |Restart-ServiceFabricDeployedCodePackage |Inestable |
 | RestartNode |Simula un error de nodo de clúster de Service Fabric mediante el reinicio de un nodo. |RestartNodeAsync |Restart-ServiceFabricNode |Inestable |
