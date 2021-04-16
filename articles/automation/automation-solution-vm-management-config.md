@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 03/12/2021
 ms.topic: conceptual
 ms.openlocfilehash: dfabb3ef521b496a073d502efd4fd672cfcf3b8c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104597747"
 ---
 # <a name="configure-startstop-vms-during-off-hours"></a>Configuración de la solución Start/Stop VMs during off-hours
@@ -137,7 +137,7 @@ Para cambiar las notificaciones de correo electrónico después de implementar l
 > [!NOTE]
 > Las suscripciones en la nube de Azure Government no admiten la funcionalidad de correo electrónico de esta característica.
 
-1. En Azure Portal, haga clic en **Alertas** en **Supervisión** y, a continuación, en **Administrar acciones**. En la página **Administrar acciones**, asegúrese de que se encuentra en la pestaña **Grupos de acciones**. Seleccione el grupo de acciones denominado **StartStop_VM_Notification**.
+1. En Azure Portal, haga clic en **Alertas** en **Supervisión** y, a continuación, en **Administrar acciones**. En la página **Administrar acciones**, asegúrese de que se encuentra en la pestaña **Grupos de acciones**. Seleccione el grupo de acciones llamado **StartStop_VM_Notification**.
 
     :::image type="content" source="media/automation-solution-vm-management/azure-monitor-sm.png" alt-text="Captura de pantalla de la página Supervisar: grupos de acciones." lightbox="media/automation-solution-vm-management/azure-monitor-lg.png":::
 

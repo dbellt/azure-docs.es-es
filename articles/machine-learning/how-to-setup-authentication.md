@@ -8,15 +8,15 @@ ms.author: cgronlun
 ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 11/05/2020
+ms.date: 04/02/2021
 ms.topic: conceptual
 ms.custom: how-to, has-adal-ref, devx-track-js, devx-track-azurecli, contperf-fy21q2
-ms.openlocfilehash: 30e4fede72df8eaf922745e7781c9e0d11f7ddb4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ee767cbeafcce604ecb4a79ce0fdf21c70bbb47c
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102210825"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219644"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Configuración de la autenticación para recursos y flujos de trabajo de Azure Machine Learning
 
@@ -70,12 +70,6 @@ La forma más fácil de crear una entidad de servicio y de conceder acceso al á
     Si tiene varias suscripciones de Azure, puede usar el comando `az account set -s <subscription name or ID>` para establecer la suscripción. Para más información, consulte [Use multiple Azure subscriptions](/cli/azure/manage-azure-subscriptions-azure-cli) (Uso de varias suscripciones de Azure).
 
     Para obtener otros métodos de autenticación, consulte [Inicio de sesión con la CLI de Azure](/cli/azure/authenticate-azure-cli).
-
-1. Instale la extensión de Azure Machine Learning:
-
-    ```azurecli-interactive
-    az extension add -n azure-cli-ml
-    ```
 
 1. Cree la entidad de servicio. En el ejemplo siguiente, se crea una entidad de servicio denominada **ml-auth**:
 
@@ -143,7 +137,7 @@ La forma más fácil de crear una entidad de servicio y de conceder acceso al á
 
 1. En [Azure Portal](https://portal.azure.com), seleccione el área de trabajo y, a continuación, __Control de acceso (IAM)__ , __Agregar asignación de rol__ y __Máquina virtual__ en la lista desplegable __Asignar acceso a__. Por último, seleccione la identidad de la máquina virtual.
 
-1. Seleccione el rol que se asignará a esta identidad. Por ejemplo, el de colaborador o un rol personalizado. Para obtener más información, consulte [Control de acceso a los recursos](how-to-assign-roles.md).
+1. Seleccione el rol que se asignará a esta identidad. Por ejemplo, el de colaborador o un rol personalizado. Para más información, consulte [Control de acceso a los recursos](how-to-assign-roles.md).
 
 ### <a name="managed-identity-with-compute-cluster"></a>Identidad administrada con un clúster de proceso
 

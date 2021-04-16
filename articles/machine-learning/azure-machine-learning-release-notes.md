@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 02/18/2021
-ms.openlocfilehash: 04ed2e76797474a65d5c7c669066926225c1c1f9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ea7eda7e50e7d8733fd24a63d533272e5bca6bab
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103471742"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106166690"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de la versión de Azure Machine Learning
 
@@ -22,6 +22,21 @@ En este artículo conocerá las versiones de Azure Machine Learning.  Para obten
 
 __Fuente RSS__: reciba notificaciones cuando esta página se actualice copiando y pegando la siguiente dirección URL en su lector de fuentes: `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
 
+## <a name="2021-03-31"></a>31-03-2021
+### <a name="azure-machine-learning-studio-notebooks-experience-march-update"></a>Experiencia con Cuadernos de Azure Machine Learning Studio (actualización de marzo)
++ **Nuevas características:**
+  + Representación de CSV/TSV. Los usuarios podrán representar un archivo TSV/CSV en formato de cuadrícula para facilitar el análisis de datos. 
+  + Autenticación de SSO para la instancia de proceso. Ahora los usuarios pueden autenticar fácilmente cualquier instancia de proceso nueva directamente en la interfaz de usuario de Notebook, lo que facilita la autenticación y el uso de los SDK de Azure directamente en AzureML. 
+  + Métricas de instancias de proceso. Los usuarios podrán ver las métricas del proceso, como el uso de la CPU y la memoria, mediante el terminal.
+  + Detalles de los archivos. Ahora los usuarios pueden hacer clic en los tres puntos situados junto a un archivo para ver sus detalles, incluidos la hora de la última modificación y el tamaño del archivo.
+
++ **Mejoras y correcciones de errores**
+  + Tiempos de carga de páginas mejorados.
+  + Rendimiento mejorado.
+  + Confiabilidad de kernel y velocidad mejoradas.
+  + Mueva de manera permanente el panel de archivos de Notebook hacia arriba para obtener espacio vertical.
+  + Ahora se puede hacer clic en los vínculos en el terminal.
+  + Rendimiento de IntelliSense mejorado.
 
 ## <a name="2021-03-08"></a>2021-03-08
 
@@ -56,9 +71,9 @@ __Fuente RSS__: reciba notificaciones cuando esta página se actualice copiando 
 ## <a name="2021-02-28"></a>2021-02-28
 ### <a name="azure-machine-learning-studio-notebooks-experience-february-update"></a>Experiencia con cuadernos de Estudio de Azure Machine Learning (actualización de febrero)
 + **Nuevas características:**
-  + [Terminal nativo (GA)](https://docs.microsoft.com/azure/machine-learning/how-to-access-terminal). Los usuarios ahora podrán acceder a un terminal integrado, así como a la operación de Git, por medio del terminal integrado.
+  + [Terminal nativo (GA)](./how-to-access-terminal.md). Los usuarios ahora podrán acceder a un terminal integrado, así como a la operación de Git, por medio del terminal integrado.
   + [Fragmentos de código de Notebook (versión preliminar)](https://azure.github.io/azureml-web/docs/vs-code-snippets/snippets). Ahora tiene disponibles a su alcance extractos de código comunes de Azure ML. Vaya al panel de fragmentos de código, accesible mediante la barra de herramientas, o active el menú de fragmentos en el código con CTRL + barra espaciadora.  
-  + [Métodos abreviados de teclado](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#shortcut-keys). Paridad completa con los métodos abreviados de teclado disponibles en Jupyter. 
+  + [Métodos abreviados de teclado](./how-to-run-jupyter-notebooks.md#useful-keyboard-shortcuts). Paridad completa con los métodos abreviados de teclado disponibles en Jupyter. 
   + Indicar parámetros de celda. Muestra a los usuarios qué celdas de un cuaderno son celdas de parámetros y pueden ejecutar cuadernos con parámetros mediante [Papermill](https://github.com/nteract/papermill) en la instancia de proceso.
   + Administrador de sesiones de terminal y kernel: los usuarios podrán administrar todas las sesiones de terminal y kernel que se ejecutan en la instancia de proceso.
   + Botón Compartir. Los usuarios ahora pueden compartir cualquier archivo en el explorador de archivos del cuaderno mediante un clic con el botón derecho en el archivo y el botón Compartir.
@@ -68,7 +83,7 @@ __Fuente RSS__: reciba notificaciones cuando esta página se actualice copiando 
   + Se han mejorado los tiempos de carga de las páginas.
   + rendimiento mejorado. 
   + Se han mejorado la velocidad y la confiabilidad del kernel.
-  + Se ha agregado una rueda giratoria para mostrar el progreso de todas las [operaciones de la instancia de proceso](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#status-indicators) en curso.
+  + Se ha agregado una rueda giratoria para mostrar el progreso de todas las [operaciones de la instancia de proceso](./how-to-run-jupyter-notebooks.md#status-indicators) en curso.
   + Clic con el botón derecho en el explorador de archivos. Al hacer clic con el botón derecho en cualquier archivo, se abrirán las operaciones de archivos. 
 
 
@@ -79,7 +94,7 @@ __Fuente RSS__: reciba notificaciones cuando esta página se actualice copiando 
   + **azureml-core**
     + [Característica experimental] Se ha agregado compatibilidad para vincular el área de trabajo de Synapse a AML como un servicio vinculado.
     + [Característica experimental] Se ha agregado compatibilidad para adjuntar el grupo de Spark de Synapse a AML como una instancia de proceso.
-    + [Característica experimental] Se ha agregado compatibilidad para el acceso a datos basado en identidades. Los usuarios pueden registrar almacenes de datos y conjuntos de datos sin proporcionar credenciales. En tal caso, se usarán para la autenticación el token de AAD de los usuarios o la identidad administrada del destino de proceso. Obtenga más información [aquí](https://aka.ms/data-access).
+    + [Característica experimental] Se ha agregado compatibilidad para el acceso a datos basado en identidades. Los usuarios pueden registrar almacenes de datos y conjuntos de datos sin proporcionar credenciales. En tal caso, se usarán para la autenticación el token de AAD de los usuarios o la identidad administrada del destino de proceso. Obtenga más información [aquí](./how-to-identity-based-data-access.md).
   + **azureml-pipeline-steps**
     + [Característica experimental] Se ha agregado compatibilidad para [SynapseSparkStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.synapsesparkstep).
   + **azureml-synapse**

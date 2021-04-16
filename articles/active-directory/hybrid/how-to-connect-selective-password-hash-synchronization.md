@@ -12,12 +12,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 774c78cbb09d2e5e60dfc0cafc0082b25e9b1b45
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5a73f4eba9581965470b95111e6dda1d8014e4cb
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103602893"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167505"
 ---
 # <a name="selective-password-hash-synchronization-configuration-for-azure-ad-connect"></a>Configuración de la sincronización selectiva de hash de contraseñas para Azure AD Connect
 
@@ -36,6 +36,9 @@ Para reducir el esfuerzo administrativo de configuración, primero debe tener en
 
 > [!Important]
 > Con cualquier opción de configuración elegida, se realizará automáticamente una sincronización inicial necesaria (sincronización completa) para aplicar los cambios en el siguiente ciclo de sincronización.
+
+> [!Important]
+> La configuración de la sincronización de hash de contraseñas selectiva influye directamente en la escritura diferida de contraseñas. Los cambios o restablecimientos de contraseña que se inician en Azure Active Directory reescriben en la instancia local de Active Directory solo si el usuario está en el ámbito de la sincronización de hash de contraseñas. 
 
 ### <a name="the-admindescription-attribute"></a>El atributo adminDescription
 Ambos escenarios se basan en establecer el atributo adminDescription de los usuarios en un valor específico.  Esto permite aplicar las reglas y es lo que hace que funcione la sincronización selectiva de hash de contraseñas.
@@ -80,7 +83,7 @@ En la siguiente sección se describe cómo habilitar la sincronización selectiv
 - Establezca el valor del atributo, en Active Directory, que se definió como atributo de ámbito en los usuarios a los que desea permitir la sincronización de hash de contraseñas. 
 
 >[!Important]
->Los pasos proporcionados para configurar la sincronización selectiva de hash de contraseñas solo afectarán a los objetos de usuario que tengan el atributo **adminDescription** rellenado en Active Directory con el valor de **PHSFiltered**.
+>Los pasos proporcionados para configurar la sincronización selectiva de hash de contraseñas solo afectarán a los objetos de usuario que tengan el atributo **adminDescription** rellenado en Active Directory con el valor de **PHSFiltered**.
 Si no se rellena este atributo o el valor es distinto de **PHSFiltered**, estas reglas no se aplicarán a los objetos de usuario.
 
 
@@ -134,6 +137,9 @@ Una vez completadas todas las configuraciones, debe editar el atributo **adminDe
    
   ![Edición de atributo](media/how-to-connect-selective-password-hash-synchronization/exclude-11.png)
 
+También puede usar el comando de PowerShell siguiente para editar el atributo **adminDescription** de un usuario:
+
+```Set-ADUser myuser -Replace @{adminDescription="PHSFiltered"}```
 
 ## <a name="excluded-users-is-larger-than-included-users"></a>El número de usuarios excluidos es mayor que el de usuarios incluidos.
 En la siguiente sección se describe cómo habilitar la sincronización selectiva de hash de contraseña cuando el número de usuarios que se van a **excluir** es **mayor** que el número de usuarios que se van a **incluir**.
@@ -149,7 +155,7 @@ A continuación se muestra un resumen de las acciones que se realizarán en los 
 - Establezca el valor del atributo, en Active Directory, que se definió como atributo de ámbito en los usuarios a los que desea permitir la sincronización de hash de contraseñas. 
 
 >[!Important]
->Los pasos proporcionados para configurar la sincronización selectiva de hash de contraseñas solo afectarán a los objetos de usuario que tengan el atributo **adminDescription** rellenado en Active Directory con el valor de **PHSIncluded**.
+>Los pasos proporcionados para configurar la sincronización selectiva de hash de contraseñas solo afectarán a los objetos de usuario que tengan el atributo **adminDescription** rellenado en Active Directory con el valor de **PHSIncluded**.
 Si no se rellena este atributo o el valor es distinto de **PHSIncluded**, estas reglas no se aplicarán a los objetos de usuario.
 
 
@@ -202,7 +208,9 @@ Una vez completadas todas las configuraciones, debe editar el atributo **adminDe
 
   ![Edición de atributos](media/how-to-connect-selective-password-hash-synchronization/include-11.png)
  
- 
+ También puede usar el comando de PowerShell siguiente para editar el atributo **adminDescription** de un usuario:
+
+ ```Set-ADUser myuser -Replace @{adminDescription="PHSIncluded"}``` 
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [¿Qué es la sincronización de hash de contraseñas?](whatis-phs.md)

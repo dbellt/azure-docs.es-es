@@ -16,12 +16,12 @@ ms.date: 04/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60d7d4888c17ffe46340aa85b8d2a1cc4fa7ed34
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 1c5e71522d53bd4e528b2a5a106a4dcc344df3ab
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104581837"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732863"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quickstart"></a>Autenticación de paso a través de Azure Active Directory: Guía de inicio rápido
 
@@ -73,7 +73,8 @@ Asegúrese de que se cumplen los siguientes requisitos previos.
      
      Si el firewall fuerza las reglas según los usuarios que las originan, abra estos puertos para el tráfico de servicios de Windows que se ejecutan como un servicio de red.
    - Si el firewall o proxy le permite agregar entradas DNS a una lista de permitidos, agregue conexiones a **\*.msappproxy.net** y **\*.servicebus.windows.net**. En caso contrario, permita el acceso a los [intervalos de direcciones IP del centro de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653), que se actualizan cada semana.
-   - Si tiene un servidor proxy HTTP de salida, asegúrese de que la dirección URL autologon.microsoftazuread-sso.com esté en la lista de permitidos. Debe especificar esta dirección URL explícitamente, ya que es posible que no se acepte el carácter comodín. 
+   - Evite todas las formas de inspección y terminación en línea en las comunicaciones TLS salientes entre el agente de acceso directo de Azure y el Punto de conexión de Azure. 
+   - Si tiene un proxy HTTP saliente, asegúrese de que esta dirección URL, autologon.microsoftazuread-sso.com, está incluida en la lista de permitidos. Debe especificar esta dirección URL explícitamente, ya que es posible que no se acepte el carácter comodín. 
    - Los agentes de autenticación necesitan acceder a **login.windows.net** y **login.microsoftonline.com** para el registro inicial. Abra el firewall también para esas direcciones URL.
     - Para la validación de certificados, desbloquee las direcciones URL siguientes: **crl3.digicert.com:80**, **crl4.digicert.com:80**, **ocsp.digicert.com:80**, **www\.d-trust.net:80**, **root-c3-ca2-2009.ocsp.d-trust.net:80**, **crl.microsoft.com:80**, **oneocsp.microsoft.com:80** y **ocsp.msocsp.com:80**. Como estas direcciones URL se utilizan para la validación de certificados con otros productos de Microsoft, es posible que estas direcciones URL ya estén desbloqueadas.
 

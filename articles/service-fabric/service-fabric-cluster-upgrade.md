@@ -1,30 +1,48 @@
 ---
-title: Actualización de un clúster de Azure Service Fabric
-description: 'Aprenda a actualizar la versión o la configuración de un clúster de Azure Service Fabric: establecimiento del modo de actualización del clúster, la actualización de certificados, la adición de puertos de la aplicación, la creación de revisiones del sistema operativo y lo que puede esperar cuando se realizan las actualizaciones.'
+title: Actualización de clústeres de Azure Service Fabric
+description: Más información sobre las opciones para actualizar el clúster de Azure Service Fabric
 ms.topic: conceptual
-ms.date: 11/12/2018
-ms.openlocfilehash: 028c91f85a6e318f7ea686c1bcd50262eb7c6bf1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/26/2021
+ms.openlocfilehash: 636d4cb11f7cc6780d560d3d0043a89c69840a4f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96571035"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105731124"
 ---
-# <a name="upgrading-and-updating-an-azure-service-fabric-cluster"></a>Actualización de un clúster de Azure Service Fabric
+# <a name="upgrading-and-updating-azure-service-fabric-clusters"></a>Actualización de clústeres de Azure Service Fabric
 
-Para cualquier sistema moderno, diseñar la capacidad de actualización es clave para lograr el éxito a largo plazo de su producto. Un clúster de Azure Service Fabric es un recurso de su propiedad que está parcialmente administrado por Microsoft. En este artículo se describe lo que se administra automáticamente y lo que puede configurar usted mismo.
+Un clúster de Azure Service Fabric es un recurso de su propiedad, pero que está parcialmente administrado por Microsoft. En este artículo se describen las opciones para cuándo y cómo actualizar el clúster de Azure Service Fabric.
 
-## <a name="controlling-the-fabric-version-that-runs-on-your-cluster"></a>Control de la versión de Service Fabric que se ejecuta en el clúster
+## <a name="automatic-versus-manual-upgrades"></a>Actualizaciones automáticas frente a manuales
 
-Asegúrese de que el clúster siempre ejecute una [versión admitida de Service Fabric](service-fabric-versions.md). Cada vez que Microsoft anuncia el lanzamiento de una nueva versión de Service Fabric, se marca la versión anterior para que finalice el soporte técnico después de un mínimo de 60 días a partir de esa fecha. Las nuevas versiones se anuncian en el [blog del equipo de Service Fabric](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric).
+Es fundamental asegurarse de que el clúster de Service Fabric ejecute siempre una [versión en tiempo de ejecución compatible](service-fabric-versions.md). Cada vez que Microsoft anuncia el lanzamiento de una nueva versión de Service Fabric, se marca la versión anterior para que *finalice el soporte técnico* después de un mínimo de 60 días a partir de esa fecha. Las nuevas versiones se anuncian en el [blog del equipo de Service Fabric](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric).
 
-14 días antes de la expiración de la versión que se está ejecutando en el clúster, se genera un evento de mantenimiento que coloca el clúster en un estado de mantenimiento de advertencia. El clúster permanece en un estado de advertencia hasta que actualiza a una versión compatible de Service Fabric.
+Catorce días antes de la expiración de la versión que se está ejecutando en el clúster, se genera un evento de mantenimiento que coloca el clúster en un estado de mantenimiento de *advertencia*. El clúster permanece en un estado de advertencia hasta que actualiza a una versión en tiempo de ejecución compatible.
 
-Puede configurar el clúster para recibir las actualizaciones automáticas cuando Microsoft las publica o puede seleccionar la versión compatible de Service Fabric que desea que tenga el clúster.  Para obtener más información, lea [Actualización de la versión de Service Fabric de un clúster](service-fabric-cluster-upgrade-version-azure.md).
+Puede configurar el clúster para recibir actualizaciones automáticas de Service Fabric a medida que se publican en Microsoft o elegir manualmente en una lista de versiones admitidas en la actualidad. Estas opciones están disponibles en la sección **Actualizaciones de tejido** del recurso de clúster de Service Fabric.
 
-## <a name="fabric-upgrade-behavior-during-automatic-upgrades"></a>Comportamiento de actualización de Fabric durante las actualizaciones automáticas
+:::image type="content" source="./media/service-fabric-cluster-upgrade/fabric-upgrade-mode.png" alt-text="Seleccione actualizaciones automáticas o manuales en la sección &quot;Actualizaciones de tejido&quot; del recurso de clúster en Azure Portal.":::
 
-Microsoft mantiene el código de tejido y la configuración que se ejecuta en un clúster de Azure. Realizamos actualizaciones supervisadas automáticas del software según se necesitan. Estas actualizaciones podrían ser de código, de configuración o ambas. Para asegurarse de que la aplicación no sufre ningún impacto, o solo un impacto mínimo, durante el proceso, las actualizaciones se realizan en las fases siguientes:
+También puede establecer el modo de actualización del clúster y seleccionar una versión en tiempo de ejecución [mediante una plantilla de Resource Manager](service-fabric-cluster-upgrade-version-azure.md#resource-manager-template).
+
+Las actualizaciones automáticas son el modo de actualización recomendado, ya que esta opción garantiza que el clúster permanezca en un estado compatible y se beneficia de las correcciones y características más recientes, a la vez que permite programar actualizaciones de una manera que sea menos problemática para las cargas de trabajo mediante una estrategia de [implementación en lanzamientos](#wave-deployment-for-automatic-upgrades).
+
+## <a name="wave-deployment-for-automatic-upgrades"></a>Implementación en lanzamientos para actualizaciones automáticas
+
+Con la implementación en lanzamientos, puede minimizar la interrupción de una actualización en el clúster seleccionando el nivel de madurez de una actualización, en función de la carga de trabajo. Por ejemplo, puede configurar una canalización de implementación en lanzamientos de *Prueba* -> *Fase* -> *Producción* para los distintos clústeres de Service Fabric con el fin de probar la compatibilidad de una actualización en tiempo de ejecución antes de aplicarla a las cargas de trabajo de producción.
+
+Para participar en una implementación en lanzamientos, especifique uno de los siguientes valores de lanzamiento para el clúster (en su plantilla de implementación):
+
+* **Lanzamiento 0**: los clústeres se actualizan en cuanto se publica una nueva compilación de Service Fabric. Diseñado para clústeres de prueba y desarrollo.
+* **Lanzamiento 1**: los clústeres se actualizan una semana (siete días) después de que se lance una nueva compilación. Diseñado para clústeres de preproducción y almacenamiento provisional.
+* **Lanzamiento 2**: los clústeres se actualizan dos semanas (14 días) después de que se lance una nueva compilación. Diseñado para clústeres de producción.
+
+Puede registrarse para recibir notificaciones por correo electrónico con vínculos a ayuda adicional si se produce un error en una actualización del clúster. Consulte [Implementación en lanzamientos para actualizaciones automáticas](service-fabric-cluster-upgrade-version-azure.md#wave-deployment-for-automatic-upgrades) para comenzar.
+
+## <a name="phases-of-automatic-upgrade"></a>Fases de actualización automática
+
+Microsoft mantiene el código en tiempo de ejecución de Service Fabric y la configuración que se ejecuta en un clúster de Azure. Realizamos actualizaciones supervisadas automáticas del software según se vayan necesitando. Estas actualizaciones podrían ser de código, de configuración o ambas. Para minimizar el impacto de estas actualizaciones en las aplicaciones, se realizan en las fases siguientes:
 
 ### <a name="phase-1-an-upgrade-is-performed-by-using-all-cluster-health-policies"></a>Fase 1: La actualización se realiza con todas las directivas de mantenimiento de clústeres
 
@@ -36,9 +54,9 @@ Si las directivas del clúster no se cumplen, la actualización se revierte y se
 * Acciones correctoras sugeridas, si hay alguna.
 * Número de días (*n*) hasta que ejecutemos la fase 2.
 
-Vamos a intentar ejecutar la misma actualización unas cuantas veces más por si se produjeron errores en las actualizaciones por razones de infraestructura. Después de los *n* días desde la fecha en que se envió el correo electrónico, continuamos con la fase 2.
+Vamos a intentar ejecutar la misma actualización unas cuantas veces más por si se produjeron errores en las actualizaciones por razones de infraestructura. Después de *n* días desde la fecha en que se envió el correo electrónico, continuamos con la fase 2.
 
-Si se cumplen las directivas de mantenimiento del clúster, la actualización se considera correcta y se marca como completada. Esto puede ocurrir durante la ejecución inicial de la actualización o cualquiera de las ejecuciones posteriores de la actualización en esta fase. No hay ningún correo electrónico de confirmación de una ejecución correcta. Esto es para evitar el envío de demasiados mensajes de correo electrónico; recibir un correo electrónico debe considerarse una excepción a la normalidad. Esperamos que la mayoría de las actualizaciones de clúster funcionen sin afectar a la disponibilidad de las aplicaciones.
+Si se cumplen las directivas de mantenimiento del clúster, la actualización se considera correcta y se marca como completada. Esta situación puede ocurrir durante la ejecución inicial de la actualización o cualquiera de las ejecuciones posteriores de la actualización en esta fase. No se recibe ninguna confirmación por correo electrónico de una ejecución correcta, para evitar el envío de demasiados mensajes de correo electrónico. La recepción de un correo electrónico indica una excepción a las operaciones normales. Esperamos que la mayoría de las actualizaciones de clúster funcionen sin afectar a la disponibilidad de las aplicaciones.
 
 ### <a name="phase-2-an-upgrade-is-performed-by-using-default-health-policies-only"></a>Fase 2: La actualización se realiza solo con las directivas de mantenimiento predeterminadas
 
@@ -66,52 +84,43 @@ Se enviará un correo electrónico con esta información al propietario de la su
 
 Si se cumplen las directivas de mantenimiento del clúster, la actualización se considera correcta y se marca como completada. Esto puede ocurrir durante la ejecución inicial de la actualización o cualquiera de las ejecuciones posteriores de la actualización en esta fase. No hay ningún correo electrónico de confirmación de una ejecución correcta.
 
-## <a name="manage-certificates"></a>Administración de certificados
+## <a name="custom-policies-for-manual-upgrades"></a>Directivas personalizadas para actualizaciones manuales
+
+Puede especificar directivas personalizadas para actualizaciones manuales de clústeres. Estas directivas se aplican cada vez que se selecciona una nueva versión en tiempo de ejecución, lo que desencadena el sistema para iniciar la actualización del clúster. Si no reemplaza las directivas, se usarán los valores predeterminados. Para más información, consulte [Establecimiento de directivas personalizadas para actualizaciones manuales](service-fabric-cluster-upgrade-version-azure.md#custom-policies-for-manual-upgrades).
+
+## <a name="other-cluster-updates"></a>Otras actualizaciones del clúster
+
+Fuera de la actualización en tiempo de ejecución, hay una serie de acciones que es posible que tenga que realizar para mantener el clúster actualizado, incluidas las siguientes:
+
+### <a name="managing-certificates"></a>Administrar certificados
 
 Service Fabric usa los [certificados de servidor X.509](service-fabric-cluster-security.md) que especifica al crear un clúster para proteger las comunicaciones entre los nodos del clúster y autenticar a los clientes. Puede agregar, actualizar o eliminar certificados para el clúster y el cliente en [Azure Portal](https://portal.azure.com) o mediante la CLI de Azure o PowerShell.  Para obtener más información, lea [Agregar o quitar certificados](service-fabric-cluster-security-update-certs-azure.md)
 
-## <a name="open-application-ports"></a>Puertos de aplicación abiertos
+### <a name="opening-application-ports"></a>Apertura de puertos de aplicación
 
 Puede cambiar los puertos de aplicación cambiando las propiedades del recurso del equilibrador de carga asociado al tipo de nodo. Puede usar Azure Portal, PowerShell o el CLI de Azure. Para obtener más información, lea [Open application ports for a cluster](create-load-balancer-rule.md) (Abrir los puertos de aplicación para un clúster).
 
-## <a name="define-node-properties"></a>Definición de las propiedades del nodo
+### <a name="defining-node-properties"></a>Definición de propiedades de nodo
 
 A veces, es posible que quiera asegurarse de que ciertas cargas de trabajo solo se ejecuten en determinados tipos de nodos en el clúster. Por ejemplo, algunas cargas de trabajo pueden requerir GPU o SSD, al contrario que otras. Para cada uno de los tipos de nodo de un clúster, puede agregar propiedades de nodo personalizados a los nodos del clúster. Las restricciones de posición son las instrucciones adjuntas a los servicios individuales que se seleccionan para una o más propiedades de nodo. Las restricciones de posición definen dónde deben ejecutarse los servicios.
 
 Para obtener más información acerca de las restricciones de selección de ubicación, de las propiedades del nodo y de cómo definirlas, lea [Restricciones de ubicación y propiedades de nodo](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints).
 
-## <a name="add-capacity-metrics"></a>Adición de métricas de capacidad
+### <a name="adding-capacity-metrics"></a>Incorporación de métricas de capacidad
 
 Para cada uno de los tipos de nodo, puede agregar las métricas de capacidad personalizadas que desee usar en las aplicaciones para la carga de informes. Para obtener más información sobre el uso de las métricas de capacidad para notificar la carga, consulte los documentos del Administrador de recursos de clúster de Service Fabric que se describen en [Descripción de un clúster de Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md) y sobre [métricas y cargas](service-fabric-cluster-resource-manager-metrics.md).
 
-## <a name="set-health-policies-for-automatic-upgrades"></a>Establecimiento de directivas de mantenimiento para actualizaciones automáticas
-
-Puede especificar directivas de mantenimiento personalizado para la actualización de Service Fabric. Si ha configurado el clúster para que las actualizaciones de Service Fabric se realicen automáticamente, estas directivas se aplicarán en la fase 1 de las actualizaciones automáticas de Service Fabric.
-Si ha configurado el clúster para que las actualizaciones de Service Fabric se realicen de forma manual, estas directivas se aplicarán cada vez que seleccione una nueva versión, lo cual hará que el sistema ponga en marcha la actualización de Service Fabric en el clúster. Si no reemplaza las directivas, se usarán los valores predeterminados.
-
-Puede especificar las directivas de mantenimiento personalizado o revisar la configuración actual en la hoja "actualización de Service Fabric", seleccionando la configuración avanzada de la actualización. Revise la siguiente imagen sobre cómo hacerlo.
-
-![Administración de las directivas de mantenimiento personalizado][HealthPolices]
-
-## <a name="customize-fabric-settings-for-your-cluster"></a>Personalización de la configuración de Service Fabric para el clúster
+### <a name="customizing-settings-for-your-cluster"></a>Personalización de la configuración del clúster
 
 Pueden personalizarse muchas opciones de configuración diferentes en un clúster, como el nivel de confiabilidad de las propiedades del nodo y del clúster. Para más información, lea [Service Fabric cluster fabric settings](service-fabric-cluster-fabric-settings.md) (Configuración de un clúster de Service Fabric).
 
-## <a name="patch-the-os-in-the-cluster-nodes"></a>Revisión del sistema operativo en los nodos del clúster
+### <a name="upgrading-os-images-for-cluster-nodes"></a>Actualización de imágenes del sistema operativo para nodos de clúster
 
-La aplicación de orquestación de revisiones (POA) es una aplicación de Service Fabric que automatiza la aplicación de revisiones de sistema operativo en un clúster de Service Fabric sin tiempo de inactividad. La [aplicación de orquestación de revisiones de Windows](service-fabric-patch-orchestration-application.md) se puede implementar en el clúster para instalar revisiones de una manera orquestada, manteniendo los servicios disponibles todo el tiempo.
+Se recomienda habilitar las actualizaciones automáticas de imágenes del sistema operativo para los nodos de clúster de Service Fabric. Para ello, hay que seguir varios pasos y cumplir con los requisitos del clúster. Otra opción es utilizar la aplicación de orquestación de revisiones (POA), una aplicación de Service Fabric que automatiza la aplicación de revisiones del sistema operativo en un clúster de Service Fabric sin tiempo de inactividad. Para más información sobre estas opciones, consulte [Revisión del sistema operativo Windows en el clúster de Service Fabric](service-fabric-patch-orchestration-application.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Aprender a personalizar la [configuración de Service Fabric para el clúster](service-fabric-cluster-fabric-settings.md)
-* Aprenda cómo [escalar o reducir horizontalmente el clúster](service-fabric-cluster-scale-in-out.md)
+* [Administración de actualizaciones de Service Fabric](service-fabric-cluster-upgrade-version-azure.md)
+* [Personalización de la configuración de un clúster de Service Fabric](service-fabric-cluster-fabric-settings.md)
+* [Escalar o reducir horizontalmente el clúster](service-fabric-cluster-scale-in-out.md)
 * Obtenga información sobre [actualizaciones de aplicaciones](service-fabric-application-upgrade.md)
-
-<!--Image references-->
-[CertificateUpgrade]: ./media/service-fabric-cluster-upgrade/CertificateUpgrade2.png
-[AddingProbes]: ./media/service-fabric-cluster-upgrade/addingProbes2.PNG
-[AddingLBRules]: ./media/service-fabric-cluster-upgrade/addingLBRules.png
-[HealthPolices]: ./media/service-fabric-cluster-upgrade/Manage_AutomodeWadvSettings.PNG
-[ARMUpgradeMode]: ./media/service-fabric-cluster-upgrade/ARMUpgradeMode.PNG
-[Create_Manualmode]: ./media/service-fabric-cluster-upgrade/Create_Manualmode.PNG
-[Manage_Automaticmode]: ./media/service-fabric-cluster-upgrade/Manage_Automaticmode.PNG

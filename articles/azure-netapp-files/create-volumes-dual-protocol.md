@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 01/28/2020
+ms.date: 04/05/2021
 ms.author: b-juche
-ms.openlocfilehash: 0079c123f908a38cc1e4923790439f18352bf3ce
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bbb8baf111c62e3a1207de9b910979a77927cd6e
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100574636"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490815"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Creación de un volumen de protocolo dual (NFSv3 y SMB) para Azure NetApp Files
 
@@ -39,7 +39,7 @@ Azure NetApp Files admite la creación de volúmenes con NFS (NFSv3 y NFSv4.1), 
 * Cree una zona de búsqueda inversa en el servidor DNS y, a continuación, agregue un registro de puntero (PTR) de la máquina host de AD en esa zona de búsqueda inversa. De lo contrario, se producirá un error en la creación del volumen de dos protocolos.
 * Asegúrese de que el cliente NFS esté actualizado y ejecute las actualizaciones más recientes del sistema operativo.
 * Asegúrese de que el servidor LDAP de Active Directory (AD) está en funcionamiento en AD. Puede hacerlo instalando y configurando el rol [Active Directory Lightweight Directory Services (AD LDS)](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)) en la máquina de AD.
-* Los volúmenes del protocolo dual no admiten actualmente Azure Active Directory Domain Services (AADDS).  
+* Los volúmenes del protocolo dual no admiten actualmente Azure Active Directory Domain Services (AADDS). La opción LDAP a través de TLS no debe estar habilitada si está usando AADDS.
 * La versión de NFS usada por un volumen de protocolo dual es NFSv3. Como tal, se aplican las siguientes consideraciones:
     * El protocolo dual no es compatible con los atributos extendidos de ACLS de Windows `set/get` desde clientes de NFS.
     * Los clientes de NFS no pueden cambiar los permisos para el estilo de seguridad de NTFS, y los clientes de Windows no pueden cambiar los permisos de los volúmenes del protocolo dual de estilo UNIX.   
@@ -121,6 +121,17 @@ Azure NetApp Files admite la creación de volúmenes con NFS (NFSv3 y NFSv4.1), 
  
     Un volumen hereda los atributos de ubicación, la suscripción y el grupo de recursos de su grupo de capacidad. Para supervisar el estado de la implementación del volumen, puede usar la pestaña Notificaciones.
 
+## <a name="allow-local-nfs-users-with-ldap-to-access-a-dual-protocol-volume"></a>Habilitación de los usuarios de NFS locales con LDAP para acceder a un volumen de dos protocolos 
+
+Puede habilitar usuarios del cliente NFS locales que no estén presentes en el servidor LDAP de Windows para que accedan a un volumen de dos protocolos que tenga habilitado LDAP con grupos extendidos. Para ello, habilite la opción **Permitir usuarios locales de NFS con LDAP** de la siguiente manera:
+
+1. Haga clic en **Conexiones de Active Directory**.  En una conexión de Active Directory existente, haga clic en el menú contextual (los tres puntos `…`) y seleccione **Editar**.  
+
+2. En la ventana **Edit Active Directory settings** (Editar configuración de Active Directory) que aparece, seleccione la opción **Permitir usuarios locales de NFS con LDAP**.  
+
+    ![Captura de pantalla que muestra la opción Permitir usuarios locales de NFS con LDAP](../media/azure-netapp-files/allow-local-nfs-users-with-ldap.png)  
+
+
 ## <a name="manage-ldap-posix-attributes"></a>Administración de los atributos POSIX de LDAP
 
 Puede administrar los atributos POSIX como UID, el directorio particular y otros valores mediante el complemento de MMC Usuarios y equipos de Active Directory.  En el ejemplo siguiente se muestra el editor de atributos de Active Directory:  
@@ -141,3 +152,4 @@ Siga las instrucciones de [Configuración de un cliente NFS para Azure NetApp Fi
 
 * [Configuración de un cliente NFS para Azure NetApp Files](configure-nfs-clients.md)
 * [Solución de problemas de SMB o de volúmenes de dos protocolos](troubleshoot-dual-protocol-volumes.md)
+* [Solución de problemas de volúmenes LDAP](troubleshoot-ldap-volumes.md)

@@ -2,18 +2,18 @@
 title: 'Inicio rápido para la biblioteca cliente de certificados de Azure Key Vault: Java'
 description: Obtenga información sobre la biblioteca cliente de certificados de Azure Key Vault para Java con los pasos de esta guía de inicio rápido.
 author: msmbaldwin
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java
 ms.author: mbaldwin
 ms.date: 12/18/2020
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
-ms.openlocfilehash: 99b8c63060cebeffea0f3473e03b5f49a415230b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: db69258a774343af18e683444d22530a32f85555
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97936046"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107374954"
 ---
 # <a name="quickstart-azure-key-vault-certificate-client-library-for-java-certificates"></a>Inicio rápido: Biblioteca cliente de certificados de Azure Key Vault para Java (certificados)
 Empiece a trabajar con la biblioteca cliente de certificados de Azure Key Vault para Java. Siga estos pasos para instalar el paquete y probar el código de ejemplo para realizar tareas básicas.
@@ -25,7 +25,7 @@ Recursos adicionales:
 * [Documentación del producto](index.yml)
 * [Muestras](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-certificates/src/samples/java/com/azure/security/keyvault/certificates)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 - Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Kit de desarrollo de Java (JDK)](/java/azure/jdk/), versión 8 o posterior
 - [Apache Maven](https://maven.apache.org)

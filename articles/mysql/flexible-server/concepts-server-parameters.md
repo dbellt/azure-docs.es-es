@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/10/2020
-ms.openlocfilehash: f83f743b692ae5a625a4c881b12cbad999f1f606
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d64dc4f3c034279aee7401503bbb60883c9ed4e7
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105106775"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106492246"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql---flexible-server"></a>Parámetros del servidor en Azure Database for MySQL: servidor flexible
 
@@ -39,9 +39,11 @@ Consulte las siguientes secciones para obtener más información sobre los lími
 
 ### <a name="log_bin_trust_function_creators"></a>log_bin_trust_function_creators
 
-En el servidor flexible de Azure Database for MySQL, siempre están habilitados los registros binarios (p. ej., `log_bin` está establecido en ACTIVADO). En el caso de que desee usar desencadenadores, obtendrá un error similar a *you do not have the SUPER privilege and binary logging is enabled (you might want to use the less safe `log_bin_trust_function_creators` variable)* [No tiene el privilegio SUPER y el registro binario está habilitado (es posible que desee usar la variable menos segura)]. 
+En el servidor flexible de Azure Database for MySQL, siempre están habilitados los registros binarios (p. ej., `log_bin` está establecido en ACTIVADO). log_bin_trust_function_creators se establece en ON de manera predeterminada en servidores flexibles. 
 
-El formato de registro binario siempre es **ROW** y todas las conexiones al servidor **ALWAYS** usan un registro binario basado en filas. Con el registro binario basado en filas, no existen problemas de seguridad y el registro binario no se puede interrumpir, de modo que puede establecer [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) en **TRUE** de forma segura.
+El formato de registro binario siempre es **ROW** y todas las conexiones al servidor **ALWAYS** usan un registro binario basado en filas. Con el registro binario basado en filas, no existen problemas de seguridad y el registro binario no se puede interrumpir, de modo que puede habilitar [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) para que se establezca en **ON** de manera segura.
+
+Si [`log_bin_trust_function_creators`] está establecido en OFF, cuando intente crear desencadenadores podría obtener errores similares a *No tiene el privilegio SUPER y el registro binario está habilitado (se recomienda usar la variable menos segura`log_bin_trust_function_creators`)* . 
 
 ### <a name="innodb_buffer_pool_size"></a>innodb_buffer_pool_size
 
