@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 2f0b6feea5e586c87191b22f42e3ab86e85ba7b3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0072e699107ea51764a728ce3e9987b86b2a6806
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97032531"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106492331"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Administración de dispositivos en la aplicación de Azure IoT Central
 
@@ -156,7 +156,7 @@ Para eliminar ya sea un dispositivo real o simulado de la aplicación de Azure I
 
 ## <a name="change-a-property"></a>Cambio de una propiedad
 
-Las propiedades de la nube son los metadatos de dispositivo asociados al dispositivo, como la ciudad y el número de serie. Las propiedades de la nube solo existen en la aplicación IoT Central y no se sincronizan con sus dispositivos. Las propiedades que se pueden escribir controlan el comportamiento de un dispositivo y permiten establecer el estado de un dispositivo de forma remota, por ejemplo, estableciendo la temperatura objetivo de un dispositivo termostato.  Las propiedades del dispositivo las establece el dispositivo y son de solo lectura en IoT Central. Puede ver y actualizar las propiedades en las vistas de **Detalles del dispositivo**.
+Las propiedades de la nube son los metadatos de dispositivo asociados al dispositivo, como la ciudad y el número de serie. Las propiedades de la nube solo existen en la aplicación IoT Central y no se sincronizan con sus dispositivos. Las propiedades que se pueden escribir controlan el comportamiento de un dispositivo y permiten establecer el estado de un dispositivo de forma remota, por ejemplo, estableciendo la temperatura objetivo de un dispositivo de termostato.  Las propiedades del dispositivo las establece el dispositivo y son de solo lectura en IoT Central. Puede ver y actualizar las propiedades en las vistas de **Detalles del dispositivo**.
 
 1. Elija **Dispositivos** en el panel izquierdo.
 
@@ -166,7 +166,7 @@ Las propiedades de la nube son los metadatos de dispositivo asociados al disposi
 
 1. Modifique las propiedades con los valores que necesite. Puede modificar varias propiedades a la vez y actualizarlas todas al mismo tiempo.
 
-1. Elija **Guardar**. Si guardó las propiedades que se pueden escribir, los valores se envían al dispositivo. Cuando el dispositivo confirma el cambio de la propiedad que se puede escribir, el estado vuelve a **synced**(sincronizado). Si guardó una propiedad de la nube, el valor se actualiza.
+1. Elija **Guardar**. Si guardó las propiedades que se pueden escribir, los valores se envían al dispositivo. Cuando el dispositivo confirma el cambio de la propiedad que se puede escribir, el estado vuelve a **synced** (sincronizado). Si guardó una propiedad de la nube, el valor se actualiza.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

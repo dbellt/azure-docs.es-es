@@ -3,7 +3,7 @@ title: Documentación de Language Understanding (LUIS)
 summary: Obtenga información sobre la forma en que Language Understanding permite que las aplicaciones entiendan lo que una persona quiere en sus propias palabras.
 metadata:
   ms.topic: landing-page
-  ms.date: 06/15/2020
+  ms.date: 04/13/2021
   ms.author: nitinme
   author: nitinme
   ms.service: cognitive-services
@@ -12,12 +12,12 @@ metadata:
   title: Documentación de Language Understanding (LUIS)
   titleSuffix: Azure Cognitive Services
   description: El servicio Language Understanding permite que las aplicaciones entiendan lo que una persona quiere en sus propias palabras. LUIS utiliza el aprendizaje automático para permitir a los desarrolladores crear aplicaciones que pueden recibir las aportaciones de los usuarios en lenguaje natural y extraer significado de las mismas.
-  ms.openlocfilehash: ca9209295d8265eeac5545091e4d4c5c9678e994
-  ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+  ms.openlocfilehash: 793638552b35dd6dc65395e9c568c55a8ef9f946
+  ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 01/23/2021
-  ms.locfileid: "98738074"
+  ms.lasthandoff: 04/14/2021
+  ms.locfileid: "107497054"
 landingContent:
 - title: Acerca de Language Understanding (LUIS)
   linkLists:
@@ -130,7 +130,7 @@ landingContent:
     - text: Entidades precompiladas
       url: luis-reference-prebuilt-entities.md
     - text: Entidades personalizadas
-      url: luis-concept-entity-types.md#types-of-entities
+      url: reference-entity-machine-learned-entity.md
     - text: Dominios creados previamente
       url: luis-reference-prebuilt-domains.md
 - title: Ayuda y comentarios

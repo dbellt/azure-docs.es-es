@@ -1,18 +1,18 @@
 ---
 title: Controles de ejemplo de planos técnicos de Media
 description: Asignación de controles de los ejemplos de plano técnico de Media. Cada control se corresponde a una o varias definiciones de Azure Policy que ayudan en la evaluación.
-ms.date: 04/02/2021
+ms.date: 04/13/2021
 ms.topic: sample
-ms.openlocfilehash: b489111010c9a4fcb112428ae642332980302849
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 4c04c661d7dd8b2b07a05c20524258d6bb887e62
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106386418"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107376705"
 ---
 # <a name="control-mapping-of-the-media-blueprint-sample"></a>Asignación de controles del ejemplo de plano técnico de Media
 
-En el siguiente artículo se detalla cómo se asigna el ejemplo de plano técnico según la norma Azure Blueprints Media a los controles de Media. Para más información sobre los controles, consulte [Media](https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html).
+En el siguiente artículo se detalla cómo se asigna el ejemplo de plano técnico según la norma Azure Blueprints Media a los controles de Media. Para más información sobre los controles, consulte [Media](https://www.motionpictures.org/best-practices).
 
 Las siguientes asignaciones son para los controles de **Media**. Use el panel de navegación de la derecha para ir directamente a una asignación de control específica. Muchos de los controles asignados se implementan con una iniciativa de [Azure Policy](../../../policy/overview.md). Para revisar la iniciativa completa, abra **Policy** en Azure Portal y seleccione la página **Definiciones**. Después, busque y seleccione la **\[versión preliminar\]: Auditoría de los controles de Media**, que es una iniciativa de directiva integrada.
 

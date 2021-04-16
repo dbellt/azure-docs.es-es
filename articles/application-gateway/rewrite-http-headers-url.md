@@ -2,17 +2,17 @@
 title: Reescritura de encabezados HTTP y direcciones URL con Azure Application Gateway | Microsoft Docs
 description: En este artículo, se proporciona información general sobre la reescritura de encabezados HTTP y direcciones URL en Azure Application Gateway
 services: application-gateway
-author: surajmb
+author: azhar2005
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 07/16/2020
-ms.author: surmb
-ms.openlocfilehash: 81eaf95a4918590c6eaa2c17a45e6925a1a67992
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/05/2021
+ms.author: azhussai
+ms.openlocfilehash: 3e7bdc92dc6268c712eecbd69ff014e2229b3b84
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101726519"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490971"
 ---
 # <a name="rewrite-http-headers-and-url-with-application-gateway"></a>Reescritura de los encabezados HTTP y direcciones URL con Application Gateway
 
@@ -38,7 +38,7 @@ Para obtener información sobre cómo volver a escribir los encabezados de solic
 
 Puede volver a escribir todos los encabezados de las solicitudes y las respuestas, excepto para los encabezados Connection y Upgrade. También puede usar la puerta de enlace de aplicaciones para crear los encabezados personalizados y agregarlos a las solicitudes y respuestas que se enrutan por ella.
 
-### <a name="url-path-and-query-string-preview"></a>Ruta de acceso URL y cadena de consulta (versión preliminar)
+### <a name="url-path-and-query-string"></a>Ruta de acceso URL y cadena de consulta
 
 Con la funcionalidad de reescritura de direcciones URL en Application Gateway, puede:
 
@@ -51,9 +51,6 @@ Con la funcionalidad de reescritura de direcciones URL en Application Gateway, p
 Para obtener información sobre cómo reescribir la dirección URL con Application Gateway mediante Azure Portal, consulte [aquí](rewrite-url-portal.md).
 
 ![Diagrama que describe el proceso de reescritura de una dirección URL con Application Gateway.](./media/rewrite-http-headers-url/url-rewrite-overview.png)
-
->[!NOTE]
-> La característica de reescritura de direcciones URL está en versión preliminar y solo está disponible para las SKU Standard_v2 y WAF_v2 de Application Gateway. No es aconsejable en entornos de producción. Para obtener más información sobre las versiones preliminares, consulte los [términos de uso aquí](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="rewrite-actions"></a>Acciones de reescritura
 
@@ -129,7 +126,20 @@ Application Gateway admite las siguientes variables de servidor:
 | ssl_enabled               | "On" si la conexión funciona en modo TLS. De lo contrario, una cadena vacía. |
 | uri_path                  | Identifica el recurso específico en el host al que el cliente web quiere acceder. Esta es la parte del URI de solicitud sin los argumentos. Ejemplo: en la solicitud `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, el valor de uri_path será `/article.aspx`. |
 
- 
+### <a name="mutual-authentication-server-variables-preview"></a>Variables de servidor de autenticación mutua (versión preliminar)
+
+Application Gateway admite las siguientes variables de servidor para los escenarios de autenticación mutua. Use estas variables de servidor como se describió anteriormente con las demás variables de servidor. 
+
+|   Nombre de la variable    |                   Descripción                                           |
+| ------------------------- | ------------------------------------------------------------ |
+| client_certificate        | Certificado de cliente en formato PEM para una conexión SSL establecida. |
+| client_certificate_end_date| Fecha de finalización del certificado de cliente. |
+| client_certificate_fingerprint| Huella digital SHA1 del certificado de cliente para una conexión SSL establecida. |
+| client_certificate_issuer | Cadena del "nombre distintivo del emisor" del certificado de cliente para una conexión SSL establecida. |
+| client_certificate_serial | Número de serie del certificado de cliente para una conexión SSL establecida.  |
+| client_certificate_start_date| Fecha de inicio del certificado de cliente. |
+| client_certificate_subject| Cadena del "nombre distintivo del firmante" del certificado de cliente para una conexión SSL establecida. |
+| client_certificate_verification| Resultado de la comprobación del certificado de cliente: *SUCCESS*, *FAILED:<reason>* o *NONE* si no había un certificado presente. | 
 
 ## <a name="rewrite-configuration"></a>Configuración de la reescritura
 
@@ -148,6 +158,25 @@ Un conjunto de reglas de reescritura contiene:
       * **Ruta de acceso URL**: valor en el que se va a volver a escribir la ruta de acceso. 
       * **Cadena de consulta de URL**: valor en el que se va a volver a escribir la cadena de consulta. 
       * **Volver a evaluar el mapa de ruta de acceso**: se usa para determinar si el mapa de rutas de acceso de dirección URL se va a volver a evaluar o no. Si se deja desactivado, se usará la ruta de dirección URL original para hacer coincidir el patrón de ruta de acceso en el mapa de ruta de acceso de direcciones URL. Si se establece en true, el mapa de ruta de acceso de direcciones URL se volverá a evaluar para comprobar si coincide con la ruta de acceso reescrita. Si se habilita este modificador, ayuda a enrutar la solicitud a otro grupo de back-end posterior a la reescritura.
+
+## <a name="rewrite-configuration-common-pitfall"></a>Problema común de configuración de reescritura
+
+* No se permite la habilitación de la opción "Volver a evaluar el mapa de ruta de acceso" para las reglas básicas de enrutamiento de solicitudes. Esto es para evitar los bucles de evaluación infinitos para una regla de enrutamiento básica.
+
+* Debe haber al menos una regla de reescritura condicional o una regla de reescritura que no tenga habilitada la opción "Volver a evaluar el mapa de ruta de acceso" para las reglas de enrutamiento basadas en rutas. Así, se evita un bucle de evaluación infinito para una regla de enrutamiento basada en rutas de acceso.
+
+* Las solicitudes entrantes terminarían con un código de error 500 en caso de que un bucle se creara dinámicamente a partir de las entradas del cliente. Application Gateway seguirá gestionando otras solicitudes sin que se produzca ninguna degradación en este tipo de escenario.
+
+### <a name="using-url-rewrite-or-host-header-rewrite-with-web-application-firewall-waf_v2-sku"></a>Uso de la reescritura de URL o la reescritura de encabezado host con Web Application Firewall (SKU WAF_v2)
+
+Al configurar la reescritura de URL o de encabezado host, la evaluación de WAF se realizará después de modificar el encabezado de la solicitud o los parámetros de la dirección URL (posterior a la reescritura). Y, al quitar la configuración de reescritura de URL o de encabezado host en Application Gateway, se realizará la evaluación de WAF antes de que se reescriba el encabezado (previo a la reescritura). Este orden garantiza que las reglas de WAF se hayan aplicado a la solicitud final que recibe el grupo de back-end.
+
+Por ejemplo, supongamos que tiene la siguiente regla de reescritura de encabezado para el encabezado `"Accept" : "text/html"`. Si el valor de encabezado `"Accept"` es igual a `"text/html"`, se reescribirá el valor como `"image/png"`.
+
+En este caso, ya que solo está configurada la reescritura de encabezado, la evaluación de WAF se realizará en `"Accept" : "text/html"`. Sin embargo, al configurar la reescritura de URL o de encabezado host, la evaluación de WAF se realizará en `"Accept" : "image/png"`.
+
+>[!NOTE]
+> Se espera que las operaciones de reescritura de URL generen un pequeño aumento del uso de CPU de la instancia de Application Gateway de WAF. Se recomienda supervisar la [métrica de uso de CPU](high-traffic-support.md) durante un breve período de tiempo después de habilitar las reglas de reescritura de URL en la instancia de Application Gateway de WAF.
 
 ### <a name="common-scenarios-for-header-rewrite"></a>Escenarios comunes de la reescritura de encabezados
 
