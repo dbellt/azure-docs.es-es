@@ -10,13 +10,13 @@ ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 01/22/2021
-ms.openlocfilehash: 1fec13eefad7f27bcaac8f2c690b99909cd24e59
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.date: 03/23/2021
+ms.openlocfilehash: a3cd68b610b0e0db05f60450009bc83a80c3037b
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100518052"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105107625"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Límites de recursos para bases de datos únicas que utilizan el modelo de compra en núcleos virtuales
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -77,7 +77,7 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) está actualment
 |Tipo de almacenamiento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
 |Número máx. de IOPS de datos *|3200|3840|4480|5120|
-|Velocidad de registro máx. (Mbps)|36|36|36|36|
+|Velocidad de registro máx. (Mbps)|45|50|50|50|
 |Cantidad máxima de trabajos (solicitudes) simultáneos|750|900|1050|1200|
 |N.º máximo de sesiones simultáneas|30,000|30,000|30,000|30,000|
 |Número de réplicas|1|1|1|1|
@@ -103,7 +103,7 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) está actualment
 |Tipo de almacenamiento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
 |Número máx. de IOPS de datos *|5760|6400|7680|10240|12800|
-|Velocidad de registro máx. (Mbps)|36|36|36|36|36|
+|Velocidad de registro máx. (Mbps)|50|50|50|50|50|
 |Cantidad máxima de trabajos (solicitudes) simultáneos|1350|1.500|1800|2400|3000|
 |N.º máximo de sesiones simultáneas|30,000|30,000|30,000|30,000|30,000|
 |Número de réplicas|1|1|1|1|1|
@@ -246,7 +246,7 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) está actualment
 |Tamaño máximo de registro (TB)|Sin límite |Sin límite |Sin límite |Sin límite |
 |Tamaño máximo de datos de TempDB (GB)|64|128|192|256|
 |Tipo de almacenamiento| [Nota 1](#notes) |[Nota 1](#notes)|[Nota 1](#notes) |[Nota 1](#notes) |
-|IOPS de SSD local máx. *|8000 |16000 |24000 |32000 |
+|IOPS de SSD local máx. *|14000|28000|42000|44800|
 |Velocidad de registro máx. (Mbps)|100 |100 |100 |100 |
 |Latencia de E/S (aproximada)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|
 |Cantidad máxima de trabajos (solicitudes) simultáneos|160|320|480|640|
@@ -308,7 +308,7 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) está actualment
 |Tipo de almacenamiento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)
 |Número máx. de IOPS de datos *|2240|2560|2880|3200|5120|7680|
-|Velocidad de registro máx. (Mbps)|31.5|36|36|36|36|36|
+|Velocidad de registro máx. (Mbps)|31.5|36|40,5|45|50|50|
 |Cantidad máxima de trabajos (solicitudes) simultáneos|1400|1600|1800|2000|3200|4800|
 |N.º máximo de sesiones simultáneas|30,000|30,000|30,000|30,000|30,000|30,000|
 |Número de réplicas|1|1|1|1|1|1|
@@ -335,7 +335,7 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) está actualment
 |Tipo de almacenamiento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
 |Número máx. de IOPS de datos *|640|1280|1920|2560|3200|3840|4480|
-|Velocidad de registro máx. (Mbps)|9|18|27|36|36|36|36|
+|Velocidad de registro máx. (Mbps)|9|18|27|36|45|50|50|
 |Cantidad máxima de trabajos (solicitudes) simultáneos|200|400|600|800|1000|1200|1400|
 |N.º máximo de sesiones simultáneas|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |Número de réplicas|1|1|1|1|1|1|1|
@@ -360,7 +360,7 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) está actualment
 |Tipo de almacenamiento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
 |Número máx. de IOPS de datos *|5120|5760|6400|7680|10240|12800|12800|
-|Velocidad de registro máx. (Mbps)|36|36|36|36|36|36|36|
+|Velocidad de registro máx. (Mbps)|50|50|50|50|50|50|50|
 |Cantidad máxima de trabajos (solicitudes) simultáneos|1600|1800|2000|2400|3200|4000|8000|
 |N.º máximo de sesiones simultáneas|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |Número de réplicas|1|1|1|1|1|1|1|
@@ -383,11 +383,11 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) está actualment
 |Almacenamiento OLTP en memoria (GB)|N/D|N/D|N/D|N/D|N/D|
 |Tamaño máximo de datos (GB)|1024|1024|1024|1024|1536|
 |Tamaño máximo de registro (GB)|336|336|336|336|512|
-|Tamaño máximo de datos de TempDB (GB)|333|333|333|333|333|
+|Tamaño máximo de datos de TempDB (GB)|37|46|56|65|74|
 |Tipo de almacenamiento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
 |Número máx. de IOPS de datos *|2560|3200|3840|4480|5120|
-|Velocidad de registro máx. (Mbps)|36|36|36|36|36|
+|Velocidad de registro máx. (Mbps)|36|45|50|50|50|
 |Cantidad máxima de trabajos (solicitudes) simultáneos|400|500|600|700|800|
 |Máximo de inicios de sesión simultáneos|800|1000|1200|1400|1600|
 |N.º máximo de sesiones simultáneas|30,000|30,000|30,000|30,000|30,000|
@@ -409,11 +409,11 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) está actualment
 |Almacenamiento OLTP en memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tamaño máximo de datos (GB)|1536|1536|1536|3072|3072|4096|
 |Tamaño máximo de registro (GB)|512|512|512|1024|1024|1024|
-|Tamaño máximo de datos de TempDB (GB)|83,25|92,5|111|148|166,5|333|
+|Tamaño máximo de datos de TempDB (GB)|83|93|111|148|167|333|
 |Tipo de almacenamiento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
 |Número máx. de IOPS de datos *|5760|6400|7680|10240|11 520|12800|
-|Velocidad de registro máx. (Mbps)|36|36|36|36|36|36|
+|Velocidad de registro máx. (Mbps)|50|50|50|50|50|50|
 |Cantidad máxima de trabajos (solicitudes) simultáneos|900|1000|1200|1600|1800|3600|
 |Máximo de inicios de sesión simultáneos|1800|2000|2400|3200|3600|7200|
 |N.º máximo de sesiones simultáneas|30,000|30,000|30,000|30,000|30,000|30,000|
@@ -635,7 +635,7 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) está actualment
 |Tamaño máximo de datos de TempDB (GB)|64|128|192|256|
 |Tipo de almacenamiento|SSD local|SSD local|SSD local|SSD local|
 |Latencia de E/S (aproximada)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|
-|Número máx. de IOPS de datos *|14000|28000|42000|56 000|
+|Número máx. de IOPS de datos *|14000|28000|42000|44800|
 |Velocidad de registro máx. (Mbps)|24|48|72|96|
 |Cantidad máxima de trabajos (solicitudes) simultáneos|200|400|600|800|
 |Máximo de inicios de sesión simultáneos|200|400|600|800|

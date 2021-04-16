@@ -6,12 +6,12 @@ ms.date: 11/25/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 6e1c7e15ff77fd75ff2fb70a6741ea2dd9a4cab8
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 342c535cadb1a2d3f2d18478d8941d9ea61bdf72
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102040250"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448974"
 ---
 # <a name="upgrading-from-application-insights-java-2x-sdk"></a>Actualización del SDK de Java de Application Insights 2.x
 
@@ -45,72 +45,12 @@ En SDK 2.x, los nombres de las operaciones tenían el prefijo del método http 
 
 :::image type="content" source="media/java-ipa/upgrade-from-2x/operation-names-prefixed-by-http-method.png" alt-text="Nombres de operación prefijados con el método http":::
 
-En el siguiente fragmento de código se configuran tres procesadores de telemetría que se combinan para replicar el comportamiento anterior.
-Los procesadores de telemetría realizan las siguientes acciones (en orden):
+A partir de 3.0.3, puede devolver este comportamiento de 2.x mediante:
 
-1. El primer procesador de telemetría es un procesador de intervalos (tiene el tipo `span`), lo que significa que se aplica a `requests` y `dependencies`.
-
-   Coincidirá con cualquier intervalo que tenga un atributo denominado `http.method` y tenga un nombre de intervalo que comience por `/`.
-
-   A continuación, extraerá ese nombre del intervalo en un atributo denominado `tempName`.
-
-2. El segundo procesador de telemetría también es un procesador de intervalos.
-
-   Coincidirá con cualquier intervalo que tenga un atributo denominado `tempName`.
-
-   A continuación, actualizará el nombre del intervalo mediante la concatenación de los dos atributos `http.method` y `tempName`, separados por un espacio.
-
-3. El último procesador de telemetría es un procesador de atributos (tiene el tipo `attribute`), lo que significa que se aplica a toda la telemetría que tiene atributos (actualmente, `requests`, `dependencies` y `traces`).
-
-   Coincidirá con cualquier telemetría que tenga un atributo denominado `tempName`.
-
-   A continuación, se eliminará el atributo denominado `tempName`, para que no se notifique como una dimensión personalizada.
-
-```
+```json
 {
   "preview": {
-    "processors": [
-      {
-        "type": "span",
-        "include": {
-          "matchType": "regexp",
-          "attributes": [
-            { "key": "http.method", "value": "" }
-          ],
-          "spanNames": [ "^/" ]
-        },
-        "name": {
-          "toAttributes": {
-            "rules": [ "^(?<tempName>.*)$" ]
-          }
-        }
-      },
-      {
-        "type": "span",
-        "include": {
-          "matchType": "strict",
-          "attributes": [
-            { "key": "tempName" }
-          ]
-        },
-        "name": {
-          "fromAttributes": [ "http.method", "tempName" ],
-          "separator": " "
-        }
-      },
-      {
-        "type": "attribute",
-        "include": {
-          "matchType": "strict",
-          "attributes": [
-            { "key": "tempName" }
-          ]
-        },
-        "actions": [
-          { "key": "tempName", "action": "delete" }
-        ]
-      }
-    ]
+    "httpMethodInOperationName": true
   }
 }
 ```

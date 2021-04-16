@@ -1,18 +1,15 @@
 ---
 title: Solucionar problemas del servidor de procesos de Azure Site Recovery
 description: En este artículo se describe cómo solucionar problemas relacionados con el servidor de procesos de Azure Site Recovery
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 09/09/2019
-ms.author: raynew
-ms.openlocfilehash: ad1bec66edaa3fcc6049f4911684f6e6d6c3e366
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c6696fb395aee7284f1354269cd4cc3167ff3198
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95999200"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106581795"
 ---
 # <a name="troubleshoot-the-process-server"></a>Solucionar problemas del servidor de procesos
 

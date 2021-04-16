@@ -3,16 +3,16 @@ title: Configuración de la autenticación de Facebook
 description: Aprenda a configurar la autenticación de Facebook como proveedor de identidades para una aplicación de App Service o Azure Functions.
 ms.assetid: b6b4f062-fcb4-47b3-b75a-ec4cb51a62fd
 ms.topic: article
-ms.date: 06/06/2019
+ms.date: 03/29/2021
 ms.custom:
 - seodec18
 - fasttrack-edit
-ms.openlocfilehash: b6aad323c0d6fa8f59c9fad203640c477b162503
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: bc639eaea76b3309d6ed047e73c726040da19639
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "80519958"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078016"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-facebook-login"></a>Configuración de una aplicación de App Service o Azure Functions para usar el inicio de sesión de Facebook
 
@@ -52,29 +52,24 @@ Para llevar a cabo el procedimiento descrito en este artículo, debe tener una c
 
 ## <a name="add-facebook-information-to-your-application"></a><a name="secrets"> </a>Agregar información de Facebook a la aplicación
 
-1. Inicie sesión en [Azure Portal] y vaya a la aplicación App Service.
-1. Haga clic en **Configuración** > **Autenticación/autorización** y asegúrese de que la opción **Autenticación de App Service** está **Activada**.
-1. Seleccione **Facebook** y pegue los valores de identificador y secreto de la aplicación que obtuvo anteriormente. Habilite los ámbitos que necesite la aplicación.
-1. Seleccione **Aceptar**.
+1. Inicie sesión en [Azure Portal] y vaya a la aplicación.
+1. Seleccione **Autenticación** en el menú de la izquierda. Haga clic en **Agregar proveedor de identidades**.
+1. Seleccione **Facebook** en la lista desplegable de proveedores de identidades. Pegue los valores de identificador y secreto de la aplicación que obtuvo anteriormente.
 
-   ![Captura de pantalla de la configuración de Facebook para la aplicación móvil][0]
+    El secreto se almacenará como una [configuración de la aplicación](./configure-common.md#configure-app-settings) con espacios fijos denominada `FACEBOOK_PROVIDER_AUTHENTICATION_SECRET`. Puede actualizar esa configuración más adelante para usar [referencias de Key Vault](./app-service-key-vault-references.md) si desea administrar el secreto en Azure Key Vault.
 
-    De forma predeterminada, App Service ofrece autenticación pero no restringe el acceso autorizado al contenido del sitio ni a las API. Tiene que autorizar a los usuarios en el código de la aplicación.
-1. (Opcional) Para restringir el acceso solo a los usuarios autenticados mediante Facebook, establezca **Acción necesaria cuando la solicitud no está autenticada** en **Facebook**. Al establecer esta funcionalidad, la aplicación requiere que se autentiquen todas las solicitudes. También redirige todas las solicitudes no autenticadas a Facebook para la autenticación.
+1. Si este es el primer proveedor de identidades configurado para la aplicación, también se mostrará una sección de **configuración de autenticación de App Service**. De lo contrario, puede pasar al siguiente paso.
+    
+    Estas opciones determinan el modo en que la aplicación responde a las solicitudes no autenticadas y las selecciones predeterminadas redirigirán todas las solicitudes para iniciar sesión con este nuevo proveedor. Puede cambiar este comportamiento ahora o ajustar esta configuración más adelante desde la pantalla principal **Autenticación**; para ello, elija **Editar** junto a **Configuración de la autenticación**. Para obtener más información acerca de estas opciones, consulte [Flujo de autenticación](overview-authentication-authorization.md#authentication-flow).
 
-   > [!CAUTION]
-   > Este método de restricción del acceso se aplica a todas las llamadas a la aplicación, lo que puede no interesar en las aplicaciones que tienen una página principal disponible públicamente así como en muchas aplicaciones de página única. Para tales aplicaciones, puede ser preferible **Permitir solicitudes anónimas (ninguna acción)** y que la aplicación inicie manualmente la autenticación. Para más información, consulte [Flujo de autenticación](overview-authentication-authorization.md#authentication-flow).
+1. (Opcional) Haga clic en **Siguiente: Ámbitos** y agregue los ámbitos que necesite la aplicación. Estos se solicitarán en el momento del inicio de sesión para los flujos basados en explorador.
+1. Haga clic en **Agregar**.
 
-1. Seleccione **Guardar**.
-
-De este modo ya estará listo para usar Facebook para realizar la autenticación en la aplicación.
+De este modo ya estará listo para usar Facebook para realizar la autenticación en la aplicación. El proveedor se mostrará en la pantalla **Autenticación**. Desde allí, puede editar o eliminar esta configuración de proveedor.
 
 ## <a name="next-steps"></a><a name="related-content"> </a>Pasos siguientes
 
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
-
-<!-- Images. -->
-[0]: ./media/app-service-mobile-how-to-configure-facebook-authentication/mobile-app-facebook-settings.png
 
 <!-- URLs. -->
 [Desarrolladores de Facebook]: https://go.microsoft.com/fwlink/p/?LinkId=268286

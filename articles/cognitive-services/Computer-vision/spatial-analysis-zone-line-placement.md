@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: aahi
-ms.openlocfilehash: 7e2a64c14d7d7a1d20b64b746969aca1e60ab218
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cfd3bc406407298c6daf7723cb684911d7c9a9cf
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "90932287"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106284675"
 ---
 # <a name="zone-and-line-placement-guide"></a>Guía de selección de ubicación de zonas y líneas
 
@@ -31,7 +31,7 @@ Si quiere ver una sección específica de la vista de la cámara, cree la zona m
 
 ### <a name="example-of-a-well-shaped-zone"></a>Ejemplo de una zona con la forma correcta
 
-La zona debe ser lo suficientemente grande como para que puedan estar tres personas de pie a lo largo de cada borde y se centre en el área de interés. El análisis espacial identifica a las personas cuyos pies queden dentro de la zona, así que cuando dibuje zonas en la imagen 2D, imagine la zona como una alfombra tendida en el suelo.
+La zona debe ser lo suficientemente grande como para que puedan estar tres personas de pie a lo largo de cada borde y se centre en el área de interés. El análisis espacial identifica a las personas cuyos pies quedan dentro de la zona, así que cuando dibuje zonas en la imagen 2D, imagine la zona como una alfombra extendida en el suelo.
 
 ![Zona con la forma correcta](./media/spatial-analysis/zone-good-example.png)
 
@@ -82,6 +82,6 @@ En los siguientes ejemplos se muestran líneas definidas incorrectamente.
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Implementación de una aplicación web de recuento de personas](spatial-analysis-web-app.md)
-* [Configuración de operaciones de análisis espaciales](./spatial-analysis-operations.md)
+* [Configuración de las operaciones de análisis espacial](./spatial-analysis-operations.md)
 * [Registro y solución de problemas](spatial-analysis-logging.md)
 * [Guía de selección de ubicación de la cámara](spatial-analysis-camera-placement.md)

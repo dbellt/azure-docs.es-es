@@ -1,5 +1,5 @@
 ---
-title: 'SQL Server a SQL Managed Instance: Guía de migración'
+title: 'De SQL Server a Azure SQL Managed Instance: guía de migración'
 description: Esta guía le muestra cómo migrar las bases de datos de SQL Server a Azure SQL Managed Instance.
 ms.service: sql-managed-instance
 ms.subservice: migration-guide
@@ -10,14 +10,14 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 6dcbf4a570fb5cdb58c914ea5e4b1164ed6a76ca
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a1dcb72c30268dd82052e29232e79a485d86f72d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103564497"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105025312"
 ---
-# <a name="migration-guide-sql-server-to-sql-managed-instance"></a>Guía de migración: SQL Server a Instancia administrada de SQL
+# <a name="migration-guide-sql-server-to-azure-sql-managed-instance"></a>Guía de migración: de SQL Server a Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
 
 Esta guía le ayuda a migrar la instancia de SQL Server a Azure SQL Managed Instance. 
@@ -30,7 +30,7 @@ Puede migrar las instancias de SQL Server que se ejecutan de forma local o en:
 - Compute Engine (Google Cloud Platform o GCP)  
 - SQL en la nube para SQL Server (Google Cloud Platform o GCP) 
 
-Para más información acerca de la migración, consulte [Introducción a la migración: SQL Server a SQL Database](sql-server-to-managed-instance-overview.md). Para ver otros escenarios, consulte la [Guía de migración de bases de datos](https://datamigration.microsoft.com/).
+Para más información acerca de la migración, consulte [Introducción a la migración: SQL Server a SQL Database](sql-server-to-managed-instance-overview.md). Para ver otras guías de migración, consulte [Migración de bases de datos](https://docs.microsoft.com/data-migration). 
 
 :::image type="content" source="media/sql-server-to-managed-instance-overview/migration-process-flow-small.png" alt-text="Flujo del proceso de migración":::
 
@@ -40,6 +40,8 @@ Para migrar su instancia de SQL Server a Azure SQL Managed Instance, asegúrese 
 
 - Elija un [método de migración](sql-server-to-managed-instance-overview.md#compare-migration-options) y las herramientas correspondientes que sean necesarias para el método elegido.
 - Instale [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) en un equipo que pueda conectarse a la instancia de SQL Server de origen.
+- Conectividad y permisos adecuados para acceder tanto al origen como al destino. 
+
 
 
 ## <a name="pre-migration"></a>Antes de la migración
@@ -72,7 +74,7 @@ Para evaluar su entorno con la evaluación de migración de bases de datos, real
 1. Abra [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595). 
 1. Seleccione **Archivo** y, luego, elija **Evaluación nueva**. 
 1. Especifique un nombre de proyecto, seleccione SQL Server como tipo de servidor de origen y, luego, elija Azure SQL Managed Instance como tipo de servidor de destino. 
-1. Seleccione los tipos de informes de evaluación que quiere generar. Por ejemplo, compatibilidad de bases de datos y paridad de características. Según el tipo de evaluación, los permisos necesarios en la instancia de SQL Server de origen pueden ser diferentes.  DMA resaltará los permisos necesarios para el asesor elegido antes de ejecutar la evaluación.
+1. Seleccione los tipos de informes de evaluación que quiere generar. Por ejemplo, compatibilidad de bases de datos y paridad de características. Según el tipo de evaluación, los permisos necesarios en la instancia de SQL Server de origen pueden ser diferentes.  DMA resaltará los permisos necesarios para el asesor elegido antes de ejecutar la evaluación.
     - La categoría **Paridad de características** proporciona un conjunto completo de recomendaciones, alternativas disponibles en Azure y pasos de mitigación para ayudarle a planear el proyecto de migración. (Se necesitan permisos de administrador del sistema).
     - La categoría **Problemas de compatibilidad** identifica problemas de compatibilidad de características no compatibles o parcialmente compatibles que podrían impedir la migración y las recomendaciones para resolverlos (se requieren los permisos `CONNECT SQL`, `VIEW SERVER STATE` y `VIEW ANY DEFINITION`).
 1. Especifique los detalles de la conexión de origen para su instancia de SQL Server y conéctese a la base de datos de origen.

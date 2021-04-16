@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 43804907d68ddd58e55c7ce453e0731d0cb4b9b5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 774eb05ae43e393db3d11e8e21a427736614809b
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102560385"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285117"
 ---
 # <a name="language-support-for-computer-vision"></a>Compatibilidad con idiomas para Computer Vision
 
@@ -23,7 +23,7 @@ Algunas características de Computer Vision admiten varios idiomas; las caracter
 
 ## <a name="optical-character-recognition-ocr"></a>Reconocimiento óptico de caracteres (OCR)
 
-Las API de OCR de Computer Vision admiten varios idiomas. No requieren que especifique un código de idioma. Consulte [Reconocimiento óptico de caracteres (OCR)](concept-recognizing-text.md) para obtener más información.
+Las API de OCR de Computer Vision admiten varios idiomas. No requieren que especifique un código de idioma. Consulte [Información general sobre el reconocimiento óptico de caracteres (OCR)](overview-ocr.md) para más información.
 
 |Idioma| Código de lenguaje | API de OCR | Read 3.0/3.1 | Read v3.2 versión preliminar |
 |:-----|:----:|:-----:|:---:|:---:|
@@ -111,7 +111,7 @@ Las API de OCR de Computer Vision admiten varios idiomas. No requieren que espec
 
 ## <a name="image-analysis"></a>Análisis de imágenes
 
-Algunas acciones de la API [analizar: imagen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) pueden devolver resultados en otros idiomas, especificados con el parámetro de consulta `language`. Otras acciones devuelven resultados en inglés, independientemente del idioma que se especifique, y otros generan una excepción para los idiomas no admitidos. Las acciones se especifican con los parámetros de consulta `visualFeatures` y `details`; vea la [información general](overview.md) para obtener una lista de todas las acciones que puede hacer con el análisis de imágenes.
+Algunas acciones de la API [analizar: imagen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) pueden devolver resultados en otros idiomas, especificados con el parámetro de consulta `language`. Otras acciones devuelven resultados en inglés, independientemente del idioma que se especifique, y otros generan una excepción para los idiomas no admitidos. Las acciones se especifican con los parámetros de consulta `visualFeatures` y `details`; vea la [información general](overview-image-analysis.md) para obtener una lista de todas las acciones que puede hacer con el análisis de imágenes.
 
 |Idioma | Código de lenguaje | Categorías | Etiquetas | Descripción | Adultos | Marcas | Color | Caras | ImageType | Objetos | Celebridades | Puntos de referencia |
 |:---|:---:|:----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|

@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 2ec166c1df9727052d4980f5d5758ece8c499880
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+manager: femila
+ms.openlocfilehash: 1ff8c645b1ad670f3824920d39aa0c6bf9783408
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99526609"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106445557"
 ---
 # <a name="storage-options-for-fslogix-profile-containers-in-windows-virtual-desktop"></a>Opciones de almacenamiento para los contenedores de perfiles de FSLogix de Windows Virtual Desktop
 
@@ -44,6 +44,26 @@ En las siguientes tablas se comparan las soluciones de almacenamiento que Azure 
 |Integración de Azure Active Directory|[Active Directory nativo y Azure Active Directory Domain Services](../storage/files/storage-files-active-directory-overview.md)|[Azure Active Directory Domain Services y Active Directory nativo](../azure-netapp-files/azure-netapp-files-faqs.md#does-azure-netapp-files-support-azure-active-directory)|Solo compatibilidad con Active Directory nativo o Azure Active Directory Domain Services|
 
 Una vez que haya elegido el método de almacenamiento, consulte [Precios de Windows Virtual Desktop](https://azure.microsoft.com/pricing/details/virtual-desktop/) para información sobre los planes de precios.
+
+## <a name="azure-files-tiers"></a>Niveles de Azure Files
+
+Azure Files ofrece dos niveles diferentes de almacenamiento: Premium y Standard. Estos niveles permiten personalizar el rendimiento y el costo de los recursos compartidos de archivos para satisfacer los requisitos de su escenario.
+
+- Los recursos compartidos de archivos Premium están respaldados por unidades de estado sólido (SSD) y se implementan en el tipo de cuenta de almacenamiento de FileStorage. Los recursos compartidos de archivos Premium proporcionan un alto rendimiento y una baja latencia coherentes para cargas de trabajo intensivas de entrada y salida (E/S). 
+
+- Los recursos compartidos de archivos estándar están respaldados por unidades de disco duro (HDD) y se implementan en el tipo de cuenta de almacenamiento de uso general versión 2 (GPv2). Los recursos compartidos de archivos Estándar ofrecen un rendimiento confiable para cargas de trabajo de E/S menos sensibles a la variabilidad del rendimiento, como recursos compartidos de archivos de uso general y entornos de desarrollo y pruebas. Los recursos compartidos de archivos estándar solo están disponibles en un modelo de facturación de pago por uso.
+
+En la tabla siguiente se enumeran las recomendaciones para el nivel de rendimiento que se debe utilizar en función de la carga de trabajo. Estas recomendaciones le ayudarán a seleccionar el nivel de rendimiento que se ajuste a sus objetivos de rendimiento, presupuesto y consideraciones regionales. Hemos basado estas recomendaciones en los escenarios de ejemplo de [tipos de carga de trabajo de Escritorio remoto](/windows-server/remote/remote-desktop-services/remote-desktop-workloads). 
+
+| Tipo de carga de trabajo | Nivel de archivo recomendado |
+|--------|-----------|
+| Ligero (menos de 200 usuarios) | Recursos compartidos de archivos estándar |
+| Ligero (más de 200 usuarios) | Recursos compartidos de archivos Premium o Estándar con varios recursos compartidos de archivos |
+|Media|Recursos compartidos de archivos Prémium|
+|Pesado|Recursos compartidos de archivos Prémium|
+|Power|Recursos compartidos de archivos Prémium|
+
+Para más información sobre el rendimiento de Azure Files, consulte el artículo sobre [objetivos de escalado de archivos y recursos compartido de archivos](../storage/files/storage-files-scale-targets.md#azure-files-scale-targets). Para más información sobre los precios, consulte [Precios de Azure Files](https://azure.microsoft.com/pricing/details/storage/files/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

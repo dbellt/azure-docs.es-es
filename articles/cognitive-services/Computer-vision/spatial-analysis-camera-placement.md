@@ -10,16 +10,16 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: 4c2d1cd1c73b377d85501fd31d0f5a1893df5183
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d58e4303078733eb1014171271d27907ff7a95b0
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102487430"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106286273"
 ---
 # <a name="camera-placement-guide"></a>Guía de selección de ubicación de la cámara
 
-En este artículo se brindan recomendaciones para la selección de ubicación de la cámara para el análisis espacial (versión preliminar pública). Se incluyen directrices generales y recomendaciones específicas con respecto a la altura, el ángulo y la distancia entre el punto focal y la cámara para todas las operaciones incluidas. 
+En este artículo se proporcionan recomendaciones para la selección de ubicación de la cámara para el análisis espacial (versión preliminar pública). Se incluyen directrices generales y recomendaciones específicas con respecto a la altura, el ángulo y la distancia entre el punto focal y la cámara para todas las operaciones incluidas. 
 
 > [!NOTE]
 > Esta guía está diseñada para la cámara Axis M3045-V. Esta cámara usará la resolución 1920 x 1080, campo visual horizontal de 106 grados, campo visual vertical de 59 grados y una longitud focal fija de 2,8 mm. Los principios que se indican a continuación se aplicarán a todas las cámaras, pero las directrices específicas con respecto a la altura de la cámara y a la distancia entre el punto focal y la cámara se tendrán que ajustar para usarlos con otras cámaras. 
@@ -158,6 +158,6 @@ Las líneas de colas orgánicas se forman de manera orgánica. Este estilo de co
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Implementación de una aplicación web de recuento de personas](spatial-analysis-web-app.md)
-* [Configuración de operaciones de análisis espaciales](./spatial-analysis-operations.md)
+* [Configuración de las operaciones de análisis espacial](./spatial-analysis-operations.md)
 * [Registro y solución de problemas](spatial-analysis-logging.md)
 * [Guía de selección de ubicación de zonas y líneas](spatial-analysis-zone-line-placement.md)

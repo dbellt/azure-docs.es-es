@@ -1,14 +1,14 @@
 ---
 title: Incorporación de un cliente a Azure Lighthouse
 description: Obtenga información sobre cómo incorporar un cliente a Azure Lighthouse, lo que permite administrar sus recursos y acceder a ellos desde su propio inquilino mediante la administración de recursos delegados de Azure.
-ms.date: 02/16/2021
+ms.date: 03/29/2021
 ms.topic: how-to
-ms.openlocfilehash: 4487dd82b30e14f9db2001dc10f7437a53e745f3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c02bbb789ffac262521c2f76c62081a21cd6602c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100556104"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934315"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Incorporación de un cliente a Azure Lighthouse
 
@@ -143,7 +143,7 @@ La plantilla que elija dependerá de si se incorpora una suscripción completa, 
 |Suscripción (al usar una oferta publicada en Azure Marketplace)   |[marketplaceDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.json)  |[marketplaceDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.parameters.json)    |
 
 > [!TIP]
-> Aunque no se puede incorporar un grupo de administración completo en una implementación, es posible [implementar una directiva en el nivel de grupo de administración](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-delegate-management-groups). La directiva comprobará si cada suscripción del grupo de administración se ha delegado en el inquilino de administración especificado y, en caso contrario, creará la asignación en función de los valores proporcionados.
+> Aunque no se puede incorporar un grupo de administración completo en una implementación, es posible [implementar una directiva en el nivel de grupo de administración](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-delegate-management-groups). La directiva usa el [efecto deployIfNotExists](../../governance/policy/concepts/effects.md#deployifnotexists)para comprobar si cada suscripción del grupo de administración se ha delegado en el inquilino de administración especificado y, en caso contrario, creará la asignación en función de los valores proporcionados. Tendrá acceso a todas las suscripciones del grupo de administración, aunque tendrá que trabajar en ellas como si fueran suscripciones individuales (en lugar de realizar acciones en el grupo de administración en su conjunto).
 
 En el ejemplo siguiente se muestra un archivo **delegatedResourceManagement.parameters.json**, que se usará para incorporar una suscripción. Los archivos de parámetros del grupo de recursos (situados en la carpeta [rg-delegated-resource-management](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/rg-delegated-resource-management)) son similares, pero también incluyen un parámetro **rgName** para identificar los grupos de recursos específicos que se incorporarán.
 

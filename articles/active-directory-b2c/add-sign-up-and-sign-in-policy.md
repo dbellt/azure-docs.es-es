@@ -11,13 +11,14 @@ ms.topic: how-to
 ms.date: 12/16/2020
 ms.author: mimart
 ms.subservice: B2C
+ms.custom: b2c-support
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 29dd67e9e6e15aaafec0cc47d89da32cbf369938
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 047b295d68e872b4dc334e53b5b9da0ec07d5826
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97618659"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257082"
 ---
 # <a name="set-up-a-sign-up-and-sign-in-flow-in-azure-active-directory-b2c"></a>Configuración de un flujo de registro e inicio de sesión en Azure Active Directory B2C
 
@@ -66,6 +67,7 @@ Este flujo de usuario de registro y de inicio de sesión controla las experienci
     ![Página de selección de atributos y notificaciones con tres notificaciones seleccionadas](./media/add-sign-up-and-sign-in-policy/signup-signin-attributes.png)
 
 1. Haga clic en **Crear** para agregar el flujo de usuario. El prefijo *B2C_1* se anexa automáticamente al nombre.
+2. Siga los pasos para [controlar el flujo de la opción "¿Olvidó su contraseña?"](add-password-reset-policy.md?pivots=b2c-user-flow.md#self-service-password-reset-recommended). de la directiva de registro o de inicio de sesión.
 
 ### <a name="test-the-user-flow"></a>Prueba del flujo de usuario
 
@@ -73,7 +75,7 @@ Este flujo de usuario de registro y de inicio de sesión controla las experienci
 1. En **Aplicación**, seleccione la aplicación web denominada *webapp1* que registró anteriormente. La **dirección URL de respuesta** debe mostrar `https://jwt.ms`.
 1. Haga clic en **Ejecutar flujo de usuario** y, a continuación, seleccione **Registrarse ahora**.
 
-    ![Página Ejecutar flujo de usuario del portal con el botón Ejecutar flujo de usuario resaltado](./media/add-sign-up-and-sign-in-policy/signup-signin-run-now.PNG)
+    ![Página Ejecutar flujo de usuario del portal con el botón Ejecutar flujo de usuario resaltado](./media/add-sign-up-and-sign-in-policy/signup-signin-run-now.png)
 
 1. Escriba una dirección de correo electrónico válida, haga clic en **Enviar código de verificación**, escriba el código de verificación que reciba y seleccione **Comprobar código**.
 1. Escriba la contraseña nueva y confírmela.
@@ -89,7 +91,7 @@ Este flujo de usuario de registro y de inicio de sesión controla las experienci
 
 ## <a name="create-a-sign-up-and-sign-in-policy"></a>Creación de una directiva de registro o de inicio de sesión
 
-Las directivas personalizadas son un conjunto de archivos XML que se cargan en el inquilino de Azure AD B2C para definir recorridos de usuario. Proporcionamos paquetes de inicio con varias directivas predefinidas, entre las que se incluyen: registro e inicio de sesión, restablecimiento de contraseña y directiva de edición de perfiles. Para obtener información, consulte [Introducción a las directivas personalizadas en Azure AD B2C](custom-policy-get-started.md).
+Las directivas personalizadas son un conjunto de archivos XML que se cargan en el inquilino de Azure AD B2C para definir recorridos de usuario. Proporcionamos paquetes de inicio con varias directivas predefinidas, entre las que se incluyen: registro e inicio de sesión, restablecimiento de contraseña y directiva de edición de perfiles. Para obtener información, consulte [Introducción a las directivas personalizadas en Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy).
 
 ::: zone-end
 

@@ -5,14 +5,14 @@ services: iot-hub
 author: jlian
 ms.service: iot-fundamentals
 ms.topic: conceptual
-ms.date: 01/14/2020
+ms.date: 03/31/2021
 ms.author: jlian
-ms.openlocfilehash: d36a7917693aef9063ade473759f2f451d3a677f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6a02b97957cc0599e2960cba551b536e83d1a902
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98234025"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106222562"
 ---
 # <a name="transport-layer-security-tls-support-in-iot-hub"></a>Compatibilidad de la Seguridad de la capa de transporte (TLS) con IoT Hub
 
@@ -23,6 +23,10 @@ TLS 1.0 y 1.1 se consideran versiones heredadas y está previsto que dejen de 
 ## <a name="iot-hubs-server-tls-certificate"></a>Certificado TLS para el servidor de IoT Hub
 
 Durante un protocolo de enlace TLS, IoT Hub presenta certificados de servidor con claves RSA para la conexión de clientes. Su raíz es la entidad de certificación Baltimore Cybertrust Root. Recientemente, implementamos un cambio en el certificado de servidor TLS para que ahora lo emitan las nuevas entidades de certificación intermedias (ICA). Para más información, vea [Actualización de certificados TLS de IoT Hub](https://azure.microsoft.com/updates/iot-hub-tls-certificate-update/).
+
+### <a name="4kb-size-limit-on-renewal"></a>Límite de tamaño de 4 KB en la renovación
+
+Durante la renovación de los certificados del lado servidor de IoT Hub, se realiza una comprobación en el lado servicio para evitar que `Server Hello` supere el tamaño de 4 KB. Un cliente debe tener al menos 4 KB de RAM establecidos para el búfer de longitud máxima de contenido de TLS entrante, de modo que los dispositivos existentes que se establecen para el límite de 4 KB sigan funcionando como antes, después de la renovación de certificados. En el caso de los dispositivos restringidos, IoT Hub admite la [negociación de longitud máxima de fragmentos de TLS en la versión preliminar](#tls-maximum-fragment-length-negotiation-preview). 
 
 ### <a name="elliptic-curve-cryptography-ecc-server-tls-certificate-preview"></a>Certificado TLS del servidor de criptografía de curva elíptica (ECC) (versión preliminar)
 

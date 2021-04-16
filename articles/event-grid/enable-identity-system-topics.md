@@ -3,12 +3,12 @@ title: Habilitación de la identidad administrada en el tema del sistema de Azur
 description: En este artículo se describe cómo habilitar la identidad de servicio administrada para un tema del sistema de Azure Event Grid.
 ms.topic: how-to
 ms.date: 03/25/2021
-ms.openlocfilehash: 66b418787e5570dc5da06a5332dd834ccbfd4aef
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d8219cf9cba4ce0a4fb5ddbcf695f1ec72de36fe
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105629780"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106280520"
 ---
 # <a name="assign-a-system-managed-identity-to-an-event-grid-system-topic"></a>Asignación de una identidad administrada por el sistema a un tema del sistema de Event Grid
 En este artículo, aprenderá a habilitar la identidad administrada por el sistema para un tema del sistema de Event Grid existente. Para más información sobre las identidades administradas, consulte [¿Qué son las identidades administradas de recursos de Azure?](../active-directory/managed-identities-azure-resources/overview.md).  
@@ -43,4 +43,4 @@ Solo puede habilitar la identidad administrada por el sistema para los recursos 
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Agregue la identidad a un rol adecuado (por ejemplo, Remitente de los datos de Service Bus) en el destino (por ejemplo, una cola de Service Bus). Para obtener pasos detallados, consulte [Adición de identidad a roles de Azure en destinos](add-identity-roles.md). 
+Agregue la identidad a un rol adecuado (por ejemplo, Remitente de los datos de Service Bus) en el destino (por ejemplo, una cola de Service Bus). Para los pasos detallados, consulte [Concesión a la identidad administrada el acceso al destino de Event Grid](add-identity-roles.md). 

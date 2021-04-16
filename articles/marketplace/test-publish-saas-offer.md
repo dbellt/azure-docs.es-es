@@ -7,17 +7,20 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 03/10/2021
-ms.openlocfilehash: ea647591194dfd6ba0bf818f4ce4d3a2005f0bc4
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.date: 03/25/2021
+ms.openlocfilehash: aeab671c9283d64f9c1ca37cf184b80b1eca8f35
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102630794"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105045253"
 ---
 # <a name="how-to-test-and-publish-a-saas-offer-to-the-commercial-marketplace"></a>Prueba y publicación de una oferta de SaaS en el marketplace comercial
 
 En este artículo se explica cómo usar el Centro de partners para enviar la oferta de SaaS a publicación, obtener una vista previa de ella, probarla y, luego, publicarla en el marketplace comercial. Ya debe haber creado una oferta que quiera publicar.
+
+> [!NOTE]
+> Le recomendamos que cree una oferta de prueba y desarrollo (DEV) independiente como método de una prueba de bajo riesgo antes de publicar la oferta de producción (PROD). Siga estos pasos para crear y probar la oferta de desarrollo antes de publicar la oferta (PROD).
 
 ## <a name="submit-your-offer-for-publishing"></a>Envío de la oferta a publicación
 
@@ -48,7 +51,7 @@ Siga estos pasos para obtener una versión preliminar de la oferta.
 
 1. En la página **Información general de la oferta**, seleccione un vínculo de versión preliminar en el botón **Publicar**.
 
-1. Para validar el flujo de compra y configuración de un extremo a otro, compre la oferta mientras está en versión preliminar. En primer lugar, informe a Microsoft con una [incidencia de soporte técnico](https://aka.ms/marketplacesupport) para asegurarse de que no se procesen cargos.
+1. Para validar el flujo de compra y configuración de un extremo a otro, compre los planes de la oferta mientras está en versión preliminar. En primer lugar, informe a Microsoft con una [incidencia de soporte técnico](https://aka.ms/marketplacesupport) para asegurarse de que no se procesen cargos.
 
 1. Si su oferta de SaaS admite la [facturación de uso medido mediante el servicio de medición de marketplace comercial](./partner-center-portal/saas-metered-billing.md), revise y siga los procedimientos recomendados de prueba que se detallan en [API de facturación según uso de Marketplace](./partner-center-portal/marketplace-metering-service-apis.md#development-and-testing-best-practices).
 
@@ -60,10 +63,10 @@ Siga estos pasos para obtener una versión preliminar de la oferta.
 
 ## <a name="publish-your-offer-live"></a>Publicación de la oferta
 
-Después de completar todas las pruebas de la versión preliminar, seleccione **Publicar** para publicar la oferta en el marketplace comercial.
+Después de completar todas las pruebas de la versión preliminar, seleccione **Publicar** para publicar la oferta en el marketplace comercial. Si la oferta ya está activa en el marketplace comercial, las actualizaciones que realice no se publicarán hasta que seleccione **Publicar**.
 
-   > [!TIP]
-   > Si la oferta ya está activa en el marketplace comercial, las actualizaciones que realice no se publicarán hasta que seleccione **Publicar**.
+> [!IMPORTANT]
+> No seleccione nunca **Publicar** para una [oferta de desarrollo y pruebas](create-saas-dev-test-offer.md).
 
 Ahora que ha decidido que la oferta esté disponible en el marketplace comercial, se realizan una serie de comprobaciones de validación finales para garantizar que la oferta activa está configurada igual que en la versión preliminar. Para más información sobre estas comprobaciones de validación, consulte [Fase de publicación](review-publish-offer.md#publish-phase).
 

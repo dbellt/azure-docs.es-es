@@ -1,0 +1,64 @@
+### YamlMime:Landing
+title: Documentación del reconocimiento óptico de caracteres
+summary: La API de OCR basada en la nube proporciona a los desarrolladores acceso a algoritmos avanzados para leer texto en imágenes y devolver contenido estructurado. Obtenga información sobre cómo extraer texto impreso y manuscrito en varios idiomas con artículos de inicio rápido, tutoriales y ejemplos.
+metadata:
+  title: 'Documentación de reconocimiento óptico de caracteres: artículos de inicio rápido, tutoriales, referencia de API - Azure Cognitive Services | Microsoft Docs'
+  description: La API de OCR basada en la nube proporciona a los desarrolladores acceso a algoritmos avanzados para leer texto en imágenes y devolver contenido estructurado. Obtenga información sobre cómo extraer texto impreso y manuscrito en varios idiomas con artículos de inicio rápido, tutoriales y ejemplos.
+  services: cognitive-services
+  ms.service: cognitive-services
+  ms.subservice: computer-vision
+  ms.topic: landing-page
+  author: PatrickFarley
+  ms.author: pafarley
+  ms.date: 03/31/2021
+  ms.openlocfilehash: d6d0c4be1b465d2120c097aa0d58e1574af061f6
+  ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 04/03/2021
+  ms.locfileid: "106287499"
+landingContent:
+- title: Acerca del reconocimiento óptico de caracteres
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Introducción al OCR
+      url: overview-ocr.md
+  - linkListType: quickstart
+    links:
+    - text: Inicio rápido del OCR
+      url: quickstarts-sdk/client-library.md
+- title: Desarrollo con OCR
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Llamada a la API Read
+      url: Vision-API-How-to-Topics/call-read-api.md
+    - text: Actualización de Read 2.x a Read 3.x
+      url: upgrade-api-versions.md
+- title: Uso del contenedor de OCR de Read
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Instalación y ejecución de contenedores
+      url: computer-vision-how-to-install-containers.md
+  - linkListType: how-to-guide
+    links:
+    - text: Configuración de contenedores
+      url: computer-vision-resource-container-config.md
+    - text: Uso con Kubernetes y Helm
+      url: deploy-computer-vision-on-premises.md
+- title: Referencia
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Compatibilidad con idiomas
+      url: language-support.md
+    - text: API REST de OCR
+      url: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f21b
+- title: Ayuda y comentarios
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Opciones de ayuda y soporte técnico
+      url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/computer-vision/context/context

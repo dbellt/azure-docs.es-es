@@ -1,19 +1,16 @@
 ---
 title: Planeamiento de la capacidad para la recuperación ante desastres de Hyper-V con Azure Site Recovery
 description: Use este artículo para calcular la capacidad al configurar la recuperación ante desastres con el servicio Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
 services: site-recovery
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.author: raynew
-ms.openlocfilehash: aa96845a2bd2f4659da1155c4f75281268dce76d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 0bdc66b46e83a1592d1ea74c1080d6f8080f4635
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101737722"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106580666"
 ---
 # <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>Planeamiento de la capacidad para la recuperación ante desastres de máquinas virtuales de Hyper-V 
 

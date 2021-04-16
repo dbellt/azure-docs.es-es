@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/26/2021
-ms.openlocfilehash: 7d421cf20aa054fb3e1e4877ee610a284eeff7c9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 6f08fa0b2126112fa17fd61be6f44bb5cc6d5396
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105627066"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552162"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Planeamiento de una oferta de SaaS en el marketplace comercial
 
@@ -134,6 +134,28 @@ Si decide usar el contrato estándar, tiene la opción de agregarle términos de
 > [!NOTE]
 > Después de publicar una oferta con el contrato estándar en el marketplace comercial, no puede usar sus propios términos y condiciones personalizados. Solo puede elegir una de las dos opciones. O bien ofrecer su solución bajo el contrato estándar o según sus propios términos y condiciones. Si quiere modificar los términos del contrato estándar, puede hacerlo a través de las modificaciones al contrato estándar.
 
+
+## <a name="microsoft-365-integration"></a>Integración de Microsoft 365
+
+La integración con Microsoft 365 permite que la oferta de SaaS proporcione experiencia conectada entre varias superficies de aplicación de Microsoft 365 a través de complementos gratuitos relacionados, como aplicaciones de Teams, complementos de Office y soluciones de SharePoint Framework. Puede ayudar a los clientes a detectar fácilmente todas las facetas de la solución E2E (servicio web + complementos relacionados) e implementarlas en un proceso proporcionando la siguiente información. 
+  - Si la oferta de SaaS se integra con Microsoft Graph, proporcione el identificador de aplicación de Azure Active Directory (AAD) que usa la oferta de SaaS para la integración. Los administradores pueden revisar los permisos de acceso necesarios para el correcto funcionamiento de la oferta de SaaS como se establece en el identificador de aplicación de AAD y conceder acceso si se necesita el permiso de administrador avanzado en el momento de la implementación. 
+    
+     Si decide vender su oferta a través de Microsoft, es el mismo identificador de aplicación de AAD que ha registrado para usar en la página de aterrizaje para obtener la información básica de usuario necesaria para completar la activación de la suscripción de cliente. Para obtener instrucciones detalladas, consulte [Creación de la página de aterrizaje de su oferta de SaaS comercializable en el marketplace comercial](azure-ad-transactable-saas-landing-page.md). 
+    
+   -    Proporcione una lista de complementos relacionados que funcionen con la oferta de SaaS que desee vincular. Los clientes podrán detectar su solución de E2E en AppSource y los administradores pueden implementar tanto SaaS como todos los complementos relacionados que haya vinculado en el mismo proceso a través del centro de administración de Microsoft 365.
+    
+        Para vincular complementos relacionados, debe proporcionar el vínculo de AppSource del complemento, lo que significa que el complemento se debe publicar primero en AppSource. Los tipos de complementos admitidos que se pueden vincular son: aplicaciones de Teams, complementos de Office y soluciones de SharePoint Framework (SPFx). Cada complemento vinculado debe ser único para una oferta de SaaS. 
+
+En el caso de los productos vinculados, la búsqueda en AppSource devolverá un resultado que incluye tanto SaaS como todos los complementos vinculados. El cliente puede desplazarse entre las páginas de detalles de producto de la oferta de SaaS y los complementos vinculados. Los administradores de TI pueden revisar e implementar los complementos de SaaS y vinculados dentro del mismo proceso a través de una experiencia integrada y conectada en el centro de administración de Microsoft 365. Para más información, consulte [Prueba e implementación de aplicaciones de Microsoft 365: administración de Microsoft 365](/microsoft-365/admin/manage/test-and-deploy-microsoft-365-apps).
+
+### <a name="microsoft-365-integration-support-limitations"></a>Limitaciones de compatibilidad con la integración de Microsoft 365
+La detección como una única solución de E2E es compatible con AppSource para todos los casos. Sin embargo, la implementación simplificada de la solución E2E como se describió anteriormente a través del centro de administración de Microsoft 365 no se admite en los siguientes escenarios:
+
+   - El mismo complemento está vinculado a más de una oferta de SaaS.
+   - La oferta de SaaS está vinculada a complementos, pero no se integra con Microsoft Graph y no se proporciona ningún identificador de aplicación de AAD.
+  - La oferta de SaaS está vinculada a complementos, pero el identificador de aplicación de AAD proporcionado para la integración de Microsoft Graph se ha compartido en varias ofertas de SaaS.
+
+ 
 ## <a name="offer-listing-details"></a>Detalles de la descripción de la oferta
 
 Al [crear una oferta de SaaS](create-new-saas-offer.md) en el Centro de partners, insertará texto, imágenes, vídeos opcionales y otros detalles en la página **Descripción de la oferta**. Esta es la información que verán los clientes cuando descubran la descripción de su oferta en el marketplace comercial, como se muestra en el ejemplo siguiente.

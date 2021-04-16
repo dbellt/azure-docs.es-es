@@ -1,10 +1,10 @@
 ### YamlMime:Hub
 title: Documentación de Azure Cognitive Services
-summary: Aprenda a compilar algoritmos inteligentes y compatibles en aplicaciones y sitios web, y bots que permitan ver, oír, hablar, comprender e interpretar las necesidades de los usuarios.
+summary: 'Aprenda a compilar algoritmos inteligentes y compatibles en aplicaciones y sitios web, y bots que permitan ver, oír, hablar, comprender e interpretar las necesidades de los usuarios.'
 brand: azure
 metadata:
   title: Documentación de Azure Cognitive Services
-  description: Aprenda a compilar algoritmos inteligentes y compatibles en aplicaciones y sitios web, y bots que permitan ver, oír, hablar, comprender e interpretar las necesidades de los usuarios.
+  description: 'Aprenda a compilar algoritmos inteligentes y compatibles en aplicaciones y sitios web, y bots que permitan ver, oír, hablar, comprender e interpretar las necesidades de los usuarios.'
   ms.service: cognitive-services
   ms.topic: hub-page
   author: nitinme
@@ -12,179 +12,173 @@ metadata:
   manager: nitinme
   ms.custom: custom-portals-hub
   ms.date: 08/28/2020
-  ms.openlocfilehash: 70e2e77e008738ff7c2ed0981de5ee915614ab8d
-  ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
-  ms.translationtype: HT
-  ms.contentlocale: es-ES
-  ms.lasthandoff: 03/09/2021
-  ms.locfileid: "102504123"
 highlightedContent:
   items:
-  - title: ¿Qué es Cognitive Services?
-    itemType: overview
-    url: ./what-are-cognitive-services.md
-  - title: Novedades de la documentación
-    itemType: whats-new
-    url: whats-new-docs.md
-  - title: Opciones de desarrollo
-    itemType: concept
-    url: ./cognitive-services-development-options.md
-  - title: Cognitive Services y Machine Learning
-    itemType: concept
-    url: ./cognitive-services-and-machine-learning.md
-  - title: Contenedores locales de Cognitive Services
-    itemType: concept
-    url: ./containers/index.yml
-  - title: Cognitive Services con bases de datos
-    itemType: concept
-    url: ./big-data/cognitive-services-for-big-data.md
-  - title: Compatibilidad con idiomas
-    itemType: reference
-    url: ./language-support.md
-  - title: Opciones de ayuda y soporte técnico
-    itemType: reference
-    url: ./cognitive-services-support-options.md
+    - title: ¿Qué es Cognitive Services?
+      itemType: overview
+      url: ./what-are-cognitive-services.md
+    - title: Novedades de la documentación
+      itemType: whats-new
+      url: whats-new-docs.md
+    - title: Opciones de desarrollo
+      itemType: concept
+      url: ./cognitive-services-development-options.md
+    - title: Cognitive Services y Machine Learning
+      itemType: concept
+      url: ./cognitive-services-and-machine-learning.md
+    - title: Contenedores locales de Cognitive Services
+      itemType: concept
+      url: ./containers/index.yml
+    - title: Cognitive Services con bases de datos
+      itemType: concept
+      url: ./big-data/cognitive-services-for-big-data.md
+    - title: Compatibilidad con idiomas
+      itemType: reference
+      url: ./language-support.md
+    - title: Opciones de ayuda y soporte técnico
+      itemType: reference
+      url: ./cognitive-services-support-options.md
 conceptualContent:
   items:
-  - title: Visión
-    summary: Reconozca, identifique, ponga título, indexe y modere sus imágenes, vídeos y contenido de lápiz digital.
-    links:
-    - url: ./computer-vision/index.yml
-      itemType: overview
-      text: Computer Vision
-    - url: ./custom-vision-service/index.yml
-      itemType: overview
-      text: Custom Vision
-    - url: ./face/index.yml
-      itemType: overview
-      text: Caras
-    - url: ./form-recognizer/index.yml
-      itemType: overview
-      text: Form Recognizer
-    - url: ../media-services/video-indexer/index.yml
-      itemType: overview
-      text: Video Indexer
-  - title: Idioma
-    summary: Permita que sus aplicaciones procesen lenguaje natural con scripts precompilados, evalúen sentimientos y aprendan a reconocer lo que los usuarios quieren.
-    links:
-    - url: ./immersive-reader/index.yml
-      itemType: overview
-      text: Lector inmersivo
-    - url: ./luis/index.yml
-      itemType: overview
-      text: Language Understanding (LUIS)
-    - url: ./qnamaker/index.yml
-      itemType: overview
-      text: QnA Maker
-    - url: ./text-analytics/index.yml
-      itemType: overview
-      text: Text Analytics
-    - url: ./translator/index.yml
-      itemType: overview
-      text: Traductor
-  - title: Voz
-    summary: Convierta voz en texto y texto en voz que suene natural. Traduzca de un idioma a otro y habilite el reconocimiento y la verificación del hablante.
-    links:
-    - url: ./speech-service/index.yml
-      itemType: overview
-      text: Servicio de voz
-    - url: https://speech.microsoft.com/
-      itemType: overview
-      text: Personalización con Speech Studio
-  - title: Decisión
-    summary: Cree aplicaciones que presenten recomendaciones para tomar decisiones informadas y eficaces.
-    links:
-    - url: ./anomaly-detector/index.yml
-      itemType: overview
-      text: Anomaly Detector
-    - url: ./content-moderator/index.yml
-      itemType: overview
-      text: Content Moderator
-    - url: ./metrics-advisor/index.yml
-      itemType: overview
-      text: Metrics Advisor (versión preliminar)
-    - url: ./personalizer/index.yml
-      itemType: overview
-      text: Personalizer
-  - title: Search
-    summary: Agregue Bing Search API a las aplicaciones e implemente la funcionalidad que permite combinar miles de millones de páginas web, imágenes, vídeos y noticias con una sola llamada API.
-    links:
-    - url: ./Bing-web-search/index.yml
-      itemType: overview
-      text: Página central de Bing Search API
-  - title: Contenedores de Cognitive Services
-    summary: La compatibilidad con contenedores en Azure Cognitive Services no solo permite a los desarrolladores usar las mismas API enriquecidas que están disponibles en Azure sino también proporciona flexibilidad con respecto a dónde se implementan y hospedan los servicios que vienen con los contenedores de Docker.
-    links:
-    - url: ./containers/index.yml
-      itemType: overview
-      text: Documentación de contenedores de Cognitive Services
-    - url: ./cognitive-services-container-support.md
-      itemType: overview
-      text: ¿Qué son los contenedores de Cognitive Services?
-    - url: ./containers/container-reuse-recipe.md
-      itemType: learn
-      text: Creación de contenedores para su reutilización
-    - url: ./containers/azure-container-instance-recipe.md
-      itemType: how-to-guide
-      text: Implementación y ejecución de un contenedor en Azure Container Instance
-    - url: ./containers/azure-kubernetes-recipe.md
-      itemType: deploy
-      text: Implementación en Azure Kubernetes Service
-    - url: ./containers/docker-compose-recipe.md
-      itemType: get-started
-      text: Uso de Docker Compose para implementar varios contenedores
-    - url: ./containers/container-faq.yml
-      itemType: reference
-      text: Preguntas frecuentes acerca de los contenedores de Cognitive Services
-  - title: Cognitive Services para macrodatos
-    summary: Cognitive Services para macrodatos permite a los desarrolladores usar Cognitive Services en bases de datos para aplicar algoritmos inteligentes en grandes conjuntos de datos
-    links:
-    - url: ./big-data/cognitive-services-for-big-data.md
-      itemType: overview
-      text: Cognitive Services para macrodatos
-    - url: ./big-data/getting-started.md
-      itemType: get-started
-      text: Uso de Cognitive Services en Azure Databricks y Azure Synapse Analytics
-    - url: ./big-data/samples-python.md
-      itemType: reference
-      text: Ejemplos de Python
+    - title: Visión
+      summary: 'Reconozca, identifique, ponga título, indexe y modere sus imágenes, vídeos y contenido de lápiz digital.'
+      links:
+        - url: ./computer-vision/index.yml
+          itemType: overview
+          text: Computer Vision
+        - url: ./custom-vision-service/index.yml
+          itemType: overview
+          text: Custom Vision
+        - url: ./face/index.yml
+          itemType: overview
+          text: Caras
+        - url: ./form-recognizer/index.yml
+          itemType: overview
+          text: Form Recognizer
+        - url: ../media-services/video-indexer/index.yml
+          itemType: overview
+          text: Video Indexer
+    - title: Idioma
+      summary: 'Permita que sus aplicaciones procesen lenguaje natural con scripts precompilados, evalúen sentimientos y aprendan a reconocer lo que los usuarios quieren.'
+      links:
+        - url: ./immersive-reader/index.yml
+          itemType: overview
+          text: Lector inmersivo
+        - url: ./luis/index.yml
+          itemType: overview
+          text: Language Understanding (LUIS)
+        - url: ./qnamaker/index.yml
+          itemType: overview
+          text: QnA Maker
+        - url: ./text-analytics/index.yml
+          itemType: overview
+          text: Text Analytics
+        - url: ./translator/index.yml
+          itemType: overview
+          text: Traductor
+    - title: Voz
+      summary: Convierta voz en texto y texto en voz que suene natural. Traduzca de un idioma a otro y habilite el reconocimiento y la verificación del hablante.
+      links:
+        - url: ./speech-service/index.yml
+          itemType: overview
+          text: Servicio de voz
+        - url: 'https://speech.microsoft.com/'
+          itemType: overview
+          text: Personalización con Speech Studio
+    - title: Decisión
+      summary: Cree aplicaciones que presenten recomendaciones para tomar decisiones informadas y eficaces.
+      links:
+        - url: ./anomaly-detector/index.yml
+          itemType: overview
+          text: Anomaly Detector
+        - url: ./content-moderator/index.yml
+          itemType: overview
+          text: Content Moderator
+        - url: ./metrics-advisor/index.yml
+          itemType: overview
+          text: Metrics Advisor (versión preliminar)
+        - url: ./personalizer/index.yml
+          itemType: overview
+          text: Personalizer
+    - title: Search
+      summary: 'Agregue Bing Search API a las aplicaciones e implemente la funcionalidad que permite combinar miles de millones de páginas web, imágenes, vídeos y noticias con una sola llamada API.'
+      links:
+        - url: ./Bing-web-search/index.yml
+          itemType: overview
+          text: Página central de Bing Search API
+    - title: Contenedores de Cognitive Services
+      summary: La compatibilidad con contenedores en Azure Cognitive Services no solo permite a los desarrolladores usar las mismas API enriquecidas que están disponibles en Azure sino también proporciona flexibilidad con respecto a dónde se implementan y hospedan los servicios que vienen con los contenedores de Docker.
+      links:
+        - url: ./containers/index.yml
+          itemType: overview
+          text: Documentación de contenedores de Cognitive Services
+        - url: ./cognitive-services-container-support.md
+          itemType: overview
+          text: ¿Qué son los contenedores de Cognitive Services?
+        - url: ./containers/container-reuse-recipe.md
+          itemType: learn
+          text: Creación de contenedores para su reutilización
+        - url: ./containers/azure-container-instance-recipe.md
+          itemType: how-to-guide
+          text: Implementación y ejecución de un contenedor en Azure Container Instance
+        - url: ./containers/azure-kubernetes-recipe.md
+          itemType: deploy
+          text: Implementación en Azure Kubernetes Service
+        - url: ./containers/docker-compose-recipe.md
+          itemType: get-started
+          text: Uso de Docker Compose para implementar varios contenedores
+        - url: ./containers/container-faq.yml
+          itemType: reference
+          text: Preguntas frecuentes acerca de los contenedores de Cognitive Services
+    - title: Cognitive Services para macrodatos
+      summary: Cognitive Services para macrodatos permite a los desarrolladores usar Cognitive Services en bases de datos para aplicar algoritmos inteligentes en grandes conjuntos de datos
+      links:
+        - url: ./big-data/cognitive-services-for-big-data.md
+          itemType: overview
+          text: Cognitive Services para macrodatos
+        - url: ./big-data/getting-started.md
+          itemType: get-started
+          text: Uso de Cognitive Services en Azure Databricks y Azure Synapse Analytics
+        - url: ./big-data/samples-python.md
+          itemType: reference
+          text: Ejemplos de Python
 additionalContent:
   sections:
-  - title: Recursos adicionales
-    items:
-    - title: Portales para la personalización
-      links:
-      - text: Custom Translator
-        url: https://portal.customtranslator.azure.ai/
-      - text: Custom Vision
-        url: https://www.customvision.ai/
-      - text: Language Understanding (LUIS)
-        url: https://luis.ai
-      - text: QnA Maker
-        url: https://www.qnamaker.ai/
-      - text: Speech Studio
-        url: https://speech.microsoft.com/
-    - title: SDK y API REST
-      links:
-      - text: C#
-        url: /dotnet/api/overview/azure/cognitiveservices/client
-      - text: Go
-        url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices
-      - text: Java
-        url: /java/api/overview/azure/cognitiveservices/client
-      - text: JavaScript
-        url: /javascript/api/overview/azure/cognitive-services
-      - text: Python
-        url: /python/api/overview/azure/cognitive-services
-      - text: R
-        url: https://github.com/Azure/AzureCognitive
-      - text: Apache Spark y bases de datos
-        url: ./big-data/cognitive-services-for-big-data.md
-      - text: API REST de administración de Cognitive Services
-        url: /rest/api/cognitiveservices/
-    - title: Herramientas
-      links:
-      - text: Azure CLI
-        url: /cli/azure/cognitiveservices
-      - text: PowerShell
-        url: /powershell/module/az.cognitiveservices/#cognitive_services
+    - title: Recursos adicionales
+      items:
+        - title: Portales para la personalización
+          links:
+            - text: Custom Translator
+              url: 'https://portal.customtranslator.azure.ai/'
+            - text: Custom Vision
+              url: 'https://www.customvision.ai/'
+            - text: Language Understanding (LUIS)
+              url: 'https://luis.ai'
+            - text: QnA Maker
+              url: 'https://www.qnamaker.ai/'
+            - text: Speech Studio
+              url: 'https://speech.microsoft.com/'
+        - title: SDK y API REST
+          links:
+            - text: C#
+              url: /dotnet/api/overview/azure/cognitiveservices/client
+            - text: Go
+              url: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices'
+            - text: Java
+              url: /java/api/overview/azure/cognitiveservices/client
+            - text: JavaScript
+              url: /javascript/api/overview/azure/cognitive-services
+            - text: Python
+              url: /python/api/overview/azure/cognitive-services
+            - text: R
+              url: 'https://github.com/Azure/AzureCognitive'
+            - text: Apache Spark y bases de datos
+              url: ./big-data/cognitive-services-for-big-data.md
+            - text: API REST de administración de Cognitive Services
+              url: /rest/api/cognitiveservices/
+        - title: Herramientas
+          links:
+            - text: Azure CLI
+              url: /cli/azure/cognitiveservices
+            - text: PowerShell
+              url: /powershell/module/az.cognitiveservices/#cognitive_services

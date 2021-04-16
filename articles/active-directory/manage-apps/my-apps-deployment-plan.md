@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 02/29/2020
 ms.author: kenwith
 ms.reviewer: baselden
-ms.openlocfilehash: f63a8fd05e1a6ed5e41eeb64aa852ff01db295af
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5184639d8c34be705aeeb691f1cf38486f850673
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101645474"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105543965"
 ---
 # <a name="plan-azure-active-directory-my-apps-configuration"></a>Planeamiento de la configuración de Aplicaciones de Azure Active Directory
 
@@ -74,31 +74,19 @@ Los administradores pueden configurar:
 
 ## <a name="plan-consent-configuration"></a>Planeamiento de la configuración del consentimiento
 
-Hay dos tipos de consentimiento: el consentimiento del usuario y el consentimiento para las aplicaciones que acceden a los datos.
-
-![Captura de pantalla de configuración del consentimiento](./media/my-apps-deployment-plan/my-apps-consent.png)
-
 ### <a name="user-consent-for-applications"></a>Consentimiento del usuario para las aplicaciones 
 
-Los usuarios o administradores deben dar su consentimiento a los términos de uso y a las directivas de privacidad de todas las aplicaciones. Debe decidir si son todos los usuarios, o solo los administradores, quienes pueden dar su consentimiento a las aplicaciones. **Si las reglas de negocios lo permiten, se recomienda usar el consentimiento del administrador para mantener el control de las aplicaciones en el inquilino**.
+Para que un usuario pueda iniciar sesión en una aplicación y la aplicación pueda acceder a los datos de su organización, el usuario o administrador debe conceder los permisos de la aplicación. Puede configurar si se permite el consentimiento del usuario y en qué condiciones. **Microsoft recomienda permitir solo el consentimiento del usuario para las aplicaciones de los editores comprobados.**
 
-Para usar el consentimiento del administrador, debe ser administrador global de la organización y las aplicaciones deben:
-
-* Estar registradas en la organización.
-
-* Estar registradas en otra organización de Azure AD y haber recibido previamente el consentimiento de, al menos, un usuario.
-
-Si desea permitir que los usuarios den su consentimiento, debe decidir si desea que se lo puedan dar a cualquier aplicación o solo en determinadas circunstancias.
-
-Para más información, consulte [Configuración del modo en que los usuarios finales dan su consentimiento a una aplicación en Azure Active Directory](../manage-apps/configure-user-consent.md).
+Para obtener más información, consulte [Configuración del consentimiento de los usuarios finales en las aplicaciones](../manage-apps/configure-user-consent.md).
 
 ### <a name="group-owner-consent-for-apps-accessing-data"></a>Consentimiento del propietario de un grupo para las aplicaciones que acceden a los datos
 
-Determine si los propietarios de los grupos de seguridad de Azure AD o grupos de M365 pueden dar su consentimiento a las aplicaciones para que accedan a los datos de los grupos que poseen. Es posible no permitirlo, permitirlo a todos los propietarios del grupo o permitirlo solo un subconjunto de propietarios del grupo.
+Los propietarios de grupos y equipos pueden dar permiso a aplicaciones tales como las aplicaciones que publican otros proveedores, para obtener acceso a los datos de la organización asociados al grupo. Consulte [Consentimiento específico de recursos en Microsoft Teams](https://docs.microsoft.com/microsoftteams/resource-specific-consent) para obtener más información. 
+
+Puede configurar si quiere permitir o deshabilitar esta característica.
 
 Para más información, consulte el artículo sobre la [configuración de los permisos para el consentimiento en los grupos](../manage-apps/configure-user-consent-groups.md).
-
-Luego, configure los valores del [consentimiento del propietario del grupo y de los usuarios](https://portal.azure.com/) en Azure Portal.
 
 ### <a name="plan-communications"></a>Planeamiento de las comunicaciones
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: contperf-fy21q1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: 2fc703e0532c86bfc0874c8dccbb17c6142aeed0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 339bbd7edf48737113de360812165dc8148c5b93
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104590218"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107375872"
 ---
 # <a name="outbound-rules-azure-load-balancer"></a><a name="outboundrules"></a>Reglas de salida en Azure Load Balancer
 
@@ -135,7 +135,7 @@ Para usar una dirección IP pública o un prefijo distintos a los usados por una
 5. Configure una regla de salida en el equilibrador de carga público para habilitar una NAT de salida para las VM que usan el front-end. No se recomienda usar una regla de equilibrio de carga para la salida ni deshabilitar SNAT de salida en la regla de equilibrio de carga.
 
 
-### <a name="scenario-2-modify-snatport-allocation"></a><a name="scenario2out"></a>Escenario 2: Modificación de la asignación de puertos de [SNAT](load-balancer-outbound-connections.md)
+### <a name="scenario-2-modify-snat-port-allocation"></a><a name="scenario2out"></a>Escenario 2: Modificación de la asignación de puertos de [SNAT](load-balancer-outbound-connections.md)
 
 
 #### <a name="details"></a>Detalles
@@ -150,13 +150,13 @@ Si experimenta agotamiento de SNAT, aumente el número de puertos de [SNAT](load
 Cada dirección IP pública aporta hasta 64 000 puertos efímeros. El número de máquinas virtuales del grupo de back-end determina el número de puertos distribuidos a cada máquina virtual. Una máquina virtual del grupo de back-end tiene acceso al máximo de 64 000 puertos. Para dos VM, se puede proporcionar un máximo de 32 000 puertos de [SNAT](load-balancer-outbound-connections.md) con una regla de salida (2 x 32 000 = 64 000). 
 
 
-Puede usar reglas de salida para ajustar los puertos de SNAT proporcionados de manera predeterminada. Proporcione un número mayor o menor que la asignación de puertos predeterminada de [SNAT](load-balancer-outbound-connections.md). Cada dirección IP pública de un front-end de una regla de salida aporta hasta 64 000 puertos efímeros para su uso como puertos de [SNAT](load-balancer-outbound-connections.md). 
+Puede usar reglas de salida para ajustar los puertos de SNAT proporcionados de manera predeterminada. Proporcione más o menos que la asignación de puertos predeterminada de [SNAT](load-balancer-outbound-connections.md). Cada dirección IP pública de un front-end de una regla de salida aporta hasta 64 000 puertos efímeros para su uso como puertos de [SNAT](load-balancer-outbound-connections.md). 
 
 
 El equilibrador de carga proporciona puertos de [SNAT](load-balancer-outbound-connections.md) en múltiplos de 8. Si proporciona un valor que no se puede dividir por 8, se rechaza la operación de configuración. Cada regla de equilibrio de carga y regla NAT de entrada consume un intervalo de 8 puertos. Si un equilibrio de carga o una regla NAT de entrada comparten el mismo intervalo de 8 que otros, no se consumen puertos adicionales.
 
 
-Si intenta asignar más puertos de [SNAT](load-balancer-outbound-connections.md) de los disponibles según el número de direcciones IP públicas, se rechaza la operación de configuración. Por ejemplo, si proporciona 10 000 puertos por máquina virtual y siete máquinas virtuales de un grupo de back-end comparten una única dirección IP pública, se rechaza la configuración. Siete multiplicado por 10 000 supera el límite de puertos de 64 000. Agregue más direcciones IP públicas al front-end de la regla de salida para habilitar el escenario. 
+Si intenta asignar más puertos de [SNAT](load-balancer-outbound-connections.md) de los disponibles en función del número de direcciones IP públicas, se rechaza la operación de configuración. Por ejemplo, si proporciona 10 000 puertos por máquina virtual y siete máquinas virtuales de un grupo de back-end comparten una única dirección IP pública, se rechaza la configuración. Siete multiplicado por 10 000 supera el límite de puertos de 64 000. Agregue más direcciones IP públicas al front-end de la regla de salida para habilitar el escenario. 
 
 
 Vuelva a la [asignación de puertos predeterminada](load-balancer-outbound-connections.md#preallocatedports) mediante la especificación de 0 en el número de puertos. Las primeras 50 instancias de máquina virtual obtienen 1024 puertos, las instancias de máquina virtual de la 51 a la 100 obtienen 512 hasta las instancias máximas. Para obtener más información sobre la asignación de puertos de SNAT predeterminada, vea la [tabla de asignación de puertos de SNAT](./load-balancer-outbound-connections.md#preallocatedports).
@@ -195,7 +195,7 @@ En este escenario: Las reglas de salida de Azure Load Balancer y Virtual Network
 
 
 
-Use un prefijo o una dirección IP pública para escalar los puertos de [SNAT](load-balancer-outbound-connections.md). Agregue el origen de conexiones de salida a una lista de permitidos o denegados.
+Use un prefijo o una dirección IP pública para escalar puertos de [SNAT](load-balancer-outbound-connections.md). Agregue el origen de conexiones de salida a una lista de permitidos o denegados.
 
 
 

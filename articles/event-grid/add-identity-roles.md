@@ -3,17 +3,17 @@ title: Adición de identidad administrada a un rol en un destino de Azure Event 
 description: En este artículo se describe cómo agregar identidad administrada a roles de Azure en destinos como Azure Service Bus y Azure Event Hubs.
 ms.topic: how-to
 ms.date: 03/25/2021
-ms.openlocfilehash: 1bcef878c982122d80980dd7194fae2de6fc8762
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1578e4c24201614ce89351b3c3cee52a09cadc30
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105629750"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106280486"
 ---
-# <a name="add-an-identity-to-azure-roles-on-azure-event-grid-destinations"></a>Adición de una identidad a los roles de Azure en destinos de Azure Event Grid
+# <a name="grant-managed-identity-the-access-to-event-grid-destination"></a>Concesión a la identidad administrada el acceso al destino de Event Grid
 En esta sección se describe cómo agregar un rol de Azure a la identidad del tema del sistema, de un tema personalizado o del dominio. 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 Para asignar una identidad administrada asignada por el sistema, siga las instrucciones de los siguientes artículos:
 
 - [Dominios o temas personalizados](enable-identity-custom-topics-domains.md)
@@ -89,6 +89,6 @@ az role assignment create --role "$role" --assignee "$topic_pid" --scope "$sbust
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Ahora que ha asignado una identidad asignada por el sistema al tema del sistema, a un tema personalizado o a un dominio, y ha agregado la identidad a los roles adecuados en los destinos, consulte el artículo [Entrega de eventos con una identidad administrada](managed-service-identity.md) sobre la entrega de eventos a destinos con la identidad.
+Ahora que ha asignado una identidad asignada por el sistema al tema del sistema, a un tema personalizado o a un dominio, y ha agregado la identidad a los roles adecuados en los destinos, consulte [Entrega de eventos con una identidad administrada](managed-service-identity.md) sobre la entrega de eventos a destinos con la identidad.
 
 

@@ -5,20 +5,20 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: article
-ms.date: 05/25/2019
+ms.date: 03/22/2021
 ms.author: duau
-ms.openlocfilehash: 2a5730cd75ccb76d25897e9109555113f7355c2f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d0aa9e8bfd565eeb7599d52adc0ac5b854e750bb
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92202420"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105937233"
 ---
 # <a name="designing-for-disaster-recovery-with-expressroute-private-peering"></a>Diseño para la recuperación ante desastres con el emparejamiento privado de ExpressRoute
 
-ExpressRoute está diseñado para ofrecer una alta disponibilidad y así poder proporcionar conectividad de red privada a nivel de operador a los recursos de Microsoft. En otras palabras, no hay un único punto de error en la ruta de ExpressRoute dentro de la red de Microsoft. En cuanto a las opciones de diseño para maximizar la disponibilidad de un circuito de ExpressRoute, consulte [Designing for high availability with ExpressRoute][HA] (Diseño de para alta disponibilidad con ExpressRoute).
+ExpressRoute está diseñado para ofrecer una alta disponibilidad y así poder proporcionar conectividad de red privada a nivel de operador a los recursos de Microsoft. En otras palabras, no hay un único punto de error en la ruta de acceso de ExpressRoute dentro de la red de Microsoft. En cuanto a las opciones de diseño para maximizar la disponibilidad de un circuito de ExpressRoute, consulte [Designing for high availability with ExpressRoute][HA] (Diseño de para alta disponibilidad con ExpressRoute).
 
-Sin embargo, teniendo en cuenta la popular ley de Murphy: *si algo puede salir mal, saldrá mal*, en este artículo nos centraremos en ofrecer soluciones que vayan más allá de aquellos errores que pueden solucionarse con un solo circuito de ExpressRoute. En otras palabras, en este artículo analizaremos las opciones que ofrece la arquitectura de red para crear una sólida conectividad de red de back-end para la recuperación ante desastres; para ello, usaremos circuitos de ExpressRoute con redundancia geográfica.
+Sin embargo, teniendo en cuenta la popular ley de Murphy: *si algo puede salir mal, saldrá mal*, en este artículo nos centraremos en ofrecer soluciones que vayan más allá de aquellos errores que pueden solucionarse con un solo circuito de ExpressRoute. Analizaremos las opciones que ofrece la arquitectura de red para crear una sólida conectividad de red de back-end para la recuperación ante desastres; para ello, usaremos circuitos de ExpressRoute con redundancia geográfica.
 
 >[!NOTE]
 >Los conceptos descritos en este artículo se aplican de la misma forma cuando se crea un circuito ExpressRoute en una red WAN virtual o fuera de él.
@@ -39,7 +39,17 @@ Si confía en la conectividad de ExpressRoute entre su red local y Microsoft par
 
 Cuando interconecta el mismo conjunto de redes con más de una conexión, debe introducir rutas de acceso paralelas entre las redes. Las rutas de acceso paralelas, cuando no están correctamente diseñadas, podrían conducir a un enrutamiento asimétrico. Si tiene entidades con estado (por ejemplo, NAT, firewall) en la ruta de acceso, el enrutamiento asimétrico podría bloquear el flujo de tráfico.  Por lo general, si usa la ruta de emparejamiento privado de ExpressRoute no se encontrará con entidades con estado como NAT o los firewall. Por lo tanto, el enrutamiento asimétrico sobre el emparejamiento privado de ExpressRoute no bloquea necesariamente el flujo de tráfico.
  
-Sin embargo, si equilibra la carga del tráfico a través de rutas paralelas con redundancia geográfica, independientemente de si tiene entidades con estado o no, experimentará un rendimiento de red incoherente. En este artículo discutiremos cómo abordar estos desafíos.
+Sin embargo, si equilibra la carga del tráfico a través de rutas paralelas con redundancia geográfica, independientemente de si tiene entidades con estado o no, experimentará un rendimiento de red incoherente. Estas rutas de acceso paralelas con redundancia geográfica pueden encontrarse en el mismo metro o en un metro diferente que se encuentre en la página de [proveedores por ubicación](expressroute-locations-providers.md#partners). 
+
+### <a name="same-metro"></a>Mismo metro
+
+La opción [Varios metros](expressroute-locations-providers.md#global-commercial-azure) tiene dos ubicaciones de ExpressRoute. Un ejemplo sería *Amsterdam* y *Amsterdam2*. Al diseñar la redundancia, puede crear dos rutas de acceso paralelas a Azure con ambas ubicaciones en el mismo metro. La ventaja de este diseño es cuando se produce la conmutación por error de la aplicación, la latencia de un extremo a otro entre las aplicaciones locales y Microsoft se mantiene aproximadamente igual. Sin embargo, si hay un desastre natural, como un terremoto, es posible que la conectividad de ambas rutas de acceso deje de estar disponible.
+
+### <a name="different-metros"></a>Metros diferentes
+
+Al usar metros diferentes para la redundancia, debe seleccionar la ubicación secundaria en la misma [región geográfica](expressroute-locations-providers.md#locations). Para elegir una ubicación fuera de la región geográfica, deberá usar la SKU prémium para ambos circuitos en las rutas de acceso paralelas. La ventaja de esta configuración es que la posibilidad de que se produzca un desastre natural que provoque una interrupción de ambos vínculos es mucho menor, pero a costa de una mayor latencia de un extremo a otro.
+
+En este artículo, vamos a analizar cómo abordar los desafíos a los que puede enfrentarse al configurar las rutas de acceso con redundancia geográfica.
 
 ## <a name="small-to-medium-on-premises-network-considerations"></a>Opciones de la red local pequeña a mediana
 
@@ -100,7 +110,7 @@ Al usar cualquiera de esas técnicas, si influye en Azure para que prefiera una 
 
 ## <a name="large-distributed-enterprise-network"></a>Red de empresa distribuida de gran tamaño
 
-Cuando tiene una red de empresa distribuida de gran tamaño, es probable que tenga varios circuitos de ExpressRoute. En esta sección veremos cómo diseñar la recuperación ante desastres mediante los circuitos de ExpressRoute activo-activo, sin necesidad de usar circuitos adicionales en espera. 
+Cuando tiene una red de empresa distribuida de gran tamaño, es probable que tenga varios circuitos de ExpressRoute. En esta sección veremos cómo diseñar la recuperación ante desastres mediante los circuitos de ExpressRoute de tipo "activo-activo", sin necesidad de usar circuitos adicionales en espera. 
 
 Usaremos el ejemplo ilustrado en el siguiente diagrama. En el ejemplo, Contoso tiene dos ubicaciones locales conectadas a dos implementaciones de IaaS de Contoso en dos regiones de Azure diferentes a través de circuitos ExpressRoute y que están en dos ubicaciones de emparejamiento diferentes. 
 

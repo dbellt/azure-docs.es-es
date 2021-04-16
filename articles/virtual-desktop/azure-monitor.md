@@ -1,44 +1,40 @@
 ---
-title: Uso de Azure Monitor para Windows Virtual Desktop (versión preliminar) - Azure
+title: Uso de Azure Monitor para Windows Virtual Desktop (Azure)
 description: Uso de Azure Monitor para Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 12/01/2020
+ms.date: 03/31/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: e9da1071686dafa003a5a49d0864b77644493344
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+manager: femila
+ms.openlocfilehash: 7da35f77dd232e5f523e2bdc3f125c68015ab871
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100594466"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448192"
 ---
-# <a name="use-azure-monitor-for-windows-virtual-desktop-to-monitor-your-deployment-preview"></a>Uso de Azure Monitor para Windows Virtual Desktop para supervisar implementaciones (versión preliminar)
+# <a name="use-azure-monitor-for-windows-virtual-desktop-to-monitor-your-deployment"></a>Uso de Azure Monitor para Windows Virtual Desktop para supervisar implementaciones
 
->[!IMPORTANT]
->Azure Monitor para Windows Virtual Desktop se encuentra actualmente en versión preliminar pública. Esta versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Azure Monitor para Windows Virtual Desktop (versión preliminar) es un panel basado en libros de Azure Monitor que ayuda a que los profesionales de TI entiendan sus entornos de Windows Virtual Desktop. Este tema lo guiará a través del proceso de configuración de Azure Monitor para Windows Virtual Desktop con el objetivo de supervisar los entornos de Windows Virtual Desktop.
+Azure Monitor para Windows Virtual Desktop es un panel basado en libros de Azure Monitor que ayuda a que los profesionales de TI entiendan sus entornos de Windows Virtual Desktop. Este tema lo guiará a través del proceso de configuración de Azure Monitor para Windows Virtual Desktop con el objetivo de supervisar los entornos de Windows Virtual Desktop.
 
 ## <a name="requirements"></a>Requisitos
 
 Antes de empezar a usar Azure Monitor para Windows Virtual Desktop, debe configurar lo siguiente:
 
 - Todos los entornos de Windows Virtual Desktops que supervise deben estar basados en la versión más reciente de Windows Virtual Desktop que sea compatible con Azure Resource Manager.
-
-- Al menos un área de trabajo de Log Analytics configurada.
-
+- Al menos un área de trabajo de Log Analytics configurada. Utilice un área de trabajo de Log Analytics designada para los hosts de sesión de Windows Virtual Desktop. De este modo, se asegurará de que los contadores de rendimiento y los eventos solo se recopilan de los hosts de sesión de su implementación de Windows Virtual Desktop.
 - Habilite la recopilación de datos de los siguientes componentes del área de trabajo de Log Analytics:
-    - Los contadores de rendimiento necesarios
-    - Todos los eventos o contadores de rendimiento utilizados en Azure Monitor para Windows Virtual Desktop
-    - Los datos de la herramienta de diagnóstico de todos los objetos del entorno que se va a supervisar.
-    - Las máquinas virtuales del entorno que se va a supervisar.
+    - Diagnósticos del entorno de Windows Virtual Desktop
+    - Contadores de rendimiento recomendados de los hosts de sesión de Windows Virtual Desktop
+    - Registros de eventos de Windows recomendados de los hosts de sesión Windows Virtual Desktop
 
-Cualquier persona que supervise Azure Monitor para Windows Virtual Desktop en su entorno también necesitará los siguientes permisos de acceso de lectura:
+ El proceso de configuración de datos que se describe en este artículo es el único que necesitará para supervisar Windows Virtual Desktop. Para ahorrar costos, puede deshabilitar todos los demás elementos que envían datos al área de trabajo de Log Analytics.
 
-- Acceso de lectura al grupo de recursos donde se encuentran los recursos del entorno
+Cualquier persona que supervise Azure Monitor para Windows Virtual Desktop en su entorno necesitará también los siguientes permisos de acceso de lectura:
 
-- Acceso de lectura a los grupos de recursos donde se encuentran los hosts de sesión del entorno
+- Acceso de lectura a las suscripciones de Azure que contienen los recursos de Windows Virtual Desktop
+- Acceso de lectura a los grupos de recursos de la suscripción que contienen los hosts de la sesión de Windows Virtual Desktop
+- Acceso de lectura al área o áreas de trabajo de Log Analytics
 
 >[!NOTE]
 > El acceso de lectura solo permite que los administradores vean los datos. Necesitarán permisos diferentes para administrar los recursos en el portal de Windows Virtual Desktop.
@@ -47,131 +43,139 @@ Cualquier persona que supervise Azure Monitor para Windows Virtual Desktop en su
 
 Puede abrir Azure Monitor para Windows Virtual Desktop con uno de los métodos siguientes:
 
-- Vaya a [aka.ms/azmonwvdi](https://portal.azure.com/#blade/Microsoft_Azure_WVD/WvdManagerMenuBlade/workbooks).
-
+- Vaya a [aka.ms/azmonwvdi](https://aka.ms/azmonwvdi).
 - Busque y seleccione **Windows Virtual Desktop** en Azure Portal y, a continuación, seleccione **Conclusiones**.
-
-- Busque y seleccione **Azure Monitor** en Azure Portal. Seleccione **Centro de conclusiones** en **Conclusiones** y, en **Otros**, seleccione **Windows Virtual Desktop** para abrir el panel en la página Azure Monitor.
-
-Una vez que haya abierto Azure Monitor para Windows Virtual Desktop, seleccione una o varias de las casillas etiquetadas como **Suscripción**, **Grupo de recursos**, **Grupo de hosts** e **intervalo de tiempo**, en función del entorno que desee supervisar.
+- Busque y seleccione **Azure Monitor** en Azure Portal. Seleccione **Insights Hub** (Centro de conclusiones) en **Conclusiones** y haga clic en **Windows Virtual Desktop**.
+Cuando se abra la página, especifique la **suscripción**, el **grupo de recursos**, el **grupo de hosts** y el **intervalo de tiempo** del entorno que desea supervisar.
 
 >[!NOTE]
->Actualmente, Windows Virtual Desktop solo permite supervisar una suscripción, un grupo de recursos y un grupo de hosts al mismo tiempo. Si no puede encontrar el entorno que desea supervisar, consulte [nuestra documentación de solución de problemas](troubleshoot-azure-monitor.md) para ver las solicitudes de características y problemas conocidos.
+>Actualmente, Windows Virtual Desktop solo permite supervisar una suscripción, un grupo de recursos y un grupo de hosts al mismo tiempo. Si no puede encontrar el entorno que desea supervisar, consulte [nuestra documentación de solución de problemas](troubleshoot-azure-monitor.md) para ver las solicitudes de características y los problemas conocidos.
 
-## <a name="set-up-with-the-configuration-workbook"></a>Proceso de configuración con el libro de configuración
+## <a name="log-analytics-settings"></a>Configuración de Log Analytics
 
-Si esta es la primera vez que abre Azure Monitor para Windows Virtual Desktop, tendrá que configurar Azure Monitor para sus recursos de Windows Virtual Desktop. Para configurar los recursos:
+Si desea utilizar Azure Monitor para Windows Virtual Desktop, necesitará al menos un área de trabajo de Log Analytics. Utilice un área de trabajo de Log Analytics designada para los hosts de sesión de Windows Virtual Desktop. De este modo, se asegurará de que los contadores de rendimiento y los eventos solo se recopilan de los hosts de sesión de su implementación de Windows Virtual Desktop. Si ya tiene un área de trabajo configurada, vaya a [Configuración con el libro](#set-up-using-the-configuration-workbook). Si necesita configurar una, consulte este artículo sobre la [creación de un área de trabajo de Log Analytics en Azure Portal](../azure-monitor/logs/quick-create-workspace.md).
 
-1. Abra el libro en Azure Portal.
-2. Seleccione **Open the configuration workbook** (Abrir el libro de configuración).
+>[!NOTE]
+>Se aplicarán los cargos de almacenamiento estándar de Log Analytics. Para empezar, se recomienda elegir el modelo de pago por uso y ajustarlo a medida que escale la implementación y recopile más datos. Para obtener más información, consulte la sección [Precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
-El libro de configuración configura el entorno de supervisión y permite comprobar la configuración después de finalizar el proceso de configuración. Es importante comprobar la configuración si los elementos del panel no se muestran correctamente o si el grupo de productos publica actualizaciones que requieren puntos de datos adicionales.
+## <a name="set-up-using-the-configuration-workbook"></a>Configuración con el libro
 
-## <a name="host-pool-diagnostic-settings"></a>Configuración de diagnóstico del grupo de hosts
+Si esta es la primera vez que abre Azure Monitor para Windows Virtual Desktop, tendrá que configurar Azure Monitor para su entorno de Windows Virtual Desktop. Para configurar los recursos:
 
-Deberá habilitar la configuración de diagnóstico de Azure Monitor en todos los objetos del entorno de Windows Virtual Desktop que admitan esta característica.
+1. Abra Azure Monitor para Windows Virtual Desktop en Azure Portal, en [aka.ms/azmonwvdi](https://aka.ms/azmonwvdi), y seleccione **configuration workbook** (libro de configuración).
+2. Seleccione el entorno que desee configurar en **Suscripción**, **Grupo de recursos** y **Grupo de host**.
 
-1. Abra Azure Monitor para Windows Virtual Desktop en [aka.ms/azmonwvdi](https://portal.azure.com/#blade/Microsoft_Azure_WVD/WvdManagerMenuBlade/workbooks) y, a continuación, seleccione **Libro de configuración**.
+El libro de configuración configura el entorno de supervisión y permite comprobar la configuración después de finalizar el proceso de configuración. Es importante que compruebe la configuración si los elementos del panel no se muestran correctamente o si el grupo de productos publica actualizaciones que requieren nuevas configuraciones.
 
-2. Seleccione un entorno para supervisar en **Suscripción**, **Grupo de recursos** y **Grupo de hosts**.
+### <a name="resource-diagnostic-settings"></a>Configuración de diagnóstico de recursos
 
-3. En **Configuración de diagnóstico del grupo de hosts**, compruebe si los diagnósticos de Windows Virtual Desktop están habilitados para el grupo de hosts. Si no es así, aparecerá un mensaje de error que indica: "No se encontró ninguna configuración de diagnóstico del grupo de hosts seleccionado". 
-   
-   Las siguientes tablas deben estar habilitadas:
+Para recopilar información sobre la infraestructura de Windows Virtual Desktop, deberá habilitar algunas opciones de configuración de diagnóstico en las áreas de trabajo y los grupos de hosts de Windows Virtual Desktop (es decir, en el área de trabajo de Windows Virtual Desktop, no en la de Log Analytics). Para más información sobre los grupos de hosts, las áreas de trabajo y otros objetos de recursos de Windows Virtual Desktop, consulte nuestra [guía del entorno](environment-setup.md).
+
+Encontrará más detalles sobre los diagnósticos de Windows Virtual Desktop y las tablas de diagnóstico compatibles en este artículo sobre el [envío de diagnósticos de Windows Virtual Desktop a Log Analytics](diagnostics-log-analytics.md).
+
+Para configurar el diagnóstico de recursos en el libro de configuración: 
+
+1. Seleccione la pestaña **Configuración de diagnóstico del recurso** en el libro de configuración. 
+2. Seleccione el **área de trabajo de Log Analytics** a la que desea enviar los diagnósticos de Windows Virtual Desktop. 
+
+#### <a name="host-pool-diagnostic-settings"></a>Configuración de diagnóstico del grupo de hosts
+
+Para configurar los diagnósticos de un grupo de hosts utilizando la sección Configuración de diagnóstico del recurso del libro de configuración:
+
+1. En **Grupos de host**, compruebe si los diagnósticos de Windows Virtual Desktop están habilitados. Si no es así, aparecerá este mensaje de error: "No existing diagnostic configuration was found for the selected host pool" (No se encontró ninguna configuración de diagnóstico para el grupo de hosts seleccionado). Deberá habilitar las siguientes tablas de diagnóstico compatibles:
 
     - Punto de control
     - Error
     - Administración
     - Conexión
     - HostRegistration
-
+    - AgentHealthStatus
+    
     >[!NOTE]
-    > Si no ve el mensaje de error, no es necesario que realice el paso 4.
+    > Si no ve el mensaje de error, no es necesario que realice los pasos 2 a 4.
 
-4. Seleccione **Configure host pool** (Configurar grupo de hosts).
+2. Seleccione **Configure host pool** (Configurar grupo de hosts).
+3. Seleccione **Implementar**.
+4. Actualice el libro de configuración.
 
-5. Seleccione **Implementar**.
+#### <a name="workspace-diagnostic-settings"></a>Configuración de diagnóstico del área de trabajo 
 
-6. Actualizar el libro.
+Para configurar los diagnósticos del área de trabajo utilizando la sección Configuración de diagnóstico del recurso del libro de configuración:
 
-Puede obtener más información sobre cómo habilitar el diagnóstico en todos los objetos del entorno de Windows Virtual Desktop o acceder al área de trabajo de Log Analytics en [Envío de diagnósticos de Windows Virtual Desktop a Log Analytics](diagnostics-log-analytics.md).
+ 1. En **Área de trabajo**, compruebe si los diagnósticos de Windows Virtual Desktop están habilitados para el área de trabajo de esta aplicación. Si no es así, aparecerá este mensaje de error: "No existing diagnostic configuration was found for the selected workspace." (No se encontró ninguna configuración de diagnóstico para el grupo de hosts seleccionado). Deberá habilitar las siguientes tablas de diagnóstico compatibles:
+ 
+    - Punto de control
+    - Error
+    - Administración
+    - Fuente
+    
+    >[!NOTE]
+    > Si no ve el mensaje de error, no es necesario que realice los pasos 2 a 4.
 
-## <a name="configure-log-analytics"></a>Configuración de Log Analytics
+2. Seleccione **Configurar área de trabajo**.
+3. Seleccione **Implementar**.
+4. Actualice el libro de configuración.
 
-Para empezar a usar Azure Monitor para Windows Virtual Desktop, también necesitará, al menos, un área de trabajo de Log Analytics para recopilar datos del entorno que planea supervisar y suministrarlos al libro. Si ya tiene una configuración, vaya a [Configuración de contadores de rendimiento](#set-up-performance-counters). Si desea configurar una nueva área de trabajo de Log Analytics para la suscripción de Azure que contiene el entorno de Windows Virtual Desktop, consulte [Creación de un área de trabajo de Log Analytics en Azure Portal](../azure-monitor/logs/quick-create-workspace.md).
+### <a name="session-host-data-settings"></a>Configuración de los datos de los hosts de sesión
 
->[!NOTE]
->Se aplicarán los cargos de almacenamiento estándar de Log Analytics. Para empezar, se recomienda elegir el modelo de pago por uso y ajustarlo a medida que escale la implementación y recopile más datos. Para obtener más información, consulte la sección [Precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
+Para recopilar información sobre los hosts de sesión de Windows Virtual Desktop, deberá instalar el agente de Log Analytics en todos los hosts de sesión del grupo, asegurarse de que envían información a un área de trabajo de Log Analytics y configurar los valores del agente de Log Analytics para recopilar los datos de rendimiento y los registros de eventos de Windows.
 
-### <a name="set-up-performance-counters"></a>Configuración de contadores de rendimiento
+El área de trabajo de Log Analytics a la que se envían los datos de los hosts de sesión no tiene que ser la misma que el área de trabajo a la que se envían los datos de diagnóstico. Si tiene hosts de sesión de Azure fuera del entorno de Windows Virtual Desktop, es conveniente que tenga un área de trabajo de Log Analytics designada para los hosts de sesión de Windows Virtual Desktop. 
 
-Debe habilitar los contadores de rendimiento específicos para la recopilación en el intervalo de ejemplo correspondiente, en el área de trabajo de Log Analytics. Estos contadores de rendimiento son los únicos contadores que necesitará para supervisar Windows Virtual Desktop. Puede deshabilitar todos los demás para ahorrar costos.
+Para establecer el área de trabajo de Log Analytics en la que desea recopilar los datos de los hosts de sesión: 
 
-Si ya tiene los contadores de rendimiento habilitados y desea quitarlos, siga las instrucciones de [Configuración de contadores de rendimiento](../azure-monitor/agents/data-sources-performance-counters.md) para volver a configurarlos. Aunque en el artículo se describe cómo agregar contadores, también puede quitarlos en la misma ubicación.
+1. Seleccione la pestaña **Session host data settings** (Configuración de datos de hosts de sesión) en el libro de configuración. 
+2. Seleccione el **área de trabajo de Log Analytics** a la que desea enviar los datos de los hosts de sesión. 
 
-Si aún no ha configurado los contadores de rendimiento, aquí se muestra cómo configurarlos para Azure Monitor para Windows Virtual Desktop:
+#### <a name="session-hosts"></a>Hosts de sesión
 
-1. Vaya a [aka.ms/azmonwvdi](https://portal.azure.com/#blade/Microsoft_Azure_WVD/WvdManagerMenuBlade/workbooks) y, a continuación, seleccione el **libro de configuración** en la parte inferior de la ventana.
-
-2. En **Configuración de Log Analytics**, seleccione el área de trabajo que ha configurado para la suscripción.
-
-3. En **Contadores de rendimiento del área de trabajo**, verá la lista de contadores necesarios para la supervisión. En el lado derecho de la lista, active los elementos de la lista **Contadores que faltan** para habilitar los contadores que necesitará para iniciar la supervisión del área de trabajo.
-
-4. Seleccione **Configuración de contadores de rendimiento**.
-
-5. Seleccione **Aplicar configuración**.
-
-6. Actualice el libro de configuración y continúe con la configuración del entorno.
-
-También puede agregar nuevos contadores de rendimiento después de la configuración inicial, siempre que el servicio se actualice y requiera nuevas herramientas de supervisión. Puede comprobar que todos los contadores necesarios están habilitados seleccionándolos en la lista **Contadores que faltan**.
-
->[!NOTE]
->Los contadores de rendimiento de retraso de entrada solo son compatibles con Windows 10 RS5 y versiones posteriores o Windows Server 2019 y versiones posteriores.
-
-Para obtener más información sobre cómo agregar manualmente contadores de rendimiento que aún no están habilitados para la recopilación, consulte [Configuración de contadores de rendimiento](../azure-monitor/agents/data-sources-performance-counters.md).
-
-### <a name="set-up-windows-events"></a>Configuración de eventos de Windows
-
-A continuación, deberá habilitar eventos específicos de Windows para la recopilación en el área de trabajo de Log Analytics. Los eventos descritos en esta sección son los únicos que necesita Azure Monitor para Windows Virtual Desktop. Puede deshabilitar todos los demás para ahorrar costos.
-
-Para configurar eventos de Windows, siga estos pasos:
-
-1. Si ya tiene eventos de Windows habilitados y desea quitarlos, quite los que no quiera antes de usar el libro de configuración con el fin de habilitar el conjunto necesario para la supervisión.
-
-2. Vaya a Azure Monitor para Windows Virtual Desktop en [aka.ms/azmonwvdi](https://portal.azure.com/#blade/Microsoft_Azure_WVD/WvdManagerMenuBlade/workbooks) y, a continuación, seleccione **Libro de configuración** en la parte inferior de la ventana.
-
-3. En **Configuración de eventos de Windows**, hay una lista de eventos de Windows necesarios para la supervisión. En el lado derecho de esa lista está la lista **Eventos que faltan**, donde encontrará los nombres y tipos de eventos necesarios que actualmente no están habilitados para su área de trabajo. Registre cada uno de estos nombres para más adelante.
-
-4. Seleccione **Open Workspaces Configuration** (Abrir configuración de áreas de trabajo).
-
-5. Seleccione **Datos**.
-
-6. Seleccione **Registros de eventos de Windows**.
-
-7. Agregue los nombres de evento que faltan del paso 3 y el tipo de evento necesario para cada uno.
-
-8. Actualice el libro de configuración y continúe con la configuración del entorno.
-
-Puede agregar nuevos eventos de Windows después de la configuración inicial si las actualizaciones de la herramienta de supervisión requieren la habilitación de nuevos eventos. Para asegurarse de que tiene todos los eventos necesarios habilitados, vuelva a la lista **Eventos que faltan** y habilite los eventos que faltan.
-
-## <a name="install-the-log-analytics-agent-on-all-hosts"></a>Instalación del agente de Log Analytics en todos los hosts
-
-Por último, deberá instalar el agente de Log Analytics en todos los hosts del grupo de hosts para enviar datos desde los hosts al área de trabajo seleccionada.
-
-Para instalar el agente de Log Analytics, haga lo siguiente:
-
-1. Vaya a Azure Monitor para Windows Virtual Desktop en [aka.ms/azmonwvdi](https://portal.azure.com/#blade/Microsoft_Azure_WVD/WvdManagerMenuBlade/workbooks) y, a continuación, seleccione **Libro de configuración** en la parte inferior de la ventana.
-
-2. Si Log Analytics no está configurado para todos los hosts del grupo de hosts, verá un error en la parte inferior de la sección de configuración de Log Analytics con el mensaje "Some hosts in the host pool are not sending data to the selected Log Analytics workspace" (Algunos hosts del grupo de hosts no están enviando datos al área de trabajo de Log Analytics seleccionada). Seleccione **Add hosts to workspace** (Agregar hosts al área de trabajo) para agregar los hosts seleccionados. Si no ve el mensaje de error, no continúe.
-
-3. Actualice el libro de configuración.
+Por último, deberá instalar el agente de Log Analytics en todos los hosts de sesión del grupo y enviar sus datos al área de trabajo de Log Analytics seleccionada. Si Log Analytics no está configurado para todos los hosts de sesión del grupo, en la sección **Session hosts** (Hosts de sesión) de la parte superior de **Session host data settings** (Configuración de datos de hosts de sesión), aparecerá el mensaje "Some hosts in the host pool are not sending data to the selected Log Analytics workspace" (Algunos hosts del grupo no están enviando datos al área de trabajo de Log Analytics seleccionada).
 
 >[!NOTE]
->La máquina host debe estar en ejecución para instalar la extensión de Log Analytics. Si se produce un error en la implementación automática en un host, siempre puede instalar manualmente la extensión en un host. Para obtener información sobre cómo instalar la extensión manualmente, consulte [Extensión de máquina virtual de Log Analytics para Windows](../virtual-machines/extensions/oms-windows.md).
+> Si no ve la sección **Session hosts** (Hosts de sesión) ni el mensaje de error, significa que todos los hosts de sesión están configurados correctamente. En ese caso, continúe con las instrucciones de configuración de [Contadores de rendimiento del área de trabajo](#workspace-performance-counters).
+
+Para configurar los hosts de sesión restantes utilizando el libro de configuración:
+
+1. Seleccione **Add hosts to workspace** (Agregar hosts al área de trabajo). 
+2. Actualice el libro de configuración.
+
+>[!NOTE]
+>La máquina host debe estar en ejecución para instalar la extensión de Log Analytics. Si se produce un error en la implementación automática, puede instalar manualmente la extensión en un host. Para obtener información sobre cómo instalar la extensión manualmente, consulte [Extensión de máquina virtual de Log Analytics para Windows](../virtual-machines/extensions/oms-windows.md).
+
+#### <a name="workspace-performance-counters"></a>Contadores de rendimiento del área de trabajo
+
+Tendrá que habilitar contadores de rendimiento específicos para recopilar información de rendimiento de los hosts de sesión y enviarla al área de trabajo de Log Analytics.
+
+Si ya tiene contadores de rendimiento habilitados y desea quitarlos, siga las instrucciones que se indican en este artículo sobre la [configuración de contadores de rendimiento](../azure-monitor/agents/data-sources-performance-counters.md). Puede agregar y quitar a la vez contadores de rendimiento en la misma ubicación.
+
+Para configurar los contadores de rendimiento utilizando el libro de configuración: 
+
+1. En la sección **Workspace performance counters** (Contadores de rendimiento del área de trabajo) del libro de configuración, active **Configured counters** (Contadores configurados) para ver los contadores que ya están habilitados y pueden enviar datos al área de trabajo de Log Analytics. Compruebe los **Missing counters** (Contadores ausentes) para asegurarse de que ha habilitado todos los contadores necesarios.
+2. Si hay contadores que faltan, seleccione **Configurar contadores de rendimiento**.
+3. Seleccione **Aplicar configuración**.
+4. Actualice el libro de configuración.
+5. Asegúrese de que todos los contadores necesarios estén habilitados; para ello, compruebe la lista de **Missing counters** (Contadores ausentes). 
+
+#### <a name="configure-windows-event-logs"></a>Configuración de registros de eventos de Windows
+
+También deberá habilitar registros de eventos de Windows específicos para recopilar errores, advertencias e información de los hosts de sesión y enviarlos al área de trabajo de Log Analytics.
+
+Si ya ha habilitado los registros de eventos de Windows y desea quitarlos, siga las instrucciones que se indican en este artículo sobre la [configuración de registros de eventos de Windows](../azure-monitor/agents/data-sources-windows-events.md#configuring-windows-event-logs).  Puede agregar y quitar a la vez registros de eventos de Windows en la misma ubicación.
+
+Para configurar los registros de eventos de Windows utilizando el libro de configuración:
+
+1. En **Windows Event Logs configuration** (Configuración de registros de eventos de Windows), active **Configured Event Logs** (Registros de eventos configurados) para ver los registros de eventos que ya ha habilitado para que se envíen al área de trabajo de Log Analytics. Consulte **Missing Event Logs** (Registros de eventos ausentes) y compruebe que se han habilitado todos los registros de eventos de Windows.
+2. Si faltan registros de eventos de Windows, seleccione **Configurar eventos**.
+3. Seleccione **Implementar**.
+4. Actualice el libro de configuración.
+5. Asegúrese de que todos los registros de eventos de Windows necesarios estén habilitados; para ello, compruebe la lista de **Missing Event Logs** (Registros de eventos ausentes). 
+
+>[!NOTE]
+>Si se produce un error en la implementación automática de eventos, seleccione **Open agent configuration** (Abrir configuración del agente) en el libro de configuración para agregar manualmente los registros de eventos de Windows que falten. 
 
 ## <a name="optional-configure-alerts"></a>Opcional: configuración de MPIO
 
-Puede configurar Azure Monitor para Windows Virtual Desktop para que notifique si se produce alguna alerta de Azure Monitor grave en la suscripción seleccionada. Para ello, siga las instrucciones de [Respuesta a eventos con las alertas de Azure Monitor](../azure-monitor/alerts/tutorial-response.md).
+Azure Monitor para Windows Virtual Desktop permite supervisar las alertas de Azure Monitor que se generan en la suscripción seleccionada en relación con los datos de Windows Virtual Desktop. Las alertas de Azure Monitor son una característica opcional de las suscripciones de Azure y deben configurarse en otro proceso distinto al de Azure Monitor para Windows Virtual Desktop. Puede usar el marco de alertas de Azure Monitor para configurar alertas personalizadas sobre los eventos, diagnósticos y recursos de Windows Virtual Desktop. Para más información sobre las alertas, consulte este artículo sobre la [respuesta a eventos con alertas de Azure Monitor](../azure-monitor/alerts/tutorial-response.md).
 
 ## <a name="diagnostic-and-usage-data"></a>Datos de diagnóstico y uso
 
@@ -186,7 +190,8 @@ Para más información sobre el uso y la recopilación de datos, vea la [Declara
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha configurado Windows Virtual Desktop desde Azure Portal, aquí tiene algunos recursos que pueden ayudarlo con lo siguiente:
+Ahora que ha configurado Azure Monitor para el entorno de Windows Virtual Desktop, le dejamos algunos recursos que podrían ayudarle a supervisar el entorno:
 
 - Consulte nuestro [glosario](azure-monitor-glossary.md) para obtener más información sobre los términos y conceptos relacionados con Azure Monitor para Windows Virtual Desktop.
-- Si encuentra algún problema, consulte nuestra [guía de solución de problemas](troubleshoot-azure-monitor.md) para obtener ayuda.
+- Para calcular, medir y administrar los costos de almacenamiento de datos, consulte este artículo sobre el [cálculo de costos en Azure Monitor](azure-monitor-costs.md).
+- Si encuentra algún problema, consulte nuestra [guía de solución de problemas](troubleshoot-azure-monitor.md) para obtener ayuda y ver los problemas conocidos.

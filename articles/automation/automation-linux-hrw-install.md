@@ -3,14 +3,14 @@ title: Implementación de una instancia de Hybrid Runbook Worker en Azure Automa
 description: En este artículo se describe cómo instalar Hybrid Runbook Worker de Azure Automation para ejecutar runbooks en máquinas con Linux en su centro de datos local o en su entorno en la nube.
 services: automation
 ms.subservice: process-automation
-ms.date: 02/26/2021
+ms.date: 04/02/2021
 ms.topic: conceptual
-ms.openlocfilehash: d4d9bcd16e36e76808f19f7fbd43dd0d3e7550c3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a37f3de48dd675ef1b41f84747f0db3ce1598337
+ms.sourcegitcommit: af6eba1485e6fd99eed39e507896472fa930df4d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102182339"
+ms.lasthandoff: 04/04/2021
+ms.locfileid: "106293675"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Implementación de Hybrid Runbook Worker en Linux
 
@@ -106,6 +106,31 @@ Las instancias de Hybrid Runbook Worker admiten un conjunto limitado de tipos de
 Para conocer los requisitos de red de Hybrid Runbook Worker, consulte [Configuración de la red](automation-hybrid-runbook-worker.md#network-planning).
 
 ## <a name="install-a-linux-hybrid-runbook-worker"></a>Instalación de Hybrid Runbook Worker en Linux
+
+Hay dos métodos para implementar Hybrid Runbook Worker. Puede importar y ejecutar un runbook desde la galería de runbooks de Azure Portal, o puede ejecutar manualmente una serie de comandos de PowerShell para realizar la misma tarea.
+
+### <a name="importing-a-runbook-from-the-runbook-gallery"></a>Importación de un runbook desde la galería de runbooks
+
+El procedimiento de importación se describe en detalle en [Importación de un runbook de PowerShell desde GitHub con Azure Portal](automation-runbook-gallery.md#import-a-powershell-runbook-from-github-with-the-azure-portal). El nombre del runbook que se va a importar es **Create Automation Linux HybridWorker**.
+
+El runbook usa los parámetros siguientes.
+
+| Parámetro | Status | Descripción |
+| ------- | ----- | ----------- |
+| `Location` | Mandatory | La ubicación del área de trabajo de Log Analytics. |
+| `ResourceGroupName` | Mandatory | El grupo de recursos de la cuenta de Automation. |
+| `AccountName` | Mandatory | El nombre de la cuenta de Automation en la que se registrará Hybrid Run Worker. |
+| `CreateLA` | Mandatory | Si es true, usa el valor de `WorkspaceName` para crear un área de trabajo de Log Analytics. Si es false, el valor de `WorkspaceName` debe hacer referencia a un área de trabajo existente. |
+| `LAlocation` | Opcional | Ubicación en la que se creará el área de trabajo de Log Analytics o donde ya existe. |
+| `WorkspaceName` | Opcional | Nombre del área de trabajo de Log Analytics que se va a crear o a usar. |
+| `CreateVM` | Mandatory | Si es true, use el valor de `VMName` como nombre de una nueva VM. Si es false, use `VMName` para buscar y registrar la VM existente. |
+| `VMName` | Opcional | Nombre de la máquina virtual que se crea o se registra, dependiendo del valor de `CreateVM`. |
+| `VMImage` | Opcional | Nombre de la imagen de VM que se va a crear. |
+| `VMlocation` | Opcional | Ubicación de la VM que se ha creado o registrado. Si no se especifica esta ubicación, se usa el valor de `LAlocation`. |
+| `RegisterHW` | Mandatory | Si es true, registre la VM como Hybrid Worker. |
+| `WorkerGroupName` | Mandatory | Nombre del Grupo de Hybrid Worker. |
+
+### <a name="manually-run-powershell-commands"></a>Ejecución manual de comandos de PowerShell
 
 Para instalar y configurar una instancia de Hybrid Runbook Worker para Linux, siga los pasos que se indican a continuación.
 

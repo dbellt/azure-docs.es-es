@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 09/21/2020
 ms.reviewer: ''
-ms.openlocfilehash: 1217d3af855e96b6d6a0f403c2ff351a6b957d9a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c16764d1ce985755b6a3042873cc18b09b697bcf
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96459676"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551618"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Cuaderno de estrategias para abordar requisitos de seguridad comunes con Azure SQL Database y Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -91,7 +91,7 @@ La administración de identidades central ofrece estas ventajas:
 - Asigne derechos de acceso a los recursos a entidades de seguridad de Azure AD a través de la asignación de grupos: Cree grupos de Azure AD, conceda acceso a los grupos y agregue miembros individuales a los grupos. En la base de datos, cree usuarios de bases de datos independientes que asignen los grupos de Azure AD. Para asignar permisos dentro de la base de datos, coloque los usuarios que están asociados con los grupos de Azure AD en los roles de base de datos con los permisos adecuados.
   - Consulte los artículos [Configuración y administración de la autenticación de Azure Active Directory con SQL](authentication-aad-configure.md) y [Usar la autenticación de Azure Active Directory para autenticación con SQL](authentication-aad-overview.md).
   > [!NOTE]
-  > En Instancia administrada de SQL, también puede crear inicios de sesión que se asignen a entidades de seguridad de Azure AD en la base de datos maestra. Consulte [CREATE LOGIN (Transact-SQL)](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
+  > En Instancia administrada de SQL, también puede crear inicios de sesión que se asignen a entidades de seguridad de Azure AD en la base de datos maestra. Consulte [CREATE LOGIN (Transact-SQL)](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true).
 
 - El uso de grupos de Azure AD simplifica la administración de permisos y tanto el propietario del grupo como el propietario del recurso puede agregar o quitar miembros del grupo.
 
@@ -136,7 +136,7 @@ Azure AD Multi-Factor Authentication ayuda a proporcionar más seguridad al req
 
 - Use el modo de autenticación interactiva de Azure AD para Azure SQL Database y Azure SQL Managed Instance, donde se solicita una contraseña de manera interactiva, seguida de la autenticación de Multi-Factor Authentication:
   - Use la autenticación universal en SSMS. Consulte el artículo [Uso de la autenticación multifactor de Azure AD con Azure SQL Database, SQL Managed Instance y Azure Synapse (compatibilidad de SSMS con Multi-Factor Authentication)](authentication-mfa-ssms-overview.md).
-  - Use la autenticación interactiva admitida en SQL Server Data Tools (SSDT). Consulte el artículo [Compatibilidad de Azure Active Directory con SQL Server Data Tools (SSDT)](/sql/ssdt/azure-active-directory?view=azuresqldb-current).
+  - Use la autenticación interactiva admitida en SQL Server Data Tools (SSDT). Consulte el artículo [Compatibilidad de Azure Active Directory con SQL Server Data Tools (SSDT)](/sql/ssdt/azure-active-directory?view=azuresqldb-current&preserve-view=true).
   - Use otras herramientas de SQL que admitan Multi-Factor Authentication.
     - Compatibilidad con el Asistente de SSMS para exportar, extraer e implementar una base de datos  
     - [sqlpackage.exe](/sql/tools/sqlpackage): opción "/ua"
@@ -196,7 +196,7 @@ En caso de que no se puedan evitar las contraseñas, asegúrese de que estén pr
 
 - Si no es posible evitar contraseñas o secretos, almacene las contraseñas de usuario y los secretos de aplicación en Azure Key Vault y administre el acceso a través de las directivas de acceso de Key Vault.
 
-- Varios marcos de desarrollo de aplicaciones también pueden ofrecer mecanismos específicos del marco para proteger los secretos de la aplicación. Por ejemplo: [Aplicación de ASP.NET Core](/aspnet/core/security/app-secrets?tabs=windows&view=aspnetcore-2.1).
+- Varios marcos de desarrollo de aplicaciones también pueden ofrecer mecanismos específicos del marco para proteger los secretos de la aplicación. Por ejemplo: [Aplicación de ASP.NET Core](/aspnet/core/security/app-secrets?tabs=windows).
 
 ### <a name="use-sql-authentication-for-legacy-applications"></a>Uso de la autenticación de SQL para las aplicaciones heredadas
 

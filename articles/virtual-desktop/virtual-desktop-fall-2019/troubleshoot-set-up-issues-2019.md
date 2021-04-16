@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 8c6d26de62364b6aca671d1e4283a01c1b78c397
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+manager: femila
+ms.openlocfilehash: 12be4611f0583c6da630b9e5a0e4b5a82ebfa650
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "95014839"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106444282"
 ---
 # <a name="tenant-and-host-pool-creation-in-windows-virtual-desktop-classic"></a>Creación de grupos de inquilinos y de hosts en Windows Virtual Desktop (clásico)
 
@@ -31,11 +31,11 @@ Para usar la imagen de sesión múltiple de Windows 10 Enterprise, vaya a Azure
 > [!div class="mx-imgBorder"]
 > ![Una captura de pantalla de selección de Windows 10 Enterprise para escritorios virtuales, versión 1809.](../media/AzureMarketPlace.png)
 
-## <a name="creating-windows-virtual-desktop-tenant"></a>Crear un inquilino de Windows Virtual Desktop
+## <a name="creating-windows-virtual-desktop-tenant&quot;></a>Crear un inquilino de Windows Virtual Desktop
 
 En esta sección se tratan los posibles problemas al crear el inquilino de Windows Virtual Desktop.
 
-### <a name="error-aadsts650052-the-app-needs-access-to-a-service"></a>Error: AADSTS650052 La aplicación necesita acceso a un servicio.
+### <a name=&quot;error-aadsts650052-the-app-needs-access-to-a-service&quot;></a>Error: AADSTS650052 La aplicación necesita acceso a un servicio.
 
 Ejemplo de error no procesado:
 
@@ -406,7 +406,7 @@ Si está ejecutando la plantilla de GitHub Azure Resource Manager, proporcione v
 
 ### <a name="error-vmsubnet-not-available-when-configuring-virtual-networks"></a>Error: vmSubnet no disponible al configurar redes virtuales
 
-**Causa:** En la plantilla WVD Marketplace, la interfaz de usuario solo muestra las subredes que tienen al menos tantas direcciones IP disponibles como el número total de máquinas virtuales especificadas en la plantilla. El número real de direcciones IP disponibles en la subred solo debe ser igual al número de nuevas máquinas virtuales que se implementan, pero no puede calcularse con la interfaz de usuario actual.
+**Causa:** En la plantilla Marketplace de Windows Virtual Desktop, la interfaz de usuario solo muestra las subredes que tienen al menos tantas direcciones IP disponibles como el número total de máquinas virtuales especificadas en la plantilla. El número real de direcciones IP disponibles en la subred solo debe ser igual al número de nuevas máquinas virtuales que se implementan, pero no puede calcularse con la interfaz de usuario actual.
 
 **Solución:** Puede especificar una subred con al menos tantas direcciones IP disponibles como la cantidad de máquinas virtuales que se agregan al no usar la interfaz de usuario de Marketplace, esto se puede hacer especificando el nombre de subred en el parámetro "**existingSubnetName**" cuando [volver a implementar una implementación existente](expand-existing-host-pool-2019.md#redeploy-from-azure) o [implementar usando la plantilla ARM subyacente de GitHub](create-host-pools-arm-template.md#run-the-azure-resource-manager-template-for-provisioning-a-new-host-pool).
 
