@@ -2,13 +2,13 @@
 title: Novedades del agente de servidores habilitados para Azure Arc
 description: En este artículo se incluyen las notas de la versión del agente de servidores habilitados para Azure Arc. Muchos de los problemas resumidos incluyen vínculos para obtener detalles adicionales.
 ms.topic: conceptual
-ms.date: 03/15/2021
-ms.openlocfilehash: acf606ed1ad0f54c983b14a0141d0dc11e2c45d9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/31/2021
+ms.openlocfilehash: ecff23225f4d482cc1e9a4f7b7724c8ffe0a1d73
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103470513"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109074"
 ---
 # <a name="whats-new-with-azure-arc-enabled-servers-agent"></a>Novedades del agente de servidores habilitados para Azure Arc
 
@@ -24,9 +24,9 @@ Versión 1.4
 
 ## <a name="new-feature"></a>Nueva característica
 
-- Compatibilidad agregada para puntos de conexión privados.
+- Se ha agregado compatibilidad con puntos de conexión privados, que actualmente se encuentra en versión preliminar limitada.
 - Lista expandida de códigos de salida para azcmagent.
-- Los parámetros de configuración del agente ahora se pueden leer a partir desde un archivo mediante el parámetro config.
+- Los parámetros de configuración del agente ahora se pueden leer a partir desde un archivo mediante el parámetro `--config`.
 
 ## <a name="fixed"></a>Fijo
 

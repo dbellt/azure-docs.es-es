@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
 ms.openlocfilehash: 51dc04fbef8d09878f33d7fda6f15039d3afba3e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96026628"
 ---
 ### <a name="configure-a-dns-label-for-the-public-ip-address"></a>Configuración de una etiqueta DNS para la dirección IP pública
@@ -28,7 +28,7 @@ Para crear una etiqueta DNS, seleccione primero **Máquinas virtuales** en el po
 
 1. Escriba un nombre para la etiqueta DNS. Este nombre es un registro A que se puede usar para conectarse a la máquina virtual de SQL Server utilizando el nombre en lugar de usar directamente la dirección IP.
 
-1. Haga clic en el botón **Save** (Guardar).
+1. Haga clic en el botón **Guardar**.
 
     ![etiqueta dns](./media/virtual-machines-sql-server-connection-steps/rm-dns-label.png)
 

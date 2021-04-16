@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: b5b5a506b2f932d20a617634ace7ebf02093fbfa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 99f7f6561df16cfad6b0cc001395fa3ad7b2f6dc
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98664255"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259479"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Planes de tarifa de Azure Database for MariaDB
 
@@ -22,7 +22,7 @@ Puede crear un servidor de Azure Database for MariaDB en tres planes de tarifa d
 | Generación de procesos | Gen 5 |Gen 5 | Gen 5 |
 | Núcleos virtuales | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
 | Memoria por núcleo virtual | 2 GB | 5 GB | 10 GB |
-| Tamaño de almacenamiento | De 5 GB a 1 TB | De 5 GB a 4 TB | De 5 GB a 4 TB |
+| Tamaño de almacenamiento | De 5 GB a 1 TB | De 5 GB a 16 TB | De 5 GB a 16 TB |
 | Período de retención de copias de seguridad de base de datos | De 7 a 35 días | De 7 a 35 días | De 7 a 35 días |
 
 Para elegir un plan de tarifa, use la siguiente tabla como punto de partida.
@@ -30,7 +30,7 @@ Para elegir un plan de tarifa, use la siguiente tabla como punto de partida.
 | Plan de tarifa | Carga de trabajo objetivo |
 |:-------------|:-----------------|
 | Básico | Cargas de trabajo que requieren proceso y rendimiento de E/S ligeros. Algunos ejemplos son los servidores que se usan para desarrollo o prueba, o bien las aplicaciones a pequeña escala que se usan con poca frecuencia. |
-| De uso general | La mayoría de las cargas de trabajo de empresa que requieren un equilibrio entre proceso y memoria con rendimiento de E/S escalable. Por ejemplo, servidores para hospedar aplicaciones web y móviles, y otras aplicaciones empresariales.|
+| Uso general | La mayoría de las cargas de trabajo de empresa que requieren un equilibrio entre proceso y memoria con rendimiento de E/S escalable. Por ejemplo, servidores para hospedar aplicaciones web y móviles, y otras aplicaciones empresariales.|
 | Memoria optimizada | Cargas de trabajo de base de datos de alto rendimiento que requieren rendimiento en memoria para un procesamiento de transacciones más rápido y una mayor simultaneidad. Por ejemplo, servidores para procesar datos en tiempo real y aplicaciones de análisis y transacciones de alto rendimiento.|
 
 Después de crear un servidor, el número de núcleos virtuales y el plan de tarifa (excepto hacia y desde Básico) se puede aumentar o reducir en cuestión de segundos. También puede ajustar de forma independiente la cantidad de almacenamiento y aumentar o reducir el período de retención sin que las aplicaciones experimenten tiempo de inactividad. No puede cambiar el tipo de almacenamiento de copia de seguridad. Para más información, consulte la sección [Escalado de recursos](#scale-resources).
@@ -46,9 +46,13 @@ El almacenamiento que se aprovisiona es la cantidad de capacidad de almacenamien
 | Atributos de almacenamiento   | Básico | De uso general | Memoria optimizada |
 |:---|:----------|:--------------------|:---------------------|
 | Tipo de almacenamiento | Almacenamiento básico | Almacenamiento de uso general | Almacenamiento de uso general |
-| Tamaño de almacenamiento | De 5 GB a 1 TB | De 5 GB a 4 TB | De 5 GB a 4 TB |
+| Tamaño de almacenamiento | De 5 GB a 1 TB | De 5 GB a 16 TB | De 5 GB a 16 TB |
 | Tamaño de incremento de almacenamiento | 1 GB | 1 GB | 1 GB |
 | E/S | Variable |3 IOPS/GB<br/>100 IOPS mín.<br/>6000 IOPS máx. | 3 IOPS/GB<br/>100 IOPS mín.<br/>6000 IOPS máx. |
+
+>[!IMPORTANT]
+> Se admite el almacenamiento de hasta 16 TB y 20 000 IOPS en las siguientes regiones: Este de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Sur de Brasil, Oeste de EE. UU., Centro-norte de EE. UU., Centro-sur de EE. UU., Norte de Europa, Oeste de Europa, Sur de Reino Unido, Oeste de Reino Unido, Sudeste de Asia, Asia Pacífico, Este de Japón, Oeste de Japón, Centro de Corea del Sur, Sur de Corea del Sur, Este de Australia, Sudeste de Australia, Oeste de EE. UU. 2, Centro-oeste de EE. UU., Este de Canadá y Centro de Canadá.
+> El resto de regiones admiten hasta 4 TB de almacenamiento y 6000 IOPS.
 
 Puede agregar capacidad de almacenamiento adicional durante y después de la creación del servidor y permitir que el sistema aumente el almacenamiento automáticamente en función del consumo de almacenamiento de su carga de trabajo.
 
@@ -58,23 +62,6 @@ Puede agregar capacidad de almacenamiento adicional durante y después de la cre
 El plan Básico no proporciona una garantía de IOPS. En los planes de tarifa Uso general y Memoria optimizada, el valor de IOPS se escala con el tamaño de almacenamiento aprovisionado en una proporción 3:1.
 
 Puede supervisar el consumo de E/S en Azure Portal o mediante los comandos de la CLI de Azure. Las métricas pertinentes que se deben supervisar son el [límite de almacenamiento, el porcentaje de almacenamiento, el almacenamiento usado y el porcentaje de E/S](concepts-monitoring.md).
-
-### <a name="large-storage-preview"></a>Almacenamiento de gran tamaño (versión preliminar)
-
-Estamos aumentando los límites de almacenamiento en nuestros niveles De uso general y Optimizados para memoria. Los servidores recién creados que participen en la versión preliminar pueden aprovisionar hasta 16 TB de almacenamiento. La escala IOPS en una proporción de 3:1 es de hasta 20 000 IOPS. Con el almacenamiento disponible actualmente, puede agregar capacidad de almacenamiento adicional durante y después de la creación del servidor, y permitir que el sistema aumente el almacenamiento de manera automática en función del consumo de almacenamiento de su carga de trabajo.
-
-| Atributos de almacenamiento | De uso general | Memoria optimizada |
-|:-------------|:--------------------|:---------------------|
-| Tipo de almacenamiento | Azure Premium Storage | Azure Premium Storage |
-| Tamaño de almacenamiento | De 32 GB a 16 TB| De 32 a 16 TB |
-| Tamaño de incremento de almacenamiento | 1 GB | 1 GB |
-| E/S | 3 IOPS/GB<br/>100 IOPS mín.<br/>20 000 IOPS máx.| 3 IOPS/GB<br/>100 IOPS mín.<br/>20 000 IOPS máx. |
-
-> [!IMPORTANT]
-> El almacenamiento de gran tamaño actualmente se encuentra disponible en versión preliminar pública en las siguientes regiones: Este de EE. UU., Este de EE. UU. 2, Sur de Brasil, Centro de EE. UU., Oeste de EE. UU., Centro-norte de EE. UU., Centro-sur de EE. UU., Norte de Europa, Oeste de Europa, Sur de Reino Unido, Oeste de Reino Unido, Sudeste de Asia, Asia Pacífico, Este de Japón, Oeste de Japón, Centro de Corea del Sur, Sur de Corea del Sur, Este de Australia, Sudeste de Australia, Oeste de EE. UU. 2, Centro-oeste de EE. UU., Este de Canadá y Centro de Canadá.
->
-> El resto de regiones admiten hasta 4 TB de almacenamiento y 6000 IOPS.
->
 
 ### <a name="reaching-the-storage-limit"></a>Alcance del límite de almacenamiento
 

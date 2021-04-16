@@ -1,6 +1,6 @@
 - name: Documentación sobre el servicio de voz
   href: index.yml
-- name: Introducción
+- name: Información general
   expanded: true
   items:
     - name: Introducción al servicio de voz
@@ -470,7 +470,7 @@
     - name: Configuración de RHEL/CentOS 7
       href: how-to-configure-rhel-centos-7.md
       displayName: 'RHEL, CentOS 7, CentOS, Configure RHEL, Configure CentO'
-    - name: Contenedores
+    - name: Uso de contenedores
       items:
         - name: Instalación y ejecución de contenedores de voz
           displayName: 'containers,install container,run container'
@@ -497,6 +497,12 @@
           href: how-to-migrate-from-bing-speech.md
         - name: Desde Translator Speech API
           href: how-to-migrate-from-translator-speech-api.md
+    - name: Adecuado para empresas
+      items:
+        - name: Configuración de redes virtuales
+          href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/speech-service/context/context
+        - name: Uso de claves administradas por el cliente
+          href: speech-encryption-of-data-at-rest.md
 - name: Dispositivos
   items:
     - name: Documentación de dispositivos de voz
@@ -582,6 +588,12 @@
           href: 'https://speech.microsoft.com'
         - name: Creación de una aplicación de Comandos personalizada con Speech Studio
           href: ./quickstart-custom-commands-application.md
+    - name: Adecuado para empresas
+      items:
+        - name: Regiones admitidas
+          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+        - name: Cumplimiento y certificación
+          href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Opciones de ayuda y soporte técnico
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context
     - name: Documentación de Swagger
@@ -591,10 +603,6 @@
       href: sovereign-clouds.md
     - name: Calculadora de precios
       href: 'https://azure.microsoft.com/pricing/calculator/#cognitive-services'
-    - name: Cumplimiento normativo
-      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
-    - name: Cifrado
-      href: speech-encryption-of-data-at-rest.md
     - name: Azure Roadmap
       href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'
     - name: Privacidad y cookies

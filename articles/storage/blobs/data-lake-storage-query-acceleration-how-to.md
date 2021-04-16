@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 01/06/2021
 ms.author: normesta
 ms.reviewer: jamsbak
-ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: a925d3f55395d094c7f19f65de4b72fd20a11a41
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 58b8cdef604861342a6489ef4e57ff1d057cd3f4
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102213681"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107377741"
 ---
 # <a name="filter-data-by-using-azure-data-lake-storage-query-acceleration"></a>Filtro de datos mediante la aceleración de consultas de Azure Data Lake Storage
 

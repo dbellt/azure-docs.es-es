@@ -3,7 +3,7 @@ title: 'Ejemplo de PowerShell: aplicaciones de proxy de aplicación con dominios
 description: Ejemplo de PowerShell en el que se enumeran todas las aplicaciones de proxy de aplicación de Azure Active Directory (Azure AD) que usan dominios personalizados e información de certificados.
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 8325da81fd78762f0ffdcae4eebe93fe567580d0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ec424d59fe7fee59c226ad51c74e6c106a4a5fc7
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102550988"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107377639"
 ---
 # <a name="get-all-application-proxy-apps-using-custom-domains-and-certificate-information"></a>Obtención de todas las aplicaciones de Application Proxy con dominios personalizados e información de certificados
 

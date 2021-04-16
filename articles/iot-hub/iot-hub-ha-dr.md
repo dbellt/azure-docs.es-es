@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: philmea
-ms.openlocfilehash: 9d2ffac813456398c02066c978c37bdb09501aeb
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 10a3360f30d211336e4ce861b124a307c85fb150
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105628992"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107308258"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Alta disponibilidad y recuperación ante desastres de IoT Hub
 
@@ -64,7 +64,7 @@ Una vez completada la operación de conmutación por error para la instancia de 
 >
 > - Si usa Azure Functions o Azure Stream Analytics para conectar el punto de conexión de eventos integrado, puede que tenga que realizar un **reinicio**. Esto se debe a que, durante la conmutación por error, los desplazamientos anteriores ya no son válidos.
 >
-> - Al enrutar al almacenamiento, se recomienda enumerar los blobs o los archivos e iterar sobre ellos para garantizar que se leen todos sin pasar por alto ninguna partición. El intervalo de partición podría cambiar durante una conmutación por error iniciada por Microsoft o una conmutación por error manual. Puede usar la [API List Blobs](/rest/api/storageservices/list-blobs) para la lista de blobs o la [API List ADLS Gen2](/rest/api/storageservices/datalakestoragegen2/filesystem/listpaths) para la lista de archivos. Para obtener más información, vea [Azure Storage como punto de conexión de enrutamiento](iot-hub-devguide-messages-d2c.md#azure-storage-as-a-routing-endpoint).
+> - Al enrutar al almacenamiento, se recomienda enumerar los blobs o los archivos e iterar sobre ellos para garantizar que se leen todos sin pasar por alto ninguna partición. El intervalo de partición podría cambiar durante una conmutación por error iniciada por Microsoft o una conmutación por error manual. Puede usar la [API List Blobs](/rest/api/storageservices/list-blobs) para la lista de blobs o la [API List ADLS Gen2](/rest/api/storageservices/datalakestoragegen2/filesystem/list) para la lista de archivos. Para obtener más información, vea [Azure Storage como punto de conexión de enrutamiento](iot-hub-devguide-messages-d2c.md#azure-storage-as-a-routing-endpoint).
 
 ## <a name="microsoft-initiated-failover"></a>Conmutación por error iniciada por Microsoft
 

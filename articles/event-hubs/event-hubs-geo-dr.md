@@ -3,12 +3,12 @@ title: 'Recuperación ante desastres geográfica: Azure Event Hubs| Microsoft Do
 description: Cómo usar regiones geográficas para conmutar por error y llevar a cabo una recuperación ante desastres en Azure Event Hubs
 ms.topic: article
 ms.date: 02/10/2021
-ms.openlocfilehash: f3b74b89f47582fbb3f1640f315f413ab86b26b5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 091c6c61b079ceb8f96f04e62fb772d91732eb2f
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104602645"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107311216"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs: recuperación ante desastres geográfica 
 
@@ -205,7 +205,7 @@ Para obtener más información acerca de Event Hubs, visite los vínculos siguie
     - [Java](event-hubs-java-get-started-send.md)
     - [Python](event-hubs-python-get-started-send.md)
     - [JavaScript](event-hubs-node-get-started-send.md)
-* [Preguntas más frecuentes sobre Event Hubs](event-hubs-faq.md)
+* [Preguntas más frecuentes sobre Event Hubs](event-hubs-faq.yml)
 * [Aplicaciones de ejemplo que usan Event Hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 
 [1]: ./media/event-hubs-geo-dr/geo1.png

@@ -2,23 +2,21 @@
 title: Uso del informe de actividades para trasladar aplicaciones de AD FS a Azure Active Directory | Microsoft Docs
 description: El informe de actividades de aplicaciones de Servicios de federación de Active Directory (AD FS) permite migrar rápidamente aplicaciones de AD FS a Azure Active Directory (Azure AD). Esta herramienta de migración para AD FS identifica la compatibilidad con Azure AD y proporciona instrucciones de migración.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 01/14/2019
-ms.author: kenwith
+ms.author: iangithinji
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88a4d0f108d4e3c27ce17aaa83aafca38063c9ae
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 6b9265a61b0879078332b8ccc2d10e711b4ac8f1
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104589470"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107377427"
 ---
 # <a name="use-the-ad-fs-application-activity-report-to-migrate-applications-to-azure-ad"></a>Use el informe de actividades de aplicaciones de AD FS para migrar aplicaciones a Azure AD
 

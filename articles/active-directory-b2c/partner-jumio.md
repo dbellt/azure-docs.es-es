@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 66ec0d4b09dc983eb898d63d45b3dd7cab291c4c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e344c849a8e9021daea9caebacec3289b99d03e6
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96928671"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256674"
 ---
 # <a name="tutorial-for-configuring-jumio-with-azure-active-directory-b2c"></a>Tutorial para configurar Jumio con Azure Active Directory B2C
 
@@ -139,7 +139,7 @@ Puede [configurar las opciones de la aplicación en Azure App Service](../app-se
 
 1. Vaya a la [directiva de Azure AD B2C](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Jumio/Policies) en la carpeta Directivas.
 
-2. Siga [este artículo](./custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack) para descargar el [paquete de inicio de LocalAccounts](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts).
+2. Siga [este artículo](tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack) para descargar el [paquete de inicio de LocalAccounts](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts).
 
 3. Configure la directiva para el inquilino de Azure AD B2C.
 
@@ -170,4 +170,4 @@ Para más información, consulte los artículos siguientes:
 
 - [Directivas personalizadas de Azure AD B2C](./custom-policy-overview.md)
 
-- [Introducción a las directivas personalizadas en Azure AD B2C](./custom-policy-get-started.md?tabs=applications)
+- [Introducción a las directivas personalizadas en Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)

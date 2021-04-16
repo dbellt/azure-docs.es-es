@@ -2,14 +2,14 @@
 title: Configuración de puntos de conexión de servicio de red virtual con Azure Service Bus
 description: En este artículo se proporciona información sobre cómo agregar un punto de conexión de servicio de Microsoft.ServiceBus a una red virtual.
 ms.topic: article
-ms.date: 02/12/2021
+ms.date: 03/29/2021
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 2e00c9429ab3e39f95bc5ce6df072a99e4f02b86
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9b5aba6c5ad4e1e6d0c90b99ebcdf441bb35cc39
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100559579"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105960459"
 ---
 # <a name="allow-access-to-azure-service-bus-namespace-from-specific-virtual-networks"></a>Permitir el acceso al espacio de nombres de Azure Service Bus desde redes virtuales específicas
 La integración de Service Bus con los [puntos de conexión de servicio de una red virtual (VNet)][vnet-sep] permite el acceso seguro a las funcionalidades de mensajería de cargas de trabajo como las de máquinas virtuales que están enlazadas a redes virtuales, con una ruta de acceso del tráfico de red que está protegida en ambos extremos.
@@ -18,16 +18,14 @@ Una vez realizada la configuración para enlazarse con al menos un punto de cone
 
 El resultado es una relación privada y aislada entre las cargas de trabajo enlazadas a la subred y el espacio de nombres respectivo de Service Bus, a pesar de que la dirección de red que se puede observar en el punto de conexión de servicio de mensajería esté en un intervalo IP público.
 
-La implementación de la integración de instancias de redes virtuales puede evitar que otros servicios de Azure interactúen con Service Bus. Como excepción, puede permitir el acceso a los recursos de Service Bus desde determinados servicios de confianza, incluso cuando los puntos de conexión de servicio de red están habilitados. Para ver una lista de servicios de confianza, consulte [Servicios de confianza](#trusted-microsoft-services).
+## <a name="important-points"></a>Observaciones importantes
+- Solo se admiten redes virtuales en espacios de nombres de Service Bus del [nivel Premium](service-bus-premium-messaging.md). Al utilizar los puntos de conexión de servicio de la red virtual con Service Bus, no debería habilitar estos puntos de conexión en aplicaciones que combinan espacios de nombres de Service Bus de los niveles Estándar y Premium. Dado que el nivel Estándar no admite redes virtuales, el punto de conexión está restringido solo a los espacios de nombres de nivel Premium.
+- La implementación de la integración de instancias de redes virtuales puede evitar que otros servicios de Azure interactúen con Service Bus. Como excepción, puede permitir el acceso a los recursos de Service Bus desde determinados **servicios de confianza**, incluso cuando los puntos de conexión de servicio de red están habilitados. Para ver una lista de servicios de confianza, consulte [Servicios de confianza](#trusted-microsoft-services).
 
-Los siguientes servicios de Microsoft deben estar en una red virtual
-- Azure App Service
-- Azure Functions
-
-Solo se admiten redes virtuales en espacios de nombres de Service Bus del [nivel Premium](service-bus-premium-messaging.md). Al utilizar los puntos de conexión de servicio de la red virtual con Service Bus, no debería habilitar estos puntos de conexión en aplicaciones que combinan espacios de nombres de Service Bus de los niveles Estándar y Premium. Dado que el nivel Estándar no admite redes virtuales, el punto de conexión está restringido solo a los espacios de nombres de nivel Premium.
-
-> [!IMPORTANT]
-> Especifique al menos una regla de IP o una regla de red virtual para que el espacio de nombres permita el tráfico solo desde las direcciones IP o la subred especificadas de una red virtual. Si no hay ninguna regla de red virtual y de IP, se puede acceder al espacio de nombres a través de la red pública de Internet (mediante la clave de acceso).  
+    Los siguientes servicios de Microsoft deben estar en una red virtual
+    - Azure App Service
+    - Azure Functions
+- Especifique **al menos una regla de IP o una regla de red virtual** para que el espacio de nombres permita el tráfico solo desde las direcciones IP o la subred especificadas de una red virtual. Si no hay ninguna regla de red virtual y de IP, se puede acceder al espacio de nombres a través de la red pública de Internet (mediante la clave de acceso).  
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Escenarios de seguridad avanzados que habilita la integración de VNet 
 

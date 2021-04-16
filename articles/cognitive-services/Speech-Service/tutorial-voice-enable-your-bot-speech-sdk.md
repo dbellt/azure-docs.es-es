@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d91bfee228b946ff564f6d080976f9ce5c12caa4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fa449ad3d9a0e26bd0754a67581c8d63fa025e55
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102426270"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552315"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>Tutorial: Habilitación del bot con voz mediante el SDK de voz
 
@@ -54,7 +54,7 @@ Este tutorial abarca lo siguiente:
 > * Agregar la activación de la palabra clave personalizada
 > * Aprender cómo cambiar el idioma de la voz hablada y reconocida
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial, necesitará lo siguiente:
 
@@ -83,7 +83,7 @@ La aplicación cliente que creará en este tutorial utiliza una serie de servici
 Si quiere usar una región diferente para este tutorial, estos factores pueden limitar las opciones:
 
 * Asegúrese de que usa una [región de Azure compatible](regions.md#voice-assistants).
-* El canal Direct Line Speech utiliza el servicio de conversión de texto a voz, que tiene voces estándar y neuronales. Las voces neuronales se [limitan a regiones específicas de Azure](regions.md#standard-and-neural-voices).
+* El canal Direct Line Speech utiliza el servicio de conversión de texto a voz, que tiene voces estándar y neuronales. Todas las voces neuronales y estándar están disponibles en estas [regiones de Azure](regions.md#neural-and-standard-voices).
 
 Para más información sobre las regiones, consulte [Ubicaciones de Azure](https://azure.microsoft.com/global-infrastructure/locations/).
 
@@ -328,7 +328,7 @@ Si recibe un mensaje de error en la ventana principal de la aplicación, use est
 |Error (AuthenticationFailure): WebSocket Upgrade failed with an authentication error (401). Check for correct subscription key (or authorization token) and region name [Error AuthenticationFailure: No se pudo actualizar el socket web con un error de autenticación (401)]| En la página Configuración de la aplicación, asegúrese de que ha especificado correctamente la clave de suscripción de voz y su región.<br>Asegúrese de que la clave de voz y la región de la clave se escribieron correctamente. |
 |Error (ConnectionFailure): Connection was closed by the remote host. Código de error: 1011. Detalles del error: We could not connect to the bot before sending a message (Error ConnectionFailure: El host remoto cerró la conexión. Código de error: 1011. Detalles del error: No se pudo conectar al bot antes de enviar un mensaje) | Asegúrese de [activar la casilla "Enable Streaming Endpoint"](#register-the-direct-line-speech-channel) (Habilitar el punto de conexión de streaming) o de [alternar los **sockets web**](#enable-web-sockets) en Activado.<br>Asegúrese de que la instancia de Azure App Service se ejecuta. Si es así, pruebe a reiniciar la instancia de App Service.|
 |Error (ConnectionFailure): Connection was closed by the remote host. Código de error: 1002. Detalles del error: El servidor devolvió el código de estado ''503" cuando se esperaba el código "101". | Asegúrese de [activar la casilla "Enable Streaming Endpoint"](#register-the-direct-line-speech-channel) (Habilitar el punto de conexión de streaming) o de [alternar los **sockets web**](#enable-web-sockets) en Activado.<br>Asegúrese de que la instancia de Azure App Service se ejecuta. Si es así, pruebe a reiniciar la instancia de App Service.|
-|Error (ConnectionFailure): Connection was closed by the remote host. Código de error: 1011. Detalles del error: Response status code does not indicate success: 500 (InternalServerError) [Error ConnectionFailure: El host remoto cerró la conexión. Código de error: 1011. Detalles del error: El código de estado de respuesta no indica una operación correcta]| El bot especificó una voz neuronal en el campo [Speak](https://github.com/microsoft/botframework-sdk/blob/master/specs/botframework-activity/botframework-activity.md#speak) (Hablar) de salida, pero la región de Azure asociada a la clave de suscripción de voz no es compatible con las voces neuronales. Consulte [Voces estándares y neuronales](./regions.md#standard-and-neural-voices).|
+|Error (ConnectionFailure): Connection was closed by the remote host. Código de error: 1011. Detalles del error: Response status code does not indicate success: 500 (InternalServerError) [Error ConnectionFailure: El host remoto cerró la conexión. Código de error: 1011. Detalles del error: El código de estado de respuesta no indica una operación correcta]| El bot especificó una voz neuronal en el campo [Speak](https://github.com/microsoft/botframework-sdk/blob/master/specs/botframework-activity/botframework-activity.md#speak) (Hablar) de salida, pero la región de Azure asociada a la clave de suscripción de voz no es compatible con las voces neuronales. Consulte [Voces neuronales y estándar](./regions.md#neural-and-standard-voices).|
 
 Si el problema no se soluciona en la tabla, consulte [Asistentes de voz: Frequently asked questions](faq-voice-assistants.md) (inicio de sesión único de conexión directa de Azure Active Directory: preguntas más frecuentes). Si sigue sin poder resolver el problema después de seguir todos los pasos de este tutorial, envíe una nueva incidencia en la [página de GitHub del asistente de voz](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/issues).
 
@@ -475,7 +475,7 @@ Si no va a seguir usando el bot eco que ha implementado en este tutorial, puede 
 ## <a name="see-also"></a>Consulte también
 
 * Implementación en una [región de Azure próxima](https://azure.microsoft.com/global-infrastructure/locations/) para ver la mejora del tiempo de respuesta de bot
-* Implementación en una [región de Azure que admite voces TTS neuronales de alta calidad](./regions.md#standard-and-neural-voices)
+* Implementación en una [región de Azure que admite voces TTS neuronales de alta calidad](./regions.md#neural-and-standard-voices)
 * Precios asociados al canal Direct Line Speech:
   * [Precios de Bot Service](https://azure.microsoft.com/pricing/details/bot-service/)
   * [Servicio Voz](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)

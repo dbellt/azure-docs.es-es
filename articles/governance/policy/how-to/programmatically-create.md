@@ -3,12 +3,12 @@ title: Creación de directivas mediante programación
 description: Este artículo le guiará a través de la creación y administración de directivas para Azure Policy mediante programación con la CLI de Azure, Azure PowerShell y API REST.
 ms.date: 03/16/2021
 ms.topic: how-to
-ms.openlocfilehash: b4f15241799469da2e479cb758f648ec3131a149
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: fb20509fe6d699050e0c98e82873ccdb6a0137b2
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104598497"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313698"
 ---
 # <a name="programmatically-create-policies"></a>Creación de directivas mediante programación
 
@@ -141,7 +141,7 @@ Use el procedimiento siguiente para crear una definición de directiva.
 
    Sustituya el valor de {subscriptionId} anterior por el identificador de su suscripción o {managementGroupId} por el identificador de su [grupo de administración](../../management-groups/overview.md).
 
-   Para más información acerca de la estructura de la consulta, consulte [Azure Policy Definitions – Create or Update](/rest/api/resources/policydefinitions/createorupdate) (Definiciones de Azure Policy: creación o actualización) y [Policy Definitions – Create or Update At Management Group](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup) (Definiciones de directiva: creación o actualización en el grupo de administración).
+   Para más información acerca de la estructura de la consulta, consulte [Azure Policy Definitions – Create or Update](/rest/api/policy/policydefinitions/createorupdate) (Definiciones de Azure Policy: creación o actualización) y [Policy Definitions – Create or Update At Management Group](/rest/api/policy/policydefinitions/createorupdateatmanagementgroup) (Definiciones de directiva: creación o actualización en el grupo de administración).
 
 Utilice el procedimiento siguiente para crear una asignación de directiva y asignar la definición de directiva en el nivel de grupo de recursos.
 
