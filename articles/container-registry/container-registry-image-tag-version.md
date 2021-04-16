@@ -5,16 +5,16 @@ author: stevelasker
 ms.topic: article
 ms.date: 07/10/2019
 ms.author: stevelas
-ms.openlocfilehash: b483317960409fe1fbea181706f12375606fe659
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9dfd29f2265e599f3cc7c412b81c3b7b93af40db
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "75445749"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109720"
 ---
 # <a name="recommendations-for-tagging-and-versioning-container-images"></a>Recomendaciones para el etiquetado y el control de versiones de las imágenes de contenedor
 
-Al insertar la implementación de las imágenes de contenedor en un registro de contenedor y, después, implementarlas, necesita una estrategia de etiquetado y control de versiones de las imágenes. En este artículo se describen dos enfoques y dónde se ajusta cada uno durante el ciclo de vida del contenedor:
+Al insertar las imágenes de contenedor en un registro de contenedor y, después, implementarlas, necesita una estrategia de etiquetado y control de versiones de las imágenes. En este artículo se describen dos enfoques y dónde se ajusta cada uno durante el ciclo de vida del contenedor:
 
 * **Etiquetas estables**: etiquetas que se vuelven a utilizar, por ejemplo, para indicar una versión importante o secundaria, como *mycontainerimage:1.0*.
 * **Etiquetas únicas**: una etiqueta diferente para cada imagen que se inserta en un registro, como *mycontainerimage:abc123*.

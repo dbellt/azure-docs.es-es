@@ -4,30 +4,31 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
 ms.author: mikben
-ms.openlocfilehash: e9c889dcffe42fde244f8a35ce42032e84d78fff
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 479aa522462d14f295177e6b2d2fcc4707657760
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103488140"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106498818"
 ---
+[!INCLUDE [Public Preview Notice](../../../includes/public-preview-include-android-ios.md)]
+
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
-- Un recurso implementado de Communication Services. [Cree un recurso de Communication Services](../../create-communication-resource.md).
-- `User Access Token` para habilitar el cliente de llamada. Para más información sobre [cómo obtener un `User Access Token`](../../access-tokens.md)
-- Opcional: Complete el inicio rápido para [empezar a agregar llamadas a su aplicación](../getting-started-with-calling.md)
+- Un recurso de Azure Communication Services implementado. [Creación de un recurso de Communication Services](../../create-communication-resource.md).
+- Un token de acceso de usuario para habilitar el cliente de llamada. [Obtenga un token de acceso de usuario](../../access-tokens.md).
+- Opcional: siga la guía de inicio rápido [Incorporación de llamadas de voz a la aplicación](../getting-started-with-calling.md).
 
-## <a name="setting-up"></a>Instalación
+## <a name="set-up-your-system"></a>Configuración del sistema
 
-### <a name="creating-the-xcode-project"></a>Creación del proyecto de Xcode
+### <a name="create-the-xcode-project"></a>Creación del proyecto de Xcode
 
-> [!NOTE]
-> En este documento se usa la versión 1.0.0-beta.8 de la biblioteca de cliente para llamadas.
+En Xcode, cree un proyecto de iOS nuevo y seleccione la plantilla **Aplicación de vista única**. En este inicio rápido se usa el [marco SwiftUI](https://developer.apple.com/xcode/swiftui/), por lo que debe establecer el **lenguaje** en **Swift** y la **interfaz de usuario** en **SwiftUI**. 
 
-En Xcode, cree un proyecto de iOS nuevo y seleccione la plantilla **Aplicación de vista única**. En este inicio rápido se usa el [marco SwiftUI](https://developer.apple.com/xcode/swiftui/), por lo que debe establecer el **lenguaje** en **Swift** y la **interfaz de usuario** en **SwiftUI**. No va a crear pruebas unitarias ni pruebas de interfaz de usuario durante este inicio rápido. No dude en desactivar la opción **Include Unit Tests** (Incluir pruebas unitarias) y desactive también la opción **Include UI Tests** (Incluir pruebas de interfaz de usuario).
+No va a crear pruebas unitarias ni pruebas de interfaz de usuario durante este inicio rápido. No dude en borrar los cuadros de texto para **incluir pruebas unitarias** y para **incluir pruebas de IU**.
 
-:::image type="content" source="../media/ios/xcode-new-ios-project.png" alt-text="Captura de pantalla que muestra la ventana de creación del proyecto nuevo dentro de Xcode.":::
+:::image type="content" source="../media/ios/xcode-new-ios-project.png" alt-text="Captura de pantalla que muestra la ventana para crear un proyecto en Xcode.":::
 
 ### <a name="install-the-package-and-dependencies-with-cocoapods"></a>Instalación del paquete y las dependencias con CocoaPods
 
@@ -44,11 +45,11 @@ En Xcode, cree un proyecto de iOS nuevo y seleccione la plantilla **Aplicación 
    ```
 
 2. Ejecute `pod install`.
-3. Abra `.xcworkspace` con XCode.
+3. Abra el archivo `.xcworkspace` con Xcode.
 
 ### <a name="request-access-to-the-microphone"></a>Solicitud de acceso al micrófono
 
-Para acceder al micrófono del dispositivo, debe actualizar la lista de propiedades de información de la aplicación con el elemento `NSMicrophoneUsageDescription`. Puede establecer el valor asociado al elemento `string` que se incluirá en el cuadro de diálogo que el sistema usa para solicitar acceso al usuario.
+Para acceder al micrófono del dispositivo, debe actualizar la lista de propiedades de información de la aplicación con el elemento `NSMicrophoneUsageDescription`. Establezca el valor asociado al elemento `string` que se incluirá en el cuadro de diálogo que el sistema usa para solicitar acceso al usuario.
 
 Haga clic con el botón derecho en la entrada `Info.plist` del árbol del proyecto y seleccione **Abrir como** > **Código fuente**. Agregue las líneas siguientes a la sección `<dict>` de nivel superior y guarde el archivo.
 
@@ -59,31 +60,34 @@ Haga clic con el botón derecho en la entrada `Info.plist` del árbol del proyec
 
 ### <a name="set-up-the-app-framework"></a>Instalación del marco de la aplicación
 
-Abra el archivo **ContentView.swift** del proyecto y agregue una declaración `import` en la parte superior del archivo para importar la `AzureCommunicationCalling library`. Además, importe `AVFoundation`; necesitaremos esta información para la solicitud de permiso de audio en el código.
+Abra el archivo *ContentView.swift* del proyecto y agregue una declaración `import` en la parte superior del archivo para importar la biblioteca `AzureCommunicationCalling`. Además, importe `AVFoundation`. Lo necesitará para las solicitudes de permiso de audio en el código.
 
 ```swift
 import AzureCommunicationCalling
 import AVFoundation
 ```
 
-## <a name="object-model"></a>Modelo de objetos
+## <a name="learn-the-object-model"></a>Modelo de objetos
 
-Las clases e interfaces siguientes controlan algunas de las características principales de la biblioteca cliente para llamadas de Azure Communication Services para iOS.
+Las siguientes clases e interfaces controlan algunas de las características principales del SDK de llamadas de Azure Communication Services para iOS.
+
+> [!NOTE]
+> En esta guía de inicio rápido se usa la versión 1.0.0-beta.8 del SDK de llamadas.
 
 
 | Nombre                                  | Descripción                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| CallClient | CallClient es el punto de entrada principal a la biblioteca cliente para llamadas.|
-| CallAgent | CallAgent se usa para iniciar y administrar llamadas. |
-| CommunicationTokenCredential | CommunicationTokenCredential se usa como la credencial de token para crear una instancia de CallAgent.| 
-| CommunicationIdentifier | CommunicationIdentifier se usa para representar la identidad del usuario, que puede ser una de las opciones siguientes: CommunicationUserIdentifier/PhoneNumberIdentifier/CallingApplication. |
+| `CallClient` | `CallClient` es el punto de entrada principal al SDK de llamadas.|
+| `CallAgent` | `CallAgent` se utiliza para iniciar y administrar las llamadas. |
+| `CommunicationTokenCredential` | `CommunicationTokenCredential` se usa como la credencial del token para crear una instancia de `CallAgent`.| 
+| `CommunicationIdentifier` | `CommunicationIdentifier` se usa para representar la identidad del usuario. La identidad puede ser `CommunicationUserIdentifier`, `PhoneNumberIdentifier` o `CallingApplication`. |
 
 > [!NOTE]
-> Al implementar delegados de eventos, la aplicación tiene que mantener una referencia segura a los objetos que requieren suscripciones a eventos. Por ejemplo, cuando se devuelve un objeto `RemoteParticipant` al invocar el método `call.addParticipant` y la aplicación establece que el delegado escuche en `RemoteParticipantDelegate`, la aplicación debe contener una referencia segura al objeto `RemoteParticipant`. De lo contrario, si se recopila este objeto, el delegado generará una excepción irrecuperable cuando el SDK de llamadas intente invocar el objeto.
+> Cuando la aplicación implementa delegados de eventos, tiene que mantener una referencia segura a los objetos que requieren suscripciones a eventos. Por ejemplo, cuando se devuelve un objeto `RemoteParticipant` al invocar el método `call.addParticipant` y la aplicación establece que el delegado escuche en `RemoteParticipantDelegate`, la aplicación debe contener una referencia segura al objeto `RemoteParticipant`. De lo contrario, si se recopila este objeto, el delegado generará una excepción irrecuperable cuando el SDK de llamadas intente invocar al objeto.
 
-## <a name="initialize-the-callagent"></a>Inicialización de CallAgent
+## <a name="initialize-callagent"></a>Inicialización de CallAgent
 
-Para crear una instancia de `CallAgent` a partir de `CallClient`, debe usar el método `callClient.createCallAgent` que devuelve de manera asincrónica un objeto `CallAgent` una vez que se inicializa.
+Para crear una instancia de `CallAgent` a partir de `CallClient`, debe usar el método `callClient.createCallAgent`, que devuelve de manera asincrónica un objeto `CallAgent` después de que se inicializa.
 
 Para crear un cliente de llamada, debe pasar un objeto `CommunicationTokenCredential`.
 
@@ -102,14 +106,14 @@ var userCredential: CommunicationTokenCredential?
        return
 }
 
-// tokenProvider needs to be implemented by contoso which fetches new token
+// tokenProvider needs to be implemented by Contoso, which fetches a new token
 public func fetchTokenSync(then onCompletion: TokenRefreshOnCompletion) {
     let newToken = self.tokenProvider!.fetchNewToken()
     onCompletion(newToken, nil)
 }
 ```
 
-Pase el objeto `CommunicationTokenCredential` creado anteriormente a `CallClient` y establezca el nombre para mostrar.
+Pase el objeto `CommunicationTokenCredential` que ha creado a `CallClient` y establezca el nombre para mostrar.
 
 ```swift
 
@@ -131,9 +135,9 @@ callClient?.createCallAgent(userCredential: userCredential!,
 
 ## <a name="place-an-outgoing-call"></a>Realización de una llamada saliente
 
-Para crear e iniciar una llamada, debe llamar a una de las API en `CallAgent` y proporcionar la identidad de Communication Services de un usuario que haya aprovisionado a través de la biblioteca cliente de administración de Communication Services.
+Para crear e iniciar una llamada, debe llamar a una de las API en `CallAgent` y proporcionar la identidad de Communication Services de un usuario que haya aprovisionado mediante el SDK de administración de Communication Services.
 
-La creación y el inicio de la llamada es sincrónico. Recibirá una instancia de llamada que le permitirá suscribirse a todos los eventos de la llamada.
+La creación y el inicio de la llamada son sincrónicos. Recibirá una instancia de la llamada que le permitirá suscribirse a todos los eventos de la llamada.
 
 ### <a name="place-a-11-call-to-a-user-or-a-1n-call-with-users-and-pstn"></a>Realice una llamada de uno a uno a un usuario o una llamada de uno a varios con usuarios y RTC
 
@@ -145,7 +149,8 @@ let oneToOneCall = self.callAgent.call(participants: callees, options: StartCall
 ```
 
 ### <a name="place-a-1n-call-with-users-and-pstn"></a>Realice una llamada de uno a varios con usuarios y RTC
-Para realizar la llamada a RTC, debe especificar el número de teléfono adquirido con Communication Services.
+Para realizar la llamada con RTC, debe especificar el número de teléfono adquirido con Communication Services.
+
 ```swift
 
 let pstnCallee = PhoneNumberIdentifier(phoneNumber: '+1999999999')
@@ -154,8 +159,8 @@ let groupCall = self.callAgent.call(participants: [pstnCallee, callee], options:
 
 ```
 
-### <a name="place-a-11-call-with-with-video"></a>Realice una llamada de uno a uno con vídeo
-Para obtener una instancia de administrador de dispositivos, consulte [aquí](#device-management).
+### <a name="place-a-11-call-with-video"></a>Realización de una llamada 1:1 con vídeo
+Para obtener una instancia del administrador de dispositivos, consulte la sección acerca de la [administración de dispositivos](#manage-devices).
 
 ```swift
 
@@ -172,7 +177,7 @@ let call = self.callAgent?.call(participants: [callee], options: startCallOption
 ```
 
 ### <a name="join-a-group-call"></a>Unión a una llamada grupal
-Para unirse a una llamada, debe llamar a una de las API de *CallAgent*.
+Para unirse a una llamada, debe llamar a una de las API en `CallAgent`.
 
 ```swift
 
@@ -181,8 +186,8 @@ let call = self.callAgent?.join(with: groupCallLocator, joinCallOptions: JoinCal
 
 ```
 
-### <a name="subscribe-for-incoming-call"></a>Suscripción a una llamada entrante
-Suscripción a un evento de llamada entrante
+### <a name="subscribe-to-an-incoming-call"></a>Suscripción a una llamada entrante
+Suscríbase a un evento de llamada entrante.
 
 ```
 final class IncomingCallHandler: NSObject, CallAgentDelegate, IncomingCallDelegate
@@ -202,8 +207,8 @@ final class IncomingCallHandler: NSObject, CallAgentDelegate, IncomingCallDelega
 ```
 
 ### <a name="accept-an-incoming-call"></a>Aceptar una llamada entrante
-Para aceptar una llamada, llame al método "accept" en un objeto de llamada.
-Establezca un delegado a CallAgent. 
+Para aceptar una llamada, llame al método `accept` en un objeto de llamada. Establezca un delegado para `CallAgent`.
+
 ```swift
 final class CallHandler: NSObject, CallAgentDelegate
 {
@@ -233,23 +238,23 @@ if let incomingCall = CallHandler().incomingCall {
 }
 ```
 
-## <a name="push-notification"></a>Notificación push
+## <a name="set-up-push-notifications"></a>Configuración de las notificaciones de inserción
 
-Una notificación push móvil es la notificación emergente que recibe en el dispositivo móvil. En el caso de las llamadas, nos centraremos en las notificaciones push VoIP (voz sobre IP). Ofrecemos las funcionalidades necesarias para registrarse para recibir notificaciones push, para administrar las notificaciones push y para anular el registro y dejar de recibir notificaciones push.
+Una notificación de inserción en el dispositivo móvil es la notificación emergente que recibe en el dispositivo móvil. En el caso de las llamadas, nos centraremos en las notificaciones de inserción de VoIP (voz sobre IP). 
 
-### <a name="prerequisite"></a>Requisito previo
+En las secciones siguientes se describe cómo registrarse, controlar y anular el registro de las notificaciones de inserción. Antes de iniciar estas tareas, complete estos requisitos previos:
 
-- Paso 1: Xcode -> Signing & Capabilities (Firma y funcionalidades) -> Add Capability (Agregar funcionalidad) -> "Push Notifications" (Notificaciones push)
-- Paso 2: Xcode -> Signing & Capabilities (Firma y funcionalidades)-> Add Capability (Agregar funcionalidad) -> "Background Modes" (Modos en segundo plano)
-- Paso 3: "Background Modes" (Modos en segundo plano) -> seleccione "Voice over IP" (Voz sobre IP) y "Remote notifications" (Notificaciones remotas)
+1. En Xcode, vaya a **Signing & Capabilities** (Firma y funcionalidades). Para agregar una funcionalidad, seleccione **+ Capability** (+ Funcionalidad) y, a continuación, seleccione **Push Notifications** (Notificaciones de inserción).
+2. Para agregar otra funcionalidad, seleccione **+ Capability** (+ Funcionalidad) y, a continuación, seleccione **Background Modes** (Modos en segundo plano).
+3. En **Background Modes** (Modos en segundo plano), seleccione las casillas **Voice over IP** (Voz sobre IP) y **Remote notifications** (Notificaciones remotas).
 
 :::image type="content" source="../media/ios/xcode-push-notification.png" alt-text="Captura de pantalla que muestra cómo agregar funcionalidades en Xcode." lightbox="../media/ios/xcode-push-notification.png":::
 
-#### <a name="register-for-push-notifications"></a>Registro de notificaciones push
+### <a name="register-for-push-notifications"></a>Registro de notificaciones push
 
-Para registrarse para recibir notificaciones push, llame a registerPushNotification() en una instancia de *CallAgent* con un token de registro del dispositivo.
+A fin de registrarse para recibir notificaciones de inserción, llame a `registerPushNotification()` en una instancia de `CallAgent` con un token de registro de dispositivo.
 
-Se debe llamar al registro para recibir notificaciones push después de que la inicialización se realiza correctamente. Cuando se destruya el objeto `callAgent`, se llamará a `logout`, lo que anulará automáticamente el registro para así dejar de recibir notificaciones push.
+El registro de las notificaciones de inserción se debe producir después de una inicialización correcta. Cuando se destruya el objeto `callAgent`, se llamará a `logout`, lo que anulará automáticamente el registro para notificaciones de inserción.
 
 
 ```swift
@@ -265,8 +270,8 @@ callAgent.registerPushNotifications(deviceToken: deviceToken) { (error) in
 
 ```
 
-#### <a name="push-notification-handling"></a>Manejo de notificaciones push
-Para recibir notificaciones push sobre llamadas entrantes, llame a *handlePushNotification()* en una instancia de *CallAgent* con una carga de diccionario.
+### <a name="handle-push-notifications"></a>Control de las notificaciones de inserción
+Para recibir notificaciones de inserción de llamadas entrantes, llame a `handlePushNotification()` en una instancia de `CallAgent` con una carga de diccionario.
 
 ```swift
 
@@ -281,11 +286,12 @@ callAgent.handlePush(notification: callNotification) { (error) in
 }
 
 ```
-#### <a name="unregister-push-notification"></a>Anulación del registro de notificaciones push
+### <a name="unregister-push-notifications"></a>Anulación del registro de notificaciones push
 
-Las aplicaciones pueden anular el registro de notificaciones push en cualquier momento. Solo debe llamar al método `unregisterPushNotification` en *CallAgent*.
+Las aplicaciones pueden anular el registro de notificaciones push en cualquier momento. Solo debe llamar al método `unregisterPushNotification` en `CallAgent`.
+
 > [!NOTE]
-> El registro para que las aplicaciones dejen de recibir notificaciones push no se anula de manera automática al cerrar la sesión.
+> El registro para que las aplicaciones dejen de recibir notificaciones de inserción no se anula de manera automática al cerrar la sesión.
 
 ```swift
 
@@ -299,13 +305,13 @@ callAgent.unregisterPushNotifications { (error) in
 
 ```
 
-## <a name="mid-call-operations"></a>Operaciones durante la llamada
+## <a name="perform-mid-call-operations"></a>Realización de operaciones durante la llamada
 
 Durante una llamada, puede realizar varias operaciones para administrar la configuración relacionada con el vídeo y el audio.
 
 ### <a name="mute-and-unmute"></a>Silencio y reactivación del sonido
 
-Para silenciar o reactivar el sonido del punto de conexión local, puede usar las API asincrónicas `mute` y `unmute`:
+Para silenciar o reactivar el sonido del punto de conexión local, puede usar las API asincrónicas `mute` y `unmute`.
 
 ```swift
 call!.mute { (error) in
@@ -318,7 +324,7 @@ call!.mute { (error) in
 
 ```
 
-[Asincrónico] Reactivación del sonido local
+Use el código siguiente para silenciar el punto de conexión local de forma asincrónica.
 
 ```swift
 call!.unmute { (error) in
@@ -332,7 +338,7 @@ call!.unmute { (error) in
 
 ### <a name="start-and-stop-sending-local-video"></a>Inicio y detención del envío de vídeo local
 
-Para empezar a enviar vídeo local a otros participantes de la llamada, use la API `startVideo` y pase `localVideoStream` con `camera`.
+Para empezar a enviar vídeo local a otros participantes de la llamada, use la API `startVideo` y pase el elemento `localVideoStream` con el elemento `camera`.
 
 ```swift
 
@@ -349,7 +355,7 @@ call!.startVideo(stream: localVideoStream) { (error) in
 
 ```
 
-Una vez que se inicia el envío de vídeo, la instancia `LocalVideoStream` se agrega a la colección `localVideoStreams` en una instancia de llamada:
+Una vez que se inicia el envío de vídeo, la instancia de `LocalVideoStream` se agrega a la colección `localVideoStreams` en una instancia de llamada.
 
 ```swift
 
@@ -357,7 +363,7 @@ call.localVideoStreams[0]
 
 ```
 
-[Asincrónico] Para detener el vídeo local, pase el objeto `localVideoStream` devuelto a partir de la invocación de `call.startVideo`:
+Para detener el vídeo local, pase la instancia de `localVideoStream` devuelta a partir de la invocación de `call.startVideo`. Se trata de una acción asincrónica.
 
 ```swift
 
@@ -371,9 +377,9 @@ call!.stopVideo(stream: localVideoStream) { (error) in
 
 ```
 
-## <a name="remote-participants-management"></a>Administración de participantes remotos
+## <a name="manage-remote-participants"></a>Administración de participantes remotos
 
-El tipo `RemoteParticipant` representa a todos los participantes remotos y estos están disponibles a través de la colección `remoteParticipants` en una instancia de llamada:
+El tipo `RemoteParticipant` representa a todos los participantes remotos y estos están disponibles mediante la colección `remoteParticipants` en una instancia de llamada.
 
 ### <a name="list-participants-in-a-call"></a>Lista de los participantes en una llamada
 
@@ -383,14 +389,14 @@ call.remoteParticipants
 
 ```
 
-### <a name="remote-participant-properties"></a>Propiedades de los participantes remotos
+### <a name="get-remote-participant-properties"></a>Obtención de las propiedades de los participantes remotos
 
 ```swift
 
 // [RemoteParticipantDelegate] delegate - an object you provide to receive events from this RemoteParticipant instance
 var remoteParticipantDelegate = remoteParticipant.delegate
 
-// [CommunicationIdentifier] identity - same as the one used to provision token for another user
+// [CommunicationIdentifier] identity - same as the one used to provision a token for another user
 var identity = remoteParticipant.identity
 
 // ParticipantStateIdle = 0, ParticipantStateEarlyMedia = 1, ParticipantStateConnecting = 2, ParticipantStateConnected = 3, ParticipantStateOnHold = 4, ParticipantStateInLobby = 5, ParticipantStateDisconnected = 6
@@ -412,7 +418,7 @@ var videoStreams = remoteParticipant.videoStreams // [RemoteVideoStream, RemoteV
 
 ### <a name="add-a-participant-to-a-call"></a>Incorporación de un participante a una llamada
 
-Para agregar un participante a una llamada (ya sea un usuario o un número de teléfono), puede invocar `addParticipant`. Esto devolverá de manera sincrónica la instancia de un participante remoto.
+Para agregar un participante a una llamada (ya sea un usuario o un número de teléfono), puede invocar a `addParticipant`. Este comando devolverá de manera sincrónica la instancia de un participante remoto.
 
 ```swift
 
@@ -421,7 +427,7 @@ let remoteParticipantAdded: RemoteParticipant = call.add(participant: Communicat
 ```
 
 ### <a name="remove-a-participant-from-a-call"></a>Eliminación de un participante de una llamada
-Para quitar un participante de una llamada (ya sea un usuario o un número de teléfono), puede invocar la API `removeParticipant`. Esto se resolverá de manera asincrónica.
+Para quitar un participante de una llamada (ya sea un usuario o un número de teléfono), puede invocar a la API `removeParticipant`. Esto se resolverá de manera asincrónica.
 
 ```swift
 
@@ -439,9 +445,9 @@ call!.remove(participant: remoteParticipantAdded) { (error) in
 
 Los participantes remotos pueden iniciar el uso compartido de pantalla o vídeo durante una llamada.
 
-### <a name="handle-remote-participant-videoscreen-sharing-streams"></a>Administración de secuencias de uso compartido de pantalla o vídeo de participantes remotos
+### <a name="handle-video-sharing-or-screen-sharing-streams-of-remote-participants"></a>Control de las transmisiones de uso compartido de vídeo o de pantalla de participantes remotos
 
-Para enumerar las secuencias de los participantes remotos, revise las colecciones `videoStreams`:
+Para enumerar las transmisiones de los participantes remotos, inspeccione las colecciones `videoStreams`.
 
 ```swift
 
@@ -449,7 +455,7 @@ var remoteParticipantVideoStream = call.remoteParticipants[0].videoStreams[0]
 
 ```
 
-### <a name="remote-video-stream-properties"></a>Propiedades de secuencias de vídeo remotas
+### <a name="get-remote-video-stream-properties"></a>Obtención de las propiedades de las transmisiones de vídeo remotas
 
 ```swift
 
@@ -461,9 +467,9 @@ var id: Int = remoteParticipantVideoStream.id // id of remoteParticipantStream
 
 ```
 
-### <a name="render-remote-participant-stream"></a>Representación de secuencias de participantes remotos
+### <a name="render-remote-participant-streams"></a>Representación de las transmisiones de participantes remotos
 
-Para iniciar la representación de secuencias de participantes remotos:
+Para iniciar la representación de las transmisiones de los participantes remotos, use el código siguiente.
 
 ```swift
 
@@ -474,16 +480,16 @@ targetRemoteParticipantView.update(scalingMode: ScalingMode.fit)
 
 ```
 
-### <a name="remote-video-renderer-methods-and-properties"></a>Propiedades y métodos de representación de vídeo remoto
+### <a name="get-remote-video-renderer-methods-and-properties"></a>Obtención de los métodos y propiedades del representador de vídeo
 
 ```swift
 // [Synchronous] dispose() - dispose renderer and all `RendererView` associated with this renderer. To be called when you have removed all associated views from the UI.
 remoteVideoRenderer.dispose()
 ```
 
-## <a name="device-management"></a>Administración de dispositivos
+## <a name="manage-devices"></a>Administración de dispositivos
 
-`DeviceManager` permite enumerar los dispositivos locales que se pueden usar en una llamada para transmitir secuencias de audio o vídeo. También permite solicitar permiso a un usuario para acceder al micrófono o a la cámara. Puede acceder a `deviceManager` en el objeto `callClient`:
+`DeviceManager` permite enumerar los dispositivos locales que se pueden usar en una llamada para transmitir secuencias de audio o vídeo. También permite solicitar permiso a un usuario para acceder al micrófono o a la cámara. Puede acceder a `deviceManager` en el objeto `callClient`.
 
 ```swift
 
@@ -499,7 +505,7 @@ self.callClient!.getDeviceManager { (deviceManager, error) in
 
 ### <a name="enumerate-local-devices"></a>Enumeración de los dispositivos locales
 
-Para acceder a los dispositivos locales, puede usar métodos de enumeración en el Administrador de dispositivos. La enumeración es una acción sincrónica.
+Para acceder a los dispositivos locales, puede usar métodos de enumeración en el administrador de dispositivos. La enumeración es una acción sincrónica.
 
 ```swift
 // enumerate local cameras
@@ -510,9 +516,9 @@ var localMicrophones = deviceManager.microphones! // [AudioDeviceInfo, AudioDevi
 var localSpeakers = deviceManager.speakers! // [AudioDeviceInfo, AudioDeviceInfo...]
 ``` 
 
-### <a name="set-default-microphonespeaker"></a>Establecimiento de micrófono/altavoz predeterminados
+### <a name="set-the-default-microphone-or-speaker"></a>Establecimiento del micrófono o el altavoz predeterminados
 
-El administrador de dispositivos le permite establecer un dispositivo predeterminado que se usará al iniciar una llamada. Si no se establecen los valores predeterminados de la pila, Communication Services revertirá a los valores predeterminados del sistema operativo.
+Puede usar el administrador de dispositivos para establecer un dispositivo predeterminado que se usará cuando se inicie una llamada. Si no se establecen los valores predeterminados de la pila, Communication Services revertirá a los valores predeterminados del sistema operativo.
 
 ```swift
 // get first microphone
@@ -525,7 +531,7 @@ var firstSpeaker = self.deviceManager!.speakers!
 deviceManager.setSpeaker(speakerDevice: firstSpeaker)
 ```
 
-### <a name="local-camera-preview"></a>Vista previa de la cámara local
+### <a name="get-a-local-camera-preview"></a>Obtención de una vista previa de la cámara local
 
 Puede usar `Renderer` para empezar a representar una secuencia desde su cámara local. Esta secuencia no se enviará a los demás participantes, porque es una fuente de vista previa local. Se trata de una acción asincrónica.
 
@@ -538,9 +544,9 @@ self.view = try renderer!.createView()
 
 ```
 
-### <a name="local-camera-preview-properties"></a>Propiedades de la vista previa de la cámara local
+### <a name="get-local-camera-preview-properties"></a>Obtención de las propiedades de la vista previa de la cámara local
 
-El representador tiene un conjunto de propiedades y métodos que le permiten controlar la representación:
+El representador tiene un conjunto de propiedades y métodos que le permiten controlar la representación.
 
 ```swift
 
@@ -565,16 +571,16 @@ localRenderer.dispose()
 
 ```
 
-## <a name="eventing-model"></a>Modelo de eventos
+## <a name="subscribe-to-notifications"></a>Suscribirse a notificaciones
 
 Puede suscribirse a la mayoría de las propiedades y colecciones que se van a notificar al cambiar los valores.
 
 ### <a name="properties"></a>Propiedades
-Para suscribirse a eventos `property changed`:
+Para suscribirse a eventos `property changed`, use el código siguiente.
 
 ```swift
 call.delegate = self
-// Get the property of the call state by doing get on the call's state member
+// Get the property of the call state by getting on the call's state member
 public func onCallStateChanged(_ call: Call!,
                                args: PropertyChangedEventArgs!)
 {
@@ -587,7 +593,7 @@ public func onCallStateChanged(_ call: Call!,
 ```
 
 ### <a name="collections"></a>Colecciones
-Para suscribirse a eventos `collection updated`:
+Para suscribirse a eventos `collection updated`, use el código siguiente.
 
 ```swift
 call.delegate = self

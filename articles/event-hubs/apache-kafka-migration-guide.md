@@ -3,12 +3,12 @@ title: Migración a Azure Event Hubs para Apache Kafka
 description: En este artículo se explica cómo migrar clientes de Apache Kafka a Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: d9f3775a85df5a881c2c38566628e4e1d4d8c40e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8db14f6ec18843bf7d592d56b3cf2352c3901a9a
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90061451"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310043"
 ---
 # <a name="migrate-to-azure-event-hubs-for-apache-kafka-ecosystems"></a>Migración a Azure Event Hubs para ecosistemas de Apache Kafka
 Azure Event Hubs expone un punto de conexión de Apache Kafka, que le permite conectarse a Event Hubs mediante el protocolo Kafka. Al realizar cambios mínimos en una aplicación de Kafka existente, puede conectarse a Azure Event Hubs y disfrutar de las ventajas del ecosistema de Azure. Event Hubs funciona con muchas de las aplicaciones de Kafka existentes, incluido MirrorMaker. Para obtener más información, consulte [Event Hubs para Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md).
@@ -59,6 +59,6 @@ Ejecute la aplicación de Kafka que envía eventos a un centro de eventos. A con
 Para obtener más información acerca de Event Hubs y Event Hubs para Kafka, consulte los artículos siguientes:  
 
 - [Guía de solución de problemas de Apache Kafka para Event Hubs](apache-kafka-troubleshooting-guide.md)
-- [Preguntas más frecuentes: Event Hubs para Apache Kafka](apache-kafka-frequently-asked-questions.md)
+- [Preguntas más frecuentes: Event Hubs para Apache Kafka](apache-kafka-frequently-asked-questions.yml)
 - [Guía del desarrollador de Apache Kafka para Azure Event Hubs](apache-kafka-developer-guide.md)
 - [Configuraciones recomendadas](apache-kafka-configurations.md)

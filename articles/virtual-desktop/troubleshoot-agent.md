@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: b47a205cac1717dfc66594f856fd9370a01a9ae3
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 2f321413a275676d0abb1a075ba958885ffcd821
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106168219"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106505032"
 ---
 # <a name="troubleshoot-common-windows-virtual-desktop-agent-issues"></a>Solución de problemas comunes del agente de Windows Virtual Desktop
 
@@ -216,7 +216,7 @@ Para solucionar este problema:
 
 ## <a name="error-heartbeat-issue-where-users-keep-getting-disconnected-from-session-hosts"></a>Error: Problema de latido en el que los usuarios siguen desconectándose de los hosts de sesión
 
-Si el servidor no selecciona un latido del servicio Windows Virtual Desktop, deberá cambiar el umbral de latido. Si se aplican uno o varios de los siguientes escenarios, siga estas instrucciones:
+Si el servidor no selecciona un latido del servicio Windows Virtual Desktop, deberá cambiar el umbral de latido. Esto mitigará temporalmente los síntomas del problema, pero no solucionará el problema de red subyacente. Si se aplican uno o varios de los siguientes escenarios, siga estas instrucciones:
 
 - Está recibiendo un error **CheckSessionHostDomainIsReachableAsync**.
 - Está recibiendo un error **ConnectionBrokenMissedHeartbeatThresholdExceeded**.
@@ -316,7 +316,7 @@ Para solucionar este problema:
 
 Si no encuentra el problema en este artículo o las instrucciones no le ayudaron, se recomienda desinstalar, reinstalar y volver a registrar el agente de Windows Virtual Desktop. En las instrucciones de esta sección se muestra cómo volver a registrar la máquina virtual en el servicio de Windows Virtual Desktop mediante la desinstalación de todos los componentes del agente, el cargador de arranque y la pila, la eliminación del host de sesión del grupo de hosts, la generación de una nueva clave de registro para la máquina virtual y la reinstalación del agente y el cargador de arranque. Si se aplican uno o varios de los siguientes escenarios, siga estas instrucciones:
 - La máquina virtual está bloqueada en **Actualizando** o **No disponible**.
-- El cliente de escucha de la pila no funciona y se está ejecutando en Windows 10 1809, 1903 o 1904.
+- El cliente de escucha de la pila no funciona y se está ejecutando en Windows 10 1809, 1903 o 1909.
 - Recibe un error **EXPIRED_REGISTRATION_TOKEN**.
 - No ve las máquinas virtuales en la lista de hosts de sesión.
 - No ve **Cargador del agente de Escritorio remoto** en la ventana Servicios.

@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1eb4194354a07d5b580f07cfe5962785a4e100bd
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 63415037b9f91936e04fa715405bfb86bf022cdd
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104578029"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551771"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Solución de problemas de dispositivos híbridos unidos a Azure Active Directory
 
@@ -371,6 +371,12 @@ Use registros de Visor de eventos para buscar la fase y el código de error para
    - Motivo: La conexión con el servidor terminó de forma anómala.
    - Resolución: Vuelva a intentarlo más tarde o intente conectarse desde una ubicación de red estable alternativa.
 
+##### <a name="other-errors"></a>Otros errores
+
+- **DSREG_AUTOJOIN_ADCONFIG_READ_FAILED** (0x801c001d/-2145648611)
+   - Motivo: EventID 220 está presente en los registros de eventos de registro de dispositivos de usuario. Windows no puede tener acceso al objeto de equipo en Active Directory. Un código de error de Windows se puede incluir en el evento. En el caso de los códigos de error ERROR_NO_SUCH_LOGON_SESSION (1312) y ERROR_NO_SUCH_USER (1317), estos se relacionan con los problemas de replicación en AD local.
+   - Resolución: solucione los problemas de replicación en AD. Los problemas de replicación pueden ser transitorios y pueden pasar después de un período de tiempo.
+
 ##### <a name="federated-join-server-errors"></a>Errores del servidor de unión federado
 
 | Código de error del servidor | Mensaje de error del servidor | Razones posibles | Solución |
@@ -417,4 +423,4 @@ Si los valores son **NO**, podría ser debido:
 
 Continúe la [solución de problemas de dispositivos con el comando dsregcmd](troubleshoot-device-dsregcmd.md)
 
-Si tiene preguntas, consulte las [preguntas más frecuentes sobre la administración de dispositivos](faq.md).
+Si tiene preguntas, consulte las [preguntas más frecuentes sobre la administración de dispositivos](faq.yml).

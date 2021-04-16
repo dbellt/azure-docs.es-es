@@ -1,17 +1,15 @@
 ---
 title: Recuperación ante desastres de VMware con Azure Site Recovery
 description: En este artículo se proporciona información general acerca de la recuperación ante desastres de máquinas virtuales de VMware en Azure mediante el servicio Azure Site Recovery.
-author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.author: raynew
-ms.openlocfilehash: dfbdff01064b483085233ece47d1d3b635b68743
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8e72d66bcf8398946b8901ef86666aa9aba34105
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87021467"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106579081"
 ---
 # <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>Acerca de la recuperación ante desastres de máquinas virtuales de VMware en Azure
 

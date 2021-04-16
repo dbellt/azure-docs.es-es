@@ -13,12 +13,12 @@ ms.topic: article
 ms.custom: ''
 ms.date: 05/15/2019
 ms.author: ikbarmen
-ms.openlocfilehash: 18f2cf3daa281400151ba223e1735e7138d97e8e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7596aa4cef6c4bc601c15018e8ede4265f395eb7
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "76990511"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312865"
 ---
 # <a name="manage-multiple-tenants"></a>Administración de varios inquilinos
 
@@ -45,7 +45,7 @@ Cuando se usa esta arquitectura, se crea una cuenta de Video Indexer para cada i
 * Más difícil de administrar debido a las múltiples cuentas de Video Indexer (y las instancias de Media Services asociadas) por cada inquilino.
 
 > [!TIP]
-> Cree un usuario administrador para el sistema en el [Portal para desarrolladores de Video Indexer](https://api-portal.videoindexer.ai/) y use la API de autorización para proporcionar a los inquilinos el correspondiente [token de acceso de la cuenta](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Account-Access-Token).
+> Cree un usuario administrador para el sistema en el [Portal para desarrolladores de Video Indexer](https://api-portal.videoindexer.ai/) y use la API de autorización para proporcionar a los inquilinos el correspondiente [token de acceso de la cuenta](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Account-Access-Token).
 
 ## <a name="single-video-indexer-account-for-all-users"></a>Una única cuenta de Video Indexer para todos los usuarios
 
@@ -55,7 +55,7 @@ Cuando se usa esta arquitectura, el cliente es responsable del aislamiento de lo
 
 Con esta opción, se pueden compartir los modelos de personalización (persona, idioma y marcas) o se pueden aislar entre inquilinos filtrando los modelos por inquilino.
 
-Al [cargar vídeos](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?), puede especificar un atributo de partición diferente por cada inquilino. Esto permitirá el aislamiento en la [API de búsqueda](https://api-portal.videoindexer.ai/docs/services/operations/operations/Search-videos?). Si especifica el atributo de partición en la API de búsqueda, solo obtendrá los resultados de la partición especificada. 
+Al [cargar vídeos](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video), puede especificar un atributo de partición diferente por cada inquilino. Esto permitirá el aislamiento en la [API de búsqueda](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Search-Videos). Si especifica el atributo de partición en la API de búsqueda, solo obtendrá los resultados de la partición especificada. 
 
 ### <a name="considerations"></a>Consideraciones
 

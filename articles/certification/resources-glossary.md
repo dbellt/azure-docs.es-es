@@ -1,18 +1,18 @@
 ---
 title: Glosario del programa Azure Certified Device
 description: Una lista de términos comunes usados en el programa Azure Certified Device
-author: nikuntjo
+author: nkuntjoro
 ms.author: nikuntjo
 ms.service: certification
 ms.topic: conceptual
 ms.date: 03/03/2021
 ms.custom: template-concept
-ms.openlocfilehash: 7dfdd4a89535621e08db8a8924282febdafd1569
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: f58c29c6bd2c22f37d2285ac6e93c6f54e47c4e0
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105975866"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305096"
 ---
 # <a name="azure-certified-device-program-glossary"></a>Glosario del programa Azure Certified Device
 
@@ -80,4 +80,4 @@ El método de acoplamiento de componentes es otro detalle de los componentes que
 ## <a name="next-steps"></a>Pasos siguientes
 
 Este glosario le guiará en el proceso de certificación del proyecto en el portal. Ya está listo para empezar con el proyecto.
-- [Tutorial: creación del proyecto](./tutorial-01-creating-your-project.md)
+- [Tutorial: Creación de un proyecto](./tutorial-01-creating-your-project.md)

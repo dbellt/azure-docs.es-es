@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 03/10/2021
+ms.date: 04/05/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 435a0b85d205328d10f8762498c7a981d7ee45f5
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: c9de6b8d99f09d43a045787ee6185233b9d7ef25
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102611834"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106443245"
 ---
 # <a name="collect-azure-active-directory-b2c-logs-with-application-insights"></a>Recopilación de registros de Azure Active Directory B2C con Application Insights
 
@@ -31,6 +31,18 @@ Los registros de actividad detallados aquí **SOLO** deben estar habilitados dur
 ## <a name="set-up-application-insights"></a>Configuración de Application Insights
 
 Si aún no tiene una, cree una instancia de Application Insights en su suscripción.
+
+> [!TIP]
+> Se puede usar una sola instancia de Application Insights para varios inquilinos de Azure AD B2C. Después, en la consulta, puede filtrar por inquilino o nombre de directiva. Para obtener más información, [consulte los ejemplos de registros en Application Insights](#see-the-logs-in-application-insights).
+
+Para usar una instancia de salida de Application Insights en su suscripción, siga estos pasos:
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Seleccione el filtro **Directorio y suscripción** en el menú superior y, luego, elija el directorio que contiene la suscripción de Azure (no el directorio de Azure AD B2C).
+1. Abra el recurso de Application Insights que creó anteriormente.
+1. En la página **Información general**, anote la **Clave de instrumentación**.
+
+Para crear una instancia de Application Insights en su suscripción, siga estos pasos:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Seleccione el filtro **Directorio y suscripción** en el menú superior y, luego, elija el directorio que contiene la suscripción de Azure (no el directorio de Azure AD B2C).
@@ -96,8 +108,11 @@ A continuación se muestra una lista de consultas que puede usar para ver los re
 
 | Consultar | Descripción |
 |---------------------|--------------------|
-`traces` | Ver todos los registros generados por Azure AD B2C |
-`traces | where timestamp > ago(1d)` | Ver todos los registros generados por Azure AD B2C para el último día
+| `traces` | Obtiene todos los registros generados por Azure AD B2C. |
+| `traces | where timestamp > ago(1d)` | Obtiene todos los registros generados por Azure AD B2C para el último día.|
+| `traces | where message contains "exception" | where timestamp > ago(2h)`|  Obtiene todos los registros con errores de las últimas dos horas.|
+| `traces | where customDimensions.Tenant == "contoso.onmicrosoft.com" and customDimensions.UserJourney  == "b2c_1a_signinandup"` | Obtiene todos los registros generados por el inquilino *contoso.onmicrosoft.com* de Azure AD B2C, y el recorrido del usuario es *b2c_1a_signinandup*. |
+| `traces | where customDimensions.CorrelationId == "00000000-0000-0000-0000-000000000000"`| Obtiene todos los registros generados por Azure AD B2C para un identificador de correlación. Reemplace CorrelationId por el identificador de correlación. | 
 
 Las entradas pueden ser largas. Exporte a un archivo CSV para realizar un examen más detallado.
 

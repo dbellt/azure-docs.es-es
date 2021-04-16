@@ -4,14 +4,14 @@ description: Se describe cómo habilitar el estado de invitado de VM Insights e
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/16/2020
+ms.date: 04/05/2021
 ms.custom: references_regions
-ms.openlocfilehash: 5d4ff622f69445880c0de8cb74dc1aeee422c89b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 6f6c67e0e9ef1dd2a4092033a9479801cd0e8e7d
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102052167"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449314"
 ---
 # <a name="enable-vm-insights-guest-health-preview"></a>Habilitación del estado de invitado de VM Insights (versión preliminar)
 El estado de invitado de VM Insights permite ver el estado de una máquina virtual conforme a la definición de un conjunto de medidas de rendimiento que se muestrean a intervalos regulares. En este artículo se explica cómo habilitar esta característica en la suscripción, así como la supervisión de invitado en cada máquina virtual.
@@ -20,11 +20,14 @@ El estado de invitado de VM Insights permite ver el estado de una máquina virt
 El estado de invitado de VM Insights tiene las siguientes limitaciones en la versión preliminar pública:
 
 - Actualmente solo se admiten máquinas virtuales de Azure. Azure Arc para servidores no se admite de momento.
+- Los proxies de red no se admiten de momento.
 
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos admitidos
 La máquina virtual debe ejecutar uno de los siguientes sistemas operativos: 
 
+  - CentOS 7.5, 7.6, 7.7, 7.8, 7.9
+  - RedHat 7.5, 7.6, 7.7, 7.8, 7.9
   - Ubuntu 16.04 LTS, Ubuntu 18.04 LTS
   - Windows Server 2012 o superior
 

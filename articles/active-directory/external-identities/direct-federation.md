@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 04/06/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 598cbf303c8a87675833b8d87f05055771e46f55
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 830119a5b3a7781e8b12e3d4df870f539a2cd63a
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101687250"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107364913"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Federación directa con AD FS y proveedores de terceros para usuarios invitados (versión preliminar)
 
@@ -33,12 +33,12 @@ Después de configurar la federación directa con una organización, cualquier n
  - Si se configura una federación directa con una organización asociada y se invita a los usuarios y después la organización asociada se traslada a Azure AD, los usuarios invitados que ya han canjeado las invitaciones seguirán utilizando la federación directa, siempre y cuando exista la directiva de federación directa en el inquilino.
  - Si se elimina la federación directa con una organización asociada, los usuarios invitados que actualmente utilizan la federación directa no podrán iniciar sesión.
 
-En cualquiera de estos escenarios, puede actualizar el método de autenticación de un usuario invitado eliminando la cuenta de usuario invitado de su directorio y volviéndole a invitar.
+En cualquiera de estos casos, puede actualizar el método de autenticación de un usuario invitado mediante el [restablecimiento de su estado de canje](reset-redemption-status.md).
 
 La federación directa está asociada a espacios de nombres de dominio, como contoso.com y fabrikam.com. Al establecer una configuración de federación directa con AD FS o un proveedor de identidades de terceros, las organizaciones asocian uno o más espacios de nombres de dominio a estos proveedor de identidades. 
 
 ## <a name="end-user-experience"></a>Experiencia del usuario final 
-Con la federación directa, los usuarios invitados inician sesión en el inquilino de Azure AD mediante su propia cuenta de organización. Cuando acceden a los recursos compartidos y se les pide que inicien sesión, los usuarios de la federación directa se redirigen al proveedor de identidades. Después del inicio de sesión correcto, vuelven a Azure AD para acceder a los recursos. Los tokens de actualización de los usuarios de la federación directa son válidos durante 12 horas, [la duración predeterminada del token de actualización de acceso directo](../develop/active-directory-configurable-token-lifetimes.md#exceptions)en Azure AD. Si el proveedor de identidades federado tiene el inicio de sesión único habilitado, el usuario experimentará un inicio de sesión único y no verá ninguna solicitud de inicio de sesión después de la autenticación inicial.
+Con la federación directa, los usuarios invitados inician sesión en el inquilino de Azure AD mediante su propia cuenta de organización. Cuando acceden a los recursos compartidos y se les pide que inicien sesión, los usuarios de la federación directa se redirigen al proveedor de identidades. Después del inicio de sesión correcto, vuelven a Azure AD para acceder a los recursos. Los tokens de actualización de los usuarios de la federación directa son válidos durante 12 horas, [la duración predeterminada del token de actualización de acceso directo](../develop/active-directory-configurable-token-lifetimes.md#configurable-token-lifetime-properties)en Azure AD. Si el proveedor de identidades federado tiene el inicio de sesión único habilitado, el usuario experimentará un inicio de sesión único y no verá ninguna solicitud de inicio de sesión después de la autenticación inicial.
 
 ## <a name="sign-in-endpoints"></a>Puntos de conexión de inicio de sesión
 
@@ -89,7 +89,7 @@ Cuando se establece la federación directa con una organización asociada, tiene
 ### <a name="does-direct-federation-address-sign-in-issues-due-to-a-partially-synced-tenancy"></a>¿La federación directa se ocupa de los problemas de inicio de sesión debido a un inquilinato parcialmente sincronizado?
 No, la característica del [código de acceso de un solo uso por correo electrónico](one-time-passcode.md) se debe usar en este escenario. Un "inquilinato parcialmente sincronizado" se refiere a un inquilino de Azure AD asociado en el que las identidades de usuario locales no están completamente sincronizadas con la nube. Un invitado cuya identidad aún no existe en la nube pero que intenta canjear su invitación de B2B no podrá iniciar sesión. La característica del código de acceso de un solo uso permitiría a este invitado iniciar sesión. La función de federación directa aborda escenarios en los que el invitado tiene su propia cuenta de organización administrada por el proveedor de identidades, pero la organización no tiene ninguna presencia de Azure AD.
 ### <a name="once-direct-federation-is-configured-with-an-organization-does-each-guest-need-to-be-sent-and-redeem-an-individual-invitation"></a>Una vez configurada la federación directa con una organización, ¿es necesario enviar cada invitado y canjear una invitación individual?
-La configuración de la federación directa no cambia el método de autenticación para los usuarios invitados que ya han canjeado una invitación. Para actualizar el método de autenticación de un usuario invitado, puede eliminar la cuenta de usuario invitado de su directorio y volverle a invitar.
+La configuración de la federación directa no cambia el método de autenticación para los usuarios invitados que ya han canjeado una invitación. Puede actualizar el método de autenticación de un usuario invitado mediante el [restablecimiento de su estado de canje](reset-redemption-status.md).
 ## <a name="step-1-configure-the-partner-organizations-identity-provider"></a>Paso 1: Configuración del proveedor de identidades de la organización del asociado
 En primer lugar, la organización asociada debe configurar el proveedor de identidades con las notificaciones necesarias y las veracidades de los usuarios de confianza. 
 
@@ -212,7 +212,7 @@ Ahora pruebe la configuración de la federación directa e invite a un nuevo usu
 
 
 ## <a name="how-do-i-remove-direct-federation"></a>¿Cómo se quita una federación directa?
-Puede quitar la configuración de la federación directa. Si lo hace, los usuarios invitados de la federación directa que ya hayan canjeado sus invitaciones no podrán iniciar sesión. Pero puede darles acceso a los recursos de nuevo si los elimina del directorio y los vuelve a invitar. Para quitar una federación directa con un proveedor de identidades en el portal de Azure AD:
+Puede quitar la configuración de la federación directa. Si lo hace, los usuarios invitados de la federación directa que ya hayan canjeado sus invitaciones no podrán iniciar sesión. Sin embargo, puede concederles acceso de nuevo a sus recursos al [restablecer el estado de canje](reset-redemption-status.md). Para quitar una federación directa con un proveedor de identidades en el portal de Azure AD:
 
 1. Vaya a [Azure Portal](https://portal.azure.com/). En el panel izquierdo, seleccione **Azure Active Directory**. 
 2. Seleccione **External Identities**.
