@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: conceptual
 ms.date: 03/09/2021
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: ffea2d84f1a5149670976beef3b9af847ae31a35
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+manager: femila
+ms.openlocfilehash: 1f5e4cb0d2db30c6b07370be137506f3fe26837f
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104582143"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106505304"
 ---
 # <a name="windows-virtual-desktop-faq"></a>Preguntas frecuentes acerca de Windows Virtual Desktop
 
@@ -139,7 +139,7 @@ Por último, si ha habilitado el proveedor de recursos de la cuenta de propietar
 
 ## <a name="how-often-should-i-turn-my-vms-on-to-prevent-registration-issues"></a>¿Con qué frecuencia debo activar mis máquinas virtuales para evitar problemas de registro?
 
-Después de registrar una máquina virtual en un grupo de hosts en el servicio Windows Virtual Desktop, el agente actualiza periódicamente el token de la máquina virtual cada vez que la máquina virtual está activa. El certificado para el token de registro es válido durante 90 días. Debido a este límite de 90 días, se recomienda iniciar las máquinas virtuales cada 90 días. La activación de la máquina virtual en este límite de tiempo impedirá que su token de registro expire o deje de ser válido. Si ha iniciado la máquina virtual después de 90 días y está experimentando problemas de registro, siga las instrucciones de la [guía de solución de problemas del agente de Windows Virtual Desktop](troubleshoot-agent.md#your-issue-isnt-listed-here-or-wasnt-resolved) para quitar la máquina virtual del grupo de hosts, reinstalar el agente y volver a registrarlo en el grupo.
+Después de registrar una máquina virtual en un grupo de hosts en el servicio Windows Virtual Desktop, el agente actualiza periódicamente el token de la máquina virtual cada vez que la máquina virtual está activa. El certificado para el token de registro es válido durante 90 días. Debido a este límite de 90 días, se recomienda que las máquinas virtuales estén en línea durante 20 minutos cada 90 días, a fin de que puedan pueda actualizar sus tokens y actualizar el agente y los componentes de la pila en paralelo. La activación de la máquina virtual en este límite de tiempo impedirá que su token de registro expire o deje de ser válido. Si ha iniciado la máquina virtual después de 90 días y está experimentando problemas de registro, siga las instrucciones de la [guía de solución de problemas del agente de Windows Virtual Desktop](troubleshoot-agent.md#your-issue-isnt-listed-here-or-wasnt-resolved) para quitar la máquina virtual del grupo de hosts, reinstalar el agente y volver a registrarlo en el grupo.
 
 ## <a name="can-i-set-availability-options-when-creating-host-pools"></a>¿Se pueden establecer las opciones de disponibilidad al crear grupos de hosts?
 

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/09/2021
+ms.date: 04/06/2021
 ms.author: b-juche
-ms.openlocfilehash: 330131ea7e9a364a31d25a6f3f0a75b1adbeb27a
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: d63587eec1f7e6d24ae1638e8365b85fd1ec2c94
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104799894"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106504998"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Preguntas más frecuentes acerca de Azure NetApp Files
 
@@ -82,7 +82,21 @@ No, actualmente no se pueden aplicar grupos de seguridad de red a la subred dele
 
 ### <a name="can-i-use-azure-rbac-with-azure-netapp-files"></a>¿Puedo usar RBAC de Azure con Azure NetApp Files?
 
-Sí, Azure NetApp Files admite las características de RBAC de Azure.
+Sí, Azure NetApp Files admite las características de RBAC de Azure. Junto con los roles de Azure integrados, puede [crear roles personalizados](../role-based-access-control/custom-roles.md) para Azure NetApp Files. 
+
+Para obtener una lista completa de los permisos de Azure NetApp Files, consulte las operaciones del proveedor de recursos de Azure para [`Microsoft.NetApp`](../role-based-access-control/resource-provider-operations.md#microsoftnetapp).
+
+### <a name="are-azure-activity-logs-supported-on-azure-netapp-files"></a>¿Se admiten los registros de actividad de Azure en Azure NetApp Files?
+
+Azure NetApp Files es un servicio nativo de Azure. Todas las API PUT, POST y DELETE se registran en Azure NetApp Files. Por ejemplo, los registros muestran actividades como quién creó la instantánea, quién modificó el volumen, etc.
+
+Para obtener una lista completa de las operaciones de API, consulte [API REST de Azure NetApp Files](/rest/api/netapp/).
+
+### <a name="can-i-use-azure-policies-with-azure-netapp-files"></a>¿Puedo usar directivas de Azure con Azure NetApp Files?
+
+Sí, puede crear [directivas de Azure personalizadas](../governance/policy/tutorials/create-custom-policy-definition.md). 
+
+Sin embargo, no puede crear directivas de Azure (directivas de nomenclatura personalizadas) en la interfaz de Azure NetApp Files. Consulte [Instrucciones para el planeamiento de red de Azure NetApp Files](azure-netapp-files-network-topologies.md#considerations).
 
 ## <a name="performance-faqs"></a>Preguntas más frecuentes sobre rendimiento
 
@@ -192,6 +206,14 @@ El tamaño de volumen que SMB indica es el tamaño máximo que puede alcanzar el
 
 Como procedimiento recomendado, establezca la tolerancia máxima para la sincronización del reloj del equipo en cinco minutos. Para más información, consulte [Tolerancia máxima para la sincronización del reloj del equipo](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj852172(v=ws.11)). 
 
+### <a name="can-i-manage-smb-shares-sessions-and-open-files-through-computer-management-console-mmc"></a>¿Puedo administrar `SMB Shares`, `Sessions` y `Open Files` a través de la consola de administración de equipos (MMC)?
+
+Actualmente no se admite la administración de `SMB Shares`, `Sessions` y `Open Files` a través de la consola de administración de equipos (MMC).
+
+### <a name="how-can-i-obtain-the-ip-address-of-an-smb-volume-via-the-portal"></a>¿Cómo puedo obtener la dirección IP de un volumen SMB a través del portal?
+
+Use el vínculo de la **vista JSON** en el panel Información general del volumen y busque el identificador **startIP** en **properties** -> **mountTargets**.
+
 ## <a name="capacity-management-faqs"></a>Preguntas más frecuentes sobre la administración de la capacidad
 
 ### <a name="how-do-i-monitor-usage-for-capacity-pool-and-volume-of-azure-netapp-files"></a>¿Cómo puedo supervisar el uso de grupo de capacidad y volumen de Azure NetApp Files? 
@@ -204,9 +226,9 @@ No. Explorador de Azure Storage no es compatible con Azure NetApp Files.
 
 ### <a name="how-do-i-determine-if-a-directory-is-approaching-the-limit-size"></a>¿Cómo puedo determinar si un directorio está llegando al tamaño límite?
 
-Puede usar el comando `stat` desde un cliente para ver si un directorio está llegando al límite de tamaño máximo de los metadatos del directorio (320 MB).
+Puede usar el comando `stat` desde un cliente para ver si un directorio está llegando al límite de tamaño máximo de los metadatos del directorio (320 MB).   
 
-En un directorio de 320 MB, el número de bloques es 655 360 y el tamaño de cada bloque es de 512 bytes.  (Es decir, 320 x 1024 x 1024/512.)  
+En un directorio de 320 MB, el número de bloques es 655 360 y el tamaño de cada bloque es de 512 bytes.  (Es decir, 320 x 1024 x 1024/512). Este número se traduce en aproximadamente 4 millones archivos como máximo para un directorio de 320 MB. Sin embargo, el número máximo real de archivos puede ser menor, en función de factores como el número de archivos que contienen caracteres que no son ASCII en el directorio. Por lo tanto, debe usar el comando `stat` como se indica a continuación para determinar si el directorio está llegando a su límite.  
 
 Ejemplos:
 

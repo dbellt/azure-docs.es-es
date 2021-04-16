@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: d47b4847a12b63532e44a8a1a47101dd065f811b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4d842414d3046692c982ca3203957a96f8a01b37
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96446601"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107377337"
 ---
 # <a name="design-decisions-and-coding-techniques-for-synapse-sql-features-in-azure-synapse-analytics"></a>Decisiones de diseño y técnicas de codificación para características de SQL de Synapse en Azure Synapse Analytics
 En este artículo encontrará una lista de recursos para las funciones del grupo de SQL dedicado y sin servidor de Synapse SQL. Los artículos recomendados se dividen en dos secciones: Decisiones de diseño clave y técnicas de codificación y desarrollo.
@@ -46,7 +46,7 @@ A continuación encontrará artículos esenciales que resaltan las técnicas de 
 
 | Artículo | Grupo de SQL dedicado | Grupo de SQL sin servidor |
 | ------- | -------- | ------------- |
-| [procedimientos almacenados](develop-stored-procedures.md)  | Sí                | No                      |
+| [procedimientos almacenados](develop-stored-procedures.md)  | Sí                | Sí                      |
 | [Etiquetas](develop-label.md)                           | Sí                | No                      |
 | [Vistas](develop-views.md)                             | Sí                | Sí                     |
 | [Tablas temporales](develop-tables-temporary.md)       | Sí                | Sí                     |

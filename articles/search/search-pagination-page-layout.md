@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/09/2020
-ms.openlocfilehash: a7171d656ec9f839aea4ae73763ec6ebd20c2bb3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/06/2021
+ms.openlocfilehash: 92db62622c37241a76d7847931df030162de8f00
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98209838"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106504233"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Procedimientos para trabajar con los resultados de búsqueda en Azure Cognitive Search
 
@@ -137,12 +137,16 @@ Los servicios creados después del 15 de julio de 2020 proporcionarán una exper
 
 Con el nuevo comportamiento:
 
-* Solo se devolverán las frases que coincidan con la consulta de frases completas. La consulta "super bowl" devolverá resultados como este:
++ Solo se devolverán las frases que coincidan con la consulta de frases completas. La frase de consulta "super bowl" devolverá resultados como este:
 
-    ```html
-    '<em>super bowl</em> is super awesome with a bowl of chips'
-    ```
-  Tenga en cuenta que el término *bowl of chips* no aparece como resultado porque no coincide con la frase completa.
+  ```json
+  "@search.highlights": {
+      "sentence": [
+          "The <em>super</em> <em>bowl</em> is super awesome with a bowl of chips"
+     ]
+  ```
+
+  Tenga en cuenta que otras instancias de *super* y *bowl* no están resaltadas porque dichas instancias no coinciden con la frase completa.
 
 Al escribir código de cliente que implementa el resaltado de aciertos, tenga en cuenta este cambio. Debe saber que esto no le afectará, a menos que cree un servicio de búsqueda completamente nuevo.
 

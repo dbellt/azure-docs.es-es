@@ -5,14 +5,14 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: how-to
-ms.date: 12/01/2020
+ms.date: 03/31/2021
 ms.author: victorh
-ms.openlocfilehash: 906687e08c9f31890a9ecec9154079e704512832
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: b8e10eef89df12807cabd96d64d9c7d659f91d6c
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96485729"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109516"
 ---
 # <a name="deploy-a-security-partner-provider"></a>Implementación de un proveedor de seguridad asociado
 
@@ -90,22 +90,19 @@ Para configurar túneles en VPN Gateway del centro de conectividad virtual, los 
    
 2. Puede ver el estado de creación del túnel en el portal de la Azure Virtual WAN en Azure. Una vez que los túneles se muestren **conectados** tanto en Azure como en el portal asociado, continúe con los siguientes pasos para configurar las rutas en la selección de las sucursales y VNets que deberán enviar el tráfico de Internet al asociado.
 
-## <a name="configure-route-settings"></a>Configurar los parámetros de la ruta
+## <a name="configure-security-with-firewall-manager"></a>Configuración de la seguridad con Firewall Manager
 
 1. Examine Azure Firewall Manager -> Centros de conectividad seguros. 
-2. Seleccione un centro de conectividad. El estado del centro de conectividad debe mostrar ahora **Provisto** en lugar de **Conexión de seguridad pendiente**.
+2. Seleccione un centro de conectividad. El estado del centro de conectividad debe mostrar ahora **Aprovisionado** en lugar de **Conexión de seguridad pendiente**.
 
    Asegúrese de que el proveedor de terceros pueda conectarse al centro de conectividad. El estado de los túneles de la puerta de enlace VPN deben ser **Conectados**. Este estado refleja mejor el estado de la conexión entre el centro de conectividad y el socio de terceros, en comparación con el estado anterior.
-3. Seleccione el centro de conectividad, y vaya a **Configuración de ruta**.
+3. Seleccione el centro de conectividad y vaya a **Opciones de configuración de seguridad**.
 
    Cuando se implementa un proveedor externo en el centro de conectividad, este se convierte en un *centro virtual protegido*. Esto garantiza que el proveedor de terceros anuncia una ruta 0.0.0.0.0/0 (predeterminada) hacia el centro de conectividad. Sin embargo, las conexiones de VNet y los sitios conectados al centro de conectividad no reciben esta ruta a menos que elija qué conexiones deben recibir esta ruta predeterminada.
-4. En **Tráfico de Internet**, seleccione **VNet-a-Internet** o **Rama-a-Internet** o ambos para configurar las rutas de envío a través de terceros.
+4. Configure la seguridad de WAN virtual estableciendo el **tráfico de Internet** a través de Azure Firewall y el **tráfico privado** mediante un asociado de seguridad de confianza. Esto protege automáticamente las conexiones individuales en la WAN virtual.
 
-   Esto solo indica qué tipo de tráfico debe ser enrutado al centro de conectividad, pero sin afectar las rutas de VNets o sucursales. Estas rutas no se propagan a todos los VNets/ramas conectados al centro de conectividad de forma predeterminada.
-5. Debe seleccionar **conexiones seguras** y seleccionar las conexiones en las que se deben establecer estas rutas. Esto indica qué VNets/sucursales pueden empezar a enviar tráfico de Internet al proveedor de terceros.
-6. Desde **Configuración de ruta**, seleccione **Conexiones seguras** en Tráfico de Internet y, luego seleccione la red VNet o las sucursales (*sitios* en la Virtual WAN) que desea proteger. Seleccione **Tráfico seguro de Internet**.
-   ![Tráfico seguro de Internet](media/deploy-trusted-security-partner/secure-internet-traffic.png)
-7. Regrese a la página del centro de conectividad. El estado del **proveedor de seguridad asociado** del concentrador ahora debe estar **Protegido**.
+   :::image type="content" source="media/deploy-trusted-security-partner/security-configuration.png" alt-text="Configuración de seguridad":::
+5. Además, si su organización usa intervalos de direcciones IP públicas en redes virtuales y sucursales, debe especificar los prefijos IP explícitamente mediante **prefijos de tráfico privados**. Los prefijos de direcciones IP públicas se pueden especificar individualmente o como agregados.
 
 ## <a name="branch-or-vnet-internet-traffic-via-third-party-service"></a>Tráfico de Internet de sucursales o VNet a través de un servicio de terceros
 
