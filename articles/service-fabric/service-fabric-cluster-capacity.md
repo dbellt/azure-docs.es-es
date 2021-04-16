@@ -4,12 +4,12 @@ description: Tipos de nodos, durabilidad, confiabilidad y otros aspectos que se 
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: pepogors
-ms.openlocfilehash: b3361337bb0cf60e47efe198aad7aa8cc20ae7b3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9268dfef15d8302eb31cc1b649c7fd713aab6721
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101714942"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732591"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Consideraciones de planeación de capacidad del clúster de Service Fabric
 
@@ -111,7 +111,7 @@ Siga estas recomendaciones para administrar tipos de nodo con durabilidad Plata 
 * Mantenga un mínimo de cinco nodos en todos los conjuntos de escalado de máquinas virtuales que tengan habilitados los niveles de durabilidad Gold o Silver. El clúster entrará en estado de error si escala por debajo de este umbral y deberá limpiar manualmente el estado (`Remove-ServiceFabricNodeState`) de los nodos eliminados.
 * Cada conjunto de escalado de máquinas virtuales con el nivel de durabilidad Silver o Gold tiene que asignarse a su propio tipo de nodo en el clúster de Service Fabric. La asignación de varios conjuntos de escalado de máquinas virtuales a un único tipo de nodo impedirá que la coordinación entre el clúster de Service Fabric y la infraestructura de Azure funcione correctamente.
 * No elimine instancias de máquina virtual aleatorias, use siempre la característica de reducción horizontal del conjunto de escalado de máquinas virtuales. La eliminación de instancias de máquina virtual aleatorias tiene la posibilidad de crear desequilibrios en la instancia de máquina virtual distribuida en [dominios de actualización](service-fabric-cluster-resource-manager-cluster-description.md#upgrade-domains) y [dominios de error](service-fabric-cluster-resource-manager-cluster-description.md#fault-domains). Este desequilibrio puede afectar negativamente a la capacidad de los sistemas de equilibrar la carga correctamente entre las instancias de servicio o las réplicas de servicio.
-* Si se usa el escalado automático, establezca las reglas de modo que se realicen las operaciones de escalado (eliminación de instancias de máquina virtual) en un solo nodo cada vez. No es seguro reducir verticalmente más de una instancia a la vez.
+* Si se usa el escalado automático, establezca las reglas de modo que se realicen las operaciones de escalado (eliminación de instancias de máquina virtual) en un solo nodo cada vez. No es seguro escalar más de una instancia a la vez.
 * Si elimina o desasigna máquinas virtuales en el tipo de nodo principal, nunca reduzca el número de máquinas virtuales asignadas por debajo de lo que requiere el nivel de confiabilidad. Estas operaciones se bloquearán indefinidamente en un conjunto de escalado con un nivel de durabilidad Silver o Gold.
 
 ### <a name="changing-durability-levels"></a>Cambio de los niveles de durabilidad
