@@ -3,16 +3,16 @@ title: Configuración de los componentes de red NSX en Azure VMware Solution
 description: Aprenda a usar la consola de Azure VMware Solution para configurar los segmentos de red NSX-T.
 ms.topic: how-to
 ms.date: 02/16/2021
-ms.openlocfilehash: 0478582a9bc4fb77a1784c27ec4f5c302d6b89fc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a4702efe8ea26234d074f421d2e6eab871eba5f5
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101716995"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105733145"
 ---
 # <a name="configure-nsx-network-components-in-azure-vmware-solution"></a>Configuración de los componentes de red NSX en Azure VMware Solution
 
-Una nube privada de Azure VMware Solution se incluye de forma predeterminada con NSX-T como red definida por software (SDDC). Viene aprovisionada previamente con una puerta de enlace NSX-T de nivel 0 en modo activo-activo y una puerta de enlace NSX-T predeterminada de nivel 1 en modo activo-en espera.  Estas puertas de enlace permiten conectar los segmentos (conmutadores lógicos) y proporcionan conectividad horizontal de derecha a izquierda y vertical de arriba abajo. 
+Una nube privada de Azure VMware Solution se incluye de forma predeterminada con NSX-T como red definida por software (SDDC). Viene ya aprovisionada con una puerta de enlace NSX-T de nivel 0 en modo **activo-activo** y una puerta de enlace NSX-T predeterminada de nivel 1 en modo activo-en espera.  Estas puertas de enlace permiten conectar los segmentos (conmutadores lógicos) y proporcionan conectividad horizontal de derecha a izquierda y vertical de arriba abajo. 
 
 Después de implementar la nube privada de Azure VMware Solution, puede configurar los objetos NSX-T necesarios desde la consola de Azure VMware Solution en **Workload Networking** (Red de la carga de trabajo).  La consola presenta la vista simplificada de las operaciones NSX-T que un administrador de VMware necesita diariamente y está dirigida a los usuarios que no están familiarizados con NSX-T.  
 

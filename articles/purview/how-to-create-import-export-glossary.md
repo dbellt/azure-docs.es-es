@@ -6,13 +6,13 @@ ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 12/02/2020
-ms.openlocfilehash: 6f7f481ae0e0c75b14d894080f791161346cd93f
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.date: 04/02/2021
+ms.openlocfilehash: 6796a53ac05e8db606b29447a8792fa509c03d7e
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104952412"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106284108"
 ---
 # <a name="how-to-create-import-and-export-glossary-terms"></a>Creación, importación y exportación de términos del glosario
 
@@ -34,7 +34,7 @@ Para crear un nuevo término de glosario, realice los pasos siguientes:
 
 5. Establezca el **estado** del término. Los nuevos términos tienen de forma predeterminada el estado **Borrador**.
 
-   :::image type="content" source="media/how-to-create-import-export-glossary/new-term-options.png" alt-text="Captura de pantalla de las opciones de estado" border="true":::.
+   :::image type="content" source="media/how-to-create-import-export-glossary/overview-tab.png" alt-text="Captura de pantalla de las opciones de estado":::.
 
    Estos marcadores de estado son metadatos asociados al término. Actualmente, puede establecer los siguientes estados en cada término:
 
@@ -92,9 +92,10 @@ Debe poder exportar términos del glosario siempre que los términos seleccionad
 
 2. Seleccione **Exportar** para descargar los términos seleccionados.
 
- > [!Important]
-   > Si los términos de una jerarquía pertenecen a distintas plantillas de términos, debe dividirlos en diferentes archivos .CSV para su importación. Además, de momento no se admite la actualización de un elemento primario de un término mediante el proceso de importación.
+   :::image type="content" source="media/how-to-create-import-export-glossary/select-term-template-for-export.png" lightbox="media/how-to-create-import-export-glossary/select-term-template-for-export.png" alt-text="Captura de pantalla de la página de términos del glosario; seleccione el archivo que quiere exportar.":::
 
+   > [!Important]
+   > Si los términos de una jerarquía pertenecen a distintas plantillas de términos, debe dividirlos en diferentes archivos .CSV para su importación. Además, de momento no se admite la actualización de un elemento primario de un término mediante el proceso de importación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

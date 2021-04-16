@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: ac9cef77569dffe461f7711195c5638e831aa218
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 28072184d47beb32dc03e0d6ba52328bfceb5b73
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106110111"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107364879"
 ---
 # <a name="calling-sdk-overview"></a>Información general de Calling SDK
 
@@ -68,12 +68,12 @@ En la lista siguiente se presenta el conjunto de características que están dis
 |                   | Obtener la lista de cámaras                                                                                                     | ✔️   | ✔️            | ✔️
 |                   | Establecer cámara                                                                                                          | ✔️   | ✔️            | ✔️
 |                   | Obtener la cámara seleccionada                                                                                                 | ✔️   | ✔️            | ✔️
-|                   | Obtener la lista de micrófonos                                                                                                 | ✔️   | ✔️            | ✔️
-|                   | Establecer micrófono                                                                                                      | ✔️   | ✔️            | ✔️
-|                   | Obtener el micrófono seleccionado                                                                                             | ✔️   | ✔️            | ✔️
-|                   | Obtener la lista de altavoces                                                                                                   | ✔️   | ✔️            | ✔️
-|                   | Establecer el altavoz                                                                                                         | ✔️   | ✔️            | ✔️
-|                   | Obtener el altavoz seleccionado                                                                                                | ✔️   | ✔️            | ✔️
+|                   | Obtener la lista de micrófonos                                                                                                 | ✔️   | ❌           |❌  
+|                   | Establecer micrófono                                                                                                      | ✔️   | ❌           | ❌  
+|                   | Obtener el micrófono seleccionado                                                                                             | ✔️   | ❌           | ❌  
+|                   | Obtener la lista de altavoces                                                                                                   | ✔️   | ❌           | ❌  
+|                   | Establecer el altavoz                                                                                                         | ✔️   | ❌           | ❌  
+|                   | Obtener el altavoz seleccionado                                                                                                | ✔️   | ❌           | ❌  
 | Representación de vídeo   | Representar un único vídeo en muchos lugares (cámara local o flujo remoto)                                                  | ✔️   | ✔️            | ✔️
 |                   | Establecer y actualizar el modo de escalado                                                                                           | ✔️   | ✔️            | ✔️
 |                   | Representar secuencias de vídeo remoto                                                                                          | ✔️   | ✔️            | ✔️

@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f5739604537ccc67e2cf57310269369909038d67
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4c64a4e06ed452c895c1bc2cf20adc2d9c0060c3
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102508765"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219270"
 ---
 # <a name="tutorial-prerequisites-for-creating-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Tutorial: Requisitos previos para crear grupos de disponibilidad en VM con SQL Server en Azure
 
@@ -69,11 +69,11 @@ Necesitará una cuenta de Azure. Puede [abrir una cuenta gratuita de Azure](http
 
 Azure crea el grupo de recursos y ancla un acceso directo a él en el portal.
 
-## <a name="create-the-network-and-subnets"></a>Creación de redes y subredes
+## <a name="create-the-network-and-subnet"></a>Creación de la red y la subred
 
-El siguiente paso es crear las redes y subredes en el grupo de recursos de Azure.
+El siguiente paso es crear la red y subred en el grupo de recursos de Azure.
 
-La solución usa una red virtual con dos subredes. En [Información general sobre redes virtuales](../../../virtual-network/virtual-networks-overview.md) encontrará más información sobre las redes de Azure.
+La solución usa una red virtual con una subred. En [Información general sobre redes virtuales](../../../virtual-network/virtual-networks-overview.md) encontrará más información sobre las redes de Azure.
 
 Para crear la red virtual en Azure Portal:
 
@@ -100,48 +100,13 @@ Para crear la red virtual en Azure Portal:
 
    El intervalo de direcciones de subred y el espacio de direcciones podrían ser distintos a los de la tabla. Según su suscripción, el portal recomienda un espacio de direcciones disponible y el intervalo de direcciones de subred correspondiente. Si no hay suficiente espacio de direcciones disponible, use otra suscripción.
 
-   En el ejemplo se usa el nombre de subred **Admin**. Esta subred es para los controladores de dominio.
+   En el ejemplo se usa el nombre de subred **Admin**. Esta subred es para los controladores de dominio y las VM con SQL Server.
 
 5. Seleccione **Crear**.
 
    ![Configuración de la red virtual](./media/availability-group-manually-configure-prerequisites-tutorial-/06-configurevirtualnetwork.png)
 
 Azure le devuelve al panel del portal y le informa cuando se cree la red.
-
-### <a name="create-a-second-subnet"></a>Cree una segunda subred.
-
-La nueva red virtual tiene una subred denominada **Admin**. Los controladores de dominio usan esta subred. Las máquinas virtuales con SQL Server usan una segunda subred denominada **SQL**. Para configurar esta subred, siga estos pasos:
-
-1. En el panel, seleccione el grupo de recursos que ha creado, **SQL-HA-RG**. En **Recursos**, busque la red en el grupo de recursos.
-
-    Si **SQL-HA-RG** no está visible, haga clic en **Grupos de recursos** y filtre por el nombre del grupo de recursos para encontrarlo.
-
-2. Seleccione **autoHAVNET** en la lista de recursos. 
-3. En la red virtual **autoHAVNET**, en **Configuración**, seleccione **Subredes**.
-
-    Observe la subred que ya ha creado.
-
-   ![Observe la subred que ya ha creado.](./media/availability-group-manually-configure-prerequisites-tutorial-/07-addsubnet.png)
-
-5. Para crear una segunda subred, seleccione **+ Subred**.
-6. En **Agregar subred**, configure la subred escribiendo **sqlsubnet** en **Nombre**. Azure especifica automáticamente un valor válido en **Intervalo de direcciones**. Compruebe que este intervalo de direcciones tiene al menos 10 direcciones. En un entorno de producción, puede que necesite más direcciones.
-7. Seleccione **Aceptar**.
-
-    ![Configuración de la subred](./media/availability-group-manually-configure-prerequisites-tutorial-/08-configuresubnet.png)
-
-En la tabla siguiente se resumen las opciones de configuración de red:
-
-| **Campo** | Value |
-| --- | --- |
-| **Nombre** |**autoHAVNET** |
-| **Espacio de direcciones** |Este valor depende de los espacios de direcciones disponibles en su suscripción. Un valor típico es 10.0.0.0/16. |
-| **Nombre de subred** |**admin** |
-| **Intervalo de direcciones de subred** |Este valor depende de los intervalos de direcciones disponibles en su suscripción. Un valor típico es 10.0.0.0/24. |
-| **Nombre de subred** |**sqlsubnet** |
-| **Intervalo de direcciones de subred** |Este valor depende de los intervalos de direcciones disponibles en su suscripción. Un valor típico es 10.0.1.0/24. |
-| **Suscripción** |Especifique la suscripción que quiere usar. |
-| **Grupo de recursos** |**SQL-HA-RG** |
-| **Ubicación** |Especifique la misma ubicación que eligió para el grupo de recursos. |
 
 ## <a name="create-availability-sets"></a>Creación de conjuntos de disponibilidad
 
@@ -164,7 +129,7 @@ Después de crear los conjuntos de disponibilidad, vuelva al grupo de recursos e
 
 ## <a name="create-domain-controllers"></a>Creación de controladores de dominio
 
-Después de haber creado la red, las subredes y los conjuntos de disponibilidad, está preparado para crear las máquinas virtuales para los controladores de dominio.
+Después de haber creado la red, la subred y los conjuntos de disponibilidad, está preparado para crear las máquinas virtuales para los controladores de dominio.
 
 ### <a name="create-virtual-machines-for-the-domain-controllers"></a>Creación de máquinas virtuales para controladores de dominio
 

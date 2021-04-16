@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: jawilley
 ms.custom: devx-track-dotnet, contperf-fy21q2
-ms.openlocfilehash: 06fb087744ff4ecd96bee7a26e4a796e87866322
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 1a6439cfa64257e80d113f01f4ed31d56d850ea3
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102433682"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107226063"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Sugerencias de rendimiento para Azure Cosmos DB y .NET
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -69,7 +69,7 @@ Si va a realizar pruebas en niveles de rendimiento elevados o en velocidades sup
 
 **Directiva de conexión: uso del modo de conexión directa**
 
-El modo de conexión predeterminado del SDK de .NET V3 es directo. El modo de conexión se configura cuando se crea la instancia de `CosmosClient` en `CosmosClientOptions`.  Para obtener más información sobre las distintas opciones de conectividad, vea el artículo [Modos de conectividad](sql-sdk-connection-modes.md).
+El modo de conexión predeterminado del SDK de .NET V3 es directo con el protocolo TCP. El modo de conexión se configura cuando se crea la instancia de `CosmosClient` en `CosmosClientOptions`.  Para obtener más información sobre las distintas opciones de conectividad, vea el artículo [Modos de conectividad](sql-sdk-connection-modes.md).
 
 ```csharp
 string connectionString = "<your-account-connection-string>";
@@ -215,7 +215,7 @@ El rendimiento se aprovisiona en función del número de [unidades de solicitud]
 
 La complejidad de una consulta afecta a la cantidad de unidades de solicitud que se consumen para una operación. El número de predicados, la naturaleza de los predicados, el número de archivos UDF y el tamaño del conjunto de datos de origen influyen en el costo de las operaciones de consulta.
 
-Para medir la sobrecarga de cualquier operación (crear, actualizar o eliminar), inspeccione el encabezado [x-ms-request-charge](/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) (o la propiedad equivalente a `RequestCharge` en `ResourceResponse\<T>` o `FeedResponse\<T>` en el SDK de .NET) para medir el número de unidades de solicitud consumidas por las operaciones:
+Para medir la sobrecarga de cualquier operación (crear, actualizar o eliminar), inspeccione el encabezado [x-ms-request-charge](/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) (o la propiedad equivalente a `RequestCharge` en `ResourceResponse<T>` o `FeedResponse<T>` en el SDK de .NET) para medir el número de unidades de solicitud consumidas por las operaciones:
 
 ```csharp
 // Measure the performance (Request Units) of writes

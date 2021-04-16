@@ -11,12 +11,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 2f608843e27b79d02697df8e2a7f2aba6695e10a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5287fe6df4a2f0cb728bf0e705a4ce989ca38487
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "80878432"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934043"
 ---
 # <a name="configure-face-docker-containers"></a>Configurar los contenedores de Face en Docker
 
@@ -67,7 +67,7 @@ Las opciones de configuración de la sección `CloudAI` proporcionan opciones es
 
 ### <a name="storage-scenario-settings"></a>Configuración del escenario de almacenamiento
 
-El contenedor de Face almacena datos de blob, de caché, de metadatos y de la cola, en función de lo que se va a almacenar. Por ejemplo, los índices de aprendizaje y los resultados de un grupo grande de personas se almacenan como datos de blob. El contenedor de Face proporciona dos escenarios de almacenamiento diferentes al interactuar con estos tipos de datos y almacenarlos:
+El contenedor de Face almacena datos de blob, de caché, de metadatos y de la cola, en función de lo que se va a almacenar. Por ejemplo, los índices de aprendizaje y los resultados de un objeto **LargePersonGroup** se almacenan como datos de blob. El contenedor de Face proporciona dos escenarios de almacenamiento diferentes al interactuar con estos tipos de datos y almacenarlos:
 
 * Memoria  
   Los cuatro tipos de datos se almacenan en la memoria. No se distribuyen ni son persistentes. Si el contenedor de Face se detiene o elimina, se destruyen todos los datos en el almacenamiento de dicho contenedor.  

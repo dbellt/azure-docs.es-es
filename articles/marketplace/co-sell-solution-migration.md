@@ -8,12 +8,12 @@ author: vamahtan
 ms.author: vamahtan
 ms.reviewer: stmummer
 ms.date: 3/04/2021
-ms.openlocfilehash: 7ffb5a3dfd23a1515c6d21784b82ccdbf0674f0e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bb954a32a4e598c45578d4b06606bc133babb50d
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104593414"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107159"
 ---
 # <a name="migration-of-co-sell-solutions-from-ocp-gtm-to-the-commercial-marketplace"></a>Migración de soluciones de venta conjunta de OCP GTM al marketplace comercial
 
@@ -32,7 +32,7 @@ Como asociado de Microsoft inscrito en el marketplace comercial, puede realizar 
 Asegúrese de que tiene una pertenencia de Microsoft Partner Network activa y que esté inscrito en el marketplace comercial, en el Centro de partners.
 
 - Únase a Microsoft Partner Network [de forma gratuita](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership). Como asociado, tendrá acceso a recursos, programas, herramientas y conexiones exclusivos para hacer crecer su negocio.
-- Si no tiene una cuenta en el marketplace comercial, [inscríbase ahora](partner-center-portal/create-account.md) para seguir realizando ventas conjuntas con Microsoft y disfrutar de la experiencia de publicación completa.
+- Si no tiene una cuenta en el marketplace comercial, [inscríbase ahora](create-account.md) para seguir realizando ventas conjuntas con Microsoft y disfrutar de la experiencia de publicación completa.
 
 ## <a name="publishing-updates-for-attaining-co-sell-ready-status"></a>Publicación de actualizaciones para alcanzar el estado de listo para la venta conjunta
 
@@ -45,7 +45,7 @@ Después de inscribirse en el marketplace comercial, prepárese para migrar las 
 
 Siga estos pasos antes de importar las soluciones de OCP GTM:
 
-1. Visite la [lista de publicadores](https://partner.microsoft.com/dashboard/account/v3/publishers/list) de su empresa. Esta lista incluye el propietario de la cuenta, los administradores y los desarrolladores que tienen acceso de publicación. Obtenga más información sobre los [roles de usuario del Centro de partners](./partner-center-portal/manage-account.md#define-user-roles-and-permissions).
+1. Visite la [lista de publicadores](https://partner.microsoft.com/dashboard/account/v3/publishers/list) de su empresa. Esta lista incluye el propietario de la cuenta, los administradores y los desarrolladores que tienen acceso de publicación. Obtenga más información sobre los [roles de usuario del Centro de partners](user-roles.md).
 2. Pida a uno de los contactos indicados que [agregue usuarios](https://partner.microsoft.com/dashboard/account/usermanagement) al marketplace comercial como *administradores* o *desarrolladores*, ya que solo estos roles pueden editar y publicar soluciones.
 3. Colabore sus desarrolladores para migrar sus soluciones de la cuenta de OCP GTM al marketplace comercial.
 4. Decida cuál de las siguientes opciones desea realizar:
@@ -97,7 +97,7 @@ Seleccione esta opción cuando tenga una solución de OCP GTM que no cuente aún
 
     [![La pestaña Action 1 (Acción 1) del proceso de migración.](media/co-sell-migrate/action-1-migrate.png)](media/co-sell-migrate/action-1-migrate.png#lightbox)
 
-1. En la pestaña **Action 2** (Acción 2), seleccione el [perfil de publicador](partner-center-portal/create-account.md) de la lista que se proporciona. Si no tiene una cuenta de publicador, cree una en el [Centro de partners](https://partner.microsoft.com/solutions/migration) y selecciónela en esta pantalla.
+1. En la pestaña **Action 2** (Acción 2), seleccione el [perfil de publicador](create-account.md) de la lista que se proporciona. Si no tiene una cuenta de publicador, cree una en el [Centro de partners](https://partner.microsoft.com/solutions/migration) y selecciónela en esta pantalla.
 
     [![La pestaña Action 2 (Acción 2) del proceso de migración.](media/co-sell-migrate/action-2-migrate.png)](media/co-sell-migrate/action-2-migrate.png#lightbox)
 

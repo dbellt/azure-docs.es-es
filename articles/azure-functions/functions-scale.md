@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 08/17/2020
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 490fa46deabc822e416705fe9bf9c5cdb58f8cd6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 079ac41f8b138bccbe4d435a79836d3acee71b7d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97936776"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105728630"
 ---
 # <a name="azure-functions-hosting-options"></a>Opciones de hospedaje de Azure Functions
 
@@ -28,7 +28,7 @@ En este artículo se proporciona una comparación detallada entre los distintos 
 
 A continuación se ofrece un resumen de las ventajas de los tres principales planes de hospedaje de Functions:
 
-| | |
+| Planear | Ventajas |
 | --- | --- |  
 |**[Plan de consumo](consumption-plan.md)**| Escale de forma automática y pague los recursos de proceso solo cuando se ejecuten las funciones.<br/><br/>En el plan de consumo, las instancias del host de Functions se agregan y quitan de forma dinámica según el número de eventos de entrada.<br/><br/> ✔ Plan de hospedaje predeterminado.<br/>✔ Pague solo cuando se ejecutan las funciones.<br/>✔ Escala de forma automática, incluso durante períodos de carga elevada.|  
 |**[Plan Premium](functions-premium-plan.md)**|Escala automáticamente en función de la demanda mediante trabajos preparados previamente que ejecutan aplicaciones sin ningún retraso después de estar inactivas, ejecuta en instancias más eficaces y se conecta a redes virtuales. <br/><br/>Considere la posibilidad de elegir el plan Premium de Azure Functions en las siguientes situaciones: <br/><br/>✔ La aplicación de funciones se ejecuta de forma continua, o casi continua.<br/>✔ Tiene un gran número de ejecuciones pequeñas y una factura de ejecución elevada, pero pocos GB por segundo en el plan de consumo.<br/>✔ Necesita más opciones de CPU o memoria de las que proporciona el plan de consumo.<br/>✔ Su código debe ejecutarse durante más tiempo del máximo permitido en el plan de consumo.<br/>✔ Necesita características que no están disponibles en el plan de consumo, como la conectividad con red virtual.|  
@@ -36,7 +36,7 @@ A continuación se ofrece un resumen de las ventajas de los tres principales pla
 
 En las tablas de comparación de este artículo también se incluyen las siguientes opciones de hospedaje, que proporcionan el mayor control y aislamiento posibles en los que ejecutar las aplicaciones de funciones.  
 
-| | |
+| Opción de hospedaje | Detalles |
 | --- | --- |  
 |**[ASE](dedicated-plan.md)** | App Service Environment (ASE) es una característica de App Service que proporciona un entorno completamente aislado y dedicado para ejecutar de forma segura las aplicaciones de App Service a gran escala.<br/><br/>Las instancias de ASE son adecuadas para cargas de trabajo de aplicaciones que necesitan: <br/><br/>✔ Una gran escala.<br/>✔ Aislamiento de proceso completo y acceso a redes seguro.<br/>✔ Elevado uso de memoria.|  
 | **[Kubernetes](functions-kubernetes-keda.md)** | Kubernetes proporciona un entorno completamente aislado y dedicado que se ejecuta sobre la plataforma de Kubernetes.<br/><br/> Kubernetes resulta adecuado para cargas de trabajo de aplicaciones que necesitan: <br/>✔ Requisitos de hardware personalizados.<br/>✔ Aislamiento y acceso a redes seguro.<br/>✔ Capacidad de ejecutarse en entornos híbridos o de varias nubes.<br/>✔ Ejecutarse junto con aplicaciones y servicios de Kubernetes existentes.|  
@@ -65,7 +65,7 @@ En la tabla siguiente se muestran los sistemas operativos admitidos y la compati
 
 En la siguiente tabla se comparan los comportamientos de escalado de los distintos planes de hospedaje.
 
-| | Escalado horizontal | N.º máximo de instancias |
+| Planear | Escalado horizontal | N.º máximo de instancias |
 | --- | --- | --- |
 | **[Plan de consumo](consumption-plan.md)** | [Controlado por eventos](event-driven-scaling.md). Escale horizontalmente de forma automática, incluso durante períodos de gran carga. La infraestructura de Azure Functions escala los recursos de CPU y memoria mediante la incorporación de instancias adicionales del host de Functions, según el número de eventos de desencadenador entrantes. | 200 |
 | **[Plan Premium](functions-premium-plan.md)** | [Controlado por eventos](event-driven-scaling.md). Escale horizontalmente de forma automática, incluso durante períodos de gran carga. La infraestructura de Azure Functions escala automáticamente los recursos de CPU y la memoria mediante la incorporación de instancias del host de Functions, según el número de eventos desencadenados por las funciones. |100|
@@ -77,7 +77,7 @@ En la siguiente tabla se comparan los comportamientos de escalado de los distint
 
 ## <a name="cold-start-behavior"></a>Comportamiento del arranque en frío
 
-|    |    | 
+| Planear | Detalles | 
 | -- | -- |
 | **[Plan de&nbsp;consumo](consumption-plan.md)** | Las aplicaciones pueden escalar a cero si están inactivas, lo que significa que algunas solicitudes pueden tener una latencia adicional durante el arranque.  El plan de consumo incluye algunas optimizaciones para reducir el tiempo de arranque en frío, incluida la extracción desde funciones de marcador de posición previamente preparadas que ya tienen en ejecución un host de función y procesos de lenguaje. |
 | **[Plan Premium](functions-premium-plan.md)** | Instancias permanentemente preparadas para evitar cualquier arranque en frío. |
@@ -95,7 +95,7 @@ En la siguiente tabla se comparan los comportamientos de escalado de los distint
 
 ## <a name="billing"></a>Facturación
 
-| | | 
+| Planear | Detalles |
 | --- | --- |
 | **[Plan de consumo](consumption-plan.md)** | Solo paga por el tiempo durante el que se ejecutan las funciones. La facturación se basa en el número de ejecuciones, el tiempo de ejecución y el uso de la memoria. |
 | **[Plan Premium](functions-premium-plan.md)** | El plan Premium se basa en la cantidad de núcleos por segundo y en la memoria usada en las instancias necesarias y preparadas previamente. Al menos una instancia por plan se debe mantener preparada en todo momento. Este plan ofrece los precios más predecibles. |

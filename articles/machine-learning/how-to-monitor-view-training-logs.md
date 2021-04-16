@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 47531da9c1e508281a57074df7aa10ffffe78810
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: c258ac62617cb6ac954e0b8c59928225c7f477b1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102518745"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105935585"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>Supervisión y visualización de métricas y registros de ejecución de ML
 
@@ -110,15 +110,16 @@ También puede editar la tabla de la lista de ejecución para seleccionar varias
 
 ![Detalles de la ejecución en Azure Machine Learning Studio](media/how-to-track-experiments/experimentation-tab.gif)
 
-### <a name="view-log-files-for-a-run"></a>Visualización de los archivos de registro de una ejecución 
+### <a name="view-and-download-log-files-for-a-run"></a>Visualización y descarga de los archivos de registro de una ejecución 
 
 Los archivos de registro son un recurso esencial para depurar las cargas de trabajo de Azure Machine Learning. Explore en profundidad hasta llegar a una ejecución específica para ver sus registros y salidas:  
 
 1. Vaya a la sección **Experimentos**.
 1. Seleccione el identificador de la ejecución para ver una ejecución específica.
 1. Seleccione **Resultados y registros** en la parte superior de la página.
+2. Seleccione **Descargar todo** para descargar todos los registros en una carpeta comprimida.
 
-:::image type="content" source="media/how-to-monitor-view-training-logs/view-logs.png" alt-text="Captura de pantalla de la sección Resultados y registros de una ejecución":::
+:::image type="content" source="media/how-to-monitor-view-training-logs/download-logs.png" alt-text="Captura de pantalla de la sección de resultados y registros de una ejecución.":::
 
 En las tablas siguientes se muestra el contenido de los archivos de registro de las carpetas que verá en esta sección.
 

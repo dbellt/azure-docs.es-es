@@ -7,14 +7,14 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 03/01/2021
+ms.date: 03/26/2021
 ms.author: kgremban
-ms.openlocfilehash: 6a64bb2801830440dc49e72786c9c00a6e4796b3
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: a98eed61904b580988fe34302999f3ec6a24ac9e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103201613"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105640923"
 ---
 # <a name="install-or-uninstall-azure-iot-edge-for-linux"></a>Instalación o desinstalación de Azure IoT Edge para Linux
 
@@ -398,6 +398,8 @@ Compruebe que el servicio del sistema IoT Edge esté en ejecución.
    sudo iotedge system status
    ```
 
+Una respuesta de estado correcta es `Ok`.
+
 ::: moniker-end
 
 Si necesita solucionar problemas del servicio, recupere los registros del servicio.
@@ -491,7 +493,7 @@ Con los comandos curl, puede dirigirse a los archivos de componentes directament
    2. Use el vínculo copiado en el comando siguiente para instalar esa versión del servicio de identidad:
 
       ```bash
-      curl -L <identity service link> -o aziot-identity-service.deb && sudo dpkg -i ./aziot-identity-service.deb
+      curl -L <identity service link> -o aziot-identity-service.deb && sudo apt-get install ./aziot-identity-service.deb
       ```
 
    3. Busque el archivo **aziot-edge** que coincida con la arquitectura del dispositivo IoT Edge. Haga clic con el botón derecho en el vínculo del archivo y copie la dirección del vínculo.
@@ -499,7 +501,7 @@ Con los comandos curl, puede dirigirse a los archivos de componentes directament
    4. Use el vínculo copiado en el comando siguiente para instalar esa versión de IoT Edge.
 
       ```bash
-      curl -L <iotedge link> -o aziot-edge.deb && sudo dpkg -i ./aziot-edge.deb
+      curl -L <iotedge link> -o aziot-edge.deb && sudo apt-get install ./aziot-edge.deb
       ```
 
 <!-- end 1.2 -->

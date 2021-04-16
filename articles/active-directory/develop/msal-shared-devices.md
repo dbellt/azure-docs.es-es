@@ -13,16 +13,16 @@ ms.date: 03/31/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 9e48d8f55efa8bc4c82eaa973a6feaeb42390064
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: cf8869002fb3e0170331709af3da5b971a098740
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104578781"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105612405"
 ---
 # <a name="overview-of-shared-device-mode"></a>Introducción al modo de dispositivo compartido
 
-El modo de dispositivo compartido es una característica de Azure Active Directory que permite crear aplicaciones que admiten trabajadores de primera línea y habilitar el modo de dispositivo compartido en los dispositivos implementados.
+El modo de dispositivo compartido es una característica de Azure Active Directory que permite crear aplicaciones que admiten trabajadores de primera línea y habilitar el modo de dispositivo compartido en los dispositivos implementados.
 
 >[!IMPORTANT]
 > Modo de dispositivo compartido para [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)] iOS
@@ -33,7 +33,7 @@ Los trabajadores de primera línea son los empleados de comercios, los agentes d
 
 ### <a name="challenges-of-supporting-frontline-workers"></a>Desafíos de la compatibilidad para trabajadores de primera línea
 
-La habilitación de flujos de trabajo de trabajadores de primera línea incluye desafíos que normalmente no presentan con los trabajadores de la información típicos. Estos desafíos pueden incluir una alta tasa de rotación y menor familiaridad con las principales herramientas de productividad de la organización. Para dotar de recursos a sus trabajadores de primera línea, las organizaciones adoptan diferentes estrategias. Algunas adoptan la estrategia Traiga su propio dispositivo (BYOD), en la que los empleados usan aplicaciones empresariales en su teléfono personal, mientras que otras proporcionan a sus empleados dispositivos compartidos como iPads o tabletas Android.
+La habilitación de flujos de trabajo de trabajadores de primera línea incluye desafíos que normalmente no se presentan con los trabajadores de la información típicos. Estos desafíos pueden incluir una alta tasa de rotación y menor familiaridad con las principales herramientas de productividad de la organización. Para dotar de recursos a sus trabajadores de primera línea, las organizaciones adoptan diferentes estrategias. Algunas adoptan la estrategia Traiga su propio dispositivo (BYOD), en la que los empleados usan aplicaciones empresariales en su teléfono personal, mientras que otras proporcionan a sus empleados dispositivos compartidos como iPads o tabletas Android.
 
 ### <a name="supporting-multiple-users-on-devices-designed-for-one-user"></a>Compatibilidad con varios usuarios en dispositivos diseñados para un usuario
 

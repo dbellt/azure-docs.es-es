@@ -9,10 +9,10 @@ ms.date: 02/27/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 0a81d8c97b916fd15e7be5fde05e9ea25ba1151d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "67186217"
 ---
 Un centro contiene la puerta de enlace. Cuando se crea el concentrador, se le cobrará por él, aunque no esté asociado a ningún sitio. Se tardan 30 minutos en crear el centro y la puerta de enlace.
@@ -21,7 +21,7 @@ Un centro contiene la puerta de enlace. Cuando se crea el concentrador, se le co
 2. En la página Concentradores, haga clic en **+ Nueva central** para abrir la página **Crear centro de conectividad virtual**.
 3. En la página **Crear centro de conectividad virtual**, complete los siguientes campos:
 
-   * Location
+   * Ubicación
    * Nombre
    * Espacio de direcciones privadas del concentrador
 

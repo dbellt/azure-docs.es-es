@@ -1,18 +1,18 @@
 ---
 title: 'Programa Azure Certified Device: Tutorial sobre la incorporación de detalles del dispositivo'
 description: Una guía paso a paso para agregar detalles del dispositivo al proyecto en el portal de Azure Certified Device
-author: nikuntjo
+author: nkuntjoro
 ms.author: nikuntjo
 ms.service: certification
 ms.topic: tutorial
 ms.date: 03/02/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: c2a67e794932504150a1eacedd5418642623a20c
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: f4f3d045a2530fa54d22bec789918454cba80097
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105975530"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310434"
 ---
 # <a name="tutorial-add-device-details"></a>Tutorial: Incorporación de detalles del dispositivo
 

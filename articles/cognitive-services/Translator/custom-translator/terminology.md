@@ -1,24 +1,24 @@
 ---
-title: 'Terminología: Traductor personalizado'
+title: 'Términos clave: Traductor personalizado'
 titleSuffix: Azure Cognitive Services
-description: Lista de los términos usados en los artículos del Traductor personalizado.
+description: Lista de los términos clave usados en los artículos del Traductor personalizado.
 author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 08/17/2020
+ms.date: 04/02/2021
 ms.author: lajanuar
 ms.topic: reference
-ms.openlocfilehash: 4461f584e365a5d47e7ceee942e33bc8b101b2d2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4a0308f2b961ce9b1321fab3e202e038eb199674
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104658482"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106286426"
 ---
-# <a name="custom-translator-terminology"></a>Terminología del Traductor personalizado
+# <a name="custom-translator-key-terms"></a>Términos clave del Traductor personalizado
 
-En la tabla siguiente se muestra una lista de términos que puede encontrar al trabajar con el [Traductor personalizado](https://portal.customtranslator.azure.ai).
+En la tabla siguiente se presenta una lista de términos clave que puede encontrar al trabajar con el [Traductor personalizado](https://portal.customtranslator.azure.ai).
 
 | Palabra o expresión|Definición|
 |------------------|-----------|

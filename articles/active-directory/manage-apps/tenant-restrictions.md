@@ -2,22 +2,22 @@
 title: 'Uso de restricciones de inquilino para administrar el acceso a las aplicaciones SaaS: Azure AD'
 description: Cómo usar restricciones de inquilino para administrar los usuarios que pueden tener acceso a las aplicaciones según su inquilino de Azure AD.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 2/23/2021
-ms.author: kenwith
+ms.date: 4/6/2021
+ms.author: iangithinji
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa025f7e21f76b4dde547ccabf675511e9156359
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 941bf61f3387abf19be58bdd4d8861ab123e244f
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104589334"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107376586"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Uso de restricciones de inquilino para administrar el acceso a aplicaciones en la nube SaaS
 
@@ -97,6 +97,8 @@ En esta sección se describe la experiencia de los usuarios finales y los admini
 
 Un usuario de ejemplo se encuentra en la red de Contoso, pero está intentando acceder a la instancia de Fabrikam de una aplicación SaaS compartida como Outlook en línea. Si Fabrikam es un inquilino no permitido para la instancia de Contoso, el usuario ve un mensaje de denegación de acceso, que indica que está intentando obtener acceso a un recurso que pertenece a una organización no aprobada por el departamento de TI.
 
+![Mensaje de error de restricciones de inquilino, desde abril 2021](./media/tenant-restrictions/error-message.png)
+
 ### <a name="admin-experience"></a>Experiencia del administrador
 
 Mientras la configuración de restricciones de inquilino se realice en la infraestructura del proxy corporativo, los administradores podrán tener acceso a los informes de restricciones de inquilino directamente en Azure Portal. Para ver los informes:
@@ -113,14 +115,14 @@ El informe puede contener información limitada, como el identificador del direc
 
 Al igual que otros informes en Azure Portal, puede usar filtros para especificar el ámbito del informe. Puede filtrar por un usuario, una aplicación, un cliente, un estado o un intervalo de tiempo específico. Si selecciona el botón **Columnas**, puede elegir mostrar los datos con cualquier combinación de los siguientes campos:
 
-- **Usuario**: este campo puede tener la información de identificación personal quitada, donde se establecerá en `00000000-0000-0000-0000-000000000000`. 
+- **Usuario**: este campo puede tener los datos personales quitados, donde se establecerán en `00000000-0000-0000-0000-000000000000`. 
 - **Aplicación**
 - **Estado**
 - **Date**
 - **Fecha (UTC)** : donde UTC es la hora universal coordinada.
 - **Dirección IP**
 - **Cliente**
-- **Nombre de usuario**: este campo puede tener la información de identificación personal quitada, donde se establecerá en `{PII Removed}@domain.com`.
+- **Nombre de usuario**: este campo puede tener los datos personales quitados, donde se establecerán en `{PII Removed}@domain.com`.
 - **Ubicación**
 - **Identificador de inquilino de destino**
 
