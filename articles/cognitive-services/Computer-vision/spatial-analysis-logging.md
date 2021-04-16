@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: bd35062ca1a5b3218a9af1fbd28fe8e7d7073c07
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 1f03f99e6394c3939855c73548e8fb917f8696bc
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106077625"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106286035"
 ---
 # <a name="telemetry-and-troubleshooting"></a>Telemetría y solución de problemas
 
@@ -23,7 +23,7 @@ El análisis espacial incluye un conjunto de características para supervisar el
 
 ## <a name="enable-visualizations"></a>Habilitación de visualizaciones
 
-Para habilitar una visualización de eventos de Conclusiones de IA en un fotograma de vídeo, debe usar la versión `.debug` de una [operación de análisis espacial](spatial-analysis-operations.md). en una máquina de escritorio. La visualización no es posible en dispositivos de Azure Stack Edge. Hay cuatro operaciones de depuración disponibles.
+Para habilitar una visualización de eventos de Conclusiones de IA en un fotograma de vídeo, debe usar la versión `.debug` de una [operación de análisis espacial](spatial-analysis-operations.md) en una máquina de escritorio. La visualización no es posible en dispositivos de Azure Stack Edge. Hay cuatro operaciones de depuración disponibles.
 
 Si el dispositivo no es un dispositivo de Azure Stack Edge, edite el archivo del manifiesto de implementación para [máquinas de escritorio](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) para usar el valor correcto para la variable de entorno `DISPLAY`. Debe coincidir con la variable `$DISPLAY` del equipo host. Después de actualizar el manifiesto de implementación, vuelva a implementar el contenedor.
 
@@ -402,7 +402,7 @@ kubectl logs <pod-name> -n <namespace> --all-containers
 | `Enable-HcsSupportAccess` | Genera las credenciales de acceso para iniciar una sesión de soporte técnico. |
 
 
-## <a name="how-to-file-a-support-ticket-for-spatial-analysis"></a>Cómo archivar una incidencia de soporte técnico para el análisis espacial 
+## <a name="how-to-file-a-support-ticket-for-spatial-analysis"></a>Cómo presentar una incidencia de soporte técnico para el análisis espacial 
 
 Si necesita más soporte técnico para encontrar una solución a un problema que tiene en el contenedor de análisis espacial, siga estos pasos para rellenar y enviar una incidencia de soporte técnico. Nuestro equipo le ayudará con una guía adicional. 
 
@@ -432,6 +432,6 @@ Revise los detalles de la solicitud de soporte técnico para asegurarse de que t
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Implementación de una aplicación web de recuento de personas](spatial-analysis-web-app.md)
-* [Configuración de operaciones de análisis espaciales](./spatial-analysis-operations.md)
+* [Configuración de las operaciones de análisis espacial](./spatial-analysis-operations.md)
 * [Guía de selección de ubicación de la cámara](spatial-analysis-camera-placement.md)
 * [Guía de selección de ubicación de zonas y líneas](spatial-analysis-zone-line-placement.md)

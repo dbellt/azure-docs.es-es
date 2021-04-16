@@ -4,15 +4,15 @@ description: Obtenga información sobre varios de los requisitos de integración
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/11/2019
+ms.date: 03/19/2021
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 4c5d8b438764fa9aa3838b2225c63d412afc519b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 760e7210d054e44dfec6d6a6e480baecd04d6807
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88606810"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105044131"
 ---
 # <a name="common-questions-about-saas-fulfillment-apis"></a>Preguntas comunes sobre las API de cumplimiento de SaaS
 
@@ -40,7 +40,10 @@ Al suscribirse a la oferta de SaaS, el usuario acepta pagar por el consumo del s
 
 Después de suscribirse a una oferta, el usuario de Azure puede detectar y administrar todas sus ofertas en Azure. De forma predeterminada, el estado de una oferta de SaaS a la que se acaba de suscribir es **Provisioning, fulfillment pending"** (Aprovisionando, pendiente de realización). En este estado, se solicitará al usuario de Azure la acción **Configurar cuenta** para poder examinar la experiencia de administración de suscripciones de SaaS en Azure Portal.
 
-Cuando el usuario selecciona **Configurar cuenta**, se le redirige al sitio web del servicio de SaaS. El publicador configuró la dirección URL en el momento de publicar la oferta. Esta página se conoce como la página de aterrizaje del anunciante. Los usuarios de Azure inician sesión en la página de aterrizaje de SaaS con sus credenciales de AAD existentes en Azure.
+Cuando el usuario selecciona **Configurar cuenta**, se le redirige al sitio web del servicio de SaaS. El publicador configuró la dirección URL en el momento de publicar la oferta. Esta página se conoce como la página de aterrizaje del anunciante. Los usuarios de Azure inician sesión en la página de aterrizaje de SaaS con sus credenciales de Azure Active Directory (Azure AD) existentes en Azure.
+
+> [!IMPORTANT]
+> Debe iniciar sesión en el usuario de compra mediante Azure Active Directory, el Inicio de sesión único (SSO de Azure AD) tal como se indica en la [directiva](/legal/marketplace/certification-policies?context=/azure/marketplace/context/context). La propiedad `mail` del recurso de usuario recuperada de la API de Microsoft Graph proporciona la información de contacto para el caso de Azure AD y `userPrincipalName` para MSA. Es posible que el campo "correo" esté vacío para Azure AD y que el usuario no haya registrado un correo electrónico. En ese caso, se recomienda que lo detecte y solicite un correo electrónico de contacto. Esta es la única oportunidad que tiene de obtener un correo electrónico de contacto para llegar a un cliente durante o después del proceso de incorporación de clientes.
 
 Cuando el usuario de Azure se redirige a la página de aterrizaje, se agrega un token a la dirección URL de consulta. Este token es de corta duración y es válido durante 24 horas. Después, puede detectar la presencia de este token y llamar a la API de Microsoft para obtener más contexto asociado con el token.
 

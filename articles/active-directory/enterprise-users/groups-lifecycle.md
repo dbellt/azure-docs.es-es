@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a4ba5a9211cdb89f6ac5a92a315378e58f5d08a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 34ac4a3b7f55c42711e4bc33c75bba964b49c65e
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105709521"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551635"
 ---
 # <a name="configure-the-expiration-policy-for-microsoft-365-groups"></a>Configuración de la directiva de expiración de grupos de Microsoft 365
 
@@ -91,6 +91,7 @@ Si necesita más información sobre los permisos para restaurar los grupos elimi
 > - La primera vez que se configura la expiración, todos los grupos cuya antigüedad supere el intervalo de expiración se establecen en 35 días hasta la expiración, salvo que el grupo se renueve automáticamente o lo renueve el propietario.
 > - Cuando un grupo dinámico se elimina y restaura, se considera un nuevo grupo y se vuelve a rellenar de acuerdo con la regla. Este proceso puede tardar hasta 24 horas.
 > - Los avisos de expiración de los grupos usados en Teams aparecen en la fuente Teams Owners (Propietarios de Teams).
+> - Al habilitar la expiración de los grupos seleccionados, puede agregar hasta 500 grupos a la lista. Si necesita agregar más de 500 grupos, puede habilitar la expiración de todos los grupos. En ese escenario, no se aplica la limitación de 500 grupos.
 
 ## <a name="email-notifications"></a>Notificaciones por correo electrónico
 

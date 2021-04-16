@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: 9fca69804220021ca7935e562f2026c11749515a
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: bc2bec364f8d752b7416ecccf0b00d0fbec4c8e8
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102623325"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105729901"
 ---
 Use el enlace de salida de Event Hubs para escribir eventos en una secuencia. Debe tener permiso de envío a un centro de eventos para escribir eventos en él.
 
@@ -265,14 +265,14 @@ Puede usar los siguientes tipos de parámetro para el enlace de salida del centr
 * `string`
 * `byte[]`
 * `POCO`
-* `EventData` -Las propiedades predeterminadas de EventData se proporcionan para el [espacio de nombres Microsoft.Azure.EventHubs](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet).
+* `EventData` - Las propiedades predeterminadas de EventData se proporcionan para el [espacio de nombres Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs.eventdata).
 
 Envíe mensajes mediante un parámetro de método, como `out string paramName`. En script de C#, `paramName` es el valor especificado en la propiedad `name` de *function.json*. Para escribir varios mensajes, puede usar `ICollector<string>` o `IAsyncCollector<string>` en lugar de `out string`.
 
 ### <a name="additional-types"></a>Tipos adicionales 
-Las aplicaciones que usan la versión 5.0.0 o posterior de la extensión del centro de eventos utilizan el tipo `EventData` en [Azure.Messaging.EventHubs](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.eventdata?view=azure-dotnet) en lugar del que está en el [espacio de nombres Microsoft.Azure.EventHubs](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet). En esta versión se elimina la compatibilidad con el tipo `Body` heredado en favor de los siguientes tipos:
+Las aplicaciones que usan la versión 5.0.0 o posterior de la extensión del centro de eventos utilizan el tipo `EventData` en [Azure.Messaging.EventHubs](/dotnet/api/azure.messaging.eventhubs.eventdata) en lugar del que está en el [espacio de nombres Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs.eventdata). En esta versión se elimina la compatibilidad con el tipo `Body` heredado en favor de los siguientes tipos:
 
-- [EventBody](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody?view=azure-dotnet)
+- [EventBody](/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody)
 
 # <a name="c-script"></a>[Script de C#](#tab/csharp-script)
 
@@ -283,14 +283,14 @@ Puede usar los siguientes tipos de parámetro para el enlace de salida del centr
 * `string`
 * `byte[]`
 * `POCO`
-* `EventData` - Las propiedades predeterminadas de EventData se proporcionan para el [espacio de nombres Microsoft.Azure.EventHubs](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet).
+* `EventData` - Las propiedades predeterminadas de EventData se proporcionan para el [espacio de nombres Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs.eventdata).
 
 Envíe mensajes mediante un parámetro de método, como `out string paramName`. En script de C#, `paramName` es el valor especificado en la propiedad `name` de *function.json*. Para escribir varios mensajes, puede usar `ICollector<string>` o `IAsyncCollector<string>` en lugar de `out string`.
 
 ### <a name="additional-types"></a>Tipos adicionales 
-Las aplicaciones que usan la versión 5.0.0 o posterior de la extensión del centro de eventos utilizan el tipo `EventData` en [Azure.Messaging.EventHubs](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.eventdata?view=azure-dotnet) en lugar del que está en el [espacio de nombres Microsoft.Azure.EventHubs](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet). En esta versión se elimina la compatibilidad con el tipo `Body` heredado en favor de los siguientes tipos:
+Las aplicaciones que usan la versión 5.0.0 o posterior de la extensión del centro de eventos utilizan el tipo `EventData` en [Azure.Messaging.EventHubs](/dotnet/api/azure.messaging.eventhubs.eventdata) en lugar del que está en el [espacio de nombres Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs.eventdata). En esta versión se elimina la compatibilidad con el tipo `Body` heredado en favor de los siguientes tipos:
 
-- [EventBody](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody?view=azure-dotnet)
+- [EventBody](/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody)
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 

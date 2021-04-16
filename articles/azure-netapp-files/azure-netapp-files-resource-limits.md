@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/29/2021
+ms.date: 03/30/2021
 ms.author: b-juche
-ms.openlocfilehash: c82e834c0af3737c1e5ef19c7aa789b94d87f6d8
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 9b061184f97abeea79912aadbae2c2b188206c72
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99095398"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106058007"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Límites de recursos para Azure NetApp Files
 
@@ -45,6 +45,7 @@ En la tabla siguiente se describen los límites de recursos de Azure NetApp File
 |  Tamaño máximo de un archivo individual     |    16 TiB    |    No    |    
 |  Tamaño máximo de los metadatos de directorio en un solo directorio      |    320 MB    |    No    |    
 |  Número máximo de archivos ([maxfiles](#maxfiles)) por volumen     |    100 millones    |    Sí    |    
+|  Número máximo de reglas de directiva de exportación por volumen     |    5  |    No    | 
 |  Rendimiento mínimo asignado para un volumen de QoS manual     |    1 MiB/s   |    No    |    
 |  Rendimiento máximo asignado para un volumen de QoS manual     |    4500 MiB/s    |    No    |    
 |  Número de volúmenes de protección de datos de replicación entre regiones (volúmenes de destino)     |    5    |    Sí    |     
@@ -85,7 +86,7 @@ Desde el plano de navegación de Azure Portal:
 4. Haga clic en la pestaña Detalles:
     1. En el cuadro Descripción, proporcione la siguiente información para el tipo de recurso correspondiente:
 
-        |  Resource  |    Recursos primarios      |    Nuevos límites solicitados     |    Motivo de aumento de cuota       |
+        |  Recurso  |    Recursos primarios      |    Nuevos límites solicitados     |    Motivo de aumento de cuota       |
         |----------------|------------------------------|---------------------------------|------------------------------------------|
         |  Cuenta |  *Subscription ID*   |  *Nuevo número máximo de **cuentas** solicitado*    |  *¿Qué escenario o caso de uso motivó la solicitud?*  |
         |  grupo    |  *Identificador de suscripción, URI de la cuenta de NetApp*  |  *Nuevo número máximo de **grupos** solicitado*   |  *¿Qué escenario o caso de uso motivó la solicitud?*  |

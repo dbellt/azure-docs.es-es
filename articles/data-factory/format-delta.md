@@ -1,17 +1,17 @@
 ---
 title: Formato delta en Azure Data Factory
 description: Transformación y movimiento de datos desde un lago delta con el formato delta
-author: djpmsft
+author: dcstwh
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 12/07/2020
-ms.author: daperlov
-ms.openlocfilehash: bb5360a678751b37cf36677fca611b39746621f4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/26/2020
+ms.author: weetok
+ms.openlocfilehash: 6d9d2b0d185750cf8ed8192661f28a2b82d88b78
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100386499"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106222545"
 ---
 # <a name="delta-format-in-azure-data-factory"></a>Formato delta en Azure Data Factory
 
@@ -75,6 +75,8 @@ En la tabla siguiente se enumeran las propiedades que admite un receptor delta. 
 | Nivel de compresión | Elija si la compresión debe completarse tan pronto como sea posible, incluso si el archivo resultante debe comprimirse de forma óptima. | obligatorio si se especifica `compressedType` | `Optimal` o `Fastest` | compressionLevel |
 | Vacío | Especifique el umbral de retención en horas para versiones anteriores de la tabla. Un valor de 0 o menos toma el valor predeterminado de 30 días | sí | Entero | vacuum |
 | Método de actualización | Especifique qué operaciones de actualización se permiten en el lago delta. En el caso de los métodos que no sean insert, se requiere una transformación Alter row anterior para marcar las filas. | sí | `true` o `false` | deletable <br> insertable <br> updateable <br> merge |
+| Escritura optimizada | Logre un mayor rendimiento de la operación de escritura mediante la optimización del orden aleatorio interno en los ejecutores de Spark. Como resultado, es posible que observe menos particiones y archivos de un tamaño mayor. | no | `true` o `false` | optimizedWrite: true |
+| Compactación automática | Una vez completada la operación de escritura, Spark ejecutará automáticamente el comando ```OPTIMIZE``` para volver a organizar los datos, lo que dará lugar a más particiones si es necesario, para mejorar el rendimiento de la lectura en el futuro. | no | `true` o `false` |    autoCompact: true |
 
 ### <a name="delta-sink-script-example"></a>Ejemplo de script de receptor delta
 

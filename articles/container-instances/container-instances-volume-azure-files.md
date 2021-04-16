@@ -2,23 +2,27 @@
 title: Montar un volumen de Azure Files en el grupo de contenedores
 description: Obtenga información sobre cómo montar un volumen de Azure Files para conservar el estado con Azure Container Instances
 ms.topic: article
-ms.date: 07/02/2020
+ms.date: 03/24/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: d52ad8ad02735c98b29a83d8ca69cdea8c6af7d8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 09a4d9922a4f9ba4296fc194d72c621fecb8342d
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97954981"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105968907"
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Montaje de un recurso compartido de archivos de Azure en Azure Container Instances
 
 De forma predeterminada, Azure Container Instances no tiene estado. Si el contenedor se reinicia, se bloquea o se detiene, se pierde todo su estado. Para conservar el estado más allá de la duración del contenedor, debe montar un volumen desde un almacén externo. Como se muestra en este artículo, Azure Container Instances puede montar un recurso compartido de archivos de Azure creado con [Azure Files](../storage/files/storage-files-introduction.md). Azure Files ofrece recursos compartidos de archivos totalmente administrados en Azure Storage, a los que se puede acceder mediante el protocolo de bloque de mensajes del servidor (SMB) estándar. El uso de un recurso compartido de archivos de Azure con Azure Container Instances ofrece características de uso compartido de archivos similares al uso de un recurso compartido de archivo de Azure con Azure Virtual Machines.
 
+## <a name="limitations"></a>Limitaciones
+
+* Solo puede montar los recursos compartidos de archivos en los contenedores Linux. Consulte más información sobre las diferencias en la compatibilidad de las características con los grupos de contenedores Linux y Windows en la [Introducción](container-instances-overview.md#linux-and-windows-containers).
+* El montaje de volúmenes de recursos compartidos de archivos de Azure requiere la ejecución del contenedor Linux como *raíz*.
+* Los montajes de volúmenes de recursos compartidos de archivos de Azure se limitan a la compatibilidad con CIFS.
+
 > [!NOTE]
-> El montaje de un recurso compartido de Azure Files está actualmente restringido a los contenedores Linux. Busque las diferencias de plataforma actuales en la [Introducción](container-instances-overview.md#linux-and-windows-containers).
->
-> Montar un recurso compartido de Azure Files en una instancia de contenedor es similar a un [montaje de enlace](https://docs.docker.com/storage/bind-mounts/) de Docker. Tenga en cuenta que si monta un recurso compartido en un directorio de contenedor en el que existen archivos o directorios, estos archivos o directorios quedan ocultos por el montaje y no son accesibles mientras se ejecuta el contenedor.
+> Montar un recurso compartido de Azure Files en una instancia de contenedor es similar a un [montaje de enlace](https://docs.docker.com/storage/bind-mounts/) de Docker. Si monta un recurso compartido en un directorio de contenedor en el que existen archivos o directorios, el montaje oculta los archivos o directorios, por lo que quedan inaccesibles mientras se ejecuta el contenedor.
 >
 
 > [!IMPORTANT]

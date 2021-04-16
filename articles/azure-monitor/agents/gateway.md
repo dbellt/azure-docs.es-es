@@ -5,18 +5,14 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
-ms.openlocfilehash: bae48dc78eb6973e5bce4d535091bc330c4c897f
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 0c26a7f53609193bf373c3f7f9b1037405d4e518
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102509037"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106122142"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Conexión de equipos sin acceso a Internet mediante la puerta de enlace de Log Analytics en Azure Monitor
-
->[!NOTE]
->La terminología cambia a medida que se realiza la transición de Microsoft Operations Management Suite (OMS) a Microsoft Azure Monitor. Este artículo hace referencia a la puerta de enlace de OMS como la puerta de enlace de Azure Log Analytics. 
->
 
 Este artículo describe cómo configurar la comunicación con Azure Automation y Azure Monitor mediante la puerta de enlace de Log Analytics cuando los equipos que están directamente conectados o están supervisados por Operations Manager no tienen acceso a Internet. 
 
@@ -89,6 +85,9 @@ La puerta de enlace de Log Analytics está disponible en los idiomas siguientes:
 La puerta de enlace de Log Analytics solo admite Seguridad de la capa de transporte (TLS) 1.0, 1.1 y 1.2.  No se admite Capa de sockets seguros (SSL).  Para garantizar la seguridad de datos en tránsito en Log Analytics, configure la puerta de enlace para que use como mínimo TLS 1.2. Las versiones anteriores de TLS o SSL son vulnerables. Aunque permiten actualmente compatibilidad con versiones anteriores, evite su uso.  
 
 Para información adicional, revise [Sending data securely using TLS 1.2](../logs/data-security.md#sending-data-securely-using-tls-12) (Envío de datos de forma segura mediante TLS 1.2). 
+
+>[!NOTE]
+>La puerta de enlace es un proxy de reenvío que no almacena ningún dato. Una vez que el agente establece la conexión con Azure Monitor, sigue el mismo flujo de cifrado con o sin la puerta de enlace. Los datos se cifran entre el cliente y el punto de conexión. Dado que la puerta de enlace es simplemente un túnel, no tiene la capacidad de inspeccionar lo que se envía.
 
 ### <a name="supported-number-of-agent-connections"></a>Número admitido de conexiones del agente
 

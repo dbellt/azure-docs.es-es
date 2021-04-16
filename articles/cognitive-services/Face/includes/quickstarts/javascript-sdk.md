@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 11/05/2020
 ms.author: v-jawe
-ms.openlocfilehash: b4a63f76cbcd9e98295f5edcf7ff2d06979e6556
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 8f968572a357bb3c98d9c3133a7ec0a0a94dbf93
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102244808"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105958073"
 ---
 ## <a name="quickstart-face-client-library-for-javascript"></a>Inicio rápido: Biblioteca cliente de Face para JavaScript
 
@@ -24,7 +24,7 @@ La biblioteca cliente de Face para JavaScript se usa para realizar las siguiente
 
 * [Detección de caras en una imagen](#detect-faces-in-an-image)
 * [Búsqueda de caras similares](#find-similar-faces)
-* [Creación de un grupo de personas](#create-a-person-group)
+* [Creación de un elemento PersonGroup](#create-a-persongroup)
 * [Identificación de una cara](#identify-a-face)
 
 [Documentación de referencia](/javascript/api/@azure/cognitiveservices-face/) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-face) | [Paquete (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-face) | [Ejemplos](/samples/browse/?products=azure&term=face&languages=javascript)
@@ -79,7 +79,7 @@ Cree variables para el punto de conexión y la clave de Azure del recurso.
 > [!IMPORTANT]
 > Vaya a Azure Portal. Si el recurso de Face que ha creado en la sección **Requisitos previos** se ha implementado correctamente, haga clic en el botón **Ir al recurso** en **Pasos siguientes**. Puede encontrar su clave y punto de conexión en la página de **clave y punto de conexión** del recurso, en **Administración de recursos**. 
 >
-> Recuerde quitar la clave del código cuando haya terminado y no hacerla nunca pública. En el caso de producción, considere la posibilidad de usar alguna forma segura de almacenar las credenciales, y acceder a ellas. Para más información, consulte el artículo sobre la [seguridad](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) de Cognitive Services.
+> Recuerde quitar la clave del código cuando haya terminado y no hacerla nunca pública. En el caso de producción, considere la posibilidad de usar alguna forma segura de almacenar las credenciales, y acceder a ellas. Para más información, consulte el artículo sobre la [seguridad](../../../cognitive-services-security.md) de Cognitive Services.
 
 ```javascript
 key = "<paste-your-face-key-here>"
@@ -106,7 +106,7 @@ En estos fragmentos de código se muestra cómo realizar las siguientes tareas c
 * [Autenticar el cliente](#authenticate-the-client)
 * [Detección de caras en una imagen](#detect-faces-in-an-image)
 * [Búsqueda de caras similares](#find-similar-faces)
-* [Creación de un grupo de personas](#create-a-person-group)
+* [Creación de un elemento PersonGroup](#create-a-persongroup)
 * [Identificación de una cara](#identify-a-face)
 
 > [!TIP]
@@ -114,7 +114,7 @@ En estos fragmentos de código se muestra cómo realizar las siguientes tareas c
 
 ## <a name="authenticate-the-client"></a>Autenticar el cliente
 
-Cree una instancia de un cliente con la clave y el punto de conexión. Cree un objeto **[ApiKeyCredentials](https://docs.microsoft.com/javascript/api/@azure/ms-rest-js/apikeycredentials)** con la clave y úselo con el punto de conexión para crear un objeto **[FaceClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face/faceclient)** .
+Cree una instancia de un cliente con la clave y el punto de conexión. Cree un objeto **[ApiKeyCredentials](/javascript/api/@azure/ms-rest-js/apikeycredentials)** con la clave y úselo con el punto de conexión para crear un objeto **[FaceClient](/javascript/api/@azure/cognitiveservices-face/faceclient)** .
 
 :::code language="js" source="~/cognitive-services-quickstart-code/javascript/Face/sdk_quickstart.js" id="credentials":::
 
@@ -163,27 +163,27 @@ El método siguiente detecta caras en un conjunto de imágenes de destino y en u
 
 La operación [Identify](/javascript/api/@azure/cognitiveservices-face/face#identify_string____FaceIdentifyOptionalParams__ServiceCallback_IdentifyResult____) toma una imagen de una persona (o de varias) y busca la identidad de cada una de las caras de la imagen (búsqueda de reconocimiento facial). Compara cada cara detectada con un objeto [PersonGroup](/javascript/api/@azure/cognitiveservices-face/persongroup), una base de datos con distintos objetos [Person](/javascript/api/@azure/cognitiveservices-face/person) cuyos rasgos faciales se conocen. Para poder realizar la operación Identify, primero es preciso crear y entrenar un objeto [PersonGroup](/javascript/api/@azure/cognitiveservices-face/persongroup).
 
-### <a name="add-faces-to-person-group"></a>Incorporación de caras a un grupo de personas
+### <a name="add-faces-to-persongroup"></a>Incorporación de caras a PersonGroup
 
 Cree la siguiente función para agregar caras a [PersonGroup](/javascript/api/@azure/cognitiveservices-face/persongroup).
 
 :::code language="js" source="~/cognitive-services-quickstart-code/javascript/Face/sdk_quickstart.js" id="add_faces":::
 
-### <a name="wait-for-training-of-person-group"></a>Espera para el entrenamiento del grupo de personas
+### <a name="wait-for-training-of-persongroup"></a>Espera para el entrenamiento de PersonGroup
 
-Cree la siguiente función del asistente para esperar a que el grupo de personas termine el entrenamiento.
+Cree la siguiente función del asistente para esperar a que **PersonGroup** termine el entrenamiento.
 
 :::code language="js" source="~/cognitive-services-quickstart-code/javascript/Face/sdk_quickstart.js" id="wait_for_training":::
 
-### <a name="create-a-person-group"></a>Creación de un grupo de personas
+### <a name="create-a-persongroup"></a>Creación de un elemento PersonGroup
 
 El código siguiente:
-- Crea un objeto [PersonGroup](/javascript/api/@azure/cognitiveservices-face/persongroup)
-- Agrega caras al grupo de personas mediante una llamada a `AddFacesToPersonGroup`, que se ha definido previamente.
-- Entrena el grupo de personas.
-- Identifica las caras del grupo de personas.
+- Crea un objeto [PersonGroup](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face/persongroup)
+- Agrega caras al objeto **PersonGroup** mediante una llamada a `AddFacesToPersonGroup` que se ha definido previamente.
+- Entrena el objeto **PersonGroup**.
+- Identifica las caras del objeto **PersonGroup**.
 
-Este grupo de objetos **Person** y sus objetos **Person** asociados ya están listos para usarse en las operaciones de comprobación, identificación o agrupación.
+El objeto **PersonGroup** y sus objetos **Person** asociados ya están listos para usarse en las operaciones de comprobación, identificación o agrupación.
 
 :::code language="js" source="~/cognitive-services-quickstart-code/javascript/Face/sdk_quickstart.js" id="identify":::
 
@@ -216,7 +216,7 @@ Si quiere limpiar y eliminar una suscripción a Cognitive Services, puede elimin
 En este inicio rápido, ha aprendido a usar la biblioteca cliente de Face para JavaScript para realizar tareas básicas de reconocimiento facial. A continuación, consulte la documentación de referencia para más información sobre la biblioteca.
 
 > [!div class="nextstepaction"]
-> [Referencia de Face API (JavaScript)](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face/)
+> [Referencia de Face API (JavaScript)](/javascript/api/@azure/cognitiveservices-face/)
 
 * [¿Qué es el servicio Face?](../../overview.md)
 * El código fuente de este ejemplo está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/Face/sdk_quickstart.js).

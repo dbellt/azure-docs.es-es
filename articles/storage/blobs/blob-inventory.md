@@ -2,20 +2,20 @@
 title: Uso del inventario de Azure Storage para administrar datos de blobs (versión preliminar)
 description: El inventario de Azure Storage es una herramienta que ayuda a obtener información general de todos los datos de blobs dentro de una cuenta de almacenamiento.
 services: storage
-author: mhopkins-msft
+author: twooley
 ms.service: storage
-ms.date: 03/05/2021
+ms.date: 04/01/2021
 ms.topic: conceptual
-ms.author: mhopkins
-ms.reviewer: yzheng
+ms.author: twooley
+ms.reviewer: klaasl
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 8310de465a6416102a7ce4e614ead7029e6be87a
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 33d50d1a6b5e84d178b522851795bcc42f5fc169
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104950933"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106277273"
 ---
 # <a name="use-azure-storage-blob-inventory-to-manage-blob-data-preview"></a>Uso del inventario de blobs de Azure Storage para administrar datos de blobs (versión preliminar)
 
@@ -37,6 +37,7 @@ La versión preliminar del inventario de blobs está disponible en las cuentas d
 - Este de Canadá
 - Este de EE. UU.
 - Este de EE. UU. 2
+- Oeste de Europa
 
 ### <a name="pricing-and-billing"></a>Precios y facturación
 
@@ -202,6 +203,14 @@ Evento de ejemplo:
   "eventTime": "2020-10-13T15:47:54Z"
 }
 ```
+
+## <a name="known-issues"></a>Problemas conocidos
+
+En esta sección se describen las limitaciones y los problemas conocidos de la característica de inventario de blobs de Azure Storage.
+
+### <a name="inventory-job-fails-to-complete"></a>No se puede completar el trabajo de inventario
+
+Es posible que el trabajo de inventario no pueda completarse en 24 horas para una cuenta con millones de blobs y espacios de nombres jerárquicos habilitados. Si esto ocurre, no se creará ningún archivo de inventario.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

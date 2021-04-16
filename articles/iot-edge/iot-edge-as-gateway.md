@@ -4,19 +4,19 @@ description: Use Azure IoT Edge para crear un dispositivo de puerta de enlace tr
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/10/2020
+ms.date: 03/23/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: ca8f02b375420590bcf1cc732c067a165e22b3fa
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: aa8b7372af91fc7cb194dfc3a6212cb4ce1fa0a2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103492717"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105027353"
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>Uso de un dispositivo IoT Edge como puerta de enlace
 
@@ -24,12 +24,7 @@ ms.locfileid: "103492717"
 
 Los dispositivos IoT Edge pueden funcionar como puertas de enlace, lo que proporciona una conexión entre otros dispositivos de la red y su instancia de IoT Hub.
 
-El módulo centro de IoT Edge actúa como IoT Hub, por lo que puede controlar conexiones desde cualquier dispositivo que tenga una identidad con IoT Hub, incluidos otros dispositivos IoT Edge. Este tipo de patrón de puertas de enlace se denomina *transparente*, porque los mensajes pueden pasar desde dispositivos de nivel inferior hasta IoT Hub como si no hubiera una puerta de enlace entre ellos.
-
-<!-- 1.2.0 -->
-::: moniker range=">=iotedge-2020-11"
-A partir de la versión 1.2 de IoT Edge, las puertas de enlace transparentes pueden controlar conexiones de nivel inferior desde otros dispositivos IoT Edge.
-::: moniker-end
+El módulo del Centro de IoT Edge actúa como IoT Hub, por lo que puede controlar conexiones desde cualquier dispositivo que tenga una identidad con la misma instancia de IoT Hub. Este tipo de patrón de puertas de enlace se denomina *transparente*, porque los mensajes pueden pasar desde dispositivos de nivel inferior hasta IoT Hub como si no hubiera una puerta de enlace entre ellos.
 
 En el caso de los dispositivos que no pueden conectarse a IoT Hub por sí solos, las puertas de enlace de IoT Edge pueden ofrecer esa conexión. Este tipo de patrón de puerta de enlace se denomina *traducción*, porque el dispositivo IoT Edge tiene que realizar el procesamiento de los mensajes de dispositivo de nivel inferior entrantes antes de que se puedan reenviar a IoT Hub. Estos escenarios requieren de módulos adicionales en la puerta de enlace de IoT Edge para administrar los pasos de procesamiento.
 
@@ -51,17 +46,19 @@ Para obtener más información sobre cómo el centro de IoT Edge administra la c
 
 <!-- 1.1 -->
 ::: moniker range="iotedge-2018-06"
-
-Aunque un dispositivo IoT Edge no puede ser inferior a una puerta de enlace de IoT Edge.
-
 ![Diagrama sobre el patrón de puerta de enlace transparente](./media/iot-edge-as-gateway/edge-as-gateway-transparent.png)
+
+>[!NOTE]
+>En las versiones 1.1 y anteriores de IoT Edge, un dispositivo de IoT Edge no puede ser inferior a una puerta de enlace de IoT Edge.
+>
+>A partir de la versión 1.2 de IoT Edge, las puertas de enlace transparentes pueden controlar conexiones desde otros dispositivos de nivel inferior de IoT Edge. Para obtener más información, cambie a la versión [1.2 de IoT Edge](?view=iotedge-2020-11&preserve-view=true) de este artículo.
 
 ::: moniker-end
 
-<!-- 1.2.0 -->
+<!-- 1.2 -->
 ::: moniker range=">=iotedge-2020-11"
 
-A partir de la versión 1.2.0, los dispositivos IoT Edge se pueden conectar a través de puertas de enlace transparentes.
+A partir de la versión 1.2 de IoT Edge, las puertas de enlace transparentes pueden controlar conexiones desde otros dispositivos de nivel inferior de IoT Edge.
 
 <!-- TODO add a downstream IoT Edge device to graphic -->
 

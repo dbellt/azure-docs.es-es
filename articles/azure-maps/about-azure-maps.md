@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, references_regions
-ms.openlocfilehash: b53af0fda8bb24bf03d0e02f61ce7d195ae69503
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 55955f883425651749809da951832484f098aeaf
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97680823"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256130"
 ---
 # <a name="what-is-azure-maps"></a>¿Qué es Azure Maps?
 
@@ -169,11 +169,11 @@ El servicio Traffic es un conjunto de servicios web que los desarrolladores pued
 
 Para más información, consulte la [documentación del servicio Traffic](/rest/api/maps/traffic).
 
-### <a name="weather-services-preview"></a>Servicio Weather (versión preliminar) 
+### <a name="weather-services"></a>Servicios Weather
 
 El servicio Weather ofrece distintas API que los desarrolladores pueden usar para recuperar información meteorológica de una ubicación determinada. La información contiene detalles como la fecha y la hora de observación, una breve descripción de las condiciones meteorológicas, el icono meteorológico, las marcas de los indicadores de precipitaciones, la temperatura y la velocidad del viento. También se devuelven detalles adicionales como la sensación térmica de RealFeel™ y el índice UV.
 
-Los desarrolladores pueden usar la [API Get Weather Along Route](/rest/api/maps/weather/getweatheralongroutepreview) para recuperar información meteorológica a lo largo de una ruta determinada. Además, el servicio admite la generación de notificaciones meteorológicas para puntos de trayecto afectados por las inclemencias del tiempo, como inundaciones o lluvia intensa.
+Los desarrolladores pueden usar la [API Get Weather Along Route](/rest/api/maps/weather/getweatheralongroute) para recuperar información meteorológica a lo largo de una ruta determinada. Además, el servicio admite la generación de notificaciones meteorológicas para puntos de trayecto afectados por las inclemencias del tiempo, como inundaciones o lluvia intensa.
 
 La [API Get Map Tile V2](/rest/api/maps/renderv2/getmaptilepreview) permite solicitar los mosaicos de radar y satélite anteriores, actuales y futuros.
 

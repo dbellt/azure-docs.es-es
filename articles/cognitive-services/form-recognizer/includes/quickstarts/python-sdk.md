@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 10/26/2020
+ms.date: 03/19/2021
 ms.author: lajanuar
-ms.openlocfilehash: 445fdea4cb92ed8080528a41cf19ad774751b9ce
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: f28fba451a5fbad9efe76e0d6bd39488beebb103
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102510885"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104761180"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -49,7 +49,7 @@ pip install azure-ai-formrecognizer --pre
 ```
 
 > [!NOTE]
-> El SDK de Form Recognizer 3.1.0 refleja la versión preliminar 2.1 de la API.
+> El SDK de Form Recognizer 3.1.0 refleja la _versión 2.1 preview.2 de la API_. Use la [**API REST**](../../quickstarts/client-library.md) para la _versión 2.1 preview.3 de la API_.
 
 #### <a name="v20"></a>[v2.0](#tab/ga)
 
@@ -155,7 +155,7 @@ Para analizar el contenido de un archivo en una dirección URL determinada, use 
 > [!TIP]
 > También puede obtener contenido de imágenes locales. Consulte los métodos [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient), como `begin_recognize_content`. O bien, consulte el código de ejemplo en [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) para escenarios relacionados con imágenes locales.
 
-### <a name="output"></a>Resultados
+### <a name="output"></a>Output
 
 ```console
 Table found on page 1:
@@ -212,7 +212,7 @@ El código siguiente usa el cliente de entrenamiento con la función `begin_trai
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_train)]
 
 
-### <a name="output"></a>Resultados
+### <a name="output"></a>Output
 
 Esta es la salida para un modelo entrenado con los datos de entrenamiento disponibles en el [SDK de Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms/training).
 
@@ -337,7 +337,7 @@ En esta sección se muestra cómo analizar y extraer campos comunes de recibos d
 > [!TIP]
 > También puede analizar imágenes de recibos locales. Consulte los métodos [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient), como `begin_recognize_receipts`. O bien, consulte el código de ejemplo en [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) para escenarios relacionados con imágenes locales.
 
-### <a name="output"></a>Resultados
+### <a name="output"></a>Output
 
 ```console
 ReceiptType: Itemized has confidence 0.659
@@ -388,7 +388,7 @@ El siguiente bloque de código comprueba cuántos modelos se han guardado en la 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_manage_count)]
 
 
-### <a name="output"></a>Resultados
+### <a name="output"></a>Output
 
 ```console
 Our account has 5 custom models, and we can have at most 5000 custom models
@@ -421,7 +421,7 @@ El siguiente bloque de código usa el identificador de modelo guardado en la sec
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_manage_getmodel)]
 
 
-### <a name="output"></a>Resultados
+### <a name="output"></a>Output
 
 Esta es la salida de ejemplo para el modelo personalizado creado en el ejemplo anterior.
 

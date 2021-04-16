@@ -9,14 +9,14 @@ author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.date: 10/02/2020
-ms.openlocfilehash: 0ce9575f078058c821ffffe1b9fe45eed5a4ad94
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 22411e5a80f555a3ead05d39466a7a175923d9bc
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101724184"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105105700"
 ---
-* Después de seleccionar la plataforma adecuada en el paso 4 de [Configuración de la plataforma](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app#configure-platform-settings), configure los valores de **URI de redirección** y **Tokens de acceso** en el panel lateral a la derecha de la interfaz de usuario.
+* Después de seleccionar la plataforma adecuada en el paso 4 de [Configuración de la plataforma](../articles/active-directory/develop/quickstart-register-app.md#configure-platform-settings), configure los valores de **URI de redirección** y **Tokens de acceso** en el panel lateral a la derecha de la interfaz de usuario.
 
     * El valor de **URI de redirección** debe coincidir con la dirección proporcionada en la solicitud de autenticación:
 
@@ -41,4 +41,4 @@ ms.locfileid: "101724184"
 
     [![Especificación del tipo de permiso de API que requiere la aplicación](media/time-series-insights-aad-registration/active-directory-app-permission-grant.png)](media/time-series-insights-aad-registration/active-directory-app-permission-grant.png#lightbox)
 
-* [Agregue credenciales](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app#add-credentials) si la aplicación va a llamar a las API del entorno ella misma. Las credenciales permiten que la aplicación se autentique a sí misma, por lo que no se requiere la interacción del usuario en tiempo de ejecución.
+* [Agregue credenciales](../articles/active-directory/develop/quickstart-register-app.md#add-credentials) si la aplicación va a llamar a las API del entorno ella misma. Las credenciales permiten que la aplicación se autentique a sí misma, por lo que no se requiere la interacción del usuario en tiempo de ejecución.

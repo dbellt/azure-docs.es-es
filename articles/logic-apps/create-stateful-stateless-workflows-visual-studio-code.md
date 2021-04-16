@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 03/08/2021
-ms.openlocfilehash: f7f8082cc9120345336610d5cb49741140d3b606
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/30/2021
+ms.openlocfilehash: 491d5f14cc8f456d228a5bc6efaa6686575979c1
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102557019"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078747"
 ---
 # <a name="create-stateful-and-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Creación de flujos de trabajo con o sin estado en Visual Studio Code con la extensión Azure Logic Apps (versión preliminar)
 
@@ -101,8 +101,8 @@ Para compilar y ejecutar localmente el proyecto de aplicación lógica en Visual
 1. Guarde la cadena de conexión en un lugar seguro. Después de crear el proyecto de aplicación lógica en Visual Studio Code, tendrá que agregar la cadena al archivo **local.settings.json** de la carpeta de nivel raíz del proyecto.
 
    > [!IMPORTANT]
-   > Si planea realizar la implementación en un contenedor de Docker, también debe agregar esta cadena de conexión al archivo de Docker que se usa para la implementación.
-
+   > Si planea realizar la implementación en un contenedor de Docker, también debe usar esta cadena de conexión con el archivo de Docker que se usa para la implementación. En escenarios de producción, asegúrese de proteger estos secretos e información confidencial, por ejemplo, mediante el uso de un almacén de claves.
+  
 ### <a name="tools"></a>Herramientas
 
 * [Visual Studio Code 1.30.1 (enero de 2019) o superior](https://code.visualstudio.com/), que es gratis. Además, descargue e instale estas herramientas para Visual Studio Code, en caso de que aún no las tenga:
@@ -304,6 +304,9 @@ Para poder crear una aplicación lógica, antes debe crear un proyecto local, co
          }
       }
       ```
+
+      > [!IMPORTANT]
+      > En escenarios de producción, asegúrese de proteger estos secretos e información confidencial, por ejemplo, mediante el uso de un almacén de claves.
 
    1. Cuando haya terminado, asegúrese de guardar los cambios.
 
@@ -1205,7 +1208,10 @@ Si no está familiarizado con Docker, consulte estos temas:
 
 * Un archivo de Docker para el flujo de trabajo que se usa al compilar el contenedor de Docker
 
-  Por ejemplo, este archivo de Docker de ejemplo implementa una aplicación lógica. El archivo especifica la cadena de conexión que contiene la clave de acceso de la cuenta de Azure Storage que se usó para publicar la aplicación lógica en Azure Portal. Para encontrar esta cadena, consulte [Obtención de la cadena de conexión de la cuenta de almacenamiento](#find-storage-account-connection-string).
+  Por ejemplo, este archivo de Docker de ejemplo implementa una aplicación lógica y especifica la cadena de conexión que contiene la clave de acceso de la cuenta de Azure Storage que se usó para publicar la aplicación lógica en Azure Portal. Para encontrar esta cadena, consulte [Obtención de la cadena de conexión de la cuenta de almacenamiento](#find-storage-account-connection-string). Para obtener más información, revise [Procedimientos recomendados para escribir archivos de Docker](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/).
+  
+  > [!IMPORTANT]
+  > En escenarios de producción, asegúrese de proteger estos secretos e información confidencial, por ejemplo, mediante el uso de un almacén de claves. Para los archivos de Docker específicamente, revise [Creación de imágenes con BuildKit](https://docs.docker.com/develop/develop-images/build_enhancements/) y [Administración de los datos confidenciales con secretos de Docker](https://docs.docker.com/engine/swarm/secrets/).
 
    ```text
    FROM mcr.microsoft.com/azure-functions/node:3.0
@@ -1219,8 +1225,6 @@ Si no está familiarizado con Docker, consulte estos temas:
 
    RUN cd /home/site/wwwroot
    ```
-
-   Para obtener más información, consulte [Procedimientos recomendados para escribir archivos de Docker](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/).
 
 <a name="find-storage-account-connection-string"></a>
 

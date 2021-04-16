@@ -12,21 +12,21 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/05/2021
+ms.date: 03/29/2021
 ms.author: b-juche
-ms.openlocfilehash: 12807e83f7841bc67999ce385d0cb82bf15f4c71
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 52e855cb4ab42ed78a055ecdc31cffa886dc9bf2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102175998"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105731996"
 ---
 # <a name="what-changing-to-volume-hard-quota-means-for-your-azure-netapp-files-service"></a>Implicaciones de cambiar a la cuota máxima de volumen para el servicio de Azure NetApp Files
 
 Desde el principio del servicio, Azure NetApp Files ha usado un aprovisionamiento de grupo de capacidad y un mecanismo de crecimiento automático. Los volúmenes de Azure NetApp Files se aprovisionan de forma fina sobre un grupo de capacidad subyacente aprovisionado por el cliente de un nivel y tamaño seleccionados. Los tamaños de volumen (cuotas) se usan para proporcionar rendimiento y capacidad, y las cuotas se pueden ajustar sobre la marcha en cualquier momento. Este comportamiento implica que, actualmente, la cuota de volumen es un factor de rendimiento que se usa para controlar el ancho de banda al volumen. Actualmente, los grupos de capacidades subyacentes aumentan automáticamente cuando se llena la capacidad.   
 
 > [!IMPORTANT] 
-> El comportamiento de Azure NetApp Files para el aprovisionamiento del grupo de capacidad y volumen se cambiará a un mecanismo *manual* y *controlable*. **A partir del 1 de abril de 2021 (actualizado), los tamaños del volumen (cuota) administrarán el rendimiento del ancho de banda, así como la capacidad aprovisionada, y los grupos de capacidad subyacentes ya no crecerán automáticamente.** 
+> El comportamiento de Azure NetApp Files para el aprovisionamiento del grupo de capacidad y volumen se cambiará a un mecanismo *manual* y *controlable*. **A partir del 30 de abril de 2021 (actualizado), los tamaños de volumen (cuota) determinarán el rendimiento del ancho de banda, así como la capacidad aprovisionada, y los grupos de capacidad subyacentes ya no crecerán automáticamente.** 
 
 ## <a name="reasons-for-the-change-to-volume-hard-quota"></a>Motivos para el cambio a cuota máxima de volumen
 

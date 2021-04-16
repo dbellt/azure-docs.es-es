@@ -13,12 +13,12 @@ ms.date: 06/05/2020
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev devx-track-js
-ms.openlocfilehash: 8ff54a40120bed040ec25fb3f18385dba3b0bf11
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 5168dfb531c40a3efeef978abf65473ee59d2921
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106063668"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107255603"
 ---
 # <a name="use-the-microsoft-authentication-library-for-javascript-to-work-with-azure-ad-b2c"></a>Uso de la biblioteca de autenticación de Microsoft para JavaScript a fin de trabajar con Azure AD B2C
 
@@ -215,6 +215,6 @@ Cuando un usuario selecciona **Contraseña olvidada**, la aplicación produce un
 
 Obtener más información sobre estos conceptos de Azure AD B2C:
 
-- [Flujos de usuario](../../active-directory-b2c/tutorial-create-user-flows.md)
-- [Directivas personalizadas](../../active-directory-b2c/custom-policy-get-started.md)
+- [Flujos de usuario](../../active-directory-b2c/tutorial-create-user-flows.md?pivots=b2c-user-flow)
+- [Directivas personalizadas](../../active-directory-b2c/tutorial-create-user-flows.md?pivots=b2c-custom-policy)
 - [Personalización de la experiencia de usuario](../../active-directory-b2c/configure-user-input.md)

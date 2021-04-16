@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 11/17/2020
 ms.author: sandeo
-ms.openlocfilehash: 44dfd07a5b749d88552bb1dcac2ee4b4e5ce65e4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e14e214a220d9dade4fac028620d23c563d86a8f
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102565247"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106554083"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Vista previa: Inicio de sesión en una máquina virtual Linux en Azure mediante la autenticación de Azure Active Directory
 
@@ -140,7 +140,7 @@ Para más información sobre cómo usar RBAC de Azure para administrar el acceso
 
 ## <a name="using-conditional-access"></a>Uso del acceso condicional
 
-Puede aplicar directivas de acceso condicional, como la autenticación multifactor o la comprobación de riesgo de inicio de sesión de usuario antes de autorizar el acceso a máquinas virtuales Linux en Azure que están habilitadas con el inicio de sesión de Azure AD. Para aplicar la directiva de acceso condicional, debe seleccionar la aplicación de inicio de sesión de máquinas virtuales Linux de Azure desde la opción de asignación de acciones o aplicaciones en la nube y usar Riesgo de inicio de sesión como condición, o bien requerir la autenticación multifactor como un control de acceso de concesión. 
+Puede aplicar directivas de acceso condicional, como la autenticación multifactor o la comprobación de riesgo de inicio de sesión de usuario antes de autorizar el acceso a máquinas virtuales Linux en Azure que están habilitadas con el inicio de sesión de Azure AD. Para aplicar la directiva de acceso condicional, debe seleccionar la aplicación de "inicio de sesión de máquinas virtuales Linux de Microsoft Azure" desde la opción de asignación de acciones o aplicaciones en la nube y usar Riesgo de inicio de sesión como condición, o bien requerir la autenticación multifactor como un control de acceso de concesión. 
 
 > [!WARNING]
 > Azure AD Multi-Factor Authentication habilitado o forzado por el usuario no es compatible con el inicio de sesión de la máquina virtual.

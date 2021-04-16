@@ -3,12 +3,12 @@ title: Lista de eventos de Azure Service Fabric
 description: Lista completa de eventos proporcionados por Azure Service Fabric como ayuda para supervisar clústeres.
 ms.topic: reference
 ms.date: 2/25/2019
-ms.openlocfilehash: 3f65d7c3ddec8263ff6f115df9616b48814afc93
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a1ba21aaac831abb07544944420f2b77e1753955
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105628890"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106279789"
 ---
 # <a name="list-of-service-fabric-events"></a>Lista de eventos de Service Fabric 
 
@@ -36,6 +36,12 @@ Se pueden encontrar más detalles sobre las actualizaciones de clústeres [en es
 | 29629 | ClusterUpgradeRollbackStarted | Actualizar | Se ha iniciado la reversión de una actualización de clúster  | CM | Advertencia | 
 | 29630 | ClusterUpgradeRollbackCompleted | Actualizar | Se ha terminado la reversión de una actualización de clúster | CM | Advertencia | 
 | 29631 | ClusterUpgradeDomainCompleted | Actualizar | Un dominio de actualización se ha terminado de actualizar durante una actualización de clúster | CM | Informativo | 
+
+**Eventos de selección de ubicación**
+| EventId | Nombre | Category | Descripción |Origen (tarea) | Nivel |
+| --- | --- | ---| --- | --- | --- |
+| 17616 | Decisión |StateTransition | La operación de selección de ubicación estaba programada para decidir la ubicación de nuevas réplicas. | CRM | Informativo |
+
 
 ## <a name="node-events"></a>Eventos de nodos
 

@@ -9,38 +9,37 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/18/2020
+ms.date: 03/31/2021
 ms.author: jeedes
-ms.openlocfilehash: cc3ce56ecd17d627001f4925355c055afdc09d22
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6bc2508220a8c0193efb55eb6cd11f7e151c80be
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98729670"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106284598"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-statuspage"></a>Tutorial: Integración del inicio de sesión único de Azure Active Directory con StatusPage
 
-En este tutorial, obtendrá información sobre cómo integrar StatusPage con Azure Active Directory (Azure AD).
-La integración de StatusPage con Azure AD proporciona las siguientes ventajas:
+En este tutorial, aprenderá a integrar StatusPage con Azure Active Directory (Azure AD). Al integrar StatusPage con Azure AD, puede hacer lo siguiente:
 
-* En Azure AD, puede controlar quién tiene acceso a StatusPage.
-* Puede permitir que los usuarios inicien sesión automáticamente en StatusPage (inicio de sesión único) con sus cuentas de Azure AD.
-* Puede administrar sus cuentas en una ubicación central: Azure Portal.
+* Controlar en Azure AD quién tiene acceso a StatusPage.
+* Permitir que los usuarios inicien sesión automáticamente en StatusPage con sus cuentas de Azure AD.
+* Administrar las cuentas desde una ubicación central (Azure Portal).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
 Para configurar la integración de Azure AD con StatusPage, necesita los siguientes elementos:
 
-* Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener [una cuenta gratuita](https://azure.microsoft.com/free/)
-* Una suscripción habilitada para el inicio de sesión único en StatusPage
+* Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener [una cuenta gratuita](https://azure.microsoft.com/free/).
+* Una suscripción habilitada para el inicio de sesión único en StatusPage.
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
 En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* StatusPage admite el inicio de sesión único iniciado por **IDP**
+* StatusPage admite el inicio de sesión único comenzado por **IDP**.
 
-## <a name="adding-statuspage-from-the-gallery"></a>Incorporación de StatusPage desde la galería
+## <a name="add-statuspage-from-the-gallery"></a>Incorporación de StatusPage desde la galería
 
 Para configurar la integración de StatusPage en Azure AD, deberá agregar StatusPage desde la galería a la lista de aplicaciones SaaS administradas.
 
@@ -65,13 +64,13 @@ Para configurar el inicio de sesión único de Azure AD con StatusPage, realice
     1. **[Creación de un usuario de prueba de StatusPage](#create-statuspage-test-user)** : para tener un homólogo de Britta Simon en StatusPage que esté vinculado a la representación del usuario en Azure AD.
 6. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
-### <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
+## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
 1. En Azure Portal, en la página de integración de aplicaciones de **AskYourTeam**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
@@ -85,7 +84,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     | `https://<subdomain>.statuspage.io/` |
     |
 
-    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón:
+    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con uno de los siguientes patrones:
 
      | URL de respuesta |
     |--------------|
@@ -152,17 +151,17 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 1. En la barra de herramientas principal, haga clic en **Administrar cuenta**.
 
-    ![Captura de pantalla que muestra la opción de administrar cuenta seleccionada en el sitio de la compañía StatusPage.](./media/statuspage-tutorial/tutorial_statuspage_06.png)
+    ![Captura de pantalla que muestra la opción de administrar cuenta seleccionada en el sitio de la compañía StatusPage.](./media/statuspage-tutorial/account.png)
 
 1. Haga clic en la pestaña **Inicio de sesión único** .
 
-    ![Captura de pantalla que muestra la pestaña Inicio de sesión único.](./media/statuspage-tutorial/tutorial_statuspage_07.png)
+    ![Captura de pantalla que muestra la pestaña Inicio de sesión único.](./media/statuspage-tutorial/tab.png)
 
 1. En la página Configuración de SSO, realice los pasos siguientes:
 
-    ![Captura de pantalla que muestra la página de configuración del inicio de sesión único, donde puede especificar los valores descritos.](./media/statuspage-tutorial/tutorial_statuspage_08.png)
+    ![Captura de pantalla que muestra la página de configuración del inicio de sesión único, donde puede especificar los valores descritos.](./media/statuspage-tutorial/setup.png)
 
-    ![Captura de pantalla que muestra el botón para guardar la configuración.](./media/statuspage-tutorial/tutorial_statuspage_09.png)
+    ![Captura de pantalla que muestra el botón para guardar la configuración.](./media/statuspage-tutorial/configuration.png)
 
     a. En el cuadro de texto **SSO Target URL** (Dirección URL de destino de SSO), pegue el valor de **Dirección URL de inicio de sesión** que ha copiado de Azure Portal.
 
@@ -182,25 +181,25 @@ StatusPage admite el aprovisionamiento Just-In-Time. Ya lo ha habilitado en [Con
 
 1. En el menú de la parte superior, haga clic en **Administrar cuenta**.
 
-    ![Captura de pantalla que muestra la opción de administrar cuenta seleccionada en el sitio de la compañía StatusPage.](./media/statuspage-tutorial/tutorial_statuspage_06.png)
+    ![Captura de pantalla que muestra la opción de administrar cuenta seleccionada en el sitio de la compañía StatusPage.](./media/statuspage-tutorial/account.png)
 
 1. Haga clic en la pestaña **Team Members** (Miembros del equipo).
   
-    ![Captura de pantalla que muestra la pestaña Miembros del equipo.](./media/statuspage-tutorial/tutorial_statuspage_10.png) 
+    ![Captura de pantalla que muestra la pestaña Miembros del equipo.](./media/statuspage-tutorial/sandbox.png) 
 
 1. Haga clic en **ADD TEAM MEMBER**(Agregar miembro del equipo).
   
-    ![Captura de pantalla que muestra el botón para agregar un miembro del equipo.](./media/statuspage-tutorial/tutorial_statuspage_11.png) 
+    ![Captura de pantalla que muestra el botón para agregar un miembro del equipo.](./media/statuspage-tutorial/team.png) 
 
 1. Escriba **Dirección de correo electrónico**, **Nombre** y **Apellido** en los cuadros de texto correspondientes para un usuario válido que quiera aprovisionar. 
 
-    ![Captura de pantalla que muestra el cuadro de diálogo para agregar usuario, donde puede especificar los valores descritos.](./media/statuspage-tutorial/tutorial_statuspage_12.png) 
+    ![Captura de pantalla que muestra el cuadro de diálogo para agregar usuario, donde puede especificar los valores descritos.](./media/statuspage-tutorial/user.png) 
 
 1. En **Rol**, elija **Administrador de clientes**.
 
 1. Haga clic en **CREATE ACCOUNT** (CREAR CUENTA).
 
-### <a name="test-sso"></a>Prueba de SSO
+## <a name="test-sso"></a>Prueba de SSO
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones.
 

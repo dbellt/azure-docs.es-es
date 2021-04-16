@@ -5,19 +5,19 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/09/2019
-ms.openlocfilehash: 235a6bf4a0dd9afcac8751067b2eac3ddb37c0cd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9d60857503402554381068fc36121fa3f7b61622
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102031249"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107283565"
 ---
 # <a name="app-expression-in-azure-monitor-query"></a>Expresión app() de la consulta de Azure Monitor
 
 La expresión `app` se usa en una consulta de Azure Monitor para recuperar datos de una aplicación de Application Insights específica en el mismo grupo de recursos, en otro grupo de recursos o en otra suscripción. Resulta útil para incluir datos de aplicación en una consulta de registros de Azure Monitor y para consultar datos a través de varias aplicaciones en una consulta de Application Insights.
 
 > [!IMPORTANT]
-> La expresión app() no se usa si se usa un [recurso de Application Insights basado en el área de trabajo](../app/create-workspace-resource.md), ya que los datos de registro se almacenan en un área de trabajo de Log Analytics. Use la expresión log() para escribir una consulta que incluya la aplicación en varias áreas de trabajo. Si tiene varias aplicaciones en la misma área de trabajo, no se necesita realizar una consulta entre áreas de trabajo.
+> La expresión app() no se usa si se usa un [recurso de Application Insights basado en el área de trabajo](../app/create-workspace-resource.md), ya que los datos de registro se almacenan en un área de trabajo de Log Analytics. Use la expresión workspace() para escribir una consulta que incluya la aplicación en varias áreas de trabajo. Si tiene varias aplicaciones en la misma área de trabajo, no se necesita realizar una consulta entre áreas de trabajo.
 
 ## <a name="syntax"></a>Sintaxis
 

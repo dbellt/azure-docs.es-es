@@ -10,12 +10,12 @@ ms.date: 09/09/2020
 ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: ereilebr
-ms.openlocfilehash: 2eda67e377a3b61e696e732b916d788c00a18eae
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ca4fe1410c18357a1fab10cc9c971cf3a81542fd
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "95908785"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105963264"
 ---
 # <a name="query-acceleration-sql-language-reference"></a>Referencia del lenguaje SQL de aceleración de consultas
 
@@ -122,8 +122,8 @@ El lenguaje SQL de aceleración de consultas admite las siguientes funciones de 
 |[UPPER](/sql/t-sql/functions/upper-transact-sql)    |Devuelve una expresión de caracteres con datos de caracteres en minúsculas convertidos a mayúsculas.|
 |[SUBSTRING](/sql/t-sql/functions/substring-transact-sql)    |Devuelve parte de una expresión de caracteres, binaria, de texto o de imagen en SQL Server.|
 |[TRIM](/sql/t-sql/functions/trim-transact-sql)    |Esto permite quitar el carácter de espacio char(32) u otros caracteres especificados del principio y del final de una cadena.|
-|LEADING    |Descripción|
-|TRAILING    |Descripción|
+|LEADING    |Quita el carácter de espacio char(32) u otros caracteres especificados del principio de una cadena.|
+|TRAILING    |Quita el carácter de espacio char(32) u otros caracteres especificados del final de una cadena.|
 
 Estos son algunos ejemplos:
 

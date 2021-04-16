@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo escalar Web Apps, Cloud Services, 
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 081e06fbd6506c76a068d7207e29efb66502a9dd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: edc58ed4af3475a45804e3833424bec79d50ff89
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101726060"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105641557"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Introducción al escalado automático en Azure
 Este artículo describe cómo configurar el escalado automático de recursos en Microsoft Azure Portal.
@@ -113,6 +113,10 @@ Ahora puede establecer el número de instancias a las que desea escalar manualme
 
 Siempre se puede volver al escalado automático; para ello, haga clic en **Enable autoscale** (Habilitar escalado automático) y luego haga clic en **Save** (Guardar).
 
+### <a name="cool-down-period-effects"></a>Efectos del período de recuperación
+
+La escalabilidad automática usa un período de recuperación para evitar la "oscilación", que es un escalado rápido, repetitivo y vertical de las instancias.  Para obtener más información, consulte [Pasos para la evaluación de la escalabilidad automática](autoscale-understanding-settings.md#autoscale-evaluation).  Otra información valiosa sobre la oscilación y la comprensión sobre cómo supervisar el motor de escalado automático se puede encontrar en [Procedimientos recomendados de escalado automático](autoscale-best-practices.md#choose-the-thresholds-carefully-for-all-metric-types) y [Solución de problemas de escalado automático](autoscale-troubleshoot.md) respectivamente. 
+
 ## <a name="route-traffic-to-healthy-instances-app-service"></a>Enrutamiento del tráfico a instancias en buen estado (App Service)
 
 <a id="health-check-path"></a>
@@ -136,6 +140,7 @@ Para más información sobre cómo trasladar recursos entre regiones y la recupe
 ## <a name="next-steps"></a>Pasos siguientes
 - [Creación de una alerta de registro de actividades para supervisar todas las operaciones del motor de escalado automático en su suscripción](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
 - [Creación de una alerta de registro de actividades para supervisar todas las operaciones erróneas de escalado automático y reducción horizontal en su suscripción](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
+
 
 <!--Reference-->
 [1]:https://portal.azure.com

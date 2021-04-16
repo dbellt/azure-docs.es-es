@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 09/02/2020
-ms.openlocfilehash: f689993ce56a1125a1d1de8f65ce05d01f776ea9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/19/2021
+ms.openlocfilehash: 74d30b7c42002c8f134520e0198774eba1519bcd
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93130075"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106553845"
 ---
 # <a name="how-to-create-a-saas-offer-in-the-commercial-marketplace"></a>Creación de una oferta de SaaS en el marketplace comercial
 
@@ -22,6 +22,9 @@ Como editor del marketplace comercial, puede crear una oferta de software como s
 ## <a name="before-you-begin"></a>Antes de empezar
 
 Si aún no lo ha hecho, lea la sección [Planeamiento de una oferta de SaaS para el marketplace comercial](plan-saas-offer.md). Ahí se explican los requisitos técnicos de la aplicación SaaS y la información y los recursos que necesitará al crear la oferta. A menos que tenga previsto publicar una oferta sencilla (opción de publicación **Ponerse en contacto conmigo**) en el marketplace comercial, la aplicación SaaS debe cumplir los requisitos técnicos que giran en torno a la autenticación.
+
+> [!IMPORTANT]
+> Le recomendamos que cree una oferta de desarrollo y pruebas (DEV) y una oferta de producción (PROD) independientes. En este artículo se describe cómo crear una oferta de desarrollo. Para obtener más información sobre cómo crear una oferta de desarrollo, consulte [Creación de una oferta de desarrollo y pruebas](create-saas-dev-test-offer.md).
 
 ## <a name="create-a-new-saas-offer"></a>Creación de una oferta de SaaS
 
@@ -53,7 +56,7 @@ En la pestaña **Configuración de la oferta**, en **Detalles de configuración*
    + Para proporcionar una evaluación gratuita de 30 días, seleccione **Evaluación gratuita** y, luego, en el cuadro **Dirección URL de la prueba** que aparece, escriba la dirección URL (comenzando con *http* o *https*) donde los clientes pueden acceder a la evaluación gratuita mediante la [autenticación con un clic con Azure Active Directory (Azure AD)](azure-ad-saas.md). Por ejemplo, `https://contoso.com/trial/saas-app`.
    + Para que los clientes potenciales se pongan en contacto con usted para adquirir su oferta, seleccione **Ponerse en contacto conmigo**.
 
-### <a name="enable-a-test-drive-optional"></a>Habilitación de una versión de prueba (opcional)
+## <a name="enable-a-test-drive-optional"></a>Habilitación de una versión de prueba (opcional)
 
 Una versión de prueba es una excelente manera de exhibir la oferta a posibles clientes al concederles acceso a un entorno preconfigurado durante un número fijo de horas. La oferta de una versión de prueba tiene como resultado una mayor tasa de conversión y genera clientes potenciales muy cualificados. Para más información sobre las versiones de prueba, consulte [¿Qué es una versión de prueba?](./what-is-test-drive.md).
 
@@ -64,14 +67,14 @@ Una versión de prueba es una excelente manera de exhibir la oferta a posibles c
 1.  En **Versión de prueba**, active la casilla **Habilitar una versión de prueba**.
 1.  En la lista que aparece, seleccione el tipo de versión de prueba.
 
-### <a name="configure-lead-management"></a>Configuración de la administración de clientes potenciales
+## <a name="configure-lead-management"></a>Configuración de la administración de clientes potenciales
 
 Conecte el sistema de administración de relaciones con clientes (CRM) con la oferta del marketplace comercial para que pueda recibir la información de contacto de un cliente cuando este muestre interés o implemente el producto. Esta conexión se puede modificar en cualquier momento durante la creación de la oferta o con posterioridad a esta.
 
 > [!NOTE]
 > Si va a vender la oferta a través de Microsoft o si ha seleccionado la opción de publicación **Ponerse en contacto conmigo**, debe configurar la administración de clientes potenciales. Para obtener instrucciones detalladas, vea [Clientes potenciales a partir de la oferta en el marketplace comercial](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
-#### <a name="to-configure-the-connection-details-in-partner-center"></a>Configuración de los detalles de la conexión en el Centro de partners
+### <a name="configure-the-connection-details-in-partner-center"></a>Configuración de los detalles de la conexión en el Centro de partners
 
 1.  En **Clientes potenciales**, seleccione el vínculo **Conectar**.
 1. En el cuadro de diálogo **Detalles de conexión**, seleccione un destino de cliente potencial de la lista.
@@ -85,6 +88,36 @@ Conecte el sistema de administración de relaciones con clientes (CRM) con la of
 
 1. Para validar la configuración proporcionada, seleccione el vínculo **Validar**.
 1. Para cerrar el cuadro de diálogo, seleccione **Aceptar**.
+
+## <a name="configure-microsoft-365-app-integration"></a>Configuración de la integración de aplicaciones de Microsoft 365
+
+Puede aclarar la [detección y entrega unificadas](./plan-SaaS-offer.md) de la oferta de SaaS y cualquier consumo de aplicaciones de Microsoft 365 relacionado mediante su vinculación.
+
+### <a name="integrate-with-microsoft-api"></a>Integración con Microsoft API
+
+1. Si la oferta de SaaS no se integra con Microsoft Graph API, seleccione **No**. Continúe para vincular los clientes de consumo de aplicaciones de Microsoft 365 publicados.  
+
+1. Si la oferta de SaaS se integra con Microsoft Graph API, seleccione **Sí** y, a continuación, proporcione el identificador de aplicación de Azure Active Directory que ha creado y registrado para integrarlo con Microsoft Graph API. 
+
+### <a name="link-published-microsoft-365-app-consumption-clients"></a>Vinculación de los clientes de consumo de aplicaciones de Microsoft 365 publicados
+
+1. Si no ha publicado el complemento de Office, la aplicación de Teams o las soluciones de SharePoint Framework que funcionan con la oferta de SaaS, seleccione **No**.
+
+1. Si ha publicado el complemento de Office, la aplicación de Teams o las soluciones de SharePoint Framework que funcionan con la oferta de SaaS, seleccione **Sí** y, luego, seleccione **+Agregar otro vínculo de AppSource** para agregar nuevos vínculos.  
+
+1. Proporcione un vínculo de AppSource válido.
+
+1. Continúe con la adición de todos los vínculos mediante la selección de **+Agregar otro vínculo de AppSource** y proporcione vínculos de AppSource válidos.  
+
+1. El orden en que se muestran los productos vinculados en la página de lista de la oferta de SaaS se indica mediante el valor de clasificación. Para cambiarlo, seleccione, mantenga presionado y mueva el icono de = hacia arriba y hacia abajo en la lista. 
+
+1. Para eliminar un producto vinculado, seleccione **Eliminar** en la fila del producto.  
+
+
+> [!IMPORTANT]
+> Si deja de vender un producto vinculado, no se desvinculará automáticamente en la oferta de SaaS, debe eliminarlo de la lista de productos vinculados y volver a enviar la oferta de SaaS.  
+
+ 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -7,12 +7,12 @@ ms.custom:
 - seo-python-october2019
 - mvc
 - devx-track-python
-ms.openlocfilehash: e3792a88104c359b014a7a12cf6e48e690c2a865
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e213ec7aee7172bb5ebb49097ad9fd09f9106255
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88511021"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105046817"
 ---
 # <a name="quickstart-use-python-api-to-run-an-azure-batch-job"></a>Inicio rápido: Uso de Python API para ejecutar un trabajo de Azure Batch
 
@@ -28,7 +28,7 @@ Tras completar este inicio rápido, conocerá los conceptos clave del servicio B
 
 - Una cuenta de Batch y una cuenta de Azure Storage vinculada. Para crear estas cuentas, consulte las guías de inicio rápido de Batch con [Azure Portal](quick-create-portal.md) o la [CLI de Azure](quick-create-cli.md).
 
-- [Python](https://python.org/downloads), versión 2.7, 3.3 o posteriores, incluido el administrador de paquetes [pip](https://pip.pypa.io/en/stable/installing/)
+- [Python](https://python.org/downloads), versión 2.7 o 3.6, incluido el administrador de paquetes [pip](https://pip.pypa.io/en/stable/installing/)
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: sideeksh
-ms.openlocfilehash: 569af28f5773d843f49dd9c8143b45e308ae142e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 675190bee674c745494c2378712afa89bd43cbe4
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "87420420"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105727882"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>Ejecución de una exploración de la recuperación ante desastres de máquinas virtuales de Hyper-V en un sitio secundario
 
@@ -43,10 +43,10 @@ Puede ejecutar una conmutación por error de prueba del sitio principal al secun
 
 Al ejecutar una conmutación por error de prueba se le pide que seleccione la configuración de red de las máquinas de réplica de prueba, tal como se resume en esta tabla.
 
-| **Opción** | **Detalles** | |
-| --- | --- | --- |
-| **None** | La máquina virtual de prueba se crea en el host en el que se encuentra la máquina virtual de réplica. No se agrega a la nube y no está conectada a ninguna red.<br/><br/> La máquina se puede conectar a una red de máquinas virtuales una vez creada.| |
-| **Usar existente** | La máquina virtual de prueba se crea en el host en el que se encuentra la máquina virtual de réplica. No se agrega a la nube.<br/><br/>Cree una red de máquinas virtuales aislada de la red de producción.<br/><br/>Si utiliza una red basada en VLAN, se recomienda crear una red lógica independiente en VMM para este propósito (no se utiliza en producción). Esta red lógica se utiliza para crear redes de máquinas virtuales para la conmutación por error de prueba.<br/><br/>La red lógica debe asociarse con al menos uno de los adaptadores de red de todos los servidores de Hyper-V que hospeden máquinas virtuales.<br/><br/>En el caso de las redes lógicas de VLAN, deben aislarse los sitios de red que agregue a la red lógica.<br/><br/>Si utiliza una red lógica basada en virtualización de red de Windows, Azure Site Recovery crea automáticamente redes de máquinas virtuales aisladas. | |
+| **Opción** | **Detalles** |
+| --- | --- |
+| **None** | La máquina virtual de prueba se crea en el host en el que se encuentra la máquina virtual de réplica. No se agrega a la nube y no está conectada a ninguna red.<br/><br/> La máquina se puede conectar a una red de máquinas virtuales una vez creada.|
+| **Usar existente** | La máquina virtual de prueba se crea en el host en el que se encuentra la máquina virtual de réplica. No se agrega a la nube.<br/><br/>Cree una red de máquinas virtuales aislada de la red de producción.<br/><br/>Si utiliza una red basada en VLAN, se recomienda crear una red lógica independiente en VMM para este propósito (no se utiliza en producción). Esta red lógica se utiliza para crear redes de máquinas virtuales para la conmutación por error de prueba.<br/><br/>La red lógica debe asociarse con al menos uno de los adaptadores de red de todos los servidores de Hyper-V que hospeden máquinas virtuales.<br/><br/>En el caso de las redes lógicas de VLAN, deben aislarse los sitios de red que agregue a la red lógica.<br/><br/>Si usa una red lógica basada en una virtualización de red de Windows, Azure Site Recovery crea automáticamente redes de VM aisladas. |
 | **Crear una red** | Se crea automáticamente una red de prueba temporal en función de la configuración especificada en **Red lógica** y de sus sitios de red asociados.<br/><br/> La conmutación por error comprueba que se crean las máquinas virtuales.<br/><br/> Debe utilizar esta opción si el plan de recuperación usa más de una red de máquinas virtuales.<br/><br/> Si utiliza redes de virtualización de red de Windows, esta opción permite crear automáticamente redes de máquinas virtuales con la misma configuración (subredes y grupos de direcciones IP) en la red de la máquina virtual de réplica. Estas redes de máquinas virtuales se limpian automáticamente una vez completada la conmutación por error de prueba.<br/><br/> La máquina virtual de prueba se crea en el host en el que existe la máquina virtual de réplica. No se agrega a la nube.|
 
 ### <a name="best-practices"></a>Procedimientos recomendados
@@ -100,7 +100,7 @@ Para ejecutar una conmutación por error de prueba con el fin de probar la aplic
 ### <a name="prepare-dns"></a>Preparación de DNS
 Prepare un servidor DNS para la conmutación por error de prueba de la forma siguiente:
 
-* **DHCP**: si las máquinas virtuales usan DHCP, debe actualizarse la dirección IP del DNS de prueba en el servidor DHCP de prueba. Si utiliza un tipo de red de virtualización de red de Windows, el servidor VMM actúa como servidor DHCP. Por lo tanto, la dirección IP de DNS debe actualizarse en la red de conmutación por error de prueba. En este caso, las máquinas virtuales se registran a sí mismas en el servidor DNS correspondiente.
+* **DHCP**: si las máquinas virtuales usan DHCP, debe actualizarse la dirección IP del DNS de prueba en el servidor DHCP de prueba. Si usa un tipo de red de virtualización de red de Windows, el servidor VMM actúa como servidor DHCP. Por lo tanto, la dirección IP de DNS debe actualizarse en la red de conmutación por error de prueba. En este caso, las máquinas virtuales se registran a sí mismas en el servidor DNS correspondiente.
 * **Dirección estática**: si las máquinas virtuales usa una dirección IP estática, la dirección IP del servidor DNS de prueba debe actualizarse en la red de conmutación por error de prueba. Es  posible que deba actualizar el DNS con la dirección IP de las máquinas virtuales de prueba. Puede usar el siguiente script de ejemplo para este propósito:
 
   ```powershell

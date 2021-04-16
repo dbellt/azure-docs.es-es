@@ -7,12 +7,12 @@ ms.service: mysql
 ms.subservice: migration-guide
 ms.topic: conceptual
 ms.date: 10/30/2020
-ms.openlocfilehash: 049a0ad45ea82210d8fac28db0fb3d067841bba4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4d553f6c87d1044f8bde7460a0ea7bf123dd1851
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105625150"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106450079"
 ---
 # <a name="migrate-your-mysql-database-by-using-import-and-export"></a>Migración de la base de datos de MySQL mediante importación y exportación
 
@@ -24,7 +24,7 @@ Para obtener instrucciones de migración detalladas y completas, consulte los [r
 
 Para otros escenarios de migración, consulte la [Guía de migración de Azure Database](https://datamigration.microsoft.com/). 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de empezar a migrar la base de datos MySQL, debe hacer lo siguiente:
 - Cree un [servidor de Azure Database for MySQL mediante Azure Portal](quickstart-create-mysql-server-database-using-azure-portal.md).
@@ -41,7 +41,7 @@ Para conectarse, haga lo siguiente:
 
 1. Agregue la información de conexión a MySQL Workbench.
 
-   :::image type="content" source="./media/concepts-migrate-import-export/2_setup-new-connection.png" alt-text="Cadena de conexión de MySQL Workbench":::
+   :::image type="content" source="./media/concepts-migrate-import-export/2_setup-new-connection.png" alt-text="Captura de pantalla de la cadena de conexión de MySQL Workbench.":::
 
 ## <a name="determine-when-to-use-import-and-export-techniques"></a>Determinación de cuándo utilizar las técnicas de importación y exportación
 
@@ -50,12 +50,12 @@ Para conectarse, haga lo siguiente:
 
 En los siguientes escenarios, use herramientas de MySQL para importar y exportar bases de datos en su base de datos MySQL. Para otras herramientas, vaya a la sección "Métodos de migración" (página 22) de la [Guía de migración de MySQL a Azure Database](https://github.com/Azure/azure-mysql/blob/master/MigrationGuide/MySQL%20Migration%20Guide_v1.1.pdf). 
 
-- Cuando deba elegir de forma selectiva unas cuantas tablas para importar desde una base de datos MySQL existente en Azure MySQL Database, es mejor usar la técnica de importación y exportación.  Con ello, podrá omitir todas las tablas que no sean necesarias de la migración para ahorrar tiempo y recursos. Por ejemplo, use el conmutador `--include-tables` o `--exclude-tables` con [mysqlpump](https://dev.mysql.com/doc/refman/5.7/en/mysqlpump.html#option_mysqlpump_include-tables) y el conmutador `--tables` con [mysqldump](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html#option_mysqldump_tables).
+- Cuando deba elegir de forma selectiva unas cuantas tablas para importar desde una base de datos MySQL existente en Azure MySQL Database, es mejor usar la técnica de importación y exportación. Con ello, podrá omitir todas las tablas que no sean necesarias de la migración para ahorrar tiempo y recursos. Por ejemplo, use el modificador `--include-tables` o `--exclude-tables` con [mysqlpump](https://dev.mysql.com/doc/refman/5.7/en/mysqlpump.html#option_mysqlpump_include-tables) y el modificador `--tables` con [mysqldump](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html#option_mysqldump_tables).
 - Si va a mover objetos de base de datos que no sean tablas, deberá crearlos explícitamente. Incluya restricciones (clave principal, clave externa e índices), vistas, funciones, procedimientos, desencadenadores y cualquier otro objeto de base de datos que desee migrar.
 - Si va a migrar datos desde orígenes de datos externos que no sean una base de datos de MySQL, cree archivos planos e impórtelos mediante el uso de [mysqlimport](https://dev.mysql.com/doc/refman/5.7/en/mysqlimport.html).
 
 > [!Important]
-> El servidor único y el servidor flexible admiten *solo el motor de almacenamiento InnoDB*. Asegúrese de que todas las tablas de la base de datos usen el motor de almacenamiento InnoDB al cargar datos en Azure Database for MySQL.
+> El servidor único y el servidor flexible admiten solo el motor de almacenamiento InnoDB. Asegúrese de que todas las tablas de la base de datos usen el motor de almacenamiento InnoDB al cargar datos en Azure Database for MySQL.
 >
 > Si la base de datos de origen usa otro motor de almacenamiento, realice la conversión al motor InnoDB antes de migrar la base de datos. Por ejemplo, si tiene WordPress o una aplicación web que utiliza el motor MyISAM, convierta primero las tablas migrando los datos en tablas de InnoDB. Use la cláusula `ENGINE=INNODB` para configurar el motor para crear una nueva tabla y luego transfiera los datos a la tabla compatible antes de la migración.
 
@@ -127,7 +127,7 @@ Puede usar el panel **Exportación de datos** para exportar los datos de MySQL.
 
 1. Seleccione los objetos de base de datos que desea exportar y configure las opciones relacionadas.
 1. Seleccione **Actualizar** para cargar los objetos actuales.
-1. También puede seleccionar **Opciones avanzadas** en la esquina superior derecha para mejorar la operación de exportación. Por ejemplo, agregue bloqueos de tabla, utilice instrucciones replace en lugar de insert y entrecomille los identificadores con caracteres de acento grave.
+1. También puede seleccionar **Opciones avanzadas** en la esquina superior derecha para mejorar la operación de exportación. Por ejemplo, agregue bloqueos de tabla, use instrucciones `replace` en lugar de `insert` y entrecomille los identificadores con caracteres de acento grave.
 1. Seleccione **Iniciar exportación** para comenzar el proceso de exportación.
 
 

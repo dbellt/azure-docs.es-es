@@ -3,12 +3,12 @@ title: Integración de Azure Event Hubs con Azure Private Link
 description: Aprenda a integrar Azure Event Hubs con Azure Private Link
 ms.date: 08/22/2020
 ms.topic: article
-ms.openlocfilehash: 996779e103dae2d2d950f447d2ac72667fc9e754
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f5c01788044f3c3a5d875a24172e7222ff195f81
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94427758"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105960850"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-via-private-endpoints"></a>Permiso para acceder a los espacios de nombres de Azure Event Hubs a través de puntos de conexión privados 
 Azure Private Link le permite acceder a los servicios de Azure (por ejemplo, Azure Event Hubs, Azure Storage y Azure Cosmos DB) y a los servicios de asociados o clientes hospedados de Azure mediante un **punto de conexión privado** de la red virtual.
@@ -17,11 +17,10 @@ Un punto de conexión privado es una interfaz de red que le conecta de forma pri
 
 Para más información, consulte [¿Qué es Azure Private Link?](../private-link/private-link-overview.md)
 
-> [!WARNING]
-> La habilitación de los puntos de conexión privados puede evitar que otros servicios de Azure interactúen con Event Hubs.  Las solicitudes que bloquean incluyen aquellas de otros servicios de Azure, desde Azure Portal, desde los servicios de registro y de métricas, etc. Como excepción, puede permitir el acceso a los recursos de Event Hubs desde determinados servicios de confianza, incluso cuando los puntos de conexión privados no están habilitados. Para ver una lista de servicios de confianza, consulte [Servicios de confianza](#trusted-microsoft-services).
-
->[!NOTE]
-> Esta característica se admite en los niveles tanto **estándar** como **dedicado**. No se admiten en el nivel **básico**.
+## <a name="important-points"></a>Observaciones importantes
+- Esta característica se admite en los niveles tanto **estándar** como **dedicado**. No se admiten en el nivel **básico**.
+- La habilitación de los puntos de conexión privados puede evitar que otros servicios de Azure interactúen con Event Hubs.  Las solicitudes que bloquean incluyen aquellas de otros servicios de Azure, desde Azure Portal, desde los servicios de registro y de métricas, etc. Como excepción, puede permitir el acceso a los recursos de Event Hubs desde determinados **servicios de confianza**, incluso cuando los puntos de conexión privados no están habilitados. Para ver una lista de servicios de confianza, consulte [Servicios de confianza](#trusted-microsoft-services).
+- Especifique **al menos una regla de IP o una regla de red virtual** para que el espacio de nombres permita el tráfico solo desde las direcciones IP o la subred especificadas de una red virtual. Si no hay ninguna regla de red virtual y de IP, se puede acceder al espacio de nombres a través de la red pública de Internet (mediante la clave de acceso). 
 
 ## <a name="add-a-private-endpoint-using-azure-portal"></a>Incorporación de un punto de conexión privado mediante Azure Portal
 
@@ -51,8 +50,8 @@ Si ya tiene un espacio de nombres de Event Hubs, puede crear una conexión de v�
 
     :::image type="content" source="./media/private-link-service/selected-networks-page.png" alt-text="Pestaña Redes: opción redes seleccionadas" lightbox="./media/private-link-service/selected-networks-page.png":::    
 
-    > [!NOTE]
-    > De forma predeterminada, está seleccionada la opción **Redes seleccionadas**. Si no especifica una regla de firewall de IP o agrega una red virtual, se puede acceder al espacio de nombres a través de la red pública de Internet. 
+    > [!WARNING]
+    > De forma predeterminada, está seleccionada la opción **Redes seleccionadas**. Si no se especifica una regla de firewall de IP ni se agrega una red virtual, se puede acceder al espacio de nombres desde la red pública de Internet (mediante la clave de acceso). 
 1. Seleccione la pestaña **Conexiones de puntos de conexión privadas** en la parte superior de la página. 
 1. Seleccione el botón **+ Punto de conexión privado** en la parte superior de la página.
 

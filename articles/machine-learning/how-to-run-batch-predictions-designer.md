@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: keli19
 author: likebupt
-ms.date: 02/05/2020
+ms.date: 02/05/2021
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: dda47d3ff561d4d57045dbb28f8c411e193086d5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 34d0d31296214355b85c52e4564e9bf6658b2005
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101657375"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105962941"
 ---
 # <a name="run-batch-predictions-using-azure-machine-learning-designer"></a>Ejecución de predicciones por lotes mediante el diseñador de Azure Machine Learning
 
@@ -164,4 +164,5 @@ A continuación, puede enviar la canalización de inferencia con el modelo y la 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Siga el [tutorial](tutorial-designer-automobile-price-train-score.md) del diseñador para entrenar e implementar un modelo de regresión.
-''
+
+Para ver cómo publicar y ejecutar una canalización publicada mediante el SDK, consulte [este artículo](how-to-deploy-pipelines.md).

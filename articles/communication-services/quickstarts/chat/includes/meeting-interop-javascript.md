@@ -5,20 +5,20 @@ ms.author: askaur
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: dd183e9088f24aa8b94955bc8ed2a68b4a7eb27c
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 773bca81694534346019e30e9d55190af6f51e74
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103496189"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105106807"
 ---
 ## <a name="joining-the-meeting-chat"></a>Unión al chat de la reunión 
 
-Una vez que la interoperabilidad de Teams se habilita, cualquier usuario de Communication Services puede unirse a la llamada de Teams como usuario externo mediante la biblioteca cliente que llama. Al unirse a la llamada se le agregará también como participante en el chat de la reunión, donde podrán enviar mensajes a otros usuarios durante la llamada, y recibirlos de ellos. El usuario no tendrá acceso a los mensajes del chat enviados antes de que se haya unido a la llamada. Para unirse a la reunión e iniciar el chat, puede seguir los pasos siguientes.
+Una vez que la interoperabilidad de Teams se habilita, cualquier usuario de Communication Services puede unirse a la llamada de Teams como usuario externo mediante el SDK de llamadas. Al unirse a la llamada se le agregará también como participante en el chat de la reunión, donde podrán enviar mensajes a otros usuarios durante la llamada, y recibirlos de ellos. El usuario no tendrá acceso a los mensajes del chat enviados antes de que se haya unido a la llamada. Para unirse a la reunión e iniciar el chat, puede seguir los pasos siguientes.
 
 ## <a name="install-the-chat-packages"></a>Instalación de los paquetes de chat
 
-Use el comando `npm install` para instalar las bibliotecas de cliente de Communication Services para JavaScript necesarias.
+Use el comando `npm install` para instalar los SDK de Communication Services necesarios para JavaScript.
 
 ```console
 npm install @azure/communication-common --save

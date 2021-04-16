@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/26/2021
+ms.date: 03/30/2021
 ms.author: justinha
-ms.openlocfilehash: 8eb1560887c08c3f64fa599c39e5577242d2a1e8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8bcd3ebef027ec72728be21b0fe1504236f553ba
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101689069"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106058177"
 ---
 # <a name="replica-sets-concepts-and-features-for-azure-active-directory-domain-services"></a>Conceptos y características de los conjuntos de réplicas de Azure Active Directory Domain Services
 
@@ -54,7 +54,7 @@ En el ejemplo siguiente, se muestra un dominio administrado con tres conjuntos d
 
 La SKU predeterminada de los dominios administrados es *Enterprise*, que admite varios conjuntos de réplicas. Si ha cambiado a la SKU *Estándar* y desea crear otros conjuntos de réplicas adicionales, [actualice el dominio administrado](change-sku.md) a *Enterprise* o *Premium*.
 
-El número máximo de conjuntos de réplicas admitidos es cuatro, incluida la primera réplica que se crea al generar el dominio administrado.
+El número máximo de conjuntos de réplicas admitidos es cinco, incluida la primera réplica que se crea al generar el dominio administrado.
 
 La facturación de cada conjunto de réplicas dependerá de la SKU de configuración del dominio. Por ejemplo, si tiene un dominio administrado que usa la SKU *Enterprise* y tiene tres conjuntos de réplicas, la suscripción se facturará por hora en cada uno de los tres conjuntos de réplicas.
 
@@ -66,7 +66,7 @@ No. Los conjuntos de réplicas deben estar en la misma suscripción que el domin
 
 ### <a name="how-many-replica-sets-can-i-create"></a>¿Cuántos conjuntos de réplicas puedo crear?
 
-Puede crear cuatro conjuntos de réplicas como máximo: el conjunto de réplicas inicial del dominio administrado y tres conjuntos de réplicas más.
+Puede crear cinco conjuntos de réplicas como máximo: el conjunto de réplicas inicial del dominio administrado y cuatro conjuntos de réplicas más.
 
 ### <a name="how-does-user-and-group-information-get-synchronized-to-my-replica-sets"></a>¿Cómo se sincroniza la información de los usuarios y los grupos con los conjuntos de réplicas?
 
