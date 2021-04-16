@@ -82,6 +82,12 @@
       items:
         - name: 'Revisiones, flujos de trabajo y trabajos'
           href: review-api.md
+    - name: Adecuado para empresas
+      items:
+        - name: Configuración de redes virtuales
+          href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/content-moderator/context/context
+        - name: Uso de claves administradas por el cliente
+          href: encrypt-data-at-rest.md
 - name: Conceptos
   items:
     - name: Moderación de imágenes
@@ -114,19 +120,21 @@
       href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/contentmoderator'
 - name: Recursos
   items:
-    - name: Serie de seminarios web de Azure
-      href: 'https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html'
-    - name: Regiones admitidas
-      href: 'https://azure.microsoft.com/global-infrastructure/services/'
-    - name: Módulos de Microsoft Learn
-      href: /learn/browse/?terms=content+moderator
+    - name: Adecuado para empresas
+      items:
+        - name: Regiones admitidas
+          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+        - name: Cumplimiento y certificación
+          href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Opciones de ayuda y soporte técnico
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/content-moderator/context/context
+    - name: Módulos de Microsoft Learn
+      href: /learn/browse/?terms=content+moderator
+    - name: Serie de seminarios web de Azure
+      href: 'https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html'
     - name: Azure Government y Azure global
       href: ../../azure-government/compare-azure-government-global-azure.md
     - name: Actualizaciones de Azure
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
     - name: Cumplimiento normativo
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
-    - name: Cifrado
-      href: encrypt-data-at-rest.md
