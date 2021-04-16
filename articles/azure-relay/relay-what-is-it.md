@@ -3,12 +3,12 @@ title: ¿Qué es Relay de Azure? | Microsoft Docs
 description: En este artículo se proporciona información general sobre el servicio Azure Relay que le permite desarrollar aplicaciones en la nube que consumen servicios locales que se ejecutan en la red corporativa sin necesidad de abrir una conexión de firewall ni realizar cambios molestos en la infraestructura de red.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: fbf1b2134a4c2dce7a3e6a62668d0852dc08c18a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3b222942394b8a83e6f5d4447aa9ccfb33cdec21
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97955389"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107314208"
 ---
 # <a name="what-is-azure-relay"></a>¿Qué es Relay de Azure?
 El servicio Azure Relay le permite exponer de forma segura servicios que se ejecutan en la red corporativa en la nube pública. Eso se puede hacer sin tener que abrir un puerto en el firewall y sin realizar cambios molestos en la infraestructura de la red corporativa. 
@@ -80,5 +80,5 @@ El siguiente diagrama muestra el control de las solicitudes de transmisión entr
 * [Introducción a las solicitudes HTTP de .NET](relay-hybrid-connections-http-requests-dotnet-get-started.md)
 * [Introducción a los WebSockets de Node](relay-hybrid-connections-node-get-started.md)
 * [Introducción a las solicitudes HTTP de Node](relay-hybrid-connections-http-requests-node-get-started.md)
-* [Preguntas más frecuentes acerca de Relay](relay-faq.md)
+* [Preguntas más frecuentes acerca de Relay](relay-faq.yml)
 

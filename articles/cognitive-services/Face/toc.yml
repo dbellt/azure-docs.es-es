@@ -36,16 +36,15 @@
     - name: Uso del contenedor de Face
       items:
         - name: Documentación de contenedores de Cognitive Services
-          href: /azure/cognitive-services/containers/index?context=/azure/cognitive-services/computer-vision/context/context
+          href: /azure/cognitive-services/containers/index?context=/azure/cognitive-services/face/context/context
         - name: Introducción a los contenedores
-          href: /azure/cognitive-services/cognitive-services-container-support?context=/azure/cognitive-services/computer-vision/context/context
+          href: /azure/cognitive-services/cognitive-services-container-support?context=/azure/cognitive-services/face/context/context
         - name: Instalación y ejecución de contenedores
           href: face-how-to-install-containers.md
         - name: Configuración de contenedores
           href: face-resource-container-config.md
         - name: Uso de instancias de contenedores
-          maintainContext: true
-          href: ../containers/azure-container-instance-recipe.md
+          href: /azure/cognitive-services/containers/azure-container-instance-recipe?context=/azure/cognitive-services/face/context/context
 - name: Conceptos
   items:
     - name: Detección de caras
@@ -54,8 +53,6 @@
       href: concepts/face-recognition.md
 - name: Tutoriales
   items:
-    - name: Creación de una aplicación de detección de caras
-      href: Tutorials/FaceAPIinCSharpTutorial.md
     - name: Incorporación de usuarios a un servicio de Face
       items:
         - name: Procedimientos recomendados para agregar usuarios

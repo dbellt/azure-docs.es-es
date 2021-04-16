@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 02/09/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: c9ce87584373bd87a8f89ecb4ea692b44d3fab4d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e9eb5950b5cf7d4e7d0270deed72866ee28e3962
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102202967"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107106911"
 ---
 # <a name="enable-a-managed-identity-for-routing-azure-digital-twins-events-preview-azure-cli"></a>Habilitación de una identidad administrada para el enrutamiento de eventos de Azure Digital Twins (versión preliminar): Azure CLI
 
@@ -40,7 +40,7 @@ Cualquiera de estos métodos de creación proporcionará las mismas opciones de 
 
 En esta sección, aprenderá a habilitar una identidad administrada por el sistema en una instancia de Azure Digital Twins que se está creando actualmente. 
 
-Esto se hace agregando un parámetro `--assign-identity` al comando `az dt create` que se usa para crear la instancia. (Para más información acerca de este comando, consulte la [documentación de referencia](/cli/azure/ext/azure-iot/dt#ext_azure_iot_az_dt_create) o las [instrucciones generales para configurar una instancia de Azure Digital Twins](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance)).
+Esto se hace agregando un parámetro `--assign-identity` al comando `az dt create` que se usa para crear la instancia. (Para más información acerca de este comando, consulte la [documentación de referencia](/cli/azure/dt#az_dt_create) o las [instrucciones generales para configurar una instancia de Azure Digital Twins](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance)).
 
 Para crear una instancia con una identidad administrada por el sistema, agregue el parámetro `--assign-identity` de la siguiente manera:
 
@@ -97,7 +97,7 @@ En este ejemplo se crea una instancia con una identidad administrada por el sist
 az dt create -n {instance_name} -g {resource_group} --assign-identity --scopes "/subscriptions/<subscription ID>/resourceGroups/<resource_group>/providers/Microsoft.EventHub/namespaces/<Event_Hubs_namespace>/eventhubs/<event_hub_name>" --role MyCustomRole
 ```
 
-Para obtener más ejemplos de asignaciones de roles con este comando, consulte la documentación de referencia del comando [**az dt create**](/cli/azure/ext/azure-iot/dt#ext_azure_iot_az_dt_create).
+Para obtener más ejemplos de asignaciones de roles con este comando, consulte la documentación de referencia del comando [**az dt create**](/cli/azure/dt#az_dt_create).
 
 Como alternativa, también puede usar el grupo de comandos [**az role assignment**](/cli/azure/role/assignment) para crear y administrar roles. Se puede usar para respaldar escenarios adicionales en los que no desea agrupar la asignación de roles con el comando create.
 
@@ -108,7 +108,7 @@ Después de configurar una identidad administrada por el sistema para la instanc
 >[!NOTE]
 > No se puede editar un punto de conexión que ya se haya creado con la identidad basada en claves para cambiar a la autenticación basada en identidades. Debe elegir el tipo de autenticación al crear el punto de conexión por primera vez.
 
-Esto se hace agregando un parámetro `--auth-type` al comando `az dt endpoint create` que se usa para crear el punto de conexión. (Para más información acerca de este comando, consulte la [documentación de referencia](/cli/azure/ext/azure-iot/dt/endpoint/create) o las [instrucciones generales para configurar un punto de conexión de Azure Digital Twins](how-to-manage-routes-apis-cli.md#create-the-endpoint)).
+Esto se hace agregando un parámetro `--auth-type` al comando `az dt endpoint create` que se usa para crear el punto de conexión. (Para más información acerca de este comando, consulte la [documentación de referencia](/cli/azure/dt/endpoint/create) o las [instrucciones generales para configurar un punto de conexión de Azure Digital Twins](how-to-manage-routes-apis-cli.md#create-the-endpoint)).
 
 Para crear un punto de conexión que use la autenticación basada en identidades, especifique el tipo de autenticación `IdentityBased` con el parámetro `--auth-type`. En el ejemplo siguiente se muestra esto para un punto de conexión de Event Hubs.
 
