@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 05/14/2020
-ms.openlocfilehash: c31ffaf094801bdd49e5800bd338a15d8b8315f6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4c3484c1e65eb70be484a4a2eebda21a41dbf1ea
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98946490"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105936876"
 ---
 # <a name="generate-recommendations-using-apache-mahout-in-azure-hdinsight"></a>Generación de recomendaciones mediante Apache Mahout en Azure HDInsight
 
@@ -18,9 +18,9 @@ Aprenda a usar la biblioteca de aprendizaje automático de [Apache Mahout](https
 
 Mahout es una biblioteca de [aprendizaje automático](https://en.wikipedia.org/wiki/Machine_learning) para Apache Hadoop. Mahout contiene algoritmos para el procesamiento de datos, como filtrado, clasificación y agrupación en clústeres. En este artículo, se usa un motor de recomendaciones para generar recomendaciones de películas que se basan en películas que sus amigos han visto.
 
-Para obtener más información sobre la versión de Mahout en HDInsight, vea [Versiones de HDInsight y componentes de Apache Hadoop](../hdinsight-component-versioning.md).
+Mahout está disponible en HDInsight 3.6 y no está disponible en HDInsight 4.0. Para obtener más información sobre la versión de Mahout en HDInsight, consulte [Versiones de los componentes de HDInsight 3.6](../hdinsight-36-component-versioning.md).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Un clúster de Apache Hadoop en HDInsight. Consulte [Introducción a HDInsight en Linux](./apache-hadoop-linux-tutorial-get-started.md).
 

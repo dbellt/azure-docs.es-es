@@ -7,27 +7,28 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin
-ms.date: 02/19/2021
-ms.openlocfilehash: 0146e4fcaf70d37975dc587a266c47bf4b3f4601
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/05/2021
+ms.openlocfilehash: 80d1e4f39d69f761b801ccec834c0228057e4847
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103461681"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448532"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Caja de seguridad del cliente de Microsoft Azure
 
 > [!NOTE]
 > Para usar esta característica, su organización debe tener un [plan de soporte técnico de Azure](https://azure.microsoft.com/support/plans/) con un nivel mínimo de tipo **Desarrollador**.
 
-La Caja de seguridad del cliente de Microsoft Azure proporciona una interfaz para los clientes y así permitirles revisar y aprobar o rechazar las solicitudes de acceso de datos de cliente. Se utiliza en casos donde un ingeniero de Microsoft necesita obtener acceso a los datos del cliente durante una solicitud de soporte técnico.
+La mayoría de las operaciones, el soporte técnico y la solución de problemas a cargo del personal de Microsoft y los subprocesos no requieren el acceso a los datos del cliente. En aquellas circunstancias excepcionales en las que se necesite dicho acceso, Caja de seguridad del cliente para Microsoft Azure proporciona una interfaz para los clientes, que les permite revisar y aprobar o rechazar las solicitudes de acceso a los datos de clientes. Se usa en casos en los que un ingeniero de Microsoft necesita acceso a los datos de los clientes, ya sea en respuesta a una incidencia de soporte técnico iniciada por el cliente o a un problema detectado por Microsoft.
 
 Este artículo se describe cómo habilitar Caja de seguridad del cliente y cómo se inician, siguen y almacenan las solicitudes de Caja de seguridad del cliente para revisiones y auditorías posteriores.
 
 <a name='supported-services-and-scenarios-in-general-availability'></a><a name='supported-services-and-scenarios-in-preview'></a>
-## <a name="supported-services-and-scenarios-general-availability"></a>Servicios y escenarios admitidos (Disponibilidad general)
+## <a name="supported-services-and-scenarios"></a>Servicios y escenarios admitidos
 
-Ahora los servicios siguientes están disponibles con carácter general para Caja de seguridad del cliente:
+### <a name="general-availability"></a>Disponibilidad general
+Los servicios siguientes están disponibles con carácter general para Caja de seguridad del cliente:
 
 - Azure API Management
 - Azure App Service
@@ -49,6 +50,12 @@ Ahora los servicios siguientes están disponibles con carácter general para Caj
 - Azure Synapse Analytics
 - Máquinas virtuales de Azure (que abarcan el acceso de escritorio remoto, el acceso a los volcados de memoria y los discos administrados)
 
+### <a name="public-preview"></a>Vista previa pública
+Los siguientes servicios están actualmente en versión preliminar para Caja de seguridad del cliente:
+
+- Azure Machine Learning
+- Azure Batch
+
 ## <a name="enable-customer-lockbox"></a>Habilitación de Caja de seguridad del cliente
 
 Ahora puede habilitar Caja de seguridad del cliente desde el [módulo de administración](https://aka.ms/customerlockbox/administration) en la hoja Caja de seguridad del cliente.  
@@ -66,7 +73,7 @@ Los siguientes pasos describen un flujo de trabajo típico para una solicitud de
 
 3. Un ingeniero del soporte técnico de Azure revisa la solicitud de servicio y determina los pasos siguientes para resolver el problema.
 
-4. Si el ingeniero de soporte técnico no puede solucionar el problema mediante la telemetría y las herramientas estándar, el siguiente paso es solicitar permisos con privilegios elevados mediante un servicio de acceso Just-In-Time (JIT). Esta solicitud puede ser del ingeniero de soporte técnico original o de otro, porque el problema se ha escalado al equipo de DevOps de Azure.
+4. Si el ingeniero de soporte técnico no puede solucionar el problema mediante las herramientas estándar y los datos generados por el servicio, el siguiente paso es solicitar permisos con privilegios elevados mediante un servicio de acceso Just-In-Time (JIT). Esta solicitud puede ser del ingeniero de soporte técnico original o de otro, porque el problema se ha escalado al equipo de DevOps de Azure.
 
 5. Una vez que el Ingeniero de Azure envía la solicitud de acceso, el servicio Just-In-Time evalúa la solicitud teniendo en cuenta factores como:
     - El ámbito del recurso
@@ -129,8 +136,10 @@ Hemos introducido un nuevo control de línea base ([3.13](../benchmarks/security
 
 Las solicitudes de Caja de seguridad del cliente no se activan en los siguientes escenarios de soporte técnico de ingeniería:
 
-- Un ingeniero de Microsoft debe realizar una actividad que esté fuera de los procedimientos operativos estándar. Por ejemplo, para recuperar o restaurar servicios en escenarios inesperados o impredecibles.
-- Un ingeniero de Microsoft accede a la plataforma de Azure como parte de la solución de problemas y, sin darse cuenta, obtiene acceso a los datos del cliente. Por ejemplo, el equipo de Azure Network realiza la resolución de problemas que resulta en una captura de paquetes en un dispositivo de red. En este escenario, si el cliente cifra los datos mientras están en tránsito, el ingeniero no podrá leerlos.
+- Escenarios de emergencia que se encuentran fuera de los procedimientos operativos estándar. Por ejemplo, una interrupción importante del servicio requiere atención inmediata para recuperar o restaurar servicios en un escenario inesperado o impredecible. Estos eventos de "interrupción" son poco frecuentes y, en la mayoría de los casos, no requieren ningún acceso a los datos del cliente para resolverlos.
+- Un ingeniero de Microsoft accede a la plataforma de Azure como parte de la solución de problemas y, sin darse cuenta, obtiene acceso a los datos del cliente. Por ejemplo, el equipo de Azure Network realiza la resolución de problemas que resulta en una captura de paquetes en un dispositivo de red. No es habitual que en dichos escenarios se acceda a cantidades significativas de datos de los clientes. Los clientes pueden proteger aún más sus datos mediante el cifrado en tránsito y en reposo.
+
+Además, las demandas jurídicas externas tampoco desencadenan solicitudes de Caja de seguridad del cliente. Para obtener más información, consulte la explicación de las [solicitudes de datos por parte del Gobierno](https://www.microsoft.com/trust-center/) en el Centro de confianza de Microsoft.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

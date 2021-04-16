@@ -3,7 +3,7 @@ title: 'Ejemplo de PowerShell: lista de todos los grupos del conector de Applica
 description: Ejemplo de PowerShell en el que se enumeran todos los conectores y grupos de conectores de Azure Active Directory (Azure AD) Application Proxy en el directorio.
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 9ece8ab2f48981669347ea41badd3e9fbf05dc6c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 032d4930e29126ec9636e710f016d9612dc2cda0
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102548995"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107377588"
 ---
 # <a name="get-all-connector-groups-and-connectors-in-the-directory"></a>Obtención de todos los grupos de conectores y conectores del directorio
 

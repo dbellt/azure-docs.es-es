@@ -9,19 +9,19 @@ ms.date: 02/23/2021
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 28fb5ffc0ce9c554294eaca9e460694856cb95a0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: de511fa30caa608c2dc87b6c0ba166ed56ff9499
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104589878"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490189"
 ---
 # <a name="network-file-system-nfs-30-performance-considerations-in-azure-blob-storage-preview"></a>Consideraciones de rendimiento de Network File System (NFS) 3.0 en Azure Blob Storage (versión preliminar)
 
 Blob Storage ya es compatible con el protocolo Network File System (NFS) 3.0. En este artículo se incluyen recomendaciones que le ayudarán a optimizar el rendimiento de las solicitudes de almacenamiento. Para más información sobre la compatibilidad con NFS 3.0 en Azure Blob Storage, consulte [Compatibilidad del protocolo Network File System (NFS) 3.0 en Azure Blob Storage (versión preliminar)](network-file-system-protocol-support.md).
 
 > [!NOTE]
-> La compatibilidad con el protocolo NFS 3.0 en Azure Blob Storage se encuentra en versión preliminar pública. Este protocolo admite cuentas de almacenamiento GPV2 con un rendimiento de nivel estándar en las siguientes regiones: Este de Australia, Centro de Corea del Sur y Centro-sur de EE. UU. La versión preliminar también admite blobs en bloques con el nivel de rendimiento Premium en todas las regiones públicas.
+> La compatibilidad con el protocolo NFS 3.0 en Azure Blob Storage se encuentra en versión preliminar pública. Este protocolo admite cuentas de almacenamiento GPV2 con un rendimiento de nivel estándar en las siguientes regiones: Este de Australia, Centro de Corea del Sur, Este de EE. UU. y Centro-sur de EE. UU. La versión preliminar también admite blobs en bloques con el nivel de rendimiento Premium en todas las regiones públicas.
 
 ## <a name="add-clients-to-increase-throughput"></a>Adición de clientes para aumentar el rendimiento 
 

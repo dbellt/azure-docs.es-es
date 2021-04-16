@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: c952fe33b434aac972be6a1eb03b63698eb64fc6
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 995914fab0e7112327ebf6ab8e32fb67181f481e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104782323"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105608925"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Solución de problemas del dispositivo de Azure Migrate y la detección
 
@@ -260,6 +260,34 @@ Los errores de detección de aplicaciones típicos se resumen en la tabla.
 | 10007: No se pueden procesar los metadatos detectados. | Error al intentar deserializar el código JSON. | Para resolverlo, póngase en contacto con el servicio de Soporte técnico de Microsoft. |
 | 10008: No se puede crear un archivo en el servidor. | El problema puede producirse debido a un error interno. | Para resolverlo, póngase en contacto con el servicio de Soporte técnico de Microsoft. |
 | 10009: No se pueden escribir metadatos detectados en un archivo del servidor. | El problema puede producirse debido a un error interno. | Para resolverlo, póngase en contacto con el servicio de Soporte técnico de Microsoft. |
+
+## <a name="common-sql-server-instances-and-database-discovery-errors"></a>Instancias de SQL Server comunes y errores de detección de base de datos
+
+Azure Migrate admite la detección de instancias y bases de datos de SQL Server que se ejecutan en máquinas locales, con Azure Migrate: detección y evaluación. Actualmente solo se admite la detección de SQL para VMware. Consulte el tutorial de [detección](tutorial-discover-vmware.md) para comenzar.
+
+Los errores de detección de SQL típicos se resumen en la tabla.
+
+| **Error** | **Causa** | **Acción** |
+|--|--|--|
+|30000: las credenciales asociadas con esta instancia de SQL Server no funcionan.|Las credenciales asociadas manualmente no son válidas o las que se han asociado de forma automática ya no pueden obtener acceso a SQL Server.|Agregue las credenciales de SQL Server en el dispositivo y espere hasta el siguiente ciclo de detección de SQL o fuerce la actualización.|
+|30001: no se puede conectar a SQL Server desde el dispositivo.|1. El dispositivo no tiene una línea de visión de red para SQL Server.<br/>2. Firewall que bloquea la conexión entre SQL Server y el dispositivo.|1. Haga que SQL Server sea accesible desde el dispositivo.<br/>2. Permitir las conexiones entrantes del dispositivo a SQL Server.|
+|30003: el certificado no es de confianza.|Un certificado de confianza no está instalado en el equipo que ejecuta SQL Server.|Configure un certificado de confianza en el servidor. [Más información](https://go.microsoft.com/fwlink/?linkid=2153616)|
+|30004: permisos insuficientes.|Este error puede producirse debido a la falta de permisos necesarios para examinar las instancias de SQL Server. |Conceda el rol sysadmin a las credenciales o la cuenta proporcionada en el dispositivo para detectar las instancias y bases de datos de SQL Server. [Más información](https://go.microsoft.com/fwlink/?linkid=2153511)|
+|30005: el inicio de sesión de SQL Server no pudo conectarse debido a un problema con su base de datos maestra predeterminada.|Bien la propia base de datos no es válida o el inicio de sesión no tiene permiso CONNECT para la base de datos.|Use ALTER LOGIN para establecer la base de datos predeterminada en la base de datos maestra.<br/>Conceda el rol sysadmin a las credenciales o la cuenta proporcionada en el dispositivo para detectar las instancias y bases de datos de SQL Server. [Más información](https://go.microsoft.com/fwlink/?linkid=2153615)|
+|30006: el inicio de sesión de SQL Server no se puede usar con la autenticación de Windows.|1. El inicio de sesión puede ser de SQL Server, pero el servidor solo acepta la autenticación de Windows.<br/>2. Intenta conectarse mediante la autenticación de SQL Server, pero el inicio de sesión que ha utilizado no existe en SQL Server.<br/>3. El inicio de sesión puede utilizar la autenticación de Windows, pero el inicio de sesión es una entidad de seguridad de Windows no reconocida. Una entidad de seguridad de Windows no reconocida significa que Windows no puede comprobar el inicio de sesión. Esto podría deberse a que el inicio de sesión de Windows procede de un dominio que no es de confianza.|Si está intentando conectarse mediante la autenticación de SQL Server, compruebe que SQL Server está configurado en modo de autenticación mixta y que el inicio de sesión de SQL Server exista.<br/>Si intenta establecer conexión usando la Autenticación de Windows, compruebe que está registrado correctamente en el dominio correcto. [Más información](https://go.microsoft.com/fwlink/?linkid=2153421)|
+|30007: contraseña expirada.|La contraseña de la cuenta expiró.|Es posible que la contraseña de inicio de sesión de SQL Server haya expirado; vuelva a establecerla o amplíe la fecha de expiración de esta. [Más información](https://go.microsoft.com/fwlink/?linkid=2153419)|
+|30008: es necesario cambiar la contraseña.|Se debe cambiar la contraseña de la cuenta.|Cambie la contraseña de la credencial proporcionada para la detección de SQL Server. [Más información](https://go.microsoft.com/fwlink/?linkid=2153318)|
+|30009: se produjo un error interno.|Se produjo un error interno al detectar las instancias y bases de datos de SQL Server. |Póngase en contacto con el Soporte técnico de Microsoft si el problema persiste.|
+|30010: no se ha encontrado ninguna base de datos.|No se encuentra ninguna base de datos de la instancia de servidor seleccionada.|Conceda el rol sysadmin a las credenciales o la cuenta proporcionada en el dispositivo para detectar las bases de datos de SQL Server.|
+|30011: se produjo un error interno al evaluar una instancia o base de datos de SQL.|Se produjo un error interno al realizar la valoración.|Póngase en contacto con el Soporte técnico de Microsoft si el problema persiste.|
+|30012: falló la conexión SQL.|1. El firewall en el servidor ha rechazado la conexión.<br/>2. El servicio SQL Server Browser (sqlbrowser) no se inició.<br/>3. SQL Server no respondió a la solicitud del cliente porque es probable que el servidor no se haya iniciado.<br/>4. El cliente de SQL Server no se puede conectar al servidor. Este error se puede producir porque el servidor no está configurado para aceptar conexiones remotas.<br/>5. El cliente de SQL Server no se puede conectar al servidor. Este error se puede producir porque el cliente no puede resolver el nombre del servidor o porque el nombre del servidor no es correcto.<br/>6. Los protocolos de canalizaciones con nombre o TCP no están habilitados.<br/>7. El nombre de la instancia de SQL Server especificado no es válido.|Use [esta](https://go.microsoft.com/fwlink/?linkid=2153317) guía de usuario interactiva para solucionar problemas de conectividad. Espere 24 horas después de seguir los pasos de la guía para los datos que se van a actualizar en el servicio. Si el problema persiste, póngase en contacto con el Soporte técnico de Microsoft.|
+|30013: se produjo un error al establecer una conexión con la instancia de SQL Server.|1. No se puede resolver el nombre de SQL Server desde el dispositivo.<br/>2. SQL Server no permite conexiones remotas.|Si puede hacer ping en SQL Server desde el dispositivo, espere 24 horas para comprobar si este problema se resuelve automáticamente. Si no es así, póngase en contacto con el Soporte técnico de Microsoft. [Más información](https://go.microsoft.com/fwlink/?linkid=2153316)|
+|30014: el nombre de usuario o la contraseña no son correctos.| Este error puede producirse debido a un error de autenticación que implica una contraseña o un nombre de usuario incorrectos.|Proporcione una credencial con un nombre de usuario y una contraseña válidos. [Más información](https://go.microsoft.com/fwlink/?linkid=2153315)|
+|30015: se produjo un error interno al detectar la instancia de SQL.|Se produjo un error interno al detectar la instancia de SQL.|Póngase en contacto con el Soporte técnico de Microsoft si el problema persiste.|
+|30016: no se pudo conectar con la instancia "%instance;" debido a que se agotó el tiempo de espera.| Esto podría ocurrir si el firewall del servidor rechaza la conexión.|Compruebe si el firewall de SQL Server está configurado para aceptar conexiones. Si el error persiste, póngase en contacto con el Soporte técnico de Microsoft. [Más información](https://go.microsoft.com/fwlink/?linkid=2153611)|
+|30017: se produjo un error interno.|Excepción no controlada.|Póngase en contacto con el Soporte técnico de Microsoft si el problema persiste.|
+|30018: se produjo un error interno.|Se produjo un error interno al recopilar datos de la instancia de SQL como, por ejemplo, el tamaño de la base de datos temporal o el tamaño de los archivos.|Espere 24 horas y póngase en contacto con el Soporte técnico de Microsoft si el problema persiste.|
+|30019: se produjo un error interno.|Se produjo un error interno al recopilar las métricas de rendimiento (por ejemplo, el uso de la memoria) de una base de datos o una instancia.|Espere 24 horas y póngase en contacto con el Soporte técnico de Microsoft si el problema persiste.|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

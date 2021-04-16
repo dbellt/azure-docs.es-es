@@ -3,18 +3,18 @@ title: Adición de una capa de mosaico a mapas de Android | Microsoft Azure Maps
 description: Aprenda a agregar una capa de mosaico a un mapa. Vea un ejemplo en el que se usa Android SDK de Azure Maps para agregar una superposición de radar meteorológico a un mapa.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 2/26/2021
+ms.date: 3/25/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: 6a920dc222cae4aedd77b667644de317637bbb69
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: ac37a4e6d68decdf6780560963a0c534689e8dbb
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102047509"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105608992"
 ---
 # <a name="add-a-tile-layer-to-a-map-android-sdk"></a>Adición de una capa de mosaico a un mapa (Android SDK)
 
@@ -29,7 +29,7 @@ Una capa de mosaico carga los mosaicos desde un servidor. Estas imágenes pueden
 > [!TIP]
 > Un elemento TileLayer es una excelente manera de visualizar grandes conjuntos de datos en el mapa. No solo puede generarse una capa de mosaico a partir de una imagen, sino que también se pueden representar datos de vector como una capa de mosaico. Al representar datos de vectores como una capa de mosaico, el control de mapa solo necesita cargar los mosaicos, que pueden tener un tamaño de archivo bastante más reducido que los datos de vector que representan. Esta técnica la usan muchos usuarios que necesitan representar millones de filas de datos en el mapa.
 
-La dirección URL del mosaico pasada a una capa de mosaico debe ser una dirección URL HTTP/HTTPS que apunte a un recurso TileJSON o a una plantilla de URL de mosaico que usa los siguientes parámetros: 
+La dirección URL del mosaico pasada a una capa de mosaico debe ser una dirección URL HTTP/HTTPS que apunte a un recurso TileJSON o a una plantilla de URL de mosaico que usa los siguientes parámetros:
 
 * `{x}`: posición del mosaico en X. También necesita `{y}` y `{z}`.
 * `{y}`: posición del mosaico en Y. También necesita `{x}` y `{z}`.
@@ -82,6 +82,82 @@ map.layers.add(layer, "labels")
 En la captura de pantalla siguiente se muestra el código anterior que muestra una capa de mosaico de información náutica en un mapa con un estilo de escala de grises oscuro.
 
 ![Mapa de Android en el que se muestra la capa de mosaico](media/how-to-add-tile-layer-android-map/xyz-tile-layer-android.png)
+
+## <a name="add-an-ogc-web-mapping-service-wms"></a>Adición de un servicio de mapa web (WMS) de OGC
+
+Un servicio de mapa web (WMTS) es un estándar de Open Geospatial Consortium (OGC) para suministrar imágenes de datos de mapa. Hay muchos conjuntos de datos abiertos disponibles en este formato que puede usar con Azure Maps. Este tipo de servicio se puede usar con una capa de mosaico si el servicio admite el sistema de referencia de coordenadas (CRS) `EPSG:3857`. Al usar un servicio WMS, establezca los parámetros de ancho y alto en el mismo valor que admita el servicio y asegúrese de establecer este mismo valor en la opción `tileSize`. En la dirección URL con formato, establezca el parámetro `BBOX` del servicio con el marcador de posición `{bbox-epsg-3857}`.
+
+::: zone pivot="programming-language-java-android"
+
+``` java
+TileLayer layer = new TileLayer(
+    tileUrl("https://mrdata.usgs.gov/services/gscworld?FORMAT=image/png&HEIGHT=1024&LAYERS=geology&REQUEST=GetMap&STYLES=default&TILED=true&TRANSPARENT=true&WIDTH=1024&VERSION=1.3.0&SERVICE=WMS&CRS=EPSG:3857&BBOX={bbox-epsg-3857}"),
+    tileSize(1024)
+);
+
+map.layers.add(layer, "labels");
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+val layer = TileLayer(
+    tileUrl("https://mrdata.usgs.gov/services/gscworld?FORMAT=image/png&HEIGHT=1024&LAYERS=geology&REQUEST=GetMap&STYLES=default&TILED=true&TRANSPARENT=true&WIDTH=1024&VERSION=1.3.0&SERVICE=WMS&CRS=EPSG:3857&BBOX={bbox-epsg-3857}"),
+    tileSize(1024)
+)
+
+map.layers.add(layer, "labels")
+```
+
+::: zone-end
+
+En la captura de pantalla siguiente se muestra el código anterior que superpone un servicio de mapa web de datos geológicos de [U.S. Geological Survey (USGS)](https://mrdata.usgs.gov/) encima de un mapa, debajo de las etiquetas.
+
+![Mapa de Android en el que se muestra la capa de mosaico de WMS](media/how-to-add-tile-layer-android-map/android-tile-layer-wms.jpg)
+
+## <a name="add-an-ogc-web-mapping-tile-service-wmts"></a>Adición de un servicio de mosaico de mapa web de OGC (WMTS)
+
+Un servicio de mosaico de mapa web (WMTS) es un estándar de Open Geospatial Consortium (OGC) para suministrar superposiciones basadas en mosaicos para los mapas. Hay muchos conjuntos de datos abiertos disponibles en este formato que puede usar con Azure Maps. Este tipo de servicio se puede usar con una capa de mosaico si el servicio admite el sistema de referencia de coordenadas (CRS) `EPSG:3857` o `GoogleMapsCompatible`. Al usar un servicio WMS, establezca los parámetros de ancho y alto en el mismo valor que admita el servicio y asegúrese de establecer este mismo valor en la opción `tileSize`. En la dirección URL con formato, reemplace los siguientes marcadores de posición según corresponda:
+
+* `{TileMatrix}` => `{z}`
+* `{TileRow}` => `{y}`
+* `{TileCol}` => `{x}`
+
+::: zone pivot="programming-language-java-android"
+
+``` java
+TileLayer layer = new TileLayer(
+    tileUrl("https://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryOnly/MapServer/WMTS/tile/1.0.0/USGSImageryOnly/default/GoogleMapsCompatible/{z}/{y}/{x}"),
+    tileSize(256),
+    bounds(-173.25000107492872, 0.0005794121990209753, 146.12527718104752, 71.506811402077),
+    maxSourceZoom(18)
+);
+
+map.layers.add(layer, "transit");
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+val layer = TileLayer(
+    tileUrl("https://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryOnly/MapServer/WMTS/tile/1.0.0/USGSImageryOnly/default/GoogleMapsCompatible/{z}/{y}/{x}"),
+    tileSize(256),
+    bounds(-173.25000107492872, 0.0005794121990209753, 146.12527718104752, 71.506811402077),
+    maxSourceZoom(18)
+)
+
+map.layers.add(layer, "transit")
+```
+
+::: zone-end
+
+En la captura de pantalla siguiente se muestra el código anterior que superpone un servicio de mosaico de mapa web de imágenes de [U.S. Geological Survey (USGS)](https://viewer.nationalmap.gov/services/) encima de un mapa, debajo de las carreteras y etiquetas.
+
+![Mapa de Android en el que se muestra la capa de mosaico de WMTS](media/how-to-add-tile-layer-android-map/android-tile-layer-wmts.jpg)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

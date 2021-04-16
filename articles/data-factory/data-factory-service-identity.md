@@ -4,14 +4,14 @@ description: Obtenga información sobre la identidad administrada de Azure Data 
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 03/23/2021
+ms.date: 03/25/2021
 ms.author: jingwang
-ms.openlocfilehash: 89da1a22bb3fd0eff22a7bed7ed70b72f220fbf9
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: 65512f8e46b5545929a798392ac5f19ddeab39ed
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104888998"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105562467"
 ---
 # <a name="managed-identity-for-data-factory"></a>Identidad administrada de Data Factory
 
@@ -28,8 +28,7 @@ Al crear una factoría de datos, se puede crear también una identidad administr
 La identidad administrada de Data Factory ofrece las características siguientes:
 
 - [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md), en cuyo caso la identidad administrada de Data Factory se usa para la autenticación de Azure Key Vault.
-- Conectores incluidos [Azure Blob Storage](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure SQL Database](connector-azure-sql-database.md) y [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md).
-- [Actividad web](control-flow-web-activity.md).
+- Obtenga acceso a almacenes de datos o procesos mediante la autenticación de identidad administrada, como Azure Blob Storage, Azure Data Explorer, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics, REST, actividad de Databricks, actividad web y mucho más. Consulte los artículos sobre el conector y las actividades para obtener más información.
 
 ## <a name="generate-managed-identity"></a>Generar identidad administrada
 
@@ -157,11 +156,10 @@ Puede encontrar la información de la identidad administrada en Azure Portal -> 
 
 - Id. del objeto de identidad administrada
 - Inquilino de identidad administrada
-- Id. de aplicación de identidad administrada
 
 La información de identidad administrada también se mostrará cuando se crea un servicio vinculado que admita la autenticación de identidad administrada, como Azure Blob, Azure Data Lake Storage, Azure Key Vault, etc.
 
-Al conceder el permiso, use el identificador de objeto o el nombre de la factoría de datos como nombre de la identidad administrada para buscarla.
+Al conceder el permiso, en la pestaña Access Control de recursos de Azure (IAM) -> Agregar asignación de roles -> Asignar acceso a -> seleccione Data Factory en identidad administrada asignada por el sistema -> seleccione en función del nombre de factoría; o, en general, puede usar el id. de objeto o el nombre de la factoría de datos (como nombre de identidad administrada) para encontrar esta identidad. Si necesita obtener el id. de la aplicación de la identidad administrada, puede usar PowerShell.
 
 ### <a name="retrieve-managed-identity-using-powershell"></a>Recuperar identidad administrada mediante PowerShell
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: allensu
-ms.openlocfilehash: a226682c2580a871e1b2fc4db71f369f3bcc3abb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7a4688c196551f3ab6b5713d8939f53af161d1e3
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96010170"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106505015"
 ---
 # <a name="how-caching-works"></a>Cómo funciona el almacenamiento en caché
 
@@ -75,6 +75,7 @@ Azure CDN admite los siguientes encabezados de directiva de caché HTTP, que def
 - Cuando se usa en una solicitud HTTP del cliente al servidor POP de CDN, todos los perfiles de Azure CDN omiten `Cache-Control` de forma predeterminada.
 - Cuando se usa en una respuesta HTTP del cliente al servidor POP de CDN:
      - **Azure CDN Estándar/Premium de Verizon** y **Azure CDN Estándar Microsoft** admiten todas las directivas `Cache-Control`.
+     - **Azure CDN Estándar o Premium de Verizon** y **Azure CDN Estándar de Microsoft** respetan los comportamientos de almacenamiento en caché de las directivas de Cache-Control que se indican en [RFC 7234: Protocolo de transferencia de hipertexto (HTTP/1.1): Almacenamiento en caché (ietf.org)](https://tools.ietf.org/html/rfc7234#section-5.2.2.8).
      - **Azure CDN Estándar de Akamai** solo admite las siguientes directivas `Cache-Control`; todas las demás se omiten:
          - `max-age`: una caché puede almacenar el contenido durante el número de segundos especificado. Por ejemplo, `Cache-Control: max-age=5`. Esta directiva especifica la cantidad máxima de tiempo que el contenido se considera actualizado.
          - `no-cache`: almacena el contenido en la caché, pero valida dicho contenido cada vez que se entrega desde dicha caché. Equivalente a `Cache-Control: max-age=0`.

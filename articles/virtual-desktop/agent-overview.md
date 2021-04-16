@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: ecc4a5a17186eddd4223715462b14399bdf702df
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 371cc78f3ebad638008f4195f164b66a64948c65
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104601897"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106504556"
 ---
 # <a name="get-started-with-the-windows-virtual-desktop-agent"></a>Introducción al agente de Windows Virtual Desktop
 
@@ -25,7 +25,7 @@ En este artículo se ofrece una breve descripción de los procesos de instalaci�
 
 ## <a name="initial-installation-process"></a>Proceso de instalación inicial
 
-El agente de Windows Virtual Desktop se instala inicialmente de una de dos maneras. Si aprovisiona máquinas virtuales (VM) en Azure Portal y Azure Marketplace, el agente y cargador de arranque del agente se instalarán automáticamente. Si aprovisiona VM mediante PowerShell, debe descargar manualmente los archivos .msi del agente y del cargador de arranque del agente al [crear un grupo de hosts de Windows Virtual Desktop con PowerShell](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool). Una vez instalado el agente, la pila en paralelo de Windows Virtual Desktop y el agente de Geneva Monitoring también se instalan simultáneamente. El componente de pila en paralelo es necesario para que los usuarios establezcan conexiones inversas seguras del servidor al cliente. El agente de Geneva Monitoring supervisa el estado del agente. Los tres componentes son esenciales para que la conectividad de los usuarios de un extremo a otro funcione correctamente.
+El agente de Windows Virtual Desktop se instala inicialmente de una de dos maneras. Si aprovisiona máquinas virtuales (VM) en Azure Portal y Azure Marketplace, el agente y cargador de arranque del agente se instalarán automáticamente. Si aprovisiona VM mediante PowerShell, debe descargar manualmente los archivos .msi del agente y del cargador de arranque del agente al [crear un grupo de hosts de Windows Virtual Desktop con PowerShell](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool). Una vez instalado el agente, se instala la pila en paralelo de Windows Virtual Desktop y el agente de Geneva Monitoring. El componente de pila en paralelo es necesario para que los usuarios establezcan conexiones inversas seguras del servidor al cliente. El agente de Geneva Monitoring supervisa el estado del agente. Los tres componentes son esenciales para que la conectividad de los usuarios de un extremo a otro funcione correctamente.
 
 >[!IMPORTANT]
 >Para instalar correctamente el agente de Windows Virtual Desktop, la pila en paralelo y el agente de Geneva Monitoring, debe desbloquear todas las direcciones URL que se enumeran en la [Lista de direcciones URL requeridas](safe-url-list.md#virtual-machines). El desbloqueo de estas direcciones URL es necesario para usar el servicio Windows Virtual Desktop.
@@ -38,6 +38,7 @@ Las nuevas versiones del agente se implementan periódicamente en períodos de u
 
 
 >[!NOTE]
+>Dado que las máquinas virtuales del grupo de hosts pueden recibir actualizaciones del agente en momentos diferentes, deberá ser capaz de indicar la diferencia entre los problemas de paquetes piloto y las actualizaciones de agente con errores. Si navega a los registros de eventos de la máquina virtual en **Visor de eventos** > **Registros de Windows** > **Aplicación** y ve un evento con la etiqueta "ID 3277", eso significa que la actualización del agente no funcionó. Si no ve ese evento, la máquina virtual se encuentra en un paquete piloto diferente y se actualizará más adelante.
 >- Cuando el agente de Geneva Monitoring se actualiza a la versión más reciente, se busca la antigua tarea GenevaTask y se deshabilita antes de crear una nueva tarea para el nuevo agente de supervisión. La versión anterior del agente de supervisión no se elimina en caso de que la versión más reciente del agente de supervisión tenga un problema que requiera revertir a la versión anterior para corregirlo. Si la versión más reciente tiene un problema, el agente de supervisión anterior se volverá a habilitar para continuar con la entrega de datos de supervisión. Todas las versiones de supervisión anteriores a la última que instaló antes de la actualización se eliminarán de la VM.
 >- La VM mantiene tres versiones de la pila en paralelo a la vez. Esto permite una recuperación rápida si algo va mal con la actualización. La versión más antigua de la pila se quita de la VM cada vez que se actualiza la pila.
 

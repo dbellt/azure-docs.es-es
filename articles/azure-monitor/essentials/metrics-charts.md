@@ -6,12 +6,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
-ms.openlocfilehash: d728dfb364cb0f82326a472196cb28d79b85b1e9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 444185dc41532bfa55c271e2f0027eb8b71de42f
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102031476"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105959926"
 ---
 # <a name="advanced-features-of-the-azure-metrics-explorer"></a>Características avanzadas del Explorador de métricas de Azure
 
@@ -79,11 +79,28 @@ Para crear otro gráfico que use una métrica diferente, seleccione **Agregar gr
 
 Para reordenar o eliminar varios gráficos, seleccione el botón de puntos suspensivos ( **...** ) para abrir el menú del gráfico. A continuación, elija **Subir**, **Bajar** o **Eliminar**.
 
-## <a name="aggregation"></a>Agregación
+## <a name="time-range-controls"></a>Controles del intervalo de tiempo
+
+Además de cambiar el intervalo de tiempo mediante el [panel del selector de tiempo](metrics-getting-started.md#select-a-time-range), también puede desplazarse por los controles del área de gráfico y hacer zoom en ellos.
+### <a name="pan"></a>Movimiento panorámico
+
+Para desplazarse, haga clic en las flechas izquierda y derecha del borde del gráfico.  Esto moverá la mitad del intervalo de tiempo del gráfico seleccionado hacia atrás y hacia delante.  Por ejemplo, si está consultando las últimas 24 horas, al hacer clic en la flecha izquierda el intervalo de tiempo se desplazará hasta abarcar un día y medio de hace 12 horas.
+
+La mayoría de las métricas admiten 93 días de retención, pero solo permiten ver 30 días a la vez.  Con los controles de desplazamiento lateral, puede examinar los últimos 30 días y, a continuación, recorrer con facilidad 15 días a la vez para ver el resto del período de retención.
+
+![GIF animado que muestra los controles de desplazamiento lateral izquierdo y derecho.](./media/metrics-charts/metrics-pan-controls.gif)
+
+### <a name="zoom"></a>Zoom
+
+Puede hacer clic y arrastrar el gráfico para acercar una sección de este.  El zoom actualizará el intervalo de tiempo del gráfico para así abarcar la selección, y seleccionará un intervalo de agregación más pequeño si el intervalo de tiempo se establece en "automático".  El nuevo intervalo de tiempo se aplicará a todos los gráficos de las métricas.
+
+![GIF animado que muestra la característica de zoom de las métricas.](./media/metrics-charts/metrics-zoom-control.gif)
+
+## <a name="aggregation&quot;></a>Agregación
 
 Al agregar una métrica a un gráfico, el Explorador de métricas aplica automáticamente una agregación predeterminada. El valor predeterminado tiene sentido en escenarios básicos. Sin embargo, puede usar una agregación diferente para obtener más información sobre la métrica. 
 
-Antes de usar agregaciones diferentes en un gráfico, debe comprender cómo las administra el Explorador de métricas. Las métricas son una serie de medidas (o "valores de métricas") que se capturan durante un período de tiempo. Al trazar un gráfico, los valores de la métrica seleccionada se agregan por separado en el *intervalo de agregación*. 
+Antes de usar agregaciones diferentes en un gráfico, debe comprender cómo las administra el Explorador de métricas. Las métricas son una serie de medidas (o &quot;valores de métricas") que se capturan durante un período de tiempo. Al trazar un gráfico, los valores de la métrica seleccionada se agregan por separado en el *intervalo de agregación*. 
 
 Puede seleccionar el tamaño del intervalo de agregación mediante el [panel selector de tiempo](./metrics-getting-started.md#select-a-time-range) del Explorador de métricas. Si no selecciona explícitamente el intervalo de agregación, el intervalo de tiempo seleccionado actualmente se utiliza de forma predeterminada. Una vez determinado el intervalo de agregación, los valores de métricas que se capturaron durante cada intervalo de agregación se agregan en el gráfico, un punto de datos por intervalo de agregación.
 
@@ -261,7 +278,7 @@ Al hacer clic en la opción de error, se le conducirá a una hoja de error perso
 
 ### <a name="common-problems-with-drill-into-logs"></a>Problemas comunes con Obtener detalles de los registros
 
-* El registro y las consultas están deshabilitados: para ver los registros y las consultas recomendados, debe redirigir los registros de diagnóstico a Log Analytics. Lea [este documento](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) para obtener información sobre cómo hacerlo. 
+* El registro y las consultas están deshabilitados: para ver los registros y las consultas recomendados, debe redirigir los registros de diagnóstico a Log Analytics. Lea [este documento](./diagnostic-settings.md) para obtener información sobre cómo hacerlo. 
 * Solo se proporcionan registros de actividad: la característica Obtener detalles de los registros solo está disponible para los proveedores de recursos seleccionados. De forma predeterminada, se proporcionan registros de actividad. 
 
  
@@ -278,4 +295,3 @@ Si no ve ningún dato en el gráfico, revise la siguiente información de soluci
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para crear paneles que se puedan accionar mediante métricas, consulte [Creación de paneles personalizados de KPI](../app/tutorial-app-dashboards.md).
-

@@ -14,12 +14,12 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: ''
 ms.date: 3/02/2021
-ms.openlocfilehash: 3d64336184450514d52095097343a4588213f111
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: e176c0399b191c7a511ea1d26388219b2cef1df8
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102034904"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106107153"
 ---
 # <a name="understand-and-resolve-azure-sql-database-blocking-problems"></a>Descripción y resolución de problemas de bloqueo en Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -429,3 +429,4 @@ Las columnas `wait_type`, `open_transaction_count` y `status` hacen referencia a
 * [Entrega de rendimiento coherente con Azure SQL](/learn/modules/azure-sql-performance/)
 * [Solución de problemas de conectividad y otros errores con Azure SQL Database y Azure SQL Managed Instance](troubleshoot-common-errors-issues.md)
 * [Transient Fault Handling](/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling)
+* [Configuración del grado máximo de paralelismo (MAXDOP) en Azure SQL Database](configure-max-degree-of-parallelism.md)

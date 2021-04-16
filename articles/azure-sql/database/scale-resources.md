@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: wiassaf, sstein
 ms.date: 06/25/2019
-ms.openlocfilehash: 453d7e118b946d60eb3d84c6a66abdbea7db2410
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ca1a2edec70b13f111ffd89278aa39d1ddea7f67
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96499227"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105035649"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Escalado dinámico de recursos de base de datos con tiempo de inactividad mínimo
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -60,6 +60,9 @@ Instancia administrada de Azure SQL permite escalar también:
 - [SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) usa el modo de [núcleos virtuales](../managed-instance/sql-managed-instance-paas-overview.md#vcore-based-purchasing-model) y le permite definir el máximo de núcleos de CPU y el máximo de almacenamiento asignado a la instancia. Todas las bases de datos dentro de la instancia administrada comparten los recursos asignados a la instancia.
 
 Si se inicia la acción de escalado o reducción vertical en cualquiera de los tipos, se reiniciará el proceso del motor de base de datos y se moverá a otra máquina virtual si es necesario. El cambio del proceso del motor de base de datos a una nueva máquina virtual es un **proceso en línea** en el que puede continuar usando el servicio de Azure SQL Database existente mientras el proceso está en curso. Una vez que el motor de base de datos de destino está completamente inicializado y listo para procesar las consultas, las conexiones [pasarán del motor de base de datos de origen al de destino](single-database-scale.md#impact).
+
+> [!NOTE]
+> No se recomienda escalar la instancia administrada si se está ejecutando una transacción de larga duración, como la importación de datos, los trabajos de procesamiento de datos o la regeneración de índices, o si tiene una conexión activa en la instancia. Para evitar que el escalado tarde en completarse más tiempo que de costumbre, debe escalar la instancia una vez finalizadas todas las operaciones de ejecución prolongada.
 
 > [!NOTE]
 > Puede esperar una pequeña interrupción de la conexión cuando el proceso de escalado o reducción vertical haya terminado. Si ha implementado la [lógica de reintentos para errores transitorios estándar](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors), no notará la conmutación por error.

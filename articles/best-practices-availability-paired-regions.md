@@ -5,15 +5,15 @@ author: martinekuan
 manager: martinekuan
 ms.service: multiple
 ms.topic: conceptual
-ms.date: 03/03/2020
+ms.date: 03/30/2021
 ms.author: martinek
 ms.custom: references_regions
-ms.openlocfilehash: 3310d4a7d86db9dee7d5f71fc9410545817886f3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9fda6f913fcb5325c811671cd6476dcbf2413766
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97511236"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106058024"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuidad empresarial y recuperación ante desastres (BCDR): regiones emparejadas de Azure
 
@@ -51,14 +51,15 @@ No. Los usuarios pueden aprovechar los servicios de Azure para diseñar un servi
 |:--- |:--- |:--- |
 | Asia Pacífico |Asia Oriental (Hong Kong) | Sudeste Asiático (Singapur) |
 | Australia |Este de Australia |Sudeste de Australia |
-| Australia |Centro de Australia |Centro de Australia 2 |
+| Australia |Centro de Australia |Centro de Australia 2* |
 | Brasil |Sur de Brasil |Centro-sur de EE. UU. |
+| Brasil |Sudeste de Brasil* |Sur de Brasil |
 | Canadá |Centro de Canadá |Este de Canadá |
 | China |Norte de China |Este de China|
 | China |Norte de China 2 |Este de China 2|
 | Europa |Norte de Europa (Irlanda) |Oeste de Europa (Países Bajos) |
-| Francia |Centro de Francia|Sur de Francia|
-| Alemania |Centro de Alemania |Nordeste de Alemania |
+| Francia |Centro de Francia|Sur de Francia*|
+| Alemania |Centro-oeste de Alemania |Norte de Alemania* |
 | India |Centro de la India |Sur de la India |
 | India |Oeste de la India |Sur de la India |
 | Japón |Japón Oriental |Japón Occidental |
@@ -67,15 +68,17 @@ No. Los usuarios pueden aprovechar los servicios de Azure para diseñar un servi
 | Norteamérica |Este de EE. UU. 2 |Centro de EE. UU. |
 | Norteamérica |Centro-Norte de EE. UU |Centro-sur de EE. UU. |
 | Norteamérica |Oeste de EE. UU. 2 |Centro-Oeste de EE. UU. |
-| Noruega | Este de Noruega | Oeste de Noruega |
-| Sudáfrica | Norte de Sudáfrica |Oeste de Sudáfrica |
-| Suiza | Norte de Suiza |Oeste de Suiza |
+| Noruega | Este de Noruega | Oeste de Noruega* |
+| Sudáfrica | Norte de Sudáfrica |Oeste de Sudáfrica* |
+| Suiza | Norte de Suiza |Oeste de Suiza* |
 | Reino Unido |Oeste de Reino Unido |Sur de Reino Unido |
-| Emiratos Árabes Unidos | Norte de Emiratos Árabes Unidos | Centro de Emiratos Árabes Unidos
-| Departamento de Defensa de Estados Unidos |US DoD (este) |US DoD (centro) |
-| US Gov |US Gov: Arizona |US Gov Texas |
-| US Gov |US Gov Iowa |US Gov - Virginia |
-| US Gov |US Gov - Virginia |US Gov Texas |
+| Emiratos Árabes Unidos | Norte de Emiratos Árabes Unidos | Centro de Emiratos Árabes Unidos* |
+| Departamento de Defensa de Estados Unidos |US DoD (este)* |US DoD (centro)* |
+| US Gov |US Gov Arizona* |US Gov Texas* |
+| US Gov |US Gov Iowa* |US Gov Virginia* |
+| US Gov |US Gov Virginia* |US Gov Texas* |
+
+(*) Ciertas regiones tienen acceso restringido para admitir escenarios de clientes específicos; por ejemplo, la recuperación ante desastres en el país. Estas regiones solo están disponibles cuando se solicitan mediante [la creación de una nueva solicitud de soporte técnico en Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 > [!Important]
 > - Oeste de la India se empareja en una sola dirección. La región secundaria del India occidental es Sur de la India, pero la región secundaria esta última es Centro de la India.

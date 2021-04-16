@@ -6,12 +6,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
-ms.openlocfilehash: e3d8d6529eb943566118cc67eab549cb32891cd8
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: df745e7612dbd5b5bb9029b89d7f74974270c2d1
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102037241"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105962720"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Introducción al Explorador de métricas de Azure
 
@@ -45,7 +45,7 @@ Para crear un gráfico de métricas, abra la pestaña **Métricas** desde el rec
 ## <a name="select-a-time-range"></a>Selección de un intervalo de tiempo
 
 > [!WARNING]
-> [La mayoría de las métricas en Azure se almacenan durante 93 días](../essentials/data-platform-metrics.md#retention-of-metrics). Sin embargo, no puede consultar datos de más de 30 días en un gráfico individual. Esta limitación no se aplica a las [métricas basadas en registros](../app/pre-aggregated-metrics-log-metrics.md#log-based-metrics).
+> [La mayoría de las métricas en Azure se almacenan durante 93 días](../essentials/data-platform-metrics.md#retention-of-metrics). Sin embargo, no puede consultar datos de más de 30 días en un gráfico individual. Puede [desplazar](metrics-charts.md#pan) el gráfico para ver la retención completa. Esta limitación de 30 días no se aplica a las [métricas basadas en registros](../app/pre-aggregated-metrics-log-metrics.md#log-based-metrics).
 
 El gráfico muestra las últimas 24 horas de los datos de métricas de forma predeterminada. Use el panel del **selector de hora** para cambiar el intervalo de tiempo o acercar o alejar el gráfico. 
 
@@ -63,6 +63,20 @@ El [filtrado](../essentials/metrics-charts.md#filters) y las [divisiones](../ess
 - Las **divisiones** controlan si el gráfico va a mostrar líneas independientes por cada valor de una dimensión, o si por el contrario va a agregar los valores en una sola línea. Por ejemplo, puede ver una línea correspondiente a un tiempo de respuesta promedio de todas las instancias de servidor, o ver líneas independientes de cada servidor. Para ver líneas independientes, habría que aplicar la división en la dimensión de *instancia del servidor*.
 
 Vea [ejemplos de gráficos](../essentials/metric-chart-samples.md) que tienen filtrado y divisiones aplicados. En el artículo se explican los pasos que se realizaron para configurar los gráficos.
+
+## <a name="share-your-metric-chart"></a>Uso compartido del gráfico de métricas
+Actualmente hay dos maneras de compartir el gráfico de métricas. A continuación se muestran las instrucciones sobre cómo compartir información de los gráficos de las métricas a través de Excel y un vínculo.
+ 
+### <a name="download-to-excel"></a>Descarga a Excel
+Haga clic en "Compartir" y seleccione "Descargar a Excel". La descarga debe iniciarse inmediatamente.
+
+![captura de pantalla sobre cómo compartir el gráfico de métricas mediante Excel](./media/metrics-getting-started/share-excel.png)
+
+### <a name="share-a-link"></a>Uso compartido de un vínculo
+Haga clic en "Compartir" y seleccione "Copiar vínculo". Debería recibir una notificación de que el vínculo se copió correctamente.
+
+![captura de pantalla sobre cómo compartir el gráfico de métricas mediante un vínculo](./media/metrics-getting-started/share-link.png)
+
 
 ## <a name="advanced-chart-settings"></a>Configuración gráfico avanzada
 

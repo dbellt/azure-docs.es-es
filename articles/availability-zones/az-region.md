@@ -4,16 +4,16 @@ description: Para crear aplicaciones altamente disponibles y resistentes en Azur
 author: prsandhu
 ms.service: azure
 ms.topic: conceptual
-ms.date: 03/16/2021
+ms.date: 04/06/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: 5152b0ecf6eebe87031a2165d5d8ba11d99209cf
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.openlocfilehash: 782e632f8707b4cafb6d33438f6c8da7e8b08c30
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103601192"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106491402"
 ---
 # <a name="azure-services-that-support-availability-zones"></a>Servicios de Azure compatibles con Availability Zones
 
@@ -45,20 +45,20 @@ Para lograr una continuidad del negocio integral en Azure, cree la arquitectura 
 
 
 ## <a name="azure-regions-with-availability-zones"></a>Regiones de Azure con Availability Zones
-
+ 
 
 | América           | Europa               | África              | Asia Pacífico   |
 |--------------------|----------------------|---------------------|----------------|
 |                    |                      |                     |                |
-| Sur de Brasil       | Centro de Francia       | Norte de Sudáfrica* | Japón Oriental     |
-| Centro de Canadá     | Centro-oeste de Alemania |                     | Sudeste de Asia |
-| Centro de EE. UU.         | Norte de Europa         |                     | Este de Australia |
-| Este de EE. UU.            | Sur de Reino Unido             |                     |                |
-| Este de EE. UU. 2          | Oeste de Europa          |                     |                |
+| Sur de Brasil       | Centro de Francia       | Norte de Sudáfrica* | Este de Australia |
+| Centro de Canadá     | Centro-oeste de Alemania |                     | Centro de la India* |
+| Centro de EE. UU.         | Norte de Europa         |                     | Japón Oriental     |
+| Este de EE. UU.            | Sur de Reino Unido             |                     | Centro de Corea del Sur* |
+| Este de EE. UU. 2          | Oeste de Europa          |                     | Sudeste de Asia |
 | Centro y Sur de EE. UU. |                      |                     |                |
-| US Gov - Virginia     |                      |                     |                |
+| US Gov - Virginia    |                      |                     |                |
 | Oeste de EE. UU. 2        |                      |                     |                |
-
+| Oeste de EE. UU. 3*       |                      |                     |                |
 
 \* Para obtener más información sobre la compatibilidad de Availability Zones y los servicios disponibles en estas regiones, póngase en contacto con el representante de ventas o de clientes de Microsoft. Para las próximas regiones que van a admitir Availability Zones, consulte [Zonas geográficas de Azure](https://azure.microsoft.com/en-us/global-infrastructure/geographies/).
 
@@ -115,89 +115,100 @@ Para lograr una continuidad del negocio integral en Azure, cree la arquitectura 
 
 **Servicio estándar**
 
-| Productos                                        | Resistencia |
-|-------------------------------------------------|:------------:|
-| Entornos de App Service                        |      :large_blue_diamond:  |
-| Azure Active Directory Domain Services          |      :large_blue_diamond:  |
-| Azure Bastion                                   |      :large_blue_diamond:  |
-| Azure Cache for Redis                           |      :large_blue_diamond:  |
-| Azure Cognitive Services: Text Analytics        |      :large_blue_diamond:  |
-| Explorador de datos de Azure                             |      :large_blue_diamond:  |
-| Azure Database for MySQL: servidor flexible      |      :large_blue_diamond:  |
-| Azure Database for PostgreSQL: servidor flexible |      :large_blue_diamond:  |
-| Azure DDoS Protection                           |      :large_blue_diamond:  |
-| Azure Disk Encryption                           |      :large_blue_diamond:  |
-| Azure Firewall                                  |      :large_blue_diamond:  |
-| Azure Firewall Manager                          |      :large_blue_diamond:  |
-| Azure Kubernetes Service (AKS)                  |      :large_blue_diamond:  |
-| Azure Private Link                              |      :large_blue_diamond:  |
-| Red Hat OpenShift en Azure                         |      :large_blue_diamond:  |
-| Azure Site Recovery                             |      :large_blue_diamond:  |
-| Azure SQL: Virtual Machine                      |      :large_blue_diamond:  |
-| Azure Search                                    |      :large_blue_diamond:  |
-| Firewall de aplicaciones web de Azure                  |      :large_blue_diamond:  |
-| Container Registry                              |      :large_blue_diamond:  |
-| Event Grid                                      |      :large_blue_diamond:  |
-| Network Watcher                                 |      :large_blue_diamond:  |
-| Network Watcher: Análisis de tráfico              |      :large_blue_diamond:  |
-| Power BI Embedded                               |      :large_blue_diamond:  |
-| Premium Blob Storage                            |      :large_blue_diamond:  |
-| Storage: Azure Premium Files                    |      :large_blue_diamond:  |
-| Virtual Machines: Azure Dedicated Host          |      :large_blue_diamond:  |
-| Virtual Machines: Serie Ddsv4                  |      :large_blue_diamond:  |
-| Virtual Machines: Serie Ddv4                   |      :large_blue_diamond:  |
-| Virtual Machines: Serie Dsv4                   |      :large_blue_diamond:  |
-| Virtual Machines: Serie Dv4                    |      :large_blue_diamond:  |
-| Virtual Machines: Serie Edsv4                  |      :large_blue_diamond:  |
-| Virtual Machines: Serie Edv4                   |      :large_blue_diamond:  |
-| Virtual Machines: Serie Esv4                   |      :large_blue_diamond:  |
-| Virtual Machines: Serie Ev4                    |      :large_blue_diamond:  |
-| Virtual Machines: Serie Fsv2                   |      :large_blue_diamond:  |
-| Virtual Machines: Serie M                      |      :large_blue_diamond:  |
-| Virtual WAN                                     |      :large_blue_diamond:  |
-| Virtual WAN: ExpressRoute                       |      :large_blue_diamond:  |
-| Virtual WAN: VPN Gateway de punto a sitio          |      :large_blue_diamond:  |
-| Virtual WAN: VPN Gateway de sitio a sitio           |      :large_blue_diamond:  |
+
+|     Productos                                                    | Resistencia             |
+|-----------------------------------------------------------------|:----------------------------:|
+|     Entornos de App Service                                    | :large_blue_diamond:  |
+|     Azure Active Directory Domain Services                      | :large_blue_diamond:  |
+|     Azure Bastion                                               | :large_blue_diamond:  |
+|     Azure Cache for Redis                                       | :large_blue_diamond:  |
+|     Azure Cognitive Search                                      | :large_blue_diamond:  |
+|     Azure Cognitive Services: Text Analytics                    | :large_blue_diamond:  |
+|     Explorador de datos de Azure                                         | :large_blue_diamond:  |
+|     Azure Database for MySQL: servidor flexible                  | :large_blue_diamond:  |
+|     Azure Database for PostgreSQL: servidor flexible             | :large_blue_diamond:  |
+|     Azure DDoS Protection                                       | :large_blue_diamond:  |
+|     Azure Disk Encryption                                       | :large_blue_diamond:  |
+|     Azure Firewall                                              | :large_blue_diamond:  |
+|     Azure Firewall Manager                                      | :large_blue_diamond:  |
+|     Azure Kubernetes Service (AKS)                              | :large_blue_diamond:  |
+|     Azure Private Link                                          | :large_blue_diamond:  |
+|     Azure Site Recovery                                         | :large_blue_diamond:  |
+|     Azure SQL: Virtual Machine                                  | :large_blue_diamond:  |
+|     Firewall de aplicaciones web de Azure                              | :large_blue_diamond:  |
+|     Container Registry                                          | :large_blue_diamond:  |
+|     Event Grid                                                  | :large_blue_diamond:  |
+|     Network Watcher                                             | :large_blue_diamond:  |
+|     Network Watcher: Análisis de tráfico                          | :large_blue_diamond:  |
+|     Power BI Embedded                                           | :large_blue_diamond:  |
+|     Premium Blob Storage                                        | :large_blue_diamond:  |
+|     Storage: Azure Premium Files                                | :large_blue_diamond:  |
+|     Virtual Machines: Azure Dedicated Host                      | :large_blue_diamond:  |
+|     Virtual Machines: Serie Ddsv4                              | :large_blue_diamond:  |
+|     Virtual Machines: Serie Ddv4                               | :large_blue_diamond:  |
+|     Virtual Machines: Serie Dsv4                               | :large_blue_diamond:  |
+|     Virtual Machines: Serie Dv4                                | :large_blue_diamond:  |
+|     Virtual Machines: Serie Edsv4                              | :large_blue_diamond:  |
+|     Virtual Machines: Serie Edv4                               | :large_blue_diamond:  |
+|     Virtual Machines: Serie Esv4                               | :large_blue_diamond:  |
+|     Virtual Machines: Serie Ev4                                | :large_blue_diamond:  |
+|     Virtual Machines: Serie Fsv2                               | :large_blue_diamond:  |
+|     Virtual Machines: Serie M                                  | :large_blue_diamond:  |
+|     Virtual WAN                                                 | :large_blue_diamond:  |
+|     Virtual WAN: ExpressRoute                                   | :large_blue_diamond:  |
+|     Virtual WAN: VPN Gateway de punto a sitio                      | :large_blue_diamond:  |
+|     Virtual WAN: VPN Gateway de sitio a sitio                       | :large_blue_diamond:  |
+
+
+**Servicios especializados**
+
+|     Productos                                                    | Resistencia             |
+|-----------------------------------------------------------------|:----------------------------:|
+|     Red Hat OpenShift en Azure                                     | :large_blue_diamond:  |
+|     Cognitive Services: Anomaly Detector                        | :large_blue_diamond:  |
+|     Cognitive Services: Form Recognizer                         | :large_blue_diamond:  |
+|     Almacenamiento: Disco Ultra                                         | :large_blue_diamond:  |
 
 
 **No regional**
 
-|     Productos                                  |     Resistencia    |
-|-----------------------------------------------|:-------------------:|
-|     Azure DNS                                 |     :globe_with_meridians:             |
-|     Azure Active Directory                  |     :globe_with_meridians:             |
-|     Azure Advanced Threat Protection          |     :globe_with_meridians:             |
-|     Azure Advisor                             |     :globe_with_meridians:             |
-|     Azure Blueprint                          |     :globe_with_meridians:             |
-|     Azure Bot Services                        |     :globe_with_meridians:             |
-|     Azure Front Door                          |     :globe_with_meridians:             |
-|     Azure Defender para IoT                  |     :globe_with_meridians:             |
-|     Azure Front Door                           |     :globe_with_meridians:             |
-|     Azure Information Protection            |     :globe_with_meridians:             |
-|     Azure Lighthouse                        |     :globe_with_meridians:             |
-|     Azure Managed Applications              |     :globe_with_meridians:             |
-|     Azure Maps                                |     :globe_with_meridians:             |
-|     Azure Policy                              |     :globe_with_meridians:             |
-|     Azure Resource Graph                    |     :globe_with_meridians:             |
-|     Azure Sentinel                            |     :globe_with_meridians:             |
-|     Azure Stack                               |     :globe_with_meridians:             |
-|     Azure Stack Edge                        |     :globe_with_meridians:             |
-|     Cloud Shell                               |     :globe_with_meridians:             |
-|     Content Delivery Network                  |     :globe_with_meridians:             |
-|     Cost Management                           |     :globe_with_meridians:             |
-|     Caja de seguridad del cliente de Microsoft Azure    |     :globe_with_meridians:             |
-|     Intune                                    |     :globe_with_meridians:             |
-|     Microsoft Azure Peering Service         |     :globe_with_meridians:             |
-|     Microsoft Azure Portal                  |     :globe_with_meridians:             |
-|     Microsoft Cloud App Security              |     :globe_with_meridians:             |
-|     Microsoft Graph                           |     :globe_with_meridians:             |
-|     Security Center                         |     :globe_with_meridians:             |
-|     Traffic Manager                         |     :globe_with_meridians:             |
+|     Productos                                                    | Resistencia             |
+|-----------------------------------------------------------------|:----------------------------:|
+|     Azure DNS                                                   | :globe_with_meridians: |
+|     Azure Active Directory                                    | :globe_with_meridians: |
+|     Azure Advanced Threat Protection                            | :globe_with_meridians: |
+|     Azure Advisor                                               | :globe_with_meridians: |
+|     Azure Blueprint                                            | :globe_with_meridians: |
+|     Azure Bot Services                                          | :globe_with_meridians: |
+|     Azure Front Door                                            | :globe_with_meridians: |
+|     Azure Defender para IoT                                    | :globe_with_meridians: |
+|     Azure Front Door                                            | :globe_with_meridians: |
+|     Azure Information Protection                              | :globe_with_meridians: |
+|     Azure Lighthouse                                          | :globe_with_meridians: |
+|     Azure Managed Applications                                | :globe_with_meridians: |
+|     Azure Maps                                                  | :globe_with_meridians: |
+|     Azure Performance Diagnostics                               | :globe_with_meridians: |
+|     Azure Policy                                                | :globe_with_meridians: |
+|     Azure Resource Graph                                      | :globe_with_meridians: |
+|     Azure Sentinel                                              | :globe_with_meridians: |
+|     Azure Stack                                                 | :globe_with_meridians: |
+|     Azure Stack Edge                                          | :globe_with_meridians: |
+|     Cloud Shell                                                 | :globe_with_meridians: |
+|     Content Delivery Network                                    | :globe_with_meridians: |
+|     Cost Management                                             | :globe_with_meridians: |
+|     Caja de seguridad del cliente de Microsoft Azure                      | :globe_with_meridians: |
+|     Intune                                                      | :globe_with_meridians: |
+|     Microsoft Azure Peering Service                           | :globe_with_meridians: |
+|     Microsoft Azure Portal                                    | :globe_with_meridians: |
+|     Microsoft Cloud App Security                                | :globe_with_meridians: |
+|     Microsoft Graph                                             | :globe_with_meridians: |
+|     Security Center                                           | :globe_with_meridians: |
+|     Traffic Manager                                           | :globe_with_meridians: |
 
 
 ## <a name="pricing-for-vms-in-availability-zones"></a>Precios de máquinas virtuales en Availability Zones
 
-No hay ningún costo adicional asociado a las máquinas virtuales implementadas en una zona de disponibilidad. Para obtener más información, revise la página [Precios de ancho de banda](https://azure.microsoft.com/pricing/details/bandwidth/).
+Azure Availability Zones está disponible con su suscripción de Azure. Más información aquí: [Página de precios de ancho de banda](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 
 ## <a name="get-started-with-availability-zones"></a>Introducción a las zonas de disponibilidad

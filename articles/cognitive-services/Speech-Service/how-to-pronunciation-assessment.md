@@ -12,12 +12,12 @@ ms.date: 01/12/2021
 ms.author: yulili
 ms.custom: references_regions
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
-ms.openlocfilehash: dc1ab8bd1a851f7fafd5c001ac73e66973e1b64c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2d1b5e490b7c8212e6103e3d169c1b5491d01dde
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102051895"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167437"
 ---
 # <a name="pronunciation-assessment"></a>Evaluación de la pronunciación
 
@@ -28,7 +28,7 @@ Los educadores pueden utilizar la funcionalidad para evaluar la pronunciación d
 En este artículo, aprenderá a configurar `PronunciationAssessmentConfig` y a recuperar `PronunciationAssessmentResult` mediante el SDK de voz.
 
 > [!NOTE]
-> La característica de valoración de la pronunciación solo admite el idioma `en-US` actualmente.
+> Actualmente, la característica de evaluación de pronunciación admite el idioma `en-US`, que está disponible en todas las [regiones de conversión de voz en texto](regions.md#speech-to-text-text-to-speech-and-translation). La compatibilidad con los idiomas `en-GB` y `zh-CN` se encuentra en versión preliminar, que está disponible en las regiones `westus`, `eastasia` y `centralindia`.
 
 ## <a name="pronunciation-assessment-with-the-speech-sdk"></a>Evaluación de la pronunciación con el SDK de voz
 
@@ -194,9 +194,63 @@ En esta tabla se enumeran los parámetros de resultados de evaluación de la pro
 | `PronunciationScore` | Puntuación global que indica la calidad de la pronunciación del fragmento hablado en cuestión. Se agrega a partir de `AccuracyScore`, `FluencyScore` y `CompletenessScore` con ponderación. |
 | `ErrorType` | Este valor indica si se ha omitido, se ha insertado o se ha pronunciado incorrectamente una palabra en comparación con `ReferenceText`. Los valores posibles son `None` (que significa que no hay ningún error en esta palabra), `Omission`, `Insertion` y `Mispronunciation`. |
 
+### <a name="sample-responses"></a>Respuestas de ejemplo
+
+Un resultado de la evaluación de pronunciación típico en JSON:
+
+```json
+{
+  "RecognitionStatus": "Success",
+  "Offset": "400000",
+  "Duration": "11000000",
+  "NBest": [
+      {
+        "Confidence" : "0.87",
+        "Lexical" : "good morning",
+        "ITN" : "good morning",
+        "MaskedITN" : "good morning",
+        "Display" : "Good morning.",
+        "PronunciationAssessment":
+        {
+            "PronScore" : 84.4,
+            "AccuracyScore" : 100.0,
+            "FluencyScore" : 74.0,
+            "CompletenessScore" : 100.0,
+        },
+        "Words": [
+            {
+              "Word" : "Good",
+              "Offset" : 500000,
+              "Duration" : 2700000,
+              "PronunciationAssessment":
+              {
+                "AccuracyScore" : 100.0,
+                "ErrorType" : "None"
+              }
+            },
+            {
+              "Word" : "morning",
+              "Offset" : 5300000,
+              "Duration" : 900000,
+              "PronunciationAssessment":
+              {
+                "AccuracyScore" : 100.0,
+                "ErrorType" : "None"
+              }
+            }
+        ]
+      }
+  ]
+}
+```
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 <!-- TODO: update JavaScript sample links after release -->
+
+* Vea la [presentación en vídeo](https://www.youtube.com/watch?v=cBE8CUHOFHQ) y el [vídeo tutorial](https://www.youtube.com/watch?v=zFlwm7N4Awc) de evaluación de pronunciación.
+
+* Pruebe la [demostración de evaluación de la pronunciación](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/PronunciationAssessment/BrowserJS).
 
 ::: zone pivot="programming-language-csharp"
 * Consulte el [ejemplo de código](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_recognition_samples.cs#L949) de GitHub para la evaluación de la pronunciación.
@@ -219,3 +273,5 @@ En esta tabla se enumeran los parámetros de resultados de evaluación de la pro
 ::: zone-end
 
 * [Documentación de referencia del SDK de voz](speech-sdk.md)
+
+* [Creación de una cuenta de Azure gratuita](https://azure.microsoft.com/free/cognitive-services/)

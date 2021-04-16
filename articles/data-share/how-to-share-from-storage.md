@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 02/23/2021
-ms.openlocfilehash: dc309e85373193e4f5d431f543ff3e59ea5bebc7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c94d6f7d4d06d7dbaa6a2ad54f94575a6cc85d33
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101739269"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105644664"
 ---
 # <a name="share-and-receive-data-from-azure-blob-storage-and-azure-data-lake-storage"></a>Uso compartido y recepción de datos de Azure Blob Storage y Azure Data Lake Storage
 
@@ -178,7 +178,7 @@ Para configurar la ubicación para recibir datos, siga los pasos de esta secció
 
    ![Captura de pantalla que muestra dónde seleccionar una cuenta de almacenamiento de destino.](./media/map-target.png "Almacenamiento de destino.") 
 
-1. En el caso del uso compartido basado en instantáneas, si el proveedor de datos usa una programación de instantáneas para actualizar periódicamente los datos, puede habilitar la programación en la pestaña **Programación de instantáneas**. Active la casilla situada junto a la programación de instantáneas. Seleccione **Habilitar**.
+1. En el caso del uso compartido basado en instantáneas, si el proveedor de datos usa una programación de instantáneas para actualizar periódicamente los datos, puede habilitar la programación en la pestaña **Programación de instantáneas**. Active la casilla situada junto a la programación de instantáneas. Seleccione **Habilitar**. Tenga en cuenta que la primera instantánea programada se iniciará en un minuto desde el tiempo de programación y las instantáneas posteriores comenzarán en cuestión de segundos desde la hora programada.
 
    ![Captura de pantalla que muestra cómo habilitar una programación de instantáneas.](./media/enable-snapshot-schedule.png "Habilitación de la programación de instantáneas.")
 

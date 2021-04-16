@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 8/11/2020
 ms.author: lajanuar
-ms.openlocfilehash: 567e28ee7f698565d6ad0020db7abdca0557f053
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 2b391c5a435c2dd2f19a3f170bf7c84edd7143f2
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100650769"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106063039"
 ---
 # <a name="translator-v30"></a>Translator v3.0
 
@@ -35,7 +35,7 @@ Microsoft Translator está disponible en varias ubicaciones de centros de datos.
 
 * **América**: Este de EE. UU., Centro-sur de EE. UU. , Centro-oeste de EE. UU. y Oeste de EE. UU. 2 
 * **Asia Pacífico:** Sur de Corea del Sur, Este de Japón, Sudeste de Asia y Este de Australia
-* **Europa:** Europa del Norte, Oeste de Europa, Norte de Suiza <sup>1, 2</sup> y Oeste de Suiza <sup>1, 2</sup>
+* **Europa:** Norte de Europa y Oeste de Europa
 
 En la mayoría de los casos, las solicitudes dirigidas a Microsoft Translator se administran en el centro de datos que está más próximo a la ubicación donde se originó la solicitud. En caso de que se produzca un error en un centro de datos, la solicitud puede enrutarse fuera de la geografía de Azure.
 
@@ -48,7 +48,7 @@ Para hacer que la solicitud se controle en una geografía de Azure específica, 
 |Azure|Europa|  api-eur.cognitive.microsofttranslator.com|
 |Azure|Asia Pacífico|    api-apc.cognitive.microsofttranslator.com|
 
-<sup>1</sup> cliente con un recurso ubicado en las regiones Norte de Suiza u Oeste de Suiza puede estar seguro de que sus solicitudes de la API de texto se atienden en Suiza. Para asegurarse de que las solicitudes se controlan en Suiza, cree el recurso de Traductor en la "región de recursos" "Norte de Suiza" u "Oeste de Suiza" y, a continuación, use el punto de conexión personalizado del recurso en las solicitudes de API. Por ejemplo: si crea un recurso de Traductor en Azure Portal con una "región de recursos" como "Norte de Suiza" y el nombre de. recurso es "my-ch-n", el punto de conexión personalizado será "https://my-ch-n.cognitiveservices.azure.com". Y una solicitud de ejemplo para traducir sería:
+<sup>1</sup> Los clientes con un recurso ubicado en las regiones Norte de Suiza u Oeste de Suiza pueden estar seguro de que sus solicitudes de Text API se atienden en Suiza. Para asegurarse de que las solicitudes se controlan en Suiza, cree el recurso de Traductor en la "región de recursos" "Norte de Suiza" u "Oeste de Suiza" y, a continuación, use el punto de conexión personalizado del recurso en las solicitudes de API. Por ejemplo: si crea un recurso de Traductor en Azure Portal con una "región de recursos" como "Norte de Suiza" y el nombre de. recurso es "my-ch-n", el punto de conexión personalizado será "https://my-ch-n.cognitiveservices.azure.com". Y una solicitud de ejemplo para traducir sería:
 ```curl
 // Pass secret key and region using headers to a custom endpoint
 curl -X POST " my-ch-n.cognitiveservices.azure.com/translator/text/v3.0/translate?to=fr" \
@@ -57,7 +57,7 @@ curl -X POST " my-ch-n.cognitiveservices.azure.com/translator/text/v3.0/translat
 -H "Content-Type: application/json" \
 -d "[{'Text':'Hello'}]" -v
 ```
-<sup>2</sup>Traductor personalizado no está disponible actualmente en Suiza.
+<sup>2</sup> El servicio Traductor personalizado no está disponible actualmente en Suiza.
 
 ## <a name="authentication"></a>Authentication
 

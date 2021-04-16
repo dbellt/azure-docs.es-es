@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36ad7cf7fe2ca1ddcb592e895014b1d956e55e1b
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 10ea524620f810e0bf1dddc230716031bbc10e69
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102557376"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105642386"
 ---
 # <a name="governing-on-premises-service-accounts"></a>Control de cuentas de servicio locales
 
@@ -60,7 +60,7 @@ Utilice los siguientes criterios para crear una nueva cuenta de servicio.
 
 Use la siguiente configuración con las cuentas de usuario empleadas como cuentas de servicio:
 
-* [**Expiración de la cuenta**](/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps): configure la cuenta de servicio para que expire automáticamente a una hora establecida después del período de revisión, a menos que se determine que debe continuar.
+* [**Expiración de la cuenta**](/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps&preserve-view=true): configure la cuenta de servicio para que expire automáticamente a una hora establecida después del período de revisión, a menos que se determine que debe continuar.
 
 *  **LogonWorkstations**: restrinja los permisos de ubicación donde la cuenta de servicio puede iniciar sesión. Si se ejecuta localmente en una máquina y solo tiene acceso a los recursos de esa máquina, restrinja el inicio de sesión en cualquier otra parte.
 
@@ -82,7 +82,7 @@ Utilice el siguiente proceso para la administración del ciclo de vida de las cu
 
 ### <a name="collect-usage-information-for-the-service-account"></a>Recopilación de información de uso de la cuenta de servicio
 
-Recopile la información empresarial pertinente de cada cuenta de servicio. En la tabla siguiente se muestra la información mínima que se debe recopilar, aunque debe recopilar todo lo necesario para que el caso empresarial de la existencia de las cuentas.
+Recopile la información empresarial pertinente de cada cuenta de servicio. En la tabla siguiente se muestra la información mínima que se debe recopilar, aunque recuerde que debe recopilar todo lo necesario para el caso empresarial de la existencia de las cuentas.
 
 | data| Detalles |
 | - | - |
@@ -149,7 +149,7 @@ La evaluación de riesgos, una vez realizada y documentada, puede afectar a los 
 
 Cree una cuenta de servicio solo después de documentar la información pertinente en su CMDB y de realizar una evaluación de riesgos. Las restricciones de cuenta deben estar alineadas con la evaluación de riesgos. Tenga en cuenta las siguientes restricciones cuando sea pertinente para su evaluación:
 
-* [Expiración de la cuenta](/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps)
+* [Expiración de la cuenta](/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps&preserve-view=true)
 
    * Para todas las cuentas de usuario usadas como cuentas de servicio, defina una fecha de finalización realista y precisa para su uso. Establezca esta opción mediante la marca "La cuenta expira". Para obtener más información, consulte [ Set-ADAccountExpiration](/powershell/module/addsadministration/set-adaccountexpiration). 
 
@@ -193,7 +193,7 @@ Después de quitar todos los permisos, use este proceso para quitar la cuenta.
 
 3. Elimine la cuenta de servicio cuando se cumpla la directiva de mantenimiento de cuenta deshabilitada. 
 
-   * Para las cuentas MSA, puede [desinstalarla](/powershell/module/activedirectory/uninstall-adserviceaccount?view=winserver2012-ps) mediante PowerShell o eliminarla manualmente desde el contenedor de la cuenta de servicio administrada.
+   * Para las cuentas MSA, puede [desinstalarla](/powershell/module/activedirectory/uninstall-adserviceaccount?view=winserver2012-ps&preserve-view=true) mediante PowerShell o eliminarla manualmente desde el contenedor de la cuenta de servicio administrada.
 
    * En el caso de las cuentas de equipo o de usuario, puede eliminar manualmente la cuenta desde Active Directory.
 

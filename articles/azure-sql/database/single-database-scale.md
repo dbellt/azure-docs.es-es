@@ -11,12 +11,12 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
 ms.date: 02/22/2021
-ms.openlocfilehash: ce8d4bf36524e3e7e7b3b8c974aa189fa000d845
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: c5b6509cabd743a01a085639a7b76d764555a9f8
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104773256"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106106660"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Escalar recursos de base de datos única en Azure SQL Database
 
@@ -61,7 +61,7 @@ La latencia estimada para cambiar el nivel de servicio, escalar el tamaño de pr
 > Además, en el caso de las bases de datos Estándar (S2-S12) y De uso general, la latencia para mover una base de datos dentro o fuera de un grupo elástico o entre grupos elásticos será proporcional al tamaño de la base de datos si esta usa almacenamiento de recursos compartidos de archivos Premium ([PFS](../../storage/files/storage-files-introduction.md)).
 >
 > Para determinar si una base de datos usa el almacenamiento PFS, ejecute la siguiente consulta en el contexto de la base de datos. Si el valor de la columna AccountType es `PremiumFileStorage` o `PremiumFileStorage-ZRS`, la base de datos usa almacenamiento PFS.
- 
+
 ```sql
 SELECT s.file_id,
        s.type_desc,
@@ -70,6 +70,9 @@ SELECT s.file_id,
 FROM sys.database_files AS s
 WHERE s.type_desc IN ('ROWS', 'LOG');
 ```
+
+> [!NOTE]
+> La propiedad con redundancia de zona seguirá siendo la misma de forma predeterminada al escalar del nivel Crítico para la empresa al nivel De uso general. La latencia para este cambio a una versión anterior al habilitarse la redundancia de zona, así como la latencia para cambiar a la redundancia de zona para el nivel De uso general, serán proporcionales al tamaño de base de datos.
 
 > [!TIP]
 > Para supervisar las operaciones en curso, consulte: [Administración de operaciones mediante la API REST de SQL](/rest/api/sql/operations/list), [Administración de operaciones mediante la CLI](/cli/azure/sql/db/op), [Supervisión de operaciones mediante T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) y estos dos comandos de PowerShell: [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) y [Stop AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).

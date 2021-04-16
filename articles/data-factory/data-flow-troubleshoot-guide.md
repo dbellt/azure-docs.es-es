@@ -6,17 +6,17 @@ author: kromerm
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 03/18/2021
-ms.openlocfilehash: 8617c32eac86d8e47678c06e3b028a475b4a5efb
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/25/2021
+ms.openlocfilehash: 72ab685b58f7d940fe4d682cacba6212fe80ced8
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104593863"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105933090"
 ---
 # <a name="troubleshoot-mapping-data-flows-in-azure-data-factory"></a>Solución de problemas de los flujos de datos de asignación en Azure Data Factory
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 En este artículo se exploran métodos comunes de solución de problemas de flujos de datos de asignación en Azure Data Factory.
 
@@ -302,7 +302,7 @@ En este artículo se exploran métodos comunes de solución de problemas de fluj
 
 ### <a name="error-code-df-excel-invalidrange"></a>Código de error: DF-Excel-InvalidRange
 - **Mensaje**: Invalid range is provided (Se proporcionó un intervalo no válido).
-- **Recomendación**: Compruebe el valor del parámetro y especifique el intervalo válido mediante la siguiente referencia: [Formato de Excel en Azure Data Factory - Propiedades del conjunto de datos](https://docs.microsoft.com/azure/data-factory/format-excel#dataset-properties).
+- **Recomendación**: Compruebe el valor del parámetro y especifique el intervalo válido mediante la siguiente referencia: [Formato de Excel en Azure Data Factory - Propiedades del conjunto de datos](./format-excel.md#dataset-properties).
 
 ### <a name="error-code-df-excel-worksheetnotexist"></a>Código de error: DF-Excel-WorksheetNotExist
 - **Mensaje**: Excel worksheet does not exist (La hoja de cálculo de Excel no existe).
@@ -317,24 +317,6 @@ En este artículo se exploran métodos comunes de solución de problemas de fluj
 ### <a name="error-code-df-excel-invalidfile"></a>Código de error: DF-Excel-InvalidFile
 - **Mensaje**: Se proporcionó un archivo de Excel no válido mientras que solo se admiten .xlsx y .xls.
 
-### <a name="error-code-df-adobeintegration-invalidmaptofilter"></a>Código de error: DF-AdobeIntegration-InvalidMapToFilter
-- **Mensaje**: El recurso personalizado solo puede tener un valor Key/Id asignado al filtro.
-
-### <a name="error-code-df-adobeintegration-invalidpartitionconfiguration"></a>Código de error: DF-AdobeIntegration-InvalidPartitionConfiguration
-- **Mensaje**: Únicamente se admite una única partición. El esquema de partición puede ser RoundRobin o Hash.
-- **Recomendación**: En la configuración de AdobeIntegration, confirme que solo tiene particiones únicas. El esquema de partición puede ser RoundRobin o Hash.
-
-### <a name="error-code-df-adobeintegration-keycolumnmissed"></a>Código de error: DF-AdobeIntegration-KeyColumnMissed
-- **Message**: Debe especificarse la clave para las operaciones que no se pueden insertar.
-- **Recomendación**: Especifique las columnas de clave en la configuración de AdobeIntegration para las operaciones que no se pueden insertar.
-
-### <a name="error-code-df-adobeintegration-invalidpartitiontype"></a>Código de error: DF-AdobeIntegration-InvalidPartitionType
-- **Mensaje**: El tipo de partición debe ser roundRobin.
-- **Recomendación**: Confirme que el tipo de partición es roundRobin en la configuración de AdobeIntegration.
-
-### <a name="error-code-df-adobeintegration-invalidprivacyregulation"></a>Código de error: DF-AdobeIntegration-InvalidPrivacyRegulation
-- **Mensaje**: Actualmente, el RGPD es la única norma de privacidad admitida.
-- **Recomendación**: Confirme que la regla de privacidad en la configuración de AdobeIntegration es **"RGPD"** .
 
 ## <a name="miscellaneous-troubleshooting-tips"></a>Consejos de solución de problemas varios
 - **Problema**: Se produjo una excepción inesperada y un error en la ejecución.
@@ -360,6 +342,110 @@ En este artículo se exploran métodos comunes de solución de problemas de fluj
 2. Compruebe el estado de las conexiones de archivos y tablas en el diseñador de flujo de datos. En el modo de depuración, seleccione **Vista previa de datos** en las transformaciones de origen para asegurarse de que puede tener acceso a los datos.
 3. Si todo parece correcto en la vista previa de los datos, vaya al diseñador de canalizaciones y coloque el flujo de datos en una actividad de canalización. Depure la canalización para realizar una prueba de un extremo a otro.
 
+### <a name="improvement-on-csvcdm-format-in-data-flow"></a>Mejora en el formato CSV/CDM en Data Flow 
+
+Si usa el **formato de texto delimitado o CDM para asignar el flujo de datos en Azure Data Factory V2**, puede que se enfrente a cambios de comportamiento en las canalizaciones existentes debido a la mejora del texto delimitado o CDM en el flujo de datos a partir del **1 de mayo de 2021**. 
+
+Es posible que encuentre los siguientes problemas antes de realizar la mejora, pero después de este proceso se solucionarán los problemas. Lea el siguiente contenido para determinar si esta mejora le afecta. 
+
+#### <a name="scenario-1-encounter-the-unexpected-row-delimiter-issue"></a>Escenario 1: encontrar el problema de delimitador de filas inesperado.
+
+ Se verá afectado si se encuentra en las siguientes condiciones:
+ - Uso del texto delimitado con la configuración de varias líneas establecida en "true" o CDM como origen.
+ - La primera fila tiene más de 128 caracteres. 
+ - El delimitador de fila de los archivos de datos no es `\n`.
+
+ Antes de realizar la mejora, el delimitador de filas predeterminado `\n` se puede usar inesperadamente para analizar archivos de texto delimitados, ya que cuando la configuración de varias líneas está establecida en "true", se invalida la configuración del delimitador de filas y este se detecta automáticamente en función de los primeros 128 caracteres. Si no detecta el delimitador de filas real, se revertiría a `\n`.  
+
+ Después de realizar la mejora, debe trabajar con cualquiera de estos tres delimitadores de fila: `\r`, `\n`, `\r\n`.
+ 
+ En el ejemplo siguiente se muestra un cambio de comportamiento en la canalización después de realizar la mejora:
+
+ **Ejemplo**:<br/>
+   En la siguiente columna:<br/>
+    `C1, C2, {long first row}, C128\r\n `<br/>
+    `V1, V2, {values………………….}, V128\r\n `<br/>
+ 
+   Antes de realizar la mejora, `\r` se mantiene en el valor de la columna. El resultado de la columna analizada es:<br/>
+   `C1 C2 {long first row} C128`**`\r`**<br/>
+   `V1 V2 {values………………….} V128`**`\r`**<br/> 
+
+   Después de realizar la mejora, el resultado de la columna analizada debe ser:<br/>
+   `C1 C2 {long first row} C128`<br/>
+   `V1 V2 {values………………….} V128`<br/>
+  
+#### <a name="scenario-2-encounter-an-issue-of-incorrectly-reading-column-values-containing-rn"></a>Escenario 2: detecte un problema de lectura incorrecta de valores de columna que contengan "\r\n".
+
+ Se verá afectado si se encuentra en las siguientes condiciones:
+ - Uso del texto delimitado con la configuración de varias líneas establecida en "true" o CDM como origen. 
+ - El delimitador de filas es `\r\n`.
+
+ Antes de la mejora, al leer el valor de la columna, puede que se reemplace `\r\n` incorrectamente por `\n`. 
+
+ Después de realizar la mejora, `\r\n` en el valor de la columna no se reemplazará por `\n`.
+
+ En el ejemplo siguiente se muestra un cambio de comportamiento en la canalización después de realizar la mejora:
+ 
+ **Ejemplo**:<br/>
+  
+ En la siguiente columna:<br/>
+  **`"A\r\n"`**`, B, C\r\n`<br/>
+
+ Antes de realizar la mejora, el resultado de la columna analizada es:<br/>
+  **`A\n`**` B C`<br/>
+
+ Después de realizar la mejora, el resultado de la columna analizada debe ser:<br/>
+  **`A\r\n`**` B C`<br/>  
+
+#### <a name="scenario-3-encounter-an-issue-of-incorrectly-writing-column-values-containing-n"></a>Escenario 3: detecte un problema de escritura incorrecta de valores de columna que contengan "\n".
+
+ Se verá afectado si se encuentra en las siguientes condiciones:
+ - Uso del texto delimitado como receptor.
+ - El valor de la columna contiene `\n`.
+ - El delimitador de filas está establecido en `\r\n`.
+ 
+ Antes de realizar la mejora, al escribir el valor de la columna, puede que se reemplace `\n` incorrectamente por `\r\n`. 
+
+ Después de realizar la mejora, `\n` en el valor de la columna no se reemplazará por `\r\n`.
+ 
+ En el ejemplo siguiente se muestra un cambio de comportamiento en la canalización después de realizar la mejora:
+
+ **Ejemplo**:<br/>
+
+ En la siguiente columna:<br/>
+ **`A\n`**` B C`<br/>
+
+ Antes de realizar la mejora, el receptor de CSV es:<br/>
+  **`"A\r\n"`**`, B, C\r\n` <br/>
+
+ Después de realizar la mejora, el receptor de CSV debe ser:<br/>
+  **`"A\n"`**`, B, C\r\n`<br/>
+
+#### <a name="scenario-4-encounter-an-issue-of-incorrectly-reading-empty-string-as-null"></a>Escenario 4: se detectó un problema al leer incorrectamente una cadena vacía como NULL.
+ 
+ Se verá afectado si se encuentra en las siguientes condiciones:
+ - Uso del texto delimitado como origen. 
+ - El valor NULL se establece en un valor que no está vacío. 
+ - El valor de la columna es una cadena vacía y no tiene comillas. 
+ 
+ Antes de realizar la mejora, el valor de columna de cadena vacía sin comillas se lee como NULL. 
+
+ Después de realizar la mejora, la cadena vacía no se analizará como un valor NULL. 
+ 
+ En el ejemplo siguiente se muestra un cambio de comportamiento en la canalización después de realizar la mejora:
+
+ **Ejemplo**:<br/>
+
+ En la siguiente columna:<br/>
+  `A, ,B, `<br/>
+
+ Antes de realizar la mejora, el resultado de la columna analizada es:<br/>
+  `A null B null`<br/>
+
+ Después de realizar la mejora, el resultado de la columna analizada debe ser:<br/>
+  `A "" (empty string) B "" (empty string)`<br/>
+
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener más ayuda para solucionar problemas, consulte estos recursos:
@@ -369,4 +455,3 @@ Para obtener más ayuda para solucionar problemas, consulte estos recursos:
 *  [Vídeos de Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Foro de Stack Overflow para Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Información de Twitter sobre Data Factory](https://twitter.com/hashtag/DataFactory)
-

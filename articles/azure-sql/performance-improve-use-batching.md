@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 ms.date: 01/25/2019
-ms.openlocfilehash: 07334d62cee94be8b5b8dd6188c1d6354c4d584b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7f45e7d1515f0d6fc4467b36d95242ef8697c75d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92792606"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105641395"
 ---
 # <a name="how-to-use-batching-to-improve-azure-sql-database-and-azure-sql-managed-instance-application-performance"></a>Uso del procesamiento por lotes para mejorar el rendimiento de las aplicaciones de Azure SQL Database e Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -33,7 +33,7 @@ En este artículo, deseamos examinar diversas estrategias y escenarios de proces
 * Las características para varios inquilinos de Azure SQL Database e Instancia administrada de Azure SQL suponen que la eficacia de la capa de acceso a datos se correlacione con la escalabilidad general de la base de datos. En respuesta a un uso superior a las cuotas predefinidas, Azure SQL Database e Instancia administrada de Azure SQL pueden reducir el rendimiento o responder con excepciones de limitación. Las eficiencias, como el procesamiento por lotes, le permiten hacer más trabajo antes de alcanzar estos límites.
 * Además, el procesamiento por lotes es efectivo para las arquitecturas que usan varias bases de datos (particionamiento). La eficacia de su interacción con cada unidad de base de datos sigue siendo un factor clave para la escalabilidad global.
 
-Una de las ventajas del uso de Azure SQL Database o Instancia administrada de Azure SQL es que no es necesario administrar los servidores que hospedan la base de datos. Sin embargo, esta infraestructura administrada conlleva también que se deban considerar las optimizaciones de la base de datos de manera diferente. Ya no puede intentar mejorar la infraestructura de hardware o de red de la base de datos, porque Microsoft Azure controla esos entornos. El principal aspecto que puede controlar es cómo la aplicación interactúa con Azure SQL Database e Instancia administrada de Azure SQL. El procesamiento por lotes es una de estas optimizaciones.
+Una de las ventajas del uso de Azure SQL Database o Azure SQL Managed Instance es que no es necesario administrar los servidores que hospedan la base de datos. Sin embargo, esta infraestructura administrada conlleva también que se deban considerar las optimizaciones de la base de datos de manera diferente. Ya no puede intentar mejorar la infraestructura de hardware o de red de la base de datos, porque Microsoft Azure controla esos entornos. El principal aspecto que puede controlar es cómo la aplicación interactúa con Azure SQL Database e Instancia administrada de Azure SQL. El procesamiento por lotes es una de estas optimizaciones.
 
 En la primera parte del artículo, se examinan diversas técnicas de procesamiento por lotes para aplicaciones .NET que usan Azure SQL Database o Instancia administrada de Azure SQL. En las dos últimas secciones, se explican las instrucciones y los escenarios de procesamiento por lotes.
 
@@ -93,7 +93,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-Realmente, se usan transacciones en ambos ejemplos. En el primer ejemplo, cada llamada individual es una transacción implícita. En el segundo ejemplo, una transacción explícita encapsula todas las llamadas. Según la documentación del [registro de transacciones de escritura previa](/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide?view=sql-server-ver15#WAL), las entradas del registro se vacían en el disco cuando se confirma la transacción. Por lo tanto, al incluir más llamadas en una transacción, la escritura en el registro de transacciones se puede retrasar hasta que se confirma la transacción. En efecto, está habilitando el procesamiento por lotes para las escrituras en el registro de transacciones del servidor.
+Realmente, se usan transacciones en ambos ejemplos. En el primer ejemplo, cada llamada individual es una transacción implícita. En el segundo ejemplo, una transacción explícita encapsula todas las llamadas. Según la documentación del [registro de transacciones de escritura previa](/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide?view=sql-server-ver15&preserve-view=true#WAL), las entradas del registro se vacían en el disco cuando se confirma la transacción. Por lo tanto, al incluir más llamadas en una transacción, la escritura en el registro de transacciones se puede retrasar hasta que se confirma la transacción. En efecto, está habilitando el procesamiento por lotes para las escrituras en el registro de transacciones del servidor.
 
 En la tabla siguiente se muestran algunos resultados de pruebas ad hoc. En las pruebas se realizaron las mismas inserciones secuenciales con y sin transacciones. Para obtener más perspectiva, el primer conjunto de pruebas se ejecutó de forma remota de un equipo portátil a la base de datos de Microsoft Azure. El segundo conjunto de pruebas se ejecutó desde un servicio en la nube y una base de datos que residían en el mismo centro de datos de Microsoft Azure (Oeste de EE. UU.). En la tabla siguiente se muestra la duración en milisegundos de las inserciones secuenciales con y sin transacciones.
 

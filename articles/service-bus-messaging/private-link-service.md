@@ -3,37 +3,35 @@ title: Integración de Azure Service Bus con Azure Private Link Service
 description: Aprenda a integrar Azure Service Bus con Azure Private Link Service
 author: spelluru
 ms.author: spelluru
-ms.date: 10/07/2020
+ms.date: 03/29/2021
 ms.topic: article
-ms.openlocfilehash: 66de9a4ff65c73264257cb6f7f215fc15820c95f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 833d7e9fb4d517b71aab5039ae9081407eed84cd
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94427154"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105960544"
 ---
 # <a name="allow-access-to-azure-service-bus-namespaces-via-private-endpoints"></a>Permiso para acceder a los espacios de nombres de Azure Service Bus a través de puntos de conexión privados
 El servicio Azure Private Link le permite acceder a los servicios de Azure (por ejemplo, Azure Service Bus, Azure Storage y Azure Cosmos DB) y a los servicios de asociados o clientes hospedados por Azure mediante un **punto de conexión privado** de la red virtual.
-
-> [!IMPORTANT]
-> Esta característica es compatible con el nivel **premium** de Azure Service Bus. Para más información sobre el nivel premium, consulte el artículo [Niveles de mensajería Premium y Estándar de Service Bus](service-bus-premium-messaging.md).
 
 Un punto de conexión privado es una interfaz de red que le conecta de forma privada y segura a un servicio con la tecnología de Azure Private Link. El punto de conexión privado usa una dirección IP privada de la red virtual para incorporar el servicio de manera eficaz a su red virtual. Todo el tráfico dirigido al servicio se puede enrutar mediante el punto de conexión privado, por lo que no se necesita ninguna puerta de enlace, dispositivos NAT, conexiones de ExpressRoute o VPN ni direcciones IP públicas. El tráfico entre la red virtual y el servicio atraviesa la red troncal de Microsoft, eliminando la exposición a la red pública de Internet. Puede conectarse a una instancia de un recurso de Azure, lo que le otorga el nivel más alto de granularidad en el control de acceso.
 
 Para más información, consulte [¿Qué es Azure Private Link?](../private-link/private-link-overview.md)
 
->[!WARNING]
-> La implementación de puntos de conexión privados puede evitar que otros servicios de Azure interactúen con Service Bus. Como excepción, puede permitir el acceso a los recursos de Service Bus desde determinados servicios de confianza, incluso cuando los puntos de conexión privados no están habilitados. Para ver una lista de servicios de confianza, consulte [Servicios de confianza](#trusted-microsoft-services).
->
-> Los siguientes servicios de Microsoft deben estar en una red virtual
-> - Azure App Service
-> - Azure Functions
+## <a name="important-points"></a>Observaciones importantes
+- Esta característica es compatible con el nivel **premium** de Azure Service Bus. Para más información sobre el nivel premium, consulte el artículo [Niveles de mensajería Premium y Estándar de Service Bus](service-bus-premium-messaging.md).
+- La implementación de puntos de conexión privados puede evitar que otros servicios de Azure interactúen con Service Bus. Como excepción, puede permitir el acceso a los recursos de Service Bus desde determinados **servicios de confianza**, incluso cuando los puntos de conexión privados no están habilitados. Para ver una lista de servicios de confianza, consulte [Servicios de confianza](#trusted-microsoft-services).
 
+    Los siguientes servicios de Microsoft deben estar en una red virtual
+    - Azure App Service
+    - Azure Functions
+- Especifique **al menos una regla de IP o una regla de red virtual** para que el espacio de nombres permita el tráfico solo desde las direcciones IP o la subred especificadas de una red virtual. Si no hay ninguna regla de red virtual y de IP, se puede acceder al espacio de nombres a través de la red pública de Internet (mediante la clave de acceso). 
 
 
 ## <a name="add-a-private-endpoint-using-azure-portal"></a>Incorporación de un punto de conexión privado mediante Azure Portal
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerrequisitos
 
 Para integrar un espacio de nombres de Service Bus con Azure Private Link, necesitará las siguientes entidades o permisos:
 
@@ -51,15 +49,16 @@ Si ya tiene un espacio de nombres existente, puede crear un punto de conexión p
 1. Inicie sesión en [Azure Portal](https://portal.azure.com). 
 2. En la barra de búsqueda, escriba **Service Bus**.
 3. En la lista, seleccione el **espacio de nombres** al que desea agregar un punto de conexión privado.
-2. En el menú de la izquierda, seleccione la opción **Redes** en **Configuración**. 
-
+2. En el menú de la izquierda, seleccione la opción **Redes** en **Configuración**.     De forma predeterminada, está seleccionada la opción **Redes seleccionadas**.
+ 
     > [!NOTE]
     > Puede ver la pestaña **Redes** solo para los espacios de nombres **premium**.  
-    
-    De forma predeterminada, está seleccionada la opción **Redes seleccionadas**. Si no agrega al menos una regla de firewall de IP o una red virtual en esta página, se podrá acceder al espacio de nombres desde la red pública de Internet (mediante la clave de acceso).
+   
+    :::image type="content" source="./media/service-bus-ip-filtering/default-networking-page.png" alt-text="Página de redes: predeterminada" lightbox="./media/service-bus-ip-filtering/default-networking-page.png":::
 
-    :::image type="content" source="./media/service-bus-ip-filtering/default-networking-page.png" alt-text="Página Redes: predeterminada" lightbox="./media/service-bus-ip-filtering/default-networking-page.png":::
-    
+    > [!WARNING]
+    > Si no agrega al menos una regla de firewall de IP o una red virtual en esta página, se podrá acceder al espacio de nombres desde la red pública de Internet (mediante la clave de acceso).
+   
     Si selecciona la opción **Todas las redes**, el espacio de nombres de Service Bus aceptará conexiones procedentes de cualquier dirección IP (mediante la clave de acceso). Esta configuración predeterminada es equivalente a una regla que acepta el intervalo de direcciones IP 0.0.0.0/0. 
 
     ![Firewall: opción Todas las redes seleccionada](./media/service-bus-ip-filtering/firewall-all-networks-selected.png)

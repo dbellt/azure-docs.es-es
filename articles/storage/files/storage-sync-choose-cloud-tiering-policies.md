@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/24/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2ed1b8162c49ccc26cb98dd02897a9c40f809d14
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 01bf9ac6a3bfcb30fb6e6a6f9d56de3f9f516f03
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102204275"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106059282"
 ---
 # <a name="choose-cloud-tiering-policies"></a>Selección de directivas de nube por niveles
 
@@ -34,8 +34,13 @@ En las versiones del agente 9 y más recientes, el tamaño de archivo mínimo pa
 |16 KB (16384)               | 32 KB   |
 |32 KB (32768)               | 64 KB   |
 |64 KB (65536)    | 128 KB  |
+|128 KB (131072) | 256 KB |
+|256 KB (262144) | 512 KB |
+|512 KB (524288) | 1 MB |
+|1 MB (1048576) | 2 MB |
+|2 MB (2097152) | 4 MB |
 
-Actualmente se admiten tamaños de clúster de hasta 64 KB, pero la nube por niveles no funciona para tamaños mayores.
+Los tamaños de clúster de hasta 2 MB son compatibles con la versión 12 del agente de Azure File Sync pero, para tamaños mayores, la nube por niveles no funciona.
 
 Todos los sistemas de archivos que usa Windows organizan el disco duro en función del tamaño del clúster (lo que también se conoce como tamaño de la unidad de asignación). El tamaño del clúster representa la cantidad más pequeña de espacio en disco que se puede usar para conservar un archivo. Cuando los tamaños de archivo no son un múltiplo par del tamaño del clúster, se debe usar espacio adicional para conservar el archivo (hasta el siguiente múltiplo del tamaño del clúster).
 

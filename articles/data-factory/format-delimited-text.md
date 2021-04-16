@@ -4,14 +4,14 @@ description: En este tema se describe cómo tratar con el formato de texto delim
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 03/23/2021
 ms.author: jingwang
-ms.openlocfilehash: 5b6367d2765277493ea34a4f7a23cae4b24c4dc4
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: daf3691b48f7bf12e9ef51de7d4253dad9dbd2b1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100386601"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105026877"
 ---
 # <a name="delimited-text-format-in-azure-data-factory"></a>Formato de texto delimitado en Azure Data Factory
 
@@ -183,8 +183,10 @@ En la tabla siguiente se enumeran las propiedades que un receptor de texto delim
 | Nombre | Descripción | Obligatorio | Valores permitidos | Propiedad de script de flujo de datos |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Borrar la carpeta | Si la carpeta de destino se borra antes de escribir. | no | `true` o `false` | truncate |
-| Opción de nombre de archivo | El formato de nombre de los datos escritos. De forma predeterminada, un archivo por partición en formato `part-#####-tid-<guid>`. | no | Patrón: String <br> Por partición: String[] <br> Como datos de columna: String <br> Salida en un solo archivo: `['<fileName>']`  | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames |
+| Opción de nombre de archivo | El formato de nombre de los datos escritos. De forma predeterminada, un archivo por partición en formato `part-#####-tid-<guid>`. | no | Patrón: String <br> Por partición: String[] <br> Asignar nombre al archivo como datos de columna: cadena <br> Salida en un solo archivo: `['<fileName>']` <br> Asignar nombre a la carpeta como datos de columna: cadena | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames <br> rowFolderUrlColumn |
 | Entrecomillar todo | Incluye todos los valores entre comillas. | no | `true` o `false` | quoteAll |
+
+rowFolderUrlColumn:
 
 ### <a name="sink-example"></a>Ejemplo de receptor
 

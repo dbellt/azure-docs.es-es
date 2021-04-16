@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/17/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 578a248de3ee6aacc0db7c5116b66031b404c9ae
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: f87ef03a3af110ec17b7d907d4c2eac1bc1ca58b
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448173"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104579933"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-salesforce-account-using-azure-active-directory-b2c"></a>Configuración de la suscripción y del inicio de sesión con una cuenta de Salesforce mediante Azure Active Directory B2C
 
@@ -48,7 +48,7 @@ Para permitir el inicio de sesión de los usuarios con una cuenta de Salesforce 
     1. **API Name** (Nombre de la API) 
     1. **Contact Email** (Correo electrónico de contacto): el correo electrónico de contacto para Salesforce.
 1. En **API (Enable OAuth Settings)** [API (Habilitar configuración de OAuth)], seleccione **Enable OAuth Settings** (Habilitar configuración de OAuth).
-    1. En **Callback URL** (Dirección URL de devolución de llamada), escriba `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Reemplace `your-tenant-name` por el nombre del inquilino. Cuando especifique el nombre de inquilino, escriba todas las letras en minúscula, aunque se haya definido con letras en mayúscula en Azure AD B2C.
+    1. Para la **URL de devolución de llamada**, escriba `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Si usa un [dominio personalizado](custom-domain.md), escriba `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Reemplace `your-tenant-name` por el nombre del inquilino, y `your-domain-name` por el dominio personalizado. Cuando especifique el nombre de inquilino, escriba todas las letras en minúscula, aunque se haya definido con letras en mayúscula en Azure AD B2C.
     1. En **Selected OAuth Scopes** (Ámbitos de OAuth seleccionados), seleccione **Access your basic information (id, profile, email, address, phone)** [Acceder a la información básica (identificador, perfil, correo electrónico, dirección y teléfono)] y **Allow access to your unique identifier (openid)** [Permitir el acceso al identificador único (OpenID)].
     1. Seleccione **Require Secret for Web Server Flow** (Requerir secreto para flujo de servidor web).
 1. Seleccione **Configure ID Token** (Configurar token de identificador). 
@@ -87,6 +87,8 @@ Para permitir el inicio de sesión de los usuarios con una cuenta de Salesforce 
 1. Seleccione **Guardar**.
 
 ## <a name="add-salesforce-identity-provider-to-a-user-flow"></a>Adición de un proveedor de identidades de Salesforce a un flujo de usuario 
+
+En este punto se ha configurado el proveedor de identidades de Salesforce, pero aún no está disponible en ninguna de las páginas de inicio de sesión. Para agregar un proveedor de identidades de Salesforce a un flujo de usuario:
 
 1. En el inquilino de Azure AD B2C, seleccione **Flujos de usuario**.
 1. Haga clic en el flujo de usuario al que quiera agregar el proveedor de identidades de Salesforce.

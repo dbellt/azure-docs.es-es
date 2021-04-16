@@ -1,14 +1,14 @@
 ---
 title: Experiencias de administración entre inquilinos
 description: La administración de recursos delegados de Azure habilita una experiencia de administración entre inquilinos.
-ms.date: 03/23/2021
+ms.date: 03/29/2021
 ms.topic: conceptual
-ms.openlocfilehash: ba3cee2ecd7efcbb33c19d7ed159083e843c84a8
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 12c4aaa4dda159862344675c802603fcbda2f254
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104952123"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934332"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiencias de administración entre inquilinos
 
@@ -56,8 +56,8 @@ La mayoría de las tareas y servicios se pueden realizar en recursos delegados a
   - Asegúrese de que se aplica el mismo conjunto de directivas a los entornos híbridos de los clientes
   - Use Azure Security Center para supervisar el cumplimiento en todos los entornos híbridos de los clientes
 - Administración de clústeres híbridos de Kubernetes a gran escala: [Azure Arc habilitado para Kubernetes (versión preliminar)](../../azure-arc/kubernetes/overview.md):
-  - [Administre clústeres de Kubernetes conectados](../../azure-arc/kubernetes/connect-cluster.md) a suscripciones o grupos de recursos delegados en Azure.
-  - [Use GitOps](../../azure-arc/kubernetes/use-gitops-connected-cluster.md) para los clústeres conectados
+  - [Administre clústeres de Kubernetes conectados](../../azure-arc/kubernetes/quickstart-connect-cluster.md) a suscripciones o grupos de recursos delegados en Azure.
+  - [Use GitOps](../../azure-arc/kubernetes/tutorial-use-gitops-connected-cluster.md) para los clústeres conectados
   - Aplique directivas en los clústeres conectados
 
 [Azure Automation](../../automation/index.yml):
@@ -77,7 +77,7 @@ La mayoría de las tareas y servicios se pueden realizar en recursos delegados a
 
 [Azure Cost Management y facturación](../../cost-management-billing/index.yml):
 
-- En el inquilino de administración, los asociados de CSP pueden ver, administrar y analizar los costos de consumo antes de impuestos (sin incluir compras) de los clientes que se encuentran en el plan de Azure. El costo se basará en las tarifas comerciales y el acceso de control de acceso basado en rol de Azure (RBAC de Azure) que tiene el asociado para la suscripción del cliente.
+- En el inquilino de administración, los asociados de CSP pueden ver, administrar y analizar los costos de consumo antes de impuestos (sin incluir compras) de los clientes que se encuentran en el plan de Azure. El costo se basará en las tarifas comerciales y el acceso de control de acceso basado en rol de Azure (RBAC de Azure) que tiene el asociado para la suscripción del cliente. Actualmente, puede ver los costos de consumo de las tarifas comerciales de cada suscripción de cliente individual en función del acceso RBAC de Azure.
 
 [Azure Key Vault](../../key-vault/general/index.yml):
 

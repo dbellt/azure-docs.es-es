@@ -2,13 +2,13 @@
 title: Restricciones de nomenclatura de recursos
 description: Muestra las reglas y las restricciones de nomenclatura de recursos de Azure.
 ms.topic: conceptual
-ms.date: 01/27/2021
-ms.openlocfilehash: 20f7b6dc6c49b972b873ae3b275451829dec5c14
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/06/2021
+ms.openlocfilehash: e1a6f1628f5dcd8570551f9cc13ef508b44732f8
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105934179"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106505151"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Reglas y restricciones de nomenclatura para los recursos de Azure
 
@@ -16,7 +16,7 @@ En este artículo se resumen las reglas y las restricciones de nomenclatura de l
 
 En este artículo se enumeran los recursos por espacio de nombres del proveedor de recursos. Para obtener una lista de cómo se asocian los proveedores de recursos a los servicios de Azure, consulte [Proveedores de recursos para servicios de Azure](azure-services-resource-providers.md).
 
-Los nombres de los recursos no distinguen mayúsculas de minúsculas, a menos que se indique específicamente en la columna de caracteres válidos.
+Los nombres de los recursos no distinguen mayúsculas de minúsculas, a menos que se indique en la columna de caracteres válidos.
 
 En las tablas siguientes, el término carácter alfanumérico se refiere a:
 
@@ -599,7 +599,7 @@ En las tablas siguientes, el término carácter alfanumérico se refiere a:
 > | Entidad | Ámbito | Length | Caracteres válidos |
 > | --- | --- | --- | --- |
 > | deployments | resource group | 1-64 | Caracteres alfanuméricos, de subrayado, puntos, guiones y paréntesis. |
-> | resourcegroups | subscription | 1-90 | Caracteres alfanuméricos, de subrayado, paréntesis, guiones, puntos y caracteres Unicode que coincidan con la [documentación de regex](/rest/api/resources/resources/resourcegroups/createorupdate).<br><br>No puede terminar con un punto. |
+> | resourcegroups | subscription | 1-90 | Caracteres alfanuméricos, de subrayado, paréntesis, guiones, puntos y caracteres Unicode que coincidan con la [documentación de regex](/rest/api/resources/resourcegroups/createorupdate).<br><br>No puede terminar con un punto. |
 > | tagNames | resource | 1-512 | No puede usar:<br>`<>%&\?/` |
 > | tagNames/tagValues | nombre de etiqueta | 1-256 | Todos los caracteres. |
 > | templateSpecs | resource group | 1-90 | Caracteres alfanuméricos, de subrayado, puntos, guiones y paréntesis. |
@@ -706,10 +706,12 @@ En las tablas siguientes, el término carácter alfanumérico se refiere a:
 > | --- | --- | --- | --- |
 > | certificates | resource group | 1-260 | No puede usar:<br>`/` <br><br>No puede terminar con un espacio ni punto.  | 
 > | serverfarms | resource group | 1-40 | Caracteres alfanuméricos y guiones. |
-> | sites | global | 2-60 | Contiene caracteres alfanuméricos y guiones.<br><br>No puede comenzar ni terminar con un guion. |
+> | sites | global o por dominio. Vea la nota siguiente. | 2-60 | Contiene caracteres alfanuméricos y guiones.<br><br>No puede comenzar ni terminar con un guion. |
 > | sites/slots | site | 2-59 | Caracteres alfanuméricos y guiones. |
 
 > [!NOTE]
+> Un sitio web debe tener una dirección URL globalmente única. Cuando se crea un sitio web que utiliza un plan de hospedaje, la dirección URL es `http://<app-name>.azurewebsites.net`. El nombre de la aplicación debe ser único globalmente. Cuando se crea un sitio web que usa una instancia de App Service Environment, el nombre de la aplicación debe ser único dentro del [dominio de la instancia de App Service Environment](../../app-service/environment/using-an-ase.md#app-access). En ambos casos, la dirección URL del sitio es globalmente única.
+>
 > Azure Functions tiene las mismas reglas y restricciones de nomenclatura que Microsoft.Web/sites.
 
 ## <a name="next-steps"></a>Pasos siguientes

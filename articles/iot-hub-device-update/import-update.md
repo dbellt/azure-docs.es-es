@@ -6,22 +6,22 @@ ms.author: andbrown
 ms.date: 2/11/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: b9d40848abdd85beeca592001b697e3c50b7cd59
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ede0d279b8769f49afcdae1cb9352c1b47fb59b5
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103008569"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105932410"
 ---
 # <a name="import-new-update"></a>Importación de una nueva actualización
 Aprenda a importar una nueva actualización en Device Update para IoT Hub. Si aún no lo ha hecho, asegúrese de familiarizarse con los [conceptos de importación](import-concepts.md) básicos.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* [Acceso a una instancia de IoT Hub con Device Update para IoT Hub habilitado](create-device-update-account.md). Se recomienda usar un nivel S1 (estándar), o superior, para su instancia de IoT Hub. 
+* [Acceso a una instancia de IoT Hub con Device Update para IoT Hub habilitado](create-device-update-account.md). 
 * Un dispositivo IoT (o simulador) aprovisionado para Device Update en IoT Hub.
    * Si se usa un dispositivo real, necesitará un archivo de imagen de actualización para la actualización de la imagen o un [archivo de manifiesto APT](device-update-apt-manifest.md) para la actualización del paquete.
-* [PowerShell 5](https://docs.microsoft.com/powershell/scripting/install/installing-powershell) o posterior.
+* [PowerShell 5](/powershell/scripting/install/installing-powershell) o posterior (incluye las instalaciones de Linux, macOS y Windows).
 * Exploradores admitidos:
   * [Microsoft Edge](https://www.microsoft.com/edge)
   * Google Chrome
@@ -35,7 +35,7 @@ Aprenda a importar una nueva actualización en Device Update para IoT Hub. Si a�
 
 2. Cree un archivo de texto denominado **AduUpdate.psm1** en el directorio donde se encuentra el archivo de imagen de actualización o el archivo de manifiesto APT. Después, abra el cmdlet de PowerShell [AduUpdate.psm1](https://github.com/Azure/iot-hub-device-update/tree/main/tools/AduCmdlets), copie el contenido en el archivo de texto y, a continuación, guarde el archivo de texto.
 
-3. En PowerShell, navegue hasta el directorio en el que ha creado el cmdlet de PowerShell en el paso 2. A continuación, ejecute:
+3. En PowerShell, navegue hasta el directorio en el que ha creado el cmdlet de PowerShell en el paso 2. Use la opción Copiar que aparece a continuación y péguela en PowerShell para ejecutar los comandos:
 
     ```powershell
     Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
@@ -57,13 +57,13 @@ Aprenda a importar una nueva actualización en Device Update para IoT Hub. Si a�
 
     | Parámetro | Descripción |
     | --------- | ----------- |
-    | deviceManufacturer | El fabricante del dispositivo con el que la actualización es compatible, por ejemplo, Contoso. Debe coincidir con la [propiedad del dispositivo](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-plug-and-play#device-properties) _manufacturer_.
-    | deviceModel | El modelo del dispositivo con el que la actualización es compatible, por ejemplo, Tostador. Debe coincidir con la [propiedad del dispositivo](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-plug-and-play#device-properties) _model_.
+    | deviceManufacturer | El fabricante del dispositivo con el que la actualización es compatible, por ejemplo, Contoso. Debe coincidir con la [propiedad del dispositivo](./device-update-plug-and-play.md#device-properties) _manufacturer_.
+    | deviceModel | El modelo del dispositivo con el que la actualización es compatible, por ejemplo, Tostador. Debe coincidir con la [propiedad del dispositivo](./device-update-plug-and-play.md#device-properties) _model_.
     | updateProvider | Entidad que está creando la actualización o que es directamente responsable de ella. Suele ser un nombre de empresa.
     | updateName | Identificador de una clase de actualizaciones. La clase puede ser cualquier cosa que elija. Suele ser un nombre de dispositivo o de modelo.
     | updateVersion | Número de versión que diferencia a esta actualización de otras con el mismo proveedor y el mismo nombre. No coincide con ninguna versión de un componente de software individual en el dispositivo (pero puede coincidir si elige uno).
     | updateType | <ul><li>Especifique `microsoft/swupdate:1` para la actualización de la imagen.</li><li>Especifique `microsoft/apt:1` para la actualización del paquete.</li></ul>
-    | installedCriteria | <ul><li>Especifique el valor de SWVersion para el tipo de actualización `microsoft/swupdate:1`.</li><li>Especifique el valor recomendado para el tipo de actualización `microsoft/apt:1`.
+    | installedCriteria | <ul><li>Especifique el valor de SWVersion para el tipo de actualización `microsoft/swupdate:1`.</li><li>Especifique el valor **name-version**, donde _name_ es el nombre del manifiesto APT y _version_ es la versión del manifiesto APT. Por ejemplo, contoso-iot-edge-1.0.0.0.
     | updateFilePath(s) | Ruta de acceso a los archivos de actualización del equipo
 
 
