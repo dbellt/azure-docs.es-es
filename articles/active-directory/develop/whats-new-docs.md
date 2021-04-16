@@ -11,16 +11,45 @@ ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
 ms.author: marsma
-ms.openlocfilehash: 56e6d859293b91a56252372574f59c8dcc2cd80e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 68136cc259e0be4a2f9449aa9ec15f4a14a63890
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101687335"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106074988"
 ---
 # <a name="microsoft-identity-platform-docs-whats-new"></a>Documentos de la plataforma de identidad de Microsoft: Novedades
 
 Estas son las novedades de la documentación de la Plataforma de identidad de Microsoft. En este artículo se enumeran los documentos nuevos que se han agregado y los que han tenido actualizaciones importantes en los últimos tres meses.
+
+## <a name="march-2021"></a>Marzo de 2021
+
+### <a name="new-articles"></a>Artículos nuevos
+
+- [Restauración o eliminación de una aplicación recientemente eliminada con la Plataforma de identidad de Microsoft](quickstart-restore-app.md)
+
+### <a name="updated-articles"></a>Artículos actualizados
+
+- [Consentimiento del administrador en la Plataforma de identidad de Microsoft](v2-admin-consent.md)
+- [Requisitos de configuración y sugerencias para la solución de problemas para Xamarin Android con MSAL.NET](msal-net-xamarin-android-considerations.md)
+- [Aplicación de demonio que llama a las API web: adquisición de un token](scenario-daemon-acquire-token.md)
+- [Aplicación de demonio que llama a las API web: configuración de código](scenario-daemon-app-configuration.md)
+- [Aplicación de demonio que llama a las API web: llamada a una API web desde la aplicación](scenario-daemon-call-api.md)
+- [Aplicación de demonio que llama a las API web: paso a producción](scenario-daemon-production.md)
+- [Aplicación de escritorio que llama a API web: Adquisición de un token](scenario-desktop-acquire-token.md)
+- [Aplicación de escritorio que llama a las API web: Configuración del código](scenario-desktop-app-configuration.md)
+- [Aplicación de escritorio que llama a las API web: Llamada a una API de web](scenario-desktop-call-api.md)
+- [Procedimientos: Personalizar las notificaciones emitidas en tokens para una determinada aplicación de un inquilino (versión preliminar)](active-directory-claims-mapping.md)
+- [Inicio de sesión en MSAL para Python](msal-logging-python.md)
+- [Complemento Microsoft Enterprise SSO para dispositivos Apple (versión preliminar)](apple-sso-plugin.md)
+- [Inicio rápido: Adición del inicio de sesión de la plataforma de identidad de Microsoft a una aplicación web de ASP.NET](quickstart-v2-aspnet-webapp.md)
+- [Inicio rápido: Adición del inicio de sesión con Microsoft en una aplicación web de ASP.NET Core](quickstart-v2-aspnet-core-webapp.md)
+- [Inicio rápido: Adquisición de un token y llamada a Microsoft Graph API mediante una identidad de aplicación de consola](quickstart-v2-netcore-daemon.md)
+- [Inicio rápido: Protección de una API web de ASP.NET Core con la plataforma de identidad de Microsoft](quickstart-v2-aspnet-core-web-api.md)
+- [Inicio rápido: Inicio de sesión de usuarios y obtención de un token de acceso en un aplicación de página única de Angular](quickstart-v2-angular.md)
+- [Opciones de ayuda y soporte técnico para desarrolladores](developer-support-help-options.md)
+- [Aplicación web que inicia sesión de usuarios: Configuración del código](scenario-web-app-sign-user-app-configuration.md)
+- [Aplicación web que inicia sesión de usuarios: Inicio y cierre de sesión](scenario-web-app-sign-user-sign-in.md)
 
 ## <a name="february-2021"></a>Febrero de 2021
 
@@ -65,25 +94,3 @@ Estas son las novedades de la documentación de la Plataforma de identidad de Mi
 - [Configuración de las directivas de vigencia de tokens (versión preliminar)](configure-token-lifetimes.md)
 - [Bibliotecas de autenticación de la Plataforma de identidad de Microsoft](reference-v2-libraries.md)
 - [Plataforma de identidad y flujo de código de autorización de OAuth 2.0](v2-oauth2-auth-code-flow.md)
-
-## <a name="december-2020"></a>Diciembre de 2020
-
-### <a name="new-articles"></a>Artículos nuevos
-
-- [Inicio rápido: aplicación web ASP.NET Core que inicia la sesión de los usuarios y llama a Microsoft Graph en su nombre](quickstart-v2-aspnet-core-webapp-calls-graph.md)
-- [Control de errores y excepciones en MSAL.NET](msal-error-handling-dotnet.md)
-- [Control de errores y excepciones en MSAL para iOS/macOS](msal-error-handling-ios.md)
-- [Control de errores y excepciones en MSAL para Java](msal-error-handling-java.md)
-- [Control de errores y excepciones en MSAL.js](msal-error-handling-js.md)
-- [Control de errores y excepciones en MSAL para Python](msal-error-handling-python.md)
-- [Escenarios de intercambio de tokens de la plataforma de identidad de Microsoft con SAML y OIDC/OAuth](scenario-token-exchange-saml-oauth.md)
-
-### <a name="updated-articles"></a>Artículos actualizados
-
-- [Inicio rápido: Adición de inicio de sesión con Microsoft a una aplicación web de Java](quickstart-v2-java-webapp.md)
-- [Tutorial: Creación de un demonio multiinquilino que usa la plataforma de identidad de Microsoft](tutorial-v2-aspnet-daemon-web-app.md)
-- [Aplicación web que inicia sesión de usuarios: Registro de aplicación](scenario-web-app-sign-user-app-registration.md)
-- [Plataforma de identidad de Microsoft y flujo de concesión implícita](v2-oauth2-implicit-grant-flow.md)
-- [Tokens de acceso de la Plataforma de identidad de Microsoft](access-tokens.md)
-- [API web que llama a las API web: adquisición de un token para la aplicación](scenario-web-api-call-api-acquire-token.md)
-

@@ -2,143 +2,30 @@
 title: Entrega de eventos, identidad de servicio administrado y vínculo privado
 description: En este artículo se describe cómo habilitar Managed Service Identity para un tema de Azure Event Grid. Úselo para reenviar eventos a los destinos admitidos.
 ms.topic: how-to
-ms.date: 01/28/2021
-ms.openlocfilehash: 3e643465db7cc918499ca962c4697cb61cb4b594
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/25/2021
+ms.openlocfilehash: 76f10b4627dc9578b1e616a868eab03431b59b69
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100007778"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105625285"
 ---
 # <a name="event-delivery-with-a-managed-identity"></a>Entrega de evento con una identidad administrada
-En este artículo se describe cómo habilitar una [identidad de servicio administrada](../active-directory/managed-identities-azure-resources/overview.md) para temas o dominios personalizados de Azure Event Grid. Úselo para reenviar eventos a destinos compatibles, como colas y temas de Service Bus, centros de eventos y cuentas de almacenamiento.
-
-Estos son los pasos que se describen en detalle en este artículo:
-1. Cree un tema o un dominio personalizados con una identidad asignada por el sistema, o bien actualice un tema o un dominio existentes para habilitar la identidad. 
-1. Agregue la identidad a un rol adecuado (por ejemplo, Remitente de los datos de Service Bus) en el destino (por ejemplo, una cola de Service Bus).
-1. Al crear suscripciones de eventos, habilite el uso de la identidad para enviar eventos al destino. 
-
-> [!NOTE]
-> Actualmente, no es posible enviar eventos mediante [puntos de conexión privados](../private-link/private-endpoint-overview.md). Para obtener más información, consulte la sección [Puntos de conexión privado](#private-endpoints) al final de este artículo. 
-
-## <a name="create-a-custom-topic-or-domain-with-an-identity"></a>Creación de un tema o un dominio personalizados con una identidad
-En primer lugar, echemos un vistazo a cómo crear un tema o un dominio con una identidad administrada por el sistema.
-
-### <a name="use-the-azure-portal"></a>Uso de Azure Portal
-Puede habilitar una identidad asignada por el sistema para un tema o un dominio personalizados mientras la crea en Azure Portal. En la siguiente imagen se muestra cómo habilitar una identidad administrada por el sistema para un tema personalizado. Básicamente, se selecciona la opción **Enable system assigned identity** (Habilitar identidad asignada por el sistema) en la página de **opciones avanzadas** del Asistente para crear temas. También verá esta opción en la página de **opciones avanzadas** del Asistente para crear dominios. 
-
-![Habilitación de la identidad durante la creación de un tema personalizado](./media/managed-service-identity/create-topic-identity.png)
-
-### <a name="use-the-azure-cli"></a>Uso de la CLI de Azure
-También puede usar la CLI de Azure para crear un tema o un dominio personalizados con una identidad asignada por el sistema. Use el comando `az eventgrid topic create` con el parámetro `--identity` establecido en `systemassigned`. Si no especifica un valor para este parámetro, se utiliza el valor predeterminado `noidentity`. 
-
-```azurecli-interactive
-# create a custom topic with a system-assigned identity
-az eventgrid topic create -g <RESOURCE GROUP NAME> --name <TOPIC NAME> -l <LOCATION>  --identity systemassigned
-```
-
-Del mismo modo, puede usar el comando `az eventgrid domain create` para crear un dominio con una identidad administrada por el sistema.
-
-## <a name="enable-an-identity-for-an-existing-custom-topic-or-domain"></a>Habilitación de una identidad para un tema o un dominio personalizados existentes
-En la última sección, ha aprendido a habilitar la identidad administrada por el sistema durante la creación de un tema o un dominio personalizados. En esta sección, aprenderá a habilitar una identidad administrada por el sistema para un tema o un dominio personalizados existentes. 
-
-### <a name="use-the-azure-portal"></a>Uso de Azure Portal
-El siguiente procedimiento muestra cómo habilitar una identidad administrada por el sistema para un tema personalizado. Los pasos para habilitar una identidad para un dominio son similares. 
-
-1. Vaya a [Azure Portal](https://portal.azure.com).
-2. Busque **temas de Event Grid** en la barra de búsqueda de la parte superior.
-3. Seleccione el **tema personalizado** para el que quiere habilitar la identidad administrada. 
-4. Cambie a la pestaña **Identidad**. 
-5. **Active** el conmutador para habilitar la identidad. 
-1. Seleccione **Guardar** en la barra de herramientas para guardar la configuración. 
-
-    :::image type="content" source="./media/managed-service-identity/identity-existing-topic.png" alt-text="Página de identidad para un tema personalizado"::: 
-
-Puede usar pasos similares para habilitar una identidad de un dominio de Event Grid.
-
-### <a name="use-the-azure-cli"></a>Uso de la CLI de Azure
-Use el comando `az eventgrid topic update` con `--identity` establecido en `systemassigned` para habilitar la identidad asignada por el sistema para un tema personalizado existente. Si desea deshabilitar la identidad, especifique `noidentity` como valor. 
-
-```azurecli-interactive
-# Update the topic to assign a system-assigned identity. 
-az eventgrid topic update -g $rg --name $topicname --identity systemassigned --sku basic 
-```
-
-El comando para actualizar un dominio existente es similar (`az eventgrid domain update`).
-
-## <a name="supported-destinations-and-azure-roles"></a>Destinos admitidos y roles de Azure
-Después de habilitar la identidad para el tema o el dominio personalizados de Event Grid, Azure crea automáticamente una identidad en Azure Active Directory. Agregue esta identidad a los roles de Azure adecuados para que el tema o el dominio personalizados puedan reenviar eventos a los destinos admitidos. Por ejemplo, agregue a la identidad el rol **Remitente de los datos de Azure Event Hubs** en un espacio de nombres de Azure Event Hubs de modo que el tema personalizado de Event Grid pueda reenviar eventos a los centros de eventos en dicho espacio de nombres. 
-
-Actualmente, Azure Event Grid admite temas o dominios personalizados configurados con una identidad administrada asignada por el sistema para reenviar eventos a los siguientes destinos. En esta tabla también se proporcionan los roles que debe tener la identidad para que el tema personalizado pueda reenviar los eventos.
-
-| Destination | Rol de Azure | 
-| ----------- | --------- | 
-| Colas y temas de Service Bus | [Emisor de datos de Azure Service Bus](../service-bus-messaging/authenticate-application.md#azure-built-in-roles-for-azure-service-bus) |
-| Azure Event Hubs | [Emisor de datos de Azure Event Hubs](../event-hubs/authorize-access-azure-active-directory.md#azure-built-in-roles-for-azure-event-hubs) | 
-| Azure Blob Storage | [Colaborador de datos de blobs de almacenamiento](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues) |
-| Azure Queue Storage |[Emisor de mensajes de datos de la cola de Storage](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues) | 
-
-## <a name="add-an-identity-to-azure-roles-on-destinations"></a>Incorporación de una identidad a los roles de Azure en los destinos
-En esta sección se describe cómo agregar un rol de Azure a la identidad del tema o del dominio personalizados. 
-
-### <a name="use-the-azure-portal"></a>Uso de Azure Portal
-Puede usar Azure Portal para asignar un rol adecuado a la identidad del tema o del dominio personalizados, de modo que el tema o el dominio personalizados puedan reenviar eventos al destino. 
-
-En el siguiente ejemplo se agrega el rol **Remitente de los datos de Azure Event Hubs** a una identidad administrada de un tema personalizado de Event Grid denominado **msitesttopic** en un espacio de nombres de Service Bus que contiene un recurso de cola o tema. Al agregar el rol en el nivel de espacio de nombres, el tema personalizado de Event Grid puede reenviar eventos a todas las entidades del espacio de nombres. 
-
-1. Vaya al **espacio de nombres de Service Bus** en [Azure Portal](https://portal.azure.com). 
-1. Seleccione **Control de acceso** en el panel izquierdo. 
-1. Seleccione **Agregar** en la sección **Agregar una asignación de roles**. 
-1. En la página **Agregar una asignación de roles**, siga estos pasos:
-    1. Seleccione el rol. En este caso, es **Emisor de datos de Azure Event Hubs** 
-    1. Seleccione la **identidad** del tema o del dominio personalizados de Event Grid. 
-    1. Para guardar la configuración, seleccione **Guardar**.
-
-Los pasos son similares para agregar una identidad a otros roles que se mencionan en la tabla. 
-
-### <a name="use-the-azure-cli"></a>Uso de la CLI de Azure
-En el ejemplo de esta sección se muestra cómo usar la CLI de Azure para agregar una identidad a un rol de Azure. Los comandos de ejemplo son para temas personalizados de Event Grid. Los comandos de los dominios de Event Grid son similares. 
-
-#### <a name="get-the-principal-id-for-the-custom-topics-system-identity"></a>Obtención del identificador de entidad de seguridad de la identidad del sistema del tema personalizado 
-En primer lugar, obtenga el identificador de entidad de seguridad de la identidad administrada por el sistema del tema personalizado y asigne a la identidad los roles adecuados.
-
-```azurecli-interactive
-topic_pid=$(az ad sp list --display-name "$<TOPIC NAME>" --query [].objectId -o tsv)
-```
-
-#### <a name="create-a-role-assignment-for-event-hubs-at-various-scopes"></a>Creación de una asignación de roles para centros de eventos en varios ámbitos 
-En el siguiente ejemplo de la CLI se muestra cómo agregar el rol **Emisor de datos de Azure Event Hubs** a la identidad de un tema personalizado en el nivel de espacio de nombres o en el nivel de centro de eventos. Si crea la asignación de roles en el nivel de espacio de nombres, el tema personalizado puede reenviar eventos a todos los centros de eventos de ese espacio de nombres. Si la crea en el nivel de centro de eventos, el tema personalizado solo puede reenviar eventos a ese centro de eventos específico. 
+En este artículo se describe cómo usar una [identidad de servicio administrada](../active-directory/managed-identities-azure-resources/overview.md) en un tema del sistema, un tema personalizado o un dominio de Azure Event Grid. Úselo para reenviar eventos a destinos compatibles, como colas y temas de Service Bus, centros de eventos y cuentas de almacenamiento.
 
 
-```azurecli-interactive
-role="Azure Event Hubs Data Sender" 
-namespaceresourceid=$(az eventhubs namespace show -n $<EVENT HUBS NAMESPACE NAME> -g <RESOURCE GROUP of EVENT HUB> --query "{I:id}" -o tsv) 
-eventhubresourceid=$(az eventhubs eventhub show -n <EVENT HUB NAME> --namespace-name <EVENT HUBS NAMESPACE NAME> -g <RESOURCE GROUP of EVENT HUB> --query "{I:id}" -o tsv) 
 
-# create role assignment for the whole namespace 
-az role assignment create --role "$role" --assignee "$topic_pid" --scope "$namespaceresourceid" 
+## <a name="prerequisites"></a>Prerrequisitos
+1. Asigne una identidad asignada por el sistema a un tema del sistema, a un tema personalizado o a un dominio. 
+    - Para temas y dominios personalizados, consulte [Asignación de una identidad administrada por el sistema a un tema o un dominio personalizados de Event Grid](enable-identity-custom-topics-domains.md). 
+    - Para los temas del sistema, consulte [Asignación de una identidad administrada por el sistema a un tema del sistema de Event Grid](enable-identity-system-topics.md).
+1. Agregue la identidad a un rol adecuado (por ejemplo, Remitente de los datos de Service Bus) en el destino (por ejemplo, una cola de Service Bus). Para obtener pasos detallados, consulte [Adición de una identidad a los roles de Azure en destinos de Azure Event Grid](add-identity-roles.md).
 
-# create role assignment scoped to just one event hub inside the namespace 
-az role assignment create --role "$role" --assignee "$topic_pid" --scope "$eventhubresourceid" 
-```
-
-#### <a name="create-a-role-assignment-for-a-service-bus-topic-at-various-scopes"></a>Creación de una asignación de roles de un tema de Service Bus en varios ámbitos 
-En el siguiente ejemplo con la CLI se muestra cómo agregar el rol **Emisor de datos de Azure Event Hubs** a la identidad de un tema personalizado de Event Grid en el nivel de espacio de nombres o en el nivel de tema de Service Bus. Si crea la asignación de roles en el nivel de espacio de nombres, el tema de Event Grid puede reenviar eventos a todas las entidades (colas o temas de Service Bus ) dentro de ese espacio de nombres. Si la crea en el nivel de cola o tema de Service Bus, el tema personalizado de Event Grid solo puede reenviar eventos a esa cola o tema de Service Bus específicos. 
-
-```azurecli-interactive
-role="Azure Service Bus Data Sender" 
-namespaceresourceid=$(az servicebus namespace show -n $RG\SB -g "$RG" --query "{I:id}" -o tsv 
-sbustopicresourceid=$(az servicebus topic show -n topic1 --namespace-name $RG\SB -g "$RG" --query "{I:id}" -o tsv) 
-
-# create role assignment for the whole namespace 
-az role assignment create --role "$role" --assignee "$topic_pid" --scope "$namespaceresourceid" 
-
-# create role assignment scoped to just one hub inside the namespace 
-az role assignment create --role "$role" --assignee "$topic_pid" --scope "$sbustopicresourceid" 
-```
+    > [!NOTE]
+    > Actualmente, no es posible enviar eventos mediante [puntos de conexión privados](../private-link/private-endpoint-overview.md). Para obtener más información, consulte la sección [Puntos de conexión privado](#private-endpoints) al final de este artículo. 
 
 ## <a name="create-event-subscriptions-that-use-an-identity"></a>Creación de suscripciones de eventos que usan una identidad
-Una vez que tenga un tema o un dominio personalizados de Event Grid con una identidad administrada por el sistema y haya agregado a la identidad el rol adecuado en el destino, estará listo para crear suscripciones que usen la identidad. 
+Una vez que tenga un tema o un dominio del sistema o un tema personalizados de Event Grid con una identidad administrada por el sistema y haya agregado a la identidad el rol adecuado en el destino, estará listo para crear suscripciones que usen la identidad. 
 
 ### <a name="use-the-azure-portal"></a>Uso de Azure Portal
 Al crear una suscripción de eventos, se muestra una opción para habilitar el uso de una identidad asignada por el sistema para un punto de conexión en la sección **DETALLES DE PUNTO DE CONEXIÓN**. 
@@ -291,4 +178,4 @@ En esta configuración, el tráfico pasa por la dirección IP pública/Internet 
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más información sobre las identidades de servicio administradas, consulte el artículo sobre [Qué son las identidades administradas para recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md). 
+Para más información sobre las identidades administradas, consulte [¿Qué son las identidades administradas de recursos de Azure?](../active-directory/managed-identities-azure-resources/overview.md).

@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 06/21/2019
-ms.openlocfilehash: 322ef3b8ca30396bd4772850ff651f7545a21257
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 11c83a6ec364865eb3478112c9f33add22a5c09d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100580749"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105643271"
 ---
 # <a name="restore-your-azure-sql-database-or-failover-to-a-secondary"></a>Restauración de un instancia de Azure SQL Database o conmutación por error a una base de datos secundaria
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -66,7 +66,7 @@ Use la opción [Get Recoverable Database](/previous-versions/azure/reference/dn8
 
 ## <a name="wait-for-service-recovery"></a>Espera para la recuperación del servicio
 
-Los equipos de Azure trabajan diligentemente para restaurar la disponibilidad del servicio lo antes posible, pero dependiendo de la causa principal pueden tardar horas, o incluso días.  Si la aplicación puede tolerar un tiempo de inactividad considerable, puede esperar hasta que se complete la recuperación. En este caso, no se requieren acciones por su parte. El estado actual del servicio se puede ver en el [panel de estado de los servicios de Azure](https://azure.microsoft.com/status/). Después de la recuperación de la región se restaura la disponibilidad de su aplicación.
+Los equipos de Azure trabajan diligentemente para restaurar la disponibilidad del servicio lo antes posible, pero dependiendo de la causa principal pueden tardar horas, o incluso días.  Si la aplicación puede tolerar un tiempo de inactividad considerable, puede esperar hasta que se complete la recuperación. En este caso, no se requieren acciones por su parte. El estado actual del servicio se puede ver en el [panel de estado de los servicios de Azure](https://azure.microsoft.com/status/). Después de la recuperación de la región, se restaura la disponibilidad de la aplicación.
 
 ## <a name="fail-over-to-geo-replicated-secondary-server-in-the-failover-group"></a>Conmutación por error en el servidor secundario de una replicación geográfica en el grupo de conmutación por error
 
@@ -78,7 +78,7 @@ Utilice una de las siguientes guías para realizar la conmutación por error en 
 
 - [Conmutar por error un servidor secundario replicado geográficamente mediante Azure Portal](active-geo-replication-configure-portal.md)
 - [Conmutar por error el servidor secundario mediante PowerShell](scripts/setup-geodr-and-failover-database-powershell.md)
-- [Conmutación por error a un servidor secundario con Transact-SQL (T-SQL)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#e-failover-to-a-geo-replication-secondary)
+- [Conmutación por error a un servidor secundario con Transact-SQL (T-SQL)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current&preserve-view=true#e-failover-to-a-geo-replication-secondary)
 
 ## <a name="recover-using-geo-restore"></a>Recuperación mediante la restauración geográfica
 

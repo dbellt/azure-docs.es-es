@@ -5,25 +5,28 @@ description: Puede usar su propia clave de cifrado para proteger los datos de la
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 03/09/2021
+ms.date: 03/30/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 358be21a1f7f13c0c0ce1bf0e57dda53174216b2
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 07f8faf503bdea6be8263afa6240594956b61391
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102517538"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106059452"
 ---
 # <a name="customer-managed-keys-for-azure-storage-encryption"></a>Claves administradas por el cliente para el cifrado de Azure Storage
 
 Puede usar su propia clave de cifrado para proteger los datos de la cuenta de almacenamiento. Cuando se especifica una clave administrada por el cliente, esa clave se usa para proteger y controlar el acceso a la clave que cifra los datos. Las claves administradas por el cliente ofrecen más flexibilidad para administrar controles de acceso.
 
-Debe usar Azure Key Vault o el módulo de seguridad de hardware (HSM) administrado de Azure Key Vault (versión preliminar) para almacenar las claves administradas por el cliente. Puede crear sus propias claves y almacenarlas en un almacén de claves o HSM administrado, o bien puede usar las API de Azure Key Vault para generarlas. La cuenta de almacenamiento y el almacén de claves o HSM administrado deben estar en la misma región y en el mismo inquilino de Azure Active Directory (Azure AD), pero pueden estar en distintas suscripciones.
+Debe usar uno de los siguientes almacenes de claves de Azure para almacenar las claves administradas por el cliente:
 
-Para más información sobre Azure Key Vault, vea [¿Qué es Azure Key Vault?](../../key-vault/general/overview.md).
+- [Azure Key Vault](../../key-vault/general/overview.md)
+- [Módulo de seguridad de hardware (HSM) administrado por Azure Key Vault (versión preliminar)](../../key-vault/managed-hsm/overview.md)
+
+Puede crear sus propias claves y almacenarlas en un almacén de claves o HSM administrado, o bien puede usar las API de Azure Key Vault para generarlas. La cuenta de almacenamiento y el almacén de claves o HSM administrado deben estar en la misma región y en el mismo inquilino de Azure Active Directory (Azure AD), pero pueden estar en distintas suscripciones.
 
 > [!IMPORTANT]
 >

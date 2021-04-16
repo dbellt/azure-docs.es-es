@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: chez
 ms.reviewer: mariozi
-ms.openlocfilehash: c6c376e44c6135a800e6f7e281f8ea85b828329a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a18d06e3a0324889a4cb9936fb339fd9d8f9b816
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102443897"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106222710"
 ---
 # <a name="encrypt-azure-data-factory-with-customer-managed-keys"></a>Cifrado de Azure Data Factory con claves administradas por el cliente
 
@@ -137,6 +137,23 @@ Para cambiar la clave usada para el cifrado de Data Factory, debe actualizar man
 ## <a name="disable-customer-managed-keys"></a>Deshabilitación de las claves administradas por el cliente
 
 De manera intencionada, una vez habilitada la característica de claves administradas por el cliente, no se puede quitar el paso de seguridad adicional. Para cifrar la factoría y los datos, siempre se esperará una clave proporcionada por el cliente.
+
+## <a name="customer-managed-key-and-continuous-integration-and-continuous-deployment"></a>Clave administrada por el cliente para la integración continua y entrega continua
+
+De forma predeterminada, la configuración de CMK no se incluye en la plantilla de Azure Resource Manager de fábrica. Para incluir la configuración del cifrado de claves administradas por el cliente en la plantilla de Resource Manager para la integración continua y entrega continua (CI/CD):
+
+1. Asegurarse de que la fábrica está en modo Git
+1. Vaya al portal de administración, a la sección Clave administrada por el cliente
+1. Active la opción _Include in ARM template_ (Incluir en la plantilla de Resource Manager).
+
+  :::image type="content" source="media/enable-customer-managed-key/07-include-in-template.png" alt-text="Captura de pantalla de la opción para incluir una clave administrada por el cliente en la plantilla de Resource Manager.":::
+
+La siguiente configuración se agregará en la plantilla de Resource Manager. Estas propiedades se pueden parametrizar en canalizaciones de integración y entrega continuas mediante la edición de la [configuración de los parámetros de Azure Resource Manager](continuous-integration-deployment.md#use-custom-parameters-with-the-resource-manager-template).
+
+  :::image type="content" source="media/enable-customer-managed-key/08-template-with-customer-managed-key.png" alt-text="Captura de pantalla de la opción para incluir la clave administrada por el cliente en la plantilla de Azure Resource Manager.":::
+
+> [!NOTE]
+> Al agregar la configuración de cifrado a las plantillas de Resource Manager, se agrega una configuración de fábrica que invalidará otras opciones de configuración de fábrica, como las configuraciones de Git, en otros entornos. Si tiene esta configuración habilitada en un entorno con privilegios elevados, como UAT o PROD, consulte [Parámetros globales en CI/CD](author-global-parameters.md#cicd).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

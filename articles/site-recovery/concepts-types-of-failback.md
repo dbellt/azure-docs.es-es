@@ -1,18 +1,15 @@
 ---
 title: Conmutación por recuperación durante la recuperación ante desastres con Azure Site Recovery | Microsoft Docs
 description: En este artículo se proporciona información general acerca de los diversos tipos de conmutación por recuperación y advertencias que deben considerarse al conmutar por recuperación de forma local durante la recuperación ante desastres con el servicio de Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/07/2019
-ms.author: raynew
-ms.openlocfilehash: c0eaf28f9aeb4050fd35a6036a53e3e91d00f3eb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6f386b34222825b60748b4ca27dcc5c0c2487316
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84691091"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106580848"
 ---
 # <a name="failback-of-vmware-vms-after-disaster-recovery-to-azure"></a>Conmutación por recuperación de máquinas virtuales de VMware después de la recuperación ante desastres en Azure
 

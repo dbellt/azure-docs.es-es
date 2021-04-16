@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: c7d06172abd696e386337e563fa29fdbd2d3cdae
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aebbe7ab736b8a7b73900f1d552d723b8a609de6
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103493669"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106222765"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versiones de Kubernetes compatibles en Azure Kubernetes Service (AKS)
 
@@ -185,6 +185,14 @@ Cuando se actualiza un clúster de AKS compatible, no pueden omitirse las versio
 Para actualizar de *1.12.x* -> *1.14.x*, la primera actualización sería de *1.12.x* -> *1.13.x* y, después, de *1.13.x* -> *1.14.x*.
 
 Solo se pueden omitir varias versiones cuando se actualiza de una versión que no es compatible a otra que sí lo es. Por ejemplo, cuando se actualiza de la versión *1.10.x*, que no es compatible, a la versión *1.15.x*, que sí lo es.
+
+**¿Puedo crear un nuevo clúster 1.xx.x durante su período de soporte técnico de 30 días?**
+
+No. Una vez que una versión está en desuso o se ha quitado, no se puede crear un clúster con esa versión. A medida que el cambio se implementa, comenzará a ver que la versión anterior se quita de la lista de versiones. Este proceso puede tardar hasta dos semanas desde el anuncio, y será progresivo por región.
+
+**Utilizo una versión que acaba de entrar en desuso, ¿puedo seguir agregando nuevos grupos de nodos o tendré que actualizar?**
+
+No. No se le permitirá agregar grupos de nodos de la versión en desuso al clúster. Puede agregar grupos de nodos de una nueva versión. Sin embargo, puede requerir que primero actualice el plano de control. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

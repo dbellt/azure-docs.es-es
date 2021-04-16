@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/14/2019
 ms.author: apimpm
-ms.openlocfilehash: 293a47bc3e8499d7eda4e64bb68bc95eb4c85ab0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 36dfc8c906c52c6822e583db3a08c891306f7e78
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98108405"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105047939"
 ---
 # <a name="use-azure-api-management-with-microservices-deployed-in-azure-kubernetes-service"></a>Uso de Azure API Management con microservicios implementados en Azure Kubernetes Service
 
@@ -95,7 +95,7 @@ Para obtener una clave de suscripción para acceder a las API se necesita una su
 
 ### <a name="option-3-deploy-apim-inside-the-cluster-vnet"></a>Opción 3: Implementación de APIM dentro de la red virtual del clúster
 
-En algunos casos, es posible que a los clientes con restricciones normativas o estrictos requisitos de seguridad les parezca que las opciones 1 y 2 no son soluciones viables debido a los puntos finales expuestos públicamente. En otros, el clúster de AKS y las aplicaciones que consumen los microservicios pueden residir en la misma red virtual; por lo tanto, no hay ninguna razón para exponer el clúster de forma pública, ya que todo el tráfico de la API permanecerá dentro de la red virtual. En estos casos, puede implementar API Management en la red virtual del clúster. [Nivel Premium de API Management](https://aka.ms/apimpricing) admite la implementación de red virtual. 
+En algunos casos, es posible que a los clientes con restricciones normativas o estrictos requisitos de seguridad les parezca que las opciones 1 y 2 no son soluciones viables debido a los puntos finales expuestos públicamente. En otros, el clúster de AKS y las aplicaciones que consumen los microservicios pueden residir en la misma red virtual; por lo tanto, no hay ninguna razón para exponer el clúster de forma pública, ya que todo el tráfico de la API permanecerá dentro de la red virtual. En estos casos, puede implementar API Management en la red virtual del clúster. Los [niveles de desarrollador y prémium de API Management](https://aka.ms/apimpricing) admiten la implementación de red virtual. 
 
 Hay dos modos de [implementación de API Management en una red virtual](./api-management-using-with-vnet.md): externo e interno. 
 

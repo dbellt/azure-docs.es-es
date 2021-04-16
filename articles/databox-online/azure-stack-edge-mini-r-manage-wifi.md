@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 10/28/2020
+ms.date: 03/24/2021
 ms.author: alkohli
-ms.openlocfilehash: f00be43d023d912d4b0b6e825dfe9d3e0ca2d250
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a2cc0707c344c3ca537795666a3f60f648026596
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96465895"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105043774"
 ---
 # <a name="use-the-local-web-ui-to-manage-wireless-connectivity-on-your-azure-stack-edge-mini-r"></a>Uso de la interfaz de usuario web local para administrar la conectividad inalámbrica en su instancia de Azure Stack Edge Mini R
 
@@ -55,6 +55,8 @@ Siga los pasos que se describen a continuación en la interfaz de usuario local 
     !["Port WiFi Network settings" (Configuración de red del puerto Wi-Fi) de la interfaz de usuario web local 1](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-1.png)
     
     Un perfil de red inalámbrica contiene el SSID (nombre de red), la clave de contraseña y la información de seguridad para poder conectarse a una red inalámbrica. Puede obtener el perfil de Wi-Fi de su entorno del administrador de red.
+
+    Para obtener información sobre la preparación de los perfiles de Wi-Fi, consulte [Uso de perfiles de Wi-Fi con dispositivos de Azure Stack Edge Mini R](azure-stack-edge-mini-r-use-wifi-profiles.md).
 
     !["Port WiFi Network settings" (Configuración de red del puerto Wi-Fi) de la interfaz de usuario web local 2](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-2.png)
 

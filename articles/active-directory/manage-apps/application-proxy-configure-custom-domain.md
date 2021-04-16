@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 49edab5ed20749cb705d160e5cdc46a16bdee951
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dadb23b9a8d00d484a9c42db9007d8c5b94b4c78
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99258038"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306796"
 ---
 # <a name="configure-custom-domains-with-azure-ad-application-proxy"></a>Configuración de dominios personalizados con Azure AD Application Proxy
 
@@ -90,7 +90,7 @@ Para publicar la aplicación a través de Application Proxy con un dominio perso
    
    ![Haga clic para cargar un certificado.](./media/application-proxy-configure-custom-domain/certificate.png)
    
-7. En la página **Certificados SSL**, busque y seleccione el archivo de certificado PFX. Escriba la contraseña del certificado y seleccione **Cargar certificado**. Para más información sobre los certificados, consulte la sección [Certificados para dominios personalizados](#certificates-for-custom-domains). Si el certificado no es válido o hay un problema con la contraseña, verá un mensaje de error. Las [preguntas frecuentes acerca de Application Proxy](application-proxy-faq.md#application-configuration) contienen algunos pasos de solución de problemas que puede probar.
+7. En la página **Certificados SSL**, busque y seleccione el archivo de certificado PFX. Escriba la contraseña del certificado y seleccione **Cargar certificado**. Para más información sobre los certificados, consulte la sección [Certificados para dominios personalizados](#certificates-for-custom-domains). Si el certificado no es válido o hay un problema con la contraseña, verá un mensaje de error. Las [preguntas frecuentes acerca de Application Proxy](application-proxy-faq.yml#application-configuration) contienen algunos pasos de solución de problemas que puede probar.
    
    ![Carga del certificado](./media/application-proxy-configure-custom-domain/ssl-certificate.png)
    

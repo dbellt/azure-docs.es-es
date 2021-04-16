@@ -12,18 +12,25 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: texto a voz
-ms.openlocfilehash: 653f9fcd9d3d8d6347d961603acc6eb481ee7f41
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 1a7ff7befc1a5e82c5518cf103a81b35ec38c7db
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104869181"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449365"
 ---
 # <a name="what-is-text-to-speech"></a>¿Qué es el texto a voz?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 En esta introducción, encontrará información sobre las ventajas y las funcionalidades del servicio de conversión de texto a voz. Con este servicio, sus aplicaciones, herramientas o dispositivos podrán convertir un texto en voz sintetizada similar a la de los humanos. Puede elegir entre voces estándar y neuronales, o puede crear una voz personalizada única para su producto o marca. Tiene más de 75 voces estándar disponibles en más de 45 idiomas y configuraciones regionales, y 5 voces neuronales que están disponibles en varios idiomas y configuraciones regionales. Para obtener una lista completa de las voces, los idiomas y las configuraciones regionales compatibles, consulte [Idiomas admitidos](language-support.md#text-to-speech).
+
+Esta documentación contiene los siguientes tipos de artículos:
+
+* Los **inicios rápidos** son instrucciones de inicio que le guiarán a la hora de hacer solicitudes al servicio.
+* Las **guías de procedimientos** contienen instrucciones para usar el servicio de una manera más específica o personalizada.
+* Los **conceptos** proporcionan explicaciones detalladas sobre la funcionalidad y las características del servicio.
+* Los **tutoriales** son guías más largas que muestran cómo usar el servicio como componente de soluciones empresariales más amplias.
 
 > [!NOTE]
 > Bing Speech se ha retirado el 15 de octubre de 2019. Si sus aplicaciones, herramientas o productos usan Bing Speech API o Habla personalizada, hemos creado guías para que le ayuden a migrar al servicio de voz.
@@ -44,7 +51,7 @@ En esta introducción, encontrará información sobre las ventajas y las funcion
 * Visemas: [Visemas](how-to-speech-synthesis-viseme.md) son los principales planteamientos de la voz observada, incluida la posición de los labios, mandíbula y lengua al producir un fonema determinado. Las visemas tienen una correlación fuerte con las voces y fonemas. Mediante el uso de eventos de visema en Speech SDK, puede generar datos de animaciones faciales, que se pueden usar para animar caras en la comunicación de lectura de LIP, educación, entretenimiento y servicio de atención al cliente.
 
 > [!NOTE]
-> Visema solo funciona para `en-US-AriaNeural` la voz en la región oeste de EE. UU. (`westus`) y estará disponible para todas `en-US` las voces a finales de abril de 2021.
+> El visema solo funciona para la voz `en-US-AriaNeural` en este momento.
 
 ## <a name="get-started"></a>Introducción
 

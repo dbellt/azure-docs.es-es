@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/20/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: a1e6d2f4fc0444be364ce3c07c14f6408b3f19fe
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 21db7ed0cf13a3ed282929b09847c6c3ba8a36ed
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106446917"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307255"
 ---
 # <a name="configure-a-kerberos-key-distribution-center-proxy-preview"></a>Configuración de un proxy del Centro de distribución de claves de Kerberos (versión preliminar)
 
@@ -29,7 +29,7 @@ Hay dos componentes en el servicio de Windows Virtual Desktop que deben autentic
 - La fuente del cliente de Windows Virtual Desktop que proporciona a los usuarios una lista de las aplicaciones o escritorios disponibles a los que tienen acceso. Este proceso de autenticación se produce en Azure Active Directory, lo que significa que este componente no es el centro de este artículo.
 - La sesión de RDP que es el resultado de que un usuario seleccione uno de los recursos disponibles. Este componente usa la autenticación Kerberos y requiere un proxy KDC para los usuarios remotos.
 
-En este artículo se muestra cómo configurar la fuente en el cliente de Windows Virtual Desktop en el Azure Portal. Si quiere obtener información sobre cómo configurar el rol de puerta de enlace RD, consulte [Implementar el rol de puerta de enlace de RD](/windows-server/remote/rd-gateway-role).
+En este artículo se muestra cómo configurar la fuente en el cliente de Windows Virtual Desktop en el Azure Portal. Si quiere obtener información sobre cómo configurar el rol de puerta de enlace RD, consulte [Implementar el rol de puerta de enlace de RD](/azure/virtual-desktop/rd-gateway-role).
 
 ## <a name="requirements"></a>Requisitos
 

@@ -6,13 +6,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/10/2021
-ms.openlocfilehash: 0e60ac6da55c11d45e8b691b4883b0f5f93a2498
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 04/01/2021
+ms.openlocfilehash: fdf7f52bf781d0e8da21f0b36bacc3f4ade52e8c
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103563944"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106581881"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>Expresiones de transformación de datos en Asignación de Data Flow
 
@@ -143,13 +143,6 @@ Devuelve el primer valor no NULL de un conjunto de entradas. Todas las entradas 
 * ``coalesce(10, 20) -> 10``  
 * ``coalesce(toString(null), toString(null), 'dumbo', 'bo', 'go') -> 'dumbo'``  
 ___
-### <code>collect</code>
-<code><b>collect(<i>&lt;value1&gt;</i> : any) => array</b></code><br/><br/>
-Recopila todos los valores de la expresión del grupo agregado en una matriz. Las estructuras se pueden recopilar y transformar en estructuras alternativas durante este proceso. El número de elementos será igual al número de filas de ese grupo y puede contener valores NULL. El número de elementos recopilados debe ser pequeño.  
-* ``collect(salesPerson)``
-* ``collect(firstName + lastName))``
-* ``collect(@(name = salesPerson, sales = salesAmount) )``
-___
 ### <code>columnNames</code>
 <code><b>columnNames(<i>&lt;value1&gt;</i> : string) => array</b></code><br/><br/>
 Obtiene los nombres de todas las columnas de salida de una secuencia. Puede pasar un nombre de secuencia opcional como segundo argumento.  
@@ -181,12 +174,6 @@ Concatena un número variable de cadenas con un separador. El primer parámetro 
 * ``concatWS(' ', 'dataflow', 'is', 'awesome') -> 'dataflow is awesome'``  
 * ``isNull(concatWS(null, 'dataflow', 'is', 'awesome')) -> true``  
 * ``concatWS(' is ', 'dataflow', 'awesome') -> 'dataflow is awesome'``  
-___
-### <code>contains</code>
-<code><b>contains(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : unaryfunction) => boolean</b></code><br/><br/>
-Devuelve true si algún elemento de la matriz proporcionada se evalúa como true en el predicado proporcionado. "Contains" espera una referencia a un elemento de la función de predicado como #item.  
-* ``contains([1, 2, 3, 4], #item == 3) -> true``  
-* ``contains([1, 2, 3, 4], #item > 5) -> false``  
 ___
 ### <code>cos</code>
 <code><b>cos(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
@@ -277,6 +264,10 @@ ___
 <code><b>escape(<i>&lt;string_to_escape&gt;</i> : string, <i>&lt;format&gt;</i> : string) => string</b></code><br/><br/>
 Escapa una cadena según un formato. Los valores literales para el formato aceptable son "json", "xml", "ecmascript", "html", "java".
 ___
+### <code>expr</code>
+<code><b>expr(<i>&lt;expr&gt;</i> : string) => any</b></code><br/><br/>
+Da como resultado una expresión de una cadena. Esto es lo mismo que escribir esta expresión de forma no literal. Se puede usar para pasar parámetros como representaciones de cadena.
+*   expr(‘price * discount’) => any ___
 ### <code>factorial</code>
 <code><b>factorial(<i>&lt;value1&gt;</i> : number) => long</b></code><br/><br/>
 Calcula el valor factorial de un número.  
@@ -354,12 +345,6 @@ Comprueba si el primer parámetro es NULL. Si no es NULL, se devuelve el primer 
 * ``iifNull(null, 20, 40) -> 20``  
 * ``iifNull('azure', 'data', 'factory') -> 'factory'``  
 * ``iifNull(null, 'data', 'factory') -> 'data'``  
-___
-### <code>in</code>
-<code><b>in(<i>&lt;array of items&gt;</i> : array, <i>&lt;item to find&gt;</i> : any) => boolean</b></code><br/><br/>
-Comprueba si un elemento está en la matriz.  
-* ``in([10, 20, 30], 10) -> true``  
-* ``in(['good', 'kid'], 'bad') -> false``  
 ___
 ### <code>initCap</code>
 <code><b>initCap(<i>&lt;value1&gt;</i> : string) => string</b></code><br/><br/>
@@ -856,6 +841,13 @@ ___
 En función de los criterios, obtiene el promedio de valores de una columna.  
 * ``avgIf(region == 'West', sales)``  
 ___
+### <code>collect</code>
+<code><b>collect(<i>&lt;value1&gt;</i> : any) => array</b></code><br/><br/>
+Recopila todos los valores de la expresión del grupo agregado en una matriz. Las estructuras se pueden recopilar y transformar en estructuras alternativas durante este proceso. El número de elementos será igual al número de filas de ese grupo y puede contener valores NULL. El número de elementos recopilados debe ser pequeño.  
+* ``collect(salesPerson)``
+* ``collect(firstName + lastName))``
+* ``collect(@(name = salesPerson, sales = salesAmount) )``
+___
 ### <code>count</code>
 <code><b>count([<i>&lt;value1&gt;</i> : any]) => long</b></code><br/><br/>
 Obtiene el recuento agregado de valores. Si se especifican las columnas opcionales, omite los valores NULL en el recuento.  
@@ -900,6 +892,10 @@ Obtiene el primer valor de un grupo de columnas. Si el segundo parámetro ignore
 * ``first(sales)``  
 * ``first(sales, false)``  
 ___
+### <code>isDistinct</code>
+<code><b>isDistinct(<i>&lt;value1&gt;</i> : any , <i>&lt;value1&gt;</i> : any) => boolean</b></code><br/><br/>
+Busca si una columna o un conjunto de columnas es distinto. No cuenta NULL como valor distinto *   ``isDistinct(custId, custName) => boolean``
+*   ___
 ### <code>kurtosis</code>
 <code><b>kurtosis(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
 Obtiene la curtosis de una columna.  
@@ -1053,6 +1049,12 @@ Crea una matriz de elementos. Todos los elementos deben ser del mismo tipo. Si n
 * ``['Seattle', 'Washington'][1]``
 * ``'Washington'``
 ___
+### <code>contains</code>
+<code><b>contains(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : unaryfunction) => boolean</b></code><br/><br/>
+Devuelve true si algún elemento de la matriz proporcionada se evalúa como true en el predicado proporcionado. "Contains" espera una referencia a un elemento de la función de predicado como #item.  
+* ``contains([1, 2, 3, 4], #item == 3) -> true``  
+* ``contains([1, 2, 3, 4], #item > 5) -> false``  
+___
 ### <code>filter</code>
 <code><b>filter(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : unaryfunction) => array</b></code><br/><br/>
 Filtra los elementos de la matriz que no cumplen el predicado proporcionado. "Filter" espera una referencia a un elemento de la función de predicado como #item.  
@@ -1091,6 +1093,11 @@ Find the first item from an array that match the condition. It takes a filter fu
                    ]
       )
     ``  
+___
+### <code>in</code>
+<code><b>in(<i>&lt;array of items&gt;</i> : array, <i>&lt;item to find&gt;</i> : any) => boolean</b></code><br/><br/> Checks if an item is in the array.  
+* ``in([10, 20, 30], 10) -> true``  
+* ``in(['good', 'kid'], 'bad') -> false``  
 ___
 ### <code>map</code>
 <code><b>map(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : unaryfunction) => any</b></code><br/><br/> Maps each element of the array to a new element using the provided expression. Map expects a reference to one element in the expression function as #item.  
@@ -1140,6 +1147,12 @@ ___
                ]
   )
 ``  
+___
+### <code>in</code>
+<code><b>in(<i>&lt;array of items&gt;</i> : array, <i>&lt;item to find&gt;</i> : any) => boolean</b></code><br/><br/>
+Checks if an item is in the array.  
+* ``in([10, 20, 30], 10) -> true``  
+* ``in(['good', 'kid'], 'bad') -> false``  
 ___
 ### <code>map</code>
 <code><b>map(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : unaryfunction) => any</b></code><br/><br/>
@@ -1217,8 +1230,16 @@ ___.
 
 Las funciones de conversión se usan para convertir datos y probar tipos de datos.
 
+### <code>isBitSet</code>
+<code><b>isBitSet (<value1> : array, <value2>:integer ) => boolean</b></code><br/><br/>
+Comprueba si se establece una posición de bit en este conjunto de bits * ``isBitSet(toBitSet([10, 32, 98]), 10) => true``
+___
+### <code>setBitSet</code>
+<code><b>setBitSet (<value1> : array, <value2>:array) => array</b></code>.<br/><br/>
+Establece las posiciones de bit en este conjunto de bits * ``setBitSet(toBitSet([10, 32]), [98]) => [4294968320L, 17179869184L]``
+___  
 ### <code>isBoolean</code>
-<code><b>isBoolean(<value1> : string) => boolean</b></code><br/><br/>
+<code><b>isBoolean(<value1> : string) => boolean</b></code>.<br/><br/>
 Permite comprobar si el valor de la cadena es booleano según las reglas de ``toBoolean()``
 * ``isBoolean('true') -> true``
 * ``isBoolean('no') -> true``
@@ -1431,6 +1452,11 @@ Seleccione una matriz de columnas por nombre en la secuencia. Puede pasar un nom
 * ``toString(byNames(['a Column'], 'DeriveStream'))``
 * ``byNames(['orderItem']) ? (itemName as string, itemQty as integer)``
 ___
+### <code>byPath</code>
+<code><b>byPath(<i>&lt;value1&gt;</i> : string, [<i>&lt;streamName&gt;</i> : string]) => any</b></code><br/><br/>
+Busca una ruta de acceso jerárquica por nombre en la secuencia. Puede pasar un nombre de secuencia opcional como segundo argumento. Si no se encuentra ninguna ruta de acceso, devuelve el valor NULL. Los nombres de columna o las rutas de acceso que se conocen en tiempo de diseño deben usarse solo mediante su nombre o mediante la ruta de acceso de la notación de puntos. No se admiten entradas calculadas, pero se pueden usar sustituciones de parámetros.  
+* ``byPath('grandpa.parent.child') => column`` 
+___
 ### <code>byPosition</code>
 <code><b>byPosition(<i>&lt;position&gt;</i> : integer) => any</b></code><br/><br/>
 Selecciona un valor de columna por su posición relativa (de base 1) en la secuencia. Si la posición está fuera de los límites, devuelve un valor Null. El tipo del valor devuelto debe haberse convertido mediante una de las funciones de conversión de tipo (TO_DATE, TO_STRING...). No se admiten entradas calculadas, pero se pueden usar sustituciones de parámetros.  
@@ -1439,6 +1465,11 @@ Selecciona un valor de columna por su posición relativa (de base 1) en la secue
 * ``toBoolean(byName(4))``  
 * ``toString(byName($colName))``  
 * ``toString(byPosition(1234))``  
+___
+### <code>hasPath</code>
+<code><b>hasPath(<i>&lt;value1&gt;</i> : string, [<i>&lt;streamName&gt;</i> : string]) => boolean</b></code><br/><br/>
+Comprueba si existe una determinada ruta de acceso jerárquica por nombre en la secuencia. Puede pasar un nombre de secuencia opcional como segundo argumento. Los nombres de columna o las rutas de acceso que se conocen en tiempo de diseño deben usarse solo mediante su nombre o mediante la ruta de acceso de la notación de puntos. No se admiten entradas calculadas, pero se pueden usar sustituciones de parámetros.  
+* ``hasPath('grandpa.parent.child') => boolean``
 ___
 ### <code>hex</code>
 <code><b>hex(<value1>: binary) => string</b></code><br/><br/>

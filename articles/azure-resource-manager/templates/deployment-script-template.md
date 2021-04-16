@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 03/30/2021
 ms.author: jgao
-ms.openlocfilehash: fb5fc0b6b673f8a754d0d6bb6ff962697cd5f38b
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 3240cce34a6fa645986a58ab43b28ad38485e97b
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105967343"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107308972"
 ---
 # <a name="use-deployment-scripts-in-arm-templates"></a>Uso de scripts de implementación en plantillas de Resource Manager
 
@@ -140,7 +140,7 @@ Detalles de los valores de propiedad:
 - `kind`: especifica el tipo de script. Actualmente, se admiten los scripts de Azure PowerShell y de la CLI de Azure. Los valores son **AzurePowerShell** y **AzureCLI**.
 - `forceUpdateTag`: el cambio de este valor entre implementaciones de plantilla obliga a que se vuelva a ejecutar el script de implementación. Si usa la función `newGuid()` o `utcNow()`, ambas funciones solo se pueden usar en el valor predeterminado de un parámetro. Para más información, consulte la sección [Ejecución de un script varias veces](#run-script-more-than-once).
 - `containerSettings`: permite especificar la configuración para personalizar la instancia de contenedor de Azure. El script de implementación requiere una nueva instancia de Azure Container Instance. No se puede especificar una instancia de Azure Container Instance existente. Sin embargo, puede personalizar el nombre del grupo de contenedores mediante `containerGroupName`. Si no se especifica, el nombre de grupo se genera automáticamente.
-- `storageAccountSettings`: permite especificar la configuración para usar una cuenta de almacenamiento existente. Si no se especifica `containerGroupName`, se crea una cuenta de almacenamiento automáticamente. Consulte [Uso de una cuenta de almacenamiento existente](#use-existing-storage-account).
+- `storageAccountSettings`: permite especificar la configuración para usar una cuenta de almacenamiento existente. Si no se especifica `storageAccountName`, se crea una cuenta de almacenamiento automáticamente. Consulte [Uso de una cuenta de almacenamiento existente](#use-existing-storage-account).
 - `azPowerShellVersion`/`azCliVersion`: Especifique la versión del módulo que se va a usar. Consulte una lista de [versiones de Azure PowerShell compatibles](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list). Consulte una lista de [versiones de la CLI de Azure compatibles](https://mcr.microsoft.com/v2/azure-cli/tags/list).
 
   >[!IMPORTANT]
@@ -245,7 +245,7 @@ En la plantilla siguiente se muestra cómo pasar valores entre dos recursos `dep
 En el primer recurso, defina una variable denominada `$DeploymentScriptOutputs` y úsela para almacenar los valores de salida. Para acceder al valor de salida de otro recurso dentro de la plantilla, use:
 
 ```json
-reference('<ResourceName>').output.text
+reference('<ResourceName>').outputs.text
 ```
 
 ## <a name="work-with-outputs-from-cli-script"></a>Tareas con las salidas del script de la CLI

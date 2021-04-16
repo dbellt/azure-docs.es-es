@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 10/22/2020
-ms.openlocfilehash: 074b799a4f0e83c47aac0b2b3fca5386bd45429f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 53878384f4eb056f0cb23ec9005043ac26c8fad2
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100521975"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106492623"
 ---
 # <a name="quickstart-use-the-azure-portal-to-create-an-azure-database-for-mysql-flexible-server"></a>Inicio rápido: Uso de Azure Portal para crear un servidor flexible de Azure Database for MySQL
 
@@ -51,11 +51,14 @@ Siga estos pasos para crear un servidor flexible:
     Subscription|Nombre de la suscripción|La suscripción de Azure que desea usar para el servidor. Si tiene varias suscripciones, elija aquella en la que quiere que se le facture el recurso.|
     Resource group|**myresourcegroup**| Un nuevo nombre de grupo de recursos o uno existente de la suscripción.|
     Nombre de servidor |**mydemoserver**|Escriba un nombre único que identifique su servidor flexible. El nombre de dominio `mysql.database.azure.com` se anexa al nombre del servidor proporcionado. El nombre del servidor solo puede contener letras minúsculas, números y el carácter de guion (-). Debe contener entre 3 y 63 caracteres.|
+    Region|Región más cercana a los usuarios| Ubicación más cercana a los usuarios.|
+    Tipo de carga de trabajo| Desarrollo | En el caso de la carga de trabajo de producción, puede elegir tamaño pequeño, mediano o grande en función de los requisitos de [max_connections](concepts-server-parameters.md#max_connections).|
+    Zona de disponibilidad| Ninguna preferencia | Si su aplicación en las máquinas virtuales de Azure, los conjuntos de escalado de máquinas virtuales o la instancia de AKS se aprovisionan en una zona de disponibilidad específica, puede especificar el servidor flexible en la misma zona de disponibilidad para colocar la aplicación y la base de datos para mejorar el rendimiento mediante la reducción de la latencia de red entre zonas.|
+    Alta disponibilidad| Valor predeterminado | En el caso de los servidores de producción, se recomienda encarecidamente habilitar la alta disponibilidad (HA) con redundancia de zona para la continuidad empresarial y la protección frente a errores de zona.|
+    Versión de MySQL|**5.7**| Una versión principal de MySQL.|
     Nombre de usuario administrador |**mydemouser**| Su propia cuenta de inicio de sesión para usar al conectarse al servidor. El nombre del usuario administrador no puede ser **azure_superuser**, **admin**, **administrator**, **root**, **guest** ni **public**.|
     Contraseña |La contraseña| Una contraseña nueva para la cuenta de administrador del servidor. Debe tener entre 8 y 128 caracteres. Debe contener también caracteres de tres de las siguientes categorías: Letras del alfabeto inglés mayúsculas y minúsculas, números (0 a 9) y caracteres no alfanuméricos (!, $, #, %, etc.).|
-    Region|Región más cercana a los usuarios| Ubicación más cercana a los usuarios.|
-    Versión|**5.7**| Una versión principal de MySQL.|
-    Proceso y almacenamiento | **Flexible**, **Standard_B1ms**, **10 GiB** y **7 días** | Configuración de los recursos de proceso, almacenamiento y copia de seguridad para el nuevo servidor. Seleccione **Configurar servidor**. **Flexible**, **Standard_B1ms**, **10 GiB** y **7 días** son los valores predeterminados para el **nivel de proceso**, el **tamaño de proceso**, el **tamaño de almacenamiento** y el **período de retención de copia de seguridad**. Puede dejar esos valores tal como están o ajustarlos. Para guardar este proceso y la selección de almacenamiento, seleccione **Guardar** a fin de continuar con la configuración. En la captura de pantalla siguiente se muestran las opciones de proceso y almacenamiento.|
+    Proceso y almacenamiento | **Flexible**, **Standard_B1ms**, **10 GiB**, **100 IOPS** y **7 días** | Configuración de los recursos de proceso, almacenamiento, IOPS y copia de seguridad para el nuevo servidor. Seleccione **Configurar servidor**. **Flexible**, **Standard_B1ms**, **10 GiB**, **100 IOPS** y **7 días** son los valores predeterminados para **Nivel de proceso**, **Tamaño de proceso**, **Tamaño de almacenamiento**, **IOPS** y **Período de retención** de copia de seguridad. Puede dejar esos valores tal como están o ajustarlos. Para agilizar la carga de datos durante la migración, se recomienda aumentar IOPS hasta el tamaño máximo admitido por el tamaño de proceso y, posteriormente, volver a escalarlo para ahorrar costos. Para guardar este proceso y la selección de almacenamiento, seleccione **Guardar** a fin de continuar con la configuración. En la captura de pantalla siguiente se muestran las opciones de proceso y almacenamiento.|
     
     > :::image type="content" source="./media/quickstart-create-server-portal/compute-storage.png" alt-text="Captura de pantalla que muestra las opciones de proceso y almacenamiento.":::
 
@@ -89,16 +92,21 @@ Si ha creado el servidor flexible con acceso privado (integración con red virtu
 
 Si ha creado el servidor flexible con acceso público (direcciones IP permitidas), puede agregar la dirección IP local a la lista de reglas de firewall del servidor. En la [documentación para la creación o administración de reglas de firewall](how-to-manage-firewall-portal.md) encontrará instrucciones paso a paso.
 
-Puede usar [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.html) o [MySQL Workbench](./connect-workbench.md) para conectarse al servidor desde su entorno local. 
+Puede usar [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.html) o [MySQL Workbench](./connect-workbench.md) para conectarse al servidor desde su entorno local. Azure Database for MySQL: servidor flexible admite la conexión de las aplicaciones cliente al servicio MySQL mediante la Seguridad de la capa de transporte (TLS), que anteriormente se denominaba Capa de sockets seguros (SSL). TLS es un protocolo estándar del sector que garantiza las conexiones de red cifradas entre el servidor de bases de datos y las aplicaciones cliente, de conformidad con los requisitos de cumplimiento. Para conectarse con el servidor flexible de MySQL, deberá descargar el [certificado SSL público](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem) para la comprobación de la entidad de certificación.
+
+En el ejemplo siguiente se muestra cómo conectarse al servidor flexible mediante la interfaz de la línea de comandos de MySQL. En primer lugar, instalará la línea de comandos de MySQL si aún no lo está. Descargará el certificado DigiCertGlobalRootCA necesario para las conexiones SSL. Use la configuración de la cadena de conexión --ssl-mode=REQUIRED para aplicar la comprobación del certificado TLS/SSL. Pase la ruta de acceso al archivo del certificado local al parámetro --ssl-ca. Reemplace los valores por el nombre real del servidor y la contraseña.
 
 ```bash
+sudo apt-get install mysql-client
 wget --no-check-certificate https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem
-mysql -h mydemoserver.mysql.database.azure.com -u mydemouser -p --ssl=true --ssl-ca=DigiCertGlobalRootCA.crt.pem
+mysql -h mydemoserver.mysql.database.azure.com -u mydemouser -p --ssl-mode=REQUIRED --ssl-ca=DigiCertGlobalRootCA.crt.pem
 ```
 
 Si ha aprovisionado un servidor flexible mediante el **acceso público**, también puede usar [Azure Cloud Shell](https://shell.azure.com/bash) para conectarse a dicho servidor flexible mediante el cliente MySQL preinstalado, como se muestra a continuación:
 
-Para usar Azure Cloud Shell para conectarse a un servidor flexible, tendrá que permitir el acceso de red desde Azure Cloud Shell al servidor flexible. Para ello, en Azure Portal puede ir a la hoja **Redes** del servidor flexible de MySQL, activar la casilla de la sección **Firewall** "Allow public access from any Azure service within Azure to this server" (Permitir el acceso público desde cualquier servicio de Azure a este servidor) y hacer clic en Guardar para conservar la configuración.
+Para usar Azure Cloud Shell para conectarse a un servidor flexible, tendrá que permitir el acceso de red desde Azure Cloud Shell al servidor flexible. Para ello, en Azure Portal, puede ir a la hoja **Redes** del servidor flexible de MySQL y activar la casilla de la sección **Firewall** "Permitir el acceso público desde cualquier servicio de Azure a este servidor" que se muestra en la captura de pantalla siguiente y hacer clic en Guardar para conservar la configuración.
+
+ > :::image type="content" source="./media/quickstart-create-server-portal/allow-access-to-any-azure-service.png" alt-text="Captura de pantalla que muestra cómo permitir el acceso de Azure Cloud Shell al servidor flexible de MySQL para la configuración de red de acceso público.":::
 
 > [!NOTE]
 > La comprobación de **Allow public access from any Azure service within Azure to this server** (Permitir el acceso público desde cualquier servicio de Azure a este servidor) solo debe usarse solo para desarrollo o pruebas. Configura el firewall para permitir conexiones desde las direcciones IP asignadas a cualquier servicio o recurso de Azure, incluidas las conexiones de las suscripciones de otros clientes.
@@ -109,6 +117,9 @@ Haga clic en **Probar** para iniciar el Azure Cloud Shell y use los siguientes c
 wget --no-check-certificate https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem
 mysql -h mydemoserver.mysql.database.azure.com -u mydemouser -p --ssl=true --ssl-ca=DigiCertGlobalRootCA.crt.pem
 ```
+> [!IMPORTANT]
+> Al conectarse al servidor flexible mediante Azure Cloud Shell, necesitará usar el parámetro --ssl=true y no --ssl-mode=REQUIRED.
+> La razón principal es que Azure Cloud Shell incluye el cliente de mysql.exe preinstalado por la distribución de MariaDB, que requiere el parámetro --ssl, mientras que el cliente de MySQL de la distribución de Oracle requiere el parámetro --ssl-mode.
 
 Si ve el siguiente mensaje de error al conectarse a su servidor flexible después del comando anterior, significa que no ha configurado la regla de firewall mediante la casilla Allow public access from any Azure service within Azure to this server (Permitir el acceso público desde cualquier servicio de Azure a este servidor) mencionada antes o que la opción no se ha guardado. Vuelva a intentar configurar el firewall y reintente la operación.
 

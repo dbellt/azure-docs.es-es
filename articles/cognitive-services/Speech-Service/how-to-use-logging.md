@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: amishu
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: f044596cf084e68b6c9ca10e3da4fbdf4c8c2062
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 32715ad1a01366d7d56e6fa8129151b15c315e1d
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "95026529"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106504182"
 ---
 # <a name="enable-logging-in-the-speech-sdk"></a>Habilitar el registro en el SDK de voz
 
-El registro en un archivo es una característica opcional del SDK de voz. Durante el desarrollo, el registro proporciona información adicional y diagnósticos de los componentes principales del SDK de voz. Se puede habilitar estableciendo la propiedad `Speech_LogFilename` de un objeto de configuración de voz en la ubicación y el nombre del archivo de registro. El registro se activará globalmente una vez creado un reconocedor a partir de esa configuración que no se pueda deshabilitar más tarde. No se puede cambiar el nombre de un archivo de registro durante la ejecución de una sesión de registro.
+El registro en un archivo es una característica opcional del SDK de voz. Durante el desarrollo, el registro proporciona información adicional y diagnósticos de los componentes principales del SDK de voz. Se puede habilitar estableciendo la propiedad `Speech_LogFilename` de un objeto de configuración de voz en la ubicación y el nombre del archivo de registro. El registro se controla mediante una clase estática en la biblioteca nativa del SDK de voz. Puede activar el registro para cualquier instancia de reconocedor o sintetizador del SDK de voz. Todas las instancias del mismo proceso escriben entradas de registro en el mismo archivo de registro.
 
 > [!NOTE]
 > El registro está disponible desde la versión 1.4.0 del SDK de voz en todos los lenguajes de programación admitidos a excepción de JavaScript.

@@ -6,14 +6,14 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 1/30/2021
+ms.date: 4/15/2021
 ms.author: cavoeg
-ms.openlocfilehash: 9bd61d65d6d64dac6081d3491deb8a15efc4a45b
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 56e3ba46ffb43aec907d729a2e74cdf6f7a62c32
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105048426"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530628"
 ---
 # <a name="features"></a>Características
 
@@ -35,14 +35,14 @@ Entre las versiones anteriores también admitidas actualmente se incluye: `3.0.2
 | update with optimistic locking | Sí       | Sí       | Sí       |                                                     |
 | update (conditional)           | Sí       | Sí       | Sí       |                                                     |
 | patch                          | No        | No        | No        |                                                     |
-| delete                         | Sí       | Sí       | Sí       |  Vea la nota siguiente.                                   |
+| delete                         | Sí       | Sí       | Sí       |  Consulte la nota siguiente.                                   |
 | delete (conditional)           | No        | No        | No        |                                                     |
 | history                        | Sí       | Sí       | Sí       |                                                     |
 | create                         | Sí       | Sí       | Sí       | Admite POST y PUT                               |
 | create (conditional)           | Sí       | Sí       | Sí       | Problema [n.º 1382](https://github.com/microsoft/fhir-server/issues/1382) |
-| búsqueda                         | Parcial   | Parcial   | Parcial   | Vea la sección de búsqueda a continuación.                           |
-| búsqueda encadenada                 | Sí       | Sí       | Parcial   | Vea la nota 2 a continuación.                                   |
-| búsqueda encadenada inversa         | Sí       | Sí       | Parcial   | Vea la nota 2 a continuación.                                   |
+| búsqueda                         | Parcial   | Parcial   | Parcial   | Consulte la sección Búsqueda a continuación.                           |
+| búsqueda encadenada                 | Parcial       | Sí       | Parcial   | Consulte la nota 2 a continuación.                                   |
+| búsqueda encadenada inversa         | Parcial       | Sí       | Parcial   | Consulte la nota 2 a continuación.                                   |
 | capabilities                   | Sí       | Sí       | Sí       |                                                     |
 | proceso por lotes                          | Sí       | Sí       | Sí       |                                                     |
 | transaction                    | No        | Sí       | No        |                                                     |
@@ -54,9 +54,9 @@ Entre las versiones anteriores también admitidas actualmente se incluye: `3.0.2
 
 
  **Nota 2**
-* Agrega compatibilidad con MVP para la búsqueda encadenada y encadenada de FHIR en CosmosDB. 
+* Agrega compatibilidad con MVP para búsqueda FHIR encadenada e inversa en CosmosDB. 
 
-  En la API de Azure para FHIR y el servidor FHIR de código abierto con el respaldo de Cosmos, la búsqueda encadenada y la búsqueda encadenada inversa es una implementación de MVP. Para realizar una búsqueda encadenada en Cosmos DB, la implementación recorre la expresión de búsqueda y emite subconsultas para resolver los recursos coincidentes. Esto se hace para cada nivel de la expresión. Si alguna consulta devuelve más de 100 resultados, se producirá un error. De forma predeterminada, la búsqueda encadenada está detrás de una marca de características. Para usar la búsqueda encadenada en Cosmos DB, use el encabezado `x-ms-enable-chained-search: true` . Para obtener más información, consulte [PR 1695](https://github.com/microsoft/fhir-server/pull/1695).
+  En el Azure API for FHIR servidor FHIR de código abierto con el respaldo de Cosmos, la búsqueda encadenada y la búsqueda encadenada inversa es una implementación de MVP. Para realizar búsquedas encadenadas en Cosmos DB, la implementación recorre la expresión de búsqueda y emite subconsediciones para resolver los recursos coincidentes. Esto se hace para cada nivel de la expresión. Si alguna consulta devuelve más de 100 resultados, se producirá un error. De forma predeterminada, la búsqueda encadenada está detrás de una marca de característica. Para usar la búsqueda encadenada en Cosmos DB, use el encabezado `x-ms-enable-chained-search: true` . Para obtener más información, vea [PR 1695](https://github.com/microsoft/fhir-server/pull/1695).
 
 ## <a name="search"></a>Search
 
@@ -146,7 +146,7 @@ Actualmente, las acciones permitidas para un rol determinado se aplican *globalm
 
 ## <a name="service-limits"></a>Límites de servicio
 
-* [**Unidades de solicitud (RU)**](../../cosmos-db/concepts-limits.md): puede configurar hasta 10 000 unidades de solicitud en el portal de Azure API for FHIR. Necesitará un mínimo de 400 RU o 10 RU/GB, lo que sea mayor. Si necesita más de 10 000 RU, puede crear una incidencia de soporte técnico para solicitar un aumento. El máximo disponible es 1 000 000.
+* [**Unidades de solicitud (RU)**](../../cosmos-db/concepts-limits.md): puede configurar hasta 10 000 unidades de solicitud en el portal de Azure API for FHIR. Necesitará un mínimo de 400 RU o 40 RU/GB, lo que sea mayor. Si necesita más de 10 000 RU, puede crear una incidencia de soporte técnico para solicitar un aumento. El máximo disponible es 1 000 000.
 
 * **Conexiones simultáneas** e **instancias**: de manera predeterminada, tiene cinco conexiones simultáneas en dos instancias del clúster (para un total de diez solicitudes simultáneas). Si cree que necesita un mayor número solicitudes simultáneas, abra una incidencia de soporte técnico con los detalles de lo que necesita.
 
@@ -160,12 +160,12 @@ El rendimiento del sistema depende del número de RU, las conexiones simultánea
 
 | N.º de RU | Recursos/segundo |    Almacenamiento máximo (GB)*    |
 |----------|---------------|--------|                 
-| 400      | 5-10          |     40   |
-| 1,000    | 100-150       |      100  |
-| 10 000   | 225-400       |      1,000  |
-| 100 000  | 2500-4000   |      10 000  |
+| 400      | 5-10          |     10   |
+| 1,000    | 100-150       |      25  |
+| 10 000   | 225-400       |      250  |
+| 100 000  | 2500-4000   |      2,500  |
 
-Nota: Para Cosmos DB, existe un requisito de un rendimiento mínimo de 10 RU/s por GB de almacenamiento. Para obtener más información, consulte [Cuotas de servicio de Cosmos DB](../../cosmos-db/concepts-limits.md).
+Nota: Por Cosmos DB, hay un requisito de un rendimiento mínimo de 40 RU/s por GB de almacenamiento. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
