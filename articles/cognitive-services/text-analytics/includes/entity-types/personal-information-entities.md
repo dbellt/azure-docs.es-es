@@ -9,12 +9,12 @@ ms.subservice: text-analytics
 ms.topic: include
 ms.date: 03/15/2021
 ms.author: aahi
-ms.openlocfilehash: 19586c09cca9a0dc74ba9ee4ef9da459964f9b7e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7484b49ed3c868a1ad3e0f97dffa346f350e127f
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104599331"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106096935"
 ---
 > [!NOTE]
 > Para detectar información de salud protegida (PHI), use el parámetro `domain=phi` y la versión del modelo `2020-04-01` o posterior.
@@ -53,7 +53,7 @@ Este categoría contiene la entidad siguiente:
     :::column span="2":::
         **Detalles**
 
-        Nombres de personas. 
+        Nombres de personas. También se devuelve con `domain=phi`.
 
         Para obtener esta categoría de entidad, agregue `Person` al parámetro `pii-categories`. `Person` se devolverá en la respuesta de la API si se detecta.
       
@@ -140,7 +140,7 @@ Este categoría contiene la entidad siguiente:
     :::column span="2":::
         **Detalles**
 
-        Empresas, grupos políticos, bandas musicales, clubs deportivos, organismos gubernamentales y organizaciones públicas. Las nacionalidades y las religiones no se incluyen en este tipo de entidad.
+        Empresas, grupos políticos, bandas musicales, clubs deportivos, organismos gubernamentales y organizaciones públicas. Las nacionalidades y las religiones no se incluyen en este tipo de entidad. También se devuelve con `domain=phi`.
 
         Para obtener esta categoría de entidad, agregue `Organization` al parámetro `pii-categories`. `Organization` se devolverá en la respuesta de la API si se detecta.
       
@@ -241,7 +241,7 @@ Este categoría contiene la entidad siguiente:
     :::column span="2":::
         **Detalles**
 
-        Dirección de correo postal completa.
+        Dirección de correo postal completa. También se devuelve con `domain=phi`.
 
         Para obtener esta categoría de entidad, agregue `Address` al parámetro `pii-categories`. `Address` se devolverá en la respuesta de la API si se detecta.
       
@@ -270,7 +270,7 @@ Este categoría contiene la entidad siguiente:
     :::column span="2":::
         **Detalles**
 
-        Direcciones de correo.
+        Direcciones de correo. También se devuelve con `domain=phi`.
       
         Para obtener esta categoría de entidad, agregue `Email` al parámetro `pii-categories`. `Email` se devolverá en la respuesta de la API si se detecta.
 
@@ -298,7 +298,7 @@ Este categoría contiene la entidad siguiente:
     :::column span="2":::
         **Detalles**
 
-        Direcciones URL de sitios web. 
+        Direcciones URL de sitios web. También se devuelve con `domain=phi`.
 
         Para obtener esta categoría de entidad, agregue `URL` al parámetro `pii-categories`. `URL` se devolverá en la respuesta de la API si se detecta.
       
@@ -327,7 +327,7 @@ Este categoría contiene la entidad siguiente:
     :::column span="2":::
         **Detalles**
 
-        Direcciones IP de red. 
+        Direcciones IP de red. También se devuelve con `domain=phi`.
 
         Para obtener esta categoría de entidad, agregue `IP` al parámetro `pii-categories`. `IP` se devolverá en la respuesta de la API si se detecta.
       
@@ -382,7 +382,7 @@ La entidad de esta categoría puede tener las subcategorías siguientes.
     :::column span="2":::
         **Detalles**
 
-        Fechas calendario.
+        Fechas calendario. También se devuelve con `domain=phi`.
 
         Para obtener esta categoría de entidad, agregue `Date` al parámetro `pii-categories`. `Date` se devolverá en la respuesta de la API si se detecta.
       
@@ -436,7 +436,7 @@ La entidad de esta categoría puede tener las subcategorías siguientes.
     :::column span="2":::
         **Detalles**
 
-        Edades.
+        Edades. 
 
         Para obtener esta categoría de entidad, agregue `Age` al parámetro `pii-categories`. `Age` se devolverá en la respuesta de la API si se detecta.
       

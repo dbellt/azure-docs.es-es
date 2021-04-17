@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/24/2021
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 6bc45bb6eec9dbf46e039dd1e2c32197820bb09d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b260793cc3c0b5ac3ffce8fac909e2db8991c713
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105626714"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307816"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps-using-azure-cognitive-search"></a>Incorporación de sugerencias y de la función Autocompletar a las aplicaciones cliente mediante Azure Cognitive Search
 
@@ -67,7 +67,7 @@ Las respuestas están formadas por los parámetros de la solicitud:
 
 + Para la función de autocompletar, establezca [autocompleteMode](/rest/api/searchservice/autocomplete#query-parameters) para determinar si la finalización del texto se produce en uno o dos términos. 
 
-+ Para obtener sugerencias, establezca [$Select](/rest/api/searchservice/suggestionse#query-parameters) para devolver campos que contengan valores únicos o diferenciales, como nombres y descripciones. Evite los campos que contienen valores duplicados (como una categoría o una ciudad).
++ Para obtener sugerencias, establezca [$Select](/rest/api/searchservice/suggestions#query-parameters) para devolver campos que contengan valores únicos o diferenciales, como nombres y descripciones. Evite los campos que contienen valores duplicados (como una categoría o una ciudad).
 
 Los siguientes parámetros adicionales se aplican tanto a las sugerencias como a la función de autocompletar, pero es posible que sean más necesarios para las sugerencias, especialmente cuando un proveedor de sugerencias incluya varios campos.
 

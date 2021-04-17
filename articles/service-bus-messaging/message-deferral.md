@@ -4,12 +4,12 @@ description: En este artículo se explica cómo diferir la entrega de mensajes d
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e3a940f8aa9e72d9b09e9c0a3305521c6f17dfb0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 997aab36652b08864892f1171e2b8588ec5f06b4
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98622052"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306116"
 ---
 # <a name="message-deferral"></a>Aplazamiento de mensajes
 
@@ -22,7 +22,7 @@ Un ejemplo sencillo es una secuencia de procesamiento de pedidos en la que una n
 En última instancia, el aplazamiento contribuye a volver a ordenar los mensajes de su orden de llegada a un orden en el que se pueden procesar, lo que permite dejar los mensajes de forma segura en el almacén de mensajes cuyo procesamiento tiene que posponerse.
 
 > [!NOTE]
-> Los mensajes diferidos no se moverán de forma automática a la cola de mensajes fallidos [tras expirar](./service-bus-dead-letter-queues.md#exceeding-timetolive). Este comportamiento es así por diseño.
+> Los mensajes diferidos no se moverán de forma automática a la cola de mensajes fallidos [tras expirar](./service-bus-dead-letter-queues.md#time-to-live). Este comportamiento es así por diseño.
 
 ## <a name="message-deferral-apis"></a>API de aplazamiento de mensajes
 

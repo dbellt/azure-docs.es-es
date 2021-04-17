@@ -5,16 +5,15 @@ author: fitzgeraldsteele
 ms.author: fisteele
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.subservice: extensions
 ms.date: 02/12/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 8805b3c4947311a3054066b3378d881d673c2b14
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 3d9d9449e2a971a4247e507e0c022c8c5fb9956c
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102521754"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075413"
 ---
 # <a name="preview-orchestration-modes-for-virtual-machine-scale-sets-in-azure"></a>Versión preliminar: modos de orquestación para los conjuntos de escalado de máquinas virtuales de Azure 
 
@@ -85,7 +84,7 @@ Use los comandos de máquina virtual estándar para iniciar, detener, reiniciar 
 El seguimiento del estado de la aplicación permite que la aplicación proporcione a Azure un latido para determinar si la aplicación está en estado correcto o incorrecto. Azure puede reemplazar automáticamente las instancias de máquina virtual que no sean correctas. En el caso de las instancias del conjunto de escalado flexible, debe instalar y configurar la extensión de estado de la aplicación en la máquina virtual. En el caso de instancias de conjunto de escalado uniforme, puede usar la extensión de estado de la aplicación, o bien medir el estado con un sondeo de estado personalizado de Azure Load Balancer. 
 
 ### <a name="list-scale-sets-vm-api-changes"></a>Enumeración de cambios en la API de VM de conjuntos de escalado 
-Virtual Machine Scale Sets permite enumerar las instancias que pertenecen al conjunto de escalado. Con una orquestación flexible, el comando de máquina virtual list de Virtual Machine Scale Sets proporciona una lista de los identificadores de máquina virtual de los conjuntos de escalado. Después, se puede llamar a los comandos de máquina virtual GET de Virtual Machine Scale Sets para obtener más detalles sobre cómo funciona el conjunto de escalado con la instancia de máquina virtual. Para obtener todos los detalles de la máquina virtual, use los comandos de máquina virtual GET estándar o [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview). 
+Virtual Machine Scale Sets permite enumerar las instancias que pertenecen al conjunto de escalado. Con una orquestación flexible, el comando de máquina virtual list de Virtual Machine Scale Sets proporciona una lista de los identificadores de máquina virtual de los conjuntos de escalado. Después, se puede llamar a los comandos de máquina virtual GET de Virtual Machine Scale Sets para obtener más detalles sobre cómo funciona el conjunto de escalado con la instancia de máquina virtual. Para obtener todos los detalles de la máquina virtual, use los comandos de máquina virtual GET estándar o [Azure Resource Graph](../governance/resource-graph/overview.md). 
 
 ### <a name="retrieve-boot-diagnostics-data"></a>Recuperación de datos de diagnósticos de arranque 
 Use las API y los comandos de máquina virtual estándar para recuperar las capturas de pantalla y los datos de los diagnósticos de arranque de la instancia. Los comandos y las API de diagnóstico de arranque de máquina virtual de Virtual Machine Scale Sets no se usan con las instancias del modo de orquestación flexible.
@@ -128,12 +127,22 @@ En la tabla siguiente se compara el modo de orquestación flexible, el modo de o
 |         Alertas de Azure  |            No  |            Sí  |            Sí  |
 |         VM Insights  |            No  |            Sí  |            Sí  |
 |         Azure Backup  |            Sí  |            Sí  |            Sí  |
-|         Azure Site Recovery  |            No  |            No  |            Sí  |
+|         Azure Site Recovery  |     No  |            No  |            Sí  |
 |         Agregar una máquina virtual existente al grupo o eliminarla de él  |            No  |            No  |            No  | 
 
 
 ## <a name="register-for-flexible-orchestration-mode"></a>Registro para el modo de orquestación flexible
 Para poder implementar conjuntos de escalado de máquinas virtuales en el modo de orquestación flexible, antes es preciso registrar la suscripción en la característica en vista previa (GB). El registro puede tardar varios minutos en terminar. Puede usar los siguientes comandos de Azure PowerShell o de la CLI de Azure para realizar el registro.
+
+### <a name="azure-portal"></a>Azure Portal
+Vaya a la página de detalles de la suscripción en la que quiere crear un conjunto de escalado en modo de orquestación flexible y seleccione características en versión preliminar en el menú. Seleccione las dos características del orquestador que quiere habilitar: _VMOrchestratorSingleFD_ y _VMOrchestratorMultiFD_, y haga clic en el botón Registrar. El registro de la característica puede tardar hasta 15 minutos.
+
+![Registro de características.](https://user-images.githubusercontent.com/157768/110361543-04d95880-7ff5-11eb-91a7-2e98f4112ae0.png)
+
+Una vez que se hayan registrado las características para su suscripción, complete el proceso de participación mediante la propagación del cambio en el proveedor de recursos de Compute. Vaya a la pestaña Proveedores de recursos de su suscripción, seleccione Microsoft.Compute y haga clic en Volver a registrar.
+
+![Volver a registrar](https://user-images.githubusercontent.com/157768/110362176-cd1ee080-7ff5-11eb-8cc8-36aa967e267a.png)
+
 
 ### <a name="azure-powershell"></a>Azure PowerShell 
 Use el cmdlet [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) para habilitar la versión preliminar de su suscripción. 
@@ -259,7 +268,7 @@ zones = ["1"]
 
 2. Agregue máquinas virtuales al conjunto de escalado.
     1. Asigne la propiedad `virtualMachineScaleSet` al conjunto de escalado que ha creado anteriormente. Es preciso especificar la propiedad `virtualMachineScaleSet` en el momento de creación de la máquina virtual. 
-    1. Puede usar la función **copy()** de la plantilla de Azure Resource Manager para crear varias máquinas virtuales al mismo tiempo. Consulte [Iteración de recursos](https://docs.microsoft.com/azure/azure-resource-manager/templates/copy-resources#iteration-for-a-child-resource) en plantillas de Azure Resource Manager. 
+    1. Puede usar la función **copy()** de la plantilla de Azure Resource Manager para crear varias máquinas virtuales al mismo tiempo. Consulte [Iteración de recursos](../azure-resource-manager/templates/copy-resources.md#iteration-for-a-child-resource) en plantillas de Azure Resource Manager. 
 
     ```json
     {
@@ -297,7 +306,7 @@ En el modo de orquestación flexible se pueden agregar un máximo de 1000 máqu
 
 **Diferencias y similitudes de la orquestación flexible con los conjuntos de disponibilidad o la orquestación uniforme**
 
-|   | Orquestación flexible  | Orquestación uniforme  | Conjuntos de disponibilidad  |
+| Atributo de disponibilidad  | Orquestación flexible  | Orquestación uniforme  | Conjuntos de disponibilidad  |
 |-|-|-|-|
 | Implementación en zonas de disponibilidad  | No  | Sí  | No  |
 | Garantía de disponibilidad de dominios de error en una región  | Se pueden distribuir hasta 1000 instancias en un máximo de 3 dominios de error en la región. El número máximo de dominios de error varía en función de la región  | Sí, hasta 100 instancias.  | Sí, hasta 200 instancias.  |
