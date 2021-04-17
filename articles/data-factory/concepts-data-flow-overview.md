@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 12/10/2020
-ms.openlocfilehash: 1529d2d546227880fee71d1823482e040d2e57c1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/11/2021
+ms.openlocfilehash: 53f300adb57eb17e704e7e3323b9829c485bb87a
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103564327"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107308989"
 ---
 # <a name="mapping-data-flows-in-azure-data-factory"></a>Flujos de datos de asignación en Azure Data Factory
 
@@ -96,66 +96,6 @@ El modo de depuración permite ver de forma interactiva los resultados de cada p
 El flujo de datos de asignación se integra con las capacidades de supervisión existentes de Azure Data Factory. Para obtener información para comprender la salida de la supervisión de flujos de datos, vea [Supervisión de flujos de datos de asignación](concepts-data-flow-monitoring.md).
 
 El equipo de Azure Data Factory ha creado una [Guía para la optimización del rendimiento](concepts-data-flow-performance.md) para ayudar a optimizar el tiempo de ejecución de los flujos de datos después de compilar la lógica de negocios.
-
-## <a name="available-regions"></a>Regiones disponibles
-
-======= Los flujos de datos de asignación están disponibles en las regiones siguientes:
-
-| Región de Azure | Flujos de datos de ADF |
-| ------------ | ----------------- |
-|  Centro de Australia | |
-| Centro de Australia 2 | |
-| Este de Australia | ✓ |
-| Sudeste de Australia   | ✓ |
-| Sur de Brasil  | ✓ |
-| Centro de Canadá | ✓ |
-| Centro de la India | ✓ |
-| Centro de EE. UU.    | ✓ |
-| Este de China |      |
-| Este de China 2  |   |
-| China no regional | |
-| Norte de China |     |
-| Norte de China 2 | |
-| Este de Asia | ✓ |
-| Este de EE. UU.   | ✓ |
-| Este de EE. UU. 2 | ✓ |
-| Centro de Francia | ✓ |
-| Sur de Francia  | |
-| Centro de Alemania (soberana) | |
-| Alemania no regional (soberana) | |
-| Norte de Alemania (pública) | |
-| Nordeste de Alemania (soberana) | |
-| Centro-oeste de Alemania (soberana) |  |
-| Japón Oriental | ✓ |
-| Japón Occidental |  |
-| Centro de Corea del Sur | ✓ |
-| Corea del Sur | |
-| Centro-Norte de EE. UU  | ✓ |
-| Norte de Europa  | ✓ |
-| Este de Noruega | |
-| Oeste de Noruega | |
-| Norte de Sudáfrica    | ✓ |
-| Oeste de Sudáfrica |  |
-| Centro-sur de EE. UU.  | |
-| Sur de la India | |
-| Sudeste de Asia    | ✓ |
-| Norte de Suiza |   |
-| Oeste de Suiza | |
-| Centro de Emiratos Árabes Unidos | |
-| Norte de Emiratos Árabes Unidos |  |
-| Sur de Reino Unido  | ✓ |
-| Oeste de Reino Unido |     |
-| US DoD (centro) | |
-| US DoD (este) | |
-| US Gov: Arizona |      |
-| US Gov no regional | |
-| US Gov Texas | |
-| US Gov - Virginia |     |
-| Centro-Oeste de EE. UU. |     |
-| Oeste de Europa   | ✓ |
-| Oeste de la India | |
-| Oeste de EE. UU.   | ✓ |
-| Oeste de EE. UU. 2 | ✓ |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

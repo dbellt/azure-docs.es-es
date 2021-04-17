@@ -10,47 +10,44 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 3/12/2021
+ms.date: 3/28/2021
 ms.author: gunnarc
-ms.openlocfilehash: 81b3d7ca21699b1e9b0dc91eaae8075f189eecd3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: c9a4a5229629b2a65b167a80fce8e502612dcf3c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103461953"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105709912"
 ---
 # <a name="azure-guest-os"></a>SO invitado de Azure
 En las tablas siguientes se muestran las actualizaciones del Centro de respuestas de seguridad de Microsoft (MSRC) aplicadas al sistema operativo invitado de Azure. Busque en este artículo para determinar si una actualización concreta se aplica al SO invitado que usa. Las actualizaciones siempre se realizan para la [familia][family-explain] determinada en la que se introdujeron.
 
 ## <a name="march-2021-guest-os"></a>Sistema operativo invitado de marzo de 2021
 
->[!NOTE] 
-
->El sistema operativo invitado de marzo se está implementando actualmente en las máquinas virtuales del servicio en la nube que están configuradas para las actualizaciones automáticas. Una vez completada la implementación, esta versión estará disponible para las actualizaciones manuales mediante Azure Portal y los archivos de configuración. Las revisiones siguientes se incluyen en el sistema operativo invitado de marzo. Esta lista está sujeta a cambios. 
 
 | Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
-|  Versión 21-03 |  [5000822]  |  Actualización acumulativa más reciente (LCU) | 6.29 | 9 de marzo de 2021 |
-|  Versión 21-03 |  [4580325]  |  Actualización de Flash | 3.95, 4.88, 5.53, 6.29 | 13 de octubre de 2020 |
-|  Versión 21-03 |  [5000800]  |  Actualizaciones acumulativas de IE | 2.108, 3.95, 4.88 | 9 de marzo de 2021 |
-|  Versión 21-03 |  [5000803]  |  Actualización acumulativa más reciente (LCU) | 5.53 | 9 de marzo de 2021 |
-|  Versión 21-03 |  [4578952]  |  Acumulación de seguridad y calidad de .NET Framework 3.5  | 2.108 | 13 de octubre de 2020 |
-|  Versión 21-03 |  [4578955]  |  Acumulación de seguridad y calidad de .NET Framework 4.5.2  | 2.108 | 13 de octubre de 2020 |
-|  Versión 21-03 |  [4578953]  |  Acumulación de seguridad y calidad de .NET Framework 3.5  | 4.88 | 13 de octubre de 2020 |
-|  Versión 21-03 |  [4578956]  |  Acumulación de seguridad y calidad de .NET Framework 4.5.2  | 4.88 | 13 de octubre de 2020 |
-|  Versión 21-03 |  [4578950]  |  Acumulación de seguridad y calidad de .NET Framework 3.5  | 3,95 | 13 de octubre de 2020 |
-|  Versión 21-03 |  [4578954]  |  . Acumulación de seguridad y calidad de .NET Framework 4.5.2  | 3,95 | 13 de octubre de 2020 |
-|  Versión 21-03 |  [4601060]  |  . Actualización acumulativa de .NET Framework 3.5 y 4.7.2  | 6.29 | 9 de febrero de 2021 |
-|  Versión 21-03 |  [5000841]  |  Acumulación mensual  | 2.108 | 9 de marzo de 2021 |
-|  Versión 21-03 |  [5000847]  |  Acumulación mensual  | 3,95 | 9 de marzo de 2021 |
-|  Versión 21-03 |  [5000848]  |  Acumulación mensual  | 4.88 | 9 de marzo de 2021 |
-|  Versión 21-03 |  [4566426]  |  Actualización de la pila de servicio  | 3,95 | 14 de julio de 2020 |
-|  Versión 21-03 |  [4566425]  |  Actualización de la pila de servicio  | 4.88 | 14 de julio de 2020 |
-|  Versión 21-03 OOB |  [4578013]  |  Actualización de seguridad independiente  | 4.88 | 19 de agosto de 2020 |
-|  Versión 21-03 |  [4592510]  |  Actualización de la pila de servicio  | 2.108 | 8 de diciembre de 2020 |
-|  Versión 21-03 |  [5000859]  |  Actualización de la pila de servicio  | 6.29 | 9 de marzo de 2021 |
-|  Versión 21-03 |  [4494175]  |  Microcódigo  | 5.53 | 1 de septiembre de 2020 |
-|  Versión 21-03 |  [4494174]  |  Microcódigo  | 6.29 | 1 de septiembre de 2020 |
+|  Versión 21-03 |  [5000822]  |  Actualización acumulativa más reciente (LCU) | [6.29] | 9 de marzo de 2021 |
+|  Versión 21-03 |  [4580325]  |  Actualización de Flash | [3.95], [4.88], [5.53], [6.29] | 13 de octubre de 2020 |
+|  Versión 21-03 |  [5000800]  |  Actualizaciones acumulativas de IE | [2.108], [3.95], [4.88] | 9 de marzo de 2021 |
+|  Versión 21-03 |  [5000803]  |  Actualización acumulativa más reciente (LCU) | [5.53] | 9 de marzo de 2021 |
+|  Versión 21-03 |  [4578952]  |  Acumulación de seguridad y calidad de .NET Framework 3.5  | [2.108] | 13 de octubre de 2020 |
+|  Versión 21-03 |  [4578955]  |  Acumulación de seguridad y calidad de .NET Framework 4.5.2  | [2.108] | 13 de octubre de 2020 |
+|  Versión 21-03 |  [4578953]  |  Acumulación de seguridad y calidad de .NET Framework 3.5  | [4.88] | 13 de octubre de 2020 |
+|  Versión 21-03 |  [4578956]  |  Acumulación de seguridad y calidad de .NET Framework 4.5.2  | [4.88] | 13 de octubre de 2020 |
+|  Versión 21-03 |  [4578950]  |  Acumulación de seguridad y calidad de .NET Framework 3.5  | [3,95] | 13 de octubre de 2020 |
+|  Versión 21-03 |  [4578954]  |  . Acumulación de seguridad y calidad de .NET Framework 4.5.2  | [3,95] | 13 de octubre de 2020 |
+|  Versión 21-03 |  [4601060]  |  . Actualización acumulativa de .NET Framework 3.5 y 4.7.2  | [6.29] | 9 de febrero de 2021 |
+|  Versión 21-03 |  [5000841]  |  Acumulación mensual  | [2.108] | 9 de marzo de 2021 |
+|  Versión 21-03 |  [5000847]  |  Acumulación mensual  | [3,95] | 9 de marzo de 2021 |
+|  Versión 21-03 |  [5000848]  |  Acumulación mensual  | [4.88] | 9 de marzo de 2021 |
+|  Versión 21-03 |  [4566426]  |  Actualización de la pila de servicio  | [3,95] | 14 de julio de 2020 |
+|  Versión 21-03 |  [4566425]  |  Actualización de la pila de servicio  | [4.88] | 14 de julio de 2020 |
+|  Versión 21-03 OOB |  [4578013]  |  Actualización de seguridad independiente  | [4.88] | 19 de agosto de 2020 |
+|  Versión 21-03 |  [4592510]  |  Actualización de la pila de servicio  | [2.108] | 8 de diciembre de 2020 |
+|  Versión 21-03 |  [5000859]  |  Actualización de la pila de servicio  | [6.29] | 9 de marzo de 2021 |
+|  Versión 21-03 |  [4494175]  |  Microcódigo  | [5.53] | 1 de septiembre de 2020 |
+|  Versión 21-03 |  [4494174]  |  Microcódigo  | [6.29] | 1 de septiembre de 2020 |
 
 [5000822]: https://support.microsoft.com/kb/5000822
 [4580325]: https://support.microsoft.com/kb/4580325
@@ -73,7 +70,11 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 [5000859]: https://support.microsoft.com/kb/5000859
 [4494175]: https://support.microsoft.com/kb/4494175
 [4494174]: https://support.microsoft.com/kb/4494174
-
+[2.108]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.95]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.88]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.53]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.29]: ./cloud-services-guestos-update-matrix.md#family-6-releases
 
 ## <a name="february-2021-guest-os"></a>SO invitado de febrero de 2021
 
@@ -2432,7 +2433,7 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 [4015221]: https://support.microsoft.com/kb/4015221
 [4015583]: https://support.microsoft.com/kb/4015583
 [4015219]: https://support.microsoft.com/kb/4015219
-[4023136]: https://support.microsoft.com/kb/4023136
+[4023136]: https://support.microsoft.com/topic/how-to-configure-daylight-saving-time-for-microsoft-windows-operating-systems-83a0992c-bce3-336a-d64d-f7bdfdbcd7c8
 [4019264]: https://support.microsoft.com/kb/4019264
 [4014545]: https://support.microsoft.com/kb/4014545
 [4014508]: https://support.microsoft.com/kb/4014508

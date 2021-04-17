@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/15/2020
 ms.author: alkohli
 ms.openlocfilehash: 25c56bff88fa393a505103afc95436fb13cd6401
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96581383"
 ---
 - Para acceder al servicio Azure Stack Edge, la organización necesita tener una suscripción a Contrato Enterprise (EA) o a Proveedor de soluciones en la nube. Para más información, consulte [Registro para una suscripción a Azure](https://azure.microsoft.com/resources/videos/sign-up-for-microsoft-azure/).
