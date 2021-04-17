@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/9/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: c600ced8896a3847b80d854c9e230310cca4c98d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 797de242b4b4464c0bfb5ae18af05710ab36bce6
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100588601"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107285486"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Solución de problemas de Azure Digital Twins: Registro de diagnóstico
 
@@ -115,7 +115,7 @@ Estas son las descripciones de campo y propiedad de los registros de API.
 | Nombre del campo | Tipo de datos | Descripción |
 |-----|------|-------------|
 | `Time` | DateTime | La fecha y la hora en que ocurrió el evento de auditoría, en UTC |
-| `ResourceID` | String | El identificador de recurso Azure Resource Manager para el recurso en el que tuvo lugar el evento |
+| `ResourceId` | String | El identificador de recurso Azure Resource Manager para el recurso en el que tuvo lugar el evento |
 | `OperationName` | String  | El tipo de acción que se realiza durante el evento |
 | `OperationVersion` | String | La versión de API utilizada durante el evento |
 | `Category` | String | El tipo de recurso que se está emitiendo |

@@ -3,12 +3,12 @@ title: Creación de directivas para propiedades de matriz en recursos
 description: Aprenda a trabajar con parámetros de matriz y expresiones de lenguaje de matriz, evaluar el alias [*] y anexar elementos con las reglas de definición de Azure Policy.
 ms.date: 03/31/2021
 ms.topic: how-to
-ms.openlocfilehash: d4e059f3691554aa91dfd15cf308ef62afa58928
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 18afbee0ca8b1c488e3bd3ce50dacc726bd2ef25
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106089974"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305198"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Creación de directivas para propiedades de matriz en recursos de Azure
 
@@ -95,7 +95,7 @@ Para usar esta cadena con cada SDK, use los siguientes comandos:
 
 - CLI de Azure: Comando [az policy assignment create](/cli/azure/policy/assignment#az_policy_assignment_create) con el parámetro **params**
 - Azure PowerShell: Cmdlet [New AzPolicyAssignment](/powershell/module/az.resources/New-Azpolicyassignment) con el parámetro **PolicyParameter**
-- API REST: en la operación _PUT_ [create](/rest/api/resources/policyassignments/create) como parte del cuerpo de la solicitud, como el valor de la propiedad **properties.parameters**
+- API REST: en la operación _PUT_ [create](/rest/api/policy/policyassignments/create) como parte del cuerpo de la solicitud, como el valor de la propiedad **properties.parameters**
 
 ## <a name="using-arrays-in-conditions"></a>Uso de matrices en condiciones
 
