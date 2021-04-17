@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 03/18/2021
-ms.openlocfilehash: dadca1fadef9d2967f20cae13e40d01de73d39e4
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: b10d2e10f95470cadf67af762a0d7320bc09b7e0
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104778345"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075702"
 ---
 # <a name="azure-migrate-appliance"></a>Dispositivo con Azure Migrate
 
@@ -500,16 +500,15 @@ Detalles del disco | Win32_PerfFormattedData_PerfDisk_PhysicalDisk | DiskWritesP
 
 Estos son los datos de rendimiento de Linux que el dispositivo recopila y envía a Azure.
 
-**Data** | **Comandos**
---- | ---
-Uso de CPU | cat /proc/stat/| grep "cpu" /proc/stat
-Uso de la memoria | free \| grep Mem \| awk "{print $3/$2 * 100.0}"
-NIC (recuento) | lshw -class network \| eth[0-60] \| wc -l
-Datos recibidos por NIC | cat /sys/class/net/eth$nic/statistics/rx_bytes
-Datos transmitidos por NIC | cat /sys/class/net/eth$nic/statistics/tx_bytes
-Número de discos | fdisk -l \| egrep "Disk.*bytes" \| awk "{print $2}" \| cut -f1 -d ":"
-Detalles del disco | cat /proc/diskstats
-
+| **Data** | **Comandos** |
+| --- | --- |
+| Uso de CPU | cat /proc/stat/ \| grep 'cpu' /proc/stat |
+| Uso de la memoria | free \| grep Mem \| awk "{print $3/$2 * 100.0}" |
+| NIC (recuento) | lshw -class network \| eth[0-60] \| wc -l |
+| Datos recibidos por NIC | cat /sys/class/net/eth$nic/statistics/rx_bytes |
+| Datos transmitidos por NIC | cat /sys/class/net/eth$nic/statistics/tx_bytes |
+| Número de discos | fdisk -l \| egrep 'Disk.\*bytes' \| awk '{print $2}' \| cut -f1 -d ':' |
+| Detalles del disco | cat /proc/diskstats |
 
 ## <a name="appliance-upgrades"></a>Actualizaciones del dispositivo
 

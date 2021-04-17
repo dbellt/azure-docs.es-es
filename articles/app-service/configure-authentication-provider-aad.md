@@ -5,54 +5,51 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 2805500e4a4c98ad7b8360393e7d69ad9fb704a3
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: b1254e7db0e62d08ea2a3d6d30f2abd379675c55
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102563343"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078322"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Configuración de una aplicación de App Service o Azure Functions para usar el inicio de sesión de Azure AD
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-En este artículo se muestra cómo configurar la autenticación para Azure App Service o Azure Functions de modo que la aplicación inicie la sesión de los usuarios con Azure Active Directory (Azure AD) como proveedor de autenticación.
+En este artículo se muestra cómo configurar la autenticación para Azure App Service o Azure Functions de modo que la aplicación inicie la sesión de los usuarios con la [plataforma de identidad de Microsoft](../active-directory/develop/v2-overview.md) (Azure AD) como proveedor de autenticación.
 
-## <a name="configure-with-express-settings"></a><a name="express"> </a>Configuración rápida
+La característica de autenticación de App Service puede crear automáticamente un registro de aplicaciones con la plataforma de identidad de Microsoft. También es posible usar un registro que el usuario o un administrador de directorios cree por separado.
 
-La opción **Rápido** está diseñada para simplificar la autenticación y requiere unos pocos clics.
-
-La configuración rápida creará automáticamente un registro de aplicación que usa el punto de conexión de Azure Active Directory v1. Para usar [Azure Active Directory v2.0](../active-directory/develop/v2-overview.md) (incluido [MSAL](../active-directory/develop/msal-overview.md)), siga las [instrucciones de configuración avanzada](#advanced).
+- [Creación de un nuevo registro de aplicaciones automáticamente](#express)
+- [Uso de un registro existente creado por separado](#advanced)
 
 > [!NOTE]
-> La opción **Rápida** no está disponible en las nubes de las administraciones públicas.
+> La opción para crear un nuevo registro no está disponible para las nubes de la administración pública. En su lugar, [defina un registro por separado](#advanced).
 
-Para habilitar la autenticación mediante la opción **Rápido**, siga estos pasos:
+## <a name="create-a-new-app-registration-automatically"></a><a name="express"> </a>Creación de un nuevo registro de aplicaciones automáticamente
 
-1. En [Azure Portal], busque y seleccione **App Services** y luego elija la aplicación.
-2. En el panel de navegación izquierdo, seleccione **Autenticación/Autorización** > **Activado**.
-3. Seleccione **Azure Active Directory** > **Rápido**.
+Esta opción está diseñada para simplificar la autenticación y requiere unos pocos clics.
 
-   Si prefiere elegir un registro de aplicación existente:
+1. Inicie sesión en [Azure Portal] y vaya a la aplicación.
+1. Seleccione **Autenticación** en el menú de la izquierda. Haga clic en **Agregar proveedor de identidades**.
+1. Seleccione **Microsoft** en la lista desplegable del proveedor de identidades. La opción para crear un nuevo registro está seleccionada de forma predeterminada. Puede cambiar el nombre del registro o los tipos de cuenta admitidos.
 
-   1. Elija **Seleccionar aplicación de AD existente** y haga clic en **Aplicación de Azure AD**.
-   2. Elija un registro de aplicación existente y haga clic en **Aceptar**.
+    Se creará un secreto de cliente y se almacenará como una [configuración de aplicación](./configure-common.md#configure-app-settings) con espacios fijos denominada `MICROSOFT_PROVIDER_AUTHENTICATION_SECRET`. Puede actualizar esa configuración más adelante para usar [referencias de Key Vault](./app-service-key-vault-references.md) si desea administrar el secreto en Azure Key Vault.
 
-4. Seleccione **Aceptar** para registrar la aplicación de App Service en Azure Active Directory. Se crea un nuevo registro de la aplicación.
+1. Si este es el primer proveedor de identidades configurado para la aplicación, también se mostrará una sección de **configuración de autenticación de App Service**. De lo contrario, puede pasar al siguiente paso.
+    
+    Estas opciones determinan el modo en que la aplicación responde a las solicitudes no autenticadas y las selecciones predeterminadas redirigirán todas las solicitudes para iniciar sesión con este nuevo proveedor. Puede cambiar este comportamiento ahora o ajustar esta configuración más adelante desde la pantalla principal **Autenticación**; para ello, elija **Editar** junto a **Configuración de la autenticación**. Para obtener más información acerca de estas opciones, consulte [Flujo de autenticación](overview-authentication-authorization.md#authentication-flow).
 
-    ![Configuración rápida en Azure Active Directory](./media/configure-authentication-provider-aad/express-settings.png)
+1. (Opcional) Haga clic en **Siguiente: Permisos** y agregue los ámbitos que necesite la aplicación. Estos se agregarán al registro de la aplicación, pero también puede cambiarlos más adelante.
+1. Haga clic en **Agregar**.
 
-5. (Opcional) De manera predeterminada, App Service ofrece autenticación pero no restringe el acceso autorizado al contenido del sitio y a las API. Debe autorizar a los usuarios en el código de la aplicación. Para restringir el acceso a la aplicación solo a los usuarios autenticados mediante Azure Active Directory, configure **Acción necesaria cuando la solicitud no está autenticada** en **Iniciar sesión con Azure Active Directory**. Al establecer esta funcionalidad, la aplicación requiere que se autentiquen todas las solicitudes. También redirige todo lo que no está autenticado a Azure Active Directory para la autenticación.
-
-    > [!CAUTION]
-    > Este método de restricción del acceso se aplica a todas las llamadas a la aplicación, lo que puede no interesar en las aplicaciones que tienen una página principal disponible públicamente así como en muchas aplicaciones de página única. Para tales aplicaciones, puede ser preferible **Permitir solicitudes anónimas (ninguna acción)** y que la aplicación inicie manualmente el inicio de sesión. Para más información, consulte [Flujo de autenticación](overview-authentication-authorization.md#authentication-flow).
-6. Seleccione **Guardar**.
+De este modo ya estará listo para usar la plataforma de identidad de Microsoft para realizar la autenticación en la aplicación. El proveedor se mostrará en la pantalla **Autenticación**. Desde allí, puede editar o eliminar esta configuración de proveedor.
 
 Para obtener un ejemplo de configuración de inicio de sesión de Azure AD para una aplicación web con acceso a Azure Storage y Microsoft Graph, consulte [este tutorial](scenario-secure-app-authentication-app-service.md).
 
-## <a name="configure-with-advanced-settings"></a><a name="advanced"> </a>Configuración avanzada
+## <a name="use-an-existing-registration-created-separately"></a><a name="advanced"> </a>Uso de un registro existente creado por separado
 
-Para que Azure AD actúe como proveedor de autenticación en la aplicación, debe registrar la aplicación en este servicio. La opción Rápido lo hace automáticamente. La opción Avanzado permite registrar manualmente la aplicación, personalizando el registro e insertando manualmente los detalles de registro en App Service. Esto resulta útil, por ejemplo, si quiere usar un registro de aplicaciones de un inquilino de Azure AD diferente de aquel donde está App Service.
+También puede registrar manualmente la aplicación en la plataforma de identidad de Microsoft, personalizando el registro y configurando la autenticación de App Service con los detalles de registro. Esto resulta útil, por ejemplo, si quiere usar un registro de aplicaciones de un inquilino de Azure AD diferente de aquel donde está la aplicación.
 
 ### <a name="create-an-app-registration-in-azure-ad-for-your-app-service-app"></a><a name="register"> </a>Creación de un registro de aplicaciones en Azure AD para la aplicación App Service
 
@@ -87,22 +84,27 @@ Para registrar la aplicación, lleve a cabo los siguientes pasos:
 
 ### <a name="enable-azure-active-directory-in-your-app-service-app"></a><a name="secrets"> </a>Habilitación de Azure Active Directory en la aplicación de App Service
 
-1. En [Azure Portal], busque y seleccione **App Services** y luego elija la aplicación.
-1. En el panel izquierdo, en **Configuración**, seleccione **Autenticación/Autorización** > **Activado**.
-1. (Opcional) De forma predeterminada, la autenticación de App Service permite el acceso no autenticado a la aplicación. Para aplicar la autenticación de usuario, establezca la **acción necesaria cuando la solicitud no está autenticada**, en **Log in with Azure Active Directory** (Iniciar sesión con Azure Active Directory).
-1. En **Proveedores de autenticación,** seleccione **Azure Active Directory**.
-1. En el **modo de administración**, seleccione **Advanced** (Avanzada) y configure la autenticación de App Service de acuerdo con la tabla siguiente:
+1. Inicie sesión en [Azure Portal] y vaya a la aplicación.
+1. Seleccione **Autenticación** en el menú de la izquierda. Haga clic en **Agregar proveedor de identidades**.
+1. Seleccione **Microsoft** en la lista desplegable del proveedor de identidades.
+1. En **App registration type** (Tipo de registro de aplicaciones), puede elegir **Pick an existing app registration in this directory** (Seleccionar in registro de aplicaciones existente en este directorio), que recopilará automáticamente la información necesaria de la aplicación. Si el registro procede de otro inquilino o no tiene permiso para ver el objeto de registro, elija **Proporcione los detalles de un registro de aplicación existente.** . Para esta opción, tendrá que rellenar los siguientes detalles de configuración:
 
     |Campo|Descripción|
     |-|-|
-    |Id. de cliente| Use el **identificador de la aplicación (cliente)** del registro de aplicaciones. |
+    |Id. de aplicación (cliente)| Use el **identificador de la aplicación (cliente)** del registro de aplicaciones. |
+    |Secreto de cliente (opcional)| Use el secreto de cliente que generó en el registro de la aplicación. Con un secreto de cliente, se usa el flujo híbrido y el App Service devolverá el acceso y los tokens de actualización. Cuando no se establece el secreto de cliente, se usa el flujo implícito y solo se devuelve un token de identificador. Estos tokens los envía el proveedor y se almacenan en el almacén de tokens de EasyAuth.|
     |Dirección URL del emisor| Use `<authentication-endpoint>/<tenant-id>/v2.0` y reemplace *\<authentication-endpoint>* por el [punto de conexión de autenticación del entorno de nube](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints) (por ejemplo, "https://login.microsoftonline.com" para Azure global), y reemplace también *\<tenant-id>* por el **identificador de directorio (inquilino)** en el que se creó el registro de la aplicación. Este valor se usa para redirigir a los usuarios al inquilino de Azure AD correcto, así como para descargar los metadatos adecuados para determinar las claves de firma de tokens y el valor de notificación del emisor del token correspondientes, por ejemplo. En las aplicaciones que usan Azure AD v1 y en las aplicaciones de Azure Functions, debe omitirse `/v2.0` en la dirección URL.|
-    |Secreto de cliente (opcional)| Use el secreto de cliente que generó en el registro de la aplicación.|
-    |Audiencias de token permitidas| Si se trata de una aplicación en la nube o una aplicación de servidor y quiere permitir tokens de autenticación desde una aplicación web, agregue aquí el valor de **URI de Id. de aplicación** de la aplicación web. De forma implícita, el **Id. de cliente** se considera *siempre* que es un público permitido. |
+    |Audiencias de token permitidas| Si se trata de una aplicación en la nube o una aplicación de servidor y quiere permitir tokens de autenticación desde una aplicación web, agregue aquí el valor de **URI de Id. de aplicación** de la aplicación web. De forma implícita, el **Id. de cliente** se considera *siempre* que es un público permitido.|
 
-2. Seleccione **Aceptar** y después **Guardar**.
+    El secreto de cliente se almacenará como una [configuración de la aplicación](./configure-common.md#configure-app-settings) con espacios fijos denominada `MICROSOFT_PROVIDER_AUTHENTICATION_SECRET`. Puede actualizar esa configuración más adelante para usar [referencias de Key Vault](./app-service-key-vault-references.md) si desea administrar el secreto en Azure Key Vault.
 
-Ahora está preparado para usar Azure Active Directory para realizar la autenticación en la aplicación de App Service.
+1. Si este es el primer proveedor de identidades configurado para la aplicación, también se mostrará una sección de **configuración de autenticación de App Service**. De lo contrario, puede pasar al siguiente paso.
+    
+    Estas opciones determinan el modo en que la aplicación responde a las solicitudes no autenticadas y las selecciones predeterminadas redirigirán todas las solicitudes para iniciar sesión con este nuevo proveedor. Puede cambiar este comportamiento ahora o ajustar esta configuración más adelante desde la pantalla principal **Autenticación**; para ello, elija **Editar** junto a **Configuración de la autenticación**. Para obtener más información acerca de estas opciones, consulte [Flujo de autenticación](overview-authentication-authorization.md#authentication-flow).
+
+1. Haga clic en **Agregar**.
+
+De este modo ya estará listo para usar la plataforma de identidad de Microsoft para realizar la autenticación en la aplicación. El proveedor se mostrará en la pantalla **Autenticación**. Desde allí, puede editar o eliminar esta configuración de proveedor.
 
 ## <a name="configure-client-apps-to-access-your-app-service"></a>Configuración de las aplicaciones cliente para acceder a la instancia de App Service
 

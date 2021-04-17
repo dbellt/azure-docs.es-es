@@ -3,13 +3,13 @@ title: Deshabilitamiento de funciones en Azure Functions
 description: Aprenda a deshabilitar y a habilitar las funciones de Azure Functions.
 ms.topic: conceptual
 ms.date: 03/15/2021
-ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 1ad484804f66a2e2d4d0f1da4a37cf0d6c485f38
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-csharp
+ms.openlocfilehash: ef3886c4b9b73f87238bf386d1320ecbac8ad181
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104584744"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107374903"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>Deshabilitamiento de funciones en Azure Functions
 

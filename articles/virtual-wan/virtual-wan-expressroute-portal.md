@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: tutorial
 ms.date: 10/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6b9c4bcf760387f6bbe380c9aa079df2f86a1847
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 67df1c822f34f45bb0931848f8015374a346673a
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106060659"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106278446"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan"></a>Tutorial: Creación de una asociación de ExpressRoute mediante Azure Virtual WAN
 
@@ -104,7 +104,7 @@ En esta sección, creará la conexión de emparejamiento entre el centro de cone
 
 ## <a name="connect-your-circuit-to-the-hub-gateway"></a><a name="connectcircuit"></a>Conexión del circuito a la puerta de enlace del centro de conectividad
 
-Una vez que se crea la puerta de enlace, puede conectarle un [circuito ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md). Los circuitos Estándar o Premium de ExpressRoute que se encuentran en las ubicaciones compatibles con ExpressRoute Global Reach se pueden conectar a una puerta de enlace Virtual WAN ExpressRoute y disfrutar de todas las funcionalidades de tránsito de Virtual WAN (tránsito de VPN a VPN, de VPN y de ExpressRoute). Los circuitos Estándar o Premium de ExpressRoute que se encuentren en ubicaciones que no sean de Global Reach pueden conectarse a los recursos de Azure, pero no podrán usar las funcionalidades de tránsito de Virtual WAN. ExpressRoute local es compatible con los concentradores de Azure Virtual WAN siempre que las redes virtuales de los radios conectadas a un concentrador de Virtual WAN estén en la misma región que el concentrador de Virtual WAN.
+Una vez que se crea la puerta de enlace, puede conectarle un [circuito ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md). Los circuitos Estándar o Premium de ExpressRoute que se encuentran en las ubicaciones compatibles con ExpressRoute Global Reach se pueden conectar a una puerta de enlace Virtual WAN ExpressRoute y disfrutar de todas las funcionalidades de tránsito de Virtual WAN (tránsito de VPN a VPN, de VPN y de ExpressRoute). Los circuitos Estándar o Premium de ExpressRoute que se encuentren en ubicaciones que no sean de Global Reach pueden conectarse a los recursos de Azure, pero no podrán usar las funcionalidades de tránsito de Virtual WAN. ExpressRoute Local también es compatible con los centros de conectividad de Azure Virtual WAN.
 
 ### <a name="to-connect-the-circuit-to-the-hub-gateway"></a>Para conectar el circuito a la puerta de enlace del centro de conectividad
 

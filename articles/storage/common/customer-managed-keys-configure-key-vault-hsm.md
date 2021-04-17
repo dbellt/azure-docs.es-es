@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/05/2021
+ms.date: 03/30/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: f9be9272a898ad48f3553d4c5e48952e1fcdde81
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ea51c1f7fcfce5b795965eab2f9c03a820a6ab03
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102218645"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106059367"
 ---
 # <a name="configure-encryption-with-customer-managed-keys-stored-in-azure-key-vault-managed-hsm-preview"></a>Configuración del cifrado con claves administradas por el cliente almacenadas en HSM administrado de Azure Key Vault (versión preliminar)
 
@@ -65,7 +65,9 @@ az keyvault role assignment create \
 
 ## <a name="configure-encryption-with-a-key-in-the-managed-hsm"></a>Configuración del cifrado con una clave en el HSM administrado
 
-Por último, configure el cifrado de Azure Storage con claves administradas por el cliente para usar una clave almacenada en el HSM administrado. Entre los tipos de clave admitidos se incluyen las claves RSA-HSM de los tamaños 2048, 3072 y 4096. Instale la CLI de Azure 2.12.0 o posterior para configurar el cifrado con el fin de usar una clave administrada por el cliente en un HSM administrado. Para más información, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
+Por último, configure el cifrado de Azure Storage con claves administradas por el cliente para usar una clave almacenada en el HSM administrado. Entre los tipos de clave admitidos se incluyen las claves RSA-HSM de los tamaños 2048, 3072 y 4096. Para obtener información sobre cómo crear una clave en un HSM administrado, consulte [Creación de una clave HSM](../../key-vault/managed-hsm/key-management.md#create-an-hsm-key).
+
+Instale la CLI de Azure 2.12.0 o posterior para configurar el cifrado con el fin de usar una clave administrada por el cliente en un HSM administrado. Para más información, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
 Para actualizar automáticamente la versión de una clave administrada por el cliente, omita la versión de la clave al configurar el cifrado con las claves administradas por el cliente para la cuenta de almacenamiento. Llame a [az storage account update](/cli/azure/storage/account#az_storage_account_update) para actualizar la configuración de cifrado de la cuenta de almacenamiento, como se muestra en el ejemplo siguiente. Incluya `--encryption-key-source parameter` y establézcalo en `Microsoft.Keyvault` para habilitar las claves administradas por el cliente para la cuenta. No olvide reemplazar los valores del marcador de posición entre corchetes con sus propios valores.
 

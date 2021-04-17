@@ -6,14 +6,14 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 08/05/2020
+ms.date: 3/22/2021
 ms.author: pafarley
-ms.openlocfilehash: cc1d375de9f45369f6d2902b106a1740f316ad8d
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 41f6c8e260968eacd04249b3f887d4865907df0d
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98947400"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104879626"
 ---
 [Documentación de referencia](/javascript/api/@azure/arm-cognitiveservices/) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/arm-cognitiveservices) | [Paquete (NPM)](https://www.npmjs.com/package/@azure/arm-cognitiveservices) | [Ejemplos](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/arm-cognitiveservices#sample-code)
 
@@ -116,7 +116,9 @@ node index.js
 
 ## <a name="see-also"></a>Consulte también
 
-* [Documentación de referencia del SDK de Administración de Azure](/javascript/api/@azure/arm-cognitiveservices/)
-* [¿Qué es Azure Cognitive Services?](../../what-are-cognitive-services.md)
-* [Autenticación de solicitudes en Azure Cognitive Services](../../authentication.md)
-* [Creación de un recurso mediante Azure Portal](../../cognitive-services-apis-create-account.md)
+* Consulte **[Autenticación de solicitudes en Azure Cognitive Services](../../authentication.md)** para aprender a trabajar de forma segura con Cognitive Services.
+* Consulte **[¿Qué es Azure Cognitive Services?](../../what-are-cognitive-services.md)** para obtener una lista de las distintas categorías de Cognitive Services.
+* Consulte **[Compatibilidad con idiomas naturales](../../language-support.md)** para ver la lista de los idiomas naturales admitidos por Cognitive Services.
+* Consulte **[Contenedores de Azure Cognitive Services](../../cognitive-services-container-support.md)** para aprender a usar Cognitive Services en un entorno local.
+* Consulte **[Planeamiento y administración de los costos de Azure Cognitive Services](../../plan-manage-costs.md)** para estimar el costo de usar Cognitive Services.
+* Consulte la **[documentación de referencia del SDK de administración de Azure](/javascript/api/@azure/arm-cognitiveservices/)** para más detalles sobre el SDK de administración.

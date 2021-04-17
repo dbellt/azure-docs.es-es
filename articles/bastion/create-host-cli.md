@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: cherylmc
-ms.openlocfilehash: e4f0a3ea85fa479826fe9e666df2b18f8dba7ce3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8654b557de8242910c665596ca8bfd29fe86d1ff
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92079129"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106578831"
 ---
 # <a name="create-an-azure-bastion-host-using-azure-cli"></a>Creación de un host de Azure Bastion con CLI de Azure
 
@@ -25,6 +25,10 @@ Opcionalmente, puede crear un host de Azure Bastion con [Azure Portal](./tutoria
 Compruebe que tiene una suscripción a Azure. Si todavía no la tiene, puede activar sus [ventajas como suscriptor de MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial).
 
 [!INCLUDE [Cloud Shell CLI](../../includes/vpn-gateway-cloud-shell-cli.md)]
+
+ >[!NOTE]
+ >En este momento no se admite el uso de Azure Bastion con las zonas de DNS privado de Azure. Antes de empezar, asegúrese de que la red virtual en la que planea implementar el recurso de Bastion no esté vinculada a una zona de DNS privado.
+ >
 
 ## <a name="create-a-bastion-host"></a><a name="createhost"></a>Creación de un host de Bastion
 
