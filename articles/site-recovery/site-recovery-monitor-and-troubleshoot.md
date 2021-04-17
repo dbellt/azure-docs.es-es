@@ -1,18 +1,15 @@
 ---
 title: Supervisión de Azure Site Recovery | Microsoft Docs
 description: Supervisión y solución de problemas de replicación y de operaciones de Azure Site Recovery mediante el portal
-author: raynew
-manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/30/2019
-ms.author: raynew
-ms.openlocfilehash: d441284b265ab11dd5ece42ec3737e455d662435
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a80f68c230bfed5caad4fd5ce474d8d06fd3d093
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96023574"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106579321"
 ---
 # <a name="monitor-site-recovery"></a>Supervisión de Site Recovery
 

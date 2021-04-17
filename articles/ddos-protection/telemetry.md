@@ -3,7 +3,7 @@ title: Visualización y configuración de la telemetría de protección contra D
 description: Aprenda a ver y configurar la telemetría de protección contra DDoS para Azure DDoS Protection Standard.
 services: ddos-protection
 documentationcenter: na
-author: yitoh
+author: aletheatoh
 ms.service: ddos-protection
 ms.devlang: na
 ms.topic: article
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 0be184921ff0bd6b98dd2975acb4e0d5c8b26ba0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0a04c6c58f8bfa5370a6529b81a5a85090413a2a
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101716200"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107540"
 ---
 # <a name="view-and-configure-ddos-protection-telemetry"></a>Visualización y configuración de DDoS Protection
 
