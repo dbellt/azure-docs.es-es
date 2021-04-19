@@ -7,17 +7,17 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/03/2021
-ms.openlocfilehash: 8b2e85744923fb2e7e474e049df1536aebc56f3c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/08/2021
+ms.openlocfilehash: 6954ce289cb3cf219f8c4024a112411fd60d70e0
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99536940"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310672"
 ---
-# <a name="create-and-manage-api-keys-for-an-azure-cognitive-search-service"></a>Creación y administración de claves de API para un servicio de Azure Cognitive Search
+# <a name="create-and-manage-api-keys-for-authentication-to-azure-cognitive-search"></a>Creación y administración de claves de API para la autenticación en Azure Cognitive Search
 
-Todas las solicitudes que se realizan a un servicio de búsqueda necesitan una clave de API de solo lectura generada de forma específica para el servicio. Dicha clave de API es el único mecanismo para autenticar las solicitudes de entrada al punto de conexión de su servicio de búsqueda y se necesita en todas las solicitudes. 
+Al conectarse a un servicio de búsqueda, todas la solicitudes necesitan incluir una clave de API de solo lectura generada de forma específica para el servicio. Dicha clave de API es el único mecanismo para autenticar las solicitudes de entrada al punto de conexión de su servicio de búsqueda y se necesita en todas las solicitudes. 
 
 + En las [soluciones de REST](search-get-started-rest.md), el objeto `api-key` se especifica normalmente en un encabezado de solicitud.
 

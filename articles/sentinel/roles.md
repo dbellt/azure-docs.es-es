@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/28/2020
+ms.date: 04/11/2021
 ms.author: yelevin
-ms.openlocfilehash: 77a8e208e463b8ab20d563421d447813b1ce84ee
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: b64adbb63efaa4ce4781474f732bc9509d51029e
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104772559"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310332"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Permisos de Azure Sentinel
 
@@ -31,8 +31,6 @@ Utilice RBAC de Azure para crear y asignar roles dentro del equipo de operacione
 ## <a name="roles-for-working-in-azure-sentinel"></a>Roles para trabajar en Azure Sentinel
 
 ### <a name="azure-sentinel-specific-roles"></a>Roles específicos de Azure Sentinel
-
-Hay tres roles de Azure Sentinel integrados dedicados.
 
 **Todos los roles integrados de Azure Sentinel conceden acceso de lectura a los datos en el área de trabajo de Azure Sentinel.**
 
@@ -54,19 +52,21 @@ Hay tres roles de Azure Sentinel integrados dedicados.
 
 Es posible que sea necesario asignar roles adicionales o permisos específicos a los usuarios con requisitos de trabajo concretos para que puedan realizar sus tareas.
 
-- Trabajar con cuadernos de estrategias para automatizar respuestas a amenazas
+- **Trabajar con cuadernos de estrategias para automatizar respuestas a amenazas**
 
     Azure Sentinel usa **cuadernos de estrategias** para una respuesta automatizada ante amenazas. Los cuadernos de estrategias se basan en **Azure Logic Apps** y son recursos independientes de Azure. Es posible que desee asignar a miembros específicos del equipo de operaciones de seguridad la posibilidad de usar Logic Apps para las operaciones de orquestación de seguridad, automatización y respuesta (SOAR). Puede usar el rol de [Colaborador de Logic App](../role-based-access-control/built-in-roles.md#logic-app-contributor) para asignar permisos explícitos para el uso de cuadernos de estrategias.
 
-- Conexión de orígenes de datos a Azure Sentinel
+- **Conexión de orígenes de datos a Azure Sentinel**
 
     Para que un usuario pueda agregar **conectores de datos**, debe asignar permisos de escritura de usuario en el área de trabajo de Azure Sentinel. Además, tenga en cuenta los permisos adicionales necesarios para cada conector, tal como se muestra en la página del conector correspondiente.
 
-- Los usuarios invitados asignan incidentes
+- **Los usuarios invitados asignan incidentes**
 
-    Si un usuario invitado necesita poder asignar incidentes, además del rol Respondedor de Azure Sentinel, deberá tener asignado el rol [Lector de directorios](../active-directory/roles/permissions-reference.md#directory-readers). Tenga en cuenta que este *no* es un rol de Azure, sino de **Azure Active Directory** y que los usuarios normales (no invitados) tienen este rol asignado de forma predeterminada. 
+    Si un usuario invitado necesita poder asignar incidentes, además del rol Respondedor de Azure Sentinel, deberá tener asignado el rol [Lector de directorios](../active-directory/roles/permissions-reference.md#directory-readers). Tenga en cuenta que este *no* es un rol de Azure, sino de **Azure Active Directory** y que los usuarios normales (no invitados) tienen este rol asignado de forma predeterminada.
 
-Para obtener una comparación en paralelo, vea la [tabla siguiente](#roles-and-allowed-actions).
+- **Creación y eliminación de libros**
+
+    Para que un usuario cree y elimine un libro de Azure Sentinel, también deberá tener asignado el rol [Colaborador de supervisión](../role-based-access-control/built-in-roles.md#monitoring-contributor) de Azure Monitor. Este rol no es necesario para *usar* los libros, solo para crearlos y eliminarlos.
 
 ### <a name="other-roles-you-might-see-assigned"></a>Otros roles que podría ver asignados
 
@@ -74,21 +74,23 @@ En la asignación de roles de Azure específicos de Azure Sentinel, puede encont
 
 - **Roles de Azure:** [Propietario](../role-based-access-control/built-in-roles.md#owner), [colaborador](../role-based-access-control/built-in-roles.md#contributor) y [lector](../role-based-access-control/built-in-roles.md#reader). Los roles de Azure conceden acceso a todos los recursos de Azure, incluidas las áreas de trabajo de Log Analytics y los recursos de Azure Sentinel.
 
-- **Roles de Log Analytics:** [Colaborador de Log Analytics](../role-based-access-control/built-in-roles.md#log-analytics-contributor) y [Lector de Log Analytics](../role-based-access-control/built-in-roles.md#log-analytics-reader). Los roles de Log Analytics conceden acceso a las áreas de trabajo de Log Analytics. 
+- **Roles de Log Analytics:** [Colaborador de Log Analytics](../role-based-access-control/built-in-roles.md#log-analytics-contributor) y [Lector de Log Analytics](../role-based-access-control/built-in-roles.md#log-analytics-reader). Los roles de Log Analytics conceden acceso a las áreas de trabajo de Log Analytics.
 
 Por ejemplo, un usuario al que se haya asignado el rol de **Lector de Azure Sentinel**, pero no el rol de **Colaborador de Azure Sentinel**, todavía podrá editar elementos en Azure Sentinel si se le asigna el rol de **Colaborador** de nivel de Azure. Por tanto, si desea conceder permisos solo para un usuario en Azure Sentinel, elimine con cuidado los permisos anteriores de este usuario, y asegúrese de que no interrumpe ningún acceso necesario para otro recurso.
 
-## <a name="roles-and-allowed-actions"></a>Roles y acciones permitidas
+## <a name="azure-sentinel-roles-and-allowed-actions"></a>Roles de Azure Sentinel y acciones permitidas
 
-En la siguiente tabla se resumen los roles y las acciones permitidas en Azure Sentinel. 
+En la siguiente tabla se resumen los roles de Azure Sentinel y sus acciones permitidas en Azure Sentinel.
 
-| Role | Creación y ejecución de cuadernos de estrategias| Creación y edición de libros, reglas analíticas y otros recursos de Azure Sentinel | Administración de incidentes (descarte, asignación, etc.) | Visualización de datos, incidentes, libros y otros recursos de Azure Sentinel |
+| Role | Creación y ejecución de cuadernos de estrategias| Creación y edición de reglas analíticas y otros recursos de Azure Sentinel [*](#workbooks) | Administración de incidentes (descarte, asignación, etc.) | Visualización de datos, incidentes, libros y otros recursos de Azure Sentinel |
 |---|---|---|---|---|
 | Lector de Azure Sentinel | -- | -- | -- | &#10003; |
 | Respondedor de Azure Sentinel | -- | -- | &#10003; | &#10003; |
 | Colaborador de Azure Sentinel | -- | &#10003; | &#10003; | &#10003; |
 | Colaborador de Azure Sentinel y Colaborador de Logic Apps | &#10003; | &#10003; | &#10003; | &#10003; |
+| | | | | |
 
+<a name=workbooks></a>* La creación y eliminación de libros requiere el rol adicional [Colaborador de supervisión](../role-based-access-control/built-in-roles.md#monitoring-contributor). Para más información, vea [Roles y permisos adicionales.](#additional-roles-and-permissions)
 ## <a name="custom-roles-and-advanced-azure-rbac"></a>Roles personalizados y Azure RBAC avanzado
 
 - **Roles personalizados**. Además de usar roles integrados de Azure (o en vez de ello), puede crear roles personalizados de Azure para Azure Sentinel. Los roles personalizados de Azure para Azure Sentinel se crean de la misma manera que se crean otros [roles personalizados de Azure](../role-based-access-control/custom-roles-rest.md#create-a-custom-role) basados en [permisos específicos para los recursos de Azure Sentinel](../role-based-access-control/resource-provider-operations.md#microsoftsecurityinsights) y [Azure Log Analytics](../role-based-access-control/resource-provider-operations.md#microsoftoperationalinsights).

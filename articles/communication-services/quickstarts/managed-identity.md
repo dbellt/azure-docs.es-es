@@ -10,32 +10,39 @@ ms.date: 03/10/2021
 ms.author: peiliu
 ms.reviewer: mikben
 zone_pivot_groups: acs-js-csharp-java-python
-ms.openlocfilehash: e4b71cc889615fd4784f11c9edd77b44ef421d9e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: aedf54c8c958e96b2bbfa31652b4861ff452f75a
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105110780"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307446"
 ---
 # <a name="use-managed-identities"></a>Uso de identidades administradas
 Comience a trabajar con Azure Communication Services mediante identidades administradas. Los SDK de SMS e identidad de Communication Services admiten la autenticación de Azure Active Directory (Azure AD) con [identidades administradas para los recursos de Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
 Este inicio rápido le muestra cómo autorizar el acceso a los SDK de identidad y SMS desde un entorno de Azure que admita identidades administradas. También se describe cómo probar el código en un entorno de desarrollo.
 
+## <a name="prerequisites"></a>Prerrequisitos
+
+- Una cuenta de Azure con una suscripción activa. [Cree su cuenta de forma gratuita](https://azure.microsoft.com/free).
+- Un recurso de Azure Communication Services activo, consulte [Creación de un recurso de Communication Services](./create-communication-resource.md) si no tiene uno.
+- Para enviar un SMS, necesitará un [número de teléfono](./telephony-sms/get-phone-number.md).
+- Una identidad administrada de configuración para un entorno de desarrollo, consulte [Autorización del acceso con identidad administrada](./managed-identity-from-cli.md).
+
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [.NET](./includes/managed-identity-net.md)]
+[!INCLUDE [.NET](./includes/managed-identity/managed-identity-net.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
-[!INCLUDE [JavaScript](./includes/managed-identity-js.md)]
+[!INCLUDE [JavaScript](./includes/managed-identity/managed-identity-js.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-[!INCLUDE [Java](./includes/managed-identity-java.md)]
+[!INCLUDE [Java](./includes/managed-identity/managed-identity-java.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-[!INCLUDE [Python](./includes/managed-identity-python.md)]
+[!INCLUDE [Python](./includes/managed-identity/managed-identity-python.md)]
 ::: zone-end
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 04/20/2020
-ms.openlocfilehash: 3e4b4fc3d4a6c9529c7c0ac0daef8a28173e0bf3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e08fe67dece02b936aa3a22e9cac58d809f19f46
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99225350"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107285690"
 ---
 # <a name="transactional-replication-with-azure-sql-managed-instance-preview"></a>Replicación transaccional con Azure SQL Managed Instance (versión preliminar)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -154,7 +154,7 @@ En esta configuración, una base de datos de Azure SQL Database o Instancia admi
 
 La [replicación geográfica activa](../database/active-geo-replication-overview.md) no es compatible con una instancia administrada de SQL con replicación transaccional. En lugar de replicación geográfica activa, use [grupos de conmutación por error automática](../database/auto-failover-group-overview.md), pero tenga en cuenta que la publicación se debe [eliminar manualmente](transact-sql-tsql-differences-sql-server.md#replication) de la instancia administrada principal y volver a crearse en la instancia administrada de SQL secundaria después de la conmutación por error.
 
-Si la replicación geográfica está habilitada en un **publicador** o **distribuidor** de Instancia administrada de SQL en un [grupo de conmutación por error](../database/auto-failover-group-overview.md), el administrador de Instancia administrada de SQL debe limpiar todas las publicaciones de la instancia principal anterior y volver a configurarlas en la nueva instancia principal después de una conmutación por error. En este escenario, debe llevar a cabo las siguientes acciones:
+Si una instancia de SQL Managed Instance que es **publicador** o **distribuidor** se encuentra en un [grupo de conmutación por error](../database/auto-failover-group-overview.md), el administrador de SQL Managed Instance debe limpiar todas las publicaciones en la instancia principal anterior y volver a configurarlas en la nueva instancia principal después de una conmutación por error. En este escenario, debe llevar a cabo las siguientes acciones:
 
 1. Detenga todos los trabajos de replicación que se ejecutan en la base de datos, si hay alguno.
 1. Quite los metadatos de suscripción del publicador. Para ello, ejecute el siguiente script en la base de datos del publicador:

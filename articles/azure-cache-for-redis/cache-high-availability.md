@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.author: yegu
-ms.openlocfilehash: ad6696fc4fe2af7047c25a3a9c260d3b12588ee2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 69dec2ce00b263f3536e30ba0a5376e6d922b79c
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102203307"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107308360"
 ---
 # <a name="high-availability-for-azure-cache-for-redis"></a>Alta disponibilidad en Azure Cache for Redis
 
@@ -21,9 +21,9 @@ Azure Cache for Redis implementa alta disponibilidad usando varias máquinas vir
 
 | Opción | Descripción | Disponibilidad | Estándar | Premium | Enterprise |
 | ------------------- | ------- | ------- | :------: | :---: | :---: |
-| [Replicación estándar](#standard-replication)| Configuración replicada de dos nodos en un único centro de recursos con conmutación automática por error | 99,9 % |✔|✔|-|
-| [Redundancia de zona](#zone-redundancy) | Configuración replicada de varios nodos en varias zonas de disponibilidad, con conmutación automática por error | 99,95 % (nivel Premium), 99,99 % (niveles Enterprise) |-|Versión preliminar|Versión preliminar|
-| [Replicación geográfica](#geo-replication) | Instancias de caché vinculadas en dos regiones, con conmutación por error controlada por el usuario | 99,999 % (nivel de empresa) |-|✔|Vista previa|
+| [Replicación estándar](#standard-replication)| Configuración replicada de dos nodos en un único centro de recursos con conmutación automática por error | 99,9 % (consulte los [detalles](https://azure.microsoft.com/support/legal/sla/cache/v1_0/)) |✔|✔|-|
+| [Redundancia de zona](#zone-redundancy) | Configuración replicada de varios nodos en varias zonas de disponibilidad, con conmutación automática por error | Hasta el 99,99 % (consulte los [detalles](https://azure.microsoft.com/support/legal/sla/cache/v1_0/)) |-|Versión preliminar|Versión preliminar|
+| [Replicación geográfica](#geo-replication) | Instancias de caché vinculadas en dos regiones, con conmutación por error controlada por el usuario | Hasta el 99,999 % (consulte los [detalles](https://azure.microsoft.com/support/legal/sla/cache/v1_0/)) |-|✔|Vista previa|
 
 ## <a name="standard-replication"></a>Replicación estándar
 

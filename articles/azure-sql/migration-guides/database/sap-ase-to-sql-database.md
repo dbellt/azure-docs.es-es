@@ -9,18 +9,18 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 03/19/2021
-ms.openlocfilehash: 138a23b610ab96194424bb0f88cf94f516c2d223
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c60d6ba1f4d3628f57b8149779318c3e049a9e24
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105626459"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107284245"
 ---
 # <a name="migration-guide-sap-ase-to-azure-sql-database"></a>Guía de migración: de SAP ASE a Azure SQL Database
 
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
 
-En esta guía obtendrá información sobre cómo migrar las bases de datos de SAP Adaptive Server Enterprise (ASE) a Azure SQL Database mediante SQL Server Migration Assistant para SAP Adaptive Server Enterprise.
+En esta guía obtendrá información sobre [cómo migrar](https://azure.microsoft.com/migration/migration-journey) las bases de datos de SAP Adaptive Server Enterprise (ASE) a Azure SQL Database mediante [SQL Server Migration](https://azure.microsoft.com/en-us/migration/sql-server/) Assistant para SAP Adaptive Server Enterprise.
 
 Para ver otras guías de migración, consulte [Guía de Azure Database Migration](https://docs.microsoft.com/data-migration). 
 
@@ -34,7 +34,7 @@ Antes de empezar a migrar la base de datos de SAP SE a SQL Database, haga lo sig
 
 ## <a name="pre-migration"></a>Antes de la migración
 
-Una vez cumplidos los requisitos previos, estará a punto para detectar la topología de su entorno y evaluar la viabilidad de la migración.
+Una vez cumplidos los requisitos previos, estará listo para detectar la topología del entorno y evaluar la viabilidad de la [migración a la nube de Azure](https://azure.microsoft.com/migration).
 
 ### <a name="assess"></a>Evaluar
 
@@ -80,7 +80,7 @@ Para publicar el esquema y migrar los datos, haga lo siguiente:
 
 1. Migre los datos. En el panel del **Explorador de metadatos de SAP ASE**, haga clic con el botón derecho en la base de datos o el objeto de SAP ASE que quiera migrar y, a continuación, seleccione **Migrar datos**. Como alternativa, puede seleccionar la pestaña **Migrar datos** en la esquina superior derecha. 
 
-   Para migrar datos de toda una base de datos, active la casilla situada junto al nombre de la base de datos. Para migrar datos de tablas concretas, expanda la base de datos, expanda **Tablas** y, a continuación, active la casilla situada junto a la tabla. Para omitir datos de tablas concretas, desactive la casilla. 
+   Para migrar datos de toda una base de datos, active la casilla situada junto al nombre de la base de datos. Para migrar datos de tablas concretas, expanda la base de datos, expanda **Tablas** y, a continuación, active la casilla que hay junto a la tabla. Para omitir datos de tablas concretas, desactive la casilla. 
 1. Una vez completada la migración, vea el **Informe de migración de datos**. 
 1. Para validar la migración, revise los datos y el esquema. Para ello, conéctese a la base de datos SQL mediante [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
 
@@ -94,7 +94,7 @@ Cuando se hayan migrado los datos al entorno de destino, todas las aplicaciones 
 
 ### <a name="perform-tests"></a>Realización de pruebas
 
-El método de prueba para la migración de bases de datos consta de las siguientes actividades:
+El enfoque de prueba para la migración de bases de datos consta de las siguientes actividades:
 
 1. **Desarrollar pruebas de validación**: para probar la migración de bases de datos, debe utilizar consultas SQL. Debe crear las consultas de validación para que se ejecuten en las bases de datos de origen y destino. Las consultas de validación deben abarcar el ámbito definido.
 
@@ -123,6 +123,7 @@ Para obtener más información sobre estos problemas y los pasos para mitigarlos
 - Para más información sobre el marco y el ciclo de adopción de las migraciones en la nube, consulte:
    -  [Cloud Adoption Framework para Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
    -  [Procedimientos recomendados para gestionar los costos y el tamaño de las cargas de trabajo migradas a Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
+   -  [Recursos de migración a la nube](https://azure.microsoft.com/migration/resources)
 
 - Para evaluar la capa de acceso de la aplicación, consulte [Data Access Migration Toolkit (versión preliminar)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit).
 - Para más información sobre cómo realizar pruebas A/B en la capa de acceso a datos, consulte [Información general del Asistente para experimentación con bases de datos](/sql/dea/database-experimentation-assistant-overview).

@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 07/16/2020
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1
-ms.openlocfilehash: 64015f1f2d6fc3438e55cbdc146ba83492b332e2
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 59b766cd5721a9a77b3506cc438ec267e5131979
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106066099"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107309459"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>Protección de un entorno de entrenamiento de Azure Machine Learning con redes virtuales
 
@@ -44,7 +44,7 @@ En este artículo aprenderá a proteger los siguientes recursos de proceso de en
 
 + Para implementar recursos en una red virtual o subred, la cuenta de usuario debe tener permisos para realizar las siguientes acciones en los controles de acceso basados en roles de Azure (Azure RBAC):
 
-    - "Microsoft.Network/virtualNetworks/join/action" en el recurso de red virtual.
+    - "Microsoft.Network/virtualNetworks/*/read" en el recurso de red virtual.
     - "Microsoft.Network/virtualNetworks/subnet/join/action" en el recurso de subred.
 
     Para más información sobre RBAC de Azure con redes, consulte [Roles integrados de redes](../role-based-access-control/built-in-roles.md#networking).
@@ -59,7 +59,7 @@ Para usar un [__destino de proceso__ de Azure Machine Learning](concept-compute-
 > * La subred que se especifica para la instancia de proceso o el clúster debe tener suficientes direcciones IP sin asignar para acomodar el número de máquinas virtuales de destino. Si la subred no tiene suficientes direcciones IP sin asignar, un clúster de proceso se asignará parcialmente.
 > * Compruebe si sus directivas de seguridad o bloqueos del grupo de recursos o la suscripción de la red virtual restringen los permisos para administrar las redes virtuales. Si va a proteger la red virtual mediante la restricción del tráfico, deje abiertos algunos puertos para el servicio de proceso. Para más información, vea la sección [Puertos obligatorios](#mlcports).
 > * Si va a colocar varios clústeres o instancias de proceso en una red virtual, es posible que tenga que solicitar un aumento de la cuota para uno o varios de los recursos.
-> * Si las cuentas de Azure Storage del área de trabajo también están protegidas en una red virtual, deben estar en la misma red virtual y subred que el clúster o la instancia de Proceso de Azure Machine Learning. 
+> * Si las cuentas de Azure Storage del área de trabajo también están protegidas en una red virtual, deben estar en la misma red virtual y subred que el clúster o la instancia de Proceso de Azure Machine Learning. Configure las opciones de firewall de almacenamiento para permitir la comunicación con la red virtual y subred en las que reside el proceso. Tenga en cuenta que la casilla "Permitir que los servicios de Microsoft de confianza accedan a esta cuenta" no es suficiente para permitir la comunicación desde el proceso.
 > * Para que la funcionalidad de Jupyter de instancia de proceso haga su trabajo, asegúrese de que la comunicación de socket web no esté deshabilitada. Asegúrese de que la red permita las conexiones WebSocket a *.instances.azureml.net e *.instances.azureml.ms. 
 > * Cuando se implementa la instancia de proceso en un área de trabajo de vínculo privado, solo se puede tener acceso a ella desde dentro de la red virtual. Si usa un archivo de host o DNS personalizado, agregue una entrada para `<instance-name>.<region>.instances.azureml.ms` con la dirección IP privada del punto de conexión privado del área de trabajo. Para obtener más información, consulte el artículo [DNS personalizado](./how-to-custom-dns.md).
 > * La subred que se usa para implementar la instancia o el clúster de proceso no se debe delegar a ningún otro servicio como ACI.

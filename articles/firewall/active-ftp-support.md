@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 03/05/2021
+ms.date: 04/12/2021
 ms.author: victorh
-ms.openlocfilehash: adbc2a9eb6cd3b054df84911604143ddb711ad20
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e08be08f2d898b017bb34ed38c9c3a69ee0582fa
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102499142"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312984"
 ---
 # <a name="azure-firewall-active-ftp-support"></a>Compatibilidad de FTP activo con Azure Firewall
 
@@ -20,6 +20,12 @@ Con el FTP activo, el servidor FTP inicia la conexión de datos con puerto de da
 
 De manera predeterminada, la compatibilidad con el FTP activo está deshabilitada en Azure Firewall para protegerse frente a ataques de devolución FTP mediante el comando `PORT` de FTP. Sin embargo, puede habilitar el FTP activo durante la implementación mediante Azure PowerShell, la CLI de Azure o una plantilla de Azure ARM.
 
+Para admitir FTP en modo activo, es necesario abrir los siguientes puertos TCP:
+
+- Puerto 21 del servidor FTP desde cualquier lugar (el cliente inicia la conexión)
+- Puerto 21 del servidor FTP hacia los puertos > 1023 (el servidor responde al puerto de control del cliente)
+- Puerto 20 del servidor FTP hacia los puertos > 1023 en clientes (el servidor inicia la conexión de datos hacia el puerto de datos del cliente)
+- Puerto 20 del servidor FTP desde los puertos > 1023 en los clientes (el cliente envía los ACK al puerto de datos del servidor)
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 

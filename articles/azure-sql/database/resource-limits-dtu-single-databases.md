@@ -10,24 +10,36 @@ ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 03/20/2019
-ms.openlocfilehash: c530d584282cebba78c095798944e48d7efe2c66
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/09/2021
+ms.openlocfilehash: 3afc2a1e3b279e7c4fd350e96787454e01e01f79
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105625660"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107303226"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-purchasing-model---azure-sql-database"></a>Límites de recursos de bases de datos únicas que usan el modelo de compra de DTU: Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 En este artículo se proporcionan los límites de recursos detallados para bases de datos únicas de Azure SQL Database que usan el modelo de compra de DTU.
 
-Para saber más sobre los límites de recursos del modelo de compra de DTU para grupos elásticos, consulte [Límites de recursos de DTU: grupos elásticos](resource-limits-dtu-elastic-pools.md). En cuanto a los límites de recursos del núcleo virtual, consulte [Límites de recursos del núcleo virtual: bases de datos únicas](resource-limits-vcore-single-databases.md) y [Límites de recursos del núcleo virtual: grupos elásticos](resource-limits-vcore-elastic-pools.md). Para obtener más información sobre los diferentes modelos de compra, consulte los [niveles de servicio y modelos de compra](purchasing-models.md).
+* Para conocer los límites del modelo de compra en DTU para las bases de datos únicas en un servidor, consulte [Información general de los límites de recursos para un servidor](resource-limits-logical-server.md).
+* Para información sobre los límites de recursos del modelo de compra de DTU para Azure SQL Database, vea [Límites de recursos de la unidad de procesamiento de base de datos en bases de datos únicas](resource-limits-dtu-single-databases.md) y [Límites de recursos de la unidad de procesamiento de base de datos en grupos elásticos](resource-limits-dtu-elastic-pools.md).
+* Para conocer los límites de recursos de núcleo virtual, consulte [Límites de recursos del núcleo virtual: Azure SQL Database](resource-limits-vcore-single-databases.md) y [Límites de recursos del núcleo virtual: grupos elásticos](resource-limits-vcore-elastic-pools.md).
+* Para obtener más información sobre los diferentes modelos de compra, consulte los [niveles de servicio y modelos de compra](purchasing-models.md).
+
+Cada réplica de solo lectura tiene sus propios recursos, como DTU, trabajos y sesiones. Cada réplica de solo lectura está sujeta a los límites de recursos que se detallan más adelante en este artículo. 
+
 
 ## <a name="single-database-storage-sizes-and-compute-sizes"></a>Base de datos única: tamaños de almacenamiento y tamaños de proceso
 
-Las siguientes tablas muestran los recursos disponibles para una base de datos única en cada nivel de servicio y tamaño de proceso. Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de almacenamiento para una base de datos única mediante [Azure Portal](single-database-manage.md#the-azure-portal), [Transact-SQL](single-database-manage.md#transact-sql-t-sql), [PowerShell](single-database-manage.md#powershell), la [CLI de Azure](single-database-manage.md#the-azure-cli) o la [API REST](single-database-manage.md#rest-api).
+Las siguientes tablas muestran los recursos disponibles para una base de datos única en cada nivel de servicio y tamaño de proceso. Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de almacenamiento para una base de datos única mediante:
+
+* [Transact-SQL](single-database-manage.md#transact-sql-t-sql) mediante [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql#overview-sql-database)
+* [Azure Portal](single-database-manage.md#the-azure-portal)
+* [PowerShell](single-database-manage.md#powershell)
+* [CLI de Azure](single-database-manage.md#the-azure-cli)
+* [REST API](single-database-manage.md#rest-api)
 
 > [!IMPORTANT]
 > Para información y consideraciones sobre el escalado, consulte [Escalado de una base de datos única](single-database-scale.md).

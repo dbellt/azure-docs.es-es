@@ -2,13 +2,13 @@
 title: Comparación de colas de Azure Storage con colas de Service Bus
 description: Analiza las diferencias y similitudes entre dos tipos de colas que se ofrecen en Azure.
 ms.topic: article
-ms.date: 11/04/2020
-ms.openlocfilehash: 31992aa2012009c51cbeae78010ae8ced65fc872
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/12/2021
+ms.openlocfilehash: 1c3b0fda12d5e301b17a342c5d5ed11ab76c76da
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96928314"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107304365"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Colas de Storage y de Service Bus: comparación y diferencias
 En este artículo se analizan las diferencias y similitudes entre los dos tipos de cola que ofrece Microsoft Azure: las colas de Storage y las colas de Service Bus. Con esta información, puede tomar una decisión más fundamentada sobre la solución que mejor se adapta a sus necesidades.
@@ -39,7 +39,7 @@ Como arquitecto o desarrollador de soluciones, **debe considerar el uso de colas
 * La solución necesita recibir mensajes sin tener que sondear la cola. Con Service Bus, esto se logra mediante una operación de recepción de sondeo largo con los protocolos basados en TCP que admite Service Bus.
 * Su solución requiere que la cola ofrezca una entrega ordenada por primero en entrar es el primero en salir (FIFO).
 * La solución necesita admitir la detección automática de duplicados.
-* Quiere que su aplicación procese mensajes como secuencias de larga ejecución en paralelo (los mensajes están asociados a una secuencia mediante la propiedad [SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid) del mensaje). En este modelo, cada nodo de la aplicación de consumo compite por secuencias, en lugar de los mensajes. Cuando se proporciona una secuencia a un nodo de consumo, el nodo puede examinar el estado de la secuencia de aplicación mediante transacciones.
+* Quiera que su aplicación procese mensajes como flujos de larga ejecución en paralelo (los mensajes se asocian a un flujo mediante la propiedad **Id. de sesión** del mensaje). En este modelo, cada nodo de la aplicación de consumo compite por secuencias, en lugar de los mensajes. Cuando se proporciona una secuencia a un nodo de consumo, el nodo puede examinar el estado de la secuencia de aplicación mediante transacciones.
 * Su solución requiere un comportamiento transaccional y atomicidad al enviar o recibir varios mensajes desde una cola.
 * La aplicación administra mensajes que pueden superar los 64 KB pero que probablemente no van a alcanzar el límite de 256 KB.
 * Aborda un requisito para ofrecer un modelo de acceso basado en roles a las colas y diferentes derechos o permisos para los remitentes y receptores. Para más información, consulte los siguientes artículos.
@@ -59,17 +59,17 @@ En esta sección se comparan algunas de las funcionalidades de puesta en cola fu
 
 | Criterios de comparación | Colas de Storage | Colas de Service Bus |
 | --- | --- | --- |
-| Garantía de ordenación |**No** <br/><br>Para obtener más información, vea la primera nota de la sección [Información adicional](#additional-information).</br> | **Sí- Primero en caducar primero en salir (FIFO)**<br/><br>(mediante el uso de [sesiones de mensajes](message-sessions.md)) |
+| Garantía de ordenación |**No** <br/><br>Para obtener más información, vea la primera nota de la sección [Información adicional](#additional-information).</br> | **Sí- Primero en caducar primero en salir (FIFO)**<br/><br>(mediante [sesiones de mensajes](message-sessions.md)) |
 | Garantía de entrega |**Al menos una vez** |**Al menos una vez** (con el modo de recepción Ojear y bloquear: este es el valor predeterminado) <br/><br/>**Por lo menos un meme** (mediante el modo de recepción ReceiveAndDelete) <br/> <br/> Más información sobre los [distintos modos de recepción](service-bus-queues-topics-subscriptions.md#receive-modes).  |
 | Compatibilidad con la operación atómica |**No** |**Sí**<br/><br/> |
-| Comportamiento de recepción |**Sin bloqueo**<br/><br/>(se completa inmediatamente si no se encuentra ningún mensaje nuevo) |**Bloqueo con o sin un tiempo de espera**<br/><br/>(ofrece sondeo largo o ["Técnica de cometa"](https://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>**Sin bloqueo**<br/><br/>(solo mediante el uso de la API administrada de .NET) |
-| API de estilo de inserción |**No** |**Sí**<br/><br/>API de .NET de las sesiones [QueueClient.OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage#Microsoft_ServiceBus_Messaging_QueueClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__) y [MessageSessionHandler.OnMessage](/dotnet/api/microsoft.servicebus.messaging.messagesessionhandler.onmessage#Microsoft_ServiceBus_Messaging_MessageSessionHandler_OnMessage_Microsoft_ServiceBus_Messaging_MessageSession_Microsoft_ServiceBus_Messaging_BrokeredMessage__). |
+| Comportamiento de recepción |**Sin bloqueo**<br/><br/>(se completa inmediatamente si no se encuentra ningún mensaje nuevo) |**Bloqueo con o sin un tiempo de espera**<br/><br/>(ofrece sondeo largo o ["Técnica de cometa"](https://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>**Sin bloqueo**<br/><br/>(solo con la API administrada de .NET) |
+| API de estilo de inserción |**No** |**Sí**<br/><br/>Nuestros SDK de .NET, Java, JavaScript y Go proporcionan API de estilo de inserción. |
 | Modo de recepción |**Ojear y alquilar** |**Ojear y bloquear**<br/><br/>**Recibir y eliminar** |
 | Modo de acceso exclusivo |**Basado en concesión** |**Basado en bloqueo** |
-| Duración de concesión/bloqueo |**30 segundos (valor predeterminado)**<br/><br/>**7 días (máximo)** (puede renovar o liberar una concesión de mensaje mediante la API de [UpdateMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.updatemessage)). |**60 segundos (valor predeterminado)**<br/><br/>Puede renovar un bloqueo de mensaje mediante la API de [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock). |
-| Precisión de concesión/bloqueo |**Nivel de mensaje**<br/><br/>Cada mensaje puede tener un valor de tiempo de espera diferente, que luego se puede actualizar según sea necesario al procesar el mensaje, mediante la API [UpdateMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.updatemessage). |**Nivel de cola**<br/><br/>(cada cola tiene una precisión de bloqueo que se aplica a todos sus mensajes, pero puede renovar el bloqueo mediante la API de [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock)). |
+| Duración de concesión/bloqueo |**30 segundos (valor predeterminado)**<br/><br/>**7 días (máximo)** (puede renovar o liberar una concesión de mensaje mediante la API de [UpdateMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.updatemessage)). |**30 segundos (valor predeterminado)**<br/><br/>Puede renovar el bloqueo de mensajes para la misma duración de bloqueo cada vez manualmente o usar la característica de renovación automática de bloqueos donde el cliente administra automáticamente la renovación de bloqueos. |
+| Precisión de concesión/bloqueo |**Nivel de mensaje**<br/><br/>Cada mensaje puede tener un valor de tiempo de espera diferente, que luego se puede actualizar según sea necesario al procesar el mensaje, mediante la API [UpdateMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.updatemessage). |**Nivel de cola**<br/><br/>(cada cola tiene aplicada una precisión de bloqueo a todos sus mensajes, pero el bloqueo se puede renovar como se describe en la fila anterior) |
 | Recepción por lotes |**Sí**<br/><br/>(especificando explícitamente el número de mensajes al recuperar mensajes, hasta un máximo de 32 mensajes) |**Sí**<br/><br/>(habilitando implícitamente una propiedad de captura previa o explícitamente mediante el uso de transacciones) |
-| Envío por lotes |**No** |**Sí**<br/><br/>(mediante el uso de transacciones o de procesamiento por lotes del lado cliente) |
+| Envío por lotes |**No** |**Sí**<br/><br/>(mediante transacciones o procesamiento por lotes del lado cliente) |
 
 ### <a name="additional-information"></a>Información adicional
 * Los mensajes de las colas de Storage son normalmente del tipo "primero en entrar, primero en salir" (FIFO), pero en ocasiones pueden estar desordenados. Por ejemplo, si expira la duración del tiempo de espera de visibilidad de un mensaje porque una aplicación cliente se ha bloqueado al procesar un mensaje. Cuando expira el tiempo de espera de visibilidad, el mensaje se vuelve visible en la cola para que otro trabajador lo quite de la cola. En ese momento, el mensaje que acaba de hacerse visible se puede colocar en la cola (para quitarlo después).
@@ -78,12 +78,12 @@ En esta sección se comparan algunas de las funcionalidades de puesta en cola fu
     - Desacoplamiento de componentes de aplicación para aumentar la escalabilidad y la tolerancia a errores
     - Redistribución de la carga
     - Compilación de flujos de trabajo de proceso.
-* Se pueden evitar incoherencias con respecto al control de mensajes en el contexto de las sesiones de Service Bus al usar el estado de sesión para almacenar el estado de la aplicación relativo al progreso del control de la secuencia del mensaje de la sesión y mediante el uso de transacciones sobre la fijación de los mensajes recibidos y la actualización del estado de la sesión. Este tipo de característica de coherencia a veces se etiqueta como *procesamiento Una sola vez* en los productos de otros proveedores. Los errores de transacción obviamente hacen que se vuelvan a entregar los mensajes, por lo que el término no es del todo adecuado.
+* Se pueden evitar incoherencias con respecto al control de mensajes en el contexto de las sesiones de Service Bus al usar el estado de sesión para almacenar el estado de la aplicación relativo al progreso del control de la secuencia de mensajes de la sesión y mediante el uso de transacciones sobre la fijación de los mensajes recibidos y la actualización del estado de la sesión. Este tipo de característica de coherencia a veces se etiqueta como *procesamiento Una sola vez* en los productos de otros proveedores. Los errores de transacción obviamente hacen que se vuelvan a entregar los mensajes, por lo que el término no es del todo adecuado.
 * Las colas de Storage ofrecen un modelo de programación coherente y uniforme en las colas, tablas y blobs, tanto para desarrolladores como para los equipos de operaciones.
 * Las colas de Service Bus ofrecen compatibilidad con transacciones locales en el contexto de una sola cola.
 * El modo **Recibir y eliminar** compatible con el Service Bus ofrece la capacidad de reducir el número de operaciones de mensajería (y el costo asociado) a cambio de una garantía de entrega menor.
 * Las colas de Storage ofrecen concesiones con la posibilidad de ampliar las concesiones para mensajes. Esta característica permite que los procesos de trabajo mantengan breves concesiones sobre los mensajes. Por lo tanto, si se bloquea un trabajo, otro puede volver a procesar rápidamente el mensaje. Además, un trabajo puede ampliar la concesión sobre un mensaje si necesita procesarlo durante más tiempo que el de concesión actual.
-* Las colas de Storage ofrecen un tiempo de espera de visibilidad que puede establecer al poner en cola un mensaje o quitarlo de la cola. Además, puede actualizar un mensaje con distintos valores de concesión en tiempo de ejecución y actualizar distintos valores en mensajes de la misma cola. Los tiempos de espera de bloqueo de Service Bus se definen en los metadatos de la cola. Pero puede renovar el bloqueo si llama al método [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock).
+* Las colas de Storage ofrecen un tiempo de espera de visibilidad que puede establecer al poner en cola un mensaje o quitarlo de la cola. Además, puede actualizar un mensaje con distintos valores de concesión en tiempo de ejecución y actualizar distintos valores en mensajes de la misma cola. Los tiempos de espera de bloqueo de Service Bus se definen en los metadatos de la cola. Sin embargo, puede renovar el bloqueo de mensajes para la duración de bloqueo predefinida manualmente o usar la característica de renovación automática de bloqueos donde el cliente administra automáticamente la renovación de bloqueos.
 * El tiempo de espera máximo para una operación de recepción de bloqueo en las colas de Service Bus es de 24 días. Sin embargo, los tiempos de espera basados en REST tienen un valor máximo de 55 segundos.
 * El procesamiento por lotes del cliente ofrecido por el Service Bus permite a un cliente de cola procesar varios mensajes por lotes en una sola operación de envío. El procesamiento por lotes solo está disponible para las operaciones de envío asincrónicas.
 * Características como el límite de 200 TB de las colas de Storage (más cuando se virtualizan las cuentas) y las colas ilimitadas la convierten en la plataforma idónea para los proveedores de SaaS.
@@ -100,11 +100,11 @@ En esta sección se comparan algunas de las funcionalidades avanzadas ofrecidas 
 | Compatibilidad con mensajes dudosos |**Sí** |**Sí** |
 | Actualización local |**Sí** |**Sí** |
 | Registro de transacciones del servidor |**Sí** |**No** |
-| Métricas de almacenamiento |**Sí**<br/><br/>**Métricas por minuto** proporciona métricas en tiempo real de disponibilidad, TPS, recuentos de llamadas API, recuentos de errores y mucho más. Todas ellas son en tiempo real, se agregan por minuto y se muestran pocos minutos después de lo que ha ocurrido en producción. Para obtener más información, vea [Acerca de las métricas de Storage Analytics](/rest/api/storageservices/fileservices/About-Storage-Analytics-Metrics). |**Sí**<br/><br/>(consultas masivas llamando a [GetQueues](/dotnet/api/microsoft.servicebus.namespacemanager.getqueues#Microsoft_ServiceBus_NamespaceManager_GetQueues)) |
-| Administración de estados |**No** |**Sí**<br/><br/>[Microsoft.ServiceBus.Messaging.EntityStatus.Active](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.Disabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.SendDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.ReceiveDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus) |
+| Métricas de almacenamiento |**Sí**<br/><br/>**Métricas por minuto** proporciona métricas en tiempo real de disponibilidad, TPS, recuentos de llamadas API, recuentos de errores y mucho más. Todas ellas son en tiempo real, se agregan por minuto y se muestran pocos minutos después de lo que ha ocurrido en producción. Para obtener más información, vea [Acerca de las métricas de Storage Analytics](/rest/api/storageservices/fileservices/About-Storage-Analytics-Metrics). |**Sí**<br/><br/>Para información sobre las métricas admitidas por Azure Service Bus, consulte [Métricas de mensajes](service-bus-metrics-azure-monitor.md#message-metrics). |
+| Administración de estados |**No** |**Sí** (Active, Disabled, SendDisabled, ReceiveDisabled. Para más información sobre estos estados, vea [Estado de la cola](entity-suspend.md#queue-status)). |
 | Reenvío automático de mensajes |**No** |**Sí** |
 | Purgar la función de cola |**Sí** |**No** |
-| Grupos de mensajes |**No** |**Sí**<br/><br/>(mediante el uso de sesiones de mensajería) |
+| Grupos de mensajes |**No** |**Sí**<br/><br/>(mediante sesiones de mensajería) |
 | Estado de la aplicación por grupo de mensajes |**No** |**Sí** |
 | Detección de duplicados |**No** |**Sí**<br/><br/>(configurable en el lado del remitente) |
 | Exploración de grupos de mensaje |**No** |**Sí** |
@@ -113,14 +113,14 @@ En esta sección se comparan algunas de las funcionalidades avanzadas ofrecidas 
 ### <a name="additional-information"></a>Información adicional
 * Ambas tecnologías de cola permiten que se programe un mensaje para su entrega posteriormente.
 * El reenvío automático de colas permite el reenvío automático por parte de miles de colas de sus mensajes a una única cola, desde la que la aplicación receptora consume el mensaje. Puede usar este mecanismo para lograr seguridad, flujo de control y aislar el almacenamiento aislado entre cada publicador de mensajes.
-* Las colas de Storage ofrecen compatibilidad para actualizar el contenido del mensaje. Puede usar esta funcionalidad para conservar información de estado y actualizaciones incrementales de progreso en el mensaje para que se pueda procesar desde el último punto de comprobación conocido, en lugar de hacerlo desde el principio. Con las colas de Service Bus, puede habilitar el mismo escenario mediante el uso de sesiones de mensajes. Las sesiones le permiten guardar y recuperar el estado de procesamiento de la aplicación (mediante [SetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_) y [GetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.getstate#Microsoft_ServiceBus_Messaging_MessageSession_GetState)).
+* Las colas de Storage ofrecen compatibilidad para actualizar el contenido del mensaje. Puede usar esta funcionalidad para conservar información de estado y actualizaciones incrementales de progreso en el mensaje para que se pueda procesar desde el último punto de comprobación conocido, en lugar de hacerlo desde el principio. Con las colas de Service Bus, puede habilitar el mismo escenario mediante el uso de sesiones de mensajes. Para más información, consulte [Estado de la sesión de mensajes](message-sessions.md#message-session-state).
 * Las colas de Service Bus admiten [mensajes fallidos](service-bus-dead-letter-queues.md). Esto puede ser útil para aislar los mensajes que cumplen los criterios siguientes:
     - La aplicación receptora no puede procesar los mensajes correctamente. 
     - Los mensajes no pueden llegar a su destino debido a una propiedad de período de vida (TTL) expirada. El valor de TTL especifica cuánto tiempo permanece un mensaje en la cola. Con Service Bus, el mensaje se moverá a una cola especial denominada $DeadLetterQueue cuando expira el período de vida.
 * Para encontrar mensajes "dudosos" en las colas de Storage, al quitar de la cola un mensaje de la aplicación se examina la propiedad [DequeueCount](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage.dequeuecount) del mensaje. Si **DequeueCount** se encuentra por encima de un umbral determinado, la aplicación mueve el mensaje a una cola de proceso como correo devuelto definida por la aplicación.
 * Las colas de Storage permiten obtener un registro detallado de todas las transacciones ejecutadas en la cola y de las métricas agregadas. Ambas opciones son útiles para depurar y entender cómo usa su aplicación las colas de Storage. También son útiles para ajustar el rendimiento de la aplicación y reducir los costos del empleo de colas.
-* Las sesiones de mensajes que admite Service Bus permiten asociar los mensajes que pertenecen a un grupo lógico a un receptor. Eso crea una afinidad de tipo sesión entre los mensajes y sus destinatarios respectivos. Puede habilitar esta funcionalidad avanzada en el Service Bus estableciendo la propiedad [SessionID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) en un mensaje. Los receptores pueden escuchar entonces en un id. de sesión específico y recibir mensajes que comparten el identificador de sesión especificado.
-* La característica de detección de duplicación de colas de Service Bus elimina automáticamente los mensajes duplicados enviados a una cola o un tema, según el valor de la propiedad [MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId).
+* Las [sesiones de mensajes](message-sessions.md) que admite Service Bus permiten asociar los mensajes que pertenecen a un grupo lógico a un receptor. Eso crea una afinidad de tipo sesión entre los mensajes y sus destinatarios respectivos. Puede habilitar esta funcionalidad avanzada en Service Bus estableciendo la propiedad de id. de sesión en un mensaje. Los receptores pueden escuchar entonces en un id. de sesión específico y recibir mensajes que comparten el identificador de sesión especificado.
+* La característica de detección de duplicación de colas de Service Bus elimina automáticamente los mensajes duplicados enviados a una cola o un tema, según el valor de la propiedad de id. de mensaje.
 
 ## <a name="capacity-and-quotas"></a>Capacidad y cuotas
 En esta sección se comparan las colas de Storage y las colas de Service Bus desde la perspectiva de la [capacidad y las cuotas](service-bus-quotas.md) que se pueden aplicar.
@@ -172,14 +172,14 @@ En esta sección se describen las características de autenticación y autorizac
 | --- | --- | --- |
 | Authentication |**Clave simétrica** |**Clave simétrica** |
 | Modelo de seguridad |Acceso delegado a través de tokens SAS. |SAS |
-| Federación de proveedor de identidad: |**No** |**Sí** |
+| Federación de proveedor de identidad: |**Sí** |**Sí** |
 
 ### <a name="additional-information"></a>Información adicional
 * Se debe autenticar cada solicitud a cualquiera de las tecnologías de cola. No se admiten colas públicas con acceso anónimo. Con [SAS](service-bus-sas.md), puede abordar este escenario publicando un SAS de solo escritura, un SAS de solo lectura o incluso un SAS de acceso completo.
 * El esquema de autenticación proporcionado por las colas de Storage implica el uso de una clave simétrica. Esta clave es un código de autenticación de mensajes basado en hash (HMAC) que se calcula con el algoritmo SHA-256 y se codifica como una cadena de **Base64**. Para obtener más información sobre el protocolo respectivo, consulte [Autenticación para los servicios de Azure Storage](/rest/api/storageservices/fileservices/Authentication-for-the-Azure-Storage-Services). Las colas de Service Bus admiten un modelo similar mediante claves simétricas. Para obtener más información, vea [Autenticación con firma de acceso compartido con Service Bus](service-bus-sas.md).
 
 ## <a name="conclusion"></a>Conclusión
-Una mejor comprensión de las dos tecnologías permite tomar una decisión más fundamentada sobre la tecnología de cola que se va a usar y cuándo. La decisión sobre cuándo usar las colas de Storage o las colas de Service Bus depende claramente de una serie de factores. Estos factores pueden dependen en gran medida de las necesidades individuales de la aplicación y de su arquitectura. 
+Una mejor comprensión de las dos tecnologías permite tomar una decisión más fundamentada sobre la tecnología de cola que se va a usar y cuándo. La decisión sobre cuándo usar las colas de Storage o las colas de Service Bus depende claramente de muchos factores. Estos factores pueden dependen en gran medida de las necesidades individuales de la aplicación y de su arquitectura. 
 
 Quizás prefiera elegir las colas de Storage por motivos como los siguientes:
 
@@ -187,7 +187,7 @@ Quizás prefiera elegir las colas de Storage por motivos como los siguientes:
 - Si necesita comunicación básica y mensajería entre servicios 
 - Si necesita colas que puedan tener un tamaño superior a 80 GB
 
-Las colas de Service Bus proporcionan una serie de características avanzadas, como las siguientes. Por lo tanto, pueden ser la opción preferida si va a compilar una aplicación híbrida o si la aplicación requiere estas características.
+Las colas de Service Bus proporcionan muchas características avanzadas, como las siguientes. Por lo tanto, pueden ser la opción preferida si va a compilar una aplicación híbrida o si la aplicación requiere estas características.
 
 - [Sesiones](message-sessions.md)
 - [Transactions](service-bus-transactions.md)

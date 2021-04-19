@@ -4,12 +4,12 @@ description: Inserte y extraiga imágenes de Docker en un registro de contenedor
 ms.topic: article
 ms.date: 01/23/2019
 ms.custom: seodec18, H1Hack27Feb2017
-ms.openlocfilehash: 83ef385313b035f5e5d7d993e7948725906c75a7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 982a49af271648caeb62e5759530aa6049be4382
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99987770"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107308309"
 ---
 # <a name="push-your-first-image-to-your-azure-container-registry-using-the-docker-cli"></a>Inserción de la primera imagen en el registro de contenedor de Azure mediante la CLI de Docker
 
@@ -39,7 +39,7 @@ docker login myregistry.azurecr.io
 
 Ambos comandos devuelven `Login Succeeded` una vez completados.
 > [!NOTE]
->* Es posible que desee usar Visual Studio Code con la extensión de Docker para un inicio de sesión más rápido y cómodo.
+>* Es posible que quiera usar Visual Studio Code con la extensión de Docker para un inicio de sesión más rápido y cómodo.
 
 > [!TIP]
 > Especifique siempre el nombre completo del registro (en minúsculas) cuando se usa `docker login` y al etiquetar imágenes para insertar en el registro. En los ejemplos de este artículo, el nombre completo es *myregistry.azurecr.io*.

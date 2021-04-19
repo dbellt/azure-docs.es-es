@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
-ms.date: 01/14/2020
+ms.date: 04/12/2021
 ms.custom: contperf-fy21q1,contperfq1
-ms.openlocfilehash: 48de06d28442b4d05cd3a7ab287732c0999e434c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a9e87796c3557f21bb6192c7d7d0c0925d08d786
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101659705"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107311760"
 ---
 # <a name="deep-learning-vs-machine-learning-in-azure-machine-learning"></a>Aprendizaje profundo frente a aprendizaje automático en Azure Machine Learning
 
@@ -99,7 +99,7 @@ Con la transformación apropiada de los datos, una red neuronal es capaz de comp
 
 El análisis de texto basado en métodos de aprendizaje profundo implica el análisis de grandes cantidades de datos de texto (por ejemplo, documentos médicos o recibos de gastos), el reconocimiento de patrones y la creación de información organizada y concisa como resultado de dicho análisis.
 
-Las empresas usan el aprendizaje profundo para realizar análisis de texto con el fin de detectar negociaciones en el mercado de valores y el cumplimiento normativo gubernamental. Otro ejemplo común es el fraude en los seguros: el análisis de texto se ha usado a menudo para analizar grandes cantidades de documentos y reconocer las posibilidades de reclamaciones de seguros fraudulentas. 
+Las empresas usan el aprendizaje profundo para realizar análisis de texto con el fin de detectar negociaciones en el mercado de valores y el cumplimiento normativo gubernamental. Otro ejemplo común es el fraude en los seguros: el análisis de texto se ha usado a menudo para analizar grandes cantidades de documentos y reconocer las posibilidades de reclamaciones de seguros fraudulentas.
 
 ## <a name="artificial-neural-networks"></a>Redes neuronales artificiales
 
@@ -111,15 +111,33 @@ En las secciones que tiene a continuación, se describen las tipologías de rede
 
 La red neuronal de tipo feedforward es el tipo más simple de red neuronal artificial. En una red de tipo feedforward, la información se desplaza solo en una dirección: desde la capa de entrada a la de salida. Las redes neuronales de tipo feedforward transforman una entrada pasándola por una serie de capas ocultas. Cada capa consta de un conjunto de neuronas, donde cada capa está totalmente conectada a todas los neuronas de la capa anterior. Por último, hay una última capa totalmente conectada (la capa de salida) que representa las predicciones generadas.
 
-### <a name="recurrent-neural-network"></a>Redes neuronales recurrentes
+### <a name="recurrent-neural-network-rnn"></a>Red neuronal recurrente (RNN)
 
 Las redes neuronales recurrentes son una red neuronal artificial que se usa ampliamente. Estas redes guardan la salida de una capa y la reenvían a la capa de entrada para poder predecir el resultado de esa capa. Las redes neuronales recurrentes tienen grandes capacidades de aprendizaje. Suelen utilizarse en tareas complejas, como la predicción de series temporales, el aprendizaje de escritura a mano y el reconocimiento de idiomas.
 
-### <a name="convolutional-neural-network"></a>Redes neuronales convolucionales
+### <a name="convolutional-neural-network-cnn"></a>Red neuronal convolucional (CNN)
 
 Una red neuronal convolucional es un tipo especialmente eficaz de red neuronal artificial que presenta una arquitectura única. Las capas se organizan en tres dimensiones: ancho, alto y profundo. Además, las neuronas de una capa no se conectan con todas las neuronas de la capa siguiente, sino que solo se conectan a una pequeña región de la misma. Asimismo, la salida final se reducirá a un solo vector de puntuaciones de probabilidad, organizadas a lo largo de la dimensión de profundidad. 
 
 Las redes neuronales circunvolucionadas se han usado en áreas como el reconocimiento de vídeo, el reconocimiento de imágenes y los sistemas de recomendación.
+
+### <a name="generative-adversarial-network-gan"></a>Red generativa antagónica (GAN)
+
+Las redes generativas antagónicas son modelos generativos entrenados para crear contenido realista, como imágenes. Se compone de dos redes, conocidas como generador y discriminador. Ambas redes se entrenan simultáneamente. Durante el entrenamiento, el generador usa ruido aleatorio para crear nuevos datos sintéticos que se parecen mucho a los datos reales. El discriminador toma la salida del generador como entrada y usa datos reales para determinar si el contenido generado es real o sintético. Las redes compiten entre sí. El generador intenta generar contenido sintético que no se pueda distinguir del contenido real y el discriminador intenta clasificar correctamente las entradas como reales o sintéticas. A continuación, la salida se usa para actualizar los pesos de ambas redes para ayudarles a alcanzar mejor sus respectivos objetivos.
+
+Las redes generativas antagónicas se usan para resolver problemas, como la traslación de imagen a imagen y la progresión de la edad.
+
+### <a name="transformers"></a>Transformadores
+
+Los transformadores son una arquitectura de modelo adecuada para resolver problemas que contienen secuencias, como texto o datos de serie temporal. Constan de [capas de codificador y descodificador](https://en.wikipedia.org/wiki/Transformer_(machine_learning_model)#Encoder). El codificador toma una entrada y la asigna a una representación numérica que contiene información, como el contexto. El descodificador usa la información del codificador para generar una salida, como texto traducido. Lo que hace que los transformadores sean diferentes de otras arquitecturas que contienen codificadores y descodificadores son las subcapas de atención. La atención es la idea de centrarse en partes específicas de una entrada en función de la importancia de su contexto en relación con otras entradas de una secuencia. Por ejemplo, al resumir un artículo de noticias, no todas las frases son pertinentes para describir la idea principal. Al centrarse en las palabras clave a lo largo del artículo, el resumen se puede realizar en una sola frase, el titular.
+
+Los transformadores se han usado para resolver problemas de procesamiento de lenguaje natural, como la traducción, la generación de texto, la respuesta a preguntas y el resumen de texto.
+
+Algunas implementaciones conocidas de transformadores son:
+
+- Representaciones de codificador bidireccional de transformadores (BERT)
+- Transformador generativo previamente generativo 2 (GPT-2)
+- Transformador generativo previamente entrenado 3 (GPT-3)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

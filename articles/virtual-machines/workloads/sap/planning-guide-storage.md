@@ -13,15 +13,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/26/2020
+ms.date: 04/08/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 329e09221467c2602355e091876c95f305db3578
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ecd33549536323658a7116d7d5c311eaaec98487
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101673737"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107302954"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>Tipos de Azure Storage para una carga de trabajo de SAP
 Azure tiene numerosos tipos de almacenamiento que difieren en gran medida en términos de funcionalidad, rendimiento, latencia y precio. Algunos de los tipos de almacenamiento no son para escenarios de SAP, o bien su uso está limitado en ellos. Sin embargo, hay varios tipos de almacenamiento de Azure que son idóneos para escenarios específicos de carga de trabajo de SAP, o bien están optimizados para ello. Especialmente en el caso de SAP HANA, algunos tipos de almacenamiento de Azure han recibido certificación para su uso con SAP HANA. En este documento, vamos a repasar los diferentes tipos de almacenamiento y describir su capacidad y uso con las cargas de trabajo de SAP y los componentes de SAP.
@@ -236,6 +236,7 @@ El almacenamiento de ANF se admite actualmente en varios escenarios de carga de 
     - [Alta disponibilidad de SAP NetWeaver en VM de Azure en SUSE Linux Enterprise Server con Azure NetApp Files para las aplicaciones de SAP](./high-availability-guide-suse-netapp-files.md)
     - [Alta disponibilidad de Azure Virtual Machines para SAP NetWeaver en Red Hat Enterprise Linux con Azure NetApp Files para aplicaciones SAP](./high-availability-guide-rhel-netapp-files.md)
 - Las implementaciones de SAP HANA que usan recursos compartidos de NFS v.4.1 para volúmenes /hana/data y /hana/log o volúmenes de NFS v4.1 o NFS v3 para volúmenes de /hana/shared, como se documenta en el artículo [Configuraciones de almacenamiento de máquinas virtuales de Azure en SAP HANA](./hana-vm-operations-storage.md).
+- Las implementaciones de Oracle en un sistema operativo invitado Oracle Linux mediante [dNFS](https://docs.oracle.com/en/database/oracle/oracle-database/19/ntdbi/creating-an-oracle-database-on-direct-nfs.html#GUID-2A0CCBAB-9335-45A8-B8E3-7E8C4B889DEA) para volúmenes registros de fase de puesta al día y datos de Oracle. Puede encontrar más detalles en el artículo [Implementación de DBMS de Oracle de Azure Virtual Machines para la carga de trabajo de SAP](./dbms_guide_oracle.md)
 
 > [!NOTE]
 > No se admite ninguna otra carga de trabajo de DBMS para recursos compartidos de NFS o SMB basados en Azure NetApp Files. Se proporcionarán actualizaciones en caso de que esto cambie.

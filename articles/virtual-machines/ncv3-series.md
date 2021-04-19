@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: c28ed042156865c52607ce031507c696f28b4e7c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: be76b2b6398048925ce308b421fcd776a7b7acbb
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102617308"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306405"
 ---
 # <a name="ncv3-series"></a>Serie NCv3
 
@@ -20,6 +20,7 @@ Las máquinas virtuales de la serie NCv3 disponen de la tecnología de las GPU N
 
 [Premium Storage](premium-storage-performance.md): Compatible<br>
 [Almacenamiento en caché de Premium Storage](premium-storage-performance.md): Compatible<br>
+[Ultra Disks:](disks-types.md#ultra-disk) Compatible ([más información](https://techcommunity.microsoft.com/t5/azure-compute/ultra-disk-storage-for-hpc-and-gpu-vms/ba-p/2189312) sobre la disponibilidad, el uso y el rendimiento) <br>
 [Migración en vivo](maintenance-and-updates.md): No compatible<br>
 [Actualizaciones con conservación de memoria](maintenance-and-updates.md): No compatible<br>
 [Compatibilidad con generación de VM](generation-2.md): Generación 1 y 2<br>

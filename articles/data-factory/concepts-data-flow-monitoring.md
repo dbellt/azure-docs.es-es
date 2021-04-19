@@ -3,17 +3,16 @@ title: Supervisión de flujos de datos de asignación
 description: Cómo supervisar visualmente los flujos de datos de asignación en Azure Data Factory
 author: kromerm
 ms.author: makromer
-ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/22/2020
-ms.openlocfilehash: 9ca5ea5cdebe297af5081ae6e219935c56ba942e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/11/2021
+ms.openlocfilehash: 82aba428627cba1a3df26fc67c5da0cde52d368c
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96004892"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107309074"
 ---
 # <a name="monitor-data-flows"></a>Supervisión de flujos de datos
 
@@ -77,9 +76,15 @@ También puede ver el tiempo detallado del paso de transformación de cada parti
 }
 ```
 
-### <a name="post-processing-time"></a>Tiempo de posprocesamiento
+### <a name="sink-processing-time"></a>Tiempo de procesamiento del receptor
 
 Cuando seleccione un icono de transformación del receptor en el mapa, el panel deslizante de la derecha mostrará un punto de datos adicional denominado "Tiempo de posprocesamiento" en la parte inferior. Esta es la cantidad de tiempo que se dedica a ejecutar el trabajo en el clúster de Spark *después* de cargar, transformar y escribir los datos. Esta cantidad puede incluir el cierre de grupos de conexiones, el apagado de controladores, la eliminación de archivos, la fusión de archivos, etc. Al realizar acciones en el flujo como "migrar archivos" y "enviar a un solo archivo", es probable que se muestre un aumento en el valor de tiempo de posprocesamiento.
+
+* Duración de la fase de escritura: el tiempo para escribir los datos en una ubicación de almacenamiento provisional para Synapse SQL.
+* Duración de SQL de operación de tabla: el tiempo dedicado a mover datos de tablas temporales a la tabla de destino.
+* Duración de SQL previo y posterior: el tiempo empleado en ejecutar comandos SQL previos y posteriores.
+* Duración de los comandos previos y posteriores: el tiempo dedicado a ejecutar cualquier operación previa o posterior para el origen o los receptores basados en archivos. Por ejemplo, mover o eliminar archivos después del procesamiento.
+* Duración de la combinación: el tiempo empleado en combinar el archivo, los archivos de combinación se usan para los receptores basados en archivos al escribir en un solo archivo o cuando se usa el "nombre de archivo como datos de columna". Si se dedica mucho tiempo a esta métrica, debe evitar el uso de estas opciones.
   
 ## <a name="error-rows"></a>Filas de error
 

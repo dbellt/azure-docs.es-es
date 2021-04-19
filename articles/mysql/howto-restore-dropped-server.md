@@ -1,24 +1,24 @@
 ---
-title: Restauración de un servidor de Azure Database for MySQL que se ha descartado
-description: En este artículo se describe cómo restaurar un servidor que se ha descartado en Azure Database for MySQL mediante Azure Portal.
+title: Restauración de un servidor de Azure Database for MySQL eliminado
+description: En este artículo se describe cómo restaurar un servidor que se ha eliminado en Azure Database for MySQL mediante Azure Portal.
 author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 10/09/2020
-ms.openlocfilehash: 34dddd8e5f3fb418fc7155630bf82a922e418402
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5fc1ab1b3dfbc324668873749c143846c2015cd4
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97657097"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306286"
 ---
-# <a name="restore-a-dropped-azure-database-for-mysql-server"></a>Restauración de un servidor de Azure Database for MySQL que se ha descartado
+# <a name="restore-a-deleted-azure-database-for-mysql-server"></a>Restauración de un servidor de Azure Database for MySQL eliminado
 
-Cuando se descarta un servidor, la copia de seguridad del servidor de bases de datos se puede guardar hasta cinco días en el servicio. Solo se puede acceder a la copia de seguridad de la base de datos y restaurarla desde la suscripción de Azure en la que residía originalmente el servidor. Se pueden seguir los siguientes pasos recomendados para recuperar un recurso del servidor MySQL eliminado en un plazo de cinco días desde el momento de la eliminación del servidor. Los pasos recomendados solo funcionarán si la copia de seguridad del servidor todavía está disponible y no se ha eliminado del sistema. 
+Cuando se elimina un servidor, la copia de seguridad del servidor de bases de datos se puede conservar hasta cinco días en el servicio. Solo se puede acceder a la copia de seguridad de la base de datos y restaurarla desde la suscripción de Azure en la que residía originalmente el servidor. Se pueden seguir los siguientes pasos recomendados para recuperar un recurso del servidor MySQL eliminado en un plazo de cinco días desde el momento de la eliminación del servidor. Los pasos recomendados solo funcionarán si la copia de seguridad del servidor todavía está disponible y no se ha eliminado del sistema. 
 
 ## <a name="pre-requisites"></a>Requisitos previos
-Para restaurar un servidor de Azure Database for MySQL que se ha descartado, necesitará lo siguiente:
+Para restaurar un servidor de Azure Database for MySQL que se ha eliminado, necesitará lo siguiente:
 - El nombre de la suscripción de Azure que hospeda el servidor original.
 - La ubicación en la que se creó el servidor.
 
@@ -42,7 +42,7 @@ Para restaurar un servidor de Azure Database for MySQL que se ha descartado, nec
  
      [![Creación de un servidor mediante la API de REST](./media/howto-restore-dropped-server/create-server-from-rest-api.png)](./media/howto-restore-dropped-server/create-server-from-rest-api.png#lightbox)
   
- 6. Desplácese por la sección Cuerpo de la solicitud y pegue lo siguiente sustituyendo la "Ubicación del servidor descartado", "submissionTimestamp" y "resourceId". En el caso de "restorePointInTime", especifique un valor de "submissionTimestamp" menos **15 minutos** para asegurarse de que el comando no tiene errores.
+ 6. Desplácese hacia abajo a la sección de cuerpo de la solicitud y pegue lo siguiente:
  
     ```json
     {
@@ -55,14 +55,18 @@ Para restaurar un servidor de Azure Database for MySQL que se ha descartado, nec
             }
     }
     ```
+7. Reemplace los siguientes valores en el cuerpo de la solicitud anterior:
+   * "Dropped server Location" por la región de Azure donde se creó originalmente el servidor eliminado
+   * "submissionTimestamp" y "resourceId" por los valores capturados en el paso 3. 
+   * En el caso de "restorePointInTime", especifique un valor de "submissionTimestamp" menos **15 minutos** para asegurarse de que el comando no tiene errores.
+   
+8. Si ve el código de respuesta 201 o 202, quiere decir que la solicitud de restauración se envió correctamente. 
 
-7. Si ve el código de respuesta 201 o 202, quiere decir que la solicitud de restauración se envió correctamente. 
-
-8. La creación del servidor puede llevar tiempo según el tamaño de la base de datos y los recursos de proceso aprovisionados en el servidor original. El estado de la restauración se puede supervisar desde el registro de actividad mediante el filtrado de 
+9. La creación del servidor puede llevar tiempo según el tamaño de la base de datos y los recursos de proceso aprovisionados en el servidor original. El estado de la restauración se puede supervisar desde el registro de actividad mediante el filtrado de 
    - **La suscripción** = su suscripción.
    - **El tipo de recurso** = servidores de Azure Database for MySQL (Microsoft.DBforMySQL/servers). 
    - **La operación** = actualización de la creación del servidor de MySQL.
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Si está intentando restaurar un servidor en un plazo de cinco días y sigue recibiendo un error después de seguir los pasos descritos anteriormente, abra un incidente de soporte técnico para obtener ayuda. Si intenta restaurar un servidor descartado pasados cinco días, se devolverá un error porque no se encontrará el archivo de copia de seguridad. No abra una incidencia de soporte técnico en este caso. El equipo de soporte técnico no puede proporcionar asistencia si la copia de seguridad se elimina del sistema. 
+- Si está intentando restaurar un servidor en un plazo de cinco días y sigue recibiendo un error después de seguir los pasos descritos anteriormente, abra un incidente de soporte técnico para obtener ayuda. Si intenta restaurar un servidor eliminado pasados cinco días, se devolverá un error porque no se encontrará el archivo de copia de seguridad. No abra una incidencia de soporte técnico en este caso. El equipo de soporte técnico no puede proporcionar asistencia si la copia de seguridad se elimina del sistema. 
 - Para evitar la eliminación accidental de los servidores, se recomienda encarecidamente usar [Bloqueos de recursos](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/preventing-the-disaster-of-accidental-deletion-for-your-mysql/ba-p/825222).

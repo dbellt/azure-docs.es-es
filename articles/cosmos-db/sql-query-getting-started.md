@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 02/02/2021
+ms.date: 04/09/2021
 ms.author: tisande
-ms.openlocfilehash: d5d5bc0a108cd08283ea29ce3bdc2de49310c5aa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ad43d83782a2c7e9eb5cc20128be89a45f0213d1
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102499567"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312185"
 ---
 # <a name="getting-started-with-sql-queries"></a>Introducción a las consultas SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -43,7 +43,7 @@ En el resto de este documento se muestra cómo empezar a escribir consultas SQL 
 
 ## <a name="upload-sample-data"></a>Cargar datos de ejemplo
 
-En la cuenta de la API de SQL para Cosmos DB, abra el [Explorador de datos](./data-explorer.md) para crear un contenedor denominado `Families`. Después de crearlo, use el explorador de estructuras de datos para buscarlo y abrirlo. En el contenedor `Families` verá la opción `Items` justo debajo del nombre del contenedor. Abra dicha opción y se mostrará un botón, en la barra de menús en el centro de la pantalla, para crear un "Nuevo elemento". Deberá usar esta característica para crear los siguientes elementos JSON.
+En la cuenta de la API de SQL para Cosmos DB, abra el [Explorador de datos](./data-explorer.md) para crear un contenedor denominado `Families`. Después de crear el contenedor, use el explorador de estructuras de datos para buscarlo y abrirlo. En el contenedor `Families` verá la opción `Items` justo debajo del nombre del contenedor. Abra dicha opción y se mostrará un botón, en la barra de menús en el centro de la pantalla, para crear un "Nuevo elemento". Deberá usar esta característica para crear los siguientes elementos JSON.
 
 ### <a name="create-json-items"></a>Creación de elementos JSON
 

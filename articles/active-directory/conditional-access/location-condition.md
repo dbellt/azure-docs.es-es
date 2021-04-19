@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 777fc60f76692734ea34ff3cdf8f6bc6e5e8316b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 07af586bac71ee9b33ef314756454cb3c52ec912
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97615718"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305929"
 ---
 # <a name="using-the-location-condition-in-a-conditional-access-policy"></a>Uso la condición de ubicación en una directiva de acceso condicional 
 
@@ -32,39 +32,37 @@ Las organizaciones pueden usar esta ubicación de red para tareas comunes como:
 
 La ubicación de red viene determinada por la dirección IP pública que proporciona un cliente a Azure Active Directory. De forma predeterminada, las directivas de acceso condicional se aplican a todas las direcciones IPv4 e IPv6. 
 
-> [!TIP]
-> Los intervalos de IPv6 solo se admiten en la interfaz de **[Ubicación con nombre (versión preliminar)](#preview-features)** . 
-
 ## <a name="named-locations"></a>Ubicaciones con nombre
 
-Las ubicaciones se designan en Azure Portal en **Azure Active Directory** > **Seguridad** > **Acceso condicional** > **Ubicaciones con nombre**. Estas ubicaciones de red con nombre pueden incluir ubicaciones, como intervalos de redes de la sede central de una organización, intervalos de redes VPN o intervalos que desea bloquear. 
+Las ubicaciones se designan en Azure Portal en **Azure Active Directory** > **Seguridad** > **Acceso condicional** > **Ubicaciones con nombre**. Estas ubicaciones de red con nombre pueden incluir ubicaciones, como intervalos de redes de la sede central de una organización, intervalos de redes VPN o intervalos que desea bloquear. Las ubicaciones con nombre se pueden definir mediante intervalos de direcciones IPv4/IPv6 o por países o regiones. 
 
 ![Ubicación con nombre en Azure Portal](./media/location-condition/new-named-location.png)
 
-Para configurar una ubicación, debe rellenar al menos el campo **Nombre** y especificar el intervalo IP. 
+### <a name="ip-address-ranges"></a>Intervalos de direcciones IP
 
-El número de ubicaciones con nombre que se pueden configurar está restringido por el tamaño del objeto relacionado en Azure AD. Puede configurar las ubicaciones en función de las limitaciones siguientes:
+Para definir una ubicación con nombre por intervalos de direcciones IPv4/IPv6, deberá proporcionar un **Nombre** y un intervalo IP. 
 
-- Una ubicación con nombre de hasta 1200 intervalos IPv4.
-- Un máximo de 90 ubicaciones con nombre con un intervalo IP asignado a cada una.
-
-> [!TIP]
-> Los intervalos de IPv6 solo se admiten en la interfaz de **[Ubicación con nombre (versión preliminar)](#preview-features)** . 
+Las ubicaciones con nombre definidas por los intervalos de direcciones IPv4/IPv6 están sujetas a las siguientes limitaciones: 
+- Configurar hasta 195 ubicaciones con nombre.
+- Se pueden configurar hasta 2000 intervalos IP por ubicación con nombre.
+- Se admiten tanto IPv4 como IPv6.
+- No se pueden configurar intervalos de IP privados.
+- El número de direcciones IP que se pueden incluir en un intervalo es limitado. Solo se permiten las máscaras CIDR mayores que /8 al definir un intervalo de direcciones IP. 
 
 ### <a name="trusted-locations"></a>Ubicaciones de confianza
 
-Al crear una ubicación de red, un administrador tiene la opción de marcar una ubicación como una ubicación de confianza. 
+Los administradores pueden designar ubicaciones con nombre definidas por intervalos de direcciones IP para que sean ubicaciones con nombre de confianza. 
 
 ![Ubicaciones de confianza en Azure Portal](./media/location-condition/new-trusted-location.png)
 
-Esta opción puede incluirse en las directivas de acceso condicional, donde, por ejemplo, se puede requerir el registro de la autenticación multifactor desde una ubicación de red de confianza. También se incluye en el cálculo del riesgo de Azure AD Identity Protection, lo que reduce el riesgo de inicio de sesión de los usuarios desde una ubicación marcada como de confianza.
+Los inicios de sesión desde ubicaciones con nombre de confianza mejoran la precisión del cálculo de riesgos de Azure AD Identity Protection, lo que reduce el riesgo del inicio de sesión de los usuarios cuando se autentican desde una ubicación marcada como de confianza. Además, las ubicaciones con nombre de confianza pueden ser el destino de directivas de acceso condicional. Por ejemplo, puede requerir restringir el registro de autenticación multifactor solo a ubicaciones con nombre de confianza. 
 
 ### <a name="countries-and-regions"></a>Países y regiones
 
-Algunas organizaciones pueden optar por definir los límites de IP de países o regiones completos como ubicaciones con nombre para las directivas de acceso condicional. Estas ubicaciones pueden usarse al bloquear tráfico innecesario cuando se sabe que los usuarios válidos nunca provienen de una ubicación como Corea del Norte. Estas asignaciones de dirección IP a países se actualizan periódicamente. 
+Algunas organizaciones pueden optar por restringir el acceso a determinados países o regiones mediante el acceso condicional. Además de definir ubicaciones con nombre por intervalos IP, los administradores pueden definir ubicaciones con nombre por país o región. Cuando un usuario inicia sesión, Azure AD resuelve la dirección IPv4 del usuario en un país o región, y la asignación se actualiza periódicamente. Las organizaciones pueden usar ubicaciones con nombre definidas por países para bloquear el tráfico de los países en los que no hacen negocios, como Corea del Norte. 
 
 > [!NOTE]
-> Los rangos de direcciones IPv6 no se pueden asignar a países. Solo las direcciones IPv4 se asignan a países.
+> Los inicios de sesión desde direcciones IPv6 no se pueden asignar a países o regiones y se consideran áreas desconocidas. Solo las direcciones IPv4 se pueden asignar a países o regiones.
 
 ![Crear una nueva ubicación basada en el país o la región en Azure Portal](./media/location-condition/new-named-location-country-region.png)
 
@@ -91,33 +89,6 @@ Para las aplicaciones móviles y de escritorio que hayan tenido sesiones de larg
 
 Si se produce un error en los dos pasos, se considera que el usuario ya no está conectado a ninguna dirección IP de confianza.
 
-## <a name="preview-features"></a>Características en vista previa
-
-Además de la característica de ubicación con nombre disponible con carácter general, también existe una ubicación con nombre (versión preliminar). Puede tener acceso a la versión preliminar de ubicación con nombre mediante el banner situado en la parte superior de la hoja de ubicación con nombre actual.
-
-![Probar la versión preliminar de ubicaciones con nombre](./media/location-condition/preview-features.png)
-
-Con la versión preliminar de las ubicaciones con nombre, puede hacer lo siguiente:
-
-- Configurar hasta 195 ubicaciones con nombre.
-- Configurar hasta 2000 intervalos IP por ubicación con nombre.
-- Configurar direcciones IPv6 junto con direcciones IPv4
-
-También hemos agregado algunas comprobaciones adicionales para ayudar a reducir el cambio de configuración incorrecta.
-
-- Los intervalos de IP privados ya no se pueden configurar.
-- El número de direcciones IP que se pueden incluir en un intervalo es limitado. Solo se permitirán las máscaras CIDR mayores que/8 al configurar un intervalo de direcciones IP.
-
-Con la versión preliminar, ahora hay dos opciones de creación: 
-
-- **Ubicación de los países**
-- **Ubicación de los intervalos de direcciones IP**
-
-> [!NOTE]
-> Los rangos de direcciones IPv6 no se pueden asignar a países. Solo las direcciones IPv4 se asignan a países.
-
-![Interfaz de la versión preliminar de ubicaciones con nombre](./media/location-condition/named-location-preview.png)
-
 ## <a name="location-condition-in-policy"></a>Condición de ubicación de la directiva
 
 Al configurar la condición de ubicación, puede distinguir entre:
@@ -143,7 +114,7 @@ Con esta opción, puede seleccionar una o varias ubicaciones con nombre. Para un
 
 ## <a name="ipv6-traffic"></a>Tráfico de IPv6
 
-De forma predeterminada, las directivas de acceso condicional se aplicarán a todo el tráfico de IPv6. Con la [versión preliminar de la ubicación con nombre](#preview-features), puede excluir intervalos de direcciones IPv6 específicos de una directiva de acceso condicional. Esta opción es útil en los casos en los que no se quiere aplicar la directiva en determinados intervalos IPv6. Por ejemplo, si no quiere aplicar una directiva en la red corporativa, y la red corporativa está hospedada en intervalos IPv6 públicos.  
+De forma predeterminada, las directivas de acceso condicional se aplicarán a todo el tráfico de IPv6. Puede excluir intervalos de direcciones IPv6 específicos de una directiva de acceso condicional si no quiere que se apliquen directivas para intervalos IPv6 específicos. Por ejemplo, si no quiere aplicar una directiva en la red corporativa, y la red corporativa está hospedada en intervalos IPv6 públicos.  
 
 ### <a name="when-will-my-tenant-have-ipv6-traffic"></a>¿Cuándo tendrá mi inquilino tráfico IPv6?
 

@@ -1,18 +1,21 @@
 ---
-title: Clúster de conmutación por error de Windows Server en vSAN de Azure VMware Solution con discos compartidos nativos
-description: Configure el clúster de conmutación por error de Windows Server (WSFC) en Azure VMware Solution y aproveche las ventajas de las soluciones que requieren la funcionalidad de WSFC.
+title: Configuración del clúster de conmutación por error de Windows Server en vSAN de Azure VMware Solution
+description: Configure el clúster de conmutación por error de Windows Server (WSFC) en vSAN de Azure VMware Solution con discos compartidos nativos.
 ms.topic: how-to
-ms.date: 03/09/2021
-ms.openlocfilehash: 8162e15675d8bbde9267126c785f152d1cb860bd
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/09/2021
+ms.openlocfilehash: f1bc8199eb0d3317e4b6e07a6a297b4ebfe95cc8
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105562246"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107308696"
 ---
-# <a name="windows-server-failover-cluster-on-azure-vmware-solution-vsan-with-native-shared-disks"></a>Clúster de conmutación por error de Windows Server en vSAN de Azure VMware Solution con discos compartidos nativos
+# <a name="configure-windows-server-failover-cluster-on-azure-vmware-solution-vsan"></a>Configuración del clúster de conmutación por error de Windows Server en vSAN de Azure VMware Solution
 
-En este artículo, examinaremos la configuración del clúster de conmutación por error de Windows Server en Azure VMware Solution. La implementación de este artículo sirve como prueba de concepto y prueba piloto. Se recomienda usar una configuración Cluster-in-a-Box (CIB) hasta que las directivas de selección de ubicación estén disponibles.
+En este artículo, aprenderá a configurar el clúster de conmutación por error de Windows Server en vSAN de Azure VMware Solution con discos compartidos nativos. 
+
+>[!IMPORTANT]
+>La implementación de este artículo sirve como prueba de concepto y prueba piloto. Se recomienda usar una configuración Cluster-in-a-Box (CIB) hasta que las directivas de selección de ubicación estén disponibles.
 
 El clúster de conmutación por error de Windows Server (WSFC), conocido anteriormente como Microsoft Service Cluster Service (MSCS), es una característica del sistema operativo (SO) Windows Server. WSFC es una característica crítica para la empresa, necesaria para muchas aplicaciones. Por ejemplo, se requiere WSFC para las siguientes configuraciones:
 
@@ -43,7 +46,7 @@ Azure VMware Solution proporciona compatibilidad nativa con WSFC virtualizado. E
 
 En el diagrama siguiente se ilustra la arquitectura de los nodos virtuales de WSFC en una nube privada de Azure VMware Solution. Muestra dónde reside Azure VMware Solution, incluidos los servidores virtuales de WSFC (cuadro rojo) con respecto a la plataforma de Azure más amplia. En este diagrama se muestra una arquitectura radial típica, pero se puede realizar una configuración similar con el uso de Azure Virtual WAN. Ambas opciones ofrecen todo el valor que otros servicios de Azure pueden aportarle.
 
-[![Diagrama en el que se ilustra la arquitectura de los nodos virtuales de WSFC en una nube privada de Azure VMware Solution.](media/windows-server-failover-cluster/windows-server-failover-architecture.png)](media/windows-server-failover-cluster/windows-server-failover-architecture.png#lightbox)
+:::image type="content" source="media/windows-server-failover-cluster/windows-server-failover-architecture.svg" alt-text="Diagrama de arquitectura de los nodos virtuales del clúster de conmutación por error de Windows Server en una nube privada de Azure VMware Solution." border="false" lightbox="media/windows-server-failover-cluster/windows-server-failover-architecture.svg":::
 
 ## <a name="supported-configurations"></a>Configuraciones admitidas
 

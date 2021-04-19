@@ -7,12 +7,12 @@ author: vikancha-MSFT
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: vikancha
-ms.openlocfilehash: d73bd81f15263c79e16b574eb961d4ae0ac61175
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2e10177de1a40bf7ece7acde43a91686bd4c98e5
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103417814"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306456"
 ---
 # <a name="ncast4_v3-series"></a>Serie NCasT4_v3 
 
@@ -23,12 +23,13 @@ Las máquinas virtuales de la serie NCas T4_v3 usan la tecnología de las GPU [N
 [ACU](acu.md): 230-260<br>
 [Premium Storage](premium-storage-performance.md): Compatible<br>
 [Almacenamiento en caché de Premium Storage](premium-storage-performance.md): Compatible<br>
+[Ultra Disks:](disks-types.md#ultra-disk) Compatible ([más información](https://techcommunity.microsoft.com/t5/azure-compute/ultra-disk-storage-for-hpc-and-gpu-vms/ba-p/2189312) sobre la disponibilidad, el uso y el rendimiento) <br>
 [Migración en vivo](maintenance-and-updates.md): No compatible<br>
 [Actualizaciones con conservación de memoria](maintenance-and-updates.md): No compatible<br>
 [Compatibilidad con generación de VM](generation-2.md): Generación 1 y 2<br>
 [Redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md): Compatible<br>
 [Discos de sistema operativo efímero](ephemeral-os-disks.md): No compatible <br>
-Interconexión de NVIDIA NVLink: Compatible<br>
+Interconexión de NVIDIA NVLink: No compatible<br>
 <br>
 
 | Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | GPU | Memoria de GPU: GiB | Discos de datos máx. | Nº máx. de NIC/ancho de banda de red esperado (Mbps) |

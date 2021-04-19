@@ -12,23 +12,18 @@ ms.custom:
 - amqp
 - mqtt
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 382cdf87016044748685e5e64ff04ebac53f018d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e0912fb452a7f587fef19de835eea111b349a9a4
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103199134"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310026"
 ---
-# <a name="connect-a-downstream-iot-edge-device-to-an-azure-iot-edge-gateway-preview"></a>Conexión de un dispositivo IoT Edge de nivel inferior a una puerta de enlace Azure IoT Edge (versión preliminar)
+# <a name="connect-a-downstream-iot-edge-device-to-an-azure-iot-edge-gateway"></a>Conexión de un dispositivo IoT Edge de nivel inferior a una puerta de enlace Azure IoT Edge
 
 [!INCLUDE [iot-edge-version-202011](../../includes/iot-edge-version-202011.md)]
 
 En este artículo se proporcionan instrucciones para establecer una conexión de confianza entre una puerta de enlace IoT Edge y un dispositivo IoT Edge de nivel inferior.
-
->[!NOTE]
->Esta característica requiere IoT Edge versión 1.2, que se encuentra en versión preliminar pública, y la ejecución de contenedores Linux.
->
->En este artículo se refleja la versión preliminar más reciente de IoT Edge versión 1.2. Asegúrese de que el dispositivo ejecuta la versión [1.2.0-rc4](https://github.com/Azure/azure-iotedge/releases/tag/1.2.0-rc4) o posterior. Para los pasos de obtención de la versión preliminar más reciente en el dispositivo, consulte [Instalación de Azure IoT Edge para Linux (versión 1.2)](how-to-install-iot-edge.md) o [Actualización de IOT Edge a la versión 1.2](how-to-update-iot-edge.md#special-case-update-from-10-or-11-to-12).
 
 En un escenario de puerta de enlace, un dispositivo IoT Edge puede ser tanto una puerta de enlace como un dispositivo de nivel inferior. Se pueden superponer varias puertas de enlace IoT Edge para crear una jerarquía de dispositivos. Los dispositivos de nivel inferior (o secundarios) pueden autenticar y enviar o recibir mensajes a través de su dispositivo de puerta de enlace (o primario).
 
@@ -130,7 +125,7 @@ Asegúrese de que el usuario **iotedge** tenga permisos de lectura para el direc
 1. Instale el **certificado de CA raíz** en este dispositivo IoT Edge.
 
    ```bash
-   sudo cp <path>/<root ca certificate>.pem /usr/local/share/ca-certificates/<root ca certificate>.pem
+   sudo cp <path>/<root ca certificate>.pem /usr/local/share/ca-certificates/<root ca certificate>.pem.crt
    ```
 
 1. Actualice el almacén de certificados.
@@ -162,13 +157,13 @@ Asegúrese de que el usuario **iotedge** tenga permisos de lectura para el direc
 
 1. Busque la sección **Trust bundle cert**. Quite la marca de comentario y actualice el parámetro `trust_bundle_cert` con el URI del archivo para el certificado de CA raíz del dispositivo.
 
-1. Si bien esta característica se encuentra en versión preliminar pública, debe configurar el dispositivo IoT Edge para usar la versión preliminar pública del agente de IoT Edge cuando se inicia.
+1. Compruebe que el dispositivo IoT Edge usará la versión correcta del agente de IoT Edge cuando se inicie.
 
-   Busque la sección **Default Edge Agent** y actualice el valor de la imagen a la imagen de versión preliminar pública:
+   Busque la sección **Default Edge Agent** y compruebe que el valor de la imagen es IoT Edge versión 1.2. Si no es así, actualícela:
 
    ```toml
    [agent.config]
-   image: "mcr.microsoft.com/azureiotedge-agent:1.2.0-rc4"
+   image: "mcr.microsoft.com/azureiotedge-agent:1.2"
    ```
 
 1. Busque la sección **Edge CA certificate** del archivo de configuración. Quite las marcas de comentario de las líneas de esta sección y proporcione las rutas de acceso del URI de archivo para los archivos de certificado y clave en el dispositivo IoT Edge.
@@ -200,21 +195,6 @@ Asegúrese de que el usuario **iotedge** tenga permisos de lectura para el direc
 
    >[!TIP]
    >La herramienta de comprobación de IoT Edge usa un contenedor para realizar algunas de las comprobaciones de diagnóstico. Si quiere usar esta herramienta en dispositivos IoT Edge de nivel inferior, asegúrese de que pueden acceder a `mcr.microsoft.com/azureiotedge-diagnostics:latest`, o mantenga la imagen de contenedor en el registro de contenedor privado.
-
-## <a name="configure-runtime-modules-for-public-preview"></a>Configuración de módulos del entorno de ejecución para la versión preliminar pública
-
-Si bien esta característica se encuentra en versión preliminar pública, debe configurar el dispositivo IoT Edge para usar las versiones preliminares públicas de los módulos de entorno de ejecución de Azure IoT Edge. En la sección anterior se indican los pasos para configurar edgeAgent en el inicio. También debe configurar los módulos del entorno de ejecución en las implementaciones del dispositivo.
-
-1. Configure el módulo edgeHub para que use la imagen de versión preliminar pública: `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc4`.
-
-1. Configure las siguientes variables de entorno para el módulo edgeHub:
-
-   | Nombre | Value |
-   | - | - |
-   | `experimentalFeatures__enabled` | `true` |
-   | `experimentalFeatures__nestedEdgeEnabled` | `true` |
-
-1. Configure el módulo edgeAgent para que use la imagen de versión preliminar pública: `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc4`.
 
 ## <a name="network-isolate-downstream-devices"></a>Aislamiento de red de dispositivos de nivel inferior
 
@@ -250,6 +230,8 @@ Para cada dispositivo de puerta de enlace de una capa inferior, los operadores d
 El dispositivo IoT Edge en la capa superior de una jerarquía de puertas de enlace tiene un conjunto de módulos necesarios que se deben implementar en él, además de los módulos de carga de trabajo que se puedan ejecutar en el dispositivo.
 
 El módulo de proxy de API se diseñó para personalizarse y administrar los escenarios de puerta de enlace más comunes. En este artículo se proporciona un ejemplo de cómo establecer los módulos en una configuración básica. Consulte [Configuración del módulo de proxy de API para el escenario de jerarquías de puertas de enlace](how-to-configure-api-proxy-module.md) para obtener información más detallada y ejemplos.
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. En [Azure Portal](https://portal.azure.com), navegue hasta su centro de IoT.
 1. Seleccione **IoT Edge** en el menú de navegación.
@@ -337,6 +319,109 @@ El módulo de proxy de API se diseñó para personalizarse y administrar los esc
 1. Seleccione **Revisar y crear** para ir al paso final.
 1. Seleccione **Crear** para implementar el dispositivo.
 
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+1. En [Azure Cloud Shell](https://shell.azure.com/), cree un archivo JSON de implementación. Por ejemplo:
+
+   ```json
+   {
+       "modulesContent": {
+           "$edgeAgent": {
+               "properties.desired": {
+                   "modules": {
+                       "dockerContainerRegistry": {
+                           "settings": {
+                               "image": "registry:latest",
+                               "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5000/tcp\":[{\"HostPort\":\"5000\"}]}}}"
+                           },
+                           "type": "docker",
+                           "version": "1.0",
+                           "env": {
+                               "REGISTRY_PROXY_REMOTEURL": {
+                                   "value": "The URL for the container registry you want this registry module to map to. For example, https://myregistry.azurecr"
+                               },
+                               "REGISTRY_PROXY_USERNAME": {
+                                   "value": "Username to authenticate to the container registry."
+                               },
+                               "REGISTRY_PROXY_PASSWORD": {
+                                   "value": "Password to authenticate to the container registry."
+                               }
+                           },
+                           "status": "running",
+                           "restartPolicy": "always"
+                       },
+                       "IoTEdgeAPIProxy": {
+                           "settings": {
+                               "image": "mcr.microsoft.com/azureiotedge-api-proxy:1.0",
+                               "createOptions": "{\"HostConfig\": {\"PortBindings\": {\"443/tcp\": [{\"HostPort\":\"443\"}]}}}"
+                           },
+                           "type": "docker",
+                           "env": {
+                               "NGINX_DEFAULT_PORT": {
+                                   "value": "443"
+                               },
+                               "DOCKER_REQUEST_ROUTE_ADDRESS": {
+                                   "value": "registry:5000"
+                               }
+                           },
+                           "status": "running",
+                           "restartPolicy": "always",
+                           "version": "1.0"
+                       }
+                   },
+                   "runtime": {
+                       "settings": {
+                           "minDockerVersion": "v1.25"
+                       },
+                       "type": "docker"
+                   },
+                   "schemaVersion": "1.1",
+                   "systemModules": {
+                       "edgeAgent": {
+                           "settings": {
+                               "image": "mcr.microsoft.com/azureiotedge-agent:1.2",
+                               "createOptions": ""
+                           },
+                           "type": "docker"
+                       },
+                       "edgeHub": {
+                           "settings": {
+                               "image": "mcr.microsoft.com/azureiotedge-hub:1.2",
+                               "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
+                           },
+                           "type": "docker",
+                           "env": {},
+                           "status": "running",
+                           "restartPolicy": "always"
+                       }
+                   }
+               }
+           },
+           "$edgeHub": {
+               "properties.desired": {
+                   "routes": {
+                       "route": "FROM /messages/* INTO $upstream"
+                   },
+                   "schemaVersion": "1.1",
+                   "storeAndForwardConfiguration": {
+                       "timeToLiveSecs": 7200
+                   }
+               }
+           }
+       }
+   }
+   ```
+
+   Este archivo de implementación configura el módulo de proxy de API para que escuche en el puerto 443. Para evitar colisiones de enlace de puertos, el archivo configura el módulo edgeHub para que no escuche en el puerto 443. En su lugar, el módulo de proxy de API enrutará todo el tráfico de edgeHub en l puerto 443.
+
+1. Escriba el siguiente comando para crear una implementación en un dispositivo IoT Edge:
+
+   ```bash
+   az iot edge set-modules --device-id <device_id> --hub-name <iot_hub_name> --content ./<deployment_file_name>.json
+   ```
+
+---
+
 ### <a name="deploy-modules-to-lower-layer-devices"></a>Implementación de módulos en dispositivos de capas inferiores
 
 Los dispositivos IoT Edge en las capas inferiores de una jerarquía de puertas de enlace tienen un módulo necesario que se debe implementar en ellos, además de los módulos de carga de trabajo que se puedan ejecutar en los dispositivos.
@@ -347,7 +432,7 @@ Antes de analizar el módulo de proxy necesario para los dispositivos IoT Edge e
 
 Si los dispositivos de capas inferiores no se pueden conectar a la nube, pero quiere que extraigan imágenes de módulo como de costumbre, el dispositivo de la capa superior de la jerarquía de puertas de enlace debe configurarse para controlar estas solicitudes. El dispositivo de la capa superior tiene que ejecutar un módulo de **registro** de Docker que esté asignado al registro de contenedor. A continuación, configure el módulo de proxy de API para enrutar a él las solicitudes de contenedor. Estos detalles se describen en las secciones anteriores de este artículo. En esta configuración, los dispositivos de capas inferiores no deben apuntar a los registros de contenedor en la nube, sino al registro que se ejecuta en la capa superior.
 
-Por ejemplo, en lugar de llamar a `mcr.microsoft.com/azureiotedge-api-proxy:latest`, los dispositivos de las capas inferiores deben llamar a `$upstream:443/azureiotedge-api-proxy:latest`.
+Por ejemplo, en lugar de llamar a `mcr.microsoft.com/azureiotedge-api-proxy:1.0`, los dispositivos de las capas inferiores deben llamar a `$upstream:443/azureiotedge-api-proxy:1.0`.
 
 El parámetro **$upstream** apunta al elemento primario de un dispositivo de capa inferior, por lo que la solicitud se enrutará a través de todas las capas hasta que llegue a la capa superior, que tiene un entorno de proxy que enruta las solicitudes al módulo del registro. El puerto `:443` en este ejemplo debe reemplazarse por el puerto en el que esté escuchando el módulo de proxy de API en el dispositivo primario.
 
@@ -369,7 +454,7 @@ name = "edgeAgent"
 type = "docker"
 
 [agent.config]
-image: "{Parent FQDN or IP}:443/azureiotedge-agent:1.2.0-rc4"
+image: "{Parent FQDN or IP}:443/azureiotedge-agent:1.2"
 ```
 
 Si usa un registro de contenedor local o proporciona las imágenes de contenedor manualmente en el dispositivo, actualice el archivo de configuración en consecuencia.

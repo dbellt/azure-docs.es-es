@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 03/01/2021
+ms.date: 04/12/2021
 ms.author: alkohli
-ms.openlocfilehash: 3a0b87f04e60fd56d543c7c7a752cd788e087c78
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b0f3b81ac12d0ae96dde0397bc01a4570d992ea9
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101727488"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310179"
 ---
 # <a name="azure-stack-edge-mini-r-technical-specifications"></a>Especificaciones técnicas de Azure Stack Edge Mini R
 
@@ -24,31 +24,35 @@ Los componentes de hardware del dispositivo de Microsoft Azure Stack Edge Mini R
 
 El dispositivo Azure Stack Edge Mini R tiene las especificaciones de proceso y memoria siguientes:
 
-| Especificación           | Value                  |
-|-------------------------|------------------------|
-| CPU    | CPU de 16 núcleos Intel Xeon-D 1577 |
-| Memoria              | 48 GB de RAM (2400 MT/s)                  |
+| Especificación           | Value                           |
+|-------------------------|---------------------------------|
+| El tipo de CPU.                | Intel Xeon-D 1577               |
+| CPU: sin formato                | 16 núcleos totales, 32 CPU virtuales en total  |
+| CPU: utilizable             | 24 CPU virtuales                        |
+| Tipo de memoria             | SODIMM de 16 GB y 2400 MT/s          |
+| Memoria: sin formato             | 48 GB de RAM (3 x 16 GB)           |
+| Memoria: utilizable          | 32 GB de RAM                       |
 
 
 ## <a name="compute-acceleration-specifications"></a>Especificaciones de aceleración de proceso
 
 Se incluye una unidad de procesamiento de Vision (VPU) en cada dispositivo de Azure Stack Edge Mini R que habilita las aplicaciones basadas en Kubernetes, la red neuronal profunda y Computer Vision.
 
-| Especificación           | Value                  |
-|-------------------------|------------------------|
-| Tarjeta de aceleración de proceso         | VPU Intel Movidius Myriad X <br> Para obtener más información, consulte [VPU Intel Movidius Myriad X](https://www.movidius.com/MyriadX) |
+| Especificación             | Value                  |
+|---------------------------|------------------------|
+| Tarjeta de aceleración de proceso | VPU Intel Movidius Myriad X <br> Para obtener más información, consulte [VPU Intel Movidius Myriad X](https://www.movidius.com/MyriadX) |
 
 
 ## <a name="storage-specifications"></a>Especificaciones de almacenamiento
 
 El dispositivo de Azure Stack Edge Mini R tiene un disco de datos y un disco de arranque (que funciona como almacenamiento del sistema operativo). La tabla siguiente muestra los detalles de la capacidad de almacenamiento del dispositivo.
 
-|     Especificación                          |     Value             |
-|--------------------------------------------|-----------------------|
-|    Número de unidades de estado sólido (SSD)     |    2 discos de 1 TB <br> Un disco de datos y un disco de arranque                  |
-|    Capacidad de un solo SSD                     |    1 TB               |
-|    Capacidad total (solo datos)              |    1 TB              |
-|    Capacidad total utilizable*                  |    ~ 750 GB        |
+|     Especificación                          |     Value                                              |
+|--------------------------------------------|--------------------------------------------------------|
+|    Número de unidades de estado sólido (SSD)     |    2 discos de 1 TB <br> Un disco de datos y un disco de arranque |
+|    Capacidad de un solo SSD                     |    1 TB                                                |
+|    Capacidad total (solo datos)              |    1 TB                                                |
+|    Capacidad total utilizable*                  |    ~ 750 GB                                            |
 
 **Parte del espacio está reservado para uso interno.*
 
@@ -59,8 +63,8 @@ El dispositivo de Azure Stack Edge Mini R tiene las siguientes especificaciones 
 
 |Especificación  |Value  |
 |---------|---------|
-|Interfaces de red    |2 interfaces SFP+ de 10 GbE <br> Se muestran como PUERTO 3 y PUERTO 4 en la interfaz de usuario local           |
-|Interfaces de red    |2 interfaces RJ45de 1 GbE <br> Se muestran como PUERTO 1 y PUERTO 2 en la interfaz de usuario local          |
+|Interfaces de red    |2 SFP+ de 10 GbE <br> Se muestran como PUERTO 3 y PUERTO 4 en la interfaz de usuario local           |
+|Interfaces de red    |2 RJ45 de 1 GbE <br> Se muestran como PUERTO 1 y PUERTO 2 en la interfaz de usuario local          |
 |Wi-Fi   |802.11ac         |
 
 
@@ -85,9 +89,9 @@ El dispositivo de Azure Stack Edge Mini R también incluye una batería incorpor
 Se puede usar una [batería de tipo 2590](https://www.bren-tronics.com/bt-70791ck.html) adicional junto con la batería incorporada para extender el uso del dispositivo entre cargas. Esta batería debe ser compatible con todas las normativas ambientales, de seguridad y de transporte en el país de uso.
 
 
-| Especificación           | Value                      |
-|-------------------------|----------------------------|
-| Capacidad de la batería incorporada | 73 WHr                    |
+| Especificación            | Value                      |
+|--------------------------|----------------------------|
+| Capacidad de la batería incorporada | 73 Wh                     |
 
 ## <a name="enclosure-dimensions-and-weight-specifications"></a>Especificaciones de dimensiones y peso del revestimiento
 
@@ -99,18 +103,18 @@ En la tabla siguiente se enumeran las dimensiones del dispositivo y la fuente de
 
 |     Revestimiento     |     Milímetros     |     Pulgadas     |
 |-------------------|---------------------|----------------|
-|    Alto         |    68            |    2.68          |
-|    Ancho          |    208          |      8,19          |
-|    Length          |   259           |    10,20          |
+|    Alto         |    68               |    2.68        |
+|    Ancho          |    208              |      8,19      |
+|    Length          |   259              |    10,20       |
 
 
 ### <a name="enclosure-weight"></a>Peso del revestimiento
 
 En la tabla siguiente se muestra el peso del dispositivo, con la batería incluida.
 
-|     Revestimiento                                 |     Peso          |
-|-----------------------------------------------|---------------------|
-|    Peso total del dispositivo     |    3 kg (7 libras)          |
+|     Revestimiento                     |     Peso          |
+|-----------------------------------|---------------------|
+|    Peso total del dispositivo     |     3 kg (7 libras)           |
 
 ## <a name="enclosure-environment-specifications"></a>Especificaciones medioambientales del revestimiento
 

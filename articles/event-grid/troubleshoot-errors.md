@@ -2,13 +2,13 @@
 title: 'Azure Event Grid: guía para la solución de problemas'
 description: En este artículo se proporciona una lista de códigos de error, mensajes de error, descripciones y acciones recomendadas.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 79533918ccc6995f459b39f058de9e01091c0958
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/09/2021
+ms.openlocfilehash: 4647039f67cf84a5471dc7b3f38ca754ca9eecb0
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94592998"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310876"
 ---
 # <a name="troubleshoot-azure-event-grid-errors"></a>Solución de problemas de Azure Event Grid
 Esta guía de solución de problemas proporciona la siguiente información: 
@@ -30,7 +30,7 @@ Esta guía de solución de problemas proporciona la siguiente información:
 | ---------- | ------------- | ----------- | -------------- | 
 | HttpStatusCode.Conflict <br/>409 | Ya existe un tema con el nombre especificado. Elija otro nombre para el tema.   | El nombre del tema personalizado debe ser único en una única región de Azure con el fin de garantizar una operación de publicación correcta. Se puede usar el mismo nombre en distintas regiones de Azure. | Elija otro nombre para el tema. |
 | HttpStatusCode.Conflict <br/> 409 | Ya existe un dominio con el nombre especificado. Elija otro nombre de dominio. | El nombre del dominio personalizado debe ser único en una única región de Azure con el fin de garantizar una operación de publicación correcta. Se puede usar el mismo nombre en distintas regiones de Azure. | Elija otro nombre para el dominio. |
-| HttpStatusCode.Conflict<br/>409 | Se ha alcanzado el límite de cuota. Para obtener más información sobre estos límites, vea [Límites de Event Grid](../azure-resource-manager/management/azure-subscription-service-limits.md#event-grid-limits).  | Cada suscripción de Azure tiene un límite en cuanto al número de recursos de Azure Event Grid que puede usar. Se ha superado parte de esta cuota, o toda ella, y no se pueden crear más recursos. |    Compruebe el uso actual de los recursos y elimine los que no sean necesarios. Si todavía necesita aumentar la cuota, envíe un correo electrónico a [aeg@microsoft.com](mailto:aeg@microsoft.com) con el número exacto de recursos necesarios. |
+| HttpStatusCode.Conflict<br/>409 | Se ha alcanzado el límite de cuota. Para obtener más información sobre estos límites, vea [Límites de Event Grid](../azure-resource-manager/management/azure-subscription-service-limits.md#event-grid-limits).  | Cada suscripción de Azure tiene un límite en cuanto al número de recursos de Azure Event Grid que puede usar. Se ha superado parte de esta cuota, o toda ella, y no se pueden crear más recursos. | Compruebe el uso actual de los recursos y elimine los que no sean necesarios. Si no puede eliminar ningún recurso, cree otra suscripción de Azure y cree recursos de Event Grid en esa suscripción. |
 
 ## <a name="error-code-403"></a>Código de error: 403
 

@@ -5,20 +5,23 @@ author: MalcolmTyrrell
 ms.author: matyrr
 ms.date: 09/03/2020
 ms.topic: how-to
-ms.openlocfilehash: 13c4b841fe2d0b62472628d9382b5f6ee3d1fa6c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9a094755dfb9381b1e4d6abdf1c0e6342d7427c1
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "91318082"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107308446"
 ---
 # <a name="laying-out-files-for-conversion"></a>Diseño de archivos para la conversión
 
 Para procesar correctamente un recurso, el servicio de conversión debe ser capaz de encontrar todos los archivos de entrada.
 Estos constan del archivo de recursos principal que se va a convertir y, normalmente, otros archivos a los que hacen referencia las rutas de acceso dentro del archivo de recursos.
-A la solicitud para convertir un recurso se le proporcionan dos parámetros que determinan cómo encuentra el servicio de conversión estos archivos: El parámetro `input.folderPath` (que es opcional) y el parámetro `input.inputAssetPath`.
+A la solicitud para convertir un recurso se le proporcionan dos parámetros que determinan cómo encuentra el servicio de conversión estos archivos: El parámetro `settings.inputLocation.blobPrefix` (que es opcional) y el parámetro `settings.inputLocation.relativeInputAssetPath`.
 Estos parámetros se documentan completamente en la página [API REST de conversión](conversion-rest-api.md).
-Al colocar archivos, es importante tener en cuenta que `folderPath` determina el conjunto completo de archivos que están disponibles para el servicio de conversión al procesar el recurso.
+Al colocar archivos, es importante tener en cuenta que `BlobPrefix` determina el conjunto completo de archivos que están disponibles para el servicio de conversión al procesar el recurso.
+
+> [!Note]
+> El servicio descargará todos los archivos en input.BlobPrefix. Asegúrese de que los nombres de archivo y las rutas de acceso no superan los [límites de longitud de la ruta de acceso de Windows](https://docs.microsoft.com/windows/win32/fileio/maximum-file-path-limitation) para evitar problemas en el servicio. 
 
 ## <a name="placing-files-so-they-can-be-found"></a>Colocación de archivos para que se puedan encontrar
 

@@ -10,17 +10,17 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 5dd6735b5ef17f97de1d2272bd98f6b87b0bc84b
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: f20af8c61bbfbbbbc20c29470648c3df6a272396
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106553114"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107285503"
 ---
 # <a name="migration-guide-ibm-db2-to-azure-sql-database"></a>Guía de migración: de IBM Db2 a Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
 
-En esta guía se explica cómo migrar las bases de datos de IMB Db2 a Azure SQL Database mediante SQL Server Migration Assistant para Db2. 
+Con esta guía [aprenderá a migrar](https://azure.microsoft.com/migration/migration-journey) las bases de datos de IBM Db2 a Azure SQL Database mediante [SQL Server Migration](https://azure.microsoft.com/en-us/migration/sql-server/) Assistant para Db2. 
 
 Para ver otras guías de migración, consulte la [Guía de Azure Database Migration](https://docs.microsoft.com/data-migration). 
 
@@ -35,7 +35,7 @@ Para migrar la base de datos de Db2 a SQL Database, necesita:
 
 ## <a name="pre-migration"></a>Antes de la migración
 
-Una vez cumplidos los requisitos previos, estará a punto para detectar la topología de su entorno y evaluar la viabilidad de la migración. 
+Una vez cumplidos los requisitos previos, estará listo para detectar la topología del entorno y evaluar la viabilidad de la [migración a la nube de Azure](https://azure.microsoft.com/migration).
 
 ### <a name="assess-and-convert"></a>Evaluación y conversión
 
@@ -126,7 +126,7 @@ Para publicar el esquema y migrar los datos, siga estos pasos:
 
    :::image type="content" source="media/db2-to-sql-database-guide/compare-schema-in-ssms.png" alt-text="Captura de pantalla que muestra la comparación del esquema en SQL Server Management Studio.":::
 
-## <a name="post-migration"></a>Después de la migración 
+## <a name="post-migration"></a>Etapa posterior a la migración 
 
 Cuando haya completado correctamente, deberá realizar una serie de tareas posteriores para asegurarse de que todo funcione de la forma más fluida y eficaz posible.
 
@@ -157,8 +157,8 @@ Para obtener más ayuda, consulte los siguientes recursos, que se desarrollaron 
 |---------|---------|
 |[Herramienta y modelo de evaluación de la carga de trabajo de datos](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool)| Esta herramienta proporciona las plataformas de destino de ajuste perfecto sugeridas, la preparación para la nube, y el nivel de corrección de la aplicación o base de datos para una carga de trabajo determinada. Ofrece un cálculo sencillo con un solo clic y una función de generación de informes que ayuda a acelerar las evaluaciones de grandes volúmenes, ya que proporciona un proceso de toma de decisiones de plataforma de destino uniforme y automatizado.|
 |[Paquete de detección y evaluación de recursos de datos de Db2 zOS](https://github.com/microsoft/DataMigrationTeam/tree/master/DB2%20zOS%20Data%20Assets%20Discovery%20and%20Assessment%20Package)|Después de ejecutar el script de SQL en una base de datos, puede exportar los resultados a un archivo en el sistema de archivos. Se admiten varios formatos de archivo, incluido *.csv, para que se puedan capturar los resultados en herramientas externas, como hojas de cálculo. Este método puede resultar útil si quiere compartir fácilmente los resultados con equipos que no tengan el área de trabajo instalada.|
-|[Artefactos y scripts de inventario de IBM Db2 LUW](https://github.com/Microsoft/DataMigrationTeam/tree/master/IBM%20Db2%20LUW%20Inventory%20Scripts%20and%20Artifacts)|Este recurso incluye una consulta SQL que accede a las tablas del sistema IBM Db2 LUW, versión 11.1, y proporciona un recuento de objetos por esquema y tipo de objeto, una estimación aproximada de "datos sin procesar" en cada esquema y el tamaño de las tablas de cada esquema, cuyos resultados se almacenan en formato CSV.|
-|[Guía de configuración del escalado puro de Db2 LUW en Azure](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Db2%20PureScale%20on%20Azure.pdf)|Esta guía sirve como punto de partida para un plan de implementación de Db2. Aunque sus requisitos empresariales varíen, se aplica el mismo patrón básico. Este patrón de arquitectura también se puede utilizar para aplicaciones OLAP en Azure.|
+|[Artefactos y scripts de inventario de IBM Db2 LUW](https://github.com/microsoft/DataMigrationTeam/blob/master/IBM%20DB2%20LUW%20Inventory%20Scripts%20and%20Artifacts)|Este recurso incluye una consulta SQL que accede a las tablas del sistema IBM Db2 LUW, versión 11.1, y proporciona un recuento de objetos por esquema y tipo de objeto, una estimación aproximada de "datos sin procesar" en cada esquema y el tamaño de las tablas de cada esquema, cuyos resultados se almacenan en formato CSV.|
+|[Guía de configuración del escalado puro de Db2 LUW en Azure](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/DB2%20PureScale%20on%20Azure.pdf)|Esta guía sirve como punto de partida para un plan de implementación de Db2. Aunque sus requisitos empresariales varíen, se aplica el mismo patrón básico. Este patrón de arquitectura también se puede utilizar para aplicaciones OLAP en Azure.|
 
 El equipo de ingeniería de datos SQL ha desarrollado estos recursos. El objetivo principal de este equipo es permitir y acelerar la modernización compleja de los proyectos de migración de la plataforma de datos a la de Azure, de Microsoft.
 
@@ -174,7 +174,8 @@ El equipo de ingeniería de datos SQL ha desarrollado estos recursos. El objetiv
 
 - Para más información sobre el marco y el ciclo de adopción de las migraciones en la nube, consulte:
    -  [Cloud Adoption Framework para Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
-   -  [Procedimientos recomendados para la gestión de los costos y los ajustes de tamaño de las cargas de trabajo migradas a Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
+   -  [Procedimientos recomendados para la gestión de los costos y los ajustes de tamaño de las cargas de trabajo migradas a Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs)
+   -  [Recursos de migración a la nube](https://azure.microsoft.com/migration/resources) 
 
 - Para evaluar la capa de acceso de la aplicación, consulte [Data Access Migration Toolkit](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit).
 - Para obtener más información sobre cómo realizar pruebas A/B de capa de acceso a datos, consulte [Asistente para experimentación con bases de datos](/sql/dea/database-experimentation-assistant-overview).

@@ -3,16 +3,16 @@ title: Exención de una recomendación de Azure Security Center de un recurso, u
 description: Obtenga información sobre cómo crear reglas para excluir las recomendaciones de seguridad de las suscripciones o los grupos de administración y evitar que afecten a la puntuación de seguridad.
 author: memildin
 ms.author: memildin
-ms.date: 01/22/2021
+ms.date: 03/11/2021
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 374ddaa088fba9ae7035f170562e06b7f07eae47
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d545610b8fa13d0c0f8b91bf92107d53b81454c3
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101709383"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313851"
 ---
 # <a name="exempting-resources-and-recommendations-from-your-secure-score"></a>Exención de recursos y recomendaciones de la puntuación de seguridad 
 
@@ -30,13 +30,14 @@ En tales casos, puede crear una exención para una recomendación para:
 
 ## <a name="availability"></a>Disponibilidad
 
-|Aspecto|Detalles|
-|----|:----|
-|Estado de la versión:|Versión preliminar<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
-|Precios:|Se trata de una funcionalidad premium de Azure Policy que se ofrece a los clientes de Azure Defender sin costo adicional. En el caso de otros usuarios, pueden aplicarse cargos en el futuro.|
-|Roles y permisos necesarios:|**propietario de la suscripción** o **colaborador de la directiva** para crear una exención.<br>Para crear una regla, necesita permisos para editar directivas en Azure Policy.<br>Obtenga más información en [Permisos de Azure RBAC en Azure Policy](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy).|
-|Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![No](./media/icons/no-icon.png) Nacionales o soberanas (US Gov, China Gov, otros gobiernos)|
-|||
+| Aspecto                          | Detalles                                                                                                                                                                                                                                                                                                                            |
+|---------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Estado de la versión:                  | Versión preliminar<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]                                                                                                                                                                                                                                             |
+| Precios:                        | Se trata de una funcionalidad prémium de Azure Policy que se ofrece a los clientes de Azure Defender sin costo adicional. En el caso de otros usuarios, pueden aplicarse cargos en el futuro.                                                                                                                                                                 |
+| Roles y permisos necesarios: | **Propietario** o **Colaborador de la directiva de recursos** para crear una exención<br>Para crear una regla, necesita permisos para editar directivas en Azure Policy.<br>Obtenga más información en [Permisos de Azure RBAC en Azure Policy](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy).                                            |
+| Limitaciones:                    | Solo se pueden crear exenciones para las recomendaciones incluidas en la iniciativa predeterminada de Azure Security Center, Azure Security Benchmark o cualquiera de las iniciativas normativas estándar proporcionadas. No se pueden crear exenciones para las recomendaciones que se generan a partir de iniciativas personalizadas. Obtenga más información sobre las relaciones entre [directivas, iniciativas y recomendaciones](security-policy-concept.md). |
+| Nubes:                         | ![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![No](./media/icons/no-icon.png) Nacionales o soberanas (US Gov, China Gov, otros gobiernos)                                                                                                                                                                                         |
+|                                 |                                                                                                                                                                                                                                                                                                                                    |
 
 ## <a name="define-an-exemption"></a>Definición de una exención
 
@@ -44,6 +45,9 @@ Para ajustar las recomendaciones de seguridad que Security Center realiza para l
 
 - Marcar una **recomendación** específica o como "Mitigada" o "Riesgo aceptado". Puede crear exenciones de recomendación para una suscripción, varias suscripciones o un grupo de administración completo.
 - Marcar **uno o más recursos** como "Mitigado" o "Riesgo aceptado" para una recomendación concreta.
+
+> [!NOTE]
+> Solo se pueden crear exenciones para las recomendaciones incluidas en la iniciativa predeterminada de Azure Security Center, Azure Security Benchmark o cualquiera de las iniciativas normativas estándar proporcionadas. No se pueden crear exenciones para las recomendaciones que se generan a partir de iniciativas personalizadas asignadas a las suscripciones. Obtenga más información sobre las relaciones entre [directivas, iniciativas y recomendaciones](security-policy-concept.md).
 
 > [!TIP]
 > También puede crear exenciones mediante la API. Para obtener un ejemplo de JSON y una explicación de las estructuras pertinentes, consulte [Estructura de exención de Azure Policy](../governance/policy/concepts/exemption-structure.md).
@@ -161,7 +165,7 @@ Más información en las siguientes páginas:
 
 
 
-## <a name="exemption-rule-faq"></a>Preguntas más frecuentes sobre las reglas de exención
+## <a name="faq---exemption-rules"></a>Preguntas frecuentes: reglas de exención
 
 ### <a name="what-happens-when-one-recommendation-is-in-multiple-policy-initiatives"></a>¿Qué ocurre cuando una recomendación está en varias iniciativas de directivas?
 

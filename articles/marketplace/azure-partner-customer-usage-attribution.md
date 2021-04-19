@@ -6,18 +6,18 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: cpercy737
 ms.author: camper
-ms.date: 03/22/2021
+ms.date: 04/12/2021
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 53edd3ec9a8d30d0c25f994db4a8b6f0199c2169
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7f09e744dfdd7be73c62c70bcfa91804f14aaa68
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105558423"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313681"
 ---
 # <a name="azure-customer-usage-attribution"></a>Atribución del uso de Azure por parte de los clientes
 
-La atribución del uso por los clientes asocia el uso de los recursos de Azure en las suscripciones de cliente creadas al implementar la IP como asociado. La formación de estas asociaciones en sistemas internos de Microsoft aporta mayor visibilidad de la superficie de Azure que ejecuta el software. En las [ofertas de aplicación de Azure del marketplace comercial](#commercial-marketplace-azure-apps), esta funcionalidad de seguimiento le ayuda a mantenerse en consonancia con los equipos de ventas de Microsoft y obtener créditos por los programas de asociados de Microsoft.
+La atribución del uso por los clientes asocia el uso de los recursos de Azure en las suscripciones de cliente creadas al implementar la IP como asociado. La formación de estas asociaciones en sistemas internos de Microsoft aporta mayor visibilidad de la superficie de Azure que ejecuta el software. En las [ofertas de aplicación de Azure del marketplace comercial](#commercial-marketplace-azure-apps), esta funcionalidad de seguimiento le ayuda a mantenerse en consonancia con los equipos de ventas de Microsoft y obtener créditos por los programas de asociados de Microsoft. La atribución de uso por parte de los clientes no es aplicable a las [ofertas de máquinas virtuales de Azure en el marketplace comercial](./azure-vm-create.md). No es necesario que un anunciante del marketplace haga nada con las ofertas de máquinas virtuales para asegurarse de que se realiza un seguimiento de su consumo de Azure en las suscripciones de los clientes finales.
 
 La atribución de uso del cliente admite tres opciones de implementación:
 

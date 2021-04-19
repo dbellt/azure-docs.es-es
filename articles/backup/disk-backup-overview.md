@@ -2,13 +2,13 @@
 title: Introducción a Azure Disk Backup
 description: Obtenga información sobre la solución Azure Disk Backup.
 ms.topic: conceptual
-ms.date: 01/07/2021
-ms.openlocfilehash: 9449fdc57909cb143d381ae074913c79d24c8893
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/09/2021
+ms.openlocfilehash: 42f37c1f500be719e0bd79bad41226ab3ab2d911
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105107302"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107285146"
 ---
 # <a name="overview-of-azure-disk-backup"></a>Introducción a la Azure Disk Backup
 
@@ -31,9 +31,9 @@ Azure Disk Backup es una solución sin agente y coherente ante los bloqueos que 
 
 La solución Azure Disk Backup es útil en los siguientes casos:
 
-- Si tiene la necesidad de realizar varias copias de seguridad al día sin que la aplicación esté inactiva.
-- Si tiene aplicaciones que se ejecutan en un escenario de clúster, tanto el clúster de conmutación por error de Windows Server como los clústeres de Linux estarán escribiendo en discos compartidos.
-- Si necesita realizar copias de seguridad específicas sin agente debido a problemas de seguridad o de rendimiento en la aplicación.
+- Si debe realizar varias copias de seguridad al día sin que la aplicación esté inactiva.
+- Si hay aplicaciones que se ejecutan en un escenario de clúster, tanto el clúster de conmutación por error de Windows Server como los clústeres de Linux escriben en discos compartidos.
+- Si necesita específicamente realizar una copia de seguridad sin agente debido a problemas de seguridad o de rendimiento en la aplicación.
 - Si la copia de seguridad coherente con la aplicación de la VM no es factible, ya que las aplicaciones de línea de negocio no admiten el Servicio de instantáneas de volumen (VSS).
 
 Considere la posibilidad de usar Azure Disk Backup en estos casos:
@@ -41,10 +41,10 @@ Considere la posibilidad de usar Azure Disk Backup en estos casos:
 - Si una aplicación crítica se ejecuta en una instancia de Azure Virtual Machine que solicita varias copias de seguridad al día para así cumplir el objetivo de punto de recuperación, pero sin afectar al entorno de producción o al rendimiento de la aplicación.
 - Si la organización o el reglamento del sector restringen la instalación de agentes debido a problemas de seguridad.
 - Si la ejecución de scripts personalizados anteriores o posteriores y la invocación de operaciones de inmovilización y reanudación en máquinas virtuales Linux para obtener una copia de seguridad coherente con la aplicación supone una sobrecarga excesiva en la disponibilidad de la carga de trabajo de producción.
-- Si las aplicaciones contenedorizadas que se ejecutan en Azure Kubernetes Service (clúster de AKS) usan discos administrados como almacenamiento persistente. En la actualidad, debe realizar las copias de seguridad del disco administrado a través de scripts de automatización que son difíciles de administrar.
+- Si las aplicaciones contenedorizadas que se ejecutan en Azure Kubernetes Service (clúster de AKS) usan discos administrados como almacenamiento persistente. En la actualidad, debe realizar las copias de seguridad del disco administrado mediante scripts de automatización que son difíciles de administrar.
 - Si un disco administrado contiene datos empresariales críticos, se usa como un recurso compartido de archivos o contiene archivos de copia de seguridad de la base de datos, y quiere optimizar el costo de las copias de seguridad sin tener que invertir en la solución de copia de seguridad de Azure VM.
-- Si tiene muchas máquinas virtuales de un solo disco de Linux y Windows (es decir, una máquina virtual con un solo disco de sistema operativo y sin discos de datos conectados) que hospedan máquinas de servidores web o máquinas sin estado, o que actúan como un entorno de ensayo con opciones de configuración de la aplicación, y necesita una solución de copia de seguridad rentable para proteger el disco del sistema operativo. Por ejemplo, para desencadenar una copia de seguridad rápida a petición antes de actualizar o aplicar revisiones a la máquina virtual.
-- Si una máquina virtual está ejecutando una configuración de sistema operativo que no es compatible con la solución de copia de seguridad de Azure VM (por ejemplo, el servidor de Windows 2008 de 32 bits).
+- Si tiene muchas máquinas virtuales de un solo disco de Linux y Windows (es decir, una máquina virtual con un solo disco de sistema operativo y sin discos de datos conectados) que hospedan el servidor web o máquinas sin estado, o que actúan como un entorno de ensayo con opciones de configuración de la aplicación, y necesita una solución de copia de seguridad rentable para proteger el disco del sistema operativo. Por ejemplo, para desencadenar una copia de seguridad rápida a petición antes de actualizar o aplicar revisiones a la máquina virtual.
+- Si una máquina virtual ejecuta una configuración del sistema operativo que no es compatible con la solución de copia de seguridad de Azure VM (por ejemplo, el servidor de Windows 2008 de 32 bits).
 
 ## <a name="how-the-backup-and-restore-process-works"></a>Cómo funciona el proceso de restauración y de copia de seguridad
 
@@ -66,8 +66,8 @@ Considere la posibilidad de usar Azure Disk Backup en estos casos:
 
 ## <a name="pricing"></a>Precios
 
-Azure Backup ofrece una solución de administración del ciclo de vida de las instantáneas para proteger los discos de Azure. Las instantáneas de disco que haya creado Azure Backup se almacenan en el grupo de recursos de la suscripción de Azure; recuerde que se aplicarán cargos en el **almacenamiento de instantáneas**. Puede consultar los [precios de Managed Disk](https://azure.microsoft.com/pricing/details/managed-disks/) para obtener más detalles sobre los precios de las instantáneas. Dado que las instantáneas no se copian en el almacén de Backup, Azure Backup no cobra una cuota por **instancia protegida** y no se aplica el costo del **almacenamiento de copia de seguridad**. Además, las instantáneas incrementales cuentan con cambios diferenciales desde la última instantánea y siempre se guardan en el almacenamiento estándar, independientemente del tipo de almacenamiento de los discos administrados principales; asimismo, se cobran según los precios del almacenamiento estándar. Esto hace que Azure Disk Backup sea una solución rentable.
+Azure Backup ofrece una solución de administración del ciclo de vida de las instantáneas para proteger los discos de Azure. Las instantáneas de disco que haya creado Azure Backup se almacenan en el grupo de recursos de la suscripción de Azure; recuerde que se aplicarán cargos en el **almacenamiento de instantáneas**. Puede consultar los [precios de Managed Disk](https://azure.microsoft.com/pricing/details/managed-disks/) para obtener más detalles sobre los precios de las instantáneas.<br></br>Dado que las instantáneas no se copian en el almacén de Backup, Azure Backup no cobra una cuota por **instancia protegida** y no se aplica el costo del **almacenamiento de copia de seguridad**. Además, las instantáneas incrementales ocupan los cambios diferenciales como la última instantánea y siempre se guardan en el almacenamiento estándar, independientemente del tipo de almacenamiento de los discos administrados por el elemento principal, y se cobran según los precios del almacenamiento estándar. Esto hace que Azure Disk Backup sea una solución rentable.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Matriz de compatibilidad de Azure Disk Backup](disk-backup-support-matrix.md)
+[Matriz de compatibilidad de Azure Disk Backup](disk-backup-support-matrix.md)

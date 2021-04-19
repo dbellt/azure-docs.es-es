@@ -5,13 +5,13 @@ author: kromerm
 ms.service: data-factory
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 01/03/2021
-ms.openlocfilehash: 0663690318773ccad3bddfaaa03e456c2f58895e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/11/2021
+ms.openlocfilehash: 3e48eee5bf36732edc4f897103cb72bbbe75a5c3
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100383388"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306320"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Actividad de Data Flow en Azure Data Factory
 
@@ -76,9 +76,9 @@ Las propiedades Recuento de núcleos y Tipo de proceso se pueden configurar din�
 
 ### <a name="data-flow-integration-runtime"></a>Entorno de ejecución de integración de Data Flow
 
-Seleccione el entorno de ejecución de integración que desee usar con la ejecución de la actividad de Data Flow. De forma predeterminada, Data Factory usará la función de resolución automática de Azure Integration Runtime con cuatro núcleos de trabajo y sin período de vida (TTL). Este entorno de ejecución de integración tendrá un tipo de proceso de uso general y se ejecutará en la misma región que la fábrica. Puede crear entornos de ejecución de integración de Azure propios que definan regiones específicas, el tipo de proceso, el número de núcleos y el período de vida de la ejecución de actividades del flujo de datos.
+Seleccione el entorno de ejecución de integración que desee usar con la ejecución de la actividad de Data Flow. De forma predeterminada, Data Factory usará la función de resolución automática de Azure Integration Runtime con cuatro núcleos de trabajo. Este entorno de ejecución de integración tendrá un tipo de proceso de uso general y se ejecutará en la misma región que la fábrica. En el caso de canalizaciones operativizadas, se recomienda encarecidamente crear sus propias instancias de Azure Integration Runtime que definan regiones específicas, el tipo de proceso, los recuentos de núcleos y el TTL para la ejecución de actividades del flujo de datos.
 
-En el caso de las ejecuciones de canalización, el clúster que se utiliza es de trabajo y tarda varios minutos en arrancar antes de que se inicie la ejecución. Si no se especifica ningún período de vida, cada ejecución de la canalización tardará ese tiempo en iniciarse. Si especifica un período de vida, habrá un grupo de clústeres semiactivos preparados durante el tiempo que se especifique después de la última ejecución, lo que reducirá los tiempos de inicio. Por ejemplo, si tiene un período de vida de 60 minutos y ejecuta un flujo de datos cada hora, el grupo de clústeres permanecerá activo. Para más información, consulte [Azure Integration Runtime](concepts-integration-runtime.md).
+Un tipo de proceso mínimo de uso general (no se recomienda la optimización para proceso en cargas de trabajo grandes) con una configuración de 8+8 (16 núcleos virtuales en total) y de 10 minutos es la recomendación mínima para la mayoría de las cargas de trabajo de producción. Al establecer un valor de TTL pequeño, Azure IR puede mantener un clúster semiactivo que no empleará los minutos de tiempo de inicio que un clúster en frío necesita. Puede acelerar aún más la ejecución de los flujos de datos si selecciona "Quick re-use" (Reutilización rápida) en las configuraciones de flujo de datos de Azure IR. Para más información, consulte [Azure Integration Runtime](concepts-integration-runtime.md).
 
 ![Azure Integration Runtime](media/data-flow/ir-new.png "Azure Integration Runtime")
 

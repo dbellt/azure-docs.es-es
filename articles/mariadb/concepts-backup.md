@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 8/13/2020
-ms.openlocfilehash: 68605a22dd0d0b2b716b148399c8406a1ea8d89e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 08e75f9eb5ea111cc977d02f66b945de4eae5126
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98659944"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306183"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mariadb"></a>Copia de seguridad y restauración en Azure Database for MariaDB
 
@@ -19,28 +19,42 @@ Azure Database for MariaDB crea automáticamente copias de seguridad del servido
 
 ## <a name="backups"></a>Copias de seguridad
 
-Azure Database for MariaDB realiza copias de seguridad completas, diferenciales y del registro de transacciones. Estas copias de seguridad permiten restaurar un servidor a un momento dado dentro del período de retención de copias de seguridad configurado. El período de retención predeterminado es siete días. Opcionalmente, puede configurarlo hasta 35 días. Todas las copias de seguridad se cifran mediante cifrado AES de 256 bits.
+Azure Database for MariaDB hace copias de seguridad de los archivos de datos y del registro de transacciones. Estas copias de seguridad permiten restaurar un servidor a un momento dado dentro del período de retención de copias de seguridad configurado. El período de retención predeterminado es siete días. [Opcionalmente, puede configurarlo](howto-restore-server-portal.md#set-backup-configuration) hasta 35 días. Todas las copias de seguridad se cifran mediante cifrado AES de 256 bits.
 
-Estos archivos de copia de seguridad no están expuestos al usuario y no se pueden exportar. Estas copias de seguridad solo se pueden usar para operaciones de restauración en Azure Database for MariaDB. Puede usar [mysqldump](howto-migrate-dump-restore.md) para copiar una base de datos.
+Estos archivos de copia de seguridad no están expuestos al usuario y no se pueden exportar. Estas copias de seguridad solo se pueden usar en operaciones de restauración de Azure Database for MySQL. Puede usar [mysqldump](howto-migrate-dump-restore.md) para copiar una base de datos.
 
-### <a name="backup-frequency"></a>Frecuencia de copia de seguridad
+El tipo y la frecuencia de la copia de seguridad dependen del almacenamiento de back-end de los servidores.
 
-#### <a name="servers-with-up-to-4-tb-storage"></a>Servidores con un almacenamiento de hasta 4 TB
+### <a name="backup-type-and-frequency"></a>Tipo y frecuencia de copia de seguridad
 
-En el caso de los servidores que admiten un almacenamiento máximo de 4 TB, las copias de seguridad completas se realizan una vez a la semana. Las copias de seguridad diferenciales se realizan dos veces al día. Las copias de seguridad del registro de transacciones tienen lugar cada cinco minutos.
+#### <a name="basic-storage-servers"></a>Servidores de almacenamiento básico
 
-#### <a name="servers-with-up-to-16-tb-storage"></a>Servidores con un almacenamiento de hasta 16 TB
-En un subconjunto de [regiones de Azure](concepts-pricing-tiers.md#storage), todos los servidores recién aprovisionados admiten un almacenamiento de hasta 16 TB. Las copias de seguridad de estos servidores con gran capacidad de almacenamiento se basan en instantáneas. La primera copia de seguridad de instantáneas completa, se programa inmediatamente después de la creación del servidor. Esa primera copia se conserva como la copia de seguridad base del servidor. Las copias de seguridad de instantáneas posteriores son solo copias de seguridad diferenciales. 
+El almacenamiento básico es el almacenamiento de back-end que admite los [servidores de nivel Básico](concepts-pricing-tiers.md). Las copias de seguridad de los servidores de almacenamiento básico se basan en instantáneas. Cada día se realiza una instantánea de base de datos completa. No se hacen copias de seguridad diferenciales para los servidores de almacenamiento básico y todas las copias de seguridad de instantánea solo son copias de seguridad de bases de datos completas.
 
-Las copias de seguridad de instantáneas diferenciales se producen al menos una vez al día. Las copias de seguridad de instantáneas diferenciales no se realizan según una programación fija. Las copias de seguridad de instantáneas diferenciales se producen cada 24 horas, a menos que el registro de transacciones (binlog en MariaDB) supere los 50 GB desde la última copia de seguridad diferencial. En un día, se permite un máximo de seis instantáneas diferenciales. 
+Las copias de seguridad del registro de transacciones tienen lugar cada cinco minutos.
 
-Las copias de seguridad del registro de transacciones tienen lugar cada cinco minutos. 
+#### <a name="general-purpose-storage-servers-with-up-to-4-tb-storage"></a>Servidores de almacenamiento de uso general con hasta 4 TB
+
+El almacenamiento de uso general es el almacenamiento de back-end que admite el servidor [De uso general](concepts-pricing-tiers.md) y el servidor de [nivel Optimizado para memoria](concepts-pricing-tiers.md). En el caso de los servidores con almacenamiento de uso general de hasta 4 TB, las copias de seguridad completas se realizan cada semana. Las copias de seguridad diferenciales se realizan dos veces al día. Las copias de seguridad del registro de transacciones tienen lugar cada cinco minutos. Las copias de seguridad del almacenamiento de uso general de hasta 4 TB no se basan en instantáneas y consumen ancho de banda de E/S en el momento de la copia de seguridad. En el caso de las bases de datos de gran tamaño (> 1 TB) en el almacenamiento de 4 TB, se recomienda considerar lo siguiente:
+
+- Aprovisionamiento de más IOPS para asegurar E/S de copia de seguridad, O
+- También puede migrar a un almacenamiento de uso general que admite hasta 16 TB si la infraestructura de almacenamiento subyacente está disponible en las [regiones de Azure](./concepts-pricing-tiers.md#storage) de su preferencia. No hay ningún costo adicional para el almacenamiento de uso general que admite hasta 16 TB. Si necesita ayuda para migrar a un almacenamiento de 16 TB, abra una incidencia de soporte técnico en Azure Portal.
+
+#### <a name="general-purpose-storage-servers-with-up-to-16-tb-storage"></a>Servidores de almacenamiento de uso general con hasta 16 TB
+
+En un subconjunto de [regiones de Azure](./concepts-pricing-tiers.md#storage), todos los servidores recién aprovisionados pueden admitir un almacenamiento de uso general de hasta 16 TB. En otras palabras, el almacenamiento de hasta 16 TB es el almacenamiento de uso general predeterminado para todas las [regiones](concepts-pricing-tiers.md#storage) donde se admite. Las copias de seguridad de estos servidores con 16 TB almacenamiento se basan en instantáneas. La primera copia de seguridad de instantáneas completa, se programa inmediatamente después de la creación del servidor. Esa primera copia se conserva como la copia de seguridad base del servidor. Las copias de seguridad de instantáneas posteriores son solo copias de seguridad diferenciales.
+
+Las copias de seguridad de instantáneas diferenciales se producen al menos una vez al día. Las copias de seguridad de instantáneas diferenciales no se realizan según una programación fija. Las copias de seguridad de instantáneas diferenciales se producen cada 24 horas, a menos que el registro de transacciones (binlog en MariaDB) supere los 50 GB desde la última copia de seguridad diferencial. En un día, se permite un máximo de seis instantáneas diferenciales.
+
+Las copias de seguridad del registro de transacciones tienen lugar cada cinco minutos.
+ 
 
 ### <a name="backup-retention"></a>Retención de copias de seguridad
 
 Las copias de seguridad se conservan según el valor del período de retención de copia de seguridad en el servidor. Puede seleccionar un período de retención de 7 a 35 días. El período de retención predeterminado es de 7 días. Puede establecer el período de retención durante la creación del servidor o en otro momento actualizando la configuración de copia de seguridad con [Azure Portal](howto-restore-server-portal.md#set-backup-configuration) o la [CLI de Azure](howto-restore-server-cli.md#set-backup-configuration). 
 
 El período de retención de copia de seguridad rige durante cuánto tiempo se puede realizar una restauración a un momento dado, porque se basa en las copias de seguridad disponibles. El período de retención de copia de seguridad también se puede tratar como un período de recuperación desde una perspectiva de restauración. Todas las copias de seguridad que se necesitan para realizar una restauración a un momento dado dentro del período de retención de copia de seguridad, se conservan en el almacenamiento de copia de seguridad. Por ejemplo, si el período de retención de la copia de seguridad se establece en 7 días, el período de recuperación comprendería los últimos 7 días. En este escenario, se conservan todas las copias de seguridad necesarias para restaurar el servidor en los últimos 7 días. Con un período de retención de copia de seguridad de siete días:
+
 - Los servidores con un almacenamiento de hasta 4 TB conservarán hasta 2 copias de seguridad completas de la base de datos, todas las copias de seguridad diferenciales y las copias de seguridad del registro de transacciones realizadas desde la primera copia de seguridad completa de la base de datos.
 -   Los servidores con un almacenamiento de hasta 16 TB conservarán la instantánea de base de datos completa, todas las instantáneas diferenciales y las copias de seguridad del registro de transacciones de los últimos 8 días.
 
@@ -74,7 +88,7 @@ Hay dos tipos de restauración disponibles:
 El tiempo estimado de recuperación depende de varios factores, como el tamaño de la bases de datos, el tamaño del registro de transacciones, el ancho de banda de red y el número total de bases de datos que se están recuperando en la misma región al mismo tiempo. Normalmente, el tiempo de recuperación es inferior a 12 horas.
 
 > [!IMPORTANT]
-> Los servidores eliminados **no se pueden** restaurar. Si elimina el servidor, todas las bases de datos que pertenecen al servidor también se eliminan y no se pueden recuperar. Para proteger los recursos del servidor, después de la implementación, de eliminaciones accidentales o cambios inesperados, los administradores pueden aprovechar los [bloqueos de administración](../azure-resource-manager/management/lock-resources.md).
+> Los servidores eliminados se pueden restaurar solo dentro del plazo de **cinco días** a partir de la eliminación, después de lo cual se eliminan las copias de seguridad. La copia de seguridad de datos solo se puede acceder y restaurar desde la suscripción de Azure que hospeda al servidor. Para restaurar un servidor eliminado, consulte los [pasos documentados](howto-restore-dropped-server.md). Para proteger los recursos del servidor, después de la implementación, de eliminaciones accidentales o cambios inesperados, los administradores pueden aprovechar los [bloqueos de administración](../azure-resource-manager/management/lock-resources.md).
 
 ### <a name="point-in-time-restore"></a>Restauración a un momento dado
 

@@ -2,13 +2,13 @@
 title: Funciones definidas por el usuario en plantillas
 description: Aquí se describe cómo definir y usar las funciones definidas por el usuario en una plantilla de Azure Resource Manager (plantilla de Resource Manager).
 ms.topic: conceptual
-ms.date: 02/11/2021
-ms.openlocfilehash: 9c7480958e6315c8aea1fd8d12613bcf9d606723
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/12/2021
+ms.openlocfilehash: 802ac6e1c70db8caa58aecde3efe814430c79682
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100379631"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307782"
 ---
 # <a name="user-defined-functions-in-arm-template"></a>Funciones definidas por el usuario en plantillas de Resource Manager
 
@@ -107,6 +107,7 @@ Al definir una función de usuario, hay algunas restricciones:
 * La función solo puede usar los parámetros que se definen en la función. Cuando usa la función [parameters](template-functions-deployment.md#parameters) dentro de una función definida por el usuario, los parámetros de esa función serán los que limiten sus acciones.
 * La función no puede llamar a otras funciones definidas por el usuario.
 * La función no puede usar la función [reference](template-functions-resource.md#reference) ni ninguna de las funciones [list](template-functions-resource.md#list).
+* La función no puede usar la función [dateTimeAdd](template-functions-date.md#datetimeadd).
 * Los parámetros de la función no pueden tener valores predeterminados.
 
 ## <a name="next-steps"></a>Pasos siguientes
