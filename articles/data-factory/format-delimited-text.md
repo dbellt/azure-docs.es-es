@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/23/2021
 ms.author: jingwang
-ms.openlocfilehash: daf3691b48f7bf12e9ef51de7d4253dad9dbd2b1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1cff49e4ddb7423e1e5956e1436cefd18abe6dfe
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105026877"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107081"
 ---
 # <a name="delimited-text-format-in-azure-data-factory"></a>Formato de texto delimitado en Azure Data Factory
 
@@ -185,8 +185,7 @@ En la tabla siguiente se enumeran las propiedades que un receptor de texto delim
 | Borrar la carpeta | Si la carpeta de destino se borra antes de escribir. | no | `true` o `false` | truncate |
 | Opción de nombre de archivo | El formato de nombre de los datos escritos. De forma predeterminada, un archivo por partición en formato `part-#####-tid-<guid>`. | no | Patrón: String <br> Por partición: String[] <br> Asignar nombre al archivo como datos de columna: cadena <br> Salida en un solo archivo: `['<fileName>']` <br> Asignar nombre a la carpeta como datos de columna: cadena | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames <br> rowFolderUrlColumn |
 | Entrecomillar todo | Incluye todos los valores entre comillas. | no | `true` o `false` | quoteAll |
-
-rowFolderUrlColumn:
+| Encabezado | Agrega encabezados de cliente a archivos de salida. | no | `[<string array>]` | header |
 
 ### <a name="sink-example"></a>Ejemplo de receptor
 

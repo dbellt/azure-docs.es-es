@@ -4,12 +4,12 @@ description: ¿No ve los datos en Azure Application Insights? Pruebe aquí.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/21/2020
-ms.openlocfilehash: fbf53f6d4a928215d25874f4e405147c73cbf81f
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 3b550e434db5b616ffedef7ebe9891b36fa431a2
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106056579"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107311233"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>Solución de problemas cuando no hay datos: Application Insights para .NET/.NET Core
 
@@ -28,6 +28,10 @@ ms.locfileid: "106056579"
 *Experimento pérdida de datos en la aplicación de consola o en la aplicación web cuando la aplicación está a punto de detenerse.*
 
 * El canal del SDK mantiene los datos de telemetría en el búfer y los envía en lotes. Si se está cerrando la aplicación, es posible que deba llamar explícitamente a [Flush()](api-custom-events-metrics.md#flushing-data). El comportamiento de `Flush()` depende del [canal](telemetry-channels.md#built-in-telemetry-channels) real utilizado.
+
+## <a name="request-count-collected-by-application-insights-sdk-does-not-match-the-iis-log-count-for-my-application"></a>El recuento de solicitudes recopilado por el SDK de Application Insights no coincide con el recuento de registros de IIS para mi aplicación
+
+Internet Information Services (IIS) registra los recuentos de todas las solicitudes que llegan a IIS y, de forma inherente, podrían diferir del total de solicitudes que llegan a una aplicación. Debido a esto, no se garantiza que el recuento de solicitudes recopilado por los SDK coincidirá con el recuento total de registros de IIS. 
 
 ## <a name="no-data-from-my-server"></a>No hay datos de mi servidor
 *He instalado mi aplicación en el servidor web y ahora no veo ninguna telemetría procedente de ella. Funcionaba correctamente en mi equipo de desarrollo.*
