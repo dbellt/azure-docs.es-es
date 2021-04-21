@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-azurepowershell
-ms.openlocfilehash: e9e27720c50de8653fa859e051c9cfb3af4509ff
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: e06881d078b4e881174c3e931f7898cb622ad7f9
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107377478"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107766360"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-python"></a>Inicio rápido: Biblioteca cliente de secretos de Azure Key Vault para Python
 
@@ -170,7 +170,7 @@ retrieved_secret = client.get_secret(secretName)
 
 El valor de secreto se incluye en `retrieved_secret.value`.
 
-Los secretos también se pueden recuperar con el comando [az keyvault secret show](/cli/azure/keyvault/secret?#az-keyvault-secret-show) de la CLI de Azure.
+Los secretos también se pueden recuperar con el comando [az keyvault secret show](/cli/azure/keyvault/secret?#az_keyvault_secret_show) de la CLI de Azure.
 
 ### <a name="delete-a-secret"></a>Eliminación de un secreto
 
@@ -183,7 +183,7 @@ deleted_secret = poller.result()
 
 El método `begin_delete_secret` es asincrónico y devuelve un objeto de sondeador. La llamada al método `result` del sondeador espera hasta su finalización.
 
-Para comprobar que el secreto se ha establecido, utilice el comando [az keyvault secret show](/cli/azure/keyvault/secret?#az-keyvault-secret-show) de la CLI de Azure.
+Para comprobar que el secreto se ha establecido, utilice el comando [az keyvault secret show](/cli/azure/keyvault/secret?#az_keyvault_secret_show) de la CLI de Azure.
 
 Aun después de haberse eliminado, los secretos permanecen en estado eliminado, pero recuperable, durante un tiempo. Si vuelve a ejecutar el código, use otro nombre de secreto.
 
@@ -200,7 +200,7 @@ az group delete --resource-group KeyVault-PythonQS-rg
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Información general de Azure Key Vault](../general/overview.md)
-- [Protección del acceso a un almacén de claves](../general/secure-your-key-vault.md)
+- [Protección del acceso a un almacén de claves](../general/security-overview.md)
 - [Guía del desarrollador de Azure Key Vault](../general/developers-guide.md)
 - [Introducción a la seguridad de Key Vault](../general/security-overview.md)
 - [Autenticación con Key Vault](../general/authentication.md)

@@ -8,12 +8,12 @@ ms.date: 03/29/2021
 ms.author: victorh
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d53f4b640154e4d7b02115d5043b37f6bb6e89ba
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 390fdd4d9e9d0bc62589484ab0c4ba7468bcaf4b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105731197"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107773106"
 ---
 # <a name="enable-web-application-firewall-using-the-azure-cli"></a>Habilitación del firewall de aplicaciones web mediante la CLI de Azure
 
@@ -38,7 +38,7 @@ Si lo prefiere, puede realizar los pasos de este procedimiento mediante [Azure P
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Un grupo de recursos es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Cree un grupo de recursos de Azure llamado *myResourceGroupAG* con [az group create](/cli/azure/group#az-group-create).
+Un grupo de recursos es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Cree un grupo de recursos de Azure llamado *myResourceGroupAG* con [az group create](/cli/azure/group#az_group_create).
 
 ```azurecli-interactive
 az group create --name myResourceGroupAG --location eastus
@@ -107,7 +107,7 @@ La puerta de enlace de aplicaciones puede tardar varios minutos en crearse. Desp
 
 ## <a name="create-a-virtual-machine-scale-set"></a>Crear un conjunto de escalado de máquinas virtuales
 
-En este ejemplo, creará un conjunto de escalado de máquinas virtuales que proporcione dos servidores para el grupo de servidores back-end en la puerta de enlace de aplicaciones. Las máquinas virtuales del conjunto de escalado están asociadas a la subred *myBackendSubnet*. Para crear el conjunto de escalado, puede usar [az vmss create](/cli/azure/vmss#az-vmss-create).
+En este ejemplo, creará un conjunto de escalado de máquinas virtuales que proporcione dos servidores para el grupo de servidores back-end en la puerta de enlace de aplicaciones. Las máquinas virtuales del conjunto de escalado están asociadas a la subred *myBackendSubnet*. Para crear el conjunto de escalado, puede usar [az vmss create](/cli/azure/vmss#az_vmss_create).
 
 Reemplace \<username> y \<password> por sus valores antes de ejecutarlo.
 
@@ -145,7 +145,7 @@ En este artículo, la puerta de enlace de aplicaciones usa una cuenta de almacen
 
 ### <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
 
-Cree una cuenta de almacenamiento llamada *myagstore1* con [az storage account create](/cli/azure/storage/account#az-storage-account-create).
+Cree una cuenta de almacenamiento llamada *myagstore1* con [az storage account create](/cli/azure/storage/account#az_storage_account_create).
 
 ```azurecli-interactive
 az storage account create \
@@ -158,7 +158,7 @@ az storage account create \
 
 ### <a name="configure-diagnostics"></a>Configuración de diagnóstico
 
-Configure los diagnósticos para registrar datos en los registros ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog y ApplicationGatewayFirewallLog. Reemplace `<subscriptionId>` por el identificador de la suscripción y, luego, configure los diagnósticos con [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
+Configure los diagnósticos para registrar datos en los registros ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog y ApplicationGatewayFirewallLog. Reemplace `<subscriptionId>` por el identificador de la suscripción y, luego, configure los diagnósticos con [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create).
 
 ```azurecli-interactive
 appgwid=$(az network application-gateway show --name myAppGateway --resource-group myResourceGroupAG --query id -o tsv)
@@ -172,7 +172,7 @@ az monitor diagnostic-settings create --name appgwdiag --resource $appgwid \
 
 ## <a name="test-the-application-gateway"></a>Prueba de la puerta de enlace de aplicaciones
 
-Para obtener la dirección IP pública de la puerta de enlace de aplicaciones, use [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). Copie la dirección IP pública y péguela en la barra de direcciones del explorador.
+Para obtener la dirección IP pública de la puerta de enlace de aplicaciones, use [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). Copie la dirección IP pública y péguela en la barra de direcciones del explorador.
 
 ```azurecli-interactive
 az network public-ip show \

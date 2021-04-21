@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 10/15/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: e6630cbb44157f25bd2cbfcff25ec3132c74c61c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d347be4e6727cdda659620befe20824678160020
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105565578"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107792442"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli"></a>Cifrado de discos de datos conectados y de sistema operativo en un conjunto de escalado de máquinas virtuales con la CLI de Azure
 
@@ -87,7 +87,7 @@ az keyvault update --name $keyvault_name --enabled-for-disk-encryption
 
 ## <a name="enable-encryption"></a>Habilitación del cifrado
 
-Para cifrar instancias de máquina virtual de un conjunto de escalado, primero obtenga información sobre el identificador de recurso de Key Vault con [az keyvault show](/cli/azure/keyvault#ext-keyvault-preview-az-keyvault-show). Estas variables se usan luego para iniciar el proceso de cifrado con [az vmss encryption enable](/cli/azure/vmss/encryption#az-vmss-encryption-enable):
+Para cifrar instancias de máquina virtual de un conjunto de escalado, primero obtenga información sobre el identificador de recurso de Key Vault con [az keyvault show](/cli/azure/keyvault#ext-keyvault-preview-az-keyvault-show). Estas variables se usan luego para iniciar el proceso de cifrado con [az vmss encryption enable](/cli/azure/vmss/encryption#az_vmss_encryption_enable):
 
 ```azurecli-interactive
 # Get the resource ID of the Key Vault
@@ -103,7 +103,7 @@ az vmss encryption enable \
 
 El proceso de cifrado puede tardar uno o dos minutos en iniciarse.
 
-Como la directiva de actualización del conjunto de escalado creado en un paso anterior se establece en *automática*, las instancias de máquina virtual inician automáticamente el proceso de cifrado. En conjuntos de escalado donde la directiva de actualización es manual, inicie la directiva de cifrado en las instancias de máquina virtual con [az vmss update-instances](/cli/azure/vmss#az-vmss-update-instances).
+Como la directiva de actualización del conjunto de escalado creado en un paso anterior se establece en *automática*, las instancias de máquina virtual inician automáticamente el proceso de cifrado. En conjuntos de escalado donde la directiva de actualización es manual, inicie la directiva de cifrado en las instancias de máquina virtual con [az vmss update-instances](/cli/azure/vmss#az_vmss_update_instances).
 
 ### <a name="enable-encryption-using-kek-to-wrap-the-key"></a>Habilitación del cifrado con KEK para ajustar la clave
 
@@ -131,7 +131,7 @@ https://[nombre-almacén-claves].vault.azure.net/keys/[nombre-clave-cifrado]/[id
 
 ## <a name="check-encryption-progress"></a>Comprobación del progreso del cifrado
 
-Para comprobar el estado del cifrado de disco, use [az vmss encryption show](/cli/azure/vmss/encryption#az-vmss-encryption-show):
+Para comprobar el estado del cifrado de disco, use [az vmss encryption show](/cli/azure/vmss/encryption#az_vmss_encryption_show):
 
 ```azurecli-interactive
 az vmss encryption show --resource-group myResourceGroup --name myScaleSet
@@ -166,7 +166,7 @@ Cuando las instancias de máquina virtual están cifradas, el código de estado 
 
 ## <a name="disable-encryption"></a>Deshabilitación del cifrado
 
-Si ya no quiere usar los discos de instancias de máquina virtual cifrados, puede deshabilitar el cifrado con [az vmss encryption disable](/cli/azure/vmss/encryption#az-vmss-encryption-disable), como se indica a continuación:
+Si ya no quiere usar los discos de instancias de máquina virtual cifrados, puede deshabilitar el cifrado con [az vmss encryption disable](/cli/azure/vmss/encryption#az_vmss_encryption_disable), como se indica a continuación:
 
 ```azurecli-interactive
 az vmss encryption disable --resource-group myResourceGroup --name myScaleSet

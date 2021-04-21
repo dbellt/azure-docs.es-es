@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 03/02/2021
 ms.author: caya
-ms.openlocfilehash: c37168c5165f5402dd4f57c8557bc2b7b3603533
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aad57c75481230db16a63aec7fb04fc5987ae8f0
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101720195"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772842"
 ---
 # <a name="tutorial-enable-the-ingress-controller-add-on-for-a-new-aks-cluster-with-a-new-application-gateway-instance"></a>Tutorial: Habilitar el complemento Controlador de entrada para un nuevo clúster de AKS con una nueva instancia de Application Gateway
 
@@ -36,7 +36,7 @@ En este tutorial, aprenderá a:
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-En Azure, puede asignar recursos relacionados a un grupo de recursos. Para crear un grupo de recursos, use [az group create](/cli/azure/group#az-group-create). En el ejemplo siguiente se crea un grupo de recursos denominado *myResourceGroup* en la ubicación de *canadacentral* (región): 
+En Azure, puede asignar recursos relacionados a un grupo de recursos. Para crear un grupo de recursos, use [az group create](/cli/azure/group#az_group_create). En el ejemplo siguiente se crea un grupo de recursos denominado *myResourceGroup* en la ubicación de *canadacentral* (región): 
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location canadacentral
@@ -60,7 +60,7 @@ La implementación de un nuevo clúster de AKS con el complemento de AGIC habili
 az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity -a ingress-appgw --appgw-name myApplicationGateway --appgw-subnet-cidr "10.2.0.0/16" --generate-ssh-keys
 ```
 
-Para configurar parámetros adicionales para el comando `az aks create`, vea [estas referencias](/cli/azure/aks#az-aks-create). 
+Para configurar parámetros adicionales para el comando `az aks create`, vea [estas referencias](/cli/azure/aks#az_aks_create). 
 
 > [!NOTE]
 > El clúster de AKS que creó aparecerá en el grupo de recursos que creó, *myResourceGroup*. Pero la instancia de Application Gateway creada automáticamente estará en el grupo de recursos del nodo, donde se encuentran los grupos de agentes. El grupo de recursos de nodo se denomina *MC_resource-group-name_cluster-name_location* de manera predeterminada, pero se puede modificar. 

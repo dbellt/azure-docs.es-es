@@ -8,12 +8,12 @@ ms.date: 10/20/2019
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: f1a502722156bc010dab917afdbd1d49ae93681a
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: b45bb353ae32f1037fde7dc5d518472089edf12f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107375991"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107766342"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-java"></a>Inicio rápido: Biblioteca cliente de secretos de Azure Key Vault para Java
 Introducción a la biblioteca cliente de secretos de Azure Key Vault para Java. Siga estos pasos para instalar el paquete y probar el código de ejemplo para realizar tareas básicas.
@@ -175,7 +175,7 @@ Ahora que la aplicación se ha autenticado, se puede colocar un secreto en el al
 secretClient.setSecret(new KeyVaultSecret(secretName, secretValue));
 ```
 
-Puede comprobar que el secreto se ha establecido con el comando [az keyvault secret show](/cli/azure/keyvault/secret?#az-keyvault-secret-show):
+Puede comprobar que el secreto se ha establecido con el comando [az keyvault secret show](/cli/azure/keyvault/secret?#az_keyvault_secret_show):
 
 ```azurecli
 az keyvault secret show --vault-name <your-unique-key-vault-name> --name mySecret
@@ -200,7 +200,7 @@ SyncPoller<DeletedSecret, Void> deletionPoller = secretClient.beginDeleteSecret(
 deletionPoller.waitForCompletion();
 ```
 
-Puede comprobar que el secreto se ha eliminado con el comando [az keyvault secret show](/cli/azure/keyvault/secret?#az-keyvault-secret-show):
+Puede comprobar que el secreto se ha eliminado con el comando [az keyvault secret show](/cli/azure/keyvault/secret?#az_keyvault_secret_show):
 
 ```azurecli
 az keyvault secret show --vault-name <your-unique-key-vault-name> --name mySecret
@@ -281,4 +281,4 @@ En este inicio rápido, ha creado un almacén de claves, ha almacenado un secret
 
 - Lea una [introducción a Azure Key Vault](../general/overview.md).
 - Consulte la [guía del desarrollador de Azure Key Vault](../general/developers-guide.md).
-- Procedimientos para [proteger el acceso a un almacén de claves](../general/secure-your-key-vault.md)
+- Procedimientos para [proteger el acceso a un almacén de claves](../general/security-overview.md)

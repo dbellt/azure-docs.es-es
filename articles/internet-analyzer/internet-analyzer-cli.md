@@ -7,12 +7,12 @@ ms.service: internet-analyzer
 ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: mebeatty
-ms.openlocfilehash: a9a9fe93ebe302a76d69249dc56933e1bcc924d1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 46caae53ed81de335c2b9d5ddbd3fd7f89424fdd
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102200094"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780422"
 ---
 # <a name="create-an-internet-analyzer-test-using-cli-preview"></a>Creación de una prueba de Internet Analyzer mediante la CLI (versión preliminar)
 
@@ -50,7 +50,7 @@ La CLI de Internet Analyzer expone los siguientes tipos de recursos:
 
 5. Seleccione el identificador de la suscripción a la que se ha concedido acceso a la versión preliminar pública de Internet Analyzer.
 
-    Después de iniciar sesión, verá una lista de suscripciones asociadas con su cuenta de Azure. La información de suscripción con `isDefault: true` es la suscripción actualmente activada después de iniciar sesión. Para seleccionar otra suscripción, utilice el comando [az account set](/cli/azure/account#az-account-set) con el identificador de suscripción al que desea cambiar. Para más información sobre la selección de suscripción, consulte [Uso de varias suscripciones de Azure](/cli/azure/manage-azure-subscriptions-azure-cli).
+    Después de iniciar sesión, verá una lista de suscripciones asociadas con su cuenta de Azure. La información de suscripción con `isDefault: true` es la suscripción actualmente activada después de iniciar sesión. Para seleccionar otra suscripción, utilice el comando [az account set](/cli/azure/account#az_account_set) con el identificador de suscripción al que desea cambiar. Para más información sobre la selección de suscripción, consulte [Uso de varias suscripciones de Azure](/cli/azure/manage-azure-subscriptions-azure-cli).
 
     Hay varias formas de iniciar sesión de una manera no interactiva, que se describen con detalle en [Inicio de sesión con la CLI de Azure](/cli/azure/authenticate-azure-cli).
 

@@ -11,12 +11,12 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 03/27/2019
-ms.openlocfilehash: 363278e0b9969dad652dd00debe4ffc0138e9a97
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f4054d19ccf4d136e30896bc066e51c92a4a4ad9
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87503793"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107783474"
 ---
 # <a name="use-cli-to-restore-a-single-database-in-azure-sql-database-to-an-earlier-point-in-time"></a>Uso de la CLI para restaurar una base de datos única de Azure SQL Database a un momento anterior
 
@@ -54,7 +54,7 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 
 | Get-Help | Descripción |
 |---|---|
-| [az sql db restore](/cli/azure/sql/db#az-sql-db-restore) | Comando de restauración de base de datos. |
+| [az sql db restore](/cli/azure/sql/db#az_sql_db_restore) | Comando de restauración de base de datos. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

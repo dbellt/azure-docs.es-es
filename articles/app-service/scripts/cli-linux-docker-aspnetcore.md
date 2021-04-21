@@ -9,12 +9,12 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: devx-track-dotnet, mvc, seodec18, devx-track-azurecli
-ms.openlocfilehash: 7e2400d42798dddf33a0431938e7f13ff29b64f9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d7f09d8e4b00a079fb012939e88ff585cbc88f4d
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97005858"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107787798"
 ---
 # <a name="create-an-aspnet-core-app-in-a-docker-container-from-docker-hub-using-azure-cli"></a>Creación de una aplicación de ASP.NET Core en un contenedor de Docker desde Docker Hub mediante la CLI de Azure
 
@@ -38,10 +38,10 @@ Este script usa los siguientes comandos para crear un grupo de recursos, una apl
 
 | Get-Help | Notas |
 |---|---|
-| [`az group create`](/cli/azure/group#az-group-create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
-| [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create) | Crea un plan de App Service, |
-| [`az webapp create`](/cli/azure/webapp#az-webapp-create) | Crea una aplicación de App Service. |
-| [`az webapp config container set`](/cli/azure/webapp/config/container#az-webapp-config-container-set) | Establece el contenedor de Docker para la aplicación de App Service. |
+| [`az group create`](/cli/azure/group#az_group_create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
+| [`az appservice plan create`](/cli/azure/appservice/plan#az_appservice_plan_create) | Crea un plan de App Service, |
+| [`az webapp create`](/cli/azure/webapp#az_webapp_create) | Crea una aplicación de App Service. |
+| [`az webapp config container set`](/cli/azure/webapp/config/container#az_webapp_config_container_set) | Establece el contenedor de Docker para la aplicación de App Service. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

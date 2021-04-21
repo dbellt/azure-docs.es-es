@@ -11,12 +11,12 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
 ms.date: 06/25/2019
-ms.openlocfilehash: 0a72bea08052e5cd17502a21a98b41cb5582a3b9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bd982ab6dc66674e705f080511282bcfeb909872
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96493643"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107787186"
 ---
 # <a name="use-the-azure-cli-to-monitor-and-scale-a-single-database-in-azure-sql-database"></a>Uso de la CLI de Azure para supervisar y escalar una base de datos única en Azure SQL Database
 
@@ -43,7 +43,7 @@ az account set -s $subscription # ...or use 'az login'
 [!code-azurecli-interactive[main](../../../../cli_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.sh "Monitor and scale a database in Azure SQL Database")]
 
 > [!TIP]
-> Use [az sql db op list](/cli/azure/sql/db/op?#az-sql-db-op-list) para obtener una lista de las operaciones realizadas en la base de datos y utilice [az sql db op cancel](/cli/azure/sql/db/op#az-sql-db-op-cancel) para cancelar una operación de actualización en la base de datos.
+> Use [az sql db op list](/cli/azure/sql/db/op?#az_sql_db_op_list) para obtener una lista de las operaciones realizadas en la base de datos y utilice [az sql db op cancel](/cli/azure/sql/db/op#az_sql_db_op_cancel) para cancelar una operación de actualización en la base de datos.
 
 ### <a name="clean-up-deployment"></a>Limpieza de la implementación
 
@@ -60,7 +60,7 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 | Script | Descripción |
 |---|---|
 | [az sql server](/cli/azure/sql/server) | Comandos de servidor. |
-| [az sql db show-usage](/cli/azure/sql#az-sql-show-usage) | Muestra la información de uso del tamaño de una base de datos. |
+| [az sql db show-usage](/cli/azure/sql#az_sql_show_usage) | Muestra la información de uso del tamaño de una base de datos. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

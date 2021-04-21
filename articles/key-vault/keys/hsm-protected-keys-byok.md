@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: tutorial
 ms.date: 02/04/2021
 ms.author: ambapat
-ms.openlocfilehash: 4a3eaddd160acb8d4d2ae9f0da43ce6cb0236055
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: f1b5d6499594e9026e1615be5361c52c9ce2f4ef
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "102198156"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107774816"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault-byok"></a>Importación de claves protegidas con HSM a Key Vault (BYOK)
 
@@ -101,7 +101,7 @@ La KEK debe:
 > [!NOTE]
 > La KEK debe tener "import" como la única operación de clave permitida. "import" es mutuamente excluyente con todas las demás operaciones de clave.
 
-Use el comando [az keyvault key create](/cli/azure/keyvault/key#az-keyvault-key-create) para crear una KEK que tenga operaciones de clave establecidas en `import`. Registre el identificador de clave (`kid`) que se devuelve con el siguiente comando (usará el valor `kid` en el [paso 3](#step-3-generate-and-prepare-your-key-for-transfer)).
+Use el comando [az keyvault key create](/cli/azure/keyvault/key#az_keyvault_key_create) para crear una KEK que tenga operaciones de clave establecidas en `import`. Registre el identificador de clave (`kid`) que se devuelve con el siguiente comando (usará el valor `kid` en el [paso 3](#step-3-generate-and-prepare-your-key-for-transfer)).
 
 ```azurecli
 az keyvault key create --kty RSA-HSM --size 4096 --name KEKforBYOK --ops import --vault-name ContosoKeyVaultHSM
@@ -109,7 +109,7 @@ az keyvault key create --kty RSA-HSM --size 4096 --name KEKforBYOK --ops import 
 
 ### <a name="step-2-download-the-kek-public-key"></a>Paso 2: Descarga de la clave pública KEK
 
-Use [az keyvault key download](/cli/azure/keyvault/key#az-keyvault-key-download) para descargar la clave pública KEK en un archivo .pem. La clave de destino que importa se cifra mediante la clave pública KEK.
+Use [az keyvault key download](/cli/azure/keyvault/key#az_keyvault_key_download) para descargar la clave pública KEK en un archivo .pem. La clave de destino que importa se cifra mediante la clave pública KEK.
 
 ```azurecli
 az keyvault key download --name KEKforBYOK --vault-name ContosoKeyVaultHSM --file KEKforBYOK.publickey.pem
@@ -130,7 +130,7 @@ Transfiera el archivo BYOK al equipo conectado.
 
 ### <a name="step-4-transfer-your-key-to-azure-key-vault"></a>Paso 4: Transferencia de la clave a Azure Key Vault
 
-Para completar la importación de claves, transfiera el paquete de transferencia de claves (un archivo BYOK) del equipo desconectado al equipo conectado a Internet. Use el comando [az keyvault key import](/cli/azure/keyvault/key#az-keyvault-key-import) para cargar el archivo BYOK en el HMS de Key Vault.
+Para completar la importación de claves, transfiera el paquete de transferencia de claves (un archivo BYOK) del equipo desconectado al equipo conectado a Internet. Use el comando [az keyvault key import](/cli/azure/keyvault/key#az_keyvault_key_import) para cargar el archivo BYOK en el HMS de Key Vault.
 
 Para importar una clave RSA, use el comando siguiente. Parámetro: KTY es opcional y su valor predeterminado es "RSA-HSM".
 ```azurecli
@@ -148,6 +148,3 @@ Si la carga se realiza correctamente, la CLI de Azure muestra las propiedades de
 ## <a name="next-steps"></a>Pasos siguientes
 
 Ahora puede usar esta clave protegida con HSM en el almacén de claves. Para más información, vea esta [comparativa de precios y características](https://azure.microsoft.com/pricing/details/key-vault/).
-
-
-

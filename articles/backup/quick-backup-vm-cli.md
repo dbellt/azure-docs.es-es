@@ -5,12 +5,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 1a1b11d517fdfea0aa3a0f553b63276bc20f90be
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 521f9332590eca5cdf94fadc4b59ab4d482eb658
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98805459"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107768566"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-the-azure-cli"></a>Copia de seguridad de una máquina virtual en Azure con la CLI de Azure
 
@@ -26,7 +26,7 @@ Esta guía de inicio rápido permite realizar copias de seguridad en una máquin
 
 Un almacén de Recovery Services es un contenedor lógico que almacena los datos de copia de seguridad de los recursos protegidos, como las máquinas virtuales de Azure. Cuando se ejecuta el trabajo de copia de seguridad para un recurso protegido, crea un punto de recuperación en el almacén de Recovery Services. Posteriormente, se puede usar uno de estos puntos de recuperación para restaurar los datos a un momento dado en el tiempo.
 
-Cree un almacén de Recovery Services con [az backup vault create](/cli/azure/backup/vault#az-backup-vault-create). Especifique el mismo grupo de recursos y ubicación que tenga la máquina virtual que desea proteger. Si ha usado el [inicio rápido de la máquina virtual](../virtual-machines/linux/quick-create-cli.md), habrá creado lo siguiente:
+Cree un almacén de Recovery Services con [az backup vault create](/cli/azure/backup/vault#az_backup_vault_create). Especifique el mismo grupo de recursos y ubicación que tenga la máquina virtual que desea proteger. Si ha usado el [inicio rápido de la máquina virtual](../virtual-machines/linux/quick-create-cli.md), habrá creado lo siguiente:
 
 - un grupo de recursos denominado *myResourceGroup*;
 - una máquina virtual denominada *myVM*;
@@ -38,7 +38,7 @@ az backup vault create --resource-group myResourceGroup \
     --location eastus
 ```
 
-De forma predeterminada, el almacén de Recovery Services se establece para el almacenamiento con redundancia geográfica. El almacenamiento con redundancia geográfica garantiza que los datos de copia de seguridad se replican en una región de Azure secundaria que se encuentra a cientos de kilómetros de distancia de la región primaria. Si es necesario modificar la configuración de la redundancia del almacenamiento, utilice el cmdlet [az backup vault backup-properties set](/cli/azure/backup/vault/backup-properties#az-backup-vault-backup-properties-set).
+De forma predeterminada, el almacén de Recovery Services se establece para el almacenamiento con redundancia geográfica. El almacenamiento con redundancia geográfica garantiza que los datos de copia de seguridad se replican en una región de Azure secundaria que se encuentra a cientos de kilómetros de distancia de la región primaria. Si es necesario modificar la configuración de la redundancia del almacenamiento, utilice el cmdlet [az backup vault backup-properties set](/cli/azure/backup/vault/backup-properties#az_backup_vault_backup_properties_set).
 
 ```azurecli
 az backup vault backup-properties set \
@@ -49,7 +49,7 @@ az backup vault backup-properties set \
 
 ## <a name="enable-backup-for-an-azure-vm"></a>Habilitación de la copia de seguridad de una máquina virtual de Azure
 
-Cree y use directivas para definir cuándo se ejecuta un trabajo de copia de seguridad y durante cuánto tiempo se almacenan los puntos de recuperación. La directiva de protección predeterminada ejecuta un trabajo de copia de seguridad cada día y conserva los puntos de seguridad durante 30 días. Estos valores de la directiva predeterminada se pueden usar para proteger rápidamente la máquina virtual. Para habilitar la protección mediante copia de seguridad de una máquina virtual, use [az backup protection enable-for-vm](/cli/azure/backup/protection#az-backup-protection-enable-for-vm). Especifique el grupo de recursos y la máquina virtual que se van a proteger, y la directiva que se va a usar:
+Cree y use directivas para definir cuándo se ejecuta un trabajo de copia de seguridad y durante cuánto tiempo se almacenan los puntos de recuperación. La directiva de protección predeterminada ejecuta un trabajo de copia de seguridad cada día y conserva los puntos de seguridad durante 30 días. Estos valores de la directiva predeterminada se pueden usar para proteger rápidamente la máquina virtual. Para habilitar la protección mediante copia de seguridad de una máquina virtual, use [az backup protection enable-for-vm](/cli/azure/backup/protection#az_backup_protection_enable_for_vm). Especifique el grupo de recursos y la máquina virtual que se van a proteger, y la directiva que se va a usar:
 
 ```azurecli-interactive
 az backup protection enable-for-vm \
@@ -75,7 +75,7 @@ az backup protection enable-for-vm \
 
 ## <a name="start-a-backup-job"></a>Inicio de un trabajo de copia de seguridad
 
-Para iniciar una copia de seguridad ahora, en lugar de esperar a que la directiva predeterminada ejecute el trabajo en el momento programado, utilice [az backup protection backup-now](/cli/azure/backup/protection#az-backup-protection-backup-now). El primer trabajo de copia de seguridad crea un punto de recuperación completa. Cada uno de los trabajo de copia de seguridad posteriores a esta copia de seguridad inicial crea puntos de recuperación incremental. Los puntos de recuperación incremental ahorran tiempo y espacio de almacenamiento, ya que solo transfieren los cambios realizados desde la última copia de seguridad.
+Para iniciar una copia de seguridad ahora, en lugar de esperar a que la directiva predeterminada ejecute el trabajo en el momento programado, utilice [az backup protection backup-now](/cli/azure/backup/protection#az_backup_protection_backup_now). El primer trabajo de copia de seguridad crea un punto de recuperación completa. Cada uno de los trabajo de copia de seguridad posteriores a esta copia de seguridad inicial crea puntos de recuperación incremental. Los puntos de recuperación incremental ahorran tiempo y espacio de almacenamiento, ya que solo transfieren los cambios realizados desde la última copia de seguridad.
 
 Los siguientes parámetros se utilizan para hacer una copia de seguridad de la máquina virtual:
 
@@ -96,7 +96,7 @@ az backup protection backup-now \
 
 ## <a name="monitor-the-backup-job"></a>Supervisión del trabajo de copia de seguridad
 
-Para supervisar el estado de los trabajos de copia de seguridad, use [az backup job list](/cli/azure/backup/job#az-backup-job-list):
+Para supervisar el estado de los trabajos de copia de seguridad, use [az backup job list](/cli/azure/backup/job#az_backup_job_list):
 
 ```azurecli-interactive
 az backup job list \
@@ -118,7 +118,7 @@ Cuando el apartado *Status* (Estado) del trabajo de copia de seguridad muestre *
 
 ## <a name="clean-up-deployment"></a>Limpieza de la implementación
 
-Cuando deje de ser necesaria, puede deshabilitar la protección en la máquina virtual, quitar los puntos de restauración y el almacén de Recovery Services, y eliminar tanto el grupo de recursos como los recursos de la máquina virtual asociados. Si ha usado una máquina virtual existente, puede omitir el última comando [az group delete](/cli/azure/group#az-group-delete) para dejar tanto el grupo de recursos como la máquina virtual en su lugar.
+Cuando deje de ser necesaria, puede deshabilitar la protección en la máquina virtual, quitar los puntos de restauración y el almacén de Recovery Services, y eliminar tanto el grupo de recursos como los recursos de la máquina virtual asociados. Si ha usado una máquina virtual existente, puede omitir el última comando [az group delete](/cli/azure/group#az_group_delete) para dejar tanto el grupo de recursos como la máquina virtual en su lugar.
 
 Si desea seguir un tutorial de Backup en el que se explique cómo restaurar los datos en una máquina virtual, vaya a [Pasos siguientes](#next-steps).
 
