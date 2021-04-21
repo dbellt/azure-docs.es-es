@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - devx-track-azurecli
 - devx-track-csharp
-ms.openlocfilehash: 1e2983fb50ce3ad1482db85025677cba5fee0c2e
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: 099b7f4e812e92503c7ed8e3eb733f2e49ccd8b9
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889604"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107768078"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-logs-with-an-iot-hub"></a>Tutorial: Configuración y uso de métricas y registros con un centro de IoT
 
@@ -409,7 +409,7 @@ En la sección [Recopilación de registros de conexiones y telemetría de dispos
 
 Para quitar todos los recursos que ha creado en este tutorial, elimine el grupo de recursos. Esta acción elimina también todos los recursos del grupo. En este caso, quita el centro de IoT Hub, el área de trabajo de Log Analytics y el propio grupo de recursos. Si ha anclado gráficos de métricas al panel, deberá quitarlas manualmente, para lo cual, tiene que hacer clic en los tres puntos de la esquina superior derecha de cada uno y seleccionar **Quitar**. Después de eliminar los gráficos, asegúrese de guardar los cambios.
 
-Para quitar el grupo de recursos, use el comando [az group delete](/cli/azure/group#az-group-delete).
+Para quitar el grupo de recursos, use el comando [az group delete](/cli/azure/group#az_group_delete).
 
 ```azurecli-interactive
 az group delete --name ContosoResources

@@ -7,12 +7,12 @@ ms.custom:
 - devx-track-csharp
 - devx-track-azurecli
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: a78abea5bcc5925cb2e137d918c7217ae92b118e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2d03f8c820e0a8b6a19394649db66f8028b62781
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102044330"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107768802"
 ---
 # <a name="quickstart-create-a-c-function-in-azure-from-the-command-line"></a>Inicio rápido: Creación de una función de C# en Azure desde la línea de comandos
 
@@ -183,7 +183,7 @@ Antes de poder implementar el código de la función en Azure, debe crear un <ab
     az group create --name AzureFunctionsQuickstart-rg --location westeurope
     ```
 
-    El comando [az group create](/cli/azure/group#az-group-create) crea un grupo de recursos. Conviene crear el grupo de recursos y los recursos en una <abbr title="Una referencia geográfica a un centro de datos de Azure específico en el que se asignan recursos.">region</abbr> cercana al usuario, mediante una región disponible devuelta por el comando `az account list-locations`.
+    El comando [az group create](/cli/azure/group#az_group_create) crea un grupo de recursos. Conviene crear el grupo de recursos y los recursos en una <abbr title="Una referencia geográfica a un centro de datos de Azure específico en el que se asignan recursos.">region</abbr> cercana al usuario, mediante una región disponible devuelta por el comando `az account list-locations`.
 
     # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 

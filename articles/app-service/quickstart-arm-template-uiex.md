@@ -9,12 +9,12 @@ ms.date: 10/16/2020
 ms.custom: subject-armqs, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 7437a5208f94b435576b8a38dc65a6e798303a72
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: bce6bfb61eb59d1fa66c550a133ac8b6f8d7f2c5
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102179092"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107769013"
 ---
 # <a name="quickstart-create-app-service-app-using-an-arm-template"></a>Inicio rápido: Creación de una aplicación de App Service mediante una plantilla de ARM
 
@@ -133,7 +133,7 @@ az deployment group create --resource-group myResourceGroup --parameters webAppN
 <ul>
 <li>Crear un grupo de recursos predeterminado. <abbr title="Un contenedor lógico para recursos relacionados de Azure que se pueden administrar como una unidad.">resource group</abbr>.</li>
 <li>Crear un plan de App Service predeterminado. <abbr title="El plan especifica la ubicación, el tamaño y las características de la granja de servidores web que hospeda la aplicación.">Plan de App Service</abbr>.</li>
-<li><a href="/cli/azure/webapp#az-webapp-create">Crear una <abbr title="La representación de la aplicación web, que contiene el código de la aplicación, los nombres de host DNS, los certificados y los recursos relacionados.">aplicación de App Service</abbr></a> con el nombre especificado.</li>
+<li><a href="/cli/azure/webapp#az_webapp_create">Crear una <abbr title="La representación de la aplicación web, que contiene el código de la aplicación, los nombres de host DNS, los certificados y los recursos relacionados.">aplicación de App Service</abbr></a> con el nombre especificado.</li>
 </ul>
 </details>
 
@@ -191,4 +191,3 @@ Cuando ya no necesite, [elimine el grupo de recursos](../azure-resource-manager/
 - [PHP con MySQL](tutorial-php-mysql-app.md)
 - [Conexión a una base de datos de Azure SQL con Java](../azure-sql/database/connect-query-java.md?toc=%2fazure%2fjava%2ftoc.json)
 - [Asignación de un dominio personalizado](app-service-web-tutorial-custom-domain-uiex.md)
-

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc, subject-armqs, devx-track-azurecli
-ms.openlocfilehash: 505859075ce58c5db6873544123710a11135651a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: bcb37c624f53d961020de022569a621ca1dfaba1
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102198632"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107789004"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-dps-with-an-arm-template"></a>Inicio rápido: Configuración de IoT Hub Device Provisioning Service (DPS) con una plantilla de Resource Manager
 
@@ -136,7 +136,7 @@ Inicie sesión en la cuenta de Azure y seleccione su suscripción.
 
 ## <a name="review-deployed-resources"></a>Revisión de los recursos implementados
 
-1. Para comprobar la implementación, ejecute el siguiente [comando para enumerar los recursos](/cli/azure/resource#az-resource-list) y busque el nuevo servicio de aprovisionamiento y el centro de IoT en la salida:
+1. Para comprobar la implementación, ejecute el siguiente [comando para enumerar los recursos](/cli/azure/resource#az_resource_list) y busque el nuevo servicio de aprovisionamiento y el centro de IoT en la salida:
 
     ```azurecli
      az resource list -g "${projectName}rg"
@@ -171,4 +171,3 @@ En este inicio rápido, ha implementado un centro de IoT y una instancia de Devi
 
 > [!div class="nextstepaction"]
 > [Inicio rápido para aprovisionar un dispositivo](./quick-create-simulated-device-symm-key.md)
-

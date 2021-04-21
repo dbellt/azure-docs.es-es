@@ -3,16 +3,18 @@ title: 'Inicio rápido: Creación y configuración de una instancia de Route Ser
 description: En esta guía de inicio rápido, aprenderá a crear y configurar una instancia de Route Server mediante Azure PowerShell.
 services: route-server
 author: duongau
-ms.service: route-server
-ms.topic: quickstart
-ms.date: 03/02/2021
 ms.author: duau
-ms.openlocfilehash: a3ab3a801872cc20b4e41bbff02ad6474c3bab8c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/02/2021
+ms.topic: quickstart
+ms.service: route-server
+ms.custom:
+- mode-api
+ms.openlocfilehash: 608ec3755fcd231d5cc89bbc28a01ce172978144
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104655213"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107538704"
 ---
 # <a name="quickstart-create-and-configure-route-server-using-azure-powershell"></a>Inicio rápido: Creación y configuración de una instancia de Route Server mediante Azure PowerShell
 
@@ -23,7 +25,7 @@ Este artículo le ayuda a configurar Azure Route Server para su emparejamiento c
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
 > Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Asegúrese de que tiene los módulos más recientes de PowerShell, o bien, puede usar Azure Cloud Shell en el portal.

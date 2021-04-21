@@ -6,12 +6,12 @@ ms.author: timlt
 ms.service: iot-develop
 ms.topic: overview
 ms.date: 02/15/2021
-ms.openlocfilehash: bc8317e3402fa0185186c06ed1f89e062e99fd5e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 536b9092a7bddd353b58874e7aa97291839bafcc
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100654802"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107589540"
 ---
 # <a name="getting-started-with-azure-iot-embedded-device-development"></a>Introducción al desarrollo de dispositivos insertados de Azure IoT
 
@@ -40,4 +40,4 @@ Los siguientes tutoriales se incluyen en la guía de inicio rápido:
 
 ## <a name="next-steps"></a>Pasos siguientes
 Después de completar un inicio rápido específico del dispositivo en esta guía, explore los demás artículos y ejemplos específicos del dispositivo en el repositorio inicial de Azure RTOS:
-* [Introducción a Azure RTOS y Azure IoT](https://github.com/azure-rtos/getting-started)
+* [Introducción a Azure RTOS y Azure IoT](https://github.com/azure-rtos/getting-started#getting-started-with-azure-rtos-and-azure-iot)

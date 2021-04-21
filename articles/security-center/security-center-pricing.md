@@ -7,12 +7,12 @@ manager: rkarlin
 ms.service: security-center
 ms.topic: overview
 ms.date: 03/23/2021
-ms.openlocfilehash: 1825f5be8a4f8a8ddfba931dfbc7e77186b4331f
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: aa65989953f761ff915383fcb59da7f36ea98dab
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889457"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600489"
 ---
 # <a name="azure-security-center-free-vs-azure-defender-enabled"></a>Azure Security Center gratuito frente a Azure Defender habilitado
 Azure Defender es gratis durante los primeros 30 días. Después de 30 días, si decide continuar usando el servicio, empezaremos a cobrar automáticamente el uso.
@@ -70,7 +70,7 @@ Security Center tiene dos ofertas:
 ### <a name="how-do-i-enable-azure-defender-for-my-subscription"></a>¿Cómo habilito Azure Defender para mi suscripción? 
 Puede usar cualquiera de los siguientes métodos para habilitar Azure Defender para su suscripción: 
 
-| Método                                          | Instrucciones                                                                                                                                       |
+| Método                                          | Instructions                                                                                                                                       |
 |-------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
 | Páginas de Azure Security Center en Azure Portal | [Habilitación de Azure Defender](enable-azure-defender.md)                                                                                                  |
 | API DE REST                                        | [API de precios](/rest/api/securitycenter/pricings)                                                                                                  |
@@ -119,7 +119,7 @@ Estos datos son una tasa diaria promediada en todos los nodos. Por tanto, aunque
 
 ### <a name="what-data-types-are-included-in-the-500-mb-data-daily-allowance"></a>¿Qué tipos de datos se incluyen en la asignación diaria de datos de 500 MB?
 
-La facturación de Security Center está estrechamente vinculada a la facturación de Log Analytics. Security Center proporciona una asignación de 500 MB/nodo/día frente al siguiente subconjunto de [tipos de datos de seguridad](/azure/azure-monitor/reference/tables/tables-category.md#security):
+La facturación de Security Center está estrechamente vinculada a la facturación de Log Analytics. Security Center proporciona una asignación de 500 MB/nodo/día frente al siguiente subconjunto de [tipos de datos de seguridad](/azure/azure-monitor/reference/tables/tables-category#security):
 - WindowsEvent
 - SecurityAlert
 - SecurityBaseline

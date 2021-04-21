@@ -3,19 +3,18 @@ title: 'Administración de Azure Key Vault mediante la CLI: Azure Key Vault | Mi
 description: Use este artículo para automatizar tareas comunes de Key Vault mediante la CLI de Azure
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c084df60fa2293a614726be44669a1465b399d2c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d4037e66e653bc6e958020a5ef8722f2febb53d0
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105557214"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772187"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Administración de Key Vault mediante la CLI de Azure 
 
@@ -221,7 +220,7 @@ az keyvault set-policy --name "ContosoKeyVault" --spn 8f8c4bbd-485b-45fd-98f7-ec
 
 ## <a name="setting-key-vault-advanced-access-policies"></a><a name="bkmk_KVperCLI"></a> Configuración de directivas de acceso avanzado de almacén de claves
 
-Use [az keyvault update](/cli/azure/keyvault#az-keyvault-update) para habilitar directivas avanzadas para el almacén de claves.
+Use [az keyvault update](/cli/azure/keyvault#az_keyvault_update) para habilitar directivas avanzadas para el almacén de claves.
 
  Habilitar Key Vault para la implementación: permite que las máquinas virtuales recuperen certificados almacenados como secretos del almacén.
 

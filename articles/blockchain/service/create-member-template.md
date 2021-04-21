@@ -2,16 +2,19 @@
 title: Creación de un miembro de Azure Blockchain Service mediante una plantilla de Azure Resource Manager
 description: Aprenda a crear un miembro de Azure Blockchain Service mediante una plantilla de Azure Resource Manager.
 services: azure-resource-manager
-ms.service: azure-resource-manager
-ms.topic: quickstart
-ms.custom: subject-armqs, references_regions
 ms.date: 09/16/2020
-ms.openlocfilehash: e9893336f2e6633519853aceecc945ee6bf0bf4b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: quickstart
+ms.service: azure-resource-manager
+ms.custom:
+- subject-armqs
+- references_regions
+- mode-arm
+ms.openlocfilehash: c49e45ae84d58d62460d493887e2a4e78e40ba32
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91292768"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107536299"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-member-using-an-arm-template"></a>Inicio rápido: Creación de un miembro de Azure Blockchain Service mediante una plantilla de ARM
 
@@ -47,7 +50,7 @@ Recursos de Azure definidos en la plantilla:
 
     Configuración | Descripción
     --------|------------
-    Subscription | Seleccione la suscripción de Azure que quiere usar con el servicio. Si tiene varias suscripciones, elija aquella en la que se factura el recurso.
+    Suscripción | Seleccione la suscripción de Azure que quiere usar con el servicio. Si tiene varias suscripciones, elija aquella en la que se factura el recurso.
     Resource group | Cree un nombre de grupo de recursos o use uno existente en la suscripción.
     Region | Elija una región para crear el grupo de recursos. Todos los miembros del consorcio deben estar en la misma ubicación. Las ubicaciones disponibles para la implementación son *westeurope, eastus, southeastasia, westeurope, northeurope, westus2* y *japaneast*. Es posible que las características no estén disponibles en algunas regiones. Azure Blockchain Data Manager está disponible en las siguientes regiones de Azure: Este de EE. UU. y Oeste de Europa.
     Bc Member name (Nombre de miembro de Bc) | Elija un nombre único para el miembro de Azure Blockchain Service. El nombre del miembro de la cadena de bloques solo puede contener letras minúsculas y números. El primer carácter debe ser una letra. El valor debe tener entre 2 y 20 caracteres.

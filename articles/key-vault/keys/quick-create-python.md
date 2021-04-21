@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: b1355acee5c115accb2515f797b402e66cd2ec0a
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 2c15090551ad9d84282f65925ff9c2cfbab7e14f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107374733"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107773358"
 ---
 # <a name="quickstart-azure-key-vault-keys-client-library-for-python"></a>Inicio rápido: biblioteca cliente de claves de Azure Key Vault para Python
 
@@ -179,7 +179,7 @@ Para leer una clave de Key Vault, utilice el método [get_key](/python/api/azure
 retrieved_key = client.get_key(keyName)
  ```
 
-También puede comprobar que la clave se ha establecido con el comando [az keyvault key show](/cli/azure/keyvault/key?#az-keyvault-key-show) de la CLI de Azure.
+También puede comprobar que la clave se ha establecido con el comando [az keyvault key show](/cli/azure/keyvault/key?#az_keyvault_key_show) de la CLI de Azure.
 
 ### <a name="delete-a-key"></a>Eliminación de una clave
 
@@ -192,7 +192,7 @@ deleted_key = poller.result()
 
 El método `begin_delete_key` es asincrónico y devuelve un objeto de sondeador. La llamada al método `result` del sondeador espera hasta su finalización.
 
-Puede comprobar que la clave se elimina con el comando [az keyvault key show](/cli/azure/keyvault/key?#az-keyvault-key-show) de la CLI de Azure.
+Puede comprobar que la clave se elimina con el comando [az keyvault key show](/cli/azure/keyvault/key?#az_keyvault_key_show) de la CLI de Azure.
 
 Aun después de haberse eliminado, las claves permanecen en estado eliminado, pero recuperable, durante un tiempo. Si vuelve a ejecutar el código, use otro nombre de clave.
 
@@ -209,7 +209,7 @@ az group delete --resource-group KeyVault-PythonQS-rg
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Información general de Azure Key Vault](../general/overview.md)
-- [Protección del acceso a un almacén de claves](../general/secure-your-key-vault.md)
+- [Protección del acceso a un almacén de claves](../general/security-overview.md)
 - [Guía del desarrollador de Azure Key Vault](../general/developers-guide.md)
 - [Introducción a la seguridad de Key Vault](../general/security-overview.md)
 - [Autenticación con Key Vault](../general/authentication.md)

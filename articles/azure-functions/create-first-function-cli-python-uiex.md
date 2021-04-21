@@ -7,12 +7,12 @@ ms.custom:
 - devx-track-python
 - devx-track-azurecli
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: da7f6fdaedd8105363cc62bf55bae2cb5f72f234
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 626cff867a336880689373c289087e2332a816ee
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102031657"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107787456"
 ---
 # <a name="quickstart-create-a-python-function-in-azure-from-the-command-line"></a>Inicio rápido: Creación de una función de Python en Azure desde la línea de comandos
 
@@ -239,7 +239,7 @@ Antes de poder implementar el código de la función en Azure, debe crear un <ab
     az login
     ```
 
-    El comando [az login](/cli/azure/reference-index#az-login) inicia sesión en su cuenta de Azure.
+    El comando [az login](/cli/azure/reference-index#az_login) inicia sesión en su cuenta de Azure.
 
     # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell) 
     ```azurepowershell
@@ -258,7 +258,7 @@ Antes de poder implementar el código de la función en Azure, debe crear un <ab
     az group create --name AzureFunctionsQuickstart-rg --location westeurope
     ```
  
-    El comando [az group create](/cli/azure/group#az-group-create) crea un grupo de recursos. Conviene crear el grupo de recursos y los recursos en una <abbr title="Una referencia geográfica a un centro de datos de Azure específico en el que se asignan recursos.">region</abbr> cercana al usuario, mediante una región disponible devuelta por el comando `az account list-locations`.
+    El comando [az group create](/cli/azure/group#az_group_create) crea un grupo de recursos. Conviene crear el grupo de recursos y los recursos en una <abbr title="Una referencia geográfica a un centro de datos de Azure específico en el que se asignan recursos.">region</abbr> cercana al usuario, mediante una región disponible devuelta por el comando `az account list-locations`.
 
     # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
@@ -280,7 +280,7 @@ Antes de poder implementar el código de la función en Azure, debe crear un <ab
     az storage account create --name <STORAGE_NAME> --location westeurope --resource-group AzureFunctionsQuickstart-rg --sku Standard_LRS
     ```
 
-    El comando [az storage account create](/cli/azure/storage/account#az-storage-account-create) crea la cuenta de almacenamiento. 
+    El comando [az storage account create](/cli/azure/storage/account#az_storage_account_create) crea la cuenta de almacenamiento. 
 
     # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
