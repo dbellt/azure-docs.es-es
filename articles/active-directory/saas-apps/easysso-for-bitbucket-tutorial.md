@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/21/2020
+ms.date: 04/06/2021
 ms.author: jeedes
-ms.openlocfilehash: 6fdc9c70d1c9fc67c38edfd794354f9e03321c73
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 56f2eea9dc485c69b6070fda6e9519887f7b30cb
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98731434"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107519663"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-easysso-for-bitbucket"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con EasySSO for BitBucket
 
@@ -50,7 +50,6 @@ Para configurar la integración de EasySSO for BitBucket en Azure AD, debe agre
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
 1. En la sección **Agregar desde la galería**, escriba **EasySSO for BitBucket** en el cuadro de búsqueda.
 1. Seleccione **EasySSO for BitBucket** en los resultados y, a continuación, agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-easysso-for-bitbucket"></a>Configuración y prueba del inicio de sesión único de Azure AD para EasySSO for BitBucket
 
@@ -129,9 +128,7 @@ En esta sección va a permitir que B.Simon acceda a EasySSO for BitBucket median
 1. En Azure Portal, seleccione **Aplicaciones empresariales** > **Todas las aplicaciones**.
 1. En la lista de aplicaciones, seleccione **EasySSO for BitBucket**.
 1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
-
 1. Seleccione **Agregar usuario**. En el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
-
 1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** en la lista **Usuarios** y, después, elija **Seleccionar** en la parte inferior de la pantalla.
 1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol**. Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
 1. En el cuadro de diálogo **Agregar asignación**, seleccione **Asignar**.
