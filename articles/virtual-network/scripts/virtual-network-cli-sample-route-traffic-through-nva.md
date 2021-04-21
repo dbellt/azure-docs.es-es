@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/20/2018
 ms.author: kumud
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 964fda8168867c115502c7262dc1d41e55075866
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7dca5e36144fe17b39f76bb61543f59a1c6d7772
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91317657"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107790195"
 ---
 # <a name="route-traffic-through-a-network-virtual-appliance---azure-cli-script-sample"></a>Enrutamiento del tráfico mediante una aplicación virtual de red: script de ejemplo de la CLI de Azure
 
@@ -58,8 +58,8 @@ Este script usa los siguientes comandos para crear un grupo de recursos, una red
 | [az network nsg create](/cli/azure/network/nsg) | Crea un grupo de seguridad de red (NSG). |
 | [az network nsg rule create](/cli/azure/network/nsg/rule) | Crea reglas NSG que permiten puertos HTTP y HTTPS entrantes en la VM. |
 | [az network vnet subnet update](/cli/azure/network/vnet/subnet)| Asocia los NSG y tablas de rutas a las subredes. |
-| [az network route-table create](/cli/azure/network/route-table#az-network-route-table-create)| Crea una tabla de rutas para todas las rutas. |
-| [az network route-table route create](/cli/azure/network/route-table/route#az-network-route-table-route-create)| Crea rutas para redirigir el tráfico entre subredes e Internet a través de la VM. |
+| [az network route-table create](/cli/azure/network/route-table#az_network_route_table_create)| Crea una tabla de rutas para todas las rutas. |
+| [az network route-table route create](/cli/azure/network/route-table/route#az_network_route_table_route_create)| Crea rutas para redirigir el tráfico entre subredes e Internet a través de la VM. |
 | [az vm create](/cli/azure/vm) | Crea una máquina virtual y conecta la NIC a ella. Este comando también especifica la imagen de máquina virtual que se usará y las credenciales administrativas. |
 | [az group delete](/cli/azure/group) | Elimina un grupo de recursos y todos los recursos que contiene. |
 

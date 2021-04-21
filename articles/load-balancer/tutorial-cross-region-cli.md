@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 03/04/2021
-ms.openlocfilehash: 83efb428a94d49b77ecd923d4868afe034374b5f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ca4134ff25dc9915f256b5a7bdd9404021b60a8e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103225190"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107791920"
 ---
 # <a name="tutorial-create-a-cross-region-azure-load-balancer-using-azure-cli"></a>Tutorial: Creación de una instancia de Azure Load Balancer entre regiones mediante la CLI de Azure
 
@@ -28,7 +28,7 @@ En este tutorial, aprenderá a:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Suscripción a Azure.
 - Dos instancias de Azure Load Balancer con SKU **Estándar** con grupos de back-end implementados en dos regiones de Azure diferentes.
@@ -54,7 +54,7 @@ En esta sección va a crear un equilibrador de carga entre regiones, una direcci
 
 Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure.
 
-Cree un grupo de recursos con [az group create](/cli/azure/group#az-group-create):
+Cree un grupo de recursos con [az group create](/cli/azure/group#az_group_create):
 
 * Con el nombre **myResourceGroupLB-CR**.
 * En la ubicación **westus**.
@@ -157,7 +157,7 @@ Use [az network cross-region-lb address-pool address add](/cli/azure/network/cro
 
 En esta sección va a probar el equilibrador de carga entre regiones. Se conectará a la dirección IP pública en un explorador web.  Detendrá las máquinas virtuales de uno de los grupos de back-end del equilibrador de carga regional y observará la conmutación por error.
 
-1. Para obtener la dirección IP pública del equilibrador de carga, use [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show):
+1. Para obtener la dirección IP pública del equilibrador de carga, use [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show):
 
     ```azurecli-interactive
       az network public-ip show \
@@ -174,7 +174,7 @@ En esta sección va a probar el equilibrador de carga entre regiones. Se conecta
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando ya no se necesiten, use el comando [az group delete](/cli/azure/group#az-group-delete) para quitar el grupo de recursos, el equilibrador de carga y todos los recursos relacionados.
+Cuando ya no se necesiten, use el comando [az group delete](/cli/azure/group#az_group_delete) para quitar el grupo de recursos, el equilibrador de carga y todos los recursos relacionados.
 
 ```azurecli-interactive
   az group delete \

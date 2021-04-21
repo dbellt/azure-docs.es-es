@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
 ms.date: 12/02/2019
-ms.openlocfilehash: ddb6276d63d90f4221475b163cba174116ec8bec
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2a2409c94e28135ca5c1fb8fa7210cd9b8b42858
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94539352"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107791698"
 ---
 # <a name="restore-an-azure-database-for-mysql-server-using-azure-cli"></a>Restauración de un servidor de Azure Database for MySQL mediante la CLI de Azure
 Este script de la CLI de ejemplo restaura un único servidor de Azure Database for MySQL a un momento anterior.
@@ -35,10 +35,10 @@ Este script usa los comandos que se describen en la tabla siguiente:
 
 | **Comando** | **Notas** |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
-| [az mysql server create](/cli/azure/mysql/server#az-mysql-server-create) | Crea un servidor MySQL que hospeda las bases de datos. |
-| [az mysql server restore](/cli/azure/mysql/server#az-mysql-server-restore) | Restaura un servidor desde una copia de seguridad. |
-| [az group delete](/cli/azure/group#az-group-delete) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
+| [az group create](/cli/azure/group#az_group_create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
+| [az mysql server create](/cli/azure/mysql/server#az_mysql_server_create) | Crea un servidor MySQL que hospeda las bases de datos. |
+| [az mysql server restore](/cli/azure/mysql/server#az_mysql_server_restore) | Restaura un servidor desde una copia de seguridad. |
+| [az group delete](/cli/azure/group#az_group_delete) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Para más información sobre la CLI de Azure: [Documentación de la CLI de Azure](/cli/azure).
