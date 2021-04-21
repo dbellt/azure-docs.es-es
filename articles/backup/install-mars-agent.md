@@ -3,12 +3,12 @@ title: Instalación del agente de Microsoft Azure Recovery Services (MARS)
 description: Aprenda a instalar el agente de Microsoft Azure Recovery Services (MARS) para realizar copias de seguridad de máquinas Windows.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: acf38fdf338fcdd0cd7902d4295f0f03310543a8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3ea48aaa6aad4a51463c4c028ead22f31163f810
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98986877"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107519228"
 ---
 # <a name="install-the-azure-backup-mars-agent"></a>Instalación del agente de MARS de Azure Backup
 
@@ -158,7 +158,7 @@ Si ya ha instalado el agente en alguna máquina, asegúrese de que está ejecuta
 
     ![Adición de credenciales de almacén mediante el Asistente para registrar servidor](./media/backup-configure-vault/register1.png)
 
-1. En la página **Configuración de cifrado**, especifique una frase de contraseña que se usará para cifrar y descifrar copias de seguridad de la máquina. [Consulte aquí](backup-azure-file-folder-backup-faq.md#what-characters-are-allowed-for-the-passphrase) más información sobre los caracteres de frase de contraseña permitidos.
+1. En la página **Configuración de cifrado**, especifique una frase de contraseña que se usará para cifrar y descifrar copias de seguridad de la máquina. [Consulte aquí](backup-azure-file-folder-backup-faq.yml#what-characters-are-allowed-for-the-passphrase-) más información sobre los caracteres de frase de contraseña permitidos.
 
     * Guarde la frase de contraseña en una ubicación segura. Es necesario para restaurar una copia de seguridad.
     * Si pierde u olvida la frase de contraseña, Microsoft no podrá ayudarle a recuperar los datos de copia de seguridad.

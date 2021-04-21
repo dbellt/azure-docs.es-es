@@ -4,20 +4,16 @@ description: En este artículo se comparan los planes de tarifa de API Managemen
 services: api-management
 documentationcenter: ''
 author: vladvino
-manager: gwallace
-editor: ''
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/15/2020
+ms.date: 04/13/2021
 ms.author: apimpm
-ms.openlocfilehash: eec913237ba978e52bb64fbd4c1f043a9214ffc8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f111729d7d7707ed4f40ce8f89ce76975fb47400
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92077854"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107536456"
 ---
 # <a name="feature-based-comparison-of-the-azure-api-management-tiers"></a>Comparación de características de los planes de tarifa de Azure API Management
 
@@ -31,6 +27,7 @@ Cada [plan de tarifa](https://aka.ms/apimpricing) de API Management ofrece un co
 | Integración de Azure AD<sup>1</sup>                                                             | No          | Sí       | No    | Sí      | Sí     |
 | Compatibilidad con redes virtuales (VNet)                                                               | No          | Sí       | No    | No       | Sí     |
 | Implementación en varias regiones                                                                      | No          | No        | No    | No       | Sí     |
+| Zonas de disponibilidad                                                                           | No          | No        | No    | No       | Sí     |
 | Múltiples nombres de dominio personalizados                                                                 | No          | Sí        | No    | No       | Sí     |
 | Portal para desarrolladores<sup>2</sup>                                                                 | No          | Sí       | Sí   | Sí      | Sí     |
 | Memoria caché integrada                                                                               | No          | Sí       | Sí   | Sí      | Sí     |
@@ -42,7 +39,7 @@ Cada [plan de tarifa](https://aka.ms/apimpricing) de API Management ofrece un co
 | [Copia de seguridad y restauración](api-management-howto-disaster-recovery-backup-restore.md)               | No          | Sí       | Sí   | Sí      | Sí     |
 | [Administración a través de Git](api-management-configuration-repository-git.md)                        | No          | Sí       | Sí   | Sí      | Sí     |
 | API de administración directa                                                                        | No          | Sí       | Sí   | Sí      | Sí     |
-| Métricas y registros de Azure Monitor                                                               | Sí         | Sí       | Sí   | Sí      | Sí     |
+| Métricas y registros de Azure Monitor                                                               | No          | Sí       | Sí   | Sí      | Sí     |
 | IP estática                                                                                    | No          | Sí       | Sí   | Sí      | Sí     |
 
 <sup>1</sup> Habilita el uso de Azure AD (y Azure AD B2C) como proveedor de identidades para el inicio de sesión del usuario en el portal para desarrolladores.<br/>

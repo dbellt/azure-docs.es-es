@@ -8,15 +8,15 @@ manager: jhakulin
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/27/2021
+ms.date: 04/20/2021
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 3bbf47da3724b9df0905e2a212cda4a16bf44bdb
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: f97ecedd4088a825b9ec5a076f4da70df92a3269
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107258561"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107775410"
 ---
 # <a name="speech-service-release-notes"></a>Notas de la versión del servicio Voz
 
@@ -57,7 +57,7 @@ El [elemento marcador](speech-synthesis-markup.md#bookmark-element) permite inse
 
 - **C++/C#/Java/Python**: se ha pasado a la versión más reciente de GStreamer (1.18.3) para agregar compatibilidad para transcribir cualquier formato multimedia en Windows, Linux y Android. Consulte la documentación [aquí](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams).
 - **C++/C#/Java/Objective-C/Python**: se ha agregado compatibilidad con la descodificación de TTS/audio sintetizado comprimidos en el SDK. Si establece el formato de audio de salida en PCM y GStreamer está disponible en el sistema, el SDK solicitará automáticamente el audio comprimido del servicio para ahorrar ancho de banda y descodificar el audio en el cliente. Para deshabilitar esta función, puede configurar `SpeechServiceConnection_SynthEnableCompressedAudioTransmission` a `false`. Detalles de [C++](https://docs.microsoft.com/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace#propertyid), [C#](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.propertyid?view=azure-dotnet), [Java](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.propertyid?view=azure-java-stable), [Objective-C](https://docs.microsoft.com/objectivec/cognitive-services/speech/spxpropertyid), [Python](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.propertyid?view=azure-python).
-- **JavaScript**: los usuarios de Node.js ya pueden usar la [`AudioConfig.fromWavFileInput` API](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?view=azure-node-latest#fromWavFileInput_File_). Esto soluciona el [problema de GitHub n.º 252](https://github.com/microsoft/cognitive-services-speech-sdk-JavaScript/issues/252).
+- **JavaScript**: los usuarios de Node.js ya pueden usar la [`AudioConfig.fromWavFileInput` API](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?view=azure-node-latest#fromWavFileInput_File_). Esto soluciona el [problema de GitHub n.º 252](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/252).
 - **C++/C#/Java/Objective-C/Python**: se ha agregado el método `GetVoicesAsync()` para que TTS devuelva todas las voces de síntesis disponibles. Detalles de [C++](https://docs.microsoft.com/cpp/cognitive-services/speech/speechsynthesizer#getvoicesasync), [C#](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesizer?view=azure-dotnet#methods), [Java](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechsynthesizer?view=azure-java-stable#methods), [Objective-C](https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechsynthesizer#getvoiceasync), [Python](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesizer?view=azure-python#methods).
 - **C++/C#Java/JavaScript/Objective-C/Python**: se ha agregado un evento `VisemeReceived` para la síntesis de voz y TTS para devolver la animación sincrónica de visema. Consulte la documentación [aquí](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-speech-synthesis-viseme).
 - **C++/C#/Java/JavaScript/Objective-C/Python**: evento `BookmarkReached` agregado para TTS. Puede establecer marcadores en el SSML de entrada y obtener los desplazamientos de audio de cada marcador. Consulte la documentación [aquí](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-synthesis-markup#bookmark-element).
@@ -67,6 +67,10 @@ El [elemento marcador](speech-synthesis-markup.md#bookmark-element) permite inse
 - **C++/C#/Java/Objective-C/Python**: se ha agregado compatibilidad con una biblioteca compartida independiente para el micrófono de audio y el control de altavoces, lo que permite usar el SDK en entornos que no tienen dependencias de la biblioteca de audio necesarias.
 - **Objective-C/Swift**: se ha agregado compatibilidad con el marco de módulos con encabezado umbrella. Esto permite importar el SDK de Speech como un módulo en las aplicaciones de Objective-C/Swift de iOS/Mac. Esto soluciona el [problema de GitHub n.º 452](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/452).
 - **Python**: se ha agregado compatibilidad con [Python 3.9](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-python) y la compatibilidad anulada con Python 3.5 por [final de ciclo de vida de Python para 3.5](https://devguide.python.org/devcycle/#end-of-life-branches).
+
+**Problemas conocidos**
+
+- **C++/C#/Java**: `DialogServiceConnector` no se puede utilizar `CustomCommandsConfig` para tener acceso a una aplicación de comandos personalizados y, en su lugar, se producirá un error de conexión. Esto puede solucionarse agregando manualmente el id. de la aplicación a la solicitud con `config.SetServiceProperty("X-CommandsAppId", "your-application-id", ServicePropertyChannel.UriQueryParameter)`. El comportamiento esperado de `CustomCommandsConfig` se restaurará en la próxima versión.
 
 #### <a name="improvements"></a>Mejoras
 
@@ -160,7 +164,7 @@ Desde febrero Voz neuronal personalizada está versión GA en 13 idiomas: chino
 - **JavaScript**: Se ha simplificado el control de errores en la autorización del micrófono, lo que permite que se muestre un mensaje más descriptivo cuando el usuario no ha permitido la entrada del micrófono en el explorador.
 - **JavaScript**: Se ha corregido el [problema de GitHub n.º 249](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/249) en el que los errores de tipo en `ConversationTranslator` y `ConversationTranscriber` generaban un error de compilación para los usuarios de TypeScript.
 - **Objective-C**: Se ha corregido un problema por el que se producía un error en la compilación de GStreamer para iOS en Xcode 11.4, lo que soluciona el [problema de GitHub n.º 911](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/911).
-- **Python**: se ha corregido el [problema 870 de GitHub ](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/870) y se quita "DeprecationWarning: el módulo imp ha quedado en desuso en favor de importlib".
+- **Python**: se ha corregido el [problema 870 de GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/870) y se quita "DeprecationWarning: el módulo imp ha quedado en desuso en favor de importlib".
 
 **Muestras**
 - Ahora en el [ejemplo de archivo para el explorador de JavaScript](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/quickstart/javascript/browser/from-file/index.html) se usan archivos para el reconocimiento de voz. Esto soluciona el [problema de GitHub n.º 884](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/884).

@@ -3,12 +3,12 @@ title: Reglas de acción para las alertas de Azure Monitor
 description: Descripción de qué son las reglas de acción en Azure Monitor y cómo configurarlas y administrarlas.
 ms.topic: conceptual
 ms.date: 04/08/2021
-ms.openlocfilehash: df71883d04106dd341af4571c13cc55f35a1ecc3
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 4f54ee7d21d52386bd18921aec33cabe02046852
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107304824"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772566"
 ---
 # <a name="action-rules-preview"></a>Reglas de acción (versión preliminar)
 
@@ -143,7 +143,7 @@ Puede crear reglas de acción con la CLI de Azure mediante el comando [az monito
 
 1. Inicie sesión.
 
-   Si está usando una instalación local de la CLI, inicie sesión con el comando [az login](/cli/azure/reference-index#az-login).  Siga los pasos que se muestran en el terminal para completar el proceso de autenticación.
+   Si está usando una instalación local de la CLI, inicie sesión con el comando [az login](/cli/azure/reference-index#az_login).  Siga los pasos que se muestran en el terminal para completar el proceso de autenticación.
 
     ```azurecli
     az login

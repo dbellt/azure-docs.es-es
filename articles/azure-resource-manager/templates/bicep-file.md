@@ -3,12 +3,12 @@ title: Estructura y sintaxis de un archivo Bicep
 description: Describe la estructura y las propiedades de un archivo Bicep mediante la sintaxis declarativa.
 ms.topic: conceptual
 ms.date: 03/31/2021
-ms.openlocfilehash: 09993ae9c08f53144de8e94e6555ad93bec681f6
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 1b8eddd388878be8f653f963ef967cf2c0af685f
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106168695"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107537855"
 ---
 # <a name="understand-the-structure-and-syntax-of-bicep-files"></a>Nociones sobre la estructura y la sintaxis de los archivos Bicep
 
@@ -297,7 +297,7 @@ param existingKeyVaultName string
 
 ## <a name="multi-line-strings"></a>Cadenas de varias líneas
 
-Una cadena se puede dividir en varias líneas. Use tres caracteres de comillas simples `'''` para iniciar y finalizar la cadena multilínea. 
+Una cadena se puede dividir en varias líneas. Use tres caracteres de comillas simples `'''` para iniciar y finalizar la cadena multilínea.
 
 Los caracteres de la cadena multilínea se controlan tal cual. No se necesitan caracteres de escape. No se puede incluir `'''` en la cadena multilínea. Actualmente, no se admite la interpolación de cadenas.
 

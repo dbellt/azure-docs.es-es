@@ -17,12 +17,12 @@ ms.date: 1/29/2021
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d8c4876faf9ebc2619309aa0095a8ffe1e9e93d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 468e885bab6aab4becb5aaaec7b4d52ce5ef5e07
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102500553"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535989"
 ---
 # <a name="overview-of-provisioning-logs-in-the-azure-portal-preview"></a>Información general sobre los registros de aprovisionamiento en Azure Portal (versión preliminar)
 
@@ -61,7 +61,7 @@ Los clientes pueden interactuar con los registros de aprovisionamiento de cuatro
 
 - Acceder a los registros desde Azure Portal, como se describe en la siguiente sección.
 - Transmitir los registros de aprovisionamiento a [Azure Monitor](../app-provisioning/application-provisioning-log-analytics.md). Este método permite la retención extendida de datos y la creación de paneles, alertas y consultas personalizados.
-- Consultar la [Microsoft Graph API](/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta) para los registros de aprovisionamiento.
+- Consultar la [Microsoft Graph API](/graph/api/resources/provisioningobjectsummary) para los registros de aprovisionamiento.
 - Descargar los registros de aprovisionamiento como un archivo CSV o JSON.
 
 ## <a name="access-the-logs-from-the-azure-portal"></a>Acceso a los registros desde Azure Portal
@@ -251,7 +251,7 @@ Use la tabla siguiente para entender mejor cómo resolver los errores que se enc
 |InsufficientRights, MethodNotAllowed, NotPermitted, Unauthorized| Azure AD se autenticó con la aplicación de destino, pero no tenía autorización para realizar la actualización. Revise las instrucciones proporcionadas por la aplicación de destino, junto con el [tutorial](../saas-apps/tutorial-list.md) de la aplicación correspondiente.|
 |UnprocessableEntity|La aplicación de destino devolvió una respuesta inesperada. Es posible que la configuración de la aplicación de destino no sea correcta o que haya un problema de servicio con la aplicación de destino que impida que esto funcione.|
 |WebExceptionProtocolError |Se produjo un error de protocolo HTTP al conectarse a la aplicación de destino. No hay nada que hacer. Este intento se retirará automáticamente en 40 minutos.|
-|InvalidAnchor|Ya no existe un usuario que se había creado previamente o que coincidía con el servicio de aprovisionamiento. Asegúrese de que el usuario existe. Para forzar una nueva coincidencia de todos los usuarios, use Microsoft Graph API para [reiniciar el trabajo](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta). <br><br>Reiniciar el aprovisionamiento desencadenará un ciclo inicial, que puede tardar en completarse. Al reiniciar el aprovisionamiento también se elimina la memoria caché que usa el servicio de aprovisionamiento para funcionar. Esto significa que todos los usuarios y grupos del inquilino tendrán que volver a evaluarse y que se pueden quitar determinados eventos de aprovisionamiento.|
+|InvalidAnchor|Ya no existe un usuario que se había creado previamente o que coincidía con el servicio de aprovisionamiento. Asegúrese de que el usuario existe. Para forzar una nueva coincidencia de todos los usuarios, use Microsoft Graph API para [reiniciar el trabajo](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta&preserve-view=true). <br><br>Reiniciar el aprovisionamiento desencadenará un ciclo inicial, que puede tardar en completarse. Al reiniciar el aprovisionamiento también se elimina la memoria caché que usa el servicio de aprovisionamiento para funcionar. Esto significa que todos los usuarios y grupos del inquilino tendrán que volver a evaluarse y que se pueden quitar determinados eventos de aprovisionamiento.|
 |NotImplemented | La aplicación de destino devolvió una respuesta inesperada. Es posible que la configuración de la aplicación no sea correcta o que haya un problema de servicio con la aplicación de destino que impida que esto funcione. Revise las instrucciones proporcionadas por la aplicación de destino, junto con el [tutorial](../saas-apps/tutorial-list.md) de la aplicación correspondiente. |
 |MandatoryFieldsMissing, MissingValues |No se pudo crear el usuario porque faltan los valores necesarios. Corrija los valores de atributo que faltan en el registro de origen o revise la configuración de atributo coincidente para asegurarse de que no se omitan los campos obligatorios. [Más información](../app-provisioning/customize-application-attributes.md) sobre cómo configurar atributos coincidentes.|
 |SchemaAttributeNotFound |La operación no se pudo realizar porque se especificó un atributo que no existe en la aplicación de destino. Consulte la [documentación](../app-provisioning/customize-application-attributes.md) sobre la personalización de atributos y asegúrese de que la configuración sea correcta.|
@@ -269,4 +269,4 @@ Use la tabla siguiente para entender mejor cómo resolver los errores que se enc
 
 * [Comprobación del estado de aprovisionamiento de usuarios](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)
 * [Problema al configurar el aprovisionamiento de usuarios para una aplicación de la galería de Azure AD](../app-provisioning/application-provisioning-config-problem.md)
-* [Graph API para registros de aprovisionamiento](/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta)
+* [Graph API para registros de aprovisionamiento](/graph/api/resources/provisioningobjectsummary)

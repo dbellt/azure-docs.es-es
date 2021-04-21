@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 07/05/2019
 ms.author: juliako
-ms.openlocfilehash: 248799d70e0741efcaea1714c12f4d92a42cef25
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5a738152296aacbb5914e859a65976bd0f6dbf0a
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93041901"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107532424"
 ---
 # <a name="scenes-shots-and-keyframes"></a>Escenas, capturas y fotogramas clave
 
@@ -54,7 +54,7 @@ Descomprima y abra la carpeta. Vaya a la carpeta *_KeyframeThumbnail* y encontra
 
 #### <a name="with-the-video-indexer-api"></a>Mediante la API de Video Indexer
 
-Para obtener fotogramas clave mediante la API de Video Indexer, cargue e indexe el vídeo con la llamada a [Upload Video](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Upload-Video?) (Cargar vídeo). Una vez completado el trabajo de indexación, llame a [Get Video Index](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Index?) (Obtener índice del vídeo). Esto le proporcionará toda la información que Video Indexer extrae del contenido en un archivo JSON.  
+Para obtener fotogramas clave mediante la API de Video Indexer, cargue e indexe el vídeo con la llamada a [Upload Video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) (Cargar vídeo). Una vez completado el trabajo de indexación, llame a [Get Video Index](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Index) (Obtener índice del vídeo). Esto le proporcionará toda la información que Video Indexer extrae del contenido en un archivo JSON.  
 
 Obtendrá una lista de identificadores de fotogramas clave como parte de los metadatos de cada captura. 
 
@@ -98,7 +98,7 @@ Obtendrá una lista de identificadores de fotogramas clave como parte de los met
 ]
 ```
 
-Ahora tendrá que ejecutar cada uno de estos identificadores de fotogramas clave en la llamada a [Get Thumbnails](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Thumbnail?) (Obtener miniaturas). Se descargará cada una de las imágenes de fotogramas clave en el equipo. 
+Ahora tendrá que ejecutar cada uno de estos identificadores de fotogramas clave en la llamada a [Get Thumbnails](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Thumbnail) (Obtener miniaturas). Se descargará cada una de las imágenes de fotogramas clave en el equipo. 
 
 ## <a name="editorial-shot-type-detection"></a>Detección del tipo de toma editorial
 

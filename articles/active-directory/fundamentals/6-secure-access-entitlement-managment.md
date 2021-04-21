@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f06a54f59405d9833194b2e7d4488bc93d2437ae
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 89744b63a555cc02d35815b4066ce572b7f77e38
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98725185"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107531897"
 ---
 # <a name="manage-external-access-with-entitlement-management"></a>Administración del acceso externo con la Administración de derechos 
 
@@ -96,13 +96,13 @@ Para más información sobre las revisiones de acceso, consulte [Planeamiento de
 
 Puede realizar [funciones de Administración de derechos mediante Microsoft Graph](/graph/tutorial-access-package-api), incluidas las siguientes:
 
-* [Administración de paquetes de acceso](/graph/api/resources/accesspackage?view=graph-rest-beta)
+* [Administración de paquetes de acceso](/graph/api/resources/accesspackage?view=graph-rest-beta&preserve-view=true)
 
-* [Administración de revisiones del acceso](/graph/api/resources/accessreviewsv2-root?view=graph-rest-beta)
+* [Administración de revisiones del acceso](/graph/api/resources/accessreviewsv2-root?view=graph-rest-beta&preserve-view=true)
 
-* [Administración de organizaciones conectadas](/graph/api/resources/connectedorganization?view=graph-rest-beta)
+* [Administración de organizaciones conectadas](/graph/api/resources/connectedorganization?view=graph-rest-beta&preserve-view=true)
 
-* [Administración de la configuración de Administración de derechos](/graph/api/resources/entitlementmanagementsettings?view=graph-rest-beta)
+* [Administración de la configuración de Administración de derechos](/graph/api/resources/entitlementmanagementsettings?view=graph-rest-beta&preserve-view=true)
 
 ## <a name="recommendations"></a>Recomendaciones 
 
@@ -112,7 +112,7 @@ Se recomiendan los procedimientos para controlar el acceso externo con la Admini
 
 * Si ya tiene usuarios B2B en el directorio, también puede asignarlos directamente a los paquetes de acceso adecuados.
 
-* Puede asignar acceso en [Azure Portal](../governance/entitlement-management-access-package-assignments.md) o a través de [Microsoft Graph](/graph/api/resources/accesspackageassignmentrequest?view=graph-rest-beta).
+* Puede asignar acceso en [Azure Portal](../governance/entitlement-management-access-package-assignments.md) o a través de [Microsoft Graph](/graph/api/resources/accesspackageassignmentrequest?view=graph-rest-beta&preserve-view=true).
 
 **Use la configuración de Gobierno de identidades para quitar usuarios del directorio cuando los paquetes de acceso expiren**.
 

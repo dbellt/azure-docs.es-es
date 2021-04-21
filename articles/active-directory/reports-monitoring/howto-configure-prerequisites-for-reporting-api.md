@@ -17,12 +17,12 @@ ms.date: 03/04/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ca618dc234ff4383083ff5eb21299fb1e3e7128
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 00c519ef06637c5193b347f0bbc906c6232a7ca8
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96348745"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107532537"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Requisitos previos para acceder a la API de generación de informes de Azure Active Directory
 
@@ -224,5 +224,5 @@ Siga los pasos del artículo [Requisitos previos para acceder a la API de genera
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Obtención de datos mediante la API de generación de informes de Azure Active Directory con certificados](tutorial-access-api-with-certificates.md)
-* [Referencia de la API de auditoría](/graph/api/resources/directoryaudit?view=graph-rest-beta) 
-* [Referencia de la API de generación de informes de actividad de inicio de sesión](/graph/api/resources/signin?view=graph-rest-beta)
+* [Referencia de la API de auditoría](/graph/api/resources/directoryaudit) 
+* [Referencia de la API de generación de informes de actividad de inicio de sesión](/graph/api/resources/signin)
