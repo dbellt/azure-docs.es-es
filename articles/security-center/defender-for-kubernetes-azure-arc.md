@@ -5,20 +5,20 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 04/05/2021
+ms.date: 04/06/2021
 ms.author: memildin
-ms.openlocfilehash: 664e985e0da1a9eeb43c99775b1685bb7645ff20
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: 940cae8829a99ee7ffacdb41844237acc85b7761
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106492654"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107029206"
 ---
 # <a name="defend-azure-arc-enabled-kubernetes-clusters-running-in-on-premises-and-multi-cloud-environments"></a>Protección de clústeres de Kubernetes habilitados para Azure Arc que se ejecutan en entornos locales y de varias nubes
 
-Para proteger los clústeres locales con las mismas funcionalidades de detección de amenazas que se ofrecen actualmente para los clústeres de Azure Kubernetes Service, habilite Azure Arc en los clústeres e implemente la **extensión de clúster de Azure Defender para Kubernetes**.
+La **extensión de clústeres de Azure Defender para Kubernetes** puede proteger los clústeres locales con las mismas funcionalidades de detección de amenazas que se ofrecen para los clústeres de Azure Kubernetes Service. Habilite [Kubernetes habilitado para Azure Arc](../azure-arc/kubernetes/overview.md) en los clústeres e implemente la extensión como se describe en esta página. 
 
-También puede usar la extensión para proteger los clústeres de Kubernetes implementados en máquinas de otros proveedores en la nube, aunque no podrá proteger los que están en servicios de Kubernetes administrado.
+La extensión puede proteger también los clústeres de Kubernetes en otros proveedores de nube, aunque no los que están en los servicios de Kubernetes administrado.
 
 > [!TIP]
 > Hemos preparado algunos archivos de ejemplo para ayudarle con el proceso de instalación en los [ejemplos de instalación de GitHub](https://aka.ms/kubernetes-extension-installation-examples).
@@ -27,7 +27,7 @@ También puede usar la extensión para proteger los clústeres de Kubernetes imp
 
 | Aspecto | Detalles |
 |--------|---------|
-| Estado de la versión | **Vista previa** [!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]|
+| Estado de la versión | **Versión preliminar**<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]|
 | Roles y permisos necesarios | El [administrador de seguridad](../role-based-access-control/built-in-roles.md#security-admin) puede descartar las alertas.<br>El [Lector de seguridad](../role-based-access-control/built-in-roles.md#security-reader) puede ver los resultados. |
 | Precios | Requiere [Azure Defender para Kubernetes](defender-for-kubernetes-introduction.md) |
 | Distribuciones de Kubernetes admitidas | [Azure Kubernetes Service en Azure Stack HCl](/azure-stack/aks-hci/overview)<br>[Kubernetes](https://kubernetes.io/docs/home/)<br> [AKS Engine](https://github.com/Azure/aks-engine)<br> [Red Hat OpenShift](https://www.openshift.com/learn/topics/kubernetes/) (versión 4.6 o posterior) |

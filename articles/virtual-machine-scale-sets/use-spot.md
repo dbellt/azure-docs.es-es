@@ -9,12 +9,12 @@ ms.subservice: spot
 ms.date: 02/26/2021
 ms.reviewer: cynthn
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: ec73d1363fb18d1d6c46589fe69879a8f6df1dab
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 61bb87d84b96f988ae065a70b85d445fc8b96ccf
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104722572"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762954"
 ---
 # <a name="azure-spot-virtual-machines-for-virtual-machine-scale-sets"></a>Máquinas virtuales de acceso puntual de Azure para conjuntos de escalado 
 
@@ -82,7 +82,7 @@ Antes de poder usar la característica Prueba y restauración, debe registrar la
 
 **Uso de la CLI**
 
-Utilice [az feature register](/cli/azure/feature#az-feature-register) para habilitar la versión preliminar de su suscripción. 
+Utilice [az feature register](/cli/azure/feature#az_feature_register) para habilitar la versión preliminar de su suscripción. 
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.Compute --name SpotTryRestore 

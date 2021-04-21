@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: quickstart
-ms.date: 01/27/2021
+ms.date: 04/07/2021
 ms.author: alkohli
-ms.openlocfilehash: b6389152116a47bedbc9c2dc44231f3e1732fdc6
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 43477f11effaafb0bcd6158be6843c79d19092ac
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106055117"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210817"
 ---
 # <a name="quickstart-get-started-with-azure-stack-edge-pro-with-gpu"></a>Inicio rápido: Introducción a Azure Stack Edge Pro con GPU 
 
@@ -36,7 +36,7 @@ Antes de realizar la implementación, asegúrese de que se cumplen los siguiente
 
 ## <a name="deployment-steps"></a>Pasos de implementación
 
-1. **Instalar**: conecte PUERTO 1 a un equipo cliente a través de un cable cruzado o un adaptador Ethernet USB. Conecte al menos otro puerto de dispositivo para los datos, preferiblemente 25 GbE, (de PUERTO 3 a PUERTO 6) a Internet a través de un conmutador de al menos 1 GbE y cables de cobre SFP +. Conecte los cables de alimentación proporcionados a las unidades de fuente de alimentación y separe las salidas de distribución de la alimentación. Presione el botón de encendido del panel delantero encender el dispositivo.  
+1. **Instalar**: conecte PUERTO 1 a un equipo cliente a través de un cable cruzado o un adaptador Ethernet USB. Conecte al menos otro puerto de dispositivo para los datos, preferiblemente de 25 GbE, (del PUERTO 3 al PUERTO 6) a Internet mediante cables de cobre SFP+ o utilice el PUERTO 2 con un latiguillo RJ45. Conecte los cables de alimentación proporcionados a las unidades de fuente de alimentación y separe las salidas de distribución de la alimentación. Presione el botón de encendido del panel delantero encender el dispositivo.  
 
     Consulte el documento sobre la [matriz de interoperabilidad de la serie FastlinQ 41000 de Cavium](https://www.marvell.com/documents/xalflardzafh32cfvi0z/) y los [productos compatibles con el adaptador de red de 4 canales y doble puerto 25G ConnectX de Mellanox](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products) para obtener cables de red y conmutadores compatibles.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial`:` Uso de identidades administradas para acceder a Azure Key Vault (Windows): Azure AD'
+title: 'Tutorial: Uso de identidades administradas para acceder a Azure Key Vault (Windows): Azure AD'
 description: Este tutorial contiene directrices acerca de cómo utilizar una identidad administrada asignada por el sistema de una máquina virtual Windows para acceder a Azure Key Vault.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/10/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f29c9daba80ffc57b96cf5bd82690dea9ac6429
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 92ded2d327fd7c75633bf7ef6b7dd3041725c921
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101093739"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107378268"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>Tutorial: Uso de las identidades administradas asignadas por el sistema de una máquina virtual Windows para acceder a Azure Key Vault 
 

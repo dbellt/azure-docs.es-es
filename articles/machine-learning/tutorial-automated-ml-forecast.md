@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Previsión de la demanda y aprendizaje automático automatizado'
 titleSuffix: Azure Machine Learning
-description: Aprenda a entrenar e implementar un modelo de previsión de la demanda con aprendizaje automático automatizado en Azure Machine Learning Studio.
+description: Entrene e implemente un modelo de previsión de la demanda sin escribir código, mediante la interfaz de aprendizaje automático automatizado de Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,21 +11,18 @@ ms.reviewer: nibaccam
 author: cartacioS
 ms.date: 12/21/2020
 ms.custom: automl
-ms.openlocfilehash: 2653161b5828d89858234a9ca98fe432e0eacb5c
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: a5f7c0cf95d62df2d06c91abd99a1827524d5d6b
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879366"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210557"
 ---
 # <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>Tutorial: Previsión de la demanda con aprendizaje automático automatizado
 
+Aprenda a crear un [modelo de previsión de series temporales](concept-automated-ml.md#time-series-forecasting) sin escribir ninguna línea de código mediante el aprendizaje automático automatizado de Estudio de Azure Machine Learning. Este modelo predecirá la demanda de alquiler de un servicio de uso compartido de bicicletas.  
 
-En este tutorial utilizará el aprendizaje automático automatizado, o ML automatizado, en Azure Machine Learning Studio para crear un modelo de previsión de la demanda de serie temporal de la demanda de alquiler para un servicio de uso compartido de bicicletas.
-
-Para obtener un ejemplo de modelo de clasificación, consulte [Tutorial: Creación de un modelo de clasificación con aprendizaje automático automatizado en Azure Machine Learning](tutorial-first-experiment-automated-ml.md).
-
-En este tutorial, aprenderá las siguientes tareas:
+En este tutorial no escribirá absolutamente nada de código, usará la interfaz de Estudio de Azure Machine Learning para realizar el entrenamiento.  Aprenderá a realizar las siguientes tareas:
 
 > [!div class="checklist"]
 > * Creación y carga de un conjunto de datos.
@@ -34,13 +31,18 @@ En este tutorial, aprenderá las siguientes tareas:
 > * Exploración de los resultados del experimento.
 > * Implementación del mejor modelo.
 
-## <a name="prerequisites"></a>Prerrequisitos
+Pruebe también el aprendizaje automático automatizado para estos otros tipos de modelos:
+
+* Para ver un ejemplo sin código de un modelo de clasificación, consulte [Tutorial: Creación de un modelo de clasificación con aprendizaje automático automatizado en Azure Machine Learning](tutorial-first-experiment-automated-ml.md).
+* Para obtener un primer ejemplo de código de un modelo de regresión, consulte [Tutorial: Uso del aprendizaje automático automatizado para predecir tarifas de taxi](tutorial-auto-train-models.md).
+
+## <a name="prerequisites"></a>Requisitos previos
 
 * Un área de trabajo de Azure Machine Learning. Consulte [Creación de un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md). 
 
 * Descargue el archivo de datos [bike-no.csv](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/bike-no.csv).
 
-## <a name="get-started-in-azure-machine-learning-studio"></a>Introducción a Azure Machine Learning Studio
+## <a name="sign-in-to-the-studio"></a>Inicio de sesión en Estudio de Azure Machine Learning
 
 En este tutorial, se crea el experimento de aprendizaje automático automatizado que se ejecuta en Azure Machine Learning Studio, una interfaz web consolidada que incluye herramientas de aprendizaje automático para llevar a la práctica escenarios de ciencia de datos para los profesionales de ciencia de datos de todos los niveles de conocimiento. Studio no se admite en los exploradores Internet Explorer.
 

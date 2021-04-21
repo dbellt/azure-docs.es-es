@@ -3,19 +3,18 @@ title: Azure Key Vault traslada un almacén a una suscripción diferente | Micro
 description: Instrucciones para trasladar un almacén de claves a una suscripción diferente.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: c23f961b8aeaae3e338f9c513a9f2b9d07b64abb
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 65dc9da03a6b763d419c51e53bf756550e8b56a4
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106056409"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751857"
 ---
 # <a name="moving-an-azure-key-vault-to-another-subscription"></a>Traslado de Azure Key Vault a otra suscripción
 
@@ -124,5 +123,5 @@ Si usa identidad administrada, también tendrá que actualizar la identidad, ya 
 - Más información sobre [claves, secretos y certificados](about-keys-secrets-certificates.md)
 - Para obtener información conceptual, incluido cómo interpretar los registros de Key Vault, consulte [Registro de Azure Key Vault](logging.md).
 - [Guía del desarrollador de Key Vault](../general/developers-guide.md)
-- [Protección de Key Vault](secure-your-key-vault.md)
+- [Protección de Key Vault](security-overview.md)
 - [Configuración de firewalls y redes virtuales de Azure Key Vault](network-security.md)

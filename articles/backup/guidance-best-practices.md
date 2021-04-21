@@ -3,12 +3,12 @@ title: Guía y procedimientos recomendados
 description: Descubra los procedimientos recomendados y las instrucciones para realizar copias de seguridad en la nube de las cargas de trabajo locales y en la nube.
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 0b3f70061be4d158ae717a97779d6ab0445f5858
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 14476533cf896434182e1d63f89c6a1279b36362
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100593333"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107519070"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Copia de seguridad en la nube de cargas de trabajo locales y en la nube
 
@@ -261,4 +261,4 @@ Como administrador o usuario de copias de seguridad, debe ser capaz de supervisa
 Se recomienda leer los siguientes artículos como puntos de partida para usar Azure Backup:
 
 * [Introducción a Azure Backup](backup-overview.md)
-* [Preguntas más frecuentes](backup-azure-backup-faq.md)
+* [Preguntas más frecuentes](backup-azure-backup-faq.yml)

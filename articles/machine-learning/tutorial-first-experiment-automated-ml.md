@@ -1,7 +1,7 @@
 ---
 title: Creación de modelos de clasificación de aprendizaje automático automatizado
 titleSuffix: Azure Machine Learning
-description: Aprenda a entrenar e implementar modelos de clasificación con la interfaz de aprendizaje automático automatizado de Azure Machine Learning.
+description: Entrene e implemente modelos de clasificación sin escribir código, mediante la interfaz de aprendizaje automático automatizado de Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,23 +11,20 @@ ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 12/21/2020
 ms.custom: automl
-ms.openlocfilehash: ad8a9f7af9ddabe969d090f80378ba5ff891d7f1
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d0e236891e48a20adf1901d2f95a90ae25969c49
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101691950"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210853"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Tutorial: Creación de un modelo de clasificación con aprendizaje automático automatizado en Azure Machine Learning
 
-
-En este tutorial, aprenderá a crear un modelo de clasificación simple sin escribir ninguna línea de código mediante el aprendizaje automático automatizado de Azure Machine Learning Studio. Este modelo de clasificación predice si un cliente suscribirá un depósito a plazo fijo con una institución financiera.
+Aprenda a crear un [modelo de clasificación simple](concept-automated-ml.md#classification) sin escribir ninguna línea de código mediante el aprendizaje automático automatizado de Estudio de Azure Machine Learning. Este modelo de clasificación predice si un cliente suscribirá un depósito a plazo fijo con una institución financiera.
 
 Con el aprendizaje automático, puede automatizar las tareas que requieren mucho tiempo. El aprendizaje automático recorre en iteración rápidamente muchas combinaciones de algoritmos e hiperparámetros para ayudarle a encontrar el mejor modelo según una métrica de éxito de su elección.
 
-Para ver un ejemplo de previsión de serie temporal, consulte [Tutorial: Previsión de la demanda y aprendizaje automático automatizado](tutorial-automated-ml-forecast.md).
-
-En este tutorial, aprenderá las siguientes tareas:
+En este tutorial no escribirá absolutamente nada de código, usará la interfaz de Estudio de Azure Machine Learning para realizar el entrenamiento.  Aprenderá a realizar las siguientes tareas:
 
 > [!div class="checklist"]
 > * Cree un área de trabajo de Azure Machine Learning.
@@ -35,7 +32,12 @@ En este tutorial, aprenderá las siguientes tareas:
 > * Visualización de los detalles del experimento.
 > * Se implementa el modelo.
 
-## <a name="prerequisites"></a>Prerrequisitos
+Pruebe también el aprendizaje automático automatizado para estos otros tipos de modelos:
+
+* Para ver un ejemplo sin código de previsión, consulte [Tutorial: Previsión de la demanda con aprendizaje automático automatizado](tutorial-automated-ml-forecast.md).
+* Para obtener un primer ejemplo de código de un modelo de regresión, consulte [Tutorial: Uso del aprendizaje automático automatizado para predecir tarifas de taxi](tutorial-auto-train-models.md).
+
+## <a name="prerequisites"></a>Requisitos previos
 
 * Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://aka.ms/AMLFree).
 
@@ -52,7 +54,7 @@ Existen muchas [maneras de crear un área de trabajo](how-to-manage-workspace.md
 >[!IMPORTANT] 
 > Tome nota del **área de trabajo** y de la **suscripción**. Los necesitará para asegurarse de que crea el experimento en el lugar correcto. 
 
-## <a name="get-started-in-azure-machine-learning-studio"></a>Introducción a Azure Machine Learning Studio
+## <a name="sign-in-to-the-studio"></a>Inicio de sesión en Estudio de Azure Machine Learning
 
 Lleve a cabo los siguientes pasos de configuración y ejecución del experimento a través de Azure Machine Learning Studio en https://ml.azure.com, una interfaz web consolidada que incluye herramientas de aprendizaje automático para llevar a la práctica escenarios de ciencia de datos para los profesionales de ciencia de datos de todos los niveles de conocimiento. Studio no se admite en los exploradores Internet Explorer.
 

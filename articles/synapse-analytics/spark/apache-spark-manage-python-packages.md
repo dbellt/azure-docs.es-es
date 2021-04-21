@@ -9,12 +9,12 @@ ms.date: 02/26/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 2d6ac02402414f096a46fec0340c3074d8e1784a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 1d64233fc477ec25f91bb73c744b10210571df41
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104586648"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107588350"
 ---
 # <a name="manage-python-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Administración de bibliotecas de Python para Apache Spark en Azure Synapse Analytics
 
@@ -76,7 +76,8 @@ dependencies:
   - matplotlib
   - koalas==1.7.0
 ```
-Para obtener más información, consulte [cómo crear un entorno desde un archivo environment.yml](https://docs.conda.io/projects/conda/latest/user-guide/tasks/manage-environments.html#creating-an-environment-file-manually).
+Para obtener más información, consulte [cómo crear un entorno desde un archivo environment.yml](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#activating-an-environment
+).
 
 #### <a name="update-python-packages"></a>Actualización de paquetes de Python
 Una vez que haya identificado el archivo de especificación de entorno o el conjunto de bibliotecas que quiere instalar en el grupo de Spark, puede actualizar las bibliotecas de grupos de Spark desde Azure Synapse Studio o Azure Portal. Aquí puede proporcionar la especificación de entorno y seleccionar las bibliotecas de área de trabajo que se van a instalar. 

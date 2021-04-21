@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 07af586bac71ee9b33ef314756454cb3c52ec912
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 8b46ca16fc32a7b96c071a745f49bf5d5557f34b
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107305929"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530234"
 ---
 # <a name="using-the-location-condition-in-a-conditional-access-policy"></a>Uso la condición de ubicación en una directiva de acceso condicional 
 
@@ -165,7 +165,7 @@ Cuando hay en funcionamiento un servidor proxy en la nube, se puede utilizar una
 
 ### <a name="api-support-and-powershell"></a>Compatibilidad con la API y PowerShell
 
-Una versión preliminar de Graph API para ubicaciones con nombre está disponible. Para obtener más información, consulte [namedLocation API](/graph/api/resources/namedlocation?view=graph-rest-beta).
+Una versión preliminar de Graph API para ubicaciones con nombre está disponible. Para obtener más información, consulte [namedLocation API](/graph/api/resources/namedlocation).
 
 > [!NOTE]
 > Las ubicaciones con nombre que cree mediante PowerShell aparecerán solo en Ubicaciones con nombre (versión preliminar). No puede ver las ubicaciones con nombre en la vista anterior.  

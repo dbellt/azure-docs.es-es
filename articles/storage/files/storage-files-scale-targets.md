@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 0ecfbb9053fde4ff332cbbcb6e14a84a5bbeb99a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 276dd7aa1925fefaaa94dfdd5d7a5baba5164f56
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104593159"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107790264"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Objetivos de escalabilidad y rendimiento de Azure Files
 [Azure Files](storage-files-introduction.md) ofrece recursos compartidos de archivos en la nube totalmente administrados a los que se puede acceder mediante los protocolos SMB y del sistema de archivos NFS. En este artículo se explican los objetivos de escalabilidad y rendimiento de Azure Files y Azure File Sync.
@@ -103,7 +103,7 @@ Dado que el agente de Azure File Sync se ejecuta en una máquina con Windows Ser
 
 En el caso de Azure File Sync, el rendimiento es fundamental en dos fases:
 
-1. **Aprovisionamiento inicial que se realiza una sola vez**: para optimizar el rendimiento del aprovisionamiento inicial, consulte [Incorporación con Azure File Sync](storage-sync-files-deployment-guide.md#onboarding-with-azure-file-sync), donde obtendrá los detalles de una implementación óptima.
+1. **Aprovisionamiento inicial que se realiza una sola vez**: para optimizar el rendimiento del aprovisionamiento inicial, consulte [Incorporación con Azure File Sync](../file-sync/file-sync-deployment-guide.md#onboarding-with-azure-file-sync), donde obtendrá los detalles de una implementación óptima.
 2. **Sincronización en curso**: después de que los datos se inicializan en los recursos compartidos de archivos de Azure, Azure File Sync mantiene varios puntos de conexión sincronizados.
 
 Para ayudarle a planear la implementación de cada una de las fases, a continuación encontrará los resultados observados durante las pruebas internas en un sistema con una configuración
@@ -134,7 +134,7 @@ La tasa de rendimiento es de 20 objetos por segundo. Para calcular el tiempo qu
 
 **Sincronización inicial de datos de Windows Server con un recurso compartido de archivos de Azure**: muchas implementaciones de Azure File Sync comienzan con un recurso compartido de archivos de Azure vacío porque todos los datos están en el servidor de Windows. En estos casos, la enumeración inicial de cambios en la nube es rápida y la mayor parte del tiempo se dedica a sincronizar los cambios de Windows Server con los recursos compartidos de archivos de Azure. 
 
-Mientras la sincronización carga los datos en el recurso compartido de archivos de Azure, no hay tiempo de inactividad en el servidor de archivos local y los administradores pueden [configurar los límites de red](./storage-sync-files-server-registration.md#set-azure-file-sync-network-limits) para restringir la cantidad de ancho de banda que se usa para la carga de datos en segundo plano.
+Mientras la sincronización carga los datos en el recurso compartido de archivos de Azure, no hay tiempo de inactividad en el servidor de archivos local y los administradores pueden [configurar los límites de red](../file-sync/file-sync-server-registration.md#set-azure-file-sync-network-limits) para restringir la cantidad de ancho de banda que se usa para la carga de datos en segundo plano.
 
 La sincronización inicial suele estar limitada por la velocidad de carga inicial de 20 archivos por segundo/por grupo de sincronización. Los clientes pueden calcular el tiempo de carga de todos sus datos en Azure con las siguientes fórmulas para obtener el tiempo en días:  
 
@@ -164,4 +164,4 @@ Como guía general para la implementación, debería tener varios factores en cu
 
 ## <a name="see-also"></a>Consulte también
 - [Planeamiento de una implementación de Azure Files](storage-files-planning.md)
-- [Planeamiento de una implementación de Azure File Sync](storage-sync-files-planning.md)
+- [Planeamiento de una implementación de Azure File Sync](../file-sync/file-sync-planning.md)

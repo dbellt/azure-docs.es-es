@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/17/2021
-ms.openlocfilehash: 01f43ceab36b519f3aafbbdc711df15c80481398
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 75615b4bb8773d0c0b8f72278e5598462c779ceb
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104597443"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107365236"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Copia y transformación de datos en Azure SQL Database mediante Azure Data Factory
 
@@ -76,7 +76,7 @@ Para ver los distintos tipos de autenticación, consulte las secciones siguiente
 - [Autenticación de token de la aplicación de Azure AD: identidades administradas de recursos de Azure](#managed-identity)
 
 >[!TIP]
->Si recibió un error con el código de error "UserErrorFailedToConnectToSqlServer" y un mensaje parecido a "The session limit for the database is XXX and has been reached" (El límite de sesión de la base de datos es XXX y ya se ha alcanzado), agregue `Pooling=false` a la cadena de conexión e inténtelo de nuevo.
+>Si recibió un error con el código de error "UserErrorFailedToConnectToSqlServer" y un mensaje parecido a "The session limit for the database is XXX and has been reached" (El límite de sesión de la base de datos es XXX y ya se ha alcanzado), agregue `Pooling=false` a la cadena de conexión e inténtelo de nuevo. `Pooling=false` también se recomienda para la configuración de servicios vinculados de tipo **SHIR (entorno de ejecución de integración autohospedado).** Es posible agregar una agrupación y otros parámetros de conexión como nuevos nombres y valores de parámetro en la sección **Propiedades de conexión adicionales** del formulario de creación de servicios vinculados.
 
 ### <a name="sql-authentication"></a>Autenticación SQL
 

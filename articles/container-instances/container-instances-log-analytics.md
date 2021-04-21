@@ -3,12 +3,12 @@ title: Recopilar y analizar registros de recursos
 description: Obtenga información sobre cómo enviar registros de recursos y datos de eventos de grupos de contenedores en Azure Container Instances a los registros de Azure Monitor.
 ms.topic: article
 ms.date: 07/13/2020
-ms.openlocfilehash: cfdcd1cc8e36a118c4e3c4435eaa002e4d3b1b93
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e46a1df65a4cfe5d10a58704aff485aa2834b55f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100579332"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763926"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Registro de instancias y grupos de contenedores con registros de Azure Monitor
 
@@ -172,4 +172,4 @@ Para obtener información acerca de la supervisión de los recursos de CPU y de 
 [query_lang]: /azure/data-explorer/
 
 <!-- LINKS - Internal -->
-[az-container-create]: /cli/azure/container#az-container-create
+[az-container-create]: /cli/azure/container#az_container_create

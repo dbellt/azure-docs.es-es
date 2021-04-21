@@ -3,12 +3,12 @@ title: Habilitación de Container Insights | Microsoft Docs
 description: En este artículo se describe cómo habilitar y configurar Container Insights, de forma que pueda conocer el rendimiento de su contenedor y qué problemas relacionados con el rendimiento se han identificado.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 01246a728f204ed9cb43eee392c637b495208aaf
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e0544232f40e93cce0705fff6814d29697a96218
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105109359"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107782124"
 ---
 # <a name="enable-container-insights"></a>Habilitación de Container Insights
 
@@ -124,7 +124,7 @@ Para habilitar Container Insights, puede usar uno de los métodos descritos en l
 | Nuevo clúster de Kubernetes | [Crear un clúster de AKS mediante la CLI de Azure](../../aks/kubernetes-walkthrough.md#create-aks-cluster)| Puede habilitar la supervisión de un nuevo clúster de AKS que cree con la CLI de Azure. |
 | | [Crear de un clúster de AKS con Terraform](container-insights-enable-new-cluster.md#enable-using-terraform)| Puede habilitar la supervisión de un nuevo clúster de AKS que cree mediante la herramienta de código abierto Terraform. |
 | | [Crear un clúster de OpenShift mediante una plantilla de Azure Resource Manager](container-insights-azure-redhat-setup.md#enable-for-a-new-cluster-using-an-azure-resource-manager-template) | Puede habilitar la supervisión de un nuevo clúster de OpenShift que cree con una plantilla preconfigurada de Azure Resource Manager. |
-| | [Crear un clúster de OpenShift mediante la CLI de Azure](/cli/azure/openshift#az-openshift-create) | Puede habilitar la supervisión durante la implementación de un nuevo clúster de OpenShift con la CLI de Azure. |
+| | [Crear un clúster de OpenShift mediante la CLI de Azure](/cli/azure/openshift#az_openshift_create) | Puede habilitar la supervisión durante la implementación de un nuevo clúster de OpenShift con la CLI de Azure. |
 | Clúster de Kubernetes existente | [Habilitar la supervisión de un clúster de AKS mediante la CLI de Azure](container-insights-enable-existing-clusters.md#enable-using-azure-cli) | Puede habilitar la supervisión de un clúster de AKS ya implementado mediante la CLI de Azure. |
 | |[Habilitar un clúster de AKS con Terraform](container-insights-enable-existing-clusters.md#enable-using-terraform) | Puede habilitar la supervisión de un clúster de AKS ya implementado mediante la herramienta de código abierto Terraform. |
 | | [Habilitar un clúster de AKS desde Azure Monitor](container-insights-enable-existing-clusters.md#enable-from-azure-monitor-in-the-portal)| Puede habilitar la supervisión de uno o varios clústeres de AKS ya implementados desde la página de varios clústeres en Azure Monitor. |

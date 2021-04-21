@@ -4,12 +4,12 @@ description: Aprenda a deshabilitar y a habilitar las funciones de Azure Functio
 ms.topic: conceptual
 ms.date: 03/15/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ef3886c4b9b73f87238bf386d1320ecbac8ad181
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 03803abfda010c81fa8286a478d626ef39db59fb
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107374903"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107777588"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>Deshabilitamiento de funciones en Azure Functions
 
@@ -35,7 +35,7 @@ Aunque publique en la aplicación de funciones desde un proyecto local, puede se
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azurecli)
 
-En el CLI de Azure, use el comando [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) para crear y modificar la configuración de la aplicación. En el siguiente comando se deshabilita una función denominada `QueueTrigger` al crear una configuración de aplicaciones denominada `AzureWebJobs.QueueTrigger.Disabled` y establecerla en `true`. 
+En el CLI de Azure, use el comando [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set) para crear y modificar la configuración de la aplicación. En el siguiente comando se deshabilita una función denominada `QueueTrigger` al crear una configuración de aplicaciones denominada `AzureWebJobs.QueueTrigger.Disabled` y establecerla en `true`. 
 
 ```azurecli-interactive
 az functionapp config appsettings set --name <FUNCTION_APP_NAME> \

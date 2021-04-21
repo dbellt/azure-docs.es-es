@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3df08272b352ee789c9879b1118105c435cffbd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cb0312d905284f8c5a9817e9550d340bf6135032
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103011092"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107532211"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management"></a>Creación de un paquete de acceso en la administración de derechos de Azure AD
 
@@ -138,11 +138,11 @@ En la pestaña **Revisar y crear**, puede revisar la configuración y comprobar 
 
 También puede crear un paquete de acceso mediante Microsoft Graph.  Un usuario de un rol adecuado con una aplicación con el permiso `EntitlementManagement.ReadWrite.All` delegado puede llamar a la API para:
 
-1. [Enumerar los elementos accessPackageResources en el catálogo](/graph/api/accesspackagecatalog-list?tabs=http&view=graph-rest-beta) y [crear un elemento accessPackageResourceRequest](/graph/api/accesspackageresourcerequest-post?tabs=http&view=graph-rest-beta) para todos los recursos que aún no están en el catálogo.
-1. [Enumerar el elemento accessPackageResourceRoles](/graph/api/accesspackage-list-accesspackageresourcerolescopes?tabs=http&view=graph-rest-beta) de cada elemento accessPackageResource en un catálogo accessPackageCatalog. Esta lista de roles se usará en adelante para seleccionar un rol, cuando cree posteriormente un elemento accessPackageResourceRoleScope.
-1. [Crear un elemento accessPackage](/graph/tutorial-access-package-api?view=graph-rest-beta).
-1. [Crear un elemento accessPackageAssignmentPolicy](/graph/api/accesspackageassignmentpolicy-post?tabs=http&view=graph-rest-beta).
-1. [Crear un elemento accessPackageResourceRoleScope](/graph/api/accesspackage-post-accesspackageresourcerolescopes?tabs=http&view=graph-rest-beta) para cada rol de recurso necesario en el paquete de acceso.
+1. [Enumerar los elementos accessPackageResources en el catálogo](/graph/api/accesspackagecatalog-list?tabs=http&view=graph-rest-beta&preserve-view=true) y [crear un elemento accessPackageResourceRequest](/graph/api/accesspackageresourcerequest-post?tabs=http&view=graph-rest-beta&preserve-view=true) para todos los recursos que aún no están en el catálogo.
+1. [Enumerar el elemento accessPackageResourceRoles](/graph/api/accesspackage-list-accesspackageresourcerolescopes?tabs=http&view=graph-rest-beta&preserve-view=true) de cada elemento accessPackageResource en un catálogo accessPackageCatalog. Esta lista de roles se usará en adelante para seleccionar un rol, cuando cree posteriormente un elemento accessPackageResourceRoleScope.
+1. [Crear un elemento accessPackage](/graph/tutorial-access-package-api&view=graph-rest-beta&preserve-view=true).
+1. [Crear un elemento accessPackageAssignmentPolicy](/graph/api/accesspackageassignmentpolicy-post?tabs=http&view=graph-rest-beta&preserve-view=true).
+1. [Crear un elemento accessPackageResourceRoleScope](/graph/api/accesspackage-post-accesspackageresourcerolescopes?tabs=http&view=graph-rest-beta&preserve-view=true) para cada rol de recurso necesario en el paquete de acceso.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

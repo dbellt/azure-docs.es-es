@@ -7,12 +7,12 @@ ms.topic: article
 author: shashankbarsin
 ms.author: shasb
 description: Implementación y administración del ciclo de vida de las extensiones en Kubernetes habilitado para Azure Arc
-ms.openlocfilehash: 63fb14818d148dcc579300fdb4c89d636b47fd05
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 854d7418515d7927a3c0b4b8790ed4770af555ab
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106450914"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312627"
 ---
 # <a name="kubernetes-cluster-extensions"></a>Extensiones de clúster de Kubernetes
 
@@ -51,7 +51,7 @@ Puede encontrar información general y algunos conceptos sobre esta característ
 | Extensión | Descripción |
 | --------- | ----------- |
 | [Azure Monitor](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json) | Proporciona visibilidad sobre el rendimiento de las cargas de trabajo implementadas en el clúster de Kubernetes. Recopila métricas de uso de memoria y CPU de los controladores, nodos y contenedores. |
-| [Azure Defender](../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json) | Recopila datos de registro de auditoría de los nodos del plano de control que pertenecen al clúster de Kubernetes. Proporciona recomendaciones y alertas de amenazas basadas en los datos recopilados. |
+| [Azure Defender](../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json) | Recopila información relacionada con la seguridad, como los datos de registros de auditoría del clúster de Kubernetes. Proporciona recomendaciones y alertas de amenazas basadas en los datos recopilados. |
 
 ## <a name="usage-of-cluster-extensions"></a>Uso de las extensiones de clúster
 
@@ -235,31 +235,6 @@ az k8s-extension list --cluster-name <clusterName> --resource-group <resourceGro
   }
 ]
 ```
-
-### <a name="update-an-existing-extension-instance"></a>Actualización de una instancia de extensión existente
-
-Actualice una instancia de extensión en un clúster con `k8s-extension update`; para ello, pase los valores que se van a actualizar.  Este comando solo actualiza las propiedades `auto-upgrade-minor-version`, `release-train` y `version`. Por ejemplo:
-
-- **Actualice la serie de versiones:**
-
-    ```azurecli
-    az k8s-extension update --name azuremonitor-containers --cluster-type connectedClusters --cluster-name <clusterName> --resource-group <resourceGroupName> --release-train Preview
-    ```
-
-- **Desactive la actualización automática y fije la instancia de extensión en una versión específica:**
-
-    ```azurecli
-    az k8s-extension update --name azuremonitor-containers --cluster-type connectedClusters --cluster-name <clusterName> --resource-group <resourceGroupName> --auto-upgrade-minor-version false --version 2.2.2
-    ```
-
-- **Active la actualización automática para la instancia de extensión:**
-
-    ```azurecli
-    az k8s-extension update --name azuremonitor-containers --cluster-type connectedClusters --cluster-name <clusterName> --resource-group <resourceGroupName> --auto-upgrade-minor-version true
-    ```
-
-> [!NOTE]
-> El parámetro `version` solo se puede establecer cuando `--auto-upgrade-minor-version` está establecido en `false`.
 
 ### <a name="delete-extension-instance"></a>Eliminación de una instancia de extensión
 

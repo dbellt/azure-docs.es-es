@@ -9,17 +9,17 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 03/19/2021
-ms.openlocfilehash: 8952e6e1bda8763d403c02dcd5815f1e1c0941e8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 32c56df5bafa9439fc559edf137c1080920cfb32
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105641869"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107284381"
 ---
 # <a name="migration-guide-mysql-to-azure-sql-database"></a>Guía de migración: de MySQL a Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
 
-En esta guía obtendrá información sobre cómo migrar la base de datos de MySQL a Azure SQL Database mediante SQL Server Migration Assistant para MySQL (SSMA para MySQL). 
+En esta guía obtendrá información sobre [cómo migrar](https://azure.microsoft.com/migration/migration-journey) una base de datos de MySQL a otra de Azure SQL mediante [SQL Server Migration Assistant](https://azure.microsoft.com/en-us/migration/sql-server/) para MySQL (SSMA para MySQL). 
 
 Para ver otras guías de migración, consulte [Guía de Azure Database Migration](https://docs.microsoft.com/data-migration). 
 
@@ -27,23 +27,23 @@ Para ver otras guías de migración, consulte [Guía de Azure Database Migration
 
 Antes de empezar a migrar la base de datos de MySQL a una base de datos SQL, haga lo siguiente:
 
-- Compruebe que el entorno de origen es compatible. Actualmente, se admiten MySQL 5.6 y 5.7. 
+- Compruebe que el entorno de origen sea compatible. Actualmente, se admiten MySQL 5.6 y 5.7. 
 - Descargue e instale [SQL Server Migration Assistant para MySQL](https://www.microsoft.com/download/details.aspx?id=54257).
 - Asegúrese de que tiene conectividad y permisos suficientes para acceder tanto al origen como al destino.
 
 ## <a name="pre-migration"></a>Antes de la migración 
 
-Una vez cumplidos los requisitos previos, estará listo para detectar la topología del entorno y evaluar la viabilidad de la migración.
+Una vez cumplidos los requisitos previos, tendrá todo listo para detectar la topología de su entorno y evaluar la viabilidad de la [migración a la nube de Azure](https://azure.microsoft.com/migration).
 
 ### <a name="assess"></a>Evaluar 
 
 Use SQL Server Migration Assistant (SSMA) para MySQL con el fin de revisar datos y objetos de bases de datos, y evaluar estas últimas para la migración. 
 
-Para crear una evaluación, siga estos pasos:
+Para crear una valoración, siga estos pasos:
 
 1. Abra [SSMA para MySQL](https://www.microsoft.com/download/details.aspx?id=54257). 
-1. Seleccione **File** (Archivo) y, a continuación, seleccione **New Project** (Nuevo proyecto). 
-1. En el panel **New Project** (Nuevo proyecto), escriba un nombre y una ubicación para el proyecto y, a continuación, en la lista desplegable **Migrate To** (Migrar a), seleccione **Azure SQL Database**. 
+1. Seleccione **Archivo** y, a continuación, seleccione **Nuevo proyecto**. 
+1. En el panel **Nuevo proyecto**, escriba un nombre y una ubicación para el proyecto y, a continuación, en la lista desplegable **Migrar a**, seleccione **Azure SQL Database**. 
 1. Seleccione **Aceptar**.
 
    ![Captura de pantalla del panel "New Project" (Nuevo proyecto) para escribir el nombre del proyecto, la ubicación y el destino de la migración.](./media/mysql-to-sql-database-guide/new-project.png)
@@ -52,7 +52,7 @@ Para crear una evaluación, siga estos pasos:
 
    ![Captura de pantalla del panel "Connect to MySQL" (Conectar a MySQL) para especificar las conexiones con el origen.](./media/mysql-to-sql-database-guide/connect-to-mysql.png)
 
-1. En el panel **MySQL Metadata Explorer** (Explorador de metadatos de MySQL), haga clic con el botón derecho en el esquema de MySQL y seleccione **Create Report** (Crear informe). Como alternativa, puede seleccionar la pestaña **Create Report** (Crear informe) en la esquina superior derecha.
+1. En el panel **MySQL Metadata Explorer** (Explorador de metadatos de MySQL), haga clic con el botón derecho en el esquema de MySQL y seleccione **Create Report** (Crear informe). Como alternativa, puede seleccionar la pestaña **Crear informe** en la esquina superior derecha.
 
    ![Captura de pantalla de los vínculos "Create Report" (Crear informe) en SSMA para MySQL.](./media/mysql-to-sql-database-guide/create-report.png)
 
@@ -65,10 +65,10 @@ Para crear una evaluación, siga estos pasos:
 
 ### <a name="validate-the-data-types"></a>Validación de los tipos de datos
 
-Valide las asignaciones predeterminadas de los tipos de datos y cámbielas según los requisitos, si es necesario. Para ello: 
+Valide las asignaciones predeterminadas de los tipos de datos y cámbielas según los requisitos, si fuera necesario. Para ello: 
 
-1. Seleccione **Tools** (Herramientas) y, luego, **Project Settings** (Configuración del proyecto).  
-1. Seleccione la pestaña **Type mappings** (Asignaciones de tipos). 
+1. Seleccione **Herramientas** y, luego, **Configuración del proyecto**.  
+1. Seleccione la pestaña **Asignación de tipo**. 
 
    ![Captura de pantalla del panel "Type Mappings" (Asignaciones de tipos) de SSMA para MySQL.](./media/mysql-to-sql-database-guide/type-mappings.png)
 
@@ -78,31 +78,31 @@ Valide las asignaciones predeterminadas de los tipos de datos y cámbielas segú
 
 Para convertir el esquema, haga lo siguiente: 
 
-1. (Opcional) Para convertir consultas dinámicas o especializadas, haga clic con el botón derecho en el nodo y seleccione **Add statement** (Agregar instrucción). 
+1. (Opcional) Para convertir consultas dinámicas o especializadas, haga clic con el botón derecho en el nodo y seleccione **Agregar instrucción**. 
 
-1. Seleccione la pestaña **Connect to Azure SQL Database** (Conectar a Azure SQL Database) y haga lo siguiente:
+1. Seleccione la pestaña **Conectarse a Azure SQL Database** y haga lo siguiente:
 
-   a. Escriba los detalles para conectarse a la base de datos SQL.  
-   b. Seleccione la base de datos SQL de destino en la lista desplegable. También puede proporcionar un nombre nuevo, en cuyo caso se crea una base de datos en el servidor de destino.  
+   a. Escriba los detalles para conectarse a la base de datos SQL.  
+   b. Seleccione la base de datos SQL de destino en la lista desplegable. También puede proporcionar un nombre nuevo, en cuyo caso se crea una base de datos en el servidor de destino.  
    c. Proporcione los detalles de la autenticación.  
    d. Seleccione **Conectar**.
 
    ![Captura de pantalla del panel "Connect to Azure SQL Database" (Conectar a Azure SQL Database) en SSMA para MySQL.](./media/mysql-to-sql-database-guide/connect-to-sqldb.png)
  
-1. Haga clic con el botón derecho en el esquema con el que está trabajando y, a continuación, seleccione **Convert Schema** (Convertir esquema). Como alternativa, puede seleccionar la pestaña **Convert Schema** (Convertir esquema) en la esquina superior derecha.
+1. Haga clic con el botón derecho en el esquema con el que está trabajando y, a continuación, seleccione **Convertir esquema**. Como alternativa, puede seleccionar la pestaña **Convert Schema** (Convertir esquema) en la esquina superior derecha.
 
    ![Captura de pantalla del comando "Convert Schema" (Convertir Esquema) en el panel "MySQL Metadata Explorer" (Explorador de metadatos de MySQL).](./media/mysql-to-sql-database-guide/convert-schema.png)
 
 1. Una vez finalizada la conversión, revise y compare los objetos convertidos con los objetos originales para identificar posibles problemas y solucionarlos en función de las recomendaciones. 
 
-   ![Captura de pantalla que muestra una comparación de los objetos convertidos con los objetos originales.](./media/mysql-to-sql-database-guide/table-comparison.png)
+   ![Captura de pantalla que muestra una comparación entre los objetos convertidos y los originales.](./media/mysql-to-sql-database-guide/table-comparison.png)
 
-   Compare el texto de Transact-SQL convertido con el código original y revise las recomendaciones.
+   Compare el texto de Transact-SQL convertido al código original y revise las recomendaciones.
 
    ![Captura de pantalla que muestra una comparación de las consultas convertidas con el código fuente.](./media/mysql-to-sql-database-guide/procedure-comparison.png)
 
 1. En el panel **Output** (Salida), seleccione **Review results** (Revisar resultados) y revise los errores en el panel **Error list** (Lista de errores). 
-1. Guarde el proyecto localmente para un ejercicio de corrección de esquema sin conexión. Para ello, seleccione **File** > **Save Project** (Archivo > Guardar proyecto). Esto le ofrece la oportunidad de evaluar los esquemas de origen y de destino sin conexión, y realizar correcciones antes de publicar el esquema en la base de datos SQL.
+1. Guarde el proyecto localmente para un ejercicio de corrección de esquema sin conexión. Para ello, seleccione **Archivo** > **Guardar proyecto**. Esto le ofrece la oportunidad de evaluar los esquemas de origen y de destino sin conexión, y hacer correcciones para poder publicar el esquema en la base de datos SQL.
 
    Compare los procedimientos convertidos con los procedimientos originales, como se muestra aquí: 
 
@@ -111,29 +111,29 @@ Para convertir el esquema, haga lo siguiente:
 
 ## <a name="migrate-the-databases"></a>Migración de las bases de datos 
 
-Después de evaluar las bases de datos y de solucionar las discrepancias, puede ejecutar el proceso de migración. La migración implica dos pasos: publicar el esquema y migrar los datos. 
+Después de evaluar las bases de datos y de solucionar las discrepancias, puede llevar a cabo el proceso de migración. La migración conlleva dos pasos: publicar el esquema y migrar los datos. 
 
 Para publicar el esquema y migrar los datos, haga lo siguiente: 
 
-1. Publique el esquema. En el panel **Azure SQL Database Metadata Explorer** (Explorador de metadatos de Azure SQL Database), haga clic con el botón derecho en la base de datos y, luego, seleccione **Synchronize with Database** (Sincronizar con base de datos). Esta acción publica el esquema de MySQL en la base de datos SQL.
+1. Publique el esquema. En el panel del **Explorador de metadatos de Azure SQL Database**, haga clic con el botón derecho en la base de datos y, luego, seleccione **Sincronizar con base de datos**. Esta acción publica el esquema de MySQL en la base de datos SQL.
 
-   ![Captura de pantalla del panel "Synchronize with the Database" (Sincronizar con base de datos) para revisar la asignación de base de datos.](./media/mysql-to-sql-database-guide/synchronize-database-review.png)
+   ![Captura de pantalla del panel "Synchronize with the Database" (Sincronizar con la base de datos) para revisar la asignación de base de datos.](./media/mysql-to-sql-database-guide/synchronize-database-review.png)
 
-1. Migre los datos. En el panel **MySQL Metadata Explorer** (Explorador de metadatos de MySQL), haga clic con el botón derecho en el esquema de MySQL que desea migrar y, a continuación, seleccione **Migrate Data** (Migrar datos). Como alternativa, puede seleccionar la pestaña **Migrate Data** (Migrar datos) en la esquina superior derecha.
+1. Migre los datos. En el panel **MySQL Metadata Explorer** (Explorador de metadatos de MySQL), haga clic con el botón derecho en el esquema de MySQL que desea migrar y, a continuación, seleccione **Migrate Data** (Migrar datos). Como alternativa, puede seleccionar la pestaña **Migrar datos** en la esquina superior derecha.
 
-   Para migrar datos de toda una base de datos, active la casilla situada junto al nombre de la base de datos. Para migrar datos de tablas individuales, expanda la base de datos, expanda **Tables** (Tablas) y, a continuación, active la casilla situada junto a la tabla. Para omitir datos de tablas concretas, desactive la casilla.
+   Para migrar datos de toda una base de datos, active la casilla situada junto al nombre de la base de datos. Para migrar datos de tablas concretas, expanda la base de datos, expanda **Tablas** y, a continuación, active la casilla que hay junto a la tabla. Para omitir datos de tablas concretas, desactive la casilla.
 
    ![Captura de pantalla del comando "Migrate Data" (Migrar datos) en el panel "MySQL Metadata Explorer" (Explorador de metadatos de MySQL).](./media/mysql-to-sql-database-guide/migrate-data.png)
 
-1. Una vez completada la migración, consulte **Data Migration Report** (Informe de migración de datos).
+1. Una vez completada la migración, vea el **Informe de migración de datos**.
    
-   ![Captura de pantalla del informe de migración de datos.](./media/mysql-to-sql-database-guide/data-migration-report.png)
+   ![Captura de pantalla del Informe de migración de datos.](./media/mysql-to-sql-database-guide/data-migration-report.png)
 
 1. Conéctese a la base de datos SQL mediante [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) y revise los datos y el esquema para validar la migración.
 
    ![Captura de pantalla de SQL Server Management Studio.](./media/mysql-to-sql-database-guide/validate-in-ssms.png)
 
-## <a name="post-migration"></a>Después de la migración 
+## <a name="post-migration"></a>Etapa posterior a la migración 
 
 Cuando haya completado correctamente la fase de *migración*, deberá realizar una serie de tareas posteriores para asegurarse de que todo funcione de la forma más fluida y eficaz posible.
 
@@ -151,21 +151,21 @@ El enfoque de prueba para la migración de bases de datos consta de las siguient
 
 1. **Ejecutar pruebas de validación**: ejecute las pruebas de validación en el origen y el destino y, luego, analice los resultados.
 
-1. **Ejecutar pruebas de rendimiento**: ejecute pruebas de rendimiento en el origen y el destino y, luego, analice y compare los resultados.
+1. **Ejecutar pruebas de rendimiento**: ejecute la prueba de rendimiento en el origen y el destino y, luego, analice y compare los resultados.
 
 ### <a name="optimize"></a>Optimización
 
 La fase posterior a la migración es fundamental para reconciliar cualquier problema de precisión de datos y comprobar su integridad, así como para solucionar problemas de rendimiento con la carga de trabajo.
 
-Para más información sobre estos problemas y los pasos para mitigarlos, consulte [Guía de optimización y validación posterior a la migración](/sql/relational-databases/post-migration-validation-and-optimization-guide).
+Para obtener más información sobre estos problemas y los pasos para mitigarlos, consulte la [Guía de optimización y validación posterior a la migración](/sql/relational-databases/post-migration-validation-and-optimization-guide).
 
 ## <a name="migration-assets"></a>Recursos de migración
 
-Para más ayuda para completar este escenario de migración, consulte el siguiente recurso. Se ha desarrollado para ayudar a integrar un proyecto de migración real.
+Para obtener más ayuda a fin de completar este escenario de migración, vea el siguiente recurso. Se ha desarrollado para ayudar a integrar el proyecto de migración real.
 
-| Title | Descripción |
+| Título | Descripción |
 | --- | --- |
-| [Herramienta y modelo de evaluación de la carga de trabajo de datos](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool) | Proporciona sugerencias de plataformas de destino "ideales", preparación para la nube y los niveles de corrección de la aplicación y la base de datos para las cargas de trabajo especificadas. Ofrece un cálculo sencillo con un solo clic y una función de generación de informes que ayuda a acelerar las evaluaciones de grandes volúmenes, ya que proporciona un proceso de toma de decisiones de plataforma de destino uniforme y automatizado. |
+| [Herramienta y modelo de evaluación de la carga de trabajo de datos](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool) | Proporciona sugerencias de plataformas de destino ideales, preparación para la nube, y niveles de corrección de aplicación o base de datos para cargas de trabajo especificadas. Ofrece un cálculo sencillo con un solo clic y una función de generación de informes que ayuda a acelerar las evaluaciones de grandes volúmenes, ya que proporciona un proceso de toma de decisiones de plataforma de destino uniforme y automatizado. |
 
 El equipo de ingeniería de datos SQL ha desarrollado estos recursos. El objetivo principal de este equipo es permitir y acelerar la modernización compleja de los proyectos de migración de la plataforma de datos a la de Azure, de Microsoft.
 
@@ -175,6 +175,9 @@ El equipo de ingeniería de datos SQL ha desarrollado estos recursos. El objetiv
 
 - Para obtener una matriz de los servicios y las herramientas de Microsoft y de otros fabricantes que están disponibles para ayudarle en diversos escenarios de migración de datos y bases de datos, además de las tareas especializadas, consulte [Servicios y herramientas disponibles para escenarios de migración de datos](../../../dms/dms-tools-matrix.md).
 
-- Para ver otras guías de migración, consulte [Guía de Azure Database Migration](https://datamigration.microsoft.com/). 
+- Para ver otras guías de migración, consulte la [Guía de Azure Database Migration](https://datamigration.microsoft.com/). 
 
 - Para ver vídeos sobre migración, consulte [Información general sobre el recorrido de la migración y las herramientas y los servicios de migración y evaluación recomendados](https://azure.microsoft.com/resources/videos/overview-of-migration-and-recommended-tools-services/).
+
+- Para obtener más [recursos sobre la migración a la nube](https://azure.microsoft.com/migration/resources/), consulte las [soluciones de migración](https://azure.microsoft.com/migration).
+

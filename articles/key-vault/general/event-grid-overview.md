@@ -3,18 +3,17 @@ title: Supervisión de Key Vault con Azure Event Grid
 description: Uso de Azure Event Grid para suscribirse a eventos de Key Vault
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 1ee38196f0b1a6e00d385dc0d2c88d45a4291d3b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4fb6d57bb84f4a3b4c5c138be9306489191bfce8
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90087443"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107753369"
 ---
 # <a name="monitoring-key-vault-with-azure-event-grid"></a>Supervisión de Key Vault con Azure Event Grid
 

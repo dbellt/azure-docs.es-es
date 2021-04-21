@@ -6,12 +6,12 @@ ms.author: nimag
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 7d7b62d6587a568b74d142a2ee6a93587941559d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: bd9a607b46c87ca590bcefef310f822d6f23483c
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105645398"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107386768"
 ---
 En este inicio rápido, verá cómo iniciar una llamada con Calling SDK de Azure Communication Services para JavaScript.
 
@@ -162,6 +162,10 @@ npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool 
 
 Abra el explorador web y vaya a http://localhost:8080/. Verá lo siguiente:
 
-:::image type="content" source="../media/javascript/calling-javascript-app.png" alt-text="Captura de pantalla de la aplicación JavaScript completada.":::
+:::image type="content" source="../media/javascript/calling-javascript-app-2.png" alt-text="Captura de pantalla de la aplicación JavaScript completada.":::
 
-Para hacer una llamada de VOIP saliente, proporcione un identificador de usuario en el campo de texto y haga clic en el botón **Iniciar llamada** . La llamada a `8:echo123` le conecta a un bot de eco; esto es excelente como introducción y para comprobar que los dispositivos de audio funcionan.
+Para hacer una llamada de VOIP saliente, proporcione un token de acceso de usuario y un identificador de usuario válidos en los campos de texto correspondientes y haga clic en el botón **Iniciar llamada**. La llamada a `8:echo123` le conecta a un bot de eco; esto es excelente como introducción y para comprobar que los dispositivos de audio funcionan.
+
+## <a name="sample-code"></a>Código de ejemplo
+
+Puede descargar la aplicación de ejemplo de [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-voice-calling).

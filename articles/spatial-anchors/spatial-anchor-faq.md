@@ -8,12 +8,12 @@ ms.author: parkerra
 ms.date: 11/20/2020
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: b67dcf038dbe13b8c040f317bb117f3b7a7afdde
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: fc92543f5954cda9db42e53cab18db1d8f3366c3
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106384245"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107284211"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Preguntas más frecuentes sobre Azure Spatial Anchors
 
@@ -52,6 +52,10 @@ Para más información, consulte [Introducción a Azure Spatial Anchors](overvie
 **P: ¿Cómo almacena los datos Azure Spatial Anchors?**
 
 **R:** Todos los datos se almacenan cifrados con una clave de cifrado de datos administrados de Microsoft y todos los datos se almacenan regionalmente para cada uno de los recursos.
+
+**P: ¿Dónde almacena los datos Azure Spatial Anchors?**
+
+**R:** Las cuentas de Azure Spatial Anchors permiten especificar la región donde se almacenarán los datos. Microsoft puede replicar datos en otras regiones para obtener resistencia, pero no replica ni mueve datos fuera de la geografía. Estos datos se almacenan en la región donde se ha configurado la cuenta de Azure Spatial Anchors. Por ejemplo, si la cuenta está registrada en la región Este de EE. UU., estos datos se almacenan en dicha región, pero se pueden replicar en otra región de la geografía de Norteamérica para garantizar la resistencia.
 
 **P: ¿Qué información acerca de un entorno se transmite y almacena en el servicio cuando se usa Azure Spatial Anchors? ¿Se transmiten y almacenan imágenes del entorno?**
 

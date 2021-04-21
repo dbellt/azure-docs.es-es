@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 03/15/2021
 ms.author: v-erkel
-ms.openlocfilehash: afb896100ea60c21aaf37890d7b520bf38c6ce18
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 44b2534d7aeb12f4819a6c42cfb29d057ce26ddc
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104772729"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259037"
 ---
 # <a name="add-storage-targets"></a>Incorporación de destinos de almacenamiento
 
@@ -314,6 +314,8 @@ Los destinos de almacenamiento de ADLS-NFS tienen algunas similitudes con los de
 
 Para que pueda crear un destino de almacenamiento de ADLS-NFS, primero debe crear una cuenta de almacenamiento habilitada para NFS. Siga las sugerencias de [Requisitos previos de Azure HPC Cache](hpc-cache-prerequisites.md#nfs-mounted-blob-adls-nfs-storage-requirements-preview) y las instrucciones de [Montaje de Blob Storage con NFS](../storage/blobs/network-file-system-protocol-support-how-to.md). Una vez configurada la cuenta de almacenamiento, podrá crear un nuevo contenedor cuando cree el destino de almacenamiento.
 
+Consulte [Uso del almacenamiento de blobs montado en NFS (versión preliminar) con Azure HPC Cache](nfs-blob-considerations.md) para más información sobre esta configuración.
+
 Para crear un destino de almacenamiento de ADLS-NFS, abra la página **Agregar destino de almacenamiento** en Azure Portal. (Los métodos adicionales están en desarrollo).
 
 ![Captura de pantalla de la página para agregar destino de almacenamiento con el destino ADLS-NFS definido](media/add-adls-target.png)
@@ -331,8 +333,6 @@ Escriba esta información.
 * **Modelo de uso**: elija uno de los perfiles de almacenamiento en caché de datos en función del flujo de trabajo, tal como se describe en la sección [Selección de un modelo de uso](#choose-a-usage-model) anterior.
 
 Cuando termine, haga clic en **Aceptar** para agregar el destino de almacenamiento.
-
-<!-- **** -->
 
 ## <a name="view-storage-targets"></a>Visualización de los destinos de almacenamiento
 

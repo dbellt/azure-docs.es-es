@@ -2,21 +2,21 @@
 title: En lugar de ETL, diseño de ELT
 description: Implementación de estrategias flexibles de carga de datos para grupos de SQL dedicados en Azure Synapse Analytics
 services: synapse-analytics
-author: gaursa
+author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 11/20/2020
-ms.author: gaursa
+ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 04bd4767445f9378aedb303e63bf463f44e40034
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8a8f857dcfdc271a3aaad71f4b9c26d474033383
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104602203"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107566110"
 ---
 # <a name="data-loading-strategies-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Estrategias de carga de datos para el grupo de SQL dedicado en Azure Synapse Analytics
 

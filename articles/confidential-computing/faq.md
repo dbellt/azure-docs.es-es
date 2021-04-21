@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.date: 4/17/2020
 ms.author: jencook
-ms.openlocfilehash: a5ecd3827bbdc12b098684f1feda2df652f11940
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 05c98102109d1925eb78d4558faf62b366801e77
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102551919"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107538977"
 ---
 # <a name="frequently-asked-questions-for-azure-confidential-computing"></a>Preguntas frecuentes de computación confidencial de Azure
 
@@ -76,4 +76,3 @@ Para obtener instrucciones sobre cómo instalar el SDK OE en una máquina en Azu
 También puede consultar el SDK Open Enclave en GitHub para obtener instrucciones de instalación específicas del sistema operativo:
    - [Instalación del SDK de OE en Windows](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Windows.md)
    - [Instalación del SDK de OE en Ubuntu 18.04](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Ubuntu_18.04.md)
-   - [Instalación del SDK de OE en Ubuntu 16.04](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Ubuntu_16.04.md)

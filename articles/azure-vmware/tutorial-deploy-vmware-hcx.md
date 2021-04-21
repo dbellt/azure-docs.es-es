@@ -3,12 +3,12 @@ title: 'Tutorial: implementación y configuración de VMware HCX'
 description: Aprenda a implementar y configurar una solución VMware HCX para la nube privada de Azure VMware Solution.
 ms.topic: tutorial
 ms.date: 03/13/2021
-ms.openlocfilehash: ab59b4a29f8ba372c1892613d5e0461bf3fdc512
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 9ee451ce4be59c51299d66e4042ed344026100cf
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104869096"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107011007"
 ---
 # <a name="deploy-and-configure-vmware-hcx"></a>Implementación y configuración de VMware HCX
 
@@ -20,7 +20,7 @@ El conector avanzado de VMware HCX está implementado previamente en Azure VMwar
 >Aunque la herramienta VMware Configuration Maximum describe que el número máximo de pares de sitios entre On-Premises Connector y Cloud Manager es 25, la licencia lo limita a 3 para HCX Advanced y 10 para HCX Enterprise Edition.
 
 >[!NOTE]
->VMware HCX Enterprise está disponible con Azure VMware Solution como un servicio en versión preliminar. Es gratuito y está sujeto a los términos y condiciones de un servicio en versión preliminar. Una vez que el servicio VMware HCX Enterprise esté disponible de forma general, recibirá un aviso de que en 30 días va a cambiar la facturación. También tendrá la opción de desactivar o no participar en el servicio. No hay ninguna ruta de degradación sencilla de VMware HCX Enterprise a VMware HCX Advanced. Si decide cambiar de versión, tendrá que volver a implementarlo, lo que supondrá un tiempo de inactividad.
+>VMware HCX Enterprise está disponible con Azure VMware Solution como un servicio en versión preliminar. Es gratuito y está sujeto a los términos y condiciones de un servicio en versión preliminar. Una vez que el servicio VMware HCX Enterprise esté disponible de forma general, recibirá un aviso de que en 30 días va a cambiar la facturación. También tendrá la opción de desactivar o no participar en el servicio. El cambio de HCx Enterprise a HCX Advanced se pude hacer sin tener que volver a realizar la implementación, pero tendrá que registrar una incidencia de soporte técnico para que esa acción tenga lugar. Si planea cambiar a una versión anterior, asegúrese de que no hay migraciones programadas o de que no se están utilizando características como RAV o MON.
 
 Revise primero las secciones [Antes de empezar](#before-you-begin), [Requisitos de versión de software](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-54E5293B-8707-4D29-BFE8-EE63539CC49B.html) y [Requisitos previos](#prerequisites). 
 

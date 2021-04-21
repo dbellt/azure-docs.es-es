@@ -3,12 +3,12 @@ title: Restauración de Azure Managed Disks
 description: Aprenda a restaurar Azure Managed Disks desde Azure Portal.
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: 94adc8512987b50a8df07d295215ffcff873162f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c57d60047a5bcef58c721ee25bd8a0b3ed523aa4
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105108594"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107517205"
 ---
 # <a name="restore-azure-managed-disks"></a>Restauración de Azure Managed Disks
 
@@ -128,4 +128,4 @@ Una vez que se desencadene la operación de restauración, el servicio de copia 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Preguntas más frecuentes sobre Azure Disk Backup](disk-backup-faq.md)
+- [Preguntas más frecuentes sobre Azure Disk Backup](disk-backup-faq.yml)

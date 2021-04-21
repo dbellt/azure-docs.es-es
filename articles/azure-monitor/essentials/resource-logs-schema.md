@@ -2,18 +2,18 @@
 title: Servicios y esquemas admitidos de los registros de recursos de Azure
 description: Conozca el esquema de los eventos y servicios admitidos para los registros de recurso de Azure.
 ms.topic: reference
-ms.date: 09/01/2020
-ms.openlocfilehash: 661cba2d78dbb176bb04e6831cf8e045a285535e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 04/07/2020
+ms.openlocfilehash: 09415353d93313f1b3c4844202b59f577ef3838d
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102033102"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107105772"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Esquema específico de servicio y común para los registros de recursos de Azure
 
 > [!NOTE]
-> Los registros de recurso se conocían anteriormente como registros de diagnóstico. El nombre se cambió en octubre de 2019, dado que los tipos de registros recopilados por Azure Monitor evolucionaron para incluir algo más que tan solo el recurso de Azure. Además, la lista de las categorías del registro de recursos que se podían recopilar se solía mostrar en este artículo. Se trasladaron a [Categorías del registro de recursos](resource-logs-categories.md). 
+> Los registros de recurso se conocían anteriormente como registros de diagnóstico. El nombre se cambió en octubre de 2019, dado que los tipos de registros recopilados por Azure Monitor evolucionaron para incluir algo más que tan solo el recurso de Azure. Además, la lista de las categorías del registro de recursos que se pueden recopilar se solían mostrar en este artículo. Ahora se encuentran en [Categorías del registro de recursos](resource-logs-categories.md). 
 
 Los [registros de recursos de Azure Monitor](../essentials/platform-logs-overview.md) son los registros emitidos por los servicios de Azure que describen el funcionamiento de dichos servicios o recursos. Todos los registros de recursos disponibles a través de Azure Monitor comparten un esquema común de nivel superior, con flexibilidad para que cada servicio emita propiedades únicas para sus propios eventos.
 
@@ -65,6 +65,7 @@ El esquema para los registros de recursos varía según la categoría de registr
 | Azure Database for MySQL | [Registros de diagnóstico de Azure Database for MySQL](../../mysql/concepts-server-logs.md#diagnostic-logs) |
 | Azure Database for PostgreSQL | [Registros de Azure Database for PostgreSQL](../../postgresql/concepts-server-logs.md#resource-logs) |
 | Azure Databricks | [Registro de diagnósticos en Azure Databricks](/azure/databricks/administration-guide/account-settings/azure-diagnostic-logs) |
+| DDoS Protection | [Registro en el estándar de Azure DDoS Protection](../../ddos-protection/diagnostic-logging.md#log-schemas) |
 | Azure Digital Twins | [Configuración de diagnósticos de Azure Digital Twins](../../digital-twins/troubleshoot-diagnostics.md#log-schemas)
 | Event Hubs |[Registros de Azure Event Hubs](../../event-hubs/event-hubs-diagnostic-logs.md) |
 | ExpressRoute | Esquema no disponible. |
@@ -76,13 +77,13 @@ El esquema para los registros de recursos varía según la categoría de registr
 | Load Balancer |[Log Analytics para Azure Load Balancer](../../load-balancer/load-balancer-monitor-log.md) |
 | Logic Apps |[Esquema de seguimiento personalizado de Logic Apps B2B](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Grupos de seguridad de red |[Análisis del registro para grupos de seguridad de red (NSG)](../../virtual-network/virtual-network-nsg-manage-log.md) |
-| DDoS Protection | [Registro en el estándar de Azure DDoS Protection](../../ddos-protection/diagnostic-logging.md#log-schemas) |
 | Power BI dedicado | [Registro para Power BI Embedded en Azure](/power-bi/developer/azure-pbie-diag-logs) |
 | Recovery Services | [Modelo de datos para Azure Backup](../../backup/backup-azure-reports-data-model.md)|
 | Search |[Habilitación y uso de Análisis de tráfico de búsqueda](../../search/search-traffic-analytics.md) |
 | Azure Service Bus |[Registros de Azure Service Bus](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
 | SQL Database | [Registro de Azure SQL Database](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md) |
 | Stream Analytics |[Registros de trabajo](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
+| Storage | [Blobs](/azure/storage/blobs/monitor-blob-storage-reference#resource-logs-preview), [instancias de Files](/azure/storage/files/storage-files-monitoring-reference#resource-logs-preview), [Colas](/azure/storage/queues/monitor-queue-storage-reference#resource-logs-preview), [Tablas](/azure/storage/tables/monitor-table-storage-reference#resource-logs-preview) |
 | Traffic Manager | [Esquema de registro de Traffic Manager](../../traffic-manager/traffic-manager-diagnostic-logs.md) |
 | Virtual Networks | Esquema no disponible. |
 | Puertas de enlace de red virtual | Esquema no disponible. |

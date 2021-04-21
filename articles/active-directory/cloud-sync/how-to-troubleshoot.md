@@ -8,12 +8,12 @@ ms.date: 01/19/2021
 ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 174ec8c42ea17ccae04769d7c0baaa91b8e7025b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 65022d98c7ee7e90d8f1fe5b6854605c841ad05b
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102517878"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530308"
 ---
 # <a name="cloud-sync-troubleshooting"></a>Solución de problemas de sincronización en la nube
 
@@ -197,7 +197,7 @@ Use Azure Portal para reiniciar el trabajo de aprovisionamiento. En la página 
 
   ![Reinicio del aprovisionamiento](media/how-to-troubleshoot/quarantine-3.png)
 
-- Use Microsoft Graph para [reiniciar el trabajo de aprovisionamiento](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta). Así tendrá control total sobre lo que reinicie. Puede elegir borrar:
+- Use Microsoft Graph para [reiniciar el trabajo de aprovisionamiento](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta&preserve-view=true). Así tendrá control total sobre lo que reinicie. Puede elegir borrar:
   - Custodias, para reiniciar el contador de custodias que se acumula hacia el estado de cuarentena.
   - Cuarentena, para quitar la aplicación de la cuarentena.
   - Marcas de agua. 

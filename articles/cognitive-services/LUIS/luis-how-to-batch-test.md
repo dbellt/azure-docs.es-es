@@ -8,13 +8,13 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 12/29/2020
-ms.openlocfilehash: b297330f3562babf9e83d36934827f7b92d5ea35
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/13/2021
+ms.openlocfilehash: 9fe4f21a5c9e9e26a2f94b8a60cba47916842fe3
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98787019"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107501797"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Pruebas por lotes con un conjunto de expresiones de ejemplo
 
@@ -208,7 +208,7 @@ Id. de versión de aplicación
 
 Envíe un archivo por lotes de expresiones, conocido como *conjunto de datos*, para las pruebas por lotes. El conjunto de datos es un archivo con formato JSON que contiene un máximo de 1000 expresiones etiquetadas. Puede probar hasta diez conjuntos de datos en una aplicación. Si necesita probar más, elimine un conjunto de datos y luego agregue uno nuevo. Todas las entidades personalizadas del modelo aparecen en el filtro de entidades de pruebas por lotes incluso si no existen las entidades correspondientes en los datos del archivo por lotes.
 
-El archivo por lotes está compuesto de expresiones. Cada expresión tiene que tener una predicción de intenciones esperada junto con todas las [entidades de aprendizaje automático](luis-concept-entity-types.md#types-of-entities) que espera detectar.
+El archivo por lotes está compuesto de expresiones. Cada expresión tiene que tener una predicción de intenciones esperada junto con todas las [entidades de aprendizaje automático](luis-concept-entity-types.md#machine-learned-ml-entity) que espera detectar.
 
 ### <a name="batch-syntax-template-for-intents-with-entities"></a>Plantilla de sintaxis de lotes para intenciones con entidades
 

@@ -10,12 +10,12 @@ ms.service: storage
 ms.subservice: files
 services: storage
 tags: ''
-ms.openlocfilehash: 3d4f10745d90ccd83e7251af40d3e92a230f2fcd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d8cc0cb7df4bb7bfff5a6b9d2f159cb674532927
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94629689"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107789760"
 ---
 # <a name="azure-file-share--failed-to-delete-files-from-azure-file-share"></a>Recurso compartido de archivos de Azure: no se pudieron eliminar archivos del recurso compartido de archivos de Azure
 
@@ -92,4 +92,4 @@ Para cerrar un identificador abierto, use el siguiente comando:
 
 * [Solución de problemas de Azure Files en Windows](storage-troubleshoot-windows-file-connection-problems.md)
 * [Solución de problemas de Azure Files en Linux](storage-troubleshoot-linux-file-connection-problems.md)
-* [Solución de problemas de Azure File Sync](storage-sync-files-troubleshoot.md)
+* [Solución de problemas de Azure File Sync](../file-sync/file-sync-troubleshoot.md)

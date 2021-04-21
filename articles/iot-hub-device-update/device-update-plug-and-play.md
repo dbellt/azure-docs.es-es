@@ -6,12 +6,12 @@ ms.author: valls
 ms.date: 2/14/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 0283a84650abaadd454b4f5bca83d1473e443fb8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: fbc3502952e11830ef9abb06cb709fcc60288343
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105561821"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739537"
 ---
 # <a name="device-update-for-iot-hub-and-iot-plug-and-play"></a>Device Update para IoT Hub e IoT Plug and Play
 
@@ -64,7 +64,7 @@ Los metadatos del servicio contienen campos que los servicios de Device Update u
 |Nombre|Schema|Dirección|Descripción|
 |----|------|---------|-----------|
 |action|integer|entre la nube y el dispositivo|Entero que se corresponde con una acción que el agente debe realizar. A continuación, se muestran los valores.|
-|updateManifest|string|entre la nube y el dispositivo|Se usa para describir el contenido de una actualización. Se genera a partir del [manifiesto de importación](import-update.md#create-device-update-import-manifest)|
+|updateManifest|string|entre la nube y el dispositivo|Se usa para describir el contenido de una actualización. Se genera a partir del [manifiesto de importación](import-update.md#create-a-device-update-import-manifest)|
 |updateManifestSignature|Objeto JSON|entre la nube y el dispositivo|JSON Web Signature (JWS, firma web de JSON) con las JSON Web Keys (claves web de JSON) que se utilizan para comprobar el código fuente.|
 |fileUrls|Asignación|entre la nube y el dispositivo|Asignación de `FileHash` a `DownloadUri`. Indica al agente qué archivos se van a descargar y el hash que se va a usar para comprobar que los archivos se descargaron correctamente.|
 

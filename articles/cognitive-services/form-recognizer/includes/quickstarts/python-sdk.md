@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 03/19/2021
 ms.author: lajanuar
-ms.openlocfilehash: f28fba451a5fbad9efe76e0d6bd39488beebb103
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: e37ff8a003bc10d69fd32794f26acfa8f5326423
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104761180"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107073516"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -49,7 +49,7 @@ pip install azure-ai-formrecognizer --pre
 ```
 
 > [!NOTE]
-> El SDK de Form Recognizer 3.1.0 refleja la _versión 2.1 preview.2 de la API_. Use la [**API REST**](../../quickstarts/client-library.md) para la _versión 2.1 preview.3 de la API_.
+> El SDK de Form Recognizer 3.1.0 refleja la versión _preliminar 2.1 preview.2 de la API_. Use la [**API REST**](../../quickstarts/client-library.md) para la _versión 2.1 preview.3 de la API_.
 
 #### <a name="v20"></a>[v2.0](#tab/ga)
 
@@ -77,7 +77,7 @@ Cree variables para el punto de conexión y la clave de Azure del recurso.
 
 ## <a name="object-model"></a>Modelo de objetos
 
-Con Form Recognizer, puede crear dos tipos de cliente diferentes. El primero, `form_recognizer_client`, se utiliza para consultar el servicio con los campos de formulario y el contenido reconocidos. El segundo, `form_training_client`, se usa para crear y administrar los modelos personalizados que puede usar para mejorar el reconocimiento. 
+Con Form Recognizer, puede crear dos tipos de cliente diferentes. El primero, `form_recognizer_client`, se usa para realizar consultas en el servicio para reconocer contenido y campos del formulario. El segundo, `form_training_client`, se usa para crear y administrar modelos personalizados que se pueden usar para mejorar el reconocimiento. 
 
 ### <a name="formrecognizerclient"></a>FormRecognizerClient
 
@@ -139,7 +139,7 @@ Es preciso que agregue referencias a las direcciones URL de los datos de entrena
 * [!INCLUDE [get SAS URL](../../includes/sas-instructions.md)]
   
    :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="Recuperación de la dirección URL de SAS":::
-* Use las imágenes de envío y de recepción que se incluyen en los ejemplos siguientes (también disponibles en [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms)). O bien, puede seguir los pasos anteriores para obtener la dirección URL de SAS de un documento individual en el almacenamiento de blobs. 
+* Use las imágenes de envío y de recepción que se incluyen en los ejemplos siguientes (también disponibles en [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms)). O bien, siga los pasos anteriores para obtener la dirección URL de SAS de un documento individual en el almacenamiento de blobs. 
 
 > [!NOTE]
 > Los fragmentos de código de esta guía usan formularios remotos con acceso mediante direcciones URL. En cambio, si quiere procesar documentos de formulario locales, consulte los métodos relacionados en la [documentación de referencia](/python/api/azure-ai-formrecognizer) y los [ejemplos](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples).

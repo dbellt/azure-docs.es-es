@@ -8,13 +8,13 @@ ms.custom: seodec18, references_regions
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 12/10/2020
-ms.openlocfilehash: 0a2d0ce683261ca3460c7aeaa0d7a42152b81a1e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/08/2020
+ms.openlocfilehash: a7a7bbb8b911f86b81cdeafe3fe57e1fdf820681
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98680199"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107228289"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>Exportación y eliminación de datos del cliente en Language Understanding (LUIS) en Cognitive Services
 
@@ -85,7 +85,15 @@ Los recursos de United States Authoring (que también se conoce como API de prog
 
 * Ubicaciones geográficas de Azure no admitidas en las regiones de creación Europa o Australia
 
-Al implementar en estas ubicaciones geográficas de Azure, las expresiones recibidas por el punto de conexión de los usuarios finales de la aplicación se almacenarán en la ubicación geográfica Estados Unidos de Azure para el aprendizaje activo. 
+Al implementar en estas ubicaciones geográficas de Azure, las expresiones recibidas por el punto de conexión de los usuarios finales de la aplicación se almacenarán en la ubicación geográfica Estados Unidos de Azure para el aprendizaje activo.
+
+### <a name="switzerland-north"></a>Norte de Suiza
+
+Los recursos de creación del Norte de Suiza (que también se conoce como API de programación) se hospedan en la región geográfica Suiza de Azure, y admiten la implementación de puntos de conexión en las siguientes regiones geográficas de Azure:
+
+* Suiza 
+
+Al implementar en estas ubicaciones geográficas de Azure, las expresiones recibidas por el punto de conexión de los usuarios finales de la aplicación se almacenarán en la ubicación geográfica Suiza de Azure para el aprendizaje activo.
 
 ## <a name="disable-active-learning"></a>Deshabilitación del aprendizaje activo
 

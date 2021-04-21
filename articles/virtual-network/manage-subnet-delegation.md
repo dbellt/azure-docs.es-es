@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/06/2019
 ms.author: kumud
-ms.openlocfilehash: 2bb80ba421617d5fd1699826deda00e56f1e43af
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 401124ed4b2794d891ca224ba3dc1c78edcae8d5
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98943676"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107783420"
 ---
 # <a name="add-or-remove-a-subnet-delegation"></a>Adición o eliminación de una delegación de subred
 
@@ -113,7 +113,7 @@ El rol [Colaborador de la red ](../role-based-access-control/built-in-roles.md?t
 
 En esta sección, delegará la subred que creó en la sección anterior en un servicio de Azure. 
 
-Use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update) para actualizar la subred denominada **mySubnet** con una delegación a un servicio de Azure.  En este ejemplo , se usa **Microsoft.DBforPostgreSQL/serversv2** para la delegación de ejemplo:
+Use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) para actualizar la subred denominada **mySubnet** con una delegación a un servicio de Azure.  En este ejemplo , se usa **Microsoft.DBforPostgreSQL/serversv2** para la delegación de ejemplo:
 
 ```azurecli-interactive
   az network vnet subnet update \
@@ -123,7 +123,7 @@ Use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vn
   --delegations Microsoft.DBforPostgreSQL/serversv2
 ```
 
-Para comprobar que la delegación se ha aplicado, use [az network vnet subnet show](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-show). Compruebe que el servicio esté delegado en la subred bajo la propiedad **serviceName**:
+Para comprobar que la delegación se ha aplicado, use [az network vnet subnet show](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_show). Compruebe que el servicio esté delegado en la subred bajo la propiedad **serviceName**:
 
 ```azurecli-interactive
   az network vnet subnet show \
@@ -152,7 +152,7 @@ Para comprobar que la delegación se ha aplicado, use [az network vnet subnet sh
 
 ### <a name="remove-subnet-delegation-from-an-azure-service"></a>Eliminación de la delegación de subred de un servicio de Azure
 
-Use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update) para quitar la delegación de la subred denominada **mySubnet**:
+Use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) para quitar la delegación de la subred denominada **mySubnet**:
 
 ```azurecli-interactive
   az network vnet subnet update \
@@ -161,7 +161,7 @@ Use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vn
   --vnet-name myVnet \
   --remove delegations
 ```
-Para comprobar que se ha quitado la delegación, use [az network vnet subnet show](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-show). Compruebe que el servicio se ha quitado de la subred en la propiedad **serviceName**:
+Para comprobar que se ha quitado la delegación, use [az network vnet subnet show](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_show). Compruebe que el servicio se ha quitado de la subred en la propiedad **serviceName**:
 
 ```azurecli-interactive
   az network vnet subnet show \

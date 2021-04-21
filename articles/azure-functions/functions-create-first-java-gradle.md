@@ -6,12 +6,12 @@ ms.custom: devx-track-java
 ms.author: karler
 ms.topic: how-to
 ms.date: 04/08/2020
-ms.openlocfilehash: c9ecb670cea022988efda8ec690c0724310cdb4b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d7f8aa990f5a5e64d2d5c59b52457149187acddd
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97934856"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107773988"
 ---
 # <a name="use-java-and-gradle-to-create-and-publish-a-function-to-azure"></a>Uso de Java y Gradle para crear y publicar una función en Azure
 
@@ -20,7 +20,7 @@ En este artículo se muestra cómo compilar y publicar un proyecto de una funci�
 > [!NOTE]
 > Si Gradle no es la herramienta de desarrollo preferida, consulte nuestros tutoriales análogos para desarrolladores de Java con [Maven](./create-first-function-cli-java.md), [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions) y [VS Code](./create-first-function-vs-code-java.md).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para desarrollar funciones con Java, debe tener instalado lo siguiente:
 
@@ -114,7 +114,7 @@ az login
 ```
 
 > [!TIP]
-> Si su cuenta puede acceder a varias suscripciones, use [az account set](/cli/azure/account#az-account-set) para establecer la suscripción predeterminada de esta sesión. 
+> Si su cuenta puede acceder a varias suscripciones, use [az account set](/cli/azure/account#az_account_set) para establecer la suscripción predeterminada de esta sesión. 
 
 Use el siguiente comando para implementar el proyecto en una nueva aplicación de funciones. 
 

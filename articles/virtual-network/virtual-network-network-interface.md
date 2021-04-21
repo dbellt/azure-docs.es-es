@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/22/2020
 ms.author: kumud
-ms.openlocfilehash: 74e09b4798a648b6a881fb05f1128831ad5f4aff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8003bf14bcade08f36a7877fdb3a53998aff9e63
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100586445"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107773077"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Creación, cambio o eliminación de una interfaz de red
 
@@ -66,6 +66,8 @@ El portal no proporciona la opción de asignar una interfaz de red a los grupos 
 
 >[!Note]
 > Azure asigna una dirección MAC a la interfaz de red solo después de asociar la interfaz de red a una máquina virtual y que esta se inicie la primera vez. No se puede especificar la dirección MAC que Azure asigna a la interfaz de red. La dirección MAC permanece asignada a la interfaz de red hasta que esta se elimina o se cambia la dirección IP privada asignada a la configuración de IP principal de la interfaz de red principal. Para más información sobre las direcciones IP y las configuraciones IP, consulte [Administración de direcciones IP](virtual-network-network-interface-addresses.md).
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 **Comandos**
 
@@ -188,7 +190,7 @@ Solo puede agregar o quitar una interfaz de red de un grupo de seguridad de apli
 
 **Comandos**
 
-- CLI de Azure: [az network nic update](/cli/azure/network/nic#az-network-nic-update)
+- CLI de Azure: [az network nic update](/cli/azure/network/nic#az_network_nic_update)
 - PowerShell: [Set-AzNetworkInterface](/powershell/module/az.network/set-aznetworkinterface)
 
 ## <a name="delete-a-network-interface"></a>Eliminar una interfaz de red
@@ -227,7 +229,7 @@ La característica de comprobación del flujo de IP de Azure Network Watcher tam
 
 **Comandos**
 
-- CLI de Azure: [az network nic list-effective-nsg](/cli/azure/network/nic#az-network-nic-list-effective-nsg)
+- CLI de Azure: [az network nic list-effective-nsg](/cli/azure/network/nic#az_network_nic_list_effective_nsg)
 - PowerShell: [Get-AzEffectiveNetworkSecurityGroup](/powershell/module/az.network/get-azeffectivenetworksecuritygroup)
 
 ### <a name="view-effective-routes"></a>Vista de las rutas eficaces
@@ -244,7 +246,7 @@ La característica de próximo salto de Azure Network Watcher también puede ayu
 
 **Comandos**
 
-- CLI de Azure: [az network nic show-effective-route-table](/cli/azure/network/nic#az-network-nic-show-effective-route-table)
+- CLI de Azure: [az network nic show-effective-route-table](/cli/azure/network/nic#az_network_nic_show_effective_route_table)
 - PowerShell: [Get-AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable)
 
 ## <a name="permissions"></a>Permisos

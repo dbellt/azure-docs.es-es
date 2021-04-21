@@ -2,19 +2,25 @@
 title: Recursos sin límite de recuento de 800
 description: Aquí se enumeran los tipos de recursos de Azure que pueden tener más de 800 instancias en un grupo de recursos.
 ms.topic: conceptual
-ms.date: 01/08/2021
-ms.openlocfilehash: 6736118f0713a27a91618173e06423530e6f10cb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/12/2021
+ms.openlocfilehash: d132773ff35d53dc373c759326efc8179f4993d6
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103563120"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107366545"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>Recursos no limitados a 800 instancias por grupo de recursos
 
 De forma predeterminada, puede implementar hasta 800 instancias de un tipo de recurso en cada grupo de recursos. Sin embargo, algunos tipos de recursos están exentos del límite de 800 instancias. En este artículo se enumeran los tipos de recursos de Azure que pueden tener más de 800 instancias en un grupo de recursos. Todos los demás tipos de recursos se limitan a 800 instancias.
 
 Para usar algunos tipos de recursos, debe ponerse en contacto con el servicio de soporte técnico para que se elimine el límite de 800 instancias. Esos tipos de recursos se indican en este artículo.
+
+
+## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
+
+* resourceHealthAlertRules
+* smartDetectorAlertRules
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 
@@ -75,6 +81,7 @@ Para usar algunos tipos de recursos, debe ponerse en contacto con el servicio de
 
 * flexibleServers
 * serverGroups
+* serverGroupsv2
 * servers
 * serversv2
 
@@ -107,7 +114,7 @@ Para usar algunos tipos de recursos, debe ponerse en contacto con el servicio de
 ## <a name="microsofthybridcompute"></a>Microsoft.HybridCompute
 
 * machines: admite hasta 5000 instancias.
-* extensions: admite un número ilimitado de instancias de extensión de VM.
+* machines/extensions: admite un número ilimitado de instancias de extensión de VM.
 
 ## <a name="microsoftinsights"></a>microsoft.insights
 
@@ -129,6 +136,7 @@ Para usar algunos tipos de recursos, debe ponerse en contacto con el servicio de
 * netAppAccounts/capacityPools/volumes
 * netAppAccounts/capacityPools/volumes/mountTargets
 * netAppAccounts/capacityPools/volumes/snapshots
+* netAppAccounts/volumeGroups
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
@@ -179,6 +187,7 @@ Para usar algunos tipos de recursos, debe ponerse en contacto con el servicio de
 
 ## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
 
+* autoScaleVCores: de forma predeterminada, está limitado a 800 instancias. Este límite se puede incrementar poniéndose en contacto con soporte técnico.
 * capacities: de forma predeterminada, está limitado a 800 instancias. Este límite se puede incrementar poniéndose en contacto con soporte técnico.
 
 ## <a name="microsoftrelay"></a>Microsoft.Relay

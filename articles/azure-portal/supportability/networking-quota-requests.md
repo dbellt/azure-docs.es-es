@@ -6,12 +6,12 @@ ms.author: anavin
 ms.date: 01/23/2020
 ms.topic: how-to
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: e945dec2ce8514c3e4f1edecdecd13c5c43f7c75
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 801f0424e7ec15fbde58f35975f4c7eca4c9a5de
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96745458"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107775572"
 ---
 # <a name="networking-limit-increase"></a>Aumento del límite de redes
 
@@ -19,7 +19,7 @@ Use [Azure Portal](https://portal.azure.com) para aumentar la cuota de redes.
 
 Para ver el uso de redes y la cuota actuales en Azure Portal, abra la suscripción y, a continuación, seleccione **Usos y cuotas**. También puede usar las siguientes opciones para ver los límites y el uso de la red.
 
-* [CLI de uso](/cli/azure/network#az-network-list-usages)
+* [CLI de uso](/cli/azure/network#az_network_list_usages)
 * [PowerShell](/powershell/module/azurerm.network/get-azurermnetworkusage)
 * [API de uso de red](/rest/api/virtualnetwork/virtualnetworks/listusage)
 

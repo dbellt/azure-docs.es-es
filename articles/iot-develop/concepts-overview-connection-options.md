@@ -6,12 +6,12 @@ ms.author: timlt
 ms.service: iot-develop
 ms.topic: conceptual
 ms.date: 02/11/2021
-ms.openlocfilehash: 6bbd7d37418af68065daa194d4ff4bd80f6fd09c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8669919192b1e6394043842d7d23f8829ec7c71e
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100656436"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107589557"
 ---
 # <a name="overview-connection-options-for-azure-iot-device-developers"></a>Introducción sobre las opciones de conexión para desarrolladores de dispositivos de Azure IoT
 Como desarrollador que trabaja con dispositivos, tiene varias opciones para conectar y administrar dispositivos de Azure IoT. En este artículo se muestra una visión general de las opciones y herramientas que se usan con más frecuencia para ayudarle a conectar y administrar dispositivos.
@@ -35,10 +35,10 @@ Después de seleccionar IoT Hub o IoT Central para hospedar su aplicación de Io
 |---------|---------|---------|---------|
 |Interfaz de usuario web central     | Central | [Inicio rápido de IoT Central](../iot-central/core/quick-deploy-iot-central.md) | Portal basado en un explorador para IoT Central. |
 |Azure Portal     | Hub, Central      | [Creación de un centro de IoT con Azure Portal](../iot-hub/iot-hub-create-through-portal.md), [Administración de IoT Central desde Azure Portal](../iot-central/core/howto-manage-iot-central-from-portal.md)| Portal basado en un explorador para IoT Hub y dispositivos. También funciona con otros recursos de Azure incluido IoT Central. |
+|Azure IoT Explorer     | Hub | [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer#azure-iot-explorer-preview) | No se pueden crear centros de IoT. Se conecta a un centro de IoT existente para administrar los dispositivos. Se usa a menudo con la CLI o Azure Portal.|
 |Azure CLI     | Hub, Central          | [Creación de un centro de IoT con la CLI](../iot-hub/iot-hub-create-using-cli.md), [Administración de IoT Central desde la CLI de Azure](../iot-central/core/howto-manage-iot-central-from-cli.md) | Interfaz de la línea de comandos para crear y administrar aplicaciones de IoT. |
 |Azure PowerShell     | Hub, Central   | [Creación de un centro de IoT con PowerShell](../iot-hub/iot-hub-create-using-powershell.md), [Administración de IoT Central desde Azure PowerShell](../iot-central/core/howto-manage-iot-central-from-powershell.md) | Interfaz de PowerShell para crear y administrar aplicaciones de IoT |
 |Azure IoT Tools para VS Code  | Hub | [Creación de un centro de IoT con herramientas de Visual Studio Code](../iot-hub/iot-hub-create-use-iot-toolkit.md) | Extensión de Visual Studio Code para aplicaciones de IoT Hub. |
-|Azure IoT Explorer     | Hub | [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer) | No se pueden crear centros de IoT. Se conecta a un centro de IoT existente para administrar los dispositivos. Se usa a menudo con la CLI o Azure Portal.|
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre las opciones para conectar dispositivos a Azure IoT, explore los siguientes inicios rápidos:

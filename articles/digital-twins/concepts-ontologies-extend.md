@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 2/12/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: e5973f58887b212919ad739232faafddcf9e735c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b38b4910773c433ed63fd2082c5cbefce81e0e9e
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100563374"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107480237"
 ---
 # <a name="extending-ontologies"></a>Extensión de las ontologías 
 
@@ -28,7 +28,7 @@ En la ontología RealEstateCore basada en DTDL, la jerarquía de espacios se usa
 
 Una parte de la jerarquía tiene el aspecto del diagrama siguiente. 
 
-:::image type="content" source="media/concepts-extending-ontologies/RealEstateCore-original.png" alt-text="Diagrama de flujo que ilustra parte de la jerarquía de espacios de RealEstateCore. En el nivel superior, hay un elemento denominado Espacio que está conectado mediante una flecha de &quot;extensión&quot; que baja un nivel con el elemento Sala. Este, a su vez, está conectado mediante dos flechas de &quot;extensión&quot;, que bajan otro nivel, con los elementos SalaDeConferencias y Oficina."::: 
+:::image type="content" source="media/concepts-ontologies-extend/real-estate-core-original.png" alt-text="Diagrama de flujo que ilustra parte de la jerarquía de espacios de RealEstateCore. En el nivel superior, hay un elemento denominado Espacio que está conectado mediante una flecha de &quot;extensión&quot; que baja un nivel con el elemento Sala. Este, a su vez, está conectado mediante dos flechas de &quot;extensión&quot;, que bajan otro nivel, con los elementos SalaDeConferencias y Oficina."::: 
 
 Para más información acerca de la ontología de RealEstateCore, consulte [*Conceptos: Adopción de ontologías estándar del sector*](concepts-ontologies-adopt.md#realestatecore-smart-building-ontology).
 
@@ -51,7 +51,7 @@ Para ampliar la ontología del sector con este nuevo concepto, cree una nueva in
 
 Después de agregar la interfaz del espacio de concentración, la jerarquía extendida muestra este nuevo tipo de sala. 
 
-:::image type="content" source="media/concepts-extending-ontologies/RealEstateCore-extended-1.png" alt-text="Diagrama de flujo que muestra la jerarquía de espacios de RealEstateCore anterior, con una nueva adición. En el nivel inferior, junto con SalaDeConferencias y Oficina, hay un nuevo elemento denominado EspacioDeConcentración (también conectado mediante una flecha de &quot;extensión&quot; desde el elemento Sala)"::: 
+:::image type="content" source="media/concepts-ontologies-extend/real-estate-core-extended-1.png" alt-text="Diagrama de flujo que muestra la jerarquía de espacios de RealEstateCore anterior, con una nueva adición. En el nivel inferior, junto con SalaDeConferencias y Oficina, hay un nuevo elemento denominado EspacioDeConcentración (también conectado mediante una flecha de &quot;extensión&quot; desde el elemento Sala)"::: 
 
 ### <a name="add-additional-capabilities-to-existing-interfaces"></a>Incorporación de funcionalidades adicionales a las interfaces existentes 
 
@@ -69,7 +69,7 @@ Para extender la ontología del sector, crea sus propias interfaces que se extie
 
 Después de extender la parte de la jerarquía mostrada anteriormente, la jerarquía extendida es similar al diagrama siguiente. Aquí, la interfaz extendida Espacio agrega la propiedad `drawingId` que contiene un identificador que asocia el gemelo digital al dibujo en 3D. Además, la interfaz SalaDeConferencias agrega una propiedad "online" que contiene el estado "en línea" de la sala de conferencias. Mediante herencia, la interfaz SalaDeConferencias contiene todas las funcionalidades de la interfaz SalaDeConferencias de RealEstateCore, así como todas las funcionalidades de la interfaz Espacio extendida. 
 
-:::image type="content" source="media/concepts-extending-ontologies/RealEstateCore-extended-2.png" alt-text="Diagrama de flujo que muestra la jerarquía de espacios de RealEstateCore extendida anterior, con más adiciones nuevas. Ahora, el elemento Sala comparte su nivel con un elemento Espacio, que se conecta con una flecha de &quot;extensión&quot; que baja un nivel con un nuevo elemento Sala que está situado junto a los elementos SalaDeConferencias y Oficina.  Los nuevos elementos se conectan a la ontología existente con más relaciones de &quot;extensión&quot;."::: 
+:::image type="content" source="media/concepts-ontologies-extend/real-estate-core-extended-2.png" alt-text="Diagrama de flujo que muestra la jerarquía de espacios de RealEstateCore extendida anterior, con más adiciones nuevas. Ahora, el elemento Sala comparte su nivel con un elemento Espacio, que se conecta con una flecha de &quot;extensión&quot; que baja un nivel con un nuevo elemento Sala que está situado junto a los elementos SalaDeConferencias y Oficina.  Los nuevos elementos se conectan a la ontología existente con más relaciones de &quot;extensión&quot;."::: 
 
 ## <a name="using-the-extended-space-hierarchy"></a>Uso de la jerarquía de espacios extendida 
 
@@ -77,7 +77,7 @@ Al crear gemelos digitales mediante la jerarquía de espacios extendida, cada mo
 
 Cada modelo de gemelo digital será una interfaz de la jerarquía extendida como se muestra en el siguiente diagrama. 
  
-:::image type="content" source="media/concepts-extending-ontologies/ontology-with-models.png" alt-text="Extracto de la jerarquía de espacios de RealEstateCore extendida, incluido el elemento Espacio (nivel superior), un elemento Sala (nivel intermedio) y los elementos SalaDeConferencias, Oficina y EspacioDeConcentración (nivel inferior). Los nombres de los modelos se conectan a cada elemento (por ejemplo, Sala se conecta a un modelo denominado Sala101)."::: 
+:::image type="content" source="media/concepts-ontologies-extend/ontology-with-models.png" alt-text="Extracto de la jerarquía de espacios de RealEstateCore extendida, incluido el elemento Espacio (nivel superior), un elemento Sala (nivel intermedio) y los elementos SalaDeConferencias, Oficina y EspacioDeConcentración (nivel inferior). Los nombres de los modelos se conectan a cada elemento (por ejemplo, Sala se conecta a un modelo denominado Sala101)."::: 
 
 Al consultar los gemelos digitales mediante el identificador de modelo (el operador `IS_OF_MODEL`), se deben usar los identificadores de modelos de la jerarquía extendida. Por ejemplo, `SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:com:example:Office;1')`. 
 

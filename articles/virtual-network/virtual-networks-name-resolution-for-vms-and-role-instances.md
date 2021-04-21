@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 3/2/2020
 ms.author: rohink
 ms.custom: fasttrack-edit
-ms.openlocfilehash: bbaf2fb99f1268a752fab4322078b0566a054d30
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 80a0b4634a2e84181271b515d2f6f63271cce7f2
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98222860"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107784972"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Resolución de nombres de recursos en redes virtuales de Azure
 
@@ -176,7 +176,7 @@ Cuando se utiliza la resolución de nombres proporcionada con Azure, el Protocol
 
 Si es necesario, el sufijo DNS interno se puede determinar con PowerShell o la API:
 
-* En el caso de redes virtuales en modelos de implementación de Azure Resource Manager, el sufijo está disponible con el recurso de la [API REST de interfaz de red](/rest/api/virtualnetwork/networkinterfaces) o del cmdlet [Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) de PowerShell y del comando de la CLI de Azure [az network nic show](/cli/azure/network/nic#az-network-nic-show).
+* En el caso de redes virtuales en modelos de implementación de Azure Resource Manager, el sufijo está disponible con el recurso de la [API REST de interfaz de red](/rest/api/virtualnetwork/networkinterfaces) o del cmdlet [Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) de PowerShell y del comando de la CLI de Azure [az network nic show](/cli/azure/network/nic#az_network_nic_show).
 * En los modelos de implementación clásica, el sufijo está disponible mediante la llamada a la [API de Get Deployment](/previous-versions/azure/reference/ee460804(v=azure.100)) o por medio del cmdlet [Get-AzureVM -Debug](/powershell/module/servicemanagement/azure.service/get-azurevm).
 
 Si el reenvío de consultas a Azure no satisface sus necesidades, debería proporcionar su propia solución DNS. La solución DNS debe:

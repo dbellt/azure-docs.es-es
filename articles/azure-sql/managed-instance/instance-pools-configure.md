@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein
 ms.date: 09/05/2019
-ms.openlocfilehash: 732a9bab018103321a9a3a759b31495bd67a209e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 96c24c05f5e0dbb671a294b10ee51be411ca25ff
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92793116"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107285296"
 ---
 # <a name="deploy-azure-sql-managed-instance-to-an-instance-pool"></a>Implementación de Instancia administrada de Azure SQL en un grupo de instancias
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -166,7 +166,7 @@ $databases = Get-AzSqlInstanceDatabase -InstanceName "pool-mi-001" -ResourceGrou
 
 
 > [!NOTE]
-> Hay un límite de 100 bases de datos por grupo (no por instancia).
+> Para comprobar los límites sobre el número de bases de datos por grupo de instancias e instancia administrada que se implementan dentro del grupo, consulte la sección [Limitaciones de recursos](instance-pools-overview.md#resource-limitations).
 
 
 ## <a name="scale"></a>Escala 

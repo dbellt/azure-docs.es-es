@@ -4,17 +4,17 @@ titleSuffix: Azure Kubernetes Service
 description: Obtenga más información acerca de los procedimientos recomendados del operador de clústeres para el aislamiento en Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: conceptual
-ms.date: 11/26/2018
-ms.openlocfilehash: cdeecabf569e3c6f9b280e6b0179e5378f5b1c95
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/09/2021
+ms.openlocfilehash: e51689d33711f127f775c63c9d7fc8ad4c901604
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96011377"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107105177"
 ---
 # <a name="best-practices-for-cluster-isolation-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para el aislamiento de clústeres en Azure Kubernetes Service (AKS)
 
-A medida que administra los clústeres en Azure Kubernetes Service (AKS), a menudo necesita aislar los equipos y las cargas de trabajo. AKS proporciona flexibilidad acerca de cómo puede ejecutar clústeres multiempresa y aislar recursos. Para maximizar la inversión en Kubernetes, deben comprenderse e implementarse estas funciones multiempresa y de aislamiento.
+A medida que administra los clústeres en Azure Kubernetes Service (AKS), a menudo necesita aislar los equipos y las cargas de trabajo. AKS proporciona flexibilidad acerca de cómo puede ejecutar clústeres multiempresa y aislar recursos. Para maximizar la inversión en Kubernetes, primero debe comprender e implementar las funciones multiempresa y de aislamiento de AKS.
 
 Este artículo de procedimientos recomendados se centra en el aislamiento de los operadores de clústeres. En este artículo aprenderá a:
 
@@ -24,35 +24,69 @@ Este artículo de procedimientos recomendados se centra en el aislamiento de los
 
 ## <a name="design-clusters-for-multi-tenancy"></a>Diseño de clústeres para la configuración multiempresa
 
-Kubernetes proporciona características que permiten aislar de forma lógica los equipos y las cargas de trabajo en el mismo clúster. El objetivo debería consistir en proporcionar el menor número de privilegios, con el ámbito definido según los recursos que necesita cada equipo. Un [espacio de nombres][k8s-namespaces] en Kubernetes crea un límite de aislamiento lógico. A continuación, se incluyen otras características y consideraciones de Kubernetes sobre el aislamiento y la arquitectura multiinquilino:
+Kubernetes permite aislar lógicamente equipos y cargas de trabajo en el mismo clúster. El objetivo es proporcionar el número mínimo de privilegios en el ámbito de los recursos que necesita cada equipo. Un [espacio de nombres][k8s-namespaces] de Kubernetes crea un límite de aislamiento lógico. A continuación, se incluyen otras características y consideraciones de Kubernetes sobre el aislamiento y la arquitectura multiinquilino:
 
-* La **programación** incluye el uso de características básicas, como las cuotas de recursos y los presupuestos de interrupciones del pod. Para más información acerca de estas características, consulte [Procedimientos recomendados para características básicas del programador en Azure Kubernetes Service (AKS)][aks-best-practices-scheduler].
-  * Las características más avanzadas del programador incluyen manchas y tolerancias, selectores de nodo y afinidad o falta de afinidad del nodo y el pod. Para más información acerca de estas características, consulte [Procedimientos recomendados para características avanzadas del programador en Azure Kubernetes Service (AKS)][aks-best-practices-advanced-scheduler].
-* Las **redes** incluyen el uso de directivas de red para controlar el flujo de tráfico de entrada y salida de pods.
-* La **autenticación y autorización** incluyen el uso del control de acceso basado en rol (RBAC) y la integración de Azure Active Directory (AD), las identidades de pods y los secretos de Azure Key Vault. Para más información sobre estas características, consulte [Procedimientos recomendados para la autenticación y autorización en Azure Kubernetes Service (AKS)][aks-best-practices-identity].
-* **Containers** incluye el complemento de Azure Policy para AKS para exigir la seguridad de los pods, el uso de contextos de seguridad de pods y el análisis de las imágenes y el entorno de ejecución en busca de vulnerabilidades. Esto también implica el uso de AppArmor o Seccomp (informática segura) para restringir el acceso del contenedor al nodo subyacente.
+### <a name="scheduling"></a>Scheduling
+
+La *programación* usa características básicas, como las cuotas de recursos y los presupuestos de interrupciones del pod. Para más información acerca de estas características, consulte [Procedimientos recomendados para características básicas del programador en Azure Kubernetes Service (AKS)][aks-best-practices-scheduler].
+
+Las siguientes son algunas de las características más avanzadas del programador:
+* Intolerancias y tolerancias
+* Selectores de nodos
+* Afinidad o antiafinidad de nodos y pods. 
+
+Para más información acerca de estas características, consulte [Procedimientos recomendados para características avanzadas del programador en Azure Kubernetes Service (AKS)][aks-best-practices-advanced-scheduler].
+
+### <a name="networking"></a>Redes
+
+Las *redes* usan directivas de red para controlar el flujo de tráfico de entrada y salida de pods.
+
+### <a name="authentication-and-authorization"></a>Autenticación y autorización
+
+Usos de la *autenticación y autorización*:
+* Control de acceso basado en roles (RBAC)
+* Integración de Azure Active Directory (AD)
+* Identidades de pod
+* Secretos en Azure Key Vault 
+
+Para más información sobre estas características, consulte [Procedimientos recomendados para la autenticación y autorización en Azure Kubernetes Service (AKS)][aks-best-practices-identity].
+
+### <a name="containers"></a>Contenedores
+Los *contenedores* incluyen:
+* El complemento de Azure Policy para AKS con el fin de aplicar la seguridad del pod.
+* El uso de contextos de seguridad de pod.
+* Examen de las imágenes y el entorno de ejecución en busca de vulnerabilidades. 
+* El uso de AppArmor o Seccomp (informática segura) para restringir el acceso del contenedor al nodo subyacente.
 
 ## <a name="logically-isolate-clusters"></a>Aislamiento de clústeres de forma lógica
 
-**Guía de procedimientos recomendados**: use el aislamiento lógico para separar los equipos y los proyectos. Intente minimizar el número de clústeres físicos de AKS que implementa para aislar los equipos o las aplicaciones.
+> **Guía de procedimientos recomendados**
+>
+> Separe los equipos y proyectos mediante el *aislamiento lógico*. Minimice el número de clústeres físicos de AKS que implementa para aislar los equipos o las aplicaciones.
 
 Con el aislamiento lógico, un único clúster de AKS puede utilizarse para varios entornos, equipos o cargas de trabajo. Los [espacios de nombres][k8s-namespaces] de Kubernetes forman el límite de aislamiento lógico para las cargas de trabajo y los recursos.
 
 ![Aislamiento lógico de un clúster de Kubernetes en AKS](media/operator-best-practices-cluster-isolation/logical-isolation.png)
 
-Normalmente, una separación lógica de los clústeres proporciona una mayor densidad de pods que los clústeres aislados físicamente. Hay menos exceso de capacidad del proceso que se encuentra inactiva en el clúster. Cuando se combina con el escalador automático de clúster de Kubernetes, puede escalar vertical u horizontalmente el número de nodos para satisfacer las necesidades. Este enfoque de procedimiento recomendado para el escalado automático le permite ejecutar solo el número de nodos necesario y minimiza los costos.
+La separación lógica de clústeres normalmente proporciona una mayor densidad de pods que los clústeres aislados físicamente, con una menor capacidad de proceso inactiva en el clúster. Cuando se combina con el escalador automático de clúster de Kubernetes, puede escalar vertical u horizontalmente el número de nodos para satisfacer las necesidades. Esta estrategia de procedimiento recomendado para el escalado automático minimiza los costos al ejecutar solo el número de nodos necesario.
 
-Los entornos de Kubernetes, tanto en AKS como en cualquier otro lugar, no están completamente seguros ante el uso de varios inquilinos hostiles. En un entorno multiinquilino, varios inquilinos trabajan en una infraestructura compartida común. Como resultado, si no se puede confiar en todos los inquilinos, debe realizar una planeación adicional para evitar que un inquilino afecte a la seguridad y el servicio de otro. El uso de características de seguridad adicionales, como la *directiva de seguridad de pod* y el control de acceso basado en rol (RBAC), más pormenorizado, en los nodos, hace que sea más difícil aprovechar las vulnerabilidades. Sin embargo, para que la seguridad resulte efectiva cuando se ejecutan cargas de trabajo multiinquilino hostiles, el hipervisor es el único nivel de seguridad en el que debe confiar. El dominio de seguridad de Kubernetes se convierte en todo el clúster, no en un nodo específico. En el caso de estos tipos de cargas de trabajo multiinquilino hostiles, debe usar clústeres que estén físicamente aislados.
+Actualmente, los entornos de Kubernetes no están completamente seguros ante el uso de varios inquilinos hostiles. En un entorno multiinquilino, varios inquilinos trabajan en una infraestructura compartida común. Si no se puede confiar en todos los inquilinos, necesitará de planeamiento adicional para evitar que dichos inquilinos afecten a la seguridad y el servicio de otros.
+
+Las características de seguridad adicionales, como las *directivas de seguridad de pods* o Kubernetes RBAC para nodos, bloquean eficazmente las vulnerabilidades de seguridad. Para una verdadera seguridad al ejecutar cargas de trabajo multiinquilino hostiles, debe confiar solo en un hipervisor. El dominio de seguridad de Kubernetes se convierte en todo el clúster, no en un nodo específico. 
+
+En el caso de estos tipos de cargas de trabajo multiinquilino hostiles, debe usar clústeres que estén físicamente aislados.
 
 ## <a name="physically-isolate-clusters"></a>Aislamiento de clústeres de forma física
 
-**Guía de procedimientos recomendados**: minimiza el uso del aislamiento físico para cada equipo independiente o una implementación de la aplicación. En su lugar, use el aislamiento *lógico*, como se describe en la sección anterior.
+> **Guía de procedimientos recomendados** 
+>
+> Minimice el uso del aislamiento físico para cada implementación de la aplicación o equipo independientes. En su lugar, use el aislamiento *lógico*, como se describe en la sección anterior.
 
-Un enfoque común para el aislamiento de clústeres consiste en usar clústeres de AKS físicamente independientes. En este modelo de aislamiento, los equipos o las cargas de trabajo se asignan a su propio clúster de AKS. A menudo, este enfoque es similar a la manera más fácil de aislar las cargas de trabajo o los equipos, pero agrega sobrecarga financiera y administración adicional. Ahora tiene que mantener estos clústeres, así como proporcionar acceso y asignar permisos de forma individual. También se le cobrará por todos los nodos individuales.
+Separar físicamente los clústeres de AKS es un enfoque común para el aislamiento de clústeres. En este modelo de aislamiento, los equipos o las cargas de trabajo se asignan a su propio clúster de AKS. Aunque el aislamiento físico podría parecer la manera más fácil de aislar cargas de trabajo o equipos, agrega una sobrecarga financiera y administrativa. Ahora, debe mantener estos clústeres, así como proporcionar acceso y asignar permisos de manera individual. También se le facturará por cada nodo individual.
 
 ![Aislamiento físico de clústeres individuales de Kubernetes en AKS](media/operator-best-practices-cluster-isolation/physical-isolation.png)
 
-Los clústeres físicamente independientes suelen tener una densidad de pods baja. Dado que cada equipo o carga de trabajo tiene su propio clúster de AKS, el clúster a menudo se aprovisiona en exceso con recursos de proceso. Con frecuencia, se programa un pequeño número de pods en esos nodos. La capacidad no utilizada en los nodos no se puede usar para aplicaciones o servicios que están desarrollando otros equipos. Estos recursos en exceso contribuyen a los costos adicionales en los clústeres físicamente independientes.
+Los clústeres físicamente independientes suelen tener una densidad de pods baja. Ya que cada equipo o carga de trabajo tiene su propio clúster de AKS, el clúster a menudo se aprovisiona en exceso con recursos de proceso. Con frecuencia, se programa un pequeño número de pods en esos nodos. La capacidad de los nodos no utilizada no se puede usar para aplicaciones o servicios que están desarrollando otros equipos. Estos recursos en exceso contribuyen a los costos adicionales en los clústeres físicamente independientes.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

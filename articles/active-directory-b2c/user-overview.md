@@ -11,12 +11,12 @@ ms.date: 11/05/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: f2473955db5439911280360b169f469b8c93eb93
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4b35cfeded13a50e5e27c240b0826f1d108ff7eb
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105043604"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107529454"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Introducción a las cuentas de usuario en Azure Active Directory B2C
 
@@ -74,7 +74,7 @@ Puede invitar a usuarios externos al inquilino como usuario invitado. Un escenar
 
 Cuando se invita a un usuario invitado al inquilino, se proporciona la dirección de correo electrónico del destinatario y un mensaje que describe la invitación. El vínculo de invitación lleva al usuario a la página de consentimiento. Si no hay una bandeja de entrada asociada a la dirección de correo electrónico, el usuario puede navegar a la página de consentimiento, para ello debe ir a una página de Microsoft con las credenciales de invitación. A continuación, se obliga al usuario a canjear la invitación del mismo modo que cuando hace clic en el vínculo del correo electrónico. Por ejemplo: `https://myapps.microsoft.com/B2CTENANTNAME`.
 
-También puede usar [Microsoft Graph API](/graph/api/invitation-post?view=graph-rest-beta) para invitar a un usuario invitado.
+También puede usar [Microsoft Graph API](/graph/api/invitation-post) para invitar a un usuario invitado.
 
 ## <a name="consumer-user"></a>Usuario consumidor
 

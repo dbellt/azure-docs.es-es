@@ -6,19 +6,19 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 22c9d8f8bdf3e6195bf152fa0431ad5ce9bcdfeb
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: e1eed3f9449843e6c2dd8c77719402e709fdeb23
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "106073575"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107327678"
 ---
 En este inicio rápido aprenderá a iniciar una llamadas con Calling SDK de Azure Communication Services para iOS.
 
 [!INCLUDE [Public Preview Notice](../../../includes/public-preview-include-android-ios.md)]
 
 > [!NOTE]
-> En este documento se usa la versión 1.0.0-beta.8 de Calling SDK.
+> En este documento se usa la versión 1.0.0-beta.9 de Calling SDK.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -47,9 +47,9 @@ En Xcode, cree un nuevo proyecto de iOS y seleccione la plantilla **Aplicación 
    use_frameworks!
 
    target 'AzureCommunicationCallingSample' do
-     pod 'AzureCommunicationCalling', '~> 1.0.0-beta.8'
-     pod 'AzureCommunication', '~> 1.0.0-beta.8'
-     pod 'AzureCore', '~> 1.0.0-beta.8'
+     pod 'AzureCommunicationCalling', '~> 1.0.0-beta.9'
+     pod 'AzureCommunication', '~> 1.0.0-beta.9'
+     pod 'AzureCore', '~> 1.0.0-beta.9'
    end
    ```
 
@@ -173,7 +173,7 @@ func startCall()
         if granted {
             // start call logic
             let callees:[CommunicationIdentifier] = [CommunicationUserIdentifier(identifier: self.callee)]
-            self.call = self.callAgent?.call(participants: callees, options: StartCallOptions())
+            self.call = self.callAgent?.startCall(participants: callees, options: StartCallOptions())
         }
     }
 }
@@ -188,7 +188,7 @@ Implemente el método `endCall` para finalizar la llamada actual cuando se toque
 ```swift
 func endCall()
 {    
-    self.call!.hangup(HangupOptions()) { (error) in
+    self.call!.hangUp(HangUpOptions()) { (error) in
         if (error != nil) {
             print("ERROR: It was not possible to hangup the call.")
         }

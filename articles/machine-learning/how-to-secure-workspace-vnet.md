@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 03/17/2021
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy20q4, tracking-python, contperf-fy21q1
-ms.openlocfilehash: a923f65e5c6183d045f4b7455e0a01edda75d499
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 20f75580c425cee9128f9c94123dcf902642eac4
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104584351"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107531022"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Protección de un área de trabajo de Azure Machine Learning con redes virtuales
 
@@ -230,7 +230,7 @@ Una vez cumplidos estos requisitos, siga los pasos que se indican a continuació
     # Update the workspace to use an existing compute cluster
     ws.update(image_build_compute = 'mycomputecluster')
     # To switch back to using ACR to build (if ACR is not in the VNet):
-    # ws.update(image_build_compute = None)
+    # ws.update(image_build_compute = '')
     ```
 
     > [!IMPORTANT]

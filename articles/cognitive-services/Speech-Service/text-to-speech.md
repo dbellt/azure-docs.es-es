@@ -12,18 +12,18 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: texto a voz
-ms.openlocfilehash: 1a7ff7befc1a5e82c5518cf103a81b35ec38c7db
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 73e37fde4b3c2dd1aeb6ab171c3726f1b4353949
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106449365"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107106095"
 ---
 # <a name="what-is-text-to-speech"></a>¿Qué es el texto a voz?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-En esta introducción, encontrará información sobre las ventajas y las funcionalidades del servicio de conversión de texto a voz. Con este servicio, sus aplicaciones, herramientas o dispositivos podrán convertir un texto en voz sintetizada similar a la de los humanos. Puede elegir entre voces estándar y neuronales, o puede crear una voz personalizada única para su producto o marca. Tiene más de 75 voces estándar disponibles en más de 45 idiomas y configuraciones regionales, y 5 voces neuronales que están disponibles en varios idiomas y configuraciones regionales. Para obtener una lista completa de las voces, los idiomas y las configuraciones regionales compatibles, consulte [Idiomas admitidos](language-support.md#text-to-speech).
+En esta introducción, encontrará información sobre las ventajas y las funcionalidades del servicio de conversión de texto a voz. Con este servicio, sus aplicaciones, herramientas o dispositivos podrán convertir un texto en voz sintetizada similar a la de los humanos. Use voces neuronales humanizadas o cree una voz personalizada única para su producto o marca. Para obtener una lista completa de las voces, los idiomas y las configuraciones regionales compatibles, consulte [Idiomas admitidos](language-support.md#text-to-speech).
 
 Esta documentación contiene los siguientes tipos de artículos:
 
@@ -42,8 +42,6 @@ Esta documentación contiene los siguientes tipos de artículos:
 
 * Síntesis asincrónica de audio de larga duración: use [Long Audio API](long-audio-api.md) para sintetizar asincrónicamente archivos de texto a voz de más de 10 minutos (por ejemplo, audiolibros o audioconferencias). A diferencia de la síntesis realizada mediante el SDK de voz o la API de REST de voz a texto, las respuestas no se devuelven en tiempo real. La expectativa es que las solicitudes se envíen de forma asincrónica, se sondeen las respuestas y el audio sintetizado se descargue cuando esté disponible en el servicio. Solo se admiten las voces neuronales personalizadas.
 
-* Voces estándar: se crean mediante técnicas de síntesis paramétrica estadística y de síntesis de concatenación. Estas voces son realmente inteligibles y suenan muy naturales. Puede habilitar fácilmente sus aplicaciones para que hablen en más de 45 idiomas, con una amplia gama de opciones de voz. Estas voces proporcionan una alta precisión de pronunciación, admiten abreviaturas, expanden acrónimos, interpretan la fecha y la hora, son polifónicas y ofrecen muchas cosas más. Hay una lista completa de voces estándar en [Idiomas admitidos](language-support.md#text-to-speech).
-
 * Voces neuronales: las redes neuronales profundas se usan para superar los límites de la síntesis de voz tradicional con respecto al acento y la entonación del lenguaje hablado. La predicción de la prosodia y la síntesis de voz se realizan simultáneamente, lo que resulta en una voz más fluida y natural. Las voces neuronales se pueden usar para que las interacciones con los bots de chat y los asistentes de voz sean más naturales y atractivas, para convertir textos digitales (por ejemplo, los libros electrónicos) en audiolibros y para mejorar los sistemas de navegación de los automóviles. Gracias a su prosodia natural similar a la humana y a la clara articulación de las palabras, las voces neuronales reducen considerablemente la fatiga al escucharlas que suele aparecer cuando los usuarios interactúan con sistemas de inteligencia artificial. Hay una lista completa de voces neuronales en [Idiomas admitidos](language-support.md#text-to-speech).
 
 * Ajuste de estilos de habla con SSML: Lenguaje de marcado de síntesis de voz (SSML) es un lenguaje de marcado basado en XML que se usa para personalizar las salidas de voz a texto. Con SSML, puede ajustar el tono, agregar pausas, mejorar la pronunciación, acelerar o ralentizar la velocidad del habla, subir o bajar el volumen y atribuir varias voces a un solo documento. Consulte el [procedimiento](speech-synthesis-markup.md) para ajustar estilos de habla.
@@ -51,7 +49,7 @@ Esta documentación contiene los siguientes tipos de artículos:
 * Visemas: [Visemas](how-to-speech-synthesis-viseme.md) son los principales planteamientos de la voz observada, incluida la posición de los labios, mandíbula y lengua al producir un fonema determinado. Las visemas tienen una correlación fuerte con las voces y fonemas. Mediante el uso de eventos de visema en Speech SDK, puede generar datos de animaciones faciales, que se pueden usar para animar caras en la comunicación de lectura de LIP, educación, entretenimiento y servicio de atención al cliente.
 
 > [!NOTE]
-> El visema solo funciona para la voz `en-US-AriaNeural` en este momento.
+> Actualmente, los eventos de visema solo se admiten para la voz `en-US-AriaNeural`.
 
 ## <a name="get-started"></a>Introducción
 
@@ -66,7 +64,7 @@ El ejemplo de código para texto a voz está disponible en GitHub. Estos ejemplo
 
 ## <a name="customization"></a>Personalización
 
-Además de las voces estándar y neuronales, puede crear y ajustar las voces personalizadas exclusivas del producto o la marca. Todo lo que se necesita para empezar son unos cuantos archivos de audio y las transcripciones asociadas. Para obtener información, consulte [Introducción a voz personalizada](how-to-custom-voice.md).
+Además de las voces neuronales, puede crear y ajustar las voces personalizadas exclusivas del producto o la marca. Todo lo que se necesita para empezar son unos cuantos archivos de audio y las transcripciones asociadas. Para obtener información, consulte [Introducción a voz personalizada](how-to-custom-voice.md).
 
 ## <a name="pricing-note"></a>Nota de precios
 

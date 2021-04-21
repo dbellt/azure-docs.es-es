@@ -4,15 +4,15 @@ description: Aprenda a aprovisionar Integration Runtime de Azure SSIS en Azure D
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 02/22/2021
+ms.date: 04/02/2021
 author: swinarko
 ms.author: sawinark
-ms.openlocfilehash: 7c439d71806d2deba508ce35131f21ebfbd7a3ec
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6007ce4b4c54d795ff2cc3188504db11c29219cc
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101740416"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256424"
 ---
 # <a name="provision-the-azure-ssis-integration-runtime-in-azure-data-factory"></a>Aprovisionamiento de Azure-SSIS Integration Runtime en Azure Data Factory
 
@@ -21,7 +21,7 @@ ms.locfileid: "101740416"
 En este tutorial se describen los pasos necesarios para usar Azure Portal para aprovisionar el entorno de ejecución de integración de Azure-SQL Server Integration Services (ISSIS) en Azure Data Factory (ADF). Azure-SSIS Integration Runtime admite:
 
 - La ejecución de paquetes implementados en el catálogo de SSIS (SSISDB) hospedados por un servidor de Azure SQL Database o por Instancia administrada (modelo de implementación de proyectos)
-- La ejecución de paquetes implementados en el sistema de archivos, en Azure Files o en una base de datos de SQL Server (MSDB) hospedados por Instancia administrada de Azure SQL (modelo de implementación de paquetes).
+- La ejecución de paquetes implementados en el sistema de archivos, en Azure Files o en una base de datos de SQL Server (MSDB) hospedados por Instancia administrada de Azure SQL (modelo de implementación de paquetes)
 
 Después de aprovisionar una instancia de Azure-SSIS IR, puede usar herramientas conocidas para implementar y ejecutar los paquetes en Azure. Estas herramientas ya están habilitadas para Azure e incluyen SQL Server Data Tools (SSDT), SQL Server Management Studio (SSMS) y utilidades de la línea de comandos, como [dtutil](/sql/integration-services/dtutil-utility) y [AzureDTExec](./how-to-invoke-ssis-package-azure-enabled-dtexec.md).
 
@@ -70,7 +70,7 @@ Después de crear la factoría de datos, abra su página de información general
 
 ### <a name="from-the-data-factory-overview"></a>Desde la información general de Data Factory
 
-1. En la página **Let's get started** (Comencemos), seleccione el icono **Configure SSIS Integration Runtime** (Configuración de Integration Runtime de SSIS). 
+1. En la página **Empecemos**, seleccione el icono **Configure SSIS Integration** (Configurar integración de SSIS). 
 
    ![Icono "Configure SSIS Integration Runtime" (Configuración de Integration Runtime de SSIS)](./media/tutorial-create-azure-ssis-runtime-portal/configure-ssis-integration-runtime-tile.png)
 
@@ -78,7 +78,7 @@ Después de crear la factoría de datos, abra su página de información general
 
 ### <a name="from-the-authoring-ui"></a>Desde la interfaz de usuario de creación
 
-1. En la interfaz de usuario de Azure Data Factory, cambie a la pestaña **Edit** (Editar) y seleccione **Connections** (Conexiones). A continuación, cambie a la pestaña **Integration Runtimes** (Entornos de ejecución de integración) para ver los entornos de ejecución de integración existentes en la factoría de datos. 
+1. En la interfaz de usuario de Azure Data Factory, cambie a la pestaña **Manage** (Administrar) y, después, cambie a la pestaña **Integration runtimes** (Entornos de ejecución de integración) para ver los entornos de ejecución de integración existentes de la factoría de datos. 
 
    ![Opciones para ver las instancias de Integration Runtime existentes](./media/tutorial-create-azure-ssis-runtime-portal/view-azure-ssis-integration-runtimes.png)
 
@@ -86,7 +86,7 @@ Después de crear la factoría de datos, abra su página de información general
 
    ![Integration Runtime a través del menú](./media/tutorial-create-azure-ssis-runtime-portal/edit-connections-new-integration-runtime-button.png)
 
-1. En el panel **Integration runtime setup** (Configuración de Integration Runtime), seleccione el icono **Lift-and-shift existing SSIS packages to execute in Azure** (Migrar mediante lift-and-shift los paquetes de SSIS existentes para ejecutarlos en Azure) y haga clic en **Next** (Siguiente).
+1. En el panel **Integration runtime setup** (Configuración de Integration Runtime), seleccione el icono **Lift-and-shift existing SSIS packages to execute in Azure** (Migrar mediante lift-and-shift los paquetes de SSIS existentes para ejecutarlos en Azure) y haga clic en **Continue** (Continuar).
 
    ![Especificación del tipo de instancia de Integration Runtime](./media/tutorial-create-azure-ssis-runtime-portal/integration-runtime-setup-options.png)
 
@@ -116,7 +116,7 @@ En la página **General settings** (Configuración general) del panel **Integrat
 
    1. En **Save Money** (Ahorrar dinero), seleccione la opción Azure Hybrid Benefit (Ventaja híbrida de Azure) para el entorno de ejecución de integración: **Yes** (Sí) o **No**. Seleccione **Yes** (Sí) si quiere que su propia licencia de SQL Server con Software Assurance se beneficie de los ahorros con el uso híbrido. 
 
-   1. Seleccione **Next** (Siguiente). 
+   1. Seleccione **Continuar**. 
 
 ### <a name="deployment-settings-page"></a>Página Deployment settings (Configuración de implementación)
 
@@ -158,7 +158,7 @@ Si activa la casilla, realice los pasos siguientes para traer su propio servidor
 
    1. En **Catalog Database Service Tier** (Nivel de servicio de bases de datos de catálogo), seleccione el nivel de servicio del servidor de bases de datos para hospedar SSISDB. Seleccione el nivel de servicio Basic, Standard o Premium, o seleccione un nombre de grupo elástico.
 
-Seleccione **Test connection** (Prueba de conexión) cuando proceda y, si la prueba se realiza correctamente, seleccione **Next** (Siguiente).
+Seleccione **Probar conexión** cuando corresponda y, si es correcta, seleccione **Continuar**.
 
 #### <a name="creating-azure-ssis-ir-package-stores"></a>Creación de almacenes de paquetes de Azure-SSIS IR
 
@@ -177,7 +177,7 @@ En el panel **Add package store** (Adición de un almacén de paquetes), siga es
    1. En **Package store linked service** (Servicio vinculado de almacén de paquetes), seleccione el servicio vinculado existente que almacena la información de acceso del sistema de archivos, de Azure Files o de Instancia administrada de Azure SQL, donde se implementan los paquetes, o cree un servicio vinculado nuevo; para ello, seleccione **New** (Nuevo). En el panel **New linked service** (Nuevo servicio vinculado), realice los pasos siguientes. 
 
       > [!NOTE]
-      > Puede usar servicios vinculados de **Azure File Storage** o **Sistema de archivos** para acceder a Azure Files. Si usa el servicio vinculado **Azure File Storage**, por ahora el almacén de paquetes Azure-SSIS IR solo admite el método de autenticación de tipo **Básico** (no **Clave de cuenta** ni **URI de SAS**). Para usar la autenticación de tipo **Básico** en el servicio vinculado **Azure File Storage**, puede anexar `?feature.upgradeAzureFileStorage=false` a la dirección URL del portal de ADF en el explorador. También puede usar el servicio vinculado **Sistema de archivos** para acceder a Azure Files. 
+      > Puede usar servicios vinculados de **Azure File Storage** o **Sistema de archivos** para acceder a Azure Files. Si usa el servicio vinculado **Azure File Storage**, por ahora el almacén de paquetes Azure-SSIS IR solo admite el método de autenticación de tipo **Básico** (no **Clave de cuenta** ni **URI de SAS**). 
 
       ![Configuración de implementación de servicios vinculados](./media/tutorial-create-azure-ssis-runtime-portal/deployment-settings-linked-service.png)
 
@@ -188,8 +188,8 @@ En el panel **Add package store** (Adición de un almacén de paquetes), siga es
       1. En **Type** (Tipo), seleccione **Azure File Storage**, **Azure SQL Managed Instance** (Instancia administrada de Azure SQL) o **File System** (Sistema de archivos).
 
       1. Puede omitir la opción **Connect via integration runtime** (Conectarse a través de IR), ya que siempre se usa su instancia de Azure-SSIS IR para obtener la información de acceso de los almacenes de paquetes.
-
-      1. Si selecciona **Azure File Storage**, haga lo siguiente: 
+      
+      1. Si selecciona **Azure File Storage**, en **Authentication method** (Método de autenticación), seleccione **Basic** (Básico) y, después, siga estos pasos. 
 
          1. En **Account selection method** (Método de selección de cuenta), seleccione **From Azure subscription** (Desde la suscripción de Azure) o **Enter manually** (Especificar manualmente).
          
@@ -199,21 +199,21 @@ En el panel **Add package store** (Adición de un almacén de paquetes), siga es
 
       1. Si selecciona **Azure SQL Managed Instance** (Instancia administrada de Azure SQL), siga estos pasos: 
 
-         1. Seleccione **Connection string** (Cadena de conexión) para escribir la cadena de conexión manualmente o elija la instancia de **Azure Key Vault** donde se almacena como secreto.
+         1. Seleccione **Connection string** (Cadena de conexión) o elija la instancia de **Azure Key Vault** en que se almacena como secreto.
          
          1. En caso de seleccionar **Connection string** (Cadena de conexión), realice los siguientes pasos: 
+             1. En **Account selection method** (Método de selección de cuenta), si elige **From Azure subscription** (Desde la suscripción de Azure), seleccione la **suscripción de Azure**, el **nombre de servidor**, el **tipo de punto de conexión** y el **nombre de la base de datos** pertinentes. Si elige **Indicar manualmente**, siga los pasos que se indican a continuación. 
+                1.  En **Fully qualified domain name** (Nombre de dominio completo), escriba `<server name>.<dns prefix>.database.windows.net` o `<server name>.public.<dns prefix>.database.windows.net,3342` como el punto de conexión público o privado (respectivamente) de Instancia administrada de Azure SQL. Si escribe el punto de conexión privado, no se puede usar la **prueba de conexión**, ya que la interfaz de usuario de ADF no puede acceder a ella.
 
-            1. En **Fully qualified domain name** (Nombre de dominio completo), escriba `<server name>.<dns prefix>.database.windows.net` o `<server name>.public.<dns prefix>.database.windows.net,3342` como el punto de conexión público o privado (respectivamente) de Instancia administrada de Azure SQL. Si escribe el punto de conexión privado, no se puede usar la **prueba de conexión**, ya que la interfaz de usuario de ADF no puede acceder a ella.
-
-            1. En **Database name** (Nombre de la base de datos), escriba `msdb`.
+                1. En **Database name** (Nombre de la base de datos), escriba `msdb`.
                
             1. En **Authentication type** (Tipo de autenticación), seleccione **SQL Authentication** (Autenticación de SQL), **Managed Identity** (Identidad administrada) o **Service Principal** (Entidad de servicio).
 
-            1. Si selecciona **SQL Authentication** (Autenticación de SQL), escriba el **nombre de usuario** y la **contraseña** correspondientes, o bien seleccione la instancia de **Azure Key Vault** donde se almacena la contraseña como secreto.
+                - Si selecciona **SQL Authentication** (Autenticación de SQL), escriba el **nombre de usuario** y la **contraseña** correspondientes, o bien seleccione la instancia de **Azure Key Vault** donde se almacena la contraseña como secreto.
 
-            1. Si selecciona **Managed Identity** (Identidad administrada), conceda a la identidad administrada de ADF acceso a su Instancia administrada de Azure SQL.
+                -  Si selecciona **Managed Identity** (Identidad administrada), conceda a la identidad administrada de ADF acceso a su Instancia administrada de Azure SQL.
 
-            1. Si selecciona **Service Principal** (Entidad de servicio), escriba el **identificador de entidad de servicio** y la **clave de entidad de servicio** correspondientes, o bien seleccione la instancia de **Azure Key Vault** donde se almacena la clave como secreto.
+                - Si selecciona **Service Principal** (Entidad de servicio), escriba el **identificador de entidad de servicio** y la **clave de entidad de servicio** correspondientes, o bien seleccione la instancia de **Azure Key Vault** donde se almacena la clave como secreto.
 
       1. Si selecciona **File system** (Sistema de archivos), escriba en **Host** la ruta de acceso UNC de la carpeta en la que se implementan los paquetes y especifique el **nombre de usuario** y la **contraseña** correspondientes, o bien seleccione la instancia de **Azure Key Vault** donde se almacena la contraseña como secreto.
 
@@ -221,7 +221,7 @@ En el panel **Add package store** (Adición de un almacén de paquetes), siga es
 
    1. Los almacenes de paquetes agregados aparecerán en la página **Deployment settings** (Configuración de implementación). Para quitarlas, active sus casillas y, luego, seleccione **Eliminar**.
 
-Seleccione **Test connection** (Prueba de conexión) cuando proceda y, si la prueba se realiza correctamente, seleccione **Next** (Siguiente).
+Seleccione **Probar conexión** cuando corresponda y, si es correcta, seleccione **Continuar**.
 
 ### <a name="advanced-settings-page"></a>Página Advanced settings (Configuración avanzada)
 
@@ -241,7 +241,7 @@ En la página **Advanced settings** (Configuración avanzada) del panel **Integr
 
    1. Seleccione **Continuar**. 
 
-En la página **Summary** (Resumen) del panel **Integration runtime setup** (Configuración de Integration Runtime), revise todos los valores de aprovisionamiento, marque los vínculos a la documentación recomendada y seleccione **Finish** (Finalizar) para empezar la creación del entorno de ejecución de integración. 
+En la página **Summary** (Resumen) del panel **Integration runtime setup** (Configuración de Integration Runtime), revise todos los valores de aprovisionamiento, marque los vínculos a la documentación recomendada y seleccione **Create** (Crear) para empezar la creación del entorno de ejecución de integración. 
 
    > [!NOTE]
    > Aparte del tiempo de configuración personalizada, este proceso debería realizarse en 5 minutos.

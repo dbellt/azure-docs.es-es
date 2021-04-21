@@ -3,12 +3,12 @@ title: Montaje de un volumen secreto en un grupo de contenedores
 description: Más información acerca de cómo montar un volumen secreto para almacenar información confidencial para que accedan a ella las instancias de Container Instances
 ms.topic: article
 ms.date: 07/02/2020
-ms.openlocfilehash: ea82ba5994feaf102d4622eada284df431e004d0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cd8bd4d59b5e53a0db2455bdfbaf56c05c93d65f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86169568"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107771006"
 ---
 # <a name="mount-a-secret-volume-in-azure-container-instances"></a>Montaje de un volumen secreto en Azure Container Instances
 
@@ -139,6 +139,6 @@ Otro método para especificar información confidencial en contenedores (incluid
 [tmpfs]: https://wikipedia.org/wiki/Tmpfs
 
 <!-- LINKS - Internal -->
-[az-container-create]: /cli/azure/container#az-container-create
-[az-container-exec]: /cli/azure/container#az-container-exec
-[az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create
+[az-container-create]: /cli/azure/container#az_container_create
+[az-container-exec]: /cli/azure/container#az_container_exec
+[az-deployment-group-create]: /cli/azure/deployment/group#az_deployment_group_create

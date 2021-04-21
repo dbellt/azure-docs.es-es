@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/03/2019
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 890c4a8a5aec3b15b150908c64bb114bd85a61a1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9835ba2b6db2d71d0ff5825f2eb1996133e75537
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99256769"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530819"
 ---
 # <a name="check-the-status-of-user-provisioning"></a>Comprobación del estado de aprovisionamiento de usuarios
 
@@ -30,7 +30,7 @@ La primera vez que configure el aprovisionamiento automático, en la sección **
 - El tipo de ciclo de aprovisionamiento (inicial o incremental) que se ejecuta actualmente o que se completó por última vez.
 - Una **barra de progreso** en la que se muestra el porcentaje del ciclo de aprovisionamiento que se ha completado. El porcentaje refleja el número de páginas aprovisionadas. Tenga en cuenta que cada página podría contener varios usuarios o grupos, por lo que el porcentaje no correlaciona directamente con el número de usuarios, grupos o roles aprovisionados.
 - Un botón **Actualizar** que puede usar para mantener la vista actualizada.
-- Número de **Usuarios** y **Grupos** en el almacén de datos del conector. El recuento aumenta cada vez que se agrega un objeto al ámbito de aprovisionamiento. El recuento no dejará de funcionar si un usuario se elimina de forma temporal o se elimina permanentemente, ya que esto no quita el objeto del almacén de datos del conector. El recuento se volverá a calcular en la primera sincronización después de que el CDS se [restablezca](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta). 
+- Número de **Usuarios** y **Grupos** en el almacén de datos del conector. El recuento aumenta cada vez que se agrega un objeto al ámbito de aprovisionamiento. El recuento no dejará de funcionar si un usuario se elimina de forma temporal o se elimina permanentemente, ya que esto no quita el objeto del almacén de datos del conector. El recuento se volverá a calcular en la primera sincronización después de que el CDS se [restablezca](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta&preserve-view=true). 
 - Un vínculo **Ver registros de auditoría**, que abre los registros de aprovisionamiento de Azure AD con detalles sobre todas las operaciones que haya ejecutado el servicio de aprovisionamiento de usuarios, como el estado de aprovisionamiento de los usuarios individuales (consulte la sección [Uso de registros de aprovisionamiento](#use-provisioning-logs-to-check-a-users-provisioning-status) más adelante).
 
 Una vez completado el ciclo de aprovisionamiento, en la sección **Estadísticas hasta la fecha** se muestran los números acumulativos de los usuarios y grupos que se hayan aprovisionado hasta la fecha, junto con la fecha de finalización y la duración del último ciclo. La opción **Id. de actividad** identifica de forma única el ciclo de aprovisionamiento más reciente. La opción **Id. de trabajo** es un identificador único para el trabajo de aprovisionamiento y es específico de la aplicación en el inquilino.

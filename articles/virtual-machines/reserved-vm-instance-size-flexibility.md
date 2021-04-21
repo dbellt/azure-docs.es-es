@@ -6,14 +6,14 @@ ms.service: virtual-machines
 ms.subservice: reserved-instances
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 03/01/2021
+ms.date: 04/06/2021
 ms.author: yashar
-ms.openlocfilehash: 9270b7fb135eddd78a7aeb30cf88af4d704e176e
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: a6ddcef1493f15442a723bcc93850e6197db84d8
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102030715"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107285605"
 ---
 # <a name="virtual-machine-size-flexibility-with-reserved-vm-instances"></a>Flexibilidad en el tamaño de las máquinas virtuales con Azure Reserved VM Instances
 
@@ -39,6 +39,7 @@ Va a comprar una instancia reservada de máquina virtual con el tamaño Standard
 - Escenario 1: se ejecutan ocho máquinas virtuales con un tamaño Standard_DS1_v2 con una relación de 1. El descuento por la reserva se aplica a las ocho máquinas virtuales.
 - Escenario 2: se ejecutan dos máquinas virtuales con un tamaño Standard_DS2_v2 con una relación de 2 cada una. También se ejecuta una máquina virtual con tamaño Standard_DS3_v2 con una relación de 4. La superficie total es 2+2+4=8. Por tanto, el descuento por la reserva se aplica a las tres máquinas virtuales.
 - Escenario 3: se ejecuta una máquina virtual con un tamaño Standard_DS5_v2 con una relación de 16. El descuento por la reserva se aplicaría a la mitad del costo de proceso de esa máquina virtual.
+- Escenario 4: se ejecuta una máquina virtual con un tamaño Standard_DS5_v2 y una relación de 16, y se compra una reserva Standard_DS4_v2 adicional con una relación de 8. Ambas reservas se combinan y aplican el descuento a toda la máquina virtual.
 
 En las siguientes secciones se muestra qué tamaños están en el mismo grupo de serie de tamaño cuando compra una instancia reservada de máquina virtual optimizada con flexibilidad de tamaño.
 

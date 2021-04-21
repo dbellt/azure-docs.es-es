@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017, devx-track-azurecli
 ms.date: 02/26/2020
-ms.openlocfilehash: b17c5a2abc036c16ff3ce36b81428f9149e36b4b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 14b88700f3968e3bfdc788abb2fc9ce90634068e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98942865"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107770352"
 ---
 # <a name="manage-azure-hdinsight-clusters-using-azure-cli"></a>Administración de clústeres de Azure HDInsight mediante la CLI de Azure
 
@@ -39,7 +39,7 @@ az login
 
 ## <a name="list-clusters"></a>Lista de clústeres
 
-Utilice [az hdinsight list](/cli/azure/hdinsight#az-hdinsight-list) para enumerar los clústeres. Para modificar los comandos siguientes, reemplace `RESOURCE_GROUP_NAME` por el nombre del grupo de recursos y, luego, escriba los comandos:
+Utilice [az hdinsight list](/cli/azure/hdinsight#az_hdinsight_list) para enumerar los clústeres. Para modificar los comandos siguientes, reemplace `RESOURCE_GROUP_NAME` por el nombre del grupo de recursos y, luego, escriba los comandos:
 
 ```azurecli-interactive
 # List all clusters in the current subscription
@@ -57,7 +57,7 @@ az hdinsight list --resource-group RESOURCE_GROUP_NAME --query "[].{clusterName:
 
 ## <a name="show-cluster"></a>Presentación de clústeres
 
-Utilice [az hdinsight show](/cli/azure/hdinsight#az-hdinsight-show) para mostrar la información de un clúster especificado. Para modificar el comando siguiente, reemplace `RESOURCE_GROUP_NAME` y `CLUSTER_NAME` por la información pertinente y, después, escriba el comando:
+Utilice [az hdinsight show](/cli/azure/hdinsight#az_hdinsight_show) para mostrar la información de un clúster especificado. Para modificar el comando siguiente, reemplace `RESOURCE_GROUP_NAME` y `CLUSTER_NAME` por la información pertinente y, después, escriba el comando:
 
 ```azurecli-interactive
 az hdinsight show --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME
@@ -65,7 +65,7 @@ az hdinsight show --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME
 
 ## <a name="delete-clusters"></a>Eliminación de clústeres
 
-Utilice [az hdinsight delete](/cli/azure/hdinsight#az-hdinsight-delete) para eliminar un clúster especificado. Para modificar el comando siguiente, reemplace `RESOURCE_GROUP_NAME` y `CLUSTER_NAME` por la información pertinente y, después, escriba el comando:
+Utilice [az hdinsight delete](/cli/azure/hdinsight#az_hdinsight_delete) para eliminar un clúster especificado. Para modificar el comando siguiente, reemplace `RESOURCE_GROUP_NAME` y `CLUSTER_NAME` por la información pertinente y, después, escriba el comando:
 
 ```azurecli-interactive
 az hdinsight delete --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME
@@ -79,7 +79,7 @@ az group delete --name RESOURCE_GROUP_NAME
 
 ## <a name="scale-clusters"></a>Escalado de clústeres
 
-Utilice [az hdinsight resize](/cli/azure/hdinsight#az-hdinsight-resize) para cambiar el tamaño del clúster de HDInsight al tamaño especificado. Para modificar el comando siguiente, reemplace `RESOURCE_GROUP_NAME` y `CLUSTER_NAME` por la información pertinente: Reemplace `WORKERNODE_COUNT` por el número deseado de nodos de trabajo para el clúster. Para más información sobre la escalabilidad de los clústeres, consulte [Escalabilidad de clústeres de HDInsight](./hdinsight-scaling-best-practices.md). Escriba el comando:
+Utilice [az hdinsight resize](/cli/azure/hdinsight#az_hdinsight_resize) para cambiar el tamaño del clúster de HDInsight al tamaño especificado. Para modificar el comando siguiente, reemplace `RESOURCE_GROUP_NAME` y `CLUSTER_NAME` por la información pertinente: Reemplace `WORKERNODE_COUNT` por el número deseado de nodos de trabajo para el clúster. Para más información sobre la escalabilidad de los clústeres, consulte [Escalabilidad de clústeres de HDInsight](./hdinsight-scaling-best-practices.md). Escriba el comando:
 
 ```azurecli-interactive
 az hdinsight resize --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME --workernode-count WORKERNODE_COUNT

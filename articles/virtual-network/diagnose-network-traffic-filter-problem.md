@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: kumud
-ms.openlocfilehash: 73562d8d32f265fa43ca80d2f8d4f84b1b631ec6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d6835d06015923a70301c95370c76efbd0c2163e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98223676"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107776742"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Diagnóstico de un problema de filtro del tráfico de red de una máquina virtual
 
@@ -115,7 +115,7 @@ En la salida anterior, el nombre de la interfaz de red es *myVMVMNic*.
 
 Si usa la interfaz de la línea de comandos (CLI) de Azure para completar las tareas de este artículo, ejecute los comandos que se encuentran en [Azure Cloud Shell](https://shell.azure.com/bash) o ejecute la CLI en el equipo. En este artículo se requiere la CLI de Azure versión 2.0.32 o posterior. Ejecute `az --version` para buscar la versión instalada. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli). Si ejecuta la CLI de Azure localmente, también debe ejecutar `az login` e iniciar sesión en Azure con una cuenta que tenga los [permisos necesarios](virtual-network-network-interface.md#permissions).
 
-Obtenga las reglas de seguridad vigentes de una interfaz de red con [az network nic list-effective-nsg](/cli/azure/network/nic#az-network-nic-list-effective-nsg). En el ejemplo siguiente se obtienen las reglas vigentes de una interfaz de red denominada *myVMVMNic*, que se encuentra en un grupo de recursos llamado *myResourceGroup*:
+Obtenga las reglas de seguridad vigentes de una interfaz de red con [az network nic list-effective-nsg](/cli/azure/network/nic#az_network_nic_list_effective_nsg). En el ejemplo siguiente se obtienen las reglas vigentes de una interfaz de red denominada *myVMVMNic*, que se encuentra en un grupo de recursos llamado *myResourceGroup*:
 
 ```azurecli-interactive
 az network nic list-effective-nsg \

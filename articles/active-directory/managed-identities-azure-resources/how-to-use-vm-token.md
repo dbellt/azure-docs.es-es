@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/03/2020
+ms.date: 04/12/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 541f76ad825f492679530902c571096ca4b01902
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1ee7739d9dbfd34190dc1e856b98fdd21be15743
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98726238"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107364947"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Cómo usar identidades administradas de recursos de Azure en una máquina virtual de Azure para adquirir un token de acceso 
 
@@ -80,22 +80,6 @@ GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-0
 | `object_id` | (Opcional) Un parámetro de cadena de consulta, que indica el valor de object_id de la identidad administrada para la que quiere que sea el token. Es obligatorio si la máquina virtual tiene varias identidades administradas asignadas por el usuario.|
 | `client_id` | (Opcional) Un parámetro de cadena de consulta, que indica el valor de client_id de la identidad administrada para la que quiere que sea el token. Es obligatorio si la máquina virtual tiene varias identidades administradas asignadas por el usuario.|
 | `mi_res_id` | (Opcional) Un parámetro de cadena de consulta, que indica el valor de mi_res_id (Azure Resource AD) de la identidad administrada para la que quiere que sea el token. Es obligatorio si la máquina virtual tiene varias identidades administradas asignadas por el usuario. |
-
-Solicitud de ejemplo con el punto de conexión de extensión de máquina virtual de identidades administradas de recursos de Azure *(plan de desuso previsto para enero de 2019)* :
-
-```http
-GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F HTTP/1.1
-Metadata: true
-```
-
-| Elemento | Descripción |
-| ------- | ----------- |
-| `GET` | El verbo HTTP, indicando que se van a recuperar datos desde el punto de conexión. En este caso, el token de acceso de OAuth. | 
-| `http://localhost:50342/oauth2/token` | Punto de conexión de identidades administradas de recursos de Azure, donde 50342 es el puerto predeterminado y configurable. |
-| `resource` | Un parámetro de cadena de consulta, que indica el URI del identificador de aplicación del recurso de destino. También aparece en la notificación `aud` (audiencia) del token emitido. En este ejemplo, se solicita un token para acceder a Azure Resource Manager, que tiene un URI de identificador de aplicación de `https://management.azure.com/`. |
-| `Metadata` | Un campo de encabezado de la solicitud HTTP, requerido por las identidades administradas de recursos de Azure como mitigación frente a ataques de falsificación de solicitud de lado del servidor (SSRF). Este valor debe establecerse en "true", todo en minúsculas.|
-| `object_id` | (Opcional) Un parámetro de cadena de consulta, que indica el valor de object_id de la identidad administrada para la que quiere que sea el token. Es obligatorio si la máquina virtual tiene varias identidades administradas asignadas por el usuario.|
-| `client_id` | (Opcional) Un parámetro de cadena de consulta, que indica el valor de client_id de la identidad administrada para la que quiere que sea el token. Es obligatorio si la máquina virtual tiene varias identidades administradas asignadas por el usuario.|
 
 Respuesta de ejemplo:
 
@@ -342,11 +326,12 @@ echo The managed identities for Azure resources access token is $access_token
 
 ## <a name="token-caching"></a>Almacenamiento en caché de tokens
 
-Aunque el subsistema de identidades administradas de recursos de Azure que se usa (extensión de VM de IMDS o identidades administradas de recursos de Azure) almacena tokens en caché, también se recomienda implementar el almacenamiento en caché de tokens en el código. Como resultado, debe prepararse para escenarios en que el recurso indica que el token ha caducado. 
+Aunque el subsistema de identidades administradas para recursos de Azure almacena en caché los tokens, también se recomienda implementar el almacenamiento en caché de tokens en el código. Como resultado, debe prepararse para escenarios en que el recurso indica que el token ha caducado. 
 
 Las llamadas por cable a Azure AD solo se generan cuando:
-- el error de caché se produce debido a que no hay ningún token en la caché del subsistema de identidades administradas de recursos de Azure
-- el token almacenado en caché ha expirado
+
+- el error de caché se produce debido a que no hay ningún token en la caché del subsistema de identidades administradas de recursos de Azure.
+- el token almacenado en caché ha expirado.
 
 ## <a name="error-handling"></a>Control de errores
 
@@ -377,7 +362,7 @@ En esta sección se documentan las posibles respuestas de error. Un estado de "2
 | 400 - Solicitud incorrecta | bad_request_102 | Encabezado de metadatos necesario no especificado. | El campo `Metadata` del encabezado de la solicitud no está en la solicitud o tiene un formato incorrecto. El valor debe especificarse como `true`, todo en minúsculas. Consulte "Solicitud de ejemplo" en la sección REST anterior para obtener un ejemplo.|
 | 401 No autorizado | unknown_source | Origen desconocido *\<URI\>* | Compruebe que el identificador URI de la solicitud HTTP GET tiene el formato correcto. La parte `scheme:host/resource-path` debe especificarse como `http://localhost:50342/oauth2/token`. Consulte "Solicitud de ejemplo" en la sección REST anterior para obtener un ejemplo.|
 |           | invalid_request | En la solicitud falta un parámetro necesario, incluye un valor de parámetro no válido o un parámetro repetido, o bien no tiene el formato correcto. |  |
-|           | unauthorized_client | El cliente no está autorizado a solicitar un token de acceso con este método. | Esto se debe a que una solicitud no usó el bucle invertido local para llamar a la extensión, o bien que una máquina virtual no tiene identidades administradas de recursos de Azure configuradas correctamente. Consulte [Configure managed identities for Azure resources on a VM using the Azure portal](qs-configure-portal-windows-vm.md) (Configuración de identidades administradas de recursos de Azure en una VM mediante Azure Portal) si necesita ayuda con la configuración de la VM. |
+|           | unauthorized_client | El cliente no está autorizado a solicitar un token de acceso con este método. | Esto se debe a que una solicitud de una VM no tiene identidades administradas de recursos de Azure configuradas correctamente. Consulte [Configure managed identities for Azure resources on a VM using the Azure portal](qs-configure-portal-windows-vm.md) (Configuración de identidades administradas de recursos de Azure en una VM mediante Azure Portal) si necesita ayuda con la configuración de la VM. |
 |           | access_denied | El propietario del recurso o el servidor de consentimiento rechazaron la solicitud. |  |
 |           | unsupported_response_type | El servidor de consentimiento no admite la obtención de un token de acceso con este método. |  |
 |           | invalid_scope | El ámbito solicitado no es válido, es desconocido o tiene un formato incorrecto. |  |

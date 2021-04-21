@@ -3,12 +3,12 @@ title: Implementación de varias instancias de recursos
 description: Use la operación de copia y las matrices de una plantilla de Azure Resource Manager (plantilla de ARM) para realizar varias iteraciones al implementar recursos.
 ms.topic: conceptual
 ms.date: 04/01/2021
-ms.openlocfilehash: 3af676cce544c125e441857f06556b9ff7eee697
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 5ddb0cabf0acae1ffe9b9e77e6defa70f9cbd61b
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106385722"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107479974"
 ---
 # <a name="resource-iteration-in-arm-templates"></a>Iteración de recursos en las plantillas de ARM
 
@@ -47,7 +47,7 @@ Los bucles se pueden usar para declarar varios recursos al:
   @batchSize(<number>)
   resource <resource-symbolic-name> '<resource-type>@<api-version>' = [for <item> in <collection>: {
     <resource-properties>
-  }
+  }]
   ```
 
 - Iterar los elementos de una matriz:
@@ -56,7 +56,7 @@ Los bucles se pueden usar para declarar varios recursos al:
   @batchSize(<number>)
   resource <resource-symbolic-name> '<resource-type>@<api-version>' = [for (<item>, <index>) in <collection>: {
     <resource-properties>
-  }
+  }]
   ```
 
 - Usar el índice de bucle:
@@ -65,7 +65,7 @@ Los bucles se pueden usar para declarar varios recursos al:
   @batchSize(<number>)
   resource <resource-symbolic-name> '<resource-type>@<api-version>' = [for <index> in range(<start>, <stop>): {
     <resource-properties>
-  }
+  }]
   ```
 
 ---

@@ -9,12 +9,12 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 03/29/2021
 ms.author: pafarley
-ms.openlocfilehash: fbdd72480fd3db8cfafd0803a623c5cfe4279288
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 407ef167ca05f08d349a017c60164e2fe67977a6
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106287435"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107326947"
 ---
 <a name="HOLTop"></a>
 
@@ -40,7 +40,7 @@ En Visual Studio, cree una aplicación de .NET Core.
 
 ### <a name="install-the-client-library"></a>Instalación de la biblioteca cliente 
 
-Después de crear un proyecto, instale la biblioteca cliente; para ello, haga clic con el botón derecho en la solución del proyecto en el **Explorador de soluciones** y seleccione **Administrar paquetes NuGet**. En el administrador de paquetes que se abre, seleccione **Examinar** **Incluir versión preliminar** y busque `Microsoft.Azure.CognitiveServices.Vision.ComputerVision`. Seleccione la versión `6.0.0-preview.1` e **Instalar**. 
+Después de crear un proyecto, instale la biblioteca cliente; para ello, haga clic con el botón derecho en la solución del proyecto en el **Explorador de soluciones** y seleccione **Administrar paquetes NuGet**. En el administrador de paquetes que se abre, seleccione **Examinar** **Incluir versión preliminar** y busque `Microsoft.Azure.CognitiveServices.Vision.ComputerVision`. Seleccione la versión `7.0.0` e **Instalar**. 
 
 #### <a name="cli"></a>[CLI](#tab/cli)
 
@@ -71,7 +71,7 @@ Build succeeded.
 Dentro del directorio de aplicaciones, instale la biblioteca cliente de Computer Vision para .NET con el siguiente comando:
 
 ```console
-dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 6.0.0
+dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 7.0.0
 ```
 
 ---
@@ -260,8 +260,11 @@ Si quiere limpiar y eliminar una suscripción a Cognitive Services, puede elimin
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+En este inicio rápido, ha aprendido a instalar la biblioteca cliente de Image Analysis y a realizar llamadas de análisis de imágenes básicas. A continuación, obtenga más información sobre las características de la API de análisis.
+
+
 > [!div class="nextstepaction"]
->[Referencia de Image Analysis API (.NET)](/dotnet/api/overview/azure/cognitiveservices/client/computervision)
+>[Llamada a la API de análisis](../../Vision-API-How-to-Topics/HowToCallVisionAPI.md)
 
 * [Introducción a Análisis de imágenes](../../overview-image-analysis.md)
 * El código fuente de este ejemplo está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs).

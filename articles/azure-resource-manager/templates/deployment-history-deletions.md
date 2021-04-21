@@ -3,12 +3,12 @@ title: Eliminaciones del historial de implementación
 description: Describe cómo Azure Resource Manager elimina automáticamente las implementaciones del historial de implementaciones. Las implementaciones se eliminan cuando el historial está próximo a superar el límite de 800.
 ms.topic: conceptual
 ms.date: 03/23/2021
-ms.openlocfilehash: 83383411ec317e228dabb14273e2b566792c774c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b55c022c35c43be6818bb3c551d5db85b1927ebb
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105732472"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781854"
 ---
 # <a name="automatic-deletions-from-deployment-history"></a>Eliminaciones automáticas del historial de implementaciones
 
@@ -84,7 +84,7 @@ Para volver a habilitar las eliminaciones automáticas, use la API de REST de Az
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-Para la CLI de Azure, use [az feature register](/cli/azure/feature#az-feature-register).
+Para la CLI de Azure, use [az feature register](/cli/azure/feature#az_feature_register).
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.Resources --name DisableDeploymentGrooming
@@ -96,7 +96,7 @@ Para ver el estado actual de la suscripción, use:
 az feature show --namespace Microsoft.Resources --name DisableDeploymentGrooming
 ```
 
-Para volver a habilitar las eliminaciones automáticas, use [az feature unregister](/cli/azure/feature#az-feature-unregister).
+Para volver a habilitar las eliminaciones automáticas, use [az feature unregister](/cli/azure/feature#az_feature_unregister).
 
 ```azurecli-interactive
 az feature unregister --namespace Microsoft.Resources --name DisableDeploymentGrooming
@@ -104,7 +104,7 @@ az feature unregister --namespace Microsoft.Resources --name DisableDeploymentGr
 
 # <a name="rest"></a>[REST](#tab/rest)
 
-Para API REST, use [Características - Registrar](/rest/api/resources/features/features/register).
+Para API REST, use [Características - Registrar](/rest/api/resources/features/register).
 
 ```rest
 POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Resources/features/DisableDeploymentGrooming/register?api-version=2015-12-01
@@ -116,7 +116,7 @@ Para ver el estado actual de la suscripción, use:
 GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Resources/features/DisableDeploymentGrooming/register?api-version=2015-12-01
 ```
 
-Para volver a habilitar las eliminaciones automáticas, use [Características - Anular el registro](/rest/api/resources/features/features/unregister)
+Para volver a habilitar las eliminaciones automáticas, use [Características - Anular el registro](/rest/api/resources/features/unregister)
 
 ```rest
 POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Resources/features/DisableDeploymentGrooming/unregister?api-version=2015-12-01

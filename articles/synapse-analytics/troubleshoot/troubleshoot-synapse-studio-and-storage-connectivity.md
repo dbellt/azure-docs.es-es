@@ -3,16 +3,17 @@ title: Solución de problemas de conectividad entre Synapse Studio y el almacena
 description: Solución de problemas de conectividad entre Synapse Studio y el almacenamiento
 author: saveenr
 ms.service: synapse-analytics
+ms.subservice: workspace
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: xujiang1
 ms.reviewer: jrasnick
-ms.openlocfilehash: d570b4a8df5d59cf8828985bee20852d6bc79b1e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d5f79131608315f7e1c05cbfc0117300eea6c511
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98117068"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107566280"
 ---
 # <a name="troubleshoot-connectivity-between-azure-synapse-analytics-synapse-studio-and-storage"></a>Solución de problemas de conectividad entre Azure Synapse Analytics Synapse Studio y el almacenamiento
 

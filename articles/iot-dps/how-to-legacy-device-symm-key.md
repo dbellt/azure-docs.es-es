@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: lizross
-ms.openlocfilehash: a4c16347d1883e1522fda18c2382f2d67b8ace80
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5d193d30428d24ccf65c3f70885192acad2fdc9f
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99051116"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107228338"
 ---
 # <a name="how-to-provision-devices-using-symmetric-key-enrollment-groups"></a>Aprovisionamiento de dispositivos mediante grupos de inscripción de clave simétrica
 
@@ -30,6 +30,16 @@ Este artículo está orientado a una estación de trabajo basada en Windows. No 
 > [!NOTE]
 > El ejemplo que se usa en este artículo está escrito en C. También hay disponible un [ejemplo de clave simétrica de aprovisionamiento de dispositivos de C#](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/SymmetricKeySample). Para usar este ejemplo, descargue o clone el repositorio [azure-iot-samples-csharp](https://github.com/Azure-Samples/azure-iot-samples-csharp) y siga las instrucciones insertadas en el código de ejemplo. Puede seguir las instrucciones que aparecen en este artículo para crear un grupo de inscripción de claves simétricas mediante el portal y para buscar el ámbito de identificador y las claves principales y secundarias del grupo de inscripción que se necesitan para ejecutar el ejemplo. También puede crear inscripciones individuales con el ejemplo.
 
+## <a name="prerequisites"></a>Requisitos previos
+
+* Finalización de la guía de inicio rápido [Configuración de Azure IoT Hub Device Provisioning Service con Azure Portal](./quick-setup-auto-provision.md).
+
+Los siguientes requisitos previos corresponden a un entorno de desarrollo de Windows. En el caso de Linux o macOS, consulte la sección correspondiente en [Preparación del entorno de desarrollo](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) en la documentación del SDK.
+
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 con la carga de trabajo ["Desarrollo para el escritorio con C++"](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) habilitada. También se admiten Visual Studio 2015 y Visual Studio 2017.
+
+* Tener instalada la versión más reciente de [Git](https://git-scm.com/download/).
+
 ## <a name="overview"></a>Información general
 
 Se definirá un identificador de registro único para cada dispositivo basándose en la información que identifica ese dispositivo. Por ejemplo, la dirección MAC o un número de serie.
@@ -40,16 +50,6 @@ El código de dispositivo que se muestra en este artículo seguirá el mismo pat
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-
-## <a name="prerequisites"></a>Requisitos previos
-
-* Finalización de la guía de inicio rápido [Configuración de Azure IoT Hub Device Provisioning Service con Azure Portal](./quick-setup-auto-provision.md).
-
-Los siguientes requisitos previos corresponden a un entorno de desarrollo de Windows. En el caso de Linux o macOS, consulte la sección correspondiente en [Preparación del entorno de desarrollo](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) en la documentación del SDK.
-
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 con la carga de trabajo ["Desarrollo para el escritorio con C++"](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) habilitada. También se admiten Visual Studio 2015 y Visual Studio 2017.
-
-* Tener instalada la versión más reciente de [Git](https://git-scm.com/download/).
 
 ## <a name="prepare-an-azure-iot-c-sdk-development-environment"></a>Preparación de un entorno de desarrollo del SDK de Azure IoT para C
 
@@ -130,7 +130,7 @@ El SDK incluye el código de ejemplo para el dispositivo simulado. Este disposit
     Abra la inscripción y copie el valor de su **clave principal** generada. Esta clave es la clave maestra de grupo.
 
 
-## <a name="choose-a-unique-registration-id-for-the-device"></a>Elección de un identificador de registro único para el dispositivo
+## <a name="choose-a-unique-registration-id-for-the-device&quot;></a>Elección de un identificador de registro único para el dispositivo
 
 Se debe definir un identificador de registro único para identificar cada dispositivo. Puede usar la dirección MAC, el número de serie o cualquier otra información única del dispositivo. 
 
@@ -140,7 +140,7 @@ En este ejemplo se usa una combinación de una dirección MAC y un número de se
 sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
 ```
 
-Cree identificadores de registro únicos para cada dispositivo. Solo se pueden usar caracteres alfanuméricos en minúsculas y guiones ("-").
+Cree identificadores de registro únicos para cada dispositivo. Solo se pueden usar caracteres alfanuméricos en minúsculas y guiones (&quot;-").
 
 
 ## <a name="derive-a-device-key"></a>Derivación de una clave de dispositivo 
@@ -283,6 +283,15 @@ Tenga en cuenta que la clave de dispositivo derivada se deja incluida como parte
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para obtener más información sobre el reaprovisionamiento, consulte [Conceptos sobre el reaprovisionamiento de dispositivos de IoT Hub](concepts-device-reprovision.md). 
-* [Guía de inicio rápido: Aprovisionamiento de un dispositivo simulado con claves simétricas](quick-create-simulated-device-symm-key.md)
-* Para obtener más información sobre el desaprovisionamiento, consulte [Desaprovisionamiento de dispositivos aprovisionados automáticamente](how-to-unprovision-devices.md).
+* Para más información sobre el reaprovisionamiento, consulte
+
+> [!div class="nextstepaction"]
+> [Conceptos sobre el reaprovisionamiento de dispositivos de IoT Hub](concepts-device-reprovision.md)
+
+> [!div class="nextstepaction"]
+> [Guía de inicio rápido: Aprovisionamiento de un dispositivo simulado con claves simétricas](quick-create-simulated-device-symm-key.md)
+
+* Para más información sobre el desaprovisionamiento, consulte
+
+> [!div class="nextstepaction"]
+> [Desaprovisionamiento de dispositivos aprovisionados automáticamente](how-to-unprovision-devices.md)

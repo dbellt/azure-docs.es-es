@@ -9,12 +9,12 @@ ms.date: 03/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: eb5cbc2f2db0ba9f92a637c7e9a905d2f746880a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 66e1e561c14b169d41028e151ac054888830b881
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103200837"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107481980"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>Creación y aprovisionamiento de un dispositivo IoT Edge mediante la atestación de clave simétrica
 
@@ -75,7 +75,7 @@ Al crear una inscripción en DPS, tiene la oportunidad de declarar un **Estado i
    1. Seleccione **Verdadero** para declarar que la inscripción es para un dispositivo IoT Edge. En el caso de una inscripción de grupo, todos los dispositivos deben ser dispositivos IoT Edge, o bien ninguno puede serlo.
 
       > [!TIP]
-      > En la CLI de Azure, puede crear una [inscripción](/cli/azure/ext/azure-iot/iot/dps/enrollment) o un [grupo de inscripción](/cli/azure/ext/azure-iot/iot/dps/enrollment-group) y usar la marca **habilitado para Edge** para especificar que un dispositivo o un grupo de dispositivos son un dispositivo IoT Edge.
+      > En la CLI de Azure, puede crear una [inscripción](/cli/azure/iot/dps/enrollment) o un [grupo de inscripción](/cli/azure/iot/dps/enrollment-group) y usar la marca **habilitado para Edge** para especificar que un dispositivo o un grupo de dispositivos son un dispositivo IoT Edge.
 
    1. Acepte el valor predeterminado de la directiva de asignación de Device Provisioning Service para **la forma de asignar dispositivos a los centros**, o bien elija otro valor que sea específico de esta inscripción.
 

@@ -16,12 +16,12 @@ ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 426e28048ae370919529ea710717a3a3867d999d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d4b2ac36ad1140968fd17db0bed0b60a8aca6a02
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97746259"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107532683"
 ---
 # <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Uso de revisiones de acceso de Azure AD para administrar los usuarios a los que se les ha excluido de las directivas de acceso condicional
 
@@ -144,7 +144,7 @@ Supongamos que tiene una directiva de acceso condicional que bloquea el acceso a
     ![Creación de un panel de revisión de acceso para el ejemplo 2](./media/conditional-access-exclusion/create-access-review-2.png)
 
 >[!IMPORTANT] 
->Si tiene muchos grupos de exclusión y, por consiguiente, necesita crear varias revisiones de acceso, existe ahora una API en el punto de conexión beta de Microsoft Graph que le permite crear y administrar los grupos mediante programación. Para empezar, puede consultar la [referencia sobre la API de revisiones de acceso de Azure AD](/graph/api/resources/accessreviews-root?view=graph-rest-beta) y el [ejemplo de recuperación de revisiones de acceso de Azure AD mediante Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/td-p/236096).
+>Si tiene muchos grupos de exclusión y, por consiguiente, necesita crear varias revisiones de acceso, existe ahora una API en el punto de conexión beta de Microsoft Graph que le permite crear y administrar los grupos mediante programación. Para empezar, puede consultar la [referencia sobre la API de revisiones de acceso de Azure AD](/graph/api/resources/accessreviewsv2-root?view=graph-rest-beta&preserve-view=true) y el [ejemplo de recuperación de revisiones de acceso de Azure AD mediante Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/td-p/236096).
 
 ## <a name="access-review-results-and-audit-logs"></a>Resultados de la revisión de acceso y registros de auditoría
 

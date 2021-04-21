@@ -6,18 +6,18 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 66faa2b3e6d24c264e2fe26ab42eeaffd48384f6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: fa52327225667bd84047e74a89e3b1394964b22c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101732843"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107769992"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Cifrado de datos del servidor único de Azure Database for PostgreSQL con clave administrada por el cliente
 
 Azure PostgreSQL aprovecha el [cifrado de Azure Storage](../storage/common/storage-service-encryption.md) para cifrar datos en reposo de manera predeterminada mediante claves administradas por Microsoft. En el caso de los usuarios de Azure PostgreSQL, es muy similar al Cifrado de datos transparente (TDE) de otras bases de datos, como SQL Server. Muchas organizaciones requieren un control total sobre el acceso a los datos mediante una clave administrada por el cliente. El cifrado de datos con claves administradas por el cliente del servidor único de Azure Database for PostgreSQL le permite traer su propia clave (BYOK) para la protección de datos en reposo. También permite a las organizaciones implementar la separación de tareas en la administración de claves y datos. Con el cifrado administrado por el cliente, el usuario es responsable y tiene el control total del ciclo de vida de una clave, los permisos de uso de la clave y la auditoría de operaciones con claves.
 
-El cifrado de datos con claves administradas por el cliente del servidor único de Azure Database for PostgreSQL se establece en el nivel de servidor. En un servidor determinado, se usa una clave administrada por el cliente, denominada clave de cifrado de claves (KEK), para cifrar la clave de cifrado de datos (DEK) que usa el servicio. KEK es una clave asimétrica almacenada en una instancia de [Azure Key Vault](../key-vault/general/secure-your-key-vault.md) administrada por el cliente y de su propiedad. La clave de cifrado de claves (KEK) y la clave de cifrado de datos (DEK) se describen con más detalle más adelante en este artículo.
+El cifrado de datos con claves administradas por el cliente del servidor único de Azure Database for PostgreSQL se establece en el nivel de servidor. En un servidor determinado, se usa una clave administrada por el cliente, denominada clave de cifrado de claves (KEK), para cifrar la clave de cifrado de datos (DEK) que usa el servicio. KEK es una clave asimétrica almacenada en una instancia de [Azure Key Vault](../key-vault/general/security-overview.md) administrada por el cliente y de su propiedad. La clave de cifrado de claves (KEK) y la clave de cifrado de datos (DEK) se describen con más detalle más adelante en este artículo.
 
 Key Vault es un sistema de administración de claves externas basado en la nube. Tiene una gran disponibilidad y ofrece almacenamiento seguro escalable para claves criptográficas RSA respaldado opcionalmente por módulos de seguridad de hardware (HSM) con certificación FIPS 140-2 nivel 2. No permite acceso directo a una clave almacenada, pero proporciona servicios de cifrado y descifrado a entidades autorizadas. Key Vault puede generar la clave, importarla o [hacer que se transfiera desde un dispositivo HSM local](../key-vault/keys/hsm-protected-keys.md).
 
@@ -97,7 +97,7 @@ Cuando se configura el cifrado de datos con una clave administrada por el client
 * Si creamos una réplica de lectura para el servidor único de Azure Database for PostgreSQL, que tiene habilitado el cifrado de datos, el servidor de réplica estará en estado de *inaccesible*. Puede solucionar este paso a través de [Azure Portal](howto-data-encryption-portal.md#using-data-encryption-for-restore-or-replica-servers) o [CLI](howto-data-encryption-cli.md#using-data-encryption-for-restore-or-replica-servers).
 * Si elimina el KeyVault, el servidor único de Azure Database for PostgreSQL no podrá tener acceso a la clave y se moverá a estado de *inaccesible*. Recupere el [Key Vault](../key-vault/general/key-vault-recovery.md) y vuelva a validar el cifrado de datos para que el servidor esté *disponible*.
 * Si eliminamos la clave del KeyVault, el servidor único de Azure Database for PostgreSQL no podrá tener acceso a la clave y se moverá a estado de *inaccesible*. Recupere la [clave](../key-vault/general/key-vault-recovery.md) y vuelva a validar el cifrado de datos para que el servidor esté *disponible*.
-* Si expira la clave almacenada en Azure KeyVault, la clave dejará de ser válida y el servidor único de Azure Database for PostgreSQL pasará a estado de *inaccesible*. Extienda la fecha de expiración de la clave mediante [CLI](/cli/azure/keyvault/key#az-keyvault-key-set-attributes) y, después, vuelva a validar el cifrado de datos para que el servidor esté *disponible*.
+* Si expira la clave almacenada en Azure KeyVault, la clave dejará de ser válida y el servidor único de Azure Database for PostgreSQL pasará a estado de *inaccesible*. Extienda la fecha de expiración de la clave mediante [CLI](/cli/azure/keyvault/key#az_keyvault_key_set_attributes) y, después, vuelva a validar el cifrado de datos para que el servidor esté *disponible*.
 
 ### <a name="accidental-key-access-revocation-from-key-vault"></a>Revocación accidental del acceso a la clave de Key Vault
 

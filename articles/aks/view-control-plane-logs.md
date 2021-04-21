@@ -4,12 +4,12 @@ description: Aprenda a habilitar y ver los registros del plano de control de Kub
 services: container-service
 ms.topic: article
 ms.date: 01/27/2020
-ms.openlocfilehash: 4027b2ca66b4d4319f7df347df6d671e6d48b772
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 395422ca97b43488a7d7ad1c7434b20ccc59f2b0
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101735138"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107767298"
 ---
 # <a name="enable-and-review-kubernetes-control-plane-logs-in-azure-kubernetes-service-aks"></a>Habilitación y revisión de los registros del plano de control de Kubernetes en Azure Kubernetes Service (AKS)
 
@@ -175,9 +175,9 @@ En este artículo, aprendió a habilitar y revisar los registros de los componen
 [analyze-log-analytics]: ../azure-monitor/logs/log-analytics-tutorial.md
 [kubelet-logs]: kubelet-logs.md
 [aks-ssh]: ssh.md
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[az-feature-list]: /cli/azure/feature#az-feature-list
-[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-provider-register]: /cli/azure/provider#az_provider_register
 [log-schema-azureactivity]: /azure/azure-monitor/reference/tables/azureactivity
 [log-schema-azurediagnostics]: /azure/azure-monitor/reference/tables/azurediagnostics
 [log-schema-azuremetrics]: /azure/azure-monitor/reference/tables/azuremetrics

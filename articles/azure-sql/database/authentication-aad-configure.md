@@ -12,12 +12,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, sstein
 ms.date: 08/17/2020
-ms.openlocfilehash: 5894defca5a90f1d8cd7f312f47a37df6495ccd3
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: c75364f2565611b6738996c082610229db0cb2a8
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107376178"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762234"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Configuración y administración de la autenticación de Azure AD con Azure SQL
 
@@ -220,10 +220,10 @@ También puede aprovisionar un administrador de Azure AD para la Instancia admi
 
 | Get-Help | Descripción |
 | --- | --- |
-|[az sql mi ad-admin create](/cli/azure/sql/mi/ad-admin#az-sql-mi-ad-admin-create) | Aprovisiona un administrador de Azure Active Directory para la Instancia administrada de SQL (debe ser de la suscripción actual). |
-|[az sql mi ad-admin delete](/cli/azure/sql/mi/ad-admin#az-sql-mi-ad-admin-delete) | Elimina un administrador de Azure Active Directory para la Instancia administrada de SQL. |
-|[az sql mi ad-admin list](/cli/azure/sql/mi/ad-admin#az-sql-mi-ad-admin-list) | Devuelve información sobre un administrador de Azure Active Directory configurado actualmente para la Instancia administrada de SQL. |
-|[az sql mi ad-admin update](/cli/azure/sql/mi/ad-admin#az-sql-mi-ad-admin-update) | Actualiza el administrador de Active Directory para la Instancia administrada de SQL. |
+|[az sql mi ad-admin create](/cli/azure/sql/mi/ad-admin#az_sql_mi_ad_admin_create) | Aprovisiona un administrador de Azure Active Directory para la Instancia administrada de SQL (debe ser de la suscripción actual). |
+|[az sql mi ad-admin delete](/cli/azure/sql/mi/ad-admin#az_sql_mi_ad_admin_delete) | Elimina un administrador de Azure Active Directory para la Instancia administrada de SQL. |
+|[az sql mi ad-admin list](/cli/azure/sql/mi/ad-admin#az_sql_mi_ad_admin_list) | Devuelve información sobre un administrador de Azure Active Directory configurado actualmente para la Instancia administrada de SQL. |
+|[az sql mi ad-admin update](/cli/azure/sql/mi/ad-admin#az_sql_mi_ad_admin_update) | Actualiza el administrador de Active Directory para la Instancia administrada de SQL. |
 
 Para más información sobre los comandos de la CLI, consulte [az sql mi](/cli/azure/sql/mi).
 
@@ -326,10 +326,10 @@ Puede aprovisionar un administrador de Azure AD mediante una llamada a los sigu
 
 | Get-Help | Descripción |
 | --- | --- |
-|[az sql server ad-admin create](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-create) | Aprovisiona un administrador de Azure Active Directory para el servidor que hospeda SQL Database o Azure Synapse. (Debe ser de la suscripción actual). |
-|[az sql server ad-admin delete](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-delete) | Quita un administrador de Azure Active Directory para el servidor que hospeda SQL Database o Azure Synapse. |
-|[az sql server ad-admin list](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) | Devuelve información sobre un administrador de Azure Active Directory configurado actualmente para el servidor que hospeda SQL Database o Azure Synapse. |
-|[az sql server ad-admin update](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-update) | Actualiza un administrador de Active Directory para el servidor que hospeda SQL Database o Azure Synapse. |
+|[az sql server ad-admin create](/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_create) | Aprovisiona un administrador de Azure Active Directory para el servidor que hospeda SQL Database o Azure Synapse. (Debe ser de la suscripción actual). |
+|[az sql server ad-admin delete](/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_delete) | Quita un administrador de Azure Active Directory para el servidor que hospeda SQL Database o Azure Synapse. |
+|[az sql server ad-admin list](/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_list) | Devuelve información sobre un administrador de Azure Active Directory configurado actualmente para el servidor que hospeda SQL Database o Azure Synapse. |
+|[az sql server ad-admin update](/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_update) | Actualiza un administrador de Active Directory para el servidor que hospeda SQL Database o Azure Synapse. |
 
 Para más información sobre los comandos de la CLI, consulte [az sql server](/cli/azure/sql/server).
 

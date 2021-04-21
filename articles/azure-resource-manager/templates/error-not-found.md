@@ -3,12 +3,12 @@ title: Errores de recurso no encontrado
 description: Describe cómo resolver errores cuando no se encuentra un recurso. El error se puede producir al implementar una plantilla de Azure Resource Manager o al realizar acciones de administración.
 ms.topic: troubleshooting
 ms.date: 03/23/2021
-ms.openlocfilehash: b80c32683190167d5c0d6e0a7f75acce8bbdb833
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 5e3a72eaad99721cec9500956179a3ae9d9cf8d2
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104950882"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762144"
 ---
 # <a name="resolve-resource-not-found-errors"></a>Solución de errores de recurso no encontrado
 
@@ -43,7 +43,7 @@ Cuando reciba este error mientras realiza una tarea de administración, comprueb
 * Definición de un nombre de grupo de recursos
 * Suscripción
 
-Si usa PowerShell o la CLI de Azure, compruebe si el comando se ejecuta en la suscripción que contiene el recurso. Puede cambiar la suscripción con [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext) o [az account set](/cli/azure/account#az-account-set). Muchos comandos también proporcionan un parámetro de suscripción que le permite especificar una suscripción diferente a la del contexto actual.
+Si usa PowerShell o la CLI de Azure, compruebe si el comando se ejecuta en la suscripción que contiene el recurso. Puede cambiar la suscripción con [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext) o [az account set](/cli/azure/account#az_account_set). Muchos comandos también proporcionan un parámetro de suscripción que le permite especificar una suscripción diferente a la del contexto actual.
 
 Si tiene problemas para comprobar las propiedades, inicie sesión en el [portal](https://portal.azure.com). Busque el recurso que intenta usar y examine el nombre del recurso, el grupo de recursos y la suscripción.
 

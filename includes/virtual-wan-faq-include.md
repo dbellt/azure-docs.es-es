@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/05/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: b7f79bebce5a086b268f4fc1080c33517555fb39
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2c1cf6e1d47f9bb78349e0846f624e1d6a484669
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102431552"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107386578"
 ---
 ### <a name="is-azure-virtual-wan-in-ga"></a>¿Qué es Azure Virtual WAN en GA?
 
@@ -276,6 +276,10 @@ El comportamiento actual es preferir la ruta de acceso del circuito ExpressRoute
 ### <a name="can-hubs-be-created-in-different-resource-group-in-virtual-wan"></a>¿Se pueden crear concentradores en un grupo de recursos diferente en Virtual WAN?
 
 Sí. Actualmente, esta opción solo está disponible a través de PowerShell. En el portal de Virtual WAN es necesario que los centros de conectividad estén en el mismo grupo de recursos que el propio recurso de Virtual WAN.
+
+### <a name="what-is-the-recommended-hub-address-space-during-hub-creation"></a>¿Cuál es el espacio de direcciones de centro de conectividad recomendado durante la creación del centro?
+
+El valor recomendado del espacio de direcciones de un centro de conectividad de Virtual WAN es /23. El centro de conectividad de Virtual WAN asigna subredes a varias puertas de enlace, como ExpressRoute, VPN de sitio a sitio, VPN de punto a sitio, Azure Firewall o un enrutador del centro de conectividad virtual. En los escenarios en los que se implementan aplicaciones virtuales de red (NVA) dentro de un centro de conectividad virtual, normalmente se crea una subred /28 para las instancias de NVA. Sin embargo, si el usuario tuviera que aprovisionar varias NVA, se podría asignar una subred /27. Por tanto, de cara a una arquitectura futura, mientras los centro de conectividad de Virtual WAN Hubs se implementan con un tamaño mínimo de /24, el espacio de direcciones de centro de conectividad recomendado en el momento de creación para que el usuario lo introduzca es /23.
 
 ### <a name="is-there-support-for-ipv6-in-virtual-wan"></a>¿Hay compatibilidad con IPv6 en un Virtual WAN?
 

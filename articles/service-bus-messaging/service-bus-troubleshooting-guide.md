@@ -3,12 +3,12 @@ title: Guía para la solución de problemas de Azure Service Bus | Microsoft Doc
 description: Conozca las sugerencias y recomendaciones para la solución de algunos problemas que pueden aparecer al usar Azure Service Bus.
 ms.topic: article
 ms.date: 03/03/2021
-ms.openlocfilehash: b44587747a59acb3c0124c0a76b63de68d6d8ae7
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 27249d7e016ea8aee0552bbbf1687647760d4b6f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105031297"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786574"
 ---
 # <a name="troubleshooting-guide-for-azure-service-bus"></a>Guía para la solución de problemas de Azure Service Bus
 En este artículo se proporcionan sugerencias y recomendaciones para la solución de algunos problemas que pueden aparecer al usar Azure Service Bus. 
@@ -52,7 +52,7 @@ Los pasos siguientes pueden ayudarle a solucionar problemas de conectividad, cer
     ```
     Puede usar comandos equivalentes si utiliza otras herramientas como `tnc`, `ping`, etc. 
 - Realice un seguimiento de red si los pasos anteriores no ayudan y analícelo con herramientas como [Wireshark](https://www.wireshark.org/). Si lo necesita, póngase en contacto con el [soporte técnico de Microsoft](https://support.microsoft.com/). 
-- Para buscar las direcciones IP correctas que se van a agregar a la lista de conexiones permitidas, consulte [¿Qué direcciones IP debo agregar a la lista de permitidas?](service-bus-faq.md#what-ip-addresses-do-i-need-to-add-to-allow-list) 
+- Para buscar las direcciones IP correctas que se van a agregar a la lista de conexiones permitidas, consulte [¿Qué direcciones IP debo agregar a la lista de permitidas?](service-bus-faq.yml#what-ip-addresses-do-i-need-to-add-to-allow-list-) 
 
 
 ## <a name="issues-that-may-occur-with-service-upgradesrestarts"></a>Problemas que se pueden producir con las actualizaciones o reinicios de servicios

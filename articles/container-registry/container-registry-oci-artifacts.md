@@ -6,12 +6,12 @@ manager: gwallace
 ms.topic: article
 ms.date: 02/03/2021
 ms.author: stevelas
-ms.openlocfilehash: 8a73f295999888dab20531ffdd0fb042790a5357
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 399bb001432759556cd0ba8bf15f7738dd4edb7c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99988228"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781494"
 ---
 # <a name="push-and-pull-an-oci-artifact-using-an-azure-container-registry"></a>Inserción y extracción de un artefacto de OCI con un registro de contenedor de Azure
 
@@ -46,7 +46,7 @@ Para leer la contraseña desde Stdin, use `--password-stdin`.
 
 [Inicie sesión](/cli/azure/authenticate-azure-cli) en la CLI de Azure con su identidad para insertar y extraer artefactos del registro de contenedor.
 
-A continuación, use el comando [az acr login](/cli/azure/acr#az-acr-login) de la CLI de Azure para acceder al registro. Por ejemplo, para autenticarse en un registro llamado *myregistry*:
+A continuación, use el comando [az acr login](/cli/azure/acr#az_acr_login) de la CLI de Azure para acceder al registro. Por ejemplo, para autenticarse en un registro llamado *myregistry*:
 
 ```azurecli
 az login
@@ -173,7 +173,7 @@ Cree e inserte un nuevo artefacto de OCI en el registro de destino mediante el c
 oras push myregistry.azurecr.io/dockerfile:1.0 hello-world.dockerfile
 ```
 
-Ejecute el comando [az acr build](/cli/azure/acr#az-acr-build) para compilar la imagen de Hola mundo con el nuevo artefacto como contexto de compilación:
+Ejecute el comando [az acr build](/cli/azure/acr#az_acr_build) para compilar la imagen de Hola mundo con el nuevo artefacto como contexto de compilación:
 
 ```azurecli
 az acr build --registry myregistry --image builds/hello-world:v1 \
@@ -194,5 +194,5 @@ az acr build --registry myregistry --image builds/hello-world:v1 \
 [docker-windows]: https://docs.docker.com/docker-for-windows/
 
 <!-- LINKS - internal -->
-[az-acr-repository-show]: /cli/azure/acr/repository?#az-acr-repository-show
-[az-acr-repository-delete]: /cli/azure/acr/repository#az-acr-repository-delete
+[az-acr-repository-show]: /cli/azure/acr/repository?#az_acr_repository_show
+[az-acr-repository-delete]: /cli/azure/acr/repository#az_acr_repository_delete

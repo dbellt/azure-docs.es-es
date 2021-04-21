@@ -1,14 +1,14 @@
 ---
 title: Ejemplo de plano técnico de nivel de impacto 5 del DoD
 description: Pasos de implementación para el ejemplo de plano técnico de nivel de impacto 5 del DoD, incluidos los detalles de los parámetros del artefacto de plano técnico.
-ms.date: 04/02/2021
+ms.date: 04/13/2021
 ms.topic: sample
-ms.openlocfilehash: d9292a9033a3c0b92e1a00c63d74bd1fb6023794
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: b978b9fb30732c13785a6a425e5195daf67bae0f
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106386726"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107377410"
 ---
 # <a name="deploy-the-dod-impact-level-5-blueprint-sample"></a>Implementación del ejemplo de plano técnico de nivel de impacto 5 del DoD
 
@@ -19,7 +19,7 @@ Para implementar el ejemplo de plano técnico del nivel de impacto 5 del Departa
 > - Marcar la copia del ejemplo como **publicada**
 > - Asignar la copia del plano técnico a una suscripción existente
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free) antes de empezar.
+Si no tiene una suscripción a Azure Government, solicite una [suscripción de prueba](https://azure.microsoft.com/global-infrastructure/government/request/) antes de comenzar.
 
 ## <a name="create-blueprint-from-sample"></a>Creación de un plano técnico a partir del ejemplo
 

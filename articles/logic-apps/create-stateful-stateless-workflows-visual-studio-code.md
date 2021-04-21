@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
 ms.date: 03/30/2021
-ms.openlocfilehash: 491d5f14cc8f456d228a5bc6efaa6686575979c1
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 4010f7e2d0d20216107a45109056478694c940ca
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106078747"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772512"
 ---
 # <a name="create-stateful-and-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Creación de flujos de trabajo con o sin estado en Visual Studio Code con la extensión Azure Logic Apps (versión preliminar)
 
@@ -360,7 +360,7 @@ La funcionalidad de creación solo está disponible actualmente en Visual Studi
    ![Captura de pantalla que muestra el panel del Explorador con la lista "Habilitar conectores en Azure" abierta y  la opción "Usar conectores de Azure" seleccionada.](./media/create-stateful-stateless-workflows-visual-studio-code/use-connectors-from-azure.png)
 
    > [!NOTE]
-   > Actualmente, los flujos de trabajo sin estado solo admiten *acciones* de [conectores administrados](../connectors/apis-list.md#managed-api-connectors) que se implementan en Azure, y no desencadenadores. Aunque tiene la opción de habilitar conectores en Azure para el flujo de trabajo sin estado, el diseñador no muestra ningún desencadenador de conector administrado para que pueda seleccionarlo.
+   > Actualmente, los flujos de trabajo sin estado solo admiten *acciones* de [conectores administrados](../connectors/managed.md) que se implementan en Azure, y no desencadenadores. Aunque tiene la opción de habilitar conectores en Azure para el flujo de trabajo sin estado, el diseñador no muestra ningún desencadenador de conector administrado para que pueda seleccionarlo.
 
 1. En la lista **Seleccionar suscripción**, seleccione la suscripción de Azure que se usará para el proyecto de aplicación lógica.
 

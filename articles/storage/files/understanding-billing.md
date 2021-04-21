@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 01/27/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6bb608492327baae958c32be05d8f2a1bb4dbfbf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 11d22fd83106bb1802514d0c7d5f67724664464d
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99226648"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107788392"
 ---
 # <a name="understand-azure-files-billing"></a>Descripción de la facturación de Azure Files
 Azure Files proporciona dos modelos de facturación distintos: aprovisionado y pago por uso. El modelo aprovisionado solo está disponible para los recursos compartidos de archivos prémium, que son recursos compartidos de archivos implementados en el tipo de cuenta de almacenamiento **FileStorage**. El modelo de pago por uso solo está disponible para los recursos compartidos de archivos estándar, que son recursos compartidos de archivos implementados en el tipo de cuenta de almacenamiento de **uso general, versión 2 (GPv2)** . En este artículo se explica cómo funcionan ambos modelos con el fin de ayudarle a entender la factura mensual de Azure Files.
@@ -116,5 +116,5 @@ Hay cinco categorías de transacción básicas: escritura, lista, lectura, otras
 
 ## <a name="see-also"></a>Consulte también
 - [Página de precios de Azure Files](https://azure.microsoft.com/pricing/details/storage/files/)
-- [Planeamiento de una implementación de Azure Files](./storage-files-planning.md) y [Planeamiento de una implementación de Azure File Sync](./storage-sync-files-planning.md)
-- [Creación de un recurso compartido de archivos](./storage-how-to-create-file-share.md) e [Implementación de Azure File Sync](./storage-sync-files-deployment-guide.md)
+- [Planeamiento de una implementación de Azure Files](storage-files-planning.md) y [Planeamiento de una implementación de Azure File Sync](../file-sync/file-sync-planning.md)
+- [Creación de un recurso compartido de archivos](storage-how-to-create-file-share.md) e [Implementación de Azure File Sync](../file-sync/file-sync-deployment-guide.md)

@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 03/15/2021
 ms.author: sajaya
-ms.openlocfilehash: 5550c53289228f154fab485b4b7bbff17555aad7
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a8c007d7f4419ddbe1555b50ceb6fb92ea0a6f98
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105045746"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107783906"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Preguntas más frecuentes sobre Azure Container Registry
 
@@ -484,7 +484,7 @@ Póngase en contacto con el administrador de red o compruebe la configuración y
 ### <a name="why-does-my-pull-or-push-request-fail-with-disallowed-operation"></a>¿Por qué se produce un error de operación no permitida en la solicitud de extracción o de inserción?
 
 Estos son algunos escenarios en los que es posible que no se permitan operaciones:
-* Ya no se admiten los registros clásicos. Actualice a un [nivel de servicio](./container-registry-skus.md) compatible mediante [az acr update](/cli/azure/acr#az-acr-update) o Azure Portal.
+* Ya no se admiten los registros clásicos. Actualice a un [nivel de servicio](./container-registry-skus.md) compatible mediante [az acr update](/cli/azure/acr#az_acr_update) o Azure Portal.
 * Es posible que la imagen o el repositorio estén bloqueados para que no se puedan eliminar ni actualizar. Puede usar el comando [az acr show repository](./container-registry-image-lock.md) para ver los atributos actuales.
 * Algunas operaciones no se permiten si la imagen está en cuarentena. Más información sobre la [cuarentena](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
 * Puede que el registro haya alcanzado su [límite de almacenamiento](container-registry-skus.md#service-tier-features-and-limits).

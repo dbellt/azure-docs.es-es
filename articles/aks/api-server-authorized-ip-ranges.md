@@ -4,12 +4,12 @@ description: Aprenda a proteger el clúster mediante un intervalo de direcciones
 services: container-service
 ms.topic: article
 ms.date: 09/21/2020
-ms.openlocfilehash: 20c3d46e9a19c66c727e5a21bccd6caa0dc5f0ba
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8fca3fe61e26a031e6ea09692c9ba0781bfca21f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104771930"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107769650"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Protección del acceso al servidor de API con intervalos de direcciones IP autorizadas en Azure Kubernetes Service (AKS)
 
@@ -186,9 +186,9 @@ Para más información, consulte [Conceptos de seguridad de las aplicaciones y l
 
 <!-- LINKS - internal -->
 [az-aks-update]: /cli/azure/ext/aks-preview/aks#ext-aks-preview-az-aks-update
-[az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-create]: /cli/azure/aks#az_aks_create
 [az-aks-show]: /cli/azure/aks#az_aks_show
-[az-network-public-ip-list]: /cli/azure/network/public-ip#az-network-public-ip-list
+[az-network-public-ip-list]: /cli/azure/network/public-ip#az_network_public_ip_list
 [concepts-clusters-workloads]: concepts-clusters-workloads.md
 [concepts-security]: concepts-security.md
 [install-azure-cli]: /cli/azure/install-azure-cli

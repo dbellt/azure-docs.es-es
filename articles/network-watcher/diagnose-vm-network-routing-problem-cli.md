@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/07/2021
 ms.author: damendo
 ms.custom: ''
-ms.openlocfilehash: 415fcc72116cc36644b58b619404d96ff63b024d
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 2ca7a3b25b1355e21782c1d9f736d20a14cbd4ac
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106065929"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785458"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-cli"></a>Diagnosticar problemas de enrutamiento en una red de máquinas virtuales: CLI de Azure
 
@@ -37,13 +37,13 @@ En este artículo implementará una máquina virtual (VM) y comprobará las comu
 
 ## <a name="create-a-vm"></a>Crear una VM
 
-Para poder crear una máquina virtual, debe crear un grupo de recursos que contenga la máquina virtual. Cree un grupo de recursos con [az group create](/cli/azure/group#az-group-create). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*:
+Para poder crear una máquina virtual, debe crear un grupo de recursos que contenga la máquina virtual. Cree un grupo de recursos con [az group create](/cli/azure/group#az_group_create). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Cree la máquina virtual con [az vm create](/cli/azure/vm#az-vm-create). Si las claves SSH no existen en la ubicación de claves predeterminada, el comando las crea. Para utilizar un conjunto específico de claves, utilice la opción `--ssh-key-value`. En el ejemplo siguiente, se crea una máquina virtual llamada *myVm*:
+Cree la máquina virtual con [az vm create](/cli/azure/vm#az_vm_create). Si las claves SSH no existen en la ubicación de claves predeterminada, el comando las crea. Para utilizar un conjunto específico de claves, utilice la opción `--ssh-key-value`. En el ejemplo siguiente, se crea una máquina virtual llamada *myVm*:
 
 ```azurecli-interactive
 az vm create \
@@ -61,7 +61,7 @@ Para probar la comunicación de red con Network Watcher, primero debe habilitar 
 
 ### <a name="enable-network-watcher"></a>Habilitación de Network Watcher
 
-Si ya dispone de un monitor de red habilitado en la región Este de EE. UU., pase a la sección [Use el siguiente salto](#use-next-hop). Utilice el comando [az network watcher configure](/cli/azure/network/watcher#az-network-watcher-configure) para crear un monitor de red en la región Este de EE. UU.:
+Si ya dispone de un monitor de red habilitado en la región Este de EE. UU., pase a la sección [Use el siguiente salto](#use-next-hop). Utilice el comando [az network watcher configure](/cli/azure/network/watcher#az_network_watcher_configure) para crear un monitor de red en la región Este de EE. UU.:
 
 ```azurecli-interactive
 az network watcher configure \
@@ -72,7 +72,7 @@ az network watcher configure \
 
 ### <a name="use-next-hop"></a>Use el próximo salto
 
-Azure crea rutas automáticamente a los destinos predeterminados. Es posible crear rutas personalizadas que reemplacen las rutas predeterminadas. En ocasiones, las rutas personalizadas pueden provocar errores de comunicación. Para probar el enrutamiento desde una máquina virtual, use [az network watcher show-next-hop](/cli/azure/network/watcher#az-network-watcher-show-next-hop) para determinar el siguiente salto de enrutamiento cuando el tráfico esté destinado a una dirección específica.
+Azure crea rutas automáticamente a los destinos predeterminados. Es posible crear rutas personalizadas que reemplacen las rutas predeterminadas. En ocasiones, las rutas personalizadas pueden provocar errores de comunicación. Para probar el enrutamiento desde una máquina virtual, use [az network watcher show-next-hop](/cli/azure/network/watcher#az_network_watcher_show_next_hop) para determinar el siguiente salto de enrutamiento cuando el tráfico esté destinado a una dirección específica.
 
 Pruebe la comunicación de salida entre la máquina virtual y una de las direcciones IP de www.bing.com:
 
@@ -104,7 +104,7 @@ El resultado que se devuelve le informa que **Ninguno** es el valor de **nextHop
 
 ## <a name="view-details-of-a-route"></a>Vista de los detalles de una ruta
 
-Para analizar el enrutamiento detenidamente, revise las rutas efectivas para la interfaz de red con el comando [az network nic show-effective-route-table](/cli/azure/network/nic#az-network-nic-show-effective-route-table):
+Para analizar el enrutamiento detenidamente, revise las rutas efectivas para la interfaz de red con el comando [az network nic show-effective-route-table](/cli/azure/network/nic#az_network_nic_show_effective_route_table):
 
 ```azurecli-interactive
 az network nic show-effective-route-table \
@@ -154,7 +154,7 @@ Como puede ver en el resultado del comando `az network watcher nic show-effectiv
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando ya no se necesiten, puede utilizar [az group delete](/cli/azure/group#az-group-delete) para eliminar el grupo de recursos y todos los recursos que contenga:
+Cuando ya no se necesiten, puede utilizar [az group delete](/cli/azure/group#az_group_delete) para eliminar el grupo de recursos y todos los recursos que contenga:
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes

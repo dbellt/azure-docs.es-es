@@ -12,15 +12,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/20/2020
+ms.date: 04/08/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4eb7e64065e311dc18f33dffb169d5c27a34008d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 05a0aeb43b13dc4db28ca8c56fc668756a2a4510
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101673049"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258731"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Implementación de DBMS de Azure Virtual Machines de SQL Server para la carga de trabajo de SAP NetWeaver
 
@@ -309,7 +309,7 @@ ms.locfileid: "101673049"
 
 
 
-En este documento se describen las diferentes áreas que se deben tener en cuenta al implementar SQL Server para la carga de trabajo de SAP en IaaS de Azure. Como condición previa a este documento, debe haber leído el documento [Consideraciones para la implementación de DBMS de Azure Virtual Machines para la carga de trabajo de SAP](./dbms_guide_general.md), así como otras guías de la [documentación de carga de trabajo de SAP en Azure](./get-started.md). 
+En este documento se describen las diferentes áreas que se deben tener en cuenta al implementar SQL Server para la carga de trabajo de SAP en IaaS de Azure. Como condición previa a este documento, debe haber leído el documento [Consideraciones para la implementación de DBMS de Azure Virtual Machines para la carga de trabajo de SAP](./dbms_guide_general.md) y otras guías de la [documentación de carga de trabajo de SAP en Azure](./get-started.md). 
 
 
 
@@ -329,6 +329,8 @@ Debe conocer información específica sobre SQL Server en IaaS antes de continua
 * **Soporte para versiones de SQL**: para los clientes de SAP se presta soporte para SQL Server 2008 R2 y posteriores en las máquinas virtuales de Microsoft Azure. No se prestará soporte para versiones anteriores. Revise esta [declaración de soporte](https://support.microsoft.com/kb/956893) general para más información. En general, Microsoft también presta soporte para SQL Server 2008. Sin embargo, debido a la importante funcionalidad de SAP que se introdujo con SQL Server 2008 R2, SQL Server 2008 R2 es la versión mínima que se requiere para SAP. En general, debería considerar usar las versiones más recientes de SQL Server para ejecutar la carga de trabajo de SAP en IaaS de Azure. Las versiones más recientes de SQL Server ofrecen una mejor integración en algunos de los servicios y funcionalidades de Azure o disponer de cambios que optimicen las operaciones en una infraestructura de IaaS de Azure. Por lo tanto, el documento se limita a SQL Server 2016 y SQL Server 2017.
 * **Rendimiento de SQL**: las máquinas virtuales hospedadas en Microsoft Azure funcionan bien en comparación con otras ofertas de virtualización de nube pública, aunque los resultados individuales pueden variar. Consulte el artículo [Procedimientos recomendados para SQL Server en Azure Virtual Machines](../../../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md).
 * **Uso de imágenes de Azure Marketplace**: la forma más rápida de implementar una nueva máquina virtual de Microsoft Azure es utilizando una imagen de Azure Marketplace. Hay imágenes en Azure Marketplace que contienen las versiones más recientes de SQL Server. Las imágenes donde ya se ha instalado SQL Server no se pueden utilizar inmediatamente para aplicaciones de SAP NetWeaver. El motivo es que la intercalación de SQL Server predeterminada está instalada en esas imágenes y no la que requieren los sistemas SAP NetWeaver. Para usar estas imágenes, consulte los pasos que se explican en el capítulo [Uso de imágenes de SQL Server desde Microsoft Azure Marketplace][dbms-guide-5.6]. 
+*  **Compatibilidad con varias instancias de SQL Server en una sola máquina virtual de Azure**: se admite este método de implementación. Sin embargo, tenga en cuenta las limitaciones de los recursos, especialmente en torno al ancho de banda de red y almacenamiento del tipo de máquina virtual que está usando. Puede encontrar información detallada en el artículo [Tamaños de las máquinas virtuales en Azure](https://docs.microsoft.com/azure/virtual-machines/sizes). Estas limitaciones de cuota tal vez no le permitan implementar la misma arquitectura de varias instancias que puede implementar en el entorno local. En cuanto a la configuración y la interferencia de compartir los recursos disponibles dentro de una sola máquina virtual, se deben tener en cuenta las mismas consideraciones que en el entorno local.
+*  **Varias bases de datos de SAP en una sola instancia de SQL Server en una sola máquina virtual**: como se mencionó anteriormente, se admiten configuraciones como estas. Las consideraciones sobre varias bases de datos de SAP que comparten los recursos de una sola instancia de SQL Server son las mismas que para las implementaciones en entornos locales. Tenga en cuenta otros límites adicionales, como el número de discos que se pueden conectar a un tipo de máquina virtual específico. O los límites de cuota de red y almacenamiento de tipos de máquina virtual específicos como [tamaños detallados para máquinas virtuales en Azure](https://docs.microsoft.com/azure/virtual-machines/sizes). 
 
 
 ## <a name="recommendations-on-vmvhd-structure-for-sap-related-sql-server-deployments"></a>Recomendaciones sobre la estructura de máquina virtual y VHD para SAP relacionadas con las implementaciones de SQL Server
@@ -471,7 +473,7 @@ Si usa SQL Server en implementaciones de IaaS de Azure para SAP, dispondrá de d
 Con Windows Server 2016, Microsoft introdujo los [espacios de almacenamiento directo](/windows-server/storage/storage-spaces/storage-spaces-direct-overview). En función de la implementación de Espacios de almacenamiento directo, se admite la agrupación en clústeres de FCI de SQL Server en general. Azure también ofrece [discos compartidos de Azure](../../disks-shared-enable.md?tabs=azure-cli) que podrían usarse para la agrupación en clústeres de Windows. En el caso de la carga de trabajo de SAP, no se admiten estas opciones de alta disponibilidad. 
 
 ### <a name="sql-server-log-shipping"></a>Trasvase de registros de SQL Server
-Uno de los métodos de alta disponibilidad (HA) consiste en trasvasar los registros de SQL Server. Si las máquinas virtuales que participan en la configuración de alta disponibilidad tienen una resolución de nombres correcta, no habrá ningún problema y la configuración de Azure no es diferente a cualquier otra realizada de forma local. En lo que respecta a la configuración de trasvase de registros y sus principios. En el artículo [Acerca del trasvase de registros (SQL Server)](/sql/database-engine/log-shipping/about-log-shipping-sql-server) encontrará información detallada sobre el trasvase de registros de SQL Server.
+Uno de los métodos de alta disponibilidad (HA) consiste en trasvasar los registros de SQL Server. Si las máquinas virtuales que participan en la configuración de alta disponibilidad tienen resolución de nombres de trabajo, no hay ningún problema. La configuración en Azure no difiere de ninguna configuración que se realice localmente relacionada con la configuración del trasvase de registros y los principios en torno al trasvase de registros. En el artículo [Acerca del trasvase de registros (SQL Server)](/sql/database-engine/log-shipping/about-log-shipping-sql-server) encontrará información detallada sobre el trasvase de registros de SQL Server.
 
 La funcionalidad de trasvase de registros de SQL Server apenas se usó en Azure para lograr una alta disponibilidad dentro de una región de Azure. En cambio, en los siguientes escenarios, los clientes de SAP usaban el trasvase de registros adecuadamente junto con Azure:
 
@@ -516,10 +518,10 @@ SQL Server AlwaysOn es la funcionalidad de alta disponibilidad y de recuperació
 - Usar el agente de escucha de grupo de disponibilidad. Con el agente de escucha del grupo de disponibilidad, deberá implementar un equilibrador de carga de Azure. Este es el método predeterminado de implementación. Las aplicaciones de SAP se configurarían para conectarse en el agente de escucha del grupo de disponibilidad, y no en un único nodo.
 - Usar los parámetros de conectividad de creación de reflejo de la base de datos de SQL Server. En este caso, deberá configurar la conectividad de las aplicaciones de SAP de manera que se denominen ambos nombres de nodo. En la nota de SAP [#965908](https://launchpad.support.sap.com/#/notes/965908) se documenta la información exacta de dicha configuración de SAP. Con esta opción no tendría que configurar ningún agente de escucha del grupo de disponibilidad y, con eso, ningún equilibrador de carga de Azure para la alta disponibilidad de SQL Server. Como resultado, la latencia de red entre la capa de aplicación de SAP y la capa de DBMS es menor, ya que el tráfico de entrada a la instancia de SQL Server no se enruta a través del equilibrador de carga de Azure. Pero debe recordar que esta opción solo funciona si restringe el grupo de disponibilidad para que abarque dos instancias. 
 
-Unos pocos clientes están aprovechando la funcionalidad de SQL Server AlwaysOn de una funcionalidad adicional de recuperación ante desastres entre las regiones de Azure. Muchos clientes también usan la capacidad de realizar copias de seguridad desde una réplica secundaria. 
+Algunos clientes aprovechan la funcionalidad AlwaysOn de SQL Server para la funcionalidad de recuperación ante desastres entre regiones de Azure. Muchos clientes también usan la capacidad de realizar copias de seguridad desde una réplica secundaria. 
 
 ## <a name="sql-server-transparent-data-encryption"></a>Cifrado de datos transparente de SQL Server
-Hay una serie de clientes que usan el [Cifrado de datos transparente (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) de SQL Server al implementar sus bases de datos de SQL Server de SAP en Azure. La funcionalidad de TDE de SQL Server es totalmente compatible con SAP (consulte la nota de SAP [1380493 #](https://launchpad.support.sap.com/#/notes/1380493)). 
+Muchos clientes usan el [Cifrado de datos transparente (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) de SQL Server al implementar sus bases de datos de SQL Server de SAP en Azure. La funcionalidad de TDE de SQL Server es totalmente compatible con SAP (consulte la nota de SAP [1380493 #](https://launchpad.support.sap.com/#/notes/1380493)). 
 
 ### <a name="applying-sql-server-tde"></a>Aplicar el TDE de SQL Server
 En los casos en que se efectúe una migración heterogénea desde otro DBMS, que se ejecuta en un entorno local, a Windows o SQL Server, que se ejecuta en Azure, se debería crear de antemano una base de datos de destino vacía en SQL Server. El siguiente paso sería aplicaría la funcionalidad de TDE de SQL Server mientras se sigue ejecutando el sistema de producción de forma local. El motivo de seguir esta secuencia es que el proceso de cifrado de la base de datos vacía puede tardar bastante. Luego, los procesos de importación SAP importarían los datos a la base de datos cifrada durante la fase de tiempo de inactividad. La sobrecarga de la importación a una base de datos cifrada tiene un impacto temporal mucho menor de manera que el cifrado de la base de datos después de la fase de exportación en la fase de tiempo de inactividad. Se han dado experiencias negativas al intentar aplicar TDE con la carga de trabajo de SAP en ejecución en la base de datos. Por lo tanto, se recomienda tratar la implementación de TDE como una actividad que debe llevarse a cabo sin ninguna carga de trabajo de SAP en la base de datos concreta.

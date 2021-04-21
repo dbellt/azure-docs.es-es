@@ -1,21 +1,22 @@
 ---
 title: Controles de cumplimiento normativo de Azure Policy para Azure Kubernetes Service (AKS)
 description: Enumera los controles de cumplimiento normativo de Azure Policy disponibles para Azure Kubernetes Service (AKS). Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar el cumplimiento de los recursos de Azure.
-ms.date: 03/31/2021
+ms.date: 04/14/2021
 ms.topic: sample
 ms.service: container-service
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 0fdc3822b62053195ac1daa3f6eed16ac226f7f1
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: d86dcdea210c51f2668c3dffcc1319f4de391bcd
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106095034"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107505853"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-kubernetes-service-aks"></a>Controles de cumplimiento normativo de Azure Policy para Azure Kubernetes Service (AKS)
 
-[Cumplimiento normativo de Azure Policy](../governance/policy/concepts/regulatory-compliance.md) proporciona definiciones de iniciativas creadas y administradas por Microsoft, conocidas como _integraciones_, para los **dominios de cumplimiento** y los **controles de seguridad** relativos a distintos estándares de cumplimiento. En esta página se enumeran los **dominios de cumplimiento** y los **controles de seguridad** para Azure Kubernetes Service (AKS).
-Para que los recursos de Azure cumplan con el estándar específico, puede asignar las integraciones a un **control de seguridad** de manera individual.
+El [cumplimiento normativo de Azure Policy](../governance/policy/concepts/regulatory-compliance.md) proporciona definiciones de iniciativas (*integradas*) creadas y administradas por Microsoft para los dominios de cumplimiento y los controles de seguridad relacionados con diferentes estándares de cumplimiento. En esta página se enumeran los dominios de cumplimiento y los controles de seguridad de Azure Kubernetes Service (AKS).
+
+Para que los recursos de Azure sean compatibles con el estándar específico, puede asignar las integraciones a un **control de seguridad** de manera individual.
 
 [!INCLUDE [azure-policy-compliancecontrols-introwarning](../../includes/policy/standards/intro-warning.md)]
 

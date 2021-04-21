@@ -6,14 +6,13 @@ ms.subservice: general
 ms.topic: how-to
 ms.author: mbaldwin
 author: msmbaldwin
-manager: rkarlin
 ms.date: 09/30/2020
-ms.openlocfilehash: a8e8e791f0dbe18322ad43364ae4ffd09b430caf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c3ffbba9546ada54a42c3f2c2aa5d98da599b353
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98790391"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107749747"
 ---
 # <a name="azure-key-vault-recovery-management-with-soft-delete-and-purge-protection"></a>Administración de la recuperación de Azure Key Vault con eliminación temporal y protección contra purga
 
@@ -23,7 +22,7 @@ Para más información sobre Key Vault, consulte
 - [Introducción a Azure Key Vault](overview.md)
 - [Introducción a las claves, secretos y certificados de Azure Key Vault](about-keys-secrets-certificates.md)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/dotnet).
 * [Módulo de PowerShell](/powershell/azure/install-az-ps).
@@ -399,6 +398,6 @@ Para más información acerca de la eliminación temporal, consulte [Informació
 - [Comandos de la CLI de Azure para Key Vault](/cli/azure/keyvault)
 - [Copia de seguridad de Azure Key Vault](backup.md)
 - [Habilitación del registro de Key Vault](howto-logging.md)
-- [Protección del acceso a un almacén de claves](secure-your-key-vault.md)
+- [Protección del acceso a un almacén de claves](security-overview.md)
 - [Guía del desarrollador de Azure Key Vault](developers-guide.md)
 - [Procedimientos recomendados para utilizar un almacén de claves](security-overview.md)

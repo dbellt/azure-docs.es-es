@@ -3,12 +3,12 @@ title: Autenticación de la entrega de eventos en los controladores de eventos (
 description: En este artículo se describen diferentes formas de autenticar los controladores de eventos en Azure Event Grid.
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: f7a105c36b7c924e35c295edc43107353d738d5b
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 7db258ee152e4b1c46362e74e0246b80513ca9f2
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105968142"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107777264"
 ---
 # <a name="authenticate-event-delivery-to-event-handlers-azure-event-grid"></a>Autenticación de la entrega de eventos en los controladores de eventos (Azure Event Grid).
 En este artículo se proporciona información sobre cómo autenticar la entrega de eventos a los controladores de eventos. También muestra como proteger los puntos de conexión de webhook que se usan para recibir eventos de Event Grid mediante Azure Active Directory (Azure AD) o un secreto compartido.
@@ -35,7 +35,7 @@ Puede proteger el punto de conexión de webhook que se usa para recibir eventos 
 ### <a name="using-client-secret-as-a-query-parameter"></a>Uso del secreto de cliente como parámetro de consulta
 Además, puede proteger el punto de conexión del webhook mediante la incorporación de parámetros de consulta a la dirección URL de destino del webhook, especificada como parte de la creación de una suscripción de eventos. Establezca uno de los parámetros de consulta para que sea un secreto de cliente, como un [token de acceso](https://en.wikipedia.org/wiki/Access_token) o un secreto compartido. El servicio Event Grid incluye todos los parámetros de consulta en cada solicitud de entrega de eventos al webhook. El servicio de webhook puede recuperar y validar el secreto. Si se actualiza el secreto de cliente, también debe actualizarse la suscripción de eventos. Para evitar errores de entrega durante la rotación del secreto, haga que el webhook acepte tanto los secretos antiguos como los nuevos durante un plazo limitado antes de actualizar la suscripción de eventos con el nuevo secreto. 
 
-Como los parámetros de consulta pueden contener secretos de cliente, se controlan con más cuidado. Se almacenan como cifrados y no son accesibles para los operadores del servicio. No se registran como parte de los registros o seguimientos de servicio. Al recuperar las propiedades de la suscripción de eventos, los parámetros de la consulta de destino no se devuelven de forma predeterminada. Por ejemplo: el parámetro [--include-full-endpoint-url](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-show) se usará en la [CLI](/cli/azure) de Azure.
+Como los parámetros de consulta pueden contener secretos de cliente, se controlan con más cuidado. Se almacenan como cifrados y no son accesibles para los operadores del servicio. No se registran como parte de los registros o seguimientos de servicio. Al recuperar las propiedades de la suscripción de eventos, los parámetros de la consulta de destino no se devuelven de forma predeterminada. Por ejemplo: el parámetro [--include-full-endpoint-url](/cli/azure/eventgrid/event-subscription#az_eventgrid_event_subscription_show) se usará en la [CLI](/cli/azure) de Azure.
 
 Para más información sobre cómo entregar eventos a webhooks, consulte [Entrega de eventos de webhook](webhook-event-delivery.md).
 

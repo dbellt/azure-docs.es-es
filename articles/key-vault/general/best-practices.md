@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/29/2021
 ms.author: mbaldwin
-ms.openlocfilehash: e81cbd7e6584f4a280ab9507a989b52d3b188f2d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5e4ec2749cec8444382e2b6e7c856e74c57ebb59
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105566615"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107777174"
 ---
 # <a name="best-practices-to-use-key-vault"></a>Procedimientos recomendados para utilizar Key Vault
 
@@ -24,7 +24,7 @@ Nuestra recomendación es usar un almacén por cada aplicación y cada entorno (
 
 ## <a name="control-access-to-your-vault"></a>Controlar el acceso al almacén
 
-Azure Key Vault es un servicio en la nube que protege las claves de cifrado y los secretos, como certificados, cadenas de conexión y contraseñas. Dado que estos datos son confidenciales y críticos para la empresa, debe proteger el acceso a los almacenes de claves, de modo que solo se admita el acceso de las aplicaciones y los usuarios autorizados. En este [artículo](secure-your-key-vault.md) se proporciona información general sobre modelo de acceso de Key Vault. Se explican la autenticación y la autorización, y se describe cómo proteger el acceso a los almacenes de claves.
+Azure Key Vault es un servicio en la nube que protege las claves de cifrado y los secretos, como certificados, cadenas de conexión y contraseñas. Dado que estos datos son confidenciales y críticos para la empresa, debe proteger el acceso a los almacenes de claves, de modo que solo se admita el acceso de las aplicaciones y los usuarios autorizados. En este [artículo](security-overview.md) se proporciona información general sobre modelo de acceso de Key Vault. Se explican la autenticación y la autorización, y se describe cómo proteger el acceso a los almacenes de claves.
 
 Estas son algunas sugerencias a la hora de controlar el acceso al almacén:
 1. Bloquee el acceso a la suscripción, al grupo de recursos y a los distintos Key Vault (Azure RBAC)
@@ -44,9 +44,9 @@ Asegúrese de hacer copias de seguridad del almacén periódicamente, cuando act
 
 ### <a name="azure-cli-backup-commands"></a>Comandos de copia de seguridad de la CLI de Azure
 
-* [Copia de seguridad de certificado](/cli/azure/keyvault/certificate#az-keyvault-certificate-backup)
-* [Copia de seguridad de clave](/cli/azure/keyvault/key#az-keyvault-key-backup)
-* [Copia de seguridad de secreto](/cli/azure/keyvault/secret#az-keyvault-secret-backup)
+* [Copia de seguridad de certificado](/cli/azure/keyvault/certificate#az_keyvault_certificate_backup)
+* [Copia de seguridad de clave](/cli/azure/keyvault/key#az_keyvault_key_backup)
+* [Copia de seguridad de secreto](/cli/azure/keyvault/secret#az_keyvault_secret_backup)
 
 
 ## <a name="turn-on-logging"></a>Activar el registro

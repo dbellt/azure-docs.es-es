@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/12/2021
 ms.topic: conceptual
-ms.openlocfilehash: dfabb3ef521b496a073d502efd4fd672cfcf3b8c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ef8b4ddcbf09fa3ec0e3b07ae797693aed095c88
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104597747"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107104973"
 ---
 # <a name="configure-startstop-vms-during-off-hours"></a>Configuración de la solución Start/Stop VMs during off-hours
 
@@ -57,7 +57,7 @@ Puede habilitar que el destino de la acción sea una suscripción y un grupo de 
     > [!NOTE]
     > El valor de **Target ResourceGroup Names** (Nombres de ResourceGroup de destino) se almacena como valor tanto para `External_Start_ResourceGroupNames` como para `External_Stop_ResourceGroupNames`. A fin de lograr un mayor detalle, puede modificar cada una de estas variables para distintos grupos de recursos de destino. Para la acción de inicio, use `External_Start_ResourceGroupNames`; y para la acción de detención, use `External_Stop_ResourceGroupNames`. Las máquinas virtuales se agregan automáticamente a las programaciones de inicio y detención.
 
-## <a name="scenario-2-startstop-vms-in-sequence-by-using-tags"></a><a name="tags"></a>Escenario 2: Iniciar o detener las máquinas virtuales en secuencia mediante el uso de etiquetas
+## <a name="scenario-2-startstop-vms-in-sequence-by-using-tags"></a><a name="tags"></a>Escenario 2: Inicio o detención secuenciales de máquinas virtuales mediante etiquetas
 
 En un entorno que incluya dos, o más, componentes de varias máquinas virtuales que admitan una carga de trabajo distribuida, es importante que se pueda decidir la secuencia en que los componentes se inician o detienen en orden. 
 
@@ -137,7 +137,7 @@ Para cambiar las notificaciones de correo electrónico después de implementar l
 > [!NOTE]
 > Las suscripciones en la nube de Azure Government no admiten la funcionalidad de correo electrónico de esta característica.
 
-1. En Azure Portal, haga clic en **Alertas** en **Supervisión** y, a continuación, en **Administrar acciones**. En la página **Administrar acciones**, asegúrese de que se encuentra en la pestaña **Grupos de acciones**. Seleccione el grupo de acciones llamado **StartStop_VM_Notification**.
+1. En Azure Portal, haga clic en **Alertas** en **Supervisión** y, a continuación, en **Administrar acciones**. En la página **Administrar acciones**, asegúrese de que se encuentra en la pestaña **Grupos de acciones**. Seleccione el grupo de acciones denominado **StartStop_VM_Notification**.
 
     :::image type="content" source="media/automation-solution-vm-management/azure-monitor-sm.png" alt-text="Captura de pantalla de la página Supervisar: grupos de acciones." lightbox="media/automation-solution-vm-management/azure-monitor-lg.png":::
 

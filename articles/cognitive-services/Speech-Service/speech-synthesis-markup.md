@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: e5a3459c0264d087759572bffc497430cdb69ac9
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 2c66a7e3bf9e417b47d08e50e21c08625e9d0549
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105966952"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210217"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Mejora de la síntesis con el Lenguaje de marcado de síntesis de voz (SSML)
 
@@ -27,11 +27,9 @@ La implementación del servicios de voz de SSML se basa en la [versión 1.0 del
 > [!IMPORTANT]
 > Los caracteres en chino, japonés y coreano se cuentan como dos caracteres para la facturación. Para obtener más información, consulte el apartado [Precios](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
-## <a name="standard-neural-and-custom-voices"></a>Voces neuronales, estándares y personalizadas
+## <a name="neural-and-custom-voices"></a>Voces neuronales y personalizadas
 
-Puede elegir entre voces estándar y neuronales, o puede crear su propia voz personalizada única para su producto o marca. Tiene más de 75 voces estándar disponibles en más de 45 idiomas y configuraciones regionales y 5 voces neuronales que están disponibles en cuatro idiomas y configuraciones regionales. Para obtener una lista completa de los idiomas compatibles, las configuraciones regionales y las voces (neuronales y estándar), consulte [compatibilidad con idiomas](language-support.md).
-
-Para más información sobre las voces estándar, neuronales y personalizadas, consulte la [introducción del texto a voz](text-to-speech.md).
+Use una voz neuronal de tipo humano o cree su propia voz personalizada única para su producto o marca. Para obtener una lista completa de los idiomas compatibles, las configuraciones regionales y las voces, consulte [compatibilidad con idiomas](language-support.md). Para más información sobre las voces neuronales y personalizadas, consulte la [introducción de Texto a voz](text-to-speech.md).
 
 
 > [!NOTE]
@@ -194,12 +192,9 @@ speechConfig!.setPropertyTo(
 
 ## <a name="adjust-speaking-styles"></a>Ajuste de los estilos de habla
 
-> [!IMPORTANT]
-> El ajuste de estilos de habla solo funciona con las voces neuronales.
+De forma predeterminada, el servicio de texto a voz sintetiza el texto mediante un estilo de habla neutro para voces neuronales. Es posible adaptar el estilo del habla para expresar diferentes emociones, como alegría, empatía y serenidad, o bien modular la voz para diferentes escenarios, como un servicio al cliente, la transmisión de noticias o un asistente de voz, mediante el elemento `mstts:express-as`. Se trata de un elemento opcional único para el servicio de voz.
 
-De forma predeterminada, el servicio de texto a voz sintetiza el texto mediante un estilo de habla neutro tanto para voces estándar como neuronales. Mediante las voces neuronales, es posible adaptar el estilo del habla para expresar diferentes emociones, como alegría, empatía y serenidad, o bien modular la voz para diferentes escenarios, como un servicio al cliente, la transmisión de noticias o un asistente de voz, mediante el elemento `mstts:express-as`. Se trata de un elemento opcional único para el servicio de voz.
-
-Actualmente, los ajustes de estilo de habla son compatibles con estas voces neuronales:
+Actualmente, los ajustes del estilo de habla son compatibles con las siguientes voces neuronales:
 * `en-US-AriaNeural`
 * `en-US-JennyNeural`
 * `en-US-GuyNeural`
@@ -215,11 +210,11 @@ Actualmente, los ajustes de estilo de habla son compatibles con estas voces neur
 
 La intensidad del estilo de habla se puede cambiar aún más para ajustarse mejor a su caso de uso. Puede especificar un estilo más seguro o más suave con `styledegree` para que la voz sea más expresiva o moderada. Actualmente, se admiten ajustes del estilo de habla de las voces neuronales en chino (mandarín y simplificado).
 
-Además de ajustar los estilos de habla y el grado de estilo, también puede ajustar el parámetro `role` para que la voz parezca que es de alguien de otra edad y género. Por ejemplo, una voz masculina puede subir el tono y cambiar la entonación para que parezca femenina, pero el nombre de la voz no cambiará. Actualmente, se admiten ajustes de la representación de estas voces neuronales en chino (mandarín y simplificado):
+Además de ajustar los estilos de habla y el grado de estilo, también puede ajustar el parámetro `role` para que la voz parezca que es de alguien de otra edad y género. Por ejemplo, una voz masculina puede subir el tono y cambiar la entonación para que parezca femenina, pero el nombre de la voz no cambiará. Actualmente, se admiten ajustes del rol de estas voces neuronales en chino (mandarín y simplificado):
 * `zh-CN-XiaomoNeural`
 * `zh-CN-XiaoxuanNeural`
 
-Los cambios anteriores se aplican en el nivel de la oración y tanto los estilos como las representaciones varían según la voz. Si no se admite un estilo o representación, el servicio devolverá la voz con la forma de habla neutra predeterminada. Los estilos y la representación que se admiten para cada voz se pueden ver mediante la [API de la lista de voces](rest-text-to-speech.md#get-a-list-of-voices), o bien mediante la plataforma [Audio Content Creation](https://aka.ms/audiocontentcreation) sin código.
+Los cambios anteriores se aplican en el nivel de la oración y tanto los estilos como las representaciones varían según la voz. Si no se admite un estilo o representación, el servicio devolverá la voz con la forma de habla neutra predeterminada. Los estilos y roles que se admiten para cada voz se pueden ver mediante la [API de la lista de voces](rest-text-to-speech.md#get-a-list-of-voices), o bien mediante la plataforma [Audio Content Creation](https://aka.ms/audiocontentcreation) sin código.
 
 **Sintaxis**
 
@@ -631,7 +626,7 @@ En el ejemplo anterior, usamos el alfabeto fonético internacional, conocido tam
 
 Dado que este alfabeto no es fácil de recordar, el servicio de voz define un conjunto fonético para siete idiomas (`en-US`, `fr-FR`, `de-DE`, `es-ES`, `ja-JP`, `zh-CN` y `zh-TW`).
 
-Puede usar `sapi` como valor para el atributo `alphabet` con léxicos personalizados, como se muestra a continuación:
+`sapi` se puede usar como valor para el atributo `alphabet` con léxicos personalizados, como se muestra a continuación:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -717,7 +712,7 @@ Los cambios de tono pueden aplicarse a voces estándar en el nivel de palabra o 
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-Guy24kRUS">
+    <voice name="en-US-AriaNeural">
         Welcome to <prosody pitch="high">Microsoft Cognitive Services Text-to-Speech API.</prosody>
     </voice>
 </speak>

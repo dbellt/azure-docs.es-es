@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 4abef9c848a32d9fa6a34eabe407c4d10f913797
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 23008d785c27b901f3487d3eddff7cb8e7529f6e
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101643803"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600087"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Autenticación basada en el encabezado para el inicio de sesión único con el proxy de aplicación y PingAccess
 
@@ -193,14 +193,14 @@ Ejemplo de cómo incluir la dirección de correo electrónico en el access_token
 
 ### <a name="use-of-claims-mapping-policy-optional"></a>Uso de una directiva de asignación de notificaciones (opcional)
 
-La [directiva de asignación de notificaciones (versión preliminar)](../develop/active-directory-claims-mapping.md#claims-mapping-policy-properties) está pensada para los atributos que no existen en Azure AD. La asignación de notificaciones permite migrar a la nube aplicaciones locales antiguas, agregando para ello notificaciones personalizadas respaldadas por los objetos de usuario o AD FS.
+La [directiva de asignación de notificaciones (versión preliminar)](../develop/reference-claims-mapping-policy-type.md#claims-mapping-policy-properties) está pensada para los atributos que no existen en Azure AD. La asignación de notificaciones permite migrar a la nube aplicaciones locales antiguas, agregando para ello notificaciones personalizadas respaldadas por los objetos de usuario o AD FS.
 
-Para que la aplicación use una notificación personalizada e incluya campos adicionales, asegúrese de que también ha [creado una directiva de asignación de notificaciones personalizadas y la ha asignado a la aplicación](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
+Para que la aplicación use una notificación personalizada e incluya campos adicionales, asegúrese de que también ha [creado una directiva de asignación de notificaciones personalizadas y la ha asignado a la aplicación](../develop/active-directory-claims-mapping.md).
 
 > [!NOTE]
 > Para usar una notificación personalizada, también debe tener una directiva personalizada definida y asignada a la aplicación. Esta directiva debe incluir todos los atributos personalizados necesarios.
 >
-> La asignación y definición de directivas se pueden realizar a través de PowerShell o Microsoft Graph. Si usa PowerShell, primero debe usar `New-AzureADPolicy` y, después, asignarlo a la aplicación con `Add-AzureADServicePrincipalPolicy`. Para más información, vea [Asignación de directivas de asignación de notificaciones](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
+> La asignación y definición de directivas se pueden realizar a través de PowerShell o Microsoft Graph. Si usa PowerShell, primero debe usar `New-AzureADPolicy` y, después, asignarlo a la aplicación con `Add-AzureADServicePrincipalPolicy`. Para más información, vea [Asignación de directivas de asignación de notificaciones](../develop/active-directory-claims-mapping.md).
 
 Ejemplo:
 ```powershell

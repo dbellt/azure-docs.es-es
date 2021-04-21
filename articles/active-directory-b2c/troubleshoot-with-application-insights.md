@@ -12,12 +12,12 @@ ms.date: 04/05/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c9de6b8d99f09d43a045787ee6185233b9d7ef25
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 074bffb8614be1f71ba1956fd5a238bc19354c58
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106443245"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107028750"
 ---
 # <a name="collect-azure-active-directory-b2c-logs-with-application-insights"></a>Recopilación de registros de Azure Active Directory B2C con Application Insights
 
@@ -118,6 +118,50 @@ Las entradas pueden ser largas. Exporte a un archivo CSV para realizar un examen
 
 Para más información sobre las consultas, vea [Introducción a las consultas de registro en Azure Monitor](../azure-monitor/logs/log-query-overview.md).
 
+## <a name="see-the-logs-in-vs-code-extension"></a>Consulte los registros en la extensión de VS Code
+
+Es aconsejable que instale la [extensión de Azure AD B2C](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c) para [VS Code](https://code.visualstudio.com/). Con la extensión de Azure AD B2C, el nombre de directiva organiza los registros se organizan por nombre de directiva, identificador de correlación (Application Insights presenta el primer dígito del identificador de correlación) y la marca de tiempo del registro. Esta característica le ayuda a encontrar el registro correspondiente en función de la marca de tiempo local y a ver el recorrido del usuario tal como lo ha ejecutado Azure AD B2C.
+
+> [!NOTE]
+> La comunidad ha desarrollado la extensión de VS Code para Azure AD B2C para ayudar a los desarrolladores de identidad. La extensión no es compatible con Microsoft y se pone a disposición estrictamente como es.
+
+### <a name="set-application-insights-api-access"></a>Establecimiento del acceso a Application Insights API
+
+Después de configurar Application Insights y configurar la directiva personalizada, debe obtener el identificador de Application Insights **API** y crear la **clave de API**. La extensión de Azure AD B2C usa tanto el identificador de la API como la clave de API se para leer los eventos de Application Insights (datos de telemetría). Las claves de API deben administrarse como las contraseñas. Manténgala en secreto.
+
+> [!NOTE]
+> Azure AD B2C utiliza la clave de instrumentación de Application Insights que creó anteriormente para enviar datos de telemetría a Application Insights. La clave de instrumentación solo se usa en la directiva de Azure AD B2C, no en la extensión de VS Code.
+
+Para obtener el identificador y la clave de Application Insights:
+
+1. En Azure Portal, abra el recurso Application Insights de la aplicación.
+1. Seleccione **Configuración** y luego **Acceso de API**.
+1. Copie el **identificador de la aplicación**.
+1. Seleccione **Create API Key** (Crear clave de API).
+1. Active la casilla **Read telemetry** (Leer telemetría).
+1. Copie la **clave** antes de cerrar la hoja Create API Key (Crear clave de API) y guárdela en un lugar seguro. Si pierde la clave, deberá crear otra.
+
+    ![Captura de pantalla que muestra cómo crear una clave de acceso de API.](./media/troubleshoot-with-application-insights/application-insights-api-access.png)
+
+### <a name="set-up-azure-ad-b2c-vs-code-extension"></a>Configuración de la extensión VS Code de Azure AD B2C
+
+Ahora que el identificador y la clave de Azure Application Insights API, puede configurar la extensión de VS Code para leer los registros. La extensión VS Code de Azure AD B2C proporciona dos ámbitos para la configuración:
+
+- **Configuración global de usuario:** configuración que se aplica globalmente a cualquier instancia de VS Code que se abra.
+- **Configuración del área de trabajo**: la configuración se almacena en el área de trabajo y solo se aplica cuando se abre el área de trabajo (mediante la **carpeta abierta** de VS Code).
+
+1. En el explorador de **seguimiento de Azure AD B2C**, haga clic en el icono **Configuración**.
+
+    ![Captura de pantalla que muestra cómo seleccionar la configuración de Application Insights.](./media/troubleshoot-with-application-insights/app-insights-settings.png)
+
+1. Proporcione el **identificador** y la **clave** de Azure Application Insights.
+1. Haga clic en **Guardar**
+
+Después de guardar la configuración los registros de Application Insights aparecen en la ventana de **seguimiento de Azure AD B2C (App Insights).**
+
+![Captura de pantalla de la extensión de Azure AD B2C para vscode, que presenta el seguimiento de Azure Application Insights.](./media/troubleshoot-with-application-insights/vscode-extension-application-insights-trace.png)
+
+
 ## <a name="configure-application-insights-in-production"></a>Configuración de Application Insights en producción
 
 Para mejorar el rendimiento del entorno de producción y mejorar la experiencia del usuario, es importante configurar la directiva para omitir los mensajes que no son importantes. Use la siguiente configuración para enviar solo los mensajes de error críticos a su instancia de Application Insights. 
@@ -143,12 +187,8 @@ Para mejorar el rendimiento del entorno de producción y mejorar la experiencia 
    
 1. Cargue y pruebe la directiva.
 
+
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-La Comunidad ha desarrollado un visor de recorrido de usuario para ayudar a los desarrolladores de identidad. Lee de la instancia de Application Insights y proporciona una vista bien estructurada de los eventos de recorrido del usuario. Proporciona el código fuente para implementarlo en su propia solución.
-
-Microsoft no admite el reproductor del recorrido del usuario y está disponible estrictamente tal cual.
-
-Aquí puede encontrar la versión del visor que lee los eventos de Application Insights en GitHub:
-
-[Azure-Samples/active-directory-b2c-advanced-policies](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/wingtipgamesb2c/src/WingTipUserJourneyPlayerWebApplication)
+- Aprenda a [solucionar los problemas de las directivas personalizadas de Azure AD B2C](troubleshoot-custom-policies.md)

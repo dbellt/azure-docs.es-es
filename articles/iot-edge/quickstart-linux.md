@@ -4,17 +4,17 @@ description: En este inicio rápido, aprenderá a crear un dispositivo IoT Edge 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 03/12/2021
+ms.date: 04/07/2021
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 37f4a63d0a901fd70e0a60bb435efdaf08868616
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cdc5dd2df0dc6ac682d37aea3328545fcb7e5ad2
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103463491"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107728615"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-linux-device"></a>Inicio rápido: Implementación del primer módulo de IoT Edge en un dispositivo virtual Linux
 
@@ -142,14 +142,14 @@ Use el siguiente comando de la CLI para crear un dispositivo IoT Edge basado en 
 <!-- 1.2 -->
 :::moniker range=">=iotedge-2020-11"
 
-Use el siguiente comando de la CLI para crear un dispositivo IoT Edge basado en la plantilla pregenerada [iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy/tree/1.2.0-rc4).
+Use el siguiente comando de la CLI para crear un dispositivo IoT Edge basado en la plantilla pregenerada [iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy/tree/1.2.0).
 
 * Para los usuarios de Bash o Cloud Shell, copie el siguiente comando en un editor de texto, reemplace el texto del marcador de posición por su información y, después, cópielo en la ventana de Bash o de Cloud Shell:
 
    ```azurecli-interactive
    az deployment group create \
    --resource-group IoTEdgeResources \
-   --template-uri "https://raw.githubusercontent.com/Azure/iotedge-vm-deploy/1.2.0-rc4/edgeDeploy.json" \
+   --template-uri "https://raw.githubusercontent.com/Azure/iotedge-vm-deploy/1.2.0/edgeDeploy.json" \
    --parameters dnsLabelPrefix='<REPLACE_WITH_VM_NAME>' \
    --parameters adminUsername='azureUser' \
    --parameters deviceConnectionString=$(az iot hub device-identity connection-string show --device-id myEdgeDevice --hub-name <REPLACE_WITH_HUB_NAME> -o tsv) \
@@ -162,7 +162,7 @@ Use el siguiente comando de la CLI para crear un dispositivo IoT Edge basado en 
    ```azurecli
    az deployment group create `
    --resource-group IoTEdgeResources `
-   --template-uri "https://raw.githubusercontent.com/Azure/iotedge-vm-deploy/1.2.0-rc4/edgeDeploy.json" `
+   --template-uri "https://raw.githubusercontent.com/Azure/iotedge-vm-deploy/1.2.0/edgeDeploy.json" `
    --parameters dnsLabelPrefix='<REPLACE_WITH_VM_NAME>' `
    --parameters adminUsername='azureUser' `
    --parameters deviceConnectionString=$(az iot hub device-identity connection-string show --device-id myEdgeDevice --hub-name <REPLACE_WITH_HUB_NAME> -o tsv) `
@@ -263,32 +263,76 @@ Administre el dispositivo Azure IoT Edge desde la nube para implementar un módu
 
 ![Diagrama: implementación del módulo desde la nube al dispositivo](./media/quickstart-linux/deploy-module.png)
 
-[!INCLUDE [iot-edge-deploy-module](../../includes/iot-edge-deploy-module.md)]
+<!-- [!INCLUDE [iot-edge-deploy-module](../../includes/iot-edge-deploy-module.md)]
+
+Include content included below to support versioned steps in Linux quickstart. Can update include file once Windows quickstart supports v1.2 -->
+
+Una de las funcionalidades clave de Azure IoT Edge es la implementación de código en dispositivos de IoT Edge desde la nube. Los *módulos de IoT Edge* son paquetes ejecutables que se implementan como contenedores. En esta sección, va a implementar un módulo pregenerado desde la [sección de módulos de IoT Edge de Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules) directamente desde la instancia de Azure IoT Hub.
+
+El módulo que se implementa en esta sección simula un sensor y envía los datos generados. Este módulo es un fragmento de código útil para empezar a trabajar con IoT Edge porque se pueden usar los datos simulados para desarrollo y pruebas. Si desea ver exactamente lo que hace este módulo, puede ver el [código fuente del sensor de temperatura simulado](https://github.com/Azure/iotedge/blob/027a509549a248647ed41ca7fe1dc508771c8123/edge-modules/SimulatedTemperatureSensor/src/Program.cs).
+
+Siga estos pasos para iniciar el asistente **Establecer módulos** para implementar su primer módulo desde Azure Marketplace.
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y vaya al centro de IoT.
+
+1. En el menú de la izquierda, en **Administración automática de dispositivos**, seleccione **IoT Edge**.
+
+1. Seleccione el identificador del dispositivo de destino en la lista de dispositivos.
+
+1. En la barra superior, seleccione **Establecer módulos**.
+
+   ![Captura de pantalla que muestra la selección de Establecer módulos.](./media/quickstart/select-set-modules.png)
+
+### <a name="modules"></a>Módulos
+
+El primer paso del asistente consiste en elegir qué módulos desea ejecutar en el dispositivo.
+
+En **Módulos de IoT Edge**, abra el menú desplegable **Agregar** y, a continuación, seleccione **Módulo de Marketplace**.
+
+   ![Captura de pantalla que muestra el menú desplegable Agregar.](./media/quickstart/add-marketplace-module.png)
+
+En **Marketplace de módulos IoT Edge**, busque y seleccione el módulo `Simulated Temperature Sensor`. El módulo se agrega a la sección Módulos de IoT Edge con el estado **en ejecución** deseado.
 
 <!-- 1.2 -->
 :::moniker range=">=iotedge-2020-11"
 
-Como IoT Edge versión 1.2 está en versión preliminar pública, hay un paso adicional que debe seguir para actualizar también los módulos en tiempo de ejecución a sus versiones preliminares públicas.
+Seleccione **Configuración del entorno de ejecución** para abrir la configuración de los módulos edgeHub y edgeAgent. Esta sección de configuración es donde puede administrar los módulos del entorno de ejecución mediante la adición de variables de entorno o la modificación de las opciones de creación.
 
-1. En la página de detalles del dispositivo seleccione **Establecer módulos** de nuevo.
+Actualice el campo **Imagen** para los módulos edgeHub y edgeAgent para utilizar la etiqueta de versión 1.2. Por ejemplo:
 
-1. Seleccione **Configuración del entorno de ejecución**.
+* `mcr.microsoft.com/azureiotedge-hub:1.2`
+* `mcr.microsoft.com/azureiotedge-agent:1.2`
 
-1. Actualice el campo **Imagen** para los módulos del centro de IoT Edge y del agente de IoT Edge para utilizar la etiqueta de versión 1.2.0-rc4. Por ejemplo:
-
-   * `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc4`
-   * `mcr.microsoft.com/azureiotedge-agent:1.2.0-rc4`
-
-1. El módulo del sensor de temperatura simulado todavía debe aparecer en la sección de módulos. No es necesario realizar ningún cambio en ese módulo para la versión preliminar pública.
-
-1. Seleccione **Revisar + crear**.
-
-1. Seleccione **Crear**.
-
-1. En la página de detalles del dispositivo, puede seleccionar **$edgeAgent** o **$edgeHub** para ver los detalles del módulo que reflejan la versión preliminar pública de la imagen.
+Seleccione **Guardar** para aplicar los cambios a los módulos del entorno de ejecución.
 
 :::moniker-end
-<!-- end 1.2 -->
+<!--end 1.2-->
+
+Seleccione **Siguiente: Rutas** para continuar con el paso siguiente del asistente.
+
+   ![Captura de pantalla que muestra cómo continuar con el paso siguiente después de agregar el módulo.](./media/quickstart/view-temperature-sensor-next-routes.png)
+
+### <a name="routes"></a>Rutas
+
+En la pestaña **Rutas**, quite la ruta predeterminada (**route**) y, a continuación, seleccione **Siguiente: Revisar y crear** para continuar al próximo paso del asistente.
+
+   >[!Note]
+   >Las rutas se construyen mediante pares de nombre-valor. Debería ver dos rutas en esta página. La ruta predeterminada (**route**) envía todos los mensajes a IoT Hub (que se denomina `$upstream`). Una segunda ruta (**SimulatedTemperatureSensorToIoTHub**) se creó automáticamente al agregar el módulo desde Azure Marketplace. Esta ruta envía todos los mensajes desde el módulo de temperatura simulado a IoT Hub. Puede eliminar la ruta predeterminada porque es redundante en este caso.
+
+   ![Captura de pantalla que muestra cómo quitar la ruta predeterminada y pasar al paso siguiente.](./media/quickstart/delete-route-next-review-create.png)
+
+### <a name="review-and-create"></a>Revisar y crear
+
+Revise el archivo JSON y luego seleccione **Crear**. El archivo JSON define todos los módulos que se implementan en el dispositivo IoT Edge. Verá el módulo **SimulatedTemperatureSensor** y los dos módulos en tiempo de ejecución, **edgeAgent** y **edgeHub**.
+
+   >[!Note]
+   >Cuando se envía una implementación nueva a un dispositivo IoT Edge, no se inserta nada en el dispositivo. En lugar de eso, el dispositivo consulta a IoT Hub de manera periódica para comprobar cualquier instrucción nueva. Si el dispositivo encuentra un manifiesto de implementación actualizado, usa la información sobre la nueva implementación para extraer las imágenes del módulo de la nube y, después, comienza a ejecutar localmente los módulos. Este proceso puede tardar unos minutos.
+
+Después de crear los detalles de la implementación del módulo, el asistente lo lleva nuevamente a la página de detalles del dispositivo. Vea el estado de implementación en la pestaña **Módulos**.
+
+Deben aparecer tres módulos: **$edgeAgent**, **$edgeHub** y **SimulatedTemperatureSensor**. Si se muestra **SÍ** para uno o varios de los módulos en **ESPECIFICADO EN LA IMPLEMENTACIÓN** pero no en **NOTIFICADO POR EL DISPOSITIVO**, significa que el dispositivo IoT Edge todavía los está iniciando. Espere unos minutos y actualice la página.
+
+   ![Captura de pantalla que muestra el sensor de temperatura simulado en la lista de módulos implementados.](./media/quickstart/view-deployed-modules.png)
 
 ## <a name="view-generated-data"></a>Visualización de datos generados
 

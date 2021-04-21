@@ -6,12 +6,12 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
-ms.openlocfilehash: a88ad3930e114bdf9f3c3c340f92f164215d59c1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c561a9a786765ccfdaf00abf4e0d9c8cc550cb9a
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101671985"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107377215"
 ---
 # <a name="azure-monitor-for-sap-solutions-preview"></a>Azure Monitor para soluciones de SAP (versión preliminar)
 
@@ -22,7 +22,7 @@ Con Azure Monitor para las soluciones de SAP, los clientes pueden recopilar dato
 
 Azure Monitor para soluciones de SAP se ofrece a través de Azure Marketplace. Proporciona una experiencia de instalación sencilla e intuitiva y solo se requieren unos clics para implementar el recurso de Azure Monitor para soluciones de SAP (conocido como **recurso de supervisión de SAP**).
 
-Los clientes pueden supervisar distintos componentes de un entorno de SAP, como Azure Virtual Machines, un clúster de alta disponibilidad, una base de datos de SAP HANA, etc., con solo agregar el **proveedor** correspondiente al componente.
+Los clientes pueden supervisar distintos componentes de un entorno de SAP, como Azure Virtual Machines, un clúster de alta disponibilidad, una base de datos de SAP HANA, SAP NetWeaver, con solo agregar el **proveedor** correspondiente al componente.
 
 Infraestructura admitida:
 
@@ -70,6 +70,13 @@ Telemetría del sistema operativo (Linux)
 - Recuento de E/S en curso, bytes de lectura y escritura de memoria persistente. 
 - Paquetes de red entrantes y salientes, bytes de red entrantes y salientes. 
 
+Telemetría de SAP NetWeaver:
+
+- Disponibilidad del sistema SAP y del servidor de aplicaciones, incluida la disponibilidad del proceso de la instancia de Dispatcher, ICM, Gateway, Message Server, Enqueue Server e IGS Watchdog.
+- Estadísticas y tendencias de uso del proceso de trabajo
+- Poner en cola las estadísticas y las tendencias de bloqueo
+- Estadísticas y tendencias de uso de la cola
+
 ## <a name="data-sharing-with-microsoft"></a>Uso compartido de datos con Microsoft
 
 Azure Monitor para soluciones de SAP recopila metadatos del sistema para proporcionar una compatibilidad mejorada a los clientes de SAP en Azure. No se recopila información de identificación personal ni información de identificación del usuario final.
@@ -102,8 +109,8 @@ Los componentes clave de la arquitectura son:
 ### <a name="architecture-highlights"></a>Aspectos destacados de la arquitectura
 
 A continuación se indican los principales aspectos de la arquitectura:
- - **Instancias múltiples**: los clientes pueden crear la supervisión para varias instancias de un tipo de componente determinado (por ejemplo, la base de datos de HANA, el clúster de alta disponibilidad, Microsoft SQL Server) en varios SID de SAP dentro de una red virtual con un único recurso de Azure Monitor para soluciones de SAP.
- - **Proveedores múltiples**: en el diagrama de arquitectura anterior se muestra el proveedor de SAP HANA a modo de ejemplo. Asimismo, los clientes pueden configurar más proveedores para los componentes correspondientes (por ejemplo, una base de datos de HANA, un clúster de alta disponibilidad, Microsoft SQL Server) a fin de recopilar datos de esos componentes.
+ - **Instancias múltiples**: los clientes pueden crear la supervisión para varias instancias de un tipo de componente determinado (por ejemplo, la base de datos de HANA, el clúster de alta disponibilidad, Microsoft SQL Server, SAP NetWeaver) en varios SID de SAP dentro de una red virtual con un único recurso de Azure Monitor para soluciones de SAP.
+ - **Proveedores múltiples**: en el diagrama de arquitectura anterior se muestra el proveedor de SAP HANA a modo de ejemplo. Asimismo, los clientes pueden configurar más proveedores para los componentes correspondientes (por ejemplo, una base de datos de HANA, un clúster de alta disponibilidad, Microsoft SQL Server, SAP NetWeaver) a fin de recopilar datos de esos componentes.
  - **Código abierto**: el código fuente de Azure Monitor para soluciones de SAP está disponible en [GitHub](https://github.com/Azure/AzureMonitorForSAPSolutions). Los clientes pueden consultar el código del proveedor y obtener más información sobre el producto, realizar contribuciones o compartir sus comentarios.
  - **Marco de consulta extensible**: las consultas SQL para recopilar datos de telemetría se escriben en [JSON](https://github.com/Azure/AzureMonitorForSAPSolutions/blob/master/sapmon/content/SapHana.json). Se pueden agregar fácilmente más consultas SQL para recopilar más datos de telemetría. Los clientes pueden solicitar la incorporación de datos de telemetría específicos a Azure Monitor para soluciones de SAP. Para ello, deben dejar sus comentarios a través del vínculo que aparece al final de este documento o ponerse en contacto con el equipo de cuentas.
 

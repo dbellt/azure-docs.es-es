@@ -16,12 +16,12 @@ ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4122e645b76751e8944704a6405cf5dee09129f1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3af783d7ff8be36c63af871ab4f2d214ca9f9405
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97932442"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107532594"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planeamiento de una implementación de revisiones de acceso de Azure Active Directory
 
@@ -474,7 +474,7 @@ Siga las instrucciones del vínculo que se incluye a continuación:
 
 ## <a name="use-the-access-reviews-api"></a>Uso de la API de revisiones de acceso
 
-Consulte los [métodos de Graph API](/graph/api/resources/accessreviews-root?view=graph-rest-beta) y las [comprobaciones de autorización de roles y aplicaciones](/graph/api/resources/accessreviews-root?view=graph-rest-beta) para interactuar con los recursos revisables y administrarlos. Los métodos de revisión de acceso de Microsoft Graph API están disponibles para los contextos de aplicación y de usuario. Al ejecutar scripts en el contexto de aplicación, se debe conceder el permiso "AccessReview.Read.All" a la cuenta utilizada para ejecutar la API (la entidad de servicio) para consultar la información sobre revisiones de acceso.
+Consulte los [métodos de Graph API](/graph/api/resources/accessreviewsv2-root?view=graph-rest-beta&preserve-view=true) y las [comprobaciones de autorización de roles y aplicaciones](/graph/api/resources/accessreviewsv2-root?view=graph-rest-beta&preserve-view=true) para interactuar con los recursos revisables y administrarlos. Los métodos de revisión de acceso de Microsoft Graph API están disponibles para los contextos de aplicación y de usuario. Al ejecutar scripts en el contexto de aplicación, se debe conceder el permiso "AccessReview.Read.All" a la cuenta utilizada para ejecutar la API (la entidad de servicio) para consultar la información sobre revisiones de acceso.
 
 Algunas tareas populares para automatizar las revisiones de acceso mediante Graph API son:
 

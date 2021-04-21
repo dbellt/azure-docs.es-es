@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: image-builder
 ms.collection: linux
 ms.reviewer: cynthn
-ms.openlocfilehash: aaaabe758b036335062907c8e5549ae876c63997
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 77460d1675b806e04c72e5f46da0ec4274d99d41
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104594740"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762540"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Vista previa: Creación de una plantilla de Azure Image Builder 
 
@@ -222,7 +222,7 @@ Establece la imagen de origen en una versión de la imagen existente de una gale
    } 
 ```
 
-El `imageVersionId` debe ser el valor de ResourceId de la versión de la imagen. Use [lista de versiones de imagen con firma de Azure](/cli/azure/sig/image-version#az-sig-image-version-list) para obtener una lista de las versiones de imagen.
+El `imageVersionId` debe ser el valor de ResourceId de la versión de la imagen. Use [lista de versiones de imagen con firma de Azure](/cli/azure/sig/image-version#az_sig_image_version_list) para obtener una lista de las versiones de imagen.
 
 
 ## <a name="properties-buildtimeoutinminutes"></a>Propiedades: buildTimeoutInMinutes

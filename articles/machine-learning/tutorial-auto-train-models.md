@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial de regresión: Machine Learning Automatizado'
+title: 'Tutorial: Regresión con aprendizaje automático automatizado'
 titleSuffix: Azure Machine Learning
-description: Cree un experimento de aprendizaje automático automatizado que genere un modelo de regresión en función de los datos de entrenamiento y los valores de configuración proporcionados.
+description: Escriba código con el SDK de Python para crear un experimento de aprendizaje automático automatizado que genere automáticamente un modelo de regresión.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,30 +11,34 @@ ms.author: anumamah
 ms.reviewer: nibaccam
 ms.date: 08/14/2020
 ms.custom: devx-track-python, automl
-ms.openlocfilehash: 7f3052905d7594d64be9455c16239ebabd219849
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 85129cf282e39b4f4932cc5e9f7cfd72d1e445b0
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105565085"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210642"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Tutorial: Uso del aprendizaje automático para crear predecir tarifas de taxi
 
-
-En este tutorial, usará el aprendizaje automático automatizado de Azure Machine Learning para crear un modelo de regresión y predecir los precios de las tarifas de taxi de Nueva York. Este proceso acepta valores de configuración y datos de entrenamiento y, después, itera automáticamente las combinaciones de diferentes métodos de estandarización o normalización de características, modelos y configuraciones de hiperparámetros para llegar al mejor modelo.
+En este tutorial, se usa el aprendizaje automático automatizado del SDK de Azure Machine Learning para crear un [modelo de regresión](concept-automated-ml.md#regression) que prediga los precios de las tarifas de taxi de Nueva York. Este proceso acepta valores de configuración y datos de entrenamiento y, después, itera automáticamente las combinaciones de diferentes métodos de estandarización o normalización de características, modelos y configuraciones de hiperparámetros para llegar al mejor modelo.
 
 ![Diagrama de flujo](./media/tutorial-auto-train-models/flow2.png)
 
-En este tutorial, aprenderá a realizar las tareas siguientes:
+En este tutorial escribirá código con el SDK de Python.  Aprenderá las siguientes tareas:
 
 > [!div class="checklist"]
 > * Descargar, transformar y limpiar datos mediante Azure Open Datasets
 > * Entrenar un modelo de regresión con aprendizaje automático automatizado
 > * Calcular la precisión del modelo
 
-Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago](https://aka.ms/AMLFree) de Azure Machine Learning.
+Pruebe también el aprendizaje automático automatizado para estos otros tipos de modelos: 
+
+* [Tutorial: Creación de un modelo de clasificación con aprendizaje automático automatizado en Azure Machine Learning](tutorial-first-experiment-automated-ml.md): un ejemplo sin código.
+* [Tutorial: Previsión de la demanda con aprendizaje automático automatizado:](tutorial-automated-ml-forecast.md) un ejemplo sin código.
 
 ## <a name="prerequisites"></a>Requisitos previos
+
+Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago](https://aka.ms/AMLFree) de Azure Machine Learning.
 
 * Complete el [tutorial de instalación](tutorial-1st-experiment-sdk-setup.md) si aún no tiene un área de trabajo de Azure Machine Learning o una máquina virtual de cuadernos.
 * Después de completar el tutorial de instalación, abra el cuaderno *tutorials/regression-automl-nyc-taxi-data/regression-automated-ml.ipynb* con el mismo servidor de cuadernos.

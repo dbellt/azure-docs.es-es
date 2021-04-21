@@ -9,12 +9,12 @@ ms.date: 01/28/2021
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3f0b04183c4df469d4f723486103790c4f97671b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d2737f58fa95d1aa45d9952e8b501c1b9be4d1b0
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104656182"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600359"
 ---
 # <a name="coarse-relocalization"></a>Relocalización general
 
@@ -153,7 +153,7 @@ En esta tabla se calcula el espacio de búsqueda esperado para cada tipo de sens
 | **Balizas de BLE** |  70 m | Determinado por el intervalo de la señalización. Depende de la frecuencia, la intensidad de transmisión, los obstáculos físicos, las interferencias, etc. |
 
 <!-- Reference links in article -->
-[1]: https://developers.google.com/beacons/eddystone
+[1]: https://developer.estimote.com/eddystone/
 [2]: https://developer.apple.com/ibeacon/
 [3]: https://developer.android.com/reference/android/location/LocationManager
 [4]: https://developer.apple.com/documentation/corelocation/cllocationmanager?language=objc

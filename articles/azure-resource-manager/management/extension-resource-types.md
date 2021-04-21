@@ -2,13 +2,13 @@
 title: Tipos de recursos de extensión
 description: Enumera los tipos de recursos de Azure que se usan para ampliar las capacidades de otros tipos de recursos.
 ms.topic: conceptual
-ms.date: 11/14/2020
-ms.openlocfilehash: 5561c480dd5a2849588ed2288eb5bcc35fc1446c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 04/12/2021
+ms.openlocfilehash: 7085c0894fbf3bd56b56e4187d56f9af54916962
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94658458"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107363995"
 ---
 # <a name="resource-types-that-extend-capabilities-of-other-resources"></a>Tipos de recursos que amplían las capacidades de otros recursos
 
@@ -33,8 +33,17 @@ Un recurso de extensión es un recurso que se agrega a las capacidades de otro r
 - Microsoft.Authorization/policyExemptions
 - Microsoft.Authorization/policySetDefinitions
 - Microsoft.Authorization/privateLinkAssociations
+- Microsoft.Authorization/roleAssignmentApprovals
 - Microsoft.Authorization/roleAssignments
+- Microsoft.Authorization/roleAssignmentScheduleInstances
+- Microsoft.Authorization/roleAssignmentScheduleRequests
+- Microsoft.Authorization/roleAssignmentSchedules
 - Microsoft.Authorization/roleDefinitions
+- Microsoft.Authorization/roleEligibilityScheduleInstances
+- Microsoft.Authorization/roleEligibilityScheduleRequests
+- Microsoft.Authorization/roleEligibilitySchedules
+- Microsoft.Authorization/roleManagementPolicies
+- Microsoft.Authorization/roleManagementPolicyAssignments
 
 ## <a name="microsoftautomanage"></a>Microsoft.Automanage
 
@@ -52,6 +61,14 @@ Un recurso de extensión es un recurso que se agrega a las capacidades de otro r
 
 - Microsoft.Blueprint/blueprintAssignments
 - Microsoft.Blueprint/blueprints
+
+## <a name="microsoftcapacity"></a>Microsoft.Capacity
+
+- Microsoft.Capacity/listSkus
+
+## <a name="microsoftchangeanalysis"></a>Microsoft.ChangeAnalysis
+
+- Microsoft.ChangeAnalysis/changes
 
 ## <a name="microsoftconsumption"></a>Microsoft.Consumption
 
@@ -81,19 +98,28 @@ Un recurso de extensión es un recurso que se agrega a las capacidades de otro r
 
 - Microsoft.CostManagement/Alerts
 - Microsoft.CostManagement/Budgets
+- Microsoft.CostManagement/CheckNameAvailability
 - Microsoft.CostManagement/Dimensions
 - Microsoft.CostManagement/Exports
 - Microsoft.CostManagement/ExternalSubscriptions
 - Microsoft.CostManagement/Forecast
+- Microsoft.CostManagement/GenerateDetailedCostReport
 - Microsoft.CostManagement/Insights
+- Microsoft.CostManagement/OperationResults
+- Microsoft.CostManagement/OperationStatus
 - Microsoft.CostManagement/Query
 - Microsoft.CostManagement/Reportconfigs
 - Microsoft.CostManagement/Reports
+- Microsoft.CostManagement/ScheduledActions
 - Microsoft.CostManagement/Views
 
 ## <a name="microsoftcustomproviders"></a>Microsoft.CustomProviders
 
 - Microsoft.CustomProviders/associations
+
+## <a name="microsoftdatamigration"></a>Microsoft.DataMigration
+
+- Microsoft.DataMigration/DatabaseMigrations
 
 ## <a name="microsofteventgrid"></a>Microsoft.EventGrid
 
@@ -156,6 +182,7 @@ Un recurso de extensión es un recurso que se agrega a las capacidades de otro r
 ## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
 
 - Microsoft.PolicyInsights/attestations
+- Microsoft.PolicyInsights/eventGridFilters
 - Microsoft.PolicyInsights/policyEvents
 - Microsoft.PolicyInsights/policyStates
 - Microsoft.PolicyInsights/policyTrackedResources
@@ -171,7 +198,6 @@ Un recurso de extensión es un recurso que se agrega a las capacidades de otro r
 - Microsoft.ResourceHealth/childResources
 - Microsoft.ResourceHealth/events
 - Microsoft.ResourceHealth/impactedResources
-- Microsoft.ResourceHealth/notifications
 
 ## <a name="microsoftresources"></a>Microsoft.Resources
 
@@ -189,7 +215,11 @@ Un recurso de extensión es un recurso que se agrega a las capacidades de otro r
 - Microsoft.Security/devices
 - Microsoft.Security/deviceSecurityGroups
 - Microsoft.Security/InformationProtectionPolicies
+- Microsoft.Security/insights
+- Microsoft.Security/iotAlerts
+- Microsoft.Security/iotRecommendations
 - Microsoft.Security/iotSensors
+- Microsoft.Security/iotSites
 - Microsoft.Security/jitPolicies
 - Microsoft.Security/serverVulnerabilityAssessments
 - Microsoft.Security/sqlVulnerabilityAssessments
@@ -204,19 +234,29 @@ Un recurso de extensión es un recurso que se agrega a las capacidades de otro r
 - Microsoft.SecurityInsights/cases
 - Microsoft.SecurityInsights/dataConnectors
 - Microsoft.SecurityInsights/dataConnectorsCheckRequirements
+- Microsoft.SecurityInsights/enrichment
 - Microsoft.SecurityInsights/entities
+- Microsoft.SecurityInsights/entityQueryTemplates
 - Microsoft.SecurityInsights/incidents
 - Microsoft.SecurityInsights/settings
 - Microsoft.SecurityInsights/threatIntelligence
 - Microsoft.SecurityInsights/watchlists
 
-## <a name="microsoftserialconsoleppe"></a>Microsoft.SerialConsole.PPE
+## <a name="microsoftserialconsole"></a>Microsoft.SerialConsole
 
-- Microsoft.SerialConsole.PPE/serialPorts
+- Microsoft.SerialConsole/serialPorts
+
+## <a name="microsoftservicelinker"></a>Microsoft.ServiceLinker
+
+- Microsoft.ServiceLinker/linkers
 
 ## <a name="microsoftsoftwareplan"></a>Microsoft.SoftwarePlan
 
 - Microsoft.SoftwarePlan/hybridUseBenefits
+
+## <a name="microsoftsubscription"></a>Microsoft.Subscription
+
+- Microsoft.Subscription/policies
 
 ## <a name="microsoftsupport"></a>microsoft.support
 
@@ -224,10 +264,7 @@ Un recurso de extensión es un recurso que se agrega a las capacidades de otro r
 
 ## <a name="microsoftworkloadmonitor"></a>Microsoft.WorkloadMonitor
 
-- Microsoft.WorkloadMonitor/components
-- Microsoft.WorkloadMonitor/monitorInstances
 - Microsoft.WorkloadMonitor/monitors
-- Microsoft.WorkloadMonitor/notificationSettings
 
 ## <a name="next-steps"></a>Pasos siguientes
 

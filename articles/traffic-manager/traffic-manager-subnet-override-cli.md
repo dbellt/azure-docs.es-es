@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: traffic-manager
 ms.date: 09/18/2019
 ms.author: duau
-ms.openlocfilehash: 2e289728c7fde9b98256d079d45067aba1d4d805
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: fab167884d9060edc4f626d3ee05fa0b23389d92
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102211335"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107767806"
 ---
 # <a name="traffic-manager-subnet-override-using-azure-cli"></a>Invalidación de la subred de Traffic Manager mediante la CLI de Azure
 
@@ -39,7 +39,7 @@ Para crear una invalidación de subred de Traffic Manager, puede usar la CLI de 
 - En este artículo se necesita la versión 2.0.28 o posterior de la CLI de Azure. Si usa Azure Cloud Shell, ya está instalada la versión más reciente.
 
 ## <a name="update-the-traffic-manager-endpoint-with-subnet-override"></a>Actualice el punto de conexión de Traffic Manager con la invalidación de subred.
-Use la CLI de Azure para actualizar el punto de conexión con [az network traffic-manager endpoint update](/cli/azure/network/traffic-manager/endpoint#az-network-traffic-manager-endpoint-update).
+Use la CLI de Azure para actualizar el punto de conexión con [az network traffic-manager endpoint update](/cli/azure/network/traffic-manager/endpoint#az_network_traffic_manager_endpoint_update).
 
 ```azurecli-interactive
 ### Add a range of IPs ###
@@ -59,7 +59,7 @@ az network traffic-manager endpoint update \
     --type AzureEndpoints
 ```
 
-Puede quitar los intervalos de direcciones IP si ejecuta [az network traffic-manager endpoint update](/cli/azure/network/traffic-manager/endpoint#az-network-traffic-manager-endpoint-update) con la opción **--remove**.
+Puede quitar los intervalos de direcciones IP si ejecuta [az network traffic-manager endpoint update](/cli/azure/network/traffic-manager/endpoint#az_network_traffic_manager_endpoint_update) con la opción **--remove**.
 
 ```azurecli-interactive
 az network traffic-manager endpoint update \

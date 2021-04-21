@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/22/2021
+ms.date: 04/12/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 8d517aaa6121120399e09bfef8aa6dd36e745563
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4130ed4bb690edb3c0c5d72d7d158262ed6ff39d
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105022949"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305606"
 ---
 # <a name="tutorial-develop-and-plan-provisioning-for-a-scim-endpoint"></a>Tutorial: Desarrollo y planeación del aprovisionamiento de un punto de conexión de SCIM
 
@@ -62,7 +62,7 @@ El estándar SCIM define un esquema para administrar usuarios y grupos.
 En el esquema de usuario **principal** solo hacen falta tres atributos (todos los demás son opcionales):
 
 - `id`, identificador definido por el proveedor de servicios.
-- `externalId`, identificador definido por el cliente.
+- `userName`, un identificador único para el usuario (normalmente se asigna al nombre principal de usuario de Azure AD)
 - `meta`, metadatos de *solo lectura* mantenidos por el proveedor de servicios.
 
 Además del esquema de usuario **principal**, el estándar SCIM define una extensión de usuario **empresarial** y un modelo para extender el esquema de usuario de modo que satisfaga las necesidades de su aplicación. 
@@ -168,10 +168,10 @@ Hay varios puntos de conexión definidos en el RFC de SCIM. Puede empezar con el
 |--|--|
 |/User|Realiza operaciones CRUD en un objeto de usuario.|
 |/Group|Realiza operaciones CRUD en un objeto de grupo.|
-|/ServiceProviderConfig|Proporciona detalles sobre las características del estándar SCIM que se admiten; por ejemplo, los recursos que se admiten y el método de autenticación.|
-|/ResourceTypes|Especifica los metadatos de cada recurso.|
 |/Schemas|El conjunto de atributos que admite cada cliente y proveedor de servicios puede variar. Un proveedor de servicios puede incluir `name`, `title` y `emails`, mientras que otro usa `name`, `title` y `phoneNumbers`. El punto de conexión de esquemas permite la detección de los atributos admitidos.|
 |/Bulk|Las operaciones masivas le permiten realizar operaciones en una gran colección de objetos de recursos en una sola operación (por ejemplo, actualizar las pertenencias para un grupo de gran tamaño).|
+|/ServiceProviderConfig|Proporciona detalles sobre las características del estándar SCIM que se admiten; por ejemplo, los recursos que se admiten y el método de autenticación.|
+|/ResourceTypes|Especifica los metadatos de cada recurso.|
 
 **Lista de ejemplo de puntos de conexión**
 
@@ -1329,9 +1329,9 @@ Use la lista de comprobación para incorporar la aplicación rápidamente y que 
 > * Tres credenciales de prueba sin expiración para la aplicación (obligatorio)
 > * Compatibilidad con la concesión de código de autorización de OAuth o un token de larga duración, tal como se describe a continuación (obligatorio)
 > * Establecimiento de un punto de contacto de ingeniería y soporte técnico para respaldar la incorporación de clientes a la galería (obligatorio)
+> * [Compatibilidad con la detección de esquemas (obligatorio)](https://tools.ietf.org/html/rfc7643#section-6)
 > * Compatibilidad con la actualización de varias pertenencias a grupos con una única instrucción PATCH
 > * Documentación del punto de conexión de SCIM públicamente
-> * [Compatibilidad con la detección de esquemas](https://tools.ietf.org/html/rfc7643#section-6)
 
 ### <a name="authorization-to-provisioning-connectors-in-the-application-gallery"></a>Autorización para aprovisionar conectores en la galería de aplicaciones
 La especificación SCIM no define un esquema específico de SCIM para la autenticación y autorización, sino que se basa en el uso de los estándares del sector existentes.

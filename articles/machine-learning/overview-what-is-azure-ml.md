@@ -7,15 +7,15 @@ ms.subservice: core
 ms.topic: overview
 ms.author: larryfr
 author: BlackMist
-ms.date: 11/04/2020
+ms.date: 04/08/2021
 ms.custom: devx-track-python
 adobe-target: true
-ms.openlocfilehash: 00a3ab2954d09a7e70e81d8de3644b678b79d005
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 4f97883c157d04358322b01cab7049dcbbabdc4f
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102521397"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107031093"
 ---
 # <a name="what-is-azure-machine-learning"></a>¿Qué es Azure Machine Learning?
 
@@ -40,7 +40,7 @@ Las previsiones o predicciones del aprendizaje automático pueden hacer que las 
 ## <a name="machine-learning-tools-to-fit-each-task"></a>Herramientas de aprendizaje automático que se ajustan a cada tarea 
 
 Azure Machine Learning proporciona todas las herramientas que los desarrolladores y científicos de datos necesitan para sus flujos de trabajo de aprendizaje automático, entre las que se incluyen:
-+ El [diseñador de Azure Machine Learning](tutorial-designer-automobile-price-train-score.md): módulos de arrastrar y colocar para compilar los experimentos e implementar canalizaciones.
++ El [diseñador de Azure Machine Learning](tutorial-designer-automobile-price-train-score.md): módulos de arrastrar y colocar para compilar los experimentos e implementar canalizaciones en un entorno de poco código.
 
 + Cuadernos de Jupyter Notebook: use nuestros [cuadernos de ejemplo](https://github.com/Azure/MachineLearningNotebooks) o cree los suyos propios para aprovechar los ejemplos del <a href="/python/api/overview/azure/ml/intro" target="_blank">SDK para Python</a> para el aprendizaje automático. 
 
@@ -48,11 +48,11 @@ Azure Machine Learning proporciona todas las herramientas que los desarrolladore
 
 + [Many Models Solution Accelerator](https://aka.ms/many-models) (versión preliminar) se basa en Azure Machine Learning y permite entrenar, usar y administrar cientos o incluso miles de modelos de Machine Learning.
 
-+ [Extensión de Machine Learning para usuarios de Visual Studio Code](tutorial-setup-vscode-extension.md)
++ La [extensión de Machine Learning para Visual Studio Code (versión preliminar)](how-to-set-up-vs-code-remote.md) proporciona un entorno de desarrollo completo para crear y administrar proyectos de aprendizaje automático.
 
-+ [CLI de Machine Learning](reference-azure-machine-learning-cli.md)
++ [La CLI de Machine Learning](reference-azure-machine-learning-cli.md) es una extensión de la CLI de Azure que proporciona comandos para administrarlos con los recursos de Azure Machine Learning desde la línea de comandos.
 
-+ Plataformas de código abierto como PyTorch, TensorFlow y scikit-learn, entre muchas otras
++ [Integración con marcos de código abierto](concept-open-source.md) como PyTorch, TensorFlow y scikit-learn, entre muchos otros, para entrenar, implementar y administrar el proceso de aprendizaje automático de un extremo a otro.
 
 + [Aprendizaje de refuerzo](how-to-use-reinforcement-learning.md) con Ray RLlib
 
@@ -130,6 +130,8 @@ La cuenta de Azure Storage, los destinos de proceso y otros recursos se pueden u
 - + [Primeros pasos en su propio entorno de desarrollo](tutorial-1st-experiment-sdk-setup-local.md)
   + [Uso de cuadernos de Jupyter Notebook en una instancia de proceso para entrenar e implementar modelos de Machine Learning](tutorial-1st-experiment-sdk-setup.md)
   + [Uso del aprendizaje automático automatizado para entrenar e implementar modelos de aprendizaje automático](tutorial-first-experiment-automated-ml.md) 
+  + [Administración de recursos en Visual Studio Code](how-to-manage-resources-vscode.md)
+  + [Uso de Visual Studio Code para entrenar e implementar un modelo de clasificación de imágenes](tutorial-train-deploy-image-classification-model-vscode.md)
   + [Uso de las funcionalidades de arrastrar y colocar del diseñador para entrenar e implementar](tutorial-designer-automobile-price-train-score.md) 
   + [Uso de la CLI de Machine Learning para entrenar e implementar un modelo](tutorial-train-deploy-model-cli.md)
 

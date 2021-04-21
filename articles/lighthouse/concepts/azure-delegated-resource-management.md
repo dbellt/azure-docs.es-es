@@ -3,16 +3,16 @@ title: Administración de recursos delegados de Azure
 description: La administración de recursos delegados de Azure es una parte clave de Azure Lighthouse, lo que permite a los proveedores de servicios administrar recursos delegados a escala con agilidad y precisión.
 ms.date: 10/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: d484e61fc4ab3714eb362b26d64d449890065888
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 93a3de257fe88de4915eff3582ff38fc03ef380e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92203864"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107767770"
 ---
 # <a name="azure-delegated-resource-management"></a>Administración de recursos delegados de Azure
 
-La administración de recursos delegados de Azure es uno de los componentes clave de [Azure Lighthouse](../overview.md). Con la administración de recursos delegados de Azure, los proveedores de servicios pueden simplificar las experiencias de involucración e incorporación de clientes, al mismo tiempo que administran los recursos delegados a escala con agilidad y precisión. Los clientes mantienen el control sobre qué proveedores de servicios pueden acceder a su inquilino, quién puede acceder a su inquilino, a qué recursos pueden acceder y qué acciones se pueden realizar.
+La administración de recursos delegados de Azure es uno de los componentes clave de [Azure Lighthouse](../overview.md). Con la administración de recursos delegados de Azure, los proveedores de servicios pueden simplificar las experiencias de involucración e incorporación de clientes, al mismo tiempo que administran los recursos delegados a escala con agilidad y precisión. Los clientes mantienen el control sobre quién puede acceder a su inquilino, a qué recursos pueden acceder y qué acciones se pueden realizar.
 
 ## <a name="what-is-azure-delegated-resource-management"></a>¿Qué es la administración de recursos delegados de Azure?
 

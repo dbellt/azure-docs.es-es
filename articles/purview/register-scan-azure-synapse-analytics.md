@@ -1,22 +1,25 @@
 ---
-title: Cómo realizar un examen de Azure Synapse Analytics
-description: En esta guía se describen los detalles de cómo examinar Azure Synapse Analytics.
+title: Examen de grupos de SQL dedicados
+description: En esta guía de procedimientos se describen los detalles acerca de cómo examinar los grupos de SQL dedicados.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 10/22/2020
-ms.openlocfilehash: d287f5dc239339f79d2d8237e7739de7793920c4
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 7d6a0b04306c2ed6ae4887c79962cbb5528643fc
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106108615"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107106979"
 ---
-# <a name="register-and-scan-azure-synapse-analytics"></a>Registrar y realizar un examen de Azure Synapse Analytics
+# <a name="register-and-scan-dedicated-sql-pools-formerly-sql-dw"></a>Registro y examen de grupos de SQL dedicados (antes SQL DW)
 
-En este artículo se describe cómo registrar y examinar una instancia de Azure Synapse Analytics (anteriormente SQL DW) en Purview.
+> [!NOTE]
+> Si quiere registrar y examinar una base de datos SQL dedicada dentro de un área de trabajo de Synapse, debe seguir las instrucciones [que se indican aquí](register-scan-synapse-workspace.md).
+
+En este artículo se describe cómo registrar y examinar una instancia de un grupo de SQL dedicado (antes SQL DW) en Purview.
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
@@ -24,7 +27,8 @@ Azure Synapse Analytics (anteriormente SQL DW) admite exámenes completos e inc
 
 ### <a name="known-limitations"></a>Restricciones conocidas
 
-Azure Purview no admite el examen de [vistas](/sql/relational-databases/views/views?view=azure-sqldw-latest&preserve-view=true) en Azure Synapse Analytics.
+> * Azure Purview no admite el examen de [vistas](/sql/relational-databases/views/views?view=azure-sqldw-latest&preserve-view=true) en Azure Synapse Analytics.
+> * Azure Purview no admite más de 300 columnas en la pestaña Esquema y mostrará el mensaje "Additional-Columns-Truncated" (columnas adicionales truncadas). 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -114,14 +118,14 @@ Cuando el método de autenticación seleccionado sea **Autenticación de SQL**, 
 1. Si el almacén de claves no está conectado todavía a Purview, necesitará [crear una conexión del almacén de claves](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account).
 1. Por último, [cree una nueva credencial](manage-credentials.md#create-a-new-credential) mediante la clave para configurar el examen.
 
-## <a name="register-an-azure-synapse-analytics-instance-formerly-sql-dw"></a>Registro de una instancia de Azure Synapse Analytics (anteriormente SQL DW)
+## <a name="register-a-sql-dedicated-pool-formerly-sql-dw"></a>Registro de un grupo de SQL dedicado (antes SQL DW)
 
 Para registrar un nuevo servidor de Azure Synapse Analytics en el catálogo de datos, haga lo siguiente:
 
 1. Vaya a la cuenta de Purview.
 1. Seleccione **Sources** (Orígenes) en el panel de navegación izquierdo.
 1. Seleccione **Registrar**.
-1. En **Registrar orígenes**, seleccione **Azure Synapse Analytics (anteriormente SQL DW).**
+1. En **Registro de orígenes**, seleccione **Grupo dedicado de SQL (antes SQL DW)**
 1. Seleccione **Continuar**
 
 En la pantalla **Registrar orígenes (Azure Synapse Analytics)** , haga lo siguiente:

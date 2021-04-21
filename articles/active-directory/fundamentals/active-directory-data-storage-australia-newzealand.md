@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 7/21/2020
 ms.custom: it-pro, seodec18, references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d7c37e64e4f1b339ae66fe3d9135b1874476eb3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 55504cf893081b7de4cced7afc43b46127f5bdfd
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94836978"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107478733"
 ---
 # <a name="customer-data-storage-for-australian-and-new-zealand-customers-in-azure-active-directory"></a>Almacenamiento de datos de clientes australianos y neozelandeses en Azure Active Directory 
 
@@ -25,7 +25,7 @@ Azure Active Directory (Azure AD) almacena los datos de los clientes en una ubi
 
 Para obtener información sobre la ubicación de los datos de Azure AD y otros servicios de Microsoft, consulte la sección [Dónde se encuentran sus datos](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) del Centro de confianza de Microsoft.
 
-A partir del 26 de febrero de 2020, Microsoft comenzó a almacenar los datos de clientes de Azure AD para los nuevos inquilinos con una dirección de facturación de Australia o Nueva Zelanda dentro de los centros de datos de Australia. Entre el 1 de mayo de 2020 y el 31 de octubre de 2021, Microsoft migrará los inquilinos existentes que tengan una dirección de facturación de Australia o Nueva Zelanda a los centros de datos de Australia sin necesidad de que el cliente intervenga. El proceso de migración no implica ningún tiempo de inactividad para los clientes y no afectará a ninguna funcionalidad del inquilino durante la migración.
+A partir del 26 de febrero de 2020, Microsoft comenzó a almacenar los datos de clientes de Azure AD para los nuevos inquilinos con una dirección de facturación de Australia o Nueva Zelanda dentro de los centros de datos de Australia.
 
 Además, algunas características de Azure AD todavía no admiten el almacenamiento de datos de clientes en Australia. Visite la [asignación de datos de Azure AD](https://msit.powerbi.com/view?r=eyJrIjoiYzEyZTc5OTgtNTdlZS00ZTVkLWExN2ItOTM0OWU4NjljOGVjIiwidCI6IjcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI0NyIsImMiOjV9) para obtener información específica sobre las características. Por ejemplo, Microsoft Azure AD Multi-Factor Authentication almacena los datos de los clientes en Estados Unidos y los procesa de forma global. Consulte [Residencia de datos y datos de cliente en Azure AD Multi-Factor Authentication](../authentication/concept-mfa-data-residency.md).
 

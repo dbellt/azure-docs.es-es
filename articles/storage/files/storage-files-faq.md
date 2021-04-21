@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: ec8104a5fd8d1c524f75c7a5173015115d85a253
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 4d7123aa22d95e3e4c3850be775ddad96f28d280
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106064314"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785314"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Preguntas más frecuentes (P+F) sobre Azure Files
 [Azure Files](storage-files-introduction.md) le ofrece recursos compartidos de archivos en la nube totalmente administrados, a los que se puede obtener acceso mediante el protocolo [Bloque de mensajes del servidor (SMB)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) estándar y el [protocolo Network File System (NFS)](https://en.wikipedia.org/wiki/Network_File_System) (versión preliminar). Los recursos compartidos de archivos de Azure se pueden montar simultáneamente en implementaciones de Windows, Linux y macOS en la nube o locales. También puede almacenar en caché recursos compartidos de archivos de Azure en máquinas con Windows Server mediante Azure File Sync para tener un acceso rápido cerca de donde se usan los datos.
@@ -90,7 +90,7 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
 
 * <a id="afs-region-availability"></a>
    **¿Qué regiones se admiten en Azure File Sync?**  
-    Encontrará la lista de regiones disponibles en la sección [Disponibilidad en regiones](storage-sync-files-planning.md#azure-file-sync-region-availability) de la Guía de planeamiento de Azure File Sync. Continuamente se agregará compatibilidad con otras regiones, como regiones no públicas.
+    Encontrará la lista de regiones disponibles en la sección [Disponibilidad en regiones](../file-sync/file-sync-planning.md#azure-file-sync-region-availability) de la Guía de planeamiento de Azure File Sync. Continuamente se agregará compatibilidad con otras regiones, como regiones no públicas.
 
 * <a id="cross-domain-sync"></a>
    **¿Puedo tener servidores unidos a un dominio y no unidos a un dominio en el mismo grupo de sincronización?**  
@@ -119,28 +119,28 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
 
 * <a id="sizeondisk-versus-size"></a>
    **¿Por qué la propiedad *Tamaño en disco* de un archivo no coincide con la propiedad *Tamaño* después de usar Azure File Sync?**  
-  Consulte [Descripción de la nube por niveles de Azure File Sync](storage-sync-cloud-tiering-overview.md#tiered-vs-locally-cached-file-behavior).
+  Consulte [Descripción de la nube por niveles de Azure File Sync](../file-sync/file-sync-cloud-tiering-overview.md#tiered-vs-locally-cached-file-behavior).
 
 * <a id="is-my-file-tiered"></a>
    **¿Cómo se puede saber si un archivo se ha organizado en niveles?**  
-  Consulte [Administración de archivos almacenados por niveles de Azure File Sync](storage-sync-how-to-manage-tiered-files.md#how-to-check-if-your-files-are-being-tiered).
+  Consulte [Información general de nube por niveles](../file-sync/file-sync-how-to-manage-tiered-files.md#how-to-check-if-your-files-are-being-tiered).
 
 * <a id="afs-recall-file"></a>**Uno de los archivos que quiero usar se ha organizado en niveles. ¿Cómo puedo recuperarlo en el disco para usarlo de forma local?**  
-  Consulte [Administración de archivos almacenados por niveles de Azure File Sync](storage-sync-how-to-manage-tiered-files.md#how-to-recall-a-tiered-file-to-disk).
+  Consulte [Información general de nube por niveles](../file-sync/file-sync-how-to-manage-tiered-files.md#how-to-recall-a-tiered-file-to-disk).
 
 * <a id="afs-force-tiering"></a>
    **¿Cómo puedo forzar la organización en niveles de un archivo o directorio?**  
-  Consulte [Administración de archivos almacenados por niveles de Azure File Sync](storage-sync-how-to-manage-tiered-files.md#how-to-force-a-file-or-directory-to-be-tiered).
+  Consulte [Información general de nube por niveles](../file-sync/file-sync-how-to-manage-tiered-files.md#how-to-force-a-file-or-directory-to-be-tiered).
 
 * <a id="afs-effective-vfs"></a>
    **¿Cómo se interpreta el *espacio disponible del volumen* cuando tengo varios puntos de conexión de servidor en un volumen?**  
-  Consulte [Selección de directivas de nube por niveles de Azure File Sync](storage-sync-cloud-tiering-policy.md#multiple-server-endpoints-on-a-local-volume).
+  Consulte [Información general de nube por niveles](../file-sync/file-sync-cloud-tiering-policy.md#multiple-server-endpoints-on-a-local-volume).
   
 * <a id="afs-tiered-files-tiering-disabled"></a>
   **Tengo deshabilitada la nube por niveles, ¿por qué hay archivos por niveles en la ubicación del punto de conexión de servidor?**  
     Existen dos razones por las que pueden existir archivos por niveles en la ubicación del punto de conexión de servidor:
 
-    - Al agregar un nuevo punto de conexión de servidor a un grupo de sincronización existente, si elige la opción de recuperar primero el espacio de nombres o la opción de recuperar solo el espacio de nombres para el modo de descarga inicial, los archivos se mostrarán por niveles hasta que se descarguen localmente. Para evitar esta situación, seleccione la opción de evitar archivos por niveles para el modo de descarga inicial. Para recuperar archivos manualmente, use el cmdlet [Invoke-StorageSyncFileRecall](storage-sync-how-to-manage-tiered-files.md#how-to-recall-a-tiered-file-to-disk).
+    - Al agregar un nuevo punto de conexión de servidor a un grupo de sincronización existente, si elige la opción de recuperar primero el espacio de nombres o la opción de recuperar solo el espacio de nombres para el modo de descarga inicial, los archivos se mostrarán por niveles hasta que se descarguen localmente. Para evitar esta situación, seleccione la opción de evitar archivos por niveles para el modo de descarga inicial. Para recuperar archivos manualmente, use el cmdlet [Invoke-StorageSyncFileRecall](../file-sync/file-sync-how-to-manage-tiered-files.md#how-to-recall-a-tiered-file-to-disk).
 
     - Si se ha habilitado la nube por niveles en el punto de conexión de servidor y luego se ha deshabilitado, los archivos permanecen por niveles hasta que se accede a ellos.
 
@@ -150,11 +150,11 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
 
     Este comportamiento no es específico de Azure File Sync, el Explorador de Windows muestra una "X gris" para los archivos que tienen establecido el atributo sin conexión. Verá el icono X al acceder a los archivos a través de SMB. Para obtener una explicación detallada de este comportamiento, consulte [https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105](https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105).
 
-    Si tiene preguntas sobre cómo administrar archivos almacenados por niveles, consulte [Administración de archivos almacenados por niveles](storage-sync-how-to-manage-tiered-files.md).
+    Si tiene preguntas sobre cómo administrar archivos almacenados por niveles, consulte [Administración de archivos almacenados por niveles](../file-sync/file-sync-how-to-manage-tiered-files.md).
 
 * <a id="afs-files-excluded"></a>
    **¿Qué archivos o carpetas excluye automáticamente Azure File Sync?**  
-  Ver [Archivos omitidos](storage-sync-files-planning.md#files-skipped).
+  Ver [Archivos omitidos](../file-sync/file-sync-planning.md#files-skipped).
 
 * <a id="afs-os-support"></a>
    **¿Puedo usar Azure File Sync con Windows Server 2008 R2, Linux o un dispositivo de almacenamiento conectado a la red (NAS)?**  
@@ -162,7 +162,7 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
 
 * <a id="afs-tiered-files-out-of-endpoint"></a>
    **¿Por qué los archivos en capas se encuentran fuera del espacio de nombres del punto de conexión de servidor?**  
-    Antes de la versión 3 del agente de Azure File Sync, Azure File Sync bloqueaba el movimiento de archivos en capas fuera del punto de conexión del servidor, pero en el mismo volumen que el punto de conexión del servidor. Las operaciones de copia, los movimientos de archivos sin capas y los movimientos de capas a otros volúmenes no resultaban afectados. La razón de este comportamiento era la presunción implícita que tienen el Explorador de archivos y otras API de Windows de que las operaciones de movimiento en el mismo volumen son operaciones de cambio de nombre (casi) instantáneas. Esto significa que los movimientos que haga el Explorador de archivos u otros métodos de movimiento (como la línea de comandos o PowerShell) parecen no responder mientras Azure File Sync recupera los datos de la nube. A partir de la [versión 3.0.12.0 del agente de Azure File Sync](storage-files-release-notes.md#supported-versions), Azure File Sync le permitirá mover un archivo con capas fuera del punto de conexión del servidor. Evitamos los efectos negativos que se mencionaron anteriormente permitiendo que el archivo con capas exista como un archivo con capas fuera del punto de conexión del servidor y, a continuación, recuperando el archivo en segundo plano. Esto significa que los movimientos en el mismo volumen son instantáneos y nosotros nos ocupamos por completo de recuperar el archivo en el disco una vez que el movimiento se ha completado. 
+    Antes de la versión 3 del agente de Azure File Sync, Azure File Sync bloqueaba el movimiento de archivos en capas fuera del punto de conexión del servidor, pero en el mismo volumen que el punto de conexión del servidor. Las operaciones de copia, los movimientos de archivos sin capas y los movimientos de capas a otros volúmenes no resultaban afectados. La razón de este comportamiento era la presunción implícita que tienen el Explorador de archivos y otras API de Windows de que las operaciones de movimiento en el mismo volumen son operaciones de cambio de nombre (casi) instantáneas. Esto significa que los movimientos que haga el Explorador de archivos u otros métodos de movimiento (como la línea de comandos o PowerShell) parecen no responder mientras Azure File Sync recupera los datos de la nube. A partir de la [versión 3.0.12.0 del agente de Azure File Sync](../file-sync/file-sync-release-notes.md#supported-versions), Azure File Sync le permitirá mover un archivo con capas fuera del punto de conexión del servidor. Evitamos los efectos negativos que se mencionaron anteriormente permitiendo que el archivo con capas exista como un archivo con capas fuera del punto de conexión del servidor y, a continuación, recuperando el archivo en segundo plano. Esto significa que los movimientos en el mismo volumen son instantáneos y nosotros nos ocupamos por completo de recuperar el archivo en el disco una vez que el movimiento se ha completado. 
 
 * <a id="afs-do-not-delete-server-endpoint"></a>
   **Tengo un problema con Azure File Sync en mi servidor (sincronización, nube por niveles, etc.). ¿Debería quitar y volver a crear el punto de conexión del servidor?**  
@@ -170,7 +170,7 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
     
 * <a id="afs-resource-move"></a>
    **¿Puedo mover el servicio de sincronización del almacenamiento o la cuenta de almacenamiento a otro grupo de recursos, suscripción o inquilino de Azure AD?**  
-   Sí, el servicio de sincronización del almacenamiento o la cuenta de almacenamiento se pueden mover a un grupo de recursos, suscripción o inquilino de Azure AD diferentes. Después de mover el servicio de sincronización de almacenamiento o la cuenta de almacenamiento, debe dar acceso a la aplicación Microsoft.StorageSync a la cuenta de almacenamiento (consulte [Asegúrese de que Azure File Sync tiene acceso a la cuenta de almacenamiento](./storage-sync-files-troubleshoot.md?tabs=portal1%252cportal#troubleshoot-rbac)).
+   Sí, el servicio de sincronización del almacenamiento o la cuenta de almacenamiento se pueden mover a un grupo de recursos, suscripción o inquilino de Azure AD diferentes. Después de mover el servicio de sincronización de almacenamiento o la cuenta de almacenamiento, debe dar acceso a la aplicación Microsoft.StorageSync a la cuenta de almacenamiento (consulte [Asegúrese de que Azure File Sync tiene acceso a la cuenta de almacenamiento](../file-sync/file-sync-troubleshoot.md?tabs=portal1%252cportal#troubleshoot-rbac)).
 
     > [!Note]  
     > Al crear el punto de conexión de nube, el servicio de sincronización de almacenamiento y la cuenta de almacenamiento deben estar en el mismo inquilino de Azure AD. Una vez creado el punto de conexión de nube, el servicio de sincronización de almacenamiento y la cuenta de almacenamiento se pueden migrar a distintos inquilinos de Azure AD.
@@ -494,4 +494,4 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
 ## <a name="see-also"></a>Consulte también
 * [Solución de problemas de Azure Files en Windows](storage-troubleshoot-windows-file-connection-problems.md)
 * [Solución de problemas de Azure Files en Linux](storage-troubleshoot-linux-file-connection-problems.md)
-* [Solución de problemas de Azure File Sync](storage-sync-files-troubleshoot.md)
+* [Solución de problemas de Azure File Sync](../file-sync/file-sync-troubleshoot.md)

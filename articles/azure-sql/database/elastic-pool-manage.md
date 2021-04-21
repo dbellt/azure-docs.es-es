@@ -10,12 +10,12 @@ ms.author: moslake
 ms.reviewer: sstein
 ms.date: 03/12/2019
 ms.custom: seoapril2019 sqldbrb=1, devx-track-azurecli
-ms.openlocfilehash: 9c9af6e3bc3dfd798f4b3f0cad9319aa573c425d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 555b18a7edbc3cc00cd7dcaf7f4897a4608d52e7
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96456001"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107787222"
 ---
 # <a name="manage-elastic-pools-in-azure-sql-database"></a>Administración de grupos elásticos en Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -73,12 +73,12 @@ Para crear y administrar grupos elásticos de SQL Database con la [CLI de Azure]
 
 | Cmdlet | Descripción |
 | --- | --- |
-|[az sql elastic-pool create](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-create)|Crea un grupo elástico.|
-|[az sql elastic-pool list](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-list)|Devuelve una lista de grupos elásticos de un servidor.|
-|[az sql elastic-pool list-dbs](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-list-dbs)|Devuelve una lista de bases de datos de un grupo elástico.|
-|[az sql elastic-pool list-editions](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-list-editions)|Además incluye los parámetros disponibles de DTU de grupo, los límites de almacenamiento y la configuración por base de datos. Para reducir el nivel de detalle, los límites de almacenamiento y la configuración por base de datos adicionales están ocultos de forma predeterminada.|
-|[az sql elastic-pool update](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update)|Actualiza un grupo elástico.|
-|[az sql elastic-pool delete](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-delete)|Elimina el grupo elástico.|
+|[az sql elastic-pool create](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_create)|Crea un grupo elástico.|
+|[az sql elastic-pool list](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list)|Devuelve una lista de grupos elásticos de un servidor.|
+|[az sql elastic-pool list-dbs](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list_dbs)|Devuelve una lista de bases de datos de un grupo elástico.|
+|[az sql elastic-pool list-editions](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list_editions)|Además incluye los parámetros disponibles de DTU de grupo, los límites de almacenamiento y la configuración por base de datos. Para reducir el nivel de detalle, los límites de almacenamiento y la configuración por base de datos adicionales están ocultos de forma predeterminada.|
+|[az sql elastic-pool update](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_update)|Actualiza un grupo elástico.|
+|[az sql elastic-pool delete](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_delete)|Elimina el grupo elástico.|
 
 ## <a name="transact-sql-t-sql"></a>Transact-SQL (T-SQL)
 
@@ -106,7 +106,7 @@ Para crear y administrar grupos elásticos y bases de datos agrupadas de SQL Dat
 |[Grupos elásticos: eliminación](/rest/api/sql/elasticpools/delete)|Elimina el grupo elástico.|
 |[Grupos elásticos: obtención](/rest/api/sql/elasticpools/get)|Obtiene un grupo elástico.|
 |[Elastic pools - List by server](/rest/api/sql/elasticpools/listbyserver)|Devuelve una lista de grupos elásticos de un servidor.|
-|[Grupos elásticos: actualización](/rest/api/sql/elasticpools/listbyserver)|Actualiza un grupo elástico ya existente.|
+|[Grupos elásticos: actualización](/rest/api/sql/2020-11-01-preview/elasticpools/update)|Actualiza un grupo elástico ya existente.|
 |[Elastic pool activities](/rest/api/sql/elasticpoolactivities)|Devuelve las actividades de los grupos elásticos.|
 |[Elastic pool database activities](/rest/api/sql/elasticpooldatabaseactivities)|Devuelve la actividad de las bases de datos de un grupo elástico.|
 |[Databases - Create or update](/rest/api/sql/databases/createorupdate)|Crea una nueva base de datos o actualiza una ya existente.|

@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 03/16/2021
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 094755ed6c018b3ac82d6f62a43f17e2536bbd9a
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: e698061122fcc8ff8019907b5fdeba5b2df58407
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104953517"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107779352"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Configuración de una aplicación de Python en Linux para Azure App Service
 
@@ -27,7 +27,7 @@ Puede usar [Azure Portal](https://portal.azure.com) o la CLI de Azure para la co
 - **CLI de Azure**: tiene dos opciones.
 
     - Ejecute los comandos en [Azure Cloud Shell](../cloud-shell/overview.md).
-    - Ejecute los comandos localmente instalando la versión más reciente de la [CLI de Azure](/cli/azure/install-azure-cli) y, luego, inicie sesión en Azure con [az login](/cli/azure/reference-index#az-login).
+    - Ejecute los comandos localmente instalando la versión más reciente de la [CLI de Azure](/cli/azure/install-azure-cli) y, luego, inicie sesión en Azure con [az login](/cli/azure/reference-index#az_login).
     
 > [!NOTE]
 > Linux es actualmente la opción recomendada para ejecutar aplicaciones de Python en App Service. Para obtener información acerca de la opción de Windows, consulte [Configuración de un entorno de Python en Azure App Service (Windows)](/visualstudio/python/managing-python-on-azure-app-service).
@@ -129,7 +129,7 @@ En la tabla siguiente se describe la configuración de producción que es pertin
 
 | Valor de Django | Instrucciones para Azure |
 | --- | --- |
-| `SECRET_KEY` | Almacene el valor en un valor de configuración de App Service, como se describe en [Acceso a la configuración de la aplicación como variables de entorno](#access-app-settings-as-environment-variables). Como alternativa, puede [almacenar el valor como un "secreto" en Azure Key Vault](../key-vault/secrets/quick-create-python.md). |
+| `SECRET_KEY` | Almacene el valor en un valor de configuración de App Service, como se describe en [Acceso a la configuración de la aplicación como variables de entorno](#access-app-settings-as-environment-variables). Como alternativa, es posible [almacenar el valor como un "secreto" en Azure Key Vault](../key-vault/secrets/quick-create-python.md). |
 | `DEBUG` | Cree un valor `DEBUG` en App Service con el valor 0 (false) y, luego, cargue el valor como una variable de entorno. En el entorno de desarrollo, cree una variable de entorno `DEBUG` con el valor 1 (true). |
 | `ALLOWED_HOSTS` | En producción, Django requiere que incluya la dirección URL de la aplicación en la matriz `ALLOWED_HOSTS` de *settings.py*. Puede recuperar esta dirección URL en tiempo de ejecución con el código `os.environ['WEBSITE_HOSTNAME']`. App Service establece automáticamente la variable de entorno `WEBSITE_HOSTNAME` en la dirección URL de la aplicación. |
 | `DATABASES` | Defina la configuración en App Service para la conexión de base de datos y cárguela como variables de entorno para rellenar el diccionario [`DATABASES`](https://docs.djangoproject.com/en/3.1/ref/settings/#std:setting-DATABASES). También puede almacenar los valores (especialmente el nombre de usuario y la contraseña) como [secretos de Azure Key Vault](../key-vault/secrets/quick-create-python.md). |

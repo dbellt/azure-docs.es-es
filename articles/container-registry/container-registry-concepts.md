@@ -3,12 +3,12 @@ title: Acerca de los registros, repositorios, artefactos e imágenes
 description: Introducción a los conceptos clave de los registros de contenedor, repositorios e imágenes de contenedor y otros artefactos de Azure.
 ms.topic: article
 ms.date: 01/29/2021
-ms.openlocfilehash: 27c4604820dda50686b6cb3f36e69b38283750c3
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 64ab3812b3f23a7b3a480d3530c82bd39f2d29a5
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106381929"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107784090"
 ---
 # <a name="about-registries-repositories-and-artifacts"></a>Acerca de los registros, repositorios y artefactos
 
@@ -184,6 +184,4 @@ Obtenga más información sobre el [almacenamiento en el registro](container-reg
 Aprenda a [insertar y extraer imágenes ](container-registry-get-started-docker-cli.md) desde Azure Container Registry.
 
 <!-- LINKS - Internal -->
-[az-acr-repository-show-manifests]: /cli/azure/acr/repository#az-acr-repository-show-manifests
-
-
+[az-acr-repository-show-manifests]: /cli/azure/acr/repository#az_acr_repository_show_manifests

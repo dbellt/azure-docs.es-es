@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: robinsh
-ms.openlocfilehash: 4dbda13ffe04e0a4214b24ccaca2b8103a39b9f2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ea6ec30ad5f3b1cdbc906cc94cb211295b84e802
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92536069"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107761734"
 ---
 # <a name="configure-iot-hub-file-uploads-using-azure-cli"></a>Configuración de cargas de archivos de IoT Hub mediante la CLI de Azure
 
@@ -27,7 +27,7 @@ Para completar este tutorial, necesitará lo siguiente:
 
 * [Azure CLI](/cli/azure/install-azure-cli).
 
-* Un centro de Azure IoT. Si no tiene instancias de IoT Hub, puede usar el [`az iot hub create` comando](/cli/azure/iot/hub#az-iot-hub-create) para crear una o [crear una instancia de IoT Hub mediante el portal](iot-hub-create-through-portal.md).
+* Un centro de Azure IoT. Si no tiene instancias de IoT Hub, puede usar el [`az iot hub create` comando](/cli/azure/iot/hub#az_iot_hub_create) para crear una o [crear una instancia de IoT Hub mediante el portal](iot-hub-create-through-portal.md).
 
 * Una cuenta de Azure Storage. Si no tiene ninguna cuenta de Azure Storage, puede usar la CLI de Azure para crear una. Para obtener más información, consulte [Creación de una cuenta de almacenamiento](../storage/common/storage-account-create.md).
 

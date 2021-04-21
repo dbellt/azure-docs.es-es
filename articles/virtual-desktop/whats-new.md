@@ -3,21 +3,21 @@ title: Novedades de Windows Virtual Desktop - Azure
 description: Nuevas características y actualizaciones de productos para Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 03/20/2021
+ms.date: 04/08/2021
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: femila
 ms.custom: references_regions
-ms.openlocfilehash: 1c5d846963d7fc0c2207893f5c4094e3f94351b5
-ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
+ms.openlocfilehash: 710f33ada7a64248f0371a3e8c39e085d3f0834c
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106505423"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107064"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Novedades de Windows Virtual Desktop
 
-Windows Virtual Desktop se actualiza de forma periódica. En este artículo encontrará información sobre:
+Windows Virtual Desktop se actualiza periódicamente. En este artículo encontrará información sobre:
 
 - Las actualizaciones más recientes
 - Nuevas características
@@ -51,6 +51,53 @@ Estos son los cambios que se han realizado en el agente Windows Virtual Desktop:
 ## <a name="fslogix-updates"></a>Actualizaciones de FSLogix
 
 ¿Desea conocer las últimas actualizaciones de FSLogix? Consulte las [novedades de FSLogix](/fslogix/whats-new).
+
+## <a name="march-2021"></a>Marzo de 2021
+
+A continuación, se incluyen los cambios de marzo de 2021.
+
+### <a name="updates-to-the-azure-portal-ui-for-windows-virtual-desktop"></a>Cambios en la interfaz de usuario de Azure Portal para Windows Virtual Desktop
+
+Hemos efectuado los siguientes cambios en Windows Virtual Desktop para Azure Portal:
+
+- Hemos habilitado nuevas opciones de disponibilidad (zonas y conjunto de disponibilidad) para que los flujos de trabajo creen grupos host y agreguen máquinas virtuales.
+- Hemos corregido un problema por el que un host cuyo estado indica que "necesita asistencia" aparecía como no disponible. Ahora aparecerá un icono de advertencia junto al host.
+- Hemos habilitado la ordenación de sesiones activas.
+- Ahora es posible enviar mensajes a usuarios específicos o cerrar la sesión en la pestaña de detalles del host.
+- Hemos cambiado el campo de límite máximo de sesión.
+- Hemos agregado una ruta de validación de unidades organizativas (UO) al flujo de trabajo para crear un grupo host.
+- Ahora se puede usar la versión más reciente de la imagen Windows 10 al crear un grupo host personal.
+
+### <a name="generation-2-images-and-trusted-launch"></a>Imágenes de generación 2 e inicio seguro
+
+Azure Marketplace ahora tiene imágenes de generación 2 para Windows 10 Enterprise y la sesión múltiple de Windows 10 Enterprise. Estas imágenes le permitirán usar máquinas virtuales con inicio seguro. Obtenga más información sobre las máquinas virtuales de generación 2 en [¿Debería crear una máquina virtual de generación 1 o 2?](../virtual-machines/generation-2.md) Para obtener información sobre el aprovisionamiento de máquinas virtuales de con inicio seguro de Windows Virtual Desktop, consulte [nuestra publicación de TechCommunity](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/windows-virtual-desktop-support-for-trusted-launch/m-p/2206170).
+
+### <a name="fslogix-is-now-preinstalled-on-windows-10-enterprise-multi-session-images"></a>FSLogix se ha preinstalado en imágenes multisesión de Windows 10 Enterprise
+
+Teniendo en cuenta los comentarios de los clientes, hemos incorporado una nueva versión de la imagen multisesión de Windows 10 Enterprise que incluye una versión preinstalada y sin configurar de FSLogix. De este modo, esperamos que la implementación de Windows Virtual Desktop se más sencilla.
+
+### <a name="azure-monitor-for-windows-virtual-desktop-is-now-in-general-availability"></a>Azure Monitor para Windows Virtual Desktop se encuentra ahora disponible con carácter general
+
+Azure Monitor para Windows Virtual Desktop se encuentra ahora disponible con carácter general para el público. Esta característica es un servicio automatizado que supervisa las implementaciones y permite ver eventos y sugerencias de solución de problemas y mantenimiento en un mismo lugar. Para obtener más información, consulte [nuestra documentación](azure-monitor.md) o la [publicación de TechCommunity](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/azure-monitor-for-windows-virtual-desktop-is-generally-available/m-p/2242861).
+
+### <a name="march-2021-updates-for-teams-on-windows-virtual-desktop"></a>Cambios de marzo de 2021 para Teams en Windows Virtual Desktop
+
+Hemos efectuado los siguientes cambios para Teams en Windows Virtual Desktop:
+
+- Hemos mejorado la calidad de vídeo para las llamadas y el modo 2x2.
+- Hemos reducido el uso de CPU entre un 5 % y un 10 % (dependiendo de la generación de CPU) mediante la descarga de hardware del procesamiento de vídeo (XVP).
+- Las máquinas más antiguas ahora pueden usar XVP y la decodificación de hardware para mostrar eficazmente más secuencias de vídeo entrantes en el modo 2x2.
+- Hemos actualizado la pila de WebRTC de M74 a M88 para mejorar la sincronización de AV y reducir los problemas de transición.
+- Hemos reemplazado nuestro codificador de software H264 por OpenH264 (OSS utilizado por Teams en Internet), que ha aumentado la calidad del vídeo para la cámara de salida.
+- Hemos habilitado el modo 2x2 para Teams Server para el público general desde el 30 de marzo. El modo 2x2 muestra hasta cuatro secuencias de vídeo entrantes al mismo tiempo.
+
+### <a name="start-vm-on-connect-public-preview"></a>Iniciar VM al establecer la conexión (versión preliminar pública)
+
+La nueva configuración del grupo host, Iniciar VM al establecer la conexión, ya está disponible en versión preliminar pública. Esta configuración permite activar las máquinas virtuales siempre que las necesite. Si desea ahorrar costos, desasigne las máquinas virtuales mediante la configuración de Azure Compute. Para más información, consulte [nuestra entrada de blog](https://aka.ms/wvdstartvmonconnect) y la [documentación](start-virtual-machine-connect.md).
+
+### <a name="windows-virtual-desktop-specialty-certification"></a>Certificación especializada de Windows Virtual Desktop
+
+Hemos publicado una versión beta del examen AZ-140 que le permitirá acreditar sus conocimientos sobre Windows Virtual Desktop en Azure. Para más información, consulte [nuestra publicación de TechCommunity](https://techcommunity.microsoft.com/t5/microsoft-learn-blog/beta-exam-prove-your-expertise-in-windows-virtual-desktop-on/ba-p/2147107).
 
 ## <a name="february-2021"></a>Febrero de 2021
 

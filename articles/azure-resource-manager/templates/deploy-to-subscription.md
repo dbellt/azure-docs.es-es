@@ -3,12 +3,12 @@ title: Implementación de recursos en una suscripción
 description: Se describe cómo crear un grupo de recursos en una plantilla de Azure Resource Manager. También se muestra cómo implementar recursos en el ámbito de la suscripción de Azure.
 ms.topic: conceptual
 ms.date: 01/13/2021
-ms.openlocfilehash: f557a3a15da33b7394d22784bcd2c1c914ad6201
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3598fe290fd993cbbc662ba9d3a3c5ba8c207bc0
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104889440"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781926"
 ---
 # <a name="subscription-deployments-with-arm-templates"></a>Implementaciones de suscripción con plantillas de Resource Manager
 
@@ -92,7 +92,7 @@ Para implementar en una suscripción, use los comandos de implementación de niv
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-Para la CLI de Azure, use [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create). El ejemplo siguiente implementa una plantilla para crear un grupo de recursos:
+Para la CLI de Azure, use [az deployment sub create](/cli/azure/deployment/sub#az_deployment_sub_create). El ejemplo siguiente implementa una plantilla para crear un grupo de recursos:
 
 ```azurecli-interactive
 az deployment sub create \

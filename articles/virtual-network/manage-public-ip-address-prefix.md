@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/13/2019
 ms.author: allensu
-ms.openlocfilehash: 2e32faad698fbf316d51123cc8b7845a3b262c7f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 173fa3a8288ccceb07048e83fcec35d67b2fd35f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98938663"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107783438"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Creación, modificación o eliminación del prefijo de una dirección IP pública
 
@@ -58,7 +58,7 @@ Los prefijos de las direcciones IP públicas tienen un cargo. Para obtener infor
 
 |Herramienta|Get-Help|
 |---|---|
-|CLI|[az network public-ip prefix create](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-create)|
+|CLI|[az network public-ip prefix create](/cli/azure/network/public-ip/prefix#az_network_public_ip_prefix_create)|
 |PowerShell|[New-AzPublicIpPrefix](/powershell/module/az.network/new-azpublicipprefix)|
 
 >[!NOTE]
@@ -82,7 +82,7 @@ También puede usar los comandos CLI y PS que tiene a continuación con los par�
 
 |Herramienta|Get-Help|
 |---|---|
-|CLI|[az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create)|
+|CLI|[az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create)|
 |PowerShell|[New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)|
 
 ## <a name="view-or-delete-a-prefix"></a>Ver o eliminar un prefijo
@@ -97,7 +97,7 @@ También puede usar los comandos CLI y PS que tiene a continuación con los par�
 
 |Herramienta|Get-Help|
 |---|---|
-|CLI|[az network public-ip prefix list](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-list) para mostrar las direcciones IP públicas, [az network public-ip prefix show](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-show) para mostrar la configuración, [az network public-ip prefix update](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-update) para actualizar, [az network public-ip prefix delete](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-delete) para eliminar|
+|CLI|[az network public-ip prefix list](/cli/azure/network/public-ip/prefix#az_network_public_ip_prefix_list) para mostrar las direcciones IP públicas, [az network public-ip prefix show](/cli/azure/network/public-ip/prefix#az_network_public_ip_prefix_show) para mostrar la configuración, [az network public-ip prefix update](/cli/azure/network/public-ip/prefix#az_network_public_ip_prefix_update) para actualizar, [az network public-ip prefix delete](/cli/azure/network/public-ip/prefix#az_network_public_ip_prefix_delete) para eliminar|
 |PowerShell|[Get-AzPublicIpPrefix](/powershell/module/az.network/get-azpublicipprefix) para recuperar un objeto de dirección IP pública y ver su configuración, [Set-AzPublicIpPrefix](/powershell/module/az.network/set-azpublicipprefix) para actualizar la configuración, [Remove-AzPublicIpPrefix](/powershell/module/az.network/remove-azpublicipprefix) para eliminar.|
 
 ## <a name="permissions"></a>Permisos

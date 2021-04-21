@@ -5,12 +5,12 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 04/30/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: c779e95b790d91b801d5d35b4702191f5e7986d5
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: b93fb61cc58360ddfcf15d2af2c936203d869500
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104802971"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107771540"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configuración de entornos de ensayo en Azure App Service
 <a name="Overview"></a>
@@ -248,7 +248,7 @@ Una vez guardado el valor, el porcentaje especificado de clientes se enruta alea
 Una vez enrutado un cliente automáticamente a una ranura concreta, permanece "anclado" en esa ranura todo el tiempo que dure su sesión. En el explorador del cliente, para ver a qué espacio está anclada la sesión debe examinar la cookie `x-ms-routing-name` en los encabezados HTTP. Las solicitudes que se enrutan a al espacio "de ensayo" tienen la cookie `x-ms-routing-name=staging`. Las solicitudes que se enrutan al espacio de producción tienen la cookie `x-ms-routing-name=self`.
 
    > [!NOTE]
-   > Junto a Azure Portal, también puede usar el comando [`az webapp traffic-routing set`](/cli/azure/webapp/traffic-routing#az-webapp-traffic-routing-set) en la CLI de Azure para establecer los porcentajes de enrutamiento desde herramientas de CI/CD, como canalizaciones DevOps u otros sistemas de automatización.
+   > Junto a Azure Portal, también puede usar el comando [`az webapp traffic-routing set`](/cli/azure/webapp/traffic-routing#az_webapp_traffic_routing_set) en la CLI de Azure para establecer los porcentajes de enrutamiento desde herramientas de CI/CD, como canalizaciones DevOps u otros sistemas de automatización.
    > 
 
 ### <a name="route-production-traffic-manually"></a>Enrutamiento manual del tráfico de producción

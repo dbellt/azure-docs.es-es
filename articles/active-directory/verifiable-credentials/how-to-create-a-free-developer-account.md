@@ -9,12 +9,12 @@ ms.subservice: verifiable-credentials
 ms.topic: how-to
 ms.date: 04/01/2021
 ms.author: barclayn
-ms.openlocfilehash: 1e8bb59c09622a39dad680940ff34e643ee0cc3b
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: a50c8b083c1cd453dbe3c51c63ec9cf53859c3bd
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106222748"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107587273"
 ---
 # <a name="how-to-create-a-free-azure-active-directory-developer-tenant"></a>Procedimiento para crear un inquilino de desarrollador de Azure Active Directory gratuito
 
@@ -45,7 +45,7 @@ Si decide registrarse en el programa para desarrolladores de Microsoft 365 grat
 
 En este punto, ha creado un inquilino con 25 licencias de usuario E5. Las licencias E5 incluyen licencias de Azure AD P2. Opcionalmente, puede agregar paquetes de datos de ejemplo con usuarios, grupos, correo y SharePoint para ayudarle a probar en su entorno de desarrollo. En el caso del servicio de emisión de credenciales verificables, no son necesarios.
 
-Para su comodidad, puede agregar su propia cuenta profesional como [invitado](https://docs.microsoft.com/azure/active-directory/b2b/b2b-quickstart-add-guest-users-portal.md) en el inquilino recién creado y usar esa cuenta para administrar el inquilino. Si quiere que la cuenta de invitado pueda administrar el servicio de credenciales verificables, debe asignar el rol "Administrador global" a ese usuario.
+Para su comodidad, puede agregar su propia cuenta profesional como [invitado](/azure/active-directory/external-identities/b2b-quickstart-add-guest-users-portal) en el inquilino recién creado y usar esa cuenta para administrar el inquilino. Si quiere que la cuenta de invitado pueda administrar el servicio de credenciales verificables, debe asignar el rol "Administrador global" a ese usuario.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

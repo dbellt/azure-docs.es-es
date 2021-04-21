@@ -3,14 +3,14 @@ title: Creación y administración de grupos de acciones en Azure Portal
 description: Obtenga información acerca de cómo crear y administrar grupos de acciones en Azure Portal.
 author: dkamstra
 ms.topic: conceptual
-ms.date: 02/25/2021
+ms.date: 04/07/2021
 ms.author: dukek
-ms.openlocfilehash: fb067e603c181482a863dc9fd75556e32a801bc6
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 7010e20b65142cf0ab85c29d6b22c925c977f1f8
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104772355"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107104990"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Creación y administración de grupos de acciones en Azure Portal
 Un grupo de acciones es una colección de las preferencias de notificación que el propietario de una suscripción de Azure define. Las alertas de Azure Monitor y Service Health usan grupos de acciones para notificar a los usuarios que se ha desencadenado una alerta. Varias alertas pueden usar el mismo grupo de acciones o distintos grupos de acciones en función de los requisitos del usuario. 
@@ -162,12 +162,10 @@ En un grupo de acciones puede tener un número limitado de acciones de ITSM.
 En un grupo de acciones puede tener un número limitado de acciones de aplicación lógica.
 
 ### <a name="secure-webhook"></a>Webhook seguro
+Con la acción de webhook seguro de grupos de acciones, puede aprovechar Azure Active Directory para proteger la conexión entre su grupo de acciones y su API web protegida (punto de conexión de webhook). A continuación se describe el flujo de trabajo general para aprovechar esta funcionalidad. Para una introducción a las entidades de servicio y aplicaciones de Azure AD, consulte [Introducción a la Plataforma de identidad de Microsoft (versión 2.0)](../../active-directory/develop/v2-overview.md).
 
 > [!NOTE]
 > El uso de la acción de webhook requiere que el punto de conexión del webhook de destino no necesite detalles de la alerta para funcionar correctamente, o que sea capaz de analizar la información de contexto de la alerta que se proporciona como parte de la operación POST. Si el punto de conexión de webhook no puede controlar la información de contexto de la alerta por sí mismo, puede usar una solución como una [acción de aplicación lógica](./action-groups-logic-app.md) para manipular de manera personalizada la información de contexto de la alerta con el fin de que coincida con el formato de datos esperado del webhook.
-> El usuario debe ser el **propietario** de la entidad de servicio de webhook para asegurarse de que no se infringe la seguridad. Como cualquier cliente de Azure puede acceder a todos los identificadores de objeto desde el portal, sin comprobar el propietario, cualquiera puede agregar el webhook seguro a su propio grupo de acciones para recibir notificaciones de alertas de Azure Monitor que infrinjan la seguridad.
-
-La acción de webhook de Grupos de acciones le permite aprovechar Azure Active Directory para proteger la conexión entre el grupo de acciones y la API web protegida (punto de conexión de webhook). A continuación se describe el flujo de trabajo general para aprovechar esta funcionalidad. Para una introducción a las entidades de servicio y aplicaciones de Azure AD, consulte [Introducción a la Plataforma de identidad de Microsoft (versión 2.0)](../../active-directory/develop/v2-overview.md).
 
 1. Cree una aplicación Azure AD para la API web. Consulte [API web protegida: registro de aplicación](../../active-directory/develop/scenario-protected-web-api-app-registration.md).
     - Configure la API protegida para que [la llame una aplicación de demonio](../../active-directory/develop/scenario-protected-web-api-app-registration.md#if-your-web-api-is-called-by-a-daemon-app).

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/23/2021
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: e4e1d22e2e7175135e88a08ed5a6d5ae7f021d49
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: 514f1af2a1b120254840986fc5ceb803dfc24345
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106491291"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107363383"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Azure Automanage para máquinas virtuales
 
@@ -59,6 +59,7 @@ Automanage solo admite máquinas virtuales que se encuentran en las siguientes r
 * Sur de Reino Unido 2
 * Este de Australia
 * Sudeste de Australia
+* Sudeste de Asia
 
 ### <a name="required-rbac-permissions"></a>Permisos de RBAC necesarios
 Su cuenta requerirá roles de RBAC ligeramente diferentes en función de si va a habilitar Automanage con una cuenta de Automanage nueva.
@@ -105,7 +106,7 @@ También puede habilitar Automanage en las máquinas virtuales a escala mediante
 1. Haga clic en el botón **Asignar** mientras visualiza la definición de directiva.
 1. Seleccione el ámbito en el que quiere aplicar la directiva (puede ser un grupo de administración, suscripción o grupo de recursos).
 1. En **Parámetros**, especifique los parámetros de la cuenta de Automanage, el perfil de configuración y el efecto (normalmente, el efecto debe ser DeployIfNotExists)
-    1. Si no tiene ninguna cuenta de Automanage, deberá [crear una](#create-an-automanage-account).
+    1. Si no tiene ninguna cuenta de Automanage, deberá [crear una](./automanage-account.md).
 1. En **Corrección**, active la casilla "Click a remediation task" (Hacer clic en una tarea de corrección). Esto llevará a cabo la incorporación a Automanage.
 1. Haga clic en **Revisar y crear** y asegúrese de que toda la configuración sea correcta.
 1. Haga clic en **Crear**.
@@ -142,58 +143,9 @@ Aquí puede obtener una lista completa de los servicios de Azure que participan 
 
 ## <a name="automanage-account"></a>Cuenta de Automanage
 
-La cuenta de Automanage es el contexto de seguridad o la identidad bajo los que tienen lugar las operaciones automatizadas. Por lo general, no es necesario seleccionar la opción de cuenta de Automanage, pero si hubiera un escenario de delegación en el que quisiera dividir la administración automatizada de sus recursos (quizás entre dos administradores del sistema), esta opción le permite definir una identidad de Azure para cada uno de esos administradores.
+La cuenta de Automanage es el contexto de seguridad o la identidad bajo los que tienen lugar las operaciones automatizadas. Por lo general, no es necesario seleccionar la opción de cuenta de Automanage, pero si hubiera un escenario de delegación en el que quisiera dividir la administración automatizada de sus recursos (quizás entre dos administradores del sistema), esta opción del flujo de habilitación le permite definir una identidad de Azure para cada uno de esos administradores.
 
-En la experiencia de Azure Portal, al habilitar Automanage en las máquinas virtuales, hay una lista desplegable de opciones avanzadas en la hoja **Enable Azure VM best practice** (Habilitar procedimiento recomendado de máquina virtual de Azure) que le permite asignar o crear manualmente la cuenta de Automanage.
-
-A la cuenta de Automanage se le concederán los roles **Colaborador** y **Colaborador de directivas de recursos** a las suscripciones que contienen las máquinas que se incorporan a Automanage. Puede usar la misma cuenta de Automanage en máquinas en varias suscripciones, lo que permitirá conceder a dicha cuenta de Automanage los permisos **Colaborador** y **Colaborador de directivas de recursos** en todas las suscripciones.
-
-Si la máquina virtual está conectada a un área de trabajo de Log Analytics en otra suscripción, se le concederán a la cuenta de Automanage **Colaborador** y **Colaborador de directivas de recursos** también en esa otra suscripción.
-
-Si va a habilitar Automanage con una cuenta nueva de Automanage, necesita los siguientes permisos en la suscripción: el rol **Propietario** o **Colaborador** junto con el rol **Administrador de acceso de usuario**.
-
-Si habilita Automanage con una cuenta de Automanage existente, debe tener el rol **Colaborador** en el grupo de recursos que contiene las máquinas virtuales.
-
-> [!NOTE]
-> Al deshabilitar los procedimientos recomendados de Automanage, se conservarán los permisos de la cuenta de Automanage en las suscripciones asociadas. Para quitar manualmente los permisos, vaya a la página IAM de la suscripción o elimine la cuenta de Automanage. No se puede eliminar la cuenta de Automanage si sigue administrando las máquinas.
-
-### <a name="create-an-automanage-account"></a>Creación de una cuenta de Automanage
-Puede crear una cuenta de Automanage mediante el portal o mediante una plantilla de ARM.
-
-#### <a name="portal"></a>Portal
-1. Vaya a la hoja **Automanage** del portal.
-1. Haga clic en **Habilitar en la máquina existente**.
-1. En **Avanzado**, haga clic en "Crear una nueva cuenta".
-1. Rellene los campos obligatorios y haga clic en **Crear**.
-
-#### <a name="arm-template"></a>Plantilla ARM
-Guarde la siguiente plantilla de ARM como `azuredeploy.json` y ejecute el siguiente comando: `az deployment group create --resource-group <resource group name> --template-file azuredeploy.json`.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "automanageAccountName": {
-            "type": "String"
-        },
-        "location": {
-            "type": "String"
-        }
-    },
-    "resources": [
-        {
-            "apiVersion": "2020-06-30-preview",
-            "type": "Microsoft.Automanage/accounts",
-            "name": "[parameters('automanageAccountName')]",
-            "location": "[parameters('location')]",
-            "identity": {
-                "type": "SystemAssigned"
-            }
-        }
-    ]
-}
-```
+Para más información sobre la cuenta de Automanage y cómo crear una, visite la [documentación de la cuenta de Automanage](./automanage-account.md).
 
 ## <a name="status-of-vms"></a>Estado de las máquinas virtuales
 
@@ -227,7 +179,7 @@ Lea detenidamente los mensajes del elemento emergente resultante antes de acepta
 >
 > - La configuración de la VM y los servicios que se incorporan no cambian.
 > - Los cargos en los que incurran esos servicios se seguirán facturando y se continuarán generando.
-> - Cualquier comportamiento de Automanage se detiene inmediatamente.
+> - La supervisión del desfase de datos de Automanage se detiene inmediatamente.
 
 
 En primer lugar, no se desactivará la máquina virtual de ninguno de los servicios que hayamos incorporado y configurado. Los cargos que generen esos servicios se seguirán facturando. Si es necesario, debe desactivarlos. Cualquier acción de Automanage se detendrá inmediatamente. Por ejemplo, ya no se supervisarán las desviaciones de la máquina virtual.

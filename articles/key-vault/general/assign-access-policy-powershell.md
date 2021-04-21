@@ -3,19 +3,18 @@ title: Asignación de una directiva de acceso de Azure Key Vault
 description: Cómo se usa Azure Portal, la CLI de Azure o Azure PowerShell para asignar una directiva de acceso de Key Vault a una identidad de aplicación o una entidad de seguridad.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 4637715b2ba885d58ebb4c5f3ed40a79be2f815b
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 1c7c31f38d6a59f4ded17e1e1fd7e985ce59922a
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105968737"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751425"
 ---
 # <a name="assign-a-key-vault-access-policy-using-azure-powershell"></a>Asignación de una directiva de acceso de Key Vault mediante Azure PowerShell
 
@@ -80,5 +79,5 @@ Solo necesita incluir `-PermissionsToSecrets`, `-PermissionsToKeys` y `-Permissi
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Seguridad en Azure Key Vault: Administración de identidades y acceso](security-overview.md#identity-management)
-- [Protección del almacén de claves](secure-your-key-vault.md)
+- [Protección del almacén de claves](security-overview.md)
 - [Guía del desarrollador de Azure Key Vault](developers-guide.md)

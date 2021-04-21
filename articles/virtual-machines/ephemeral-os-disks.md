@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/23/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 814824fb6708abaf549bb3de19b4aced4774a244
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 24b1be2ca55b057c887c8782ce7eea1150f143da
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102485765"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762630"
 ---
 # <a name="ephemeral-os-disks-for-azure-vms"></a>Discos de SO efímeros para máquinas virtuales de Azure
 
@@ -71,7 +71,7 @@ Set-AzVmssStorageProfile -DiffDiskSetting Local -OsDiskCaching ReadOnly
 
 ## <a name="cli"></a>CLI
 
-Para usar un disco efímero para una implementación de la máquina virtual de la CLI, establezca el parámetro `--ephemeral-os-disk` de [az vm create](/cli/azure/vm#az-vm-create) en `true` y el parámetro `--os-disk-caching` en `ReadOnly`.
+Para usar un disco efímero para una implementación de la máquina virtual de la CLI, establezca el parámetro `--ephemeral-os-disk` de [az vm create](/cli/azure/vm#az_vm_create) en `true` y el parámetro `--os-disk-caching` en `ReadOnly`.
 
 ```azurecli-interactive
 az vm create \
@@ -84,7 +84,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-Para los conjuntos de escalado, use el mismo parámetro `--ephemeral-os-disk true` para [az vmss create](/cli/azure/vmss#az-vmss-create) y establezca el parámetro `--os-disk-caching` en `ReadOnly`.
+Para los conjuntos de escalado, use el mismo parámetro `--ephemeral-os-disk true` para [az vmss create](/cli/azure/vmss#az_vmss_create) y establezca el parámetro `--os-disk-caching` en `ReadOnly`.
 
 ## <a name="portal"></a>Portal
 
@@ -251,4 +251,4 @@ A. Los discos efímeros no admiten:
 > 
  
 ## <a name="next-steps"></a>Pasos siguientes
-Puede crear una máquina virtual con un disco de SO efímero mediante la [CLI de Azure](/cli/azure/vm#az-vm-create).
+Puede crear una máquina virtual con un disco de SO efímero mediante la [CLI de Azure](/cli/azure/vm#az_vm_create).

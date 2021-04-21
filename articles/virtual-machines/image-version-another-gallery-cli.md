@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 0bea4fbac062b498dabe04e6e58d530d09b16d6d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e2cd885d886a0f13783e61a04c7243efdf12967e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102553109"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107784990"
 ---
 # <a name="copy-an-image-from-another-gallery-using-the-azure-cli"></a>Copia de una imagen de otra galería mediante la CLI de Azure
 
@@ -36,13 +36,13 @@ Al trabajar en este artículo, reemplace los nombres de los recursos cuando proc
 
 Necesitará información de la definición de imagen de origen para crear una copia de ella en la nueva galería.
 
-Para encontrar datos acerca de la galería de origen, muestre la información de las galerías de imágenes disponibles mediante [az sig list](/cli/azure/sig#az-sig-list).
+Para encontrar datos acerca de la galería de origen, muestre la información de las galerías de imágenes disponibles mediante [az sig list](/cli/azure/sig#az_sig_list).
 
 ```azurecli-interactive 
 az sig list -o table
 ```
 
-Enumere las definiciones de imágenes en una galería mediante [az sig image-definition list](/cli/azure/sig/image-definition#az-sig-image-definition-list). En este ejemplo, vamos a buscar definiciones de imágenes en la galería llamada *myGallery* del grupo de recursos *myGalleryRG*.
+Enumere las definiciones de imágenes en una galería mediante [az sig image-definition list](/cli/azure/sig/image-definition#az_sig_image_definition_list). En este ejemplo, vamos a buscar definiciones de imágenes en la galería llamada *myGallery* del grupo de recursos *myGalleryRG*.
 
 ```azurecli-interactive 
 az sig image-definition list \
@@ -51,7 +51,7 @@ az sig image-definition list \
    -o table
 ```
 
-Enumere las versiones de una imagen que hay en una galería y use [az sig image-version list](/cli/azure/sig/image-version#az-sig-image-version-list) para buscar la versión de la imagen que desea copiar en la nueva galería. En este ejemplo, vamos a buscar todas las versiones de una imagen que forman parte de la definición de la imagen *myImageDefinition*.
+Enumere las versiones de una imagen que hay en una galería y use [az sig image-version list](/cli/azure/sig/image-version#az_sig_image_version_list) para buscar la versión de la imagen que desea copiar en la nueva galería. En este ejemplo, vamos a buscar todas las versiones de una imagen que forman parte de la definición de la imagen *myImageDefinition*.
 
 ```azurecli-interactive
 az sig image-version list \
@@ -61,7 +61,7 @@ az sig image-version list \
    -o table
 ```
 
-Una vez que tenga toda la información que necesita, puede obtener el identificador de la versión de la imagen de origen mediante [az sig image-version show](/cli/azure/sig/image-version#az-sig-image-version-show).
+Una vez que tenga toda la información que necesita, puede obtener el identificador de la versión de la imagen de origen mediante [az sig image-version show](/cli/azure/sig/image-version#az_sig_image_version_show).
 
 ```azurecli-interactive
 az sig image-version show \
@@ -75,7 +75,7 @@ az sig image-version show \
 
 ## <a name="create-the-image-definition"></a>Creación de una definición de imagen 
 
-Debe crear una definición de imagen que coincida con la de la versión de la imagen de origen. Puede ver toda la información necesaria para volver a crear la definición de imagen en la nueva galería mediante [az sig image-definition show](/cli/azure/sig/image-definition#az-sig-image-definition-show).
+Debe crear una definición de imagen que coincida con la de la versión de la imagen de origen. Puede ver toda la información necesaria para volver a crear la definición de imagen en la nueva galería mediante [az sig image-definition show](/cli/azure/sig/image-definition#az_sig_image_definition_show).
 
 ```azurecli-interactive
 az sig image-definition show \
@@ -133,7 +133,7 @@ az sig image-definition create \
 
 ## <a name="create-the-image-version"></a>Creación de la versión de la imagen
 
-Cree versiones mediante [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create). Deberá pasar el identificador de la imagen administrada que se usará como base para crear la versión de la imagen. Puede usar [az image list](/cli/azure/image?view#az-image-list) para obtener información sobre las imágenes que se encuentran en un grupo de recursos. 
+Cree versiones mediante [az image gallery create-image-version](/cli/azure/sig/image-version#az_sig_image_version_create). Deberá pasar el identificador de la imagen administrada que se usará como base para crear la versión de la imagen. Puede usar [az image list](/cli/azure/image?view#az_image_list) para obtener información sobre las imágenes que se encuentran en un grupo de recursos. 
 
 Los caracteres permitidos para la versión de una imagen son números y puntos. Los números deben estar dentro del rango de un entero de 32 bits. Formato: *VersiónPrincipal*.*VersiónSecundaria*.*Revisión*.
 

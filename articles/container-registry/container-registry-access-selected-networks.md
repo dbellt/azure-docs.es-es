@@ -3,12 +3,12 @@ title: Configuración del acceso a un registro público
 description: Configure reglas de IP para permitir el acceso a un registro de contenedor de Azure desde intervalos de direcciones o direcciones IP públicas seleccionadas.
 ms.topic: article
 ms.date: 03/08/2021
-ms.openlocfilehash: 727aa1dc028b5f52a022e54c2cd252ae372e78fe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 00912f0e66c84feff40e6439d59ccdfa82a4ab6a
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104773069"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785843"
 ---
 # <a name="configure-public-ip-network-rules"></a>Configuración de reglas de red de dirección IP pública
 
@@ -118,12 +118,12 @@ Estos errores también pueden producirse si usa un proxy HTTPS permitido por una
 * Para restringir el acceso a un registro mediante un punto de conexión privado de una red virtual, consulte [Configuración de Azure Private Link para un registro de contenedor de Azure](container-registry-private-link.md).
 * Si necesita configurar reglas de acceso a un registro desde detrás de un firewall cliente, consulte [Configuración de reglas para acceder a un registro de contenedor de Azure desde detrás de un firewall](container-registry-firewall-access-rules.md).
 
-[az-acr-login]: /cli/azure/acr#az-acr-login
-[az-acr-network-rule-add]: /cli/azure/acr/network-rule/#az-acr-network-rule-add
-[az-acr-network-rule-remove]: /cli/azure/acr/network-rule/#az-acr-network-rule-remove
-[az-acr-network-rule-list]: /cli/azure/acr/network-rule/#az-acr-network-rule-list
-[az-acr-run]: /cli/azure/acr#az-acr-run
-[az-acr-update]: /cli/azure/acr#az-acr-update
+[az-acr-login]: /cli/azure/acr#az_acr_login
+[az-acr-network-rule-add]: /cli/azure/acr/network-rule/#az_acr_network_rule_add
+[az-acr-network-rule-remove]: /cli/azure/acr/network-rule/#az_acr_network_rule_remove
+[az-acr-network-rule-list]: /cli/azure/acr/network-rule/#az_acr_network_rule_list
+[az-acr-run]: /cli/azure/acr#az_acr_run
+[az-acr-update]: /cli/azure/acr#az_acr_update
 [quickstart-portal]: container-registry-get-started-portal.md
 [quickstart-cli]: container-registry-get-started-azure-cli.md
 [azure-portal]: https://portal.azure.com

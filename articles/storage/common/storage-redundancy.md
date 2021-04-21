@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/05/2021
+ms.date: 04/16/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 37e508a0f4af940773a92271075239c204e52834
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: 3665421ddbdd9cf079ff4aab9377fc9164a1599c
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107010720"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107575367"
 ---
 # <a name="azure-storage-redundancy"></a>Redundancia de Azure Storage
 
@@ -73,7 +73,7 @@ En la tabla siguiente se muestran los tipos de cuentas de almacenamiento que adm
 
 | Tipo de cuenta de almacenamiento | Regiones admitidas | Servicios admitidos |
 |--|--|--|
-| Uso general v2<sup>1</sup> | (África) Norte de Sudáfrica<br /> (Asia Pacífico) Este de Asia<br /> (Asia Pacífico) Sudeste de Asia<br /> (Asia Pacífico) Este de Australia<br /> (Asia Pacífico) Centro de la India<br /> (Asia Pacífico) Este de Japón<br /> (Asia Pacífico) Centro de Corea del Sur<br /> (Canadá) Centro de Canadá<br /> (Europa) Norte de Europa<br /> (Europa) Oeste de Europa<br /> (Europa) Centro de Francia<br /> (Europa) Centro-oeste de Alemania<br /> (Europa) Este de Noruega<br /> (Europa) Norte de Suiza<br /> (Europa) Sur de Reino Unido<br /> (Oriente Medio) Norte de Emiratos Árabes Unidos<br /> (Sudamérica) Sur de Brasil<br /> (EE. UU.) Centro de EE. UU.<br /> (EE. UU.) Este de EE. UU.<br /> (EE. UU.) Este de EE. UU. 2<br /> (EE. UU.) Centro-norte de EE. UU.<br />(EE. UU.) Centro y Sur de EE. UU.<br /> (EE. UU.) Oeste de EE. UU.<br /> (EE. UU.) Oeste de EE. UU. 2 | Blobs en bloques<br /> Blobs en páginas<sup>2</sup><br /> Recursos compartidos de archivos (estándar)<br /> Tablas<br /> Colas<br /> |
+| Uso general v2<sup>1</sup> | (África) Norte de Sudáfrica<br /> (Asia Pacífico) Sudeste de Asia<br /> (Asia Pacífico) Este de Australia<br /> (Asia Pacífico) Este de Japón<br /> (Canadá) Centro de Canadá<br /> (Europa) Norte de Europa<br /> (Europa) Oeste de Europa<br /> (Europa) Centro de Francia<br /> (Europa) Centro-oeste de Alemania<br /> (Europa) Sur de Reino Unido<br /> (Sudamérica) Sur de Brasil<br /> (EE. UU.) Centro de EE. UU.<br /> (EE. UU.) Este de EE. UU.<br /> (EE. UU.) Este de EE. UU. 2<br /> (EE. UU.) Centro y Sur de EE. UU.<br /> (EE. UU.) Oeste de EE. UU.<br /> (EE. UU.) Oeste de EE. UU. 2 | Blobs en bloques<br /> Blobs en páginas<sup>2</sup><br /> Recursos compartidos de archivos (estándar)<br /> Tablas<br /> Colas<br /> |
 | BlockBlobStorage<sup>1</sup> | Sudeste de Asia<br /> Este de Australia<br /> Norte de Europa<br /> Oeste de Europa<br /> Centro de Francia <br /> Japón Oriental<br /> Sur de Reino Unido 2 <br /> Este de EE. UU. <br /> Este de EE. UU. 2 <br /> Oeste de EE. UU. 2| Solo blobs en bloques Premium |
 | FileStorage | Sudeste de Asia<br /> Este de Australia<br /> Norte de Europa<br /> Oeste de Europa<br /> Centro de Francia <br /> Japón Oriental<br /> Sur de Reino Unido 2 <br /> Este de EE. UU. <br /> Este de EE. UU. 2 <br /> Oeste de EE. UU. 2 | Solo recursos compartidos de archivos Premium |
 

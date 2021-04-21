@@ -3,12 +3,12 @@ title: Habilitación de la identidad administrada en el grupo de contenedores
 description: Aprenda a habilitar una identidad administrada en Azure Container Instances que se pueda autenticar con otros servicios de Azure.
 ms.topic: article
 ms.date: 07/02/2020
-ms.openlocfilehash: a0d029e39122ca7bb858103f4d7f88e2536850d5
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f8f3c646487d86f4e1bce13ccbf28992b8b1497a
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102198326"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107764016"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Cómo utilizar una identidad administrada con Azure Container Instances
 
@@ -53,13 +53,13 @@ Para usar una identidad administrada, la identidad debe tener acceso a uno o má
 
 En los ejemplos de este artículo se usa una identidad administrada de Azure Container Instances para acceder a un secreto de Azure Key Vault. 
 
-En primer lugar, cree un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus* con el comando [az group create](/cli/azure/group#az-group-create) siguiente:
+En primer lugar, cree un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus* con el comando [az group create](/cli/azure/group#az_group_create) siguiente:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Use el comando [az keyvault create](/cli/azure/keyvault#az-keyvault-create) para crear un almacén de claves. Asegúrese de especificar un nombre de almacén de claves único. 
+Use el comando [az keyvault create](/cli/azure/keyvault#az_keyvault_create) para crear un almacén de claves. Asegúrese de especificar un nombre de almacén de claves único. 
 
 ```azurecli-interactive
 az keyvault create \
@@ -68,7 +68,7 @@ az keyvault create \
   --location eastus
 ```
 
-Almacene un secreto de ejemplo en el almacén de claves con el comando [az keyvault secret set](/cli/azure/keyvault/secret#az-keyvault-secret-set):
+Almacene un secreto de ejemplo en el almacén de claves con el comando [az keyvault secret set](/cli/azure/keyvault/secret#az_keyvault_secret_set):
 
 ```azurecli-interactive
 az keyvault secret set \
@@ -83,7 +83,7 @@ Continúe con los siguientes ejemplos para acceder al almacén de claves mediant
 
 ### <a name="create-an-identity"></a>Creación de una identidad
 
-En primer lugar, cree una identidad en la suscripción con el comando [az identity create](/cli/azure/identity#az-identity-create). Puede usar el mismo grupo de recursos empleado para crear el almacén de claves o uno diferente.
+En primer lugar, cree una identidad en la suscripción con el comando [az identity create](/cli/azure/identity#az_identity_create). Puede usar el mismo grupo de recursos empleado para crear el almacén de claves o uno diferente.
 
 ```azurecli-interactive
 az identity create \
@@ -91,7 +91,7 @@ az identity create \
   --name myACIId
 ```
 
-Para utilizar la identidad en los pasos siguientes, use el comando [az identity show](/cli/azure/identity#az-identity-show) para almacenar en variables los identificadores de la entidad de servicio y del recurso de la identidad.
+Para utilizar la identidad en los pasos siguientes, use el comando [az identity show](/cli/azure/identity#az_identity_show) para almacenar en variables los identificadores de la entidad de servicio y del recurso de la identidad.
 
 ```azurecli-interactive
 # Get service principal ID of the user-assigned identity
@@ -121,7 +121,7 @@ Ejecute el comando [az keyvault set-policy](/cli/azure/keyvault) siguiente para 
 
 ### <a name="enable-user-assigned-identity-on-a-container-group"></a>Habilitación de una identidad asignada por el usuario en un grupo de contenedores
 
-Ejecute el siguiente comando [az container create](/cli/azure/container#az-container-create) para crear una instancia de contenedor basada en la imagen `azure-cli` de Microsoft. En este ejemplo se proporciona un solo grupo de contenedores que puede usarse para ejecutar de forma interactiva la CLI de Azure con el fin de acceder a otros servicios de Azure. En esta sección, solo se usa el sistema operativo base. Puede encontrar un ejemplo de cómo usar la CLI de Azure en el contenedor en [Habilitación de la identidad asignada por el sistema en un grupo de contenedores](#enable-system-assigned-identity-on-a-container-group). 
+Ejecute el siguiente comando [az container create](/cli/azure/container#az_container_create) para crear una instancia de contenedor basada en la imagen `azure-cli` de Microsoft. En este ejemplo se proporciona un solo grupo de contenedores que puede usarse para ejecutar de forma interactiva la CLI de Azure con el fin de acceder a otros servicios de Azure. En esta sección, solo se usa el sistema operativo base. Puede encontrar un ejemplo de cómo usar la CLI de Azure en el contenedor en [Habilitación de la identidad asignada por el sistema en un grupo de contenedores](#enable-system-assigned-identity-on-a-container-group). 
 
 El parámetro `--assign-identity` pasa la identidad administrada asignada por el usuario al grupo. El comando de ejecución prolongada mantiene el contenedor en ejecución. En este ejemplo se usa el mismo grupo de recursos empleado para crear el almacén de claves, pero puede especificarse otro distinto.
 
@@ -134,7 +134,7 @@ az container create \
   --command-line "tail -f /dev/null"
 ```
 
-En unos segundos, debería recibir una respuesta de la CLI de Azure que indica que la implementación ha finalizado. Compruebe su estado con el comando [az container show](/cli/azure/container#az-container-show).
+En unos segundos, debería recibir una respuesta de la CLI de Azure que indica que la implementación ha finalizado. Compruebe su estado con el comando [az container show](/cli/azure/container#az_container_show).
 
 ```azurecli-interactive
 az container show \
@@ -206,7 +206,7 @@ La respuesta será similar a la siguiente, que muestra el secreto. En el código
 
 ### <a name="enable-system-assigned-identity-on-a-container-group"></a>Habilitación de una identidad asignada por el sistema en un grupo de contenedores
 
-Ejecute el siguiente comando [az container create](/cli/azure/container#az-container-create) para crear una instancia de contenedor basada en la imagen `azure-cli` de Microsoft. En este ejemplo se proporciona un solo grupo de contenedores que puede usarse para ejecutar de forma interactiva la CLI de Azure con el fin de acceder a otros servicios de Azure. 
+Ejecute el siguiente comando [az container create](/cli/azure/container#az_container_create) para crear una instancia de contenedor basada en la imagen `azure-cli` de Microsoft. En este ejemplo se proporciona un solo grupo de contenedores que puede usarse para ejecutar de forma interactiva la CLI de Azure con el fin de acceder a otros servicios de Azure. 
 
 El parámetro `--assign-identity` sin ningún valor adicional habilita una identidad administrada asignada por el sistema en el grupo. El ámbito de la identidad es el grupo de recursos del grupo de contenedores. El comando de ejecución prolongada mantiene el contenedor en ejecución. En este ejemplo se usa el mismo grupo de recursos empleado para crear el almacén de claves, que se encuentra en el ámbito de la identidad.
 
@@ -223,7 +223,7 @@ az container create \
   --command-line "tail -f /dev/null"
 ```
 
-En unos segundos, debería recibir una respuesta de la CLI de Azure que indica que la implementación ha finalizado. Compruebe su estado con el comando [az container show](/cli/azure/container#az-container-show).
+En unos segundos, debería recibir una respuesta de la CLI de Azure que indica que la implementación ha finalizado. Compruebe su estado con el comando [az container show](/cli/azure/container#az_container_show).
 
 ```azurecli-interactive
 az container show \

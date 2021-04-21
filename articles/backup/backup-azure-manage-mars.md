@@ -4,12 +4,12 @@ description: Aprenda a administrar y supervisar las copias de seguridad del agen
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 25f0c41b535f9403d0a7027687cc5261cd437275
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4306f01d608542f7453b32b32a1a6894c2379159
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97368603"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107515029"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Administración de copias de seguridad del agente de Microsoft Azure Recovery Services (MARS) con el servicio Azure Backup
 
@@ -196,7 +196,7 @@ Se recomienda la siguiente configuración para el software antivirus con el fin 
 
 1. **Agregue exclusiones de rutas de acceso**: para evitar la degradación del rendimiento y los posibles conflictos, excluya las siguientes rutas de la supervisión en tiempo real por parte del software antivirus:
     1. `%ProgramFiles%\Microsoft Azure Recovery Services Agent` y subcarpetas
-    1. **Carpeta temporal**: si la carpeta temporal no está en la ubicación estándar, agréguela también a las exclusiones.  [Consulte aquí los pasos](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible) para determinar la ubicación de la carpeta temporal.
+    1. **Carpeta temporal**: si la carpeta temporal no está en la ubicación estándar, agréguela también a las exclusiones.  [Consulte aquí los pasos](backup-azure-file-folder-backup-faq.yml#how-to-check-if-scratch-folder-is-valid-and-accessible-) para determinar la ubicación de la carpeta temporal.
 1. **Agregue exclusiones de binarios**: para evitar la degradación de las actividades de copia de seguridad y consola, excluya los procesos de los siguientes binarios de la supervisión en tiempo real por parte del software antivirus:
     1. `%ProgramFiles%\Microsoft Azure Recovery Services Agent\bin\cbengine.exe`
 
@@ -207,4 +207,4 @@ Se recomienda la siguiente configuración para el software antivirus con el fin 
 
 - Para obtener información sobre los escenarios admitidos y las limitaciones, consulte la [matriz de compatibilidad para el agente de MARS](./backup-support-matrix-mars-agent.md).
 - Obtenga más información acerca del [comportamiento de retención de la directiva de copia de seguridad a petición](backup-windows-with-mars-agent.md#set-up-on-demand-backup-policy-retention-behavior).
-- Para consultar las preguntas más frecuentes, vea [Preguntas más frecuentes: agente de Microsoft Azure Recovery Services (MARS)](backup-azure-file-folder-backup-faq.md).
+- Para consultar las preguntas más frecuentes, vea [Preguntas más frecuentes: agente de Microsoft Azure Recovery Services (MARS)](backup-azure-file-folder-backup-faq.yml).

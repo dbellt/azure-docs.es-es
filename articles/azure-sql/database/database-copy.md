@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sashan
 ms.reviewer: wiassaf
 ms.date: 03/10/2021
-ms.openlocfilehash: 1a86522975ffb7b5b2bd514402dd97a76aa2506e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 3ce07af74c3f01fd78ef15ab0e7d43b91361e556
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103014611"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107784486"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Creación de una copia transaccionalmente coherente de una base de datos de Azure SQL Database
 
@@ -74,7 +74,7 @@ az sql db copy --dest-name "CopyOfMySampleDatabase" --dest-resource-group "myRes
     --name "<databaseName>" --resource-group "<resourceGroup>" --server $sourceserver
 ```
 
-La copia de la base de datos es una operación asincrónica, pero la base de datos de destino se crea inmediatamente después de aceptar la solicitud. Si tiene que cancelar la operación de copia mientras todavía está en curso, coloque la base de datos de destino mediante el comando [az sql db delete](/cli/azure/sql/db#az-sql-db-delete).
+La copia de la base de datos es una operación asincrónica, pero la base de datos de destino se crea inmediatamente después de aceptar la solicitud. Si tiene que cancelar la operación de copia mientras todavía está en curso, coloque la base de datos de destino mediante el comando [az sql db delete](/cli/azure/sql/db#az_sql_db_delete).
 
 * * *
 

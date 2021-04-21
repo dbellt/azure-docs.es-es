@@ -10,12 +10,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-nodejs-uiex
-ms.openlocfilehash: 6c6f0543dcfbecd16ba4176272f928ffd0eb54de
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3b1ff02d6a9b3e8c7b7abaf1b185a9becd2be12b
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101735121"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107105840"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Creación de una aplicación web de Node.js en Azure
 
@@ -313,11 +313,11 @@ Para implementar los cambios en esta aplicación, siga el mismo proceso y selecc
 
 En esta sección aprenderá a ver (o "copiar") los registros desde la aplicación de App Service en ejecución. Las llamadas realizadas a `console.log` en la aplicación se muestran en la ventana de salida en Visual Studio Code.
 
-Busque la aplicación en el explorador de **AZURE APP SERVICE**, haga clic con el botón derecho en la aplicación y seleccione **Ver registros de streaming**.
+Busque la aplicación en el explorador **AZURE APP SERVICE**, haga clic con el botón derecho en la aplicación y seleccione **Start Streaming Logs** (Iniciar registros de streaming).
 
 La ventana de salida de VS Code se abre con una conexión a la transmisión de registros.
 
-![Visualización de los registros de streaming](./media/quickstart-nodejs/view-logs.png)
+![Inicio de transmisión de registros](./media/quickstart-nodejs/view-logs.png)
 
 :::image type="content" source="./media/quickstart-nodejs/enable-restart.png" alt-text="Captura de pantalla del símbolo del sistema de VS Code para habilitar el registro de archivos y reiniciar la aplicación web con el botón Sí seleccionado.":::
 
