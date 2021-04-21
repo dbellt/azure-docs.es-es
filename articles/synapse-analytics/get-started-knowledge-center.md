@@ -9,19 +9,19 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
-ms.date: 11/16/2020
-ms.openlocfilehash: 59364a0a2c1d1e411f41dc35dee812c8e920b72d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/04/2021
+ms.openlocfilehash: 92d1534b5dd0233ce88b81d605c6502b67a121df
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98209209"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307901"
 ---
 # <a name="explore-the-synapse-knowledge-center"></a>Exploración del Centro de conocimientos de Synapse
 
 En este tutorial, aprenderá a usar el Centro de conocimientos de Synapse Studio.
 
-## <a name="getting-to-the-knowledge-center"></a>Búsqueda del Centro de conocimientos
+## <a name="introduction-to-the-knowledge-center"></a>Introducción al Centro de conocimientos
 
 Hay dos formas de buscar el Centro de conocimientos en Synapse Studio:
 
@@ -30,16 +30,19 @@ Hay dos formas de buscar el Centro de conocimientos en Synapse Studio:
 
 Elija cualquier método y abra el **Centro de conocimientos**.
 
-## <a name="overview"></a>Información general
-
-El **Centro de conocimientos** le permite hacer tres cosas:
+Una vez que esté visible, se percatará de que el **Centro de conocimientos** le permite realizar estas tres acciones:
 * **Usar ejemplos inmediatamente**. Si quiere un ejemplo rápido de cómo funciona Synapse, elija esta opción.
 * **Examinar la galería**. Esta opción le permite vincular conjuntos de datos de ejemplo y agregar código de ejemplo en forma de scripts de SQL, cuadernos y canalizaciones.
 * **Visita por Synapse Studio**. Esta opción le permite realizar una breve visita por las partes básicas de Synapse Studio. Resulta útil si nunca ha usado Synapse Studio.
 
-## <a name="exploring-blob-storage-with-serverless-sql-pool"></a>Exploración del almacenamiento de blobs con un grupo de SQL sin servidor
+## <a name="exploring-use-samples-immediately"></a>Exploración: use los ejemplos de inmediato
 
-1. Vaya al **Centro de conocimientos** y haga clic en **Usar ejemplos inmediatamente**.
+En esta sección, hay tres elementos:
+* Exploración de datos de ejemplo con Spark
+* Consulta de datos con SQL
+* Creación de una tabla externa con SQL
+
+1. En el **Centro de conocimientos**, haga clic en **Use samples immediately** (Usar ejemplos inmediatamente).
 1. Seleccione **Consultar datos con SQL**.
 1. Haga clic en **Usar ejemplo**.
 1. Se abrirá un nuevo script SQL de ejemplo.
@@ -47,6 +50,7 @@ El **Centro de conocimientos** le permite hacer tres cosas:
 1. Haga clic en Ejecutar. Solo se ejecutará el código que haya seleccionado.
 
 ## <a name="loading-more-nyc-taxi-data"></a>Carga de más datos de taxis de Nueva York
+
 1. Vaya al **Centro de conocimiento** y haga clic en **Examinar la galería**.
 1. Seleccione la pestaña **Scripts de SQL** en la parte superior.
 1. Seleccione el ejemplo de ingesta de datos **Carga de conjuntos de datos de taxis de Nueva York** y haga clic en **Continuar**.
@@ -61,6 +65,6 @@ El **Centro de conocimientos** le permite hacer tres cosas:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Introducción a Azure Synapse Analytics](get-started.md)
-* [Creación de un área de trabajo](quickstart-create-workspace.md)
-* [Uso de grupos de SQL sin servidor](quickstart-sql-on-demand.md)
+> [!div class="nextstepaction"]
+> [Incorporación de un administrador](get-started-add-admin.md)
+

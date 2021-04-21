@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo montar un sistema de archivos virt
 ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.date: 03/26/2021
-ms.openlocfilehash: dc5fbdf9ca0df8362a8999856c3f7163dd5e59b9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: dcd56a12d8728b83cdcb7cea4c16c4aedd4251a7
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105626034"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107105755"
 ---
 # <a name="mount-a-virtual-file-system-on-a-batch-pool"></a>Montaje de un sistema de archivos virtual en un grupo de Batch
 
@@ -53,7 +53,7 @@ En los ejemplos de código siguientes se muestra cómo montar una variedad de re
 
 ### <a name="azure-files-share"></a>Recurso compartido de Azure Files
 
-Azure Files es la oferta estándar del sistema de archivos en la nube de Azure. Para obtener más información sobre cómo obtener cualquiera de los parámetros en el ejemplo de código de configuración de montaje, consulte [Uso de un recurso compartido de Azure Files](../storage/files/storage-how-to-use-files-windows.md).
+Azure Files es la oferta estándar del sistema de archivos en la nube de Azure. Para obtener más información acerca de cómo obtener cualquiera de los parámetros en el ejemplo de código de configuración de montaje, consulte [Uso de un recurso compartido de Azure Files - SMB](../storage/files/storage-how-to-use-files-windows.md) o [Uso de un recurso compartido de Azure Files - NFS](../storage/files/storage-files-how-to-create-nfs-shares.md).
 
 ```csharp
 new PoolAddParameter

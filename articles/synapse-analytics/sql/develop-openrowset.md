@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: a6af8f4600544007a9ecb4fcff5ac9016fd7dfbf
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c37f6d89d5ebd3e18177db8add048739a62c883f
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105640343"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307952"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Uso de OPENROWSET con un grupo de SQL sin servidor en Azure Synapse Analytics
 
@@ -138,9 +138,9 @@ Si especifica que el elemento unstructured_data_path sea una carpeta, una consul
 Puede indicar al grupo de SQL sin servidor que pase por las carpetas; para ello, especifique /* al final de la ruta de acceso, como en el ejemplo: `https://sqlondemandstorage.blob.core.windows.net/csv/population/**`.
 
 > [!NOTE]
-> A diferencia de Hadoop y PolyBase, el grupo de SQL sin servidor no devuelve subcarpetas a menos que especifique /** al final de la ruta de acceso. A diferencia de Hadoop y PolyBase, el grupo de SQL sin servidor también devuelve los archivos cuyo nombre comienza por un carácter de subrayado (_) o un punto (.).
+> A diferencia de Hadoop y PolyBase, el grupo de SQL sin servidor no devuelve subcarpetas a menos que especifique /** al final de la ruta de acceso.
 
-En el ejemplo siguiente, si unstructured_data_path = `https://mystorageaccount.dfs.core.windows.net/webdata/`, una consulta del grupo de SQL sin servidor devolverá las filas de mydata.txt y _hidden.txt. No devolverá mydata2. txt y mydata3. txt porque se encuentran en una subcarpeta.
+En el ejemplo siguiente, si unstructured_data_path = `https://mystorageaccount.dfs.core.windows.net/webdata/`, una consulta del grupo de SQL sin servidor devolverá filas de mydata.txt. No devolverá mydata2. txt y mydata3. txt porque se encuentran en una subcarpeta.
 
 ![Datos recursivos para tablas externas](./media/develop-openrowset/folder-traversal.png)
 

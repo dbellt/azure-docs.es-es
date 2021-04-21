@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 10/14/2020
+ms.date: 04/09/2021
 ms.author: alkohli
-ms.openlocfilehash: bd90a16c09dce65115cea2f097d18f2e0ced931a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f4f7e5f69e6b496395b74dbdcd58b3ada0a7f349
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102632040"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107285223"
 ---
 # <a name="security-and-data-protection-for-azure-stack-edge-pro-r-and-azure-stack-edge-mini-r"></a>Seguridad y protección de datos para Azure Stack Edge Pro R y Azure Stack Edge Mini R
 
@@ -100,17 +100,23 @@ Los datos de los discos están protegidos mediante dos capas de cifrado:
 > [!NOTE]
 > El disco de SO tiene el cifrado de software XTS-AES de BitLocker de 256 bits de una sola capa.
 
-Cuando se active el dispositivo, se le pedirá que guarde un archivo de clave que contenga claves de recuperación que ayuden a recuperar los datos del dispositivo si este no arranca. Hay dos claves en el archivo:
+Antes de activar el dispositivo, es necesario configurar en este el cifrado en reposo. Esta configuración es obligatoria y no podrá activar el dispositivo hasta que la configuración sea correcta. 
 
-- Una clave recupera la configuración del dispositivo en los volúmenes de SO.
-<!-- - Second key is to unlock the BitLocker on the data disks. -->
-- La segunda clave desbloquea el cifrado de hardware en los discos de datos.
+En la fábrica, una vez que se ha creado la imagen de los dispositivos, se habilita el cifrado de BitLocker de nivel de volumen. Después de recibir el dispositivo, tiene que configurar el cifrado en reposo. Se volverán a crear el bloque de almacenamiento y los volúmenes. Además, es posible proporcionar claves de BitLocker para habilitar el cifrado en reposo y, de este modo, crear otra capa de cifrado para los datos en reposo. 
+
+La clave de cifrado en reposo es una clave de 32 caracteres con codificación Base 64 que usted proporciona. Esta clave se usa para proteger la clave de cifrado real. Microsoft no tiene acceso a esta clave de cifrado en reposo que protege sus datos. La clave se guarda en un archivo de claves en la página **Cloud details** (Detalles de la nube) después de que el dispositivo esté activado.
+
+Cuando se active el dispositivo, se le pedirá que guarde un archivo de clave que contiene claves de recuperación que ayuden a recuperar los datos del dispositivo si este no arranca. Algunos escenarios de recuperación le pedirán el archivo de clave que ha guardado. El archivo de clave tiene las siguientes claves de recuperación:
+
+- Una clave que desbloquea la primera capa de cifrado
+- Una clave que desbloquea el cifrado de hardware en los discos de datos
+- Una clave que ayuda a recuperar la configuración del dispositivo en los volúmenes del sistema operativo
+- Una clave que protege los datos que fluyen a través del servicio de Azure
 
 > [!IMPORTANT]
 > Guarde el archivo de clave en una ubicación segura fuera del propio dispositivo. Si el dispositivo no arranca y no tiene la clave, podría producirse una pérdida de datos.
 
-- Algunos escenarios de recuperación le pedirán el archivo de clave que ha guardado. 
-<!--- If a node isn't booting up, you will need to perform a node replacement. You will have the option to swap the data disks from the failed node to the new node. For a 4-node device, you won't need a key file. For a 1-node device, you will be prompted to provide a key file.-->
+
 
 #### <a name="restricted-access-to-data"></a>Acceso restringido a los datos
 
@@ -132,7 +138,6 @@ Cuando el dispositivo experimenta un restablecimiento total, se lleva a cabo un 
 ### <a name="protect-data-in-storage-accounts"></a>Protección de datos en las cuentas de almacenamiento
 
 [!INCLUDE [azure-stack-edge-gateway-data-rest](../../includes/azure-stack-edge-gateway-protect-data-storage-accounts.md)]
-
 - Rote y, a continuación, [sincronice las claves de la cuenta de almacenamiento](azure-stack-edge-gpu-manage-storage-accounts.md) periódicamente para proteger su cuenta de almacenamiento de usuarios no autorizados.
 
 ## <a name="manage-personal-information"></a>Administración de información personal

@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.date: 02/10/2020
 ms.custom: devx-track-python, contperf-fy21q3
 adobe-target: true
-ms.openlocfilehash: f00a5efb01ea59b04495747ffd93d9f15ad5f76e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ed7a95ea83cacc0eaccfa23cd87403fb9be615ee
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105935539"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210676"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-jupyter-notebooks"></a>Tutorial: Introducción a Azure Machine Learning en cuadernos de Jupyter Notebook
 
@@ -27,7 +27,13 @@ En este tutorial, hizo lo siguiente:
 > [!div class="checklist"]
 > * Crear un [área de trabajo de Azure Machine Learning](concept-workspace.md) para usarla en otros tutoriales de Jupyter Notebook.
 > * Clone el cuaderno de tutoriales en su carpeta en el área de trabajo.
-> * Crear una instancia de proceso basada en la nube que tenga instalado y preconfigurado el SDK de Python para Azure Machine Learning.
+> * Cree una instancia de proceso basada en la nube, que le proporciona un entorno con el SDK de Python de Azure Machine Learning ya instalado y configurado automáticamente.
+
+Este tutorial le prepara para ejecutar cuadernos de Jupyter Notebook en un recurso de proceso del área de trabajo.  
+
+Otra excelente manera de empezar a usar Azure Machine Learning es mediante el envío de trabajos por lotes.  Consulte [Tutorial: Introducción a Azure Machine Learning en el entorno de desarrollo](tutorial-1st-experiment-sdk-setup-local.md).
+
+## <a name="prerequisites"></a>Requisitos previos
 
 Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 

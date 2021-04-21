@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: f4d65c97bfccd223453583b25ee0586c5bc0b1ec
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 29240f371d39ef2d3234e3207cc91768478bf3ff
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101091454"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107748510"
 ---
 # <a name="faq-about-using-azure-database-migration-service"></a>Preguntas más frecuentes sobre el uso de Azure Database Migration Service
 
@@ -32,9 +32,7 @@ Azure Database Migration Service es un servicio totalmente administrado diseñad
 * Inversión continuada en migraciones libres de problemas
 
 **P. ¿Qué pares origen/destino admite actualmente Azure Database Migration Service?**
-Actualmente, el servicio admite una variedad de pares origen/destino o escenarios de migración. Para obtener una lista completa del estado de cada escenario de migración disponible, consulte el artículo [Estado de los escenarios de migración que admite Azure Database Migration Service](./resource-scenario-status.md).
-
-Otros escenarios de migración están en versión preliminar y requieren que envíe una nominación a través del sitio de versión preliminar de DMS. Para obtener una lista completa de los escenarios de la versión preliminar y registrarse para participar en una de estas ofertas, consulte el [sitio de la versión preliminar de DMS](https://aka.ms/dms-preview/).
+Actualmente, el servicio admite una variedad de pares origen/destino o escenarios de migración. Para obtener una lista completa del estado de cada escenario de migración disponible, consulte el artículo [Estado de los escenarios de migración que admite Azure Database Migration Service](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/dms/resource-scenario-status.md).
 
 **P. ¿Qué versiones de SQL Server admite Azure Database Migration Service como origen?**
 Al realizar la migración desde SQL Server, los orígenes admitidos de Azure Database Migration Service son las versiones desde SQL Server 2005 hasta SQL Server 2019.

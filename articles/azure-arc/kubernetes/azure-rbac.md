@@ -7,16 +7,16 @@ ms.topic: article
 author: shashankbarsin
 ms.author: shasb
 description: Uso de RBAC de Azure para comprobaciones de autorización en los clústeres de Kubernetes habilitados para Azure Arc
-ms.openlocfilehash: bd8029cb2772a6f6bd9821abe6acf69c9c08599d
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 0ee5f86ce12a39d86754d2e6e88263d8a03a012b
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106450897"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107304212"
 ---
-# <a name="azure-rbac-for-azure-arc-enabled-kubernetes-clusters"></a>Azure RBAC para clústeres Kubernetes habilitados para Azure Arc
+# <a name="integrate-azure-active-directory-with-azure-arc-enabled-kubernetes-clusters"></a>Integración de Azure Active Directory con clústeres de Kubernetes habilitado para Azure Arc
 
-Los tipos de objeto [ClusterRoleBinding y RoleBinding](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) de Kubernetes ayudan a definir la autorización en Kubernetes de forma nativa. Con Azure RBAC, puede usar Azure Active Directory y las asignaciones de roles de Azure para controlar las comprobaciones de autorización en el clúster. Esto implica que ahora puede usar las asignaciones de roles de Azure para controlar de forma pormenorizada quién puede leer, escribir y eliminar los objetos de Kubernetes, como Deployment, Pod y Service.
+Los tipos de objeto [ClusterRoleBinding y RoleBinding](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) de Kubernetes ayudan a definir la autorización en Kubernetes de forma nativa. Con esta característica, puede usar Azure Active Directory y las asignaciones de roles de Azure para controlar las comprobaciones de autorización en el clúster. Esto implica que ahora puede usar las asignaciones de roles de Azure para controlar de forma pormenorizada quién puede leer, escribir y eliminar los objetos de Kubernetes, como Deployment, Pod y Service.
 
 Puede encontrar información general y algunos conceptos sobre esta característica en el artículo [Azure RBAC: Kubernetes habilitado para Azure Arc](conceptual-azure-rbac.md).
 
@@ -274,10 +274,10 @@ Los propietarios del recurso de Kubernetes habilitado para Azure Arc pueden usar
 
 | Role | Descripción |
 |---|---|
-| Visor de Azure Arc Kubernetes | Permite el acceso de solo lectura para ver la mayoría de los objetos en un espacio de nombres. Este rol no permite ver secretos. Esto se debe a que el permiso `read` en los secretos permitiría el acceso a las credenciales `ServiceAccount` del espacio de nombres, que a su vez permitiría el acceso a la API mediante dicha cuenta `ServiceAccount` (una forma de elevación de privilegios). |
-| Escritor de Azure Arc Kubernetes | Permite el acceso de lectura y escritura para ver la mayoría de los objetos en un espacio de nombres. Este rol no permite la visualización o modificación de roles o enlaces de roles. No obstante, este rol permite acceder a secretos y ejecutar pods como cualquier `ServiceAccount` en el espacio de nombres, por lo que se puede usar para obtener los niveles de acceso de la API de cualquier `ServiceAccount` en el espacio de nombres. |
-| Administrador de Azure Arc Kubernetes | Permite el acceso de administrador. Está diseñado para concederse dentro de un espacio de nombres mediante RoleBinding. Si se usa un elemento RoleBinding, permite el acceso de lectura y escritura a la mayoría de los recursos de un espacio de nombres, incluida la capacidad de crear roles y enlaces de roles dentro del espacio de nombres. Este rol no permite el acceso de escritura a la cuota de recursos o al espacio de nombres en sí. |
-| Administrador de clústeres de Azure Arc Kubernetes | Permite el acceso de superusuario para ejecutar cualquier acción en cualquier recurso. Cuando se usa en un elemento ClusterRoleBinding, ofrece control total sobre todos los recursos del clúster y todos los espacios de nombres. Cuando se usa en un RoleBinding, proporciona control total sobre cada recurso del espacio de nombres del enlace de roles, incluido el propio espacio de nombres.|
+| [Visor de Azure Arc Kubernetes](../../role-based-access-control/built-in-roles.md#azure-arc-kubernetes-viewer) | Permite el acceso de solo lectura para ver la mayoría de los objetos en un espacio de nombres. Este rol no permite ver secretos. Esto se debe a que el permiso `read` en los secretos permitiría el acceso a las credenciales `ServiceAccount` del espacio de nombres, que a su vez permitiría el acceso a la API mediante dicha cuenta `ServiceAccount` (una forma de elevación de privilegios). |
+| [Escritor de Azure Arc Kubernetes](../../role-based-access-control/built-in-roles.md#azure-arc-kubernetes-writer) | Permite el acceso de lectura y escritura para ver la mayoría de los objetos en un espacio de nombres. Este rol no permite la visualización o modificación de roles o enlaces de roles. No obstante, este rol permite acceder a secretos y ejecutar pods como cualquier `ServiceAccount` en el espacio de nombres, por lo que se puede usar para obtener los niveles de acceso de la API de cualquier `ServiceAccount` en el espacio de nombres. |
+| [Administrador de Azure Arc Kubernetes](../../role-based-access-control/built-in-roles.md#azure-arc-kubernetes-admin) | Permite el acceso de administrador. Está diseñado para concederse dentro de un espacio de nombres mediante RoleBinding. Si se usa un elemento RoleBinding, permite el acceso de lectura y escritura a la mayoría de los recursos de un espacio de nombres, incluida la capacidad de crear roles y enlaces de roles dentro del espacio de nombres. Este rol no permite el acceso de escritura a la cuota de recursos o al espacio de nombres en sí. |
+| [Administrador de clústeres de Azure Arc Kubernetes](../../role-based-access-control/built-in-roles.md#azure-arc-kubernetes-cluster-admin) | Permite el acceso de superusuario para ejecutar cualquier acción en cualquier recurso. Cuando se usa en un elemento ClusterRoleBinding, ofrece control total sobre todos los recursos del clúster y todos los espacios de nombres. Cuando se usa en un RoleBinding, proporciona control total sobre cada recurso del espacio de nombres del enlace de roles, incluido el propio espacio de nombres.|
 
 Puede crear asignaciones de roles en el ámbito del clúster de Kubernetes habilitado para Arc desde la hoja `Access Control (IAM)` del recurso de clúster en Azure Portal. También puede usar comandos de la CLI de Azure, como se muestra a continuación:
 

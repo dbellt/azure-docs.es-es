@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein, danil
 ms.date: 11/13/2020
-ms.openlocfilehash: 0c3db3b3f22f9f2639012068924708537f9ada77
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 670176d7478ddab3d17e15526df512dfa7e99fd4
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98795333"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762090"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>Recuperación de una base de datos de Azure SQL Database o Instancia administrada de Azure SQL mediante copias de seguridad automatizadas
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -247,11 +247,11 @@ Restaurar una base de datos mediante API de REST:
 
 #### <a name="sql-database"></a>SQL Database
 
-Para restaurar una base de datos mediante la CLI de Azure, consulte la referencia sobre el comando [az sql db restore](/cli/azure/sql/db#az-sql-db-restore).
+Para restaurar una base de datos mediante la CLI de Azure, consulte la referencia sobre el comando [az sql db restore](/cli/azure/sql/db#az_sql_db_restore).
 
 #### <a name="sql-managed-instance"></a>Instancia administrada de SQL
 
-Para restaurar una base de datos de instancia administrada mediante la CLI de Azure, consulte la referencia sobre el comando [aaz sql midb restore](/cli/azure/sql/midb#az-sql-midb-restore).
+Para restaurar una base de datos de instancia administrada mediante la CLI de Azure, consulte la referencia sobre el comando [aaz sql midb restore](/cli/azure/sql/midb#az_sql_midb_restore).
 
 ## <a name="summary"></a>Resumen
 

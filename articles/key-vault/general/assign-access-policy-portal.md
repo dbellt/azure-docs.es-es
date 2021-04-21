@@ -3,19 +3,18 @@ title: Asignación de una directiva de acceso de Azure Key Vault (Azure Portal)
 description: Cómo se usa Azure Portal para asignar una directiva de acceso de Key Vault a una identidad de aplicación o una entidad de seguridad.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a64a91e6f41f3fba7584630380ffb878979b4389
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 443b269e7155fc206ee50e7907a7acded2c22f53
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105968771"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751497"
 ---
 # <a name="assign-a-key-vault-access-policy-using-the-azure-portal"></a>Asignación de una directiva de acceso de Key Vault mediante Azure Portal
 
@@ -55,5 +54,5 @@ Para más información sobre cómo crear grupos en Azure Active Directory median
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Seguridad en Azure Key Vault: Administración de identidades y acceso](security-overview.md#identity-management)
-- [Protección del almacén de claves](secure-your-key-vault.md)
+- [Protección del almacén de claves](security-overview.md)
 - [Guía del desarrollador de Azure Key Vault](developers-guide.md)

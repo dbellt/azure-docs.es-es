@@ -3,15 +3,15 @@ title: Iniciar máquina virtual al establecer la conexión - Azure
 description: Cómo configurar la característica Iniciar máquina virtual al establecer la conexión.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/10/2021
+ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: d3ef8e3656051c4a99ab52a7b52a0d623fdf9ce2
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: af95cf5d3e4112c717d653062f186797d48fb515
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107303976"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107389815"
 ---
 # <a name="start-virtual-machine-on-connect-preview"></a>Iniciar máquina virtual al establecer la conexión (versión preliminar)
 
@@ -119,7 +119,7 @@ Iniciar VM al establecer la conexión es una configuración de grupo de hosts. S
 
 Para usar Azure Portal para configurar Start VM on Connect (Iniciar VM al conectar):
 
-1. Abra el explorador y vaya a [Azure Portal](https://portal.azure.com/?feature.startVMonConnect=true#home). Se recomienda abrir Azure Portal en una ventana de InPrivate.
+1. Abra el explorador y vaya a [Azure Portal](https://portal.azure.com).
 
 2. Inicie sesión en Azure Portal y vaya a **Windows Virtual Desktop**.
 

@@ -6,13 +6,13 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 11/17/2020
-ms.openlocfilehash: 59e6e73c99569b0a35c56d65c1a7ccdfcb394c0f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/07/2021
+ms.openlocfilehash: 905224119b9df4e4003b1736443406e9548a49e3
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95026427"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107012536"
 ---
 # <a name="scale-a-hyperscale-citus-server-group"></a>Escalado de un grupo de servidores Hiperescala (Citus)
 
@@ -21,6 +21,11 @@ Azure Database for PostgreSQL:Hiperescala (Citus) proporciona escalado de autose
 ## <a name="add-worker-nodes"></a>Incorporación de nodos de trabajo
 
 Para agregar nodos, vaya a la pestaña **Compute + storage** (Proceso y almacenamiento) en el grupo de servidores de Hiperescala (Citus).  Arrastre el control deslizante de **Números de nodo de trabajo** para cambiar el valor.
+
+> [!NOTE]
+>
+> Un grupo de servidores de Hiperescala (Citus) creado con el [nivel básico (versión preliminar)](concepts-hyperscale-tiers.md) no tiene ningún trabajo. Al aumentar el número de trabajos, el grupo de servidores se convierte automáticamente en el nivel estándar.
+> Después de convertir un grupo de servidores al nivel estándar, no puede cambiarlo de nuevo al nivel básico.
 
 :::image type="content" source="./media/howto-hyperscale-scaling/01-sliders-workers.png" alt-text="Controles deslizantes de recursos":::
 

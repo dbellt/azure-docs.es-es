@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 11/16/2020
 ms.author: juliako
-ms.openlocfilehash: 2ac7c3c2149ce43c860c7726381733ef377de8d3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 84bb4766b3a896823dd0bef023f8042965a85846
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100530746"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107532865"
 ---
 # <a name="examine-the-video-indexer-output"></a>Examen de la salida de Video Indexer
 
@@ -46,8 +46,8 @@ Para más información, consulte [Visualización y edición de la información d
 
 ## <a name="insightsoutput-produced-by-api"></a>Información detallada o salida generada por la API
 
-1. Para recuperar el archivo JSON, llame a [Get Video Index API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Index?).
-1. Si también está interesado en artefactos específicos, llame a [Get Video Artifact Download URL API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Artifact-Download-Url?).
+1. Para recuperar el archivo JSON, llame a [Get Video Index API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Index).
+1. Si también está interesado en artefactos específicos, llame a [Get Video Artifact Download URL API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Artifact-Download-Url).
 
     En la llamada API, especifique el tipo de artefacto solicitado (OCR, caras, fotogramas clave, etc.).
 
@@ -100,7 +100,7 @@ En esta sección se muestra el resumen de la información detallada.
 |privacyMode|El desglose puede tener uno de los siguientes modos: **Privado**, **Público**. **Público**: el vídeo es visible para todos los usuarios de la cuenta y cualquiera que tenga un vínculo al vídeo. **Privado**: el vídeo es visible para todos los usuarios de la cuenta.|
 |duration|Duración que describe el momento del tiempo en el que se ha producido la información. La duración se mide en segundos.|
 |thumbnailVideoId|Identificador del vídeo del que se tomó la miniatura.
-|thumbnailId|Identificador de la miniatura del vídeo. Para obtener la miniatura real, llame a [Get-Thumbnail](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) y pase los valores de thumbnailVideoId y thumbnailId.|
+|thumbnailId|Identificador de la miniatura del vídeo. Para obtener la miniatura real, llame a [Get-Thumbnail](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Thumbnail) y pase los valores de thumbnailVideoId y thumbnailId.|
 |faces/animatedCharacters|Puede contener cero o más rostros. Para información más detallada, consulte [faces/animatedCharacters](#facesanimatedcharacters).|
 |keywords|Puede contener cero o más palabras clave. Para más información, consulte [keywords](#keywords).|
 |sentiments|Puede contener cero o más opiniones. Para más información, consulte [sentiments](#sentiments).|
@@ -127,7 +127,7 @@ En esta sección se muestra el resumen de la información detallada.
 |metadata|Metadatos externos del vídeo (si los especifica el usuario).|
 |isAdult|Indica si el vídeo se ha revisado manualmente y se ha identificado como un vídeo para adultos.|
 |insights|Objeto de información detallada. Para más información, consulte [insights](#insights).|
-|thumbnailId|Identificador de la miniatura del vídeo. Para obtener la miniatura real, llame a [Get-Thumbnail](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) y pase el identificador del vídeo y el valor de thumbnailId.|
+|thumbnailId|Identificador de la miniatura del vídeo. Para obtener la miniatura real, llame a [Get-Thumbnail](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Thumbnail) y pase el identificador del vídeo y el valor de thumbnailId.|
 |publishedUrl|Dirección URL para transmitir el vídeo.|
 |publishedUrlProxy|Dirección URL desde la que se transmitirá el vídeo (para dispositivos de Apple).|
 |viewToken|Un token de visualización de corta duración para transmitir el vídeo.|

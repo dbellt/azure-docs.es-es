@@ -8,16 +8,16 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 3c8dd5cd9da2fd1e741635a6471c0662066d147e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f0d85f056cfaaa58fcc72eb9c2182b3e1a78affb
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105709946"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106581611"
 ---
 # <a name="collect-and-analyze-log-data-for-azure-cognitive-search"></a>Recopilación y análisis de datos de registro para Azure Cognitive Search
 
-Los registros operativos o de diagnóstico proporcionan una visión general de las operaciones detalladas de Azure Cognitive Search y son útiles para supervisar los procesos de servicio y de carga de trabajo. Internamente, Microsoft preserva la información del sistema que se encuentra en el back-end durante un breve período (unos 30 días), tiempo suficiente para investigarla y analizarla si se presenta una solicitud de soporte técnico. Sin embargo, si quiere tener la propiedad sobre los datos operativos, debe realizar una configuración de diagnóstico para especificar dónde se recopila la información de registro.
+Los registros operativos o de diagnóstico proporcionan una visión general de las operaciones detalladas de Azure Cognitive Search y son útiles para supervisar los procesos y el estado del servicio. Internamente, Microsoft preserva la información del sistema que se encuentra en el back-end durante un breve período (unos 30 días), tiempo suficiente para investigarla y analizarla si se presenta una solicitud de soporte técnico. Sin embargo, si quiere tener la propiedad sobre los datos operativos, debe realizar una configuración de diagnóstico para especificar dónde se recopila la información de registro.
 
 El registro de diagnóstico se habilita a través de la integración con [Azure Monitor](../azure-monitor/index.yml). 
 

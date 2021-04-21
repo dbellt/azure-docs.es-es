@@ -10,12 +10,12 @@ ms.date: 04/23/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: fe081b0e74acf771e10406c15a3dea4e09956c37
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b3498037f3d2088459784ab066b8e94ba344a275
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102560977"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107792190"
 ---
 # <a name="create-a-vm-using-a-specialized-image-version-with-the-azure-cli"></a>Creación de una máquina virtual mediante una versión de imagen especializada con la CLI de Azure
 
@@ -23,7 +23,7 @@ Cree una máquina virtual a partir de una [versión de imagen especializada](./s
 
 Reemplace los nombres de los recursos según sea necesario en este ejemplo. 
 
-Enumere las definiciones de imagen en una galería mediante [az sig image-definition list](/cli/azure/sig/image-definition#az-sig-image-definition-list) para ver el nombre y el identificador de las definiciones.
+Enumere las definiciones de imagen en una galería mediante [az sig image-definition list](/cli/azure/sig/image-definition#az_sig_image_definition_list) para ver el nombre y el identificador de las definiciones.
 
 ```azurecli-interactive 
 resourceGroup=myGalleryRG
@@ -35,7 +35,7 @@ az sig image-definition list \
    --output tsv
 ```
 
-Cree la máquina virtual con [az vm create](/cli/azure/vm#az-vm-create), usando el parámetro --specialized para indicar que la imagen es una imagen especializada. 
+Cree la máquina virtual con [az vm create](/cli/azure/vm#az_vm_create), usando el parámetro --specialized para indicar que la imagen es una imagen especializada. 
 
 Use el identificador de la definición de imagen en `--image` a fin de crear la máquina virtual a partir de la versión más reciente de la imagen que está disponible. También puede crear la máquina virtual a partir de una versión específica si proporciona el identificador de la versión de la imagen en `--image`. 
 

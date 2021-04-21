@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.custom: how-to
 ms.author: luquinta
 author: luisquintanilla
-ms.date: 11/16/2020
-ms.openlocfilehash: ccd56afc8c4ea7e236946fc6afa54e471203fe31
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.date: 04/08/2021
+ms.openlocfilehash: 14f0d15d48193267c224f3497c24651ca3249b0b
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106065987"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107028597"
 ---
 # <a name="connect-to-an-azure-machine-learning-compute-instance-in-visual-studio-code-preview"></a>Conexión a una instancia de proceso de Azure Machine Learning en Visual Studio Code (versión preliminar)
 
@@ -25,8 +25,75 @@ Una [instancia de proceso de Azure Machine Learning](concept-compute-instance.md
 
 Hay dos maneras de conectarse a una instancia de proceso desde Visual Studio Code:
 
+* Instancia de proceso remoto. Esta opción proporciona un entorno de desarrollo completo para compilar los proyectos de aprendizaje automático.
 * Servidor remoto de Jupyter Notebook. Esta opción permite establecer una instancia de proceso como servidor remoto de Jupyter Notebook.
-* [Desarrollo remoto de Visual Studio Code](https://code.visualstudio.com/docs/remote/remote-overview). El desarrollo remoto de Visual Studio Code le permite usar un contenedor, una máquina remota o el subsistema de Windows para Linux (WSL) como entorno de desarrollo completo.
+
+## <a name="configure-a-remote-compute-instance"></a>Configuración de una instancia de proceso remoto
+
+Para configurar una instancia de proceso remoto para el desarrollo, necesitará algunos requisitos previos.
+
+* Extensión Azure Machine Learning para Visual Studio Code. Para más información, consulte la [guía de instalación de la extensión Azure Machine Learning para Visual Studio Code](tutorial-setup-vscode-extension.md).
+* Área de trabajo de Azure Machine Learning. [Use la extensión Azure Machine Learning para Visual Studio Code para crear un área de trabajo](how-to-manage-resources-vscode.md#create-a-workspace) si aún no tiene una.
+* Instancia de proceso de Azure Machine Learning. [Use la extensión Azure Machine Learning para Visual Studio Code para crear una instancia de proceso](how-to-manage-resources-vscode.md#create-compute-instance) si no tiene una.
+
+Para conectarse a la instancia de proceso remoto:
+
+# <a name="vs-code"></a>[Código de VS](#tab/extension)
+
+### <a name="azure-machine-learning-extension"></a>Extensión de Azure Machine Learning
+
+1. En VS Code, inicie la extensión de Azure Machine Learning.
+1. Expanda el nodo **Instancias de proceso** en la extensión.
+1. Haga clic con el botón derecho en la instancia de proceso a la que desea conectarse y seleccione **Conectarse a la instancia de proceso**.
+
+:::image type="content" source="media/how-to-set-up-vs-code-remote/vs-code-compute-instance-launch.png" alt-text="Conexión a la extensión de Azure ML de Visual Studio Code de la instancia de proceso" lightbox="media/how-to-set-up-vs-code-remote/vs-code-compute-instance-launch.png":::
+
+### <a name="command-palette"></a>Paleta de comandos
+
+1. En VS Code, seleccione **Ver > Paleta de comandos** para abrir la paleta de comandos.
+1. Escriba en el cuadro de texto **Azure ML: Conectarse a la instancia de proceso**.
+1. Seleccione su suscripción.
+1. Seleccione su área de trabajo.
+1. Seleccione la instancia de proceso o cree una nueva.
+
+# <a name="studio"></a>[Estudio](#tab/studio)
+
+Vaya a [ml.azure.com](https://ml.azure.com).
+
+> [!IMPORTANT]
+> Para conectarse a la instancia de proceso remoto desde Visual Studio Code, asegúrese de que la cuenta en la que ha iniciado sesión en Estudio de Azure Machine Learning es la misma que usa en Visual Studio Code.
+
+### <a name="compute"></a>Proceso
+
+1. Seleccione la pestaña **Proceso**.
+1. En la columna *URI de la aplicación*, seleccione **VS Code** para la instancia de proceso a la que desea conectarse.
+
+:::image type="content" source="media/how-to-set-up-vs-code-remote/studio-compute-instance-vs-code-launch.png" alt-text="Conexión a Estudio de Azure ML de VS Code de la instancia de proceso" lightbox="media/how-to-set-up-vs-code-remote/studio-compute-instance-vs-code-launch.png":::
+
+### <a name="notebook"></a>Notebook
+
+1. Seleccione la pestaña **Cuaderno**.
+1. En la pestaña *Cuaderno,* seleccione el archivo que desea editar.
+1. Seleccione **Editores > Editar en VS Code (versión preliminar)** .
+
+:::image type="content" source="media/how-to-set-up-vs-code-remote/studio-notebook-compute-instance-vs-code-launch.png" alt-text="Conexión al cuaderno de Estudio de Azure ML de VS Code de la instancia de proceso" lightbox="media/how-to-set-up-vs-code-remote/studio-notebook-compute-instance-vs-code-launch.png":::
+
+---
+
+Se inicia una nueva ventana para la instancia de proceso remoto. Al intentar realizar una conexión a una instancia de proceso remoto, se llevan a cabo las siguientes tareas:
+
+1. Autorización. Se realizan algunas comprobaciones para asegurarse de que el usuario que intenta realizar una conexión está autorizado para usar la instancia de proceso.
+1. El servidor remoto de VS Code está instalado en la instancia de proceso.
+1. Se establece una conexión de WebSocket para la interacción en tiempo real.
+
+Una vez establecida la conexión, se conserva. Al principio de la sesión se emite un token que se actualiza automáticamente para mantener la conexión con la instancia de proceso.
+
+Después de conectarse a la instancia de proceso remoto, use el editor para:
+
+* [Crear y administrar archivos en la instancia de proceso remoto o el recurso compartido de archivos](https://code.visualstudio.com/docs/editor/codebasics).
+* Usar el [terminal integrado de VS Code](https://code.visualstudio.com/docs/editor/integrated-terminal) para [ejecutar comandos y aplicaciones en la instancia de proceso remoto](how-to-access-terminal.md).
+* [Depurar scripts y aplicaciones](https://code.visualstudio.com/Docs/editor/debugging).
+* [Usar VS Code para administrar los repositorios de Git](concept-train-model-git-integration.md).
 
 ## <a name="configure-compute-instance-as-remote-notebook-server"></a>Configuración de la instancia de proceso como servidor de cuadernos remoto
 
@@ -62,93 +129,6 @@ Llegados a este punto, puede continuar ejecutando las celdas en el cuaderno de J
 
 > [!TIP]
 > También puede trabajar con archivos de script de Python (.py) que contengan celdas de código similares a Jupyter. Para más información, consulte la [documentación interactiva de Python para Visual Studio](https://code.visualstudio.com/docs/python/jupyter-support-py).
-
-## <a name="configure-compute-instance-remote-development"></a>Configuración del desarrollo remoto de la instancia de proceso
-
-Para disfrutar de una experiencia de desarrollo remoto completa, deberá cumplir algunos requisitos previos:
-
-* [Extensión Visual Studio Code Remote SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh).
-* Instancia de proceso habilitada para SSH. Para más información, [consulte la guía para crear una instancia de proceso](how-to-create-manage-compute-instance.md).
-
-> [!NOTE]
-> En las plataformas Windows, debe [instalar un cliente SSH compatible con OpenSSH](https://code.visualstudio.com/docs/remote/troubleshooting#_installing-a-supported-ssh-client) si todavía no lo hay. PuTTY no se admite en Windows, ya que el comando ssh debe estar en la ruta de acceso.
-
-### <a name="get-the-ip-and-ssh-port-for-your-compute-instance"></a>Obtención de la dirección IP y el puerto SSH para la instancia de proceso
-
-1. Vaya a Azure Machine Learning Studio en https://ml.azure.com/.
-2. Seleccione el [área de trabajo](concept-workspace.md).
-1. Haga clic en la pestaña **Instancias de proceso**.
-1. En la columna **URI de la aplicación**, haga clic en el vínculo **SSH** de la instancia de proceso que quiera usar como proceso remoto. 
-1. En el cuadro de diálogo, anote la dirección IP y el puerto SSH. 
-1. Guarde la clave privada en el directorio ~/.ssh/ del equipo local; por ejemplo, abra un editor para un archivo nuevo y pegue la clave: 
-
-   **Linux**:
-
-   ```sh
-   vi ~/.ssh/id_azmlcitest_rsa  
-   ```
-
-   **Windows**:
-
-   ```cmd
-   notepad C:\Users\<username>\.ssh\id_azmlcitest_rsa
-   ```
-
-   La clave privada tendrá un aspecto similar al siguiente:
-
-   ```text
-   -----BEGIN RSA PRIVATE KEY-----
-
-   MIIEpAIBAAKCAQEAr99EPm0P4CaTPT2KtBt+kpN3rmsNNE5dS0vmGWxIXq4vAWXD
-   ..... 
-   ewMtLnDgXWYJo0IyQ91ynOdxbFoVOuuGNdDoBykUZPQfeHDONy2Raw==
-
-   -----END RSA PRIVATE KEY-----
-   ```
-
-1. Cambie los permisos en el archivo para asegurarse de que solo usted puede leer el archivo.  
-
-   ```sh
-   chmod 600 ~/.ssh/id_azmlcitest_rsa
-   ```
-
-### <a name="add-instance-as-a-host"></a>Adición de la instancia como un host
-
-Abra el archivo `~/.ssh/config` (Linux) o `C:\Users<username>.ssh\config` (Windows) en un editor y agregue una nueva entrada similar al contenido siguiente:
-
-```
-Host azmlci1 
-
-    HostName 13.69.56.51 
-
-    Port 50000 
-
-    User azureuser 
-
-    IdentityFile ~/.ssh/id_azmlcitest_rsa
-```
-
-Estos son algunos detalles de los campos:
-
-|Campo|Descripción|
-|----|---------|
-|Host|Use la abreviatura que quiera para la instancia de proceso |
-|HostName|Esta es la dirección IP de la instancia de proceso |
-|Port|Este es el puerto que se muestra en el cuadro de diálogo SSH anterior |
-|Usuario|Esto se debe establecer en  `azureuser` |
-|IdentityFile|Debe apuntar al archivo en el que ha guardado la clave privada |
-
-Ahora, debería poder acceder con ssh a la instancia de proceso con la abreviatura que ha usado antes, `ssh azmlci1`.
-
-### <a name="connect-vs-code-to-the-instance"></a>Conexión de VS Code a la instancia
-
-1. Haga clic en el icono de Remote-SSH en la barra de actividades de Visual Studio Code para mostrar las configuraciones de SSH.
-
-1. Haga clic con el botón derecho en la configuración del host SSH que acaba de crear.
-
-1. Seleccione **Connect to Host in Current Window** (Conectar al host en la ventana actual). 
-
-Desde aquí, trabajará por completo en la instancia de proceso y ahora puede editar, depurar, usar git, usar extensiones, etc., al igual que con la instancia local de Visual Studio Code.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

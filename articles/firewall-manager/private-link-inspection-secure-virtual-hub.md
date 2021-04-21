@@ -7,14 +7,17 @@ ms.service: firewall-manager
 ms.topic: how-to
 ms.date: 04/02/2021
 ms.author: jocorte
-ms.openlocfilehash: a1237077b9e0a1af67d34c85d8ea8d526bd71372
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 7322bab635d398fc7a5335546ba6fef327ff24b2
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106281643"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259360"
 ---
 # <a name="secure-traffic-destined-to-private-endpoints-in-azure-virtual-wan"></a>Protección del tráfico destinado a puntos de conexión privados en Azure Virtual WAN
+
+> [!NOTE]
+> Este artículo solo se aplica a los centros virtuales protegidos. Si desea inspeccionar el tráfico destinado a puntos de conexión privados mediante Azure Firewall en una red virtual de centro, consulte [Uso de Azure Firewall para inspeccionar el tráfico destinado a un punto de conexión privado](../private-link/inspect-traffic-with-azure-firewall.md).
 
 Un [punto de conexión privado de Azure](../private-link/private-endpoint-overview.md) es el bloque de creación fundamental para [Azure Private Link](../private-link/private-link-overview.md). Los puntos de conexión privados permiten que los recursos de Azure implementados en una red virtual se comuniquen de forma privada con recursos de Private Link.
 

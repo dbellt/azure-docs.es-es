@@ -8,12 +8,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 02/04/2021
 ms.custom: devx-track-java
-ms.openlocfilehash: 16433d5b148d7bc441e375591c64af497cd7b8de
-ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
+ms.openlocfilehash: 90ee39039b0734bf434e7339a973358989c08175
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106505340"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107311369"
 ---
 # <a name="access-config-server-and-service-registry"></a>Acceso a Config Server y Service Registry
 
@@ -47,15 +47,15 @@ Después de asignar el rol Lector de datos de Azure Spring Cloud, los clientes p
     ```
 2. Cree el extremo. Se admiten los puntos de conexión predeterminados de Spring Cloud Config Server y Spring Cloud Service Registry administrados por Azure Spring Cloud. Para más información, consulte [Puntos de conexión listos para producción](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready-endpoints). Los clientes también pueden obtener una lista completa de los puntos de conexión admitidos de Spring Cloud Config Server y Spring Cloud Service Registry administrados por Azure Spring Cloud si acceden a los siguientes puntos de conexión:
 
-    * *https://SERVICE_NAME.svc.azuremicroservices.io/eureka/actuator/*
-    * *https://SERVICE_NAME.svc.azuremicroservices.io/config/actuator/* 
+    * *'https://SERVICE_NAME.svc.azuremicroservices.io/eureka/actuator/'*
+    * *'https://SERVICE_NAME.svc.azuremicroservices.io/config/actuator/'* 
 
 >[!NOTE]
 > Si usa Azure China, reemplace `*.azuremicroservices.io` por`*.microservices.azure.cn`, [más información](https://docs.microsoft.com/azure/china/resources-developer-guide#check-endpoints-in-azure).
 
 3. Acceda al punto de conexión creado con el token de acceso. Coloque el token de acceso en un encabezado para proporcionar autorización.  Solo se admite el método "GET".
 
-    Por ejemplo, acceda a un punto de conexión como *https://SERVICE_NAME.svc.azuremicroservices.io/eureka/actuator/health* para ver el estado de mantenimiento de Eureka.
+    Por ejemplo, acceda a un punto de conexión como *'https://SERVICE_NAME.svc.azuremicroservices.io/eureka/actuator/health '* para ver el estado de mantenimiento de Eureka.
 
     Si la respuesta es *401 no autorizado*, compruebe si el rol se ha asignado correctamente.  El rol tardará varios minutos en surtir efecto o bien, compruebe que el token de acceso no ha expirado.
 

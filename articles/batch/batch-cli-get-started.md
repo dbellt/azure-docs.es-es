@@ -4,12 +4,12 @@ description: Obtenga una introducción rápida a los comandos de Batch en la CLI
 ms.topic: how-to
 ms.date: 07/24/2018
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: bee25d9b8985f1627a5cfc05bfb336b83be60f74
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: befe2f6fe67ce7c2c4bb61153344103ee2aa70cb
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92144758"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107768440"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Administración de recursos de Batch con la CLI de Azure
 
@@ -54,7 +54,7 @@ Hay varias maneras diferentes de iniciar sesión en Azure, las cuales se describ
 1. [Inicie sesión de forma interactiva](/cli/azure/authenticate-azure-cli). Inicie sesión de forma interactiva cuando ejecute comandos de la CLI de Azure desde la línea de comandos.
 2. [Inicie sesión con una entidad de servicio](/cli/azure/authenticate-azure-cli). Inicie sesión con una entidad de servicio cuando ejecute comandos de la CLI de Azure desde un script o una aplicación.
 
-Para este artículo, se muestra cómo iniciar sesión de forma interactiva en Azure. Escriba [az login](/cli/azure/reference-index#az-login) en la línea de comandos:
+Para este artículo, se muestra cómo iniciar sesión de forma interactiva en Azure. Escriba [az login](/cli/azure/reference-index#az_login) en la línea de comandos:
 
 ```azurecli
 # Log in to Azure and authenticate interactively.
@@ -69,7 +69,7 @@ Los ejemplos en la sección Scripts de shell de ejemplo también muestran cómo 
 
 ### <a name="log-in-to-your-batch-account"></a>Inicio de sesión en la cuenta de Batch
 
-Para usar la CLI de Azure para administrar recursos de Batch, como grupos, trabajos y tareas, debe iniciar sesión en su cuenta de Batch y autenticarse. Para iniciar sesión en el servicio Batch, use el comando [az batch account login](/cli/azure/batch/account#az-batch-account-login). 
+Para usar la CLI de Azure para administrar recursos de Batch, como grupos, trabajos y tareas, debe iniciar sesión en su cuenta de Batch y autenticarse. Para iniciar sesión en el servicio Batch, use el comando [az batch account login](/cli/azure/batch/account#az_batch_account_login). 
 
 Tiene dos opciones para autenticarse en su cuenta de Batch:
 
@@ -81,7 +81,7 @@ Tiene dos opciones para autenticarse en su cuenta de Batch:
 
     Una ventaja de Azure AD es que ofrece control de acceso basado en roles de Azure (Azure RBAC). Con Azure RBAC, el acceso de un usuario depende de su rol asignado, y no de si posee o no las claves de cuenta. En lugar de administrar claves de cuenta, puede administrar roles de Azure y dejar que Azure AD se encargue del acceso y la autenticación.  
 
-     Para iniciar sesión en su cuenta de Batch con Azure AD, llame al comando [az batch account login](/cli/azure/batch/account#az-batch-account-login): 
+     Para iniciar sesión en su cuenta de Batch con Azure AD, llame al comando [az batch account login](/cli/azure/batch/account#az_batch_account_login): 
 
     ```azurecli
     az batch account login -g myresource group -n mybatchaccount

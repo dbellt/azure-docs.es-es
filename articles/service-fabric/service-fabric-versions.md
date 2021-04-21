@@ -3,12 +3,12 @@ title: Actualización de la versión del clúster de Azure Service Fabric
 description: Obtenga información sobre las versiones de clúster en Azure Service Fabric, incluido un vínculo a las versiones más recientes del blog del equipo de Service Fabric.
 ms.topic: troubleshooting
 ms.date: 06/15/2020
-ms.openlocfilehash: 3e859a04ffb0b885aab0f31e83afad8380cbcc95
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1f06d7cb5f8fa1182969447168dfb4297473075a
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103010208"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257541"
 ---
 # <a name="upgrade-your-azure-service-fabric-cluster-version"></a>Actualización de la versión del clúster de Azure Service Fabric
 
@@ -85,14 +85,15 @@ Las versiones de Service Fabric de la tabla contienen los cambios necesarios par
 
  | SO | Entorno de ejecución actual de Service Fabric en el clúster | Versión de revisión/actualización acumulativa |
   | --- | --- |--- |
-  | Windows | 7.0.* | 7.0.478.9590 |
   | Windows | 7.1.* | 7.1.503.9590 |
-  | Windows | 7.2.* | 7.2.* |
-  | Linux Ubuntu 16.04 | 7.0.* | 7.0.472.1  |
+  | Windows | 7.2.* | 7.2.477.9590 |
+  | Windows | 8.0.* | 8.0.514.9590 |
   | Linux Ubuntu 16.04 | 7.1.* | 7.1.455.1  |
   | Linux Ubuntu 18.04 | 7.1.* | 7.1.455.1804 |
-  | Linux Ubuntu 16.04 | 7.2.* | 7.2.* |
-  | Linux Ubuntu 18.04 | 7.2.* | 7.2.* |
+  | Linux Ubuntu 16.04 | 7.2.* | 7.2.476.1 |
+  | Linux Ubuntu 18.04 | 7.2.* | 7.2.476.1804 |
+  | Linux Ubuntu 16.04 | 8.0.* | 8.0.513.1 |
+  | Linux Ubuntu 18.04 | 8.0.* | 8.0.513.1804 |
 
 ## <a name="supported-versions"></a>Versiones compatibles
 
@@ -125,13 +126,14 @@ En la tabla siguiente se indican las versiones de Service Fabric y sus fechas de
 | 7.1.459.* | 7.0.466.* |Versión 4.1 o anterior |31 de julio de 2021 |
 | 7.1.503.* | 7.0.466.* |Versión 4.1 o anterior |31 de julio de 2021 |
 | 7.1.510.* | 7.0.466.* |Versión 4.1 o anterior |31 de julio de 2021 |
-| 7.2.413.* | 7.0.470.* |Versión 4.2 o anterior |Versión actual; por lo tanto, sin fecha de finalización |
-| 7.2.432.* | 7.0.470.* |Versión 4.2 o anterior |Versión actual; por lo tanto, sin fecha de finalización |
-| 7.2.433.* | 7.0.470.* |Versión 4.2 o anterior |Versión actual; por lo tanto, sin fecha de finalización |
-| 7.2.445.* | 7.0.470.* |Versión 4.2 o anterior |Versión actual; por lo tanto, sin fecha de finalización |
-| 7.2.452.* | 7.0.470.* |Versión 4.2 o anterior |Versión actual; por lo tanto, sin fecha de finalización |
-| 7.2.457.* | 7.0.470.* |Versión 4.2 o anterior |Versión actual; por lo tanto, sin fecha de finalización |
-| 7.2.477.* | 7.0.478.* |Versión 4.2 o anterior |Versión actual; por lo tanto, sin fecha de finalización |
+| 7.2.413.* | 7.0.470.* |Versión 4.2 o anterior |30 de noviembre de 2021 |
+| 7.2.432.* | 7.0.470.* |Versión 4.2 o anterior |30 de noviembre de 2021 |
+| 7.2.433.* | 7.0.470.* |Versión 4.2 o anterior |30 de noviembre de 2021 |
+| 7.2.445.* | 7.0.470.* |Versión 4.2 o anterior |30 de noviembre de 2021 |
+| 7.2.452.* | 7.0.470.* |Versión 4.2 o anterior |30 de noviembre de 2021 |
+| 7.2.457.* | 7.0.470.* |Versión 4.2 o anterior |30 de noviembre de 2021 |
+| 7.2.477.* | 7.0.478.* |Versión 4.2 o anterior |30 de noviembre de 2021 |
+| 8.0.514.* | 7.1.510.* |Versión 5.0 o anterior |Versión actual; por lo tanto, sin fecha de finalización |
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos admitidos
 
@@ -216,3 +218,4 @@ En la tabla siguiente se indican los nombres de versión de Service Fabric y sus
 | 7.2 CU5 | 7.2.452.9590 | 7.2.454.1 |
 | 7.2 CU6 | 7.2.457.9590 | 7.2.456.1 |
 | 7.2 CU7 | 7.2.477.9590 | 7.2.476.1 |
+| 8.0 RTO | 8.0.514.9590 | 8.0.513.1 |

@@ -1,5 +1,5 @@
 ---
-title: Colecciones (versión preliminar) en el portal Aplicaciones - Azure AD
+title: 'Organice las aplicaciones en colecciones en el portal Aplicaciones: Azure AD'
 description: Obtenga información sobre cómo crear, editar, eliminar, ocultar y mostrar colecciones de aplicaciones en Aplicaciones.
 services: active-directory
 author: curtand
@@ -8,22 +8,20 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 01/19/2021
+ms.date: 04/07/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 843f957ef8871f6372c1b08a5534f6e90098cc85
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7ac5dede27262d3ce8bc44b4b278ed623063f8e1
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100095127"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107209670"
 ---
-# <a name="user-collections-preview-in-my-apps"></a>Colecciones (versión preliminar) para usuarios en Aplicaciones
+# <a name="organize-apps-using-collections-from-my-apps"></a>Organice las aplicaciones con las colecciones de Aplicaciones
 
 El portal Aplicaciones es una tienda integral donde puede lanzar y administrar todas sus aplicaciones profesionales o educativas. Cree colecciones para organizar las aplicaciones y encontrar fácilmente las aplicaciones que necesite.
-
-[!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-and-workspaces.md)]
 
 En este artículo, aprenderá a:
 
@@ -55,7 +53,7 @@ En este artículo, aprenderá a:
 
     :::image type="content" source="media/my-apps-portal-user-collections/3-add-apps.png" alt-text="Agregar aplicaciones de la lista a la colección":::
 
-1. En la siguiente pantalla puede reordenar o eliminar aplicaciones, o bien seleccionar **Add apps** (Agregar aplicaciones) con el fin de seleccionar más aplicaciones para la colección. Cuando lo tenga todo listo, seleccione **Create new** (Crear nuevo).  
+1. En el panel **Crear nuevo**, puede reordenar o eliminar aplicaciones, o puede seleccionar **Agregar aplicaciones** para agregar aplicaciones a la colección. Cuando lo tenga todo listo, seleccione **Create new** (Crear nuevo).  
 
     :::image type="content" source="media/my-apps-portal-user-collections/4-create-button.png" alt-text="Seleccione el botón Create new (Crear nuevo) para guardar la colección en Aplicaciones":::
 
@@ -87,7 +85,7 @@ Solo puede editar las colecciones que creó. Para editar una colección que ya h
 
     :::image type="content" source="media/my-apps-portal-user-collections/9-manage-apps-again.png" alt-text="Use el comando Manage (Administrar) para administrar las aplicaciones":::
 
-1. Aquí puede establecer el orden en que las colecciones aparecen en Aplicaciones. La colección situada en la parte superior de la lista será la colección predeterminada que verá cada vez que vaya a myapps.microsoft.com.  
+1. Aquí puede establecer el orden en que las colecciones aparecen en Aplicaciones. La colección situada en la parte superior de la lista será la colección predeterminada que verá cada vez que visite myapps.microsoft.com.  
 
     :::image type="content" source="media/my-apps-portal-user-collections/10-default-collection.png" alt-text="Aplicaciones contiene ahora la nueva colección":::
 

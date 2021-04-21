@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: overview
 ms.date: 10/05/2020
 ms.author: duau
-ms.openlocfilehash: 82562eae748753cd785851c5d91f5f152b4c9960
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e1cef56d15838d80079decc6e1da7ad830bd1cd9
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92206958"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107029767"
 ---
 # <a name="what-is-azure-expressroute"></a>¿Qué es Azure ExpressRoute?
 ExpressRoute le permite ampliar las redes locales a la nube de Microsoft mediante una conexión privada con la ayuda de un proveedor de conectividad. Con ExpressRoute, puede establecer conexiones con servicios en la nube de Microsoft, como Microsoft Azure y Microsoft 365.
@@ -20,6 +20,10 @@ ExpressRoute le permite ampliar las redes locales a la nube de Microsoft mediant
 La conectividad puede ser desde una red de conectividad universal (IP VPN), una red Ethernet de punto a punto o una conexión cruzada virtual a través de un proveedor de conectividad en una instalación de ubicación compartida. Las conexiones de ExpressRoute no pasan por la red pública de Internet. Esto permite a las conexiones de ExpressRoute ofrecer más confiabilidad, más velocidad, latencia coherentes y mayor seguridad que las conexiones normales a través de Internet. Para información sobre cómo conectar la red a Microsoft mediante ExpressRoute, consulte [ExpressRoute connectivity models](expressroute-connectivity-models.md) (Modelos de conectividad de ExpressRoute).
 
 ![Introducción a la conexión de ExpressRoute](./media/expressroute-introduction/expressroute-connection-overview.png)
+
+> [!NOTE]
+> En el contexto de ExpressRoute, Microsoft Edge describe los enrutadores perimetrales en el lado de Microsoft del circuito ExpressRoute. Este es el punto de entrada del circuito ExpressRoute a la red de Microsoft.
+> 
 
 ## <a name="key-benefits"></a>Ventajas principales
 
@@ -88,7 +92,7 @@ Para obtener más información, consulte [Acerca de ExpressRoute Direct](./expre
 Puede comprar los circuitos ExpressRoute para una amplia gama de anchos de banda. A continuación se enumera la lista de anchos de banda admitidos. Asegúrese de consultar a su proveedor de conectividad para determinar la lista de anchos de banda admitidos que proporcionan.
 
 * 50 Mbps
-* 100 Mbps
+* 100 Mbps
 * 200 Mbps
 * 500 Mbps
 * 1 Gbps

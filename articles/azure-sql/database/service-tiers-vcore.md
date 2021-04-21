@@ -10,12 +10,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
 ms.date: 01/15/2021
-ms.openlocfilehash: 499e0aa1ee451969923dbdf5f84be1c844a9aab4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3bd617f052d52339ae35e5a088c6ee85b797fb48
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101659348"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107779190"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>Información general del modelo de núcleo virtual: Azure SQL Database y Azure SQL Managed Instance 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -194,7 +194,7 @@ Use el siguiente comando de la CLI:
 az sql mi update -g mygroup -n myinstance --family Gen5
 ```
 
-Para más información, vea el comando [az sql mi update](/cli/azure/sql/mi#az-sql-mi-update).
+Para más información, vea el comando [az sql mi update](/cli/azure/sql/mi#az_sql_mi_update).
 
 ---
 

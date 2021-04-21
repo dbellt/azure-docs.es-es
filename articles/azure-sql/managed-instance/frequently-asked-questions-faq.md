@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 09/21/2020
-ms.openlocfilehash: 9faaf79958443c252a8d913fbd7448389c610e09
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 16f937286b967aaea8ec6a16e97835b2de5a0331
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105628584"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765510"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Preguntas frecuentes acerca de Instancia administrada de Azure SQL (P+F)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -94,7 +94,7 @@ Se trata de una limitación actual del componente subyacente que comprueba el no
 
 **¿Cómo puedo escalar mi instancia administrada?**
 
-Puede escalar la instancia administrada desde [Azure Portal](../database/service-tiers-vcore.md?tabs=azure-portal#selecting-a-hardware-generation), [PowerShell](/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell), la [CLI de Azure](/cli/azure/sql/mi#az-sql-mi-update) o las [plantillas de ARM](/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates).
+Puede escalar la instancia administrada desde [Azure Portal](../database/service-tiers-vcore.md?tabs=azure-portal#selecting-a-hardware-generation), [PowerShell](/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell), la [CLI de Azure](/cli/azure/sql/mi#az_sql_mi_update) o las [plantillas de ARM](/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates).
 
 **¿Puedo trasladar mi instancia administrada de una región a otra?**
 
@@ -102,7 +102,7 @@ Sí, puede hacerlo. Para obtener instrucciones, consulte [Traslado de recursos e
 
 **¿Cómo puedo eliminar mi instancia administrada?**
 
-Puede eliminar instancias administradas desde Azure Portal, [PowerShell](/powershell/module/az.sql/remove-azsqlinstance), la [CLI de Azure](/cli/azure/sql/mi#az-sql-mi-delete) o las [API REST de Resource Manager](/rest/api/sql/managedinstances/delete).
+Puede eliminar instancias administradas desde Azure Portal, [PowerShell](/powershell/module/az.sql/remove-azsqlinstance), la [CLI de Azure](/cli/azure/sql/mi#az_sql_mi_delete) o las [API REST de Resource Manager](/rest/api/sql/managedinstances/delete).
 
 **¿Cuánto tiempo se tarda en crear o actualizar una instancia, o en restaurar una base de datos?**
 
