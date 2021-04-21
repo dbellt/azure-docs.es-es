@@ -7,12 +7,12 @@ ms.author: msangapu
 keywords: azure app service, web app, linux, windows, docker, container
 ms.custom: devx-track-csharp, mvc, seodec18, devx-track-python, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 5d3a714230f0279bd68b39cd02624866b9b3bacf
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 0770b46a60f497d3a3da772e7be13ece0526eca0
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102180520"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765710"
 ---
 # <a name="migrate-custom-software-to-azure-app-service-using-a-custom-container"></a>Migración de software personalizado a Azure App Service mediante un contenedor personalizado
 
@@ -211,7 +211,7 @@ Los registros transmitidos tienen este aspecto:
 
 ::: zone pivot="container-linux"
 
-Azure App Service usa la tecnología de contenedores de Docker para hospedar imágenes integradas e imágenes personalizadas. Para ver una lista de imágenes integradas, ejecute el comando de la CLI de Azure ['az webapp list-runtimes --linux'](/cli/azure/webapp#az-webapp-list-runtimes). Si esas imágenes no satisfacen sus necesidades, puede crear e implementar una imagen personalizada.
+Azure App Service usa la tecnología de contenedores de Docker para hospedar imágenes integradas e imágenes personalizadas. Para ver una lista de imágenes integradas, ejecute el comando de la CLI de Azure ['az webapp list-runtimes --linux'](/cli/azure/webapp#az_webapp_list_runtimes). Si esas imágenes no satisfacen sus necesidades, puede crear e implementar una imagen personalizada.
 
 En este tutorial, aprenderá a:
 
@@ -333,7 +333,7 @@ ENTRYPOINT ["init.sh"]
 
 En esta sección y en las siguientes, se aprovisionan los recursos de Azure en los que se inserta la imagen y, a continuación, se implementa un contenedor en Azure App Service. Para empezar, cree un grupo de recursos en el que recopilar todos estos recursos.
 
-Ejecute el comando [az group create](/cli/azure/group#az-group-create) para crear un grupo de recursos:
+Ejecute el comando [az group create](/cli/azure/group#az_group_create) para crear un grupo de recursos:
 
 ```azurecli-interactive
 az group create --name AppSvc-DockerTutorial-rg --location westus2
@@ -345,7 +345,7 @@ Puede cambiar el valor de `--location` para especificar una región cercana.
 
 En esta sección, va a insertar la imagen en Azure Container Registry desde la que App Service puede implementarla.
 
-1. Ejecute el comando [`az acr create`](/cli/azure/acr#az-acr-create) para crear una instancia de Azure Container Registry:
+1. Ejecute el comando [`az acr create`](/cli/azure/acr#az_acr_create) para crear una instancia de Azure Container Registry:
 
     ```azurecli-interactive
     az acr create --name <registry-name> --resource-group AppSvc-DockerTutorial-rg --sku Basic --admin-enabled true
@@ -353,7 +353,7 @@ En esta sección, va a insertar la imagen en Azure Container Registry desde la q
     
     Reemplace `<registry-name>` por un nombre único para el registro. El nombre debe contener solo letras y números, y debe ser único en todo Azure.
 
-1. Ejecute el comando [`az acr show`](/cli/azure/acr#az-acr-show) para recuperar las credenciales para el registro:
+1. Ejecute el comando [`az acr show`](/cli/azure/acr#az_acr_show) para recuperar las credenciales para el registro:
 
     ```azurecli-interactive
     az acr credential show --resource-group AppSvc-DockerTutorial-rg --name <registry-name>
@@ -400,7 +400,7 @@ En esta sección, va a insertar la imagen en Azure Container Registry desde la q
 
 Para implementar un contenedor en Azure App Service, primero debe crear una aplicación web en App Service y luego conectarla al registro de contenedor. Cuando se inicia la aplicación web, App Service extrae automáticamente la imagen del registro.
 
-1. Cree un plan de App Service mediante el comando [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create):
+1. Cree un plan de App Service mediante el comando [`az appservice plan create`](/cli/azure/appservice/plan#az_appservice_plan_create):
 
     ```azurecli-interactive
     az appservice plan create --name AppSvc-DockerTutorial-plan --resource-group AppSvc-DockerTutorial-rg --is-linux
@@ -408,7 +408,7 @@ Para implementar un contenedor en Azure App Service, primero debe crear una apli
 
     Un plan de App Service corresponde a la máquina virtual que hospeda la aplicación web. De forma predeterminada, el comando anterior usa un [plan de tarifa B1](https://azure.microsoft.com/pricing/details/app-service/linux/) económico que es gratuito durante el primer mes. Puede controlar el plan con el parámetro `--sku`.
 
-1. Cree la aplicación web con el comando [`az webpp create`](/cli/azure/webapp#az-webapp-create):
+1. Cree la aplicación web con el comando [`az webpp create`](/cli/azure/webapp#az_webapp_create):
 
     ```azurecli-interactive
     az webapp create --resource-group AppSvc-DockerTutorial-rg --plan AppSvc-DockerTutorial-plan --name <app-name> --deployment-container-image-name <registry-name>.azurecr.io/appsvc-tutorial-custom-image:latest
@@ -416,7 +416,7 @@ Para implementar un contenedor en Azure App Service, primero debe crear una apli
     
     Reemplace `<app-name>` por un nombre para la aplicación web, el cual debe ser único en todo Azure. Reemplace también `<registry-name>` por el nombre del registro de la sección anterior.
 
-1. Use [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) para establecer la variable de entorno `WEBSITES_PORT` según lo esperado por el código de la aplicación: 
+1. Use [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) para establecer la variable de entorno `WEBSITES_PORT` según lo esperado por el código de la aplicación: 
 
     ```azurecli-interactive
     az webapp config appsettings set --resource-group AppSvc-DockerTutorial-rg --name <app-name> --settings WEBSITES_PORT=8000
@@ -426,7 +426,7 @@ Para implementar un contenedor en Azure App Service, primero debe crear una apli
     
     Para más información sobre esta variable de entorno, consulte el archivo [Léame del repositorio de GitHub del ejemplo](https://github.com/Azure-Samples/docker-django-webapp-linux).
 
-1. Habilite la [identidad administrada](./overview-managed-identity.md) para la aplicación web mediante el comando [`az webapp identity assign`](/cli/azure/webapp/identity#az-webapp-identity-assign):
+1. Habilite la [identidad administrada](./overview-managed-identity.md) para la aplicación web mediante el comando [`az webapp identity assign`](/cli/azure/webapp/identity#az_webapp_identity-assign):
 
     ```azurecli-interactive
     az webapp identity assign --resource-group AppSvc-DockerTutorial-rg --name <app-name> --query principalId --output tsv
@@ -436,7 +436,7 @@ Para implementar un contenedor en Azure App Service, primero debe crear una apli
 
     La identidad administrada le permite conceder permisos a la aplicación web para acceder a otros recursos de Azure sin necesidad de credenciales específicas.
 
-1. Recupere el identificador de la suscripción con el comando [`az account show`](/cli/azure/account#az-account-show) que necesitará en el paso siguiente:
+1. Recupere el identificador de la suscripción con el comando [`az account show`](/cli/azure/account#az_account_show) que necesitará en el paso siguiente:
 
     ```azurecli-interactive
     az account show --query id --output tsv
@@ -459,7 +459,7 @@ Para más información acerca de estos permisos, consulte [¿Qué es el control 
 
 Puede completar estos pasos una vez que la imagen se inserte en el registro de contenedor y la instancia de App Service esté totalmente aprovisionada.
 
-1. Use el comando [`az webapp config container set`](/cli/azure/webapp/config/container#az-webapp-config-container-set) para especificar el registro de contenedor y la imagen que se vaya a implementar para la aplicación web:
+1. Use el comando [`az webapp config container set`](/cli/azure/webapp/config/container#az_webapp_config_container_set) para especificar el registro de contenedor y la imagen que se vaya a implementar para la aplicación web:
 
     ```azurecli-interactive
     az webapp config container set --name <app-name> --resource-group AppSvc-DockerTutorial-rg --docker-custom-image-name <registry-name>.azurecr.io/appsvc-tutorial-custom-image:latest --docker-registry-server-url https://<registry-name>.azurecr.io

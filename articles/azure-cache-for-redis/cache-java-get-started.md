@@ -2,18 +2,23 @@
 title: 'Inicio rápido: Uso de Azure Cache for Redis con Java'
 description: En este inicio rápido, creará una nueva aplicación Java que utiliza Azure Redis Cache.
 author: yegu-ms
+ms.author: yegu
+ms.date: 05/22/2020
+ms.topic: quickstart
 ms.service: cache
 ms.devlang: java
-ms.topic: quickstart
-ms.date: 05/22/2020
-ms.author: yegu
-ms.custom: mvc, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 856f33875316eca8b3c16f28c6c222f42e0a0be5
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.custom:
+- mvc
+- seo-java-august2019
+- seo-java-september2019
+- devx-track-java
+- mode-api
+ms.openlocfilehash: 7128ff1e20439c57d3e6212f29e6f871997584c6
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102121276"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107538603"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-java"></a>Inicio rápido: Uso de Azure Cache for Redis con Java
 
