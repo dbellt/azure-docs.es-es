@@ -3,13 +3,15 @@ title: 'Inicio rápido: Creación de una consulta compartida con plantillas'
 description: En este inicio rápido, se usa una plantilla de Azure Resource Manager para crear una consulta compartida de Resource Graph que cuenta las máquinas virtuales por sistema operativo.
 ms.date: 02/05/2021
 ms.topic: quickstart
-ms.custom: subject-armqs
-ms.openlocfilehash: 8d631ffcb14af93f10e578097470efc6156287d5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom:
+- subject-armqs
+- mode-arm
+ms.openlocfilehash: ac736d4371531bb38a8cd2cf095acbdfbc7c08a1
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99594323"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535780"
 ---
 # <a name="quickstart-create-a-shared-query-by-using-an-arm-template"></a>Inicio rápido: Creación de una consulta compartida mediante una plantilla de Resource Manager
 
@@ -50,7 +52,7 @@ El recurso definido en la plantilla es el siguiente:
 
    | Nombre | Value |
    |------|-------|
-   | Subscription | Seleccione su suscripción a Azure. |
+   | Suscripción | Seleccione su suscripción a Azure. |
    | Resource group | Seleccione **Crear**, especifique un nombre y seleccione **Aceptar**. |
    | Location | Seleccione una región. Por ejemplo, **Centro de EE. UU**. |
    | Nombre de la consulta | Deje el valor predeterminado: **Número de máquinas virtuales por sistema operativo**. |

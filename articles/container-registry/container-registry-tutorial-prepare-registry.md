@@ -4,12 +4,12 @@ description: Crear un registro de contenedor de Azure, configurar la replicació
 ms.topic: tutorial
 ms.date: 06/30/2020
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 6abf1b7a524bc7dd28f1704a362749ac84de2389
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c5f5627462f016c857d956be46c276dda78e9b2b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97826076"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780666"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Tutorial: Preparar un registro de contenedor de Azure con replicación geográfica
 
@@ -98,7 +98,7 @@ Vaya al nuevo registro de contenedor de Azure Portal y seleccione **Claves de ac
 
 Ahora que ha configurado la replicación geográfica, compile una imagen de contenedor e insértela en el registro. Primero tiene que iniciar sesión en el registro antes de insertar imágenes en él.
 
-Use el comando [az acr login](/cli/azure/acr#az-acr-login) para autenticarse y almacenar en caché las credenciales del registro. Reemplace `<acrName>` por el nombre del registro que creó anteriormente.
+Use el comando [az acr login](/cli/azure/acr#az_acr_login) para autenticarse y almacenar en caché las credenciales del registro. Reemplace `<acrName>` por el nombre del registro que creó anteriormente.
 
 ```azurecli
 az acr login --name <acrName>

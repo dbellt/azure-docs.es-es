@@ -4,12 +4,12 @@ description: Aprenda a crear una función de JavaScript desde la línea de coman
 ms.date: 11/03/2020
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c9810b1eb9e5f6bc65843d65f2f2452eac1be703
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b8db78e56087e7cb777d1aa85391d4b6ac2aae27
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102447323"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107787546"
 ---
 # <a name="quickstart-create-a-javascript-function-in-azure-from-the-command-line"></a>Inicio rápido: Creación de una función de JavaScript en Azure desde la línea de comandos
 
@@ -118,7 +118,7 @@ Cada enlace requiere una dirección, un tipo y un nombre único. El desencadenad
     az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location westeurope --runtime node --runtime-version 12 --functions-version 3 --name <APP_NAME> --storage-account <STORAGE_NAME>
     ```
     
-    El comando [az functionapp create](/cli/azure/functionapp#az-functionapp-create) crea la aplicación de funciones en Azure. Si usa Node.js 10, cambie también `--runtime-version` a `10`.
+    El comando [az functionapp create](/cli/azure/functionapp#az_functionapp_create) crea la aplicación de funciones en Azure. Si usa Node.js 10, cambie también `--runtime-version` a `10`.
     
     # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
     

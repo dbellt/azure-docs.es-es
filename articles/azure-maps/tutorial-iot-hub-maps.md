@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 91556087cd3e7ccd85550c721f70b8608fdc4ffd
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 9ebc6e266c93e55bc250e8450356f8b695dd9080
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106168457"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107714999"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-by-using-azure-maps"></a>Tutorial: Implementación del análisis espacial de IoT mediante Azure Maps
 
@@ -95,7 +95,7 @@ La siguiente ilustración resalta el área de geovalla en azul. La ruta del veh�
 
 ## <a name="create-an-azure-storage-account"></a>Creación de una cuenta de Azure Storage
 
-Para almacenar datos de seguimiento de infracciones de automóvil, cree una [cuenta de almacenamiento de uso general v2](../storage/common/storage-account-overview.md#general-purpose-v2-accounts) en el grupo de recursos. Si no ha creado un grupo de recursos, siga las instrucciones que se indican en [Crear grupos de recursos](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups). En este tutorial, el grupo de recursos se llamará *ContosoRental*.
+Para almacenar datos de seguimiento de infracciones de automóvil, cree una [cuenta de almacenamiento de uso general v2](../storage/common/storage-account-overview.md) en el grupo de recursos. Si no ha creado un grupo de recursos, siga las instrucciones que se indican en [Crear grupos de recursos](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups). En este tutorial, el grupo de recursos se llamará *ContosoRental*.
 
 Para crear una cuenta de almacenamiento, siga las instrucciones de [Creación de una cuenta de almacenamiento](../storage/common/storage-account-create.md?tabs=azure-portal). En este tutorial, la cuenta de almacenamiento se llamará *contosorentalstorage*, pero puede asignarle el nombre que quiera.
 

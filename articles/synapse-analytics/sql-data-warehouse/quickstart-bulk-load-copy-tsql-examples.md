@@ -2,19 +2,19 @@
 title: Mecanismos de autenticación con la instrucción COPY
 description: Describe los mecanismos de autenticación para la carga masiva de datos
 services: synapse-analytics
-author: gaursa
+author: julieMSFT
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: sql-dw
 ms.date: 07/10/2020
-ms.author: gaursa
+ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 70e8f15b2b02008f24c87cfe70372fccbf0506fd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 510f2556fba42176817b782fe48d01d76eaa3fd7
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104600129"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107568461"
 ---
 # <a name="securely-load-data-using-synapse-sql"></a>Carga de datos de forma segura mediante el uso de Synapse SQL
 

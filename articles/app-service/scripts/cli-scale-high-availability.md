@@ -9,12 +9,12 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18, devx-track-azurecli
-ms.openlocfilehash: 9c1c4ad16a491f7e868a395fa5c36d9605348cdb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 089ab9d6b3c0f678c2a200872a0da4160fa6292a
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97005705"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107787677"
 ---
 # <a name="scale-an-app-service-app-worldwide-with-a-high-availability-architecture-using-azure-cli"></a>Escalado de una aplicación de App Service en todo el mundo con una arquitectura de alta disponibilidad con la CLI de Azure
 
@@ -38,11 +38,11 @@ Este script usa los siguientes comandos para crear un grupo de recursos, una apl
 
 | Get-Help | Notas |
 |---|---|
-| [`az group create`](/cli/azure/group#az-group-create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
-| [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create) | Crea un plan de App Service, |
-| [`az webapp create`](/cli/azure/webapp#az-webapp-create) | Crea una aplicación de App Service. |
-| [`az network traffic-manager profile create`](/cli/azure/network/traffic-manager/profile#az-network-traffic-manager-profile-create) | Crea un perfil de Azure Traffic Manager. |
-| [`az network traffic-manager endpoint create`](/cli/azure/network/traffic-manager/endpoint#az-network-traffic-manager-endpoint-create) | Agrega un punto de conexión a un perfil de Azure Traffic Manager. |
+| [`az group create`](/cli/azure/group#az_group_create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
+| [`az appservice plan create`](/cli/azure/appservice/plan#az_appservice_plan_create) | Crea un plan de App Service, |
+| [`az webapp create`](/cli/azure/webapp#az_webapp_create) | Crea una aplicación de App Service. |
+| [`az network traffic-manager profile create`](/cli/azure/network/traffic-manager/profile#az_network_traffic_manager_profile_create) | Crea un perfil de Azure Traffic Manager. |
+| [`az network traffic-manager endpoint create`](/cli/azure/network/traffic-manager/endpoint#az_network_traffic-manager_endpoint_create) | Agrega un punto de conexión a un perfil de Azure Traffic Manager. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/29/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb14a6a82535ac5a7d36213b082d08aedbb44da5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 585e31ab566cc990af2819fcf9cdde0506560208
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99090627"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780180"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>Configuración de identidades administradas de recursos de Azure en un conjunto de escalado de máquinas virtuales mediante llamadas a la API REST
 
@@ -60,13 +60,13 @@ En esta sección, aprenderá a habilitar y deshabilitar una identidad administra
 
 Para crear un conjunto de escalado de máquinas virtuales con la identidad administrada asignada por el sistema habilitada, debe crear un conjunto de escalado de máquinas virtuales y recuperar un token de acceso para usar CURL y llamar al punto de conexión de Resource Manager con el valor del tipo de identidad administrada asignada por el sistema.
 
-1. Cree un [grupo de recursos](../../azure-resource-manager/management/overview.md#terminology) para contener e implementar el conjunto de escalado de máquinas virtuales y sus recursos relacionados, con [az group create](/cli/azure/group/#az-group-create). Puede omitir este paso si ya tiene un grupo de recursos que le gustaría usar en su lugar:
+1. Cree un [grupo de recursos](../../azure-resource-manager/management/overview.md#terminology) para contener e implementar el conjunto de escalado de máquinas virtuales y sus recursos relacionados, con [az group create](/cli/azure/group/#az_group_create). Puede omitir este paso si ya tiene un grupo de recursos que le gustaría usar en su lugar:
 
    ```azurecli-interactive 
    az group create --name myResourceGroup --location westus
    ```
 
-2. Cree una [interfaz de red](/cli/azure/network/nic#az-network-nic-create) para el conjunto de escalado de máquinas virtuales:
+2. Cree una [interfaz de red](/cli/azure/network/nic#az_network_nic_create) para el conjunto de escalado de máquinas virtuales:
 
    ```azurecli-interactive
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic
@@ -325,7 +325,7 @@ En esta sección, aprenderá a agregar y quitar una identidad administrada asign
    az account get-access-token
    ```
 
-2. Cree una [interfaz de red](/cli/azure/network/nic#az-network-nic-create) para el conjunto de escalado de máquinas virtuales:
+2. Cree una [interfaz de red](/cli/azure/network/nic#az_network_nic_create) para el conjunto de escalado de máquinas virtuales:
 
    ```azurecli-interactive
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic

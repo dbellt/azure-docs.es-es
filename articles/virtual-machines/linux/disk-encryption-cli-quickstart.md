@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.topic: quickstart
 ms.date: 05/17/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: b600c895f98c46dbaafce7deef86bbbee8f57c99
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5b98fde5e15a3c57b56ecc8aea60023ffb8c22a8
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102561048"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107774312"
 ---
 # <a name="quickstart-create-and-encrypt-a-linux-vm-with-the-azure-cli"></a>Inicio rápido: Creación y cifrado de una máquina virtual Linux con la CLI de Azure
 
@@ -26,7 +26,7 @@ Si decide instalar y usar la CLI de Azure localmente, para este inicio rápido e
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Para crear un grupo de recursos, use el comando [az group create](/cli/azure/group#az-group-create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*:
+Para crear un grupo de recursos, use el comando [az group create](/cli/azure/group#az_group_create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*:
 
 ```azurecli-interactive
 az group create --name "myResourceGroup" --location "eastus"
@@ -79,7 +79,7 @@ Cifre su máquina virtual con [az vm encryption](/cli/azure/vm/encryption), que 
 az vm encryption enable -g "MyResourceGroup" --name "myVM" --disk-encryption-keyvault "<your-unique-keyvault-name>"
 ```
 
-Tras unos instantes, el proceso devolverá "The encryption request was accepted. Please use 'show' command to monitor the progress". El comando "show" es [az vm show](/cli/azure/vm/encryption#az-vm-encryption-show).
+Tras unos instantes, el proceso devolverá "The encryption request was accepted. Please use 'show' command to monitor the progress". El comando "show" es [az vm show](/cli/azure/vm/encryption#az_vm_encryption_show).
 
 ```azurecli-interactive
 az vm encryption show --name "myVM" -g "MyResourceGroup"

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/10/2021
 ms.author: memildin
-ms.openlocfilehash: fb8dc22c923b7b53a6263baa43046862af4d2f04
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 284a7f532ed918397fe1cfcf3458bbc6fb0bdd32
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100370278"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739015"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>Tutorial: Mejora del cumplimiento normativo
 
@@ -26,7 +26,7 @@ Azure Security Center resulta de gran ayuda para simplificar el proceso necesari
 
 Security Center evalúa continuamente el entorno de nube híbrida para analizar los factores de riesgo con arreglo a los controles y los procedimientos recomendados establecidos en los estándares que se aplican a las suscripciones. El panel refleja el estado de cumplimiento con respecto a estos estándares. 
 
-Cuando habilite Security Center en una suscripción de Azure, se asignará automáticamente a esta suscripción el estándar [Azure Security Benchmark](../security/benchmarks/introduction.md). Este punto de referencia ampliamente respetado está basado en los controles del [Centro de seguridad de Internet (CIS)](https://www.cisecurity.org/benchmark/azure/) y del [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) y hace hincapié en la seguridad centrada en la nube.
+Cuando habilite Security Center en una suscripción de Azure, se asignará automáticamente a esta suscripción el estándar [Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction). Este punto de referencia ampliamente respetado está basado en los controles del [Centro de seguridad de Internet (CIS)](https://www.cisecurity.org/benchmark/azure/) y del [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) y hace hincapié en la seguridad centrada en la nube.
 
 En el panel de cumplimiento normativo se indica el estado de todas estas valoraciones realizadas en el entorno conforme a las normativas y los estándares elegidos. Al actuar sobre las recomendaciones y reducir los factores de riesgo en su entorno, su estado de cumplimiento normativo mejora.
 
