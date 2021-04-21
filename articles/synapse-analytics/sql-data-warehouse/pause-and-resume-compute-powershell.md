@@ -2,21 +2,25 @@
 title: 'Inicio rápido: Pausa y reanudación del proceso en un grupo de SQL dedicado (anteriormente SQL DW) con Azure PowerShell'
 description: Puede utilizar Azure PowerShell para pausar y reanudar un grupo de SQL dedicado (anteriormente SQL DW). (almacenamiento de datos).
 services: synapse-analytics
-author: gaursa
+author: julieMSFT
+ms.author: jrasnick
 manager: craigg
-ms.service: synapse-analytics
-ms.topic: quickstart
-ms.subservice: sql-dw
-ms.date: 03/20/2019
-ms.author: gaursa
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019, azure-synapse, devx-track-azurepowershell
-ms.openlocfilehash: 74c30a843ef5edd54c7cd19f3fd49acfe782f488
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 03/20/2019
+ms.topic: quickstart
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.custom:
+- seo-lt-2019
+- azure-synapse
+- devx-track-azurepowershell
+- mode-api
+ms.openlocfilehash: be82b6dcc17c2850b9a35085316cd0905a5b6b75
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104602186"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107566807"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-dedicated-sql-pool-formerly-sql-dw-with-azure-powershell"></a>Inicio rápido: Pausa y reanudación del proceso en un grupo de SQL dedicado (anteriormente SQL DW) con Azure PowerShell
 

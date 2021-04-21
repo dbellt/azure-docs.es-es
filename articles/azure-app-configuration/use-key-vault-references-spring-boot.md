@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 08/11/2020
 ms.author: alkemper
 ms.custom: mvc, devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 04d9c7a343570349851a206fd69fdda822f790a4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7c5534ab836968bc4e72a54db1ddb9667d366558
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99981483"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107768856"
 ---
 # <a name="tutorial-use-key-vault-references-in-a-java-spring-app"></a>Tutorial: Uso de referencias de Key Vault en una aplicación de Java Spring
 
@@ -93,7 +93,7 @@ Para agregar un secreto al almacén, debe llevar a cabo algunos pasos adicionale
 
 ## <a name="connect-to-key-vault"></a>Conexión a Key Vault
 
-1. En este tutorial usará una entidad de servicio para la autenticación en Key Vault. Para crear esta entidad de servicio, use el comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) de la CLI de Azure:
+1. En este tutorial usará una entidad de servicio para la autenticación en Key Vault. Para crear esta entidad de servicio, use el comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) de la CLI de Azure:
 
     ```azurecli
     az ad sp create-for-rbac -n "http://mySP" --sdk-auth

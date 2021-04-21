@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 06/25/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 1d7b6cd6d61be6df66d215613222c12a0f2c9c5e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a595d677cf0964083526cb7e2c73471148be0fd4
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105606746"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107778446"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-by-using-the-azure-cli"></a>Inicio rápido: Creación de un servidor de Azure Database for PostgreSQL mediante la CLI de Azure
 
@@ -34,11 +34,11 @@ En este inicio rápido se muestra cómo usar los comandos de la [CLI de Azure](/
         az account set --subscription <subscription id>
         ```
 
-    - Si tiene varias suscripciones, elija la suscripción adecuada en la que se debe facturar el recurso. Para obtener todas las suscripciones, use [az account list](/cli/azure/account#az-account-list).
+    - Si tiene varias suscripciones, elija la suscripción adecuada en la que se debe facturar el recurso. Para obtener todas las suscripciones, use [az account list](/cli/azure/account#az_account_list).
 
 ## <a name="create-an-azure-database-for-postgresql-server"></a>Creación de un servidor de Azure Database for PostgreSQL
 
-Cree un [grupo de recursos de Azure](../azure-resource-manager/management/overview.md) mediante el comando [az group create](/cli/azure/group#az-group-create) y, después, cree un servidor PostgreSQL en el grupo de recursos. Debe proporcionar un nombre único. En el ejemplo siguiente, se crea un grupo de recursos denominado `myresourcegroup` en la ubicación `westus`.
+Cree un [grupo de recursos de Azure](../azure-resource-manager/management/overview.md) mediante el comando [az group create](/cli/azure/group#az_group_create) y, después, cree un servidor PostgreSQL en el grupo de recursos. Debe proporcionar un nombre único. En el ejemplo siguiente, se crea un grupo de recursos denominado `myresourcegroup` en la ubicación `westus`.
 
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
@@ -62,7 +62,7 @@ sku-name|GP_Gen5_2| Nombre del plan de tarifa y la configuración del proceso. S
 
 >[!IMPORTANT] 
 >- La versión de PostgreSQL predeterminada en el servidor es la 9.6. Para ver todas versiones compatibles, consulte [Versiones principales de PostgreSQL admitidas](./concepts-supported-versions.md).
->- Para ver todos los argumentos del comando **az postgres server create**, consulte este [documento de referencia](/cli/azure/postgres/server#az-postgres-server-create).
+>- Para ver todos los argumentos del comando **az postgres server create**, consulte este [documento de referencia](/cli/azure/postgres/server#az_postgres_server_create).
 >- En el servidor, el protocolo SSL está habilitado de manera predeterminada. Para más información sobre SSL, consulte [Configuración de la conectividad de SSL](./concepts-ssl-connection-security.md).
 
 ## <a name="configure-a-server-level-firewall-rule"></a>Configuración de una regla de firewall de nivel de servidor 

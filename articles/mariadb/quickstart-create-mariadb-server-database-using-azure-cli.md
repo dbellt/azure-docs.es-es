@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 3/18/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 3279150d0cb7b287f0a78581094a51356033596c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 042c70fdd08a6de2b97c4560eb2b6a24eec0bb34
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98662167"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107789994"
 ---
 # <a name="quickstart-create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Inicio rápido: Creación de un servidor de Azure Database for MariaDB mediante la CLI de Azure
 
@@ -25,7 +25,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 
 - En este artículo se necesita la versión 2.0 o posterior de la CLI de Azure. Si usa Azure Cloud Shell, ya está instalada la versión más reciente.
 
-Si tiene varias suscripciones, elija aquella que contiene el recurso o la suscripción que se le factura. Para seleccionar un identificador de suscripción específico en su cuenta, use el comando [az account set](/cli/azure/account#az-account-set):
+Si tiene varias suscripciones, elija aquella que contiene el recurso o la suscripción que se le factura. Para seleccionar un identificador de suscripción específico en su cuenta, use el comando [az account set](/cli/azure/account#az_account_set):
 
 ```azurecli-interactive
 az account set --subscription 00000000-0000-0000-0000-000000000000
@@ -33,7 +33,7 @@ az account set --subscription 00000000-0000-0000-0000-000000000000
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Cree un [grupo de recursos de Azure](../azure-resource-manager/management/overview.md) con el comando [az group create](/cli/azure/group#az-group-create). Un grupo de recursos es un contenedor lógico en el que se implementan y se administran recursos de Azure como un grupo.
+Cree un [grupo de recursos de Azure](../azure-resource-manager/management/overview.md) con el comando [az group create](/cli/azure/group#az_group_create). Un grupo de recursos es un contenedor lógico en el que se implementan y se administran recursos de Azure como un grupo.
 
 En el ejemplo siguiente se crea un grupo de recursos denominado `myresourcegroup` en la ubicación `westus`:
 
@@ -43,7 +43,7 @@ az group create --name myresourcegroup --location westus
 
 ## <a name="create-an-azure-database-for-mariadb-server"></a>Creación de un servidor de Azure Database for MariaDB
 
-Cree un servidor de Azure Database for MariaDB con el comando [az mariadb server create](/cli/azure/mariadb/server#az-mariadb-server-create). Un servidor puede administrar varias bases de datos. Normalmente se usa una base de datos independiente para cada proyecto o para cada usuario.
+Cree un servidor de Azure Database for MariaDB con el comando [az mariadb server create](/cli/azure/mariadb/server#az_mariadb_server_create). Un servidor puede administrar varias bases de datos. Normalmente se usa una base de datos independiente para cada proyecto o para cada usuario.
 
 Configuración | Valor de ejemplo | Descripción
 ---|---|---
@@ -77,7 +77,7 @@ az mariadb server create --resource-group myresourcegroup --name mydemoserver  -
 
 ## <a name="configure-a-firewall-rule"></a>Configuración de una regla de firewall
 
-Cree una regla de firewall de nivel de servidor de Azure Database for MariaDB mediante el comando [az mariadb server firewall-rule create](/cli/azure/mariadb/server/firewall-rule#az-mariadb-server-firewall-rule-create). Una regla de firewall de nivel de servidor permite que una aplicación externa, como la herramienta de línea de comandos mysql o MySQL Workbench, se conecte al servidor a través del firewall del servicio Azure Database for MariaDB.
+Cree una regla de firewall de nivel de servidor de Azure Database for MariaDB mediante el comando [az mariadb server firewall-rule create](/cli/azure/mariadb/server/firewall-rule#az_mariadb_server_firewall_rule_create). Una regla de firewall de nivel de servidor permite que una aplicación externa, como la herramienta de línea de comandos mysql o MySQL Workbench, se conecte al servidor a través del firewall del servicio Azure Database for MariaDB.
 
 En el ejemplo siguiente se crea una regla de firewall denominada `AllowMyIP` que permite las conexiones desde una dirección IP específica, 192.168.0.1. Sustituya por una dirección IP o intervalo de direcciones IP que se corresponda a la ubicación desde la que se conecta.
 
@@ -231,7 +231,7 @@ Si no necesita los recursos que ha usado en esta guía para otra guía de inicio
 az group delete --name myresourcegroup
 ```
 
-Si solo desea eliminar el servidor que ha creado en esta guía de inicio rápido, ejecute el comando [az mariadb server delete](/cli/azure/mariadb/server#az-mariadb-server-delete):
+Si solo desea eliminar el servidor que ha creado en esta guía de inicio rápido, ejecute el comando [az mariadb server delete](/cli/azure/mariadb/server#az_mariadb_server_delete):
 
 ```azurecli-interactive
 az mariadb server delete --resource-group myresourcegroup --name mydemoserver

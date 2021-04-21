@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.author: sumuth
 ms.date: 10/12/2020
 ms.custom: github-actions-azure
-ms.openlocfilehash: 2e546801f95d9d884bdfb3f09a18b3fa6e2d78a1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7fc59c0d9036a2e83c742f51fc17750d40e057fe
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97365002"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107791434"
 ---
 # <a name="quickstart-use-github-actions-to-connect-to-azure-postgresql"></a>Inicio rápido: Uso de Acciones de GitHub para conectarse a Azure PostgreSQL
 
@@ -41,7 +41,7 @@ El archivo tiene dos secciones:
 
 ## <a name="generate-deployment-credentials"></a>Genere las credenciales de implementación.
 
-Puede crear una [entidad de servicio](../active-directory/develop/app-objects-and-service-principals.md) mediante el comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac&preserve-view=true) de la [CLI de Azure](/cli/azure/). Puede ejecutar este comando mediante [Azure Cloud Shell](https://shell.azure.com/) en Azure Portal o haciendo clic en el botón **Probar**.
+Puede crear una [entidad de servicio](../active-directory/develop/app-objects-and-service-principals.md) mediante el comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac&preserve-view=true) de la [CLI de Azure](/cli/azure/). Puede ejecutar este comando mediante [Azure Cloud Shell](https://shell.azure.com/) en Azure Portal o haciendo clic en el botón **Probar**.
 
 Reemplace los marcadores de posición `server-name` por el nombre del servidor de PostgreSQL hospedado en Azure. Reemplace `subscription-id` y `resource-group` por el identificador de suscripción y el grupo de recursos conectado a su servidor de PostgreSQL.
 

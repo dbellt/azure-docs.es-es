@@ -3,16 +3,16 @@ title: 'Tutorial: Simulación de respuestas de API en API Management: Azure Port
 description: En este tutorial, usará API Management para establecer una directiva en una API de forma que devuelva una respuesta simulada si el back-end no está disponible para enviar respuestas reales.
 author: vladvino
 ms.service: api-management
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.topic: tutorial
 ms.date: 02/09/2021
 ms.author: apimpm
-ms.openlocfilehash: 75727d139242e1b537505d2ed907ae20fc5479f8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a7617a36ed800f1765ed7723568a4b612fcb6518
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100547283"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107587602"
 ---
 # <a name="tutorial-mock-api-responses"></a>Tutorial: Simulación de respuestas de API
 
