@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 50af05c7d59b9d25e0f97ad9bdee73d12848dc3a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 62f6e2999e9d3820404bdd4051817bc9a8785c47
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98878263"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107503395"
 ---
 # <a name="azcopy-jobs-list"></a>azcopy jobs list
 
@@ -30,7 +30,6 @@ azcopy jobs list [flags]
 - [Introducción a AzCopy](storage-use-azcopy-v10.md)
 - [Transferencia de datos con AzCopy y Blob Storage](./storage-use-azcopy-v10.md#transfer-data)
 - [Transferencia de datos con AzCopy y File Storage](storage-use-azcopy-files.md)
-- [Configurar, optimizar y solucionar problemas de AzCopy](storage-use-azcopy-configure.md)
 
 ## <a name="options"></a>Opciones
 
