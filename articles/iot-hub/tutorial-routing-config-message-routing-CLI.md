@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: a1cce7264e56b16d285685392186a05e2f075439
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: cf994dfe3d53232ab1e2374fda620dc768127097
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102199771"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107788896"
 ---
 # <a name="tutorial-use-the-azure-cli-to-configure-iot-hub-message-routing"></a>Tutorial: Uso de la CLI de Azure para configurar el enrutamiento de mensajes de IoT Hub
 
@@ -147,7 +147,7 @@ Ahora que los recursos de base están configurados, puede continuar por el enrut
 
 [!INCLUDE [iot-hub-include-create-routing-description](../../includes/iot-hub-include-create-routing-description.md)]
 
-Para crear un punto de conexión de enrutamiento, use [az iot hub routing-endpoint create](/cli/azure/iot/hub/routing-endpoint#az-iot-hub-routing-endpoint-create). Para crear la ruta de mensajes para el punto de conexión, use [az iot hub route create](/cli/azure/iot/hub/route#az-iot-hub-route-create).
+Para crear un punto de conexión de enrutamiento, use [az iot hub routing-endpoint create](/cli/azure/iot/hub/routing-endpoint#az_iot_hub_routing_endpoint_create). Para crear la ruta de mensajes para el punto de conexión, use [az iot hub route create](/cli/azure/iot/hub/route#az_iot_hub_route_create).
 
 ### <a name="route-to-a-storage-account"></a>Enrutamiento a una cuenta de almacenamiento
 

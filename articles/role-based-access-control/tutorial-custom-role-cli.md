@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 319bca74c8e781e5dc5022e9fb901b2edca24a80
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e3743697d58d0f5b167b123df59bc5638aa60489
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87485650"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107771684"
 ---
 # <a name="tutorial-create-an-azure-custom-role-using-azure-cli"></a>Tutorial: Creación de un rol personalizado de Azure con la CLI de Azure
 
@@ -86,7 +86,7 @@ El modo más sencillo de crear un rol personalizado es tomar como partida una pl
     "Microsoft.Support/*"
     ```
 
-1. Obtenga el identificador de la suscripción mediante el comando [az account list](/cli/azure/account#az-account-list).
+1. Obtenga el identificador de la suscripción mediante el comando [az account list](/cli/azure/account#az_account_list).
 
     ```azurecli
     az account list --output table
@@ -118,7 +118,7 @@ El modo más sencillo de crear un rol personalizado es tomar como partida una pl
     }
     ```
     
-1. Para crear el nuevo rol personalizado, use el comando [az role definition create](/cli/azure/role/definition#az-role-definition-create) y especifique el archivo de definición de roles JSON.
+1. Para crear el nuevo rol personalizado, use el comando [az role definition create](/cli/azure/role/definition#az_role_definition_create) y especifique el archivo de definición de roles JSON.
 
     ```azurecli
     az role definition create --role-definition "~/CustomRoles/ReaderSupportRole.json"
@@ -155,7 +155,7 @@ El modo más sencillo de crear un rol personalizado es tomar como partida una pl
 
 ## <a name="list-custom-roles"></a>Lista de roles personalizados
 
-- Para enumerar todos los roles personalizados, use el comando [az role definition list](/cli/azure/role/definition#az-role-definition-list) con el parámetro `--custom-role-only`.
+- Para enumerar todos los roles personalizados, use el comando [az role definition list](/cli/azure/role/definition#az_role_definition_list) con el parámetro `--custom-role-only`.
 
     ```azurecli
     az role definition list --custom-role-only true
@@ -225,7 +225,7 @@ Para actualizar el rol personalizado, actualice el archivo JSON y, a continuaci�
     }
     ```
         
-1. Para actualizar el rol personalizado, use el comando [az role definition update](/cli/azure/role/definition#az-role-definition-update) y especifique el archivo JSON actualizado.
+1. Para actualizar el rol personalizado, use el comando [az role definition update](/cli/azure/role/definition#az_role_definition_update) y especifique el archivo JSON actualizado.
 
     ```azurecli
     az role definition update --role-definition "~/CustomRoles/ReaderSupportRole.json"
@@ -261,7 +261,7 @@ Para actualizar el rol personalizado, actualice el archivo JSON y, a continuaci�
     
 ## <a name="delete-a-custom-role"></a>Eliminación de un rol personalizado
 
-- Use el comando [az role definition delete](/cli/azure/role/definition#az-role-definition-delete) y especifique el nombre del rol o el identificador del rol para eliminar el rol personalizado.
+- Use el comando [az role definition delete](/cli/azure/role/definition#az_role_definition_delete) y especifique el nombre del rol o el identificador del rol para eliminar el rol personalizado.
 
     ```azurecli
     az role definition delete --name "Reader Support Tickets"

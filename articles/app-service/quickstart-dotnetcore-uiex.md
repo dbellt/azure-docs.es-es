@@ -7,12 +7,12 @@ ms.date: 11/23/2020
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperf-fy21q1
 zone_pivot_groups: app-service-platform-windows-linux
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 2a789b4ca1261c79e8e6eb93a4ed44e7e8e9272e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ff86bedf47395b50dc25e552b8b3ed4176e23b65
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102214242"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107769110"
 ---
 # <a name="quickstart-create-an-aspnet-core-web-app-in-azure"></a>Inicio rápido: Creación de una aplicación web ASP.NET Core en Azure
 
@@ -256,7 +256,7 @@ az login
     <li>Si no se reconoce el comando <code>az</code>, asegúrese de tener instalada la CLI de Azure, tal y como se describe en <a href="#1-prepare-your-environment">Preparación del entorno inicial</a>.</li>
     <li>Reemplace <code>&lt;app-name&gt;</code> por un nombre que sea único en todo Azure (<em>los caracteres válidos son <code>a-z</code>, <code>0-9</code> y <code>-</code></em>). Un buen patrón es usar una combinación del nombre de la empresa y un identificador de la aplicación.</li>
     <li>El argumento <code>--sku F1</code> crea la aplicación web en el plan de tarifa Gratuito. Omita este argumento para usar un nivel Premium más rápido, lo que supondrá un costo por hora.</li>
-    <li>Opcionalmente, incluya el argumento <code>--location &lt;location-name&gt;</code>, donde <code>&lt;location-name&gt;</code> es una región de Azure disponible. Puede recuperar una lista de las regiones permitidas para su cuenta de Azure mediante la ejecución del comando <a href="/cli/azure/appservice#az-appservice-list-locations"><code>az account list-locations</code></a>.</li>
+    <li>Opcionalmente, incluya el argumento <code>--location &lt;location-name&gt;</code>, donde <code>&lt;location-name&gt;</code> es una región de Azure disponible. Puede recuperar una lista de las regiones permitidas para su cuenta de Azure mediante la ejecución del comando <a href="/cli/azure/appservice#az_appservice_list_locations"><code>az account list-locations</code></a>.</li>
     </ul>
     </details>
     
@@ -268,7 +268,7 @@ az login
     <ul>
     <li>Crear un grupo de recursos predeterminado.</li>
     <li>Crear un plan de App Service predeterminado.</li>
-    <li><a href="/cli/azure/webapp#az-webapp-create">Cree una aplicación de App Service</a> con el nombre especificado.</li>
+    <li><a href="/cli/azure/webapp#az_webapp_create">Cree una aplicación de App Service</a> con el nombre especificado.</li>
     <li><a href="/azure/app-service/deploy-zip">Implementar con ZIP</a> archivos desde el directorio de trabajo actual a la aplicación.</li>
     <li>Mientras se ejecuta, proporciona mensajes sobre la creación de recursos, el registro y la implementación con zip.</li>
     </ul>
@@ -302,14 +302,14 @@ http://<app_name>.azurewebsites.net
 
 <hr/> 
 
-## <a name="7-update-and-redeploy-the-code"></a>7. Actualización del código y nueva implementación
+## <a name="7-update-and-redeploy-the-code&quot;></a>7. Actualización del código y nueva implementación
 
 1. **Abra el archivo _Startup.cs_** en el directorio local. 
 
 1. **Realice un pequeño cambio** en el texto en la llamada al método `context.Response.WriteAsync`.
 
     ```csharp
-    await context.Response.WriteAsync("Hello Azure!");
+    await context.Response.WriteAsync(&quot;Hello Azure!");
     ```
     
 1. **Guarde los cambios**.
