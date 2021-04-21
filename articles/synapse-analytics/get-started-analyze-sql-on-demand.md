@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
 ms.date: 12/31/2020
-ms.openlocfilehash: 0ef76be2c083d6185b8b919d174de28aa3b65446
-ms.sourcegitcommit: af6eba1485e6fd99eed39e507896472fa930df4d
+ms.openlocfilehash: 7c228bfe5897b45e6345234f2ed8e0f5cfbec73a
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2021
-ms.locfileid: "106293777"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312797"
 ---
 # <a name="analyze-data-with-a-serverless-sql-pool"></a>Análisis de datos con un grupo de SQL sin servidor
 
@@ -27,9 +27,8 @@ Los grupos de SQL sin servidor permiten usar SQL sin necesidad de reservar capac
 
 Todas las áreas de trabajo incluyen un grupo de SQL sin servidor preconfigurado llamado **Built-in**. 
 
-## <a name="analyze-nyc-taxi-data-in-blob-storage-using-serverless-sql-pool"></a>Análisis de los datos de taxis de Nueva York en Blob Storage mediante un grupo de SQL sin servidor
+## <a name="analyze-nyc-taxi-data-with-a-serverless-sql-pool"></a>Análisis de datos de taxis de Nueva York con un grupo de SQL sin servidor
 
-En esta sección, usará un grupo de SQL sin servidor para analizar los datos de taxis de Nueva York en una cuenta de Azure Blob Storage.
 
 1. En Synapse Studio, vaya al menú central **Develop** (Desarrollo).
 1. Se creará un nuevo script de SQL.
@@ -37,12 +36,12 @@ En esta sección, usará un grupo de SQL sin servidor para analizar los datos de
 
     ```
     SELECT
-        TOP 100 *
+        TOP 100 *
     FROM
         OPENROWSET(
-            BULK     'https://azureopendatastorage.blob.core.windows.net/nyctlc/yellow/puYear=*/puMonth=*/*.parquet',
-            FORMAT = 'parquet'
-        ) AS [result];
+                BULK 'https://contosolake.dfs.core.windows.net/users/NYCTripSmall.parquet',
+            FORMAT='PARQUET'
+        ) AS [result]
     ```
 1. Haga clic en **Ejecutar**
 

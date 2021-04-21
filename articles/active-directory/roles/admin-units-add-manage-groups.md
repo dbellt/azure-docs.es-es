@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f88a0818d93c33b6265cc8c695479d2a42678ada
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2ad8cce8375ecd670a481541a091e36aacb41240
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103011041"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107505299"
 ---
 # <a name="add-and-manage-groups-in-an-administrative-unit-in-azure-active-directory"></a>Adición y administración de grupos en una unidad administrativa en Azure Active Directory
 
@@ -68,7 +68,7 @@ En el ejemplo siguiente, use el cmdlet `Add-AzureADMSAdministrativeUnitMember` p
 ```powershell
 $adminUnitObj = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
 $GroupObj = Get-AzureADGroup -Filter "displayname eq 'TestGroup'"
-Add-AzureADMSAdministrativeUnitMember -ObjectId $adminUnitObj.ObjectId -RefObjectId $GroupObj.ObjectId
+Add-AzureADMSAdministrativeUnitMember -Id $adminUnitObj.Id -RefObjectId $GroupObj.ObjectId
 ```
 
 ### <a name="use-microsoft-graph"></a>Uso de Microsoft Graph
@@ -81,7 +81,7 @@ Request
 POST /administrativeUnits/{admin-unit-id}/members/$ref
 ```
 
-Body
+Cuerpo
 
 ```http
 {
@@ -115,13 +115,13 @@ Para mostrar una lista de todos los miembros de la unidad administrativa, ejecut
 
 ```powershell
 $adminUnitObj = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
-Get-AzureADMSAdministrativeUnitMember -ObjectId $adminUnitObj.ObjectId
+Get-AzureADMSAdministrativeUnitMember -Id $adminUnitObj.Id
 ```
 
 Para mostrar todos los grupos que son miembros de la unidad administrativa, use el siguiente fragmento de código:
 
 ```powershell
-foreach ($member in (Get-AzureADMSAdministrativeUnitMember -ObjectId $adminUnitObj.ObjectId)) 
+foreach ($member in (Get-AzureADMSAdministrativeUnitMember -Id $adminUnitObj.Id)) 
 {
 if($member.ObjectType -eq "Group")
 {
@@ -140,7 +140,7 @@ Request
 GET /directory/administrativeUnits/{admin-unit-id}/members/$/microsoft.graph.group
 ```
 
-Body
+Cuerpo
 
 ```http
 {}

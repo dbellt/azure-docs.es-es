@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abc8badf261e631dd6ceb7af9a6a0cb3676ae25d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 445514297550210d80cd50895201d1129fac4f20
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96017600"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107533710"
 ---
 # <a name="troubleshoot-errors-in-azure-active-directory-reporting-api"></a>Solución de errores de la API de informes de Azure Active Directory
 
@@ -50,5 +50,5 @@ Siga los pasos del artículo [Requisitos previos para acceder a la API de genera
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Uso de la referencia de la API de auditoría](/graph/api/resources/directoryaudit?view=graph-rest-beta)
-[Uso de la referencia de la API de informes de actividad de inicio de sesión](/graph/api/resources/signin?view=graph-rest-beta)
+[Uso de la referencia de la API de auditoría](/graph/api/resources/directoryaudit)
+[Uso de la referencia de la API de informes de actividad de inicio de sesión](/graph/api/resources/signin)

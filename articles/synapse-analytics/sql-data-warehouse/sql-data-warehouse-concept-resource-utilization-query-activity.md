@@ -2,21 +2,21 @@
 title: 'Manejabilidad y supervisión: actividad de consultas y uso de recursos'
 description: Obtenga información sobre las funcionalidades disponibles para administrar y supervisar Azure Synapse Analytics. Utilice Azure Portal y vistas de administración dinámica (DMV) para comprender la actividad de consultas y el uso de recursos del almacenamiento de datos.
 services: synapse-analytics
-author: gaursa
+author: julieMSFT
 manager: craigg-msft
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 04/09/2020
-ms.author: gaursa
+ms.author: jrasnick
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: e7f093860e9962db055a7551f5cdb608ecad9b29
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7b103991e22ffab8ed5bd2b3c10400330e1d09b3
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104585679"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107568410"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-synapse-analytics"></a>Supervisión del uso de recursos y la actividad de consultas en Azure Synapse Analytics
 

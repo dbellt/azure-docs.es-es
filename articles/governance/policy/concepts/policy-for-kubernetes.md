@@ -3,12 +3,13 @@ title: Información sobre Azure Policy para Kubernetes
 description: Obtenga información sobre cómo Azure Policy usa Rego y Open Policy Agent para administrar clústeres que ejecutan Kubernetes en Azure o en el entorno local.
 ms.date: 03/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: 4a6ca7fb5086401cab58d4bfb6a412089c11ef05
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 9ca33c3a937b0a155928f20469830388a95a08e3
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105564312"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107506030"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Descripción de Azure Policy para clústeres de Kubernetes (versión preliminar)
 

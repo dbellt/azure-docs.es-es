@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/31/2020
 ms.author: kenwith
-ms.openlocfilehash: 6da003612d98d107390c9f20a5172786c30665a6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b0a3653d2cc840d745b1bb5788406b8d374c76d0
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105709759"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107533783"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planear una implementación de Azure AD Application Proxy
 
@@ -292,7 +292,7 @@ Azure AD proporciona información adicional acerca del uso de las aplicaciones 
 
 #### <a name="application-audit-logs"></a>Registros de auditoría de la aplicación
 
-Estos registros proporcionan información detallada sobre los inicios de sesión a las aplicaciones configuradas con Application Proxy y el dispositivo y el usuario que acceden a la aplicación. [Los registros de auditoría](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) se pueden exportar desde Azure Portal y [Audit API](/graph/api/resources/directoryaudit?view=graph-rest-beta). Además, los [informes de uso y de información](../reports-monitoring/concept-usage-insights-report.md?context=azure/active-directory/manage-apps/context/manage-apps-context) también están disponibles para la aplicación.
+Estos registros proporcionan información detallada sobre los inicios de sesión a las aplicaciones configuradas con Application Proxy y el dispositivo y el usuario que acceden a la aplicación. [Los registros de auditoría](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) se pueden exportar desde Azure Portal y [Audit API](/graph/api/resources/directoryaudit). Además, los [informes de uso y de información](../reports-monitoring/concept-usage-insights-report.md?context=azure/active-directory/manage-apps/context/manage-apps-context) también están disponibles para la aplicación.
 
 #### <a name="application-proxy-connector-monitoring"></a>Supervisión de conectores de Application Proxy
 

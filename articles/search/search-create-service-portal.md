@@ -1,21 +1,21 @@
 ---
 title: Creación de un servicio de búsqueda en el portal
 titleSuffix: Azure Cognitive Search
-description: En este inicio rápido del portal, aprenderá a configurar un recurso de Azure Cognitive Search en Azure Portal. Elija grupos de recursos, regiones, SKU o planes de tarifa.
+description: Aprenda a configurar un recurso de Azure Cognitive Search en Azure Portal. Elija grupos de recursos, regiones y la SKU o el plan de tarifa.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 02/15/2021
-ms.openlocfilehash: e183d81355d4db81e677f34b02330ddb9b631957
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 83e206a5fd7b34da0b0ac8590d5271a554855d3e
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100651993"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106580745"
 ---
-# <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Inicio rápido: Creación de un servicio Azure Cognitive Search en el portal
+# <a name="create-an-azure-cognitive-search-service-in-the-portal"></a>Creación de un servicio Azure Cognitive Search en el portal
 
 [Azure Cognitive Search](search-what-is-azure-search.md) es un recurso de Azure que se usa para agregar una experiencia de búsqueda de texto completo a las aplicaciones personalizadas. Se puede integrar fácilmente con otros servicios de Azure que proporcionan datos o procesamiento adicional, con aplicaciones de servidores de red o con software que se ejecuta en otras plataformas de nube.
 

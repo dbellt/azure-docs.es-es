@@ -2,21 +2,21 @@
 title: Carga de datos de Contoso Retail en grupos de SQL dedicados
 description: Use los comandos de PolyBase y T-SQL para cargar dos tablas de datos de Contoso Retail en grupos de SQL dedicados.
 services: synapse-analytics
-author: gaursa
+author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 11/20/2020
-ms.author: gaursa
+ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 13e78c707ca3bda338f9255c015c0e926fca90d8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b1afcdfa74245eb566663d5dec6ce2e2276fbdc8
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104606147"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107568240"
 ---
 # <a name="load-contoso-retail-data-into-dedicated-sql-pools-in-azure-synapse-analytics"></a>Carga de datos de Contoso Retail en grupos de SQL dedicados en Azure Synapse Analytics
 

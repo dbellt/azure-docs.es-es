@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
-ms.openlocfilehash: f4d97b81bf8f11b8380f04dcbfdb72bd658805ab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 98c0a6f88da717256e78a748902317a90a369a9c
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100579244"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107533629"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Preguntas frecuentes sobre Análisis de tráfico
 
@@ -59,62 +59,6 @@ Para comprobar los roles asignados a un usuario para una suscripción:
 3. Para enumerar todos los roles asignados a un usuario específico, use **Get-AzRoleAssignment -SignInName [correo electrónico del usuario] -IncludeClassicAdministrators**. 
 
 Si no se muestra ninguna salida, póngase en contacto con el administrador de la suscripción correspondiente para acceder para ejecutar los comandos. Para más detalles, consulte [Incorporación o eliminación de asignaciones de roles de Azure mediante Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
-
-
-## <a name="in-which-azure-regions-is-traffic-analytics-available"></a>¿En qué regiones de Azure está disponible Análisis de tráfico?
-
-Puede usar Análisis de tráfico para los NSG en cualquiera de las siguientes regiones admitidas:
-- Centro de Canadá
-- Centro-Oeste de EE. UU.
-- Este de EE. UU.
-- Este de EE. UU. 2
-- Centro-Norte de EE. UU
-- Centro-sur de EE. UU.
-- Centro de EE. UU.
-- Oeste de EE. UU.
-- Oeste de EE. UU. 2
-- Centro de Francia
-- Oeste de Europa
-- Norte de Europa
-- Sur de Brasil
-- Oeste de Reino Unido
-- Sur de Reino Unido
-- Este de Australia
-- Sudeste de Australia 
-- Este de Asia
-- Sudeste de Asia
-- Centro de Corea del Sur
-- Centro de la India
-- Sur de la India
-- Japón Oriental
-- Japón Occidental
-- US Gov - Virginia
-- Este de China 2
-
-El área de trabajo de Log Analytics debe existir en las siguientes regiones:
-- Centro de Canadá
-- Centro-Oeste de EE. UU.
-- Este de EE. UU.
-- Este de EE. UU. 2
-- Centro-Norte de EE. UU
-- Centro-sur de EE. UU.
-- Centro de EE. UU.
-- Oeste de EE. UU.
-- Oeste de EE. UU. 2
-- Centro de Francia
-- Oeste de Europa
-- Norte de Europa
-- Oeste de Reino Unido
-- Sur de Reino Unido
-- Este de Australia
-- Sudeste de Australia
-- Este de Asia
-- Sudeste de Asia 
-- Centro de Corea del Sur
-- Centro de la India
-- Japón Oriental
-- US Gov - Virginia
-- Este de China 2
 
 ## <a name="can-the-nsgs-i-enable-flow-logs-for-be-in-different-regions-than-my-workspace"></a>¿Los grupos de seguridad de red en los que he habilitado los registros de flujo pueden estar en otras regiones que no sean las de mi área de trabajo?
 
