@@ -3,12 +3,12 @@ title: Implementación de recursos en el inquilino
 description: Se describe cómo implementar recursos en el ámbito de un inquilino en una plantilla de Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 01/13/2021
-ms.openlocfilehash: fd5a9ae60c578a3be7f70d82baae0a15e406b9db
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0b17b8741d1701720de86d8039be3b6cd28ace5c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99491493"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781908"
 ---
 # <a name="tenant-deployments-with-arm-templates"></a>Implementaciones de inquilino con plantillas de Resource Manager
 
@@ -98,7 +98,7 @@ Los comandos para las implementaciones de inquilino son diferentes de los comand
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-Para la CLI de Azure, use [az deployment tenant create](/cli/azure/deployment/tenant#az-deployment-tenant-create):
+Para la CLI de Azure, use [az deployment tenant create](/cli/azure/deployment/tenant#az_deployment_tenant_create):
 
 ```azurecli-interactive
 az deployment tenant create \

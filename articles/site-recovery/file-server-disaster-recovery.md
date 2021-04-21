@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: sharrai
 ms.custom: mvc
-ms.openlocfilehash: 9cef163c1b53360222ca32a827552fa361e9dd40
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5209e715fab422a50e31810b5eb0d370d5fc61cd
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98874254"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107792532"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Protección de un servidor de archivos mediante Azure Site Recovery 
 
@@ -99,7 +99,7 @@ Los pasos siguientes describen brevemente el uso de File Sync:
 
 1. [Cree una cuenta de almacenamiento en Azure](../storage/common/storage-account-create.md?toc=/azure/storage/files/toc.json). Si eligió el almacenamiento con redundancia geográfica con acceso de lectura para las cuentas de almacenamiento, tendrá acceso de lectura a los datos desde la región secundaria en caso de desastre. Para más información, consulte [Recuperación ante desastres y conmutación por error de la cuenta de almacenamiento](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json).
 2. [Cree un recurso compartido de archivos](../storage/files/storage-how-to-create-file-share.md).
-3. [Implementación de File Sync](../storage/files/storage-sync-files-deployment-guide.md) en el servidor de archivos de Azure.
+3. [Implementación de File Sync](../storage/file-sync/file-sync-deployment-guide.md) en el servidor de archivos de Azure.
 4. Crear un grupo de sincronización. Los puntos de conexión dentro de un grupo de sincronización se mantienen sincronizados entre sí. Un grupo de sincronización debe contener al menos un punto de conexión en la nube, que representa un recurso compartido de archivos de Azure. Un grupo de sincronización también debe contener un punto de conexión de servidor, que representa una ruta de acceso en un servidor Windows.
 5. Los archivos ahora se mantienen sincronizados entre el recurso compartido de archivos de Azure y el servidor local.
 6. Si se produce un desastre en el entorno local, realice una conmutación por error mediante un [plan de recuperación](site-recovery-create-recovery-plans.md). Agregue el script para [montar el recurso compartido de archivos de Azure](../storage/files/storage-how-to-use-files-windows.md) y acceder al recurso compartido en la máquina virtual.
@@ -148,7 +148,7 @@ Siga estos pasos para utilizar File Sync:
 
 1. [Cree una cuenta de almacenamiento en Azure](../storage/common/storage-account-create.md?toc=/azure/storage/files/toc.json). Si eligió el almacenamiento con redundancia geográfica con acceso de lectura (recomendado) para las cuentas de almacenamiento, tendrá acceso de lectura a los datos desde la región secundaria en caso de desastre. Para más información, consulte [Recuperación ante desastres y conmutación por error de la cuenta de almacenamiento](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json).
 2. [Cree un recurso compartido de archivos](../storage/files/storage-how-to-create-file-share.md).
-3. [Implemente File Sync](../storage/files/storage-sync-files-deployment-guide.md) en el servidor de archivos local.
+3. [Implemente File Sync](../storage/file-sync/file-sync-deployment-guide.md) en el servidor de archivos local.
 4. Crear un grupo de sincronización. Los puntos de conexión dentro de un grupo de sincronización se mantienen sincronizados entre sí. Un grupo de sincronización debe contener al menos un punto de conexión en la nube, que representa un recurso compartido de archivos de Azure. Un grupo de sincronización también debe contener un punto de conexión de servidor, que representa una ruta de acceso en el servidor Windows local.
 5. Los archivos ahora se mantienen sincronizados entre el recurso compartido de archivos de Azure y el servidor local.
 6. Si se produce un desastre en el entorno local, realice una conmutación por error mediante un [plan de recuperación](site-recovery-create-recovery-plans.md). Agregue el script para montar el recurso compartido de archivos de Azure y acceder al recurso compartido en la máquina virtual.

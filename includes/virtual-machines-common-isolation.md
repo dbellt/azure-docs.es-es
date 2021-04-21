@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/05/2020
 ms.author: risverma
 ms.custom: include file
-ms.openlocfilehash: fc61c111291f9862f71f9a81828fa0fa828ab2ad
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 83a19dea56693a1caff2c982b9f772543fe1cf2e
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102510700"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107073721"
 ---
 Azure Compute ofrece tamaños de máquinas virtuales que están aislados para un tipo concreto de hardware y dedicados a un solo cliente. Los tamaños aislados viven y funcionan en una generación de hardware específica y quedarán en desuso cuando se retire la generación de hardware.
 
@@ -31,6 +31,7 @@ Las ofertas de máquinas virtuales aisladas actuales incluyen:
 * Standard_M128ms
 * Standard_GS5
 * Standard_G5
+* Standard_DC8_v2
 
 
 > [!NOTE]
@@ -48,6 +49,7 @@ Los tamaños de VM aislados tienen una duración limitada de hardware. Azure emi
 | Standard_GS5  | 15 de febrero de 2022 |
 | Standard_E64i_v3  | 15 de febrero de 2022 |
 | Standard_E64is_v3  | 15 de febrero de 2022 |
+| Standard_DC8_v2 | 15 de febrero de 2022 |
 
 
 ## <a name="faq"></a>Preguntas más frecuentes
@@ -82,7 +84,7 @@ Los tamaños de VM aislados tienen una duración limitada de hardware. Azure emi
 | Date | Acción |
 |---|---|
 | 15 de febrero de 2021<sup>1</sup> | Anuncio de retirada de aislamiento de G5/GS5/E64i_v3/E64is_v3 |
-| 15 de febrero de 2022 | Garantía de aislamiento de G5/GS5/E64i_v3/E64is_v3 eliminada |
+| 28 de febrero de 2022 | Garantía de aislamiento de G5/GS5/E64i_v3/E64is_v3 eliminada |
 
 <sup>1</sup> Los clientes ya existentes que usen estos tamaños recibirán un anuncio por correo electrónico con instrucciones detalladas sobre los pasos a seguir.  
 

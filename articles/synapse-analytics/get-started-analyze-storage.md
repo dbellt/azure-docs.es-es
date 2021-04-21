@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 12/31/2020
-ms.openlocfilehash: f18977bb92b37546d5980134cba858b1f76b464c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6b88a7e6a9851018fce255fac0e39a30563b9bf4
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104720022"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107363842"
 ---
 # <a name="analyze-data-in-a-storage-account"></a>Análisis de datos en una cuenta de almacenamiento
 
@@ -58,7 +58,7 @@ Puede analizar los datos de la cuenta de ADLS Gen2 predeterminada del área de t
     ```
 
 1. Asócielo al grupo de Spark llamado **Spark1**. Ejecute la celda.
-1. Vuelva a hacer clic en la carpeta **users**. De nuevo, haga clic con el botón derecho en el archivo **.parquet** y, luego, seleccione **New SQL Script** > **SELECT TOP 100 rows** (Nuevo script SQL > Seleccionar 100 primeras filas). Se crea un script SQL similar al siguiente:
+1. Vuelva a seleccionar la carpeta **users**. De nuevo, haga clic con el botón derecho en el archivo **.parquet** y, luego, seleccione **New SQL Script** > **SELECT TOP 100 rows** (Nuevo script SQL > Seleccionar 100 primeras filas). Se crea un script SQL similar al siguiente:
 
     ```sql
     SELECT 

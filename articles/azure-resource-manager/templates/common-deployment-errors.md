@@ -4,12 +4,12 @@ description: Describe cómo solucionar errores comunes al implementar recursos e
 tags: top-support-issue
 ms.topic: troubleshooting
 ms.date: 01/20/2021
-ms.openlocfilehash: 40e6317a1d879704ef00e928a971ae08fc9e0f72
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 07c197f1b54522b96a3bfa2d6a5ce7b368be3b35
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105564354"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107789184"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Solución de errores comunes de implementación de Azure con Azure Resource Manager
 
@@ -68,7 +68,7 @@ Si busca información sobre un código de error y esa información no se proporc
 | RequestDisallowedByPolicy | La suscripción incluye una directiva de recursos que impide una acción que está tratando de realizar durante la implementación. Busque la directiva que bloquea la acción. Si es posible, cambie la implementación para cumplir con las limitaciones de la directiva. | [Resolución de directivas](error-policy-requestdisallowedbypolicy.md) |
 | ReservedResourceName | Proporcione un nombre de recurso que no incluya un nombre reservado. | [Nombres de recurso reservados](error-reserved-resource-name.md) |
 | ResourceGroupBeingDeleted | Espere a que la eliminación finalice. | |
-| ResourceGroupNotFound | Compruebe el nombre del grupo de recursos de destino para la implementación. El grupo de recursos de destino ya debe existir en la suscripción. Compruebe el contexto de la suscripción. | [CLI de Azure ](/cli/azure/account?#az-account-set) [PowerShell](/powershell/module/Az.Accounts/Set-AzContext) |
+| ResourceGroupNotFound | Compruebe el nombre del grupo de recursos de destino para la implementación. El grupo de recursos de destino ya debe existir en la suscripción. Compruebe el contexto de la suscripción. | [CLI de Azure ](/cli/azure/account?#az_account_set) [PowerShell](/powershell/module/Az.Accounts/Set-AzContext) |
 | ResourceNotFound | La implementación hace referencia a un recurso que no se puede resolver. Compruebe que el uso de la función **reference** incluye los parámetros necesarios para su escenario. | [Resolución de referencias](error-not-found.md) |
 | ResourceQuotaExceeded | La implementación trata de crear recursos que exceden la cuota de la suscripción, del grupo de recursos o de la región. Si es posible, revise la infraestructura para respetar las cuotas. De lo contrario, considere la posibilidad de solicitar un cambio de las cuotas. | [Resolución de cuotas](error-resource-quota.md) |
 | SkuNotAvailable | Seleccione la SKU (como el tamaño de la máquina virtual) que está disponible para la ubicación seleccionada. | [Resolución de SKU](error-sku-not-available.md) |

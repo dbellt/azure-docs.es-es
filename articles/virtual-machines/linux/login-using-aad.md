@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 11/17/2020
 ms.author: sandeo
-ms.openlocfilehash: e14e214a220d9dade4fac028620d23c563d86a8f
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 654d47102685c04d6440d7c155e4d6eb931abcae
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106554083"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107788122"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Vista previa: Inicio de sesión en una máquina virtual Linux en Azure mediante la autenticación de Azure Active Directory
 
@@ -79,7 +79,7 @@ Para habilitar la autenticación de Azure AD para las máquinas virtuales Windo
 
 ## <a name="create-a-linux-virtual-machine"></a>Creación de una máquina virtual con Linux
 
-Cree un grupo de recursos con [az group create](/cli/azure/group#az-group-create) y luego cree una máquina virtual con [az vm create](/cli/azure/vm#az-vm-create), mediante una distribución compatible en una región compatible. En el ejemplo siguiente se implementa una máquina virtual denominada *myVM* que usa *Ubuntu 16.04 LTS* en un grupo de recursos denominado *myResourceGroup* en la región *southcentralus*. En los ejemplos siguientes, puede proporcionar sus propios nombres de máquinas virtuales y grupos de recursos según sea necesario.
+Cree un grupo de recursos con [az group create](/cli/azure/group#az_group_create) y luego cree una máquina virtual con [az vm create](/cli/azure/vm#az_vm_create), mediante una distribución compatible en una región compatible. En el ejemplo siguiente se implementa una máquina virtual denominada *myVM* que usa *Ubuntu 16.04 LTS* en un grupo de recursos denominado *myResourceGroup* en la región *southcentralus*. En los ejemplos siguientes, puede proporcionar sus propios nombres de máquinas virtuales y grupos de recursos según sea necesario.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location southcentralus
@@ -99,7 +99,7 @@ La creación de la máquina virtual y los recursos auxiliares tarda unos minutos
 > [!NOTE]
 > Si implementa esta extensión en una máquina virtual creada anteriormente, asegúrese de que la máquina tenga al menos 1 GB de memoria asignada o la extensión no se instalará
 
-Para iniciar sesión en una máquina virtual Linux con credenciales de Azure AD, instale la extensión de máquina virtual de inicio de sesión de Azure Active Directory. Las extensiones de máquina virtual son aplicaciones pequeñas que realizan tareas de automatización y configuración posterior a la implementación en máquinas virtuales de Azure. Use [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) para instalar la extensión *AADLoginForLinux* en la máquina virtual denominada *myVM* en el grupo de recursos *myResourceGroup*:
+Para iniciar sesión en una máquina virtual Linux con credenciales de Azure AD, instale la extensión de máquina virtual de inicio de sesión de Azure Active Directory. Las extensiones de máquina virtual son aplicaciones pequeñas que realizan tareas de automatización y configuración posterior a la implementación en máquinas virtuales de Azure. Use [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set) para instalar la extensión *AADLoginForLinux* en la máquina virtual denominada *myVM* en el grupo de recursos *myResourceGroup*:
 
 ```azurecli-interactive
 az vm extension set \
@@ -121,7 +121,7 @@ La directiva de control de acceso basado en rol (Azure RBAC) de Azure determina 
 > [!NOTE]
 > Para permitir que un usuario inicie sesión en la máquina virtual a través de SSH, debe asignar el rol *Inicio de sesión de administrador de Virtual Machine* o *Inicio de sesión de usuario de Virtual Machine*. Los roles Inicio de sesión de administrador de máquina virtual e Inicio de sesión de usuario de máquina virtual usan dataActions y, por tanto, no se les puede asignar al ámbito del grupo de administración. Actualmente estos roles solo se pueden asignar en el ámbito de suscripción, grupo de recursos o recurso. Un usuario de Azure con los roles de *Propietario* o *Colaborador* asignados para una máquina virtual no tienen automáticamente privilegios para iniciar sesión en la máquina virtual a través de SSH. 
 
-En el ejemplo siguiente se usa [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) para asignar el rol *Inicio de sesión de administrador de Virtual Machine* a la máquina virtual para el usuario de Azure actual. El nombre de usuario de la cuenta de Azure activa se obtiene con [az account show](/cli/azure/account#az-account-show) y el *ámbito* se establece en la máquina virtual que se creó en un paso anterior con [az vm show](/cli/azure/vm#az-vm-show). El ámbito también se podría asignar en el nivel de un grupo de recursos o de suscripción, y se aplican los permisos de herencia de RBAC de Azure normales. Para más información, consulte [RBAC de Azure](../../role-based-access-control/overview.md).
+En el ejemplo siguiente se usa [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) para asignar el rol *Inicio de sesión de administrador de Virtual Machine* a la máquina virtual para el usuario de Azure actual. El nombre de usuario de la cuenta de Azure activa se obtiene con [az account show](/cli/azure/account#az_account_show) y el *ámbito* se establece en la máquina virtual que se creó en un paso anterior con [az vm show](/cli/azure/vm#az_vm_show). El ámbito también se podría asignar en el nivel de un grupo de recursos o de suscripción, y se aplican los permisos de herencia de RBAC de Azure normales. Para más información, consulte [RBAC de Azure](../../role-based-access-control/overview.md).
 
 ```azurecli-interactive
 username=$(az account show --query user.name --output tsv)
@@ -134,7 +134,7 @@ az role assignment create \
 ```
 
 > [!NOTE]
-> Si su dominio de AAD y el dominio del nombre de usuario de inicio de sesión no coinciden, debe especificar el identificador de objeto de su cuenta de usuario mediante *--assignee-object-id* y no solo el nombre de usuario para *--assignee*. Puede obtener el identificador de objeto para su cuenta de usuario mediante [az ad user list](/cli/azure/ad/user#az-ad-user-list).
+> Si su dominio de AAD y el dominio del nombre de usuario de inicio de sesión no coinciden, debe especificar el identificador de objeto de su cuenta de usuario mediante *--assignee-object-id* y no solo el nombre de usuario para *--assignee*. Puede obtener el identificador de objeto para su cuenta de usuario mediante [az ad user list](/cli/azure/ad/user#az_ad_user_list).
 
 Para más información sobre cómo usar RBAC de Azure para administrar el acceso a los recursos de la suscripción de Azure, consulte cómo hacerlo con la [CLI de Azure](../../role-based-access-control/role-assignments-cli.md), [Azure Portal](../../role-based-access-control/role-assignments-portal.md) o [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
@@ -147,7 +147,7 @@ Puede aplicar directivas de acceso condicional, como la autenticación multifact
 
 ## <a name="log-in-to-the-linux-virtual-machine"></a>Inicio de sesión en la máquina virtual Linux
 
-En primer lugar, use [az vm show](/cli/azure/vm#az-vm-show) para ver la dirección IP pública de la máquina virtual:
+En primer lugar, use [az vm show](/cli/azure/vm#az_vm_show) para ver la dirección IP pública de la máquina virtual:
 
 ```azurecli-interactive
 az vm show --resource-group myResourceGroup --name myVM -d --query publicIps -o tsv

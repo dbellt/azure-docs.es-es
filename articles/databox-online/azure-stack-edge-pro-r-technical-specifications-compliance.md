@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 03/24/2021
+ms.date: 04/12/2021
 ms.author: alkohli
-ms.openlocfilehash: aa1b861555cff65c9e432ea711af3f7c6e410625
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 3b323bf920bd884e821d03bf2def37471775e720
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105109172"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312712"
 ---
 # <a name="azure-stack-edge-pro-r-technical-specifications"></a>Especificaciones técnicas de Azure Stack Edge Pro R
 
@@ -22,43 +22,46 @@ Los componentes de hardware del dispositivo de Azure Stack Edge Pro R cumplen la
 
 ## <a name="compute-memory-specifications"></a>Especificaciones de memoria y proceso
 
-El dispositivo Azure Stack Edge Pro R tiene las especificaciones de proceso y memoria siguientes:
+El dispositivo Azure Stack Edge Pro R tiene las especificaciones de proceso y memoria siguientes:
 
-| Especificación       | Value                  |
-|---------------------|------------------------|
-| CPU    | 2 X Intel Xeon Silver 4114 CPU<br>20 núcleos físicos (10 por CPU)<br>40 núcleos lógicos (vCPU) (20 por CPU)  |
-| Memoria              | 256 GB de RAM (2666 MT/s)     |
-
+| Especificación  | Value                                             |
+|----------------|---------------------------------------------------|
+| El tipo de CPU.       | CPU Dual Intel Xeon Silver 4114                   |
+| CPU: sin formato       | 20 núcleos totales, 40 CPU virtuales en total                    |
+| CPU: utilizable    | 32 CPU virtuales                                          |
+| Tipo de memoria    | Dell Compatible 16 GB RDIMM, 2666 MT/s, rango dual |
+| Memoria: sin formato    | 256 GB de RAM (16 x 16 GB)                           |
+| Memoria: utilizable | 230 GB de RAM                                        |
 
 ## <a name="compute-acceleration-specifications"></a>Especificaciones de aceleración de proceso
 
 Se incluye una unidad de procesamiento gráfico (GPU) en cada dispositivo que permite escenarios de Kubernetes, aprendizaje profundo y aprendizaje automático.
 
-| Especificación           | Value                  |
+| Especificación           | Value                      |
 |-------------------------|----------------------------|
-| GPU   | Una GPU NVIDIA T4 <br> Para obtener más información, consulte [NVIDIA T4](https://www.nvidia.com/en-us/data-center/tesla-t4/).| 
+| GPU   | Una GPU NVIDIA T4 <br> Para obtener más información, consulte [NVIDIA T4](https://www.nvidia.com/en-us/data-center/tesla-t4/). | 
 
 ## <a name="power-supply-unit-specifications"></a>Especificaciones de la fuente de alimentación
 
 El dispositivo Azure Stack Edge Pro R tiene dos fuentes de alimentación (PSU) de 100-240 V con ventiladores de alto rendimiento. Las dos fuentes de alimentación proporcionan una configuración de alimentación redundante. Si se produce un error en una de ellas, el dispositivo sigue funcionando con normalidad en la otra hasta que se reemplaza el módulo con error. En la tabla siguiente se enumeran las especificaciones técnicas de las fuentes de alimentación.
 
-| Especificación           | Fuente de alimentación de 550 W                  |
-|-------------------------|----------------------------|
-| Potencia de salida máxima    | 550 W                      |
-| Disipación térmica (máxima)                   | 2891 BTU/h                |
-| Frecuencia               | 50/60 Hz                   |
-| Selección del intervalo de voltaje | Intervalo automático: 115-230 V CA |
-| Conectable en funcionamiento           | Sí                        |
+| Especificación              | Fuente de alimentación de 550 W                  |
+|----------------------------|----------------------------|
+| Potencia de salida máxima       | 550 W                      |
+| Disipación térmica (máxima) | 2891 BTU/h                |
+| Frecuencia                  | 50/60 Hz                   |
+| Selección del intervalo de voltaje    | Intervalo automático: 115-230 V CA |
+| Conectable en funcionamiento              | Sí                        |
 
 ## <a name="network-specifications"></a>Especificaciones de red
 
-El dispositivo Azure Stack Edge Pro R tiene cuatro interfaces de red: PUERTO 1 A PUERTO 4. 
+El dispositivo Azure Stack Edge Pro R tiene cuatro interfaces de red: PUERTO 1 A PUERTO 4.
 
 
-|Especificación  |Descripción                              |
+|Especificación         |Descripción                       |
 |----------------------|----------------------------------|
-|Interfaces de red    |**2 interfaces RJ45 de 1 GbE** <br> PUERTO 1 se usa como interfaz de administración para la configuración inicial y es estática de manera predeterminada. Una vez completada la configuración inicial, puede usar la interfaz para los datos con cualquier dirección IP. Sin embargo, tras un restablecimiento, la interfaz vuelve a la dirección IP estática. <br>La otra interfaz del PUERTO 2 se puede configurar por el usuario, se puede usar para la transferencia de datos y es DHCP de manera predeterminada.     |
-|Interfaces de red    |**2 interfaces SFP28 de 25 GbE** <br> Se pueden configurar estas interfaces de PUERTO 3 y PUERTO 4 como DHCP (predeterminado) o estáticas.            |
+|Interfaces de red    |**2 x 1 GbE RJ45** <br> El PUERTO 1 se usa como interfaz de administración para la configuración inicial y es estática de manera predeterminada. Una vez completada la configuración inicial, puede usar la interfaz para los datos con cualquier dirección IP. Sin embargo, tras un restablecimiento, la interfaz vuelve a la dirección IP estática. <br>La otra interfaz, el PUERTO 2, que el usuario puede configurar, se puede usar para la transferencia de datos y es DHCP de manera predeterminada. |
+|Interfaces de red    |**2 interfaces SFP28 de 25 GbE** <br> Estas interfaces de datos, en el PUERTO 3 y el PUERTO 4 se pueden configurar como DHCP (valor predeterminado) o como estáticas. |
 
 El dispositivo Azure Stack Edge Pro R tiene el siguiente hardware de red:
 
@@ -69,16 +72,16 @@ El dispositivo Azure Stack Edge Pro R tiene el siguiente hardware de red:
 | Parameter           | Description                 |
 |-------------------------|----------------------------|
 | Model    | ConnectX®-4 Lx EN network interface card                      |
-| Model Description               | 25GbE dual-port SFP28; PCIe3.0 x8; ROHS R6                    |
+| Model Description               | 25 GbE dual-port SFP28; PCIe3.0 x8; ROHS R6                    |
 | Device Part Number (XR2) | MCX4421A-ACAN  |
 | PSID (R640)           | MT_2420110034                         |-->
 <!-- confirm w/ Ravi what is this-->
 
-Para una lista completa de cables, enchufes y transceptores para estas tarjetas de red, vaya a: [Productos compatibles con el adaptador de red de 4 canales, doble puerto 25G ConnectX de Mellanox](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products).
+Para una lista completa de los cables, los enchufes y los transceptores válidos para estas tarjetas de red, vaya a [Productos compatibles con el adaptador de red de 4 canales, doble puerto 25G ConnectX de Mellanox](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products).
 
 ## <a name="storage-specifications"></a>Especificaciones de almacenamiento
 
-Los dispositivos de Azure Stack Edge Pro R tienen 8 discos de datos y 2 discos SATA M.2 que funcionan como discos del sistema operativo. Para más información, consulte [Discos SATA M.2](https://en.wikipedia.org/wiki/M.2).
+Los dispositivos Azure Stack Edge Pro R tienen ocho discos de datos y dos discos SATA M.2 que funcionan como discos del sistema operativo. Para más información, consulte [Discos SATA M.2](https://en.wikipedia.org/wiki/M.2).
 
 #### <a name="storage-for-1-node-device"></a>Almacenamiento para dispositivos de un nodo
 
@@ -89,7 +92,7 @@ La tabla siguiente contiene los detalles de la capacidad de almacenamiento del d
 |    Número de unidades de estado sólido (SSD)     |    8                  |
 |    Capacidad de un solo SSD                     |    8 TB               |
 |    Capacidad total                          |    64 TB              |
-|    Capacidad total utilizable*                  |    ~ 42 TB          |
+|    Capacidad total utilizable*                  |    ~ 42 TB            |
 
 **Parte del espacio está reservado para uso interno.*
 
@@ -148,7 +151,7 @@ El peso del dispositivo depende de la configuración del revestimiento.
 
 |     Revestimiento                                 |     Peso          |
 |-----------------------------------------------|---------------------|
-|    Peso total del dispositivo de un nodo con carcasa resistente y cubiertas laterales     |    ~ 51 kg (114 libras)          |
+|    Peso total del dispositivo de un nodo con carcasa resistente y cubiertas laterales     |    ~114 libras          |
 
 <!--#### For the 4-node system
 

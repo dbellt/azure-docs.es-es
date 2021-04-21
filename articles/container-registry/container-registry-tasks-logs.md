@@ -3,12 +3,12 @@ title: 'Visualización de registros de ejecución de tareas: Tasks'
 description: Cómo ver y administrar registros de ejecución generados por ACR Tasks.
 ms.topic: article
 ms.date: 03/09/2020
-ms.openlocfilehash: b2a10d4a3a2746acf38445673af994c6317c77de
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ce5f33853be2aa48bcfd1916c7f8b94b9702f38c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93027183"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781062"
 ---
 # <a name="view-and-manage-task-run-logs"></a>Visualización de registros de ejecución de tareas
 
@@ -18,9 +18,9 @@ En este artículo se explica cómo ver y administrar registros de ejecución de 
 
 ## <a name="view-streamed-logs"></a>Visualización de registros transmitidos
 
-Cuando se desencadena una tarea manualmente, la salida del registro se transmite directamente a la consola. Por ejemplo, al desencadenar una tarea manualmente mediante el comando [az acr build](/cli/azure/acr#az-acr-build), [az acr run](/cli/azure/acr#az-acr-run) o [az acr task run](/cli/azure/acr/task#az-acr-task-run), se muestra la salida del registro transmitido a la consola. 
+Cuando se desencadena una tarea manualmente, la salida del registro se transmite directamente a la consola. Por ejemplo, al desencadenar una tarea manualmente mediante el comando [az acr build](/cli/azure/acr#az_acr_build), [az acr run](/cli/azure/acr#az_acr_run) o [az acr task run](/cli/azure/acr/task#az_acr_task_run), se muestra la salida del registro transmitido a la consola. 
 
-El siguiente comando [az acr run](/cli/azure/acr#az-acr-run) de ejemplo desencadena manualmente una tarea que ejecuta un contenedor extraído del mismo registro:
+El siguiente comando [az acr run](/cli/azure/acr#az_acr_run) de ejemplo desencadena manualmente una tarea que ejecuta un contenedor extraído del mismo registro:
 
 ```azurecli
 az acr run --registry mycontainerregistry1220 \
@@ -58,7 +58,7 @@ Run ID: cf4 was successful after 5s
 
 ## <a name="view-stored-logs"></a>Visualización de registros almacenados 
 
-Azure Container Registry almacena registros de ejecución de todas las tareas. Puede ver los registros de ejecución almacenados en Azure Portal. También puede usar el comando [az acr task logs](/cli/azure/acr/task#az-acr-task-logs) para ver un registro seleccionado. De forma predeterminada, los registros se conservan 30 días.
+Azure Container Registry almacena registros de ejecución de todas las tareas. Puede ver los registros de ejecución almacenados en Azure Portal. También puede usar el comando [az acr task logs](/cli/azure/acr/task#az_acr_task_logs) para ver un registro seleccionado. De forma predeterminada, los registros se conservan 30 días.
 
 Si una tarea se desencadena automáticamente, por ejemplo, mediante una actualización de código fuente, acceder a los registros almacenados es el *único* modo de ver los registros de ejecución. Los desencadenadores de tareas automáticas incluyen confirmaciones de código fuente o solicitudes de incorporación de cambios, actualizaciones de imagen base y desencadenadores de temporizador.
 
@@ -70,7 +70,7 @@ Para ver registros de ejecución en el portal:
 
 ![Portal de inicio de sesión para visualización de ejecución de tareas](./media/container-registry-tasks-logs/portal-task-run-logs.png)
 
-Para ver un registro mediante la CLI de Azure, ejecute [az acr task logs](/cli/azure/acr/task#az-acr-task-logs) y especifique un identificador de ejecución, un nombre de tarea o una imagen específica creada por una tarea de compilación. Si se especifica un nombre de tarea, el comando muestra el registro de la última ejecución creada.
+Para ver un registro mediante la CLI de Azure, ejecute [az acr task logs](/cli/azure/acr/task#az_acr_task_logs) y especifique un identificador de ejecución, un nombre de tarea o una imagen específica creada por una tarea de compilación. Si se especifica un nombre de tarea, el comando muestra el registro de la última ejecución creada.
 
 En el ejemplo siguiente se genera el registro de la ejecución con el identificador *cf4*:
 
@@ -83,7 +83,7 @@ az acr task logs --registry mycontainerregistry1220 \
 
 Es posible que desee almacenar los registros de ejecución de tareas en un sistema de archivos local o utilizar una solución de archivado alternativa, como Azure Storage.
 
-Por ejemplo, cree un directorio local *tasklogs* y redirija el resultado de [az acr task logs](/cli/azure/acr/task#az-acr-task-logs) a un archivo local:
+Por ejemplo, cree un directorio local *tasklogs* y redirija el resultado de [az acr task logs](/cli/azure/acr/task#az_acr_task_logs) a un archivo local:
 
 ```azurecli
 mkdir ~/tasklogs
@@ -101,13 +101,13 @@ También puede guardar archivos de registro locales en Azure Storage. Por ejempl
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
-[az-acr-build]: /cli/azure/acr#az-acr-build
-[az-acr-pack-build]: /cli/azure/acr/pack#az-acr-pack-build
+[az-acr-build]: /cli/azure/acr#az_acr_build
+[az-acr-pack-build]: /cli/azure/acr/pack#az_acr_pack_build
 [az-acr-task]: /cli/azure/acr/task
-[az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
-[az-acr-task-run]: /cli/azure/acr/task#az-acr-task-run
-[az-acr-task-update]: /cli/azure/acr/task#az-acr-task-update
-[az-login]: /cli/azure/reference-index#az-login
+[az-acr-task-create]: /cli/azure/acr/task#az_acr_task_create
+[az-acr-task-run]: /cli/azure/acr/task#az_acr_task_run
+[az-acr-task-update]: /cli/azure/acr/task#az_acr_task_update
+[az-login]: /cli/azure/reference-index#az_login
 [az-login-service-principal]: /cli/azure/authenticate-azure-cli
 
 <!-- IMAGES -->

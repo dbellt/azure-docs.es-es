@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: cc605a08147da1d076b302e515a4ebe8d411a782
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: d5604f177484d33255d2923d72b00fae124c0f9a
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105963818"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107783600"
 ---
 # <a name="azure-cli-example-reset-the-account-credentials"></a>Ejemplo de la CLI de Azure: restablecimiento de las credenciales de la cuenta
 
@@ -47,4 +47,4 @@ az ams account sp reset-credentials \
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [az ams](/cli/azure/ams)
-* [Restablecimiento de las credenciales](/cli/azure/ams/account/sp#az-ams-account-sp-reset-credentials)
+* [Restablecimiento de las credenciales](/cli/azure/ams/account/sp#az_ams_account_sp_reset_credentials)

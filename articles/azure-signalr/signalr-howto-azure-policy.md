@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: jixin
-ms.openlocfilehash: 018033d3a6123948191a7261f5a1ee2ae526e25a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c8776102602f5bdcf29139d808a6f603cc5c7473
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89295033"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107784580"
 ---
 # <a name="audit-compliance-of-azure-signalr-service-resources-using-azure-policy"></a>Auditoría del cumplimiento de los recursos de Azure SignalR Service mediante Azure Policy
 
@@ -53,7 +53,7 @@ Cuando un recurso no es compatible, hay muchos motivos posibles para ello. Para 
 
 ### <a name="policy-compliance-in-the-azure-cli"></a>Cumplimiento de directivas en la CLI de Azure
 
-También puede usar la CLI de Azure para obtener datos de cumplimiento. Por ejemplo, use el comando [az policy assignment list](/cli/azure/policy/assignment#az-policy-assignment-list) en la CLI para obtener los identificadores de directiva de las directivas de Azure SignalR Service que se aplican:
+También puede usar la CLI de Azure para obtener datos de cumplimiento. Por ejemplo, use el comando [az policy assignment list](/cli/azure/policy/assignment#az_policy_assignment_list) en la CLI para obtener los identificadores de directiva de las directivas de Azure SignalR Service que se aplican:
 
 ```azurecli
 az policy assignment list --query "[?contains(displayName,'SignalR')].{name:displayName, ID:id}" --output table
@@ -67,13 +67,13 @@ Name                                                                            
 [Preview]: Azure SignalR Service should use private links  /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.Authorization/policyAssignments/<assignmentId>
 ```
 
-A continuación, ejecute [az policy state list](/cli/azure/policy/state#az-policy-state-list) para devolver el estado de cumplimiento con formato JSON para todos los recursos de un grupo de recursos específico:
+A continuación, ejecute [az policy state list](/cli/azure/policy/state#az_policy_state_list) para devolver el estado de cumplimiento con formato JSON para todos los recursos de un grupo de recursos específico:
 
 ```azurecli
 az policy state list --g <resourceGroup>
 ```
 
-O bien ejecute [az policy state list](/cli/azure/policy/state#az-policy-state-list) para devolver el estado de cumplimiento con formato JSON de un recurso de SignalR específico:
+O bien ejecute [az policy state list](/cli/azure/policy/state#az_policy_state_list) para devolver el estado de cumplimiento con formato JSON de un recurso de SignalR específico:
 
 ```azurecli
 az policy state list \

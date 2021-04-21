@@ -3,12 +3,12 @@ title: Restauración de archivos en Windows Server mediante el agente de MARS
 description: En este artículo, aprenderá a restaurar datos almacenados en Azure en un equipo Windows Server o Windows con el agente de Microsoft Azure Recovery Services (MARS).
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: 79a4d32d6dbca5ca5be5d46c6b44a07ef42de061
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7ca0787ec38e1bc22b62e756c7ee56c5c9e93493
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91813260"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107517341"
 ---
 # <a name="restore-files-to-windows-server-using-the-mars-agent"></a>Restauración de archivos en Windows Server mediante el agente de MARS
 
@@ -107,7 +107,7 @@ Estos pasos incluyen la siguiente terminología:
 
 5. Proporcione el archivo de credenciales de almacén que se corresponde con el almacén de ejemplo y seleccione **Siguiente**.
 
-    Si el archivo de credenciales de almacén no es válido o ha expirado, [descargue un nuevo archivo de credenciales de almacén desde el almacén de ejemplo](backup-azure-file-folder-backup-faq.md#where-can-i-download-the-vault-credentials-file) en Azure Portal. Una vez proporcionada una credencial de almacén válida, aparecerá el nombre del almacén de Backup correspondiente.
+    Si el archivo de credenciales de almacén no es válido o ha expirado, [descargue un nuevo archivo de credenciales de almacén desde el almacén de ejemplo](backup-azure-file-folder-backup-faq.yml#where-can-i-download-the-vault-credentials-file-) en Azure Portal. Una vez proporcionada una credencial de almacén válida, aparecerá el nombre del almacén de Backup correspondiente.
 
 6. En la página **Seleccionar servidor de copia de seguridad**, seleccione la máquina de origen en la lista de máquinas mostradas y proporcione la frase de contraseña. Luego, seleccione **Siguiente**.
 
@@ -145,4 +145,4 @@ Estos pasos incluyen la siguiente terminología:
 
 * Ahora que ha recuperado los archivos y las carpetas, puede [administrar las copias de seguridad](backup-azure-manage-windows-server.md).
 
-* Busque [Preguntas comunes acerca de la realización de copias de seguridad de archivos y carpetas](backup-azure-file-folder-backup-faq.md).
+* Busque [Preguntas comunes acerca de la realización de copias de seguridad de archivos y carpetas](backup-azure-file-folder-backup-faq.yml).

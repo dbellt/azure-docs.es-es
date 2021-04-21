@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 44fe6bb3787e1fe0df7ccf83200497b46c473568
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: bfecc88dc0c504cee615f1a3d35f9208aeb724f8
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107728507"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107309243"
 ---
 # <a name="tutorial-create-a-hierarchy-of-iot-edge-devices"></a>Tutorial: Creación de una jerarquía de dispositivos IoT Edge
 
@@ -298,7 +298,7 @@ También puede ver estos mensajes mediante [Azure Cloud Shell](https://shell.azu
    az iot hub monitor-events -n <iothub_name> -d <lower-layer-device-name>
    ```
 
-## <a name="troubleshooting"></a>Solucionar problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 Ejecute el comando `iotedge check` para comprobar la configuración y solucionar errores.
 
@@ -309,7 +309,7 @@ Cuando se ejecuta `iotedge check` desde la capa inferior, el programa intenta ex
 En este tutorial, se usa el puerto 8000, por lo que es necesario especificarlo:
 
 ```bash
-sudo iotedge check --diagnostics-image-name $upstream:8000/azureiotedge-diagnostics:1.2
+sudo iotedge check --diagnostics-image-name $upstream:8000/azureiotedge-diagnostics:1.2.0-rc4
 ```
 
 El valor de `azureiotedge-diagnostics` se extrae del registro de contenedor vinculado al módulo del registro. En este tutorial se ha establecido de forma predeterminada en https://mcr.microsoft.com:.

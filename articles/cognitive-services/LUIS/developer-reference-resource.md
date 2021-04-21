@@ -6,12 +6,12 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 01/12/2021
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 08a1965aadf8f50625e54d7c5e3b3f6a44c0bbd4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 04c7d4a7e725d99c7dba94779d365312f8b960af
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98946179"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107787114"
 ---
 # <a name="sdk-rest-and-cli-developer-resources-for-language-understanding-luis"></a>Recursos de desarrolladores de SDK, REST y CLI para Language Understanding (LUIS)
 
@@ -23,7 +23,7 @@ Use el nivel de Azure Microsoft Cognitive Services para crear, editar, enumerar 
 
 Encuentre la documentación de referencia basada en la herramienta:
 
-* [CLI de Azure](/cli/azure/cognitiveservices#az-cognitiveservices-list)
+* [CLI de Azure](/cli/azure/cognitiveservices#az_cognitiveservices_list)
 
 * [Azure RM PowerShell](/powershell/module/azurerm.cognitiveservices/#cognitive_services)
 

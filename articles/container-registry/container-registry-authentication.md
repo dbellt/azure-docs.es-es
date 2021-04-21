@@ -3,12 +3,12 @@ title: Opciones de autenticación de registro
 description: Opciones de autenticación de una instancia privada de Azure Container Registry, incluido el inicio de sesión con una identidad de Azure Active Directory, mediante entidades de servicio y credenciales de administrador opcionales.
 ms.topic: article
 ms.date: 03/15/2021
-ms.openlocfilehash: d12895502ecd30991fbef836903a8ceea445b770
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 7ff55d569e2659262ce9f323e4db2ea7ed671d20
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106285508"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107784288"
 ---
 # <a name="authenticate-with-an-azure-container-registry"></a>Autenticación con un registro de contenedor de Azure
 
@@ -31,7 +31,7 @@ En la tabla siguiente se enumeran los métodos de autenticación disponibles y l
 
 ## <a name="individual-login-with-azure-ad"></a>Inicio de sesión individual con Azure AD
 
-Cuando trabaje con el registro directamente (por ejemplo, para realizar la extracción e inserción de imágenes en la estación de trabajo de desarrollo para un registro que ha creado), autentíquese con su identidad individual de Azure. Inicie sesión en la [CLI de Azure](/cli/azure/install-azure-cli) con [az login](/cli/azure/reference-index#az-login) y, luego, ejecute el comando [az acr login](/cli/azure/acr#az-acr-login):
+Cuando trabaje con el registro directamente (por ejemplo, para realizar la extracción e inserción de imágenes en la estación de trabajo de desarrollo para un registro que ha creado), autentíquese con su identidad individual de Azure. Inicie sesión en la [CLI de Azure](/cli/azure/install-azure-cli) con [az login](/cli/azure/reference-index#az_login) y, luego, ejecute el comando [az acr login](/cli/azure/acr#az_acr_login):
 
 ```azurecli
 az login
@@ -111,7 +111,7 @@ docker login myregistry.azurecr.io
 
 Si quiere ver los procedimientos recomendados para administrar credenciales de inicio de sesión, consulte la referencia del comando [docker login](https://docs.docker.com/engine/reference/commandline/login/).
 
-Para habilitar el usuario administrador para un registro existente, puede usar el parámetro `--admin-enabled` del comando [az acr update](/cli/azure/acr#az-acr-update) en la CLI de Azure:
+Para habilitar el usuario administrador para un registro existente, puede usar el parámetro `--admin-enabled` del comando [az acr update](/cli/azure/acr#az_acr_update) en la CLI de Azure:
 
 ```azurecli
 az acr update -n <acrName> --admin-enabled true

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: 18d0a24de6f0775fdb35799512f9796a323d353a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: be12a9054fd67b243530ff671c10fa53acafc308
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105045491"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107366358"
 ---
 # <a name="migrate-to-connection-monitor-from-network-performance-monitor"></a>Migración a Connection Monitor desde Network Performance Monitor
 
@@ -43,7 +43,7 @@ La migración ayuda a generar los siguientes resultados:
     
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Asegúrese de que Network Watcher esté habilitado en la suscripción y la región del área de trabajo de Log Analytics. 
+* Asegúrese de que Network Watcher esté habilitado en la suscripción y la región del área de trabajo de Log Analytics. En caso de que no se realice, verá un error que indica "Antes de intentar la migración, habilite la extensión de Network Watcher en la suscripción de la selección y la ubicación del área de trabajo de LA seleccionada".
 * En caso de usar una máquina virtual de Azure que pertenece a una región o suscripción distintas del área de trabajo de Log Analytics como punto de conexión, asegúrese de que Network Watcher esté habilitado para esa suscripción y esa región.   
 * Las máquinas virtuales de Azure con agentes de Log Analytics instalados deberán estar habilitadas con la extensión Network Watcher.
 
@@ -57,6 +57,10 @@ Para migrar las pruebas de Network Performance Monitor a Connection Monitor, hag
     
 1. En las listas desplegables, seleccione la suscripción y el área de trabajo y, luego, seleccione la característica de NPM que quiere migrar. 
 1. Seleccione **Import** (Importar) para migrar las pruebas.
+* Si NPM no está habilitado en el área de trabajo, verá un error que indica "No se encontró ninguna configuración de NPM válida". 
+* Si no existen pruebas en la característica que eligió en el paso 2, verá un error que indica "El área de trabajo seleccionada no tiene la configuración <feature>".
+* Si no hay pruebas válidas, verá un error que indica "El área de trabajo seleccionada no tiene pruebas válidas".
+* Las pruebas pueden contener agentes que ya no están activos, pero que pueden haber estado activos en el pasado. Verá un error que indica que "Algunas pruebas contienen agentes que ya no están activos. Lista de agentes inactivos: {0}. Estos agentes pueden estar ejecutándose en el pasado, pero se apagan o ya no se ejecutan. Habilite los agentes y migre a Connection Monitor. Haga clic en Continuar para migrar las pruebas que no contienen agentes que no están activos".
 
 Una vez iniciada la migración, tienen lugar los siguientes cambios: 
 * Se crea un recurso de monitor de conexión.

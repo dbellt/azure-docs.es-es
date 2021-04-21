@@ -9,12 +9,12 @@ ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: b6000d8ff3eb35d678a94adc021efcadf8a77f81
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d777588f0abdd1f771deb259c597f6407e61d874
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101699663"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107364624"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Red virtual administrada de Azure Data Factory (versión preliminar)
 
@@ -74,6 +74,50 @@ Entre las funcionalidades de la creación interactiva se incluyen probar la cone
 
 ![Creación interactiva](./media/managed-vnet/interactive-authoring.png)
 
+## <a name="create-managed-virtual-network-via-azure-powershell"></a>Creación de una red virtual administrada mediante Azure PowerShell
+```powershell
+$subscriptionId = ""
+$resourceGroupName = ""
+$factoryName = ""
+$managedPrivateEndpointName = ""
+$integrationRuntimeName = ""
+$apiVersion = "2018-06-01"
+$privateLinkResourceId = ""
+
+$vnetResourceId = "subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${factoryName}/managedVirtualNetworks/default"
+$privateEndpointResourceId = "subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${factoryName}/managedVirtualNetworks/default/managedprivateendpoints/${managedPrivateEndpointName}"
+$integrationRuntimeResourceId = "subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${factoryName}/integrationRuntimes/${integrationRuntimeName}"
+
+# Create managed Virtual Network resource
+New-AzResource -ApiVersion "${apiVersion}" -ResourceId "${vnetResourceId}"
+
+# Create managed private endpoint resource
+New-AzResource -ApiVersion "${apiVersion}" -ResourceId "${privateEndpointResourceId}" -Properties @{
+        privateLinkResourceId = "${privateLinkResourceId}"
+        groupId = "blob"
+    }
+
+# Create integration runtime resource enabled with VNET
+New-AzResource -ApiVersion "${apiVersion}" -ResourceId "${integrationRuntimeResourceId}" -Properties @{
+        type = "Managed"
+        typeProperties = @{
+            computeProperties = @{
+                location = "AutoResolve"
+                dataFlowProperties = @{
+                    computeType = "General"
+                    coreCount = 8
+                    timeToLive = 0
+                }
+            }
+        }
+        managedVirtualNetwork = @{
+            type = "ManagedVirtualNetworkReference"
+            referenceName = "default"
+        }
+    }
+
+```
+
 ## <a name="limitations-and-known-issues"></a>Limitaciones y problemas conocidos
 ### <a name="supported-data-sources"></a>Orígenes de datos compatibles
 Los orígenes de datos siguientes pueden establecer una conexión a través de un vínculo privado desde la red virtual administrada de ADF.
@@ -105,6 +149,16 @@ Los orígenes de datos siguientes pueden establecer una conexión a través de u
 - Sudeste de Asia
 - Este de Australia
 - Sudeste de Australia
+- Este de Noruega
+- Japón Oriental
+- Japón Occidental
+- Centro de Corea del Sur
+- Sur de Brasil
+- Centro de Francia
+- Norte de Suiza
+- Oeste de Reino Unido
+- Este de Canadá
+- Centro de Canadá
 
 ### <a name="outbound-communications-through-public-endpoint-from-adf-managed-virtual-network"></a>Comunicaciones salientes a través del punto de conexión público desde la red virtual administrada de ADF
 - Solo se abre el puerto 443 para las comunicaciones salientes.

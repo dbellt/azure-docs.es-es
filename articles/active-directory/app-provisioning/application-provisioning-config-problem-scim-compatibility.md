@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/05/2020
+ms.date: 04/07/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: d13629b4cb05995b9652e862f769a0ffcae30a8c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 268931715500631ac2d10feacebff1d5c65931bf
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99256905"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107028798"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Problemas conocidos y soluciones con el cumplimiento de protocolo SCIM 2.0 del servicio de aprovisionamiento de usuarios de Azure AD
 
@@ -51,7 +51,7 @@ Utilice las marcas siguientes en la dirección URL del inquilino de la aplicaci�
 :::image type="content" source="media/application-provisioning-config-problem-scim-compatibility/scim-flags.jpg" alt-text="Marcas de SCIM para modificar el comportamiento.":::
 
 * Use la siguiente dirección URL para actualizar el comportamiento de las revisiones para garantizar el cumplimiento de SCIM (por ejemplo, activo como booleano y eliminación de las pertenencia a grupos adecuadas). Actualmente, este comportamiento solo está disponible cuando se usa la marca, pero se convertirá en el comportamiento predeterminado durante los próximos meses. Tenga en cuenta que esta marca de vista previa no funciona actualmente con el aprovisionamiento a petición. 
-  * **Dirección URL (compatible con SCIM):** AzureAdScimPatch062020
+  * **Dirección URL (compatible con SCIM):** aadOptscim062020
   * **Referencias de RFC de SCIM:** 
     * https://tools.ietf.org/html/rfc7644#section-3.5.2
   * **Comportamiento:**

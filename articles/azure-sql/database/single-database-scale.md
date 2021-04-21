@@ -10,19 +10,26 @@ ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
-ms.date: 02/22/2021
-ms.openlocfilehash: c5b6509cabd743a01a085639a7b76d764555a9f8
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.date: 04/09/2021
+ms.openlocfilehash: 47686f457e2579ca8a643de6671c886effefa6f1
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106106660"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313528"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Escalar recursos de base de datos única en Azure SQL Database
 
 En este artículo se describe cómo escalar los recursos de proceso y almacenamiento disponibles para una instancia de Azure SQL Database en el nivel de proceso aprovisionado. Como alternativa, el [nivel de proceso sin servidor](serverless-tier-overview.md) proporciona escalado automático de proceso y se factura por segundo el proceso que se usa.
 
-Después de elegir inicialmente el número de núcleos virtuales o DTU, puede escalar o reducir una base de datos verticalmente de manera dinámica en función de la experiencia real mediante [Azure Portal](single-database-manage.md#the-azure-portal), [Transact-SQL](/sql/t-sql/statements/alter-database-transact-sql#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), la [CLI de Azure](/cli/azure/sql/db#az-sql-db-update) o la [API REST](/rest/api/sql/databases/update).
+Después de elegir inicialmente el número de núcleos virtuales o de DTU, puede escalar o reducir verticalmente una base de datos única de forma dinámica en función de la experiencia real, para lo que puede usar:
+
+* [Transact-SQL](/sql/t-sql/statements/alter-database-transact-sql#overview-sql-database)
+* [Azure Portal](single-database-manage.md#the-azure-portal)
+* [PowerShell](/powershell/module/az.sql/set-azsqldatabase)
+* [CLI de Azure](/cli/azure/sql/db#az-sql-db-update)
+* [REST API](/rest/api/sql/databases/update)
+
 
 El vídeo siguiente muestra cómo cambiar de manera dinámica el nivel de servicio y el tamaño de proceso para aumentar las DTU disponibles para una base de datos única.
 
@@ -125,7 +132,7 @@ Se le cobrará por cada hora que una base de datos exista con el mayor nivel de 
 
 ### <a name="vcore-based-purchasing-model"></a>Modelo de compra basado en núcleo virtual
 
-- Se puede aprovisionar el almacenamiento hasta el límite máximo de tamaño del almacenamiento de datos con incrementos de 1 GB. El almacenamiento de datos mínimo configurable es 1 GB. Consulte las páginas de documentación del límite de recursos para [bases de datos únicas](resource-limits-vcore-single-databases.md) y [grupos elásticos](resource-limits-vcore-elastic-pools.md) a fin de ver los límites máximos de tamaño del almacenamiento de datos en cada objetivo del servicio.
+- Se puede aprovisionar el almacenamiento hasta el límite máximo de tamaño del almacenamiento de datos con incrementos de 1 GB. El almacenamiento de datos mínimo configurable es 1 GB. Para conocer los límites máximos de tamaño del almacenamiento de datos de cada objetivo de servicio, consulte las páginas de documentación de los límites de recursos en [Límites de recursos para bases de datos únicas que utilizan el modelo de compra en núcleos virtuales](resource-limits-vcore-single-databases.md) y [Límites de recursos de bases de datos únicas que usan el modelo de compra de DTU: Azure SQL Database](resource-limits-dtu-single-databases.md).
 - Se puede aprovisionar almacenamiento de datos para una base de datos única mediante el aumento o disminución de su tamaño máximo con [Azure Portal](https://portal.azure.com), [Transact-SQL](/sql/t-sql/statements/alter-database-transact-sql#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), la [CLI de Azure](/cli/azure/sql/db#az-sql-db-update) o la [API de REST](/rest/api/sql/databases/update). Si el valor de tamaño máximo se especifica en bytes, debe ser un múltiplo de 1 GB (1073741824 bytes).
 - La cantidad de datos que se pueden almacenar en los archivos de datos de una base de datos está limitada por el tamaño máximo del almacenamiento de datos configurado. Además de ese almacenamiento, Azure SQL Database asigna automáticamente un 30 % de almacenamiento adicional que se va a usar para el registro de transacciones.
 - Azure SQL Database asigna automáticamente 32 GB por núcleo virtual para la base de datos `tempdb`. `tempdb` se encuentra en el almacenamiento local de SSD en todos los niveles de servicio.

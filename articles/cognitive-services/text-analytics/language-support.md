@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/23/2021
 ms.author: aahi
-ms.openlocfilehash: 9e257209060396fbf45a4a24c38bc6950acb5168
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: c0d91f803822e018f4363bb78d9138e2efe16f8a
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106387033"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107531442"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>Idiomas admitidos en Text Analytics API v3 
 
@@ -25,6 +25,7 @@ ms.locfileid: "106387033"
 |:----------------------|:-------------:|:----------:|:--------------------------:|-------------------:|
 | Chino simplificado    |   `zh-hans`   |     ✓      |         2019-10-01         | También se acepta `zh` |
 | Chino (tradicional)   |   `zh-hant`   |    ✓      |         2019-10-01         |                    |
+| Neerlandés                 |     `nl`      |     ✓      |         2019-10-01        |                    |
 | Inglés               |     `en`      |     ✓      |         2019-10-01         |                    |
 | Francés                |     `fr`      |     ✓      |         2019-10-01         |                    |
 | Alemán                |     `de`      |     ✓      |         2019-10-01         |                    |

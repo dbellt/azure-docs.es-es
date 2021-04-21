@@ -5,12 +5,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 06/27/2019
 ms.author: lajanuar
-ms.openlocfilehash: 324fde5198fe3469e3979cf5cd102715118a49aa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dfd2b32094aae06675ea8ee9157370f9d2833e91
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103467328"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107518235"
 ---
 Form Recognizer trabaja con documentos de entrada que cumplen estos requisitos:
 
@@ -22,6 +22,5 @@ Form Recognizer trabaja con documentos de entrada que cumplen estos requisitos:
 * El tamaño total del conjunto de datos de aprendizaje puede ser de 500 páginas o menos.
 * Si los archivos PDF están bloqueados con contraseña, debe quitar el bloqueo antes de enviarlos.
 * Si se digitalizan desde documentos en papel, los formularios deben ser digitalizaciones de alta calidad.
-* El texto debe usar el alfabeto latino (caracteres ingleses).
 * En el caso del aprendizaje sin supervisión (sin datos etiquetados), los datos deben contener claves y valores.
 * En el caso del aprendizaje sin supervisión (sin datos etiquetados), las claves deben aparecer por encima o a la izquierda de los valores; no pueden aparecer por abajo ni a la derecha.

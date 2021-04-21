@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 03/09/2021
 ms.author: tomfitz
-ms.openlocfilehash: ff024ff97baa8a80ae6b1fcdafba010e482afd98
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 7e300f896bb11ed7c77738836f894cff41cc8bf3
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106074629"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781836"
 ---
 # <a name="arm-template-deployment-what-if-operation"></a>Operación what-if de la implementación de plantilla de Resource Manager
 
@@ -95,17 +95,17 @@ Los comandos anteriores devuelven un resumen de texto que puede inspeccionar man
 
 Para obtener una vista previa de los cambios antes de implementar una plantilla, use:
 
-* [az deployment group what-if](/cli/azure/deployment/group#az-deployment-group-what-if) para implementaciones de grupos de recursos
-* [az deployment sub what-if](/cli/azure/deployment/sub#az-deployment-sub-what-if) para implementaciones de nivel de suscripción
-* [az deployment mg what-if](/cli/azure/deployment/mg#az-deployment-mg-what-if) para implementaciones de grupos de administración
-* [az deployment tenant what-if](/cli/azure/deployment/tenant#az-deployment-tenant-what-if) para implementaciones de inquilinos
+* [az deployment group what-if](/cli/azure/deployment/group#az_deployment_group_what_if) para implementaciones de grupos de recursos
+* [az deployment sub what-if](/cli/azure/deployment/sub#az_deployment_sub_what_if) para implementaciones de nivel de suscripción
+* [az deployment mg what-if](/cli/azure/deployment/mg#az_deployment_mg_what_if) para implementaciones de grupos de administración
+* [az deployment tenant what-if](/cli/azure/deployment/tenant#az_deployment_tenant_what_if) para implementaciones de inquilinos
 
 Puede usar el modificador `--confirm-with-what-if` (o su forma abreviada `-c`) para obtener una vista previa de los cambios y recibir un aviso para continuar con la implementación. Agregue este modificador a:
 
-* [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create)
-* [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create)
-* [az deployment mg create](/cli/azure/deployment/mg#az-deployment-mg-create)
-* [az deployment tenant create](/cli/azure/deployment/tenant#az-deployment-tenant-create)
+* [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create)
+* [az deployment sub create](/cli/azure/deployment/sub#az_deployment_sub_create)
+* [az deployment mg create](/cli/azure/deployment/mg#az_deployment_mg_create)
+* [az deployment tenant create](/cli/azure/deployment/tenant#az_deployment_tenant_create)
 
 Por ejemplo, use `az deployment group create --confirm-with-what-if` o `-c` para implementaciones de grupos de recursos.
 

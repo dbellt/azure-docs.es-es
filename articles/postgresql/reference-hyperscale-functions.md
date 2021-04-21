@@ -6,17 +6,17 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: reference
-ms.date: 08/10/2020
-ms.openlocfilehash: f324ef44d002f50bf27c08072e904c1d92b5512f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/07/2021
+ms.openlocfilehash: b0aa9d5dec25d8d600ecbcde59a57e67917c6411
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95026240"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107011158"
 ---
 # <a name="functions-in-the-hyperscale-citus-sql-api"></a>Funciones de la API de SQL de Hiperescala (Citus)
 
-Esta sección contiene información de referencia para las funciones definidas por el usuario proporcionadas por Hiperescala (Citus). Estas funciones ayudan a proporcionar una funcionalidad distribuida adicional a Hiperescala (Citus) que no sean los comandos SQL estándar.
+Esta sección contiene información de referencia para las funciones definidas por el usuario proporcionadas por Hiperescala (Citus). Estas funciones ayudan a proporcionar una funcionalidad distribuida a Hiperescala (Citus).
 
 > [!NOTE]
 >
@@ -176,6 +176,48 @@ SELECT create_distributed_function(
   'register_for_event(int, int)', 'p_event_id',
   colocate_with := 'event_responses'
 );
+```
+
+### <a name="alter_columnar_table_set"></a>alter_columnar_table_set
+
+La función alter_columnar_table_set() cambia la configuración de una [tabla en columnas](concepts-hyperscale-columnar.md). Si se llama a esta función en una tabla que no es de columnas, se produce un error. Todos los argumentos, excepto el nombre de la tabla, son opcionales.
+
+Para ver las opciones actuales de todas las tablas en columnas, consulte esta tabla:
+
+```postgresql
+SELECT * FROM columnar.options;
+```
+
+Los valores predeterminados de la configuración de columnas para las tablas recién creadas se pueden invalidar con estos GUC:
+
+* columnar.compression
+* columnar.compression_level
+* columnar.stripe_row_count
+* columnar.chunk_row_count
+
+#### <a name="arguments"></a>Argumentos
+
+**table_name:** nombre de la tabla en columnas.
+
+**chunk_row_count:** (opcional) número máximo de filas por fragmento para los datos recién insertados. Los fragmentos de datos existentes no se cambiarán y pueden tener más filas que este valor máximo. El valor predeterminado es 10000.
+
+**stripe_row_count:** (opcional) número máximo de filas por franja para los datos recién insertados. Las franjas de datos existentes no se cambiarán y pueden tener más filas que este valor máximo. El valor predeterminado es 150 000.
+
+**compression:** (opcional) `[none|pglz|zstd|lz4|lz4hc]` tipo de compresión para los datos recién insertados. Los datos existentes no se volverán a comprimir ni descomprimir. El valor predeterminado y sugerido es zstd (si la compatibilidad se ha compilado).
+
+**compression_level:** (opcional) la configuración válida es de 1 a 19. Si el método de compresión no admite el nivel elegido, se seleccionará en su lugar el nivel más cercano.
+
+#### <a name="return-value"></a>Valor devuelto
+
+N/D
+
+#### <a name="example"></a>Ejemplo
+
+```postgresql
+SELECT alter_columnar_table_set(
+  'my_columnar_table',
+  compression => 'none',
+  stripe_row_count => 10000);
 ```
 
 ## <a name="metadata--configuration-information"></a>Información de configuración y metadatos

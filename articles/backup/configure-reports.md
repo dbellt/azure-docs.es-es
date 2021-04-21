@@ -3,12 +3,12 @@ title: Configuración de informes de Azure Backup
 description: Configure y vea informes para Azure Backup mediante Log Analytics y libros de Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 0720af0848aa8263587dfd9573d205abf73303d4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0f3638e7649fc02f050c575ee621ce9dc237c24f
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105562331"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107517273"
 ---
 # <a name="configure-azure-backup-reports"></a>Configuración de informes de Azure Backup
 
@@ -212,4 +212,4 @@ Los widgets del informe de Backup se basan en consultas de Kusto, que se ejecuta
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Más información sobre la supervisión y la generación de informes con Azure Backup](./backup-azure-monitor-alert-faq.md)
+[Más información sobre la supervisión y la generación de informes con Azure Backup](./backup-azure-monitor-alert-faq.yml)

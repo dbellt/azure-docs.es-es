@@ -2,24 +2,24 @@
 title: Aislamiento multiinquilino y contenido
 titleSuffix: Azure Cognitive Search
 description: Aprenda sobre patrones de diseño comunes para aplicaciones SaaS multiinquilino mientras usa Azure Cognitive Search.
-manager: nitinme
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/25/2020
-ms.openlocfilehash: cd21197d6d1559b681ae622b974f6eb7ba95ad3d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/06/2021
+ms.openlocfilehash: 7833dcf8fbe2b6460346310a4d094c7bb5d606c4
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91397375"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106581588"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-cognitive-search"></a>Modelos de diseño para aplicaciones SaaS multiinquilino y Azure Cognitive Search
 
 Una aplicación multiinquilino es una que proporciona los mismos servicios y funcionalidades a cualquier número de inquilinos que no pueden ver o compartir los datos de cualquier otro inquilino. En este documento se describen estrategias de aislamiento de inquilinos para aplicaciones miltiinquilino creadas con Azure Cognitive Search.
 
 ## <a name="azure-cognitive-search-concepts"></a>Conceptos de Azure Cognitive Search
+
 Como solución de búsqueda como servicio, [Azure Cognitive Search](search-what-is-azure-search.md) permite a los desarrolladores agregar completas experiencias de búsqueda a las aplicaciones sin necesidad de administrar ninguna infraestructura ni de convertirse en expertos en recuperación de información. Los datos se cargan en el servicio y luego se almacenan en la nube. Mediante sencillas solicitudes a la API de Azure Cognitive Search, los datos se pueden modificar y buscar. 
 
 ### <a name="search-services-indexes-fields-and-documents"></a>Servicios de búsqueda, índices, campos y documentos
@@ -31,14 +31,16 @@ Al utilizar Azure Cognitive Search, el usuario se suscribe a un *servicio de bú
 Cada índice dentro de un servicio de búsqueda tiene su propio esquema, que viene definido por in número de *campos* personalizables. Los datos se agregan a un índice de Azure Cognitive Search en forma de *documentos* individuales. Cada documento se debe cargar en un índice determinado y debe encajar en el esquema de ese índice. Al buscar datos mediante Azure Cognitive Search, las consultas de búsqueda de texto completo se emiten contra un índice determinado.  Para comparar estos conceptos con los de una base de datos, se pueden vincular campos a columnas de una tabla y se pueden vincular documentos a filas.
 
 ### <a name="scalability"></a>Escalabilidad
+
 Cualquier servicio de Azure Cognitive Search con el [plan de tarifa](https://azure.microsoft.com/pricing/details/search/) Estándar se puede escalar en dos dimensiones: almacenamiento y disponibilidad.
 
-* *particiones* para aumentar el almacenamiento de un servicio de búsqueda.
-* *réplicas* a un servicio para aumentar el rendimiento de las solicitudes que puede administrar un servicio de búsqueda.
++ *particiones* para aumentar el almacenamiento de un servicio de búsqueda.
++ *réplicas* a un servicio para aumentar el rendimiento de las solicitudes que puede administrar un servicio de búsqueda.
 
 Agregar y quitar particiones y réplicas permitirá que crezca la capacidad del servicio de búsqueda con la cantidad de datos y el tráfico que demanda la aplicación. Para que un servicio de búsqueda consiga un [SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/)de lectura, se requieren dos réplicas. Para que un servicio de búsqueda consiga un [SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/)de lectura y escritura, se requieren tres réplicas.
 
 ### <a name="service-and-index-limits-in-azure-cognitive-search"></a>Límites de servicio e índice en Azure Cognitive Search
+
 Hay algunos [planes de tarifas](https://azure.microsoft.com/pricing/details/search/) en Azure Cognitive Search, y cada uno de ellos tiene diferentes [límites y cuotas](search-limits-quotas-capacity.md). Algunos de estos límites están en el nivel de servicio, otros en el nivel de índice y otros en el nivel de partición.
 
 |  | Básico | Standard1 | Standard2 | Standard3 | Standard3 HD |
@@ -50,7 +52,8 @@ Hay algunos [planes de tarifas](https://azure.microsoft.com/pricing/details/sear
 | **Almacenamiento máximo por partición** |2 GB |25 GB |100 GB |200 GB |200 GB |
 | **Número máximo de índices por servicio** |5 |50 |200 |200 |3000 (1000 índices/partición como máximo) |
 
-#### <a name="s3-high-density"></a>S3 alta densidad'
+#### <a name="s3-high-density"></a>S3 alta densidad
+
 En el plan de tarifa S3 de Azure Cognitive Search, hay una opción para el modo de alta densidad (HD) diseñada específicamente para los escenarios de varios inquilinos. En muchos casos, es necesario admitir un gran número de inquilinos más pequeños en un único servicio para lograr las ventajas de la simplicidad y la rentabilidad.
 
 S3 HD permite que los muchos índices pequeños se empaqueten bajo la administración de un solo servicio de búsqueda único mediante el intercambio de la capacidad de escalar horizontalmente índices usando particiones para la capacidad de hospedar más índices en un único servicio.
@@ -58,24 +61,32 @@ S3 HD permite que los muchos índices pequeños se empaqueten bajo la administra
 Un servicio S3 está diseñado para hospedar un número fijo de índices (200 máximo) y permite que cada índice se reduzca horizontalmente a medida que se agregan nuevas particiones al servicio. Al agregar particiones a servicios de S3 HD, se aumenta el número máximo de índices que puede hospedar el servicio. El tamaño máximo ideal para un índice de S3 HD individual es de aproximadamente 50 a 80 GB, aunque no hay ningún límite de tamaño estricto en cada índice impuesto por el sistema.
 
 ## <a name="considerations-for-multitenant-applications"></a>Consideraciones sobre las aplicaciones multiinquilino
+
 Las aplicaciones multiinquilino deben distribuir de forma eficaz los recursos entre los inquilinos y conservar al mismo tiempo cierto nivel de privacidad entre los distintos inquilinos. Existen algunas consideraciones que se deben tener en cuenta al diseñar la arquitectura para aplicaciones de este tipo:
 
-* *Aislamiento de inquilinos*: los desarrolladores de aplicaciones necesitan tomar las medidas adecuadas para garantizar que ningún inquilino tenga acceso no autorizado o no deseado a los datos de otros inquilinos. Más allá de la perspectiva de privacidad de los datos, las estrategias de aislamiento de inquilinos requieren la administración eficaz de los recursos compartidos y la protección frente a vecinos ruidosos.
-* *Costo de los recursos en la nube*: al igual que sucede con cualquier otra aplicación, las soluciones de software deben tener un costo competitivo en cuanto componente de una aplicación multiinquilino.
-* *Facilidad de operaciones:* al desarrollar una arquitectura multiinquilino, es importante tener en cuenta el impacto en las operaciones y la complejidad de la aplicación. Azure Cognitive Search tiene un [Acuerdo de Nivel de Servicio de 99,9 %](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
-* *Superficie global:* las aplicaciones multiinquilino pueden tener que atender de forma eficaz a inquilinos que se encuentran distribuidos por todo el planeta.
-* *Escalabilidad:* los desarrolladores de aplicaciones deben tener en cuenta el equilibrio entre mantener un nivel de complejidad de la aplicación lo suficientemente bajo y diseñar la aplicación para escalarse con el número de inquilinos y el tamaño de los datos y la carga de trabajo de los inquilinos.
++ *Aislamiento de inquilinos*: los desarrolladores de aplicaciones necesitan tomar las medidas adecuadas para garantizar que ningún inquilino tenga acceso no autorizado o no deseado a los datos de otros inquilinos. Más allá de la perspectiva de privacidad de los datos, las estrategias de aislamiento de inquilinos requieren la administración eficaz de los recursos compartidos y la protección frente a vecinos ruidosos.
+
++ *Costo de los recursos en la nube*: al igual que sucede con cualquier otra aplicación, las soluciones de software deben tener un costo competitivo en cuanto componente de una aplicación multiinquilino.
+
++ *Facilidad de operaciones:* al desarrollar una arquitectura multiinquilino, es importante tener en cuenta el impacto en las operaciones y la complejidad de la aplicación. Azure Cognitive Search tiene un [Acuerdo de Nivel de Servicio de 99,9 %](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
+
++ *Superficie global:* las aplicaciones multiinquilino pueden tener que atender de forma eficaz a inquilinos que se encuentran distribuidos por todo el planeta.
+
++ *Escalabilidad:* los desarrolladores de aplicaciones deben tener en cuenta el equilibrio entre mantener un nivel de complejidad de la aplicación lo suficientemente bajo y diseñar la aplicación para escalarse con el número de inquilinos y el tamaño de los datos y la carga de trabajo de los inquilinos.
 
 Azure Cognitive Search ofrece algunos límites que se pueden usar para aislar los datos y la carga de trabajo de los inquilinos.
 
 ## <a name="modeling-multitenancy-with-azure-cognitive-search"></a>Modelado multiinquilino con Azure Cognitive Search
+
 En el caso de un escenario de varios inquilinos, el desarrollador de la aplicación consume uno o varios servicios de búsqueda y divide sus inquilinos entre servicios, índices o ambos. Azure Cognitive Search presenta algunos patrones comunes al modelar un escenario multiinquilino:
 
-1. *Índice por inquilino:* cada inquilino tiene su propio índice dentro de un servicio de búsqueda que comparte con otros inquilinos.
-2. *Servicio por inquilino:* Cada inquilino tiene su propio servicio de Azure Cognitive Search dedicado, que ofrece el nivel más alto de separación de datos y carga de trabajo.
-3. *Mezcla de ambos:* los inquilinos más grandes y activos se asignan a servicios dedicados, mientras que los inquilinos más pequeños se asignan a índices individuales dentro de servicios compartidos.
++ *Un índice por inquilino:* cada inquilino tiene su propio índice dentro de un servicio de búsqueda que comparte con otros inquilinos.
 
-## <a name="1-index-per-tenant"></a>1. Índice por inquilino
++ *Un servicio por inquilino:* cada inquilino tiene su propio servicio de Azure Cognitive Search dedicado, que ofrece el nivel más alto de separación de datos y carga de trabajo.
+
++ *Mezcla de ambos:* los inquilinos más grandes y activos se asignan a servicios dedicados, mientras que los inquilinos más pequeños se asignan a índices individuales dentro de servicios compartidos.
+
+## <a name="model-1-one-index-per-tenant"></a>Modelo 1: un índice por inquilino
 
 :::image type="content" source="media/search-modeling-multitenant-saas-applications/azure-search-index-per-tenant.png" alt-text="Una representación del modelo de índice por inquilino" border="false":::
 
@@ -93,7 +104,7 @@ Azure Cognitive Search permite escalar tanto los índices individuales como aume
 
 Si el número total de índices crece demasiado para un único servicio, se debe aprovisionar otro servicio para acomodar a los nuevos inquilinos. Si se tienen que mover índices entre servicios de búsqueda a medida que se agregan nuevos servicios, los datos del índice se tienen que copiar manualmente de un índice a otro porque Azure Cognitive Search no permite que se mueva un índice.
 
-## <a name="2-service-per-tenant"></a>2. Servicio por inquilino
+## <a name="model-2-once-service-per-tenant"></a>Modelo 2: un servicio por inquilino
 
 :::image type="content" source="media/search-modeling-multitenant-saas-applications/azure-search-service-per-tenant.png" alt-text="Una representación del modelo de servicio por inquilino" border="false":::
 
@@ -109,7 +120,8 @@ El modelo de servicio por inquilino es una opción eficaz para aplicaciones con 
 
 Las dificultades para escalar este patrón surgen cuando inquilinos individuales crecen por encima de la capacidad de su servicio. Azure Cognitive Search no admite actualmente la actualización del plan de tarifa de un servicio de búsqueda, así que todos los datos se tendrían que copiar manualmente en un nuevo servicio.
 
-## <a name="3-mixing-both-models"></a>3. Mezcla de ambos modelos
+## <a name="model-3-hybrid"></a>Modelo 3: híbrido
+
 Otro patrón para modelar la arquitectura multiinquilino es mezclar las estrategias de índice por inquilino y servicio por inquilino.
 
 Al mezclar ambos patrones, los inquilinos más grandes de la aplicación pueden ocupar servicios dedicados, mientras que la cola más larga de inquilinos más pequeños y menos activos pueden ocupar índices de un servicio compartido. Este modelo garantiza que los inquilinos más grandes tienen sistemáticamente un mayor rendimiento desde el servicio, al mismo tiempo que ayuda a proteger los inquilinos más pequeños frente a cualquier vecino ruidoso.
@@ -117,6 +129,7 @@ Al mezclar ambos patrones, los inquilinos más grandes de la aplicación pueden 
 Sin embargo, la implementación de esta estrategia depende de la previsión de qué inquilinos necesitarán un servicio dedicado, por oposición a un índice en un servicio compartido. La complejidad de la aplicación aumenta con la necesidad de administrar ambos modelos multiinquilino.
 
 ## <a name="achieving-even-finer-granularity"></a>Obtención incluso de una granularidad más fina
+
 En los patrones de diseño anteriores para modelar escenarios muliinquilino en Azure Cognitive Search se asume un ámbito uniforme donde cada inquilino es una instancia entera de una aplicación. Sin embargo, en ocasiones las aplicaciones pueden controlar ámbitos mucho más pequeños.
 
 Si los modelos de servicio por inquilino o índice por inquilino no son ámbitos lo suficientemente pequeños, es posible modelar un índice para lograr un grado de granularidad más fino si cabe.
@@ -127,10 +140,8 @@ Este método puede usarse para lograr la funcionalidad de cuentas de usuario ind
 
 > [!NOTE]
 > El enfoque descrito anteriormente para configurar un solo índice único y dar servicio a varios inquilinos afecta a la relevancia de los resultados de la búsqueda. Las puntuaciones de importancia de la búsqueda se calculan en un ámbito de nivel del índice, no en el del inquilino, por lo que los datos de todos los inquilinos se incorporan en las estadísticas subyacentes de las puntuaciones de relevancia como frecuencia de término.
-> 
-> 
+>
 
 ## <a name="next-steps"></a>Pasos siguientes
-Azure Cognitive Search es una opción atractiva para muchas aplicaciones. Al evaluar los diversos patrones de diseño para aplicaciones multiinquilino, tenga en cuenta los [distintos planes de tarifa](https://azure.microsoft.com/pricing/details/search/) y sus respectivos [límites de servicio](search-limits-quotas-capacity.md) para adaptar mejor Azure Cognitive Search de forma que encaje en cargas de trabajo de aplicaciones y arquitecturas de todos los tamaños.
 
-Las preguntas sobre Azure Cognitive Search y los escenarios multiinquilino se pueden dirigir a azuresearch_contact@microsoft.com.
+Azure Cognitive Search es una opción atractiva para muchas aplicaciones. Al evaluar los diversos patrones de diseño para aplicaciones multiinquilino, tenga en cuenta los [distintos planes de tarifa](https://azure.microsoft.com/pricing/details/search/) y sus respectivos [límites de servicio](search-limits-quotas-capacity.md) para adaptar mejor Azure Cognitive Search de forma que encaje en cargas de trabajo de aplicaciones y arquitecturas de todos los tamaños.

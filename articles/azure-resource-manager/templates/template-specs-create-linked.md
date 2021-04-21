@@ -3,12 +3,12 @@ title: Creación de una especificación de plantilla con plantillas vinculadas
 description: Aprenda a crear una especificación de plantilla con plantillas vinculadas.
 ms.topic: conceptual
 ms.date: 01/05/2021
-ms.openlocfilehash: 31764b9adb1d0fc28a170fa2e6b5073812533083
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b1c757895faee208590b638094591d246bf605d8
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104889848"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310621"
 ---
 # <a name="tutorial-create-a-template-spec-with-linked-templates-preview"></a>Tutorial: Creación de una especificación de plantilla con plantillas vinculadas (versión preliminar)
 
@@ -27,7 +27,7 @@ Cree la plantilla principal y la plantilla vinculada.
 
 Para vincular una plantilla, agregue un [recurso de implementaciones](/azure/templates/microsoft.resources/deployments) a la plantilla principal. En la propiedad `templateLink`, especifique la ruta de acceso relativa de la plantilla vinculada de acuerdo con la ruta de acceso de la plantilla principal.
 
-La plantilla vinculada se denomina **linkedTemplate.json** y se almacena en una subcarpeta denominada **artefactos** en la ruta de acceso donde se almacena la plantilla principal.  Puede usar uno de los valores siguientes para la ruta de acceso relativa:
+La plantilla vinculada se denomina **linkedTemplate.json** y se almacena en una subcarpeta denominada **artefactos** en la ruta de acceso donde se almacena la plantilla principal.  Puede usar uno de los valores siguientes para relativePath:
 
 - `./artifacts/linkedTemplate.json`
 - `/artifacts/linkedTemplate.json`

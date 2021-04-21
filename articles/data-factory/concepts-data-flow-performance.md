@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 03/15/2021
-ms.openlocfilehash: dd5b857c274e757f70920f244786df61c2770085
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/10/2021
+ms.openlocfilehash: cee7993116e746c7b827faaf94724033501f1318
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103561692"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107309057"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guía de optimización y rendimiento de la asignación de instancias de Data Flow
 
@@ -132,14 +132,17 @@ El precio de los flujos de datos se calcula en horas de núcleo virtual, por lo 
 
 ### <a name="time-to-live"></a>Período de vida
 
-De forma predeterminada, cada actividad de flujo de datos pone en marcha un nuevo clúster en función de la configuración de IR. El clúster tarda unos minutos en iniciar su actividad y el procesamiento de datos no puede iniciarse hasta que se complete. Si las canalizaciones contienen varios **flujos de datos** secuenciales, puede habilitar un valor de período de vida (TTL). Si se especifica un valor de período de vida, el clúster se mantiene activo durante un determinado período de tiempo después de que se complete la ejecución. Si un nuevo trabajo comienza a usar el IR durante el tiempo de TTL, volverá a usar el clúster existente y el tiempo de inicio de actividad se reducirá drásticamente. Una vez completado el segundo trabajo, el clúster permanecerá activo de nuevo durante el tiempo de TTL.
+De forma predeterminada, cada actividad de flujo de datos pone en marcha un nuevo clúster de Spark en función de la configuración de Azure IR. El clúster tarda unos minutos en iniciar su actividad y el procesamiento de datos no puede iniciarse hasta que se complete. Si las canalizaciones contienen varios **flujos de datos** secuenciales, puede habilitar un valor de período de vida (TTL). Si se especifica un valor de período de vida, el clúster se mantiene activo durante un determinado período de tiempo después de que se complete la ejecución. Si un nuevo trabajo comienza a usar el IR durante el tiempo de TTL, volverá a usar el clúster existente y el tiempo de inicio de actividad se reducirá drásticamente. Una vez completado el segundo trabajo, el clúster permanecerá activo de nuevo durante el tiempo de TTL.
 
-Solo se puede ejecutar un trabajo en un único clúster cada vez. Si hay un clúster disponible, pero se inician dos flujos de datos, solo uno usará el clúster activo. El segundo trabajo pondrá en marcha su propio clúster aislado.
+Además, puede minimizar el tiempo de inicio de los clústeres en caliente estableciendo la opción "Quick re-use" (Reutilización rápida) en Azure Integration Runtime en las propiedades del flujo de datos. Si se establece en true, ADF no desmontará el clúster existente después de cada trabajo y, en su lugar, volverá a usarlo, principalmente manteniendo activo el entorno de proceso que ha establecido en Azure IR durante el período de tiempo especificado en el TTL. Esta opción permite el menor tiempo de inicio de las actividades de flujo de datos al ejecutarse desde una canalización.
 
-Si la mayoría de los flujos de datos se ejecutan en paralelo, no se recomienda habilitar el TTL. 
+Sin embargo, si la mayoría de los flujos de datos se ejecutan en paralelo, no se recomienda habilitar TTL para las instancia de IR que se usa para esas actividades. Solo se puede ejecutar un trabajo en un único clúster cada vez. Si hay un clúster disponible, pero se inician dos flujos de datos, solo uno usará el clúster activo. El segundo trabajo pondrá en marcha su propio clúster aislado.
 
 > [!NOTE]
 > El período de vida no está disponible cuando se usa el entorno de ejecución de integración de resolución automática.
+ 
+> [!NOTE]
+> La reutilización rápida de los clústeres existentes es una característica de Azure Integration Runtime que se encuentra actualmente en versión preliminar pública.
 
 ## <a name="optimizing-sources"></a>Optimización de orígenes
 
@@ -304,9 +307,10 @@ Si los flujos de datos se ejecutan en paralelo, se recomienda no habilitar la pr
 
 ### <a name="execute-data-flows-sequentially"></a>Ejecución secuencial de flujos de datos
 
-Si ejecuta las actividades de flujo de datos en secuencia, se recomienda establecer un TTL en la configuración de Azure IR. ADF volverá a usar los recursos de proceso, lo que dará lugar a un tiempo de inicio de clúster más rápido. Cada actividad seguirá recibiendo un nuevo contexto de Spark aislado para cada ejecución.
+Si ejecuta las actividades de flujo de datos en secuencia, se recomienda establecer un TTL en la configuración de Azure IR. ADF volverá a usar los recursos de proceso, lo que dará lugar a un tiempo de inicio de clúster más rápido. Cada actividad seguirá recibiendo un nuevo contexto de Spark aislado para cada ejecución. Para reducir aún más el tiempo entre las actividades secuenciales, seleccione la casilla "Quick re-use" (Reutilización rápida) en Azure IR para que ADF vuelva a usar el clúster existente.
 
-La ejecución de trabajos de forma secuencial probablemente tardará mucho más tiempo en ejecutarse de un extremo a otro, pero proporciona una separación clara de las operaciones lógicas.
+> [!NOTE]
+> La reutilización rápida de los clústeres existentes es una característica de Azure Integration Runtime que se encuentra actualmente en versión preliminar pública.
 
 ### <a name="overloading-a-single-data-flow"></a>Sobrecarga de un único flujo de datos
 

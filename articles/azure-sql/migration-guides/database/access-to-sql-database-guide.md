@@ -5,16 +5,16 @@ ms.service: sql-database
 ms.subservice: migration-guide
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 03/19/2021
-ms.openlocfilehash: 73ee4d4be16284880b10df4a52b422a08c04c6a0
-ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
+ms.openlocfilehash: 137adbb045a4c449193f9029b9c72f09ddc439b1
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107284194"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107388472"
 ---
 # <a name="migration-guide-access-to-azure-sql-database"></a>Guía de migración: de Access a Azure SQL Database
 
@@ -80,7 +80,7 @@ Para convertir objetos de base de datos, haga lo siguiente:
 
 1. Seleccione la pestaña **Conectarse a Azure SQL Database** y haga lo siguiente:
 
-   a. Escriba los detalles para conectarse a la base de datos SQL.  
+   a. Escriba los detalles para conectarse a la base de datos SQL.  
    b. Seleccione la base de datos SQL de destino en la lista desplegable. También puede escribir un nombre nuevo, en cuyo caso se crea una base de datos en el servidor de destino.  
    c. Proporcione los detalles de la autenticación.   
    d. Seleccione **Conectar**.
@@ -165,11 +165,11 @@ Para obtener más información sobre estos problemas y los pasos para mitigarlos
 
 ## <a name="migration-assets"></a>Recursos de migración 
 
-Para obtener más ayuda a fin de completar este escenario de migración, vea el siguiente recurso. Se ha desarrollado para ayudar a integrar el proyecto de migración real.
+Para obtener más ayuda a fin de completar este escenario de migración, vea el recurso siguiente. Se ha desarrollado para ofrecer compatibilidad con la involucración de un proyecto de migración del mundo real.
 
 | Título | Descripción |
 | --- | --- |
-| [Herramienta y modelo de evaluación de la carga de trabajo de datos](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool) | Proporciona sugerencias de plataformas de destino ideales, preparación para la nube, y niveles de corrección de aplicación o base de datos para cargas de trabajo especificadas. Ofrece un cálculo sencillo con un solo clic y una función de generación de informes que ayuda a acelerar las evaluaciones de grandes volúmenes, ya que proporciona un proceso de toma de decisiones de plataforma de destino uniforme y automatizado. |
+| [Herramienta y modelo de evaluación de la carga de trabajo de datos](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool) | Proporciona sugerencias de plataformas de destino "ideales", preparación para la nube y los niveles de corrección de la aplicación y la base de datos para las cargas de trabajo especificadas. Ofrece un cálculo sencillo con un solo clic y una función de generación de informes que ayuda a acelerar las evaluaciones de grandes volúmenes, ya que proporciona un proceso de toma de decisiones de plataforma de destino uniforme y automatizado. |
 
 El equipo de ingeniería de datos SQL ha desarrollado estos recursos. El objetivo principal de este equipo es permitir y acelerar la modernización compleja de los proyectos de migración de la plataforma de datos a la de Azure, de Microsoft.
 
@@ -185,7 +185,7 @@ El equipo de ingeniería de datos SQL ha desarrollado estos recursos. El objetiv
 - Para más información sobre el marco y el ciclo de adopción de las migraciones en la nube, consulte:
    -  [Cloud Adoption Framework para Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
    -  [Procedimientos recomendados para gestionar los costos y el tamaño de las cargas de trabajo migradas a Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
-   -  [Recursos de Migración a la nube](https://azure.microsoft.com/migration/resources)
+   -  [Recursos de migración a la nube](https://azure.microsoft.com/migration/resources)
 
 
 - Para evaluar la capa de acceso de la aplicación, consulte [Data Access Migration Toolkit (versión preliminar)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit).

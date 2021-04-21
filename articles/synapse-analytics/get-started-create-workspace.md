@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 03/17/2021
-ms.openlocfilehash: a4fa902268d9a19cd0003a2fdaa4c5e58989a4ff
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: b22954edf4f3a5a935c470326aa43bd24ee2d708
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106218947"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107366069"
 ---
 # <a name="creating-a-synapse-workspace"></a>Creación de un área de trabajo de Synapse
 
@@ -47,8 +47,8 @@ Rellene los campos siguientes:
 
 En **Seleccionar Data Lake Storage Gen2**:
 
-1. Junto a **Nombre de cuenta**, haga clic en **Crear nuevo** y asigne a la nueva cuenta de almacenamiento el nombre **contosolake** o uno similar, ya que este nombre debe ser único.
-1. Junto a **Nombre del sistema de archivos**, haga clic en **Crear nuevo** y asigne el nombre **users**. Se creará un contenedor de almacenamiento llamado **users**. El área de trabajo usará esta cuenta de almacenamiento como cuenta de almacenamiento "principal" para las tablas de Spark y los registros de aplicaciones de Spark.
+1. Junto a **Nombre de cuenta**, seleccione **Crear nuevo** y asigne a la nueva cuenta de almacenamiento el nombre **contosolake** o uno similar, ya que el nombre debe ser único.
+1. Junto a **Nombre del sistema de archivos**, seleccione **Crear nuevo** y asigne el nombre **users**. Se creará un contenedor de almacenamiento llamado **users**. El área de trabajo usará esta cuenta de almacenamiento como cuenta de almacenamiento "principal" para las tablas de Spark y los registros de aplicaciones de Spark.
 1. Active la casilla "Es necesario asignarme el rol Colaborador de datos de Storage Blob en la cuenta de Data Lake Storage Gen2". 
 
 ## <a name="completing-the-process"></a>Finalización del proceso
@@ -64,6 +64,16 @@ Una vez creada el área de trabajo de Azure Synapse, hay dos maneras de abrir Sy
 
 * Abra el área de trabajo de Synapse en [Azure Portal](https://portal.azure.com) y, en la sección **Información general** del área de trabajo de Synapse, seleccione **Abrir** en el cuadro Abrir Synapse Studio.
 * Vaya a `https://web.azuresynapse.net` e inicie sesión en el área de trabajo.
+
+## <a name="place-sample-data-into-the-primary-storage-account"></a>Colocación de datos de ejemplo en la cuenta de almacenamiento principal
+Vamos a usar un pequeño conjunto de datos de ejemplo de 100 000 filas de datos de taxis de Nueva York para muchos ejemplos de esta guía de introducción. Comenzaremos por colocarlo en la cuenta de almacenamiento principal que creó para el área de trabajo.
+
+* Descargue este archivo en el equipo: https://azuresynapsestorage.blob.core.windows.net/sampledata/NYCTaxiSmall/NYCTripSmall.parquet 
+* En Synapse Studio, vaya al centro de datos. 
+* Seleccione **Vinculado**.
+* En la categoría **Azure Data Lake Storage Gen2**, verá un elemento con un nombre como **myworkspace ( Primary - contosolake )** .
+* Seleccione el contenedor denominado **users (Primary)** (usuarios [Principal]).
+* Seleccione **Cargar** y seleccione el archivo `NYCTripSmall.parquet` que ha descargado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

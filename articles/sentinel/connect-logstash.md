@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2020
 ms.author: yelevin
-ms.openlocfilehash: da7d540a4b7982c7f743a7ae968515485b45aa5a
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 10812cf97f4f0dfc6f7957608eddf7acf929c3fc
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102035435"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106579764"
 ---
 # <a name="use-logstash-to-connect-data-sources-to-azure-sentinel"></a>Uso de Logstash para conectar orígenes de datos a Azure Sentinel
 
@@ -44,7 +44,9 @@ El motor de Logstash consta de tres componentes:
 - Complementos de salida: envío personalizado de datos recopilados y procesados a varios destinos.
 
 > [!NOTE]
-> Azure Sentinel solo admite el complemento de salida propio que ofrece. No admite complementos de salida de terceros para Azure Sentinel ni cualquier otro complemento de Logstash de ningún tipo.
+> - Azure Sentinel solo admite el complemento de salida propio que ofrece. La versión actual de este complemento es v1.0.0, publicada el 25/08/2020. No admite complementos de salida de terceros para Azure Sentinel ni cualquier otro complemento de Logstash de ningún tipo.
+>
+> - El complemento de salida de Logstash de Azure Sentinel solo admite las **versiones de Logstash de 7.0 a 7.9.**
 
 El complemento de salida de Azure Sentinel para Logstash envía datos con formato JSON al área de trabajo de Log Analytics, mediante la API REST de recopilación de datos HTTP de Log Analytics. Los datos se ingieren en los registros personalizados.
 
@@ -67,19 +69,21 @@ Use la información del documento [Estructura de un archivo de configuración](h
 
 | Nombre del campo | Tipo de datos | Descripción |
 |----------------|---------------|-----------------|
-| `workspace_id` | string | Escriba el GUID del identificador del área de trabajo. * |
-| `workspace_key` | string | Escriba el GUID de la clave principal del área de trabajo. * |
+| `workspace_id` | string | Escriba el GUID del identificador del área de trabajo (consulte la sugerencia). |
+| `workspace_key` | string | Escriba el GUID de la clave principal del área de trabajo (consulte la sugerencia). |
 | `custom_log_table_name` | string | Establezca el nombre de la tabla en la que se van a ingerir los registros. Solo se puede configurar un nombre de tabla por complemento de salida. La tabla de registros aparecerá en Azure Sentinel en **Registros**, en **Tablas**, categoría **Registros personalizados**, con un sufijo `_CL`. |
 | `endpoint` | string | Campo opcional. De forma predeterminada, es el punto de conexión de Log Analytics. Utilice este campo para establecer un punto de conexión alternativo. |
 | `time_generated_field` | string | Campo opcional. Esta propiedad invalida el campo predeterminado **TimeGenerated** en Log Analytics. Escriba el nombre del campo de marca de tiempo en el origen de datos. Los datos del campo deben ajustarse al formato ISO 8601 (`YYYY-MM-DDThh:mm:ssZ`) |
 | `key_names` | array | Escriba una lista de campos de esquema de salida de Log Analytics. Cada elemento de lista se debe incluir entre comillas simples, los elementos deben estar separados por comas y la lista completa entre corchetes. Consulte el ejemplo siguiente. |
 | `plugin_flush_interval` | number | Campo opcional. Establézcalo para definir el intervalo máximo (en segundos) entre las transmisiones de mensajes a Log Analytics. El valor predeterminado es 5. |
-    | `amount_resizing` | boolean | True o false. Habilite o deshabilite el mecanismo de escalabilidad automática, que ajusta el tamaño del búfer de mensajes en función del volumen de datos de registro recibidos. |
+| `amount_resizing` | boolean | True o false. Habilite o deshabilite el mecanismo de escalabilidad automática, que ajusta el tamaño del búfer de mensajes en función del volumen de datos de registro recibidos. |
 | `max_items` | number | Campo opcional. Solo se aplica si `amount_resizing` se establece en "false". Úselo para establecer un límite en el tamaño del búfer de mensajes (en registros). El valor predeterminado es 2000.  |
 | `azure_resource_id` | string | Campo opcional. Define el id. del recurso de Azure donde residen los datos. <br>El valor del id. de recurso es especialmente útil si usa [RBAC de contexto de recursos](resource-context-rbac.md) para proporcionar acceso únicamente a datos específicos. |
 | | | |
 
-*  Puede encontrar el identificador y la clave principal del área de trabajo en el recurso del área de trabajo, en **Agents management** (Administración de agentes).
+> [!TIP]
+> -  Puede encontrar el identificador y la clave principal del área de trabajo en el recurso del área de trabajo, en **Agents management** (Administración de agentes).
+> - **Sin embargo**, dado que tener credenciales y otra información confidencial almacenada en texto no cifrado en los archivos de configuración no está de acuerdo con los procedimientos recomendados de seguridad, se recomienda encarecidamente usar el **almacén de claves de Logstash** para incluir de forma segura el **identificador del área de trabajo** y la **clave principal del área de trabajo** en la configuración. Consulte la [documentación de Elastic](https://www.elastic.co/guide/en/elasticsearch/reference/current/get-started-logstash-user.html) para obtener instrucciones.
 
 #### <a name="sample-configurations"></a>Configuraciones de ejemplo
 

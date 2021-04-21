@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: queues
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 8f49485d00379f5845569976e793f06d56a8967d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b65aff45cc304f59e45fc3bed925b93ee6c622fd
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102506827"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107788410"
 ---
 # <a name="monitoring-azure-queue-storage"></a>Supervisión de Azure Queue Storage
 
@@ -216,7 +216,7 @@ Para obtener más información, vea [Transmisión de registros de recursos de Az
 
 Si opta por archivar los registros en una cuenta de almacenamiento, pagará por el volumen de registros que se envíen a la cuenta de almacenamiento. Para obtener información sobre precios concretos, vea la sección **Registros de la plataforma** de la página [Precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/#platform-logs).
 
-Habilite los registros mediante el comando [`az monitor diagnostic-settings create`](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
+Habilite los registros mediante el comando [`az monitor diagnostic-settings create`](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create).
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name <setting-name> --storage-account <storage-account-name> --resource <storage-service-resource-id> --resource-group <resource-group> --logs '[{"category": <operations>, "enabled": true}]'
@@ -238,7 +238,7 @@ Para obtener una descripción de cada parámetro, vea [Archivo de registros de r
 
 Si decide transmitir los registros a un centro de eventos, pagará por el volumen de registros que se envíen al centro de eventos. Para obtener información sobre precios concretos, vea la sección **Registros de la plataforma** de la página [Precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/#platform-logs).
 
-Habilite los registros mediante el comando [`az monitor diagnostic-settings create`](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
+Habilite los registros mediante el comando [`az monitor diagnostic-settings create`](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create).
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name <setting-name> --event-hub <event-hub-name> --event-hub-rule <event-hub-namespace-and-key-name> --resource <storage-account-resource-id> --logs '[{"category": <operations>, "enabled": true "retentionPolicy": {"days": <number-days>, "enabled": <retention-bool}}]'
@@ -252,7 +252,7 @@ Para obtener una descripción de cada parámetro, vea [Transmisión de datos a E
 
 #### <a name="send-logs-to-log-analytics"></a>Envío de registros a Log Analytics
 
-Habilite los registros mediante el comando [`az monitor diagnostic-settings create`](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
+Habilite los registros mediante el comando [`az monitor diagnostic-settings create`](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create).
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name <setting-name> --workspace <log-analytics-workspace-resource-id> --resource <storage-account-resource-id> --logs '[{"category": <category name>, "enabled": true "retentionPolicy": {"days": <days>, "enabled": <retention-bool}}]'
@@ -322,7 +322,7 @@ Puede leer valores de métricas de nivel de cuenta de la cuenta de almacenamient
 
 #### <a name="list-the-account-level-metric-definition"></a>Enumeración de la definición de métricas a nivel de cuenta
 
-Puede mostrar la definición de la métrica de la cuenta de almacenamiento o el servicio Queue Storage. Use el comando [`az monitor metrics list-definitions`](/cli/azure/monitor/metrics#az-monitor-metrics-list-definitions).
+Puede mostrar la definición de la métrica de la cuenta de almacenamiento o el servicio Queue Storage. Use el comando [`az monitor metrics list-definitions`](/cli/azure/monitor/metrics#az_monitor_metrics_list_definitions).
 
 En este ejemplo, reemplace el marcador de posición `<resource-ID>` por el identificador de recurso de la cuenta de almacenamiento completa o el de la cola. Puede encontrar estos identificadores de recursos en las páginas **Propiedades** de su cuenta de almacenamiento en Azure Portal.
 
@@ -332,7 +332,7 @@ En este ejemplo, reemplace el marcador de posición `<resource-ID>` por el ident
 
 #### <a name="read-account-level-metric-values"></a>Lectura de valores de métricas a nivel de cuenta
 
-Puede leer los valores de métricas de la cuenta de almacenamiento o el servicio Queue Storage. Use el comando [`az monitor metrics list`](/cli/azure/monitor/metrics#az-monitor-metrics-list).
+Puede leer los valores de métricas de la cuenta de almacenamiento o el servicio Queue Storage. Use el comando [`az monitor metrics list`](/cli/azure/monitor/metrics#az_monitor_metrics_list).
 
 ```azurecli-interactive
    az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H

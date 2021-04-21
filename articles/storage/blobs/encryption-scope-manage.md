@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: c29282637f6854248c98dff59f8fae46ad1a9d39
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 656443b0bc9d0e45f43634b1b4c21145de7a5bb5
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105640558"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107792550"
 ---
 # <a name="create-and-manage-encryption-scopes"></a>Creación y administración de ámbitos de cifrado
 
@@ -111,7 +111,7 @@ Para crear un ámbito de cifrado con la CLI de Azure, instale primero la versió
 
 ### <a name="create-an-encryption-scope-protected-by-microsoft-managed-keys"></a>Creación de un ámbito de cifrado protegido mediante claves administradas por Microsoft
 
-Para crear un nuevo ámbito de cifrado protegido mediante claves administradas por Microsoft, llame al comando [az storage account encryption-scope create](/cli/azure/storage/account/encryption-scope#az-storage-account-encryption-scope-create) y especifique el parámetro `--key-source` como `Microsoft.Storage`. Recuerde reemplazar los valores de marcador de posición por los propios:
+Para crear un nuevo ámbito de cifrado protegido mediante claves administradas por Microsoft, llame al comando [az storage account encryption-scope create](/cli/azure/storage/account/encryption-scope#az_storage_account_encryption_scope_create) y especifique el parámetro `--key-source` como `Microsoft.Storage`. Recuerde reemplazar los valores de marcador de posición por los propios:
 
 ```azurecli-interactive
 az storage account encryption-scope create \
@@ -123,7 +123,7 @@ az storage account encryption-scope create \
 
 ### <a name="create-an-encryption-scope-protected-by-customer-managed-keys"></a>Creación de un ámbito de cifrado protegido mediante claves administradas por el cliente
 
-Para crear un nuevo ámbito de cifrado protegido mediante claves administradas por Microsoft, llame al comando [az storage account encryption-scope create](/cli/azure/storage/account/encryption-scope#az-storage-account-encryption-scope-create) y especifique el parámetro `--key-source` como `Microsoft.Storage`. Recuerde reemplazar los valores de marcador de posición por los propios:
+Para crear un nuevo ámbito de cifrado protegido mediante claves administradas por Microsoft, llame al comando [az storage account encryption-scope create](/cli/azure/storage/account/encryption-scope#az_storage_account_encryption_scope_create) y especifique el parámetro `--key-source` como `Microsoft.Storage`. Recuerde reemplazar los valores de marcador de posición por los propios:
 
 Para crear un ámbito de cifrado protegido mediante claves administradas por el cliente en un almacén de claves o un HSM administrado, configure en primer lugar las claves administradas por el cliente para la cuenta de almacenamiento. Debe asignar una identidad administrada a la cuenta de almacenamiento y, después, usar esta identidad a fin de configurar la directiva de acceso para el almacén de claves, de forma que la cuenta de almacenamiento tenga permisos de acceso. Para más información, consulte [Claves administradas por el cliente para el cifrado de Azure Storage](../common/customer-managed-keys-overview.md).
 
@@ -202,7 +202,7 @@ Get-AzStorageAccount -ResourceGroupName $rgName | Get-AzStorageEncryptionScope
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/cli)
 
-Para enumerar los ámbitos de cifrado disponibles para una cuenta de almacenamiento con la CLI de Azure, llame al comando [az storage account encryption-scope list](/cli/azure/storage/account/encryption-scope#az-storage-account-encryption-scope-list). No olvide reemplazar los valores del marcador de posición en el ejemplo por los propios:
+Para enumerar los ámbitos de cifrado disponibles para una cuenta de almacenamiento con la CLI de Azure, llame al comando [az storage account encryption-scope list](/cli/azure/storage/account/encryption-scope#az_storage_account_encryption_scope_list). No olvide reemplazar los valores del marcador de posición en el ejemplo por los propios:
 
 ```azurecli-interactive
 az storage account encryption-scope list \
@@ -246,7 +246,7 @@ New-AzStorageContainer -Name $containerName1 `
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/cli)
 
-Para crear un contenedor con un ámbito de cifrado predeterminado mediante la CLI de Azure, llame al comando [az storage container create](/cli/azure/storage/container#az-storage-container-create) y especifique el ámbito del parámetro `--default-encryption-scope`. Para forzar a todos los blobs de un contenedor a usar el ámbito predeterminado del contenedor, establezca el parámetro `--prevent-encryption-scope-override` en `true`.
+Para crear un contenedor con un ámbito de cifrado predeterminado mediante la CLI de Azure, llame al comando [az storage container create](/cli/azure/storage/container#az_storage_container_create) y especifique el ámbito del parámetro `--default-encryption-scope`. Para forzar a todos los blobs de un contenedor a usar el ámbito predeterminado del contenedor, establezca el parámetro `--prevent-encryption-scope-override` en `true`.
 
 En el ejemplo siguiente se usa la cuenta de Azure AD para autorizar la operación de creación del contenedor. También se puede usar la clave de acceso de la cuenta. Para más información, consulte el artículo en el que se explica cómo [autorizar el acceso a los datos de blobs o colas con la CLI de Azure](./authorize-data-operations-cli.md).
 
@@ -303,7 +303,7 @@ Set-AzStorageBlobContent -Context $ctx `
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/cli)
 
-Para cargar un blob con un ámbito de cifrado a través de la CLI de Azure, llame al comando [az storage blob upload](/cli/azure/storage/blob#az-storage-blob-upload) y proporcione el ámbito de cifrado para el blob.
+Para cargar un blob con un ámbito de cifrado a través de la CLI de Azure, llame al comando [az storage blob upload](/cli/azure/storage/blob#az_storage_blob_upload) y proporcione el ámbito de cifrado para el blob.
 
 Si usa Azure Cloud Shell, siga los pasos descritos en [Cargar un blob](storage-quickstart-blobs-cli.md#upload-a-blob) para crear un archivo en el directorio raíz. Después, puede cargar este archivo en un blob mediante el ejemplo siguiente.
 
@@ -354,7 +354,7 @@ Update-AzStorageEncryptionScope -ResourceGroupName $rgName `
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/cli)
 
-Para cambiar la clave que protege un ámbito de cifrado de una clave administrada por el cliente a una clave administrada por Microsoft con la CLI de Azure, llame al comando [az storage account encryption-scope update](/cli/azure/storage/account/encryption-scope#az-storage-account-encryption-scope-update) y pase el parámetro `--key-source` con el valor `Microsoft.Storage`:
+Para cambiar la clave que protege un ámbito de cifrado de una clave administrada por el cliente a una clave administrada por Microsoft con la CLI de Azure, llame al comando [az storage account encryption-scope update](/cli/azure/storage/account/encryption-scope#az_storage_account_encryption_scope_update) y pase el parámetro `--key-source` con el valor `Microsoft.Storage`:
 
 ```azurecli-interactive
 az storage account encryption-scope update \
@@ -398,7 +398,7 @@ Update-AzStorageEncryptionScope -ResourceGroupName $rgName `
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/cli)
 
-Para deshabilitar un ámbito de cifrado con la CLI de Azure, llame al comando [az storage account encryption-scope update](/cli/azure/storage/account/encryption-scope#az-storage-account-encryption-scope-update) e incluya el parámetro `--state` con un valor de `Disabled`, tal como se muestra en el ejemplo siguiente. Para volver a habilitar un ámbito de cifrado, llame al mismo comando con el parámetro `--state` establecido en `Enabled`. No olvide reemplazar los valores del marcador de posición en el ejemplo por los propios:
+Para deshabilitar un ámbito de cifrado con la CLI de Azure, llame al comando [az storage account encryption-scope update](/cli/azure/storage/account/encryption-scope#az_storage_account_encryption_scope_update) e incluya el parámetro `--state` con un valor de `Disabled`, tal como se muestra en el ejemplo siguiente. Para volver a habilitar un ámbito de cifrado, llame al mismo comando con el parámetro `--state` establecido en `Enabled`. No olvide reemplazar los valores del marcador de posición en el ejemplo por los propios:
 
 ```azurecli-interactive
 az storage account encryption-scope update \

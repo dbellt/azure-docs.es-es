@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2020
 ms.author: kumud
-ms.openlocfilehash: 5de909d0d57ae212fa562eb31551e2271d307d47
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 82f23c1fea29e2a88dd2a67ec9c89c7bf05bfff7
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101694264"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107783510"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Crear, modificar o eliminar un grupo de seguridad de red
 
@@ -67,7 +67,7 @@ Existe un límite para la cantidad de grupos de seguridad de red que puede crear
 
 | Herramienta | Get-Help |
 | ---- | ------- |
-| Azure CLI | [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create) |
+| Azure CLI | [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) |
 | PowerShell | [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) |
 
 ### <a name="view-all-network-security-groups"></a>Ver todos los grupos de seguridad de red
@@ -78,7 +78,7 @@ Diríjase a [Azure Portal](https://portal.azure.com) para ver sus grupos de segu
 
 | Herramienta | Get-Help |
 | ---- | ------- |
-| Azure CLI | [az network nsg list](/cli/azure/network/nsg#az-network-nsg-list) |
+| Azure CLI | [az network nsg list](/cli/azure/network/nsg#az_network_nsg_list) |
 | PowerShell | [Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup) |
 
 ### <a name="view-details-of-a-network-security-group"></a>Ver detalles de un grupo de seguridad de red
@@ -103,7 +103,7 @@ Para más información sobre la configuración común de Azure que se muestra, c
 
 | Herramienta | Get-Help |
 | ---- | ------- |
-| Azure CLI | [az network nsg show](/cli/azure/network/nsg#az-network-nsg-show) |
+| Azure CLI | [az network nsg show](/cli/azure/network/nsg#az_network_nsg_show) |
 | PowerShell | [Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup) |
 
 ### <a name="change-a-network-security-group"></a>Cambiar un grupo de seguridad de red
@@ -118,7 +118,7 @@ Los cambios más comunes son [agregar una regla de seguridad](#create-a-security
 
 | Herramienta | Get-Help |
 | ---- | ------- |
-| Azure CLI | [az network nsg update](/cli/azure/network/nsg#az-network-nsg-update) |
+| Azure CLI | [az network nsg update](/cli/azure/network/nsg#az_network_nsg_update) |
 | PowerShell | [Set-AzNetworkSecurityGroup](/powershell/module/az.network/set-aznetworksecuritygroup) |
 
 ### <a name="associate-or-dissociate-a-network-security-group-to-or-from-a-subnet-or-network-interface"></a>Asociar o desasociar un grupo de seguridad de red a o de una subred o una interfaz de red
@@ -139,7 +139,7 @@ Si un grupo de seguridad de red está asociado a subredes o interfaces de red, n
 
 | Herramienta | Get-Help |
 | ---- | ------- |
-| Azure CLI | [az network nsg delete](/cli/azure/network/nsg#az-network-nsg-delete) |
+| Azure CLI | [az network nsg delete](/cli/azure/network/nsg#az_network_nsg_delete) |
 | PowerShell | [Remove-AzNetworkSecurityGroup](/powershell/module/az.network/remove-aznetworksecuritygroup) |
 
 ## <a name="work-with-security-rules"></a>Trabajar con reglas de seguridad
@@ -182,7 +182,7 @@ Existe un límite para la cantidad de reglas por grupo de seguridad de red que p
 
 | Herramienta | Get-Help |
 | ---- | ------- |
-| Azure CLI | [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create) |
+| Azure CLI | [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) |
 | PowerShell | [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig) |
 
 ### <a name="view-all-security-rules"></a>Ver todas las reglas de seguridad
@@ -201,7 +201,7 @@ La lista contiene todas las reglas que ha creado y las [reglas de seguridad pred
 
 | Herramienta | Get-Help |
 | ---- | ------- |
-| Azure CLI | [az network nsg rule list](/cli/azure/network/nsg/rule#az-network-nsg-rule-list) |
+| Azure CLI | [az network nsg rule list](/cli/azure/network/nsg/rule#az_network_nsg_rule_list) |
 | PowerShell | [Get-AzNetworkSecurityRuleConfig](/powershell/module/az.network/get-aznetworksecurityruleconfig) |
 
 ### <a name="view-details-of-a-security-rule"></a>Ver detalles de una regla de seguridad
@@ -221,7 +221,7 @@ La lista contiene todas las reglas que ha creado y las [reglas de seguridad pred
 
 | Herramienta | Get-Help |
 | ---- | ------- |
-| Azure CLI | [az network nsg rule show](/cli/azure/network/nsg/rule#az-network-nsg-rule-show) |
+| Azure CLI | [az network nsg rule show](/cli/azure/network/nsg/rule#az_network_nsg_rule_show) |
 | PowerShell | [Get-AzNetworkSecurityRuleConfig](/powershell/module/az.network/get-aznetworksecurityruleconfig) |
 
 ### <a name="change-a-security-rule"></a>Cambiar una regla de seguridad
@@ -237,7 +237,7 @@ La lista contiene todas las reglas que ha creado y las [reglas de seguridad pred
 
 | Herramienta | Get-Help |
 | ---- | ------- |
-| Azure CLI | [az network nsg rule update](/cli/azure/network/nsg/rule#az-network-nsg-rule-update) |
+| Azure CLI | [az network nsg rule update](/cli/azure/network/nsg/rule#az_network_nsg_rule_update) |
 | PowerShell | [Set-AzNetworkSecurityRuleConfig](/powershell/module/az.network/set-aznetworksecurityruleconfig) |
 
 ### <a name="delete-a-security-rule"></a>Eliminar una regla de seguridad
@@ -253,7 +253,7 @@ La lista contiene todas las reglas que ha creado y las [reglas de seguridad pred
 
 | Herramienta | Get-Help |
 | ---- | ------- |
-| Azure CLI | [az network nsg rule delete](/cli/azure/network/nsg/rule#az-network-nsg-rule-delete) |
+| Azure CLI | [az network nsg rule delete](/cli/azure/network/nsg/rule#az_network_nsg_rule_delete) |
 | PowerShell | [Remove-AzNetworkSecurityRuleConfig](/powershell/module/az.network/remove-aznetworksecurityruleconfig) |
 
 ## <a name="work-with-application-security-groups"></a>Trabajar con grupos de seguridad de aplicaciones
@@ -285,7 +285,7 @@ Un grupo de seguridad de aplicaciones contiene una interfaz de red, varias o nin
 
 | Herramienta | Get-Help |
 | ---- | ------- |
-| Azure CLI | [az network asg create](/cli/azure/network/asg#az-network-asg-create) |
+| Azure CLI | [az network asg create](/cli/azure/network/asg#az_network_asg_create) |
 | PowerShell | [New-AzApplicationSecurityGroup](/powershell/module/az.network/new-azapplicationsecuritygroup) |
 
 ### <a name="view-all-application-security-groups"></a>Ver todos los grupos de seguridad de aplicaciones
@@ -296,7 +296,7 @@ Vaya a [Azure Portal](https://portal.azure.com) para ver sus grupos de seguridad
 
 | Herramienta | Get-Help |
 | ---- | ------- |
-| Azure CLI | [az network asg list](/cli/azure/network/asg#az-network-asg-list) |
+| Azure CLI | [az network asg list](/cli/azure/network/asg#az_network_asg_list) |
 | PowerShell | [Get-AzApplicationSecurityGroup](/powershell/module/az.network/get-azapplicationsecuritygroup) |
 
 ### <a name="view-details-of-a-specific-application-security-group"></a>Ver detalles de un grupo de seguridad de aplicaciones específico
@@ -309,7 +309,7 @@ Vaya a [Azure Portal](https://portal.azure.com) para ver sus grupos de seguridad
 
 | Herramienta | Get-Help |
 | ---- | ------- |
-| Azure CLI | [az network asg show](/cli/azure/network/asg#az-network-asg-show) |
+| Azure CLI | [az network asg show](/cli/azure/network/asg#az_network_asg_show) |
 | PowerShell | [Get-AzApplicationSecurityGroup](/powershell/module/az.network/get-azapplicationsecuritygroup) |
 
 ### <a name="change-an-application-security-group"></a>Cambiar un grupo de seguridad de aplicaciones
@@ -329,7 +329,7 @@ Vaya a [Azure Portal](https://portal.azure.com) para ver sus grupos de seguridad
 
 | Herramienta | Get-Help |
 | ---- | ------- |
-| Azure CLI | [az network asg update](/cli/azure/network/asg#az-network-asg-update) |
+| Azure CLI | [az network asg update](/cli/azure/network/asg#az_network_asg_update) |
 | PowerShell | Ningún cmdlet de PowerShell |
 
 ### <a name="delete-an-application-security-group"></a>Eliminar un grupo de seguridad de aplicaciones
@@ -346,7 +346,7 @@ No puede eliminar un grupo de seguridad de aplicaciones si contiene alguna inter
 
 | Herramienta | Get-Help |
 | ---- | ------- |
-| Azure CLI | [az network asg delete](/cli/azure/network/asg#az-network-asg-delete) |
+| Azure CLI | [az network asg delete](/cli/azure/network/asg#az_network_asg_delete) |
 | PowerShell | [Remove-AzApplicationSecurityGroup](/powershell/module/az.network/remove-azapplicationsecuritygroup) |
 
 ## <a name="permissions"></a>Permisos

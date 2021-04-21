@@ -3,12 +3,12 @@ title: Solución de problemas de errores de copia de seguridad de bases de datos
 description: En este artículo se describe cómo se solucionan los errores comunes que pueden producirse al usar Azure Backup para realizar copias de seguridad de bases de datos de SAP HANA.
 ms.topic: troubleshooting
 ms.date: 11/7/2019
-ms.openlocfilehash: 22800adc323bda8a60278160f24bc559103fb57e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cdf4c26aa32d65ec63ec84d85e454adaaf2ece8d
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101713344"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107517239"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Solución de problemas al realizar copias de seguridad de bases de datos de SAP HANA en Azure
 
@@ -197,4 +197,4 @@ En los escenarios anteriores, se recomienda desencadenar una operación de nuevo
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Revise las [preguntas frecuentes](./sap-hana-faq-backup-azure-vm.md) sobre cómo hacer copias de seguridad de las bases de datos SAP HANA en máquinas virtuales de Azure.
+- Revise las [preguntas frecuentes](./sap-hana-faq-backup-azure-vm.yml) sobre cómo hacer copias de seguridad de las bases de datos SAP HANA en máquinas virtuales de Azure.

@@ -4,35 +4,38 @@ description: Más información sobre la protección de la seguridad en el sistem
 services: container-service
 author: mlearned
 ms.topic: article
-ms.date: 09/11/2019
+ms.date: 03/29/2021
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 84b826ce33b5395db5bd38e883b3a0fb3425725b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b0866905d0228d2304ebf5c8ef930a629979d2da
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86244045"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107012099"
 ---
 # <a name="security-hardening-for-aks-agent-node-host-os"></a>Protección de seguridad para el sistema operativo host del nodo del agente de AKS
 
-Azure Kubernetes Service (AKS) es un servicio seguro compatible con los estándares SOC, ISO, PCI DSS e HIPAA. En este artículo se explica la protección de la seguridad que se aplica a los hosts de máquina virtual de AKS. Para más información acerca de la seguridad de AKS, consulte [Conceptos de seguridad de las aplicaciones y los clústeres en Azure Kubernetes Service (AKS)](./concepts-security.md).
+Como servicio seguro, Azure Kubernetes Service (AKS) es compatible con los estándares SOC, ISO, PCI DSS e HIPAA. En este artículo se explica la protección de la seguridad que se aplica a los hosts de máquina virtual de AKS. Para más información acerca de la seguridad de AKS, consulte [Conceptos de seguridad de las aplicaciones y los clústeres en Azure Kubernetes Service (AKS)](./concepts-security.md).
 
 > [!Note]
 > Este documento se limita a los agentes de Linux en AKS.
 
-Los clústeres de AKS se implementan en máquinas virtuales de host, que ejecutan un sistema operativo optimizado para la seguridad que se utiliza para los contenedores que se ejecutan en AKS. El sistema operativo de este host se basa en una imagen de **Ubuntu 16.04.LTS** a la que se aplican optimizaciones y protecciones de seguridad adicionales (vea los detalles de la protección de seguridad).
+Los clústeres de AKS se implementan en máquinas virtuales de host, que ejecutan un sistema operativo optimizado para la seguridad que se utiliza para los contenedores que se ejecutan en AKS. El sistema operativo de este host se basa en una imagen de **Ubuntu 16.04.LTS** a la que se aplican optimizaciones y [protecciones de seguridad](#security-hardening-features) adicionales.
 
 El objetivo del sistema operativo del host con protección de la seguridad es reducir el área expuesta de ataque y optimizar la implementación de contenedores de forma segura.
 
 > [!Important]
-> El sistema operativo con protección de la seguridad NO ha pasado el banco de pruebas de CIS. Aunque hay superposiciones con los bancos de pruebas de CIS, el objetivo no es ser compatible con CIS. El objetivo de la protección del sistema operativo del host es converger en un nivel de seguridad coherente con los estándares de seguridad del host interno de Microsoft.
+> El sistema operativo con protección de la seguridad **no** ha pasado el punto de referencia de CIS. Aunque hay superposiciones con los puntos de referencia de CIS, el objetivo no es ser compatible con CIS. El objetivo de la protección del sistema operativo del host es converger en un nivel de seguridad coherente con los estándares de seguridad del host interno de Microsoft.
 
 ## <a name="security-hardening-features"></a>Características de la protección de la seguridad
 
-* AKS proporciona de forma predeterminada un sistema operativo de host optimizado para la seguridad. No hay ninguna opción para seleccionar otro sistema operativo.
+* AKS proporciona un sistema operativo de host optimizado para seguridad de manera predeterminada, pero ninguna opción para seleccionar un sistema operativo alternativo.
 
-* Azure aplica revisiones diarias (lo que incluye revisiones de seguridad) a los hosts de máquina virtual de AKS. Algunas de estas revisiones requerirán que se reinicie el equipo, pero otras no. Usted es el responsable de programar los reinicios del host de máquina virtual de AKS cuando sea necesario. Para obtener instrucciones sobre cómo automatizar la aplicación de parches de AKS, consulte el artículo acerca de la [aplicación de parches a los nodos de AKS](./node-updates-kured.md).
+* Azure aplica revisiones diarias (lo que incluye revisiones de seguridad) a los hosts de máquina virtual de AKS. 
+    * Algunas de estas revisiones requieren que se reinicie el equipo, pero otras no. 
+    * Usted es el responsable de programar los reinicios del host de máquina virtual de AKS cuando sea necesario. 
+    * Para obtener instrucciones sobre cómo automatizar la aplicación de parches de AKS, consulte el artículo acerca de la [aplicación de parches a los nodos de AKS](./node-updates-kured.md).
 
 ## <a name="what-is-configured"></a>¿Qué se configura?
 
@@ -79,14 +82,12 @@ El objetivo del sistema operativo del host con protección de la seguridad es re
  
 * Para reducir aún más el área expuesta a ataques, se han deshabilitado en el sistema operativo algunos controladores de módulos de kernel que no eran necesarios.
 
-* El sistema operativo con protección de seguridad se crea y se mantiene específicamente para AKS y NO se admite fuera de la plataforma AKS.
+* El sistema operativo con protección de seguridad se crea y se mantiene específicamente para AKS y **no** se admite fuera de la plataforma AKS.
 
 ## <a name="next-steps"></a>Pasos siguientes  
 
 Para más información acerca de la seguridad de AKS, consulte los siguientes artículos: 
 
-[Azure Kubernetes Service (AKS)](./intro-kubernetes.md)
-
-[Consideraciones sobre la seguridad de AKS](./concepts-security.md)
-
-[Procedimientos recomendados para AKS](./best-practices.md)
+* [Azure Kubernetes Service (AKS)](./intro-kubernetes.md)
+* [Consideraciones sobre la seguridad de AKS](./concepts-security.md)
+* [Procedimientos recomendados para AKS](./best-practices.md)

@@ -10,12 +10,12 @@ ms.date: 03/17/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 0738f7e427c2ff094c9b6df7539ba67dff80d095
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ed248480803370a75b40c18ee7d0e2641254d84a
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104589861"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107790462"
 ---
 # <a name="configure-network-routing-preference-for-azure-storage"></a>Configuración de las preferencias de enrutamiento de red para Azure Storage
 
@@ -82,7 +82,7 @@ Para cambiar la preferencia de enrutamiento a enrutamiento de Internet:
 
    - Para iniciar Azure Cloud Shell, inicie sesión en [Azure Portal](https://portal.azure.com).
 
-   - Para iniciar sesión en la instalación local de la CLI, ejecute el comando [az login](/cli/azure/reference-index#az-login):
+   - Para iniciar sesión en la instalación local de la CLI, ejecute el comando [az login](/cli/azure/reference-index#az_login):
 
      ```azurecli
      az login
@@ -146,7 +146,7 @@ Esta preferencia solo afecta al punto de conexión específico de la ruta. Esta 
 
 ### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-1. Para configurar un punto de conexión específico de la ruta, use el comando [az storage account update](/azure/storage/account#az-storage-account-update). 
+1. Para configurar un punto de conexión específico de la ruta, use el comando [az storage account update](/azure/storage/account#az_storage_account_update). 
 
    - Para crear un punto de conexión específico de la ruta que use la preferencia de enrutamiento de red de Microsoft, establezca el parámetro `--publish-microsoft-endpoints` en `true`. 
 

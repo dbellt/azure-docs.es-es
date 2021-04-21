@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95fe70c774b933113c94125d227976e32a9e353f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e4c8e18979ff1575e1a050244a96e7858cdce46b
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98919636"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530250"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Términos de uso de Azure Active Directory
 
@@ -50,7 +50,7 @@ Las directivas de los términos de uso de Azure AD tienen las siguientes funcio
 - Mostrar quién ha aceptado o no las directivas de términos de uso.
 - Ayudar a cumplir los reglamentos de privacidad.
 - Mostrar un registro de la actividad de la directiva de los términos de uso a efectos de cumplimiento y auditoría.
-- Crear y administrar las directivas de los términos de uso mediante [Microsoft Graph API](/graph/api/resources/agreement?view=graph-rest-beta) (actualmente en versión preliminar).
+- Crear y administrar las directivas de los términos de uso mediante [Microsoft Graph API](/graph/api/resources/agreement) (actualmente en versión preliminar).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 

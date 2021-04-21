@@ -3,15 +3,15 @@ title: Continuidad empresarial y recuperación ante desastres
 description: Diseñe la estrategia para proteger los datos, recuperarse rápidamente de eventos perjudiciales, restaurar los recursos necesarios para las funciones empresariales críticas y mantener la continuidad empresarial para Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
-ms.date: 03/31/2020
-ms.openlocfilehash: 0a36cb468ebcb77c0614bffd0afc392df3655c20
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/24/2021
+ms.openlocfilehash: f974a99c59b19b5df7bf6ffcc66c2dc133743f0a
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89658202"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107790546"
 ---
 # <a name="business-continuity-and-disaster-recovery-for-azure-logic-apps"></a>Continuidad empresarial y recuperación ante desastres para Azure Logic Apps
 
@@ -46,7 +46,7 @@ En cuanto a la estrategia de conmutación por error, las aplicaciones lógicas y
 
 * Las dos instancias de aplicación lógica tienen el mismo tipo de host. Por tanto, las dos instancias se implementan en regiones de Azure multiinquilino global, o bien en ISE, lo que permite a las aplicaciones lógicas acceder directamente a los recursos de una red virtual de Azure. Para obtener los procedimientos recomendados y más información sobre las regiones emparejadas para BCDR, vea [Continuidad empresarial y recuperación ante desastres (BCDR): regiones emparejadas de Azure](../best-practices-availability-paired-regions.md).
 
-  Por ejemplo, las ubicaciones principal y secundaria deben ser ISE cuando la aplicación lógica principal se ejecuta en un ISE y usa [conectores con versión de ISE](../connectors/apis-list.md#ise-connectors), acciones HTTP para llamar a los recursos de la red virtual de Azure o ambos. En este escenario, la aplicación lógica secundaria también debe tener en la ubicación secundaria una configuración similar a la de la aplicación lógica principal.
+  Por ejemplo, las ubicaciones principal y secundaria deben ser ISE cuando la aplicación lógica principal se ejecuta en un ISE y usa [conectores con versión de ISE](../connectors/managed.md#ise-connectors), acciones HTTP para llamar a los recursos de la red virtual de Azure o ambos. En este escenario, la aplicación lógica secundaria también debe tener en la ubicación secundaria una configuración similar a la de la aplicación lógica principal.
 
   > [!NOTE]
   > En el caso de escenarios más avanzados, puede mezclar instancias multiinquilino de Azure y un ISE como ubicaciones. Pero asegúrese de tener en cuenta y comprender las [diferencias entre la ejecución de las aplicaciones lógicas en un ISE y en instancias multiinquilino de Azure](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#difference).

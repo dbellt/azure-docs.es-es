@@ -9,12 +9,12 @@ ms.date: 10/08/2018
 ms.author: cynthn
 ms.custom: legacy, devx-track-azurecli
 ms.collection: linux
-ms.openlocfilehash: 8e81c204c1f05b7fc6bdf1efc7060e2094c648e5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dddbad2403734bc749497a7acca16b2a5b6076f4
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102630629"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107792262"
 ---
 # <a name="how-to-create-a-managed-image-of-a-virtual-machine-or-vhd"></a>Creación de una imagen administrada de una máquina virtual o un disco duro virtual
 
@@ -32,7 +32,7 @@ Necesitará los siguientes elementos antes de crear una imagen:
 
 * Una máquina virtual de Azure creada en el modelo de implementación de Resource Manager mediante discos administrados. Si aún no ha creado una máquina virtual Linux, puede usar el [portal](quick-create-portal.md), la [CLI de Azure](quick-create-cli.md) o [plantillas de Resource Manager](create-ssh-secured-vm-from-template.md). Configure la máquina virtual como considere necesario. Por ejemplo, [agregue discos de datos](add-disk.md), aplique actualizaciones e instale aplicaciones. 
 
-* Necesita tener instalada la versión más reciente de la [CLI de Azure](/cli/azure/install-az-cli2) y haber iniciado sesión en una cuenta de Azure con [az login](/cli/azure/reference-index#az-login).
+* Necesita tener instalada la versión más reciente de la [CLI de Azure](/cli/azure/install-az-cli2) y haber iniciado sesión en una cuenta de Azure con [az login](/cli/azure/reference-index#az_login).
 
 ## <a name="prefer-a-tutorial-instead"></a>¿Prefiere un tutorial en su lugar?
 
@@ -77,7 +77,7 @@ Use la CLI de Azure para marcar la máquina virtual como generalizada y capture 
 
     Una máquina virtual que ha sido generalizada ya no se puede reiniciar.
 
-3. Cree una imagen del recurso de máquina virtual con [az image create](/cli/azure/image#az-image-create). En el ejemplo siguiente se crea una imagen llamada *myImage* en el grupo de recursos llamado *myResourceGroup* por medio del recurso de máquina virtual llamado *myVM*.
+3. Cree una imagen del recurso de máquina virtual con [az image create](/cli/azure/image#az_image_create). En el ejemplo siguiente se crea una imagen llamada *myImage* en el grupo de recursos llamado *myResourceGroup* por medio del recurso de máquina virtual llamado *myVM*.
    
     ```azurecli
     az image create \
@@ -106,7 +106,7 @@ az vm create \
 
 ### <a name="creating-the-vm-in-another-resource-group"></a>Creación de la máquina virtual en otro grupo de recursos 
 
-Puede crear máquinas virtuales en cualquier grupo de recursos dentro de la suscripción a partir de una imagen. Para crear una VM en un grupo de recursos diferente al de la imagen, especifique el identificador de recurso completo para la imagen. Use [az image list](/cli/azure/image#az-image-list) para ver una lista de imágenes. La salida será similar al del ejemplo siguiente:
+Puede crear máquinas virtuales en cualquier grupo de recursos dentro de la suscripción a partir de una imagen. Para crear una VM en un grupo de recursos diferente al de la imagen, especifique el identificador de recurso completo para la imagen. Use [az image list](/cli/azure/image#az_image_list) para ver una lista de imágenes. La salida será similar al del ejemplo siguiente:
 
 ```json
 "id": "/subscriptions/guid/resourceGroups/MYRESOURCEGROUP/providers/Microsoft.Compute/images/myImage",
@@ -114,7 +114,7 @@ Puede crear máquinas virtuales en cualquier grupo de recursos dentro de la susc
    "name": "myImage",
 ```
 
-En el ejemplo siguiente se utiliza [az vm create](/cli/azure/vm#az-vm-create) para crear una máquina virtual en un grupo de recursos diferente al de la imagen de origen especificando el identificador de recurso de imagen.
+En el ejemplo siguiente se utiliza [az vm create](/cli/azure/vm#az_vm_create) para crear una máquina virtual en un grupo de recursos diferente al de la imagen de origen especificando el identificador de recurso de imagen.
 
 ```azurecli
 az vm create \
@@ -128,7 +128,7 @@ az vm create \
 
 ## <a name="step-4-verify-the-deployment"></a>Paso 4: Comprobar la implementación
 
-Conéctese por SSH a la máquina virtual que creó para comprobar la implementación y empezar a usar la nueva máquina virtual. Para conectarse mediante SSH, busque la dirección IP o el nombre de dominio completo de la máquina virtual con [az vm show](/cli/azure/vm#az-vm-show).
+Conéctese por SSH a la máquina virtual que creó para comprobar la implementación y empezar a usar la nueva máquina virtual. Para conectarse mediante SSH, busque la dirección IP o el nombre de dominio completo de la máquina virtual con [az vm show](/cli/azure/vm#az_vm_show).
 
 ```azurecli
 az vm show \

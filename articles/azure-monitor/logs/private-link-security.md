@@ -5,12 +5,12 @@ author: noakup
 ms.author: noakuper
 ms.topic: conceptual
 ms.date: 10/05/2020
-ms.openlocfilehash: 76c6d7caf3c63779e12443304688192f7311720a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 43707a99792ae3c4d817f47d770629287b8a774b
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104594570"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107374342"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Uso de Azure Private Link para conectar redes a Azure Monitor de forma segura
 
@@ -238,6 +238,10 @@ Para permitir que el agente de Log Analytics descargue paquetes de soluciones, a
 |Azure Government | usbn1oicore.blob.core.usgovcloudapi.net | 443 |  Salida
 |Azure China 21Vianet      | mceast2oicore.blob.core.chinacloudapi.cn| 443 | Salida
 
+
+>[!NOTE]
+> A partir del 19 de abril de 2021, la configuración anterior no será necesaria y podrá acceder a la cuenta de almacenamiento de los paquetes de solución a través del vínculo privado. La nueva funcionalidad requiere volver a crear el elemento AMPLS (el 19 de abril de 2021 o en una fecha posterior) y el punto de conexión privado conectado a él. No se aplicará a los elementos AMPLS y ni a los puntos de conexión privados existentes.
+
 ## <a name="configure-application-insights"></a>Configuración de Application Insights
 
 Vaya a Azure Portal. En el recurso del componente de Application Insights de Azure Monitor se encuentra el elemento de menú **Aislamiento de red** en el lado izquierdo. En este menú puede controlar dos estados diferentes.
@@ -246,7 +250,7 @@ Vaya a Azure Portal. En el recurso del componente de Application Insights de Azu
 
 En primer lugar, puede conectar este recurso de Application Insights a ámbitos de Private Link de Azure Monitor a los que tenga acceso. Seleccione **Agregar** y seleccione el **ámbito de Private Link de Azure Monitor**. Seleccione Aplicar para conectarlo. Todos los ámbitos conectados aparecen en esta pantalla. La realización de esta conexión permite que el tráfico de red de las redes virtuales conectadas llegue a este componente y que tenga el mismo efecto que conectarlo desde el ámbito que creamos en [Conexión de recursos de Azure Monitor](#connect-azure-monitor-resources). 
 
-En segundo lugar, puede controlar cómo se puede acceder a este recurso desde fuera de los ámbitos de Private Link (AMPLS) enumerados anteriormente. Si establece **Allow public network access for ingestion** (Permitir el acceso de la red pública para la ingesta) en **No**, las máquinas o los SDK que se encuentren fuera de los ámbitos conectados no podrán cargar datos en este componente. Si establece **Allow public network access for queries** (Permitir el acceso a la red pública para las consultas) en **No**, las máquinas que se encuentren fuera de los ámbitos no podrán acceder a los datos de este recurso de Application Insights. Estos datos incluyen el acceso a los registros de APM, las métricas y la transmisión de métricas en directo, así como experiencias basadas en ellos, como libros, paneles, experiencias de cliente basadas en API de consulta, conclusiones de Azure Portal, etc. 
+A continuación, puede controlar cómo se puede acceder a este recurso desde fuera de los ámbitos de Private Link (AMPLS) enumerados anteriormente. Si establece **Allow public network access for ingestion** (Permitir el acceso de la red pública para la ingesta) en **No**, las máquinas o los SDK que se encuentren fuera de los ámbitos conectados no podrán cargar datos en este componente. Si establece **Allow public network access for queries** (Permitir el acceso a la red pública para las consultas) en **No**, las máquinas que se encuentren fuera de los ámbitos no podrán acceder a los datos de este recurso de Application Insights. Estos datos incluyen el acceso a los registros de APM, las métricas y la transmisión de métricas en directo, así como experiencias basadas en ellos, como libros, paneles, experiencias de cliente basadas en API de consulta, conclusiones de Azure Portal, etc. 
 
 > [!NOTE]
 > Las experiencias de uso que no son del portal también tienen que ejecutarse dentro de la red virtual vinculada privada que incluye las cargas de trabajo supervisadas.

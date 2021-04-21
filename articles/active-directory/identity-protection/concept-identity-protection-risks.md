@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 01/05/2021
+ms.date: 04/13/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18e504579c750caf452ef74844c4a388ec96448a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 87516ddcce32ab205b13139c057a2ab999146b74
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97954492"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107376365"
 ---
 # <a name="what-is-risk"></a>¿Qué es el riesgo?
 
@@ -83,7 +83,7 @@ Aunque Microsoft no proporciona detalles específicos sobre cómo se calcula el 
 
 ### <a name="password-hash-synchronization"></a>Sincronización de hash de contraseña
 
-Las detecciones de riesgos, como las credenciales filtradas y la difusión de contraseñas, requieren la presencia de hashes de contraseña para que se produzca la detección. Para obtener más información sobre la sincronización de hash de contraseñas, consulte [Implementación de la sincronización de hash de contraseñas con la sincronización de Azure AD Connect](../hybrid/how-to-connect-password-hash-synchronization.md).
+Las detecciones de riesgos, como las credenciales filtradas, requieren la presencia de elementos hash de contraseña para que se produzca la detección. Para obtener más información sobre la sincronización de hash de contraseñas, consulte [Implementación de la sincronización de hash de contraseñas con la sincronización de Azure AD Connect](../hybrid/how-to-connect-password-hash-synchronization.md).
 
 ### <a name="leaked-credentials"></a>Credenciales con fugas
 

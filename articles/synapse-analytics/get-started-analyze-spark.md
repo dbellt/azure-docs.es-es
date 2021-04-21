@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
 ms.date: 03/24/2021
-ms.openlocfilehash: 0becbbdb68f75072e10a51f5a2eae95291b9ed77
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: de48f906f4dc86bf6297cfb3b76f406df49feec3
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105108339"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107363859"
 ---
 # <a name="analyze-with-apache-spark"></a>Análisis con Apache Spark
 
@@ -34,18 +34,14 @@ En este tutorial, aprenderá los pasos básicos para cargar y analizar datos con
 
 Un grupo de Spark sin servidor es una forma de indicar cómo un usuario desea trabajar con Spark. Al empezar a usar un grupo, se crea una sesión de Spark si es necesario. El grupo controla el número de recursos de Spark que se usarán en esa sesión y el tiempo que durará la sesión antes de que se pause automáticamente. El usuario paga por los recursos de Spark usados durante esa sesión, no por el grupo en sí. De esta manera, un grupo de Spark le permite trabajar con Spark, sin tener que preocuparse de la administración de clústeres. Esto es similar al funcionamiento de un grupo de SQL sin servidor.
 
-## <a name="analyze-nyc-taxi-data-in-blob-storage-using-spark"></a>Análisis de los datos de taxis de Nueva York en Blob Storage con Spark
+## <a name="analyze-nyc-taxi-data-with-a-spark-pool"></a>Análisis de datos de taxis de Nueva York con un grupo de Spark
 
-1. En Synapse Studio, vaya al centro de conectividad **Develop** (Desarrollo).
-2. Cree un cuaderno y seleccione **PySpark (Python)** como lenguaje predeterminado.
+1. En Synapse Studio, vaya al menú central **Develop** (Desarrollo).
+2. Crear un nuevo cuaderno
 3. Cree una celda de código y pegue el código siguiente en ella.
     ```py
     %%pyspark
-    from azureml.opendatasets import NycTlcYellow
-
-    data = NycTlcYellow()
-    df = data.to_spark_dataframe()
-    # Display 10 rows
+    df = spark.read.load('abfss://users@contosolake.dfs.core.windows.net/NYCTripSmall.parquet', format='parquet')
     display(df.limit(10))
     ```
 1. En el cuaderno, en el menú **Attach to** (Asociar a), elija el grupo de Spark sin servidor **Spark1** que se creó anteriormente.
@@ -53,22 +49,23 @@ Un grupo de Spark sin servidor es una forma de indicar cómo un usuario desea tr
 1. Si solo desea ver el esquema de la trama de datos, ejecute una celda con el siguiente código:
 
     ```py
+    %%pyspark
     df.printSchema()
     ```
 
 ## <a name="load-the-nyc-taxi-data-into-the-spark-nyctaxi-database"></a>Carga de los datos de los taxis de Nueva York en la base de datos nyctaxi de Spark
 
-Los datos están disponibles a través de la trama de datos denominada **data**. Cárguelos en una base de datos de Spark denominada **nyctaxi**.
+Los datos están disponibles mediante la trama de datos denominada **df**. Cárguelos en una base de datos de Spark denominada **nyctaxi**.
 
-1. Agregue los datos nuevos al bloc de notas y, a continuación, escriba el código siguiente:
+1. Agregue una nueva celda de código al cuaderno y, a continuación, escriba el código siguiente:
 
     ```py
+    %%pyspark
     spark.sql("CREATE DATABASE IF NOT EXISTS nyctaxi")
     df.write.mode("overwrite").saveAsTable("nyctaxi.trip")
     ```
 ## <a name="analyze-the-nyc-taxi-data-using-spark-and-notebooks"></a>Análisis de los datos de los taxis de Nueva York mediante Spark y cuadernos
 
-1. Vuelva al cuaderno.
 1. Cree una celda de código y escriba el código siguiente. 
 
    ```py
@@ -84,10 +81,10 @@ Los datos están disponibles a través de la trama de datos denominada **data**.
    %%pyspark
    df = spark.sql("""
       SELECT PassengerCount,
-          SUM(TripDistance) as SumTripDistance,
-          AVG(TripDistance) as AvgTripDistance
+          SUM(TripDistanceMiles) as SumTripDistance,
+          AVG(TripDistanceMiles) as AvgTripDistance
       FROM nyctaxi.trip
-      WHERE TripDistance > 0 AND PassengerCount > 0
+      WHERE TripDistanceMiles > 0 AND PassengerCount > 0
       GROUP BY PassengerCount
       ORDER BY PassengerCount
    """) 

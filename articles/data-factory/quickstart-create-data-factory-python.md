@@ -7,14 +7,14 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 04/06/2021
+ms.date: 04/12/2021
 ms.custom: seo-python-october2019, devx-track-python
-ms.openlocfilehash: 50e29262b609887d91c43ea8f012fad0c7a35ee2
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 534b5b3aca86cc2f6d7ee2d703939420f80abb8e
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106449280"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107365100"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Inicio rápido: Creación de una factoría de datos y una canalización con Python
 
@@ -40,7 +40,7 @@ Las canalizaciones pueden ingerir datos de distintos almacenes de datos. Las can
 
 * [Explorador de Azure Storage](https://storageexplorer.com/) (opcional).
 
-* [Una aplicación en Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Tome nota de los valores siguientes, ya que los usará en pasos posteriores: **id. de aplicación**, **clave de autenticación** e **id. de inquilino**. Siga las instrucciones del mismo artículo para asignar la aplicación al rol **Colaborador**.
+* [Una aplicación en Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Cree la aplicación según los pasos descritos en este vínculo y asígnela al rol **Colaborador** según las instrucciones del mismo artículo. Tome nota de los siguientes valores tal como se muestra en el artículo para usarlos en pasos posteriores: **id. de aplicación (identificador de entidad de servicio a continuación), clave de autenticación (secreto de cliente a continuación) e identificador de inquilino.**
 
 ## <a name="create-and-upload-an-input-file"></a>Crear y cargar un archivo de entrada
 
@@ -226,6 +226,7 @@ Se define un conjunto de datos que representa los datos de origen del blob de Az
     print_item(dsOut)
 ```
 
+
 ## <a name="create-a-pipeline"></a>Crear una canalización
 
 Agregue el código siguiente al método **main** que crea una **canalización con una actividad de copia**.
@@ -240,6 +241,13 @@ Agregue el código siguiente al método **main** que crea una **canalización co
     copy_activity = CopyActivity(name=act_name,inputs=[dsin_ref], outputs=[dsOut_ref], source=blob_source, sink=blob_sink)
 
     #Create a pipeline with the copy activity
+    
+    #Note1: To pass parameters to the pipeline, add them to the json string params_for_pipeline shown below in the format { “ParameterName1” : “ParameterValue1” } for each of the parameters needed in the pipeline.
+    #Note2: To pass parameters to a dataflow, create a pipeline parameter to hold the parameter name/value, and then consume the pipeline parameter in the dataflow parameter in the format @pipeline().parameters.parametername.
+    
+    p_name = 'copyPipeline'
+    params_for_pipeline = {}
+
     p_name = 'copyPipeline'
     params_for_pipeline = {}
     p_obj = PipelineResource(activities=[copy_activity], parameters=params_for_pipeline)

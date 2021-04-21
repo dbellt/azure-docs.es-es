@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 11/18/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 828f37030ae567cacbaad25849b7ba24c561c20c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3b4b4e227a0bdfc449c73541dec5d13c1c6697bc
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98132773"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313069"
 ---
 # <a name="azure-synapse-analytics-terminology"></a>Terminología de Azure Synapse Analytics
 
@@ -34,7 +34,7 @@ Las áreas de trabajo pueden contener cualquier número de cadenas de conexión 
 
 **Synapse SQL** es la capacidad de realizar análisis basados en T-SQL en el área de trabajo de Synapse. Synapse SQL tiene dos modelos de consumo: dedicado y sin servidor.  Para el modelo dedicado, use **grupos de SQL dedicados**. Un área de trabajo puede tener un número ilimitado de estos grupos. Para usar el modelo sin servidor, use los **grupos de SQL sin servidor**. Cada área de trabajo tiene uno de estos grupos.
 
-Para trabajar con grupos de SQL en Synapse Studio, es preciso crear y ejecutar **scripts SQL** .
+Puede trabajar con grupos de SQL en Synapse Studio mediante la ejecución de **scripts SQL**.
 
 ## <a name="apache-spark-for-synapse"></a>Apache Spark para Synapse
 
@@ -50,7 +50,7 @@ Las canalizaciones son la forma en que Azure Synapse proporciona integración de
 
 * Una **canalización** es una agrupación lógica de actividades que realizan una tarea de manera conjunta.
 * Las **actividades** definen las acciones de una canalización que se deben realizar en los datos, como la copia de datos, la ejecución de un cuaderno o un script de SQL.
-* **Los flujos de datos** son un tipo específico de actividad que proporciona una experiencia sin código para realizar una transformación de datos que usa Synapse Spark en el interior.
+* Los **flujos de datos** son un tipo específico de actividad que proporciona una experiencia sin código para realizar una transformación de datos que usa Synapse Spark en segundo plano.
 * **Desencadenador**: ejecuta una canalización. Se puede ejecutar de forma manual o automática (programación, ventana de saltos de tamaño constante o basada en eventos).
 * **Conjunto de datos de integración**: vista con nombre de los datos que simplemente apunta o hace referencia a los datos que se van a usar en una actividad como entrada y salida. Pertenece a un servicio vinculado.
 

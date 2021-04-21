@@ -4,12 +4,12 @@ description: Se describe cómo ver las operaciones de implementación de Azure R
 tags: top-support-issue
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 898af2365dfbb0f61b6b87e7532c9256269d799a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e7ed2096a696efdc9a2654a8fd0c294c82cbd4f7
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105732778"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781872"
 ---
 # <a name="view-deployment-history-with-azure-resource-manager"></a>Visualización del historial de implementación con Azure Resource Manager
 
@@ -61,13 +61,13 @@ Para obtener el Id. de correlación, use:
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-Para mostrar la implementación de un grupo de recursos, use [az deployment group list](/cli/azure/group/deployment#az-deployment-group-list).
+Para mostrar la implementación de un grupo de recursos, use [az deployment group list](/cli/azure/group/deployment#az_deployment_group_list).
 
 ```azurecli-interactive
 az deployment group list --resource-group ExampleGroup
 ```
 
-Para obtener una implementación concreta, use [az deployment group show](/cli/azure/group/deployment#az-deployment-group-show).
+Para obtener una implementación concreta, use [az deployment group show](/cli/azure/group/deployment#az_deployment_group_show).
 
 ```azurecli-interactive
 az deployment group show --resource-group ExampleGroup --name ExampleDeployment
@@ -81,13 +81,13 @@ az deployment group show --resource-group ExampleGroup --name ExampleDeployment 
 
 # <a name="http"></a>[HTTP](#tab/http)
 
-Para enumerar las implementaciones de un grupo de recursos, use la operación siguiente. Para obtener el número de versión de la API más reciente que se va a usar en la solicitud, vea [Implementaciones: mostrar por grupo de recursos](/rest/api/resources/resources/deployments/listbyresourcegroup).
+Para enumerar las implementaciones de un grupo de recursos, use la operación siguiente. Para obtener el número de versión de la API más reciente que se va a usar en la solicitud, vea [Implementaciones: mostrar por grupo de recursos](/rest/api/resources/deployments/listbyresourcegroup).
 
 ```
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/?api-version={api-version}
 ```
 
-Para obtener una implementación específica. Utilice la siguiente operación. Para obtener el número de versión de la API más reciente que se va a usar en la solicitud, vea [Implementaciones: obtener](/rest/api/resources/resources/deployments/get).
+Para obtener una implementación específica. Utilice la siguiente operación. Para obtener el número de versión de la API más reciente que se va a usar en la solicitud, vea [Implementaciones: obtener](/rest/api/resources/deployments/get).
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}?api-version={api-version}
@@ -147,7 +147,7 @@ Para obtener el mensaje de estado de las operaciones erróneas, use el comando s
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-Con el fin de ver las operaciones de implementación para la implementación en un grupo de recursos, use el comando [az deployment operation group list](/cli/azure/deployment/operation/group#az-deployment-operation-group-list). Debe tener la CLI de Azure 2.6.0 o una versión posterior.
+Con el fin de ver las operaciones de implementación para la implementación en un grupo de recursos, use el comando [az deployment operation group list](/cli/azure/deployment/operation/group#az_deployment-operation-group-list). Debe tener la CLI de Azure 2.6.0 o una versión posterior.
 
 ```azurecli-interactive
 az deployment operation group list --resource-group ExampleGroup --name ExampleDeployment
@@ -167,7 +167,7 @@ az deployment operation group list --resource-group ExampleGroup --name ExampleD
 
 # <a name="http"></a>[HTTP](#tab/http)
 
-Para obtener las operaciones de implementación, use la operación siguiente. Para obtener el número de versión de la API más reciente que se va a usar en la solicitud, vea [Operaciones de implementación: mostrar](/rest/api/resources/resources/deploymentoperations/list).
+Para obtener las operaciones de implementación, use la operación siguiente. Para obtener el número de versión de la API más reciente que se va a usar en la solicitud, vea [Operaciones de implementación: mostrar](/rest/api/resources/deploymentoperations/list).
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}
@@ -214,4 +214,3 @@ La respuesta incluye un mensaje de error.
 * Para obtener ayuda con la resolución de errores de implementación concretos, consulte [Solución de problemas comunes al implementar recursos en Azure con Azure Resource Manager](common-deployment-errors.md).
 * Para obtener información sobre cómo se administran las implementaciones en el historial, vea [Eliminaciones automáticas del historial de implementaciones](deployment-history-deletions.md).
 * Para validar la implementación antes de ejecutarla, consulte [Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell](deploy-powershell.md).
-

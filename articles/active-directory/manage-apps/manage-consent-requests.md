@@ -2,21 +2,21 @@
 title: Administración del consentimiento en las aplicaciones y evaluación de las solicitudes de consentimiento en Azure Active Directory
 description: Aprenda a administrar las solicitudes de consentimiento cuando el consentimiento del usuario está deshabilitado o restringido, y a evaluar una solicitud de consentimiento del administrador para todo el inquilino a una aplicación en Azure Active Directory.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 12/27/2019
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: phsignor
-ms.openlocfilehash: 189a89276d922665dd1ad0fbacc77ba499137048
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3405181f9bace023950e583dfe1a334216bf0aa0
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99253109"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107373951"
 ---
 # <a name="managing-consent-to-applications-and-evaluating-consent-requests"></a>Administración del consentimiento a las aplicaciones y evaluación de las solicitudes de consentimiento
 
@@ -26,7 +26,7 @@ Después de deshabilitar o restringir el consentimiento del usuario final, hay v
 
 ## <a name="process-changes-and-education"></a>Cambios de proceso y educación
 
- 1. Considere la posibilidad de habilitar el [flujo de trabajo de consentimiento del administrador (versión preliminar)](configure-admin-consent-workflow.md) para permitir que los usuarios soliciten la aprobación del administrador directamente desde la pantalla de consentimiento.
+ 1. Considere la posibilidad de habilitar el [flujo de trabajo de consentimiento del administrador](configure-admin-consent-workflow.md) para permitir que los usuarios soliciten la aprobación del administrador directamente desde la pantalla de consentimiento.
 
  2. Asegúrese de que todos los administradores entienden el [marco de permisos y consentimiento](../develop/consent-framework.md), cómo funciona la [solicitud de consentimiento](../develop/application-consent-experience.md) y cómo se [evalúa una solicitud de consentimiento del administrador para todo el inquilino](#evaluating-a-request-for-tenant-wide-admin-consent).
  3. Revise los procesos existentes en la organización para que los usuarios soliciten la aprobación del administrador para una aplicación y actualícelos si es necesario. Si los procesos cambian:

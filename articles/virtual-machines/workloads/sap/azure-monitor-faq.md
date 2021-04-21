@@ -6,12 +6,12 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
-ms.openlocfilehash: 3732189c1d2e09b648a2fba0a39e7e4113a76d48
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4b84f07f637b0a8925dec96c8c609101247ffd64
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101675947"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107377131"
 ---
 # <a name="azure-monitor-for-sap-solutions-faq-preview"></a>Preguntas frecuentes acerca de las soluciones de Azure Monitor para SAP (versión preliminar)
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
@@ -60,13 +60,28 @@ Rol de colaborador.
 Las versiones preliminares están excluidas de los contratos de nivel de servicio. Lea las condiciones de licencia completas mediante la imagen de Marketplace de Azure Monitor para soluciones de SAP.  
 
  - **¿Puedo supervisar todo el panorama desde esta solución?**  
-Actualmente, puede supervisar la base de datos de HANA, la infraestructura subyacente, el clúster de alta disponibilidad y Microsoft SQL Server en versión preliminar pública.  
+Actualmente puede supervisar la base de datos HANA, la infraestructura subyacente, el clúster de alta disponibilidad, Microsoft SQL Server, la disponibilidad de SAP Netweaver y las métricas de disponibilidad de SAP Application Instance en versión preliminar pública.  
 
  - **¿Este servicio reemplaza a SAP Solution Manager?**  
 No. Los clientes pueden seguir usando SAP Solution Manager para la supervisión de procesos empresariales.  
 
  - **¿Cuál es el valor de este servicio respecto a las soluciones tradicionales, como SAP HANA Cockpit/Studio?**  
 Azure Monitor para soluciones de SAP no es específico para bases de datos de HANA. Azure Monitor para soluciones de SAP también admite AnyDB.  
+
+- **¿Qué versiones de SAP NetWeaver son compatibles?**  
+SAP NetWeaver 7.0, o cualquier versión superior.  
+
+- **¿Qué configuraciones de SAP NetWeaver son compatibles?**  
+Admite configuraciones de servidor de aplicaciones de SAP NetWeaver de pila doble, Java y ABAP.
+
+- **¿Por qué hay que desproteger métodos para la supervisión de aplicaciones de SAP NetWeaver?**  
+Tanto en SAP 7.3 como en las versiones posteriores la mayoría de los métodos de servicio web están protegidos de forma predeterminada. Para capturar las métricas de disponibilidad y rendimiento mediante la realización de llamadas a estos métodos, deberá desproteger los métodos siguientes: GetQueueStatistic, ABAPGetWPTable, GetProcessList, EnqGetStatistic y GetSystemInstancelist.
+
+- **¿Existe algún riesgo si se desprotegen los métodos web de SAPCONTROL?**  
+En general, la desprotección de los métodos web de SAPCONTROL no supone un riesgo para la seguridad como [tal](https://launchpad.support.sap.com/#/notes/1439348); sin embargo, si los clientes quieren restringir o prohibir el acceso a los métodos web no protegido a través de los puertos de servidor (5XX13/5XX14) de sapstartsrv, se puede hacer agregando un filtro en la lista de control de acceso de SAP (ACL). La [nota del software de código abierto](https://service.sap.com/sap/support/notes/1495075) describe la configuración necesaria para hacerlo. 
+
+- **¿Es necesario reiniciar las instancias de SAP después de realizar configuraciones del sistema para configurar el proveedor de SAP NetWeaver?**  
+Sí, una vez que tenga métodos desprotegidos mediante cambios de configuración de SAP, deberá reiniciar los sistemas SAP correspondientes para asegurarse de que los cambios de configuración se actualizan.  
 
 ## <a name="next-steps"></a>Pasos siguientes
 

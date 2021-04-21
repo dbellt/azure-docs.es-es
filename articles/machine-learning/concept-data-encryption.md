@@ -10,12 +10,12 @@ ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 11/09/2020
-ms.openlocfilehash: 13d5c02fbb4ae06c7a5279ab7c5d3af90c263f71
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 31b2a993267e6e8abbf7184d745889b74e587c50
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102521074"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107311777"
 ---
 # <a name="data-encryption-with-azure-machine-learning"></a>Cifrado de datos con Azure Machine Learning
 
@@ -37,7 +37,7 @@ La marca `hbi_workspace` controla la cantidad de [datos que Microsoft recopila p
 * Limpia el disco temporal local entre ejecuciones.
 * Pasa de forma segura las credenciales de la cuenta de almacenamiento, el registro de contenedor y la cuenta SSH desde la capa de ejecución a los clústeres de proceso mediante el almacén de claves.
 * Habilita el filtrado de IP para asegurarse de que los servicios externos que no sean AzureMachineLearningService no puedan llamar a los grupos de lotes subyacentes.
-* Tenga en cuenta que las instancias de proceso no se admiten en el área de trabajo HBI.
+* En el área de trabajo HBI se admiten las instancias de proceso.
 
 ### <a name="azure-blob-storage"></a>Azure Blob Storage
 

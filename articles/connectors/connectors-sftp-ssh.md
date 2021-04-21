@@ -5,15 +5,15 @@ services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, logicappspm, azla
-ms.topic: article
-ms.date: 04/05/2021
+ms.topic: conceptual
+ms.date: 04/19/2021
 tags: connectors
-ms.openlocfilehash: 5eae6b48a65f919ea233ad77a215ed5672425175
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: a19253e117f748b4d4045bfd2a29552018bba91e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106385860"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781566"
 ---
 # <a name="create-and-manage-sftp-files-using-ssh-and-azure-logic-apps"></a>Creación y administración de archivos SFTP mediante SSH y Azure Logic Apps
 
@@ -123,7 +123,7 @@ Cuando un desencadenador encuentra un nuevo archivo, el desencadenador comprueba
 
 ### <a name="trigger-recurrence-shift-and-drift"></a>Desencadenamiento del cambio de periodicidad y el desfase
 
-Los desencadenadores basados en conexión en los que es necesario crear una conexión en primer lugar, como el desencadenador SFTP-SSH, difieren de los desencadenadores integrados que se ejecutan de forma nativa en Azure Logic Apps, como el [desencadenador de periodicidad](../connectors/connectors-native-recurrence.md). En los desencadenadores periódicos basados en conexión, la programación de periodicidad no es el único controlador que controla la ejecución y la zona horaria solo determina la hora de inicio inicial. Las ejecuciones posteriores dependen de la programación de periodicidad, de la última ejecución del desencadenador, *y* de otros factores que pueden provocar que haya un desfase o un comportamiento inesperado en los tiempos de ejecución. Por ejemplo, un comportamiento inesperado puede incluir errores al mantener la programación especificada cuando empieza y termina el horario de verano (DST). Para asegurarse de que el valor de periodicidad no se desplace cuando se aplique el horario de verano, ajuste manualmente la periodicidad. De este modo, el flujo de trabajo continúa ejecutándose a la hora esperada. De lo contrario, la hora de inicio se desplazará una hora hacia delante cuando se inicie el DST y una hora hacia atrás cuando finalice el DST. Para obtener más información, consulte [Periodicidad de los desencadenadores basados en conexión](../connectors/apis-list.md#recurrence-connection-based).
+Los desencadenadores basados en conexión en los que es necesario crear una conexión en primer lugar, como el desencadenador SFTP-SSH, difieren de los desencadenadores integrados que se ejecutan de forma nativa en Azure Logic Apps, como el [desencadenador de periodicidad](../connectors/connectors-native-recurrence.md). En los desencadenadores periódicos basados en conexión, la programación de periodicidad no es el único controlador que controla la ejecución y la zona horaria solo determina la hora de inicio inicial. Las ejecuciones posteriores dependen de la programación de periodicidad, de la última ejecución del desencadenador, *y* de otros factores que pueden provocar que haya un desfase o un comportamiento inesperado en los tiempos de ejecución. Por ejemplo, un comportamiento inesperado puede incluir errores al mantener la programación especificada cuando empieza y termina el horario de verano (DST). Para asegurarse de que el valor de periodicidad no se desplace cuando se aplique el horario de verano, ajuste manualmente la periodicidad. De este modo, el flujo de trabajo continúa ejecutándose a la hora esperada. De lo contrario, la hora de inicio se desplazará una hora hacia delante cuando se inicie el DST y una hora hacia atrás cuando finalice el DST. Para obtener más información, consulte [Periodicidad de los desencadenadores basados en conexión](../connectors/apis-list.md#recurrence-for-connection-based-triggers).
 
 <a name="convert-to-openssh"></a>
 

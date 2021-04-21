@@ -6,14 +6,14 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 08/04/2020
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 75c50e6342a00ef37215d9e961503dd7ffb0d205
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 907bf06323d13b2d26dec5003e4739f2ae9faf74
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104877586"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107378523"
 ---
 # <a name="quickstart-monitoring-azure-spring-cloud-apps-with-logs-metrics-and-tracing"></a>Inicio rápido: supervisión de aplicaciones de Azure Spring Cloud con registros, métricas y seguimiento
 
@@ -72,6 +72,8 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
 1. A continuación, seleccione `Run` y verá los registros. Para más instrucciones sobre la escritura de consultas, consulte la [documentación de Azure Log Analytics](../azure-monitor/logs/get-started-queries.md).
 
    [ ![Consulta de Log Analytics: Steeltoe](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query-steeltoe.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query-steeltoe.png#lightbox)
+
+1. Para más información sobre el lenguaje de consulta que se utiliza en Log Analytics, consulte [Consultas de registros de Azure Monitor](/azure/data-explorer/kusto/query/). Para consultar todos los registros de Log Analytics desde un cliente centralizado, vea [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/query-monitor-data).
 
 ## <a name="metrics"></a>Métricas
 
@@ -168,6 +170,8 @@ Para obtener los registros mediante Azure Toolkit for IntelliJ:
 1. Luego verá los registros filtrados. Para más instrucciones sobre la escritura de consultas, consulte la [documentación de Azure Log Analytics](../azure-monitor/logs/get-started-queries.md).
 
    [ ![Consulta de Log Analytics](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query.png#lightbox)
+
+1. Para más información sobre el lenguaje de consulta que se utiliza en Log Analytics, consulte [Consultas de registros de Azure Monitor](/azure/data-explorer/kusto/query/). Para consultar todos los registros de Log Analytics desde un cliente centralizado, vea [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/query-monitor-data).
 
 ## <a name="metrics"></a>Métricas
 

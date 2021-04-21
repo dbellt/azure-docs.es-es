@@ -9,12 +9,12 @@ ms.subservice: extensions
 ms.date: 01/30/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 3271041b9f4db100cd05588129c7d714d4478f10
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 1b5aea1f0f0101231408dc9ad7b57a30f2c86256
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "83121038"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107788164"
 ---
 # <a name="sequence-extension-provisioning-in-virtual-machine-scale-sets"></a>Secuenciación del aprovisionamiento de extensiones en conjuntos de escalado de máquinas virtuales
 Las extensiones de máquina virtual de Azure proporcionan funcionalidades como configuración y administración posteriores a la implementación, supervisión, seguridad y mucho más. Para lograr los resultados deseados, las implementaciones en producción suelen usar una combinación de varias extensiones configuradas para las instancias de máquina virtual.
@@ -223,7 +223,7 @@ Update-AzVmss -ResourceGroupName $vmScaleSetResourceGroup `
 ```
 
 ### <a name="azure-cli-20"></a>CLI de Azure 2.0
-Use el [conjunto de extensiones az vmss](/cli/azure/vmss/extension#az-vmss-extension-set) para agregar la extensión Estado de la aplicación a la definición del modelo del conjunto de escalado. La secuenciación de extensiones requiere el uso de la CLI de Azure 2.0.55 o superior.
+Use el [conjunto de extensiones az vmss](/cli/azure/vmss/extension#az_vmss_extension_set) para agregar la extensión Estado de la aplicación a la definición del modelo del conjunto de escalado. La secuenciación de extensiones requiere el uso de la CLI de Azure 2.0.55 o superior.
 
 En el siguiente ejemplo se agrega la [extensión Estado de la aplicación](virtual-machine-scale-sets-health-extension.md) al modelo del conjunto de escalado basado en Windows. La extensión Estado de la aplicación se aprovisionará después de aprovisionar la [extensión Script personalizado](../virtual-machines/extensions/custom-script-windows.md), ya definida en el conjunto de escalado.
 

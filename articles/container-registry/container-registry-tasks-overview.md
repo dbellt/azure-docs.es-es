@@ -3,12 +3,12 @@ title: Introducción a ACR Tasks
 description: Una introducción a ACR Tasks, un conjunto de características de Azure Container Registry que proporciona compilaciones de imágenes de contenedor, administración y aplicación de revisiones automatizadas y seguras en la nube.
 ms.topic: article
 ms.date: 08/12/2020
-ms.openlocfilehash: 1cf9faf934cebfb5abe0d2e1b26ffd7da2d6c549
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a42a2bfcdc1621689421940c4db2fcf4f5e64b89
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104606793"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781008"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatización de compilaciones y mantenimiento de imágenes de contenedor con ACR Tasks
 
@@ -127,7 +127,7 @@ De forma predeterminada, ACR Tasks compila imágenes para el sistema operativo L
 
 ## <a name="view-task-output"></a>Visualización de la salida de la tarea
 
-Las ejecuciones de las tareas generan un resultado de registro que se puede examinar para determinar si los pasos de dicha tarea se han ejecutado correctamente. Cuando se desencadena una tarea manualmente, la salida del registro de la ejecución de la tarea se transmite a la consola y también se almacena para su posterior recuperación. Cuando una tarea se desencadena automáticamente, por ejemplo, mediante una confirmación de código fuente o una actualización de imagen base, los registros de tareas solo se almacenan. Puede ver los registros de ejecución en Azure Portal o usar el comando [az acr task logs](/cli/azure/acr/task#az-acr-task-logs).
+Las ejecuciones de las tareas generan un resultado de registro que se puede examinar para determinar si los pasos de dicha tarea se han ejecutado correctamente. Cuando se desencadena una tarea manualmente, la salida del registro de la ejecución de la tarea se transmite a la consola y también se almacena para su posterior recuperación. Cuando una tarea se desencadena automáticamente, por ejemplo, mediante una confirmación de código fuente o una actualización de imagen base, los registros de tareas solo se almacenan. Puede ver los registros de ejecución en Azure Portal o usar el comando [az acr task logs](/cli/azure/acr/task#az_acr_task_logs).
 
 Más información sobre [ver y administrar registros de tareas](container-registry-tasks-logs.md).
 
@@ -143,11 +143,11 @@ Opcionalmente, instale la [extensión de Docker para Visual Studio Code](https:/
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
-[az-acr-build]: /cli/azure/acr#az-acr-build
-[az-acr-pack-build]: /cli/azure/acr/pack#az-acr-pack-build
+[az-acr-build]: /cli/azure/acr#az_acr_build
+[az-acr-pack-build]: /cli/azure/acr/pack#az_acr_pack_build
 [az-acr-task]: /cli/azure/acr/task
-[az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
-[az-login]: /cli/azure/reference-index#az-login
+[az-acr-task-create]: /cli/azure/acr/task#az_acr_task_create
+[az-login]: /cli/azure/reference-index#az_login
 [az-login-service-principal]: /cli/azure/authenticate-azure-cli
 
 <!-- IMAGES -->

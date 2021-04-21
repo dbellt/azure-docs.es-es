@@ -3,12 +3,12 @@ title: Administración y supervisión de bases de datos de SQL Server en una m�
 description: En este artículo se describe cómo administrar y supervisar las bases de datos de SQL Server que se ejecutan en una máquina virtual de Azure.
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: e37e6fc211b34b7e427b66db374a705faafd25f9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3938e26e134f7d823d8a6f6fac631ebf4442e6ab
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97858745"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107519143"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Administración y supervisión de bases de datos SQL Server con copia de seguridad
 
@@ -79,8 +79,8 @@ Para detener la protección de una base de datos:
 >
 >Para más información sobre la opción de eliminación de datos, consulte las preguntas más frecuentes a continuación:
 >
->- [Si elimino una base de datos de una instancia protegida automáticamente, ¿qué ocurrirá con las copias de seguridad?](faq-backup-sql-server.md#if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups)
->- [Si detengo la operación de copia de seguridad de una base de datos protegida automáticamente, ¿cuál será su comportamiento?](faq-backup-sql-server.md#if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior)
+>- [Si elimino una base de datos de una instancia protegida automáticamente, ¿qué ocurrirá con las copias de seguridad?](faq-backup-sql-server.yml#if-i-delete-a-database-from-an-autoprotected-instance--what-will-happen-to-the-backups-)
+>- [Si detengo la operación de copia de seguridad de una base de datos protegida automáticamente, ¿cuál será su comportamiento?](faq-backup-sql-server.yml#if-i-change-the-name-of-the-database-after-it-has-been-protected--what-will-be-the-behavior-)
 >
 >
 

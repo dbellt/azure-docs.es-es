@@ -3,12 +3,12 @@ title: Configuración de Red Hat OpenShift en Azure v4.x con Container insights
 description: En este artículo se describe cómo configurar la supervisión de un clúster de Kubernetes con Azure Monitor hospedado en la versión 4 o posterior de Red Hat OpenShift en Azure.
 ms.topic: conceptual
 ms.date: 03/05/2021
-ms.openlocfilehash: 7c44a7c6eea6182316d626e3e8501f9aa63eef78
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 11c702d1f46725a12e90a01dc1b38467344a1123
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106221524"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107784648"
 ---
 # <a name="configure-azure-red-hat-openshift-v4x-with-container-insights"></a>Configuración de Red Hat OpenShift en Azure v4.x con Container insights
 
@@ -20,7 +20,7 @@ Container Insights proporciona una experiencia de supervisión enriquecida para 
 
 Container Insights se puede habilitar para una o más implementaciones existentes de la versión 4.x de Red Hat OpenShift en Azure con los métodos admitidos que se describen en este artículo.
 
-Para un clúster existente, ejecute este [script de Bash en la CLI de Azure](/cli/azure/openshift#az-openshift-create&preserve-view=true).
+Para un clúster existente, ejecute este [script de Bash en la CLI de Azure](/cli/azure/openshift#az_openshift_create&preserve-view=true).
 
 ## <a name="supported-and-unsupported-features"></a>Características admitidas y no admitidas
 

@@ -3,13 +3,13 @@ title: Compilar imagen con Cloud Native Buildpack
 description: Use el comando az acr pack build para compilar una imagen de contenedor desde una aplicación e insertarla en Azure Container Registry, sin usar ningún documento Dockerfile.
 ms.topic: article
 ms.date: 10/24/2019
-ms.custom: devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 264fc7314c78088ebfefb9ddb8edbe38fa16581a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-js
+ms.openlocfilehash: 1700c8fda8ac91e7d447d35c0989da2d5fc3aefe
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92736627"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780936"
 ---
 # <a name="build-and-push-an-image-from-an-app-using-a-cloud-native-buildpack"></a>Compilación e inserción de una imagen desde una aplicación mediante una instancia de Cloud Native Buildpacks
 
@@ -107,4 +107,4 @@ Para obtener más información sobre las características de ACR Tasks, vea el a
 <!-- LINKS - Internal -->
 [azure-cli-install]: /cli/azure/install-azure-cli
 [az-acr-build]: /cli/azure/acr/task
-[az-acr-pack-build]: /cli/azure/acr/pack#az-acr-pack-build
+[az-acr-pack-build]: /cli/azure/acr/pack#az_acr_pack_build

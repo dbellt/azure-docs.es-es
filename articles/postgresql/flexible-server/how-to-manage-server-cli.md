@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 278f8f816909a7e365d7e45d04c5169950e79a65
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9a7e16bf85293a412baf5015af825377438ebb7b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96493685"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107778506"
 ---
 # <a name="manage-an-azure-database-for-postgresql---flexible-server-by-using-the-azure-cli"></a>Administración de un servidor flexible de Azure Database for PostgreSQL mediante la CLI de Azure
 
@@ -26,13 +26,13 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 
 Debe ejecutar la versión 2.0 o posterior de la CLI de Azure en local. Para ver la versión instalada, ejecute el comando `az --version`. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
-Inicie sesión en la cuenta mediante el comando [az login](/cli/azure/reference-index#az-login). 
+Inicie sesión en la cuenta mediante el comando [az login](/cli/azure/reference-index#az_login). 
 
 ```azurecli-interactive
 az login
 ```
 
-Seleccione la suscripción mediante el comando [az account set](/cli/azure/account). Anote el valor **id** de la salida de **az login** para usarlo como valor del argumento **subscription** en el comando siguiente. Si tiene varias suscripciones, elija aquella en la que se debe facturar el recurso. Para identificar todas las suscripciones, use el comando [az account list](/cli/azure/account#az-account-list).
+Seleccione la suscripción mediante el comando [az account set](/cli/azure/account). Anote el valor **id** de la salida de **az login** para usarlo como valor del argumento **subscription** en el comando siguiente. Si tiene varias suscripciones, elija aquella en la que se debe facturar el recurso. Para identificar todas las suscripciones, use el comando [az account list](/cli/azure/account#az_account_list).
 
 ```azurecli
 az account set --subscription <subscription id>
@@ -131,7 +131,7 @@ az postgres flexible-server update --resource-group myresourcegroup --name mydem
 
 ## <a name="delete-a-server"></a>Eliminación de un servidor
 
-Para eliminar el servidor flexible de Azure Database for PostgreSQL, ejecute el comando [az postgres flexible-server delete](/cli/azure/postgres/flexible-server#az-PostgreSQL-flexible-server-delete).
+Para eliminar el servidor flexible de Azure Database for PostgreSQL, ejecute el comando [az postgres flexible-server delete](/cli/azure/postgres/flexible-server#az_postgresql_flexible_server_delete).
 
 ```azurecli-interactive
 az postgres flexible-server delete --resource-group myresourcegroup --name mydemoserver

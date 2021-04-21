@@ -3,12 +3,12 @@ title: Creación de entornos de varias máquinas virtuales y recursos PaaS con p
 description: Obtenga información acerca de cómo crear entornos de varias máquinas virtuales y recursos de PaaS en Azure DevTest Labs a partir de una plantilla de Azure Resource Manager
 ms.topic: article
 ms.date: 08/12/2020
-ms.openlocfilehash: 97659d4ab95fdbe75460161d0ceed71a1cb5cf82
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f285acffe642a85fa27792ee51ea67a57f6d35a5
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88182415"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107790120"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Creación de entornos de varias máquinas virtuales y recursos de PaaS con plantillas de Azure Resource Manager
 
@@ -264,7 +264,7 @@ En el siguiente script de ejemplo se crea un entorno en el laboratorio. Los come
 También puede usar la CLI de Azure para implementar recursos con plantillas de Resource Manager. Para más información, consulte [Implementación de recursos con plantillas de Resource Manager y la CLI de Azure](../azure-resource-manager/templates/deploy-cli.md).
 
 > [!NOTE]
-> Solo un usuario con permisos de propietario de laboratorio puede crear máquinas virtuales desde una plantilla de Resource Manager con Azure PowerShell. Si desea automatizar la creación de máquinas virtuales mediante una plantilla de Resource Manager y solo tiene permisos de usuario, puede usar el comando de la CLI [az lab vm create](/cli/azure/lab/vm#az-lab-vm-create).
+> Solo un usuario con permisos de propietario de laboratorio puede crear máquinas virtuales desde una plantilla de Resource Manager con Azure PowerShell. Si desea automatizar la creación de máquinas virtuales mediante una plantilla de Resource Manager y solo tiene permisos de usuario, puede usar el comando de la CLI [az lab vm create](/cli/azure/lab/vm#az_lab_vm_create).
 
 ## <a name="resource-manager-template-limitations-in-devtest-labs"></a>Limitaciones de las plantillas de Resource Manager en DevTest Labs
 

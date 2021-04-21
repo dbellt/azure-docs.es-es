@@ -3,12 +3,12 @@ title: Identidades administradas para recursos de Azure con Service Bus
 description: En este artículo se describe cómo usar identidades administradas para obtener acceso a entidades de Azure Service Bus (colas, temas y suscripciones).
 ms.topic: article
 ms.date: 01/21/2021
-ms.openlocfilehash: bd985acd9b775d6baef0abf488952e28c17aef2a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0558e00ac7e8ce67d2e5194b02d2de06f2d38ff1
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98954317"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785440"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Autenticación de una identidad administrada con Azure Active Directory para acceder a recursos de Azure Service Bus
 [Identidades administradas para recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md) es una característica de Azure que permite crear una identidad segura asociada a la implementación en la que se ejecuta el código de la aplicación. A continuación, puede asociar esa identidad con los roles de control de acceso que conceden permisos personalizados para acceder a recursos específicos de Azure que la aplicación necesita.
@@ -45,7 +45,7 @@ Antes de asignar un rol de Azure a una entidad de seguridad, determine el ámbit
 
 En la lista siguiente se describen los niveles en los que puede definir el ámbito de acceso a recursos Service Bus, empezando por el ámbito más restringido:
 
-- **Cola**, **tema** o **suscripción**: la asignación de roles se aplica a la entidad de Service Bus específica. Actualmente, Azure Portal no admite la asignación de usuarios, grupos o identidades administradas a los roles de Azure de Service Bus en el nivel de suscripción. Este es un ejemplo del uso del comando de la CLI de Azure [az-role-assignment-create](/cli/azure/role/assignment?#az-role-assignment-create) para asignar una identidad a un rol de Azure de Service Bus: 
+- **Cola**, **tema** o **suscripción**: la asignación de roles se aplica a la entidad de Service Bus específica. Actualmente, Azure Portal no admite la asignación de usuarios, grupos o identidades administradas a los roles de Azure de Service Bus en el nivel de suscripción. Este es un ejemplo del uso del comando de la CLI de Azure [az-role-assignment-create](/cli/azure/role/assignment?#az_role_assignment_create) para asignar una identidad a un rol de Azure de Service Bus: 
 
     ```azurecli
     az role assignment create \
@@ -92,7 +92,7 @@ Una vez creada la aplicación, siga estos pasos:
 Una vez habilitada esta configuración, se crea una identidad de servicio en Azure Active Directory (Azure AD) y se configura en el host de App Service.
 
 > [!NOTE]
-> Cuando se usa una identidad administrada, la cadena de conexión debe tener el formato: `Endpoint=sb://<NAMESPACE NAME>.servicebus.windows.net/;Authentication=Managed Identity`.
+> Cuando se usa una identidad administrada, la cadena de conexión debe tener el formato: `Endpoint=sb://<NAMESPACE NAME>.servicebus.windows.net/;Authentication=ManagedIdentity`.
 
 Ahora, asigne esta identidad de servicio a un rol en el ámbito requerido en los recursos de Service Bus.
 

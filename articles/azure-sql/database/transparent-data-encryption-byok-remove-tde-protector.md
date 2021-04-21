@@ -12,12 +12,12 @@ author: shohamMSFT
 ms.author: shohamd
 ms.reviewer: vanto
 ms.date: 02/24/2020
-ms.openlocfilehash: c1613c61143044c4fa355c6225cf0fa1d4e2e09d
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: f98dcdd9c1a479703c82c01b4fd240507ea355de
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107308394"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107784475"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Eliminación de un protector de Cifrado de datos transparente (TDE) con PowerShell
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -136,7 +136,7 @@ El comando de PowerShell **az sql server key show**  proporciona la huella d
 
 Para ver la referencia de comandos, consulte el [almacén de claves de la CLI de Azure](/cli/azure/keyvault/key).
 
-1. Cree una [nueva clave en Key Vault](/cli/azure/keyvault/key#az-keyvault-key-create). Asegúrese de que esta nueva clave se crea en un almacén de claves independiente desde el protector de TDE potencialmente comprometido, ya que el control de acceso se aprovisiona en un nivel de almacén.
+1. Cree una [nueva clave en Key Vault](/cli/azure/keyvault/key#az_keyvault_key_create). Asegúrese de que esta nueva clave se crea en un almacén de claves independiente desde el protector de TDE potencialmente comprometido, ya que el control de acceso se aprovisiona en un nivel de almacén.
 
 2. Agregue la nueva clave al servidor y actualícela como nuevo protector de TDE del servidor.
 

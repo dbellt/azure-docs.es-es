@@ -3,13 +3,13 @@ author: v-dalc
 ms.service: databox
 ms.author: alkohli
 ms.topic: include
-ms.date: 03/02/2021
-ms.openlocfilehash: 57415ec76a3e8d9fc3c160b47668d3419ff6ea5c
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.date: 03/23/2021
+ms.openlocfilehash: 0d912d0ac3f0fcf4c52116e67909038a1973304b
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103622168"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105105151"
 ---
 Uso de las respuestas del entorno de ejecución del agente de IoT Edge para solucionar los problemas relacionados con el proceso. A continuación, se ofrece una lista de las posibles respuestas:
 
@@ -32,7 +32,7 @@ Todos los módulos del dispositivo muestran el estado Desconocido y no se pueden
 
 #### <a name="suggested-solution"></a>Solución propuesta
 
-Elimine el servicio de IoT Edge y, a continuación, vuelva a implementar los módulos. Para obtener más información, consulte [Eliminación del servicio de IoT Edge](../articles/databox-online/azure-stack-edge-j-series-manage-compute.md#remove-iot-edge-service).
+Elimine el servicio de IoT Edge y, a continuación, vuelva a implementar los módulos. Para obtener más información, consulte [Eliminación del servicio de IoT Edge](../articles/databox-online/azure-stack-edge-gpu-manage-compute.md#remove-iot-edge-service).
 
 
 ### <a name="modules-show-as-running-but-are-not-working"></a>Los módulos aparecen con el estado en ejecución, pero no funcionan
@@ -65,4 +65,44 @@ En la interfaz de usuario web local del dispositivo, realice los pasos siguiente
 1. Especifique un intervalo estático y contiguo de direcciones IP para las **direcciones IP del servicio externo de Kubernetes**. Necesita una dirección IP para el servicio `edgehub`. Además, necesita una dirección IP para cada módulo de IoT Edge y para cada máquina virtual que vaya a implementar. 
 1. Seleccione **Aplicar**. El intervalo de IP cambiado debe surtir efecto de inmediato.
 
-Para obtener más información, consulte [Cambio de IP de servicio externo para contenedores](../articles/databox-online/azure-stack-edge-j-series-manage-compute.md#change-external-service-ips-for-containers).
+Para obtener más información, consulte [Cambio de IP de servicio externo para contenedores](../articles/databox-online/azure-stack-edge-gpu-manage-compute.md#change-external-service-ips-for-containers).
+
+### <a name="configure-static-ips-for-iot-edge-modules"></a>Configuración de direcciones IP estáticas para módulos IoT Edge
+
+#### <a name="problem-description"></a>Descripción del problema
+
+Kubernetes asigna direcciones IP dinámicas a cada módulo IoT Edge en el dispositivo Azure Stack Edge Pro con GPU. Se necesita un método para configurar direcciones IP estáticas para los módulos.
+
+#### <a name="suggested-solution"></a>Solución propuesta
+
+Puede especificar direcciones IP fijas para los módulos IoT Edge a través de la sección K8s-experimental, como se describe a continuación: 
+
+```yaml
+{
+  "k8s-experimental": {
+    "serviceOptions" : {
+      "loadBalancerIP" : "100.23.201.78",
+      "type" : "LoadBalancer"
+    }
+  }
+}
+```
+### <a name="expose-kubernetes-service-as-cluster-ip-service-for-internal-communication"></a>Exposición de Kubernetes Service como servicio IP de clúster para la comunicación interna
+
+#### <a name="problem-description"></a>Descripción del problema
+
+De manera predeterminada, el tipo de servicio de IoT es de tipo equilibrador de carga y se le asignan direcciones IP orientadas externamente. Es posible que no quiera una dirección IP externa para la aplicación. Es posible que tenga que exponer los pods dentro del clúster de Kubernetes para el acceso como otros pods y no como un servicio de equilibrador de carga expuesto externamente. 
+
+#### <a name="suggested-solution"></a>Solución propuesta
+
+Puede usar las opciones de creación a través de la sección K8s-experimental. La siguiente opción de servicio debe funcionar con enlaces de puerto.
+
+```yaml
+{
+"k8s-experimental": {
+  "serviceOptions" : {
+    "type" : "ClusterIP"
+    }
+  }
+}
+```

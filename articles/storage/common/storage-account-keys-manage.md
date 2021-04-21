@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: tamram
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: e5ea94fea00771b64634d6c28a7879fabb195f09
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 82d272f22295a5b68d1e8de3fb5a70c45d4c14a3
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89069666"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107791218"
 ---
 # <a name="manage-storage-account-access-keys"></a>Administración de las claves de acceso de la cuenta de almacenamiento
 
@@ -54,7 +54,7 @@ $storageAccountKey = `
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-Para enumerar las claves de acceso a la cuenta con la CLI de Azure, llame al comando [az storage account keys list](/cli/azure/storage/account/keys#az-storage-account-keys-list), tal como se muestra en el ejemplo siguiente. No olvide reemplazar los valores del marcador de posición entre corchetes con sus propios valores. 
+Para enumerar las claves de acceso a la cuenta con la CLI de Azure, llame al comando [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list), tal como se muestra en el ejemplo siguiente. No olvide reemplazar los valores del marcador de posición entre corchetes con sus propios valores. 
 
 ```azurecli-interactive
 az storage account keys list \
@@ -116,7 +116,7 @@ Para rotar las claves de acceso a la cuenta de almacenamiento con PowerShell:
 Para rotar las claves de acceso a la cuenta de almacenamiento con la CLI de Azure:
 
 1. Actualice las cadenas de conexión en el código de su aplicación para hacer referencia a la clave de acceso secundaria de la cuenta de almacenamiento.
-1. Llame al comando [az storage account keys renew](/cli/azure/storage/account/keys#az-storage-account-keys-renew) para regenerar la clave de cuenta principal, tal como se muestra en este ejemplo:
+1. Llame al comando [az storage account keys renew](/cli/azure/storage/account/keys#az_storage_account_keys_renew) para regenerar la clave de cuenta principal, tal como se muestra en este ejemplo:
 
     ```azurecli-interactive
     az storage account keys renew \

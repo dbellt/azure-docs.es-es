@@ -4,12 +4,12 @@ ms.service: iot-edge
 ms.topic: include
 ms.date: 08/26/2020
 ms.author: v-tcassi
-ms.openlocfilehash: c7be10e14daf3ee769e86d51f648cc6b656a416a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5450e4846c3c49c89830ae65c50a95ee0c8d6eb
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89301150"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104803526"
 ---
 ## <a name="verify-iot-edge-cicd-with-the-build-and-release-pipelines"></a>Comprobación de CI/CD de IoT Edge con las canalizaciones de compilación y de versión
 
@@ -36,3 +36,5 @@ Para desencadenar un trabajo de compilación, puede insertar una confirmación e
 6. Haga clic en la fase **dev** para ver los registros de versión.
 
     ![Registros de versión](./media/iot-edge-verify-iot-edge-continuous-integration-continuous-deployment/release-logs.png)
+
+7. Si se ha generado un error en la canalización, empiece por ver los registros. Para ver los registros, vaya al resumen de ejecución de canalización y seleccione el trabajo y la tarea. Si se ha generado un error en una tarea determinada, compruebe los registros de esa tarea. Para obtener instrucciones detalladas sobre cómo configurar y usar registros, consulte [Revisión de registros para diagnosticar problemas de canalización](/azure/devops/pipelines/troubleshooting/review-logs).

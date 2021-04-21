@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/30/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: c809edd3699d0b9827fe15da53d5d18b12cbe6e6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2dc6d99b8b1c913479fc584b52f6ff919dfac675
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102556968"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107792298"
 ---
 # <a name="create-an-image-from-a-managed-disk-or-snapshot-in-a-shared-image-gallery-using-the-azure-cli"></a>Creación de una imagen a partir de un disco administrado o una instantánea en Shared Image Gallery mediante la CLI de Azure
 
@@ -35,13 +35,13 @@ Al trabajar en este artículo, reemplace los nombres de los recursos cuando proc
 
 ## <a name="find-the-snapshot-or-managed-disk"></a>Búsqueda de la instantánea o del disco administrado 
 
-Puede ver una lista de instantáneas disponibles en un grupo de recursos con [az snapshot list](/cli/azure/snapshot#az-snapshot-list). 
+Puede ver una lista de instantáneas disponibles en un grupo de recursos con [az snapshot list](/cli/azure/snapshot#az_snapshot_list). 
 
 ```azurecli-interactive
 az snapshot list --query "[].[name, id]" -o tsv
 ```
 
-También puede usar un disco administrado en lugar de una instantánea. Para obtener un disco administrado, utilice [az disk list](/cli/azure/disk#az-disk-list). 
+También puede usar un disco administrado en lugar de una instantánea. Para obtener un disco administrado, utilice [az disk list](/cli/azure/disk#az_disk_list). 
 
 ```azurecli-interactive
 az disk list --query "[].[name, id]" -o tsv
@@ -56,7 +56,7 @@ Puede usar el mismo proceso para obtener los discos de datos que quiera incluir 
 
 Necesitará información sobre la galería de imágenes para crear la definición de la imagen.
 
-Muestre la información sobre las galerías de imágenes disponibles mediante [az sig list](/cli/azure/sig#az-sig-list). Tome nota del nombre de la galería y el grupo de recursos en el que se encuentra, ya que se usará más adelante.
+Muestre la información sobre las galerías de imágenes disponibles mediante [az sig list](/cli/azure/sig#az_sig_list). Tome nota del nombre de la galería y el grupo de recursos en el que se encuentra, ya que se usará más adelante.
 
 ```azurecli-interactive 
 az sig list -o table
@@ -71,7 +71,7 @@ Al crear la definición de la imagen, asegúrese de tener toda la información c
 
 Para más información sobre los valores que se pueden especificar para una definición de imagen, consulte [Definiciones de imagen](./shared-image-galleries.md#image-definitions).
 
-Cree una definición de imagen en la galería mediante [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create).
+Cree una definición de imagen en la galería mediante [az sig image-definition create](/cli/azure/sig/image-definition#az_sig_image_definition_create).
 
 En este ejemplo, la definición de la imagen se denomina *myImageDefinition* y es para una imagen del sistema operativo Linux [especializada](./shared-image-galleries.md#generalized-and-specialized-images). Para crear una definición para las imágenes que usan un sistema operativo Windows, utilice `--os-type Windows`. 
 
@@ -95,7 +95,7 @@ az sig image-definition create \
 
 ## <a name="create-the-image-version"></a>Creación de la versión de la imagen
 
-Cree una versión de la imagen con [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create). 
+Cree una versión de la imagen con [az image gallery create-image-version](/cli/azure/sig/image-version#az_sig_image_version_create). 
 
 Los caracteres permitidos para la versión de una imagen son números y puntos. Los números deben estar dentro del rango de un entero de 32 bits. Formato: *VersiónPrincipal*.*VersiónSecundaria*.*Revisión*.
 

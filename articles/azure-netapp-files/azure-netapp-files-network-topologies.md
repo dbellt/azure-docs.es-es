@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/08/2020
+ms.date: 04/09/2021
 ms.author: ramakk
-ms.openlocfilehash: 96d8ba058a33d408ec2ee2a1adfba9011f393da9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d002932bca51300fa6a031ce7ab0d69186afe9c3
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96184491"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107311692"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Instrucciones para el planeamiento de red de Azure NetApp Files
 
@@ -46,7 +46,7 @@ Las características siguientes no se admiten actualmente en Azure NetApp Files:
 
 Las siguientes restricciones de red se aplican a Azure NetApp Files:
 
-* El número de direcciones IP en uso en una red virtual con Azure NetApp Files (incluidas las redes virtuales emparejadas) no puede ser mayor que 1000. Estamos trabajando para aumentar este límite con el fin de satisfacer las necesidades de escalado de los clientes. 
+* El número de direcciones IP en uso en una red virtual con Azure NetApp Files (incluidas las redes virtuales emparejadas *inmediatamente*) no puede ser mayor que 1000. Estamos trabajando para aumentar este límite con el fin de satisfacer las necesidades de escalado de los clientes. 
 * En cada red virtual de Azure (VNet), solo puede delegarse una subred a Azure NetApp Files.
 
 

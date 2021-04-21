@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c42061520b73966f2cd516716039d78c2b9cbeb8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 93d9a81ab75efe4ea38189a7280e041e545a2b7d
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100375993"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785332"
 ---
 # <a name="use-azure-cli-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>Uso de la CLI de Azure para asignar un rol de Azure para obtener acceso a datos de blobs y colas
 
@@ -36,7 +36,7 @@ En este artículo se describe cómo usar la CLI de Azure para enumerar los roles
 
 ## <a name="list-available-azure-roles"></a>Lista de roles de Azure disponibles
 
-Para enumerar los roles integrados de Azure con la CLI de Azure, use el comando [az role definition list](/cli/azure/role/definition#az-role-definition-list):
+Para enumerar los roles integrados de Azure con la CLI de Azure, use el comando [az role definition list](/cli/azure/role/definition#az_role_definition_list):
 
 ```azurecli-interactive
 az role definition list --out table
@@ -56,7 +56,7 @@ Storage Queue Data Reader                 Allows for read access to Azure Storag
 
 ## <a name="assign-an-azure-role-to-a-security-principal"></a>Asignación de un rol de Azure a una entidad de seguridad
 
-Para asignar un rol de Azure a una entidad de seguridad, use el comando [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create). El formato del comando puede variar en función del ámbito de la asignación. Los ejemplos siguientes muestran cómo asignar un rol a un usuario en varios ámbitos, pero puede usar el mismo comando para asignar un rol a cualquier entidad de seguridad.
+Para asignar un rol de Azure a una entidad de seguridad, use el comando [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create). El formato del comando puede variar en función del ámbito de la asignación. Los ejemplos siguientes muestran cómo asignar un rol a un usuario en varios ámbitos, pero puede usar el mismo comando para asignar un rol a cualquier entidad de seguridad.
 
 > [!IMPORTANT]
 > Al crear una cuenta de Azure Storage, no se le asignan automáticamente permisos para tener acceso a datos a través de Azure AD. Tiene que asignarse a sí mismo de forma explícita un rol RBAC de Azure para el acceso a datos. Puede asignarlo al nivel de su suscripción, grupo de recursos, cuenta de almacenamiento o un contenedor o cola.

@@ -6,13 +6,13 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 12/02/2020
-ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 32b41c1c4446ba34e3bfad52f1d3cbd7ed72096d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: devx-track-java
+ms.openlocfilehash: a6b444092ec4e3588564a3f902b49c4ed3dc5fe5
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105108816"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107376790"
 ---
 # <a name="customer-responsibilities-for-running-azure-spring-cloud-in-vnet"></a>Responsabilidades del cliente para ejecutar Azure Spring Cloud en una red virtual
 En este documento se incluyen especificaciones para el uso de Azure Spring Cloud en una red virtual.
@@ -33,7 +33,7 @@ A continuación, se muestra una lista de los requisitos de recursos para los ser
 ## <a name="azure-spring-cloud-network-requirements"></a>Requisitos de red de Azure Spring Cloud
 
   | Punto de conexión de destino | Port | Uso | Nota: |
-  |------|------|------|
+  |------|------|------|------|
   | *:1194 *o* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags): AzureCloud:1194 | UDP:1194 | Administración de un clúster de Kubernetes subyacente. | |
   | *:443 *o* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags): AzureCloud:443 | TCP:443 | Administración del servicio de Azure Spring Cloud. | La información de la instancia de servicio "requiredTraffics" se puede conocer en la carga de recursos, en la sección "networkProfile". |
   | *:9000 *o* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags): AzureCloud:9000 | TCP:9000 | Administración de un clúster de Kubernetes subyacente. |
@@ -43,9 +43,9 @@ A continuación, se muestra una lista de los requisitos de recursos para los ser
   | *.servicebus.windows.net:443 *o* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags): EventHub:443 | TCP:443 | Centro de eventos de Azure. | Se puede reemplazar habilitando el punto de conexión de servicio de *Azure Event Hubs* [en la red virtual](../virtual-network/virtual-network-service-endpoints-overview.md). |
   
 
-## <a name="azure-spring-cloud-fqdn-requirements--application-rules"></a>Requisitos y reglas de aplicación del FQDN de Azure Spring Cloud
+## <a name="azure-spring-cloud-fqdn-requirementsapplication-rules"></a>Requisitos y reglas de aplicación del FQDN de Azure Spring Cloud
 
-Azure Firewall proporciona la etiqueta de nombre de dominio completo (FQDN) **AzureKubernetesService** para simplificar las siguientes configuraciones.
+Azure Firewall proporciona la etiqueta de FQDN **AzureKubernetesService** para simplificar las siguientes configuraciones:
 
   | FQDN de destino | Port | Uso |
   |------|------|------|
@@ -61,6 +61,15 @@ Azure Firewall proporciona la etiqueta de nombre de dominio completo (FQDN) **Az
   | *mscrl.microsoft.com* | HTTPS:80 | Rutas de acceso de la cadena de certificados de Microsoft obligatorias. |
   | *crl.microsoft.com* | HTTPS:80 | Rutas de acceso de la cadena de certificados de Microsoft obligatorias. |
   | *crl3.digicert.com* | HTTPS:80 | Rutas de acceso de la cadena de certificados SSL de terceros. |
+  
+## <a name="azure-spring-cloud-optional-fqdn-for-third-party-application-performance-management"></a>FQDN opcional de Azure Spring Cloud para la administración del rendimiento de aplicaciones de terceros
+
+Azure Firewall proporciona la etiqueta de FQDN **AzureKubernetesService** para simplificar las siguientes configuraciones:
+
+  | FQDN de destino | Port | Uso                                                          |
+  | ---------------- | ---- | ------------------------------------------------------------ |
+  | collector*.newrelic.com | TCP:443/80 | Redes necesarias de agentes de APM de New Relic de la región de EE. UU.; consulte también las [Redes de agentes de APM](https://docs.newrelic.com/docs/using-new-relic/cross-product-functions/install-configure/networks/#agents). |
+  | collector*.eu01.nr-data.net | TCP:443/80 | Redes necesarias de agentes de APM de New Relic de la región de Europa; consulte también las [Redes de agentes de APM](https://docs.newrelic.com/docs/using-new-relic/cross-product-functions/install-configure/networks/#agents). |
 
 ## <a name="see-also"></a>Vea también
 * [Acceso a una aplicación en una red privada](access-app-virtual-network.md)

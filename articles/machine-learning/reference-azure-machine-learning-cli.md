@@ -9,12 +9,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 04/02/2021
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 9a22700782c584015add2c83ecc96ccc610b8509
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 8e912e141ab769f3121fcccdecb9c3952920572f
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106219627"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107516219"
 ---
 # <a name="install--use-the-cli-extension-for-azure-machine-learning"></a>Instalación y uso de la extensión de la CLI para Azure Machine Learning
 
@@ -39,7 +39,7 @@ La CLI no sustituye al SDK de Azure Machine Learning. Es una herramienta complem
 
 ## <a name="full-reference-docs"></a>Documentos de referencia completos
 
-Busque los [documentos de referencia completos sobre la extensión azure-cli-ml de la CLI de Azure](/cli/azure/ext/azure-cli-ml/).
+Busque los [documentos de referencia completos sobre la extensión azure-cli-ml de la CLI de Azure](/cli/azure/ml/).
 
 ## <a name="connect-the-cli-to-your-azure-subscription"></a>Conexión de la CLI a una suscripción de Azure
 

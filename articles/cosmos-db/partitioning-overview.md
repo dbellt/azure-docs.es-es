@@ -5,13 +5,13 @@ author: deborahc
 ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/19/2021
-ms.openlocfilehash: ab1b7028ce5f1afef861e696c98f25b56e78ef36
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/07/2021
+ms.openlocfilehash: 099c65143f29f4fdf341b52e5d80731f1bdb0808
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104772474"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107031008"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Creación de particiones y escalado horizontal en Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -26,9 +26,9 @@ En este artículo, se explica la relación entre las particiones lógicas y las 
 
 ## <a name="logical-partitions"></a>Particiones lógicas
 
-Una partición lógica consta de un conjunto de elementos con la misma clave de partición. Por ejemplo, en un contenedor con datos sobre nutrición, todos los elementos contienen la propiedad `foodGroup`. Puede utilizar `foodGroup` como clave de partición del contenedor. Los grupos de elementos que tienen valores específicos para `foodGroup`, tales como `Beef Products`, `Baked Products` y `Sausages and Luncheon Meats`, forman distintas particiones lógicas. No tiene que preocuparse de quitar una partición lógica una vez eliminados los datos subyacentes.
+Una partición lógica consta de un conjunto de elementos con la misma clave de partición. Por ejemplo, en un contenedor con datos sobre nutrición, todos los elementos contienen la propiedad `foodGroup`. Puede utilizar `foodGroup` como clave de partición del contenedor. Los grupos de elementos que tienen valores específicos para `foodGroup`, tales como `Beef Products`, `Baked Products` y `Sausages and Luncheon Meats`, forman distintas particiones lógicas.
 
-Una partición lógica también define el ámbito de las transacciones de base de datos. Puede actualizar los elementos dentro de una partición lógica mediante el uso de una [transacción con aislamiento de instantánea](database-transactions-optimistic-concurrency.md). Cuando se agregan nuevos elementos al contenedor, se crean nuevas particiones lógicas de forma transparente por el sistema.
+Una partición lógica también define el ámbito de las transacciones de base de datos. Puede actualizar los elementos dentro de una partición lógica mediante el uso de una [transacción con aislamiento de instantánea](database-transactions-optimistic-concurrency.md). Cuando se agregan nuevos elementos al contenedor, se crean nuevas particiones lógicas de forma transparente por el sistema. No tiene que preocuparse de quitar una partición lógica una vez eliminados los datos subyacentes.
 
 No existen límites en el número de particiones lógicas que puede tener el contenedor. Cada partición lógica puede almacenar un máximo de 20 GB de datos. Las claves de partición correctas son aquellas que tienen una amplia gama de valores posibles. Por ejemplo, en un contenedor donde todos los elementos contienen una propiedad `foodGroup`, los datos de la partición lógica `Beef Products` podrían crecer hasta los 20 GB. [Seleccionar una clave de partición](#choose-partitionkey) con una amplia gama de valores posibles garantiza que el contenedor se puede escalar.
 
@@ -38,7 +38,8 @@ Un contenedor se escala mediante la distribución de los datos y el rendimiento 
 
 El número de particiones físicas del contenedor depende de los siguientes factores:
 
-* La cantidad de rendimiento aprovisionado (cada partición física individual puede proporcionar un rendimiento de hasta 10 000 unidades de solicitud por segundo).
+* La cantidad de rendimiento aprovisionado (cada partición física individual puede proporcionar un rendimiento de hasta 10 000 unidades de solicitud por segundo). El límite de 10 000 RU/s para las particiones físicas implica que las particiones lógicas también tienen un límite de 10 000 RU/s, ya que cada partición lógica solo se asigna a una partición física.
+
 * El almacenamiento de datos total (cada partición física individual puede almacenar hasta 50 GB de datos).
 
 > [!NOTE]

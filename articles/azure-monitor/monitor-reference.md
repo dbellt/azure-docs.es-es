@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 08/15/2020
-ms.openlocfilehash: 4bf792dd02e7cddcc40ef868e4a602fdb03ab3c6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 513f262f5d09cf56c4506a4f20c9aa41507c2abd
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102052286"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107515284"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>¿Qué supervisa Azure Monitor?
 En este artículo se describen las distintas aplicaciones y servicios que se supervisan mediante Azure Monitor. 
@@ -167,7 +167,7 @@ En la tabla siguiente se enumeran los servicios de Azure y los datos que estos r
 |Virtual Network | Sí | Sí | [Sí](insights/network-insights-overview.md) |  |
 |Virtual Network: registros de flujo de NSG | No | Sí | No |  |
 |VPN Gateway | Sí | Sí | No |  |
-|Windows Virtual Desktop | No | No | No |  |
+|Windows Virtual Desktop | No | Sí | No |  |
 
 ## <a name="virtual-machine-agents"></a>Agentes de máquina virtual
 En la tabla siguiente se enumeran los agentes que pueden recopilar datos del sistema operativo invitado de máquinas virtuales y enviar datos a Monitor. Cada agente puede recopilar datos diferentes y enviarlos a métricas o registros en Azure Monitor. 
@@ -229,7 +229,7 @@ Hay otras soluciones disponibles para supervisar diferentes aplicaciones y servi
 ## <a name="resources-outside-of-azure"></a>Recursos fuera de Azure
 Azure Monitor puede recopilar datos de recursos fuera de Azure mediante los métodos que se enumeran en la tabla siguiente.
 
-| Recurso | Método |
+| Resource | Método |
 |:---|:---|
 | APLICACIONES | Supervise las aplicaciones web fuera de Azure mediante Application Insights. Vea [¿Qué es Application Insights?](./app/app-insights-overview.md). |
 | Máquinas virtuales | Use los agentes para recopilar datos del sistema operativo invitado de máquinas virtuales en otros entornos en la nube o locales. Consulte [Información general sobre los agentes de Azure Monitor](agents/agents-overview.md). |

@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: 79d21549e7234e4ee342776466f8d3d8ced5f08c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d1302d44a4cb5b09f6dc3b1bf0cb08a12a932c87
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102508816"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107029410"
 ---
 # <a name="what-is-azure-private-endpoint"></a>¿Qué es un punto de conexión privado de Azure?
 
@@ -39,7 +39,7 @@ Estos son algunos detalles importantes acerca de los puntos de conexión privado
 
 - Al crear un punto de conexión privado, también se crea una interfaz de red de solo lectura para el ciclo de vida del recurso. A la interfaz se le asigna una dirección IP privada desde la subred que se corresponde con el recurso de Private Link. El valor de la dirección IP privada no cambia durante todo el ciclo de vida del punto de conexión privado.
  
-- El punto de conexión privado debe implementarse en la misma región que la red virtual. 
+- El punto de conexión privado debe implementarse en la misma región y suscripción que la red virtual. 
  
 - El recurso de vínculo privado se puede implementar en una región distinta a la de la red virtual y el punto de conexión privado.
  

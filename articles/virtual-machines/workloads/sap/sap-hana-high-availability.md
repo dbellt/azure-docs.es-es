@@ -10,14 +10,14 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/16/2021
+ms.date: 04/12/2021
 ms.author: radeltch
-ms.openlocfilehash: 42a4c4a41f6c8bdf9d4a8e78f634893722c8f389
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ea1296fd4e31c2deaed79e980ab764c523a2bfd7
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104576411"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107364369"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Alta disponibilidad de SAP HANA en máquinas virtuales de Azure en SUSE Linux Enterprise Server
 
@@ -172,7 +172,6 @@ Para implementar la plantilla, siga estos pasos:
       1. Escriba el nombre de la nueva regla del equilibrador de carga (por ejemplo, **hana-lb**).
       1. Seleccione la dirección IP de front-end, el grupo de back-end y el sondeo de estado que ha creado anteriormente (por ejemplo, **hana-frontend**, **hana-backend** y **hana-hp**).
       1. Seleccione **Puertos HA**.
-      1. Aumente el **tiempo de espera de inactividad** a 30 minutos.
       1. Asegúrese de **habilitar la dirección IP flotante**.
       1. Seleccione **Aceptar**.
 
@@ -499,6 +498,71 @@ En los pasos de esta sección se usan los siguientes prefijos:
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b> 
    </code></pre>
 
+## <a name="implement-the-python-system-replication-hook-saphanasr"></a>Implementación del enlace de replicación del sistema Python SAPHanaSR
+
+Este paso es importante para optimizar la integración con el clúster y mejorar la detección cuando se requiere una conmutación por error del clúster. Se recomienda encarecidamente configurar el enlace de Python SAPHanaSR.    
+
+1. **[A]** Instale el "enlace de replicación del sistema" de HANA. El enlace debe instalarse en ambos nodos de base de datos de HANA.           
+
+   > [!TIP]
+   > Compruebe que el paquete SAPHanaSR tiene al menos la versión 0.153 para poder usar la funcionalidad del enlace de Python de SAPHanaSR.       
+   > El enlace de Python solo puede implementarse para HANA 2.0.        
+
+   1. Prepare el enlace como `root`.  
+
+    ```bash
+     mkdir -p /hana/shared/myHooks
+     cp /usr/share/SAPHanaSR/SAPHanaSR.py /hana/shared/myHooks
+     chown -R hn1adm:sapsys /hana/shared/myHooks
+    ```
+
+   2. Detenga HANA en ambos nodos. Ejecútelo como <sid\>adm:  
+   
+    ```bash
+    sapcontrol -nr 03 -function StopSystem
+    ```
+
+   3. Ajuste `global.ini` en cada uno de los nodos del clúster.  
+ 
+    ```bash
+    # add to global.ini
+    [ha_dr_provider_SAPHanaSR]
+    provider = SAPHanaSR
+    path = /hana/shared/myHooks
+    execution_order = 1
+    
+    [trace]
+    ha_dr_saphanasr = info
+    ```
+
+2. **[A]** El clúster requiere la configuración de elementos que usan el programa sudo en cada nodo de clúster para <sid\>adm. En este ejemplo, esto se consigue mediante la creación de un archivo nuevo. Ejecute los comandos como `root`.    
+    ```bash
+    cat << EOF > /etc/sudoers.d/20-saphana
+    # Needed for SAPHanaSR python hook
+    hn1adm ALL=(ALL) NOPASSWD: /usr/sbin/crm_attribute -n hana_hn1_site_srHook_*
+    EOF
+    ```
+Para obtener más detalles sobre la implementación del enlace de replicación del sistema SAP HANA, consulte la [Configuración de los proveedores de HA/DR de HANA](https://documentation.suse.com/sbp/all/html/SLES4SAP-hana-sr-guide-PerfOpt-12/index.html#_set_up_sap_hana_hadr_providers).  
+
+3. **[A]** Inicie SAP HANA en ambos nodos. Ejecute como <sid\>adm.  
+
+    ```bash
+    sapcontrol -nr 03 -function StartSystem 
+    ```
+
+4. **[1]** Compruebe la instalación del enlace. Ejecute as <sid\>adm en el sitio activo de replicación del sistema HANA.   
+
+    ```bash
+     cdtrace
+     awk '/ha_dr_SAPHanaSR.*crm_attribute/ \
+     { printf "%s %s %s %s\n",$2,$3,$5,$16 }' nameserver_*
+     # Example output
+     # 2021-04-08 22:18:15.877583 ha_dr_SAPHanaSR SFAIL
+     # 2021-04-08 22:18:46.531564 ha_dr_SAPHanaSR SFAIL
+     # 2021-04-08 22:21:26.816573 ha_dr_SAPHanaSR SOK
+
+    ```
+
 ## <a name="create-sap-hana-cluster-resources"></a>Creación de recursos de clúster de SAP HANA
 
 Primero, cree la topología de HANA. Ejecute los comandos siguientes en uno de los nodos del clúster de Pacemaker:
@@ -635,7 +699,7 @@ Para continuar con los pasos adicionales del aprovisionamiento de la segunda dir
 
 ### <a name="configure-hana-activeread-enabled-system-replication"></a>Configuración de la replicación del sistema de HANA activo/habilitado para lectura
 
-Los pasos para configurar la replicación del sistema de HANA se describen en la sección [Configuración de la replicación del sistema de SAP HANA 2.0](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability#configure-sap-hana-20-system-replication). Si va a implementar un escenario secundario habilitado para lectura, mientras configura la replicación del sistema en el segundo nodo, ejecute el siguiente comando como **hanasid** adm:
+Los pasos para configurar la replicación del sistema de HANA se describen en la sección [Configuración de la replicación del sistema de SAP HANA 2.0](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability#configure-sap-hana-20-system-replication). Si va a implementar un escenario secundario habilitado para lectura, mientras configura la replicación del sistema en el segundo nodo, ejecute el siguiente comando como **hanasid** adm:
 
 ```
 sapcontrol -nr 03 -function StopWait 600 10 
@@ -711,6 +775,9 @@ En esta sección se describe cómo se puede probar la configuración. En todas l
 Antes de comenzar la prueba, asegúrese de que Pacemaker no tenga acciones con error (mediante crm_mon -r), no haya restricciones de ubicación inesperadas (por ejemplo, restos de una prueba de migración) y que HANA se encuentre en estado de sincronización, por ejemplo con SAPHanaSR-showAttr:
 
 <pre><code>hn1-db-0:~ # SAPHanaSR-showAttr
+Sites    srHook
+----------------
+SITE2    SOK
 
 Global cib-time
 --------------------------------
@@ -724,7 +791,7 @@ hn1-db-1 DEMOTED     30          online     logreplay nws-hana-vm-0 4:S:master1:
 
 Puede migrar el nodo maestro de SAP HANA con el siguiente comando:
 
-<pre><code>crm resource migrate msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-1</b>
+<pre><code>crm resource move msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-1</b> force
 </code></pre>
 
 Si estableció `AUTOMATED_REGISTER="false"`, esta secuencia de comandos migrará el nodo maestro de SAP HANA y el grupo que contiene la dirección IP virtual a hn1-db-1.
@@ -763,7 +830,7 @@ La migración crea restricciones de ubicación que deben eliminarse de nuevo:
 
 <pre><code># Switch back to root and clean up the failed state
 exit
-hn1-db-0:~ # crm resource unmigrate msl_SAPHana_<b>HN1</b>_HDB<b>03</b>
+hn1-db-0:~ # crm resource clear msl_SAPHana_<b>HN1</b>_HDB<b>03</b>
 </code></pre>
 
 También debe limpiar el estado del recurso de nodo secundario:

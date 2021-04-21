@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: d4ab5361d245ad1ee10d43184cc0a2d65fed2054
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: fc5bcc7f0cd11160b33bb6501526fce9f29d710b
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101730038"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107366392"
 ---
 # <a name="migrate-to-connection-monitor-from-connection-monitor-classic"></a>Migración a Connection Monitor desde Connection Monitor (clásico)
 
@@ -39,7 +39,10 @@ La migración ayuda a generar los siguientes resultados:
     
 ## <a name="prerequisites"></a>Requisitos previos
 
-Si usa un área de trabajo personalizada, asegúrese de que Network Watcher esté habilitado en la suscripción y en la región del área de trabajo de Log Analytics. 
+1. Si usa un área de trabajo personalizada, asegúrese de que Network Watcher esté habilitado en la suscripción y en la región del área de trabajo de Log Analytics. En caso contrario, verá un error que indica "Antes de intentar migrar, habilite la extensión de Network Watcher en la suscripción de la selección y la ubicación del área de trabajo de LA seleccionada".
+1. En caso de que las máquinas virtuales que se usan como orígenes en el monitor de conexión (clásico) ya no tengan habilitada la extensión de Network Watcher, verá un mensaje de error que indica "Los monitores de conexión que tienen las siguientes pruebas no se pueden importar porque una o varias máquinas virtuales de Azure no tienen instalada la extensión de Network Watcher. Instale la extensión de Network Watcher y haga clic en Actualizar para importarlas".
+
+
 
 ## <a name="migrate-the-connection-monitors"></a>Migración de los monitores de conexión
 

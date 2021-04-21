@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 03/12/2021
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 52f0db739cff9614dc4e9f5ef71d582e926fc65a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 633d62fc69c516b482d5749a07052337dc71f567
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103470275"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107789490"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Implementación continua en Azure App Service
 
@@ -119,7 +119,7 @@ Puede personalizar el proveedor de compilación de Acciones de GitHub de las sig
 
 Esta configuración opcional reemplaza la autenticación predeterminada por los perfiles de publicación en el archivo de flujo de trabajo generado.
 
-1. Genere una entidad de servicio mediante el comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) de la [CLI de Azure](/cli/azure/). En el ejemplo siguiente, reemplace *\<subscription-id>* , *\<group-name>* y *\<app-name>* con sus propios valores:
+1. Genere una entidad de servicio mediante el comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) de la [CLI de Azure](/cli/azure/). En el ejemplo siguiente, reemplace *\<subscription-id>* , *\<group-name>* y *\<app-name>* con sus propios valores:
 
     ```azurecli-interactive
     az ad sp create-for-rbac --name "myAppDeployAuth" --role contributor \

@@ -3,12 +3,12 @@ title: Cumplimiento mediante Azure Policy
 description: Asignación de directivas integradas en Azure Policy para auditar el cumplimiento de los registros de contenedor de Azure
 ms.topic: article
 ms.date: 03/01/2021
-ms.openlocfilehash: 0fed0c4132043e1eaed7e634e1f45b27f7c6e933
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 62a1fd8d3c996fd3a0bac3cadf77fc7e7ace0ce3
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103014305"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107784180"
 ---
 # <a name="audit-compliance-of-azure-container-registries-using-azure-policy"></a>Auditoría del cumplimiento de los registros de contenedor de Azure mediante Azure Policy
 
@@ -51,7 +51,7 @@ Cuando un recurso no es compatible, hay muchos motivos posibles para ello. Para 
 
 ### <a name="policy-compliance-in-the-azure-cli"></a>Cumplimiento de directivas en la CLI de Azure
 
-También puede usar la CLI de Azure para obtener datos de cumplimiento. Por ejemplo, use el comando [az policy assignment list](/cli/azure/policy/assignment#az-policy-assignment-list) en la CLI para obtener los identificadores de directiva de las directivas de Azure Container Registry que se aplican:
+También puede usar la CLI de Azure para obtener datos de cumplimiento. Por ejemplo, use el comando [az policy assignment list](/cli/azure/policy/assignment#az_policy_assignment_list) en la CLI para obtener los identificadores de directiva de las directivas de Azure Container Registry que se aplican:
 
 ```azurecli
 az policy assignment list --query "[?contains(displayName,'Container Registries')].{name:displayName, ID:id}" --output table
@@ -66,14 +66,14 @@ Container Registries should not allow unrestricted network access           /sub
 Container Registries should be encrypted with a Customer-Managed Key (CMK)  /subscriptions/<subscriptionID>/providers/Microsoft.Authorization/policyAssignments/cce1ed4f38a147ad994ab60a
 ```
 
-Luego, ejecute [az policy state list](/cli/azure/policy/state#az-policy-state-list) para devolver el estado de cumplimiento con formato JSON para todos los recursos de un identificador de directiva específico:
+Luego, ejecute [az policy state list](/cli/azure/policy/state#az_policy_state_list) para devolver el estado de cumplimiento con formato JSON para todos los recursos de un identificador de directiva específico:
 
 ```azurecli
 az policy state list \
   --resource <policyID>
 ```
 
-O bien ejecute [az policy state list](/cli/azure/policy/state#az-policy-state-list) para devolver el estado de cumplimiento con formato JSON de un recurso de registro específico, como *myregistry*:
+O bien ejecute [az policy state list](/cli/azure/policy/state#az_policy_state_list) para devolver el estado de cumplimiento con formato JSON de un recurso de registro específico, como *myregistry*:
 
 ```azurecli
 az policy state list \

@@ -3,12 +3,12 @@ title: Instalación de Azure Backup Server en Azure Stack
 description: En este artículo, aprenderá a usar Azure Backup Server para proteger cargas de trabajo o realizar una copia de seguridad de ellas en Azure Stack.
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 12dfd15c2bd43816dd361fdf45995bcbcd6fba56
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d7c685a16db50e51a54387dde49ffb137fcfd626
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98987012"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107519483"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Instalación de Azure Backup Server en Azure Stack
 
@@ -361,7 +361,7 @@ Es posible cambiar una suscripción de Azure desde un estado *Expirado* o *Desap
 ## <a name="troubleshooting"></a>Solución de problemas
 
 Si Microsoft Azure Backup Server presenta un error durante la fase de configuración (o copia de seguridad o restauración), consulte el [documento de códigos de error](https://support.microsoft.com/kb/3041338).
-También puede consultar [Azure Backup - Preguntas más frecuentes](backup-azure-backup-faq.md)
+También puede consultar [Azure Backup - Preguntas más frecuentes](backup-azure-backup-faq.yml)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.author: jushiman
-ms.openlocfilehash: 8f679626b69bd855e86b94cdde51955edd068e8f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8846efa3619cec383809cdbd6efe70e3622fa007
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91714897"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107365202"
 ---
 # <a name="enable-automanage-for-virtual-machines-through-azure-policy"></a>Habilitación de Automanage para máquinas virtuales a través de Azure Policy
 
@@ -30,6 +30,8 @@ Si no tiene una suscripción a Azure, [cree una cuenta](https://azure.microsoft.
 > [!IMPORTANT]
 > El siguiente permiso de Azure RBAC es necesario para habilitar Automanage: el rol **Propietario** o **Colaborador** junto con el rol **Administrador de acceso de usuario**.
 
+## <a name="direct-link-to-policy"></a>Vínculo directo a la directiva
+La definición de directiva de Automanage se puede encontrar en Azure Portal por el nombre de [Configurar las máquinas virtuales para incorporarlas a Azure Automanage](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F270610db-8c04-438a-a739-e8e6745b22d3). Si hace clic en este vínculo, vaya directamente al paso 8 de [Búsqueda y asignación de la directiva](#locate-and-assign-the-policy).
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
@@ -53,9 +55,9 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/).
 1. En la pestaña **Conceptos básicos**, rellene **Ámbito** estableciendo la *Suscripción* y *Grupo de recursos*.
 
     > [!NOTE]
-    > El ámbito permite definir las máquinas virtuales donde se aplica esta directiva. Puede establecer la aplicación en el nivel de suscripción o en el nivel de grupo de recursos. Si establece un grupo de recursos, todas las máquinas virtuales que estén actualmente en ese grupo de recursos o en cualquier máquina virtual futura que agreguemos al mismo tendrán habilitado automáticamente Automanage. 
+    > El ámbito permite definir las máquinas virtuales donde se aplica esta directiva. Puede establecer la aplicación en el nivel de suscripción o en el nivel de grupo de recursos. Si establece un grupo de recursos, todas las máquinas virtuales que estén actualmente en ese grupo de recursos o en cualquier máquina virtual futura que agreguemos al mismo tendrán habilitado automáticamente Automanage.
 
-1. Haga clic en la pestaña **Parámetros** y establezca la **cuenta de Automanage** y el **perfil de configuración** deseado. 
+1. Haga clic en la pestaña **Parámetros** y establezca la **cuenta de Automanage** y el **perfil de configuración** deseado.
 1. En la pestaña **Revisar y crear**, revise la configuración.
 1. Aplique la asignación haciendo clic en **Crear**.
 1. Vea las asignaciones en la pestaña **Asignaciones** situada junto a **Definición**.
@@ -64,9 +66,9 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/).
 > La directiva tardará un poco en empezar a surtir efecto en las máquinas virtuales que actualmente se encuentran en la suscripción y el grupo de recursos.
 
 
-## <a name="next-steps"></a>Pasos siguientes 
+## <a name="next-steps"></a>Pasos siguientes
 
-Aprenda otra forma de habilitar Azure Automanage para máquinas virtuales a través de Azure Portal. 
+Aprenda otra forma de habilitar Azure Automanage para máquinas virtuales a través de Azure Portal.
 
 > [!div class="nextstepaction"]
 > [Habilitación de Automanage para máquinas virtuales en Azure Portal](quick-create-virtual-machines-portal.md)

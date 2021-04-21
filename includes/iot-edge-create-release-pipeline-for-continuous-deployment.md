@@ -4,12 +4,12 @@ ms.service: iot-edge
 ms.topic: include
 ms.date: 08/26/2020
 ms.author: v-tcassi
-ms.openlocfilehash: 706b2306fbe9f2a744d2874a8b55f78fa2fc8e4d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8009d98ddbfa778cf5f357248ecd943b810e06e3
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89301110"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104803218"
 ---
 ## <a name="create-a-release-pipeline-for-continuous-deployment"></a>Creación de una canalización de versión para la implementación continua
 
@@ -63,8 +63,18 @@ Creación de una nueva canalización y adición de una nueva fase:
     * **ACR_PASSWORD**: la contraseña de Azure Container Registry.
     * **ACR_USER**: el nombre de usuario de Azure Container Registry.
 
-    Si tiene otras variables en el proyecto, puede especificar el nombre y el valor en esta pestaña. **Generate deployment manifest** (Generar manifiesto de implementación) solo puede reconocer las variables del tipo `${VARIABLE}`. Asegúrese de que está usando este tipo en los archivos `*.template.json`.
-
+    Si tiene otras variables en el proyecto, puede especificar el nombre y el valor en esta pestaña. La opción **Generar manifiesto de implementación** solo puede reconocer las variables del tipo `${VARIABLE}`. Asegúrese de que está usando este tipo en los archivos `*.template.json`.
+    
+    ```json-interactive
+    "registryCredentials": {
+      "<ACR name>": { // Your Azure Container Registry **Registry name** value
+        "username": "${ACR_USER}",
+        "password": "${ACR_PASSWORD}",
+        "address": "${ACR_ADDRESS}"
+      }
+    }
+    ```
+    
     ![Configuración de las variables para la canalización de versión en la pestaña Variables](./media/iot-edge-create-release-pipeline-for-continuous-deployment/configure-variables.png)
 
 10. Seleccione la segunda tarea de **Azure IoT Edge** y configúrela con los valores siguientes:
@@ -79,6 +89,9 @@ Creación de una nueva canalización y adición de una nueva fase:
     | Elegir uno o varios dispositivos | Elija si quiere que la canalización de versión se implemente en uno o varios dispositivos. Si implementa en un único dispositivo, escriba el **IoT Edge device ID** (Id. de dispositivo IoT Edge). Si va a implementar en varios dispositivos, especifique la **condición de destino** del dispositivo. La condición de destino es un filtro para asociar un conjunto de dispositivos de IoT Edge en IoT Hub. Si quiere usar etiquetas de dispositivo como condición, debe actualizar las etiquetas de dispositivo correspondientes con el dispositivo gemelo de IoT Hub. Actualice **IoT Edge deployment ID** (Id. de implementación de IoT Edge) e **IoT Edge deployment priority** (Prioridad de implementación de IoT Edge) en la configuración avanzada. Para más información acerca de cómo crear una implementación para varios dispositivos, consulte [Descripción de las implementaciones automáticas de IoT Edge](../articles/iot-edge/module-deployment-monitoring.md). |
     | Id. de dispositivo o condición de destino | En función de la selección anterior, especifique un id. de dispositivo o [condición de destino](../articles/iot-edge/module-deployment-monitoring.md#target-condition) que implementar en varios dispositivos. |
     | Avanzado | Para el id. de implementación de IoT Edge, especifique `$(System.TeamProject)-$(Release.EnvironmentName)`. Esta variable asigna el proyecto y el nombre de la versión con el id. de implementación de IoT Edge. |
+    
+
+    Si la tarea implica el uso de una imagen que reside en un registro de confianza de Docker privado que no es visible para la nube pública, puede establecer la variable de entorno **SKIP_MODULE_IMAGE_VALIDATION** en `true` para omitir la validación de la imagen. 
 
     ![Adición de tareas de Azure IoT Edge para la fase de desarrollo](./media/iot-edge-create-release-pipeline-for-continuous-deployment/add-quality-assurance-task.png)
 

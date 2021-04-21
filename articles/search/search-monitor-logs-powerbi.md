@@ -1,25 +1,25 @@
 ---
-title: Visualización de registros y métricas de Azure Cognitive Search con Power BI
-description: Visualización de registros y métricas de Azure Cognitive Search con Power BI
-manager: eladz
+title: Visualización de registros y métricas con Power BI
+description: Visualice registros y métricas de Azure Cognitive Search con Power BI.
 author: MarkHeff
 ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/25/2020
-ms.openlocfilehash: 4056e892855c06ce6c412ec4a592ebcd97fc11a6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/07/2021
+ms.openlocfilehash: fbbeb861e50abfd393b416ddc46ff147fffb7b8e
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96325390"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106581639"
 ---
 # <a name="visualize-azure-cognitive-search-logs-and-metrics-with-power-bi"></a>Visualización de registros y métricas de Azure Cognitive Search con Power BI
-[Azure Cognitive Search](./search-what-is-azure-search.md) permite almacenar registros de operaciones y métricas de servicio sobre su servicio de búsqueda en una cuenta de Azure Storage. En esta página se proporcionan instrucciones sobre cómo puede visualizar esa información a través de una aplicación de plantilla de Power BI. La aplicación proporciona información detallada sobre su servicio de búsqueda, incluida información acerca de las métricas de búsqueda, indexación, operaciones y servicio.
+
+[Azure Cognitive Search](./search-what-is-azure-search.md) puede enviar registros de operaciones y métricas de servicio a una cuenta de Azure Storage, que puede visualizar en Power BI. En este artículo se explican los pasos y el procedimiento para usar una aplicación de plantilla de Power BI para visualizar los datos. La plantilla puede ayudarle a obtener información detallada sobre su servicio de búsqueda, incluida información acerca de las métricas de consultas, indexación, operaciones y servicio.
 
 Puede buscar la aplicación de plantilla de Power BI **Azure Cognitive Search: Análisis de registros y métricas** en [Marketplace de aplicaciones de Power BI](https://appsource.microsoft.com/marketplace/apps).
 
-## <a name="how-to-get-started-with-the-app"></a>Introducción a la aplicación
+## <a name="set-up-the-app"></a>Configuración de la aplicación
 
 1. Habilite el registro de métricas y recursos en el servicio de búsqueda:
 
@@ -67,7 +67,8 @@ Puede buscar la aplicación de plantilla de Power BI **Azure Cognitive Search: A
 
     :::image type="content" source="media/search-monitor-logs-powerbi/powerbi-search.png" alt-text="Captura de pantalla del informe de Power BI en Azure Cognitive Search":::
 
-## <a name="how-to-change-the-app-parameters"></a>Cómo cambiar los parámetros de la aplicación
+## <a name="modify-app-parameters"></a>Modificación de los parámetros de la aplicación
+
 Si desea visualizar datos en otra cuenta de almacenamiento o cambiar el número de días de datos que se van a consultar, siga los pasos siguientes para cambiar los parámetros **Days** y **StorageAccount**.
 
 1. Vaya a sus aplicaciones de Power BI, busque su aplicación de Azure Cognitive Search y seleccione el botón **Editar aplicación** para ver el área de trabajo.
@@ -86,7 +87,8 @@ Si desea visualizar datos en otra cuenta de almacenamiento o cambiar el número 
 
 1. Abra el informe para ver los datos actualizados. También es posible que tenga que actualizar el informe para ver los datos más recientes.
 
-## <a name="troubleshooting"></a>Solución de problemas
+## <a name="troubleshooting-report-issues"></a>Solución de problemas de informe
+
 Si ve que no puede ver sus datos, siga estos pasos para solucionar problemas:
 
 1. Abra el informe y actualice la página para asegurarse de que está viendo los datos más recientes. Hay una opción en el informe para actualizar los datos. Selecciónela para obtener los datos más recientes.
@@ -98,8 +100,7 @@ Si ve que no puede ver sus datos, siga estos pasos para solucionar problemas:
 1. Compruebe si sigue actualizándose el conjunto de datos. El indicador de estado de actualización se muestra en el paso 8 anterior. Si se sigue actualizando, espere a que se haya completado la actualización para abrir y actualizar el informe.
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Más información sobre Azure Cognitive Search](./index.yml)
 
-[¿Qué es Power BI?](/power-bi/fundamentals/power-bi-overview)
-
-[Conceptos básicos para diseñadores en el servicio Power BI](/power-bi/service-basic-concepts)
++ [Supervisión de operaciones de búsqueda y actividad](search-monitor-usage.md)
++ [¿Qué es Power BI?](/power-bi/fundamentals/power-bi-overview)
++ [Conceptos básicos para diseñadores en el servicio Power BI](/power-bi/service-basic-concepts)

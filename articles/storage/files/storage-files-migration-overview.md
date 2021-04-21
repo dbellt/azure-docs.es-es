@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 3/18/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 0c2de0c1b024d093bd0276a852d9b97ba3320f4b
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: a6335d90625f860984ccbfd224955a97a32b731f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106286341"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785224"
 ---
 # <a name="migrate-to-azure-file-shares"></a>Migración a recursos compartidos de archivos de Azure
 
@@ -24,7 +24,7 @@ Este artículo contiene los aspectos básicos de la migración y una tabla de la
 
 Azure tiene varios tipos de almacenamiento en la nube disponibles. Un aspecto fundamental de las migraciones de archivos a Azure es determinar qué opción de almacenamiento de Azure es la adecuada para los datos.
 
-Los [recursos compartidos de archivos de Azure](storage-files-introduction.md) son excelentes para los datos de archivos de uso general. Estos datos incluyen cualquier contenido para el que use un recurso compartido de SMB o NFS local. Con [Azure File Sync](storage-sync-files-planning.md), puede copiar en caché el contenido de varios recursos compartidos de archivos de Azure en servidores que ejecuten Windows Server en el entorno local.
+Los [recursos compartidos de archivos de Azure](storage-files-introduction.md) son excelentes para los datos de archivos de uso general. Estos datos incluyen cualquier contenido para el que use un recurso compartido de SMB o NFS local. Con [Azure File Sync](../file-sync/file-sync-planning.md), puede copiar en caché el contenido de varios recursos compartidos de archivos de Azure en servidores que ejecuten Windows Server en el entorno local.
 
 En el caso de una aplicación que se ejecute actualmente en un servidor local, el almacenamiento de archivos en un recurso compartido de archivos de Azure puede ser una buena opción. Puede trasladar la aplicación a Azure y usar los recursos compartidos de archivos de Azure como almacenamiento compartido. También puede considerar los [discos de Azure](../../virtual-machines/managed-disks-overview.md) para este escenario.
 
@@ -81,7 +81,7 @@ Un escenario sin un vínculo aún no tiene ninguna guía de migración publicada
 | Source | Destino: </br>Implementación híbrida | Destino: </br>Implementación solo en la nube |
 |:---|:--|:--|
 | | Combinación de herramientas:| Combinación de herramientas: |
-| Windows Server 2012 R2 y versiones posteriores | <ul><li>[Azure File Sync](storage-sync-files-deployment-guide.md)</li><li>[Azure File Sync y Azure DataBox](storage-sync-offline-data-transfer.md)</li></ul> | <ul><li>Mediante RoboCopy a un recurso compartido de archivos de Azure montado</li><li>Mediante Azure File Sync</li></ul> |
+| Windows Server 2012 R2 y versiones posteriores | <ul><li>[Azure File Sync](../file-sync/file-sync-deployment-guide.md)</li><li>[Azure File Sync y Azure DataBox](../file-sync/file-sync-offline-data-transfer.md)</li></ul> | <ul><li>Mediante RoboCopy a un recurso compartido de archivos de Azure montado</li><li>Mediante Azure File Sync</li></ul> |
 | Windows Server 2012 y versiones anteriores | <ul><li>Mediante DataBox y Azure File Sync a un sistema operativo de servidor reciente</li><li>Mediante el servicio de migración de almacenamiento a un servidor reciente con Azure File Sync y, a continuación, cárguelo</li></ul> | <ul><li>Mediante el servicio de migración de almacenamiento a un servidor reciente con Azure File Sync</li><li>Mediante RoboCopy a un recurso compartido de archivos de Azure montado</li></ul> |
 | Almacenamiento conectado a la red (NAS) | <ul><li>[Mediante la carga de Azure File Sync](storage-files-migration-nas-hybrid.md)</li><li>[Mediante DataBox + Azure File Sync](storage-files-migration-nas-hybrid-databox.md)</li></ul> | <ul><li>[Mediante DataBox](storage-files-migration-nas-cloud-databox.md)</li><li>Mediante RoboCopy a un recurso compartido de archivos de Azure montado</li></ul> |
 | Linux/Samba | <ul><li>[Azure File Sync y RoboCopy](storage-files-migration-linux-hybrid.md)</li></ul> | <ul><li>Mediante RoboCopy a un recurso compartido de archivos de Azure montado</li></ul> |
@@ -139,7 +139,7 @@ RoboCopy es una de las herramientas más aplicables a las migraciones de archivo
 
 Azure File Sync se escala principalmente con el número de elementos (archivos y carpetas) y no con la cantidad de almacenamiento total. La herramienta TreeSize le permite determinar el número de elementos de los volúmenes de Windows Server.
 
-Puede usar la herramienta para crear una perspectiva antes de una [implementación de Azure File Sync](storage-sync-files-deployment-guide.md). También puede usarla cuando se active la nube por niveles después de la implementación. En ese escenario, verá el número de elementos y los directorios que usan más la memoria caché del servidor.
+Puede usar la herramienta para crear una perspectiva antes de una [implementación de Azure File Sync](../file-sync/file-sync-deployment-guide.md). También puede usarla cuando se active la nube por niveles después de la implementación. En ese escenario, verá el número de elementos y los directorios que usan más la memoria caché del servidor.
 
 La versión probada de la herramienta es la 4.4.1. Es compatible con los archivos de niveles en la nube. La herramienta no producirá la coincidencia de los archivos en niveles durante su funcionamiento normal.
 
@@ -151,5 +151,5 @@ La versión probada de la herramienta es la 4.4.1. Es compatible con los archivo
 Más información sobre las tecnologías de Azure Files mencionadas en este artículo:
 
 * [¿Qué es Azure Files](storage-files-introduction.md)
-* [Planeamiento de una implementación de Azure File Sync](storage-sync-files-planning.md)
-* [Información general de nube por niveles ](storage-sync-cloud-tiering-overview.md)
+* [Planeamiento de una implementación de Azure File Sync](../file-sync/file-sync-planning.md)
+* [Información general de nube por niveles ](../file-sync/file-sync-cloud-tiering-overview.md)

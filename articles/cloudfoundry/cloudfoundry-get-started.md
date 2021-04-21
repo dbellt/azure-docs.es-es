@@ -7,12 +7,12 @@ ms.subservice: workloads
 ms.topic: article
 ms.date: 01/19/2017
 ms.author: seanmck
-ms.openlocfilehash: d3b13dffcf251f79a04182d32f23fd40e6ed6044
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2f80f07cad0e82ee35fe71223e1282ea24f791bb
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102562901"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530933"
 ---
 # <a name="cloud-foundry-on-azure"></a>Cloud Foundry en Azure
 
@@ -39,7 +39,7 @@ Microsoft se esfuerza al máximo en ofrecer asistencia para OSS CF a través de 
 
 Pivotal Cloud Foundry incluye la misma plataforma central que la distribución OSS, además de un conjunto de herramientas de administración propias y soporte técnico empresarial. Para ejecutar PCF en Azure, debe comprar una licencia a Pivotal. La oferta PCF de Azure Marketplace incluye una licencia de prueba de 90 días.
 
-Entre las herramientas, se incluyen [Pivotal Operations Manager](https://docs.pivotal.io/pivotalcf/customizing/), una aplicación web que simplifica la implementación y la administración de una fundación de Cloud Foundry, y [Pivotal Apps Manager](https://docs.pivotal.io/pivotalcf/console/), una aplicación web para administrar usuarios y aplicaciones.
+Entre las herramientas, se incluyen [Pivotal Operations Manager](https://docs.pivotal.io/ops-manager/2-10/install/), una aplicación web que simplifica la implementación y la administración de una fundación de Cloud Foundry, y [Pivotal Apps Manager](https://docs.pivotal.io/pivotalcf/console/), una aplicación web para administrar usuarios y aplicaciones.
 
 Además de los canales indicados antes para OSS CF, una licencia PCF le da derecho a recibir soporte técnico de Pivotal. Microsoft y Pivotal también han habilitado flujos de trabajo de soporte que permiten ponerse en contacto con cualquiera de ellos para obtener ayuda y redirigir su consulta en función de dónde se encuentre el problema.
 

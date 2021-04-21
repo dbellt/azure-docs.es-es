@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/27/2020
 ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: 015fa201fe1c31dde2e30c2fe689ac13452b1b01
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9652e940674ec7580b006cd38df2a7d17014f939
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105607599"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107309992"
 ---
 # <a name="troubleshoot-shared-image-galleries-in-azure"></a>Solución de problemas de las galerías de imágenes compartidas de Azure
 
@@ -303,6 +303,14 @@ Si tiene problemas al realizar cualquier operación en galerías de imágenes co
 **Causa**: La definición de imagen usada para implementar la máquina virtual no contiene ninguna versión de imagen incluida en la versión más reciente.  
 **Solución alternativa**: Asegúrese de que haya al menos una versión de imagen que tenga el valor "Excluir de la última" establecida en Falso. 
 
+**Mensaje**: *la imagen de la galería /subscriptions/<subscriptionID\>/resourceGroups/<resourceGroup\>/providers/Microsoft.Compute/galleries/<galleryName\>/images/<imageName\>/versions/<versionNumber\> no está disponible en la región <región\>. Póngase en contacto con el propietario de la imagen para replicarla en esta región o cambie la región solicitada.*  
+**Causa**: la versión seleccionada para la implementación no existe o no tiene una réplica en la región indicada.  
+**Solución alternativa**: asegúrese de que el nombre del recurso de imagen sea correcto y de que haya al menos una réplica en la región indicada. 
+
+**Mensaje**: *la imagen de la galería /subscriptions/<subscriptionID\>/resourceGroups/<resourceGroup\>/providers/Microsoft.Compute/galleries/<galleryName\>/images/<imageName\> no está disponible en la región <región\>. Póngase en contacto con el propietario de la imagen para replicarla en esta región o cambie la región solicitada.*  
+**Causa**: la definición de imagen seleccionada para la implementación no tiene ninguna versión de la imagen incluida en las más recientes ni tampoco en la región indicada.  
+**Solución alternativa**: asegúrese de que haya al menos una versión de la imagen que tenga el valor "Excluir de las últimas" establecida en falso. 
+
 **Mensaje**: *El cliente tiene permiso para realizar la acción "Microsoft.Compute/galleries/images/versions/read" en el ámbito <resourceID\>, pero el inquilino actual <tenantID\> no está autorizado para acceder a la suscripción vinculada <subscriptionID\>.*  
 **Causa**: La máquina virtual o el conjunto de escalado se crearon mediante una imagen SIG en otro inquilino. Ha intentado realizar un cambio en la máquina virtual o el conjunto de escalado, pero no tiene acceso a la suscripción que posee la imagen.  
 **Solución alternativa**: Póngase en contacto con el propietario de la suscripción de la versión de imagen para conceder a esta acceso de lectura.
@@ -318,10 +326,6 @@ Si tiene problemas al realizar cualquier operación en galerías de imágenes co
 **Mensaje**: *Falta el parámetro requerido "osProfile" (null).*  
 **Causa**: La máquina virtual se crea a partir de una imagen generalizada y falta el nombre de usuario, la contraseña o las claves SSH de administrador. Como las imágenes generalizadas no conservan el nombre de usuario, la contraseña o las claves SSH de administrador, estos campos se deben especificar durante la creación de una máquina virtual o un conjunto de escalado.  
 **Solución alternativa**: Especifique el nombre de usuario, la contraseña o las claves SSH de administrador o use una versión de imagen especializada.
-
-**Mensaje**: *No se puede crear la versión de imagen de la galería desde <resourceID\>, ya que el estado del sistema operativo de la imagen principal de la galería ("Specialized") no es "Generalized".*  
-**Causa**: La versión de imagen se crea a partir de un origen generalizado, pero su definición principal es especializada.  
-**Solución alternativa**: Cree la versión de imagen mediante un origen especializado o use una definición principal que esté generalizada.
 
 **Mensaje**: *No se puede actualizar el conjunto de escalado de máquinas virtuales <vmssName\>, ya que el estado actual del sistema operativo del conjunto de escalado de máquinas virtuales es generalizado, que es diferente del estado del sistema operativo de la imagen actualizada de la galería que es especializado.*  
 **Causa**: La imagen de origen actual del conjunto de escalado es una imagen de origen generalizada, pero se está actualizando con una imagen de origen que es especializada. La imagen de origen actual y la nueva imagen de origen de un conjunto de escalado deben tener el mismo estado.  

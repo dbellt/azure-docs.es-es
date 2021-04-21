@@ -4,15 +4,15 @@ description: Obtenga información sobre el almacén transaccional (basado en fil
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/16/2021
+ms.date: 04/12/2021
 ms.author: rosouz
 ms.custom: seo-nov-2020
-ms.openlocfilehash: 450514541a90a01ea6b70f77491f116adb404887
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: eaabc663ba243423bddf7ef6abfe41182e06b4f9
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105046220"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107364617"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store"></a>¿Qué es el almacén analítico de Azure Cosmos DB?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -134,6 +134,7 @@ En el almacén analítico hay dos maneras de representar el esquema. Estos modos
 La representación de esquemas bien definida crea una representación tabular simple de los datos independientes del esquema en el almacén transaccional. La representación de esquemas bien definida tiene las siguientes características:
 
 * Las propiedades siempre tienen el mismo tipo en los distintos elementos.
+* Solo se permite un cambio de tipo 1, de NULL a cualquier otro tipo de datos. La primera aparición que no es NULL define el tipo de datos de columna.
 
   * Por ejemplo, `{"a":123} {"a": "str"}` no tiene un esquema bien definido porque `"a"` a veces es una cadena y, a veces, un número. En este caso, el almacén analítico registra el tipo de datos de `"a"` como tipo de datos de `“a”` en el primer elemento durante la vigencia del contenedor. Aún así, el documento todavía se incluirá en el almacén analítico, pero los elementos cuyo tipo de datos `"a"` sea distinto no lo serán.
   

@@ -6,17 +6,17 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 399cf8087d39f78184cfdae4b9f0e34efecaea66
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: 6dbb1b46aef40986fc2d601aee152aed02591ac0
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106491625"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312610"
 ---
 # <a name="connect-to-azure-database-for-mysql---flexible-server-with-encrypted-connections"></a>Conexión al servidor flexible de Azure Database for MySQL con conexiones cifradas
 
 > [!IMPORTANT]
-> Azure Database for MySQL: servidor flexible está actualmente en versión preliminar pública.
+> Actualmente, Azure Database for MySQL con la opción Servidor flexible está en versión preliminar pública.
 
 El servidor flexible de Azure Database for MySQL admite la conexión de las aplicaciones cliente al servidor MySQL mediante el cifrado de la Capa de sockets seguros (SSL) con la Seguridad de la capa de transporte (TLS). TLS es un protocolo estándar del sector que garantiza conexiones de red cifradas entre el servidor de bases de datos y las aplicaciones cliente, lo que le permite ajustarse a los requisitos de cumplimiento.
 
@@ -26,7 +26,7 @@ A continuación, se muestran las distintas configuraciones de SSL y TLS que pued
 
 | Escenario   | Configuración de parámetros del servidor      | Descripción                                    |
 |------------|--------------------------------|------------------------------------------------|
-|Deshabilitar SSL (conexiones cifradas) | require_secure_transport = OFF |Si la aplicación heredada no admite conexiones cifradas al servidor MySQL, puede deshabilitar la obligatoriedad de conexiones cifradas en el servidor flexible estableciendo require_secure_transport=OFF.|
+|Deshabilitación de la aplicación de SSL | require_secure_transport = OFF |Si la aplicación heredada no admite conexiones cifradas al servidor MySQL, puede deshabilitar la obligatoriedad de conexiones cifradas en el servidor flexible estableciendo require_secure_transport=OFF.|
 |Exigir SSL con la versión de TLS < 1.2 | require_secure_transport = ON y tls_version = TLSV1 o TLSV1.1| Si la aplicación heredada admite conexiones cifradas, pero necesita la versión de TLS > 1, puede permitir conexiones cifradas, pero configurar el servidor flexible para permitir conexiones con la versión de TLS (v1.0 o v1.1) admitida por la aplicación.|
 |Exigir SSL con la versión de TLS = 1.2 (configuración predeterminada)|require_secure_transport = ON y tls_version = TLSV1.2| Esta es la configuración predeterminada y recomendada para el servidor flexible.|
 |Exigir SSL con la versión de TLS = 1.3 (compatible con MySQL v8.0 y versiones posteriores)| require_secure_transport = ON y tls_version = TLSV1.3| Esta configuración es útil y recomendada para el desarrollo de nuevas aplicaciones|
@@ -44,7 +44,7 @@ En este artículo, aprenderá a:
 * Comprobar el estado de cifrado de la conexión
 * Conectarse al servidor flexible con conexiones cifradas mediante varios marcos de trabajo de aplicaciones
 
-## <a name="disable-ssl-on-your-flexible-server"></a>Deshabilitación de SSL en el servidor flexible
+## <a name="disable-ssl-enforcement-on-your-flexible-server"></a>Deshabilitación del cumplimiento de SSL en un servidor flexible
 Si la aplicación cliente no admite conexiones cifradas, tendrá que deshabilitar la obligatoriedad de conexiones cifradas en el servidor flexible. Para deshabilitar la obligatoriedad de conexiones cifradas, debe establecer el parámetro de servidor require_secure_transport en OFF, tal y como se muestra en la captura de pantalla, y guardar la configuración para que surta efecto. require_secure_transport es un **parámetro de servidor dinámico** que surte efecto inmediatamente sin necesidad de reiniciar el servidor.
 
 > :::image type="content" source="./media/how-to-connect-tls-ssl/disable-ssl.png" alt-text="Captura de pantalla que muestra cómo deshabilitar SSL con el servidor flexible de Azure Database for MySQL.":::

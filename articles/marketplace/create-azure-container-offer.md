@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 06/17/2020
-ms.openlocfilehash: 01370a8d7710292858fe28d263fe5456b012c40f
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: dc7a81f1646fc9f51a4e0bcaf37ef61ca669414e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107107387"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780522"
 ---
 # <a name="create-an-azure-container-offer-in-azure-marketplace"></a>Creación de una oferta de contenedor de Azure en Azure Marketplace
 
@@ -237,7 +237,7 @@ Muestra los resultados de la búsqueda en Azure Portal:
 
 :::image type="content" source="./partner-center-portal/media/azure-create-container-offer-images/azure-create-9-search-results-portal.png" alt-text="Muestra los resultados de la búsqueda en Azure Portal.":::
 
-## <a name="preview"></a>Versión preliminar
+## <a name="preview"></a>Vista previa
 
 En la pestaña Versión preliminar puede elegir un **público preliminar** limitado para validar la oferta antes de su publicación.
 
@@ -365,7 +365,7 @@ Proporcione la siguiente información en la pestaña **Detalles del repositorio 
 
  :::image type="content" source="./partner-center-portal/media/azure-create-container-offer-images/azure-create-12-update-container-registry-edit.png" alt-text="Muestra el cuadro de diálogo Actualizar registro de contenedor.":::
 
-**Contraseña para Azure Container Registry** – proporcione la contraseña del nombre de usuario administrador asociado a la instancia de Azure Container Registry que tiene la imagen de contenedor. El nombre de usuario y la contraseña son necesarios para asegurarse de que la empresa tiene acceso al registro. Puede obtener la contraseña en Azure Portal desde **Container Registry** > **Claves de acceso** o bien con la CLI de Azure con el [comando show](/cli/azure/acr/credential#az-acr-credential-show).
+**Contraseña para Azure Container Registry** – proporcione la contraseña del nombre de usuario administrador asociado a la instancia de Azure Container Registry que tiene la imagen de contenedor. El nombre de usuario y la contraseña son necesarios para asegurarse de que la empresa tiene acceso al registro. Puede obtener la contraseña en Azure Portal desde **Container Registry** > **Claves de acceso** o bien con la CLI de Azure con el [comando show](/cli/azure/acr/credential#az_acr_credential_show).
 
 :::image type="content" source="./partner-center-portal/media/azure-create-container-offer-images/azure-create-13-access-keys.png" alt-text="Muestra el menú de la clave de acceso.":::
 

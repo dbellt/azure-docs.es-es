@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 3/27/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ee06eed1b8f54877d01a8b316c015938038879cf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8c8b0f37729ea20a62838d736dbed59f05c584c6
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94535408"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780432"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Copia de seguridad y restauración de un servidor en Azure Database for MySQL mediante la CLI de Azure
 
@@ -56,7 +56,7 @@ El período de retención de copia de seguridad rige durante cuánto tiempo se p
 ## <a name="server-point-in-time-restore"></a>Restauración del servidor a un momento dado
 Puede restaurar el servidor a un momento dado anterior. Los datos restaurados se copian en un nuevo servidor y el existente se queda tal cual. Por ejemplo, si una tabla se eliminó por error hoy a mediodía, puede restaurar hasta el momento justo antes del mediodía. Así podrá recuperar la tabla y los datos que faltan de la copia restaurada del servidor. 
 
-Para restaurar el servidor, utilice el comando [az mysql server restore](/cli/azure/mysql/server#az-mysql-server-restore) de la CLI de Azure.
+Para restaurar el servidor, utilice el comando [az mysql server restore](/cli/azure/mysql/server#az_mysql_server_restore) de la CLI de Azure.
 
 ### <a name="run-the-restore-command"></a>Ejecutar el comando restore
 

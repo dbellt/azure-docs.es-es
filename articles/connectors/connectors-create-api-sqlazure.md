@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
-ms.date: 01/07/2021
+ms.date: 03/24/2021
 tags: connectors
-ms.openlocfilehash: 75c657236b6e06a7e0f6c717d746bcc8c034d423
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2e06616914f1e78a71a540fbd64021c0e1bfcbab
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98013454"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785980"
 ---
 # <a name="automate-workflows-for-a-sql-database-by-using-azure-logic-apps"></a>Automatización de flujos de trabajo en una base de datos SQL mediante Azure Logic Apps
 
@@ -22,7 +22,7 @@ Puede crear aplicaciones lógicas que se ejecutan cuando las desencadenan evento
 
 Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md) e [Inicio rápido: Creación de la primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para información técnica específica del conector, así como sobre las limitaciones y los problemas conocidos, consulte la [página de referencia sobre el conector de SQL Server](/connectors/sql/).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Suscripción a Azure. Si aún no tiene una, [regístrese para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/).
 
@@ -189,7 +189,7 @@ La primera vez que agregue un [desencadenador SQL](#add-sql-trigger) o una [acci
 
 ### <a name="trigger-recurrence-shift-and-drift"></a>Desencadenamiento del cambio de periodicidad y el desfase
 
-Los desencadenadores basados en conexión en los que es necesario crear antes una conexión, como el desencadenador de SQL, difieren de los desencadenadores integrados que se ejecutan de forma nativa en Azure Logic Apps, como el [desencadenador de periodicidad](../connectors/connectors-native-recurrence.md). En los desencadenadores periódicos basados en conexión, la programación de la periodicidad no es el único elemento que controla la ejecución y la zona horaria solo determina la hora de inicio inicial. Las ejecuciones posteriores dependen de la programación de periodicidad, de la última ejecución del desencadenador, *y* de otros factores que pueden provocar que haya un desfase o un comportamiento inesperado en los tiempos de ejecución, por ejemplo, no mantener la programación especificada cuando se inicia y finaliza el horario de verano (DST). Para asegurarse de que el tiempo de periodicidad no se desplaza cuando el DST surte efecto, ajuste manualmente la periodicidad para que la aplicación lógica siga ejecutándose en el momento esperado. De lo contrario, la hora de inicio se desplazará una hora hacia delante cuando se inicie el DST y una hora hacia atrás cuando finalice el DST. Para obtener más información, consulte la información sobre [periodicidad en los desencadenadores basados en conexión](../connectors/apis-list.md#recurrence-connection-based).
+Los desencadenadores basados en conexión en los que es necesario crear antes una conexión, como el desencadenador de SQL, difieren de los desencadenadores integrados que se ejecutan de forma nativa en Azure Logic Apps, como el [desencadenador de periodicidad](../connectors/connectors-native-recurrence.md). En los desencadenadores periódicos basados en conexión, la programación de la periodicidad no es el único elemento que controla la ejecución y la zona horaria solo determina la hora de inicio inicial. Las ejecuciones posteriores dependen de la programación de periodicidad, de la última ejecución del desencadenador, *y* de otros factores que pueden provocar que haya un desfase o un comportamiento inesperado en los tiempos de ejecución, por ejemplo, no mantener la programación especificada cuando se inicia y finaliza el horario de verano (DST). Para asegurarse de que el tiempo de periodicidad no se desplaza cuando el DST surte efecto, ajuste manualmente la periodicidad para que la aplicación lógica siga ejecutándose en el momento esperado. De lo contrario, la hora de inicio se desplazará una hora hacia delante cuando se inicie el DST y una hora hacia atrás cuando finalice el DST. Para obtener más información, consulte la información sobre [periodicidad en los desencadenadores basados en conexión](../connectors/apis-list.md#recurrence-for-connection-based-triggers).
 
 <a name="add-sql-action"></a>
 

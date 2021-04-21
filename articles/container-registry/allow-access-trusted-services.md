@@ -3,12 +3,12 @@ title: Acceso al registro con restricción de red con el servicio de confianza d
 description: Habilitación de una instancia de servicio de Azure de confianza para acceder de forma segura a un registro de contenedor con restricción de red para extraer o insertar imágenes
 ms.topic: article
 ms.date: 01/29/2021
-ms.openlocfilehash: 2e6b6ee3736f98f53ebb0aa43d707d42ba4cc058
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4b0d7feb223bcfcec4e8b2c786b211f4e3c3c3eb
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101716489"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785877"
 ---
 # <a name="allow-trusted-services-to-securely-access-a-network-restricted-container-registry-preview"></a>Permitir que los servicios de confianza accedan de forma segura a un registro de contenedor con restricción de red (versión preliminar)
 
@@ -49,7 +49,7 @@ Las instancias de los siguientes servicios pueden acceder a un registro de conte
 
 ## <a name="allow-trusted-services---cli"></a>Permitir servicios de confianza (CLI)
 
-De forma predeterminada, la opción para permitir servicios de confianza está habilitada en un nuevo registro de contenedor de Azure. Para deshabilitar o habilitar la configuración, ejecute el comando [az acr update](/cli/azure/acr#az-acr-update).
+De forma predeterminada, la opción para permitir servicios de confianza está habilitada en un nuevo registro de contenedor de Azure. Para deshabilitar o habilitar la configuración, ejecute el comando [az acr update](/cli/azure/acr#az_acr_update).
 
 Para deshabilitarlo:
 

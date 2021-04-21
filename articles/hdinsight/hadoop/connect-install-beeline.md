@@ -4,13 +4,13 @@ description: Aprenda a conectarse al cliente de Apache Beeline para ejecutar con
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: contperf-fy21q1
-ms.date: 05/27/2020
-ms.openlocfilehash: ab5dedf6718dad4f16fde59d905e2e59be5c495f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/07/2021
+ms.openlocfilehash: 5dcb6168a263be11410126ff08bd8b015da5af46
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98944457"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107103443"
 ---
 # <a name="connect-to-apache-beeline-on-hdinsight-or-install-it-locally"></a>Conexión a Apache Beeline en HDInsight o instalación local
 
@@ -77,7 +77,9 @@ Apache Spark proporciona su propia implementación de HiveServer2 que, en alguna
 
 #### <a name="through-public-or-private-endpoints"></a>A través de puntos de conexión públicos o privados
 
-La cadena de conexión usada es ligeramente distinta. En lugar de contener `httpPath=/hive2`, usa `httpPath/sparkhive2`. Reemplace `clustername` por el nombre del clúster de HDInsight. Reemplace `admin` por la cuenta de inicio de sesión del clúster. Para los clústeres de ESP, use el UPN completo (por ejemplo, user@domain.com). Reemplace `password` por la contraseña de la cuenta de inicio de sesión del clúster.
+La cadena de conexión usada es ligeramente distinta. En lugar de contener `httpPath=/hive2`, usa `httpPath/sparkhive2`. Reemplace `clustername` por el nombre del clúster de HDInsight. Reemplace `admin` por la cuenta de inicio de sesión del clúster. Reemplace `password` por la contraseña de la cuenta de inicio de sesión del clúster.
+> [!NOTE]
+> Para los clústeres de ESP, sustituya `admin` por el UPN completo (por ejemplo, user@domain.com). 
 
 ```bash
 beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n admin -p 'password'

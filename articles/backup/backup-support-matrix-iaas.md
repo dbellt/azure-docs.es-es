@@ -4,12 +4,12 @@ description: Proporciona un resumen de opciones de compatibilidad y limitaciones
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: a0150a4c1a8fbd756de6fc16142f0115b05098ed
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 1f63d0c3ad448a8ab9b91764d4c369fefddea25d
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105967836"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107516729"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de compatibilidad para copias de seguridad de máquinas virtuales de Azure
 
@@ -28,7 +28,7 @@ A continuación, se muestra cómo puede realizar copias de seguridad y restaurac
 **Escenario** | **Backup** | **Agent** |**Restauración**
 --- | --- | --- | ---
 copia de seguridad directa de máquinas virtuales de Azure  | Copia de seguridad de toda la máquina virtual.  | No se necesita ningún agente adicional en la VM de Azure. Azure Backup instala y usa una extensión para el [agente de máquina virtual de Azure](../virtual-machines/extensions/agent-windows.md) que se ejecuta en la máquina virtual. | Realice la restauración como sigue:<br/><br/> - **Creación de una máquina virtual básica**. Esto es útil si la máquina virtual no tiene ninguna configuración especial, como varias direcciones IP.<br/><br/> - **Restauración del disco de máquina virtual**. Restaure el disco. Conéctelo a una máquina virtual existente o cree una máquina virtual a partir del disco mediante PowerShell.<br/><br/> - **Sustitución del disco de máquina virtual**. Si existe una máquina virtual y esta usa discos administrados (sin cifrar), puede restaurar un disco y usarlo para reemplazar un disco existente en la máquina virtual.<br/><br/> - **Restauración de archivos y carpetas específicos**. Puede restaurar archivos o carpetas de una máquina virtual en vez de toda la máquina virtual.
-Copia de seguridad directa de máquinas virtuales de Azure (solo Windows)  | Copia de seguridad de archivos, carpetas o volúmenes específicos. | Instale el [agente de Azure Recovery Services](backup-azure-file-folder-backup-faq.md).<br/><br/> Puede ejecutar al agente de MARS junto con la extensión de copia de seguridad del agente de máquina virtual de Azure para realizar copias de seguridad de la máquina virtual en el nivel de archivo o carpeta. | Restauración de archivos y carpetas específicos.
+Copia de seguridad directa de máquinas virtuales de Azure (solo Windows)  | Copia de seguridad de archivos, carpetas o volúmenes específicos. | Instale el [agente de Azure Recovery Services](backup-azure-file-folder-backup-faq.yml).<br/><br/> Puede ejecutar al agente de MARS junto con la extensión de copia de seguridad del agente de máquina virtual de Azure para realizar copias de seguridad de la máquina virtual en el nivel de archivo o carpeta. | Restauración de archivos y carpetas específicos.
 Copia de seguridad de una máquina virtual de Azure en un servidor de copia de seguridad  | Copia de seguridad de archivos, carpetas y volúmenes; archivos de estado del sistema y de reconstrucción completa; datos de aplicaciones para System Center DPM o Microsoft Azure Backup Server (MABS).<br/><br/> Después, DPM/MABS realiza una copia de seguridad en el almacén de Backup. | Instale al agente de protección de DPM/MABS en la máquina virtual. El agente de MARS se instala en DPM/MABS.| Restauración de archivos, carpetas y volúmenes; archivos de estado del sistema y de reconstrucción completa; datos de aplicaciones.
 
 Más información sobre la copia de seguridad [mediante un servidor de copias de seguridad](backup-architecture.md#architecture-back-up-to-dpmmabs) y sobre los [requisitos de compatibilidad](backup-support-matrix-mabs-dpm.md).

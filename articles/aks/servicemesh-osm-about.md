@@ -4,15 +4,15 @@ description: Open Service Mesh (OSM) en Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 3/12/2021
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 0052c8d2f9b85c34d50a3e9d01253ecaf2d02bab
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: bbc07a7ee3f996c778cfc1b9d1764f10a613c50b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106106720"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107782952"
 ---
 # <a name="open-service-mesh-aks-add-on-preview"></a>Complemento Open Service Mesh (versión preliminar) de AKS
 
@@ -107,7 +107,7 @@ Para un nuevo escenario de implementación de clústeres de AKS, comenzará con 
 
 ### <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-En Azure, puede asignar recursos relacionados a un grupo de recursos. Para crear un grupo de recursos, use [az group create](/cli/azure/group#az-group-create). En el ejemplo siguiente se crea un grupo de recursos denominado _myOsmAksGroup_ en la ubicación _eastus2_:
+En Azure, puede asignar recursos relacionados a un grupo de recursos. Para crear un grupo de recursos, use [az group create](/cli/azure/group#az_group_create). En el ejemplo siguiente se crea un grupo de recursos denominado _myOsmAksGroup_ en la ubicación _eastus2_:
 
 ```azurecli-interactive
 az group create --name <myosmaksgroup> --location <eastus2>
@@ -1140,7 +1140,7 @@ EOF
 
 ### <a name="verify-the-bookstore-application-running-inside-the-aks-cluster"></a>Comprobación de que la aplicación Bookstore se ejecuta en el clúster de AKS
 
-Ahora, hemos implementado la aplicación bookstore de varios contenedores, pero solo se puede acceder a ella desde el clúster de AKS. Más adelante se agregará el controlador de entrada de Azure Application Gateway para exponer la aplicación fuera del clúster de AKS. Para comprobar que la aplicación se ejecuta dentro del clúster, utilizaremos un reenvío de puerto para ver la interfaz de usuario del componente bookbuyer.
+Ahora, hemos implementado la aplicación bookstore de varios contenedores, pero solo se puede acceder a ella desde el clúster de AKS. Más adelante se agregará el controlador de entrada de Azure Application Gateway para exponer la aplicación fuera del clúster de AKS. Para comprobar que la aplicación se ejecuta dentro del clúster, utilizaremos un reenvío de puertos para ver la interfaz de usuario del componente bookbuyer.
 
 En primer lugar, vamos a obtener el nombre del pod de bookbuyer.
 
@@ -2150,7 +2150,7 @@ En la página para **configurar el origen de datos de Prometheus**, escriba el F
 
 Los paneles de OSM están disponibles a través de:
 
-- [Nuestro repositorio](/charts/osm/grafana), y son importables como blobs de JSON a través del portal de administración web;
+- [Nuestro repositorio](https://github.com/grafana/grafana), y son importables como blobs de JSON a través del portal de administración web;
 - o [en línea en Grafana.com](https://grafana.com/grafana/dashboards/14145).
 
 Para importar un panel, busque el signo `+` en el menú de la izquierda y seleccione `import`.

@@ -3,12 +3,12 @@ title: Realización de una copia de seguridad de una granja de SharePoint en Azu
 description: En este artículo se incluye información general sobre la protección del Servidor de Azure Backup y el servidor de DPM de una granja de SharePoint en Azure.
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: 7661d64e487c8b8badca240852d17bcf736ba8cf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3524107b545c151fcf931b89c629a61d83f47ace
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91254438"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107515165"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-dpm"></a>Realización de una copia de seguridad de una granja de SharePoint en Azure con DPM
 
@@ -75,5 +75,5 @@ Si tiene más de un servidor front-end web y desea cambiar el servidor que DPM u
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Azure Backup Server y DPM: Preguntas frecuentes](backup-azure-dpm-azure-server-faq.md)
+* [Azure Backup Server y DPM: Preguntas frecuentes](backup-azure-dpm-azure-server-faq.yml)
 * [Solución de problemas de System Center Data Protection Manager](backup-azure-scdpm-troubleshooting.md)

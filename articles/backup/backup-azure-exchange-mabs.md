@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo realizar una copia de seguridad de
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.openlocfilehash: 86389ef89ced74905db0fc8bfeaabcea6140762a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f3a7fae5a1f5ec933c015546ddf2bdb2898e3904
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91263001"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107515505"
 ---
 # <a name="back-up-an-exchange-server-to-azure-with-azure-backup-server"></a>Realización de una copia de seguridad de un servidor Exchange en Azure con Azure Backup Server
 
@@ -107,4 +107,4 @@ Para los puntos de recuperación en línea, existen cinco tipos de recuperación
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Preguntas más frecuentes de Azure Backup](backup-azure-backup-faq.md)
+* [Preguntas más frecuentes de Azure Backup](backup-azure-backup-faq.yml)

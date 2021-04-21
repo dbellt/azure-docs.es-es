@@ -1,24 +1,24 @@
 ---
 title: 'Inicio rápido: Compilación de una aplicación de Python con una cuenta de SQL API de Azure Cosmos DB'
 description: En este tema se presenta un código de ejemplo de Python que se puede usar para conectarse a SQL API de Azure Cosmos DB y realizar consultas.
-author: anfeldma-ms
+author: Rodrigossz
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 09/22/2020
-ms.author: anfeldma
+ms.date: 04/06/2021
+ms.author: rosouz
 ms.custom:
 - seodec18
 - seo-javascript-september2019
 - seo-python-october2019
 - devx-track-python
-ms.openlocfilehash: fee0591622c1ee07b6e954b3cadc208a300ab6a5
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: de05fdc110e653dd63cf098a8b31ffb81b13b1c5
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104798789"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107365693"
 ---
 # <a name="quickstart-build-a-python-application-using-an-azure-cosmos-db-sql-api-account"></a>Inicio rápido: Compilación de una aplicación de Python mediante una cuenta de SQL API de Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -28,6 +28,7 @@ ms.locfileid: "104798789"
 > * [.NET V4](create-sql-api-dotnet-V4.md)
 > * [SDK para Java v4](create-sql-api-java.md)
 > * [Spring Data v3](create-sql-api-spring-data.md)
+> * [Conector Spark v3](create-sql-api-spark.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
@@ -44,7 +45,7 @@ En este inicio rápido, se crea y administra una cuenta de Azure Cosmos DB para 
     * Sin una suscripción activa de Azure:
         * [Pruebe Azure Cosmos DB gratis](https://azure.microsoft.com/try/cosmosdb/), un entorno de pruebas que dura 30 días.
         * [Emulador de Azure Cosmos DB](https://aka.ms/cosmosdb-emulator) 
-- [Python 2.7 o 3.6 y superiores](https://www.python.org/downloads/), con el ejecutable `python` en `PATH`.
+- [Python 2.7 o 3.6 y posteriores](https://www.python.org/downloads/), con el ejecutable `python` en `PATH`.
 - [Visual Studio Code](https://code.visualstudio.com/).
 - La [extensión de Python para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python#overview).
 - [Git](https://www.git-scm.com/downloads). 

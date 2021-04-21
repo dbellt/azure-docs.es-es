@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 92cfa5b2e399811754b57bda64569753ccfa6be8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b1e37b2de2a3d4be0250d3e900fe48a36e45240e
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101668765"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107309567"
 ---
 # <a name="sap-hana-large-instances-network-architecture"></a>Arquitectura de red de SAP HANA (instancias grandes)
 
@@ -186,7 +186,7 @@ Los datos transferidos entre HANA (instancias grandes) y las máquinas virtuales
 
 ## <a name="use-hana-large-instance-units-in-multiple-regions"></a>Uso de unidades de HANA (instancias grandes) en varias regiones
 
-Para realizar configuraciones de recuperación ante desastres, debe tener unidades de SHANA (Instancias grandes) en varias regiones de Azure. Incluso con el uso de Azure [emparejamiento de Vnet global], el enrutamiento transitivo no funciona de forma predeterminada entre los inquilinos de HANA (Instancias grandes) de dos regiones diferentes. Sin embargo, Global Reach abre la ruta de comunicación entre las unidades de HANA (Instancias grandes) que se han aprovisionado en dos regiones diferentes. Este escenario de uso de ExpressRoute Global Reach permite:
+Para realizar configuraciones de recuperación ante desastres, debe tener unidades de HANA (Instancias grandes) en varias regiones de Azure. Incluso con el uso de Azure [emparejamiento de Vnet global], el enrutamiento transitivo no funciona de forma predeterminada entre los inquilinos de HANA (Instancias grandes) de dos regiones diferentes. Sin embargo, Global Reach abre la ruta de comunicación entre las unidades de HANA (Instancias grandes) que se han aprovisionado en dos regiones diferentes. Este escenario de uso de ExpressRoute Global Reach permite:
 
  - La replicación del sistema HANA sin firewalls ni servidores proxy adicionales.
  - La copia de seguridad entre las unidades de HANA (Instancias grandes) en dos regiones diferentes para realizar copias o actualizaciones del sistema.

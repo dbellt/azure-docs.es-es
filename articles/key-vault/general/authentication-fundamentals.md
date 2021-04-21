@@ -7,12 +7,12 @@ ms.date: 09/25/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 25f00024fb7371fd08bf6c4ceec3177cfaca029b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c43995a8b3a072d98db0ba2c8219694f17e49a26
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103572815"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107363434"
 ---
 # <a name="key-vault-authentication-fundamentals"></a>Aspectos básicos de la autenticación de Key Vault
 
@@ -104,7 +104,7 @@ Sin embargo, las directivas de acceso clásico no admiten permisos de nivel por 
 > [!IMPORTANT]
 > Las directivas de acceso de almacén de claves clásicas y las asignaciones de roles de Azure Active Directory son independientes entre sí. Si asigna a una entidad de seguridad un rol de "Colaborador" en el nivel de suscripción, la entidad de seguridad no podrá de realizar automáticamente operaciones de plano de datos en cada almacén de claves del ámbito de la suscripción. Así pues, la entidad de seguridad aún deberá recibir o concederse los permisos de la directiva de acceso para realizar operaciones en el plano de datos.
 
-### <a name="data-plane-access-option-2--azure-rbac-for-key-vault-preview"></a>Opción 2 de acceso al plano de datos:  Azure RBAC para Key Vault (versión preliminar)
+### <a name="data-plane-access-option-2--azure-rbac-for-key-vault"></a>Opción 2 de acceso al plano de datos:  Azure RBAC para Key Vault
 
 Una nueva forma de conceder acceso al plano de datos del almacén de claves es mediante el control de acceso basado en roles de Azure (Azure RBAC) del almacén de claves.
 

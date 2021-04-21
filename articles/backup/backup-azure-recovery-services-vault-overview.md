@@ -3,12 +3,12 @@ title: Introducción a los almacenes de Recovery Services
 description: Una introducción a los almacenes de Recovery Services.
 ms.topic: conceptual
 ms.date: 08/17/2020
-ms.openlocfilehash: 0ed37446e1ccf0780f924143c8f063964adf0004
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2f2018f0f3d3135d632418c2e591e6ad938d62d2
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98755118"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107517460"
 ---
 # <a name="recovery-services-vaults-overview"></a>Introducción a los almacenes de Recovery Services
 
@@ -57,7 +57,7 @@ Azure Advisor proporciona [recomendaciones](../advisor/advisor-high-availabilit
 ## <a name="additional-resources"></a>Recursos adicionales
 
 - [Escenarios admitidos y no admitidos de almacén](backup-support-matrix.md#vault-support)
-- [Preguntas más frecuentes de almacén](backup-azure-backup-faq.md)
+- [Preguntas más frecuentes de almacén](backup-azure-backup-faq.yml)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

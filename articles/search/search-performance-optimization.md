@@ -1,99 +1,45 @@
 ---
-title: Escalado para mejorar el rendimiento
+title: Disponibilidad y continuidad
 titleSuffix: Azure Cognitive Search
-description: Conozca las técnicas y los procedimientos recomendados para optimizar el rendimiento de Azure Cognitive Search y configurar la escala óptima.
-manager: nitinme
+description: Aprenda a hacer que un servicio de búsqueda sea altamente disponible y resistente frente a interrupciones del período o incluso errores catastróficos.
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 04/06/2021
 ms.custom: references_regions
-ms.openlocfilehash: 60371888dbc4f0cbc33f1ad1b2a685dbb071c01a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 493f6759f63f023572f38647076e04425acf9d6a
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101670719"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106581523"
 ---
-# <a name="scale-for-performance-on-azure-cognitive-search"></a>Escalado para mejorar el rendimiento en Azure Cognitive Search
+# <a name="availability-and-business-continuity-in-azure-cognitive-search"></a>Disponibilidad y continuidad empresarial en Azure Cognitive Search
 
-En este artículo se describen las prácticas recomendadas para escenarios avanzados con requisitos sofisticados de escalabilidad y disponibilidad.
+En Cognitive Search, la disponibilidad se logra a través de varias réplicas, mientras que la continuidad empresarial (y la recuperación ante desastres) se logra a través de varios servicios de búsqueda. En este artículo se proporcionan instrucciones que puede usar como punto de partida para desarrollar una estrategia que cumpla los requisitos empresariales de disponibilidad y operaciones continuas.
 
-## <a name="start-with-baseline-numbers"></a>Inicio con números de base de referencia
+<a name="scale-for-availability"></a>
 
-Antes de asumir un mayor esfuerzo de implementación, asegúrese de que sabe cómo es una carga de consulta típica. Las instrucciones siguientes pueden ayudarle a llegar a números de consulta de línea de base.
+## <a name="high-availability"></a>Alta disponibilidad
 
-1. Seleccionar una latencia objetivo (o cantidad máxima de tiempo) que una solicitud de búsqueda típica debería tardar en completarse.
+En Cognitive Search, las réplicas son copias del índice. Tener varias réplicas permite que Azure Cognitive Search realice tareas de reinicio y mantenimiento de la máquina en una réplica, mientras que la ejecución de consultas continúa en otras. Para obtener más información sobre cómo agregar réplicas, vea [Adición o reducción de réplicas y particiones](search-capacity-planning.md#adjust-capacity).
 
-1. Cree y pruebe una carga de trabajo real en su servicio de búsqueda con un conjunto de datos realista para medir estas tasas de latencia.
-
-1. Comience con un número reducido de consultas por segundo (QPS) y aumente gradualmente el número que se ejecuta en la prueba hasta que la latencia de las consultas caiga por debajo del destino predefinido. Esta es una prueba comparativa importante que le ayudará a planear el escalado a medida que el uso de la aplicación crece.
-
-1. Siempre que sea posible, reutilice las conexiones HTTP. Si usa el SDK para .NET de Azure Cognitive Search, debe reutilizar una instancia de [SearchClient](/dotnet/api/azure.search.documents.searchclient) y, si usa la API REST, debe reutilizar un única instancia de HttpClient.
-
-1. Varíe el contenido de las solicitudes de consulta para que la búsqueda se realice a través de distintas partes del índice. La variación es importante porque si ejecuta continuamente las mismas solicitudes de búsqueda, el almacenamiento en caché de los datos empezará a ofrecer un rendimiento mejor que el que se obtendría con un conjunto de consultas más dispar.
-
-1. Varíe la estructura de las solicitudes de consulta para obtener diferentes tipos de consultas. No todas las consultas de búsqueda se realizan en el mismo nivel. Por ejemplo, una sugerencia de búsqueda o la búsqueda de documentos normalmente es más rápida que una consulta con un número significativo de facetas y filtros. La composición de prueba debe incluir varias consultas en las mismas proporciones aproximadamente, tal como se esperaría en producción.  
-
-Al crear estas cargas de trabajo de prueba, hay algunas características de Azure Cognitive Search que debe tener en cuenta:
-
-+ Es posible sobrecargar el servicio mediante la inserción de demasiadas consultas de búsqueda al mismo tiempo. Cuando esto sucede, verá códigos de respuesta HTTP 503. Para evitar un código 503 durante las pruebas, empiece con varios intervalos de solicitudes de búsqueda para ver las diferencias en las tasas de latencia a medida que se agregan más solicitudes de búsqueda.
-
-+ Azure Cognitive Search no ejecuta tareas de indexación en segundo plano. Si el servicio controla al mismo tiempo las cargas de trabajo de indexación y consulta, debe tener esto en cuenta mediante la introducción de trabajos de indexación en las pruebas de consulta o la exploración de opciones para ejecutar trabajos de indexación durante las horas de menor actividad.
-
-> [!Tip]
-> Puede simular una carga de consulta realista mediante herramientas de prueba de carga. Pruebe la [prueba de carga con Azure DevOps](/azure/devops/test/load-test/get-started-simple-cloud-load-test) o use una de estas [alternativas](/azure/devops/test/load-test/overview#alternatives).
-
-## <a name="scale-for-high-query-volume"></a>Escalado para lograr un alto volumen de consultas
-
-Un servicio se sobrecarga cuando las consultas tardan demasiado tiempo o cuando el servicio empieza a eliminar solicitudes. Si esto sucede, puede solucionar el problema de una de estas dos formas:
-
-+ **Agregar réplicas**  
-
-  Cada réplica es una copia de los datos, lo que permite que el servicio equilibre la carga de las solicitudes en varias copias.  Azure Cognitive Search administra el equilibrado de la carga y la replicación de los datos, y puede modificar el número de réplicas asignado a su servicio en cualquier momento. Puede asignar hasta 12 réplicas en un servicio de búsqueda estándar y 3 réplicas en un servicio de búsqueda básico. Las réplicas pueden ajustarse desde [Azure Portal](search-create-service-portal.md) o [PowerShell](search-manage-powershell.md).
-
-+ **Crear un nuevo servicio en un nivel superior**  
-
-  Azure Cognitive Search se ofrece con [diferentes niveles](https://azure.microsoft.com/pricing/details/search/), y cada uno de ellos proporciona distintos grados de rendimiento. En algunos casos, puede tener tantas consultas que el nivel en que se encuentra no puede proporcionar una respuesta suficiente, ni siquiera cuando se usa el máximo de réplicas. En este caso, considere la posibilidad de pasar a un nivel de rendimiento superior, como el nivel Estándar S3, que está diseñado para escenarios con un gran número de documentos y cargas de trabajo de consulta extremadamente altas.
-
-## <a name="scale-for-slow-individual-queries"></a>Escalado para consultas individuales lentas
-
-Otro motivo para las tasas de latencia altas es una única consulta que tarda demasiado tiempo en completarse. En este caso, agregar réplicas no ayudará. A continuación, se indican dos opciones posibles que podrían ayudar:
-
-+ **Aumentar particiones**
-
-  Una partición divide los datos entre recursos informáticos adicionales. Dos particiones dividen los datos por la mitad, una tercera partición los divide en tercios, etc. Un efecto secundario positivo es que las consultas más lentas a veces se ejecutan más rápido debido a la computación en paralelo. Se observó la paralelización de consultas de selectividad baja, como las consultas que coinciden con muchos documentos, o facetas que proporcionan recuentos a través de un gran número de documentos. Como se necesita una gran cantidad de cálculo para puntuar la relevancia de los documentos o para contar el número de documentos, agregar particiones adicionales ayuda a que las consultas se completen más rápido.  
-   
-  En el servicio de búsqueda Estándar puede haber un máximo de 12 particiones, mientras que en el servicio de búsqueda Básico el máximo es 1. Las particiones pueden ajustarse desde [Azure Portal](search-create-service-portal.md) o [PowerShell](search-manage-powershell.md).
-
-+ **Limitar los campos de alta cardinalidad**
-
-  Un campo de alta cardinalidad consta de un campo clasificable o filtrable que tiene un número significativo de valores únicos y, como resultado, consume recursos importantes al procesar los resultados. Por ejemplo, el establecimiento de un campo de identificador de producto o de descripción como filtrable o clasificable contaría como alta cardinalidad ya que la mayoría de los valores de un documento a otro son únicos. Siempre que sea posible, limite el número de campos de alta cardinalidad.
-
-+ **Aumentar el nivel de búsqueda**  
-
-  moverse a un nivel superior de Azure Cognitive Search puede ser otra manera de mejorar el rendimiento de las consultas lentas. Cada nivel superior proporciona CPU más rápidas y más memoria, aspectos que tienen un impacto positivo en el rendimiento de las consultas.
-
-## <a name="scale-for-availability"></a>Escalado para lograr disponibilidad
-
-Las réplicas no solo ayudan a reducir la latencia de las consultas, sino que también permiten una alta disponibilidad. Con una sola réplica, puede esperar que se produzcan tiempos de inactividad periódicamente debido al reinicio del servidor después de las actualizaciones de software o por otros posibles eventos de mantenimiento. Como resultado, es importante tener en cuenta si la aplicación requiere alta disponibilidad de búsquedas (consultas), así como de escrituras (eventos de indexación). Azure Cognitive Search ofrece opciones de Acuerdo de Nivel de Servicio en todas las ofertas de búsqueda de pago con los siguientes atributos:
+Para cada servicio de búsqueda individual, Microsoft garantiza al menos un 99,9 % de disponibilidad para las configuraciones que cumplen estos criterios: 
 
 + Dos réplicas para alta disponibilidad de cargas de trabajo de solo lectura (consultas)
 
-+ Tres o más réplicas para lograr alta disponibilidad de las cargas de trabajo de lectura-escritura (consultas e indexación)
++ Tres o más réplicas para lograr alta disponibilidad de las cargas de trabajo de lectura-escritura (consultas e indexación) 
 
-Para más información al respecto, visite el [Acuerdo de Nivel de Servicio de Azure Cognitive Search](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
-
-Como las réplicas son copias de los datos, tener varias réplicas permite que Azure Cognitive Search realice tareas de reinicio y mantenimiento de la máquina en una réplica, mientras que la ejecución de consultas continúa en otras. Por el contrario, si quita réplicas, provocará la degradación del rendimiento de consulta, suponiendo que esas réplicas eran un recurso infrautilizado.
+No se proporciona ningún Acuerdo de Nivel de Servicio para el nivel Gratis. Para más información, consulte [SLA para Azure Cognitive Search](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 <a name="availability-zones"></a>
 
-### <a name="availability-zones"></a>Zonas de disponibilidad
+## <a name="availability-zones"></a>Zonas de disponibilidad
 
-Las [zona de disponibilidad](../availability-zones/az-overview.md) dividen los centros de datos de una región en grupos de ubicaciones físicas distintos para proporcionar alta disponibilidad, dentro de la misma región. Por Cognitive Search, las réplicas individuales son las unidades de asignación de zona. Un servicio de búsqueda se ejecuta dentro de una región; sus réplicas se ejecutan en zonas diferentes.
+[Availability Zones](../availability-zones/az-overview.md) es una capacidad de la plataforma de Azure que divide los centros de datos de una región en grupos de ubicaciones físicas distintos para proporcionar alta disponibilidad, dentro de la misma región. Si usa Availability Zones para Cognitive Search, las réplicas individuales son las unidades de asignación de zona. Un servicio de búsqueda se ejecuta dentro de una región; sus réplicas se ejecutan en zonas diferentes.
 
-Puede agregar dos o más réplicas al servicio de búsqueda para utilizar Availability Zones con Azure Cognitive Search. Cada réplica se colocará en una zona de disponibilidad distinta dentro de la región. Si tiene más réplicas que zonas de disponibilidad, las réplicas se distribuirán entre esas zonas lo más uniformemente posible.
+Puede agregar dos o más réplicas al servicio de búsqueda para utilizar Availability Zones con Azure Cognitive Search. Cada réplica se colocará en una zona de disponibilidad distinta dentro de la región. Si tiene más réplicas que zonas de disponibilidad, las réplicas se distribuirán entre esas zonas lo más uniformemente posible. No hay ninguna acción específica que deba hacer, excepto [crear un servicio de búsqueda](search-create-service-portal.md) en una región que proporciona Availability Zones y, a continuación, configurar el servicio para que [use varias réplicas](search-capacity-planning.md#adjust-capacity).
 
 Actualmente, Azure Cognitive Search admite zonas de disponibilidad para los servicios de búsqueda de nivel estándar o superior que se crearon en una de las siguientes regiones:
 
@@ -112,21 +58,31 @@ Actualmente, Azure Cognitive Search admite zonas de disponibilidad para los serv
 
 Las zonas de disponibilidad no afectan al [Acuerdo de Nivel de Servicio de Azure Cognitive Search](https://azure.microsoft.com/support/legal/sla/search/v1_0/). Todavía necesita tres o más réplicas para la alta disponibilidad de las consultas.
 
-## <a name="scale-for-geo-distributed-workloads-and-geo-redundancy"></a>Escalado de cargas de trabajo distribuidas geográficamente y de redundancia geográfica
+## <a name="multiple-services-in-separate-geographic-regions"></a>Varios servicios en regiones geográficas independientes
 
-En las cargas de trabajo distribuidas geográficamente, los usuarios que se encuentren lejos del centro de datos de host tendrán mayores tasas de latencia. Una solución consiste en aprovisionar varios servicios de búsqueda en regiones más próximas a estos usuarios.
+Aunque la mayoría de los clientes usan un solo servicio, la redundancia de servicios puede ser necesaria si los requisitos operativos son los siguientes:
 
-Azure Cognitive Search no proporciona actualmente un método automatizado de replicación geográfica de índices de Azure Cognitive Search entre regiones, pero existen algunas técnicas que permiten simplificar la implementación y administración de este proceso. Se describen en las siguientes secciones.
++ [Continuidad empresarial y recuperación ante desastres (BCDR)](../best-practices-availability-paired-regions.md) (Cognitive Search no proporciona conmutación por error instantánea en caso de una interrupción).
++ Aplicaciones implementadas globalmente. Si las solicitudes de consulta e indexación proceden de todo el mundo, los usuarios más cercanos al centro de datos del host tendrán un rendimiento más rápido. La creación de servicios adicionales en regiones cercanas a estos usuarios puede igualar el rendimiento de todos los usuarios.
++ [Las arquitecturas multiinquilino](search-modeling-multitenant-saas-applications.md) a veces llaman a dos o más servicios.
 
-El objetivo de un conjunto de servicios de búsqueda distribuido geográficamente es tener dos o más índices disponibles en dos o más regiones, en las que un usuario se enruta al servicio Azure Cognitive Search que proporciona la latencia más baja, como se muestra en este ejemplo:
+Si necesita dos servicios de búsqueda más, crearlos en regiones diferentes puede cumplir los requisitos de la aplicación para la continuidad y la recuperación, así como tiempos de respuesta más rápidos para una base de usuarios global.
+
+Azure Cognitive Search no proporciona actualmente un método automatizado de índices de búsqueda con replicación geográfica entre regiones, pero existen algunas técnicas que permiten simplificar la implementación y administración de este proceso. Se describen en las siguientes secciones.
+
+El objetivo de un conjunto de servicios de búsqueda distribuido geográficamente es tener dos o más índices disponibles en dos o más regiones, en las que un usuario se enruta al servicio Azure Cognitive Search que proporciona la latencia más baja:
 
    ![Tablas de referencias cruzadas de servicios por región][1]
 
+Puede implementar esta arquitectura mediante la creación de varios servicios y el diseño de una estrategia para la sincronización de datos. Opcionalmente, puede incluir un recurso como Azure Traffic Manager para las solicitudes de enrutamiento. Para más información, consulte [Creación de servicio de búsqueda](search-create-service-portal.md).
+
+<a name="data-sync"></a>
+
 ### <a name="keep-data-synchronized-across-multiple-services"></a>Mantenimiento de los datos sincronizados entre varios servicios
 
-Hay dos opciones para mantener sincronizados los servicios de búsqueda distribuidos: usar el [indexador de Azure Cognitive Search](search-indexer-overview.md) o la Push API (también denominada [API REST de Azure Cognitive Search](/rest/api/searchservice/)).  
+Hay dos opciones para mantener sincronizados dos o más servicios de búsqueda distribuidos: usar el [indexador de Azure Cognitive Search](search-indexer-overview.md) o la Push API (también denominada [API REST de Azure Cognitive Search](/rest/api/searchservice/)). 
 
-### <a name="use-indexers-for-updating-content-on-multiple-services"></a>Uso de indexadores para la actualización de contenido en varios servicios
+#### <a name="option-1-use-indexers-for-updating-content-on-multiple-services"></a>Opción 1: uso de indexadores para la actualización de contenido en varios servicios
 
 Si ya usa un indexador en un servicio, puede configurar un segundo indexador en un segundo servicio para usar el mismo objeto de origen de datos, extrayendo datos de la misma ubicación. Cada servicio en cada región tiene su propio indexador y un índice de destino (el índice de búsqueda no se comparte, lo que significa que los datos se duplican), pero cada indexador hace referencia al mismo origen de datos.
 
@@ -134,15 +90,31 @@ Este es un objeto visual de alto nivel del aspecto que podría tener esa arquite
 
    ![Origen de datos único con indexador distribuido y combinaciones de servicios][2]
 
-### <a name="use-rest-apis-for-pushing-content-updates-on-multiple-services"></a>Uso de las API REST para insertar actualizaciones de contenido en varios servicios
+#### <a name="option-2-use-rest-apis-for-pushing-content-updates-on-multiple-services"></a>Opción 2: uso de las API REST para insertar actualizaciones de contenido en varios servicios
 
-Si usa la API REST de Azure Cognitive Search para [insertar contenido en el índice de Azure Cognitive Search](/rest/api/searchservice/update-index) y quiere mantener sincronizados los distintos servicios de búsqueda, inserte los cambios en todos los servicios de búsqueda cada vez que se necesite una actualización. En el código, asegúrese de controlar los casos en los que una actualización en un servicio de búsqueda produce un error, pero se ejecuta correctamente en otros servicios de búsqueda.
+Si usa la API REST de Azure Cognitive Search para [insertar contenido en el índice de búsqueda](tutorial-optimize-indexing-push-api.md) y quiere mantener sincronizados los distintos servicios de búsqueda, inserte los cambios en todos los servicios de búsqueda cada vez que se necesite una actualización. En el código, asegúrese de controlar los casos en los que una actualización en un servicio de búsqueda produce un error, pero se ejecuta correctamente en otros servicios de búsqueda.
 
-## <a name="leverage-azure-traffic-manager"></a>Aprovechamiento de Azure Traffic Manager
+### <a name="use-azure-traffic-manager-to-coordinate-requests"></a>Uso de Azure Traffic Manager para coordinar las solicitudes
 
 [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) permite enrutar solicitudes a diversos sitios web con ubicación geográfica atendidos por distintos servicios Azure Cognitive Search. Una ventaja de Traffic Manager es que puede sondear Azure Cognitive Search para asegurarse de que está disponible y enrutar los usuarios a servicios de búsqueda alternativos en caso de tiempo de inactividad. Además, si va a enrutar solicitudes de búsqueda a través de Azure Web Sites, Azure Traffic Manager permite equilibrar la carga de aquellos casos en los que el sitio web está activo pero Azure Cognitive Search no. Este es un ejemplo de una arquitectura que utiliza el Administrador de tráfico.
 
    ![Tablas de referencias cruzadas de servicios por región con Administrador de tráfico central][3]
+
+## <a name="disaster-recovery-and-service-outages"></a>Interrupciones de servicio y recuperación ante desastres
+
+Aunque podemos recuperar los datos, Azure Cognitive Search no proporciona conmutación por error instantánea del servicio si se produce una interrupción en centro de datos o el clúster. Si se produce un error en un clúster del centro de datos, el equipo de operaciones lo detectará y trabajará para restaurar el servicio. Experimentará tiempo de inactividad durante la restauración del servicio, pero puede solicitar créditos del servicio para compensar la falta de disponibilidad de servicio según el [Acuerdo de Nivel de Servicio (SLA)](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
+
+Si se requiera continuidad del servicio, en caso de errores catastróficos fuera de control de Microsoft, debe [aprovisionar un servicio adicional](search-create-service-portal.md) en una región diferente e implementar una estrategia de replicación geográfica para asegurarse de que los índices sean totalmente redundantes en todos los servicios.
+
+Los clientes que usen [indizadores](search-indexer-overview.md) para rellenar y actualizar índices pueden controlar la recuperación ante desastres mediante indizadores geográficos que aprovechan el mismo origen de datos. Dos servicios en regiones diferentes, donde cada uno ejecuta un indizador, pueden indexar desde el mismo origen de datos para lograr redundancia geográfica. Si indexa desde orígenes de datos que también tienen redundancia geográfica, tenga en cuenta que los indexadores de Azure Cognitive Search solo pueden realizar una indexación incremental (fusión de actualizaciones a partir de documentos nuevos, modificados o eliminados) desde las réplicas principales. En un evento de conmutación por error, asegúrese de que el indizador apunte de nuevo a la nueva réplica principal. 
+
+Si no utiliza indizadores, usaría el código de aplicación para enviar objetos y datos a distintos servicios de búsqueda en paralelo. Para obtener más información, consulte [Mantenimiento de los datos sincronizados entre varios servicios](#data-sync).
+
+## <a name="back-up-and-restore-alternatives"></a>Alternativas de copia de seguridad y restauración
+
+Dado que Azure Cognitive Search no es una solución de almacenamiento de datos principal, Microsoft no proporciona un mecanismo formal para realizar procesos de copias de seguridad y restauración automáticos. Sin embargo, puede usar el ejemplo de código **index-backup-restore** de este [repositorio de ejemplo .NET de Azure Cognitive Search](https://github.com/Azure-Samples/azure-search-dotnet-samples) para realizar la copia de seguridad de la definición de índice y una instantánea en una serie de archivos JSON y, después, usar esos archivos para restaurar el índice, en caso de que sea necesario. Esta herramienta también se puede usar para mover índices entre niveles de servicio.
+
+De lo contrario, el código de aplicación que se usa para crear y rellenar un índice es la opción de restauración de facto si elimina por error un índice. Para volver a generar un índice, elimínelo (si existe), vuelva a crear el índice en el servicio y cárguelo de nuevo recuperando los datos del almacén de datos principal.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

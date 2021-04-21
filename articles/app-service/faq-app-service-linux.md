@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 6faec27bf368b3eb45e05a91307df6027bda93b1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fb5203629915914ab9af22d89e5f2865078a8e44
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100094005"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107012614"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Peguntas más frecuentes sobre Azure App Service en Linux
 
@@ -144,6 +144,20 @@ Disponemos de detección automática de puerto. También puede especificar un va
 
 No, la plataforma controla la terminación HTTPS en los front-end compartidos.
 
+**¿Es necesario usar la variable PORT en el código para contenedores integrados?**
+
+No, la variable PORT no es necesaria debido a la detección automática de puertos. Si no se detecta ningún puerto, el valor predeterminado es 80.
+Para configurar manualmente un puerto personalizado, use la instrucción EXPOSE en Dockerfile y la configuración de la aplicación, WEBSITES_PORT, con un valor de puerto para enlazar en el contenedor.
+
+**¿Es necesario usar WEBSITES_PORT contenedores personalizados?**
+
+Sí, es necesario para los contenedores personalizados. Para configurar manualmente un puerto personalizado, use la instrucción EXPOSE en Dockerfile y la configuración de la aplicación, WEBSITES_PORT, con un valor de puerto para enlazar en el contenedor.
+
+**¿Puedo usar ASPNETCORE_URLS en la imagen de Docker?**
+
+Sí, sobrescriba la variable de entorno antes de que se inicie la aplicación .NET Core.
+Por ejemplo, En el script init.sh: exporte ASPNETCORE_URLS={Your value}.
+
 ## <a name="multi-container-with-docker-compose"></a>Varios contenedores con Docker Compose
 
 **¿Cómo puedo configurar Azure Container Registry (ACR) para usar con varios contenedores?**
@@ -206,3 +220,4 @@ Puede enviar su idea en el [foro de comentarios de Web Apps](https://aka.ms/weba
 - [¿Qué es Azure App Service en Linux?](overview.md#app-service-on-linux)
 - [Configuración de entornos de ensayo en Azure App Service](deploy-staging-slots.md)
 - [Implementación continua con Web App for Containers](./deploy-ci-cd-custom-container.md)
+- [Lo que debe saber: Web Apps y Linux](https://techcommunity.microsoft.com/t5/apps-on-azure/things-you-should-know-web-apps-and-linux/ba-p/392472)

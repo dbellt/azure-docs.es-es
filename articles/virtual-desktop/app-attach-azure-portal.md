@@ -1,37 +1,28 @@
 ---
-title: 'Versión preliminar del portal para la asociación de aplicaciones en formato MSIX para Windows Virtual Desktop: Azure'
+title: 'Portal para la asociación de aplicaciones en formato MSIX para Windows Virtual Desktop: Azure'
 description: Configuración de la asociación de aplicaciones en formato MSIX para Windows Virtual Desktop mediante Azure Portal.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 02/11/2021
+ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: a849b65fd25e6943925ffa245430cd8a27529fdb
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 21dbab6c8d4fb12fe79434a6994dd7f5b8a49190
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106448430"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107502715"
 ---
 # <a name="set-up-msix-app-attach-with-the-azure-portal"></a>Configuración de la asociación de aplicaciones en formato .MSIX con Azure Portal
 
-> [!IMPORTANT]
-> La asociación de aplicaciones en formato MSIX está actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Este artículo le guiará a través de la configuración de la asociación de aplicaciones en formato MSIX (versión preliminar) en un entorno de Windows Virtual Desktop.
+Este artículo le guiará a través de la configuración de la asociación de aplicaciones en formato MSIX en un entorno de Windows Virtual Desktop.
 
 ## <a name="requirements"></a>Requisitos
-
->[!IMPORTANT]
->Antes de empezar, asegúrese de rellenar [este formulario](https://aka.ms/enablemsixappattach) y enviarlo para habilitar la asociación de aplicaciones en formato MSIX en su suscripción. Si no tiene una solicitud aprobada, la asociación de aplicaciones en formato MSIX no funcionará. La aprobación de las solicitudes puede tardar hasta 24 horas durante los días laborables. Recibirá un correo electrónico cuando la solicitud se haya aceptado y completado.
 
 Esto es lo que necesita para configurar la asociación de aplicaciones en formato MSIX:
 
 - Una implementación de Windows Virtual Desktop en funcionamiento. Para obtener información sobre cómo implementar Windows Virtual Desktop (clásico), consulte [Creación de un inquilino en Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). Para obtener información sobre cómo implementar Windows Virtual Desktop con la integración de Azure Resource Manager, consulte [Creación de un grupo de hosts con Azure Portal](./create-host-pools-azure-marketplace.md).
 - Un grupo de hosts de Windows Virtual Desktop con al menos un host de sesión activo.
-- Este grupo de hosts debe estar en el entorno de validación. 
 - La herramienta de empaquetado MSIX.
 - Una aplicación empaquetada en formato MSIX expandida en una imagen MSIX que se carga en un recurso compartido de archivos.
 - Un recurso compartido de archivos en la implementación de Windows Virtual Desktop donde se almacenará el paquete MSIX.

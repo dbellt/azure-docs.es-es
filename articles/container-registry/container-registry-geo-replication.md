@@ -5,12 +5,12 @@ author: stevelas
 ms.topic: article
 ms.date: 07/21/2020
 ms.author: stevelas
-ms.openlocfilehash: 4e82be0e81e5e8c0182e061a0fba0f880bd45cc6
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 3e5b064ec37b855186f633677e2b1a3f615a6736
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102632397"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107783870"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Replicación geográfica en Azure Container Registry
 
@@ -105,7 +105,7 @@ ACR comenzará entonces a sincronizar imágenes entre las réplicas configuradas
 
 ## <a name="delete-a-replica"></a>Eliminación de una réplica
 
-Después de configurar una réplica para el registro, puede eliminarla en cualquier momento cuando ya no sea necesaria. Elimine una réplica mediante Azure Portal u otras herramientas, como el comando [az acr replication delete](/cli/azure/acr/replication#az-acr-replication-delete) de la CLI de Azure.
+Después de configurar una réplica para el registro, puede eliminarla en cualquier momento cuando ya no sea necesaria. Elimine una réplica mediante Azure Portal u otras herramientas, como el comando [az acr replication delete](/cli/azure/acr/replication#az_acr_replication_delete) de la CLI de Azure.
 
 Para eliminar una réplica en Azure Portal:
 
@@ -163,5 +163,5 @@ Consulte la serie de tres partes del tutorial [Geo-replication in Azure Containe
 > [!div class="nextstepaction"]
 > [Replicación geográfica en Azure Container Registry](container-registry-tutorial-prepare-registry.md)
 
-[az-acr-replication-list]: /cli/azure/acr/replication#az-acr-replication-list
-[az-acr-replication-update]: /cli/azure/acr/replication#az-acr-replication-update
+[az-acr-replication-list]: /cli/azure/acr/replication#az_acr_replication_list
+[az-acr-replication-update]: /cli/azure/acr/replication#az_acr_replication_update

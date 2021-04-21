@@ -3,12 +3,12 @@ title: Solución de problemas de inicio de sesión en el registro
 description: Síntomas, causas y resolución de problemas comunes al iniciar sesión en un registro de contenedor de Azure
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 5deb1717cf3886d8ea9c021d92afa358946b16dc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 47186cc8256836e5367ecee520787b67662eb42f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99052085"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780738"
 ---
 # <a name="troubleshoot-registry-login"></a>Solución de problemas de inicio de sesión del registro
 
@@ -36,7 +36,7 @@ Puede encontrarse con uno o varios de los siguientes:
 
 ## <a name="further-diagnosis"></a>Diagnóstico detallado 
 
-Ejecute el comando [az acr check-helth](/cli/azure/acr#az-acr-check-health) para tener más información sobre el estado del entorno y el acceso opcional a un registro de destino. Por ejemplo, diagnostique errores de configuración de Docker o problemas de inicio de sesión de Azure Active Directory. 
+Ejecute el comando [az acr check-helth](/cli/azure/acr#az_acr_check_health) para tener más información sobre el estado del entorno y el acceso opcional a un registro de destino. Por ejemplo, diagnostique errores de configuración de Docker o problemas de inicio de sesión de Azure Active Directory. 
 
 Puede encontrar ejemplos de comandos en [Comprobación del mantenimiento de un registro de contenedor de Azure](container-registry-check-health.md). Si se notifican errores, revise la [referencia de error](container-registry-health-error-reference.md) y las siguientes secciones para ver las soluciones recomendadas.
 
@@ -64,7 +64,7 @@ Al usar `docker login`, proporcione el nombre completo del servidor de inicio de
 docker login myregistry.azurecr.io
 ```
 
-Al usar [az acr login](/cli/azure/acr#az-acr-login) con una identidad de Azure Active Directory, primero [inicie sesión en la CLI de Azure](/cli/azure/authenticate-azure-cli) y, luego, especifique el nombre del recurso de Azure del registro. El nombre del recurso es el nombre que se proporcionó cuando se creó el registro, por ejemplo, *myregistry* (sin un sufijo de dominio). Ejemplo:
+Al usar [az acr login](/cli/azure/acr#az_acr_login) con una identidad de Azure Active Directory, primero [inicie sesión en la CLI de Azure](/cli/azure/authenticate-azure-cli) y, luego, especifique el nombre del recurso de Azure del registro. El nombre del recurso es el nombre que se proporcionó cuando se creó el registro, por ejemplo, *myregistry* (sin un sufijo de dominio). Ejemplo:
 
 ```azurecli
 az acr login --name myregistry
@@ -72,7 +72,7 @@ az acr login --name myregistry
 
 Vínculos relacionados:
 
-* [az acr login se ha ejecutado correctamente, pero docker ha producido el error: no autorizado: se necesita autorización](container-registry-faq.md#az-acr-login-succeeds-but-docker-fails-with-error-unauthorized-authentication-required )
+* [az acr login se ha ejecutado correctamente, pero docker ha producido el error: no autorizado: se necesita autorización](container-registry-faq.md#az-acr-login-succeeds-but-docker-fails-with-error-unauthorized-authentication-required)
 
 ### <a name="confirm-credentials-to-access-registry"></a>Confirmar las credenciales para acceder al registro
 
@@ -94,7 +94,7 @@ Vínculos relacionados:
 * [Inicio de sesión con un token de ámbito de repositorio](container-registry-repository-scoped-permissions.md)
 * [Inicio de sesión con la cuenta de administrador](container-registry-authentication.md#admin-account)
 * [Códigos de error de autenticación y autorización de Azure AD](../active-directory/develop/reference-aadsts-error-codes.md)
-* Referencia de [az acr login](/cli/azure/acr#az-acr-login)
+* Referencia de [az acr login](/cli/azure/acr#az_acr_login)
 
 ### <a name="confirm-credentials-are-authorized-to-access-registry"></a>Confirmar que las credenciales están autorizadas para acceder al registro
 
@@ -125,7 +125,7 @@ Los tokens y las credenciales de Active Directory pueden expirar después de per
 
 Vínculos relacionados:
 
-* [Restablecimiento de las credenciales de la entidad de servicio](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset)
+* [Restablecimiento de las credenciales de la entidad de servicio](/cli/azure/ad/sp/credential#az_ad_sp_credential_reset)
 * [Regeneración de contraseñas de token](container-registry-repository-scoped-permissions.md#regenerate-token-passwords)
 * [Inicio de sesión individual con Azure AD](container-registry-authentication.md#individual-login-with-azure-ad)
 

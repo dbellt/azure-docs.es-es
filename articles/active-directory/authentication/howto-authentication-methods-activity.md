@@ -11,12 +11,12 @@ author: sopand
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a1cb71917fdb30ffccda21bedffe1c7f2a428c1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 699ff88e4181dada5eacaa3f13469722cdf7ceaa
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105557962"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530444"
 ---
 # <a name="authentication-methods-activity"></a>Actividad de los métodos de autenticación 
 
@@ -139,6 +139,6 @@ El informe de detalles de registro muestra la siguiente información para cada u
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Trabajar con la API del informe de utilización de métodos de autenticación](/graph/api/resources/authenticationmethods-usage-insights-overview?view=graph-rest-beta)
+- [Trabajar con la API del informe de utilización de métodos de autenticación](/graph/api/resources/authenticationmethods-usage-insights-overview)
 - [Elegir los métodos de autenticación para la organización](concept-authentication-methods.md)
 - [Experiencia de registro combinada](concept-registration-mfa-sspr-combined.md)

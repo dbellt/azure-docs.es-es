@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/25/2021
+ms.date: 04/08/2021
 ms.author: yelevin
-ms.openlocfilehash: 8853f3774bb35361746c8b706f38bc54079d74f7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8980a8920b4f41f5a8e6afe106415032eef2055b
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98790993"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107375851"
 ---
 # <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>Tutorial: Investigación de incidentes con Azure Sentinel
 
@@ -51,9 +51,15 @@ Un incidente puede incluir varias alertas, a modo de agregado de todas las prueb
 
 1. Para iniciar una investigación, seleccione un incidente específico. A la derecha, puede ver información detallada del incidente, como la gravedad o un resumen del número de entidades implicadas, los eventos sin procesar que desencadenaron este incidente y el identificador único del mismo.
 
-1. Para ver más detalles sobre las alertas y las entidades del incidente, seleccione **View full details** (Ver detalles completos) en la página del incidente y revise las pestañas correspondientes donde se resume la información del incidente. En la pestaña **Alertas**, revise la alerta en sí. Puede ver toda la información relevante sobre la alerta: la consulta que la ha desencadenado, el número de resultados devueltos por consulta y la capacidad de ejecutar cuadernos de estrategias en las alertas. Para explorar el incidente más en profundidad, seleccione el número de **eventos**. Esto abre la consulta que ha generado los resultados y los eventos que han desencadenado la alerta en Log Analytics. En la pestaña **Entities** (Entidades), puede ver todas las entidades que ha asignado como parte de la definición de regla de alerta.
+1. Para ver más detalles sobre las alertas y las entidades del incidente, seleccione **View full details** (Ver detalles completos) en la página del incidente y revise las pestañas correspondientes donde se resume la información del incidente. 
 
-    ![Ver detalles de la alerta](media/tutorial-investigate-cases/alert-details.png)
+    ![Ver detalles de la alerta](media/tutorial-investigate-cases/incident-timeline.png)
+
+    Por ejemplo:
+
+    - En la pestaña **Escala de tiempo**, revise la escala de tiempo de las alertas y los marcadores del incidente, para poder reconstruir la escala de tiempo de la actividad del atacante.
+    - En la pestaña **Alertas**, revise la alerta en sí. Puede ver toda la información relevante sobre la alerta: la consulta que la ha desencadenado, el número de resultados devueltos por consulta y la capacidad de ejecutar cuadernos de estrategias en las alertas. Para explorar el incidente más en profundidad, seleccione el número de **eventos**. Esto abre la consulta que ha generado los resultados y los eventos que han desencadenado la alerta en Log Analytics. 
+    - En la pestaña **Entities** (Entidades), puede ver todas las entidades que ha asignado como parte de la definición de regla de alerta.
 
 1. Si está investigando un incidente de manera activa, una buena idea consiste en establecer el estado del incidente en **En curso** hasta que lo cierre.
 

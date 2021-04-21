@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: include
 author: mingshen-ms
 ms.author: krsh
-ms.date: 10/20/2020
-ms.openlocfilehash: c60d2a9b13cce9251ff0f730081a9d677206770d
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.date: 03/25/2021
+ms.openlocfilehash: 8898a762e8a1e7a2d5c104f99d12032c676a5ca4
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102630123"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105629907"
 ---
 ## <a name="generalize-the-image"></a>Generalizar la imagen
 
@@ -52,7 +52,9 @@ Una vez que la VM esté lista, puede capturarla en una instancia de Azure Share
 8. Seleccione **Revisar y crear** para revisar sus selecciones.
 9. Una vez que pase la validación, seleccione **Crear**.
 
-Para realizar la publicación, la cuenta del publicador debe tener acceso de Propietario a la SIG. Para conceder el acceso, siga estos pasos:
+La suscripción de Azure que contiene la SIG debe estar en el mismo inquilino que la cuenta de publicador para poder publicar. Además, la cuenta del publicador debe tener acceso de Propietario a la SIG. 
+
+Para conceder el acceso, siga estos pasos:
 
 1. Vaya a Shared Image Gallery.
 2. Seleccione **Control de acceso** (IAM) en el panel de la izquierda.

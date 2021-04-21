@@ -3,12 +3,12 @@ title: Reglas de acceso del firewall
 description: Configure reglas para acceder a un registro de contenedor de Azure desde detrás de un firewall. Para ello, permita el acceso a la API REST y los nombres de dominio del punto de conexión de datos o los intervalos de direcciones IP específicos del servicio.
 ms.topic: article
 ms.date: 05/18/2020
-ms.openlocfilehash: 548d64632c1d726111770dfb49f705d31f5ca714
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6aea4415468eb21e8d010b74597fc68e4ebf573f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97935995"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107783942"
 ---
 # <a name="configure-rules-to-access-an-azure-container-registry-behind-a-firewall"></a>Configuración de reglas para acceder a un registro de contenedor de Azure desde detrás de un firewall
 
@@ -197,5 +197,5 @@ Si necesita obtener acceso a Microsoft Container Registry (MCR) desde detrás de
 
 <!-- LINKS - Internal -->
 
-[az-acr-update]: /cli/azure/acr#az-acr-update
-[az-acr-show-endpoints]: /cli/azure/acr#az-acr-show-endpoints
+[az-acr-update]: /cli/azure/acr#az_acr_update
+[az-acr-show-endpoints]: /cli/azure/acr#az_acr_show_endpoints

@@ -7,12 +7,12 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.custom: mvc, devx-track-azurecli
 ms.date: 07/30/2020
-ms.openlocfilehash: a4553ceee482fb232e9ab56deca650be93f9dc6b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b81d9b4a637965dd103d8fa89305424686a0c72c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102218050"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107789922"
 ---
 # <a name="azure-cli-script-sample---create-a-logic-app"></a>Ejemplo de script de la CLI de Azure: creación de una aplicación lógica
 
@@ -197,7 +197,7 @@ Este script de ejemplo usa los siguientes comandos para crear un nuevo grupo de 
 
 | Get-Help | Notas |
 | ------- | ----- |
-| [`az group create`](/cli/azure/group#az-group-create) | Crea un grupo de recursos en el que se almacenan los recursos de la aplicación lógica. |
+| [`az group create`](/cli/azure/group#az_group_create) | Crea un grupo de recursos en el que se almacenan los recursos de la aplicación lógica. |
 | [`az logic workflow create`](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-create) | Crea una aplicación lógica basada en el flujo de trabajo definido en el parámetro `--definition`. |
 | [`az group delete`](/cli/azure/vm/extension) | Elimina un grupo de recursos y todos sus recursos anidados. |
 

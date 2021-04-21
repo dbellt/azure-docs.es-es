@@ -7,12 +7,12 @@ ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 04ab4ae4d3de6f33f800011b9b0802665d5fb16e
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: 0b88923ff6447785a4ef5a7c80e1ff44d1a2b9cb
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107228337"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107777390"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Cómo aprovisionar para el multiinquilinato 
 
@@ -47,7 +47,7 @@ En este artículo, se usa un ejemplo de dispositivo simulado del [SDK de C para 
 En esta sección, usará Azure Cloud Shell para crear dos centros de IoT regionales en las regiones **Oeste de EE. UU.** y **Este de EE. UU.** para un inquilino.
 
 
-1. Use Azure Cloud Shell para crear un grupo de recursos con el comando [az group create](/cli/azure/group#az-group-create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. 
+1. Use Azure Cloud Shell para crear un grupo de recursos con el comando [az group create](/cli/azure/group#az_group_create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. 
 
     En el ejemplo siguiente, se crea un grupo de recursos denominado *contoso-us-resource-group* en la región *eastus*. Le recomendamos que use este grupo para todos los recursos que crearemos en el artículo. De esta forma, será más fácil limpiar al finalizar.
 
@@ -55,7 +55,7 @@ En esta sección, usará Azure Cloud Shell para crear dos centros de IoT regiona
     az group create --name contoso-us-resource-group --location eastus
     ```
 
-2. Use Azure Cloud Shell para crear un centro de IoT en la región **eastus** con el comando [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create). El centro de IoT se agregará al grupo *contoso-us-resource-group*.
+2. Use Azure Cloud Shell para crear un centro de IoT en la región **eastus** con el comando [az iot hub create](/cli/azure/iot/hub#az_iot_hub_create). El centro de IoT se agregará al grupo *contoso-us-resource-group*.
 
     En el ejemplo siguiente, se crea un centro de IoT denominado *contoso-east-hub* en la ubicación *eastus*. Debe usar su propio nombre único de centro en lugar de **contoso-east-hub**.
 
@@ -65,7 +65,7 @@ En esta sección, usará Azure Cloud Shell para crear dos centros de IoT regiona
     
     Este comando puede tardar varios minutos en completarse.
 
-3. Use Azure Cloud Shell para crear un centro de IoT en la región **westus** con el comando [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create). Este centro de IoT también se agregará al grupo *contoso-us-resource-group*.
+3. Use Azure Cloud Shell para crear un centro de IoT en la región **westus** con el comando [az iot hub create](/cli/azure/iot/hub#az_iot_hub_create). Este centro de IoT también se agregará al grupo *contoso-us-resource-group*.
 
     En el ejemplo siguiente, se crea un centro de IoT denominado *contoso-west-hub* en la ubicación *westus*. Debe usar su propio nombre único de centro en lugar de **contoso-west-hub**.
 

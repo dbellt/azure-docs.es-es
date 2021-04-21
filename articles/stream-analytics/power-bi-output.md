@@ -5,13 +5,13 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 08/25/2020
-ms.openlocfilehash: a94389a075fd62d80345a21e32f1bc977dfdee87
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 4/7/2021
+ms.openlocfilehash: 07b7715935756293467f2a3004109df9bf679661
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98020067"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107030017"
 ---
 # <a name="power-bi-output-from-azure-stream-analytics"></a>Salida de Power BI desde Azure Stream Analytics
 
@@ -73,9 +73,10 @@ Double | Double | String | String | Double
 String | String | String | String | String 
 Datetime | String | String |  Datetime | String
 
-## <a name="output-batch-size"></a>Tamaño de lote de salida
+## <a name="limitations-and-best-practices"></a>Limitaciones y prácticas recomendadas
+Actualmente, se puede llamar a Power BI una vez por segundo aproximadamente. Los objetos visuales de streaming admiten paquetes de 15 KB. Si el tamaño es superior, se producirá un error en los objetos visuales de streaming (pero la inserción continuará funcionando). Gracias a estas limitaciones, Power BI se presta de forma más natural a los casos en los que Azure Stream Analytics realiza una reducción considerable de la carga de datos. Se recomienda utilizar una ventana de saltos de tamaño constante o una ventana de salto para asegurarse de que la inserción de datos es a lo sumo de una inserción por segundo y de que la consulta se ajusta a los requisitos de capacidad de procesamiento.
 
-Para ver el tamaño del lote de salida, consulte los [límites de la API REST de Power BI](/power-bi/developer/automation/api-rest-api-limitations).
+Para obtener más información sobre el tamaño del lote de salida, consulte los [límites de la API REST de Power BI](/power-bi/developer/automation/api-rest-api-limitations).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -11,12 +11,12 @@ ms.custom: references_regions
 ms.topic: how-to
 ms.date: 12/07/2020
 ms.author: juliako
-ms.openlocfilehash: 29dbdb896d1a6063fec277afa33327c84cb2f0cd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e80699a043d4c18a1bc7ba75ce58c6972fae0fad
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98880934"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107531562"
 ---
 # <a name="use-the-animated-character-detection-preview-with-portal-and-api"></a>Uso de la detección de personajes animados (versión preliminar) con el portal y la API 
 
@@ -59,7 +59,7 @@ Siga estos pasos para conectar su cuenta de Custom Vision a Video Indexer, o bie
 1. Seleccione **Connect Custom Vision Account (PREVIEW)** [Conectar cuenta de Custom Vision (VERSIÓN PRELIMINAR)] y haga clic en **Try it** (Probar).
 1. Rellene los campos obligatorios, así como el token de acceso y haga clic en **Send** (Enviar). 
 
-    Para obtener más información sobre cómo obtener el token de Video Indexer, vaya al [portal para desarrolladores](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Account-Access-Token?) y consulte la [documentación pertinente](video-indexer-use-apis.md#obtain-access-token-using-the-authorization-api).  
+    Para obtener más información sobre cómo obtener el token de Video Indexer, vaya al [portal para desarrolladores](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Account-Access-Token) y consulte la [documentación pertinente](video-indexer-use-apis.md#obtain-access-token-using-the-authorization-api).  
 1. Cuando la llamada devuelva la respuesta 200 OK, significa que la cuenta está conectada.
 1. Para comprobar la conexión, vaya al portal de [Video Indexer](https://vi.microsoft.com/):
 1. Haga clic en el botón **Content model customization** Personalización del modelo de contenido() en la esquina superior derecha de la página.
@@ -154,16 +154,16 @@ Indexer y el modelo, no entrene el modelo en el sitio web Custom Vision (las cue
     Si es propietario de una cuenta de pago de Video Indexer, primero debe conectar una cuenta de Custom Vision. <br/>
     Si aún no tiene una cuenta de Custom Vision, cree una. Para obtener más información, consulte [Custom Vision](../../cognitive-services/custom-vision-service/overview.md).
 
-    [Conecte la cuenta de Custom Vision con API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Connect-Custom-Vision-Account?tags=&pattern=&groupBy=tag).
+    [Conecte la cuenta de Custom Vision con API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Connect-Custom-Vision-Account).
 1. Cree un modelo de personajes animados.
 
-    Use la API de [creación de modelo de animación](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Animation-Model?&groupBy=tag).
+    Use la API de [creación de modelo de animación](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Create-Animation-Model).
 1. Indexe o vuelva a indexar un vídeo.
 
-    Use la API de [reindexación](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-Index-Video?). 
+    Use la API de [reindexación](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Re-Index-Video). 
 1. Personalice los modelos de personajes animados.
 
-    Use la API de [entrenamiento de modelo de animación](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Train-Animation-Model?&groupBy=tag).
+    Use la API de [entrenamiento de modelo de animación](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Train-Animation-Model).
 
 ### <a name="view-the-output"></a>Visualización de la salida
 

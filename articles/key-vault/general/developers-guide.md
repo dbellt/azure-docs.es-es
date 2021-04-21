@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 550084ccbb1df24fe0cbc0a4630efe19e6685e5c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f2c0b82f14fd16ecb9eef163e7a263f4327cfc46
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101709910"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107364556"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guía del desarrollador de Azure Key Vault
 
@@ -83,7 +83,7 @@ Para ver tutoriales sobre la autenticación en Key Vault en las aplicaciones, co
 
 ## <a name="manage-keys-certificates-and-secrets"></a>Administración de claves, certificados y secretos
 
-El acceso a las claves, los secretos y los certificados se controla mediante el plano de datos. El control de acceso del plano de datos se puede realizar mediante las directivas de acceso de almacén local o Azure RBAC (versión preliminar).
+El acceso a las claves, los secretos y los certificados se controla mediante el plano de datos. El control de acceso del plano de datos se puede realizar mediante las directivas de acceso de almacén local o Azure RBAC.
 
 **API y SDK de claves**
 
@@ -105,7 +105,7 @@ El acceso a las claves, los secretos y los certificados se controla mediante el 
 
 Consulte las [Bibliotecas de cliente](client-libraries.md) para ver los paquetes de instalación y el código fuente.
 
-Para obtener más información sobre la seguridad del plano de datos de Key Vault, consulte las [Directivas de acceso y plano de datos de Key Vault](./secure-your-key-vault.md#data-plane-and-access-policies) y el [Plano de datos de Key Vault y Azure RBAC (versión preliminar)](./secure-your-key-vault.md#data-plane-and-azure-rbac-preview).
+Para obtener más información sobre la seguridad del plano de datos de Key Vault, consulte las [Directivas de acceso y plano de datos de Key Vault](./secure-your-key-vault.md#data-plane-and-access-policies) y el [Plano de datos de Key Vault y Azure RBAC](./secure-your-key-vault.md#data-plane-and-azure-rbac).
 
 ### <a name="code-examples"></a>Ejemplos de código
 

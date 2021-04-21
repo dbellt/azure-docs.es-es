@@ -1,27 +1,23 @@
 ---
-title: Configuración de un recurso compartido de archivos para asociar aplicaciones en formato MSIX (versión preliminar) en el contexto de Windows Virtual Desktop - Azure
+title: 'Configuración de un recurso compartido de archivos para conectar aplicaciones en formato MSIX en Windows Virtual Desktop: Azure'
 description: Configuración de un recurso compartido de archivos para asociar aplicaciones en formato MSIX en el contexto de Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 1e7a956b358d486250fbfc26da141c47c0238b56
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: d8aaa8d5013c426ac1ab6b367309c51be4929cee
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106448396"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107366409"
 ---
-# <a name="set-up-a-file-share-for-msix-app-attach-preview"></a>Configuración de un recurso compartido de archivos para asociar aplicaciones en formato MSIX (versión preliminar)
-
-> [!IMPORTANT]
-> La asociación de aplicaciones en formato MSIX está actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="set-up-a-file-share-for-msix-app-attach"></a>Configuración de un recurso compartido de archivos para asociar aplicaciones en formato MSIX (versión preliminar)
 
 Todas las imágenes MSIX deben almacenarse en un recurso compartido de red al que puedan acceder los usuarios de un grupo host con permisos de solo lectura.
 
-La asociación de aplicaciones en formato MSIX (versión preliminar) no tiene dependencias en el tipo de tejido de almacenamiento que usa el recurso compartido de archivos. Las consideraciones para el recurso compartido de asociación en formato MSIX son las mismas que las de un recurso compartido de FSLogix. Para obtener más información sobre los requisitos de almacenamiento, consulte [Opciones de almacenamiento para los contenedores de perfiles de FSLogix de Windows Virtual Desktop](store-fslogix-profile.md).
+La conexión de aplicaciones en formato MSIX no tiene dependencias en el tipo de tejido de almacenamiento que usa el recurso compartido de archivos. Las consideraciones para el recurso compartido de asociación en formato MSIX son las mismas que las de un recurso compartido de FSLogix. Para obtener más información sobre los requisitos de almacenamiento, consulte [Opciones de almacenamiento para los contenedores de perfiles de FSLogix de Windows Virtual Desktop](store-fslogix-profile.md).
 
 ## <a name="performance-requirements"></a>Requisitos de rendimiento
 
