@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 04/30/2018
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 3f762597ad81dfaba907115cbcf6074d81ec2fa4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 97eee5d852450df2341d57932052839825523933
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102549590"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107769758"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-linux-virtual-machine-in-azure-with-tlsssl-certificates-stored-in-key-vault"></a>Tutorial: Protección de un servidor web en una máquina virtual Linux en Azure con certificados TLS/SSL almacenados en Key Vault
 Para proteger los servidores web, se puede usar un certificado de seguridad de la capa de transporte (TLS), conocido anteriormente como Capa de sockets seguros (SSL), para cifrar el tráfico web. Estos certificados TLS/SSL pueden almacenarse en Azure Key Vault y permiten implementaciones seguras de certificados en máquinas virtuales Linux en Azure. En este tutorial, aprenderá a:
@@ -70,7 +70,7 @@ az keyvault certificate create \
 ```
 
 ### <a name="prepare-a-certificate-for-use-with-a-vm"></a>Preparación del certificado para usarlo con una máquina virtual
-Para usar el certificado durante el proceso de creación de la máquina virtual, obtenga el id. del certificado con [az keyvault secret list-versions](/cli/azure/keyvault/secret). Convierta el certificado con [az vm secret format](/cli/azure/vm/secret#az-vm-secret-format). En el ejemplo siguiente se asigna la salida de estos comandos a las variables para facilitar su uso en los pasos siguientes:
+Para usar el certificado durante el proceso de creación de la máquina virtual, obtenga el id. del certificado con [az keyvault secret list-versions](/cli/azure/keyvault/secret). Convierta el certificado con [az vm secret format](/cli/azure/vm/secret#az_vm_secret_format). En el ejemplo siguiente se asigna la salida de estos comandos a las variables para facilitar su uso en los pasos siguientes:
 
 ```azurecli-interactive 
 secret=$(az keyvault secret list-versions \

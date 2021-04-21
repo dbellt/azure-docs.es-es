@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.author: jukullam
 ms.date: 10/12/2020
 ms.custom: github-actions-azure
-ms.openlocfilehash: 335879af93834665985fe2c14ce3cbd827387920
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ceb9f0f9ef2a88532d5af16a03fcfd0282da84f8
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102172146"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107787294"
 ---
 # <a name="use-github-actions-to-connect-to-azure-sql-database"></a>Uso de Acciones de GitHub para conectarse a Azure SQL Database
 
@@ -41,7 +41,7 @@ El archivo tiene dos secciones:
 
 ## <a name="generate-deployment-credentials"></a>Genere las credenciales de implementación.
 
-Puede crear una [entidad de servicio](../../active-directory/develop/app-objects-and-service-principals.md) mediante el comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) de la [CLI de Azure](/cli/azure/). Puede ejecutar este comando mediante [Azure Cloud Shell](https://shell.azure.com/) en Azure Portal o haciendo clic en el botón **Probar**.
+Puede crear una [entidad de servicio](../../active-directory/develop/app-objects-and-service-principals.md) mediante el comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) de la [CLI de Azure](/cli/azure/). Puede ejecutar este comando mediante [Azure Cloud Shell](https://shell.azure.com/) en Azure Portal o haciendo clic en el botón **Probar**.
 
 Reemplace los marcadores de posición `server-name` por el nombre del servidor SQL hospedado en Azure. Reemplace `subscription-id` y `resource-group` por el identificador de suscripción y el grupo de recursos conectado a su servidor SQL.  
 

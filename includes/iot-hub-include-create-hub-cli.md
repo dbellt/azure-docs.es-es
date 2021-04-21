@@ -6,12 +6,12 @@ ms.author: timlt
 ms.service: iot-develop
 ms.topic: include
 ms.date: 01/14/2021
-ms.openlocfilehash: 10bd2c4902157b9e01b1cb0ff10b3ebdf448568c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: be51d4db6c98b63fcb1c9c60df045b494536d78f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102244642"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107766533"
 ---
 En las secciones siguientes, configurará un terminal y usará la CLI de Azure para crear un centro de IoT. Para configurar un terminal que ejecute comandos de la CLI de Azure, puede usar una sesión de Azure Cloud Shell basada en el explorador, o bien un terminal local.
 * Para usar Cloud Shell, vaya a la sección siguiente: [Inicio de Cloud Shell](#launch-the-cloud-shell). 
@@ -65,7 +65,7 @@ En esta sección, va a instalar la extensión de Microsoft Azure IoT para la CL
 > [!IMPORTANT]
 > Los comandos de terminal del resto de este inicio rápido funcionan igual en Cloud Shell o en un terminal local. Para ejecutar un comando, seleccione **Copiar** para copiar un bloque de código en este inicio rápido. Péguelo en el shell de la CLI y ejecútelo.
 
-Ejecute el comando [az extension add](/cli/azure/extension#az-extension-add). 
+Ejecute el comando [az extension add](/cli/azure/extension#az_extension_add). 
 
    ```azurecli
    az extension add --name azure-iot
@@ -77,7 +77,7 @@ En esta sección, usará la CLI de Azure para crear un centro de IoT y un grupo 
 
 Para crear un centro de IoT y un grupo de recursos:
 
-1. Ejecute el comando [az group create](/cli/azure/group#az-group-create) para crear un grupo de recursos. El siguiente comando crea un grupo de recursos denominado *MyResourceGroup* en la ubicación *eastus*. 
+1. Ejecute el comando [az group create](/cli/azure/group#az_group_create) para crear un grupo de recursos. El siguiente comando crea un grupo de recursos denominado *MyResourceGroup* en la ubicación *eastus*. 
     >[!NOTE]
     > Como alternativa, puede establecer otra ubicación. Para ver las ubicaciones disponibles, ejecute `az account list-locations`. En este tutorial se usa *eastus* tal y como se muestra en el comando de ejemplo. 
 
@@ -85,7 +85,7 @@ Para crear un centro de IoT y un grupo de recursos:
     az group create --name MyResourceGroup --location eastus
     ```
 
-1. Ejecute el comando [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) para crear una instancia de IoT Hub. La creación de una instancia de IoT Hub puede tardar unos minutos. 
+1. Ejecute el comando [az iot hub create](/cli/azure/iot/hub#az_iot_hub_create) para crear una instancia de IoT Hub. La creación de una instancia de IoT Hub puede tardar unos minutos. 
 
     *YourIotHubName*. Reemplace este marcador de posición y las llaves circundantes en el siguiente comando, con el nombre que eligió para el centro de IoT. Un nombre de centro de IoT debe ser único globalmente en Azure. Use el nombre del centro de IoT a lo largo de este inicio rápido cuando vea el marcador de posición.
 

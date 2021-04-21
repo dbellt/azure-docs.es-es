@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 04/08/2020
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 37bc7fbcd366455668d5316e45ffbf79127a49f3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 57abbeefe8e3f2abe527f2b282d643db766b9dc9
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99981245"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107775752"
 ---
 # <a name="tutorial-use-key-vault-references-in-an-aspnet-core-app"></a>Tutorial: Uso de referencias de Key Vault en una aplicación de ASP.NET Core
 
@@ -93,7 +93,7 @@ Para agregar un secreto al almacén, debe llevar a cabo algunos pasos adicionale
 
 ## <a name="connect-to-key-vault"></a>Conexión a Key Vault
 
-1. En este tutorial usará una entidad de servicio para la autenticación en Key Vault. Para crear esta entidad de servicio, use el comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) de la CLI de Azure:
+1. En este tutorial usará una entidad de servicio para la autenticación en Key Vault. Para crear esta entidad de servicio, use el comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) de la CLI de Azure:
 
     ```azurecli
     az ad sp create-for-rbac -n "http://mySP" --sdk-auth

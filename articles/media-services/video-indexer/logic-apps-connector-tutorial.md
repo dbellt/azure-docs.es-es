@@ -8,16 +8,16 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial
 ms.date: 09/21/2020
-ms.openlocfilehash: f3504ca4a706e92081209f4eaaa86af9f71c52b3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: caff6a2496e907da1bdc140860c47476d1842df4
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98880917"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600682"
 ---
 # <a name="tutorial-use-video-indexer-with-logic-app-and-power-automate"></a>Tutorial: Uso de Video Indexer con Logic Apps y Power Automate
 
-La [API REST de Video Indexer v2](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Delete-Video?) de Azure Media Services admite la comunicación servidor-servidor y cliente-servidor y permite que los usuarios de Video Indexer integren fácilmente información de vídeo y audio con la lógica de la aplicación, de forma que se descubren nuevas experiencias y oportunidades de monetización.
+La [API REST de Video Indexer v2](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Delete-Video) de Azure Media Services admite la comunicación servidor-servidor y cliente-servidor y permite que los usuarios de Video Indexer integren fácilmente información de vídeo y audio con la lógica de la aplicación, de forma que se descubren nuevas experiencias y oportunidades de monetización.
 
 Para facilitar aún más la integración, se admiten los conectores [Logic Apps](https://azure.microsoft.com/services/logic-apps/) y [Power Automate](https://preview.flow.microsoft.com/connectors/shared_videoindexer-v2/video-indexer-v2/) que son compatibles con nuestra API. Puede usar los conectores para configurar flujos de trabajo personalizados con el fin de indexar y extraer información de una gran cantidad de archivos de audio y vídeo, sin necesidad de escribir una sola línea de código. Además, el uso de los conectores para la integración le proporciona una mayor visibilidad sobre el estado del flujo de trabajo y una manera fácil de depurarlo.  
 

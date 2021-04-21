@@ -6,13 +6,13 @@ author: mksuni
 ms.author: sumuth
 ms.topic: tutorial
 ms.date: 12/10/2020
-ms.custom: mvc
-ms.openlocfilehash: 71066fc2e2f87405455a059fe23c20277c4b09fb
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 9315e6fd7dd9880d20108e3f0ed28cd32904f1a3
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105726386"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107791542"
 ---
 # <a name="tutorial-deploy-django-app-on-aks-with-azure-database-for-postgresql---flexible-server"></a>Tutorial: Implementación de una aplicación Django en AKS con Servidor flexible de Azure Database for PostgreSQL
 
@@ -31,7 +31,7 @@ En este inicio rápido se implementa una aplicación Django en el clúster de Az
 
    [![Insertar inicio](https://shell.azure.com/images/launchcloudshell.png "Inicio de Azure Cloud Shell")](https://shell.azure.com)  
 - Si lo prefiere, [instale](/cli/azure/install-azure-cli) la CLI de Azure para ejecutar los comandos de referencia de la CLI.
-  - Si usa una instalación local, inicie sesión con la CLI de Azure mediante el comando [az login](/cli/azure/reference-index#az-login).  Siga los pasos que se muestran en el terminal para completar el proceso de autenticación.  Para ver otras opciones de inicio de sesión, consulte [Inicio de sesión con la CLI de Azure](/cli/azure/authenticate-azure-cli).
+  - Si usa una instalación local, inicie sesión con la CLI de Azure mediante el comando [az login](/cli/azure/reference-index#az_login).  Siga los pasos que se muestran en el terminal para completar el proceso de autenticación.  Para ver otras opciones de inicio de sesión, consulte [Inicio de sesión con la CLI de Azure](/cli/azure/authenticate-azure-cli).
   - Cuando se le solicite, instale las extensiones de la CLI de Azure la primera vez que la use.  Para más información, consulte [Uso de extensiones con la CLI de Azure](/cli/azure/azure-cli-extensions-overview).
   - Ejecute [az version](/cli/azure/reference-index?#az_version) para buscar cuál es la versión y las bibliotecas dependientes que están instaladas. Para realizar la actualización a la versión más reciente, ejecute [az upgrade](/cli/azure/reference-index?#az_upgrade). En este artículo se necesita la versión más reciente de la CLI de Azure. Si usa Azure Cloud Shell, ya está instalada la versión más reciente.
 
@@ -67,7 +67,7 @@ En la siguiente salida de ejemplo se muestra que los recursos se crearon correct
 
 ## <a name="create-aks-cluster"></a>Creación de un clúster de AKS
 
-Use el comando [az aks create](/cli/azure/aks#az-aks-create) para crear un clúster de AKS. En el siguiente ejemplo se crea un clúster denominado *myAKSCluster* con un nodo. Este proceso tardará varios minutos en completarse.
+Use el comando [az aks create](/cli/azure/aks#az_aks_create) para crear un clúster de AKS. En el siguiente ejemplo se crea un clúster denominado *myAKSCluster* con un nodo. Este proceso tardará varios minutos en completarse.
 
 ```azurecli-interactive
 az aks create --resource-group django-project --name djangoappcluster --node-count 1 --generate-ssh-keys
@@ -80,13 +80,13 @@ Transcurridos unos minutos, el comando se completa y devuelve información en fo
 
 ## <a name="connect-to-the-cluster"></a>Conectarse al clúster
 
-Para administrar un clúster de Kubernetes, usará [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/), el cliente de línea de comandos de Kubernetes. Si usa Azure Cloud Shell, `kubectl` ya está instalado. Para instalar `kubectl` localmente, use el comando [az aks install-cli](/cli/azure/aks#az-aks-install-cli):
+Para administrar un clúster de Kubernetes, usará [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/), el cliente de línea de comandos de Kubernetes. Si usa Azure Cloud Shell, `kubectl` ya está instalado. Para instalar `kubectl` localmente, use el comando [az aks install-cli](/cli/azure/aks#az_aks_install_cli):
 
 ```azurecli-interactive
 az aks install-cli
 ```
 
-Para configurar `kubectl` para conectarse a su clúster de Kubernetes, use el comando [az aks get-credentials](/cli/azure/aks#az-aks-get-credentials). Con este comando se descargan las credenciales y se configura la CLI de Kubernetes para usarlas.
+Para configurar `kubectl` para conectarse a su clúster de Kubernetes, use el comando [az aks get-credentials](/cli/azure/aks#az_aks_get_credentials). Con este comando se descargan las credenciales y se configura la CLI de Kubernetes para usarlas.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group django-project --name djangoappcluster

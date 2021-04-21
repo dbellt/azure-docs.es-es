@@ -4,12 +4,12 @@ description: Obtenga información acerca de cómo restaurar un disco y crear una
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 999682c9bf4a4d70d886f0e85cede99f215aa046
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7f4d70f43f76c3a72cd8e53037d06d32e61c3cdb
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97694720"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107768521"
 ---
 # <a name="restore-a-vm-with-azure-cli"></a>Restauración de una máquina virtual con la CLI de Azure
 
@@ -41,7 +41,7 @@ Cuando finaliza la transferencia de datos, se elimina la instantánea y se crea 
 
 Para restaurar un disco, debe seleccionar un punto de recuperación como el origen de los datos de recuperación. Dado que la directiva predeterminada crea un punto de recuperación cada día y lo mantiene durante 30 días, puede mantener un conjunto de puntos de recuperación que le permita seleccionar un punto concreto a tiempo para la recuperación.
 
-Para ver una lista de los puntos de recuperación disponibles, use [az backup recoverypoint list](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-list). El punto de recuperación **name** se usa para recuperar discos. En este tutorial, queremos usar el punto de recuperación más reciente disponible. El parámetro `--query [0].name` selecciona el nombre del punto de recuperación más reciente de la siguiente manera:
+Para ver una lista de los puntos de recuperación disponibles, use [az backup recoverypoint list](/cli/azure/backup/recoverypoint#az_backup_recoverypoint_list). El punto de recuperación **name** se usa para recuperar discos. En este tutorial, queremos usar el punto de recuperación más reciente disponible. El parámetro `--query [0].name` selecciona el nombre del punto de recuperación más reciente de la siguiente manera:
 
 ```azurecli-interactive
 az backup recoverypoint list \
@@ -63,7 +63,7 @@ az backup recoverypoint list \
 
 Si la máquina virtual con copia de seguridad tiene discos administrados y la intención es restaurarlos desde el punto de recuperación, primero debe proporcionar una cuenta de almacenamiento de Azure. Esta cuenta de almacenamiento se usa para almacenar la configuración de la máquina virtual y la plantilla de implementación que se pueden usar posteriormente para implementar la máquina virtual desde los discos restaurados. A continuación, también se proporciona un grupo de recursos de destino para los discos administrados en los que se va a realizar la restauración.
 
-1. Para crear una cuenta de almacenamiento, use [az storage account create](/cli/azure/storage/account#az-storage-account-create). El nombre de la cuenta de almacenamiento debe estar en minúsculas y ser único globalmente. Reemplace *mystorageaccount* por su propio nombre único:
+1. Para crear una cuenta de almacenamiento, use [az storage account create](/cli/azure/storage/account#az_storage_account_create). El nombre de la cuenta de almacenamiento debe estar en minúsculas y ser único globalmente. Reemplace *mystorageaccount* por su propio nombre único:
 
     ```azurecli-interactive
     az storage account create \
@@ -72,7 +72,7 @@ Si la máquina virtual con copia de seguridad tiene discos administrados y la in
         --sku Standard_LRS
     ```
 
-2. Restaure el disco desde el punto de recuperación con [az backup restore restore-disks](/cli/azure/backup/restore#az-backup-restore-restore-disks). Reemplace *mystorageaccount* por el nombre de la cuenta de almacenamiento que creó en el comando anterior. Reemplace *myRecoveryPointName* por el nombre del punto de recuperación que obtuvo en la salida del comando [az backup recoverypoint list](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-list) anterior. ***También debe proporcionar el grupo de recursos de destino donde se van a restaurar los discos administrados***.
+2. Restaure el disco desde el punto de recuperación con [az backup restore restore-disks](/cli/azure/backup/restore#az_backup_restore_restore_disks). Reemplace *mystorageaccount* por el nombre de la cuenta de almacenamiento que creó en el comando anterior. Reemplace *myRecoveryPointName* por el nombre del punto de recuperación que obtuvo en la salida del comando [az backup recoverypoint list](/cli/azure/backup/recoverypoint#az_backup_recoverypoint_list) anterior. ***También debe proporcionar el grupo de recursos de destino donde se van a restaurar los discos administrados***.
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -107,7 +107,7 @@ Si la máquina virtual con copia de seguridad tiene discos no administrados y la
 
 En pasos adicionales, el disco restaurado se usa para crear una máquina virtual.
 
-1. Para crear una cuenta de almacenamiento, use [az storage account create](/cli/azure/storage/account#az-storage-account-create). El nombre de la cuenta de almacenamiento debe estar en minúsculas y ser único globalmente. Reemplace *mystorageaccount* por su propio nombre único:
+1. Para crear una cuenta de almacenamiento, use [az storage account create](/cli/azure/storage/account#az_storage_account_create). El nombre de la cuenta de almacenamiento debe estar en minúsculas y ser único globalmente. Reemplace *mystorageaccount* por su propio nombre único:
 
     ```azurecli-interactive
     az storage account create \
@@ -116,7 +116,7 @@ En pasos adicionales, el disco restaurado se usa para crear una máquina virtual
         --sku Standard_LRS
     ```
 
-2. Restaure el disco desde el punto de recuperación con [az backup restore restore-disks](/cli/azure/backup/restore#az-backup-restore-restore-disks). Reemplace *mystorageaccount* por el nombre de la cuenta de almacenamiento que creó en el comando anterior. Reemplace *myRecoveryPointName* por el nombre del punto de recuperación que obtuvo en la salida del comando [az backup recoverypoint list](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-list) anterior:
+2. Restaure el disco desde el punto de recuperación con [az backup restore restore-disks](/cli/azure/backup/restore#az_backup_restore_restore_disks). Reemplace *mystorageaccount* por el nombre de la cuenta de almacenamiento que creó en el comando anterior. Reemplace *myRecoveryPointName* por el nombre del punto de recuperación que obtuvo en la salida del comando [az backup recoverypoint list](/cli/azure/backup/recoverypoint#az_backup_recoverypoint_list) anterior:
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -143,7 +143,7 @@ Como se mencionó anteriormente, los discos no administrados se restaurarán a s
 
 ## Monitor the restore job
 
-To monitor the status of restore job, use [az backup job list](/cli/azure/backup/job#az-backup-job-list):
+To monitor the status of restore job, use [az backup job list](/cli/azure/backup/job#az_backup_job_list):
 
 ```azurecli-interactive
 az backup job list \
@@ -256,7 +256,7 @@ az deployment group create \
   --template-uri $url?$token
 ```
 
-Para comprobar que la máquina virtual se ha creado desde el disco recuperado, enumere las máquinas virtuales del grupo de recursos con [az vm list](/cli/azure/vm#az-vm-list) como se indica a continuación:
+Para comprobar que la máquina virtual se ha creado desde el disco recuperado, enumere las máquinas virtuales del grupo de recursos con [az vm list](/cli/azure/vm#az_vm_list) como se indica a continuación:
 
 ```azurecli-interactive
 az vm list --resource-group myResourceGroup --output table

@@ -9,12 +9,12 @@ ms.topic: sample
 ms.date: 01/24/2020
 ms.author: alkemper
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4554ca64dccaa69e3a6fb63e5c28a6bcbb1a32e4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4a341e9772c67da7781a5cec92f286c037c55ce9
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96930847"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107768964"
 ---
 # <a name="create-an-azure-app-configuration-store"></a>Creación de un almacén de Azure App Configuration
 
@@ -69,9 +69,9 @@ Este script usa los siguientes comandos para crear un grupo de recursos y un alm
 
 | Get-Help | Notas |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
-| [az appconfig create](/cli/azure/appconfig#az-appconfig-create) | Crea un recurso del almacén de App Configuration. |
-| [az appconfig credential list](/cli/azure/appconfig/credential#az-appconfig-credential-list) | Enumera las claves de acceso de un almacén de App Configuration. |
+| [az group create](/cli/azure/group#az_group_create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
+| [az appconfig create](/cli/azure/appconfig#az_appconfig_create) | Crea un recurso del almacén de App Configuration. |
+| [az appconfig credential list](/cli/azure/appconfig/credential#az_appconfig_credential_list) | Enumera las claves de acceso de un almacén de App Configuration. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
