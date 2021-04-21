@@ -8,12 +8,12 @@ ms.date: 08/20/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: e1409b43f0ce1fc0d8c622dda79e857ac6abdd33
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 90a4b808daccc76e8cc9125973c69b13e8086fbf
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96854570"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107713973"
 ---
 # <a name="use-time-series-insights-to-visualize-telemetry-sent-from-the-device-simulation-solution-accelerator"></a>Use Time Series Insights para visualizar los datos de telemetría que se envíen desde el acelerador de soluciones de simulación de dispositivos
 
@@ -23,7 +23,7 @@ El acelerador de soluciones de simulación de dispositivos le permite generar da
 
 Recuerde que para completar los pasos de esta guía paso a paso, necesita una suscripción activa a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-En los pasos descritos en esta guía práctica se supone que ya ha implementado el acelerador de soluciones de simulación de dispositivos en su suscripción de Azure. Si aún no ha implementado Simulación de dispositivo, vea [Implementación de Simulación de dispositivo](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) en GitHub.
+En los pasos descritos en esta guía práctica se supone que ya ha implementado el acelerador de soluciones de simulación de dispositivos en su suscripción de Azure. Si aún no ha implementado Simulación de dispositivo, vea [Implementación de Simulación de dispositivo](https://github.com/Azure/azure-iot-pcs-device-simulation/blob/master/README.md) en GitHub.
 
 En este artículo se da por supuesto que el nombre del acelerador de soluciones es **contoso-simulation**. Reemplace **contoso-simulation** con el nombre de su acelerador de soluciones a medida que completa los pasos siguientes.
 

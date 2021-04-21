@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 12/17/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7e74a58a14bdcc2a6fe1e9f86305aae415c6abf7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d13db238674cae62f528c3d730bf892a72b8f6c2
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97674521"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107764700"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli-rest-api"></a>Creación y administración de réplicas de lectura desde la CLI de Azure con API REST
 
@@ -62,7 +62,7 @@ Puede crear y administrar réplicas de lectura mediante la CLI de Azure.
 
 ### <a name="create-a-read-replica"></a>Creación de una réplica de lectura
 
-El comando [az postgres server replica create](/cli/azure/postgres/server/replica#az-postgres-server-replica-create) requiere los siguientes parámetros:
+El comando [az postgres server replica create](/cli/azure/postgres/server/replica#az_postgres_server_replica_create) requiere los siguientes parámetros:
 
 | Configuración | Valor de ejemplo | Descripción  |
 | --- | --- | --- |
@@ -93,14 +93,14 @@ Si no ha establecido el parámetro `azure.replication_support` en **REPLICA** en
 > Antes de actualizar la configuración de un servidor principal a un nuevo valor, actualice la configuración de réplica a un valor igual o superior. Esta acción ayuda a que la réplica haga frente a los cambios realizados en el servidor maestro.
 
 ### <a name="list-replicas"></a>Lista de réplicas
-Puede ver la lista de réplicas de un servidor principal con el comando [az postgres server replica list](/cli/azure/postgres/server/replica#az-postgres-server-replica-list).
+Puede ver la lista de réplicas de un servidor principal con el comando [az postgres server replica list](/cli/azure/postgres/server/replica#az_postgres_server_replica_list).
 
 ```azurecli-interactive
 az postgres server replica list --server-name mydemoserver --resource-group myresourcegroup 
 ```
 
 ### <a name="stop-replication-to-a-replica-server"></a>Detención de la replicación en un servidor de réplica
-Puede detener la replicación entre un servidor principal y una réplica de lectura mediante el uso del comando [az postgres server replica stop](/cli/azure/postgres/server/replica#az-postgres-server-replica-stop).
+Puede detener la replicación entre un servidor principal y una réplica de lectura mediante el uso del comando [az postgres server replica stop](/cli/azure/postgres/server/replica#az_postgres_server_replica_stop).
 
 Después de detener la replicación en un servidor principal y en una réplica de lectura, este proceso no se puede deshacer. La réplica de lectura se convierte en un servidor independiente que admite operaciones de lectura y escritura. Este servidor independiente no puede volver a convertirse en una réplica.
 
@@ -109,7 +109,7 @@ az postgres server replica stop --name mydemoserver-replica --resource-group myr
 ```
 
 ### <a name="delete-a-primary-or-replica-server"></a>Eliminación de un servidor principal o de réplica
-Para eliminar un servidor principal o de réplica, use el comando [az postgres server delete](/cli/azure/postgres/server#az-postgres-server-delete).
+Para eliminar un servidor principal o de réplica, use el comando [az postgres server delete](/cli/azure/postgres/server#az_postgres_server_delete).
 
 Cuando se elimina un servidor principal, la replicación se detiene en todas las réplicas de lectura. Las réplicas de lectura se convierten en servidores independientes que ahora admiten tanto lectura como escritura.
 

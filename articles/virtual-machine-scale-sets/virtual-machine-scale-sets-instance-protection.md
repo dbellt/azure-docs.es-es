@@ -9,12 +9,12 @@ ms.subservice: instance-protection
 ms.date: 02/26/2020
 ms.reviewer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: 8b331eaf52a0a97232d481dccfff932221cd5faa
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 292abce3361c000eeeef2c399d5ffa2d2c4852e1
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105933464"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762864"
 ---
 # <a name="instance-protection-for-azure-virtual-machine-scale-set-instances"></a>Protección de las instancias del conjunto de escalado de máquinas virtuales de Azure
 
@@ -94,7 +94,7 @@ Update-AzVmssVM `
 
 ### <a name="azure-cli-20"></a>CLI de Azure 2.0
 
-Use [az vmss update](/cli/azure/vmss#az-vmss-update) para aplicar la protección de reducción horizontal en la instancia del conjunto de escalado.
+Use [az vmss update](/cli/azure/vmss#az_vmss_update) para aplicar la protección de reducción horizontal en la instancia del conjunto de escalado.
 
 En el siguiente ejemplo se aplica la protección contra la reducción horizontal a una instancia del conjunto de escalado con Id. de instancia 0.
 
@@ -165,7 +165,7 @@ Update-AzVmssVM `
 
 ### <a name="azure-cli-20"></a>CLI de Azure 2.0
 
-Use [az vmss update](/cli/azure/vmss#az-vmss-update) para aplicar la protección contra las acciones del conjunto de escalado a su instancia del conjunto de escalado.
+Use [az vmss update](/cli/azure/vmss#az_vmss_update) para aplicar la protección contra las acciones del conjunto de escalado a su instancia del conjunto de escalado.
 
 En el siguiente ejemplo se aplica la protección contra las acciones del conjunto de escalado a una instancia del conjunto de escalado con Id. de instancia 0.
 

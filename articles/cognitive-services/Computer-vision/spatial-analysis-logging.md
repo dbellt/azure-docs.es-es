@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: 1f03f99e6394c3939855c73548e8fb917f8696bc
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 901e857a346b0955726c5755e23595efefbc2ca1
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106286035"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107589506"
 ---
 # <a name="telemetry-and-troubleshooting"></a>Telemetría y solución de problemas
 
@@ -161,7 +161,7 @@ Para optimizar los registros cargados en un punto de conexión remoto, como Azur
 La configuración del nivel de registro permite controlar el nivel de detalle de los registros generados. Los niveles de registro admitidos son: `none`, `verbose`, `info`, `warning` y `error`. El nivel detallado de registro predeterminado para los nodos y la plataforma es `info`. 
 
 Los niveles de registro se pueden modificar globalmente si se establece la variable de entorno `ARCHON_LOG_LEVEL` en uno de los valores permitidos.
-También pueden establecerse a través del documento del módulo gemelo IoT Edge, ya sea globalmente, para todas las aptitudes implementadas, o para cada aptitud específica estableciendo los valores de `platformLogLevel` y `nodeLogLevel` tal y como se muestra a continuación.
+También pueden establecerse a través del documento del módulo gemelo IoT Edge, ya sea globalmente, para todas las aptitudes implementadas, o para cada aptitud específica estableciendo los valores de `platformLogLevel` y `nodesLogLevel` tal y como se muestra a continuación.
 
 ```json
 {
@@ -173,7 +173,7 @@ También pueden establecerse a través del documento del módulo gemelo IoT Edge
             },
             "graphs": {
                 "samplegraph": {
-                    "nodeLogLevel": "verbose",
+                    "nodesLogLevel": "verbose",
                     "platformLogLevel": "verbose"
                 }
             }

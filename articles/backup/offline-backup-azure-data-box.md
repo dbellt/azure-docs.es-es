@@ -3,12 +3,12 @@ title: Copia de seguridad sin conexión con Azure Data Box
 description: Aprenda a usar Azure Data Box para propagar los datos de grandes copias de seguridad iniciales sin conexión desde el agente de MARS hasta un almacén de Recovery Services.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: e789b6c9f4ff2e8cd168e6b5c138d423911d4743
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 78adc479ce5733e208d2334d30d7b88e4edf8d6b
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96752590"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107576098"
 ---
 # <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Copia de seguridad sin conexión de Azure Backup con Azure Data Box
 
@@ -292,7 +292,7 @@ Si no hay ningún otro servidor configurado para la propagación sin conexión y
 
 Desde el servidor donde intenta configurar la copia de seguridad sin conexión, realice las siguientes acciones.
 
-1. Vaya a la pestaña **Manage computer certificate application** (Administrar aplicación de certificado de equipo)  > **Personal** y busque el certificado con el nombre `CB_AzureADCertforOfflineSeeding_<ResourceId>`.
+1. Vaya a la pestaña **Manage computer certificate application** (Administrar aplicación de certificado de equipo)  > **Personal** y busque el certificado con el nombre `CB_AzureADCertforOfflineSeeding_<Timestamp>`.
 
 2. Seleccione el certificado, haga clic con el botón derecho en **Todas las tareas** y, después, en **Exportar**, sin clave privada y en formato .cer.
 

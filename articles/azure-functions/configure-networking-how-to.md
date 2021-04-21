@@ -4,12 +4,12 @@ description: En este artículo se muestra cómo realizar ciertas tareas de redes
 ms.topic: conceptual
 ms.date: 3/13/2021
 ms.custom: template-how-to
-ms.openlocfilehash: a28a59a0de40bba7914d1920b42034fbbc223ddc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: c123b20e163731f9a872a969f2f1564479b6e308
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104608707"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107718438"
 ---
 # <a name="how-to-configure-azure-functions-with-a-virtual-network"></a>Configuración de Azure Functions con una red virtual
 
@@ -30,7 +30,7 @@ Para configurar una función con una cuenta de almacenamiento restringida a una 
 
 1. Cree o configure una cuenta de almacenamiento diferente.  Será la cuenta de almacenamiento que se proteja con los puntos de conexión de servicio y se conecte a la función.
 
-1. [Cree un recurso compartido de archivos](../storage/files/storage-how-to-create-file-share.md#create-file-share) en la cuenta de almacenamiento protegida.
+1. [Cree un recurso compartido de archivos](../storage/files/storage-how-to-create-file-share.md#create-a-file-share) en la cuenta de almacenamiento protegida.
 
 1. Habilite los puntos de conexión de servicio o el punto de conexión privado para la cuenta de almacenamiento.  
     * Si se usan conexiones de punto de conexión privado, la cuenta de almacenamiento necesitará un punto de conexión privado para los subrecursos `file` y `blob`.  Si se usan ciertas funcionalidades como Durable Functions, también necesitará que se pueda acceder a `queue` y `table` a través de una conexión de punto de conexión privado.

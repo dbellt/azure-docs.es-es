@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
-ms.date: 01/11/2021
-ms.openlocfilehash: 4d83609eea57c2350881360ef757b1a291627c23
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/24/2021
+ms.openlocfilehash: 3070083040424b877159955dc2138f15319f05c8
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100374735"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107766396"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Acceso a recursos de Azure Virtual Network desde Azure Logic Apps mediante entornos de servicio de integración (ISE)
 
@@ -33,7 +33,7 @@ La ejecución de aplicaciones lógicas en una instancia dedicada e individual ay
 
 * Acceso directo a los recursos incluidos en la red virtual o conectados a ella
 
-  Las aplicaciones lógicas que se crean y ejecutan en un ISE pueden usar [conectores específicamente diseñados que se ejecutan en el ISE](../connectors/apis-list.md#ise-connectors). Si existe un conector ISE para un origen de datos o un sistema local, se puede conectar directamente sin tener que usar la [puerta de enlace de datos local](../logic-apps/logic-apps-gateway-connection.md). Para obtener más información, vea [Diferencias entre dedicado y multiinquilino](#difference) y [Acceso a sistemas locales](#on-premises) más adelante en este tema.
+  Las aplicaciones lógicas que se crean y ejecutan en un ISE pueden usar [conectores específicamente diseñados que se ejecutan en el ISE](../connectors/managed.md#ise-connectors). Si existe un conector ISE para un origen de datos o un sistema local, se puede conectar directamente sin tener que usar la [puerta de enlace de datos local](../logic-apps/logic-apps-gateway-connection.md). Para obtener más información, vea [Diferencias entre dedicado y multiinquilino](#difference) y [Acceso a sistemas locales](#on-premises) más adelante en este tema.
 
 * Acceso continuado a los recursos que están fuera de la red virtual o no conectados a ella
 
@@ -53,7 +53,7 @@ Cuando se crean y ejecutan aplicaciones lógicas en un ISE, se proporcionan las 
 
 * Los desencadenadores y acciones integrados, como HTTP, muestran la etiqueta **CORE** y se ejecutan en el mismo ISE que la aplicación lógica.
 
-* Los conectores administrados en los que se muestra la etiqueta **ISE** están diseñados específicamente para los ISE y *siempre se ejecutan en el mismo ISE que la aplicación lógica*. Por ejemplo, estos son algunos [conectores que ofrecen versiones de ISE](../connectors/apis-list.md#ise-connectors):<p>
+* Los conectores administrados en los que se muestra la etiqueta **ISE** están diseñados específicamente para los ISE y *siempre se ejecutan en el mismo ISE que la aplicación lógica*. Por ejemplo, estos son algunos [conectores que ofrecen versiones de ISE](../connectors/managed.md#ise-connectors):<p>
 
   * Azure Blob Storage, File Storage y Table Storage
   * Azure Service Bus, Azure Queues y Azure Event Hubs
@@ -79,7 +79,7 @@ Las aplicaciones lógicas que se ejecutan dentro de un ISE pueden acceder direct
 
 * Conector **ISE**, si está disponible, para un origen de datos o un sistema local
 
-  Si hay un conector ISE disponible, puede acceder directamente al sistema o al origen de datos sin la [puerta de enlace de datos local](../logic-apps/logic-apps-gateway-connection.md). Pero si tiene que acceder a SQL Server desde un ISE y usar la autenticación de Windows, debe usar la versión del conector que no es para ISE y la puerta de enlace de datos local. La versión para ISE del conector no admite la autenticación de Windows. Para obtener más información, vea [Conectores ISE](../connectors/apis-list.md#ise-connectors) y [Conexión desde un entorno del servicio de integración](../connectors/apis-list.md#integration-service-environment).
+  Si hay un conector ISE disponible, puede acceder directamente al sistema o al origen de datos sin la [puerta de enlace de datos local](../logic-apps/logic-apps-gateway-connection.md). Pero si tiene que acceder a SQL Server desde un ISE y usar la autenticación de Windows, debe usar la versión del conector que no es para ISE y la puerta de enlace de datos local. La versión para ISE del conector no admite la autenticación de Windows. Para obtener más información, vea [Conectores ISE](../connectors/managed.md#ise-connectors) y [Conexión desde un entorno del servicio de integración](../connectors/managed.md#integration-account-connectors).
 
 * Un conector personalizado.
 

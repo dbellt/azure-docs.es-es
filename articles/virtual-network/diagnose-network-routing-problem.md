@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/30/2018
 ms.author: kumud
-ms.openlocfilehash: 1c23244707179e05c63ed44b5915e58eefd3f4a3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f84b74b054a073f2c1ae5ba2ac7d0d0a968367c6
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84705056"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107767680"
 ---
 # <a name="diagnose-a-virtual-machine-routing-problem"></a>Diagnóstico de problemas de enrutamiento en una máquina virtual
 
@@ -87,7 +87,7 @@ En la salida anterior, el nombre de la interfaz de red es *myVMNic1*.
 
 Puede ejecutar los comandos siguientes en [Azure Cloud Shell](https://shell.azure.com/bash), o mediante la ejecución de la CLI en el equipo. En este artículo se requiere la CLI de Azure versión 2.0.32 o posterior. Ejecute `az --version` para buscar la versión instalada. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli). Si ejecuta la CLI de Azure localmente, también debe ejecutar `az login` e iniciar sesión en Azure con una cuenta que tenga los [permisos necesarios](virtual-network-network-interface.md#permissions).
 
-Obtenga las rutas eficaces de una interfaz de red con [az network nic show-effective-route-table](/cli/azure/network/nic#az-network-nic-show-effective-route-table). En el ejemplo siguiente se obtienen las rutas eficaces de una interfaz de red llamada *myVMNic1*, que se encuentra en un grupo de recursos denominado *myResourceGroup*:
+Obtenga las rutas eficaces de una interfaz de red con [az network nic show-effective-route-table](/cli/azure/network/nic#az_network_nic_show_effective_route_table). En el ejemplo siguiente se obtienen las rutas eficaces de una interfaz de red llamada *myVMNic1*, que se encuentra en un grupo de recursos denominado *myResourceGroup*:
 
 ```azurecli-interactive
 az network nic show-effective-route-table \

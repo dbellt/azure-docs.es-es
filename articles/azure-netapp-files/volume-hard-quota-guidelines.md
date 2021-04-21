@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/29/2021
 ms.author: b-juche
-ms.openlocfilehash: 52e855cb4ab42ed78a055ecdc31cffa886dc9bf2
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5e7f71f91e5778b4f096bb760bfe5a0a89b5cbcb
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105731996"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107764286"
 ---
 # <a name="what-changing-to-volume-hard-quota-means-for-your-azure-netapp-files-service"></a>Implicaciones de cambiar a la cuota máxima de volumen para el servicio de Azure NetApp Files
 
@@ -196,13 +196,13 @@ Esta acción abrirá Azure Cloud Shell:
 
 [ ![Captura de pantalla que muestra la ventana de Cloud Shell.](../media/azure-netapp-files/hard-quota-update-cloud-shell-window.png) ](../media/azure-netapp-files/hard-quota-update-cloud-shell-window.png#lightbox)
 
-En los ejemplos siguientes se usan los comandos para [mostrar](/cli/azure/netappfiles/volume#az-netappfiles-volume-show) y [actualizar](/cli/azure/netappfiles/volume#az-netappfiles-volume-update) el tamaño de un volumen:
+En los ejemplos siguientes se usan los comandos para [mostrar](/cli/azure/netappfiles/volume#az_netappfiles_volume_show) y [actualizar](/cli/azure/netappfiles/volume#az_netappfiles_volume_update) el tamaño de un volumen:
  
 [ ![Captura de pantalla que muestra el uso de PowerShell para mostrar el tamaño del volumen.](../media/azure-netapp-files/hard-quota-update-powershell-volume-show.png) ](../media/azure-netapp-files/hard-quota-update-powershell-volume-show.png#lightbox)
 
 [ ![Captura de pantalla que muestra el uso de PowerShell para actualizar el tamaño del volumen.](../media/azure-netapp-files/hard-quota-update-powershell-volume-update.png) ](../media/azure-netapp-files/hard-quota-update-powershell-volume-update.png#lightbox)
 
-En los ejemplos siguientes se usan los comandos para [mostrar](/cli/azure/netappfiles/pool#az-netappfiles-pool-show) y [actualizar](/cli/azure/netappfiles/pool#az-netappfiles-pool-update) el tamaño de un grupo de capacidad:
+En los ejemplos siguientes se usan los comandos para [mostrar](/cli/azure/netappfiles/pool#az_netappfiles_pool_show) y [actualizar](/cli/azure/netappfiles/pool#az_netappfiles_pool_update) el tamaño de un grupo de capacidad:
 
 [ ![Captura de pantalla que muestra el uso de PowerShell para mostrar el tamaño del grupo de capacidad.](../media/azure-netapp-files/hard-quota-update-powershell-pool-show.png) ](../media/azure-netapp-files/hard-quota-update-powershell-pool-show.png#lightbox) 
 

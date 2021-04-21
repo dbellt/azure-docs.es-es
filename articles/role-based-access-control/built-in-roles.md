@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 04/09/2021
 ms.custom: generated
-ms.openlocfilehash: 4e559ea1e531e2d472faeef60ebc6d528da0cfd0
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: f4112d4b9bf55e45ec865f5c8606ead9088a7983
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107307935"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107752397"
 ---
 # <a name="azure-built-in-roles"></a>Roles integrados de Azure
 
@@ -27,7 +27,7 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 ## <a name="all"></a>All
 
 > [!div class="mx-tableFixed"]
-> | Rol integrado | Descripción | id |
+> | Rol integrado | Descripción | ID |
 > | --- | --- | --- |
 > | **General** |  |  |
 > | [Colaborador](#contributor) | Concede acceso completo para administrar todos los recursos, pero no le permite asignar roles en Azure RBAC, administrar asignaciones en Azure Blueprints ni compartir galerías de imágenes. | b24988ac-6180-42a0-ab88-20f7382dd24c |
@@ -8210,7 +8210,7 @@ Permite realizar cualquier acción en los certificados de un almacén de claves,
 
 ### <a name="key-vault-contributor"></a>Colaborador de almacén de claves
 
-Permite administrar almacenes de claves, per no asignar roles en Azure RBAC ni acceder a secretos, claves o certificados. [Más información](../key-vault/general/secure-your-key-vault.md)
+Permite administrar almacenes de claves, per no asignar roles en Azure RBAC ni acceder a secretos, claves o certificados. [Más información](../key-vault/general/security-overview.md)
 
 > [!div class="mx-tableFixed"]
 > | Acciones | Descripción |
@@ -12144,7 +12144,7 @@ Lector del área de trabajo de Desktop Virtualization. [Más información](../vi
 
 ### <a name="disk-backup-reader"></a>Lector de copias de seguridad de disco
 
-Proporciona permiso para realizar copias de seguridad del almacén para realizar copias de seguridad de disco. [Más información](../backup/disk-backup-faq.md)
+Proporciona permiso para realizar copias de seguridad del almacén para realizar copias de seguridad de disco. [Más información](../backup/disk-backup-faq.yml)
 
 > [!div class="mx-tableFixed"]
 > | Acciones | Descripción |

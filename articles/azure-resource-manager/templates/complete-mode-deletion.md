@@ -2,13 +2,13 @@
 title: Eliminación del modo completo
 description: Muestra cómo los tipos de recursos controlan la eliminación en modo completo en las plantillas de Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 04/08/2021
-ms.openlocfilehash: 9b1c12c061149d60f1e279c78c141cd8b245218c
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.date: 04/16/2021
+ms.openlocfilehash: 6986f600274beaaa67f2f6ce64cbc3d0ceaf322e
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107228034"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107576076"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Eliminación de recursos de Azure en implementaciones en modo completo
 
@@ -916,8 +916,8 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | galleries | Sí |
 > | galleries/applications | No |
 > | galleries/applications/versions | No |
-> | galleries/images | No |
-> | galleries/images/versions | No |
+> | galleries/images | Sí |
+> | galleries/images/versions | Sí |
 > | hostGroups | Sí |
 > | hostGroups/hosts | Sí |
 > | images | Sí |

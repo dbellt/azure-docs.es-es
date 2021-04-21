@@ -4,12 +4,12 @@ description: Aprenda a configurar un contenedor personalizado en Azure App Servi
 ms.topic: article
 ms.date: 02/23/2021
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 1d1a1292bc7583e4934ac176c34d2768700d11c5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7bfebe318d93a544c964d70ea0a28144a7f0e43b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105036771"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107764250"
 ---
 # <a name="configure-a-custom-container-for-azure-app-service"></a>Configuración de un contenedor de Linux personalizado para Azure App Service
 
@@ -358,7 +358,7 @@ SSH habilita la comunicación segura entre un contenedor y un cliente. Para que 
 
 Las aplicaciones de varios contenedores como WordPress necesitan almacenamiento persistente para funcionar correctamente. Para habilitarla, la configuración de Docker Compose debe apuntar a una ubicación de almacenamiento *fuera* del contenedor. Las ubicaciones de almacenamiento dentro del contenedor no conservan los cambios más allá del reinicio de la aplicación.
 
-Para habilitar el almacenamiento persistente, establezca la opción `WEBSITES_ENABLE_APP_SERVICE_STORAGE` de la aplicación utilizando el comando [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) en [Cloud Shell](https://shell.azure.com).
+Para habilitar el almacenamiento persistente, establezca la opción `WEBSITES_ENABLE_APP_SERVICE_STORAGE` de la aplicación utilizando el comando [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) en [Cloud Shell](https://shell.azure.com).
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=TRUE

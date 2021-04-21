@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 03/26/2021
-ms.openlocfilehash: c0149dbb5f17af87229d951cf744c285e54835af
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: f3bc1dfcfeeb6dda110f71ed7a1c53909153cf00
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107375957"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762162"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Uso de grupos de conmutación por error automática para permitir la conmutación por error de varias bases de datos de manera transparente y coordinada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -434,11 +434,11 @@ Como se ha mencionado antes, los grupos de conmutación automática por error y 
 
 | Get-Help | Descripción |
 | --- | --- |
-| [az sql failover-group create](/cli/azure/sql/failover-group#az-sql-failover-group-create) |Este comando crea un grupo de conmutación por error y lo registra en el servidor principal y el servidor secundario|
-| [az sql failover-group delete](/cli/azure/sql/failover-group#az-sql-failover-group-delete) | Quita un grupo de conmutación por error del servidor. |
-| [az sql failover-group show](/cli/azure/sql/failover-group#az-sql-failover-group-show) | Recupera la configuración de un grupo de conmutación por error. |
-| [az sql failover-group update](/cli/azure/sql/failover-group#az-sql-failover-group-update) |Modifica la configuración de un grupo de conmutación por error, o bien agrega una o varias bases de datos a un grupo de conmutación por error.|
-| [az sql failover-group set-primary](/cli/azure/sql/failover-group#az-sql-failover-group-set-primary) | Desencadena la conmutación por error de un grupo de conmutación por error en el servidor secundario. |
+| [az sql failover-group create](/cli/azure/sql/failover-group#az_sql_failover_group_create) |Este comando crea un grupo de conmutación por error y lo registra en el servidor principal y el servidor secundario|
+| [az sql failover-group delete](/cli/azure/sql/failover-group#az_sql_failover_group_delete) | Quita un grupo de conmutación por error del servidor. |
+| [az sql failover-group show](/cli/azure/sql/failover-group#az_sql_failover_group_show) | Recupera la configuración de un grupo de conmutación por error. |
+| [az sql failover-group update](/cli/azure/sql/failover-group#az_sql_failover_group_update) |Modifica la configuración de un grupo de conmutación por error, o bien agrega una o varias bases de datos a un grupo de conmutación por error.|
+| [az sql failover-group set-primary](/cli/azure/sql/failover-group#az_sql_failover_group_set_primary) | Desencadena la conmutación por error de un grupo de conmutación por error en el servidor secundario. |
 
 # <a name="rest-api"></a>[API DE REST](#tab/rest-api)
 
@@ -472,11 +472,11 @@ Como se ha mencionado antes, los grupos de conmutación automática por error y 
 
 | Get-Help | Descripción |
 | --- | --- |
-| [az sql failover-group create](/cli/azure/sql/failover-group#az-sql-failover-group-create) |Este comando crea un grupo de conmutación por error y lo registra en el servidor principal y el servidor secundario|
-| [az sql failover-group delete](/cli/azure/sql/failover-group#az-sql-failover-group-delete) | Quita un grupo de conmutación por error del servidor. |
-| [az sql failover-group show](/cli/azure/sql/failover-group#az-sql-failover-group-show) | Recupera la configuración de un grupo de conmutación por error. |
-| [az sql failover-group update](/cli/azure/sql/failover-group#az-sql-failover-group-update) |Modifica la configuración de un grupo de conmutación por error, o bien agrega una o varias bases de datos a un grupo de conmutación por error.|
-| [az sql failover-group set-primary](/cli/azure/sql/failover-group#az-sql-failover-group-set-primary) | Desencadena la conmutación por error de un grupo de conmutación por error en el servidor secundario. |
+| [az sql failover-group create](/cli/azure/sql/failover-group#az_sql_failover_group_create) |Este comando crea un grupo de conmutación por error y lo registra en el servidor principal y el servidor secundario|
+| [az sql failover-group delete](/cli/azure/sql/failover-group#az_sql_failover_group_delete) | Quita un grupo de conmutación por error del servidor. |
+| [az sql failover-group show](/cli/azure/sql/failover-group#az_sql_failover_group_show) | Recupera la configuración de un grupo de conmutación por error. |
+| [az sql failover-group update](/cli/azure/sql/failover-group#az_sql_failover_group_update) |Modifica la configuración de un grupo de conmutación por error, o bien agrega una o varias bases de datos a un grupo de conmutación por error.|
+| [az sql failover-group set-primary](/cli/azure/sql/failover-group#az_sql_failover_group_set_primary) | Desencadena la conmutación por error de un grupo de conmutación por error en el servidor secundario. |
 
 # <a name="rest-api"></a>[API DE REST](#tab/rest-api)
 
