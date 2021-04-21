@@ -2,21 +2,24 @@
 title: 'Inicio rápido: Pausa y reanudación del proceso en un grupo de SQL dedicado mediante Azure Portal'
 description: Use Azure Portal para poner en pausa el proceso en el grupo de SQL dedicado para ahorrar costos. Reanude el proceso cuando esté listo para usar el almacenamiento de datos.
 services: synapse-analytics
-author: gaursa
+author: julieMSFT
+ms.author: jrasnick
 manager: craigg
-ms.service: synapse-analytics
-ms.topic: quickstart
-ms.subservice: sql-dw
-ms.date: 11/23/2020
-ms.author: gaursa
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: f9cc5083c4b515454b9d5cbc40ed3b48cba80211
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 11/23/2020
+ms.topic: quickstart
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.custom:
+- seo-lt-2019
+- azure-synapse
+- mode-portal
+ms.openlocfilehash: 27587f436013bcaccbacd668ce62f1d939f89e48
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104602169"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107566824"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-dedicated-sql-pool-via-the-azure-portal"></a>Inicio rápido: Pausa y reanudación del proceso en un grupo de SQL dedicado mediante Azure Portal
 
