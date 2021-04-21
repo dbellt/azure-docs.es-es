@@ -3,12 +3,12 @@ title: Ejecución de contenedores de inicialización
 description: Ejecute los contenedores de inicialización en Azure Container Instances para realizar tareas de instalación en un grupo de contenedores antes de que se ejecuten los contenedores de la aplicación.
 ms.topic: article
 ms.date: 06/01/2020
-ms.openlocfilehash: 5a729263ee632eb9227694ec8684eb6889c6324b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9ccaf1a67d6ca3bcff422acb591b528cc72a9608
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85954288"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763944"
 ---
 # <a name="run-an-init-container-for-setup-tasks-in-a-container-group"></a>Ejecución de un contenedor de inicialización para tareas de configuración en un grupo de contenedores
 
@@ -219,6 +219,6 @@ Azure Container Instances proporciona otras opciones para modificar el comportam
 * [Establecimiento de la línea de comandos en una instancia de contenedor para invalidar la operación de línea de comandos predeterminada](container-instances-start-command.md)
 
 
-[az-group-create]: /cli/azure/group#az-group-create
-[az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create
-[az-container-logs]: /cli/azure/container#az-container-logs
+[az-group-create]: /cli/azure/group#az_group_create
+[az-deployment-group-create]: /cli/azure/deployment/group#az_deployment_group_create
+[az-container-logs]: /cli/azure/container#az_container_logs

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
-ms.openlocfilehash: b8733d499b2396160a73906f16a69291cf0b9d71
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 650c0847942635e2a6a901db40ed0e51e9412057
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103015427"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600070"
 ---
 # <a name="publish-azure-media-services-content-using-rest"></a>Publicación de contenido de Azure Media Services con REST
 
@@ -49,7 +49,7 @@ En la sección [siguiente](#types) se muestran los tipos de enumeración cuyos v
 Para obtener más información sobre cómo conectarse a la API de Azure Media Services, consulte [Acceso a la API de Azure Media Services con la autenticación de Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
 >[!NOTE]
->Después de conectarse correctamente a https://media.windows.net, recibirá una redirección 301 que especifica otro URI de Media Services. Debe realizar las llamadas posteriores al nuevo URI.
+>Después de conectarse correctamente a `https://media.windows.net`, recibirá una redirección 301 que especifica otro URI de Media Services. Debe realizar las llamadas posteriores al nuevo URI.
 
 ## <a name="create-an-ondemand-streaming-locator"></a>Creación de un localizador de streaming a petición
 Para crear el localizador de streaming a petición y obtener las direcciones URL, deberá hacer lo siguiente:

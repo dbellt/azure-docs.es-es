@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 04/12/2020
 ms.author: ellbe
-ms.openlocfilehash: 3a71a29fdf4af10162e2f7961fb457d0e99b18e8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 40f2e146956919e154f59d90b56a1b03379abbb2
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "81687118"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600644"
 ---
 # <a name="automatically-identify-the-spoken-language-with-language-identification-model"></a>Identificación automática del idioma hablado con el modelo de identificación de idiomas
 
@@ -27,7 +27,7 @@ Asegúrese de revisar la siguiente sección [Instrucciones y limitaciones](#guid
 
 ## <a name="choosing-auto-language-identification-on-indexing"></a>Elección de la identificación automática de idioma en la indexación
 
-Al indexar o [volver a indexar](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-Index-Video?) un vídeo mediante la API, elija la opción `auto detect` en el parámetro `sourceLanguage`.
+Al indexar o [volver a indexar](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Re-Index-Video) un vídeo mediante la API, elija la opción `auto detect` en el parámetro `sourceLanguage`.
 
 Cuando use el portal, vaya a **Account videos** (Vídeos de la cuenta) en la página de inicio de [Video Indexer](https://www.videoindexer.ai/) y mantenga el puntero sobre el nombre del vídeo que quiera volver a indexar. En la esquina inferior derecha, haga clic en el botón para volver a indexar. En el cuadro de diálogo **Volver a indexar el vídeo**, elija *Detección automática* en el cuadro desplegable **Idioma de origen del vídeo**.
 

@@ -4,17 +4,16 @@ description: Obtenga información sobre el modo en que los puntos de conexión d
 services: key-vault
 author: amitbapat
 ms.author: ambapat
-manager: rkarlin
 ms.date: 01/02/2019
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: ae22f07a70f3317b62776e5024b7a3d1084516a1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 985cbe1128d1dd64fda86ef062750dc5dd068ffe
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105643481"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751740"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Puntos de conexión de servicio de red virtual para Azure Key Vault
 
@@ -27,7 +26,7 @@ Hay una excepción importante a esta restricción. Si un usuario ha decidido per
 Puede configurar los [firewalls y redes virtuales de Key Vault](network-security.md) para denegar el acceso al tráfico de todas las redes (incluido el tráfico de Internet) de forma predeterminada. Puede conceder acceso al tráfico desde redes virtuales específicas de Azure y rangos de direcciones IP públicas de Internet, lo que le permite generar un límite de red seguro para las aplicaciones.
 
 > [!NOTE]
-> Los firewall de Key Vault y las reglas de red virtual solo se aplican al [plan de datos](secure-your-key-vault.md#data-plane-access-control) de Key Vault. Las operaciones del plano de control de Key Vault (como crear, eliminar, modificar operaciones, configurar directivas de acceso, configurar firewalls y reglas de red virtual, e implementar secretos o claves mediante plantillas de ARM) no se ven afectadas por los firewalls ni las reglas de red virtual.
+> Los firewall de Key Vault y las reglas de red virtual solo se aplican al [plan de datos](security-overview.md#privileged-access) de Key Vault. Las operaciones del plano de control de Key Vault (como crear, eliminar, modificar operaciones, configurar directivas de acceso, configurar firewalls y reglas de red virtual, e implementar secretos o claves mediante plantillas de ARM) no se ven afectadas por los firewalls ni las reglas de red virtual.
 
 Estos son algunos ejemplos de cómo puede usar los puntos de conexión de servicio:
 

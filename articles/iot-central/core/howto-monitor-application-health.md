@@ -7,12 +7,12 @@ ms.date: 01/27/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 5e462397196d2fd0fd716801d9106929a8cb6a6b
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: df89d53e6b5043c1ef3caa1c92f2abaae542d6ec
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106061458"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107599016"
 ---
 # <a name="monitor-the-overall-health-of-an-iot-central-application"></a>Supervisión del estado general de una aplicación de IoT Central
 
@@ -54,7 +54,7 @@ Las métricas pueden diferir de los números que se muestran en la factura de Az
 
 - Los [planes de precios estándar](https://azure.microsoft.com/pricing/details/iot-central/) de IoT Central incluyen dos dispositivos y distintas cuotas de mensajes de forma gratuita. Aunque los elementos gratuitos se excluyen de la facturación, todavía se cuentan en las métricas.
 
-- IoT Central genera automáticamente un identificador de dispositivo de prueba para cada plantilla de dispositivo en la aplicación. Este identificador de dispositivo es visible en la página **Administrar el dispositivo de prueba** para una plantilla de dispositivo. Los generadores de soluciones pueden optar por [validar sus plantillas de dispositivo](./overview-iot-central.md#create-device-templates) antes de publicarlas mediante la generación del código que usa estos identificadores de dispositivo de prueba. Aunque estos dispositivos se excluyen de la facturación, todavía se cuentan en las métricas.
+- IoT Central genera automáticamente un identificador de dispositivo de prueba para cada plantilla de dispositivo en la aplicación. Este identificador de dispositivo es visible en la página **Administrar el dispositivo de prueba** para una plantilla de dispositivo. Los generadores de soluciones pueden optar por validar sus plantillas de dispositivo antes de publicarlas mediante la generación del código que usa estos identificadores de dispositivo de prueba. Aunque estos dispositivos se excluyen de la facturación, todavía se cuentan en las métricas.
 
 - Aunque las métricas pueden mostrar un subconjunto de las comunicaciones del dispositivo a la nube, todas las comunicaciones entre el dispositivo y la nube [cuentan como un mensaje para la facturación](https://azure.microsoft.com/pricing/details/iot-central/).
 

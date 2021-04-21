@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 11/19/2020
 ms.author: nanditav
 ms.reviewer: jrasnick
-ms.openlocfilehash: d4bc59a9bd5299698bff9949aaaa881fbdf385ee
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6ddafb0e76799e3d8011232534c505f97c79b22e
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100526279"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751137"
 ---
 # <a name="encryption-for-azure-synapse-analytics-workspaces"></a>Cifrado en las áreas de trabajo de Azure Synapse Analytics
 
@@ -53,7 +53,7 @@ Las áreas de trabajo se pueden configurar para habilitar el cifrado doble con u
 
 ### <a name="key-access-and-workspace-activation"></a>Acceso de clave y activación del área de trabajo
 
-El modelo de cifrado de Azure Synapse con claves administradas por el cliente supone el acceso del área de trabajo a las claves de Azure Key Vault de cifrado y descifrado, según sea necesario. El área de trabajo puede acceder a las claves mediante una directiva de acceso o el [acceso RBAC de Azure Key Vault](../../key-vault/general/rbac-guide.md). Al conceder permisos a través de una directiva de acceso de Azure Key Vault, elija la opción ["Application-only"](../../key-vault/general/secure-your-key-vault.md#key-vault-authentication-options) (Solo aplicación) durante la creación de la directiva (seleccione la identidad administrada del área de trabajo y no la agregue como aplicación autorizada).
+El modelo de cifrado de Azure Synapse con claves administradas por el cliente supone el acceso del área de trabajo a las claves de Azure Key Vault de cifrado y descifrado, según sea necesario. El área de trabajo puede acceder a las claves mediante una directiva de acceso o el [acceso RBAC de Azure Key Vault](../../key-vault/general/rbac-guide.md). Al conceder permisos a través de una directiva de acceso de Azure Key Vault, elija la opción ["Application-only"](../../key-vault/general/security-overview.md#key-vault-authentication-options) (Solo aplicación) durante la creación de la directiva (seleccione la identidad administrada del área de trabajo y no la agregue como aplicación autorizada).
 
  Para poder activar el área de trabajo, a su identidad administrada se le deben conceder los permisos necesarios en el almacén de claves. Este enfoque por fases para la activación del área de trabajo garantiza que los datos del área de trabajo se cifren con la clave administrada por el cliente. Tenga en cuenta que el cifrado puede habilitarse o deshabilitarse para los grupos de SQL dedicados; de forma predeterminada, cada grupo no está habilitado para el cifrado.
 

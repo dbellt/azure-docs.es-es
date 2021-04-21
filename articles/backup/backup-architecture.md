@@ -3,12 +3,12 @@ title: Introducción a la arquitectura
 description: Proporciona información general sobre la arquitectura, los componentes y los procesos usados por el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: 1e5a61bd4e3287c1100ff1f54fda797c1add438b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8fca05f8718fc5e44da33b19447895f5daafc905
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103466418"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107716762"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Arquitectura y componentes de Azure Backup
 
@@ -137,28 +137,12 @@ Copia de seguridad de discos desduplicados | | | ![Parcialmente][yellow]<br/><br
 - Recurso compartido de archivos de Azure: ¿Cómo [crear](./backup-afs.md) y [modificar](./manage-afs-backup.md#modify-policy) una directiva?
 - SAP HANA: ¿Cómo [crear](./backup-azure-sap-hana-database.md#create-a-backup-policy) y [modificar](./sap-hana-db-manage.md#change-policy) una directiva?
 - MARS: ¿Cómo [crear](./backup-windows-with-mars-agent.md#create-a-backup-policy) y [modificar](./backup-azure-manage-mars.md#modify-a-backup-policy) una directiva?
-- [¿Existen límites sobre la programación de copia de seguridad en función del tipo de carga de trabajo?](./backup-azure-backup-faq.md#are-there-limits-on-backup-scheduling)
-- [¿Qué ocurre con los puntos de recuperación existentes cuando se cambia mi directiva de recuperación?](./backup-azure-backup-faq.md#what-happens-when-i-change-my-backup-policy)
+- [¿Existen límites sobre la programación de copia de seguridad en función del tipo de carga de trabajo?](./backup-azure-backup-faq.yml#are-there-limits-on-backup-scheduling-)
+- [¿Qué ocurre con los puntos de recuperación existentes cuando se cambia mi directiva de recuperación?](./backup-azure-backup-faq.yml#what-happens-when-i-change-my-backup-policy-)
 
 ## <a name="architecture-built-in-azure-vm-backup"></a>Arquitectura: Copia de seguridad integrada de máquina virtual de Azure
 
-1. Cuando se habilita la copia de seguridad de una máquina virtual de Azure, se ejecuta una copia de seguridad con la programación que especifique.
-1. Durante la primera copia de seguridad, se instala una extensión de copia de seguridad en la VM si esta se encuentra en ejecución.
-    - En máquinas virtuales Windows, se instala la extensión VMSnapshot.
-    - En máquinas virtuales Linux, se instala la extensión VMSnapshot para Linux.
-1. La extensión toma una instantánea de nivel de almacenamiento.
-    - En el caso de las máquinas virtuales Windows en ejecución, el servicio Backup se coordina con el Servicio de instantáneas de volumen (VSS) de Windows para obtener una instantánea coherente con la aplicación de la máquina virtual. De forma predeterminada, Azure Backup realiza copias de seguridad de VSS completas. Si Azure Backup no puede tomar una instantánea coherente con la aplicación, toma una instantánea coherente con el archivo.
-    - En máquinas virtuales Linux, Azure Backup toma una instantánea coherente con el archivo. Para obtener instantáneas coherentes con la aplicación, debe personalizar manualmente los scripts previos y posteriores.
-    - Azure Backup se optimiza mediante la copia de seguridad de cada disco de máquina virtual en paralelo. Este servicio lee los bloques de cada disco que se va a copiar y solo almacena los datos cambiados.
-1. Después de tomar la instantánea, los datos se transfieren al almacén.
-    - Solo se copian los bloques de datos que han cambiado desde la última copia de seguridad.
-    - Los datos no se cifran. Azure Backup puede hacer una copia de seguridad de las máquinas virtuales de Azure que se cifraron mediante Azure Disk Encryption.
-    - Es posible que los datos de las instantáneas no se copien inmediatamente en el almacén. En momentos de máxima actividad, la copia de seguridad podría durar horas. El tiempo total de copia de seguridad de una VM será inferior a 24 horas para las directivas de copia de seguridad diarias.
-1. Una vez enviados los datos al almacén, se crea un punto de recuperación. De manera predeterminada, las instantáneas se conservan durante dos días antes de ser eliminadas. Esta característica permite la operación de restauración a partir de estas instantáneas, lo cual reduce los tiempos de restauración. Reduce el tiempo necesario para transformar y copiar datos desde el almacén. Consulte [Funcionalidad de restauración instantánea de Azure Backup](./backup-instant-restore-capability.md).
-
-No es necesario permitir explícitamente la conectividad a Internet para realizar copias de seguridad de las VM de Azure.
-
-![Copia de seguridad de máquinas virtuales de Azure](./media/backup-architecture/architecture-azure-vm.png)
+[!INCLUDE [azure-vm-backup-process.md](../../includes/azure-vm-backup-process.md)]
 
 ## <a name="architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders"></a>Arquitectura: copia de seguridad directa de máquinas Windows Server locales o de archivos o carpetas de máquinaz virtuales de Azure
 

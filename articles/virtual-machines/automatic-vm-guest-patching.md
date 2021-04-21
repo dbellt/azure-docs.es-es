@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 02/17/2021
 ms.author: manayar
-ms.openlocfilehash: 276762bc2b8624f687cbb77e1af771478791a57b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1a6a67fe43d4e0a6086154d71e61fe51680dbcd0
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101678913"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762594"
 ---
 # <a name="preview-automatic-vm-guest-patching-for-azure-vms"></a>Versión preliminar: Aplicación de revisiones automática a invitados de las máquinas virtuales para máquinas virtuales de Azure
 
@@ -182,7 +182,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 ```
 
 ### <a name="azure-cli-20"></a>CLI de Azure 2.0
-Utilice [az feature register](/cli/azure/feature#az-feature-register) para habilitar la versión preliminar de su suscripción.
+Utilice [az feature register](/cli/azure/feature#az_feature_register) para habilitar la versión preliminar de su suscripción.
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.Compute --name InGuestAutoPatchVMPreview `
@@ -258,13 +258,13 @@ Set-AzVMOperatingSystem -VM $VirtualMachine -Windows -ComputerName $ComputerName
 ```
 
 ### <a name="azure-cli-for-windows-vms"></a>CLI de Azure para máquinas virtuales Windows
-Use [az vm create](/cli/azure/vm#az-vm-create) para habilitar la aplicación de revisiones automáticas a invitados de máquina virtual al crear una nueva máquina virtual. En el ejemplo siguiente se configura la aplicación de revisiones automáticas a invitados de una máquina virtual llamada *myVM* en el grupo de recursos llamado *myResourceGroup*:
+Use [az vm create](/cli/azure/vm#az_vm_create) para habilitar la aplicación de revisiones automáticas a invitados de máquina virtual al crear una nueva máquina virtual. En el ejemplo siguiente se configura la aplicación de revisiones automáticas a invitados de una máquina virtual llamada *myVM* en el grupo de recursos llamado *myResourceGroup*:
 
 ```azurecli-interactive
 az vm create --resource-group myResourceGroup --name myVM --image Win2019Datacenter --enable-agent --enable-auto-update --patch-mode AutomaticByPlatform
 ```
 
-Para modificar una máquina virtual existente, use [az vm update](/cli/azure/vm#az-vm-update)
+Para modificar una máquina virtual existente, use [az vm update](/cli/azure/vm#az_vm_update)
 
 ```azurecli-interactive
 az vm update --resource-group myResourceGroup --name myVM --set osProfile.windowsConfiguration.enableAutomaticUpdates=true osProfile.windowsConfiguration.patchSettings.patchMode=AutomaticByPlatform
@@ -309,7 +309,7 @@ Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM" -Status
 Actualmente, PowerShell solo proporciona información sobre la extensión de revisión. La información sobre `patchStatus` también estará disponible pronto a través de PowerShell.
 
 ### <a name="azure-cli"></a>CLI de Azure
-Use [az vm get-instance-view](/cli/azure/vm#az-vm-get-instance-view) para acceder a la vista de instancia de la máquina virtual.
+Use [az vm get-instance-view](/cli/azure/vm#az_vm_get_instance_view) para acceder a la vista de instancia de la máquina virtual.
 
 ```azurecli-interactive
 az vm get-instance-view --resource-group myResourceGroup --name myVM
@@ -344,7 +344,7 @@ Invoke-AzVmPatchAssessment -ResourceGroupName "myResourceGroup" -VMName "myVM"
 ```
 
 ### <a name="azure-cli"></a>CLI de Azure
-Use [az vm assess-patches](/cli/azure/vm#az-vm-assess-patches) para evaluar las revisiones disponibles para la máquina virtual.
+Use [az vm assess-patches](/cli/azure/vm#az_vm_assess_patches) para evaluar las revisiones disponibles para la máquina virtual.
 
 ```azurecli-interactive
 az vm assess-patches --resource-group myResourceGroup --name myVM

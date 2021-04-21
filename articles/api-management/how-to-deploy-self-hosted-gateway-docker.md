@@ -8,14 +8,14 @@ manager: gwallace
 editor: ''
 ms.service: api-management
 ms.topic: article
-ms.date: 04/26/2020
+ms.date: 04/19/2021
 ms.author: apimpm
-ms.openlocfilehash: b9e990988770e8aca015ae8b1159bb4f5e50df57
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 531421726bc1e081d85eca9d535267520d3fea5f
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "82204829"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107725618"
 ---
 # <a name="deploy-an-azure-api-management-self-hosted-gateway-to-docker"></a>Implementación de una puerta de enlace autohospedada de Azure API Management en Docker
 
@@ -39,23 +39,23 @@ En este artículo se detallan los pasos para implementar un componente de puerta
 2. Seleccione el recurso de puerta de enlace que desea implementar.
 3. Seleccione **Implementación**.
 4. Tenga en cuenta que en el cuadro de texto **Token** se generará automáticamente un token de acceso con los valores predeterminados de **Expiración** y **Clave secreta**. Si es necesario, elija los valores deseados en uno o ambos controles para generar un nuevo token.
-4. Asegúrese de que **Docker** esté seleccionado en **Scripts de implementación**.
-5. Seleccione el vínculo del archivo **env.conf** junto al **Entorno** para descargar el archivo.
-6. Seleccione el icono **Copiar** situado en el extremo derecho del cuadro de texto **Ejecutar** para copiar el comando de Docker en el portapapeles.
-7. Pegue el comando en la ventana de terminal (o comando). Ajuste las asignaciones de puerto y el nombre del contenedor según sea necesario. Tenga en cuenta que el comando da por supuesto que el archivo de entorno descargado está presente en el directorio actual.
-```
-    docker run -d -p 80:8080 -p 443:8081 --name <gateway-name> --env-file env.conf mcr.microsoft.com/azure-api-management/gateway:<tag>
-```
-8. Ejecute el comando. El comando indica al entorno de Docker que ejecute el contenedor mediante la [imagen de contenedor](https://aka.ms/apim/sputnik/dhub) descargada del Registro de contenedor de Microsoft y que asigne los puertos HTTP (8080) y HTTPS (8081) del contenedor a los puertos 80 y 443 del host.
-9. Ejecute el siguiente comando para comprobar si se está ejecutando el contenedor de puerta de enlace:
-```console
-docker ps
-CONTAINER ID        IMAGE                                                 COMMAND                  CREATED             STATUS              PORTS                                         NAMES
-895ef0ecf13b        mcr.microsoft.com/azure-api-management/gateway:latest   "/bin/sh -c 'dotnet …"   5 seconds ago       Up 3 seconds        0.0.0.0:80->8080/tcp, 0.0.0.0:443->8081/tcp   my-gateway
-```
+5. Asegúrese de que **Docker** esté seleccionado en **Scripts de implementación**.
+6. Seleccione el vínculo del archivo **env.conf** junto al **Entorno** para descargar el archivo.
+7. Seleccione el icono **Copiar** situado en el extremo derecho del cuadro de texto **Ejecutar** para copiar el comando de Docker en el portapapeles.
+8. Pegue el comando en la ventana de terminal (o comando). Ajuste las asignaciones de puerto y el nombre del contenedor según sea necesario. Tenga en cuenta que el comando da por supuesto que el archivo de entorno descargado está presente en el directorio actual.
+   ```
+       docker run -d -p 80:8080 -p 443:8081 --name <gateway-name> --env-file env.conf mcr.microsoft.com/azure-api-management/gateway:<tag>
+   ```
+9. Ejecute el comando. El comando indica al entorno de Docker que ejecute el contenedor mediante la [imagen de contenedor](https://aka.ms/apim/sputnik/dhub) descargada del Registro de contenedor de Microsoft y que asigne los puertos HTTP (8080) y HTTPS (8081) del contenedor a los puertos 80 y 443 del host.
+10. Ejecute el siguiente comando para comprobar si se está ejecutando el contenedor de puerta de enlace:
+    ```console
+    docker ps
+    CONTAINER ID        IMAGE                                                 COMMAND                  CREATED             STATUS              PORTS                                         NAMES
+    895ef0ecf13b        mcr.microsoft.com/azure-api-management/gateway:latest   "/bin/sh -c 'dotnet …"   5 seconds ago       Up 3 seconds        0.0.0.0:80->8080/tcp, 0.0.0.0:443->8081/tcp   my-gateway
+    ```
 10. Vuelva a Azure Portal, haga clic en **Información general** y confirme que el contenedor de puerta de enlace autohospedada que acaba de implementar está notificando un estado correcto.
 
-![estado de la puerta de enlace](media/how-to-deploy-self-hosted-gateway-docker/status.png)
+    ![estado de la puerta de enlace](media/how-to-deploy-self-hosted-gateway-docker/status.png)
 
 > [!TIP]
 > Use el comando <code>console docker container logs <gateway-name></code> para ver una instantánea del registro de la puerta de enlace autohospedada.

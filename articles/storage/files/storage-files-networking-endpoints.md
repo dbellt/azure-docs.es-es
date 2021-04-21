@@ -8,12 +8,12 @@ ms.date: 12/04/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 079d7aa9b654a318c7269a41605c3e146b08f127
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 42e83facec7817b6588bf69977fea5ab74b6b10d
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96621338"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107759886"
 ---
 # <a name="configuring-azure-files-network-endpoints"></a>Configuración de puntos de conexión de red de Azure Files
 
@@ -23,7 +23,7 @@ Azure Files proporciona dos tipos principales de puntos de conexión para el acc
 
 Los puntos de conexión públicos y privados existen en la cuenta de almacenamiento de Azure. Una cuenta de almacenamiento es una construcción de administración que representa un grupo compartido de almacenamiento en el que puede implementar varios recursos compartidos de archivos u otros recursos de almacenamiento, como contenedores de blobs o colas.
 
-Este artículo se centra en cómo configurar los puntos de conexión de una cuenta de almacenamiento para acceder directamente al recurso compartido de archivos de Azure. La mayoría de los detalles proporcionados en este documento también se aplican al modo en que Azure File Sync interopera con puntos de conexión públicos y privados de la cuenta de almacenamiento; sin embargo, para más información sobre las consideraciones de redes para una implementación de Azure File Sync, consulte [Configuración del proxy y el firewall de Azure File Sync](storage-sync-files-firewall-and-proxy.md).
+Este artículo se centra en cómo configurar los puntos de conexión de una cuenta de almacenamiento para acceder directamente al recurso compartido de archivos de Azure. La mayoría de los detalles proporcionados en este documento también se aplican al modo en que Azure File Sync interopera con puntos de conexión públicos y privados de la cuenta de almacenamiento; sin embargo, para más información sobre las consideraciones de redes para una implementación de Azure File Sync, consulte [Configuración del proxy y el firewall de Azure File Sync](../file-sync/file-sync-firewall-and-proxy.md).
 
 Se recomienda leer [Consideraciones de redes para Azure Files](storage-files-networking-overview.md) antes de pasar a esta guía de procedimientos.
 

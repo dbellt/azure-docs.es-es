@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/01/2021
 ms.author: apimpm
-ms.openlocfilehash: 85abf30d792b24b92685e191f5b460a42dc29142
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6f074ff389971fa56da7838a9a46ec5c4d42dc5a
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101688423"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739105"
 ---
 # <a name="api-management-cross-domain-policies"></a>Directivas entre dominios de API Management
 En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](./api-management-policies.md).
@@ -69,7 +69,7 @@ La directiva `cors` agrega compatibilidad con el uso compartido de recursos entr
 
 CORS permite a un explorador y a un servidor interactuar y determinar si se permiten o no solicitudes específicas entre orígenes (por ejemplo, llamadas XMLHttpRequests realizadas desde JavaScript en una página web a otros dominios). Esto permite más flexibilidad que si solo se permiten solicitudes del mismo origen, pero es más seguro que permitir todas las solicitudes entre orígenes.
 
-Debe aplicar la directiva CORS para habilitar la consola interactiva en el portal para desarrolladores. Consulte la [documentación del portal para desarrolladores](./api-management-howto-developer-portal.md#cors) para obtener detalles.
+Debe aplicar la directiva CORS para habilitar la consola interactiva en el portal para desarrolladores. Consulte la [documentación del portal para desarrolladores](./developer-portal-faq.md#cors) para obtener detalles.
 
 ### <a name="policy-statement"></a>Instrucción de la directiva
 

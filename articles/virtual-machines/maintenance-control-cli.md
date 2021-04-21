@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 11/20/2020
 ms.author: cynthn
-ms.openlocfilehash: 9425759de1e08bc83cac80cd1b56c602edb59fb1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c57f66eca5d15024c6b10e8fad12ddb575b9f894
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102562969"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765906"
 ---
 # <a name="control-updates-with-maintenance-control-and-the-azure-cli"></a>Control de las actualizaciones con el control de mantenimiento y la CLI de Azure
 
@@ -93,7 +93,7 @@ az maintenance assignment create \
 
 Para aplicar una configuración a un host dedicado, debe incluir `--resource-type hosts`, `--resource-parent-name` con el nombre del grupo host y `--resource-parent-type hostGroups`. 
 
-El parámetro `--resource-id` es el identificador del host. Puede usar [az vm host get-instance-view](/cli/azure/vm/host#az-vm-host-get-instance-view) para obtener el identificador del host dedicado.
+El parámetro `--resource-id` es el identificador del host. Puede usar [az vm host get-instance-view](/cli/azure/vm/host#az_vm_host_get_instance_view) para obtener el identificador del host dedicado.
 
 ```azurecli-interactive
 az maintenance assignment create \

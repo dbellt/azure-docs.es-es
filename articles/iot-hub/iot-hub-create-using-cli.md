@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/23/2018
 ms.author: robinsh
-ms.openlocfilehash: e9757b94330f889869080a0e961ab2728cee86f6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: eff0085a4a739e0831b25b1bd28cd234fdbcde3d
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94659937"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107766468"
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli"></a>Creación de una instancia de IoT Hub mediante la CLI de Azure
 
@@ -42,7 +42,7 @@ Use la CLI de Azure para crear un grupo de recursos y, luego, agregue una instan
    > ```
    >
 
-2. Ejecute el [comando siguiente para crear una instancia de IoT Hub](/cli/azure/iot/hub#az-iot-hub-create) en el grupo de recursos, con un nombre único global para la instancia de IoT Hub:
+2. Ejecute el [comando siguiente para crear una instancia de IoT Hub](/cli/azure/iot/hub#az_iot_hub_create) en el grupo de recursos, con un nombre único global para la instancia de IoT Hub:
     
    ```azurecli-interactive
    az iot hub create --name {your iot hub name} \
@@ -58,14 +58,14 @@ El comando anterior crea una instancia de IoT Hub en el plan de tarifa S1 según
 
 Puede usar la CLI de Azure para [eliminar un recurso individual](/cli/azure/resource), como una instancia de IoT Hub, o para eliminar un grupo de recursos y todos sus recursos, incluida cualquier instancia de IoT Hub.
 
-Ejecute el comando siguiente para [eliminar una instancia de IoT Hub](/cli/azure/iot/hub#az-iot-hub-delete):
+Ejecute el comando siguiente para [eliminar una instancia de IoT Hub](/cli/azure/iot/hub#az_iot_hub_delete):
 
 ```azurecli-interactive
 az iot hub delete --name {your iot hub name} -\
   -resource-group {your resource group name}
 ```
 
-Ejecute el comando siguiente para [eliminar un grupo de recursos](/cli/azure/group#az-group-delete) y todos sus recursos:
+Ejecute el comando siguiente para [eliminar un grupo de recursos](/cli/azure/group#az_group_delete) y todos sus recursos:
 
 ```azurecli-interactive
 az group delete --name {your resource group name}

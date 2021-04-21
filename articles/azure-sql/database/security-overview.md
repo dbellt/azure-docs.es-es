@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, emlisa
 ms.date: 10/26/2020
-ms.openlocfilehash: 39119f62fa938f5f4f6529539d4ca9a84bdf8fd7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 39012e1f5a0282da7dda6bab216719e31fdc5061
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94989197"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107752181"
 ---
 # <a name="an-overview-of-azure-sql-database-and-sql-managed-instance-security-capabilities"></a>Información general sobre las capacidades de seguridad de Azure SQL Database e Instancia administrada de SQL
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -114,11 +114,11 @@ Por ejemplo, cuando se utiliza el controlador ADO.NET, esto se logra a través d
 
 [Cifrado de datos transparente (TDE) para Azure SQL Database, SQL Managed Instance y Azure Synapse Analytics](transparent-data-encryption-tde-overview.md) agrega una capa de seguridad para ayudar a proteger los datos en reposo frente al acceso no autorizado o sin conexión a archivos sin formato o copias de seguridad. Los escenarios habituales incluyen el robo del centro de datos o la eliminación no segura de hardware o medios como unidades de disco y cintas de copia de seguridad. TDE cifra toda la base de datos mediante un algoritmo de cifrado de AES, lo que no requiere que los desarrolladores de aplicaciones hagan cambios en las aplicaciones existentes.
 
-En Azure, todas las bases de datos recién creadas se cifran de forma predeterminada y la clave de cifrado de la base de datos se protege mediante un certificado de servidor integrado.  El servicio administra el mantenimiento y la rotación de certificados, y no se requiere ninguna acción por parte del usuario. Los clientes que prefieren tomar el control de las claves de cifrado pueden administrar las claves en [Azure Key Vault](../../key-vault/general/secure-your-key-vault.md).
+En Azure, todas las bases de datos recién creadas se cifran de forma predeterminada y la clave de cifrado de la base de datos se protege mediante un certificado de servidor integrado.  El servicio administra el mantenimiento y la rotación de certificados, y no se requiere ninguna acción por parte del usuario. Los clientes que prefieren tomar el control de las claves de cifrado pueden administrar las claves en [Azure Key Vault](../../key-vault/general/security-overview.md).
 
 ### <a name="key-management-with-azure-key-vault"></a>Administración de claves con Azure Key Vault
 
-La compatibilidad de [Bring Your Own Key](transparent-data-encryption-byok-overview.md) (BYOK) con el  [Cifrado de datos transparente](/sql/relational-databases/security/encryption/transparent-data-encryption) (TDE) permite a los clientes asumir la propiedad de la administración y la rotación de claves mediante  [Azure Key Vault](../../key-vault/general/secure-your-key-vault.md), el sistema externo de administración de claves basado en la nube de Azure. Si se revoca el acceso de la base de datos al almacén de claves, una base de datos no se puede descifrar y leer en la memoria. Azure Key Vault ofrece una plataforma de administración central de claves, aprovecha los módulos de seguridad de hardware (HSM) extremadamente supervisados y permite la separación de obligaciones entre la administración de claves y los datos para ayudar a cumplir los requisitos de cumplimiento de seguridad.
+La compatibilidad de [Bring Your Own Key](transparent-data-encryption-byok-overview.md) (BYOK) con el  [Cifrado de datos transparente](/sql/relational-databases/security/encryption/transparent-data-encryption) (TDE) permite a los clientes asumir la propiedad de la administración y la rotación de claves mediante  [Azure Key Vault](../../key-vault/general/security-overview.md), el sistema externo de administración de claves basado en la nube de Azure. Si se revoca el acceso de la base de datos al almacén de claves, una base de datos no se puede descifrar y leer en la memoria. Azure Key Vault ofrece una plataforma de administración central de claves, aprovecha los módulos de seguridad de hardware (HSM) extremadamente supervisados y permite la separación de obligaciones entre la administración de claves y los datos para ayudar a cumplir los requisitos de cumplimiento de seguridad.
 
 ### <a name="always-encrypted-encryption-in-use"></a>Always Encrypted (cifrado en uso)
 

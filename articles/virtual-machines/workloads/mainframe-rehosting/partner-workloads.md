@@ -11,12 +11,12 @@ editor: edprice
 ms.author: larryme
 ms.date: 05/09/2020
 ms.topic: article
-ms.openlocfilehash: 467cae97f9b4efe4782ac802cccd84271d475ea7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0b3dd754e226436cb26cbb808bf37e4262efa344
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104955438"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107599560"
 ---
 # <a name="mainframe-workloads-supported-on-azure"></a>Cargas de trabajo del sistema central que se admiten en Azure
 
@@ -52,7 +52,7 @@ Para obtener más ayuda con la emulación y los servicios del sistema central, c
 
 ## <a name="code-conversion"></a>Conversión de código
 
-- Tecnología de conversión del sistema [Asysco](https://www.asysco.com/azure-cloud/) que abarca el código fuente, los datos, el lote, la programación, los monitores de procesamiento de transacciones, las interfaces, la seguridad, la administración, etc.
+- Tecnología de conversión del sistema [Asysco](https://asysco.com/) que abarca el código fuente, los datos, el lote, la programación, los monitores de procesamiento de transacciones, las interfaces, la seguridad, la administración, etc.
 - Servicios de un extremo a otro [Asysco AMT Services](https://www.asysco.com/migration-services/) para los proyectos de migración, como el inventario y el análisis, la capacitación en diseño, los ensayos generales, la puesta en marcha, el soporte técnico posterior a la migración.
 - Herramientas de [Blu Age](https://www.bluage.com/) para la digitalización de bases de datos y aplicaciones empresariales heredadas.
 - Servicios de [Heirloom Computing](https://www.heirloomcomputing.com/tag/convert-cobol-to-java/) para la conversión de contenido COBOL, CICS y VSAM del sistema central a Java.

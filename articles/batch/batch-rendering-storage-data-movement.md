@@ -7,12 +7,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: how-to
-ms.openlocfilehash: 55ec04df2a107dabfc72298bc8849c13f3a926e0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0a18ee6961cb601b0fa9db7213eb6115afa20096
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86147298"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765204"
 ---
 # <a name="storage-and-data-movement-options-for-rendering-asset-and-output-files"></a>Opciones de almacenamiento y movimiento de datos para representar archivos de recursos y de salida
 
@@ -126,7 +126,7 @@ Las tareas del trabajo especifican las rutas de acceso a los archivos de entrada
 
 Azure Files es compatibles con las principales API y herramientas que tienen compatibilidad con Azure Storage; por ejemplo, azcopy, CLI de Azure, el Explorador de Storage, Azure PowerShell, Batch Explorer, etc.
 
-[Azure File Sync](../storage/files/storage-sync-files-planning.md) está disponible para sincronizar automáticamente archivos entre un sistema de archivos local y un recurso compartido de Azure Files.
+[Azure File Sync](../storage/file-sync/file-sync-planning.md) está disponible para sincronizar automáticamente archivos entre un sistema de archivos local y un recurso compartido de Azure Files.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

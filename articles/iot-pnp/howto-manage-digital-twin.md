@@ -3,16 +3,16 @@ title: Administración de Digital Twins de IoT Plug and Play
 description: Administración de dispositivos IoT Plug and Play mediante API de gemelo digital
 author: prashmo
 ms.author: prashmo
-ms.date: 07/20/2020
+ms.date: 12/17/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: ddb8027c145f6a38bfcd953be66dae2943a20c3a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e68003878dc0e9275461100a59e0f45486c2978f
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97654615"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739879"
 ---
 # <a name="manage-iot-plug-and-play-digital-twins"></a>Administración de Digital Twins de IoT Plug and Play
 

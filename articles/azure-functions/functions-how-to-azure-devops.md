@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: a3f423a144738fdaa4462606de6ad4a4e34d6775
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a99e313a0c3fe9093137d4acaa64e789ef5e10e3
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97563422"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762216"
 ---
 # <a name="continuous-delivery-by-using-azure-devops"></a>Entrega continua con Azure DevOps
 
@@ -248,7 +248,7 @@ En la plantilla de versión no se admite la implementación en una ranura de imp
 
 ## <a name="create-a-build-pipeline-by-using-the-azure-cli"></a>Creación de una canalización de compilación mediante la CLI de Azure
 
-Para crear una canalización de compilación en Azure, use el [comando](/cli/azure/functionapp/devops-pipeline#az-functionapp-devops-pipeline-create) `az functionapp devops-pipeline create`. La canalización de compilación se crea para compilar y liberar los cambios de código que se realicen en el repositorio. El comando generará un nuevo archivo YAML que define la canalización de versión y compilación y lo confirma en el repositorio. Los requisitos previos para este comando dependen de la ubicación del código.
+Para crear una canalización de compilación en Azure, use el [comando](/cli/azure/functionapp/devops-pipeline#az_functionapp_devops_pipeline_create) `az functionapp devops-pipeline create`. La canalización de compilación se crea para compilar y liberar los cambios de código que se realicen en el repositorio. El comando generará un nuevo archivo YAML que define la canalización de versión y compilación y lo confirma en el repositorio. Los requisitos previos para este comando dependen de la ubicación del código.
 
 - Si el código está en GitHub:
 

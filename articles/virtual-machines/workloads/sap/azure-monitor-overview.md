@@ -6,12 +6,12 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
-ms.openlocfilehash: c561a9a786765ccfdaf00abf4e0d9c8cc550cb9a
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 45085c910974402a968075a66087a04fb30e8bd9
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107377215"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107576210"
 ---
 # <a name="azure-monitor-for-sap-solutions-preview"></a>Azure Monitor para soluciones de SAP (versión preliminar)
 
@@ -87,7 +87,7 @@ Se recomienda encarecidamente a los clientes habilitar el uso compartido de dato
 
 En el diagrama siguiente se explica a grandes rasgos la manera en que Azure Monitor para soluciones de SAP recopila telemetría a partir de una base de datos de SAP HANA. La arquitectura no depende de si SAP HANA está implementado en Azure Virtual Machines o en Azure (instancias grandes).
 
-![Arquitectura de Azure Monitor para soluciones de SAP](./media/azure-monitor-sap/azure-monitor-architecture.png)
+![Arquitectura de Azure Monitor para soluciones de SAP](https://user-images.githubusercontent.com/75772258/115046700-62ff3280-9ef5-11eb-8d0d-cfcda526aeeb.png)
 
 Los componentes clave de la arquitectura son:
 - Azure Portal: el punto de partida de los clientes. Los clientes pueden ir a Marketplace desde Azure Portal y descubrir Azure Monitor para soluciones de SAP.

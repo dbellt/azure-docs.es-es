@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 14a405dbab0460f841a5e9104dbfeff101568f44
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1432aee341509d8a5bdc9fffe89dd9bad33fc7de
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98919231"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107766504"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Uso de directivas de asignación personalizadas
 
@@ -58,7 +58,7 @@ En esta sección, usará Azure Cloud Shell para crear un servicio de aprovisiona
 > Los comandos que se usan en este artículo crean el servicio de aprovisionamiento y otros recursos en la ubicación oeste de EE. UU. Se recomienda crear los recursos en la región más cercana que admita Device Provisioning Service. Para ver una lista de las ubicaciones disponibles, ejecute el comando `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` o vaya a la página [Estado de Azure](https://azure.microsoft.com/status/) página y busque "Servicio Device Provisioning". En los comandos, las ubicaciones se pueden especificar en formato de una palabra o de varias; por ejemplo, westus, West US, WEST US, etc. El valor no distingue mayúsculas de minúsculas. Si utiliza el formato de varias palabras para especificar la ubicación, escriba el valor entre comillas; por ejemplo, `-- location "West US"`.
 >
 
-1. Use Azure Cloud Shell para crear un grupo de recursos con el comando [az group create](/cli/azure/group#az-group-create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure.
+1. Use Azure Cloud Shell para crear un grupo de recursos con el comando [az group create](/cli/azure/group#az_group_create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure.
 
     En el ejemplo siguiente, se crea un grupo de recursos denominado *contoso-us-resource-group* en la región *westus*. Le recomendamos que use este grupo para todos los recursos que crearemos en el artículo. De esta forma, se facilitará la limpieza al finalizar.
 
@@ -66,7 +66,7 @@ En esta sección, usará Azure Cloud Shell para crear un servicio de aprovisiona
     az group create --name contoso-us-resource-group --location westus
     ```
 
-2. Use Azure Cloud Shell para crear un servicio de aprovisionamiento de dispositivos con el comando [az iot dps create](/cli/azure/iot/dps#az-iot-dps-create). El servicio de aprovisionamiento se agregará a *contoso-us-resource-group*.
+2. Use Azure Cloud Shell para crear un servicio de aprovisionamiento de dispositivos con el comando [az iot dps create](/cli/azure/iot/dps#az_iot_dps_create). El servicio de aprovisionamiento se agregará a *contoso-us-resource-group*.
 
     En el ejemplo siguiente se crea un servicio de aprovisionamiento denominado *contoso-provisioning-service-1098* en la ubicación *westus*. Debe usar un nombre de servicio único. Cree su propio sufijo en el nombre del servicio en lugar de **1098**.
 
@@ -76,7 +76,7 @@ En esta sección, usará Azure Cloud Shell para crear un servicio de aprovisiona
 
     Este comando puede tardar varios minutos en completarse.
 
-3. Use Azure Cloud Shell para crear el centro de IoT para la **división de tostadoras Contoso** con el comando [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create). El centro de IoT se agregará al grupo *contoso-us-resource-group*.
+3. Use Azure Cloud Shell para crear el centro de IoT para la **división de tostadoras Contoso** con el comando [az iot hub create](/cli/azure/iot/hub#az_iot_hub_create). El centro de IoT se agregará al grupo *contoso-us-resource-group*.
 
     En el ejemplo siguiente, se crea un centro de IoT denominado *contoso-toasters-hub-1098* en la ubicación *westus*. Debe usar un nombre de centro único. Cree su propio sufijo para reemplazar a **1098** en el nombre del centro. 
 
@@ -89,7 +89,7 @@ En esta sección, usará Azure Cloud Shell para crear un servicio de aprovisiona
 
     Este comando puede tardar varios minutos en completarse.
 
-4. Use Azure Cloud Shell para crear el centro de IoT para la **división de bombas de calor Contoso** con el comando [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create). Este centro de IoT también se agregará a *contoso-us-resource-group*.
+4. Use Azure Cloud Shell para crear el centro de IoT para la **división de bombas de calor Contoso** con el comando [az iot hub create](/cli/azure/iot/hub#az_iot_hub_create). Este centro de IoT también se agregará a *contoso-us-resource-group*.
 
     En el ejemplo siguiente, se crea un centro de IoT denominado *contoso-heatpumps-hub-1098* en la ubicación *westus*. Debe usar un nombre de centro único. Cree su propio sufijo para reemplazar a **1098** en el nombre del centro. 
 

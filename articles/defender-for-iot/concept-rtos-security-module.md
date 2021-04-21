@@ -3,12 +3,12 @@ title: Explicación conceptual de los aspectos básicos del microagente de Defen
 description: Conozca los aspectos básicos de los conceptos y el flujo de trabajo del microagente de Defender para IoT para Azure RTOS.
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.openlocfilehash: 83557930aeeccbb557382583e4d6666a000ce52c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 04b86d401bcb9fc919c36b28cf4f80ea3bfd7030
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104779280"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107750489"
 ---
 # <a name="defender-iot-micro-agent-for-azure-rtos-preview"></a>Microagente de Defender para IoT para Azure RTOS (versión preliminar)
 
@@ -16,7 +16,7 @@ Use este artículo para comprender mejor el microagente de Defender para IoT par
 
 ## <a name="azure-rtos-iot-defender-iot-micro-agent"></a>Microagente de Defender para IoT para Azure RTOS
 
-El microagente de Defender para IoT para Azure RTOS proporciona una solución de seguridad completa para los dispositivos Azure RTOS como parte de la oferta de NetX Duo. Dentro de la oferta de NetX Duo, Azure RTOS se incluye con el microagente de Defender para IoT de Azure IoT integrado y proporciona cobertura para las amenazas comunes en los dispositivos del sistema operativo en tiempo real una vez activado. 
+El microagente de Defender para IoT para Azure RTOS proporciona una solución de seguridad completa para los dispositivos Azure RTOS como parte de la oferta de NetX Duo. Dentro de la oferta de NetX Duo, Azure RTOS se incluye con el microagente de Defender para IoT de Azure IoT integrado y proporciona cobertura para las amenazas comunes en los dispositivos del sistema operativo en tiempo real una vez activado.
 
 El microagente de Defender para IoT para Azure RTOS se ejecuta en segundo plano y proporciona una experiencia de usuario fluida, al tiempo que envía mensajes de seguridad mediante las conexiones únicas de cada cliente a su IoT Hub. El microagente de Defender para IoT para Azure RTOS está habilitado de forma predeterminada.  
 

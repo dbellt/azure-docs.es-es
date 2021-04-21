@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 03/10/2021
-ms.openlocfilehash: 7120b6ff17657232c0e614f49b75bb24263712b7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/24/2021
+ms.openlocfilehash: 27889e8309c0efaf1e2869fc39d099f38f64f7c4
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102636342"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107764826"
 ---
 # <a name="overview-azure-logic-apps-preview"></a>Introducción: Versión preliminar de Azure Logic Apps
 
@@ -80,7 +80,7 @@ Con el tipo de aplicación lógica de un único inquilino, puede crear estos tip
   Para facilitar la depuración, puede habilitar el historial de ejecución de un flujo de trabajo sin estado, lo que tiene algún impacto en el rendimiento, y luego deshabilitar el historial de ejecución cuando haya terminado. Para obtener más información, vea [Creación de flujos de trabajo con y sin estado en Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#enable-run-history-stateless) o [Creación de flujos de trabajo con y sin estado en Azure Portal](create-stateful-stateless-workflows-visual-studio-code.md#enable-run-history-stateless).
 
   > [!NOTE]
-  > Actualmente, los flujos de trabajo sin estado solo admiten *acciones* de [conectores administrados](../connectors/apis-list.md#managed-api-connectors) que se implementan en Azure, y no desencadenadores. Para iniciar el flujo de trabajo, seleccione el [desencadenador integrado Solicitud, Event Hubs o Service Bus](../connectors/apis-list.md#built-ins). Estos desencadenadores se ejecutan de forma nativa en el runtime de la versión preliminar de Azure Logic Apps. Para obtener más información sobre los desencadenadores, las acciones y los conectores limitados, no disponibles o no admitidos, vea [Capacidades modificadas, limitadas, no disponibles o no admitidas](#limited-unavailable-unsupported).
+  > Actualmente, los flujos de trabajo sin estado solo admiten *acciones* de [conectores administrados](../connectors/managed.md) que se implementan en Azure, y no desencadenadores. Para iniciar el flujo de trabajo, seleccione el [desencadenador integrado Solicitud, Event Hubs o Service Bus](../connectors/built-in.md). Estos desencadenadores se ejecutan de forma nativa en el runtime de la versión preliminar de Azure Logic Apps. Para obtener más información sobre los desencadenadores, las acciones y los conectores limitados, no disponibles o no admitidos, vea [Capacidades modificadas, limitadas, no disponibles o no admitidas](#limited-unavailable-unsupported).
 
 <a name="nested-behavior"></a>
 
@@ -194,13 +194,13 @@ En la versión preliminar de Azure Logic Apps, estas capacidades han cambiado, o
   > [!NOTE]
   > Para ejecutar localmente en Visual Studio Code, los desencadenadores y las acciones basados en webhook requieren configuración adicional. Para obtener más información, vea [Creación de flujos de trabajo con y sin estado en Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#webhook-setup).
 
-  * En el caso de los *flujos de trabajo sin estado*, la pestaña **Azure** no aparece cuando se selecciona un desencadenador, ya que solo se pueden seleccionar [acciones *de conector administrado*, no desencadenadores](../connectors/apis-list.md#managed-api-connectors). Aunque puede habilitar conectores administrados implementados en Azure para flujos de trabajo sin estado, el diseñador no muestra ningún desencadenador de conector administrado para que pueda agregarlo.
+  * En el caso de los *flujos de trabajo sin estado*, la pestaña **Azure** no aparece cuando se selecciona un desencadenador, ya que solo se pueden seleccionar [acciones *de conector administrado*, no desencadenadores](../connectors/managed.md). Aunque puede habilitar conectores administrados implementados en Azure para flujos de trabajo sin estado, el diseñador no muestra ningún desencadenador de conector administrado para que pueda agregarlo.
 
-  * En el caso de los *flujos de trabajo con estado*, excepto los desencadenadores y las acciones que se muestran como no disponibles a continuación, se pueden usar [tanto desencadenadores como acciones de conector administrado](../connectors/apis-list.md#managed-api-connectors).
+  * En el caso de los *flujos de trabajo con estado*, excepto los desencadenadores y las acciones que se muestran como no disponibles a continuación, se pueden usar [tanto desencadenadores como acciones de conector administrado](../connectors/managed.md).
 
   * Estos desencadenadores y acciones han cambiado o están limitados, no se admiten o no están disponibles:
 
-    * Los [*desencadenadores* de la puerta de enlace de datos local](../connectors/apis-list.md#on-premises-connectors) no están disponibles, pero las acciones *sí*.
+    * Los [*desencadenadores* de la puerta de enlace de datos local](../connectors/managed.md#on-premises-connectors) no están disponibles, pero las acciones *sí*.
 
     * La acción integrada [Azure Functions: Elegir una función de Azure](logic-apps-azure-functions.md) es ahora **Operaciones de Azure Functions: Llamar a una función de Azure**. Esta acción solo funciona con las funciones que se crean a partir de la plantilla **Desencadenador HTTP**.
 
@@ -221,7 +221,7 @@ En la versión preliminar de Azure Logic Apps, estas capacidades han cambiado, o
 
       * Las acciones de **Operaciones de código** en línea tienen [límites actualizados](logic-apps-overview-preview.md#inline-code-limits).
 
-    * Algunos [desencadenadores y acciones de B2B integrados de las cuentas de integración](../connectors/apis-list.md#integration-account-connectors) no están disponibles, por ejemplo, las acciones de codificación y descodificación **Archivo plano**.
+    * Algunos [desencadenadores y acciones de B2B integrados de las cuentas de integración](../connectors/managed.md#integration-account-connectors) no están disponibles, por ejemplo, las acciones de codificación y descodificación **Archivo plano**.
 
     * La acción integrada [Azure Logic Apps: Elegir un flujo de trabajo de aplicación lógica](logic-apps-http-endpoint.md) es ahora **Operaciones de flujo de trabajo: Invocar un flujo de trabajo en esta aplicación de flujo de trabajo**.
 

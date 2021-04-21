@@ -4,17 +4,17 @@ description: Referencia de registros y métricas para la supervisión de datos d
 author: normesta
 services: azure-monitor
 ms.author: normesta
-ms.date: 10/02/2020
+ms.date: 04/20/2021
 ms.topic: reference
 ms.service: azure-monitor
 ms.subservice: logs
-ms.custom: monitoring
-ms.openlocfilehash: 95f20737b044140fe12ea939e71cd2397cb4826d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: subject-monitoring
+ms.openlocfilehash: 506f5a46688f597b8ac5db341c5bbe5eb5fb67c8
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100576695"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763152"
 ---
 # <a name="azure-queue-storage-monitoring-data-reference"></a>Referencia de datos de supervisión de Azure Queue Storage
 
@@ -42,7 +42,7 @@ En esta tabla se muestran [métricas de Queue Storage](../../azure-monitor/essen
 | ------------------- | ----------------- |
 | **QueueCapacity** | La cantidad de Queue Storage que utiliza la cuenta de almacenamiento. <br><br> Unidad: `Bytes` <br> Tipo de agregación: `Average` <br> Valor o ejemplo: `1024` |
 | **QueueCount** | El número de colas que hay en la cuenta de almacenamiento. <br><br> Unidad: `Count` <br> Tipo de agregación: `Average` <br> Valor o ejemplo: `1024` |
-| **QueueMessageCount** | Número aproximado de mensajes de cola en la cuenta de almacenamiento. <br><br> Unidad: `Count` <br> Tipo de agregación: `Average` <br> Valor o ejemplo: `1024` |
+| **QueueMessageCount** | El número de mensajes de la colas no expirados que hay en la cuenta de almacenamiento. <br><br> Unidad: `Count` <br> Tipo de agregación: `Average` <br> Valor o ejemplo: `1024` |
 
 ### <a name="transaction-metrics"></a>Métricas de transacciones
 

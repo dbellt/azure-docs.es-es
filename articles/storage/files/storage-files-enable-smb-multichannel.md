@@ -4,15 +4,15 @@ description: Aprenda a habilitar SMB multicanal en recursos compartidos de archi
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/16/2020
+ms.date: 04/15/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2f867fa6d4b7e1d864a85106b5d957a53d38eb76
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: da4e1a58aef28e5c47100a0311ff81a5af04a918
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101732553"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107718988"
 ---
 # <a name="enable-smb-multichannel-on-a-filestorage-account-preview"></a>Habilitación de SMB multicanal en una cuenta de FileStorage (versión preliminar) 
 
@@ -66,7 +66,7 @@ Una vez que haya creado una cuenta de FileStorage, puede seguir las instruccione
 1. Seleccione **Recursos compartidos de archivos** en **File service** y, después, seleccione **Configuración del recurso compartido de archivos**.
 1. En **SMB multicanal** , seleccione **activado** (o **desactivado** para deshabilitarlo) y seleccione **Guardar**.
 
-:::image type="content" source="media/storage-files-enable-smb-multichannel/enable-smb-multichannel-on-storage-account.png" alt-text="Captura de pantalla de la cuenta de Storage, SMB multicanal está activado.":::
+:::image type="content" source="media/storage-files-enable-smb-multichannel/enable-smb-multichannel-on-storage-account.png" alt-text="Captura de pantalla de la cuenta de Storage, SMB multicanal está activado."  lightbox="media/storage-files-enable-smb-multichannel/enable-smb-multichannel-on-storage-account.png":::
 
 Si la opción SMB multicanal no se ve en **Configuración del recurso compartido de archivos** o si se produce un error de configuración que no permite realizar la actualización, asegúrese de que la suscripción está registrada y de que la cuenta se encuentra en una de las [regiones admitidas](#regional-availability) con el tipo de cuenta y la replicación admitidos.
 

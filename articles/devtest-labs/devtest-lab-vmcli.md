@@ -3,12 +3,12 @@ title: Creación y administración de máquinas virtuales en DevTest Labs con la
 description: Aprenda a usar Azure DevTest Labs para crear y administrar máquinas virtuales con la CLI de Azure
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 22ee6bf607fe1b66cece0e7ddb25a2da2830258b
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 95e0add8ce14e47c609b1ae951673c261316293f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102201471"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763548"
 ---
 # <a name="create-and-manage-virtual-machines-with-devtest-labs-using-the-azure-cli"></a>Creación y administración de máquinas virtuales con DevTest Labs mediante la CLI de Azure
 Este inicio rápido le ayudará a crear, iniciar, actualizar y limpiar una máquina de desarrollo en el laboratorio, así como conectarse a ella. 
@@ -48,7 +48,7 @@ El siguiente comando crea una máquina virtual desde una imagen de Marketplace m
 az lab vm create --lab-name sampleLabName --resource-group sampleLabResourceGroup --name sampleVMName --image "Ubuntu Server 16.04 LTS" --image-type gallery --size Standard_DS1_v2 --authentication-type  ssh --generate-ssh-keys --ip-configuration public 
 ```
 
-También puede crear máquinas virtuales basadas en las fórmulas estableciendo el parámetro **image-type** en **formula**. Si tiene que elegir una red virtual específica para la máquina virtual, use los parámetros **vnet-name** y **subnet**. Para obtener más información, consulte[az lab vm create](/cli/azure/lab/vm#az-lab-vm-create).
+También puede crear máquinas virtuales basadas en las fórmulas estableciendo el parámetro **image-type** en **formula**. Si tiene que elegir una red virtual específica para la máquina virtual, use los parámetros **vnet-name** y **subnet**. Para obtener más información, consulte[az lab vm create](/cli/azure/lab/vm#az_lab_vm_create).
 
 ## <a name="verify-that-the-vm-is-available"></a>Compruebe que la máquina virtual esté disponible.
 Use el comando `az lab vm show` para comprobar que la máquina virtual está disponible antes de iniciarla y conectarse a ella. 

@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: cynthn
 ms.topic: conceptual
-ms.openlocfilehash: 291b9a210bf5f8cc18ccf8a523e282d3fc85aa28
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 840045da33938d4c1cd725fd5a99bf1b8014f6b1
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101673352"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107748473"
 ---
 # <a name="secure-and-use-policies-on-virtual-machines-in-azure"></a>Protección y uso de directivas en máquinas virtuales en Azure
 
@@ -53,7 +53,7 @@ El cifrado de los discos virtuales en Azure no conlleva ningún cargo. Las clave
 
 Los secretos y los certificados pueden ser modelados como recursos y ser proporcionados por [Key Vault](../key-vault/general/basic-concepts.md). Puede usar Azure PowerShell para crear almacenes de claves de [máquinas virtuales Windows](windows/key-vault-setup.md) y la CLI de Azure para las [máquinas virtuales Linux](linux/key-vault-setup.md). También puede crear claves para el cifrado.
 
-Las directivas de acceso a los almacenes de claves conceden permisos a las claves, los secretos y los certificados por separado. Por ejemplo, se puede dar a un usuario acceso solo a las claves, pero darle permisos para los secretos. Sin embargo, los permisos para acceder a las claves, secretos o certificados se encuentran en el nivel del almacén. En otras palabras, la [directiva de acceso de un almacén de claves](../key-vault/general/secure-your-key-vault.md) no admite permisos de nivel de objeto.
+Las directivas de acceso a los almacenes de claves conceden permisos a las claves, los secretos y los certificados por separado. Por ejemplo, se puede dar a un usuario acceso solo a las claves, pero darle permisos para los secretos. Sin embargo, los permisos para acceder a las claves, secretos o certificados se encuentran en el nivel del almacén. En otras palabras, la [directiva de acceso de un almacén de claves](../key-vault/general/security-overview.md) no admite permisos de nivel de objeto.
 
 Cuando se conecte a máquinas virtuales (VM), debe usar la criptografía de clave pública para proporcionar una forma más segura de iniciar sesión en ellas. Este proceso implica un intercambio de claves públicas y privadas mediante el comando de Secure Shell (SSH) para autenticarse, en lugar de un nombre de usuario y una contraseña. Las contraseñas son vulnerables a ataques por fuerza bruta, sobre todo en máquinas virtuales con acceso a Internet, como los servidores web. Con un par de claves de Secure Shell (SSH) puede crear una [máquina virtual Linux](linux/mac-create-ssh-keys.md) en Azure que use claves SSH para la autenticación, lo que elimina la necesidad de usar contraseñas para iniciar sesión. También puede usar claves de SSH para conectarse desde una [máquina virtual Windows](linux/ssh-from-windows.md) a una máquina virtual Linux.
 

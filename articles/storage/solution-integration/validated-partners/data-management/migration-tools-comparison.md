@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/31/2021
 ms.service: storage
 ms.subservice: partner
-ms.openlocfilehash: 15daeb0e6bf320a0727d8e6ea502063a30e67ad0
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 862feace6aab4f49ad3482c4ccd6510669c876a1
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106231049"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107576540"
 ---
 # <a name="comparison-matrix"></a>Tabla comparativa
 
@@ -85,7 +85,7 @@ En la siguiente matriz de comparación se muestra la funcionalidad básica de la
 | **Distribución de vencimiento a lo largo del tiempo**      | No      | Sí | Sí | Sí            |
 | **Hora de acceso**                     | No      | Sí | Sí | Sí            |
 | **Hora de modificación**                   | No      | Sí | Sí | Sí            |
-| **Hora de creación**                   | No      | Sí | Sí | Sí (solo SMB) |
+| **Hora de creación**                   | No      | Sí | Sí | Sí            |
 | **Estado del informe por archivo u objeto** | Parcial | Sí | Sí | Sí            |
 
 ## <a name="licensing"></a>Licencias

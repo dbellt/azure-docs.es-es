@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18, contperf-fy21q1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb01a3e0fc5bc11a4d3de62b16aafb7dd308e34a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 348f1b4e6182739b3afbc96597853a5b887877c1
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98724278"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107748779"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>¿Cuales son los permisos de usuario predeterminados en Azure Active Directory?
 En Azure Active Directory (Azure AD), a todos los usuarios se les otorga un conjunto de permisos predeterminados. El acceso de un usuario consta del tipo de usuario, sus [asignaciones de roles](active-directory-users-assign-role-azure-portal.md) y su propiedad de objetos individuales. En este artículo se describen dichos permisos predeterminados y contiene una comparación de los valores predeterminados de los usuarios miembros e invitados. Los permisos de usuario predeterminados solo se pueden cambiar en la configuración de usuario de Azure AD.
@@ -32,7 +32,7 @@ El conjunto de permisos predeterminados recibido depende de si el usuario es mie
 
 **Ámbito** | **Permisos de usuarios miembros** | **Permisos de usuarios invitados predeterminados** | **Permisos de usuarios administrados restringidos (versión preliminar)**
 ------------ | --------- | ---------- | ----------
-Usuarios y contactos | <ul><li>Enumerar la lista de todos los usuarios y contactos<li>Leer todas las propiedades públicas de usuarios y contactos</li><li>Invitar a los invitados<li>Cambiar la contraseña propia<li>Administrar el número de teléfono móvil propio<li>Administrar la fotografía propia<li>Invalidar tokens de actualización propios</li></ul> | <ul><li>Leer las propiedades propias<li>Leer el nombre para mostrar, el correo electrónico, el nombre de inicio de sesión, la fotografía, el nombre principal de usuario y las propiedades de tipo de usuario de otros usuarios y contactos<li>Cambiar la contraseña propia<li>Buscar otro usuario por ObjectId (si se permite)<li>Leer información de administrador y subordinado directo de otros usuarios</li></ul> | <ul><li>Leer las propiedades propias<li>Cambiar la contraseña propia</li></ul>
+Usuarios y contactos | <ul><li>Enumerar la lista de todos los usuarios y contactos<li>Leer todas las propiedades públicas de usuarios y contactos</li><li>Invitar a los invitados<li>Cambiar la contraseña propia<li>Administrar el número de teléfono móvil propio<li>Administrar la fotografía propia<li>Invalidar tokens de actualización propios</li></ul> | <ul><li>Leer las propiedades propias<li>Leer el nombre para mostrar, el correo electrónico, el nombre de inicio de sesión, la fotografía, el nombre principal de usuario y las propiedades de tipo de usuario de otros usuarios y contactos<li>Cambiar la contraseña propia<li>Buscar otro usuario por ObjectId (si se permite)<li>Leer información de administrador y subordinado directo de otros usuarios</li></ul> | <ul><li>Leer las propiedades propias<li>Cambiar la contraseña propia</li><li>Administrar el número de teléfono móvil propio</li></ul>
 Grupos | <ul><li>Crear grupos de seguridad<li>Crear grupos de Microsoft 365<li>Enumerar una lista de todos los grupos<li>Leer todas las propiedades de los grupos<li>Leer las pertenencias a grupos no ocultos<li>Leer las pertenencias a grupos de Microsoft 365 ocultos para los grupos a los que se ha unido<li>Administrar las propiedades, la propiedad y la pertenencia de los grupos propiedad del usuario<li>Agregar invitados a los grupos que se poseen<li>Administrar la configuración de pertenencia dinámica<li>Eliminar los grupos que se poseen<li>Restaurar los grupos de Microsoft 365 que se poseen</li></ul> | <ul><li>Leer las propiedades de los grupos no ocultos, incluida la pertenencia y la propiedad (incluso de grupos no unidos)<li>Leer las pertenencias a grupos de Microsoft 365 ocultos para los grupos a los que se ha unido<li>Buscar grupos por Nombre para mostrar o Id. de objeto (si se permite)</li></ul> | <ul><li>Leer el id. de objeto de los grupos unidos<li>Leer la pertenencia y la propiedad de los grupos unidos en algunas aplicaciones de Microsoft 365 (si se permite)</li></ul>
 Aplicaciones | <ul><li>Registrar aplicaciones nuevas<li>Enumerar la lista de todas las aplicaciones<li>Leer las propiedades de las aplicaciones registradas y empresariales<li>Administrar las propiedades, asignaciones y credenciales de las aplicaciones que se poseen<li>Crear o eliminar contraseña de la aplicación para el usuario<li>Eliminar las aplicaciones que se poseen<li>Restaurar las aplicaciones que se poseen</li></ul> | <ul><li>Leer las propiedades de las aplicaciones registradas y empresariales</li></ul> | <ul><li>Leer las propiedades de las aplicaciones registradas y empresariales
 Dispositivos</li></ul> | <ul><li>Enumerar lista de todos los dispositivos<li>Leer todas las propiedades de los dispositivos<li>Administrar todas las propiedades de los dispositivos que se poseen</li></ul> | Sin permisos | Sin permisos
@@ -134,7 +134,6 @@ Los usuarios pueden realizar las siguientes acciones en los grupos que poseen.
 | microsoft.directory/groups/appRoleAssignments/update | Actualiza la propiedad groups.appRoleAssignments en Azure Active Directory. |
 | microsoft.directory/groups/basic/update | Actualiza las propiedades básicas de los grupos en Azure Active Directory. |
 | microsoft.directory/groups/delete | Elimina grupos en Azure Active Directory. |
-| microsoft.directory/groups/dynamicMembershipRule/update | Actualiza la propiedad groups.dynamicMembershipRule en Azure Active Directory. |
 | microsoft.directory/groups/members/update | Actualiza la propiedad groups.members en Azure Active Directory. |
 | microsoft.directory/groups/owners/update | Actualiza la propiedad groups.owners en Azure Active Directory. |
 | microsoft.directory/groups/restore | Restaura grupos en Azure Active Directory. |

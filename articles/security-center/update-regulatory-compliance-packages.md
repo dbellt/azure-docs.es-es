@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/04/2021
 ms.author: memildin
-ms.openlocfilehash: 768f686889663d9b1af4b88d84b361ac9460a5a0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dab6b504fe026324251b7284fc3abdb52bb9911a
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100381739"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107738961"
 ---
 # <a name="customize-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Personalización del conjunto de estándares en el panel de cumplimiento normativo
 
@@ -38,7 +38,7 @@ Microsoft realiza un seguimiento de los estándares normativos y mejora automát
 
 ## <a name="what-regulatory-compliance-standards-are-available-in-security-center"></a>¿Qué estándares de cumplimiento normativo están disponibles en Security Center?
 
-De manera predeterminada, cada suscripción tiene la **Azure Security Benchmark** asignado. Son las directrices específicas de Azure creadas por Microsoft para ofrecer los procedimientos recomendados de seguridad y cumplimiento basados en marcos de cumplimiento comunes. [Mas información sobre Azure Security Benchmark](../security/benchmarks/introduction.md).
+De manera predeterminada, cada suscripción tiene la **Azure Security Benchmark** asignado. Son las directrices específicas de Azure creadas por Microsoft para ofrecer los procedimientos recomendados de seguridad y cumplimiento basados en marcos de cumplimiento comunes. [Mas información sobre Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction).
 
 También puede agregar estándares como:
 
@@ -122,6 +122,6 @@ En este artículo, ha aprendido cómo **agregar estándares de cumplimiento** pa
 
 Para obtener material relacionado, vea las páginas siguientes:
 
-- [Azure Security Benchmark](../security/benchmarks/introduction.md)
+- [Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction)
 - [Panel de cumplimiento normativo de Security Center](security-center-compliance-dashboard.md): obtenga información sobre cómo hacer seguimiento de los datos de cumplimiento normativo y cómo exportarlos con Security Center y herramientas externas.
 - [Uso de las directivas de seguridad](tutorial-security-policy.md)

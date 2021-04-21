@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 12/08/2020
 ms.author: blehr
 ms.custom: references_regions
-ms.openlocfilehash: 33c767d847d9e70e95b3ee1648be7852aa5cec98
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 74df338fd888bd7f654ddfc2fc5f9dddf10e84ab
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100522893"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107598421"
 ---
 # <a name="upgrade-public-ip-addresses"></a>Actualización de direcciones IP públicas
 
@@ -146,7 +146,7 @@ Se crea un grupo de recursos en Azure Resource Manager con el nombre de la direc
 ## <a name="limitations"></a>Limitaciones
 
 * Para actualizar una dirección IP pública básica, no se puede asociar con ningún recurso de Azure.  Examine [esta página](./virtual-network-public-ip-address.md#view-modify-settings-for-or-delete-a-public-ip-address) para más información sobre cómo desasociar las direcciones IP públicas.  Del mismo modo, para migrar una dirección IP reservada, no se puede asociar con ningún servicio en la nube.  Revise [esta página](./remove-public-ip-address-vm.md) para más información sobre cómo desasociar direcciones IP reservadas.  
-* Las direcciones IP públicas actualizadas de la SKU de nivel básico a estándar seguirán sin tener [zonas de disponibilidad](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones) y, por lo tanto, no se pueden asociar a un recurso de Azure con redundancia de zona o zonal.  Tenga en cuenta que esto solo se aplica a las regiones que ofrecen zonas de disponibilidad.
+* Las direcciones IP públicas actualizadas con una SKU de nivel básico a estándar continúan sin tener [zonas de disponibilidad](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones) garantizadas.  Asegúrese de que esto se tenga en cuenta al elegir los recursos con los que desea asociar la dirección IP.
 * No se puede cambiar de estándar a básico.
 
 ## <a name="next-steps"></a>Pasos siguientes

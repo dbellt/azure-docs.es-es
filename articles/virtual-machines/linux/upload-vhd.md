@@ -16,12 +16,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 10/10/2019
 ms.author: cynthn
-ms.openlocfilehash: 9d549d77b4a60f7543f69a9fd89e8b538c95d010
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ecad48592ecfb6723548a27997cfe1b81545b24a
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102564618"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107759606"
 ---
 # <a name="create-a-linux-vm-from-a-custom-disk-with-the-azure-cli"></a>Creación de una VM Linux desde un disco personalizado con la CLI de Azure
 
@@ -50,7 +50,7 @@ Para completar los pasos siguientes, necesita:
 > 
 
 
-- Asegúrese de que tiene la versión más reciente de la [CLI de Azure](/cli/azure/install-az-cli2) instalada y de que ha iniciado sesión en una cuenta de Azure con [az login](/cli/azure/reference-index#az-login).
+- Asegúrese de que tiene la versión más reciente de la [CLI de Azure](/cli/azure/install-az-cli2) instalada y de que ha iniciado sesión en una cuenta de Azure con [az login](/cli/azure/reference-index#az_login).
 
 En los ejemplos siguientes, reemplace los nombres de los parámetros del ejemplo por los suyos propios, como `myResourceGroup`, `mystorageaccount` y `mydisks`.
 
@@ -121,7 +121,7 @@ az disk create \
 
 ## <a name="create-the-vm"></a>Creación de la máquina virtual
 
-Cree la VM con [az vm create](/cli/azure/vm#az-vm-create) y asocie (--attach-os-disk) el disco administrado como disco del sistema operativo. En el ejemplo siguiente se crea una VM denominada *myNewVM* mediante el disco administrado creado a partir del VHD cargado:
+Cree la VM con [az vm create](/cli/azure/vm#az_vm_create) y asocie (--attach-os-disk) el disco administrado como disco del sistema operativo. En el ejemplo siguiente se crea una VM denominada *myNewVM* mediante el disco administrado creado a partir del VHD cargado:
 
 ```azurecli
 az vm create \

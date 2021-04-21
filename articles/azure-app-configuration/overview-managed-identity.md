@@ -7,12 +7,12 @@ ms.date: 02/25/2020
 ms.author: barbkess
 ms.reviewer: lcozzens
 ms.service: azure-app-configuration
-ms.openlocfilehash: 5424b776b977d8a6939bbb28c5d4c9c428cac444
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e4fdff2515dde941b2e9037a21ad931ac27b6fef
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102179619"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107764232"
 ---
 # <a name="how-to-use-managed-identities-for-azure-app-configuration"></a>Uso de identidades administradas para Azure App Configuration
 
@@ -99,12 +99,12 @@ Los pasos siguientes le guiarán en la creación de una identidad asignada por e
 
 ## <a name="removing-an-identity"></a>Eliminación una identidad
 
-Una identidad asignada por el sistema se puede eliminar; para ello, deshabilite la característica mediante el comando [az appconfig identity remove](/cli/azure/appconfig/identity#az-appconfig-identity-remove) de la CLI de Azure. Las identidades asignadas por el usuario se pueden quitar individualmente. Al quitar una identidad asignada por el sistema de esta manera también se eliminará de AAD. Las identidades asignadas por el sistema también se quitan automáticamente de AAD cuando se elimina el recurso de la aplicación.
+Una identidad asignada por el sistema se puede eliminar; para ello, deshabilite la característica mediante el comando [az appconfig identity remove](/cli/azure/appconfig/identity#az_appconfig_identity_remove) de la CLI de Azure. Las identidades asignadas por el usuario se pueden quitar individualmente. Al quitar una identidad asignada por el sistema de esta manera también se eliminará de AAD. Las identidades asignadas por el sistema también se quitan automáticamente de AAD cuando se elimina el recurso de la aplicación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Creación de una aplicación ASP.NET Core con Azure App Configuration](quickstart-aspnet-core-app.md)
 
-[az appconfig identity assign]: /cli/azure/appconfig/identity#az-appconfig-identity-assign
-[inicio de sesión de az]: /cli/azure/reference-index#az-login
+[az appconfig identity assign]: /cli/azure/appconfig/identity#az_appconfig_identity_assign
+[inicio de sesión de az]: /cli/azure/reference-index#az_login

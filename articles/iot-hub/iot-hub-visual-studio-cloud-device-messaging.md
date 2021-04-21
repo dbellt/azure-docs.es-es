@@ -7,36 +7,24 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: xshi
-ms.openlocfilehash: c56bb7030b2ebc12e3afc24e2d8cb29ce2dda0bf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8461a77d06a63c2ac319323a91b5577ca4dce1cf
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "74079491"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567037"
 ---
 # <a name="use-cloud-explorer-for-visual-studio-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Uso de Cloud Explorer para Visual Studio para enviar y recibir mensajes entre el dispositivo e IoT Hub
 
 ![Diagrama integral](./media/iot-hub-visual-studio-cloud-device-messaging/e-to-e-diagram.png)
 
+En este artículo, aprenderá a usar Cloud Explorer para Visual Studio para supervisar los mensajes del dispositivo a la nube y para enviar mensajes de la nube al dispositivo. Los mensajes del dispositivo a la nube podrían ser datos de sensor que el dispositivo recopila y luego envía a IoT Hub. Los mensajes de la nube al dispositivo podrían ser comandos que IoT Hub envía al dispositivo. Por ejemplo, hacer parpadear un LED que está conectado al dispositivo.
+
 [Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS) es una extensión útil de Visual Studio que le permite ver los recursos de Azure, inspeccionar sus propiedades y realizar acciones de desarrollador clave desde dentro de Visual Studio. Este artículo se centra en cómo usar Cloud Explorer para enviar y recibir mensajes entre el dispositivo y su concentrador.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-## <a name="what-you-learn"></a>Conocimientos que adquirirá
-
-En este artículo, aprenderá a usar Cloud Explorer para Visual Studio para supervisar los mensajes del dispositivo a la nube y para enviar mensajes de la nube al dispositivo. Los mensajes del dispositivo a la nube podrían ser datos de sensor que el dispositivo recopila y luego envía a IoT Hub. Los mensajes de la nube al dispositivo podrían ser comandos que IoT Hub envía al dispositivo. Por ejemplo, hacer parpadear un LED que está conectado al dispositivo.
-
-## <a name="what-you-do"></a>Qué debe hacer
-
-En este artículo, realice las tareas siguientes:
-
-- Usará Cloud Explorer para Visual Studio para supervisar los mensajes del dispositivo a la nube.
-
-- Usará Cloud Explorer para Visual Studio para enviar mensajes de la nube al dispositivo.
-
-## <a name="what-you-need"></a>Lo que necesita
-
-Los siguientes requisitos previos son necesarios:
+## <a name="prerequisites"></a>Requisitos previos
 
 - Una suscripción de Azure activa.
 

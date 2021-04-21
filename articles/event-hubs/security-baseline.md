@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 57862a450d313f5d8850b14047ecc3d25d6ba5c1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 33417a9bda9ad4ce36dd6e14f74a53911f3c3473
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105563691"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107587160"
 ---
 # <a name="azure-security-baseline-for-event-hubs"></a>Línea base de seguridad de Azure para Event Hubs
 
@@ -743,7 +743,7 @@ Configure la eliminación temporal para la cuenta de almacenamiento de Azure que
 
 - [Configuración de un almacén de claves con claves](configure-customer-managed-key.md)
 
-- [Eliminación temporal de blobs de Azure Storage](//azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Eliminación temporal de blobs de Azure Storage](/azure/storage/blobs/soft-delete-blob-overview)
 
 **Responsabilidad**: Customer
 

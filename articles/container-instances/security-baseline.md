@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/30/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: be742de41979a218aeca588ce72a8ce80c8c59e5
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 8790e05edbaeb40debd997ea9b35d31b25947761
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106078612"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107598795"
 ---
 # <a name="azure-security-baseline-for-container-instances"></a>Base de referencia de seguridad de Azure para Container Instances
 
@@ -30,7 +30,7 @@ Para ver cómo Container Instances se asigna por completo a Azure Security Bench
 
 Controle el acceso de red saliente desde una subred delegada a Azure Container Instances mediante Azure Firewall. 
 
-- [Implementación de instancias de contenedor en una red virtual de Azure](/azure/container-instances/container-instance-vnet)
+- [Implementación de instancias de contenedor en una red virtual de Azure](/azure/container-instances/container-instances-vnet)
 
 - [Implementación y configuración de Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md)
 

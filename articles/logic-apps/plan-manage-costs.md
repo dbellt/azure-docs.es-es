@@ -5,13 +5,13 @@ ms.service: logic-apps
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: how-to
 ms.custom: subject-cost-optimization
-ms.date: 01/29/2021
-ms.openlocfilehash: 44351497ed58c8d49404c094f6800b52186edabb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/24/2021
+ms.openlocfilehash: ec2e1098df4c21704ee7c17852b893630cd3fd27
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101709638"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107761824"
 ---
 # <a name="plan-and-manage-costs-for-azure-logic-apps"></a>Planeamiento y administración de los costos de Azure Logic Apps
 
@@ -210,7 +210,7 @@ Otherwise, if no other cost-saving recommendations or best practices exist to re
 
 Para ayudarle a reducir los costos de las aplicaciones lógicas y los recursos relacionados, pruebe estas opciones:
 
-* Si es posible, use [acciones y desencadenadores integrados](../connectors/apis-list.md#built-in), cuya ejecución cuesta menos que la de [las acciones y los desencadenadores de los conectores administrados](../connectors/apis-list.md#managed-connectors).
+* Si es posible, use [acciones y desencadenadores integrados](../connectors/built-in.md), cuya ejecución cuesta menos que la de [las acciones y los desencadenadores de los conectores administrados](../connectors/managed.md).
 
   Por ejemplo, puede reducir los costos al acceder a otros recursos mediante la [acción HTTP](../connectors/connectors-native-http.md) o con una llamada a una función que ha creado con el [servicio Azure Functions](../azure-functions/functions-overview.md) y mediante la [acción integrada de Azure Functions](../logic-apps/logic-apps-azure-functions.md). Sin embargo, el uso de Azure Functions también incurre en costos, por lo que debe asegurarse de comparar las opciones.
 

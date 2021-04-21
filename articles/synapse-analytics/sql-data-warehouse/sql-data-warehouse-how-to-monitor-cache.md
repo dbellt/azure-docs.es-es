@@ -2,21 +2,21 @@
 title: Optimización de la caché de Gen2
 description: Obtenga información sobre cómo supervisar la caché de Gen2 mediante Azure Portal.
 services: synapse-analytics
-author: gaursa
+author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ms.date: 11/20/2020
-ms.author: gaursa
+ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: fed3ed2c87342d557872e97bfc2a6c4d142b5a3a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9de795c54f55295fa69ed7fcb5dd894e2963385b
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104585628"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107566637"
 ---
 # <a name="how-to-monitor-the-adaptive-cache"></a>Supervisión de la memoria caché adaptable
 

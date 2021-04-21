@@ -3,19 +3,18 @@ title: Acerca de la renovación de certificados de Azure Key Vault
 description: En este artículo se describe cómo renovar los certificados de Azure Key Vault.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: overview
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: 0492575bef93a1b08d48475c3ab32ecbc7becd6e
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 082b0fd4d3324502516dcd2b45b9ad16a919c773
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107364301"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107749229"
 ---
 # <a name="renew-your-azure-key-vault-certificates"></a>Renovación de los certificados de Azure Key Vault
 

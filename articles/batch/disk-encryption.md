@@ -3,26 +3,21 @@ title: Creación de un grupo con el cifrado de disco habilitado
 description: Aprenda a usar la configuración del cifrado de disco para cifrar los nodos con una clave administrada por la plataforma.
 author: pkshultz
 ms.topic: how-to
-ms.date: 01/27/2021
+ms.date: 04/16/2021
 ms.author: peshultz
-ms.custom: references_regions
-ms.openlocfilehash: 41fc827459b454e2bcb120a925cdab8fcd46e310
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 01d2ea03768a09c1ad4e019b9e8ed43a26443637
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99055321"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107728525"
 ---
 # <a name="create-a-pool-with-disk-encryption-enabled"></a>Creación de un grupo con el cifrado de disco habilitado
 
 Al crear un grupo de Azure Batch con la [configuración de la máquina virtual](nodes-and-pools.md#virtual-machine-configuration), puede cifrar los nodos de proceso del grupo con una clave administrada por la plataforma especificando la configuración del cifrado de disco.
 
 En este artículo se explica cómo crear un grupo de Batch con el cifrado de discos habilitado.
-
-> [!IMPORTANT]
-> La compatibilidad con el cifrado en el host mediante una clave administrada por la plataforma en Azure Batch se encuentra actualmente en versión preliminar pública para las regiones este de EE. UU., Oeste de EE. UU. 2, Centro-sur de EE. UU., US Gov Virginia y US Gov Arizona.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="why-use-a-pool-with-disk-encryption-configuration"></a>¿Por qué usar un grupo con la configuración de cifrado de disco?
 
