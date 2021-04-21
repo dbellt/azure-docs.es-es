@@ -2,15 +2,15 @@
 title: 'Creación de archivos de Bicep: Visual Studio Code'
 description: Uso de Visual Studio Code y la extensión Bicep para archivos de Bicep a fin de implementar recursos de Azure
 author: mumian
-ms.date: 03/26/2021
+ms.date: 04/12/2021
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: 4d1064351ddfacdebfa67fd9b2f517f592de3a7c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e82f047f553290c9121d91060c347c5b242c7ec2
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105612902"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306473"
 ---
 # <a name="quickstart-create-bicep-files-with-visual-studio-code"></a>Inicio rápido: Creación de plantillas de archivos de Bicep con Visual Studio Code
 
@@ -51,6 +51,10 @@ La declaración del recurso tiene cuatro componentes:
 - **nombre simbólico** (stg): el nombre simbólico es un identificador para hacer referencia al recurso en el archivo de Bicep. No es cuál será el nombre del recurso cuando se implemente. El nombre del recurso se define mediante la propiedad **name**.  Vea el cuarto componente de esta lista.
 - **tipo de recurso** (Microsoft.Storage/storageAccounts@2019-06-01): se compone del proveedor de recursos (Microsoft.Storage), el tipo de recurso (storageAccounts) y apiVersion (2019-06-01). Cada proveedor de recursos publica sus propias versiones de API, por lo que este valor es específico del tipo. Puede encontrar más tipos y valores apiVersion para varios recursos de Azure en la [referencia de plantillas de ARM](/azure/templates/).
 - **propiedades** (todo dentro de = {...}): especifique las propiedades para el tipo de recurso. Cada recurso tiene una propiedad `name`. La mayoría de los recursos también tienen una propiedad `location`, que establece la región donde se implementa el recurso. Las demás propiedades varían según el tipo de recurso y la versión de API.
+
+Para más información, consulte [Nociones sobre la estructura y la sintaxis de los archivos Bicep](./bicep-file.md).
+
+Hay un comentario para la propiedad name.  Use `//` para los comentarios de una sola línea o `/* ... */` para los comentarios de varias líneas.
 
 ## <a name="completion-and-validation"></a>Finalización y validación
 

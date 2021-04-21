@@ -11,14 +11,20 @@ ms.topic: conceptual
 ms.date: 01/27/2021
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 4acd25fc410f179414395ea5c7d03c3b6200e828
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: 3bbf47da3724b9df0905e2a212cda4a16bf44bdb
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106122125"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258561"
 ---
 # <a name="speech-service-release-notes"></a>Notas de la versión del servicio Voz
+
+## <a name="text-to-speech-2021-april-release"></a>Versión de abril de 2021 de Texto a voz
+
+**TTS neuronal está disponible en 21 regiones**
+
+- **Se han agregado doce regiones nuevas:** TTS neuronal ya está disponible en estas doce nuevas regiones: `Japan East`, `Japan West`, `Korea Central`, `North Central US`, `North Europe`, `South Central US`, `Southeast Asia`, `UK South`, `west Central US`, `West Europe`, `West US`, `West US 2`. Consulte [aquí](regions.md#text-to-speech) la lista completa de las 21 regiones admitidas.
 
 ## <a name="text-to-speech-2021-march-release"></a>Texto a voz 2021: versión de marzo
 
@@ -132,7 +138,7 @@ Desde febrero Voz neuronal personalizada está versión GA en 13 idiomas: chino
 **Nuevas características:**
 - **Todos**: Nuevos formatos de salida de 48KHz disponibles para la versión preliminar privada de Voz neuronal personalizada a través de la API de síntesis de voz TTS: Audio48Khz192KBitRateMonoMp3, audio-48khz-192kbitrate-mono-mp3, Audio48Khz96KBitRateMonoMp3, audio-48khz-96kbitrate-mono-mp3, Raw48Khz16BitMonoPcm, raw-48khz-16bit-mono-pcm, Riff48Khz16BitMonoPcm, riff-48khz-16bit-mono-pcm.
 - **Todos**: Voz personalizada también es más fácil de usar. Se ha agregado compatibilidad para configurar Voz personalizada mediante `EndpointId` ([C++](/cpp/cognitive-services/speech/speechconfig#setendpointid), [C#](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.endpointid#Microsoft_CognitiveServices_Speech_SpeechConfig_EndpointId), [Java](/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setendpointid#com_microsoft_cognitiveservices_speech_SpeechConfig_setEndpointId_String_), [JavaScript](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig#endpointId), [Objective-C](/objectivec/cognitive-services/speech/spxspeechconfiguration#endpointid), [Python](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig#endpoint-id)). Antes de este cambio, los usuarios de Voz personalizada debían establecer la dirección URL del punto de conexión con el método `FromEndpoint`. Ahora los clientes pueden usar el método `FromSubscription` como voces públicas y, posteriormente, especificar el identificador de implementación mediante el establecimiento de `EndpointId`. Esto simplifica la configuración de voces personalizadas. 
-- **C++/C#/Java/Objective-C/Python**: Obtenga algo más que la intención superior de `IntentRecognizer`. Ahora admite la configuración del resultado JSON que contiene todas las intenciones y no solo la principal con el método `LanguageUnderstandingModel FromEndpoint` mediante el parámetro de URI `verbose=true`. Esto soluciona el [problema nº 880 de GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/880). Vea [aquí](./quickstarts/intent-recognition.md#add-a-languageunderstandingmodel-and-intents) la documentación actualizada.
+- **C++/C#/Java/Objective-C/Python**: Obtenga algo más que la intención superior de `IntentRecognizer`. Ahora admite la configuración del resultado JSON que contiene todas las intenciones y no solo la principal con el método `LanguageUnderstandingModel FromEndpoint` mediante el parámetro de URI `verbose=true`. Esto soluciona el [problema nº 880 de GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/880). Vea [aquí](./get-started-intent-recognition.md#add-a-languageunderstandingmodel-and-intents) la documentación actualizada.
 - **C++/C#/Java**: haga que el asistente para voz o el bot dejen de escuchar de forma inmediata. `DialogServiceConnector` ([C++](/cpp/cognitive-services/speech/dialog-dialogserviceconnector), [C#](/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector), [Java](/java/api/com.microsoft.cognitiveservices.speech.dialog.dialogserviceconnector)) ahora tiene un método `StopListeningAsync()` para acompañar a `ListenOnceAsync()`. Esto detiene de forma inmediata la captura de audio y espera correctamente un resultado, lo que lo convierte en perfecto para su uso con escenarios de pulsación de botones "Detener ahora".
 - **C++/C#/Java/JavaScript**: Haga que el asistente para voz o el bot reaccione mejor a los errores del sistema subyacentes. `DialogServiceConnector` ([C++](/cpp/cognitive-services/speech/dialog-dialogserviceconnector), [C#](/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector), [Java](/java/api/com.microsoft.cognitiveservices.speech.dialog.dialogserviceconnector), [JavaScript](/javascript/api/microsoft-cognitiveservices-speech-sdk/dialogserviceconnector)) ahora tiene un nuevo controlador de eventos `TurnStatusReceived`. Estos eventos opcionales se corresponden con todas las resoluciones [`ITurnContext`](/dotnet/api/microsoft.bot.builder.iturncontext) del bot y notificarán los errores de ejecución cuando se produzcan, por ejemplo, como resultado de una excepción no controlada, un tiempo de espera o una caída de la red entre Direct Line Speech y el bot. `TurnStatusReceived` facilita la respuesta a las condiciones de error. Por ejemplo, si un bot tarda demasiado en una consulta de la base de datos de back-end (por ejemplo, al buscar un producto), `TurnStatusReceived` permite que el cliente sepa volver a preguntar con "Lo sentimos, no lo he entendido, vuelva a intentarlo" o algo similar.
 - **C++/C#** : Use el SDK de Voz en más plataformas. Ahora el [paquete NuGet del SDK de Voz](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech) es compatible con los archivos binarios nativos de escritorio ARM/ARM64 de Windows (UWP ya lo era antes), con el fin de que el SDK de Voz sea más útil en más tipos de máquinas.
@@ -527,7 +533,7 @@ Y sigan sanos.
 
 **Muestras**
 - **Go**: Se han agregado inicios rápidos para el [reconocimiento de voz](./get-started-speech-to-text.md?pivots=programming-language-go) y el [asistente de Voz personalizada](./quickstarts/voice-assistants.md?pivots=programming-language-go). Encuentre el código de ejemplo [aquí](https://github.com/microsoft/cognitive-services-speech-sdk-go/tree/master/samples). 
-- **JavaScript**: Se han agregado inicios rápidos para la [conversión de texto a voz](./get-started-text-to-speech.md?pivots=programming-language-javascript), la [traducción de texto a voz](./get-started-speech-translation.md?pivots=programming-language-csharp&tabs=script) y el [reconocimiento de intenciones](./quickstarts/intent-recognition.md?pivots=programming-language-javascript).
+- **JavaScript**: Se han agregado inicios rápidos para la [conversión de texto a voz](./get-started-text-to-speech.md?pivots=programming-language-javascript), la [traducción de texto a voz](./get-started-speech-translation.md?pivots=programming-language-csharp&tabs=script) y el [reconocimiento de intenciones](./get-started-intent-recognition.md?pivots=programming-language-javascript).
 - Ejemplos de reconocimiento de palabras clave para [C\#](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/uwp/keyword-recognizer) y [Java](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android/keyword-recognizer) (Android).  
 
 **Pruebas reducidas ante la COVID-19:** Debido al trabajo de forma remota en las últimas semanas, no pudimos realizar tantas pruebas manuales de comprobación de como normalmente hacemos. No hemos hecho ningún cambio que creemos que pueda haber generado algún error y se han superado todas las pruebas automatizadas. Si falta algo, háganoslo saber en [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen).<br>

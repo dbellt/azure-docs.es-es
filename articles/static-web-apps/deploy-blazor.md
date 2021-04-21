@@ -5,14 +5,14 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: tutorial
-ms.date: 09/10/2020
+ms.date: 04/09/2021
 ms.author: cshoe
-ms.openlocfilehash: 0086f7f68fd05d6925d19c7ab457fbc125e36be4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5b8a94409f082177192847f2c65d44a513ecdbe4
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96350235"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305045"
 ---
 # <a name="tutorial-building-a-static-web-app-with-blazor-in-azure-static-web-apps"></a>Tutorial: Creación de una aplicación web estática con Blazor en Azure Static Web Apps
 
@@ -43,7 +43,7 @@ Juntos, estos proyectos constituyen los elementos necesarios para crear una apli
 
 ## <a name="fallback-route"></a>Ruta de reserva
 
-La aplicación expone direcciones URL como _/counter_ y _/fetchdata_ que se asignan a rutas específicas de la aplicación. Puesto que esta aplicación se implementa como una aplicación de página única, cada ruta recibe el archivo _index.html_. Para asegurarse de que la solicitud de cualquier ruta de acceso devuelva _index.html_, se implementa una [ruta de reserva](./routes.md#fallback-routes) en el archivo _routes.json_ que se encuentra en la carpeta _wwwroot_ del proyecto Client.
+La aplicación expone direcciones URL como _/counter_ y _/fetchdata_ que se asignan a rutas específicas de la aplicación. Puesto que esta aplicación se implementa como una aplicación de página única, cada ruta recibe el archivo _index.html_. Para asegurarse de que la solicitud de cualquier ruta de acceso devuelva _index.html_, se implementa una [ruta de reserva](./routes.md#fallback-routes) en el archivo _staticwebapp.config.json_ que se encuentra en la carpeta _wwwroot_ del proyecto Client.
 
 ```json
 {
@@ -64,7 +64,7 @@ La configuración anterior garantiza que las solicitudes a cualquier ruta de la 
 En este artículo se usa un repositorio de plantillas de GitHub para facilitar los primeros pasos. La plantilla incluye una aplicación de inicio que se implementa en Azure Static Web Apps.
 
 1. Asegúrese de que ha iniciado sesión en GitHub y, a continuación, vaya a la siguiente ubicación para crear un repositorio:
-    - [https://github.com/staticwebdev/blazor-starter/generate](https://github.com/login?return_to=/staticwebdev/blazor-starter/generate)
+   - [https://github.com/staticwebdev/blazor-starter/generate](https://github.com/login?return_to=/staticwebdev/blazor-starter/generate)
 1. Asigne el nombre **my-first-static-blazor-app** al repositorio.
 
 ## <a name="create-a-static-web-app"></a>Creación de una aplicación web estática
@@ -84,7 +84,7 @@ En la sección _Aspectos básicos_, configure la nueva aplicación y vincúlela 
 1. Seleccione su _suscripción a Azure_.
 1. Seleccione o cree un nuevo _grupo de recursos_.
 1. Asigne el nombre **my-first-static-blazor-app** a la aplicación.
-    - Los caracteres válidos son `a-z` (no distingue mayúsculas de minúsculas), `0-9` y `-`.
+   - Los caracteres válidos son `a-z` (no distingue mayúsculas de minúsculas), `0-9` y `-`.
 1. Seleccione la _región_ más cercana a la suya.
 1. Seleccione la _SKU_ **gratis**.
 1. Seleccione el botón **Sign-in with GitHub** (Iniciar sesión con GitHub) y autentíquese con GitHub
@@ -97,23 +97,23 @@ Tras iniciar sesión con GitHub, escriba la información del repositorio.
 1. Seleccione **my-first-static-blazor-app** en el menú desplegable _Repositorio_.
 1. Seleccione **main** en el menú desplegable _Rama_.
 
-    Si no ve ningún repositorio, es posible que deba autorizar Azure Static Web Apps en GitHub. Vaya al repositorio de GitHub y, a continuación, a **Configuración > Aplicaciones > Aplicaciones de OAuth autorizadas**, seleccione **Azure Static Web Apps** y, después, **Conceder**. En el caso de los repositorios de la organización, debe ser propietario de la organización para conceder los permisos.
+   Si no ve ningún repositorio, es posible que deba autorizar Azure Static Web Apps en GitHub. Vaya al repositorio de GitHub y, a continuación, a **Configuración > Aplicaciones > Aplicaciones de OAuth autorizadas**, seleccione **Azure Static Web Apps** y, después, **Conceder**. En el caso de los repositorios de la organización, debe ser propietario de la organización para conceder los permisos.
 
 1. En la sección _Detalles de la compilación_, agregue información de configuración específicos de Blazor.
 
-    - Seleccione **Blazor** en la lista desplegable _Build Presets_ (Valores prestablecidos de compilación) y mantenga todos los valores predeterminados.
+   - Seleccione **Blazor** en la lista desplegable _Build Presets_ (Valores prestablecidos de compilación) y mantenga todos los valores predeterminados.
 
 1. Seleccione **Revisar + crear**.
 
-    :::image type="content" source="media/deploy-blazor/review-create.png" alt-text="Botón Revisar y crear":::
+   :::image type="content" source="media/deploy-blazor/review-create.png" alt-text="Botón Revisar y crear":::
 
 1. Seleccione **Crear**.
 
-    :::image type="content" source="media/deploy-blazor/create-button.png" alt-text="Botón Crear":::
+   :::image type="content" source="media/deploy-blazor/create-button.png" alt-text="Botón Crear":::
 
 1. Seleccione **Ir al recurso**.
 
-    :::image type="content" source="media/deploy-blazor/resource-button.png" alt-text="Botón Ir al recurso":::
+   :::image type="content" source="media/deploy-blazor/resource-button.png" alt-text="Botón Ir al recurso":::
 
 ## <a name="view-the-website"></a>Vista del sitio web
 

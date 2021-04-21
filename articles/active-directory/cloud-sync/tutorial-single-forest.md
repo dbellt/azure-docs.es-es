@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a93ce1c4274f63a863880e932b247726639e5cd9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a3bc9378539e6a7f98e34d0a149848d0e892c224
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98612351"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306099"
 ---
 # <a name="tutorial-integrate-a-single-forest-with-a-single-azure-ad-tenant"></a>Tutorial: Integración de un único bosque con un único inquilino de Azure AD
 
@@ -51,7 +51,7 @@ El entorno que se crea en este tutorial se puede usar para realizar pruebas o pa
    - Para la validación de certificados, desbloquee las siguientes direcciones URL: **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80** y **www\.microsoft.com:80**. Como estas direcciones URL se utilizan para la validación de certificados con otros productos de Microsoft, es posible que estas direcciones URL ya estén desbloqueadas.
 
 ## <a name="install-the-azure-ad-connect-provisioning-agent"></a>Instalación del agente de aprovisionamiento de Azure AD Connect
-1. Inicie sesión en el servidor unido al dominio.  Si usa el tutorial [Entorno básico de AD y Azure](tutorial-basic-ad-azure.md), sería DC1.
+1. Inicie sesión en el servidor unido al dominio.  Si usa el tutorial [Entorno básico de AD y Azure](tutorial-basic-ad-azure.md), sería DC1.
 2. Inicie sesión en Azure Portal con credenciales de administrador global solo en la nube.
 3. A la izquierda, seleccione **Azure Active Directory**, haga clic en **Azure AD Connect** y, en el centro, seleccione **Manage cloud sync** (Administrar sincronización en la nube).
 
@@ -114,24 +114,24 @@ Para comprobar que el agente se ejecuta, siga estos pasos:
 7.  En la pantalla de configuración, escriba un **correo electrónico de notificación**, mueva el selector a **Habilitar** y haga clic en **Guardar**.
 ![Captura de la pantalla de configuración con un correo electrónico de notificación rellenado y Habilitar seleccionado.](media/how-to-configure/configure-2.png)
 1.  El estado de configuración ahora debería ser **Correcto**.
-![Captura de pantalla de "Sincronización en la nube de Azure AD Connect" que muestra un estado correcto.](media/how-to-configure/manage-4.png)
+![Captura de pantalla de sincronización en la nube de Azure AD Connect que muestra un estado correcto.](media/how-to-configure/manage-4.png)
 
 ## <a name="verify-users-are-created-and-synchronization-is-occurring"></a>Comprobación de la creación y sincronización de los usuarios
-Ahora comprobaremos que los usuarios que tenía en el directorio local se han sincronizado y que ya existen en el inquilino de Azure AD.  Tenga en cuenta que esta acción puede tardar unas horas en completarse.  Para comprobar que los usuarios están sincronizados, haga lo siguiente:
+Ahora comprobará que los usuarios que tenía en el directorio local se han sincronizado y existen en el inquilino de Azure AD.  Tenga en cuenta que esta acción puede tardar unas horas en completarse.  Para comprobar que los usuarios están sincronizados, haga lo siguiente:
 
 
 1. Vaya a [Azure Portal](https://portal.azure.com) e inicie sesión con una cuenta que tenga una suscripción de Azure.
 2. En la parte izquierda, seleccione **Azure Active Directory**.
 3. En **Administrar**, seleccione **Usuarios**.
-4. Compruebe que ve los usuarios nuevos en nuestro inquilino.</br>
+4. Compruebe que ve los usuarios nuevos en su inquilino.</br>
 
-## <a name="test-signing-in-with-one-of-our-users"></a>Prueba del inicio de sesión con uno de nuestros usuarios
+## <a name="test-signing-in-with-one-of-your-users"></a>Prueba del inicio de sesión con uno de sus usuarios
 
 1. Vaya a [https://myapps.microsoft.com](https://myapps.microsoft.com).
-2. Inicie sesión con la cuenta de usuario que se creó en nuestro nuevo inquilino.  Deberá iniciar sesión mediante el formato siguiente: (user@domain.onmicrosoft.com). Use la misma contraseña que el usuario utiliza para iniciar sesión en el entorno local.</br>
+2. Inicie sesión con una cuenta de usuario que se creó en su inquilino.  Deberá iniciar sesión mediante el formato siguiente: (user@domain.onmicrosoft.com). Use la misma contraseña que el usuario utiliza para iniciar sesión en el entorno local.</br>
    ![Verify](media/tutorial-single-forest/verify-1.png)</br>
 
-Ahora tiene configurado correctamente un entorno de identidad híbrida que puede usar para probar y familiarizarse con lo que le ofrece Azure.
+Ya ha configurado correctamente un entorno de identidad híbrida mediante la sincronización en la nube de Azure AD Connect.
 
 
 ## <a name="next-steps"></a>Pasos siguientes 

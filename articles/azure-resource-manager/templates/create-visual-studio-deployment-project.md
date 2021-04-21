@@ -2,13 +2,13 @@
 title: Creación e implementación de proyectos de grupos de recursos de Visual Studio
 description: Use Visual Studio para crear un proyecto del grupo de recursos de Azure e implementar los recursos en Azure.
 ms.topic: conceptual
-ms.date: 10/16/2019
-ms.openlocfilehash: f1a06a3e89c5fd2ea8906ff9a438c170f135d6ec
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/12/2021
+ms.openlocfilehash: 4c0e19042506e0cf1772398b0a02b81f0245b1c7
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98704421"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306983"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Creación e implementación de grupos de recursos de Azure mediante Visual Studio
 
@@ -45,9 +45,9 @@ En esta sección, va a crear un proyecto de Grupo de recursos de Azure con una p
    | --- | --- |
    | Deploy-AzureResourceGroup.ps1 |Un script de PowerShell que ejecuta los comandos de PowerShell que se implementarán en Azure Resource Manager. Visual Studio usa este script de PowerShell para implementar su plantilla. |
    | WebSite.json |La plantilla de Resource Manager que define la infraestructura que desea implementar en Azure y los parámetros que puede proporcionar durante la implementación. También define las dependencias entre los recursos, de modo que Resource Manager implemente los recursos en el orden correcto. |
-   | WebSite.parameters.json |Un archivo de parámetros que tiene valores necesarios para la plantilla. Transferirá los valores de los parámetros para personalizar cada implementación. |
+   | WebSite.parameters.json |Un archivo de parámetros que tiene valores necesarios para la plantilla. Transferirá los valores de los parámetros para personalizar cada implementación. Observe que **Acción de compilación** se establece en **Contenido**. Si agrega más archivos de parámetros, asegúrese de que la acción de compilación está establecida en **Contenido**. |
 
-    Todos los proyectos de implementación del grupo de recursos tienen estos archivos básicos. Otros proyectos pueden tener archivos adicionales para admitir otras funcionalidades.
+    Todos los proyectos de implementación del grupo de recursos tienen estos archivos básicos. Otros proyectos pueden tener más archivos para admitir otras funcionalidades.
 
 ## <a name="customize-resource-manager-template"></a>Personalización de la plantilla de Resource Manager
 

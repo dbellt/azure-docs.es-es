@@ -7,18 +7,18 @@ ms.author: alkarche
 ms.date: 11/18/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e6b35031d976a11bdac6f38d74f9e02a0fc83302
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c7efebaf23bd8e897243f6ee12b23d3821a4c033
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105936315"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257354"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Administración de puntos de conexión y rutas en Azure Digital Twins (API y CLI)
 
 [!INCLUDE [digital-twins-route-selector.md](../../includes/digital-twins-route-selector.md)]
 
-En Azure Digital Twins, se pueden enrutar [notificaciones de eventos](how-to-interpret-event-data.md) a los servicios de bajada o recursos de proceso conectados. Para ello, primero se configuran los **puntos de conexión** que pueden recibir los eventos. Después, puede crear [**rutas de eventos**](concepts-route-events.md) que especifiquen qué eventos generados por Azure Digital Twins se entregan a los puntos de conexión.
+En Azure Digital Twins, se pueden enrutar [notificaciones de eventos](concepts-event-notifications.md) a los servicios de bajada o recursos de proceso conectados. Para ello, primero se configuran los **puntos de conexión** que pueden recibir los eventos. Después, puede crear [**rutas de eventos**](concepts-route-events.md) que especifiquen qué eventos generados por Azure Digital Twins se entregan a los puntos de conexión.
 
 Este artículo le guiará a través del proceso de creación de puntos de conexión y rutas con las [API REST](/rest/api/azure-digitaltwins/), el [SDK para .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client) y la [CLI de Azure Digital Twins](how-to-use-cli.md).
 
@@ -48,7 +48,7 @@ En esta sección se explica cómo crear estos puntos de conexión mediante la CL
 
 ### <a name="create-the-endpoint"></a>Creación del punto de conexión
 
-Una vez que haya creado los recursos de punto de conexión, puede usarlos para un punto de conexión de Azure Digital Twins. En los siguientes ejemplos se muestra cómo crear puntos de conexión con el comando [az dt endpoint create](/cli/azure/ext/azure-iot/dt/endpoint/create) para la [CLI de Azure Digital Twins](how-to-use-cli.md). Reemplace los marcadores de posición de los comandos con los detalles de los recursos propios.
+Una vez que haya creado los recursos de punto de conexión, puede usarlos para un punto de conexión de Azure Digital Twins. En los siguientes ejemplos se muestra cómo crear puntos de conexión con el comando [az dt endpoint create](/cli/azure/dt/endpoint/create) para la [CLI de Azure Digital Twins](how-to-use-cli.md). Reemplace los marcadores de posición de los comandos con los detalles de los recursos propios.
 
 Para crear un punto de conexión de Event Grid:
 
@@ -119,7 +119,7 @@ Siga los pasos que se indican a continuación para configurar estos recursos de 
     
 #### <a name="create-the-dead-letter-endpoint"></a>Creación del punto de conexión de cola de mensajes fallidos
 
-Para crear un punto de conexión que tenga habilitada la cola de mensajes fallidos, agregue el siguiente parámetro de cola de mensajes fallidos al comando [az dt endpoint create](/cli/azure/ext/azure-iot/dt/endpoint/create) para la [CLI de Azure Digital Twins](how-to-use-cli.md).
+Para crear un punto de conexión que tenga habilitada la cola de mensajes fallidos, agregue el siguiente parámetro de cola de mensajes fallidos al comando [az dt endpoint create](/cli/azure/dt/endpoint/create) para la [CLI de Azure Digital Twins](how-to-use-cli.md).
 
 El valor del parámetro es el **URI de SAS de cola de mensajes fallidos** formado por el nombre de la cuenta de almacenamiento, el nombre del contenedor y el token de SAS que ha recopilado en la [sección anterior](#set-up-storage-resources). Este parámetro crea el punto de conexión con la autenticación basada en claves.
 
@@ -158,7 +158,7 @@ Una vez configurado el punto de conexión con mensajes fallidos, los mensajes fa
 
 Los mensajes fallidos en cola coinciden con el esquema del evento original que se diseñó para entregarse al punto de conexión original.
 
-A continuación se muestra un ejemplo de un mensaje fallido en cola de una [notificación de creación gemela](how-to-interpret-event-data.md#digital-twin-lifecycle-notifications):
+A continuación se muestra un ejemplo de un mensaje fallido en cola de una [notificación de creación gemela](concepts-event-notifications.md#digital-twin-lifecycle-notifications):
 
 ```json
 {
@@ -204,7 +204,7 @@ Si no hay ningún nombre de ruta, no se enruta ningún mensaje fuera de Azure Di
 
 Una ruta debe permitir que se seleccionen varias notificaciones y tipos de evento. 
 
-Las rutas de eventos se pueden crear con las [API de plano de datos **EventRoutes**](/rest/api/digital-twins/dataplane/eventroutes) de Azure Digital Twins o los [comandos **az dt route** de la CLI](/cli/azure/ext/azure-iot/dt/route). En el resto de esta sección se le guía a través del proceso de creación.
+Las rutas de eventos se pueden crear con las [API de plano de datos **EventRoutes**](/rest/api/digital-twins/dataplane/eventroutes) de Azure Digital Twins o los [comandos **az dt route** de la CLI](/cli/azure/dt/route). En el resto de esta sección se le guía a través del proceso de creación.
 
 ### <a name="create-routes-with-the-apis-and-c-sdk"></a>Creación de rutas con las API y el SDK de C#
 
@@ -225,7 +225,7 @@ En el método de ejemplo siguiente se muestra cómo crear, enumerar y eliminar u
 
 ### <a name="create-routes-with-the-cli"></a>Creación de rutas con la CLI
 
-Las rutas también se pueden administrar mediante los comandos [az dt route](/cli/azure/ext/azure-iot/dt/route) de la CLI de Azure Digital Twins. 
+Las rutas también se pueden administrar mediante los comandos [az dt route](/cli/azure/dt/route) de la CLI de Azure Digital Twins. 
 
 Para obtener más información sobre el uso de la CLI y los comandos disponibles, consulte [*Procedimiento: Uso de la CLI de Azure Digital Twins*](how-to-use-cli.md).
 
@@ -256,4 +256,4 @@ Estos son los filtros de ruta admitidos. Use los detalles de la columna *Filtrar
 ## <a name="next-steps"></a>Pasos siguientes
 
 Lea acerca de los diferentes tipos de mensajes de evento que se pueden recibir:
-* [*Procedimiento: Interpretación de los datos de evento*](how-to-interpret-event-data.md)
+* [*Conceptos: notificaciones de eventos*](concepts-event-notifications.md)

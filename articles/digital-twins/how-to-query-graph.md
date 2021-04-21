@@ -8,12 +8,12 @@ ms.date: 11/19/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 3fd504ec36abae3f00cd2a7eb4e1f7b639be0cea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6d15e2b8bfcddfd1f554ab2a27083fe5256e9e2b
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103462684"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107226335"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Consulta del grafo gemelo de Azure Digital Twins
 
@@ -94,19 +94,14 @@ A continuación, se muestra un ejemplo de consulta que especifica un valor para 
 
 Al realizar consultas basadas en **relaciones** de Digital Twins, el lenguaje de consultas de Azure Digital Twins tiene una sintaxis especial.
 
-Las relaciones se extraen en el ámbito de la consulta en la cláusula `FROM`. Una diferencia importante de los lenguajes de tipo SQL "clásico" es que cada expresión de esta cláusula `FROM` no es una tabla; en su lugar, la cláusula `FROM` expresa un recorrido de relación entre entidades y se escribe con una versión de Azure Digital Twins de `JOIN`.
+Las relaciones se extraen en el ámbito de la consulta en la cláusula `FROM`. A diferencia de los lenguajes de tipo SQL "clásico", cada expresión de esta cláusula `FROM` no es una tabla; en su lugar, la cláusula `FROM` expresa un recorrido de relación entre entidades. Para recorrer las relaciones, Azure Digital Twins usa una versión personalizada de `JOIN`.
 
-Recuerde que, con las funcionalidades del [modelo](concepts-models.md) de Azure Digital Twins, las relaciones no existen de forma independiente de los gemelos. Esto significa que la operación `JOIN` del lenguaje de consultas de Azure Digital Twins es un poco diferente de la operación `JOIN` general de SQL, ya que las relaciones aquí no se pueden consultar de forma independiente y deben estar vinculadas a un gemelo.
-Para incorporar esta diferencia, se usa la palabra clave `RELATED` en la cláusula `JOIN` para hacer referencia a un conjunto de relaciones de un gemelo.
+Recuerde que, con las funcionalidades del [modelo](concepts-models.md) de Azure Digital Twins, las relaciones no existen de forma independiente de los gemelos. Esto implica que las relaciones no se pueden consultar de forma independiente y deben estar vinculadas a un gemelo.
+Para controlar esto, la palabra clave `RELATED` se usa en la cláusula `JOIN` para extraer el conjunto de un tipo determinado de relación procedente de la colección de gemelos. A continuación, la consulta debe filtrar en la cláusula `WHERE` qué gemelos específicos se usarán en la consulta de relación (mediante los valores `$dtId` de los gemelos).
 
-En la siguiente sección se proporcionan varios ejemplos de lo que se ve a continuación.
+En las siguientes secciones se proporcionan ejemplos de su aspecto.
 
-> [!TIP]
-> Conceptualmente, esta característica imita la funcionalidad centrada en documentos de CosmosDB, donde se puede llevar a cabo `JOIN` en los objetos secundarios dentro de un documento. CosmosDB usa la palabra clave `IN` para indicar que `JOIN` está pensado para recorrer en iteración los elementos de la matriz en el documento de contexto actual.
-
-### <a name="relationship-based-query-examples"></a>Ejemplos de consultas basadas en relaciones
-
-Para obtener un conjunto de resultados que incluya relaciones, use una única instrucción `FROM` seguida de N instrucciones `JOIN`, donde las instrucciones `JOIN` expresan relaciones en el resultado de una instrucción `FROM` o `JOIN` anterior.
+### <a name="basic-relationship-query"></a>Consulta de relación básica
 
 A continuación se muestra un ejemplo de consulta basada en relaciones. Este fragmento de código selecciona todos los gemelos digitales con una propiedad *ID* "ABC" y todos los gemelos digitales relacionados con estos gemelos digitales a través de una relación *contains*.
 
@@ -114,6 +109,18 @@ A continuación se muestra un ejemplo de consulta basada en relaciones. Este fra
 
 > [!NOTE]
 > El desarrollador no necesita poner en correlación esta operación `JOIN` con un valor de clave en la cláusula `WHERE` (ni especificar un valor de clave insertado con la definición de `JOIN`). El sistema calcula esta correlación automáticamente, ya que las propias propiedades de la relación identifican la entidad de destino.
+
+### <a name="query-by-the-source-or-target-of-a-relationship"></a>Consulta por el origen o destino de una relación
+
+Puede usar la estructura de consulta de la relación para identificar un gemelo digital que sea el origen o destino de una relación.
+
+Por ejemplo, puede empezar con un gemelo de origen y seguir sus relaciones para buscar los gemelos de destino de las relaciones. Este es un ejemplo de una consulta que busca los gemelos de destino de las relaciones *feeds* que proceden del gemelo *source-twin*.
+
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByRelationshipSource":::
+
+También puede empezar con el destino de la relación y realizar un seguimiento de la relación para encontrar al gemelo de origen. Este es un ejemplo de una consulta que busca el gemelo de origen de una relación *feeds* con el gemelo *target-twin*.
+
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByRelationshipTarget":::
 
 ### <a name="query-the-properties-of-a-relationship"></a>Consulta de las propiedades de una relación
 
@@ -128,7 +135,9 @@ En el ejemplo anterior, observe cómo *reportedCondition* es una propiedad de la
 
 ### <a name="query-with-multiple-joins"></a>Consulta con varias combinaciones JOIN
 
-En una sola consulta se admiten hasta cinco elementos `JOIN`. Esto le permite atravesar varios niveles de relaciones a la vez.
+En una sola consulta se admiten hasta cinco elementos `JOIN`. Esto le permite atravesar varios niveles de relaciones a la vez. 
+
+Para consultar varios niveles de relaciones, use una única instrucción `FROM` seguida de N instrucciones `JOIN`, donde las instrucciones `JOIN` expresan relaciones en el resultado de una instrucción `FROM` o `JOIN` anterior.
 
 Este es un ejemplo de una consulta de varias combinaciones, que obtiene todas las bombillas contenidas en los paneles de luz de las salas 1 y 2.
 

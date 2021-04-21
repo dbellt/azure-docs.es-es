@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 11/6/2020
-ms.openlocfilehash: 2e7e56616300566839fadef762c2165c8d989e6e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c0cb9e0da3ba5dd899cac56f393d7332bac6c597
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100570805"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258493"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mariadb"></a>Registros de consultas lentas en Azure Database for MariaDB
 En Azure Database for MariaDB, el registro de consultas lentas está disponible para los usuarios. No se admite el acceso al registro de transacciones. El registro de consultas lentas puede utilizarse para identificar cuellos de botella que afectan al rendimiento a fin de solucionar el problema.
@@ -45,7 +45,7 @@ Para el almacenamiento en el servidor local, puede enumerar y descargar los regi
 Los registros de diagnóstico de Azure Monitor permiten canalizar los registros de consultas lentas a los registros de Azure Monitor (Log Analytics), Azure Storage o Event Hubs. Para más información, [siga leyendo](concepts-server-logs.md#diagnostic-logs).
 
 ## <a name="local-server-storage-log-retention"></a>Retención de registros de almacenamiento del servidor local
-Al iniciar sesión en el almacenamiento local del servidor, los registros están disponibles hasta siete días desde su creación. Si el tamaño total de los registros disponibles supera los 7 GB, se eliminan los archivos más antiguos hasta que haya espacio disponible.
+Al iniciar sesión en el almacenamiento local del servidor, los registros están disponibles hasta siete días desde su creación. Si el tamaño total de los registros disponibles supera los 7 GB, se eliminan los archivos más antiguos hasta que haya espacio disponible. El límite de almacenamiento de 7 GB para los registros del servidor está disponible sin costo y no se puede ampliar. 
 
 Los registros se rotan cada 24 horas o 7 GB, lo que ocurra primero.
 

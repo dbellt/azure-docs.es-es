@@ -6,18 +6,18 @@ ms.service: hpc-cache
 ms.topic: troubleshooting
 ms.date: 03/18/2021
 ms.author: v-erkel
-ms.openlocfilehash: 10d68ce679fe42f5deeaae364bc46adb23436a27
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 45a7169330b11e98a8618b08205217212414ca5d
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104587158"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258935"
 ---
 # <a name="work-around-blob-storage-account-firewall-settings"></a>Solución alternativa para la configuración del firewall de la cuenta de Blob Storage
 
 Un valor determinado utilizado en los firewalls de la cuenta de almacenamiento puede provocar un error en la creación del destino de Blob Storage. El equipo de Azure HPC Cache trabaja en una corrección de software para este problema, pero puede solucionarlo según las instrucciones de este artículo.
 
-La configuración de firewall que permite el acceso únicamente desde "redes seleccionadas" puede impedir que la memoria caché cree o modifique un destino de Blob Storage. Esta configuración se encuentra en la página de configuración de **Firewalls y redes virtuales** de la cuenta de almacenamiento.
+La configuración de firewall que permite el acceso únicamente desde "redes seleccionadas" puede impedir que la memoria caché cree o modifique un destino de Blob Storage. Esta configuración se encuentra en la página de configuración de **Firewalls y redes virtuales** de la cuenta de almacenamiento. (Este problema no se aplica a destinos de almacenamiento ADLS-NFS).
 
 El problema es que el servicio de caché usa una red virtual de servicio oculta que es independiente de los entornos de cliente. No es posible autorizar explícitamente esta red para que acceda a la cuenta de almacenamiento.
 

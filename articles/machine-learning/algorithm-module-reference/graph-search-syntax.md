@@ -1,33 +1,36 @@
 ---
 title: Sintaxis de consulta de búsqueda de Graph
 titleSuffix: Azure Machine Learning
-description: Aprenda a usar la sintaxis de consulta de búsqueda en el diseñador de Azure Machine Learning para buscar nodos en un gráfico de canalización.
+description: Aprenda a usar la sintaxis de consulta de búsqueda en el diseñador de Azure Machine Learning para buscar nodos en un grafo de canalización.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 8/24/2020
-ms.openlocfilehash: 762581ea5b3183d62913e9ea6935bf7e4c4ae67f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+author: likebupt
+ms.author: keli19
+ms.date: 03/24/2021
+ms.openlocfilehash: 74cf0b897529e8bb198b6f82a57e187662a4a285
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "93420774"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259237"
 ---
 # <a name="graph-search-query-syntax"></a>Sintaxis de consulta de búsqueda de Graph
 
-En este artículo, obtendrá información sobre la sintaxis de las consultas de búsqueda en gráficos en Azure Machine Learning. La característica de búsqueda de Graph permite buscar un nodo por su nombre y sus propiedades. 
+En este artículo aprenderá sobre la funcionalidad de búsqueda en los grafos en Azure Machine Learning. 
 
- ![Captura de pantalla animada que muestra una experiencia de búsqueda en gráficos de ejemplo](media/search/graph-search.gif)
+La búsqueda en los grafos permite navegar rápidamente por un nodo al depurar o crear una canalización. Puede escribir la palabra clave o la consulta en el cuadro de entrada de la barra de herramientas o en la pestaña de búsqueda del panel izquierdo para desencadenar la búsqueda. Todos los resultados coincidentes se resaltarán en amarillo en el lienzo y, si selecciona un resultado en el panel izquierdo, el nodo del lienzo se resaltará en rojo.
 
-La búsqueda en gráficos admite la búsqueda de palabras clave de texto completo en los comentarios y el nombre del nodo. También puede filtrar por la propiedad del nodo, como runStatus, Duration o computeTarget. La búsqueda de palabras clave se basa en la consulta de Lucene. Una consulta de búsqueda completa tiene el siguiente aspecto:  
+![Captura de pantalla que muestra una experiencia de búsqueda en los grafos de ejemplo.](media/search/graph-search-0322.png)
 
-**[consulta de lucene | [consulta por filtro]** 
+La búsqueda en gráficos admite la búsqueda de palabras clave de texto completo en los comentarios y el nombre del nodo. También puede filtrar por la propiedad del nodo, como runStatus, duration o computeTarget. La búsqueda de palabras clave se basa en la consulta de Lucene. Una consulta de búsqueda completa tiene el siguiente aspecto:  
+
+**([consulta de lucene] | [consulta por filtro])** 
 
 Puede usar una consulta de Lucene o una consulta por filtro. Para usar ambas opciones, incluya el separador **|** . La sintaxis de la consulta por filtro es más estricta que la consulta de Lucene. Por tanto, si la entrada del cliente se puede analizar con ambas opciones, se aplicará al consulta con filtro.
 
+Por ejemplo, `data OR model | compute in {cpucluster}`, para buscar nodos cuyo nombre o comentario contiene `data` o `model`; el proceso es cpucluster.
  
 
 ## <a name="lucene-query"></a>Consulta de Lucene
@@ -68,6 +71,8 @@ Puede usar las siguientes propiedades de nodo como claves:
 - compute
 - duration
 - reuse
+- Publicar
+- etiquetas
 
 También puede usar los siguientes operadores:
 

@@ -6,57 +6,61 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/09/2021
+ms.date: 04/08/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 692a820bea69071485a973a988ae91bd70b74f35
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 268de3e8ea168ac721362d42149389b9f37c86fe
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100380821"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305062"
 ---
 # <a name="blob-versioning"></a>Control de versiones de blobs
 
-Puede habilitar el control de versiones de almacenamiento de blobs para conservar automáticamente las versiones anteriores de un objeto.  Cuando el control de versiones de blobs está habilitado, puede restaurar una versión anterior de un blob para recuperar los datos si se modifican o eliminan por error.
-
-El control de versiones de blobs está habilitado en la cuenta de almacenamiento y se aplica a todos los blobs de dicha cuenta. Después de habilitar el control de versiones de blobs para una cuenta de almacenamiento, Azure Storage conserva automáticamente las versiones de todos los blobs de la cuenta de almacenamiento.
-
-Microsoft recomienda usar el control de versiones de blobs para conservar las versiones anteriores de un blob a fin de mejorar la protección de datos. Cuando sea posible, use el control de versiones de blobs en lugar de las instantáneas de blobs para conservar las versiones anteriores. Las instantáneas de blobs proporcionan una funcionalidad similar, ya que también conservan las versiones anteriores de los blobs, sin embargo, en este caso, la aplicación debe mantener las instantáneas manualmente.
-
-Para obtener información sobre cómo habilitar el control de versiones de blobs, consulte [Habilitación y administración del control de versiones de blobs](versioning-enable.md).
-
-> [!IMPORTANT]
-> El control de versiones de blobs no puede ayudarle a recuperar una eliminación accidental de una cuenta de almacenamiento o un contenedor. Para evitar dicha eliminación, configure un bloqueo en el recurso de la cuenta de almacenamiento. Para obtener más información sobre el bloqueo de recursos de Azure, vea [Bloqueo de recursos para impedir cambios inesperados](../../azure-resource-manager/management/lock-resources.md). Para proteger los contenedores de la eliminación accidental, configure la eliminación temporal de contenedores para la cuenta de almacenamiento. Para más información, consulte [Eliminación temporal de contenedores (versión preliminar)](soft-delete-container-overview.md).
+Puede habilitar el control de versiones de almacenamiento de blobs para conservar automáticamente las versiones anteriores de un objeto. Cuando el control de versiones de blobs está habilitado, puede restaurar una versión anterior de un blob para recuperar los datos si se modifican o eliminan por error.
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
+## <a name="recommended-data-protection-configuration"></a>Configuración de protección de datos recomendada
+
+El control de versiones de blobs forma parte de una exhaustiva estrategia para proteger los datos de los blobs. Para obtener una protección óptima de los datos de blobs, Microsoft recomienda habilitar las siguientes características de protección de datos:
+
+- Control de versiones de blobs, para conservar automáticamente las versiones anteriores de un blob. Cuando el control de versiones de blobs está habilitado, puede restaurar una versión anterior de un blob para recuperar los datos si se modifican o eliminan por error. Para obtener información sobre cómo habilitar el control de versiones de blobs, consulte [Habilitación y administración del control de versiones de blobs](versioning-enable.md).
+- Eliminación temporal de contenedores, para restaurar un contenedor que se ha eliminado. Para obtener información sobre cómo habilitar la eliminación temporal de contenedores, consulte [Habilitación y administración de la eliminación temporal de contenedores](soft-delete-container-enable.md).
+- Eliminación temporal de blobs, para restaurar un blob, una instantánea o una versión que se han eliminado. Para obtener información sobre cómo habilitar la eliminación temporal de blobs, consulte [Habilitación y administración de la eliminación temporal para blobs](soft-delete-blob-enable.md).
+
+Para obtener más información sobre las recomendaciones de Microsoft con respecto a la protección de datos, consulte [Información general sobre la protección de datos](data-protection-overview.md).
+
 ## <a name="how-blob-versioning-works"></a>Funcionamiento del control de versiones de blobs
 
-Una versión captura el estado de un blob en un momento dado. Cuando el control de versiones de blobs está habilitado para una cuenta de almacenamiento, Azure Storage crea automáticamente una nueva versión de un blob cada vez que este se modifica o se elimina.
+Una versión captura el estado de un blob en un momento dado. Cada versión se identifica mediante un identificador. Si el control de versiones de blobs está habilitado para una cuenta de almacenamiento, Azure Storage crea automáticamente una versión con un identificador único cuando se crea por primera vez un blob y cada vez que este se modifica posteriormente.
 
-Cuando crea un blob con el control de versiones habilitado, este pasa a ser la versión actual del blob (o blob base). Si posteriormente lo modifica, Azure Storage crea una versión que captura su estado antes de la modificación. El blob modificado se convierte en la nueva versión actual. Cada vez que modifique el blob, se creará una nueva versión.
+Un identificador de versión puede identificar la versión actual u otra anterior. Un blob solo puede tener una versión actual a la vez.
 
-En el diagrama siguiente se muestra cómo se crean las versiones durante las operaciones de escritura y eliminación, y cómo una versión anterior se puede promover para que sea la versión actual:
+Cuando se crea un blob, existe una única versión, que es la versión actual. Al modificar un blob existente, la versión actual se convierte en otra anterior. Se crea una versión para capturar el estado actualizado y esa nueva versión pasa a ser la actual. Cuando elimina un blob, la versión actual se convierte en otra anterior y deja de haber una versión actual. Las versiones anteriores del blob se conservan.
+
+En el siguiente diagrama se muestra cómo se crean las versiones en operaciones de escritura y cómo se puede promover una versión anterior para que pase a ser la actual:
 
 :::image type="content" source="media/versioning-overview/blob-versioning-diagram.png" alt-text="Diagrama que muestra el funcionamiento del control de versiones de blobs":::
 
-Tener un gran número de versiones por cada blob puede aumentar la latencia de las operaciones de enumeración de blobs. Microsoft recomienda mantener menos de 1000 versiones por blob. Puede usar la administración del ciclo de vida para eliminar automáticamente las versiones anteriores. Para obtener más información sobre la administración del ciclo de vida, consulte [Optimización de los costos mediante la automatización de los niveles de acceso de Azure Blob Storage](storage-lifecycle-management-concepts.md).
-
-Cuando elimine un blob con el control de versiones habilitado, Azure Storage creará una versión que capturará su estado antes de la eliminación. De este modo, se elimina la versión actual del blob, pero se conservan sus versiones, de modo que se puede volver a crear si es necesario. 
-
 Las versiones del blob son inmutables. No puede modificar el contenido ni los metadatos de la versión de un blob existente.
 
-El control de versiones de blobs está disponible para las cuentas de uso general V2, blob en bloques y almacenamiento de blobs. Actualmente, no se admiten las cuentas de almacenamiento con un espacio de nombres jerárquico habilitado para usarse con Azure Data Lake Storage Gen2.
+Tener un gran número de versiones por cada blob puede aumentar la latencia de las operaciones de enumeración de blobs. Microsoft recomienda mantener menos de 1000 versiones por blob. Puede usar la administración del ciclo de vida para eliminar automáticamente las versiones anteriores. Para obtener más información sobre la administración del ciclo de vida, consulte [Optimización de los costos mediante la automatización de los niveles de acceso de Azure Blob Storage](storage-lifecycle-management-concepts.md).
+
+El control de versiones de blobs está disponible para cuentas estándar de uso general V2, cuentas premium de blob en bloques y cuentas heredadas de almacenamiento de blobs. Actualmente, no se admiten las cuentas de almacenamiento con un espacio de nombres jerárquico habilitado para usarse con Azure Data Lake Storage Gen2.
 
 La versión 2019-10-10 y las posteriores de la API REST de Azure Storage admiten el control de versiones de blobs.
 
+> [!IMPORTANT]
+> El control de versiones de blobs no puede ayudarle a recuperar una eliminación accidental de una cuenta de almacenamiento o un contenedor. Para evitar dicha eliminación, configure un bloqueo en el recurso de la cuenta de almacenamiento. Para obtener más información sobre cómo bloquear una cuenta de almacenamiento, consulte [Aplicación de un bloqueo de Azure Resource Manager a una cuenta de almacenamiento](../common/lock-account-resource.md).
+
 ### <a name="version-id"></a>Id. de la versión
 
-Cada versión de blob se identifica mediante un identificador de versión. El valor del identificador de la versión es la marca de tiempo en la que se escribió o actualizó el blob. El identificador de la versión se asigna en el momento en que se crea la versión.
+Cada versión de blob se identifica mediante un identificador único. El valor del identificador de la versión es la marca de tiempo en la que se ha actualizado el blob. El identificador de la versión se asigna en el momento en que se crea la versión.
 
-Para realizar operaciones de lectura o eliminación en una versión específica de un blob, puede proporcionar su identificador de versión. Si omite el identificador de la versión, la operación actúa con respecto a la versión actual (el blob base).
+Para realizar operaciones de lectura o eliminación en una versión específica de un blob, puede proporcionar su identificador de versión. Si omite el identificador de la versión, la operación actúa con respecto a la versión actual.
 
 Cuando llama a una operación de escritura para crear o modificar un blob, Azure Storage devuelve el encabezado *x-ms-version-id* en la respuesta. Este encabezado contiene el identificador de la versión actual del blob creado mediante la operación de escritura.
 
@@ -66,40 +70,21 @@ El identificador de la versión es el mismo para toda la vigencia de esta.
 
 Cuando se activa el control de versiones de blobs, con cada operación de escritura en un blob se crea una nueva versión. Las operaciones de escritura incluyen [Put Blob](/rest/api/storageservices/put-blob), [Put Block List](/rest/api/storageservices/put-block-list), [Copy Blob](/rest/api/storageservices/copy-blob) y [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata).
 
-Si la operación de escritura crea un nuevo blob, el resultante es su versión actual. Si la operación de escritura modifica un blob existente, los nuevos datos se capturan en el blob actualizado, que es la versión actual, y Azure Storage crea una versión que guarda el estado anterior del blob.
+Si la operación de escritura crea un nuevo blob, el resultante es su versión actual. Si la operación modifica un blob ya existente, la versión actual se convierte en otra anterior, y se crea una nueva versión actual para capturar el blob actualizado.
 
-Por motivos de simplicidad, en los diagramas que se incluyen en este artículo el identificador de la versión se muestra como un valor entero simple. En realidad, el identificador de la versión es una marca de tiempo. La versión actual se muestra en azul y las anteriores, en gris.
-
-En el diagrama siguiente se muestra cómo las operaciones de escritura afectan a las versiones de los blobs. Cuando se crea un blob, ese pasa a ser la versión actual. Cuando se modifica el mismo blob, se crea una nueva versión para guardar el estado anterior del blob y el blob actualizado se convierte en la versión actual.
+En el diagrama siguiente se muestra cómo las operaciones de escritura afectan a las versiones de los blobs. Por motivos de simplicidad, en los diagramas que se incluyen en este artículo el identificador de la versión se muestra como un valor entero simple. En realidad, el identificador de la versión es una marca de tiempo. La versión actual se muestra en azul y las anteriores, en gris.
 
 :::image type="content" source="media/versioning-overview/write-operations-blob-versions.png" alt-text="Diagrama que muestra cómo las operaciones de escritura afectan a los blobs con versiones":::
 
 > [!NOTE]
 > Un blob creado antes de habilitar el control de versiones para la cuenta de almacenamiento no tiene ningún identificador de versión. Cuando se modifica, se convierte en la versión actual y se crea una versión para guardar el estado del blob antes de la actualización. Se asigna un identificador a la versión, que corresponde a la hora de creación.
 
-### <a name="versioning-on-delete-operations"></a>Control de versiones en operaciones de eliminación
+Si el control de versiones de blobs está habilitado para una cuenta de almacenamiento, todas las operaciones de escritura en blobs en bloques desencadenan la creación de una versión, con la excepción de la operación [Put Block](/rest/api/storageservices/put-block).
 
-Cuando elimina un blob, la versión actual de este se convierte en una versión anterior y se elimina el blob base. Todas sus versiones anteriores existentes se conservan tras su eliminación.
-
-Cuando se llama a la operación [Delete Blob](/rest/api/storageservices/delete-blob) sin ningún identificador de versión, se elimina el blob base. Para eliminar una versión específica, proporcione el identificador de esa versión en la operación de eliminación.
-
-En el diagrama siguiente se muestra el efecto de una operación de eliminación en un blob con versiones:
-
-:::image type="content" source="media/versioning-overview/delete-versioned-base-blob.png" alt-text="Diagrama que muestra la eliminación de un blob con versiones":::
-
-Al escribir nuevos datos en el blob, se crea una nueva versión de este. Las versiones existentes no se verán afectadas, tal como se muestra en el diagrama siguiente.
-
-:::image type="content" source="media/versioning-overview/recreate-deleted-base-blob.png" alt-text="Diagrama que muestra la nueva creación del blob con versiones después de la eliminación":::
-
-### <a name="blob-types"></a>Tipos de blobs
-
-Cuando se habilita el control de versiones de blobs para una cuenta de almacenamiento, todas las operaciones de escritura y eliminación en blobs en bloques desencadenan la creación de una nueva versión, con la excepción de la operación [Put Block](/rest/api/storageservices/put-block).
-
-En el caso de los blobs en páginas y en anexos, solo un subconjunto de operaciones de escritura y eliminación desencadena la creación de una versión. Entre las operaciones se incluyen:
+En el caso de los blobs en páginas y anexos, solo un subconjunto de operaciones de escritura desencadena la creación de una versión. Entre las operaciones se incluyen:
 
 - [Put Blob](/rest/api/storageservices/put-blob)
 - [Put Block List](/rest/api/storageservices/put-block-list)
-- [Delete Blob](/rest/api/storageservices/delete-blob)
 - [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata)
 - [Copy Blob](/rest/api/storageservices/copy-blob)
 
@@ -108,7 +93,21 @@ Las siguientes operaciones no la desencadenan. Para capturar los cambios de esas
 - [Put Page](/rest/api/storageservices/put-page) (blob en páginas)
 - [Append Block](/rest/api/storageservices/append-block) (blob en anexos)
 
-Todas las versiones de un blob deben ser del mismo tipo de blob. Si un blob tiene versiones anteriores, no puede sobrescribirlo con uno de otro tipo, a menos que primero se elimine este y todas sus versiones.
+Todas las versiones de un blob deben ser del mismo tipo de blob. Si un blob tiene versiones anteriores, no puede sobrescribirlo con uno de otro tipo, a menos que primero elimine el blob y todas sus versiones.
+
+### <a name="versioning-on-delete-operations"></a>Control de versiones en operaciones de eliminación
+
+Cuando se llama a la operación [Delete Blob](/rest/api/storageservices/delete-blob) sin especificar un identificador de versión, la versión actual se convierte en otra anterior y deja de haber una versión actual. Todas las versiones del blob que ya existieran previamente se conservan.
+
+En el diagrama siguiente se muestra el efecto de una operación de eliminación en un blob con versiones:
+
+:::image type="content" source="media/versioning-overview/delete-versioned-base-blob.png" alt-text="Diagrama que muestra la eliminación de un blob con versiones":::
+
+Para eliminar una versión específica de un blob, proporcione el identificador de la versión en la operación de eliminación. Si la eliminación temporal de blobs también está habilitada para la cuenta de almacenamiento, la versión se mantiene en el sistema hasta que transcurre el período de retención de la eliminación.
+
+Al escribir nuevos datos en el blob, se crea una versión actual de este. Las versiones existentes no se verán afectadas, tal como se muestra en el diagrama siguiente.
+
+:::image type="content" source="media/versioning-overview/recreate-deleted-base-blob.png" alt-text="Diagrama que muestra la nueva creación del blob con versiones después de la eliminación":::
 
 ### <a name="access-tiers"></a>Niveles de acceso
 
@@ -132,27 +131,29 @@ En el diagrama siguiente se muestra cómo se crea un blob sin versiones cuando s
 
 ## <a name="blob-versioning-and-soft-delete"></a>Control de versiones de blobs y eliminación temporal
 
-El control de versiones y la eliminación temporal de blobs funcionan de forma conjunta para proporcionarle una protección de datos óptima. Al habilitar la eliminación temporal, debe especificar el tiempo durante el que Azure Storage debe conservar un blob eliminado temporalmente. Cualquier versión de un blob eliminada temporalmente permanece en el sistema y se puede recuperar dentro del período de retención de eliminación temporal. Para obtener más información sobre la eliminación temporal, consulte [Eliminación temporal de blobs de Azure Storage](./soft-delete-blob-overview.md).
+Con el fin de obtener una protección de datos óptima, Microsoft recomienda habilitar el control de versiones y la eliminación temporal de blobs para las cuentas de almacenamiento. Para obtener más información sobre la eliminación temporal, consulte [Eliminación temporal de blobs de Azure Storage](./soft-delete-blob-overview.md).
+
+### <a name="overwriting-a-blob"></a>Sobrescritura de un blob
+
+Si están habilitados el control de versiones y la eliminación temporal de blobs para una cuenta de almacenamiento, al sobrescribir un blob se crea una versión automáticamente. La nueva versión no se elimina de forma temporal y no se quita cuando expira el período de retención de eliminación temporal. No se crea ninguna instantánea eliminada temporalmente.
 
 ### <a name="deleting-a-blob-or-version"></a>Eliminación de un blob o una versión
 
-La eliminación temporal ofrece protección adicional para eliminar versiones de blobs. Si se habilita tanto el control de versiones como la eliminación temporal en la cuenta de almacenamiento, cuando se elimina un blob, Azure Storage crea una versión nueva para guardar el estado del blob inmediatamente antes de la eliminación y elimina la versión actual. La nueva versión no se elimina de forma temporal ni se quita cuando expira el período de retención de eliminación temporal.
+Si están habilitados el control de versiones y la eliminación automática para una cuenta de almacenamiento, al eliminar un blob la versión actual de este se convierte en otra anterior. No se crea ninguna versión ni ninguna instantánea eliminada temporalmente. El período de retención de la eliminación temporal no se aplica al blob eliminado.
 
-Cuando se elimina una versión anterior del blob, esta se elimina de forma temporal. La versión eliminada temporalmente se conserva durante el período de retención especificado en la configuración de eliminación temporal de la cuenta de almacenamiento y se elimina de forma permanente cuando expira dicho período de retención.
+La eliminación temporal ofrece protección adicional para eliminar versiones de blobs. Cuando se elimina una versión anterior del blob, esta se elimina de forma temporal. La versión eliminada temporalmente se conserva hasta que transcurre el período de retención, momento en el que se elimina de forma permanente.
 
-Para quitar una versión anterior de un blob, especifique el identificador de la versión para eliminarlo explícitamente.
+Para eliminar una versión anterior de un blob, llame a la operación **Delete Blob** y especifique el identificador de la versión.
 
 En el diagrama siguiente se muestra lo que ocurre cuando elimina un blob o una versión de este.
 
 :::image type="content" source="media/versioning-overview/soft-delete-historical-version.png" alt-text="Diagrama que muestra la eliminación de una versión con la eliminación temporal habilitada":::
 
-Si el control de versiones y la eliminación temporal están habilitados en una cuenta de almacenamiento, no se crea ninguna instantánea de eliminación temporal cuando se modifica o elimina una versión de un blob o un blob.
-
 ### <a name="restoring-a-soft-deleted-version"></a>Restauración de una versión eliminada temporalmente
 
-Puede restaurar una versión de blob eliminada temporalmente mediante una llamada a la operación [Undelete blob](/rest/api/storageservices/undelete-blob) en la versión durante el período de retención de eliminación temporal. La operación **Undelete Blob** restaura todas las versiones eliminadas temporalmente del blob.
+Puede usar la operación [Undelete Blob](/rest/api/storageservices/undelete-blob) para restaurar versiones eliminadas temporalmente durante el período de retención de la eliminación. La operación **Undelete Blob** siempre restaura todas las versiones eliminadas temporalmente del blob. No es posible restaurar una sola versión eliminada temporalmente.
 
-Al realizar dicha restauración con la operación **Undelete Blob**, no se promueve ninguna versión para que sea la actual. Para restaurar la versión actual, primero restaure todas las versiones eliminadas temporalmente y, a continuación, use la operación [Copy Blob](/rest/api/storageservices/copy-blob) para copiar una versión anterior a fin de restaurar el blob.
+Al realizar dicha restauración con la operación **Undelete Blob**, no se promueve ninguna versión para que sea la actual. Para restaurar la versión actual, primero restaure todas las versiones eliminadas temporalmente y, después, use la operación [Copy Blob](/rest/api/storageservices/copy-blob) para copiar una versión anterior en otra actual de reciente creación.
 
 En el diagrama siguiente se muestra cómo restaurar las versiones de blobs eliminadas temporalmente con la operación **Undelete blob** y cómo restaurar la versión actual del blob con la operación **Copy blob**.
 
@@ -193,8 +194,8 @@ En la tabla siguiente se muestran las acciones de Azure RBAC que admiten la elim
 
 | Descripción | Operación de servicio de blob | Acción de datos de Azure RBAC necesaria | Informe de rol integrado de Azure |
 |----------------------------------------------|------------------------|---------------------------------------------------------------------------------------|-------------------------------|
-| Eliminación de la versión actual del blob | Delete Blob | **Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete** | Colaborador de datos de blobs de almacenamiento |
-| Eliminación de una versión | Delete Blob | **Microsoft.Storage/storageAccounts/blobServices/containers/blobs/deleteBlobVersion/action** | Propietario de datos de blobs de almacenamiento |
+| Eliminación de la versión actual | Delete Blob | **Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete** | Colaborador de datos de blobs de almacenamiento |
+| Eliminación de una versión anterior | Delete Blob | **Microsoft.Storage/storageAccounts/blobServices/containers/blobs/deleteBlobVersion/action** | Propietario de datos de blobs de almacenamiento |
 
 ### <a name="shared-access-signature-sas-parameters"></a>Parámetros de la Firma de acceso compartido (SAS)
 

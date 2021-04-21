@@ -3,12 +3,12 @@ title: Consideraciones de almacenamiento de Azure Functions
 description: Conozca los requisitos de almacenamiento de Azure Functions y aprenda a cifrar los datos almacenados.
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: c4ffb622482585e35337caf8e43b69e0f3b0385c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5faa85a4fac9fc0b8639f33c475283f4f043c627
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100517270"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107779262"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Consideraciones de almacenamiento de Azure Functions
 
@@ -71,7 +71,7 @@ Otros datos de clientes administrados por la plataforma solo se almacenan dentro
 
 _Esta funcionalidad solo está disponible cuando se ejecuta en Linux._ 
 
-Puede montar recursos compartidos de Azure Files existentes en las aplicaciones de funciones de Linux. Al montar un recurso compartido en la aplicación de funciones de Linux, puede aprovechar los modelos de aprendizaje automático existentes u otros datos en sus funciones. Puede usar el comando [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account#az-webapp-config-storage-account-add) para montar un recurso compartido existente en la aplicación de funciones de Linux. 
+Puede montar recursos compartidos de Azure Files existentes en las aplicaciones de funciones de Linux. Al montar un recurso compartido en la aplicación de funciones de Linux, puede aprovechar los modelos de aprendizaje automático existentes u otros datos en sus funciones. Puede usar el comando [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account#az_webapp_config_storage_account_add) para montar un recurso compartido existente en la aplicación de funciones de Linux. 
 
 En este comando, `share-name` es el nombre del recurso compartido existente de Azure Files y `custom-id` puede ser cualquier cadena que defina de forma única el recurso compartido cuando se monta en la aplicación de funciones. Además, `mount-path` es la ruta de acceso desde la que se accede al recurso compartido en la aplicación de funciones. `mount-path` debe estar en el formato `/dir-name` y no puede comenzar con `/home`.
 

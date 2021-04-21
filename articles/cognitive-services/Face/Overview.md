@@ -11,12 +11,12 @@ ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: reconocimiento facial, software de reconocimiento facial, análisis facial, coincidencia facial, aplicación de reconocimiento facial, búsqueda de caras por imagen, búsqueda de reconocimiento facial
-ms.openlocfilehash: e159ead12179f86406fd7df22475229298f95ee8
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 26076289d8c6659abdd55fa805c27b13690feccd
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106285474"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258748"
 ---
 # <a name="what-is-the-azure-face-service"></a>¿Qué es el servicio Azure Face?
 
@@ -37,10 +37,10 @@ Esta documentación contiene los siguientes tipos de artículos:
 
 ## <a name="face-detection"></a>Detección de caras
 
-El servicio Face detecta rostros humanos en una imagen y devuelve las coordenadas del rectángulo de sus ubicaciones. Si lo desea, la detección de caras puede extraer una serie de atributos faciales, como la posición de la cabeza, el género, la edad, las emociones, el vello facial y las gafas.
+API Detect detecta caras humanas en una imagen y devuelve las coordenadas del rectángulo en sus ubicaciones. Si lo desea, la detección de caras puede extraer una serie de atributos faciales, como la posición de la cabeza, el género, la edad, las emociones, el vello facial y las gafas. Estos atributos son predicciones generales, no clasificaciones reales. 
 
 > [!NOTE]
-> La característica de detección de caras también está disponible a través del [servicio Computer Vision](../computer-vision/overview.md). Sin embargo, si desea realizar más operaciones con datos de caras, debe usar este servicio en su lugar.
+> La característica de detección de caras también está disponible a través del [servicio Computer Vision](../computer-vision/overview.md). Sin embargo, si desea realizar más operaciones de Face como identificar, comprobar, buscar similar o agrupar, debe usar este servicio Face.
 
 ![Una imagen de una mujer y un hombre, con rectángulos dibujados en torno a sus caras y edad y sexo.](./Images/Face.detection.jpg)
 
@@ -48,7 +48,19 @@ Para más información sobre la detección de caras, vea el artículo sobre los 
 
 ## <a name="face-verification"></a>Verificación de caras
 
-Verify API realiza una autenticación con dos caras detectadas o a partir de una cara detectada en un objeto personal. En la práctica, evalúa si dos caras pertenecen a la misma persona. Esta funcionalidad puede ser muy útil en escenarios de seguridad. Para más información, vea la guía de conceptos [Reconocimiento facial](concepts/face-recognition.md) o la documentación de referencia de [Verify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
+API Verify se basa en la detección y responde la pregunta, "¿Son estas dos imágenes la misma persona?" La comprobación también se denomina coincidencia "uno a uno", porque la imagen de sondeo se compara con una sola plantilla inscrita. La comprobación se puede usar en escenarios de comprobación de identidad o control de acceso para comprobar que una imagen coincide con una imagen capturada previamente (por ejemplo, una foto de una tarjeta de identificación emitida por el gobierno). Para más información, vea la guía de conceptos [Reconocimiento facial](concepts/face-recognition.md) o la documentación de referencia de [Verify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
+
+## <a name="face-identification"></a>Identificación de caras
+
+Identify API también comienza con la detección y responde a la pregunta "¿Coincide la cara detectada con alguna de las caras de una base de datos?" Al ser como la búsqueda de reconocimiento facial, también se denomina coincidencia "uno a varios". Las coincidencias candidatas se devuelven en función del grado de coincidencia de la plantilla de sondeo con la cara detectada de cada una de las plantillas inscritas.
+
+La siguiente imagen muestra un ejemplo de una base de datos llamada `"myfriends"`. Cada grupo puede contener hasta un millón de objetos de persona diferentes. Cada objeto de persona puede tener hasta 248 caras registradas.
+
+![Una cuadrícula con tres columnas para diferentes personas, cada una con tres filas de imágenes de caras.](./Images/person.group.clare.jpg)
+
+Una vez creada y entrenada la base de datos, puede realizar la identificación en el grupo con una cara nueva detectada. Si la cara se identifica como una persona en el grupo, se devuelve el objeto de persona.
+
+Para más información sobre la identificación de personas, vea la guía de conceptos [Reconocimiento facial](concepts/face-recognition.md) o la documentación de referencia de [Identify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
 
 ## <a name="find-similar-faces"></a>Búsqueda de caras similares
 
@@ -70,21 +82,6 @@ Al buscar cuatro caras parecidas, el modo **matchPerson** devuelve a y b, que mu
 
 Group API divide un conjunto de caras desconocidas en varios grupos en función de la similitud. Cada grupo es un subconjunto apropiado separado del conjunto original de caras. Todas las caras de un grupo probablemente pertenecen a la misma persona. Puede haber varios grupos diferentes para una sola persona. Los grupos se diferencian por otro factor, por ejemplo, la expresión. Para más información, vea la guía de conceptos [Reconocimiento facial](concepts/face-recognition.md) o la documentación de referencia de [Group API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238).
 
-## <a name="person-identification"></a>Identificación de personas
-
-Identify API se usa para identificar una cara detectada en una base de datos de personas (búsqueda de reconocimiento facial). Esta característica puede resultar útil para el etiquetado automático de imágenes en software de administración de fotografías. Cree la base de datos con antelación y puede modificarla con el tiempo.
-
-La siguiente imagen muestra un ejemplo de una base de datos llamada `"myfriends"`. Cada grupo puede contener hasta un millón de objetos de persona diferentes. Cada objeto de persona puede tener hasta 248 caras registradas.
-
-![Una cuadrícula con tres columnas para diferentes personas, cada una con tres filas de imágenes de caras.](./Images/person.group.clare.jpg)
-
-Una vez creada y entrenada la base de datos, puede realizar la identificación en el grupo con una cara nueva detectada. Si la cara se identifica como una persona en el grupo, se devuelve el objeto de persona.
-
-Para más información sobre la identificación de personas, vea la guía de conceptos [Reconocimiento facial](concepts/face-recognition.md) o la documentación de referencia de [Identify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
-
-## <a name="deploy-on-premises-using-docker-containers"></a>Implementación local mediante contenedores de Docker
-
-[Use el contenedor de Face (versión preliminar)](face-how-to-install-containers.md) para implementar características de API locales. Este contenedor de Docker permite acercar el servicio a los datos para mejorar el cumplimiento, la seguridad o por otras razones operativas.
 
 ## <a name="sample-apps"></a>Aplicaciones de ejemplo
 

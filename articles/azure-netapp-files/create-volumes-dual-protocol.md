@@ -14,17 +14,18 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 04/05/2021
 ms.author: b-juche
-ms.openlocfilehash: bbb8baf111c62e3a1207de9b910979a77927cd6e
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: b6a2d7ad92c209a93d740d60808c2cbd2f90c6b4
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106490815"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258425"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Creación de un volumen de protocolo dual (NFSv3 y SMB) para Azure NetApp Files
 
-Azure NetApp Files admite la creación de volúmenes con NFS (NFSv3 y NFSv4.1), SMB3 o el protocolo dual. En este artículo se muestra cómo crear un volumen que use el protocolo dual de NFSv3 y SMB con compatibilidad con la asignación de usuarios LDAP.  
+Azure NetApp Files admite la creación de volúmenes con NFS (NFSv3 y NFSv4.1), SMB3 o el protocolo dual. En este artículo se muestra cómo crear un volumen que use el protocolo dual de NFSv3 y SMB con compatibilidad con la asignación de usuarios LDAP. 
 
+Para crear volúmenes NFS, consulte [Creación de un volumen NFS](azure-netapp-files-create-volumes.md). Para crear volúmenes SMB, consulte [Creación de un volumen SMB](azure-netapp-files-create-volumes-smb.md). 
 
 ## <a name="before-you-begin"></a>Antes de empezar 
 
@@ -140,9 +141,9 @@ Puede administrar los atributos POSIX como UID, el directorio particular y otros
 
 Debe establecer los siguientes atributos para los usuarios LDAP y los grupos LDAP: 
 * Atributos necesarios para los usuarios LDAP:   
-    `uid`: Alice, `uidNumber`: 139, `gidNumber`: 555, `objectClass`: posixAccount
+    `uid: Alice`, `uidNumber: 139`, `gidNumber: 555`, `objectClass: posixAccount`
 * Atributos necesarios para los grupos LDAP:   
-    `objectClass`: "posixGroup", `gidNumber`: 555
+    `objectClass: posixGroup`, `gidNumber: 555`
 
 ## <a name="configure-the-nfs-client"></a>Configuración del cliente NFS 
 

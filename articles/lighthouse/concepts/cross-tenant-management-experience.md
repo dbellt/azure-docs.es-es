@@ -3,12 +3,12 @@ title: Experiencias de administración entre inquilinos
 description: La administración de recursos delegados de Azure habilita una experiencia de administración entre inquilinos.
 ms.date: 03/29/2021
 ms.topic: conceptual
-ms.openlocfilehash: 12c4aaa4dda159862344675c802603fcbda2f254
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 027d1d5e81d5a652a7e2d5441c40440c661f730f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105934332"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107778632"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiencias de administración entre inquilinos
 
@@ -35,7 +35,7 @@ Puede realizar tareas de administración en recursos delegados directamente en e
 
 De forma predeterminada, el [cmdlet Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription) de Azure PowerShell mostrará el valor `TenantId` del inquilino de administración. Puede usar los atributos `HomeTenantId` y `ManagedByTenantIds` de cada suscripción, lo que le permite identificar si una suscripción devuelta pertenece a un inquilino administrado o a un inquilino que administra.
 
-Del mismo modo, los comandos de la CLI de Azure como [az account list](/cli/azure/account#az-account-list) muestran los atributos `homeTenantId` y `managedByTenants`. Si no ve estos valores al usar la CLI de Azure, intente borrar la memoria caché ejecutando `az account clear` seguido de `az login --identity`.
+Del mismo modo, los comandos de la CLI de Azure como [az account list](/cli/azure/account#az_account_list) muestran los atributos `homeTenantId` y `managedByTenants`. Si no ve estos valores al usar la CLI de Azure, intente borrar la memoria caché ejecutando `az account clear` seguido de `az login --identity`.
 
 En la API REST de Azure, los comandos [Subscriptions - Get](/rest/api/resources/subscriptions/get) y [Subscriptions - List](/rest/api/resources/subscriptions/list) incluyen `ManagedByTenant`.
 

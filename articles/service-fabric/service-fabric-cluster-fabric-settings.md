@@ -3,12 +3,12 @@ title: Cambio de la configuración de un clúster de Azure Service Fabric
 description: En este artículo se describe la configuración de Fabric y las directivas de actualización de Fabric que se pueden personalizar.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: 78d83faea802862d3cd6d1b1a9cf9f1016245065
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 65ae2337ac7dbe4370411a154463a6ddc37f83b2
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103232059"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107255978"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalización de la configuración de un clúster de Service Fabric
 En este documento se describen las distintas configuraciones de tejido para el clúster de Service Fabric que puede personalizar. Para clústeres hospedados en Azure, puede personalizar la configuración en [Azure Portal](https://portal.azure.com) o mediante una plantilla de Azure Resource Manager. Para más información, consulte el artículo sobre la [actualización de la configuración de un clúster de Azure](service-fabric-cluster-config-upgrade-azure.md). En clústeres independientes, para personalizar la configuración debe actualizar el archivo *ClusterConfig.json* y realizar una actualización de la configuración en el clúster. Para más información, consulte el artículo sobre la [actualización de la configuración de un clúster independiente](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -60,6 +60,12 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |SecretEncryptionCertX509StoreName|string, el valor recomendado es "My" (no predeterminado) |    Dinámica|    Indica qué certificado se va a usar para cifrar y descifrar el nombre de las credenciales en el almacén de certificados X509 que usa el servicio Backup Restore |
 |TargetReplicaSetSize|Int, el valor predeterminado es 0|estática| TargetReplicaSetSize para BackupRestoreService |
 
+## <a name="centralsecretservice"></a>CentralSecretService
+
+| **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
+| --- | --- | --- | --- |
+|DeployedState |wstring, el valor predeterminado es L"Disabled". |estática |Eliminación en dos fases de CSS. |
+
 ## <a name="clustermanager"></a>ClusterManager
 
 | **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
@@ -95,6 +101,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 
 | **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
 | --- | --- | --- | --- |
+|AllowCreateUpdateMultiInstancePerNodeServices |Bool, el valor predeterminado es false. |Dinámica|Permite la creación de varias instancias sin estado de un servicio por nodo. Esta funcionalidad actualmente está en su versión preliminar. |
 |PerfMonitorInterval |Tiempo en segundos, el valor predeterminado es 1. |Dinámica|Especifique el intervalo de tiempo en segundos. Intervalo de supervisión del rendimiento. La configuración en 0 o un valor negativo deshabilita la supervisión. |
 
 ## <a name="defragmentationemptynodedistributionpolicy"></a>DefragmentationEmptyNodeDistributionPolicy
@@ -304,6 +311,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 | **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
 | --- | --- | --- | --- |
 |EnableApplicationTypeHealthEvaluation |Bool, el valor predeterminado es false. |estática|Directiva de evaluación de mantenimiento del clúster: habilita la evaluación de mantenimiento de tipos por aplicación. |
+|EnableNodeTypeHealthEvaluation |Bool, el valor predeterminado es false. |estática|Directiva de evaluación de mantenimiento del clúster: habilita la evaluación de mantenimiento por tipo de nodo. |
 |MaxSuggestedNumberOfEntityHealthReports|Int, el valor predeterminado es 100 |Dinámica|Número máximo de informes de estado que una entidad puede tener antes de levantar suspicacias sobre la lógica de los informes de estado del watchdog. Se supone que cada entidad de estado tiene un número relativamente pequeño de informes de estado. Si la cantidad de informes supera este número, puede que haya problemas con la implementación del watchdog. Una entidad con demasiados informes se marca en un informe de estado de advertencia cuando dicha entidad se evalúa. |
 
 ## <a name="healthmanagerclusterhealthpolicy"></a>HealthManager/ClusterHealthPolicy
@@ -349,7 +357,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |DisableContainers|bool, el valor predeterminado es FALSE|estática|Configuración para deshabilitar contenedores, se usa en lugar de la configuración en desuso DisableContainerServiceStartOnContainerActivatorOpen |
 |DisableDockerRequestRetry|bool, el valor predeterminado es FALSE |Dinámica| De forma predeterminada SF se comunica con DD (docker daemon) con un tiempo de espera de "DockerRequestTimeout" para cada solicitud http que se le envía. Si DD no responde dentro de este período de tiempo, SF vuelve a enviar la solicitud si a la operación de nivel superior le queda todavía tiempo.  Con el contenedor de Hyper-v, a veces a DD le lleva mucho más tiempo mostrar el contenedor o desactivarlo. En estos casos la solicitud de DD agota el tiempo de espera desde la perspectiva de SF y SF vuelve a intentar la operación. A veces esto añade más presión a DD. Esta configuración permite deshabilitar este reintento y esperar a que DD responda. |
 |DnsServerListTwoIps | Bool, el valor predeterminado es FALSE | estática | Este marcador agrega dos veces el servidor DNS local para ayudar a mitigar los problemas de resolución intermitentes. |
-| DockerTerminateOnLastHandleClosed | bool, el valor predeterminado es FALSE | estática | De forma predeterminada, si FabricHost administra "dockerd" (en función de SkipDockerProcessManagement = = false), esta configuración define qué sucede al bloquear FabricHost o dockerd. Cuando se establece en `true`, si alguno de los procesos se bloquea, HCS finalizará forzosamente todos los contenedores en ejecución. Si se establece en `false`, los contenedores seguirán ejecutándose. Nota: Antes de la versión 8.0, este comportamiento era involuntariamente equivalente a `false`. La configuración predeterminada de `true` aquí es lo que esperamos que suceda de forma predeterminada para que nuestra lógica de limpieza sea efectiva en el reinicio de estos procesos. |
+| DockerTerminateOnLastHandleClosed | bool, el valor predeterminado es TRUE | estática | De forma predeterminada, si FabricHost administra "dockerd" (en función de SkipDockerProcessManagement = = false), esta configuración define qué sucede al bloquear FabricHost o dockerd. Cuando se establece en `true`, si alguno de los procesos se bloquea, HCS finalizará forzosamente todos los contenedores en ejecución. Si se establece en `false`, los contenedores seguirán ejecutándose. Nota: Antes de la versión 8.0, este comportamiento era involuntariamente equivalente a `false`. La configuración predeterminada de `true` aquí es lo que esperamos que suceda de forma predeterminada para que nuestra lógica de limpieza sea efectiva en el reinicio de estos procesos. |
 | DoNotInjectLocalDnsServer | bool, el valor predeterminado es FALSE | estática | Impide que el entorno de ejecución inserte la dirección IP local como servidor DNS para contenedores. |
 |EnableActivateNoWindow| bool, el valor predeterminado es FALSE|Dinámica| El proceso de activación se crea en segundo plano sin ninguna consola. |
 |EnableContainerServiceDebugMode|bool, el valor predeterminado es TRUE|estática|Habilite o deshabilite el registro para contenedores de Docker.  Solo Windows.|
@@ -552,6 +560,8 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |MovementPerPartitionThrottleCountingInterval | Tiempo en segundos, el valor predeterminado es 600. |estática| Especifique el intervalo de tiempo en segundos. Indique la longitud del intervalo pasado para rastrear movimientos de réplica para cada partición (se usa en combinación con MovementPerPartitionThrottleThreshold). |
 |MovementPerPartitionThrottleThreshold | Uint, el valor predeterminado es 50. |Dinámica| No se producen movimientos relacionados con el equilibrio en una partición si el número de estos movimientos para réplicas de esa partición ha alcanzado o superado el valor de MovementPerFailoverUnitThrottleThreshold en el intervalo pasado indicado por MovementPerPartitionThrottleCountingInterval. |
 |MoveParentToFixAffinityViolation | Bool, el valor predeterminado es false. |Dinámica| Valor que determina si se pueden mover las réplicas primarias para corregir restricciones de afinidad.|
+|NodeTaggingEnabled | Bool, el valor predeterminado es false. |Dinámica| Si es “true”, se habilitará la característica de etiquetado de nodos. |
+|NodeTaggingConstraintPriority | Int, el valor predeterminado es 0. |Dinámica| Prioridad configurable del etiquetado de nodos. |
 |PartiallyPlaceServices | Bool, el valor predeterminado es true. |Dinámica| Determina si todas las réplicas de servicio del clúster se colocarán "todo o nada" dados los nodos adecuados limitados para ellas.|
 |PlaceChildWithoutParent | Bool, el valor predeterminado es true. | Dinámica|Valor que determina si puede colocarse la réplica de servicio secundaria si no hay ninguna réplica principal activa. |
 |PlacementConstraintPriority | Int, el valor predeterminado es 0. | Dinámica|Determina la prioridad de la restricción de ubicación: 0: máxima; 1: mínima; negativo: omitir |
@@ -572,7 +582,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |UpgradeDomainConstraintPriority | Int, el valor predeterminado es 1.| Dinámica|Determina la prioridad de la restricción del dominio de actualización: 0: máxima; 1: mínima; negativo: omitir |
 |UseMoveCostReports | Bool, el valor predeterminado es false. | Dinámica|Indica a LB que ignore el elemento de coste de la función de puntuación. Esto da lugar a un número posiblemente grande de movimientos para una ubicación mejor equilibrada. |
 |UseSeparateSecondaryLoad | Bool, el valor predeterminado es true. | Dinámica|Valor que determina si se debe usar una carga independiente para las réplicas secundarias. |
-|UseSeparateSecondaryMoveCost | Bool, el valor predeterminado es false. | Dinámica|Valor que determina si se debe usar un costo de movimiento independiente para las réplicas secundarias. |
+|UseSeparateSecondaryMoveCost | Bool, el valor predeterminado es true. | Dinámica|Valor que determina si PLB debe usar un coste de movimiento diferente para la réplica secundaria en cada nodo. Si UseSeparateSecondaryMoveCost está desactivado: - El coste de movimiento notificado para la réplica secundaria en un nodo provocará que se sobrescriba el coste de movimiento de cada réplica secundaria (en todos los demás nodos). Si UseSeparateSecondaryMoveCost está activado: - El coste de movimiento notificado para la réplica secundaria de un nodo solo se aplicará a dicha réplica secundaria (y no a las réplicas secundarias de otros nodos). - Si se bloquea una réplica: se crea otra réplica con el coste de movimiento predeterminado que se especifica en el nivel de servicio. - Si PLB mueve la réplica existente: el coste de movimiento se traslada con ella. |
 |ValidatePlacementConstraint | Bool, el valor predeterminado es true. |Dinámica| Especifica si la expresión PlacementConstraint de un servicio se valida o no cuando se actualiza la descripción de un servicio. |
 |ValidatePrimaryPlacementConstraintOnPromote| Bool, el valor predeterminado es TRUE. |Dinámica|Especifica si la expresión PlacementConstraint de un servicio se evalúa o no para la preferencia principal en la conmutación por error. |
 |VerboseHealthReportLimit | Int, el valor predeterminado es 20. | Dinámica|Define el número de veces que una réplica tiene que ir sin colocar antes de que se notifique una advertencia de mantenimiento para ella (si está habilitado el informe de mantenimiento detallado). |
@@ -767,6 +777,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |RecoverServicePartitions |string, el valor predeterminado es "Admin". |Dinámica| Configuración de seguridad para recuperar particiones de servicio. |
 |RecoverSystemPartitions |string, el valor predeterminado es "Admin". |Dinámica| Configuración de seguridad para recuperar particiones de servicio del sistema. |
 |RemoveNodeDeactivations |string, el valor predeterminado es "Admin". |Dinámica| Configuración de seguridad para revertir la desactivación en varios nodos. |
+|ReportCompletion |wstring, el valor predeterminado es L"Admin". |Dinámica| Configuración de seguridad para finalización de informes. |
 |ReportFabricUpgradeHealth |string, el valor predeterminado es "Admin". |Dinámica| Configuración de seguridad para reanudar actualizaciones del clúster con el progreso de actualización actual. |
 |ReportFault |string, el valor predeterminado es "Admin". |Dinámica| Configuración de seguridad para informes de error. |
 |ReportHealth |string, el valor predeterminado es "Admin". |Dinámica| Configuración de seguridad para mantenimiento de informes. |

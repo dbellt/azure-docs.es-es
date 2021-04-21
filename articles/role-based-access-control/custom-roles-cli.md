@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 06/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 31dabcf77f0db76047919fa76d00f1c5ed3c96d6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d3d05ba65e0d3918f1651c36cd17700ebf74de76
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97369147"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107778344"
 ---
 # <a name="create-or-update-azure-custom-roles-using-azure-cli"></a>Creación o actualización de roles personalizados de Azure mediante la CLI de Azure
 
@@ -41,7 +41,7 @@ Para crear roles personalizados, necesita:
 
 ## <a name="list-custom-roles"></a>Lista de roles personalizados
 
-Para enumerar los roles personalizados que están disponibles para la asignación, use [az role definition list](/cli/azure/role/definition#az-role-definition-list). En el siguiente ejemplo se enumeran todos los roles personalizados de la suscripción actual.
+Para enumerar los roles personalizados que están disponibles para la asignación, use [az role definition list](/cli/azure/role/definition#az_role_definition_list). En el siguiente ejemplo se enumeran todos los roles personalizados de la suscripción actual.
 
 ```azurecli
 az role definition list --custom-role-only true --output json --query '[].{roleName:roleName, roleType:roleType}'
@@ -66,7 +66,7 @@ az role definition list --custom-role-only true --output json --query '[].{roleN
 
 ## <a name="list-a-custom-role-definition"></a>Enumeración de definiciones de roles personalizadas
 
-Para enumerar una definición de roles personalizada, use [az role definition list](/cli/azure/role/definition#az-role-definition-list). Este es el mismo comando que se usaría para un rol integrado.
+Para enumerar una definición de roles personalizada, use [az role definition list](/cli/azure/role/definition#az_role_definition_list). Este es el mismo comando que se usaría para un rol integrado.
 
 ```azurecli
 az role definition list --name {roleName}
@@ -140,7 +140,7 @@ az role definition list --name "Virtual Machine Operator" --output json --query 
 
 ## <a name="create-a-custom-role"></a>Crear un rol personalizado
 
-Para crear un rol personalizado, use [az role definition create](/cli/azure/role/definition#az-role-definition-create). La definición de roles puede ser una descripción JSON o una ruta de acceso a un archivo que contenga esta descripción.
+Para crear un rol personalizado, use [az role definition create](/cli/azure/role/definition#az_role_definition_create). La definición de roles puede ser una descripción JSON o una ruta de acceso a un archivo que contenga esta descripción.
 
 ```azurecli
 az role definition create --role-definition {roleDefinition}
@@ -183,7 +183,7 @@ az role definition create --role-definition ~/roles/vmoperator.json
 
 ## <a name="update-a-custom-role"></a>Actualización de un rol personalizado
 
-Para actualizar un rol personalizado, primero use [az role definition list](/cli/azure/role/definition#az-role-definition-list) para recuperar la definición de roles. Después, haga los cambios que desee en la definición de rol. Por último, use [az role definition update](/cli/azure/role/definition#az-role-definition-update) para guardar la definición de roles actualizada.
+Para actualizar un rol personalizado, primero use [az role definition list](/cli/azure/role/definition#az_role_definition_list) para recuperar la definición de roles. Después, haga los cambios que desee en la definición de rol. Por último, use [az role definition update](/cli/azure/role/definition#az_role_definition_update) para guardar la definición de roles actualizada.
 
 ```azurecli
 az role definition update --role-definition {roleDefinition}
@@ -228,7 +228,7 @@ az role definition update --role-definition ~/roles/vmoperator.json
 
 ## <a name="delete-a-custom-role"></a>Eliminación de un rol personalizado
 
-Para eliminar un rol personalizado, use [az role definition delete](/cli/azure/role/definition#az-role-definition-delete). Para especificar el rol que desea eliminar, use el nombre del rol o el identificador. Para determinar el identificador del rol, use [az role definition list](/cli/azure/role/definition#az-role-definition-list).
+Para eliminar un rol personalizado, use [az role definition delete](/cli/azure/role/definition#az_role_definition_delete). Para especificar el rol que desea eliminar, use el nombre del rol o el identificador. Para determinar el identificador del rol, use [az role definition list](/cli/azure/role/definition#az_role_definition_list).
 
 ```azurecli
 az role definition delete --name {roleNameOrId}

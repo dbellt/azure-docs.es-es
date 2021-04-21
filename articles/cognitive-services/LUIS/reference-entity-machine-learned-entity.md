@@ -7,13 +7,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 04/30/2020
-ms.openlocfilehash: f16f3ec445af777c3bde1cb2ab0735df4b6614f8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/13/2021
+ms.openlocfilehash: 12724175ebb9e23efa431169c01a804cd193cdd5
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "91542247"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107502596"
 ---
 # <a name="machine-learning-entity"></a>Entidad de aprendizaje automático
 
@@ -346,6 +346,6 @@ Esta entidad no está disponible en el tiempo de ejecución de predicción V2.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga más información acerca de la entidad de aprendizaje automático, incluyendo un [tutorial](tutorial-machine-learned-entity.md), [conceptos](luis-concept-entity-types.md#design-entities-for-decomposition) y una [guía de procedimientos](luis-how-to-add-entities.md#create-a-machine-learned-entity).
+Obtenga más información acerca de la entidad de aprendizaje automático, incluyendo un [tutorial](tutorial-machine-learned-entity.md), [conceptos](luis-concept-entity-types.md#machine-learned-ml-entity) y una [guía de procedimientos](luis-how-to-add-entities.md#create-a-machine-learned-entity).
 
 Obtenga información sobre la entidad [lista](reference-entity-list.md) y la entidad [expresión regular](reference-entity-regular-expression.md).

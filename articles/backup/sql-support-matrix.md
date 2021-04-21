@@ -2,14 +2,14 @@
 title: Matriz de compatibilidad de Azure Backup para la copia de seguridad de SQL Server en VM de Azure
 description: Proporciona un resumen de opciones de compatibilidad y limitaciones para realizar copias de seguridad de SQL Server en VM de Azure con el servicio Azure Backup.
 ms.topic: conceptual
-ms.date: 03/05/2020
+ms.date: 04/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 78436981c515b95ccda763d8ac916738b4364953
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d7038b47bd4aba8f7747eef455f1e8dd3c77a695
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97734800"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257350"
 ---
 # <a name="support-matrix-for-sql-server-backup-in-azure-vms"></a>Matriz de compatibilidad para la copia de seguridad de SQL Server en VM de Azure
 
@@ -30,11 +30,10 @@ Puede usar Azure Backup para realizar copias de seguridad de bases de datos de S
 |Configuración  |Límite máximo |
 |---------|---------|
 |Número de bases de datos que se pueden proteger en un servidor (y en un almacén)    |   2000      |
-|Tamaño de la base de datos compatible (más allá de esto, pueden aparecer problemas de rendimiento)   |   2 TB      |
+|Tamaño de la base de datos compatible (más allá de esto, pueden aparecer problemas de rendimiento)   |   6 TB*      |
 |Número de archivos admitidos en una base de datos    |   1000      |
 
->[!NOTE]
-> [Descargue el planeador de recursos detallado](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) para calcular el número aproximado de bases de datos protegidas que se recomiendan por servidor en función de los recursos de la máquina virtual, el ancho de banda y la directiva de copia de seguridad.
+_*El límite de tamaño de la base de datos depende no solo de la velocidad de transferencia de datos que se admita, sino también de la configuración del límite de tiempo de copia de seguridad. No es un límite rígido. [Más información](#backup-throughput-performance) sobre el rendimiento de la copia de seguridad._
 
 * La copia de seguridad de SQL Server se puede configurar en Azure Portal o **PowerShell**. No se admite la CLI.
 * La solución es compatible con ambos tipos de [implementaciones](../azure-resource-manager/management/deployment-models.md): las máquinas virtuales de Azure Resource Manager y las máquinas virtuales clásicas.
@@ -93,6 +92,17 @@ Completo | Principal
 Diferencial | Principal
 Log |  Secundario
 Solo copia completa |  Secundario
+
+## <a name="backup-throughput-performance"></a>Rendimiento de la copia de seguridad
+
+Azure Backup admite una velocidad de transferencia de datos constante de 200 Mbps en las copias de seguridad completas y diferenciales de bases de datos SQL grandes (de 500 GB). Para utilizar el rendimiento óptimo, asegúrese de que:
+
+- La máquina virtual subyacente (que contiene la instancia de SQL Server, que hospeda la base de datos) se configura con el rendimiento de red necesario. Si el rendimiento máximo de la máquina virtual es inferior a 200 Mbps, Azure Backup no puede transferir datos a una velocidad óptima.<br></br>Además, el disco que contiene los archivos de base de datos debe tener suficiente rendimiento aprovisionado. [Más información](../virtual-machines/disks-performance.md) sobre el rendimiento de discos en máquinas virtuales de Azure. 
+- Los procesos, que se ejecutan en la máquina virtual, no consumen el ancho de banda de la máquina virtual. 
+- Las programaciones de las copias de seguridad se reparten entre un subconjunto de bases de datos. Si se ejecutan varias copias de seguridad simultáneamente en una máquina virtual, la tasa de consumo de red se compartirá entre todas ellas. [Más información](faq-backup-sql-server.md#can-i-control-how-many-concurrent-backups-run-on-the-sql-server) sobre cómo controlar el número de copias de seguridad simultáneas.
+
+>[!NOTE]
+> [Descargue el planeador de recursos detallado](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) para calcular el número aproximado de bases de datos protegidas que se recomiendan por servidor en función de los recursos de la máquina virtual, el ancho de banda y la directiva de copia de seguridad.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

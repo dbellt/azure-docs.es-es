@@ -1,14 +1,14 @@
 ---
-title: Ahorro de costos con la instancia reservada de Azure VMware Solution
-description: Obtenga información sobre cómo comprar una instancia reservada para Azure VMware Solution.
+title: Instancias reservadas de Azure VMware Solution
+description: Obtenga información sobre cómo comprar una instancia reservada para Azure VMware Solution. Las instancias reservadas solo cubren la parte del uso dedicada a los procesos y tienen costos de licencias de software.
 ms.topic: how-to
-ms.date: 02/03/2021
-ms.openlocfilehash: 227ea9274f70cc58468e7e0b3ddcf8239f5b7f5b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/09/2021
+ms.openlocfilehash: 6f181d4b6ee7e2098130633fef0eb8558add0308
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99550982"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210031"
 ---
 # <a name="save-costs-with-azure-vmware-solution"></a>Ahorro de costos con Azure VMware Solution
 
@@ -135,7 +135,7 @@ Los CSP pueden cancelar, intercambiar o reembolsar reservas, con algunas limitac
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que se ha explicado la compra de una instancia reservada de Azure VMware Solution, puede que quiera obtener información sobre:
+Ahora que se han explicado las instancias reservadas de Azure VMware Solution, es posible que necesite más información sobre:
 
 - [Creación de una evaluación de Azure VMware Solution](../migrate/how-to-create-azure-vmware-solution-assessment.md).
 - [Administración de DHCP para Azure VMware Solution](manage-dhcp.md).

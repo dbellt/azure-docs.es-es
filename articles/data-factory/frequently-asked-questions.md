@@ -6,12 +6,12 @@ ms.author: weetok
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: d0fd62c0173bec17c217ece5560119749d1a4fc6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 2027e3555a7eb616ad024ec00bf6b0f8f452167c
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101739341"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258527"
 ---
 # <a name="azure-data-factory-faq"></a>Preguntas más frecuentes de Azure Data Factory
 
@@ -226,86 +226,11 @@ Utilice la actividad de copia para almacenar provisionalmente los datos desde cu
 
 ### <a name="is-the-self-hosted-integration-runtime-available-for-data-flows"></a>¿Está disponible el entorno de ejecución de integración autohospedado para flujos de datos?
 
-E entorno de ejecución de integración autohospedado es una construcción de canalización de ADF que se puede usar con la actividad de copia para adquirir o trasladar datos hacia y desde orígenes locales o receptores de datos basados en máquinas virtuales. Almacene temporalmente primero los datos con una copia, después cree el flujo de datos para la transformación y, a continuación, una copia posterior si necesita trasladar los datos transformados de nuevo al almacén local.
+E entorno de ejecución de integración autohospedado es una construcción de canalización de ADF que se puede usar con la actividad de copia para adquirir o trasladar datos hacia y desde orígenes locales o receptores de datos basados en máquinas virtuales. Las máquinas virtuales que se usan para un IR autohospedado también se pueden colocar en la misma red virtual que los almacenes de datos protegidos para acceder a esos almacenes de datos desde ADF. Con los flujos de datos logrará estos mismos resultados finales pero mediante Azure IR con red virtual administrada en su lugar.
 
 ### <a name="does-the-data-flow-compute-engine-serve-multiple-tenants"></a>¿El motor de proceso de flujo de datos atiende a varios inquilinos?
 
 Los clústeres nunca se comparten. Garantizamos el aislamiento de cada trabajo ejecutado en las ejecuciones en producción. En caso de los escenarios de depuración, una persona obtiene un clúster, lo inicia y todos los depuradores irán a él.
-
-## <a name="wrangling-data-flows"></a>Flujos de datos de limpieza y transformación
-
-### <a name="what-are-the-supported-regions-for-wrangling-data-flow"></a>¿Cuáles son las regiones admitidas para el flujo de datos de limpieza y transformación?
-
-El flujo de datos de limpieza y transformación se admite actualmente en las factorías de datos creadas en las siguientes regiones:
-
-* Este de Australia
-* Centro de Canadá
-* Centro de la India
-* Este de EE. UU.
-* Este de EE. UU. 2
-* Japón Oriental
-* Norte de Europa
-* Sudeste de Asia
-* Centro-sur de EE. UU.
-* Sur de Reino Unido 2
-* Centro-Oeste de EE. UU.
-* Oeste de Europa
-* Oeste de EE. UU.
-* Oeste de EE. UU. 2
-
-### <a name="what-are-the-limitations-and-constraints-with-wrangling-data-flow"></a>¿Cuáles son las limitaciones y restricciones con el flujo de datos de limpieza y transformación?
-
-Los nombres de los conjuntos de datos solo pueden contener caracteres alfanuméricos. Se admiten los siguientes almacenes de datos:
-
-* Conjunto de datos DelimitedText en Azure Blob Storage mediante la autenticación de clave de cuenta
-* Conjunto de datos DelimitedText de Azure Data Lake Storage gen2 con la clave de cuenta o autenticación de la entidad de servicio
-* Conjunto de datos de DelimitedText en Azure Data Lake Storage gen1 mediante la autenticación de la entidad de servicio
-* Azure SQL Database y Data Warehouse mediante la autenticación de SQL. Consulte los tipos de SQL admitidos a continuación. No hay compatibilidad con PolyBase o ensayo para el almacenamiento de datos.
-
-En este momento, la integración de Key Vault de servicio vinculado no se admite en los flujos de datos de limpieza y transformación.
-
-### <a name="what-is-the-difference-between-mapping-and-wrangling-data-flows"></a>¿Cuál es la diferencia entre los flujos de datos de asignación y de limpieza y transformación?
-
-Los flujos de datos de asignación proporcionan una manera de transformar los datos a escala sin necesidad de programar. Puede diseñar un trabajo de transformación de datos en el lienzo de flujos de datos realizando una serie de transformaciones. Comience realice todas las transformaciones que desee en el origen y, después, continúe con los pasos de transformación de datos. Complete el flujo de datos con un receptor para enviar los resultados a un destino. El flujo de datos de asignación es excelente para asignar y transformar datos con esquemas conocidos y desconocidos en los receptores y orígenes.
-
-Los flujos de datos de limpieza y transformación permite realizar tareas de preparación y exploración de datos ágiles mediante el editor de mashup de Power Query en línea a escala a través de la ejecución de Spark. Con el aumento de los lagos de datos, a veces solo necesita explorar un conjunto de datos o crear un conjunto de datos en el lago. No está asignando a un destino conocido. Los flujos de datos de limpieza y transformación se usan a menudo para escenarios de análisis basados en modelos menos formales.
-
-### <a name="what-is-the-difference-between-power-platform-dataflows-and-wrangling-data-flows"></a>¿Cuál es la diferencia entre los flujos de datos de Power Platform y los flujos de datos de limpieza y transformación?
-
-Los flujos de datos de Power Platform permiten a los usuarios importar y transformar datos de una amplia gama de orígenes de datos en Common Data Service y Azure Data Lake para crear aplicaciones de PowerApps, informes de Power BI o automatizaciones de flujo. Los flujos de datos de Power Platform usan las experiencias de preparación de datos de Power Query establecidas, similares a Power BI y Excel. Los flujos de entrada de Power Platform también permiten una reutilización sencilla dentro de una organización y controlan automáticamente la orquestación (por ejemplo, la actualización automática de los flujos de datos que dependen de otro flujo de entrada cuando se actualiza el primero).
-
-Azure Data Factory (ADF) es un servicio de integración de datos administrado que permite a los ingenieros de datos y al integrador de datos de componentes para crear flujos de trabajo de extracción, transformación y carga de datos (ETL) híbridos complejos y de extracción, carga y transformación (ELT). El flujo de datos de limpieza y transformación en ADF permite a los usuarios un entorno sin servidor ni código que simplifica la preparación de datos en la nube y lo escala a cualquier tamaño de datos, sin la necesidad de administración de infraestructura. Usa la tecnología de preparación de datos de Power Query (también utilizada en flujos de datos de Power Platform, Excel y Power BI) para preparar y dar forma a los datos. Creados para tratar todas las complejidades y desafíos a escala de la integración de macrodatos, los flujos de datos de limpieza y transformación permiten a los usuarios transformar rápidamente los datos a gran escala mediante la ejecución de Spark. Los usuarios pueden crear canalizaciones de datos resistentes en un entorno visual accesible con nuestra interfaz basada en el explorador y permitir que ADF se haga cargo de las complejidades de la ejecución de Spark. Cree programaciones para sus canalizaciones y supervise las ejecuciones del flujo de datos desde el portal de supervisión de ADF. Administre fácilmente los Acuerdos de Nivel de Servicio de la disponibilidad de los datos con la supervisión y las alertas de disponibilidad enriquecidas de ADF, y aproveche las funcionalidades incorporadas de integración continua e implementación para guardar y administrar sus flujos en un entorno administrado. Establezca alertas y vea planes de ejecución para validar que su lógica tenga el rendimiento esperado mientras optimiza sus flujos de datos.
-
-### <a name="supported-sql-types"></a>Tipos de SQL admitidos
-
-El flujo de datos de limpieza y transformación admite los siguientes tipos de datos en SQL. Obtendrá un error de validación para usar un tipo de datos que no se admite.
-
-* short
-* double
-* real
-* FLOAT
-* char
-* NCHAR
-* varchar
-* NVARCHAR
-* integer
-* int
-* bit
-* boolean
-* SMALLINT
-* TINYINT
-* bigint
-* long
-* text
-* date
-* datetime
-* datetime2
-* smalldatetime
-* timestamp
-* UNIQUEIDENTIFIER
-* Xml
-
-En el futuro se admitirán otros tipos de datos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

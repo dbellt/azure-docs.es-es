@@ -2,13 +2,13 @@
 title: 'Mensajería de Azure Service Bus: colas, temas y suscripciones'
 description: En este artículo se proporciona información general sobre las entidades de mensajería (colas, temas y suscripciones) de Azure Service Bus.
 ms.topic: conceptual
-ms.date: 02/16/2021
-ms.openlocfilehash: b8fb68509ad920fc6911290377f49b89ec610b58
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/08/2021
+ms.openlocfilehash: ccd91d5091dbbba072cf222e5a73c3db1d48c321
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101096326"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107209831"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Colas, temas y suscripciones de Service Bus
 Azure Service Bus admite un conjunto de tecnologías middleware orientadas a mensajes basadas en la nube, entre las que se incluyen una cola de mensajes de confianza y una mensajería de publicación/suscripción duradera. Estas funcionalidades de mensajería asincrónica pueden considerarse como características de mensajería desacopladas que admiten la publicación-suscripción, el desacoplamiento temporal y los escenarios de equilibrio de carga mediante la carga de trabajo de mensajería de Service Bus. La comunicación desacoplada ofrece muchas ventajas. Por ejemplo, los clientes y servidores pueden conectarse según sea necesario y realizar sus operaciones de manera asincrónica.
@@ -53,7 +53,7 @@ En muchos escenarios, los mensajes que tienen características específicas debe
 
 Si desea ver un ejemplo funcional completo, consulte el [ejemplo TopicSubscriptionWithRuleOperationsSample](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/TopicSubscriptionWithRuleOperationsSample) en GitHub.
 
-Para más información sobre los valores de filtro posibles, vea la documentación de las clases [SqlFilter](/dotnet/api/microsoft.azure.servicebus.sqlfilter) y [SqlRuleAction](/dotnet/api/microsoft.azure.servicebus.sqlruleaction).
+Para más información acerca de los filtros, consulte [Filtros y acciones de temas](topic-filters.md).
 
 ## <a name="java-message-service-jms-20-entities"></a>Entidades de Java Message Service (JMS) 2.0
 Se puede acceder a las siguientes entidades a través de la API de Java Message Service (JMS) 2.0.

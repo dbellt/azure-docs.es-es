@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial`:` Uso de identidades administradas para acceder a Azure Resource Manager (Windows): Azure AD'
+title: 'Tutorial: Uso de identidades administradas para acceder a Azure Resource Manager (Windows): Azure AD'
 description: En este tutorial, encontrará directrices para usar una identidad administrada asignada por el usuario de una máquina virtual Windows para acceder a Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,13 @@ ms.workload: identity
 ms.date: 12/02/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43f926f400bf8ddd522bbb5f62509519fa09903d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 37b7b6332bdd000968dc136b946d61ebe82d87ad
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101096609"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107776382"
 ---
 # <a name="tutorial-use-a-user-assigned-managed-identity-on-a-windows-vm-to-access-azure-resource-manager"></a>Tutorial: Uso de identidades administradas asignadas por el usuario en máquinas virtuales Windows para acceder a Azure Resource Manager
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 42098786bb92e98b89b1dbfba01a2e071398f460
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f19f43b89cd2527a67827d7434f2e054ee40001e
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99258547"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107227388"
 ---
 # <a name="tutorial-use-custom-allocation-policies-with-device-provisioning-service-dps"></a>Tutorial: Uso de directivas de asignación personalizadas con Device Provisioning Service (DPS)
 
@@ -483,6 +483,17 @@ Para eliminar el grupo de recursos por nombre:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para obtener un ejemplo más detallado de la directiva de asignación personalizada, consulte [Uso de directivas de asignación personalizadas](how-to-use-custom-allocation-policies.md).
-* Para más información sobre el reaprovisionamiento, consulte [Conceptos sobre el reaprovisionamiento de dispositivos de IoT Hub](concepts-device-reprovision.md).
-* Para más información sobre el desaprovisionamiento, consulte [Desaprovisionamiento de dispositivos aprovisionados automáticamente](how-to-unprovision-devices.md).
+Para ver un ejemplo más detallado de la directiva de asignación personalizada, consulte 
+
+> [!div class="nextstepaction"]
+> [Uso de directivas de asignación personalizadas](how-to-use-custom-allocation-policies.md)
+
+* Para más información sobre el reaprovisionamiento, consulte
+
+> [!div class="nextstepaction"]
+> [Conceptos sobre el reaprovisionamiento de dispositivos de IoT Hub](concepts-device-reprovision.md)
+
+* Para más información sobre el desaprovisionamiento, consulte
+
+> [!div class="nextstepaction"]
+> [Desaprovisionamiento de dispositivos aprovisionados automáticamente](how-to-unprovision-devices.md)

@@ -12,12 +12,12 @@ author: urosmil
 ms.author: urmilano
 ms.reviewer: sstein, MashaMSFT
 ms.date: 07/10/2020
-ms.openlocfilehash: 2da7311e61aa39be69a6a0a29eff686baaad7ebf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bd66c10bb1d6316bbe90e7ba4092d79c6a43a75d
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91323199"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107285301"
 ---
 # <a name="overview-of-azure-sql-managed-instance-management-operations"></a>Introducción a las operaciones de administración de Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -70,12 +70,14 @@ En las tablas siguientes se resumen las operaciones y duraciones generales norma
 |Operación  |Segmento de larga duración  |Duración estimada  |
 |---------|---------|---------|
 |Cambio de una propiedad de una instancia (contraseña de administrador, inicio de sesión de Azure AD, marca de Ventaja híbrida de Azure)|N/D|Hasta 1 minuto.|
-|Escalado o reducción vertical del almacenamiento de una instancia (nivel de servicio De uso general)|Adjuntar archivos de base de datos|El 90 % de las operaciones finaliza en 5 minutos.|
+|Escalado o reducción vertical del almacenamiento de una instancia (nivel de servicio De uso general)|No hay segmento de larga duración<sup>1</sup>|El 99 % de las operaciones finaliza en 5 minutos.|
 |Escalado o reducción vertical del almacenamiento de una instancia (nivel de servicio Crítico para la empresa)|- Cambio de tamaño de un clúster virtual<br>- Inicialización de un grupos de disponibilidad AlwaysOn|El 90 % de las operaciones finaliza en 2,5 horas + tiempo para inicializar todas las bases de datos (220 GB/hora).|
 |Escalado y reducción vertical del proceso de una instancia (núcleos virtuales) (De uso general)|- Cambio de tamaño de un clúster virtual<br>- Adjuntar archivos de base de datos|El 90 % de las operaciones finaliza en 2,5 horas.|
 |Escalado y reducción vertical del proceso de una instancia (núcleos virtuales) (Crítico para la empresa)|- Cambio de tamaño de un clúster virtual<br>- Inicialización de un grupos de disponibilidad AlwaysOn|El 90 % de las operaciones finaliza en 2,5 horas + tiempo para inicializar todas las bases de datos (220 GB/hora).|
 |Cambio en el nivel de servicio de una instancia (De uso general a Crítico para la empresa y viceversa)|- Cambio de tamaño de un clúster virtual<br>- Inicialización de un grupos de disponibilidad AlwaysOn|El 90 % de las operaciones finaliza en 2,5 horas + tiempo para inicializar todas las bases de datos (220 GB/hora).|
 | | | 
+
+<sup>1</sup> El escalado del almacenamiento de una instancia administrada de uso general no provocará una conmutación por error al final de la operación. En este caso, la operación consiste en actualizar los metadatos y propagar la respuesta para la solicitud enviada.
 
 **Categoría: Eliminación**
 
@@ -90,6 +92,9 @@ En las tablas siguientes se resumen las operaciones y duraciones generales norma
 ## <a name="instance-availability"></a>Disponibilidad de instancias
 
 SQL Managed Instance **está disponible durante las operaciones de actualización**, excepto durante un tiempo de inactividad breve provocado por la conmutación por error que se produce al final de la actualización. Normalmente tarda 10 segundos como máximo, incluso en el caso de transacciones de larga duración interrumpidas, gracias a la [recuperación acelerada de bases de datos](../accelerated-database-recovery.md).
+
+> [!NOTE]
+> El escalado del almacenamiento de una instancia administrada de uso general no provocará una conmutación por error al final de la actualización.
 
 Instancia administrada de SQL no está disponible para las aplicaciones cliente durante las operaciones de implementación y eliminación.
 

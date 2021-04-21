@@ -7,12 +7,12 @@ ms.author: andyriv
 ms.date: 2/16/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 7facb74cd407c576b2a7b119f19427dcd185f04e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e9749dfd7b28551a4fc2e7c6ba70ba9cce4e5a69
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105568824"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307306"
 ---
 # <a name="microsoft-connected-cache-preview-deployment-scenario-sample-two-level-nested-azure-iot-edge-gateway-with-outbound-unauthenticated-proxy"></a>Ejemplo de escenario de implementación de la versión preliminar de Caché conectada de Microsoft: puerta de enlace Azure IoT Edge anidada de dos niveles con proxy no autenticado saliente
 
@@ -70,7 +70,7 @@ En el diagrama siguiente se describe el escenario en el que una puerta de enlace
 ## <a name="child-gateway-configuration"></a>Configuración de puerta de enlace secundaria
 
 >[!Note]
->Si ha replicado contenedores en su configuración en su propio registro privado, será necesario modifica la configuración de config.toml y del entorno de ejecución en la implementación del módulo. Para obtener más información, consulte [Tutorial: Creación de una jerarquía de dispositivos IoT Edge (versión preliminar)](../iot-edge/tutorial-nested-iot-edge.md?preserve-view=true&tabs=azure-portal&view=iotedge-2020-11#deploy-modules-to-the-lower-layer-device) para obtener más detalles.
+>Si ha replicado contenedores en su configuración en su propio registro privado, será necesario modifica la configuración de config.toml y del entorno de ejecución en la implementación del módulo. Para más información, consulte [Conexión de dispositivos IoT Edge de nivel inferior: Azure IoT Edge](../iot-edge/how-to-connect-downstream-iot-edge-device.md?preserve-view=true&tabs=azure-portal&view=iotedge-2020-11#deploy-modules-to-lower-layer-devices).
 
 1. Modifique la ruta de acceso de la imagen para el agente de Edge, como se muestra en el ejemplo siguiente:
 

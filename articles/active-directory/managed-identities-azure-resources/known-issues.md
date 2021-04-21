@@ -1,5 +1,5 @@
 ---
-title: 'Preguntas frecuentes y problemas conocidos con identidades administradas: Azure AD'
+title: 'Problemas conocidos con las identidades administradas: Azure Active Directory'
 description: Problemas conocidos con identidades administradas para recursos de Azure.
 services: active-directory
 documentationcenter: ''
@@ -13,138 +13,23 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 02/04/2021
+ms.date: 04/08/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 3f1be2e64435cb0bcdb369a398a9a65fc3714fb2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8d2b6323a15595e57e7e89c6a83f9f718422e1d7
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100008543"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107226929"
 ---
-# <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Preguntas frecuentes y problemas conocidos con identidades administradas para recursos de Azure
+# <a name="known-issues-with-managed-identities"></a>Problemas conocidos con las identidades administradas
 
-[!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
+En este artículo se analizan un par de problemas relacionados con las identidades administradas y cómo abordarlos. Las preguntas comunes sobre las identidades administradas se documentan en nuestro artículo de [preguntas más frecuentes](managed-identities-faq.md).
+## <a name="vm-fails-to-start-after-being-moved"></a>La máquina virtual no se inicia tras el traslado 
 
-## <a name="frequently-asked-questions-faqs"></a>Preguntas más frecuentes (P+F)
-
-> [!NOTE]
-> Identidades administradas para recursos de Azure es el nombre con el que ahora se conoce al servicio Managed Service Identity (MSI).
-
-### <a name="how-can-you-find-resources-that-have-a-managed-identity"></a>¿Cómo se pueden encontrar los recursos que tienen una identidad administrada?
-
-Puede encontrar la lista de recursos con una identidad administrada asignada por el sistema mediante el siguiente comando de la CLI de Azure: 
-
-```azurecli-interactive
-az resource list --query "[?identity.type=='SystemAssigned'].{Name:name,  principalId:identity.principalId}" --output table
-```
-
-### <a name="do-managed-identities-have-a-backing-app-object"></a>¿Las identidades administradas tienen un objeto de aplicación de respaldo?
-
-No. Las identidades administradas y los registros de aplicaciones de Azure AD no son lo mismo en el directorio. 
-
-Los registros de aplicaciones tienen dos componentes: Un objeto de aplicación y un objeto de entidad de servicio. Las identidades administradas para los recursos de Azure solo tienen uno de estos componentes: un objeto de entidad de servicio. 
-
-Las identidades administradas no tienen un objeto de aplicación en el directorio, que es lo que se suele usar para conceder permisos de aplicación para MS Graph. En su lugar, los permisos de MS Graph para identidades administradas deben concederse directamente a la entidad de servicio.  
-
-### <a name="can-the-same-managed-identity-be-used-across-multiple-regions"></a>¿Se puede usar la misma identidad administrada en varias regiones?
-
-En resumen, sí puede usar identidades administradas asignadas por el usuario en más de una región de Azure. La respuesta más larga es que, mientras que las identidades administradas asignadas por el usuario se crean como recursos regionales, la [entidad de servicio](../develop/app-objects-and-service-principals.md#service-principal-object) asociada (SPN) creada en Azure AD está disponible globalmente. La entidad de servicio se puede usar desde cualquier región de Azure y su disponibilidad depende de la disponibilidad de Azure AD. Por ejemplo, si ha creado una identidad administrada asignada por el usuario en la región Centro y Sur, y esa región deja de estar disponible, este problema solo afecta a las actividades del [plano de control](../../azure-resource-manager/management/control-plane-and-data-plane.md) en la propia identidad administrada.  Las actividades realizadas por los recursos ya configuradas para usar las identidades administradas no se verán afectadas.
-
-### <a name="does-managed-identities-for-azure-resources-work-with-azure-cloud-services"></a>¿Funcionan las identidades administradas para recursos de Azure con Azure Cloud Services?
-
-No, no hay planes que admitan las identidades administradas para recursos de Azure en Azure Cloud Services.
-
-### <a name="what-is-the-credential-associated-with-a-managed-identity-how-long-is-it-valid-and-how-often-is-it-rotated"></a>¿Cuál es la credencial asociada a una identidad administrada? ¿Qué validez tiene y con qué frecuencia se rota?
-
-> [!NOTE]
-> La forma de autenticarse las identidades administradas es un dato de implementación interno que está sujeto a cambios sin previo aviso.
-
-Las identidades administradas usan la autenticación basada en certificados. Cada credencial de identidad administrada expira al cabo de 90 días y se revierte después de 45 días.
-
-### <a name="what-is-the-security-boundary-of-managed-identities-for-azure-resources"></a>¿Cuál es el límite de seguridad de las identidades administradas para recursos de Azure?
-
-El límite de seguridad de la identidad es el recurso al que está asociada. Por ejemplo, el límite de seguridad para una máquina virtual que tenga las identidades administradas para recursos de Azure habilitadas, es la Máquina virtual. Cualquier código que se ejecute en esa máquina virtual puede llamar a las identidades administradas para los tokens de punto de conexión y solicitud de recursos de Azure. Esta experiencia es similar con otros recursos que admiten las identidades administradas para recursos de Azure.
-
-### <a name="what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request"></a>¿A qué identidad se asignará el IMDS de manera predeterminada si no se especifica la identidad en la solicitud?
-
-- Si se habilita la identidad administrada asignada por el sistema y no se especifica ninguna identidad en la solicitud, el IMDS utilizará de manera predeterminada la esta identidad administrada.
-- Si la identidad administrada asignada por el sistema no está habilitada, y solo existe una identidad administrada asignada por el usuario, IMDS será la identidad administrada asignada de manera predeterminada a ese único usuario. 
-- Si la identidad administrada asignada por el sistema no está habilitada y existen varias identidades administradas asignadas por el usuario, es necesario especificar una identidad administrada en la solicitud.
-
-### <a name="will-managed-identities-be-recreated-automatically-if-i-move-a-subscription-to-another-directory"></a>¿Se van a volver a crear automáticamente las identidades administradas si muevo una suscripción a otro directorio?
-
-No. Si mueve una suscripción a otro directorio, tendrá que volver a crearlas manualmente y volver a asignar los roles de Azure.
-- Para las identidades administradas asignadas por el sistema, tiene que desactivarlas y volver a activarlas. 
-- Para las identidades administradas asignadas por el usuario, tiene que eliminarlas, volver a crearlas y adjuntarlas de nuevo a los recursos necesarios (por ejemplo, máquinas virtuales).
-
-### <a name="can-i-use-a-managed-identity-to-access-a-resource-in-a-different-directorytenant"></a>¿Puedo usar una identidad administrada para acceder a un recurso en un directorio o inquilino diferente?
-
-No. Las identidades administradas no admiten actualmente escenarios entre directorios. 
-
-### <a name="what-azure-rbac-permissions-are-required-to-managed-identity-on-a-resource"></a>¿Qué permisos RBAC de Azure son necesarios para una identidad administrada en un recurso? 
-
-- Identidad administrada asignada por el sistema: Se necesitan permisos de escritura sobre el recurso. Por ejemplo, para las máquinas virtuales es necesario Microsoft.Compute/virtualMachines/write. Esta acción se incluye en los roles integrados específicos del recurso como, por ejemplo, [Colaborador de máquina virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
-- Identidad administrada asignada por el usuario: Se necesitan permisos de escritura sobre el recurso. Por ejemplo, para las máquinas virtuales es necesario Microsoft.Compute/virtualMachines/write. Además de la asignación de roles [Operador de identidad administrada](../../role-based-access-control/built-in-roles.md#managed-identity-operator) sobre la identidad administrada.
-
-### <a name="how-do-i-prevent-the-creation-of-user-assigned-managed-identities"></a>¿Cómo evito la creación de identidades administradas asignadas por el usuario?
-
-Puede impedir que los usuarios creen identidades administradas asignadas por el usuario mediante [Azure Policy](../../governance/policy/overview.md)
-
-- Navegue hasta [Azure Portal](https://portal.azure.com) y vaya a **Directiva**.
-- Elija **Definiciones**.
-- Seleccione **+ Definición de directiva** y escriba la información necesaria.
-- En la sección de regla de la directiva, pegue
-
-```json
-{
-  "mode": "All",
-  "policyRule": {
-    "if": {
-      "field": "type",
-      "equals": "Microsoft.ManagedIdentity/userAssignedIdentities"
-    },
-    "then": {
-      "effect": "deny"
-    }
-  },
-  "parameters": {}
-}
-
-```
-
-Después de crear la directiva, asígnela al grupo de recursos que quiere usar.
-
-- Navegue a los grupos de recursos.
-- Busque el grupo de recursos que usa para las pruebas.
-- Elija **Directivas** en el menú izquierdo.
-- Seleccione **Asignar directiva**.
-- En la sección **Datos básicos**, proporcione:
-    - **Ámbito**: el grupo de recursos que se usa para las pruebas.
-    - **Definición de directiva**: La directiva que creamos anteriormente.
-- Deje todas las demás opciones con sus valores predeterminados y elija **Revisar y crear**.
-
-En este punto, se producirá un error al intentar crear una identidad administrada asignada por el usuario en el grupo de recursos.
-
-  ![Infracción de la directiva](./media/known-issues/policy-violation.png)
-
-## <a name="known-issues"></a>Problemas conocidos
-
-### <a name="automation-script-fails-when-attempting-schema-export-for-managed-identities-for-azure-resources-extension"></a>Se produce un error en el "script de automatización" al intentar exportar los esquemas de la extensión de identidades administradas para recursos de Azure.
-
-Cuando se habilitan las identidades administradas para recursos de Azure en una máquina virtual, se muestra el siguiente error al intentar usar la característica de "Script de automatización" para la máquina virtual o su grupo de recursos:
-
-![Error de exportación del script de automatización de identidades administradas para recursos de Azure](./media/msi-known-issues/automation-script-export-error.png)
-
-La extensión de máquina virtual de identidades administradas para recursos de Azure (que dejará de utilizarse en enero de 2019) no admite actualmente la posibilidad de exportar su esquema a una plantilla de grupo de recursos. Como resultado, en la plantilla generada no se muestran los parámetros de configuración para habilitar las identidades administradas para recursos de Azure en el recurso. Estas secciones se pueden agregar de forma manual siguiendo los ejemplos de [Configuración de identidades administradas para recursos de Azure en una máquina virtual de Azure mediante una plantilla](qs-configure-template-windows-vm.md).
-
-Cuando la funcionalidad de exportación de esquema está disponible para la extensión de máquina virtual de identidades administradas para recursos de Azure (que dejará de utilizarse en enero de 2019), se enumerará en [Exportación de grupos de recursos que contienen extensiones de máquina virtual](../../virtual-machines/extensions/export-templates.md#supported-virtual-machine-extensions).
-
-### <a name="vm-fails-to-start-after-being-moved-from-resource-group-or-subscription"></a>La máquina virtual no puede iniciarse después de moverse del grupo de recursos o de la suscripción
-
-Si mueve una máquina virtual en estado de ejecución, continúa ejecutándose durante el desplazamiento. Sin embargo, después, si la máquina virtual se detiene y se reinicia, no se podrá iniciar. Este problema se produce porque la máquina virtual no está actualizando la referencia a la identidad referente a las identidades administradas para recursos de Azure, y continúa apuntando a ella en el grupo de recursos anterior.
+Si mueve una máquina virtual en estado en ejecución desde un grupo de recursos o una suscripción, esta continúa ejecutándose durante el traslado. Sin embargo, después, si la máquina virtual se detiene y se reinicia, no se podrá iniciar. Este problema se produce porque la máquina virtual no está actualizando la referencia a la identidad referente a las identidades administradas para recursos de Azure, y continúa apuntando a ella en el grupo de recursos anterior.
 
 **Solución alternativa** 
  
@@ -164,7 +49,7 @@ Una vez que se inicia la máquina virtual, la etiqueta puede quitarse con el com
 az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 ```
 
-### <a name="transferring-a-subscription-between-azure-ad-directories"></a>Transferencia de una suscripción entre directorios de Azure AD
+## <a name="transferring-a-subscription-between-azure-ad-directories"></a>Transferencia de una suscripción entre directorios de Azure AD
 
 Las identidades administradas no se actualizan cuando una suscripción se mueve o transfiere a otro directorio. Como resultado, se interrumpe cualquier identidad administrada asignada por el sistema o por el usuario. 
 
@@ -173,8 +58,9 @@ Solución alternativa para identidades administradas en una suscripción que se 
  - Para las identidades administradas asignadas por el sistema, tiene que desactivarlas y volver a activarlas. 
  - Para las identidades administradas asignadas por el usuario, tiene que eliminarlas, volver a crearlas y adjuntarlas de nuevo a los recursos necesarios (por ejemplo, máquinas virtuales).
 
-Para obtener más información, vea [Transferencia de una suscripción de Azure a otro directorio de Azure AD](../../role-based-access-control/transfer-subscription.md).
+Para más información, consulte [Transferencia de una suscripción de Azure a otro directorio de Azure AD](../../role-based-access-control/transfer-subscription.md).
 
-### <a name="moving-a-user-assigned-managed-identity-to-a-different-resource-groupsubscription"></a>Movimiento de una identidad administrada asignada por el usuario a otro grupo de recursos o suscripción
 
-No se admite el movimiento de una identidad administrada asignada por el usuario a otro grupo de recursos.
+## <a name="next-steps"></a>Pasos siguientes
+
+Puede revisar nuestro artículo en el que se enumeran los [servicios que admiten identidades administradas](services-support-managed-identities.md) y nuestras [preguntas más frecuentes](managed-identities-faq.md).

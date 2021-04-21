@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: f45c3def84c548ba12221efa59e9ebbd4699df71
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5707d873bbf67add78f9a8e29fcb9135898486d6
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91316076"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107226844"
 ---
 # <a name="tutorial-configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Tutorial: Configurar los recursos de la nube para el aprovisionamiento de dispositivos con el servicio IoT Hub Device Provisioning
 
@@ -120,7 +120,7 @@ En este tutorial, ha aprendido a:
 > * Vincular la instancia de IoT Hub al servicio Device Provisioning
 > * Establecer la directiva de asignación del servicio Device Provisioning
 
-Avance al siguiente tutorial para aprender a configurar el dispositivo para el aprovisionamiento.
+Pase al siguiente tutorial para aprender a configurar el dispositivo para el aprovisionamiento.
 
 > [!div class="nextstepaction"]
 > [Configurar el dispositivo para el aprovisionamiento](tutorial-set-up-device.md)

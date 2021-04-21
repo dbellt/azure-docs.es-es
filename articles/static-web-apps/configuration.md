@@ -5,14 +5,14 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 02/18/2021
+ms.date: 04/09/2021
 ms.author: cshoe
-ms.openlocfilehash: 280c13fdee281acc4f805aba27a10277eb3988c2
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 9494bcc9941491bbb82c6a948dce720cb9e51424
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106218981"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107502290"
 ---
 # <a name="configure-azure-static-web-apps"></a>Configuración de Azure Static Web Apps
 
@@ -47,28 +47,28 @@ Las reglas de rutas permiten definir el patrón de direcciones URL que proporcio
 
 Los aspectos relacionados con el enrutamiento se superponen en buena parte a los conceptos de autenticación (identificación del usuario) y autorización (concesión de capacidades al usuario). Asegúrese de leer la guía de [autenticación y autorización](authentication-authorization.md) junto con este artículo.
 
-El archivo predeterminado para el contenido estático es *index.html*.
+El archivo predeterminado para el contenido estático es _index.html_.
 
 ## <a name="defining-routes"></a>Definición de rutas
 
 Cada una se compone de un patrón de ruta, junto con una o varias de las propiedades de regla opcionales. Las reglas de ruta se definen en la matriz `routes`. Consulte el [archivo de configuración de ejemplo](#example-configuration-file) para ver cómo se usan.
 
-| Propiedad de regla  | Obligatorio | Valor predeterminado | Comentario                                                      |
-| -------------- | -------- | ------------- | ------------------------------------------------------------ |
-| `route`        | Sí      | N/D          | Patrón de ruta solicitado por el autor de la llamada.<ul><li>Los [caracteres comodín](#wildcards) se admiten al final de las rutas.<ul><li>Por ejemplo, la ruta _admin/\*_ coincide con cualquier ruta que se encuentre en la ruta de acceso _admin_.</ul></ul>|
-| `rewrite`        | No       | N/D          | Define el archivo o la ruta de acceso que devuelve la solicitud.<ul><li>Es mutuamente excluyente con las reglas `redirect`<li>Las reglas de reescritura no cambian la ubicación del explorador.<li>Los valores deben hacer referencia a la raíz de la aplicación.</ul>  |
-| `redirect`        | No       | N/D          | Define el destino de redireccionamiento del archivo o la ruta de acceso de una solicitud.<ul><li>Es mutuamente excluyente con las reglas `rewrite`<li>Las reglas de redireccionamiento cambian la ubicación del explorador.<li>El código de respuesta predeterminado es [`302`](https://developer.mozilla.org/docs/Web/HTTP/Status/302) (redireccionamiento temporal), pero puede invalidarse con [`301`](https://developer.mozilla.org/docs/Web/HTTP/Status/301) (redirección permanente).</ul> |
-| `allowedRoles` | No       | anonymous     | Define una lista de nombres de rol necesarios para acceder a una ruta. <ul><li>Los caracteres válidos incluyen `a-z`, `A-Z`, `0-9` y `_`.<li>El rol integrado, [`anonymous`](./authentication-authorization.md), se aplica a todos los usuarios sin autenticar.<li>El rol integrado, [`authenticated`](./authentication-authorization.md), se aplica a todos los usuarios que han iniciado sesión.<li>Los usuarios deben pertenecer al menos a un rol.<li>Los roles se evalúan según el operador _OR_.<ul><li>Si un usuario tiene cualquiera de los roles enumerados, se le concede acceso.</ul><li>Los usuarios individuales se asocian a los roles a través de [invitaciones](authentication-authorization.md).</ul> |
-| `headers`<a id="route-headers"></a> | No | N/D | Conjunto de [encabezados HTTP](https://developer.mozilla.org/docs/Web/HTTP/Headers) que se agregan a la respuesta. <ul><li>Los encabezados específicos de la ruta invalidan los encabezados [`globalHeaders`](#global-headers) cuando el encabezado específico de la ruta es igual que el encabezado global de la respuesta.<li>Para quitar un encabezado, establezca el valor en una cadena vacía.</ul> |
-| `statusCode`   | No       | `200`, `301` o `302` para las redirecciones | [Código de estado HTTP](https://developer.mozilla.org/docs/Web/HTTP/Status) de la respuesta. |
-| `methods` | No | Todos los métodos | Lista de los métodos de solicitud que coinciden con una ruta. Alguno de los métodos disponibles son: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE` y `PATCH`. |
+| Propiedad de regla                       | Obligatorio | Valor predeterminado                        | Comentario                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| ----------------------------------- | -------- | ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `route`                             | Sí      | N/D                                  | Patrón de ruta solicitado por el autor de la llamada.<ul><li>Los [caracteres comodín](#wildcards) se admiten al final de las rutas.<ul><li>Por ejemplo, la ruta _admin/\*_ coincide con cualquier ruta que se encuentre en la ruta de acceso _admin_.</ul></ul>                                                                                                                                                                                                                                                                                                                                                                                                        |
+| `rewrite`                           | No       | N/D                                  | Define el archivo o la ruta de acceso que devuelve la solicitud.<ul><li>Es mutuamente excluyente con las reglas `redirect`<li>Las reglas de reescritura no cambian la ubicación del explorador.<li>Los valores deben hacer referencia a la raíz de la aplicación.</ul>                                                                                                                                                                                                                                                                                                                                                                                                      |
+| `redirect`                          | No       | N/D                                  | Define el destino de redireccionamiento del archivo o la ruta de acceso de una solicitud.<ul><li>Es mutuamente excluyente con las reglas `rewrite`<li>Las reglas de redireccionamiento cambian la ubicación del explorador.<li>El código de respuesta predeterminado es [`302`](https://developer.mozilla.org/docs/Web/HTTP/Status/302) (redireccionamiento temporal), pero puede invalidarse con [`301`](https://developer.mozilla.org/docs/Web/HTTP/Status/301) (redirección permanente).</ul>                                                                                                                                                                                                              |
+| `allowedRoles`                      | No       | anonymous                            | Define una lista de nombres de rol necesarios para acceder a una ruta. <ul><li>Los caracteres válidos incluyen `a-z`, `A-Z`, `0-9` y `_`.<li>El rol integrado, [`anonymous`](./authentication-authorization.md), se aplica a todos los usuarios sin autenticar.<li>El rol integrado, [`authenticated`](./authentication-authorization.md), se aplica a todos los usuarios que han iniciado sesión.<li>Los usuarios deben pertenecer al menos a un rol.<li>Los roles se evalúan según el operador _OR_.<ul><li>Si un usuario tiene cualquiera de los roles enumerados, se le concede acceso.</ul><li>Los usuarios individuales se asocian a los roles a través de [invitaciones](authentication-authorization.md).</ul> |
+| `headers`<a id="route-headers"></a> | No       | N/D                                  | Conjunto de [encabezados HTTP](https://developer.mozilla.org/docs/Web/HTTP/Headers) que se agregan a la respuesta. <ul><li>Los encabezados específicos de la ruta invalidan los encabezados [`globalHeaders`](#global-headers) cuando el encabezado específico de la ruta es igual que el encabezado global de la respuesta.<li>Para quitar un encabezado, establezca el valor en una cadena vacía.</ul>                                                                                                                                                                                                                                                                                          |
+| `statusCode`                        | No       | `200`, `301` o `302` para las redirecciones | [Código de estado HTTP](https://developer.mozilla.org/docs/Web/HTTP/Status) de la respuesta.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| `methods`                           | No       | Todos los métodos                          | Lista de los métodos de solicitud que coinciden con una ruta. Algunos de los métodos disponibles son: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE` y `PATCH`.                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 
 Cada propiedad tiene un propósito específico en la canalización de solicitudes o respuestas.
 
-| Propósito | Propiedades |
-|---|---|
-| Establecer correspondencias en las rutas | `route`, `methods` |
-| Proporcionar autorización después de encontrar la correspondencia de una ruta | `allowedRoles` |
+| Propósito                                        | Propiedades                                                                                   |
+| ---------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| Establecer correspondencias en las rutas                                   | `route`, `methods`                                                                           |
+| Proporcionar autorización después de encontrar la correspondencia de una ruta             | `allowedRoles`                                                                               |
 | Realizar los procesos correspondientes una vez que se cumple y se autoriza una regla | `rewrite` (modifica la solicitud) <br><br>`redirect`, `headers` y `statusCode` (modifica la respuesta) |
 
 ## <a name="securing-routes-with-roles"></a>Protección de rutas mediante roles
@@ -118,7 +118,7 @@ Puede filtrar las coincidencias con caracteres comodín por la extensión de arc
 ```json
 {
   "route": "/articles/*.html",
-  "headers" : {
+  "headers": {
     "Cache-Control": "public, max-age=604800, immutable"
   }
 }
@@ -171,15 +171,15 @@ En la estructura de archivos siguiente, se pueden conseguir los resultados que s
 └── index.html
 ```
 
-| Enviar una solicitud a... | devuelve... | con el estado... |
-| --- | --- | --- |
-| */about/* | El archivo *index.html* | `200` |
-| */images/logo.png* | El archivo de imágenes  | `200` |
-| */images/icon.svg* | El archivo */index.html*, ya que la extensión de archivo *svg* no aparece en el filtro `/images/*.{png,jpg,gif}`   | `200` |
-| */images/unknown.png* | Error de archivo no encontrado  | `404` |
-| */css/unknown.css* | Error de archivo no encontrado  | `404` |
-| */css/global.css* | Archivo de hoja de estilos | `200` |
-| Cualquier otro archivo que esté fuera de las carpetas */images* o */css* | El archivo *index.html* | `200` |
+| Enviar una solicitud a...                                         | devuelve...                                                                                                    | con el estado... |
+| ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------- | ------------------ |
+| _/about/_                                              | El archivo _index.html_                                                                                        | `200`              |
+| _/images/logo.png_                                     | El archivo de imágenes                                                                                                | `200`              |
+| _/images/icon.svg_                                     | El archivo _/index.html_, ya que la extensión de archivo _svg_ no aparece en el filtro `/images/*.{png,jpg,gif}` | `200`              |
+| _/images/unknown.png_                                  | Error de archivo no encontrado                                                                                          | `404`              |
+| _/css/unknown.css_                                     | Error de archivo no encontrado                                                                                          | `404`              |
+| _/css/global.css_                                      | Archivo de hoja de estilos                                                                                           | `200`              |
+| Cualquier otro archivo que esté fuera de las carpetas _/images_ o _/css_ | El archivo _index.html_                                                                                        | `200`              |
 
 ## <a name="global-headers"></a>Encabezados globales
 
@@ -201,35 +201,35 @@ En la sección `responseOverrides`, se puede definir una respuesta personalizada
 
 Los siguientes códigos HTTP se pueden reemplazar:
 
-| Código de estado | Significado | Causa posible |
-| --- | --- | --- |
-| [400](https://developer.mozilla.org/docs/Web/HTTP/Status/400) | Solicitud incorrecta | Vínculo de invitación no válido |
-| [401](https://developer.mozilla.org/docs/Web/HTTP/Status/401) | No autorizado | Solicitud a páginas restringidas mientras no se está autenticado |
-| [403](https://developer.mozilla.org/docs/Web/HTTP/Status/403) | Prohibido |<ul><li>El usuario ha iniciado sesión, pero no tiene los roles necesarios para ver la página.<li>El usuario ha iniciado sesión, pero el entorno de ejecución no puede obtener los datos del usuario a partir de sus notificaciones de identidad.<li>Hay demasiados usuarios que han iniciado sesión en el sitio con roles personalizados, por lo que el entorno de ejecución no puede iniciar la sesión del usuario.</ul> |
-| [404](https://developer.mozilla.org/docs/Web/HTTP/Status/404) | No encontrado | Archivo no encontrado |
+| Código de estado                                                   | Significado      | Causa posible                                                                                                                                                                                                                                                                                     |
+| ------------------------------------------------------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [400](https://developer.mozilla.org/docs/Web/HTTP/Status/400) | Solicitud incorrecta  | Vínculo de invitación no válido                                                                                                                                                                                                                                                                            |
+| [401](https://developer.mozilla.org/docs/Web/HTTP/Status/401) | No autorizado | Solicitud a páginas restringidas mientras no se está autenticado                                                                                                                                                                                                                                                  |
+| [403](https://developer.mozilla.org/docs/Web/HTTP/Status/403) | Prohibido    | <ul><li>El usuario ha iniciado sesión, pero no tiene los roles necesarios para ver la página.<li>El usuario ha iniciado sesión, pero el entorno de ejecución no puede obtener los detalles del usuario a partir de sus notificaciones de identidad.<li>Hay demasiados usuarios que han iniciado sesión en el sitio con roles personalizados, por lo que el entorno de ejecución no puede iniciar la sesión del usuario.</ul> |
+| [404](https://developer.mozilla.org/docs/Web/HTTP/Status/404) | No encontrado    | Archivo no encontrado                                                                                                                                                                                                                                                                                     |
 
 En la configuración del ejemplo siguiente, se muestra cómo invalidar un código de error.
 
 ```json
 {
-    "responseOverrides": {
-        "400" : {
-            "rewrite": "/invalid-invitation-error.html",
-            "statusCode": 200
-        },
-        "401": {
-            "statusCode": 302,
-            "redirect": "/login"
-        },
-        "403": {
-            "rewrite": "/custom-forbidden-page.html",
-            "statusCode": 200
-        },
-        "404": {
-            "rewrite": "/custom-404.html",
-            "statusCode": 200
-        }
+  "responseOverrides": {
+    "400": {
+      "rewrite": "/invalid-invitation-error.html",
+      "statusCode": 200
+    },
+    "401": {
+      "statusCode": 302,
+      "redirect": "/login"
+    },
+    "403": {
+      "rewrite": "/custom-forbidden-page.html",
+      "statusCode": 200
+    },
+    "404": {
+      "rewrite": "/custom-404.html",
+      "statusCode": 200
     }
+  }
 }
 ```
 
@@ -237,106 +237,106 @@ En la configuración del ejemplo siguiente, se muestra cómo invalidar un códig
 
 ```json
 {
-    "routes": [
-        {
-            "route": "/profile",
-            "allowedRoles": ["authenticated"]
-        },
-        {
-            "route": "/admin/*",
-            "allowedRoles": ["administrator"]
-        },
-        {
-            "route": "/images/*",
-            "headers": {
-                "cache-control": "must-revalidate, max-age=15770000"
-            }
-        },
-        {
-            "route": "/api/*",
-            "methods": [ "GET" ],
-            "allowedRoles": ["registeredusers"]
-        },
-        {
-            "route": "/api/*",
-            "methods": [ "PUT", "POST", "PATCH", "DELETE" ],
-            "allowedRoles": ["administrator"]
-        },
-        {
-            "route": "/api/*",
-            "allowedRoles": ["authenticated"]
-        },
-        {
-            "route": "/customers/contoso",
-            "allowedRoles": ["administrator", "customers_contoso"]
-        },
-        {
-            "route": "/login",
-            "rewrite": "/.auth/login/github"
-        },
-        {
-            "route": "/.auth/login/twitter",
-            "statusCode": 404
-        },
-        {
-            "route": "/logout",
-            "redirect": "/.auth/logout"
-        },
-        {
-            "route": "/calendar/*",
-            "rewrite": "/calendar.html"
-        },
-        {
-            "route": "/specials",
-            "redirect": "/deals",
-            "statusCode": 301
-        }
-    ],
-    "navigationFallback": {
-      "rewrite": "index.html",
-      "exclude": ["/images/*.{png,jpg,gif}", "/css/*"]
+  "routes": [
+    {
+      "route": "/profile",
+      "allowedRoles": ["authenticated"]
     },
-    "responseOverrides": {
-        "400" : {
-            "rewrite": "/invalid-invitation-error.html"
-        },
-        "401": {
-            "redirect": "/login",
-            "statusCode": 302
-        },
-        "403": {
-            "rewrite": "/custom-forbidden-page.html"
-        },
-        "404": {
-            "rewrite": "/404.html"
-        }
+    {
+      "route": "/admin/*",
+      "allowedRoles": ["administrator"]
     },
-    "globalHeaders": {
-        "content-security-policy": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'"
+    {
+      "route": "/images/*",
+      "headers": {
+        "cache-control": "must-revalidate, max-age=15770000"
+      }
     },
-    "mimeTypes": {
-        ".json": "text/json"
+    {
+      "route": "/api/*",
+      "methods": ["GET"],
+      "allowedRoles": ["registeredusers"]
+    },
+    {
+      "route": "/api/*",
+      "methods": ["PUT", "POST", "PATCH", "DELETE"],
+      "allowedRoles": ["administrator"]
+    },
+    {
+      "route": "/api/*",
+      "allowedRoles": ["authenticated"]
+    },
+    {
+      "route": "/customers/contoso",
+      "allowedRoles": ["administrator", "customers_contoso"]
+    },
+    {
+      "route": "/login",
+      "rewrite": "/.auth/login/github"
+    },
+    {
+      "route": "/.auth/login/twitter",
+      "statusCode": 404
+    },
+    {
+      "route": "/logout",
+      "redirect": "/.auth/logout"
+    },
+    {
+      "route": "/calendar/*",
+      "rewrite": "/calendar.html"
+    },
+    {
+      "route": "/specials",
+      "redirect": "/deals",
+      "statusCode": 301
     }
+  ],
+  "navigationFallback": {
+    "rewrite": "index.html",
+    "exclude": ["/images/*.{png,jpg,gif}", "/css/*"]
+  },
+  "responseOverrides": {
+    "400": {
+      "rewrite": "/invalid-invitation-error.html"
+    },
+    "401": {
+      "redirect": "/login",
+      "statusCode": 302
+    },
+    "403": {
+      "rewrite": "/custom-forbidden-page.html"
+    },
+    "404": {
+      "rewrite": "/404.html"
+    }
+  },
+  "globalHeaders": {
+    "content-security-policy": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'"
+  },
+  "mimeTypes": {
+    ".json": "text/json"
+  }
 }
 ```
 
 Consulte los escenarios siguientes teniendo en cuenta la configuración anterior.
 
-| Enviar una solicitud a... | el resultado es... |
-| --- | --- |
-| _/profile_ | Los usuarios autenticados reciban el archivo _/profile/index.html_. Los usuarios sin autenticar acceden automáticamente a _/login_. |
-| _/admin/_ | Se proporciona el archivo _/admin/reports/index.html_ a los usuarios autenticados con el rol _administrator_. Los usuarios autenticados que no tienen el rol _administrator_ reciben un error`403`.<sup>1</sup> Los usuarios sin autenticar acceden automáticamente a _/login_. |
-| _/logo.png_ | Proporciona a la imagen una regla de caché personalizada en la que la antigüedad máxima es un poco superior a 182 días (15 770 000 segundos). |
-| _/api/admin_ | Las solicitudes `GET` de los usuarios autenticados con el rol _registeredusers_ se envían a la API. Los usuarios autenticados que no tienen el rol _registeredusers_ y los que no se han autenticado reciben un error `401`.<br/><br/>Las solicitudes `POST`, `PUT`, `PATCH` y `DELETE` de los usuarios autenticados con el rol _administrator_ se envían a la API. Los usuarios autenticados que no tienen el rol _administrator_ y los que no se han autenticado reciben un error `401`. |
-| _/customers/contoso_ | Los usuarios autenticados que pertenecen a los roles _administrator_ o _customers\_contoso_ reciben el archivo _/customers/contoso/index.html_. Los usuarios autenticados que no tienen los roles _administrator_ o _customers\_contoso_ reciben un error `403`.<sup>1</sup> Los usuarios sin autenticar acceden automáticamente a _/login_. |
-| _/login_ | Se pide a los usuarios sin autenticar que lo hagan con GitHub. |
-| _/.auth/login/twitter_ | Como la autorización con Twitter está deshabilitada por la regla de ruta, se devuelve el error `404`, que vuelve a proporcionar el archivo _/index.html_ con el código de estado `200`. |
-| _/logout_ | Se cierra la sesión de los usuarios con cualquier proveedor de autenticación. |
-| _/calendar/2021/01_ | El explorador proporciona el archivo _/calendar.html_. |
-| _/specials_ | El explorador accede de forma automática y permanente a _/deals_. |
-| _/data.json_ | El archivo se proporciona con el tipo MIME `text/json`. |
-| _/about_ o cualquier carpeta que coincida con los patrones de enrutamiento del lado cliente | El archivo _/index.html_ se proporciona con el código de estado `200`. |
-| Archivo que no existe en la carpeta _/images/_ | Error `404`. |
+| Enviar una solicitud a...                                                    | el resultado es...                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| ----------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _/profile_                                                        | Los usuarios autenticados reciban el archivo _/profile/index.html_. Los usuarios sin autenticar acceden automáticamente a _/login_.                                                                                                                                                                                                                                                                                                                              |
+| _/admin/_                                                         | Se proporciona el archivo _/admin/reports/index.html_ a los usuarios autenticados con el rol _administrator_. Los usuarios autenticados que no tienen el rol _administrator_ reciben un error`403`.<sup>1</sup> Los usuarios sin autenticar acceden automáticamente a _/login_.                                                                                                                                                                                                          |
+| _/logo.png_                                                       | Proporciona a la imagen una regla de caché personalizada en la que la antigüedad máxima es un poco superior a 182 días (15 770 000 segundos).                                                                                                                                                                                                                                                                                                                                   |
+| _/api/admin_                                                      | Las solicitudes `GET` de los usuarios autenticados con el rol _registeredusers_ se envían a la API. Los usuarios autenticados que no tienen el rol _registeredusers_ y los que no se han autenticado reciben un error `401`.<br/><br/>Las solicitudes `POST`, `PUT`, `PATCH` y `DELETE` de los usuarios autenticados con el rol _administrator_ se envían a la API. Los usuarios autenticados que no tienen el rol _administrator_ y los que no se han autenticado reciben un error `401`. |
+| _/customers/contoso_                                              | Los usuarios autenticados que pertenecen a los roles _Administrador_ o _customers_contoso_ reciben el archivo _/customers/contoso/index.html_. Los usuarios autenticados que no tienen los roles _Administrador_ o _customers_contoso_ reciben un error `403`<sup>1</sup>. Los usuarios sin autenticar acceden automáticamente a _/login_.                                                                                                                            |
+| _/login_                                                          | Se pide a los usuarios sin autenticar que lo hagan con GitHub.                                                                                                                                                                                                                                                                                                                                                                             |
+| _/.auth/login/twitter_                                            | Como la autorización con Twitter está deshabilitada por la regla de ruta, se devuelve el error `404`, que vuelve a proporcionar el archivo _/index.html_ con el código de estado `200`.                                                                                                                                                                                                                                                                                     |
+| _/logout_                                                         | Se cierra la sesión de los usuarios con cualquier proveedor de autenticación.                                                                                                                                                                                                                                                                                                                                                                                          |
+| _/calendar/2021/01_                                               | El explorador proporciona el archivo _/calendar.html_.                                                                                                                                                                                                                                                                                                                                                                                              |
+| _/specials_                                                       | El explorador accede de forma automática y permanente a _/deals_.                                                                                                                                                                                                                                                                                                                                                                                            |
+| _/data.json_                                                      | El archivo se proporciona con el tipo MIME `text/json`.                                                                                                                                                                                                                                                                                                                                                                                               |
+| _/about_ o cualquier carpeta que coincida con los patrones de enrutamiento del lado cliente | El archivo _/index.html_ se proporciona con el código de estado `200`.                                                                                                                                                                                                                                                                                                                                                                                    |
+| Archivo que no existe en la carpeta _/images/_                     | Error `404`.                                                                                                                                                                                                                                                                                                                                                                                                                                |
 
 <sup>1</sup> Puede proporcionar una página de error personalizada utilizando una [regla de invalidación de respuestas](#response-overrides).
 

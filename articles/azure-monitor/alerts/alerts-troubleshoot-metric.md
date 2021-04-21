@@ -4,13 +4,13 @@ description: Problemas comunes con las alertas de métricas de Azure Monitor y p
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 03/15/2021
-ms.openlocfilehash: f14142632f6ded9f598d6e94fd1e91ec17f6d0a7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/12/2021
+ms.openlocfilehash: 85be4100d62971ef7f69840ae3e9b117fbc3c047
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103466504"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305232"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Solución de problemas en las alertas de métricas de Azure Monitor 
 
@@ -91,9 +91,10 @@ Si quiere alertar sobre una métrica específica pero no puede verla al crear un
 Si quiere generar una alerta sobre [valores de dimensión específicos de una métrica](./alerts-metric-overview.md#using-dimensions), pero no puede encontrar estos valores, tenga en cuenta lo siguiente:
 
 1. Los valores de dimensión pueden tardar unos minutos en aparecer en la lista de **valores de dimensión**.
-1. Los valores de dimensión mostrados se basan en los datos de métrica recopilados el último día.
-1. Si el valor de la dimensión aún no se ha emitido o no se muestra, puede usar la opción "Agregar valor personalizado" para agregar un valor de dimensión personalizado.
-1. Si quiere generar alertas sobre todos los valores posibles de una dimensión (incluidos los valores futuros), elija la opción "Seleccionar todos los valores actuales y futuros".
+2. Los valores de dimensión mostrados se basan en los datos de métrica recopilados el último día.
+3. Si el valor de la dimensión aún no se ha emitido o no se muestra, puede usar la opción "Agregar valor personalizado" para agregar un valor de dimensión personalizado.
+4. Si quiere generar alertas sobre todos los valores posibles de una dimensión (incluidos los valores futuros), elija la opción "Seleccionar todos los valores actuales y futuros".
+5. Las dimensiones de métricas personalizadas de los recursos de Application Insights están desactivadas de forma predeterminada. Para activar la colección de dimensiones para estas métricas personalizadas, consulte [aquí](../app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
 
 ## <a name="metric-alert-rules-still-defined-on-a-deleted-resource"></a>Reglas de alertas de métricas aún definidas en un recurso eliminado 
 

@@ -10,25 +10,36 @@ ms.topic: reference
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein
-ms.date: 03/23/2021
-ms.openlocfilehash: fa21acc09858f4468e53788428e4928dc381a94e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/09/2021
+ms.openlocfilehash: 1d58f79d0fe8accc728c4484dd5d92159836aa88
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105107863"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305147"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-purchasing-model"></a>Límites de recursos para grupos elásticos que usan el modelo de compra de núcleo virtual
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 En este artículo se proporcionan los límites de recursos detallados para grupos elásticos y bases de datos agrupadas de Azure SQL Database que utilizan el modelo de compra de núcleo virtual.
 
-Para información sobre los límites del modelo de compra de DTU, consulte [Límites de recursos para grupos elásticos que utilizan el modelo de compra de DTU](resource-limits-dtu-elastic-pools.md).
+* Para conocer los límites del modelo de compra en DTU para las bases de datos únicas en un servidor, consulte [Información general de los límites de recursos para un servidor](resource-limits-logical-server.md).
+* Para información sobre los límites de recursos del modelo de compra de DTU para Azure SQL Database, vea [Límites de recursos de la unidad de procesamiento de base de datos en bases de datos únicas](resource-limits-dtu-single-databases.md) y [Límites de recursos de la unidad de procesamiento de base de datos en grupos elásticos](resource-limits-dtu-elastic-pools.md).
+* Para conocer los límites de recursos de núcleo virtual, consulte [Límites de recursos del núcleo virtual: Azure SQL Database](resource-limits-vcore-single-databases.md) y [Límites de recursos del núcleo virtual: grupos elásticos](resource-limits-vcore-elastic-pools.md).
+* Para obtener más información sobre los diferentes modelos de compra, consulte los [niveles de servicio y modelos de compra](purchasing-models.md).
 
 > [!IMPORTANT]
 > En algunas circunstancias, puede que deba reducir una base de datos para reclamar el espacio no utilizado. Para obtener más información, consulte [Administración del espacio de archivo en Azure SQL Database](file-space-manage.md).
 
-Puede establecer el nivel de servicio, el tamaño de proceso (objetivo de servicio) y la cantidad de almacenamiento mediante [Azure Portal](elastic-pool-manage.md#azure-portal), [PowerShell](elastic-pool-manage.md#powershell), la [CLI de Azure](elastic-pool-manage.md#azure-cli) o la [API REST](elastic-pool-manage.md#rest-api).
+Cada réplica de solo lectura tiene sus propios recursos, como núcleos virtuales, memoria, IOPS de datos, TempDB, trabajos y sesiones. Cada réplica de solo lectura está sujeta a los límites de recursos que se detallan más adelante en este artículo.
+
+Puede establecer el nivel de servicio, el tamaño de proceso (objetivo del servicio) y la cantidad de almacenamiento mediante:
+
+* [Transact-SQL](elastic-pool-scale.md) mediante [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql#overview-sql-database)
+* [Azure Portal](elastic-pool-manage.md#azure-portal)
+* [PowerShell](elastic-pool-manage.md#powershell)
+* [CLI de Azure](elastic-pool-manage.md#azure-cli)
+* [REST API](elastic-pool-manage.md#rest-api)
 
 > [!IMPORTANT]
 > Para obtener información sobre la guía y otras consideraciones del escalado, consulte [Escalar un grupo elástico](elastic-pool-scale.md).

@@ -3,12 +3,12 @@ title: Implementación para insertar archivos ZIP en Azure Functions
 description: Use las funciones de implementación de archivos ZIP del servicio de implementación de Kudu para publicar sus instancias de Azure Functions.
 ms.topic: conceptual
 ms.date: 08/12/2018
-ms.openlocfilehash: e104661dcdf1f6c6fd6dd5eb1024748980e7931f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fb6867d7719f9650acb00f80ac3a933713ce0e23
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96018469"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107777658"
 ---
 # <a name="zip-deployment-for-azure-functions"></a>Implementación de archivos ZIP en Azure Functions
 
@@ -66,7 +66,7 @@ Igualmente, también puede descargar un archivo .zip desde un repositorio de Git
 
 ## <a name="deploy-by-using-azure-cli"></a><a name="cli"></a>Implementación con la CLI de Azure
 
-Puede usar la CLI de Azure para desencadenar una implementación de inserción. Para implementar el archivo .zip en la aplicación de función, use el comando [az functionapp deployment source config-zip](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip). Para usar este comando, debe usar la versión 2.0.21 o posterior de la CLI de Azure. Para ver qué versión de CLI de Azure está usando, use el comando `az --version`.
+Puede usar la CLI de Azure para desencadenar una implementación de inserción. Para implementar el archivo .zip en la aplicación de función, use el comando [az functionapp deployment source config-zip](/cli/azure/functionapp/deployment/source#az_functionapp_deployment_source_config_zip). Para usar este comando, debe usar la versión 2.0.21 o posterior de la CLI de Azure. Para ver qué versión de CLI de Azure está usando, use el comando `az --version`.
 
 En el siguiente comando, reemplace el marcador de posición `<zip_file_path>` por la ruta de acceso a la ubicación del archivo .zip. Asimismo, reemplace `<app_name>` por el nombre único de su aplicación de funciones y `<resource_group>` por el nombre del grupo de recursos.
 

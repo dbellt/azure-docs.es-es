@@ -5,13 +5,13 @@ author: sakthi-vetrivel
 ms.author: suvetriv
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
-ms.date: 08/11/2020
-ms.openlocfilehash: fca01c77a1ff47cbeee167eb408ed9f29a1307bd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/06/2021
+ms.openlocfilehash: 35cbaf2b6d2618d116d2dd322ae5ac28f578cecc
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100634335"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107303549"
 ---
 # <a name="support-lifecycle-for-azure-red-hat-openshift-4"></a>Ciclo de vida del soporte técnico de Red Hat OpenShift en Azure 4
 
@@ -33,7 +33,7 @@ Cada número en la versión indica compatibilidad general con la versión anteri
 * **Versión secundaria**: publicada aproximadamente cada tres meses. Las actualizaciones de versiones secundarias pueden incluir adiciones de características, mejoras, caídas en desuso, eliminaciones, correcciones de errores, mejoras de seguridad y otras actualizaciones.
 * **Revisiones**: normalmente se publican cada semana, o según sea necesario. Las actualizaciones de versiones de revisión pueden incluir correcciones de errores, mejoras de seguridad y otras actualizaciones.
 
-Los clientes deben tratar de ejecutar la última versión secundaria de su versión principal. Por ejemplo, si el clúster de producción ejecuta la versión 4.4 y 4.5 es la última versión secundaria disponible con carácter general para la serie 4, debe actualizar a 4.5 tan pronto como pueda.
+Los clientes deben tratar de ejecutar la última versión secundaria de su versión principal. Por ejemplo, si el clúster de producción ejecuta la versión 4.4 y 4.5 es la última versión secundaria disponible con carácter general para la serie 4, debe actualizar a 4.5 tan pronto como pueda. 
 
 ### <a name="upgrade-channels"></a>Canales de actualización
 
@@ -106,12 +106,16 @@ Consulte la siguiente guía para ver el [historial anterior de versiones (preced
 
 **¿Qué ocurre cuando un cliente actualiza un clúster de OpenShift con una versión secundaria que no es compatible?**
 
-Si está en la versión N-2 o anterior, está fuera del soporte técnico y se le pedirá que la actualice. Si la actualización de la versión N-2 a N-1 se completa correctamente, estará dentro de nuestras directivas de soporte técnico. Por ejemplo:
+Si está en la versión N–2 u otra anterior, quedará fuera del soporte técnico y se le pedirá que actualice la versión para seguir recibiéndolo. Si la versión N–2 se actualiza correctamente con la N–1, volverá a cumplir nuestras directivas para recibir soporte técnico. Puede que resulte difícil y, en algunos casos, imposible actualizar versiones N–3 o anteriores con otra compatible. Se recomienda mantener el clúster con la versión más reciente de OpenShift para evitar posibles problemas de actualización. Por ejemplo:
 * Si la versión de Red Hat OpenShift en Azure admitida más antigua es la 4.4.z y la suya es la 4.3.z o anterior, está fuera del soporte técnico.
-* Si la actualización de 4.3.z a 4.4.z se realiza correctamente, estará de nuevo dentro de nuestras directivas de soporte técnico.
+* Si la actualización de 4.3.z a 4.4.z se realiza correctamente, estará de nuevo dentro de nuestras directivas de soporte técnico. 
 
 No se admite la reversión del clúster a una versión anterior. Solo se admite la actualización a una versión más reciente.
 
 **¿Qué significa "fuera de soporte técnico"?**
 
-"Fuera de soporte técnico" significa que la versión que está ejecutando está fuera de la lista de versiones admitidas, y se le pedirá que actualice el clúster a una versión compatible cuando solicite soporte técnico, a menos que esté en el período de gracia de 30 días después de que la versión haya quedado en desuso. Además, Red Hat OpenShift en Azure no garantiza ningún tiempo de ejecución ni contrato de nivel de servicio para clústeres ajenos a la lista de versiones admitidas al final del período de gracia de 30 días.
+Si el clúster de ARO ejecuta una versión de OpenShift que no está en la lista de versiones admitidas o usa una [configuración de clúster no admitida](https://docs.microsoft.com/azure/openshift/support-policies-v4), dicho clúster queda “fuera del soporte técnico”. Como resultado:
+- Al abrir una incidencia de soporte técnico para el clúster, se le pedirá que lo actualice con una versión compatible antes de recibir el soporte, a menos que esté en el período de gracia de 30 días desde la finalización del soporte técnico de la versión. 
+- Las garantías de tiempo de ejecución o contrato de nivel de servicio para clústeres fuera del soporte técnico quedan anuladas.
+- Los clústeres fuera del soporte técnico se revisarán dentro de lo posible.
+- Estos clústeres no se supervisarán.

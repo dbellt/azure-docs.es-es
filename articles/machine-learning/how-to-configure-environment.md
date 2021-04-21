@@ -8,15 +8,15 @@ ms.author: roastala
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
-ms.date: 11/16/2020
+ms.date: 03/22/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1, devx-track-azurecli
-ms.openlocfilehash: 7e493404e7a36b60e8f9e62cd4ac2f2b32845bb9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7f35f9196fb4ab67de724ba73982fed69ac81361
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102501624"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306847"
 ---
 # <a name="set-up-a-python-development-environment-for-azure-machine-learning"></a>Configuración de un entorno de desarrollo de Python para Azure Machine Learning
 
@@ -100,7 +100,7 @@ Para configurar un entorno de desarrollo local o una máquina virtual remota:
 
 1. Active el entorno virtual de Python recién creado.
 1. Instale el [SDK de Azure Machine Learning para Python](/python/api/overview/azure/ml/install).
-1. Con el fin de configurar el entorno local para usar el área de trabajo de Azure Machine Learning, [cree un archivo de configuración del área de trabajo](#workspace) o use uno que ya tenga.
+1. Con el fin de configurar el entorno local para usar el área de trabajo de Azure Machine Learning, [cree un archivo de configuración de área de trabajo](#workspace) o use uno que ya tenga.
 
 Ahora que ha configurado el entorno local, ya podrá empezar a trabajar con Azure Machine Learning. Consulte la [guía de introducción de Azure Machine Learning para Python](tutorial-1st-experiment-sdk-setup-local.md) para comenzar.
 
@@ -134,7 +134,12 @@ Para usar Visual Studio Code para el desarrollo:
 1. Instale [Visual Studio Code](https://code.visualstudio.com/Download).
 1. Instale la [extensión Azure Machine Learning para Visual Studio Code](tutorial-setup-vscode-extension.md) (versión preliminar).
 
-Una vez instalada la extensión de Visual Studio Code, puede administrar los [recursos de Azure Machine Learning](how-to-manage-resources-vscode.md), [ejecutar y depurar los experimentos](how-to-debug-visual-studio-code.md) e [implementar modelos entrenados](tutorial-train-deploy-image-classification-model-vscode.md).
+Una vez que tenga instalada la extensión de Visual Studio Code, úsela para:
+
+* [Administrar los recursos de Azure Machine Learning](how-to-manage-resources-vscode.md)
+* [Conectarse a una instancia de proceso de Azure Machine Learning](how-to-set-up-vs-code-remote.md)
+* [Ejecutar y depurar experimentos](how-to-debug-visual-studio-code.md)
+* [Implementar modelos entrenados](tutorial-train-deploy-image-classification-model-vscode.md).
 
 ## <a name="azure-machine-learning-compute-instance"></a><a id="compute-instance"></a>Instancia de Proceso de Azure Machine Learning
 
@@ -151,7 +156,7 @@ Para obtener más información acerca de las instancias de proceso, incluyendo c
 
 Además de un servidor de Jupyter Notebook y JupyterLab, puede usar instancias de proceso en la [característica de cuadernos integrada en Estudio de Azure Machine Learning](how-to-run-jupyter-notebooks.md).
 
-También puede usar la extensión de Visual Studio Code de Azure Machine Learning para [configurar una instancia de proceso de Azure Machine Learning como un servidor de Jupyter Notebook remoto](how-to-set-up-vs-code-remote.md#configure-compute-instance-as-remote-notebook-server).
+También puede usar la extensión de Visual Studio Code para Azure Machine Learning para [conectarse a una instancia de proceso remota mediante VS Code](how-to-set-up-vs-code-remote.md).
 
 ## <a name="data-science-virtual-machine"></a><a id="dsvm"></a>Data Science Virtual Machine
 

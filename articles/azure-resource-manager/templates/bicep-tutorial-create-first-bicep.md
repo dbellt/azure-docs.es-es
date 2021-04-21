@@ -2,16 +2,16 @@
 title: 'Tutorial: Creación e implementación de archivos Bicep de Azure Resource Manager'
 description: Cree su primer archivo Bicep para implementar recursos de Azure. En este tutorial, conocerá la sintaxis de los archivos Bicep y aprenderá a implementar una cuenta de almacenamiento.
 author: mumian
-ms.date: 03/17/2021
+ms.date: 04/12/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 8979585d7ec0fa6eac1866375fe1e80214f2d2e2
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 0ffd8a97d797144d458e7ec5836042cc6d8d8193
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104594281"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306696"
 ---
 # <a name="tutorial-create-and-deploy-first-azure-resource-manager-bicep-file"></a>Tutorial: Creación e implementación del primer archivo Bicep de Azure Resource Manager
 
@@ -57,7 +57,7 @@ Perfecto. Ya tenemos todo para empezar a conocer Bicep.
 
     ```bicep
     resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
-      name: '{provide-unique-name}'
+      name: '{provide-unique-name}'  // must be globally unique
       location: 'eastus'
       sku: {
         name: 'Standard_LRS'
@@ -85,6 +85,10 @@ Perfecto. Ya tenemos todo para empezar a conocer Bicep.
         Si la versión de la API es anterior (por ejemplo, [storageAccounts 2016-05-01](/azure/templates/microsoft.storage/2016-05-01/storageaccounts)), el conjunto de propiedades disponible será menor.
 
         Si decide cambiar la versión de la API de un recurso, no olvide comprobar las propiedades de esa versión y ajustar el archivo Bicep como corresponda.
+
+    Para más información, consulte [Nociones sobre la estructura y la sintaxis de los archivos Bicep](./bicep-file.md).
+
+    Hay un comentario para la propiedad name.  Use `//` para los comentarios de una sola línea o `/* ... */` para los comentarios de varias líneas.
 
 1. Reemplace `{provide-unique-name}`, incluidas las llaves `{}`, por un nombre de cuenta de almacenamiento que sea único.
 

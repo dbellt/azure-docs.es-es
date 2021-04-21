@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
-ms.date: 01/29/2021
-ms.openlocfilehash: 2b37308bcbcd489876c21dce56878de7e0daf545
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/24/2021
+ms.openlocfilehash: a3c20dd85c94c359259cf69e25bb9083d56857fc
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101699035"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107777156"
 ---
 # <a name="pricing-and-billing-models-for-azure-logic-apps"></a>Modelos de precios y facturación en Azure Logic Apps
 
@@ -27,9 +27,9 @@ Por ejemplo, una solicitud realizada por un desencadenador de sondeo se mide com
 
 | Elementos | Descripción |
 |-------|-------------|
-| Acciones y desencadenadores [integrados](../connectors/apis-list.md#built-in) | Se ejecutan de forma nativa en el servicio Logic Apps y se miden con el [precio de **Acciones**](https://azure.microsoft.com/pricing/details/logic-apps/). <p><p>Por ejemplo, el desencadenador HTTP y el desencadenador de solicitud son desencadenadores integrados, mientras que la acción de respuesta y la acción HTTP son acciones integradas. Las operaciones de datos, las operaciones por lotes, las operaciones de variables y las [acciones de control de flujo de trabajo](../connectors/apis-list.md#control-workflow), como bucles, condiciones, conmutadores, ramas paralelas, etc., también son acciones integradas. |
-| Desencadenadores y acciones de [conector estándar](../connectors/apis-list.md#managed-connectors) <p><p>Desencadenadores y acciones de [conector personalizado](../connectors/apis-list.md#custom) | Se miden con el [precio de conector estándar](https://azure.microsoft.com/pricing/details/logic-apps/). |
-| Desencadenadores y acciones de [conector empresarial](../connectors/apis-list.md#managed-connectors) | Se miden con el [precio de conector empresarial](https://azure.microsoft.com/pricing/details/logic-apps/). Sin embargo, los conectores empresariales en versión preliminar pública se miden con el [precio de conector *estándar*](https://azure.microsoft.com/pricing/details/logic-apps/). |
+| Acciones y desencadenadores [integrados](../connectors/built-in.md) | Se ejecutan de forma nativa en el servicio Logic Apps y se miden con el [precio de **Acciones**](https://azure.microsoft.com/pricing/details/logic-apps/). <p><p>Por ejemplo, el desencadenador HTTP y el desencadenador de solicitud son desencadenadores integrados, mientras que la acción de respuesta y la acción HTTP son acciones integradas. Las operaciones de datos, las operaciones por lotes, las operaciones de variables y las [acciones de control de flujo de trabajo](../connectors/built-in.md), como bucles, condiciones, conmutadores, ramas paralelas, etc., también son acciones integradas. |
+| Desencadenadores y acciones de [conector estándar](../connectors/managed.md) <p><p>Desencadenadores y acciones de [conector personalizado](../connectors/apis-list.md#custom-apis-and-connectors) | Se miden con el [precio de conector estándar](https://azure.microsoft.com/pricing/details/logic-apps/). |
+| Desencadenadores y acciones de [conector empresarial](../connectors/managed.md) | Se miden con el [precio de conector empresarial](https://azure.microsoft.com/pricing/details/logic-apps/). Sin embargo, los conectores empresariales en versión preliminar pública se miden con el [precio de conector *estándar*](https://azure.microsoft.com/pricing/details/logic-apps/). |
 | Acciones dentro de [bucles](logic-apps-control-flow-loops.md) | Cada acción que se ejecuta en un bucle se mide para cada ciclo de bucle que se ejecuta. <p><p>Por ejemplo, supongamos que tiene un bucle "para cada uno" que incluye acciones que procesan una lista. El servicio Logic Apps mide una acción de ese bucle multiplicando el número de elementos de lista por el número de acciones del bucle, y agrega la acción que inicia el bucle. Por lo tanto, el cálculo de una lista de 10 elementos es (10x1)+1, lo que da como resultado 11 ejecuciones de acción. |
 | Número de reintentos | Para controlar las excepciones y errores más básicos, puede configurar una [directiva de reintentos](logic-apps-exception-handling.md#retry-policies) sobre desencadenadores y acciones si se admite. Estos reintentos junto con la solicitud original se cobran según tarifas basadas en si el desencadenador o la acción tiene un tipo integrado, estándar o empresarial. Por ejemplo, una acción que se ejecuta con 2 reintentos se cobra por 3 ejecuciones de acción. |
 | [Retención de datos y consumo de almacenamiento](#data-retention) | Se mide con el precio de retención de datos, que puede encontrar en la [página de precios de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/), en la tabla **Detalles de precios**. |
@@ -80,8 +80,8 @@ Se aplica un modelo de precios fijos a las aplicaciones lógicas que se ejecutan
 
 | Elementos | Descripción |
 |-------|-------------|
-| Acciones y desencadenadores [integrados](../connectors/apis-list.md#built-in) | Se muestra la etiqueta **Núcleo** y se ejecuta en el mismo ISE que las aplicaciones lógicas. |
-| [Conectores estándar](../connectors/apis-list.md#managed-connectors) <p><p>[Conectores de empresa](../connectors/apis-list.md#enterprise-connectors) | - Los conectores administrados en los que se muestra la etiqueta **ISE** están diseñados especialmente para funcionar en la puerta de enlace de datos local y ejecutarse en el mismo ISE que las aplicaciones lógicas. Los precios de ISE incluyen tantas conexiones empresariales como desee. <p><p>- Los conectores en los que no se muestra la etiqueta ISE se ejecutan en el servicio Logic Apps multiinquilino. Sin embargo, en el precio de ISE se incluyen estas ejecuciones para aplicaciones lógicas que se ejecutan en un ISE. |
+| Acciones y desencadenadores [integrados](../connectors/built-in.md) | Se muestra la etiqueta **Núcleo** y se ejecuta en el mismo ISE que las aplicaciones lógicas. |
+| [Conectores estándar](../connectors/managed.md) <p><p>[Conectores de empresa](../connectors/managed.md#enterprise-connectors) | - Los conectores administrados en los que se muestra la etiqueta **ISE** están diseñados especialmente para funcionar en la puerta de enlace de datos local y ejecutarse en el mismo ISE que las aplicaciones lógicas. Los precios de ISE incluyen tantas conexiones empresariales como desee. <p><p>- Los conectores en los que no se muestra la etiqueta ISE se ejecutan en el servicio Logic Apps multiinquilino. Sin embargo, en el precio de ISE se incluyen estas ejecuciones para aplicaciones lógicas que se ejecutan en un ISE. |
 | Acciones dentro de [bucles](logic-apps-control-flow-loops.md) | En el precio de ISE se incluye todas las acciones que se ejecutan en un bucle se mide para cada ciclo de bucle que se ejecuta. <p><p>Por ejemplo, supongamos que tiene un bucle "para cada uno" que incluye acciones que procesan una lista. Para obtener el número total de ejecuciones de acciones, multiplique el número de elementos de lista por el número de acciones del bucle, y agregue la acción que inicia el bucle. Por lo tanto, el cálculo de una lista de 10 elementos es (10x1)+1, lo que da como resultado 11 ejecuciones de acción. |
 | Número de reintentos | Para controlar las excepciones y errores más básicos, puede configurar una [directiva de reintentos](logic-apps-exception-handling.md#retry-policies) sobre desencadenadores y acciones si se admite. Los precios de ISE incluyen reintentos junto con la solicitud original. |
 | [Retención de datos y consumo de almacenamiento](#data-retention) | Logic Apps en un ISE no genera costos de retención y almacenamiento. |

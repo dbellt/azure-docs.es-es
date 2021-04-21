@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/25/2020
 ms.custom: devx-track-java
 ms.author: trbye
-ms.openlocfilehash: e3ec10bdcfb602c61943da288c32d28d30ec83ab
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: cb1c6588dc6c770c809b786982ece1c9f0b1b1b5
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105104136"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107108851"
 ---
 En este inicio rápido aprenderá patrones de diseño comunes para realizar la síntesis de texto a voz mediante el SDK de voz. Para empezar, puede realizar una configuración y síntesis básicas y, después, pasar a ejemplos más avanzados para el desarrollo de aplicaciones personalizadas, entre las que se incluyen:
 
@@ -156,9 +156,6 @@ Para cambiar el formato de audio se usa la función `setSpeechSynthesisOutputFor
 
 Hay varias opciones para los distintos tipos de archivo, por lo que puede elegir la que necesite. Tenga en cuenta que, por definición, los formatos sin procesar, como `Raw24Khz16BitMonoPcm`, no incluyen encabezados de audio. Los formatos sin procesar solo se deben usar cuando se sepa que la implementación de bajada puede descodificar una secuencia de bits sin procesar, o bien si planea crear manualmente encabezados basados en la profundidad de bits, la frecuencia de muestreo, el número de canales, etc.
 
-> [!NOTE]
-> Las voces **en-US-AriaRUS** y **en-US-GuyRUS** se han creado a partir de muestras codificadas con la frecuencia de muestreo `Riff24Khz16BitMonoPcm`.
-
 En este ejemplo, se especifica un formato RIFF de alta fidelidad `Riff24Khz16BitMonoPcm`, para lo que se establece `SpeechSynthesisOutputFormat` en el objeto `SpeechConfig`. Al igual que en el ejemplo de la sección anterior, se usa [`AudioDataStream`](/java/api/com.microsoft.cognitiveservices.speech.audiodatastream) para obtener una secuencia en memoria del resultado y, después, escribirla en un archivo.
 
 ```java
@@ -179,15 +176,15 @@ Si vuelve a ejecutar el programa, se escribirá un archivo `.wav` en la ruta de 
 
 ## <a name="use-ssml-to-customize-speech-characteristics"></a>Uso de SSML para personalizar las características de la voz
 
-El lenguaje de marcado de síntesis de voz (SSML) permite ajustar el tono, la pronunciación, la velocidad del habla, el volumen, etc. de la salida de texto a voz mediante el envío de solicitudes desde un lenguaje de definición de esquema XML. En esta sección se muestran algunos ejemplos de uso prácticos, pero se desea una guía más detallada, consulte el [artículo de procedimientos de SSML](../../../speech-synthesis-markup.md).
+El lenguaje de marcado de síntesis de voz (SSML) permite ajustar el tono, la pronunciación, la velocidad del habla, el volumen, etc. de la salida de texto a voz mediante el envío de solicitudes desde un lenguaje de definición de esquema XML. En esta sección se muestra un ejemplo de cambio de voz, pero para obtener una guía más detallada, consulte el [artículo de procedimientos de SSML](../../../speech-synthesis-markup.md).
 
 Para empezar a usar SSML para la personalización, realice un cambio sencillo que cambie la voz.
-En primer lugar, cree un archivo XML para la configuración de SSML en el directorio raíz del proyecto, en este ejemplo `ssml.xml`. El elemento raíz es siempre `<speak>` y si se ajusta el texto en un elemento `<voice>`, se puede cambiar la voz mediante el parámetro `name`. En este ejemplo se cambia la voz a una voz masculina en inglés (Reino Unido). Tenga en cuenta que esta es una voz **estándar**, que tiene distintos precios y disponibilidad que las voces **neuronales**. Consulte la [lista completa](../../../language-support.md#standard-voices) de voces **estándar** admitidas.
+En primer lugar, cree un archivo XML para la configuración de SSML en el directorio raíz del proyecto, en este ejemplo `ssml.xml`. El elemento raíz es siempre `<speak>` y si se ajusta el texto en un elemento `<voice>`, se puede cambiar la voz mediante el parámetro `name`. Consulte la [lista completa](../../../language-support.md#neural-voices) de voces **neuronales** admitidas.
 
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-  <voice name="en-GB-George-Apollo">
-    When you're on the motorway, it's a good idea to use a sat-nav.
+  <voice name="en-US-AriaNeural">
+    When you're on the freeway, it's a good idea to use a GPS.
   </voice>
 </speak>
 ```
@@ -224,36 +221,8 @@ public static void main(String[] args) {
 }
 ```
 
-La salida funciona, pero se pueden realizar algunos cambios sencillos más para que sea más natural. La velocidad de habla general es un algo más rápida, por lo que agregaremos una etiquete `<prosody>` y reduciremos la velocidad al **90 %** de la tasa predeterminada. Además, la pausa después de la coma de la oración es un poco corta y no suena natural. Para corregir este problema, agregue una etiqueta `<break>` para retrasar la voz y establezca el parámetro time en **200 ms**. Vuelva a ejecutar la síntesis para ver cómo han afectado estas personalizaciones a la salida.
-
-```xml
-<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-  <voice name="en-GB-George-Apollo">
-    <prosody rate="0.9">
-      When you're on the motorway,<break time="200ms"/> it's a good idea to use a sat-nav.
-    </prosody>
-  </voice>
-</speak>
-```
-
-## <a name="neural-voices"></a>Voces neuronales
-
-Las voces neuronales son algoritmos de síntesis de voz con tecnología de redes neuronales profundas. Cuando se usa una voz neuronal, es prácticamente imposible distinguir la voz sintetizada de las grabaciones humanas. Con su prosodia natural similar a la humana y la clara articulación de las palabras, las voces neuronales reducen considerablemente la fatiga de la escucha que aparece cuando los usuarios interactúan con sistemas de inteligencia artificial.
-
-Para cambiar a una voz neuronal, cambie `name` a una de las [opciones de voz neuronal](../../../language-support.md#neural-voices). Luego, agregue un espacio de nombres XML para `mstts` y ajuste el texto en la etiqueta `<mstts:express-as>`. Use el parámetro `style` para personalizar el estilo de habla. En este ejemplo se utiliza `cheerful`, pero pruebe a establecerlo en `customerservice` o `chat` para ver la diferencia en el estilo de habla.
-
-> [!IMPORTANT]
-> Las voces neuronales **solo** se admiten para los recursos de voz creados en las regiones *Este de EE. UU.* , *Sudeste de Asia* *y Oeste de Europa*.
-
-```xml
-<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">
-  <voice name="en-US-AriaNeural">
-    <mstts:express-as style="cheerful">
-      This is awesome!
-    </mstts:express-as>
-  </voice>
-</speak>
-```
+> [!NOTE]
+> Para cambiar la voz sin usar SSML, puede establecer la propiedad en `SpeechConfig` mediante `SpeechConfig.setSpeechSynthesisVoiceName("en-US-AriaNeural");`
 
 ## <a name="get-facial-pose-events"></a>Obtención de eventos de postura facial
 

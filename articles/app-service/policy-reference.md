@@ -1,15 +1,15 @@
 ---
 title: Definiciones de directivas integradas para Azure App Service
 description: Aquí se enumeran las definiciones de directivas integradas de Azure Policy para Azure App Service. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar los recursos de Azure.
-ms.date: 03/31/2021
+ms.date: 04/14/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: e1f2277c36f89cd1d18d5edeaba2fd8e8c71004d
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 3d65df93ea2db1d7e878389ca41ed32872b8930a
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106093810"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107503989"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-app-service"></a>Definiciones integradas de Azure Policy para Azure App Service
 

@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 31f960b39e771e7bfbf67c6e52c5da8e1fc6e0ec
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8a8cc6563d8e3cae942c4dfb43afa3d05f6f2b75
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105932461"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257316"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Administración de puntos de conexión y rutas en Azure Digital Twins (portal)
 
 [!INCLUDE [digital-twins-route-selector.md](../../includes/digital-twins-route-selector.md)]
 
-En Azure Digital Twins, se pueden enrutar [notificaciones de eventos](how-to-interpret-event-data.md) a los servicios de bajada o recursos de proceso conectados. Para ello, primero se configuran los **puntos de conexión** que pueden recibir los eventos. Después, puede crear [**rutas de eventos**](concepts-route-events.md) que especifiquen los eventos generados por Azure Digital Twins que se entregan a los puntos de conexión.
+En Azure Digital Twins, se pueden enrutar [notificaciones de eventos](concepts-event-notifications.md) a los servicios de bajada o recursos de proceso conectados. Para ello, primero se configuran los **puntos de conexión** que pueden recibir los eventos. Después, puede crear [**rutas de eventos**](concepts-route-events.md) que especifiquen los eventos generados por Azure Digital Twins que se entregan a los puntos de conexión.
 
 Este artículo le guía por el proceso de creación de puntos de conexión y rutas mediante [Azure Portal](https://portal.azure.com).
 
@@ -202,4 +202,4 @@ Estos son los filtros de ruta admitidos. Los detalles de la columna *Filter Text
 ## <a name="next-steps"></a>Pasos siguientes
 
 Lea acerca de los diferentes tipos de mensajes de evento que se pueden recibir:
-* [*Procedimiento: Interpretación de los datos de evento*](how-to-interpret-event-data.md)
+* [*Conceptos: notificaciones de eventos*](concepts-event-notifications.md)

@@ -3,15 +3,15 @@ title: Iniciar máquina virtual al establecer la conexión - Azure
 description: Cómo configurar la característica Iniciar máquina virtual al establecer la conexión.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/31/2021
+ms.date: 04/10/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: d9ce9811cd660c9a9b1fcb6f9e24cadd65d3c2bc
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: d3ef8e3656051c4a99ab52a7b52a0d623fdf9ce2
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106445608"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107303976"
 ---
 # <a name="start-virtual-machine-on-connect-preview"></a>Iniciar máquina virtual al establecer la conexión (versión preliminar)
 
@@ -35,8 +35,7 @@ Los siguientes clientes de escritorio remoto admiten la característica Iniciar 
 
 Puede buscar anuncios sobre actualizaciones y asistencia al cliente en el [foro Tech Community](https://aka.ms/wvdtc).
 
->[!IMPORTANT]
->La característica Iniciar VM al establecer la conexión actualmente solo admite PowerShell y la API REST, no Azure Portal. Para obtener más información, consulte [Creación o actualización de un grupo de hosts](/rest/api/desktopvirtualization/hostpools/createorupdate).
+Actualmente, la nube de Azure Government no admite Start VM on Connect (Iniciar VM al conectar).
 
 ## <a name="create-a-custom-role-for-start-vm-on-connect"></a>Creación de un rol personalizado para Iniciar VM al establecer la conexión
 
@@ -115,6 +114,24 @@ Iniciar VM al establecer la conexión es una configuración de grupo de hosts. S
 
 >[!IMPORTANT]
 > Solo puede configurar esta característica en grupos de hosts existentes. Esta característica no está disponible cuando se crea un nuevo grupo de hosts.
+
+### <a name="use-the-azure-portal"></a>Uso de Azure Portal
+
+Para usar Azure Portal para configurar Start VM on Connect (Iniciar VM al conectar):
+
+1. Abra el explorador y vaya a [Azure Portal](https://portal.azure.com/?feature.startVMonConnect=true#home). Se recomienda abrir Azure Portal en una ventana de InPrivate.
+
+2. Inicie sesión en Azure Portal y vaya a **Windows Virtual Desktop**.
+
+3. Seleccione **Grupos de host** y, después, busque el grupo de hosts que contiene los escritorios personales a los que asignó el rol.
+
+   >[!NOTE]
+   > El grupo de hosts en el que se configura esta característica debe tener escritorios personales con asignaciones de roles directas. Si los escritorios del grupo de hosts no están configurados correctamente, el proceso de configuración no funcionará.
+
+4. En el grupo de hosts, seleccione **Propiedades**. En **Start VM on connect** (Iniciar VM al conectar), seleccione **Sí** y, a continuación, seleccione **Guardar** para aplicar la configuración al instante.
+
+    > [!div class="mx-imgBorder"]
+    > ![Captura de pantalla de la ventana Propiedades. La opción Start VM on connect (Iniciar VM al conectar) está resaltada en rojo.](media/properties-start-vm-on-connect.png)
 
 ### <a name="use-powershell"></a>Uso de PowerShell
 

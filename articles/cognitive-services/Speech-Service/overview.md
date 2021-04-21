@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 11/23/2020
 ms.author: trbye
-ms.openlocfilehash: d3d9f41876cf1310fe25a275624f609031c05b00
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: ddb61a79e6af402b06fe8c18df8c62f9287437a3
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601879"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107209721"
 ---
 # <a name="what-is-the-speech-service"></a>¿Qué es Speech Service?
 
@@ -33,7 +33,7 @@ Las siguientes características forman parte del servicio Speech. Use los víncu
 | | [Conversación entre varios dispositivos](multi-device-conversation.md) | Conexión de varios dispositivos o clientes en una conversación para enviar mensajes basados en voz o texto, con compatibilidad sencilla con transcripción y traducción| Sí | No |
 | | [Transcripción de conversaciones](./conversation-transcription.md) | Permite el reconocimiento de voz en tiempo real, la identificación del hablante y la diarización. Es perfecto para transcribir reuniones en persona con la capacidad de distinguir a los oradores. | Sí | No |
 | | [Creación de modelos de Habla personalizada](#customize-your-speech-experience) | Si usa voz a texto para el reconocimiento y la transcripción en un entorno único, puede crear y entrenar modelos acústicos, de lenguaje y pronunciación personalizados para dirigir el sonido ambiental o vocabulario específico del sector. | No | [Sí](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) |
-| [Texto a voz](text-to-speech.md) | Texto a voz | Texto a voz convierte el texto de entrada en voz sintetizada similar a la humana mediante el [Lenguaje de marcado de síntesis de voz (SSML)](speech-synthesis-markup.md). Elija entre voces estándar y voces neuronales (consulte [Compatibilidad de idioma](language-support.md)). | [Sí](./speech-sdk.md) | [Sí](#reference-docs) |
+| [Texto a voz](text-to-speech.md) | Texto a voz | Texto a voz convierte el texto de entrada en voz sintetizada similar a la humana mediante el [Lenguaje de marcado de síntesis de voz (SSML)](speech-synthesis-markup.md). Use voces neuronales, que son voces similares a las humanas con tecnología de redes neuronales profundas. Consulte el artículo sobre la [compatibilidad con los distintos idiomas](language-support.md). | [Sí](./speech-sdk.md) | [Sí](#reference-docs) |
 | | [Creación de voces personalizadas](#customize-your-speech-experience) | Cree fuentes de voz personalizadas únicas para su marca o producto. | No | [Sí](#reference-docs) |
 | [Traducción de voz](speech-translation.md) | Traducción de voz | La traducción de voz habilita la traducción de voz en varios idiomas en tiempo real en sus aplicaciones, herramientas y dispositivos. Use este servicio para la traducción de voz a voz y voz a texto. | [Sí](./speech-sdk.md) | No |
 | [Asistentes de voz](voice-assistants.md) | Asistentes de voz | Los asistentes de voz que utilizan el Servicio de voz permiten a los desarrolladores crear interfaces de conversación naturales, similares a la humana, para sus aplicaciones y experiencias. El servicio del asistente de voz proporciona una interacción rápida y confiable entre un dispositivo y una implementación de asistente que usa el canal de voz de Direct Line Speech de Bot Framework o el servicio integrado de comandos personalizados para la finalización de tareas. | [Sí](voice-assistants.md) | No |
@@ -105,7 +105,7 @@ Ofrecemos guías de inicio rápido en los lenguajes de programación más popula
 * [Inicio rápido de voz a texto](get-started-speech-to-text.md)
 * [Inicio rápido para la conversión de texto a voz](get-started-text-to-speech.md)
 * [Inicio rápido sobre la traducción de voz](./get-started-speech-translation.md)
-* [Inicio rápido sobre el reconocimiento de intención](quickstarts/intent-recognition.md)
+* [Inicio rápido sobre el reconocimiento de intención](./get-started-intent-recognition.md)
 * [Inicio rápido spbre el reconocimiento de los altavoces](./get-started-speaker-recognition.md)
 
 Una vez que haya tenido la oportunidad de usar el servicio de voz, pruebe nuestros tutoriales, que le enseñarán a resolver distintos escenarios.

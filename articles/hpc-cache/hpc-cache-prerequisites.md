@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 03/15/2021
 ms.author: v-erkel
-ms.openlocfilehash: 7d40dcf80d9ec566146bbe46bc2cb3c558584fcd
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a03c3987c0cada69f6a7d47d7c1aa7cbf6d5015a
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104775772"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258884"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Requisitos previos para Azure HPC Cache
 
@@ -197,6 +197,8 @@ A continuación, se ofrece una introducción general de los pasos. Estos pasos p
    * Proporcione a la aplicación de caché acceso a su cuenta de almacenamiento de Azure, como se indicó anteriormente en [Permisos](#permissions). Puede hacerlo la primera vez que cree un destino de almacenamiento. Siga el procedimiento descrito en [Incorporación de destinos de almacenamiento](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) para proporcionar a la caché los roles de acceso necesarios.
 
      Si no es el propietario de la cuenta de almacenamiento, pida a este que realice este paso.
+
+Más información sobre los destinos de almacenamiento de ADLS-NFS con Azure HPC Cache en [Uso del almacenamiento de blobs montado en NFS con Azure HPC Cache](nfs-blob-considerations.md).
 
 ## <a name="set-up-azure-cli-access-optional"></a>Configuración del acceso mediante la CLI de Azure (opcional)
 

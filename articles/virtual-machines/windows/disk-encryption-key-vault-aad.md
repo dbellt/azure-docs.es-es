@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 878828a40f7a14fe8bb5728ac06585e6aca2eec8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f2f301556bd24adb5e4a18f15717374ef26c400b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102555489"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107777894"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption-with-azure-ad-previous-release"></a>Creación y configuración de un almacén de claves para Azure Disk Encryption con Azure AD (versión anterior)
 
 **La nueva versión de Azure Disk Encryption elimina la necesidad de proporcionar un parámetro de aplicación de Azure AD para habilitar el cifrado de disco de máquina virtual. Con la nueva versión, ya no es necesario proporcionar credenciales de Azure AD durante el paso de habilitar el cifrado. Todas las nuevas máquinas virtuales deben estar cifradas sin los parámetros de aplicación de Azure AD con la nueva versión. Para ver las instrucciones necesarias para habilitar el cifrado de disco de máquina virtual con la nueva versión, consulte [Azure Disk Encryption](disk-encryption-overview.md). Las máquinas virtuales que ya se han cifrado con parámetros de aplicación de Azure AD se siguen admitiendo y se deben seguir manteniendo con la sintaxis de AAD.**
 
-Azure Disk Encryption usa Azure Key Vault para controlar y administrar las claves y los secretos de cifrado de discos.  Para más información sobre los almacenes de claves, consulte [Introducción a Azure Key Vault](../../key-vault/general/overview.md) y [Protección de un almacén de claves](../../key-vault/general/secure-your-key-vault.md). 
+Azure Disk Encryption usa Azure Key Vault para controlar y administrar las claves y los secretos de cifrado de discos.  Para más información sobre los almacenes de claves, consulte [Introducción a Azure Key Vault](../../key-vault/general/overview.md) y [Protección de un almacén de claves](../../key-vault/general/security-overview.md). 
 
 Para crear y configurar un almacén de claves para Azure Disk Encryption con Azure AD (versión anterior) debe seguir estos tres pasos:
 
@@ -37,7 +37,7 @@ En el artículo [Creación y configuración de un almacén de claves para Azure 
 
 
 ## <a name="create-a-key-vault"></a>Creación de un Almacén de claves 
-Azure Disk Encryption se integra con [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) para controlar y administrar los secretos y las claves de cifrado de los discos en la suscripción de Key Vault. Puede crear un almacén de claves o usar uno existente para Azure Disk Encryption. Para más información sobre los almacenes de claves, consulte [Introducción a Azure Key Vault](../../key-vault/general/overview.md) y [Protección de un almacén de claves](../../key-vault/general/secure-your-key-vault.md). Puede usar una plantilla de Resource Manager, Azure PowerShell o la CLI de Azure para crear un almacén de claves. 
+Azure Disk Encryption se integra con [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) para controlar y administrar los secretos y las claves de cifrado de los discos en la suscripción de Key Vault. Puede crear un almacén de claves o usar uno existente para Azure Disk Encryption. Para más información sobre los almacenes de claves, consulte [Introducción a Azure Key Vault](../../key-vault/general/overview.md) y [Protección de un almacén de claves](../../key-vault/general/security-overview.md). Puede usar una plantilla de Resource Manager, Azure PowerShell o la CLI de Azure para crear un almacén de claves. 
 
 
 >[!WARNING]
@@ -65,16 +65,16 @@ Puede crear un almacén de claves con Azure PowerShell mediante el cmdlet [New-A
 
 
 ### <a name="create-a-key-vault-with-azure-cli"></a>Creación de un almacén de claves con la CLI de Azure
-Puede administrar el almacén de claves con la CLI de Azure mediante el comando [az keyvault](/cli/azure/keyvault#commands). Para crear un almacén de claves, use [crear az keyvault](/cli/azure/keyvault#az-keyvault-create).
+Puede administrar el almacén de claves con la CLI de Azure mediante el comando [az keyvault](/cli/azure/keyvault#commands). Para crear un almacén de claves, use [crear az keyvault](/cli/azure/keyvault#az_keyvault_create).
 
-1. Cree un nuevo grupo de recursos, si es necesario, con [crear grupo az](/cli/azure/group#az-group-create). Para enumerar las ubicaciones, use [az account list-locations](/cli/azure/account#az-account-list). 
+1. Cree un nuevo grupo de recursos, si es necesario, con [crear grupo az](/cli/azure/group#az_group_create). Para enumerar las ubicaciones, use [az account list-locations](/cli/azure/account#az_account_list). 
      
      ```azurecli-interactive
      # To list locations: az account list-locations --output table
      az group create -n "MyKeyVaultResourceGroup" -l "East US"
      ```
 
-3. Cree un nuevo almacén de claves con [crear az keyvault](/cli/azure/keyvault#az-keyvault-create).
+3. Cree un nuevo almacén de claves con [crear az keyvault](/cli/azure/keyvault#az_keyvault_create).
     
      ```azurecli-interactive
      az keyvault create --name "MySecureVault" --resource-group "MyKeyVaultResourceGroup" --location "East US"
@@ -150,7 +150,7 @@ La aplicación de Azure AD necesita derechos de acceso a las claves o secretos d
      ```
 
 ### <a name="set-the-key-vault-access-policy-for-the-azure-ad-app-with-azure-cli"></a>Establecimiento de la directiva de acceso del almacén de claves para la aplicación de Azure AD con la CLI de Azure
-Use [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy) para establecer la directiva de acceso. Para más información, consulte [Administración de Key Vault mediante CLI 2.0](../../key-vault/general/manage-with-cli2.md#authorizing-an-application-to-use-a-key-or-secret).
+Use [az keyvault set-policy](/cli/azure/keyvault#az_keyvault_set_policy) para establecer la directiva de acceso. Para más información, consulte [Administración de Key Vault mediante CLI 2.0](../../key-vault/general/manage-with-cli2.md#authorizing-an-application-to-use-a-key-or-secret).
 
 Conceda a la entidad de servicio que creó mediante la CLI de Azure accesp para obtener los secretos y encapsular las claves con el comando siguiente:
 
@@ -196,7 +196,7 @@ La plataforma Azure necesita acceso a las claves de cifrado o secretos del almac
      ```
 
 ### <a name="set-key-vault-advanced-access-policies-using-the-azure-cli"></a>Establecimiento de directivas de acceso avanzadas del almacén de claves mediante la CLI de Azure
-Use [az keyvault update](/cli/azure/keyvault#az-keyvault-update) para habilitar el cifrado de disco para el almacén de claves. 
+Use [az keyvault update](/cli/azure/keyvault#az_keyvault_update) para habilitar el cifrado de disco para el almacén de claves. 
 
  - **Habilitar Key Vault para el cifrado de disco:** Es necesario Enabled-for-disk-encryption. 
 

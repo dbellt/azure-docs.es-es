@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 7b53b0bc8c7cc3df2123d327bf87a85081f88f50
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a03dab43c12b372fc52e7516821fe7aef22d2e16
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100589542"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305249"
 ---
 # <a name="sampling-in-application-insights"></a>Muestreo en Application Insights.
 
@@ -184,7 +184,7 @@ El código anterior deshabilitará el muestreo adaptable. Siga los pasos a conti
 Use los métodos de extensión de `TelemetryProcessorChainBuilder` como se muestra a continuación para personalizar el comportamiento de muestreo.
 
 > [!IMPORTANT]
-> Si usa este método para configurar el muestreo, asegúrese de establecer la propiedad `aiOptions.EnableAdaptiveSampling` en `false` al llamar a `AddApplicationInsightsTelemetry()`.
+> Si usa este método para configurar el muestreo, asegúrese de establecer la propiedad `aiOptions.EnableAdaptiveSampling` en `false` al llamar a `AddApplicationInsightsTelemetry()`. Tras este cambio, debe seguir las instrucciones del bloque de código siguiente **tal cual** para volver a habilitar el muestreo adaptable con las personalizaciones en su lugar. Si no lo hace, puede producirse un exceso de ingesta de datos. Pruebe la configuración de muestreo siempre después de cambiarla y establezca un [límite de datos diario](pricing.md#set-the-daily-cap) adecuado para ayudar a controlar los costos.
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility

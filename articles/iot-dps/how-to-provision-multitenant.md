@@ -7,12 +7,12 @@ ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: eebcfb98d4e155ca965b9e4c68a862afa08a46ca
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 04ab4ae4d3de6f33f800011b9b0802665d5fb16e
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101727454"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107228337"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Cómo aprovisionar para el multiinquilinato 
 
@@ -26,11 +26,12 @@ Es habitual combinar estos dos escenarios. Por ejemplo, una solución de IoT mul
 
 En este artículo, se usa un ejemplo de dispositivo simulado del [SDK de C para Azure IoT](https://github.com/Azure/azure-iot-sdk-c) para demostrar cómo aprovisionar dispositivos en un escenario multiinquilino entre regiones. En este artículo, llevará a cabo los siguientes pasos:
 
-* Usar la CLI de Azure para crear dos centros de IoT regionales (**Oeste de EE. UU.** y **Este de EE. UU.**).
-* Crear una inscripción multiinquilino.
-* Usar la CLI de Azure para crear dos máquinas virtuales de Linux regionales para actuar como dispositivos en las mismas regiones (**Oeste de EE. UU.** y **Este de EE. UU.**).
-* Configurar el entorno de desarrollo para el SDK de C para Azure IoT en ambas máquinas virtuales de Linux.
-* Simular los dispositivos para ver que están aprovisionados para el mismo inquilino en la región más cercana.
+> [!div class="checklist"]
+> * Usar la CLI de Azure para crear dos centros de IoT regionales (**Oeste de EE. UU.** y **Este de EE. UU.**).
+> * Crear una inscripción multiinquilino.
+> * Usar la CLI de Azure para crear dos máquinas virtuales de Linux regionales para actuar como dispositivos en las mismas regiones (**Oeste de EE. UU.** y **Este de EE. UU.**).
+> * Configurar el entorno de desarrollo para el SDK de C para Azure IoT en ambas máquinas virtuales de Linux.
+> * Simular los dispositivos para ver que están aprovisionados para el mismo inquilino en la región más cercana.
 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -417,8 +418,11 @@ Para eliminar el grupo de recursos por nombre:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-> [!div class="nextstepaction"]
-> Para más información sobre el reaprovisionamiento, consulte [Conceptos sobre el reaprovisionamiento de dispositivos de IoT Hub](concepts-device-reprovision.md).
+* Para más información sobre el reaprovisionamiento, consulte
 
 > [!div class="nextstepaction"]
-> Para más información sobre el desaprovisionamiento, consulte [Desaprovisionamiento de dispositivos aprovisionados automáticamente](how-to-unprovision-devices.md).
+> [Conceptos sobre el reaprovisionamiento de dispositivos de IoT Hub](concepts-device-reprovision.md)
+
+* Para más información sobre el desaprovisionamiento, consulte
+> [!div class="nextstepaction"]
+> [Desaprovisionamiento de dispositivos aprovisionados automáticamente](how-to-unprovision-devices.md)

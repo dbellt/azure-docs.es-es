@@ -4,14 +4,14 @@ description: Se describen los diferentes modelos de uso de la memoria caché y c
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 04/08/2021
 ms.author: v-erkel
-ms.openlocfilehash: 3ad252520ca0cf7acdb3c84ef1da87c8076f3172
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a22f4b257476e96c51ae491b8570e3798f7b3ab7
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104775721"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259734"
 ---
 # <a name="understand-cache-usage-models"></a>Descripción de los modelos de uso de caché
 
@@ -21,7 +21,7 @@ Los modelos de uso de caché permiten personalizar cómo Azure HPC Cache almacen
 
 El almacenamiento en caché de archivos es la forma en que Azure HPC Cache agiliza las solicitudes de cliente. Usa estas prácticas básicas:
 
-* **Almacenamiento en caché de lectura**: Azure HPC Cache conserva una copia de los archivos que los clientes solicitan del sistema de almacenamiento. La próxima vez que un cliente solicite el mismo archivo, HPC Cache puede proporcionar la versión en su memoria caché, en lugar de tener que recuperarla del sistema de almacenamiento de back-end.
+* **Almacenamiento en caché de lectura**: Azure HPC Cache conserva una copia de los archivos que los clientes solicitan del sistema de almacenamiento. La próxima vez que un cliente solicite el mismo archivo, HPC Cache puede proporcionar la versión de su memoria caché, en lugar de tener que recuperarla del sistema de almacenamiento de back-end.
 
 * **Almacenamiento en caché de escritura**: opcionalmente, Azure HPC Cache puede almacenar una copia de los archivos modificados que se enviaron desde los equipos cliente. Si varios clientes realizan cambios en el mismo archivo durante un breve período de tiempo, la memoria caché puede recopilar todos los cambios en la memoria caché, en lugar de que deba escribir cada cambio individualmente en el sistema de almacenamiento de back-end.
 
@@ -39,7 +39,7 @@ Los modelos de uso integrados en Azure HPC Cache tienen diferentes valores para 
 
 ## <a name="choose-the-right-usage-model-for-your-workflow"></a>Elección del modelo de uso correcto para el flujo de trabajo
 
-Debe elegir un modelo de uso para cada destino de almacenamiento montado en NFS que use. Los destinos de Azure Blob Storage tienen un modelo de uso integrado que no se puede personalizar.
+Debe elegir un modelo de uso para cada destino de almacenamiento con protocolo NFS que use. Los destinos de Azure Blob Storage tienen un modelo de uso integrado que no se puede personalizar.
 
 Los modelos de uso de HPC Cache permiten elegir cómo equilibrar una respuesta rápida con el riesgo de obtener datos obsoletos. Si quiere optimizar la velocidad de lectura de los archivos, es posible que no le interese si los archivos de la memoria caché se comparan con los archivos de back-end. Por otro lado, si desea asegurarse de que los archivos estén siempre actualizados con el almacenamiento remoto, elija un modelo que realice comparaciones frecuentes.
 
@@ -77,6 +77,29 @@ En esta tabla se resumen las diferencias de los modelos de uso:
 [!INCLUDE [usage-models-table.md](includes/usage-models-table.md)]
 
 Si tiene alguna pregunta sobre el mejor modelo de uso para su flujo de trabajo de Azure HPC Cache, hable con su representante de Azure o abra una solicitud de soporte técnico para obtener ayuda.
+
+## <a name="know-when-to-remount-clients-for-nlm"></a>Cuándo volver a montar los clientes para NLM
+
+En algunas situaciones tendrá que volver a montar los clientes, si cambia el modelo de uso de un destino de almacenamiento. Esto es necesario debido a la manera en que los diferentes modelos de uso controlan las solicitudes de Network Lock Manager (NLM).
+
+HPC Cache se ubica entre los clientes y el sistema de almacenamiento de back-end. Normalmente, la memoria caché pasa las solicitudes de NLM al sistema de almacenamiento de back-end, pero en algunas situaciones, la propia caché confirma la solicitud de NLM y devuelve un valor al cliente. En Azure HPC Cache esto solo sucede cuando se usa el modelo de uso **Lectura de textos densos y poco frecuentes** (o en un destino de almacenamiento de blobs estándar, sin modelos de uso configurables).
+
+Existe un pequeño riesgo de conflicto de archivos si cambia el modelo de uso **Lectura de textos densos y poco frecuentes** a otro. No existe la manera de transferir el estado actual de NLM de la memoria caché al sistema de almacenamiento o viceversa. Por lo tanto, el estado de bloqueo del cliente es inexacto.
+
+Vuelva a montar los clientes para asegurarse de que tienen un estado NLM preciso con el nuevo administrador de bloqueo.
+
+Si los clientes envían una solicitud de NLM cuando el modelo de uso o el almacenamiento de back-end no lo admiten, recibirán un error.
+
+### <a name="disable-nlm-at-client-mount-time"></a>Deshabilitación de NLM al montar los clientes
+
+No siempre es fácil saber si los sistemas cliente enviarán o no solicitudes de NLM.
+
+Puede deshabilitar NLM cuando los clientes monten el clúster mediante la opción ``-o nolock`` del comando ``mount``.
+
+El comportamiento exacto de la opción ``nolock`` depende del sistema operativo cliente, por lo que debe comprobar la documentación de montaje (man 5 nfs) del sistema operativo cliente. En la mayoría de los casos, mueve el bloqueo localmente al cliente. Tenga cuidado si la aplicación bloquea archivos en varios clientes.
+
+> [!NOTE]
+> ADLS-NFS no admite NLM. Debe deshabilitar NLM con la opción de montaje anterior al usar un destino de almacenamiento de ADLS-NFS.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

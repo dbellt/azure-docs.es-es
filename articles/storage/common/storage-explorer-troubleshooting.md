@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: 15df9b38abe35fe3eefad2fa160e1c1f16fe7aa7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 593ccac7326a0a04884fe433cac85cb8eaf79319
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102439466"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107228238"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guía de solución de problemas del Explorador de Azure Storage
 
@@ -289,20 +289,20 @@ Si desea conservar las conexiones que no estén dañadas, puede usar los siguien
 
 Después de recorrer todas las conexiones, en busca de todos los nombres de conexión que no se han agregado de nuevo, debe borrar los datos dañados (si los hay) y volver a agregarlos mediante los pasos estándar del Explorador de Storage:
 
-# <a name="windows"></a>[Windows](#tab/Windows)
+### <a name="windows"></a>[Windows](#tab/Windows)
 
 1. En el menú **Inicio**, busque **Administrador de credenciales** y ábralo.
 2. Vaya a **Credenciales de Windows**.
 3. En **Credenciales genéricas** , busque las entradas que tengan la clave `<connection_type_key>/<corrupted_connection_name>` (por ejemplo, `StorageExplorer_CustomConnections_Accounts_v1/account1`).
 4. Elimine estas entradas y vuelva a agregar las conexiones.
 
-# <a name="macos"></a>[macOS](#tab/macOS)
+### <a name="macos"></a>[macOS](#tab/macOS)
 
 1. Abra Spotlight (comando + barra espaciadora) y busque **Keychain access** (Acceso a llavero).
 2. Busque las entradas que tengan la clave `<connection_type_key>/<corrupted_connection_name>` (por ejemplo, `StorageExplorer_CustomConnections_Accounts_v1/account1`).
 3. Elimine estas entradas y vuelva a agregar las conexiones.
 
-# <a name="linux"></a>[Linux](#tab/Linux)
+### <a name="linux"></a>[Linux](#tab/Linux)
 
 La administración de las credenciales locales varía en función de la distribución de Linux. Si la distribución de Linux no proporciona una herramienta de GUI integrada para la administración de credenciales locales, puede instalar una herramienta de terceros para administrar las credenciales locales. Por ejemplo, puede usar [Seahorse](https://wiki.gnome.org/Apps/Seahorse/), una herramienta de GUI de código abierto para administrar credenciales locales de Linux.
 
@@ -356,7 +356,7 @@ El Explorador de Storage requiere que .NET Core esté instalado en el sistema. S
 > [!NOTE]
 > La versión 1.7.0 del Explorador de Storage y anteriores requieren .NET Core 2.0. Si tiene una versión más reciente de .NET Core instalada, tendrá que [aplicar un parche al Explorador de Storage](#patching-storage-explorer-for-newer-versions-of-net-core). Si ejecuta el Explorador de Storage 1.8.0, o cualquier versión posterior, por lo menos necesita .NET Core 2.1.
 
-# <a name="ubuntu-2004"></a>[Ubuntu 20.04](#tab/2004)
+### <a name="ubuntu-2004"></a>[Ubuntu 20.04](#tab/2004)
 
 1. Descargue el archivo .tar.gz del Explorador de Storage.
 2. Instale el [entorno de ejecución de .NET Core](/dotnet/core/install/linux):
@@ -369,7 +369,7 @@ El Explorador de Storage requiere que .NET Core esté instalado en el sistema. S
      sudo apt-get install -y dotnet-runtime-2.1
    ```
 
-# <a name="ubuntu-1804"></a>[Ubuntu 18.04](#tab/1804)
+### <a name="ubuntu-1804"></a>[Ubuntu 18.04](#tab/1804)
 
 1. Descargue el archivo .tar.gz del Explorador de Storage.
 2. Instale el [entorno de ejecución de .NET Core](/dotnet/core/install/linux):
@@ -382,7 +382,7 @@ El Explorador de Storage requiere que .NET Core esté instalado en el sistema. S
      sudo apt-get install -y dotnet-runtime-2.1
    ```
 
-# <a name="ubuntu-1604"></a>[Ubuntu 16.04](#tab/1604)
+### <a name="ubuntu-1604"></a>[Ubuntu 16.04](#tab/1604)
 
 1. Descargue el archivo .tar.gz del Explorador de Storage.
 2. Instale el [entorno de ejecución de .NET Core](/dotnet/core/install/linux):
@@ -431,6 +431,98 @@ Si el botón **Abrir en el Explorador** de Azure Portal no funciona, asegúrese 
 * Mozilla Firefox
 * Google Chrome
 * Microsoft Internet Explorer
+
+## <a name="gathering-logs"></a>Recopilación de registros
+
+Al notificar un problema en GitHub, es posible que se le pida que recopile determinados registros para ayudar a diagnosticar el problema.
+
+### <a name="storage-explorer-logs"></a>Registros del Explorador de Storage
+
+A partir de la versión 1.16.0, el Explorador de Storage registra varias cosas en sus propios registros de aplicación. Puede acceder fácilmente a estos registros mediante un clic en Help > Open Logs Directory (Ayuda > Abrir directorio de registros). De manera predeterminada, el Explorador de Storage registra con un nivel de detalle bajo. Para cambiar el nivel de detalle, agregue una variable de entorno con el nombre `STG_EX_LOG_LEVEL` y cualquiera de los valores siguientes:
+- `silent`
+- `critical`
+- `error`
+- `warning`
+- `info` (nivel predeterminado)
+- `verbose`
+- `debug`
+
+Los registros se dividen en carpetas para cada sesión del Explorador de Storage que ejecute. Para los archivos de registro que necesite compartir, se recomienda colocarlos en un archivo ZIP, con los archivos de diferentes sesiones en carpetas diferentes.
+
+### <a name="authentication-logs"></a>Registros de autenticación
+
+En el caso de problemas relacionados con el inicio de sesión o la biblioteca de autenticación del Explorador de Storage, lo más probable es que tenga que recopilar los registros de autenticación. Los registros de autenticación se almacenan en:
+- Windows: `C:\Users\<your username>\AppData\Local\Temp\servicehub\logs`
+- macOS y Linux: `~/.ServiceHub/logs`
+
+Por lo general, puede seguir estos pasos para recopilar los registros:
+
+1. Vaya a Settings > Sign-in (Configuración > inicio de sesión) y active Verbose Authentication Logging (Registro de autenticación detallado). Si el Explorador de Storage no se puede iniciar debido a un problema con la biblioteca de autenticación, esto se hará automáticamente.
+2. Cierre el Explorador de Storage.
+1. Opcional recomendado: borre los registros existentes de la carpeta `logs`. Al hacerlo, se reducirá la cantidad de información que tiene que enviarnos.
+4. Abra el Explorador de Storage y reproduzca el problema.
+5. Cierre el Explorador de Storage.
+6. Comprima en formato ZIP el contenido de la carpeta `log`.
+
+### <a name="azcopy-logs"></a>Registros de AzCopy
+
+Si tiene problemas para transferir datos, es posible que tenga que obtener los registros de AzCopy. Los registros de AzCopy se pueden encontrar fácilmente mediante dos métodos diferentes:
+- En el caso de las transferencias con errores que aún están en el registro de actividad, haga clic en "Ir al archivo de registro de AzCopy".
+- Para las transferencias que no se realizaron en el pasado, vaya a la carpeta de registros de AzCopy. Esta carpeta se puede encontrar en:
+  - Windows: `C:\Users\<your username>\.azcopy`
+  - macOS y Linux : `~/.azcopy
+
+### <a name="network-logs"></a>Registros de red
+
+Para algunos problemas, deberá proporcionar los registros de las llamadas de red realizadas por el Explorador de Storage. En Windows, puede hacerlo mediante Fiddler.
+
+> [!NOTE]
+> Los seguimientos de Fiddler pueden contener contraseñas que haya escrito o enviado en el explorador durante la recopilación del seguimiento. Asegúrese de leer las instrucciones sobre cómo sanear un seguimiento de Fiddler. No cargue seguimientos de Fiddler en GitHub. Se le indicará dónde puede enviar de forma segura el seguimiento de Fiddler.
+
+Parte 1: Instalación y configuración de Fiddler
+
+1. Instale Fiddler.
+2. Inicie Fiddler.
+3. Vaya a Tools > Options (Herramientas > Opciones).
+4. Haga clic en la pestaña HTTPS.
+5. Asegúrese de que Capture CONNECTs (Capturar conexiones) y Decrypt HTTPS traffic (Descifrar tráfico HTTPS) estén activados.
+6. Haga clic en el botón "Actions" (Acciones).
+7. Elija "Trust Root Certificate" (Confiar en el certificado raíz) y luego "Yes" (Sí) en el cuadro de diálogo siguiente.
+8. Haga clic de nuevo en el botón "Actions" (Acciones).
+9. Elija "Export Root Certificate to Desktop" (Exportar el certificado raíz al escritorio).
+10. Vaya al escritorio.
+11. Busque el archivo FiddlerRoot.cer.
+12. Haga doble clic para abrirlo.
+13. Vaya a la pestaña "Detalles".
+14. Haga clic en "Copiar en archivo...".
+15. En el asistente para exportación, elija las siguientes opciones.
+    - X.509 codificado en Base 64
+    - Para el nombre de archivo, vaya a Examinar... hasta C:\Users\<your user dir>\AppData\Roaming\StorageExplorer\certs y, a continuación, puede guardarlo con cualquier nombre de archivo.
+16. Cierre la ventana del certificado.
+17. Inicie el Explorador de Storage.
+18. Vaya a Edit > Configure Proxy (Editar > Configurar proxy).
+19. En el cuadro de diálogo, elija "Use app proxy settings" (Usar configuración de proxy de la aplicación) y establezca la dirección URL en http://localhost y el puerto en 8888.
+20. Haga clic en Aceptar.
+21. Reinicio de Explorador de Storage
+22. Debería empezar a ver que las llamadas de red del proceso `storageexplorer:` se muestran en Fiddler.
+
+Parte 2: Reproducción del problema
+1. Cierre todas las aplicaciones que no sean Fiddler.
+2. Borre el registro de Fiddler (icono de X en la parte superior izquierda, cerca del menú Ver)
+3. Opcional recomendado: deje que Fiddler se establezca durante unos minutos; si ve que aparecen llamadas de red, haga clic con el botón derecho en ellas y elija "Filter Now" > "Hide <process name>" (Filtrar ahora > Ocultar <nombre_de_proceso>).
+4. Inicie el Explorador de Storage.
+5. Reproduzca el problema
+6. Haga clic en File > Save > All Sessions… (Archivo > Guardar > Todas las sesiones), para guardar la información en algún lugar que recuerde.
+7. Cierre Fiddler y el Explorador de Storage.
+
+Parte 3: Saneamiento del seguimiento de Fiddler
+1. Haga doble clic en el seguimiento de Fiddler (archivo .saz).
+2. Pulse `ctrl`+`f`.
+3. En el cuadro de diálogo que aparece, asegúrese de que están establecidas las siguientes opciones: Buscar = Solicitudes y respuestas, Examinar = Encabezados y cuerpos
+4. Busque las contraseñas que usó al recopilar el seguimiento de Fiddler, las entradas resaltadas, haga clic con el botón derecho y elija Remove > Selected sessions (Quitar > Sesiones seleccionadas).
+5. Si definitivamente ha escrito contraseñas en el explorador al recopilar el seguimiento, pero no encuentra ninguna entrada al usar ctrl+F y no desea cambiar las contraseñas o las contraseñas se usan para otras cuentas, no dude en omitir el envío del archivo .saz. Es mejor estar seguro que arrepentido. :)
+6. Vuelva a guardar el seguimiento con un nuevo nombre.
+7. Opcional: elimine el seguimiento original.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

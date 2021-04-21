@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 06/09/2020
 ms.author: rolyon
-ms.openlocfilehash: efc3bfef7c182ea005ac17a59793ac8f6484a424
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 37d50c030a2b426cb3e9af57afb899b7fab68388
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102042018"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107778481"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Elevación de los privilegios de acceso para administrar todas las suscripciones y los grupos de administración de Azure
 
@@ -163,7 +163,7 @@ Utilice los siguientes pasos básicos para elevar los privilegios de acceso de u
 
 ### <a name="list-role-assignment-at-root-scope-"></a>Mostrar la asignación de roles en el ámbito raíz (/)
 
-Para mostrar la asignación del rol de administrador de accesos de usuario para un usuario en el ámbito raíz (`/`), use el comando [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list).
+Para mostrar la asignación del rol de administrador de accesos de usuario para un usuario en el ámbito raíz (`/`), use el comando [az role assignment list](/cli/azure/role/assignment#az_role_assignment_list).
 
 ```azurecli
 az role assignment list --role "User Access Administrator" --scope "/"
@@ -193,7 +193,7 @@ Para quitarse a usted o a otro usuario la asignación del rol de administrador d
 
 1. Inicie sesión como un usuario que puede quitar los privilegios de acceso elevado. Puede ser el mismo usuario que se usó para elevar los privilegios de acceso u otro administrador global con privilegios de acceso elevados en el ámbito raíz.
 
-1. Use el comando [az role assignment delete](/cli/azure/role/assignment#az-role-assignment-delete) para quitar la asignación del rol de administrador de accesos de usuario.
+1. Use el comando [az role assignment delete](/cli/azure/role/assignment#az_role_assignment_delete) para quitar la asignación del rol de administrador de accesos de usuario.
 
     ```azurecli
     az role assignment delete --assignee username@example.com --role "User Access Administrator" --scope "/"

@@ -6,19 +6,21 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/27/2021
+ms.date: 04/08/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 29d9dd7757319e59fc12b42d89c2ce16dec71b8b
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: ef1ed584a609b2e4baa27111e47343df99146f5a
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106551074"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257507"
 ---
 # <a name="soft-delete-for-blobs"></a>Eliminación temporal para blobs
 
 La eliminación temporal de blobs protege a cada uno de los blobs, instantáneas o versiones de errores accidentales al borrar o sobrescribir los datos, ya que conserva en el sistema los datos eliminados durante el período de tiempo que se especifique. Durante el período de retención, puede restaurar un objeto eliminado temporalmente a su estado en el momento en que se eliminó. Una vez vencido el período de retención especificado, el objeto se elimina permanentemente.
+
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="recommended-data-protection-configuration"></a>Configuración de protección de datos recomendada
 
@@ -29,8 +31,6 @@ La eliminación temporal de blobs forma parte de una exhaustiva estrategia para 
 - Eliminación temporal de blobs, para restaurar un blob, una instantánea o una versión que se ha eliminado. Para obtener información sobre cómo habilitar la eliminación temporal de blobs, consulte [Habilitación y administración de la eliminación temporal para blobs](soft-delete-blob-enable.md).
 
 Si necesita más información sobre las recomendaciones de Microsoft para proteger los datos, consulte [Información general sobre la protección de datos](data-protection-overview.md).
-
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="how-blob-soft-delete-works"></a>Funcionamiento de la eliminación temporal de blobs
 
@@ -93,12 +93,14 @@ Para obtener más información sobre cómo restaurar objetos eliminados temporal
 
 ## <a name="blob-soft-delete-and-versioning"></a>Eliminación temporal y control de versiones de blobs
 
-Si el control de versiones y la eliminación temporal de blobs están habilitadas en una cuenta de almacenamiento, al sobrescribir un blob se crea una nueva versión automáticamente. La nueva versión no se elimina de forma temporal y no se quita cuando expira el período de retención de eliminación temporal. No se crea ninguna instantánea eliminada temporalmente. Cuando elimina un blob, la versión actual de este se convierte en una versión anterior y se elimina la versión actual. No se crea ninguna versión nueva ni ninguna instantánea eliminada temporalmente.
+Si el control de versiones y la eliminación temporal de blobs están habilitadas en una cuenta de almacenamiento, al sobrescribir un blob se crea una nueva versión automáticamente. La nueva versión no se elimina de forma temporal y no se quita cuando expira el período de retención de eliminación temporal. No se crea ninguna instantánea eliminada temporalmente. Cuando elimina un blob, la versión actual se convierte en otra anterior y deja de haber una versión actual. No se crea ninguna versión nueva ni ninguna instantánea eliminada temporalmente.
 
-La habilitación de la eliminación temporal y el control de versiones protege las versiones de blobs contra la eliminación. Cuando la eliminación temporal está habilitada, al eliminar una versión se crea una versión eliminada temporalmente. Puede usar la operación **Undelete Blob** para restaurar una versión eliminada temporalmente, siempre y cuando haya una versión actual del blob. Si no hay ninguna versión actual, debe copiar una versión anterior a la versión actual antes de llamar a la operación **Undelete Blob**.
+La habilitación de la eliminación temporal y el control de versiones protege las versiones de blobs contra la eliminación. Cuando la eliminación temporal está habilitada, al eliminar una versión se crea una versión eliminada temporalmente. Puede usar la operación **Undelete Blob** para restaurar versiones eliminadas temporalmente durante el período de retención de la eliminación. La operación **Undelete Blob** siempre restaura todas las versiones eliminadas temporalmente del blob. No es posible restaurar una sola versión eliminada temporalmente.
+
+Una vez transcurrido el período de retención de eliminación temporal, cualquier versión del blob eliminada temporalmente se eliminará de forma permanente.
 
 > [!NOTE]
-> La llamada a la operación **Undelete Blob** en un blob eliminado cuando el control de versiones está habilitado restaura las versiones o instantáneas eliminadas temporalmente, pero no restaura el blob base. Para restaurar el blob base, promueva una versión anterior copiándola en el blob base.
+> La llamada a la operación **Undelete Blob** en un blob eliminado cuando el control de versiones está habilitado restaura las versiones o instantáneas eliminadas temporalmente, pero no restaura la versión actual. Para restaurar la versión actual, promueva una versión anterior al copiarla en la versión actual.
 
 Microsoft recomienda habilitar el control de versiones y la eliminación temporal de blobs para las cuentas de almacenamiento con el fin de lograr una protección de datos óptima. Para obtener más información sobre el uso conjunto del control de versiones de blobs y la eliminación temporal, vea [Control de versiones de blobs y eliminación temporal](versioning-overview.md#blob-versioning-and-soft-delete).
 

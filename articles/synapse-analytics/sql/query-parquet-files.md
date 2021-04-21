@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: cce4c6aff986c2e8c3d879d962714e13f6b2e7ae
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 72bf8e76217e8a3bcecd381d8d61815c539dd196
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97694689"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107209594"
 ---
 # <a name="query-parquet-files-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Consulta de archivos de Parquet mediante un grupo de SQL sin servidor en Azure Synapse Analytics
 
@@ -119,7 +119,7 @@ ORDER BY
 
 No es necesario usar la cláusula OPENROWSET WITH al leer los archivos de Parquet. Los nombres de columna y los tipos de datos se leen automáticamente desde los archivos de Parquet.
 
-En el ejemplo siguiente se muestran las funcionalidades de inferencia automática del esquema para los archivos de Parquet. Devuelve el número de filas de septiembre de 2017 sin especificar un esquema.
+En el ejemplo siguiente se muestran las funcionalidades de inferencia automática del esquema para los archivos de Parquet. Devuelve el número de filas de septiembre de 2018 sin especificar un esquema.
 
 > [!NOTE]
 > No es necesario especificar columnas en la cláusula OPENROWSET WITH al leer los archivos de Parquet. En ese caso, el servicio de consulta del grupo de SQL sin servidor utilizará los metadatos del archivo de Parquet y enlazará las columnas por el nombre.
@@ -128,7 +128,7 @@ En el ejemplo siguiente se muestran las funcionalidades de inferencia automátic
 SELECT TOP 10 *
 FROM  
     OPENROWSET(
-        BULK 'puYear=2018/puMonth=*/*.snappy.parquet',
+        BULK 'puYear=2018/puMonth=9/*.snappy.parquet',
         DATA_SOURCE = 'YellowTaxi',
         FORMAT='PARQUET'
     ) AS nyc

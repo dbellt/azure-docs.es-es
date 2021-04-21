@@ -3,19 +3,19 @@ title: 'Tutorial: Adición de un dominio personalizado al punto de conexión'
 titleSuffix: Azure Content Delivery Network
 description: Use este tutorial para agregar un dominio personalizado a un punto de conexión de Azure Content Delivery Network, de modo que el nombre de dominio sea visible en la dirección URL.
 services: cdn
-author: asudbring
+author: jessie-jyy
 manager: KumudD
 ms.service: azure-cdn
 ms.topic: tutorial
-ms.date: 02/04/2020
-ms.author: allensu
+ms.date: 04/12/2021
+ms.author: yuajia
 ms.custom: mvc
-ms.openlocfilehash: 9bca81e7d0eb68d43c21065f5104fc423115be25
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 63ca8cc981f7a192c35f7d1889187ae84773ba08
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106065198"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107308003"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-endpoint"></a>Tutorial: Adición de un dominio personalizado al punto de conexión
 
@@ -245,9 +245,14 @@ Después de haber completado el registro del dominio personalizado, compruebe qu
 
 Si desea dejar de asociar el punto de conexión a un dominio personalizado, siga estos pasos para quitar el dominio personalizado:
  
-1. En el perfil de CDN, seleccione el punto de conexión con el dominio personalizado que desee quitar.
+1. Vaya al proveedor DNS, elimine el registro CNAME del dominio personalizado o actualice el registro CNAME del dominio personalizado a un punto de conexión que no pertenezca a Azure CDN.
 
-2. En la página **Punto de conexión**, en Dominios personalizados, haga clic con el botón derecho en el dominio personalizado que desea quitar y, después, seleccione **Eliminar** en el menú contextual. Seleccione **Sí**.
+    > [!Important]
+    > Para evitar las entradas DNS pendientes y los riesgos de seguridad que crean, a partir del 9 de abril de 2021 Azure CDN requiere la eliminación de los registros CNAME en los puntos de conexión de Azure CDN antes de que se puedan eliminar los recursos. Los recursos incluyen los dominios personalizados de Azure CDN, los perfiles o puntos de conexión de Azure CDN, o los grupos de recursos de Azure que tienen dominios personalizado de Azure CDN habilitados.
+
+2. En el perfil de CDN, seleccione el punto de conexión con el dominio personalizado que desee quitar.
+
+3. En la página **Punto de conexión**, en Dominios personalizados, haga clic con el botón derecho en el dominio personalizado que desea quitar y, después, seleccione **Eliminar** en el menú contextual. Seleccione **Sí**.
 
    El dominio personalizado se desasocia del punto de conexión.
 
@@ -255,25 +260,29 @@ Si desea dejar de asociar el punto de conexión a un dominio personalizado, siga
 
 Si desea dejar de asociar el punto de conexión a un dominio personalizado, siga estos pasos para quitar el dominio personalizado:
 
-1. Use [Remove-AzCdnCustomDomain](/powershell/module/az.cdn/remove-azcdncustomdomain) para quitar el dominio personalizado del punto de conexión:
+1. Vaya al proveedor DNS, elimine el registro CNAME del dominio personalizado o actualice el registro CNAME del dominio personalizado a un punto de conexión que no pertenezca a Azure CDN.
+
+    > [!Important]
+    > Para evitar las entradas DNS pendientes y los riesgos de seguridad que crean, a partir del 9 de abril de 2021 Azure CDN requiere la eliminación de los registros CNAME en los puntos de conexión de Azure CDN antes de que se puedan eliminar los recursos. Los recursos incluyen los dominios personalizados de Azure CDN, los perfiles o puntos de conexión de Azure CDN, o los grupos de recursos de Azure que tienen dominios personalizado de Azure CDN habilitados.
+
+2. Use [Remove-AzCdnCustomDomain](/powershell/module/az.cdn/remove-azcdncustomdomain) para quitar el dominio personalizado del punto de conexión:
 
     * Reemplace **myendpoint8675** por el nombre del punto de conexión de la red CDN.
     * Reemplace **www.contoso.com** por el nombre de dominio personalizado.
     * Reemplace **myCDN** por el nombre del perfil de CDN.
     * Reemplace **myResourceGroupCDN** por el nombre del grupo de recursos.
 
-
-```azurepowershell-interactive
-    $parameters = @{
-        CustomDomainName = 'www.contoso.com'
-        EndPointName = 'myendpoint8675'
-        ProfileName = 'myCDN'
-        ResourceGroupName = 'myResourceGroupCDN'
-    }
-    Remove-AzCdnCustomDomain @parameters
-```
-
+    ```azurepowershell-interactive
+        $parameters = @{
+            CustomDomainName = 'www.contoso.com'
+            EndPointName = 'myendpoint8675'
+            ProfileName = 'myCDN'
+            ResourceGroupName = 'myResourceGroupCDN'
+        }
+        Remove-AzCdnCustomDomain @parameters
+    ```
 ---
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, ha aprendido a:

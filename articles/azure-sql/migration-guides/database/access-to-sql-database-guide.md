@@ -9,16 +9,16 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 03/19/2021
-ms.openlocfilehash: f9fa2426e371ab9fd99e88979cbcbbb34adb00d6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 73ee4d4be16284880b10df4a52b422a08c04c6a0
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105643592"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107284194"
 ---
 # <a name="migration-guide-access-to-azure-sql-database"></a>Guía de migración: de Access a Azure SQL Database
 
-En esta guía va a aprender a migrar una base de datos de Microsoft Access a una base de datos de Azure SQL mediante SQL Server Migration Assistant para Access (SSMA para Access).
+En esta guía va a aprender a [migrar](https://azure.microsoft.com/migration/migration-journey) la base de datos de Microsoft Access a una base de datos de Azure SQL mediante [SQL Server Migration](https://azure.microsoft.com/en-us/migration/sql-server/) Assistant para Access (SSMA para Access).
 
 Para ver otras guías de migración, consulte [Guía de Azure Database Migration](https://docs.microsoft.com/data-migration). 
 
@@ -32,7 +32,7 @@ Antes de empezar a migrar la base de datos de Access a una base de datos SQL, h
 
 ## <a name="pre-migration"></a>Antes de la migración
 
-Una vez cumplidos los requisitos previos, estará a punto para detectar la topología de su entorno y evaluar la viabilidad de la migración.
+Una vez cumplidos los requisitos previos, estará listo para detectar la topología del entorno y evaluar la viabilidad de la [migración a la nube de Azure](https://azure.microsoft.com/migration).
 
 
 ### <a name="assess"></a>Evaluar 
@@ -124,7 +124,7 @@ Para publicar el esquema y migrar los datos con SSMA para Access, haga lo siguie
 
 1. Migre los datos. Haga clic con el botón derecho en la base de datos o el objeto que quiere migrar y seleccione **Migrar datos**. Como alternativa, puede seleccionar la pestaña **Migrar datos** en la esquina superior derecha.  
 
-   Para migrar datos de toda una base de datos, active la casilla situada junto al nombre de la base de datos. Para migrar datos de tablas concretas, expanda la base de datos, expanda **Tablas** y, a continuación, active la casilla situada junto a la tabla. Para omitir datos de tablas concretas, desactive la casilla.
+   Para migrar datos de toda una base de datos, active la casilla situada junto al nombre de la base de datos. Para migrar datos de tablas concretas, expanda la base de datos, expanda **Tablas** y, a continuación, active la casilla que hay junto a la tabla. Para omitir datos de tablas concretas, desactive la casilla.
 
     ![Captura de pantalla del comando "Migrar datos" en el panel "Explorador de metadatos de Access".](./media/access-to-sql-database-guide/migrate-data.png)
 
@@ -146,7 +146,7 @@ Cuando se hayan migrado los datos al entorno de destino, todas las aplicaciones 
 
 ### <a name="perform-tests"></a>Realización de pruebas
 
-El método de prueba para la migración de bases de datos consta de las siguientes actividades:
+El enfoque de prueba para la migración de bases de datos consta de las siguientes actividades:
 
 1. **Desarrollar pruebas de validación**: para probar la migración de bases de datos, debe utilizar consultas SQL. Debe crear las consultas de validación para que se ejecuten en las bases de datos de origen y destino. Las consultas de validación deben abarcar el ámbito definido.
 
@@ -169,7 +169,7 @@ Para obtener más ayuda a fin de completar este escenario de migración, vea el 
 
 | Título | Descripción |
 | --- | --- |
-| [Herramienta y modelo de evaluación de la carga de trabajo de datos](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool) | Proporciona sugerencias de plataformas de destino "ideales", preparación para la nube y niveles de corrección de aplicación o base de datos para cargas de trabajo especificadas. Ofrece un cálculo sencillo con un solo clic y una función de generación de informes que ayuda a acelerar las evaluaciones de grandes volúmenes, ya que proporciona un proceso de toma de decisiones de plataforma de destino uniforme y automatizado. |
+| [Herramienta y modelo de evaluación de la carga de trabajo de datos](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool) | Proporciona sugerencias de plataformas de destino ideales, preparación para la nube, y niveles de corrección de aplicación o base de datos para cargas de trabajo especificadas. Ofrece un cálculo sencillo con un solo clic y una función de generación de informes que ayuda a acelerar las evaluaciones de grandes volúmenes, ya que proporciona un proceso de toma de decisiones de plataforma de destino uniforme y automatizado. |
 
 El equipo de ingeniería de datos SQL ha desarrollado estos recursos. El objetivo principal de este equipo es permitir y acelerar la modernización compleja de los proyectos de migración de la plataforma de datos a la de Azure, de Microsoft.
 
@@ -185,6 +185,8 @@ El equipo de ingeniería de datos SQL ha desarrollado estos recursos. El objetiv
 - Para más información sobre el marco y el ciclo de adopción de las migraciones en la nube, consulte:
    -  [Cloud Adoption Framework para Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
    -  [Procedimientos recomendados para gestionar los costos y el tamaño de las cargas de trabajo migradas a Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
+   -  [Recursos de Migración a la nube](https://azure.microsoft.com/migration/resources)
+
 
 - Para evaluar la capa de acceso de la aplicación, consulte [Data Access Migration Toolkit (versión preliminar)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit).
 - Para obtener información sobre cómo realizar pruebas A/B de capa de acceso a datos, vea [Información general de Asistente para experimentación con bases de datos](/sql/dea/database-experimentation-assistant-overview).

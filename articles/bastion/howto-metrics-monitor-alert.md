@@ -8,12 +8,12 @@ ms.service: bastion
 ms.topic: how-to
 ms.date: 03/12/2021
 ms.author: mialdrid
-ms.openlocfilehash: 3a5beba3938b5a845a378ede155f2f64e6baac7a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: c4e03318fae8d8d3a8b4d29538cad49f9ef39593
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103417950"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259122"
 ---
 # <a name="how-to-configure-monitoring-and-metrics-for-azure-bastion-using-azure-monitor"></a>Configuración de la supervisión y las métricas para Azure Bastion mediante Azure Monitor
 
@@ -73,6 +73,12 @@ Puede ver el uso de memoria en cada instancia del bastión dividida en cada inst
 #### <a name="session-count"></a>Número de sesiones
 
 Puede ver el número de sesiones activas por instancia de bastión, agregadas en cada tipo de sesión (RDP y SSH). Cada instancia de Azure Bastion puede admitir una serie de sesiones de RDP y SSH activas. La supervisión de esta métrica le ayudará a comprender si necesita ajustar el número de instancias que ejecutan el servicio de bastión. Para más información sobre el número de sesiones que puede admitir Azure Bastion, consulte las [preguntas frecuentes sobre Azure Bastión](bastion-faq.md).
+
+Los valores recomendados para la configuración de esta métrica son:
+
+* **Agregación:** Avg
+* **Granularidad:** 5 o 15 minutos
+* Se recomienda dividir por instancias para obtener un recuento más preciso
 
 :::image type="content" source="./media/metrics-monitor-alert/session-count.png" alt-text="Captura de pantalla que muestra el recuento de sesiones":::
 

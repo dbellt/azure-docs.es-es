@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 876fd8260b64fba4d3d34a766b4259323c660b76
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 94568eb5d64f07133ebb9992cdae59400830dd5e
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94968084"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107226895"
 ---
 # <a name="tutorial-provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Tutorial: Aprovisionamiento del dispositivo en una instancia de IoT Hub mediante el servicio Azure IoT Hub Device Provisioning
 
@@ -98,7 +98,7 @@ En este tutorial, ha aprendido a:
 > * Iniciar el dispositivo
 > * Comprobar que el dispositivo está registrado
 
-Pase al siguiente tutorial para aprender a aprovisionar varios dispositivos en centros con equilibrio de carga. 
+Pase al siguiente tutorial para aprender a aprovisionar varios dispositivos en centros con equilibrio de carga.
 
 > [!div class="nextstepaction"]
 > [Aprovisionamiento de dispositivos en instancias de IoT Hub con equilibrio de carga](./tutorial-provision-multiple-hubs.md)

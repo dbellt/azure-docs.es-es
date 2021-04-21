@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions, devx-track-azurecli
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee392666a6c6807497eeac2a2291dac915c4e136
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 418741c10dfe5f0678d7771d046781697512bafe
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101644313"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107776508"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Inicio de sesión en una máquina virtual Windows en Azure mediante la autenticación de Azure Active Directory (versión preliminar)
 
@@ -104,8 +104,8 @@ Azure Cloud Shell es un shell interactivo gratuito que puede usar para ejecutar 
 
 Si decide instalar y usar la CLI localmente, para este artículo es preciso que ejecute la versión 2.0.31 o posterior de la CLI de Azure. Para saber qué versión tiene, ejecute el comando az --version. Si necesita instalar o actualizar, consulte el artículo [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
-1. Cree un grupo de recursos con [az group create](/cli/azure/group#az-group-create). 
-1. Cree una VM con [az vm create](/cli/azure/vm#az-vm-create) con una distribución compatible en una región compatible. 
+1. Cree un grupo de recursos con [az group create](/cli/azure/group#az_group_create). 
+1. Cree una VM con [az vm create](/cli/azure/vm#az_vm_create) con una distribución compatible en una región compatible. 
 1. Instale la extensión de VM para el inicio de sesión de Azure AD. 
 
 En el ejemplo siguiente se implementa una VM denominada myVM que usa Win2019Datacenter en un grupo de recursos denominado myResourceGroup en la región southcentralus. En los ejemplos siguientes, puede proporcionar sus propios nombres de máquinas virtuales y grupos de recursos según sea necesario.
@@ -127,7 +127,7 @@ az vm create \
 
 La creación de la máquina virtual y los recursos auxiliares tarda unos minutos en realizarse.
 
-Por último, instale la extensión de VM de inicio de sesión de Azure AD para habilitar el inicio de sesión de Azure AD para la VM Windows. Las extensiones de máquina virtual son aplicaciones pequeñas que realizan tareas de automatización y configuración posterior a la implementación en máquinas virtuales de Azure. Use [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) para instalar la extensión AADLoginForWindows en la máquina virtual denominada `myVM` en el grupo de recursos `myResourceGroup`:
+Por último, instale la extensión de VM de inicio de sesión de Azure AD para habilitar el inicio de sesión de Azure AD para la VM Windows. Las extensiones de máquina virtual son aplicaciones pequeñas que realizan tareas de automatización y configuración posterior a la implementación en máquinas virtuales de Azure. Use [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set) para instalar la extensión AADLoginForWindows en la máquina virtual denominada `myVM` en el grupo de recursos `myResourceGroup`:
 
 > [!NOTE]
 > Puede instalar la extensión AADLoginForWindows en una VM existente de Windows Server 2019 o Windows 10 1809 y versiones posteriores para habilitarla para la autenticación de Azure AD. A continuación se muestra un ejemplo de la CLI de AZ.
@@ -177,7 +177,7 @@ Transcurridos unos instantes, se asigna el rol a la entidad de seguridad en el �
 
 ### <a name="using-the-azure-cloud-shell-experience"></a>Mediante la experiencia de Azure Cloud Shell
 
-En el ejemplo siguiente se usa [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) para asignar el rol Inicio de sesión de administrador de Virtual Machine a la VM para el usuario de Azure actual. El nombre de usuario de la cuenta de Azure activa se obtiene con [az account show](/cli/azure/account#az-account-show) y el ámbito se establece en la VM que se creó en un paso anterior con [az vm show](/cli/azure/vm#az-vm-show). El ámbito también se podría asignar en el nivel de un grupo de recursos o de suscripción, y se aplican los permisos de herencia de RBAC de Azure normales. Para obtener información, consulte [Inicio de sesión en una máquina virtual Linux en Azure mediante la autenticación de Azure Active Directory (versión preliminar)](../../virtual-machines/linux/login-using-aad.md).
+En el ejemplo siguiente se usa [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) para asignar el rol Inicio de sesión de administrador de Virtual Machine a la VM para el usuario de Azure actual. El nombre de usuario de la cuenta de Azure activa se obtiene con [az account show](/cli/azure/account#az_account_show) y el ámbito se establece en la VM que se creó en un paso anterior con [az vm show](/cli/azure/vm#az_vm_show). El ámbito también se podría asignar en el nivel de un grupo de recursos o de suscripción, y se aplican los permisos de herencia de RBAC de Azure normales. Para obtener información, consulte [Inicio de sesión en una máquina virtual Linux en Azure mediante la autenticación de Azure Active Directory (versión preliminar)](../../virtual-machines/linux/login-using-aad.md).
 
 ```   AzureCLI
 $username=$(az account show --query user.name --output tsv)
@@ -190,7 +190,7 @@ az role assignment create \
 ```
 
 > [!NOTE]
-> Si su dominio de AAD y el dominio del nombre de usuario de inicio de sesión no coinciden, debe especificar el identificador de objeto de su cuenta de usuario mediante `--assignee-object-id`, y no solo el nombre de usuario para `--assignee`. Puede obtener el identificador de objeto para su cuenta de usuario mediante [az ad user list](/cli/azure/ad/user#az-ad-user-list).
+> Si su dominio de AAD y el dominio del nombre de usuario de inicio de sesión no coinciden, debe especificar el identificador de objeto de su cuenta de usuario mediante `--assignee-object-id`, y no solo el nombre de usuario para `--assignee`. Puede obtener el identificador de objeto para su cuenta de usuario mediante [az ad user list](/cli/azure/ad/user#az_ad_user_list).
 
 Para obtener más información sobre cómo usar RBAC de Azure para administrar el acceso a los recursos de la suscripción de Azure, consulte los siguientes artículos:
 

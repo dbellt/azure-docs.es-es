@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2021
 ms.author: mnayak
-ms.openlocfilehash: 2291767c162953f8339fb8cc27e55b96290ef795
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 58b91c105ed48617b64356904942f5ab6b461cda
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101665951"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107776562"
 ---
 # <a name="configure-routing-preference-for-a-public-ip-address-using-azure-cli"></a>Configuración de la preferencia de enrutamiento para una dirección IP pública mediante la CLI de Azure
 
@@ -40,14 +40,14 @@ De forma predeterminada, la preferencia de enrutamiento de la dirección IP púb
 - En este artículo se necesita la versión 2.0.49 de la CLI de Azure, o cualquier versión posterior. Si usa Azure Cloud Shell, ya está instalada la versión más reciente.
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
-Para crear un grupo de recursos, use el comando [az group create](/cli/azure/group#az-group-create). En el siguiente ejemplo se crea un grupo de recursos en la región **Este de EE. UU.** de Azure:
+Para crear un grupo de recursos, use el comando [az group create](/cli/azure/group#az_group_create). En el siguiente ejemplo se crea un grupo de recursos en la región **Este de EE. UU.** de Azure:
 
 ```azurecli
   az group create --name myResourceGroup --location eastus
 ```
 ## <a name="create-a-public-ip-address"></a>Crear una dirección IP pública
 
-Cree una dirección IP pública con preferencia de enrutamiento y de tipo **Internet** mediante el comando [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create), con el formato que se muestra a continuación.
+Cree una dirección IP pública con preferencia de enrutamiento y de tipo **Internet** mediante el comando [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create), con el formato que se muestra a continuación.
 
 El siguiente comando crea una nueva dirección IP pública con preferencia de enrutamiento de **Internet** en la región de Azure del **Este de EE. UU.** .
 
@@ -71,4 +71,3 @@ Puede asociar la dirección IP pública creada anteriormente con una máquina vi
 
 - Obtenga más información sobre la [preferencia de enrutamiento en direcciones IP públicas](routing-preference-overview.md). 
 - [Configure la preferencia de enrutamiento de una VM mediante la CLI de Azure](configure-routing-preference-virtual-machine-cli.md).
-
