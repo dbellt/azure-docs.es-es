@@ -10,12 +10,12 @@ ms.topic: sample
 ms.date: 02/19/2020
 ms.author: alkemper
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 54ad9f389070e1d5d280517a2f6c41e9a0f8f33e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bc329feffbf22d63774ab0f3779d62d3ccf53adb
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96929997"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107774144"
 ---
 # <a name="work-with-key-values-in-an-azure-app-configuration-store"></a>Uso de pares clave-valor en un almacén de Azure App Configuration
 
@@ -83,9 +83,9 @@ En esta tabla se enumeran los comandos que se usan en el script de ejemplo.
 
 | Get-Help | Notas |
 |---|---|
-| [az appconfig kv set](/cli/azure/appconfig/kv#az-appconfig-kv-set) | Crea o actualiza un par clave-valor. |
-| [az appconfig kv list](/cli/azure/appconfig/kv#az-appconfig-kv-list) | Enumera los pares clave-valor de un almacén de App Configuration. |
-| [az appconfig kv delete](/cli/azure/appconfig/kv#az-appconfig-kv-delete) | Elimina un par clave-valor. |
+| [az appconfig kv set](/cli/azure/appconfig/kv#az_appconfig_kv_set) | Crea o actualiza un par clave-valor. |
+| [az appconfig kv list](/cli/azure/appconfig/kv#az_appconfig_kv_list) | Enumera los pares clave-valor de un almacén de App Configuration. |
+| [az appconfig kv delete](/cli/azure/appconfig/kv#az_appconfig_kv_delete) | Elimina un par clave-valor. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

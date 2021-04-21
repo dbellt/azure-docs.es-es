@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 4d6274f3e1356a8ff8a997e830f0ebee43f50cff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5c2520c8e209ab8319cbc5a369b70d247a52232c
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92893163"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107601005"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-policystat"></a>Tutorial: Integración de Azure Active Directory con PolicyStat
 
@@ -110,7 +110,7 @@ Para configurar el inicio de sesión único de Azure AD con PolicyStat, realice 
     b. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `https://<companyname>.policystat.com/saml2/metadata/`
 
     > [!NOTE]
-    > Estos valores no son reales. Actualice estos valores con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte al cliente de PolicyStat](http://www.policystat.com/support/) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Estos valores no son reales. Actualice estos valores con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte al cliente de PolicyStat](https://rldatix.com/services-support/support) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 4. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **XML de metadatos de federación** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
@@ -154,13 +154,13 @@ Para configurar el inicio de sesión único de Azure AD con PolicyStat, realice 
 
     c. URL de cierre de sesión
 
-### <a name="configure-policystat-single-sign-on"></a>Configuración del inicio de sesión único de PolicyStat
+### <a name="configure-policystat-single-sign-on&quot;></a>Configuración del inicio de sesión único de PolicyStat
 
 1. En otra ventana del explorador web, inicie sesión en el sitio de la compañía PolicyStat como administrador.
 
 2. Haga clic en la pestaña **Administración** y en **Configuración de inicio de sesión único** en el panel de navegación izquierdo.
    
-    ![Menú Administrador](./media/policystat-tutorial/ic808633.png "Menú Administrador")
+    ![Menú Administrador](./media/policystat-tutorial/ic808633.png &quot;Menú Administrador")
 
 3. Haga clic en **Sus metadatos de IDP** y en la sección **Sus metadatos de IDP**, realice los pasos siguientes:
    

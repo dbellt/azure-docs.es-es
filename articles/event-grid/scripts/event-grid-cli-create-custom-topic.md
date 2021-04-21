@@ -5,12 +5,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 07/08/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d61dac0e76fc7b7006fa36f1cb96965ccee3d863
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4e381310db5a21e532b262063ee33de3a23edeb2
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87494135"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107766760"
 ---
 # <a name="create-event-grid-custom-topic-with-azure-cli"></a>Creación de un tema personalizado de Event Grid con la CLI de Azure
 
@@ -30,7 +30,7 @@ Este script usa los siguientes comandos para crear el tema personalizado. Cada c
 
 | Get-Help | Notas |
 |---|---|
-| [az eventgrid topic create](/cli/azure/eventgrid/topic#az-eventgrid-topic-create) | Permite crear un tema personalizado de Event Grid. |
+| [az eventgrid topic create](/cli/azure/eventgrid/topic#az_eventgrid_topic_create) | Permite crear un tema personalizado de Event Grid. |
 
 
 ## <a name="next-steps"></a>Pasos siguientes
