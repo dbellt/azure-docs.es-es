@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/08/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: 9da83746cdaf693922b88841cd9c0fac432611c9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0065b6f4a7039e2883bca6acd5cf659be7b71069
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104870847"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107717682"
 ---
 # <a name="text-to-speech-rest-api"></a>Text-to-speech REST API
 
@@ -225,16 +225,19 @@ En esta tabla se enumeran los encabezados obligatorios y opcionales para las sol
 Esta es una lista de formatos de audio admitidos que se envían en cada solicitud como encabezado `X-Microsoft-OutputFormat`. Cada uno de ellos incorpora una velocidad de bits y el tipo de codificación. El servicio de voz admite salidas de audio de 24 kHz, 16 kHz y 8 kHz.
 
 ```output
-raw-16khz-16bit-mono-pcm            raw-8khz-8bit-mono-mulaw
-riff-8khz-8bit-mono-alaw            riff-8khz-8bit-mono-mulaw
-riff-16khz-16bit-mono-pcm           audio-16khz-128kbitrate-mono-mp3
-audio-16khz-64kbitrate-mono-mp3     audio-16khz-32kbitrate-mono-mp3
+raw-16khz-16bit-mono-pcm            riff-16khz-16bit-mono-pcm
 raw-24khz-16bit-mono-pcm            riff-24khz-16bit-mono-pcm
-audio-24khz-160kbitrate-mono-mp3    audio-24khz-96kbitrate-mono-mp3
-audio-24khz-48kbitrate-mono-mp3     ogg-24khz-16bit-mono-opus
 raw-48khz-16bit-mono-pcm            riff-48khz-16bit-mono-pcm
+raw-8khz-8bit-mono-mulaw            riff-8khz-8bit-mono-mulaw
+raw-8khz-8bit-mono-alaw             riff-8khz-8bit-mono-alaw
+audio-16khz-32kbitrate-mono-mp3     audio-16khz-64kbitrate-mono-mp3
+audio-16khz-128kbitrate-mono-mp3    audio-24khz-48kbitrate-mono-mp3
+audio-24khz-96kbitrate-mono-mp3     audio-24khz-160kbitrate-mono-mp3
 audio-48khz-96kbitrate-mono-mp3     audio-48khz-192kbitrate-mono-mp3
+raw-16khz-16bit-mono-truesilk       raw-24khz-16bit-mono-truesilk
 webm-16khz-16bit-mono-opus          webm-24khz-16bit-mono-opus
+ogg-16khz-16bit-mono-opus           ogg-24khz-16bit-mono-opus
+ogg-48khz-16bit-mono-opus
 ```
 
 > [!NOTE]

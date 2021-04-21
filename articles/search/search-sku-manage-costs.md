@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2021
-ms.openlocfilehash: 4ad362b983f81e2cdc10cdbccafd8dda951482d7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e2ab7a007a92bd2306a7a97781af5653f932d0b7
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98539556"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106580607"
 ---
 # <a name="how-to-estimate-and-manage-costs-of-an-azure-cognitive-search-service"></a>Procedimientos para el cálculo y administración de los costos de un servicio Azure Cognitive Search
 
@@ -64,7 +64,7 @@ El cargo mínimo es la primera unidad de búsqueda (una réplica x una partició
 
 Más allá del mínimo, puede agregar réplicas y particiones por separado. Los aumentos incrementales de la capacidad mediante réplicas y particiones aumentan la factura en función de la siguiente fórmula: **(réplicas x particiones x tarifa de facturación)** , donde la tarifa que se le cobra depende del plan que seleccione.
 
-Al calcular el costo de una solución de búsqueda, tenga en cuenta que los precios y la capacidad no son lineales (la duplicación de la capacidad, supone más del doble de costo). Para ver un ejemplo de cómo funciona la fórmula, eche un vistazo a [Cómo asignar particiones y réplicas](search-capacity-planning.md#how-to-allocate-replicas-and-partitions).
+Al calcular el coste de una solución de búsqueda, tenga en cuenta que los precios y la capacidad no son lineales (el doble de capacidad supone más del doble del coste en el mismo nivel). Además, en un momento dado, cambiar a un nivel superior puede ofrecerle un mejor rendimiento y mayor rapidez aproximadamente al mismo precio. Puede obtener más información y consultar un ejemplo en [Actualización a un nivel estándar S2](search-performance-tips.md#tip-upgrade-to-a-standard-s2-tier).
 
 ### <a name="bandwidth-charges"></a>Cargos de ancho de banda
 

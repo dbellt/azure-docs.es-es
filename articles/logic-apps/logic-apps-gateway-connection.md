@@ -4,18 +4,18 @@ description: Conexión a orígenes de datos locales desde Azure Logic Apps media
 services: logic-apps
 ms.suite: integration
 ms.reviewer: arthii, logicappspm
-ms.topic: article
-ms.date: 01/20/2021
-ms.openlocfilehash: 356e63bb0a749ad0f41d886e75971e9b05c7f9dc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: conceptual
+ms.date: 03/24/2021
+ms.openlocfilehash: 49da5d7f045ed06ba16696ebd16ad212b9d140d8
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99219001"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763316"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Conexión a orígenes de datos locales desde Azure Logic Apps
 
-Después de [instalar la *puerta de enlace de datos local* en un equipo local](../logic-apps/logic-apps-gateway-install.md) y antes de poder acceder a los orígenes de datos locales desde las aplicaciones lógicas, tiene que crear un recurso de puerta de enlace en Azure para la instalación de la puerta de enlace. Después puede seleccionar este recurso de puerta de enlace en los desencadenadores y las acciones que quiere usar para los [conectores locales](../connectors/apis-list.md#on-premises-connectors) disponibles en Azure Logic Apps. Azure Logic Apps admite operaciones de lectura y escritura a través de la puerta de enlace de datos. Sin embargo, estas operaciones tienen [límites en su tamaño de carga](/data-integration/gateway/service-gateway-onprem#considerations).
+Después de [instalar la *puerta de enlace de datos local* en un equipo local](../logic-apps/logic-apps-gateway-install.md) y antes de poder acceder a los orígenes de datos locales desde las aplicaciones lógicas, tiene que crear un recurso de puerta de enlace en Azure para la instalación de la puerta de enlace. Después puede seleccionar este recurso de puerta de enlace en los desencadenadores y las acciones que quiere usar para los [conectores locales](../connectors/managed.md#on-premises-connectors) disponibles en Azure Logic Apps. Azure Logic Apps admite operaciones de lectura y escritura a través de la puerta de enlace de datos. Sin embargo, estas operaciones tienen [límites en su tamaño de carga](/data-integration/gateway/service-gateway-onprem#considerations).
 
 En este artículo se muestra cómo crear el recurso de puerta de enlace de Azure para una [puerta de enlace instalada previamente en el equipo local](../logic-apps/logic-apps-gateway-install.md). Para más información sobre la puerta de enlace, consulte el [funcionamiento de la puerta de enlace](../logic-apps/logic-apps-gateway-install.md#gateway-cloud-service).
 
@@ -33,7 +33,7 @@ Para información sobre cómo usar la puerta de enlace con otros servicios, cons
 
 ## <a name="supported-data-sources"></a>Orígenes de datos admitidos
 
-En Azure Logic Apps, la puerta de enlace de datos local admite los [conectores locales](../connectors/apis-list.md#on-premises-connectors) para estos orígenes de datos:
+En Azure Logic Apps, la puerta de enlace de datos local admite los [conectores locales](../connectors/managed.md#on-premises-connectors) para estos orígenes de datos:
 
 * BizTalk Server 2016
 * Sistema de archivos

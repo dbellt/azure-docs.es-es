@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 07/11/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: d041f864c6c8cd3ae9c522d79447d71c86f9ac04
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ab19bb1c6cc43334a3d0d427b6aff6ced2d6cc69
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98875611"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107789670"
 ---
 # <a name="create-a-snapshot-using-the-portal-or-azure-cli"></a>Creación de una instantánea con el portal o la CLI de Azure
 
@@ -26,7 +26,7 @@ En el ejemplo siguiente, se requiere el uso de [Cloud Shell](https://shell.azure
 
 Los pasos siguientes muestran cómo realizar una instantánea mediante el comando **az snapshot create** con el parámetro **--source-disk**. En el siguiente ejemplo se supone que hay una máquina virtual denominada *myVM* en el grupo de recursos *myResourceGroup*.
 
-Obtenga el Id. de disco mediante [az vm show](/cli/azure/vm#az-vm-show).
+Obtenga el Id. de disco mediante [az vm show](/cli/azure/vm#az_vm_show).
 
 ```azurecli-interactive
 osDiskId=$(az vm show \
@@ -36,7 +36,7 @@ osDiskId=$(az vm show \
    -o tsv)
 ```
 
-Realice una instantánea denominada *osDisk-backup* mediante [az snapshot create](/cli/azure/snapshot#az-snapshot-create).
+Realice una instantánea denominada *osDisk-backup* mediante [az snapshot create](/cli/azure/snapshot#az_snapshot_create).
 
 ```azurecli-interactive
 az snapshot create \
@@ -48,7 +48,7 @@ az snapshot create \
 > [!NOTE]
 > Si desea almacenar la instantánea en un almacenamiento resistente a zonas, debe crearla en una región que admita [zonas de disponibilidad](../../availability-zones/az-overview.md) e incluir el parámetro **--sku Standard_ZRS**.
 
-Puede ver una lista de las instantáneas con [az snapshot list](/cli/azure/snapshot#az-snapshot-list).
+Puede ver una lista de las instantáneas con [az snapshot list](/cli/azure/snapshot#az_snapshot_list).
 
 ```azurecli-interactive
 az snapshot list \
