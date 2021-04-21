@@ -3,16 +3,18 @@ title: 'Inicio rápido: Creación y modificación de un circuito con ExpressRout
 description: En este inicio rápido, aprenderá a crear, aprovisionar, comprobar, actualizar, eliminar y desaprovisionar un circuito ExpressRoute mediante Azure Portal.
 services: expressroute
 author: duongau
-ms.service: expressroute
-ms.topic: quickstart
-ms.date: 10/21/2020
 ms.author: duau
-ms.openlocfilehash: b0fd844021e7398e061072d7939b782616580c1c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 10/21/2020
+ms.topic: quickstart
+ms.service: expressroute
+ms.custom:
+- mode-portal
+ms.openlocfilehash: f62b60a9c33cd1b813b8f3307ec82d4242be168b
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96185205"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107534798"
 ---
 # <a name="quickstart-create-and-modify-an-expressroute-circuit"></a>Inicio rápido: Creación y modificación de un circuito ExpressRoute
 

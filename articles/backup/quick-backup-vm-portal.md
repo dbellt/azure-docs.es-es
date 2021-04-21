@@ -1,16 +1,18 @@
 ---
 title: 'Inicio rápido: Copia de seguridad de una máquina virtual con Azure Portal'
 description: En esta guía de inicio rápido, aprenda a crear un almacén de Recovery Services, a habilitar la protección en una VM de Azure y a crear una copia de seguridad de la VM con Azure Portal.
-ms.devlang: azurecli
-ms.topic: quickstart
 ms.date: 05/12/2020
-ms.custom: mvc
-ms.openlocfilehash: cd0d4928d5cd0eb15f4f1372a0a3417fc85d13bb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: quickstart
+ms.devlang: azurecli
+ms.custom:
+- mvc
+- mode-portal
+ms.openlocfilehash: 9779f84e6ddf1958ee234a96267171869a33e4e0
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91328789"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535048"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Copia de seguridad de una máquina virtual en Azure
 

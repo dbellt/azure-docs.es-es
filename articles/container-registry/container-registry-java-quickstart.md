@@ -2,16 +2,19 @@
 title: 'Inicio rápido: Compilación e inserción de imágenes de contenedor de Java en Azure Container Registry mediante Maven y Jib'
 description: Compile una aplicación de Java en contenedor e insértela en Azure Container Registry mediante el complemento Jib de Maven.
 author: KarlErickson
-ms.custom: devx-track-java, devx-track-azurecli
 ms.author: karler
-ms.topic: quickstart
 ms.date: 02/26/2020
-ms.openlocfilehash: 9e400ee0bae2690a84f9cfd3f6a76359e08eabc2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: quickstart
+ms.custom:
+- devx-track-java
+- devx-track-azurecli
+- mode-api
+ms.openlocfilehash: 4d805458d90c73de879a9b87d5b08c98a8f1a250
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92018345"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107537300"
 ---
 # <a name="quickstart-build-and-push-java-container-images-to-azure-container-registry"></a>Inicio rápido: Compilación e inserción de imágenes de contenedor de Java en Azure Container Registry
 

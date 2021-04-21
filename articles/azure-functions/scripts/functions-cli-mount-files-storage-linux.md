@@ -4,12 +4,12 @@ description: Cree una aplicación de funciones de Python sin servidor y montarí
 ms.topic: sample
 ms.date: 03/01/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 00bf0ecc9db3cf369fd75b427dcfba686aed0ed5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d0037cea24b1989c4f7a4d2ddd6bf3f8f7e812b3
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98035128"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762288"
 ---
 # <a name="mount-a-file-share-to-a-python-function-app-using-azure-cli"></a>Montaje de un recurso compartido de archivos en una aplicación de funciones de Python mediante la CLI de Azure
 
@@ -38,13 +38,13 @@ Cada comando de la tabla crea un vínculo a documentación específica del coman
 
 | Get-Help | Notas |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
-| [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Crea una cuenta de Azure Storage. |
-| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Crea una aplicación de función. |
-| [az storage share create](/cli/azure/storage/share#az-storage-share-create) | Crea un recurso compartido de archivos de Azure Files en una cuenta de almacenamiento. | 
-| [az storage directory create](/cli/azure/storage/directory#az-storage-directory-create) | Crea un directorio en el recurso compartido de archivos. |
-| [az webapp config storage-account add](/cli/azure/webapp/config/storage-account#az-webapp-config-storage-account-add) | Monta el recurso compartido en la aplicación de funciones. |
-| [az webapp config storage-account list](/cli/azure/webapp/config/storage-account#az-webapp-config-storage-account-list) | Muestra los recursos compartidos de archivos montados en la aplicación de funciones. | 
+| [az group create](/cli/azure/group#az_group_create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Crea una cuenta de Azure Storage. |
+| [az functionapp create](/cli/azure/functionapp#az_functionapp_create) | Crea una aplicación de función. |
+| [az storage share create](/cli/azure/storage/share#az_storage_share_create) | Crea un recurso compartido de archivos de Azure Files en una cuenta de almacenamiento. | 
+| [az storage directory create](/cli/azure/storage/directory#az_storage_directory_create) | Crea un directorio en el recurso compartido de archivos. |
+| [az webapp config storage-account add](/cli/azure/webapp/config/storage-account#az_webapp_config_storage_account_add) | Monta el recurso compartido en la aplicación de funciones. |
+| [az webapp config storage-account list](/cli/azure/webapp/config/storage-account#az_webapp_config_storage_account_list) | Muestra los recursos compartidos de archivos montados en la aplicación de funciones. | 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

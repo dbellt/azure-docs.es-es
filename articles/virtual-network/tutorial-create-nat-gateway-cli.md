@@ -8,13 +8,13 @@ ms.service: virtual-network
 ms.subservice: nat
 ms.topic: tutorial
 ms.date: 03/10/2021
-ms.custom: template-tutorial
-ms.openlocfilehash: 5dd431a5a7377c409be0794511c5f402d1c5a3a9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: template-tutorial, devx-track-azurecli
+ms.openlocfilehash: 60436b8d4a0f338f4ece59ad4cd11c14c9e4c352
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102636796"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762648"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-the-azure-cli"></a>Tutorial: Creación de una puerta de enlace de NAT con la CLI de Azure
 
@@ -92,7 +92,7 @@ Cree una red virtual llamada **myVnet** con una subred llamada **mySubnet** [az 
 
 Cree un host de Azure Bastion denominado **myBastionHost** para acceder a la máquina virtual. 
 
-Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) para crear una subred de Azure Bastion.
+Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) para crear una subred de Azure Bastion.
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -111,7 +111,7 @@ az network public-ip create \
     --sku Standard
 ```
 
-Use [az network bastion create](/cli/azure/network/bastion#az-network-bastion-create) para crear un host bastión. 
+Use [az network bastion create](/cli/azure/network/bastion#az_network_bastion_create) para crear un host bastión. 
 
 ```azurecli-interactive
 az network bastion create \
@@ -141,7 +141,7 @@ Todo el tráfico saliente a destinos de Internet usa ahora la puerta de enlace d
 
 En esta sección, creará una máquina virtual para probar la puerta de enlace de NAT y comprobar la dirección IP pública de la conexión de salida.
 
-Cree la máquina virtual con [az vm create](/cli/azure/vm#az-vm-create).
+Cree la máquina virtual con [az vm create](/cli/azure/vm#az_vm_create).
 
 ```azurecli-interactive
 az vm create \

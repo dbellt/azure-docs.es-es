@@ -6,13 +6,13 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: quickstart
 ms.custom: mvc, subject-armqs, devx-track-azurecli
-ms.date: 06/30/2020
-ms.openlocfilehash: 8cee79efd9be53ddb9d450f643c04f21ae5e7fca
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 04/01/2021
+ms.openlocfilehash: bdeb80dc487d8418e21a40a29e5d2baab49d7b05
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102214004"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107771900"
 ---
 # <a name="quickstart-create-and-deploy-a-logic-app-workflow-by-using-an-arm-template"></a>Inicio rápido: Creación e implementación de un flujo de trabajo de aplicaciones lógicas mediante una plantilla de ARM
 
@@ -32,7 +32,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta de Azure gratuita](https:
 
 En esta guía de inicio rápido se usa la plantilla [**Crear una aplicación lógica**](https://azure.microsoft.com/resources/templates/101-logic-app-create/), que puede encontrar en la [galería de plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates), pero es demasiado larga para mostrarla aquí. En su lugar, puede revisar el ["archivo azuredeploy.json"](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) de plantillas de inicio rápido en la galería de plantillas.
 
-La plantilla de inicio rápido crea un flujo de trabajo de aplicación lógica que usa el desencadenador de periodicidad, que se establece para ejecutarse cada hora, y una [acción HTTP *integrada*](../connectors/apis-list.md#connector-types), que llama a una dirección URL que devuelve el estado de Azure. Una acción integrada es nativa para la plataforma Azure Logic Apps.
+La plantilla de inicio rápido crea un flujo de trabajo de aplicación lógica que usa el desencadenador de periodicidad, que se establece para ejecutarse cada hora, y una [acción HTTP *integrada*](../connectors/built-in.md), que llama a una dirección URL que devuelve el estado de Azure. Una acción integrada es nativa para la plataforma Azure Logic Apps.
 
 Esta plantilla crea el siguiente recurso de Azure:
 
@@ -303,7 +303,7 @@ az group delete --name $resourceGroupName &&
 echo "Press [ENTER] to continue ..."
 ```
 
-Para más información, consulte [CLI de Azure: az group delete](/cli/azure/group#az-group-delete).
+Para más información, consulte [CLI de Azure: az group delete](/cli/azure/group#az_group_delete).
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
