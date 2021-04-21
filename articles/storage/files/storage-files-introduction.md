@@ -7,20 +7,15 @@ ms.topic: overview
 ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f0dcd763240205bd396fc8cd0301c2046098473b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7279c5578d969db9178ce85734e3a43f9eccdf8d
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98070140"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780054"
 ---
 # <a name="what-is-azure-files"></a>¿Qué es Azure Files?
 Azure Files ofrece recursos compartidos de archivos totalmente administrados en la nube a los que se puede acceder mediante el [protocolo SMB (Bloque de mensajes del servidor)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) o el [protocolo NFS (Network File System)](https://en.wikipedia.org/wiki/Network_File_System) estándar del sector. Los recursos compartido de archivos de Azure se pueden montar simultáneamente mediante implementaciones locales o en la nube. A los recursos compartidos de archivos SMB de Azure Files se puede acceder desde clientes Windows, Linux y macOS. A los recursos compartidos de archivos NFS de Azure Files se puede acceder desde clientes Linux y macOS. Además, los recursos compartidos de archivos SMB de Azure Files se pueden almacenar en la caché de los servidores de Windows Server con Azure File Sync, lo que permite un acceso rápido allí donde se utilizan los datos.
-
-## <a name="videos"></a>Vídeos
-| Introducción a Azure File Sync | Azure Files con Sync (Ignite 2019)  |
-|-|-|
-| [![Presentación en pantalla del vídeo Introducing Azure File Sync, haga clic para reproducirlo.](./media/storage-files-introduction/azure-file-sync-video-snapshot.png)](https://www.youtube.com/watch?v=Zm2w8-TRn-o) | [![Presentación en pantalla de Azure Files with Sync, haga clic para reproducirlo.](./media/storage-files-introduction/ignite-2018-video.png)](https://www.youtube.com/embed/6E2p28XwovU) |
 
 Estos son algunos vídeos sobre los casos de uso comunes de Azure Files:
 * [Reemplazo del servidor de archivos por un recurso compartido de archivos de Azure sin servidor](https://sec.ch9.ms/ch9/3358/0addac01-3606-4e30-ad7b-f195f3ab3358/ITOpsTalkAzureFiles_high.mp4)

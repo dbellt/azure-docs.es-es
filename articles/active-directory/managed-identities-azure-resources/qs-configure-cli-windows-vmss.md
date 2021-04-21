@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/15/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f88eccc524ffac424f8f5048990f693aa67613d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0e6e7e1724247c0e6d2b9db2fdf6980e8ef553c7
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97590943"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107788194"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-azure-cli"></a>Configuración de identidades administradas de recursos de Azure en un conjunto de escalado de máquinas virtuales mediante la CLI de Azure
 
@@ -59,13 +59,13 @@ En esta sección, obtendrá información sobre cómo habilitar y deshabilitar la
 
 Para crear un conjunto de escalado de máquinas virtuales con la identidad administrada asignada por el sistema habilitada:
 
-1. Cree un [grupo de recursos](../../azure-resource-manager/management/overview.md#terminology) para contener e implementar el conjunto de escalado de máquinas virtuales y sus recursos relacionados, con [az group create](/cli/azure/group/#az-group-create). Puede omitir este paso si ya tiene un grupo de recursos que le gustaría usar en su lugar:
+1. Cree un [grupo de recursos](../../azure-resource-manager/management/overview.md#terminology) para contener e implementar el conjunto de escalado de máquinas virtuales y sus recursos relacionados, con [az group create](/cli/azure/group/#az_group_create). Puede omitir este paso si ya tiene un grupo de recursos que le gustaría usar en su lugar:
 
    ```azurecli-interactive 
    az group create --name myResourceGroup --location westus
    ```
 
-1. [Cree](/cli/azure/vmss/#az-vmss-create) un conjunto de escalado de máquinas virtuales. En el ejemplo siguiente se crea un conjunto de escalado de máquinas virtuales denominado *myVMSS* con una identidad administrada asignada por el sistema, como solicitó el parámetro `--assign-identity`. Los parámetros `--admin-username` y `--admin-password` especifican el nombre de usuario administrativo y la contraseña de la cuenta para el inicio de sesión en la máquina virtual. Actualice estos valores según convenga para su entorno: 
+1. [Cree](/cli/azure/vmss/#az_vmss_create) un conjunto de escalado de máquinas virtuales. En el ejemplo siguiente se crea un conjunto de escalado de máquinas virtuales denominado *myVMSS* con una identidad administrada asignada por el sistema, como solicitó el parámetro `--assign-identity`. Los parámetros `--admin-username` y `--admin-password` especifican el nombre de usuario administrativo y la contraseña de la cuenta para el inicio de sesión en la máquina virtual. Actualice estos valores según convenga para su entorno: 
 
    ```azurecli-interactive 
    az vmss create --resource-group myResourceGroup --name myVMSS --image win2016datacenter --upgrade-policy-mode automatic --custom-data cloud-init.txt --admin-username azureuser --admin-password myPassword12 --assign-identity --generate-ssh-keys
@@ -73,7 +73,7 @@ Para crear un conjunto de escalado de máquinas virtuales con la identidad admin
 
 ### <a name="enable-system-assigned-managed-identity-on-an-existing-azure-virtual-machine-scale-set"></a>Habilitación de la identidad administrada asignada por el sistema en un conjunto de escalado de máquinas virtuales de Azure existente
 
-Si necesita [habilitar](/cli/azure/vmss/identity/#az-vmss-identity-assign) la identidad administrada asignada por el sistema en un conjunto de escalado de máquinas virtuales de Azure existente:
+Si necesita [habilitar](/cli/azure/vmss/identity/#az_vmss_identity_assign) la identidad administrada asignada por el sistema en un conjunto de escalado de máquinas virtuales de Azure existente:
 
 ```azurecli-interactive
 az vmss identity assign -g myResourceGroup -n myVMSS
@@ -104,13 +104,13 @@ En esta sección obtendrá más información sobre cómo habilitar y quitar una 
 
 En esta sección se explica el proceso de creación de un conjunto de escalado de máquinas virtuales y de asignación de una identidad administrada asignada por el usuario al conjunto de escalado de máquinas virtuales. Si ya tiene un conjunto de escalado de máquinas virtuales que quiera usar, omita esta sección y vaya a la siguiente.
 
-1. Puede omitir este paso si ya tiene un grupo de recursos que le gustaría usar. Cree un [grupo de recursos](~/articles/azure-resource-manager/management/overview.md#terminology) para contener e implementar la identidad administrada asignada por el usuario mediante [az group create](/cli/azure/group/#az-group-create). Asegúrese de reemplazar los valores de los parámetros `<RESOURCE GROUP>` y `<LOCATION>` con sus propios valores. :
+1. Puede omitir este paso si ya tiene un grupo de recursos que le gustaría usar. Cree un [grupo de recursos](~/articles/azure-resource-manager/management/overview.md#terminology) para contener e implementar la identidad administrada asignada por el usuario mediante [az group create](/cli/azure/group/#az_group_create). Asegúrese de reemplazar los valores de los parámetros `<RESOURCE GROUP>` y `<LOCATION>` con sus propios valores. :
 
    ```azurecli-interactive 
    az group create --name <RESOURCE GROUP> --location <LOCATION>
    ```
 
-2. Cree una identidad administrada asignada por el usuario mediante [az identity create](/cli/azure/identity#az-identity-create).  El parámetro `-g` especifica el grupo de recursos en el que se crea la identidad administrada asignada por el usuario, mientras que el parámetro `-n` especifica su nombre. Asegúrese de reemplazar los valores de los parámetros `<RESOURCE GROUP>` y `<USER ASSIGNED IDENTITY NAME>` por sus propios valores:
+2. Cree una identidad administrada asignada por el usuario mediante [az identity create](/cli/azure/identity#az_identity_create).  El parámetro `-g` especifica el grupo de recursos en el que se crea la identidad administrada asignada por el usuario, mientras que el parámetro `-n` especifica su nombre. Asegúrese de reemplazar los valores de los parámetros `<RESOURCE GROUP>` y `<USER ASSIGNED IDENTITY NAME>` por sus propios valores:
 
    [!INCLUDE [ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
@@ -134,7 +134,7 @@ En esta sección se explica el proceso de creación de un conjunto de escalado d
    }
    ```
 
-3. [Cree](/cli/azure/vmss/#az-vmss-create) un conjunto de escalado de máquinas virtuales. En el ejemplo siguiente se crea un conjunto de escalado de máquinas virtuales asociado a la nueva identidad administrada asignada por el usuario, según lo especificado por el parámetro `--assign-identity`. Asegúrese de reemplazar los valores de los parámetros `<RESOURCE GROUP>`, `<VMSS NAME>`, `<USER NAME>`, `<PASSWORD>` y `<USER ASSIGNED IDENTITY>` por sus propios valores. 
+3. [Cree](/cli/azure/vmss/#az_vmss_create) un conjunto de escalado de máquinas virtuales. En el ejemplo siguiente se crea un conjunto de escalado de máquinas virtuales asociado a la nueva identidad administrada asignada por el usuario, según lo especificado por el parámetro `--assign-identity`. Asegúrese de reemplazar los valores de los parámetros `<RESOURCE GROUP>`, `<VMSS NAME>`, `<USER NAME>`, `<PASSWORD>` y `<USER ASSIGNED IDENTITY>` por sus propios valores. 
 
    ```azurecli-interactive 
    az vmss create --resource-group <RESOURCE GROUP> --name <VMSS NAME> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <USER ASSIGNED IDENTITY>
@@ -142,7 +142,7 @@ En esta sección se explica el proceso de creación de un conjunto de escalado d
 
 ### <a name="assign-a-user-assigned-managed-identity-to-an-existing-virtual-machine-scale-set"></a>Asignación de una identidad administrada asignada por el usuario a un conjunto de escalado de máquinas virtuales existente
 
-1. Cree una identidad administrada asignada por el usuario mediante [az identity create](/cli/azure/identity#az-identity-create).  El parámetro `-g` especifica el grupo de recursos en el que se crea la identidad administrada asignada por el usuario, mientras que el parámetro `-n` especifica su nombre. Asegúrese de reemplazar los valores de los parámetros `<RESOURCE GROUP>` y `<USER ASSIGNED IDENTITY NAME>` por sus propios valores:
+1. Cree una identidad administrada asignada por el usuario mediante [az identity create](/cli/azure/identity#az_identity_create).  El parámetro `-g` especifica el grupo de recursos en el que se crea la identidad administrada asignada por el usuario, mientras que el parámetro `-n` especifica su nombre. Asegúrese de reemplazar los valores de los parámetros `<RESOURCE GROUP>` y `<USER ASSIGNED IDENTITY NAME>` por sus propios valores:
 
     ```azurecli-interactive
     az identity create -g <RESOURCE GROUP> -n <USER ASSIGNED IDENTITY NAME>
@@ -172,7 +172,7 @@ En esta sección se explica el proceso de creación de un conjunto de escalado d
 
 ### <a name="remove-a-user-assigned-managed-identity-from-an-azure-virtual-machine-scale-set"></a>Eliminación de una identidad administrada asignada por el usuario de un conjunto de escalado de máquinas virtuales de Azure
 
-Para [eliminar](/cli/azure/vmss/identity#az-vmss-identity-remove) una identidad administrada asignada por el usuario de un conjunto de escalado de máquinas virtuales, use `az vmss identity remove`. Si se trata de la única identidad administrada asignada por el usuario y que se ha asignado a un conjunto de escalado de máquinas virtuales, `UserAssigned` se quitará del valor de tipo de identidad.  Asegúrese de reemplazar los valores de los parámetros `<RESOURCE GROUP>` y `<VIRTUAL MACHINE SCALE SET NAME>` con sus propios valores. El parámetro `<USER ASSIGNED IDENTITY>` será la propiedad `name` de la identidad administrada asignada por el usuario, que se puede encontrar en la sección de identidades del conjunto de escalado de máquinas virtuales mediante `az vmss identity show`:
+Para [eliminar](/cli/azure/vmss/identity#az_vmss_identity_remove) una identidad administrada asignada por el usuario de un conjunto de escalado de máquinas virtuales, use `az vmss identity remove`. Si se trata de la única identidad administrada asignada por el usuario y que se ha asignado a un conjunto de escalado de máquinas virtuales, `UserAssigned` se quitará del valor de tipo de identidad.  Asegúrese de reemplazar los valores de los parámetros `<RESOURCE GROUP>` y `<VIRTUAL MACHINE SCALE SET NAME>` con sus propios valores. El parámetro `<USER ASSIGNED IDENTITY>` será la propiedad `name` de la identidad administrada asignada por el usuario, que se puede encontrar en la sección de identidades del conjunto de escalado de máquinas virtuales mediante `az vmss identity show`:
 
 ```azurecli-interactive
 az vmss identity remove -g <RESOURCE GROUP> -n <VIRTUAL MACHINE SCALE SET NAME> --identities <USER ASSIGNED IDENTITY>

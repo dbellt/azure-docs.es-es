@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 01/22/2021
 ms.author: allensu
-ms.openlocfilehash: 76fd959c28203132be4695031d96315f258cf53f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c8e32a56148326104c3514b8a2fdb5d6bbd3f00a
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102563122"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107778488"
 ---
 # <a name="quickstart-create-a-private-link-service-using-azure-cli"></a>Inicio rápido: Creación de un servicio Private Link mediante la CLI de Azure
 
@@ -48,7 +48,7 @@ En esta sección, va a crear una red virtual y una instancia de Azure Load Balan
 
 En esta sección, va a crear una red virtual y una subred para hospedar el equilibrador de carga que accede al servicio Private Link.
 
-Cree una red virtual con [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create):
+Cree una red virtual con [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create):
 
 * Denominada **myVNet**.
 * Con el prefijo de dirección **10.1.0.0/16**.
@@ -69,7 +69,7 @@ Cree una red virtual con [az network vnet create](/cli/azure/network/vnet#az-net
 
 ```
 
-Para actualizar la subred para deshabilitar las directivas de red del servicio de vínculo privado, use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update):
+Para actualizar la subred para deshabilitar las directivas de red del servicio de vínculo privado, use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update):
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -90,7 +90,7 @@ En esta sección se detalla cómo se pueden crear y configurar los componentes s
 
 ### <a name="create-the-load-balancer-resource"></a>Creación del recurso del equilibrador de carga
 
-Cree un equilibrador de carga público con [az network lb create](/cli/azure/network/lb#az-network-lb-create):
+Cree un equilibrador de carga público con [az network lb create](/cli/azure/network/lb#az_network_lb_create):
 
 * Denominado **myLoadBalancer**.
 * Un grupo de front-end denominado **MyFrontEnd**.
@@ -115,7 +115,7 @@ Los sondeos de estado comprueban todas las instancias de máquina virtual para a
 
 Una máquina virtual con una comprobación de sondeo con errores se quita del equilibrador de carga. La máquina virtual se agrega de nuevo al equilibrador de carga cuando se resuelve el error.
 
-Cree un sondeo de estado con [az network lb probe create](/cli/azure/network/lb/probe#az-network-lb-probe-create):
+Cree un sondeo de estado con [az network lb probe create](/cli/azure/network/lb/probe#az_network_lb_probe_create):
 
 * Supervisa el estado de las máquinas virtuales.
 * Denominado **myHealthProbe**.
@@ -139,7 +139,7 @@ Una regla de equilibrador de carga define:
 * El grupo de IP de back-end para recibir el tráfico.
 * Los puertos de origen y de destino requeridos. 
 
-Cree una regla de equilibrador de carga con [az network lb rule create](/cli/azure/network/lb/rule#az-network-lb-rule-create):
+Cree una regla de equilibrador de carga con [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create):
 
 * Denominada **myHTTPRule**.
 * Que escuche en el **puerto 80** en el grupo de front-end **myFrontEnd**.
@@ -168,7 +168,7 @@ Cree una regla de equilibrador de carga con [az network lb rule create](/cli/azu
 
 En esta sección, creará un servicio de vínculo privado que use una instancia de Azure Load Balancer creada en el paso anterior.
 
-Cree un servicio de vínculo privado con la configuración IP de front-end de una instancia de Standard Load Balancer con [az network private-link-service create](/cli/azure/network/private-link-service#az-network-private-link-service-create):
+Cree un servicio de vínculo privado con la configuración IP de front-end de una instancia de Standard Load Balancer con [az network private-link-service create](/cli/azure/network/private-link-service#az_network_private_link_service_create):
 
 * Denominado **myPrivateLinkService**.
 * En la red virtual **myVNet**.
@@ -195,7 +195,7 @@ En esta sección, asignará el servicio de vínculo privado a un punto de conexi
 
 ### <a name="create-private-endpoint-virtual-network"></a>Creación de una red virtual de punto de conexión privado
 
-Cree una red virtual con [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create):
+Cree una red virtual con [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create):
 
 * Denominada **myVNetPE**.
 * Con el prefijo de dirección **11.1.0.0/16**.
@@ -214,7 +214,7 @@ Cree una red virtual con [az network vnet create](/cli/azure/network/vnet#az-net
     --subnet-prefixes 11.1.0.0/24
 ```
 
-Para actualizar la subred para deshabilitar las directivas de red del punto de conexión privado, use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update):
+Para actualizar la subred para deshabilitar las directivas de red del punto de conexión privado, use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update):
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -256,7 +256,7 @@ az network vnet subnet update \
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando ya no se necesiten, use el comando [az group delete](/cli/azure/group#az-group-delete) para quitar el grupo de recursos, el servicio de vínculo privado, el equilibrador de carga y todos los recursos relacionados.
+Cuando ya no se necesiten, use el comando [az group delete](/cli/azure/group#az_group_delete) para quitar el grupo de recursos, el servicio de vínculo privado, el equilibrador de carga y todos los recursos relacionados.
 
 ```azurecli-interactive
   az group delete \

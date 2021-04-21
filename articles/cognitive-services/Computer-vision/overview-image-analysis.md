@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 03/30/2021
 ms.author: pafarley
 keywords: computer vision, computer vision applications, computer vision service
-ms.openlocfilehash: f262fdb49cac4ab9abe7f3f6873160d3059968c6
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 0258eb7c57bc0734b5c0a67644cbaa4f62a34537
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106287447"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107766922"
 ---
 # <a name="what-is-image-analysis"></a>¿Qué es Image Analysis?
 
@@ -24,7 +24,7 @@ ms.locfileid: "106287447"
 
 El servicio Image Analysis de Computer Vision puede extraer una gran variedad de características visuales de sus imágenes. Por ejemplo, puede determinar si una imagen tiene contenido para adultos, buscar marcas u objetos específicos o buscar rostros humanos.
 
-Puede usar Image Analysis en la aplicación mediante el uso de un SDK de biblioteca cliente o invocar la [API REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) directamente. Siga el [inicio rápido](quickstarts-sdk/image-analysis-client-library.md) para comenzar.
+Puede usar Image Analysis en la aplicación mediante el uso de un SDK de biblioteca cliente o invocar la [API REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v2-ga/operations/5d986960601faab4bf452005) directamente. Siga el [inicio rápido](quickstarts-sdk/image-analysis-client-library.md) para comenzar.
 
 Esta documentación contiene los siguientes tipos de artículos:
 * Los [inicios rápidos](./quickstarts-sdk/image-analysis-client-library.md) son instrucciones paso a paso que permiten realizar llamadas al servicio y obtener los resultados en un breve período de tiempo. 
@@ -34,7 +34,7 @@ Esta documentación contiene los siguientes tipos de artículos:
 
 ## <a name="image-analysis-features"></a>Características de Image Analysis
 
-Puede analizar imágenes para detectar y proporcionar información detallada acerca de las características y funciones visuales. Todas las características de la lista siguiente se proporcionan gracias a la API [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b). Siga un [inicio rápido](./quickstarts-sdk/image-analysis-client-library.md) para comenzar.
+Puede analizar imágenes para detectar y proporcionar información detallada acerca de las características y funciones visuales. Todas las características de la lista siguiente se proporcionan gracias a la API [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-ga/operations/56f91f2e778daf14a499f21b). Siga un [inicio rápido](./quickstarts-sdk/image-analysis-client-library.md) para comenzar.
 
 
 ### <a name="tag-visual-features"></a>Etiquetar características visuales
