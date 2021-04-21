@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
 ms.date: 12/02/2019
-ms.openlocfilehash: 2e185997f887e0fd90a7966087350f91aabee6d1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 42b1806d3aa1235dfd976dd5700204aa0b9e4700
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98664573"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785584"
 ---
 # <a name="enable-and-download-server-slow-query-logs-of-an-azure-database-for-mariadb-server-using-azure-cli"></a>Habilitar y descargar registros de consultas lentos de un servidor de Azure Database for MariaDB con la CLI de Azure
 Este script de la CLI de ejemplo habilita y descarga los registros de consultas lentos de un servidor individual de Azure Database for MariaDB.
@@ -37,13 +37,13 @@ Este script usa los comandos que se describen en la tabla siguiente:
 
 | **Comando** | **Notas** |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
-| [az mariadb server create](/cli/azure/mariadb/server#az-mariadb-server-create) | Crea un servidor de MariaDB que hospeda las bases de datos. |
-| [az mariadb server configuration list](/cli/azure/mariadb/server/configuration#az-mariadb-server-configuration-list) | Enumera los valores de configuración de un servidor. |
-| [az mariadb server configuration set](/cli/azure/mariadb/server/configuration#az-mariadb-server-configuration-set) | Actualiza la configuración de un servidor. |
-| [az mariadb server-logs list](/cli/azure/mariadb/server-logs#az-mariadb-server-logs-list) | Enumeración de los archivos de registro de un servidor. |
-| [az mariadb server-logs download](/cli/azure/mariadb/server-logs#az-mariadb-server-logs-download) | Descargar los archivos de registro. |
-| [az group delete](/cli/azure/group#az-group-delete) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
+| [az group create](/cli/azure/group#az_group_create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
+| [az mariadb server create](/cli/azure/mariadb/server#az_mariadb_server_create) | Crea un servidor de MariaDB que hospeda las bases de datos. |
+| [az mariadb server configuration list](/cli/azure/mariadb/server/configuration#az_mariadb_server_configuration_list) | Enumera los valores de configuración de un servidor. |
+| [az mariadb server configuration set](/cli/azure/mariadb/server/configuration#az_mariadb_server_configuration_set) | Actualiza la configuración de un servidor. |
+| [az mariadb server-logs list](/cli/azure/mariadb/server-logs#az_mariadb_server_logs_list) | Enumeración de los archivos de registro de un servidor. |
+| [az mariadb server-logs download](/cli/azure/mariadb/server-logs#az_mariadb_server_logs_download) | Descargar los archivos de registro. |
+| [az group delete](/cli/azure/group#az_group_delete) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Para más información sobre la CLI de Azure: [Documentación de la CLI de Azure](/cli/azure).
