@@ -3,19 +3,18 @@ title: 'Preguntas más frecuentes: importación de certificados de Azure Key Vau
 description: Obtenga respuestas a preguntas frecuentes sobre la importación de certificados de Azure Key Vault.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: d8a06471129f8d79e1ced150f7410392b91d498b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 97dfc2db837f728b8cb4ece9a064f99006c9996b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105728035"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107767824"
 ---
 # <a name="importing-azure-key-vault-certificates-faq"></a>Preguntas frecuentes sobre la importación de certificados de Azure Key Vault
 
@@ -43,7 +42,7 @@ No, no es posible realizar operaciones de certificado mediante una plantilla de 
 
 ### <a name="when-i-import-a-certificate-via-the-azure-portal-i-get-a-something-went-wrong-error-how-can-i-investigate-further"></a>Al importar un certificado a través de Azure Portal, aparece el error "Hubo un problema". ¿Cómo puedo investigar más?
      
-Para ver un error más descriptivo, importe el archivo de certificado mediante la [CLI de Azure](/cli/azure/keyvault/certificate#az-keyvault-certificate-import) o [PowerShell](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate).
+Para ver un error más descriptivo, importe el archivo de certificado mediante la [CLI de Azure](/cli/azure/keyvault/certificate#az_keyvault_certificate_import) o [PowerShell](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate).
 
 ### <a name="how-can-i-resolve-error-type-access-denied-or-user-is-unauthorized-to-import-certificate"></a>¿Cómo se resuelve el "Tipo de error: Acceso denegado o usuario no autorizado para importar el certificado"?
     
