@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 06/14/2019
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: a972b4738ce5646a1ee9eed6495bdc43a40826fd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8f1fe6ae38c708c5205f8c1230da05457d6b7010
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102219050"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107764315"
 ---
 Se puede implementar FTP y Git local en una aplicación web de Azure mediante un *usuario de implementación*. Una vez configurado este usuario de implementación, podrá usarlo en todas las implementaciones de Azure. El nombre de usuario y la contraseña en el nivel de cuenta son diferentes de las credenciales de suscripción de Azure. 
 
-Para configurar el usuario de implementación, ejecute el comando [az webapp deployment user set](/cli/azure/webapp/deployment/user#az-webapp-deployment-user-set) en Azure Cloud Shell. Reemplace \<username> y \<password> por un nombre de usuario y una contraseña de usuario de implementación. 
+Para configurar el usuario de implementación, ejecute el comando [az webapp deployment user set](/cli/azure/webapp/deployment/user#az_webapp_deployment_user_set) en Azure Cloud Shell. Reemplace \<username> y \<password> por un nombre de usuario y una contraseña de usuario de implementación. 
 
 - El nombre de usuario debe ser único dentro de Azure y no debe contener el símbolo "\@" para las inserciones de Git local. 
 - La contraseña debe tener al menos ocho caracteres y dos de los tres elementos siguientes: letras, números y símbolos. 

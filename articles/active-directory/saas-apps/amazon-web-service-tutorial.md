@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/05/2021
 ms.author: jeedes
-ms.openlocfilehash: 842ab27fe02501efbbc6c06c3d36d2218c3c17b9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: eb469c757e2898a9925dd7d3358cfe95734cb2e9
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104799248"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107537728"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-aws-single-account-access"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con AWS Single-Account Access
 
@@ -401,11 +401,11 @@ También puede usar Aplicaciones de Microsoft para probar la aplicación en cual
  
 * En la sección **Aprovisionamiento**, en la subsección **Asignaciones** aparece un mensaje del tipo "Cargando..." y no se muestran las asignaciones de atributos. El único flujo de trabajo de aprovisionamiento que se admite actualmente es la importación de roles desde AWS a Azure AD para su selección durante la asignación de usuarios o grupos. Las asignaciones de atributos para esto vienen predeterminadas y no se pueden configurar.
 
-* La sección **Aprovisionamiento** solo admite escribir un conjunto de credenciales para un inquilino de AWS cada vez. Todos los roles importados se escriben en la propiedad `appRoles` del [objeto `servicePrincipal`](/graph/api/resources/serviceprincipal?view=graph-rest-beta) de Azure AD para el inquilino de AWS.
+* La sección **Aprovisionamiento** solo admite escribir un conjunto de credenciales para un inquilino de AWS cada vez. Todos los roles importados se escriben en la propiedad `appRoles` del [objeto `servicePrincipal`](/graph/api/resources/serviceprincipal) de Azure AD para el inquilino de AWS.
 
   Se pueden agregar varios inquilinos de AWS (representados por `servicePrincipals`) a Azure AD desde la galería para el aprovisionamiento. Sin embargo, existe un problema conocido que impide escribir automáticamente todos los roles importados desde los diversos objetos `servicePrincipals` de AWS usados para el aprovisionamiento en el único objeto `servicePrincipal` usado para SSO.
 
-  Una posible solución alternativa consiste en usar [Microsoft Graph API](/graph/api/resources/serviceprincipal?view=graph-rest-beta) para extraer todos los objetos `appRoles` importados en cada objeto `servicePrincipal` de AWS en los que esté configurado el aprovisionamiento. Posteriormente, puede agregar estas cadenas de roles a objeto `servicePrincipal` de AWS donde se configura el inicio de sesión único.
+  Una posible solución alternativa consiste en usar [Microsoft Graph API](/graph/api/resources/serviceprincipal) para extraer todos los objetos `appRoles` importados en cada objeto `servicePrincipal` de AWS en los que esté configurado el aprovisionamiento. Posteriormente, puede agregar estas cadenas de roles a objeto `servicePrincipal` de AWS donde se configura el inicio de sesión único.
 
 * Los roles deben cumplir los siguientes requisitos para que se puedan importar desde AWS en Azure AD:
 

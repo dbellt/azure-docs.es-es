@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 11/23/2020
 ms.author: allensu
 ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 1956d51cbcf962f7a73e970ca2cec858d9ec6579
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 9b332b18930d58ebb1d155c35a74eed69a90ce73
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106056529"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107788788"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-cli"></a>Inicio rápido: Creación de un equilibrador de carga público para equilibrar la carga de las VM con la CLI de Azure
 
@@ -36,7 +36,7 @@ Comience a usar Azure Load Balancer con la CLI de Azure para crear un equilibrad
 
 Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure.
 
-Cree un grupo de recursos con [az group create](/cli/azure/group#az-group-create):
+Cree un grupo de recursos con [az group create](/cli/azure/group#az_group_create):
 
 * Llamado **CreatePubLBQS-rg**. 
 * En la ubicación **eastus**.
@@ -61,7 +61,7 @@ Antes de implementar las VM y probar el equilibrador de carga, cree los recursos
 
 ### <a name="create-a-virtual-network"></a>Creación de una red virtual
 
-Cree una red virtual con [az network vnet create](/cli/azure/network/vnet#az-network-vnet-createt):
+Cree una red virtual con [az network vnet create](/cli/azure/network/vnet#az_network_vnet_createt):
 
 * Denominada **myVNet**.
 * Con el prefijo de dirección **10.1.0.0/16**.
@@ -81,7 +81,7 @@ Cree una red virtual con [az network vnet create](/cli/azure/network/vnet#az-net
 ```
 ### <a name="create-a-public-ip-address"></a>Crear una dirección IP pública
 
-Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) para crear una dirección IP pública para el host bastión:
+Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) para crear una dirección IP pública para el host bastión:
 
 * Cree una dirección IP pública con redundancia de zona estándar llamada **myBastionIP**.
 * En **CCreatePubLBQS-rg**:
@@ -94,7 +94,7 @@ az network public-ip create \
 ```
 ### <a name="create-a-bastion-subnet"></a>Creación de una subred de Bastion
 
-Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) para crear una subred bastión:
+Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) para crear una subred bastión:
 
 * Llamada **AzureBastionSubnet**.
 * Con el prefijo de dirección **10.1.1.0/24**.
@@ -111,7 +111,7 @@ az network vnet subnet create \
 
 ### <a name="create-bastion-host"></a>Creación de un host bastión
 
-Use [az network bastion create](/cli/azure/network/bastion#az-network-bastion-create) para crear un host bastión:
+Use [az network bastion create](/cli/azure/network/bastion#az_network_bastion_create) para crear un host bastión:
 
 * Denominación **myBastionHost**.
 * En **CreatePubLBQS-rg**.
@@ -134,7 +134,7 @@ El host de Azure Bastion tarda unos minutos en implementarse.
 
 En el caso de un equilibrador de carga estándar, las VM de la dirección de back-end deben tener interfaces de red que pertenezcan a un grupo de seguridad de red. 
 
-Cree un grupo de seguridad de red con [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create):
+Cree un grupo de seguridad de red con [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create):
 
 * Denominado **myNSG**.
 * En el grupo de recursos **CreatePubLBQS-rg**.
@@ -147,7 +147,7 @@ Cree un grupo de seguridad de red con [az network nsg create](/cli/azure/network
 
 ### <a name="create-a-network-security-group-rule"></a>Creación de una regla de grupo de seguridad de red
 
-Cree una regla de grupo de seguridad de red con el [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create):
+Cree una regla de grupo de seguridad de red con el [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create):
 
 * Denominada **myNSGRuleHTTP**.
 * En el grupo de seguridad de red que creó en el paso anterior, **myNSG**.
@@ -184,7 +184,7 @@ En esta sección, creará:
 
 ### <a name="create-network-interfaces-for-the-virtual-machines"></a>Creación de interfaces de red para las máquinas virtuales
 
-Cree tres interfaces de red con [az network nic create](/cli/azure/network/nic#az-network-nic-create):
+Cree tres interfaces de red con [az network nic create](/cli/azure/network/nic#az_network_nic_create):
 
 * Sus nombres serán **myNicVM1**, **myNicVM2** y **myNicVM3**.
 * En el grupo de recursos **CreatePubLBQS-rg**.
@@ -207,7 +207,7 @@ Cree tres interfaces de red con [az network nic create](/cli/azure/network/nic#a
 
 ### <a name="create-virtual-machines"></a>Creación de máquinas virtuales
 
-Cree las máquinas virtuales con [az vm create](/cli/azure/vm#az-vm-create):
+Cree las máquinas virtuales con [az vm create](/cli/azure/vm#az_vm_create):
 
 ### <a name="vm1"></a>VM1
 * Denominada **myVM1**.
@@ -263,11 +263,13 @@ Cree las máquinas virtuales con [az vm create](/cli/azure/vm#az-vm-create):
 ```
 Puede que las VM tarden unos minutos en implementarse.
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 ## <a name="create-a-public-ip-address---standard"></a>Creación de una dirección IP pública: estándar
 
 Para obtener acceso a la aplicación web en Internet, necesita una dirección IP pública para el equilibrador de carga. 
 
-Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) para:
+Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) para:
 
 * Crear una dirección IP pública con redundancia de zona estándar denominada **myPublicIP**.
 * En **CreatePubLBQS-rg**.
@@ -300,7 +302,7 @@ En esta sección se detalla cómo se pueden crear y configurar los componentes s
 
 ### <a name="create-the-load-balancer-resource"></a>Creación del recurso del equilibrador de carga
 
-Cree un equilibrador de carga público con [az network lb create](/cli/azure/network/lb#az-network-lb-create):
+Cree un equilibrador de carga público con [az network lb create](/cli/azure/network/lb#az_network_lb_create):
 
 * Denominado **myLoadBalancer**.
 * Un grupo de front-end denominado **MyFrontEnd**.
@@ -323,7 +325,7 @@ Los sondeos de estado comprueban todas las instancias de máquina virtual para a
 
 Una máquina virtual con una comprobación de sondeo con errores se quita del equilibrador de carga. La máquina virtual se agrega de nuevo al equilibrador de carga cuando se resuelve el error.
 
-Cree un sondeo de estado con [az network lb probe create](/cli/azure/network/lb/probe#az-network-lb-probe-create):
+Cree un sondeo de estado con [az network lb probe create](/cli/azure/network/lb/probe#az_network_lb_probe_create):
 
 * Supervisa el estado de las máquinas virtuales.
 * Denominado **myHealthProbe**.
@@ -347,7 +349,7 @@ Una regla de equilibrador de carga define:
 * El grupo de IP de back-end para recibir el tráfico.
 * Los puertos de origen y de destino requeridos. 
 
-Cree una regla de equilibrador de carga con [az network lb rule create](/cli/azure/network/lb/rule#az-network-lb-rule-create):
+Cree una regla de equilibrador de carga con [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create):
 
 * Denominada **myHTTPRule**.
 * Que escuche en el **puerto 80** en el grupo de front-end **myFrontEnd**.
@@ -376,7 +378,7 @@ Cree una regla de equilibrador de carga con [az network lb rule create](/cli/azu
 ```
 ### <a name="add-virtual-machines-to-load-balancer-backend-pool"></a>Adición de máquinas virtuales al grupo de back-end del equilibrador de carga
 
-Agregue las máquinas virtuales al grupo de back-end con [az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool#az-network-nic-ip-config-address-pool-add):
+Agregue las máquinas virtuales al grupo de back-end con [az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool#az_network_nic_ip_config_address_pool_add):
 
 * En el grupo de direcciones de back-end **myBackEndPool**.
 * En el grupo de recursos **CreatePubLBQS-rg**.
@@ -404,7 +406,7 @@ Se puede usar un prefijo o una dirección IP pública para la configuración de 
 
 ### <a name="public-ip"></a>Dirección IP pública
 
-Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) para crear una única dirección IP para la conectividad saliente.  
+Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) para crear una única dirección IP para la conectividad saliente.  
 
 * Denominada **myPublicIPOutbound**.
 * En **CreatePubLBQS-rg**.
@@ -428,7 +430,7 @@ Para crear una dirección IP pública con redundancia de zona en la Zona 1:
 
 ### <a name="public-ip-prefix"></a>Prefijo de IP pública
 
-Use [az network public-ip prefix create](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-create) para crear un prefijo de dirección IP pública para la conectividad saliente.
+Use [az network public-ip prefix create](/cli/azure/network/public-ip/prefix#az_network_public_ip_prefix_create) para crear un prefijo de dirección IP pública para la conectividad saliente.
 
 * Denominada **myPublicIPPrefixOutbound**.
 * En **CreatePubLBQS-rg**.
@@ -454,7 +456,7 @@ Para obtener más información sobre el escalado de NAT de salida y la conectivi
 
 ### <a name="create-outbound-frontend-ip-configuration"></a>Creación de una configuración de direcciones IP de front-end de salida
 
-Cree una nueva configuración de IP de front-end con [az network lb frontend-ip create](/cli/azure/network/lb/frontend-ip#az-network-lb-frontend-ip-create):
+Cree una nueva configuración de IP de front-end con [az network lb frontend-ip create](/cli/azure/network/lb/frontend-ip#az_network_lb_frontend_ip_create):
 
 Seleccione los comandos de dirección IP pública o prefijo de dirección IP pública según la decisión del paso anterior.
 
@@ -490,7 +492,7 @@ Seleccione los comandos de dirección IP pública o prefijo de dirección IP pú
 
 ### <a name="create-outbound-pool"></a>Creación del grupo de salida
 
-Cree un nuevo grupo de salida con [az network lb address-pools create](/cli/azure/network/lb/address-pool#az-network-lb-address-pool-create):
+Cree un nuevo grupo de salida con [az network lb address-pools create](/cli/azure/network/lb/address-pool#az_network_lb_address_pool_create):
 
 * Denominado **myBackendPoolOutbound**.
 * En el grupo de recursos **CreatePubLBQS-rg**.
@@ -504,7 +506,7 @@ Cree un nuevo grupo de salida con [az network lb address-pools create](/cli/azur
 ```
 ### <a name="create-outbound-rule"></a>Creación de una regla de salida
 
-Cree una nueva regla de salida para el grupo de back-end de salida con [az network lb outbound-rule create](/cli/azure/network/lb/outbound-rule#az-network-lb-outbound-rule-create):
+Cree una nueva regla de salida para el grupo de back-end de salida con [az network lb outbound-rule create](/cli/azure/network/lb/outbound-rule#az_network_lb_outbound_rule_create):
 
 * Denominada **myOutboundRule**.
 * En el grupo de recursos **CreatePubLBQS-rg**.
@@ -528,7 +530,7 @@ Cree una nueva regla de salida para el grupo de back-end de salida con [az netwo
 ```
 ### <a name="add-virtual-machines-to-outbound-pool"></a>Adición de máquinas virtuales al grupo de salida
 
-Agregue las máquinas virtuales al grupo de salida con [az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool#az-network-nic-ip-config-address-pool-add):
+Agregue las máquinas virtuales al grupo de salida con [az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool#az_network_nic_ip_config_address_pool_add):
 
 
 * En el grupo de direcciones de back-end **myBackEndPoolOutbound**.
@@ -561,7 +563,7 @@ Antes de implementar las VM y probar el equilibrador de carga, cree los recursos
 
 ### <a name="create-a-virtual-network"></a>Creación de una red virtual
 
-Cree una red virtual con [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create):
+Cree una red virtual con [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create):
 
 * Denominada **myVNet**.
 * Con el prefijo de dirección **10.1.0.0/16**.
@@ -582,7 +584,7 @@ Cree una red virtual con [az network vnet create](/cli/azure/network/vnet#az-net
 
 ### <a name="create-a-public-ip-address"></a>Crear una dirección IP pública
 
-Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) para crear una dirección IP pública para el host bastión:
+Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) para crear una dirección IP pública para el host bastión:
 
 * Cree una dirección IP pública con redundancia de zona estándar llamada **myBastionIP**.
 * En **CreatePubLBQS-rg**.
@@ -595,7 +597,7 @@ az network public-ip create \
 ```
 ### <a name="create-a-bastion-subnet"></a>Creación de una subred de Bastion
 
-Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) para crear una subred bastión:
+Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) para crear una subred bastión:
 
 * Llamada **AzureBastionSubnet**.
 * Con el prefijo de dirección **10.1.1.0/24**.
@@ -612,7 +614,7 @@ az network vnet subnet create \
 
 ### <a name="create-bastion-host"></a>Creación de un host bastión
 
-Use [az network bastion create](/cli/azure/network/bastion#az-network-bastion-create) para crear un host bastión:
+Use [az network bastion create](/cli/azure/network/bastion#az_network_bastion_create) para crear un host bastión:
 
 * Denominación **myBastionHost**.
 * En **CreatePubLBQS-rg**.
@@ -635,7 +637,7 @@ El host de Azure Bastion tarda unos minutos en implementarse.
 
 En el caso de un equilibrador de carga estándar, las VM de la dirección de back-end deben tener interfaces de red que pertenezcan a un grupo de seguridad de red. 
 
-Cree un grupo de seguridad de red con [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create):
+Cree un grupo de seguridad de red con [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create):
 
 * Denominado **myNSG**.
 * En el grupo de recursos **CreatePubLBQS-rg**.
@@ -648,7 +650,7 @@ Cree un grupo de seguridad de red con [az network nsg create](/cli/azure/network
 
 ### <a name="create-a-network-security-group-rule"></a>Creación de una regla de grupo de seguridad de red
 
-Cree una regla de grupo de seguridad de red con el [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create):
+Cree una regla de grupo de seguridad de red con el [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create):
 
 * Denominada **myNSGRuleHTTP**.
 * En el grupo de seguridad de red que creó en el paso anterior, **myNSG**.
@@ -687,7 +689,7 @@ En esta sección, creará:
 
 ### <a name="create-network-interfaces-for-the-virtual-machines"></a>Creación de interfaces de red para las máquinas virtuales
 
-Cree tres interfaces de red con [az network nic create](/cli/azure/network/nic#az-network-nic-create):
+Cree tres interfaces de red con [az network nic create](/cli/azure/network/nic#az_network_nic_create):
 
 
 * Sus nombres serán **myNicVM1**, **myNicVM2** y **myNicVM3**.
@@ -710,7 +712,7 @@ Cree tres interfaces de red con [az network nic create](/cli/azure/network/nic#a
 ```
 ### <a name="create-availability-set-for-virtual-machines"></a>Creación de un conjunto de disponibilidad para máquinas virtuales
 
-Cree el conjunto de disponibilidad con [az vm availability-set create](/cli/azure/vm/availability-set#az-vm-availability-set-create):
+Cree el conjunto de disponibilidad con [az vm availability-set create](/cli/azure/vm/availability-set#az_vm_availability_set_create):
 
 * Denominado **myAvSet**.
 * En el grupo de recursos **CreatePubLBQS-rg**.
@@ -726,7 +728,7 @@ Cree el conjunto de disponibilidad con [az vm availability-set create](/cli/azur
 
 ### <a name="create-virtual-machines"></a>Creación de máquinas virtuales
 
-Cree las máquinas virtuales con [az vm create](/cli/azure/vm#az-vm-create):
+Cree las máquinas virtuales con [az vm create](/cli/azure/vm#az_vm_create):
 
 ### <a name="vm1"></a>VM1
 * Denominada **myVM1**.
@@ -782,11 +784,13 @@ Cree las máquinas virtuales con [az vm create](/cli/azure/vm#az-vm-create):
 ```
 Puede que las VM tarden unos minutos en implementarse.
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 ## <a name="create-a-public-ip-address---basic"></a>Creación de una dirección IP pública: básica
 
 Para obtener acceso a la aplicación web en Internet, necesita una dirección IP pública para el equilibrador de carga. 
 
-Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) para:
+Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) para:
 
 * Crear una dirección IP pública con redundancia de zona estándar denominada **myPublicIP**.
 * En **CreatePubLBQS-rg**.
@@ -809,7 +813,7 @@ En esta sección se detalla cómo se pueden crear y configurar los componentes s
 
 ### <a name="create-the-load-balancer-resource"></a>Creación del recurso del equilibrador de carga
 
-Cree un equilibrador de carga público con [az network lb create](/cli/azure/network/lb#az-network-lb-create):
+Cree un equilibrador de carga público con [az network lb create](/cli/azure/network/lb#az_network_lb_create):
 
 * Denominado **myLoadBalancer**.
 * Un grupo de front-end denominado **MyFrontEnd**.
@@ -832,7 +836,7 @@ Los sondeos de estado comprueban todas las instancias de máquina virtual para a
 
 Una máquina virtual con una comprobación de sondeo con errores se quita del equilibrador de carga. La máquina virtual se agrega de nuevo al equilibrador de carga cuando se resuelve el error.
 
-Cree un sondeo de estado con [az network lb probe create](/cli/azure/network/lb/probe#az-network-lb-probe-create):
+Cree un sondeo de estado con [az network lb probe create](/cli/azure/network/lb/probe#az_network_lb_probe_create):
 
 * Supervisa el estado de las máquinas virtuales.
 * Denominado **myHealthProbe**.
@@ -856,7 +860,7 @@ Una regla de equilibrador de carga define:
 * El grupo de IP de back-end para recibir el tráfico.
 * Los puertos de origen y de destino requeridos. 
 
-Cree una regla de equilibrador de carga con [az network lb rule create](/cli/azure/network/lb/rule#az-network-lb-rule-create):
+Cree una regla de equilibrador de carga con [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create):
 
 * Denominada **myHTTPRule**.
 * Que escuche en el **puerto 80** en el grupo de front-end **myFrontEnd**.
@@ -881,7 +885,7 @@ Cree una regla de equilibrador de carga con [az network lb rule create](/cli/azu
 
 ### <a name="add-virtual-machines-to-load-balancer-backend-pool"></a>Adición de máquinas virtuales al grupo de back-end del equilibrador de carga
 
-Agregue las máquinas virtuales al grupo de back-end con [az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool#az-network-nic-ip-config-address-pool-add):
+Agregue las máquinas virtuales al grupo de back-end con [az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool#az_network_nic_ip_config_address_pool_add):
 
 * En el grupo de direcciones de back-end **myBackEndPool**.
 * En el grupo de recursos **CreatePubLBQS-rg**.
@@ -923,7 +927,7 @@ Utilice [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set) para 
 
 ## <a name="test-the-load-balancer"></a>Prueba del equilibrador de carga
 
-Para obtener la dirección IP pública del equilibrador de carga, use [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). 
+Para obtener la dirección IP pública del equilibrador de carga, use [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). 
 
 Copie la dirección IP pública y péguela en la barra de direcciones del explorador.
 
@@ -938,7 +942,7 @@ Copie la dirección IP pública y péguela en la barra de direcciones del explor
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando ya no se necesiten, use el comando [az group delete](/cli/azure/group#az-group-delete) para quitar el grupo de recursos, el equilibrador de carga y todos los recursos relacionados.
+Cuando ya no se necesiten, use el comando [az group delete](/cli/azure/group#az_group_delete) para quitar el grupo de recursos, el equilibrador de carga y todos los recursos relacionados.
 
 ```azurecli-interactive
   az group delete \

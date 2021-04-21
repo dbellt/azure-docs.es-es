@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 01/07/2021
 ms.author: kumud
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 18e380345ef0caab52e9b1c537bada73e36d8b48
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 701df4353e8d2e36baf0496bd6944c4a95395414
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106063328"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763278"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-cli"></a>Inicio rápido: Diagnóstico de problemas de filtrado del tráfico de red de una máquina virtual: CLI de Azure
 
@@ -62,7 +62,7 @@ Para probar la comunicación de red con Network Watcher, primero debe habilitar 
 
 ### <a name="enable-network-watcher"></a>Habilitación de Network Watcher
 
-Si ya dispone de un monitor de red habilitado en la región Este de EE. UU., sáltese la sección [Uso de la funcionalidad Comprobación del flujo de IP](#use-ip-flow-verify). Utilice el comando [az network watcher configure](/cli/azure/network/watcher#az-network-watcher-configure) para crear un monitor de red en la región EastUS:
+Si ya dispone de un monitor de red habilitado en la región Este de EE. UU., sáltese la sección [Uso de la funcionalidad Comprobación del flujo de IP](#use-ip-flow-verify). Utilice el comando [az network watcher configure](/cli/azure/network/watcher#az_network_watcher_configure) para crear un monitor de red en la región EastUS:
 
 ```azurecli-interactive
 az network watcher configure \
@@ -73,7 +73,7 @@ az network watcher configure \
 
 ### <a name="use-ip-flow-verify"></a>Uso de la funcionalidad Comprobación del flujo de IP
 
-Cuando se crea una máquina virtual, Azure permite y deniega el tráfico de entrada y salida de la máquina virtual conforme a unos valores predeterminados. Si lo desea, puede invalidar después los valores predeterminados de Azure para permitir o denegar otros tipos de tráfico. Para comprobar si se permite o deniega el tráfico dirigido a distintos destinos o el tráfico procedente de una dirección IP, utilice el comando [az network watcher test-ip-flow](/cli/azure/network/watcher#az-network-watcher-test-ip-flow).
+Cuando se crea una máquina virtual, Azure permite y deniega el tráfico de entrada y salida de la máquina virtual conforme a unos valores predeterminados. Si lo desea, puede invalidar después los valores predeterminados de Azure para permitir o denegar otros tipos de tráfico. Para comprobar si se permite o deniega el tráfico dirigido a distintos destinos o el tráfico procedente de una dirección IP, utilice el comando [az network watcher test-ip-flow](/cli/azure/network/watcher#az_network_watcher_test_ip_flow).
 
 Pruebe la comunicación de salida entre la máquina virtual y una de las direcciones IP de www.bing.com:
 
@@ -125,7 +125,7 @@ El resultado devuelto le informa de que una regla de seguridad llamada **Default
 
 ## <a name="view-details-of-a-security-rule"></a>Ver detalles de una regla de seguridad
 
-Para determinar por qué las reglas de [Uso de la funcionalidad Comprobación del flujo de IP](#use-ip-flow-verify) permiten o deniegan la comunicación, revise las reglas de seguridad que están en vigor en la interfaz de red con el comando [az network nic list-effective-nsg](/cli/azure/network/nic#az-network-nic-list-effective-nsg):
+Para determinar por qué las reglas de [Uso de la funcionalidad Comprobación del flujo de IP](#use-ip-flow-verify) permiten o deniegan la comunicación, revise las reglas de seguridad que están en vigor en la interfaz de red con el comando [az network nic list-effective-nsg](/cli/azure/network/nic#az_network_nic_list_effective_nsg):
 
 ```azurecli-interactive
 az network nic list-effective-nsg \

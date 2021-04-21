@@ -6,12 +6,12 @@ ms.author: margard
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/10/2020
-ms.openlocfilehash: 99e3611711e9a25119a4428d7736a36073163894
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: b737ea751d3b3d2132691e04a1a2cd853748db65
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104877152"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107792514"
 ---
 # <a name="tutorial-use-a-managed-identity-to-invoke-azure-functions-from-an-azure-spring-cloud-app"></a>Tutorial: Uso de una identidad administrada para invocar Azure Functions desde una aplicación de Azure Spring Cloud
 
@@ -29,7 +29,7 @@ Tanto Azure Functions como App Services tienen compatibilidad integrada para la 
 
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
-Un grupo de recursos es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Cree un grupo de recursos que contenga tanto la aplicación de funciones como Spring Cloud mediante el comando [az group create](/cli/azure/group#az-group-create):
+Un grupo de recursos es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Cree un grupo de recursos que contenga tanto la aplicación de funciones como Spring Cloud mediante el comando [az group create](/cli/azure/group#az_group_create):
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -37,7 +37,7 @@ az group create --name myResourceGroup --location eastus
 
 
 ## <a name="create-a-function-app"></a>Creación de una aplicación de funciones
-Para crear una aplicación de funciones, primero debe crear la cuenta de almacenamiento subyacente; para ello, use el comando [az storage account create](/cli/azure/storage/account#az-storage-account-create):
+Para crear una aplicación de funciones, primero debe crear la cuenta de almacenamiento subyacente; para ello, use el comando [az storage account create](/cli/azure/storage/account#az_storage_account_create):
 
 > [!Important]
 > Las aplicaciones de funciones y las cuentas de almacenamiento deben tener nombres únicos. En los ejemplos siguientes, reemplace <nombreDeLaAplicaciónDeFunciones> por el nombre de la aplicación de funciones y <nombreDeLaCuentaDeAlmacenamiento> por el nombre de la cuenta de almacenamiento.

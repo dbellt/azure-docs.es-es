@@ -3,13 +3,15 @@ title: 'Inicio rápido: creación de un grupo de administración con Azure Power
 description: En este inicio rápido, se usa Azure PowerShell para crear un grupo de administración para organizar los recursos en una jerarquía de recursos.
 ms.date: 02/05/2021
 ms.topic: quickstart
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 216cfeb6e1389793afcfd27d8785a5f912db2c97
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom:
+- devx-track-azurepowershell
+- mode-api
+ms.openlocfilehash: 0291bb2bfb439ad09531066f6bad4e20a3f4c6bd
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99592541"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535968"
 ---
 # <a name="quickstart-create-a-management-group-with-azure-powershell"></a>Inicio rápido: creación de un grupo de administración con Azure PowerShell
 
@@ -17,7 +19,7 @@ Los grupos de administración son contenedores que ayudan a administran el acces
 
 El primer grupo de administración creado en el directorio puede tardar hasta 15 minutos en completarse. Hay procesos que se ejecutan la primera vez para configurar el servicio de grupos de administración dentro de Azure para su directorio. Recibirá una notificación cuando finalice el proceso. Para obtener más información, vea [Instalación inicial de los grupos de administración](./overview.md#initial-setup-of-management-groups).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 

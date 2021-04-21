@@ -2,17 +2,19 @@
 title: Uso de Azure PowerShell para crear una cola de Service Bus
 description: En este inicio rápido aprenderá a crear un espacio de nombres de Service Bus y una cola en ese mismo espacio mediante Azure PowerShell.
 author: spelluru
-ms.devlang: dotnet
-ms.topic: quickstart
-ms.date: 08/12/2020
 ms.author: spelluru
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8cf024735c66e6bae9d334e3d8ce8d0a0eed1426
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/12/2020
+ms.topic: quickstart
+ms.devlang: dotnet
+ms.custom:
+- devx-track-azurepowershell
+- mode-api
+ms.openlocfilehash: f7bf9e5435b00ee3076422cccbe689038051499d
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95799102"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107537096"
 ---
 # <a name="use-azure-powershell-to-create-a-service-bus-namespace-and-a-queue"></a>Uso de Azure PowerShell para crear un espacio de nombres de Service Bus y una cola
 En este inicio rápido se muestra cómo crear un espacio de nombres de Service Bus y una cola mediante Azure PowerShell. También se muestra cómo obtener credenciales de autorización que una aplicación cliente puede usar para enviar mensajes a la cola, o recibirlos de ella. 
@@ -70,4 +72,3 @@ En este artículo, ha creado un espacio de nombres de Service Bus y una cola en 
 - [Ruby](service-bus-ruby-how-to-use-queues.md)
 
 [cuenta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-

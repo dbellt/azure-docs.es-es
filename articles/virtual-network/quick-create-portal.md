@@ -3,20 +3,23 @@ title: 'Inicio rápido: Creación de una red virtual mediante Azure Portal'
 titleSuffix: Azure Virtual Network
 description: En este inicio rápido aprenderá a crear una red virtual mediante Azure Portal.
 author: KumudD
-tags: azure-resource-manager
-ms.service: virtual-network
-ms.devlang: na
-ms.topic: quickstart
-ms.tgt_pltfrm: virtual-network
-ms.workload: infrastructure
-ms.date: 03/17/2021
 ms.author: kumud
-ms.openlocfilehash: 8af5b302e3ec790b6ee9356aca0699d0edcd284e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/17/2021
+ms.topic: quickstart
+ms.service: virtual-network
+ms.workload: infrastructure
+ms.tgt_pltfrm: virtual-network
+ms.devlang: na
+tags:
+- azure-resource-manager
+ms.custom:
+- mode-portal
+ms.openlocfilehash: 43c45b43084656a45d2509ee2c7a4376cdc7c052
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104606075"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107531188"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>Inicio rápido: Creación de una red virtual mediante el Portal de Azure
 
@@ -43,7 +46,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com).
     | Parámetro | Value |
     | ------- | ----- |
     | **Detalles del proyecto** |   |
-    | Subscription | Seleccione su suscripción. |
+    | Suscripción | Seleccione su suscripción. |
     | Resource group | Seleccione **Crear nuevo**.  </br> Escriba **myResourceGroup**. </br> Seleccione **Aceptar**. |
     | **Detalles de instancia** |   |
     | Nombre | Escriba **myVNet**. |
@@ -162,6 +165,8 @@ Cree dos máquinas virtuales en la red virtual:
 5. Seleccione la pestaña **Revisar y crear** o el botón azul **Revisar y crear** en la parte inferior de la página.
   
 6. Revise la configuración y, a continuación, seleccione **Crear**.
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## <a name="connect-to-myvm1"></a>Conexión a myVM1
 

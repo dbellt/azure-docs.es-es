@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 04/05/2021
 ms.author: duau
-ms.openlocfilehash: 6f56b9fb1f6a1f5a1fe0811617fb20412c52fd72
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 3476e5fa2c274f0fc2c180711480375b0ebefaf2
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106450908"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107388047"
 ---
 # <a name="quickstart-create-an-azure-route-server-using-an-arm-template"></a>Inicio rápido: Creación de una instancia de Azure Route Server mediante una plantilla de Resource Manager
 
@@ -41,9 +41,9 @@ En la plantilla se han definido varios recursos de Azure:
 
 * [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualNetworks)
 * [**Microsoft.Network/virtualNetworks/subnets**](/azure/templates/microsoft.network/virtualNetworks/subnets) (dos subredes, una denominada `routeserversubnet`)
-* [**Microsoft.Network/virtualHubs**](/azure.templates/microsoft.network/virtualhubs) (implementación de Route Server)
-* [**Microsoft.Network/virtualHubs/ipConfigurations**](/azure.templates/microsoft.network/virtualhubs/ipConfigurations)
-* [**Microsoft.Network/virtualHubs/bgpConnections**](/azure.templates/microsoft.network/virtualhubs/bgpConnections) (Configuración de ASN y dirección IP del mismo nivel)
+* [**Microsoft.Network/virtualHubs**](/azure/templates/microsoft.network/virtualhubs) (implementación de Route Server)
+* [**Microsoft.Network/virtualHubs/ipConfigurations**](/azure/templates/microsoft.network/virtualhubs/ipConfigurations)
+* [**Microsoft.Network/virtualHubs/bgpConnections**](/azure/templates/microsoft.network/virtualhubs/bgpconnections) (Configuración de ASN y dirección IP del mismo nivel)
 
 
 Para encontrar más plantillas relacionadas con ExpressRoute, consulte [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).

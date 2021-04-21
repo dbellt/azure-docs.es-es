@@ -5,12 +5,12 @@ ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
 ms.date: 07/06/2020
 ms.custom: devx-track-dotnet, mvc, seodec18
-ms.openlocfilehash: 668988ae34c2f97f3baca3f360c13e3ec3e30731
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 771c79f56a31c83f2152886ad6cf68367776f83f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100586360"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107767235"
 ---
 # <a name="app-service-overview"></a>Información general de App Service
 
@@ -44,7 +44,7 @@ App Service también puede hospedar las aplicaciones Web de forma nativa en Linu
 
 ### <a name="built-in-languages-and-frameworks"></a>Lenguajes y marcos integrados
 
-App Service en Linux admite varias imágenes integradas específicas del lenguaje. Solo implemente el código. Los lenguajes compatibles incluyen: Node.js, Java (JRE 8 y JRE 11), PHP, Python, .NET Core y Ruby. Ejecute [`az webapp list-runtimes --linux`](/cli/azure/webapp#az-webapp-list-runtimes) para ver los idiomas y las versiones admitidas más recientes. Si el motor de tiempo de ejecución que requiere la aplicación no se admite en las imágenes integradas, puede implementarlo con un contenedor personalizado.
+App Service en Linux admite varias imágenes integradas específicas del lenguaje. Solo implemente el código. Los lenguajes compatibles incluyen: Node.js, Java (JRE 8 y JRE 11), PHP, Python, .NET Core y Ruby. Ejecute [`az webapp list-runtimes --linux`](/cli/azure/webapp#az_webapp_list_runtimes) para ver los idiomas y las versiones admitidas más recientes. Si el motor de tiempo de ejecución que requiere la aplicación no se admite en las imágenes integradas, puede implementarlo con un contenedor personalizado.
 
 Los entornos de ejecución obsoletos se eliminan periódicamente de las hojas de creación y configuración de Web Apps del portal. Estos entornos de ejecución están ocultos en el portal cuando la organización que los mantiene los pone en desuso o se encuentran vulnerabilidades significativas. Estas opciones se ocultan para guiar a los clientes a los entornos de ejecución más recientes, en los que podrán conseguir mejores resultados. 
 

@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: sample
 ms.date: 07/29/2020
-ms.openlocfilehash: 2ea833b72b9522cdfca836a7b13f7b411402103e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ee298b33736ae25b365cc54ee1bb5ec9f38bfb62
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94562702"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763620"
 ---
 # <a name="create-a-resource-lock-for-azure-cosmos-dbs-api-for-mongodb-using-azure-cli"></a>Creación de un bloqueo de recurso para la API de Azure Cosmos DB para MongoDB mediante la CLI de Azure
 [!INCLUDE[appliesto-mongodb-api](../../../includes/appliesto-mongodb-api.md)]
@@ -34,10 +34,10 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 
 | Get-Help | Notas |
 |---|---|
-| [az lock create](/cli/azure/lock#az-lock-create) | Crea un bloqueo. |
-| [az lock list](/cli/azure/lock#az-lock-list) | Muestra información del bloqueo. |
-| [az lock show](/cli/azure/lock#az-lock-show) | Muestra las propiedades de un bloqueo. |
-| [az lock delete](/cli/azure/lock#az-lock-delete) | Elimina un bloqueo. |
+| [az lock create](/cli/azure/lock#az_lock_create) | Crea un bloqueo. |
+| [az lock list](/cli/azure/lock#az_lock_list) | Muestra información del bloqueo. |
+| [az lock show](/cli/azure/lock#az_lock_show) | Muestra las propiedades de un bloqueo. |
+| [az lock delete](/cli/azure/lock#az_lock_delete) | Elimina un bloqueo. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

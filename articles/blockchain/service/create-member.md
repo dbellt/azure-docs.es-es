@@ -1,16 +1,18 @@
 ---
 title: 'Creación de un miembro de Azure Blockchain Service: Azure Portal'
 description: Creación de un miembro de Azure Blockchain Service para un consorcio de una cadena de bloques mediante Azure Portal.
+ms.reviewer: ravastra
 ms.date: 07/16/2020
 ms.topic: quickstart
-ms.reviewer: ravastra
-ms.custom: references_regions
-ms.openlocfilehash: 8a7f5aaea56f34e8107664ab786a14b59cd1cb7d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom:
+- references_regions
+- mode-portal
+ms.openlocfilehash: 9fe8b7856a99930c16b4173e432fa0b30642582c
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91292735"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107536190"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-the-azure-portal"></a>Inicio rápido: Creación de un miembro de cadena de bloques de Azure Blockchain Service mediante Azure Portal
 
@@ -34,7 +36,7 @@ Un miembro de Azure Blockchain Service es un nodo de la cadena de bloques en una
 
     Configuración | Descripción
     --------|------------
-    Subscription | Seleccione la suscripción de Azure que quiere usar con el servicio. Si tiene varias suscripciones, elija aquella en la que se factura el recurso.
+    Suscripción | Seleccione la suscripción de Azure que quiere usar con el servicio. Si tiene varias suscripciones, elija aquella en la que se factura el recurso.
     Resource group | Cree un nombre de grupo de recursos o use uno existente en la suscripción.
     Region | Elija la región en que desea crear el miembro. Todos los miembros del consorcio deben estar en la misma ubicación. Es posible que las características no estén disponibles en algunas regiones. Azure Blockchain Data Manager está disponible en las siguientes regiones de Azure: Este de EE. UU. y Oeste de Europa.
     Protocolo | Actualmente, la versión preliminar de Azure Blockchain Service admite el protocolo Quorum.

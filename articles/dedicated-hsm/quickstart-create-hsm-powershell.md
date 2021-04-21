@@ -4,17 +4,19 @@ description: Creación de una instancia de Azure Dedicated HSM con Azure PowerSh
 services: dedicated-hsm
 author: msmbaldwin
 ms.author: mbaldwin
+ms.date: 11/13/2020
 ms.topic: quickstart
 ms.service: key-vault
 ms.devlang: azurepowershell
-ms.date: 11/13/2020
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: eebfb257d0324cf2771bd3af979ddbebb8429fb7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom:
+- devx-track-azurepowershell
+- mode-api
+ms.openlocfilehash: d5b6d0399ceb98caf9bdd7bbd725e6d92af0eaa3
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94905562"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107537800"
 ---
 # <a name="quickstart-create-an-azure-dedicated-hsm-with-azure-powershell"></a>Inicio rápido: Creación de una instancia de Azure Dedicated HSM con Azure PowerShell
 

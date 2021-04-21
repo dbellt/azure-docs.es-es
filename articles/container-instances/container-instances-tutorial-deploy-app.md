@@ -4,12 +4,12 @@ description: 'Tutorial de Azure Container Instances, parte 3 de 3: implementaci�
 ms.topic: tutorial
 ms.date: 03/21/2018
 ms.custom: seodec18, mvc, devx-track-azurecli
-ms.openlocfilehash: 2ea3d285f00d38df84587d9a7c15242fff38453b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2d12b0bc91cf844001b770c8a7e534ad6b1b9b2d
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "87500579"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763890"
 ---
 # <a name="tutorial-deploy-a-container-application-to-azure-container-instances"></a>Tutorial: Implementación de una aplicación de contenedor en Azure Container Instances
 
@@ -127,8 +127,8 @@ Ahora que ya tiene los conceptos básicos, va a aprender más acerca de Azure Co
 [docker-windows]: https://docs.docker.com/docker-for-windows/
 
 <!-- LINKS - internal -->
-[az-container-create]: /cli/azure/container#az-container-create
-[az-container-show]: /cli/azure/container#az-container-show
-[az-group-delete]: /cli/azure/group#az-group-delete
+[az-container-create]: /cli/azure/container#az_container_create
+[az-container-show]: /cli/azure/container#az_container_show
+[az-group-delete]: /cli/azure/group#az_group_delete
 [azure-cli-install]: /cli/azure/install-azure-cli
 [prepare-app]: ./container-instances-tutorial-prepare-app.md

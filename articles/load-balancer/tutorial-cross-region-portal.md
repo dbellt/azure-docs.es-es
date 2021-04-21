@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 02/24/2021
-ms.openlocfilehash: 65d85f51afef36aa618868e2fda1d2bbf583ea21
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 16320021ede4a4e285c4e1973c166d2cdf643c4a
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106221133"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107529525"
 ---
 # <a name="tutorial-create-a-cross-region-azure-load-balancer-using-the-azure-portal"></a>Tutorial: Creación de una instancia de Azure Load Balancer entre regiones mediante Azure Portal
 
@@ -32,7 +32,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 > Azure Load Balancer entre regiones se encuentra actualmente en versión preliminar pública.
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Suscripción a Azure.
 - Dos instancias de Azure Load Balancer con SKU **Estándar** con grupos de back-end implementados en dos regiones de Azure diferentes.
@@ -133,7 +133,6 @@ En esta sección va a crear una regla de equilibrador de carga:
     | Port | Escriba **80**.|
     | Puerto back-end | Escriba **80**. |
     | Grupo back-end | Seleccione **MyBackendPool**.|
-    | Sondeo de mantenimiento | Seleccione **myHealthProbe**. |
     | Tiempo de espera de inactividad (minutos) | Mueva el control deslizante a **15**. |
     | Restablecimiento de TCP | Seleccione **Habilitado**. |
 

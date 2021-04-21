@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/29/2020
-ms.openlocfilehash: 2412d3d2851d1b4d251b50ff3068b7dcafcccee8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: eddcab2c0a34ef437e4f2f1e2203fee9065133a4
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105642039"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781890"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Inicio rápido: Importación de un archivo BACPAC a una base de datos de Azure SQL Database o Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -128,7 +128,7 @@ $importStatus
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-Use el comando [az-sql-db-import](/cli/azure/sql/db#az-sql-db-import) para enviar una solicitud de importación de base de datos a Azure. En función del tamaño de la base de datos, la importación puede tardar en completarse. El modelo de aprovisionamiento basado en DTU admite la selección de valores de tamaño máximo de base de datos para cada nivel. Al importar una base de datos [use uno de estos valores admitidos](/sql/t-sql/statements/create-database-transact-sql). 
+Use el comando [az-sql-db-import](/cli/azure/sql/db#az_sql_db_import) para enviar una solicitud de importación de base de datos a Azure. En función del tamaño de la base de datos, la importación puede tardar en completarse. El modelo de aprovisionamiento basado en DTU admite la selección de valores de tamaño máximo de base de datos para cada nivel. Al importar una base de datos [use uno de estos valores admitidos](/sql/t-sql/statements/create-database-transact-sql). 
 
 ```azurecli
 # get the storage account key

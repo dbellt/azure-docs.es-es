@@ -6,13 +6,13 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
-ms.date: 02/27/2020
-ms.openlocfilehash: bd1715dc0a3767bc5826154616bbdc97c7b61dd3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/24/2021
+ms.openlocfilehash: 7809ba52b270f07da9e04bc18c7c12e2268f1b73
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99576369"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107792244"
 ---
 # <a name="tutorial-automate-tasks-to-process-emails-by-using-azure-logic-apps-azure-functions-and-azure-storage"></a>Tutorial: Automatización de tareas para procesar correos electrónicos mediante Azure Logic Apps, Azure Functions y Azure Storage
 
@@ -47,7 +47,7 @@ Cuando haya terminado, la aplicación lógica se parecerá a este flujo de traba
 
 * Descargue e instale el [Explorador de Microsoft Azure Storage](https://storageexplorer.com/), una herramienta que es gratuita. Esta herramienta le ayuda a comprobar que el contenedor de almacenamiento esté configurado correctamente.
 
-* Si la aplicación lógica necesita comunicarse a través de un firewall que limite el tráfico a direcciones IP específicas, ese firewall debe permitir el acceso para *ambas* direcciones IP, la [de entrada](logic-apps-limits-and-config.md#inbound) y la [de salida](logic-apps-limits-and-config.md#outbound), utilizadas por el servicio Logic Apps o por el entorno de ejecución en la región de Azure donde se encuentra la aplicación lógica. Si la aplicación lógica también usa [conectores administrados](../connectors/apis-list.md#managed-api-connectors), como el conector de Outlook de Office 365 o el conector de SQL, o emplea [conectores personalizados](/connectors/custom-connectors/), el firewall también debe permitir el acceso a *todas* las [direcciones IP de salida del conector administrado](logic-apps-limits-and-config.md#outbound) en la región de Azure de la aplicación lógica.
+* Si la aplicación lógica necesita comunicarse a través de un firewall que limite el tráfico a direcciones IP específicas, ese firewall debe permitir el acceso para *ambas* direcciones IP, la [de entrada](logic-apps-limits-and-config.md#inbound) y la [de salida](logic-apps-limits-and-config.md#outbound), utilizadas por el servicio Logic Apps o por el entorno de ejecución en la región de Azure donde se encuentra la aplicación lógica. Si la aplicación lógica también usa [conectores administrados](../connectors/managed.md), como el conector de Outlook de Office 365 o el conector de SQL, o emplea [conectores personalizados](/connectors/custom-connectors/), el firewall también debe permitir el acceso a *todas* las [direcciones IP de salida del conector administrado](logic-apps-limits-and-config.md#outbound) en la región de Azure de la aplicación lógica.
 
 ## <a name="set-up-storage-to-save-attachments"></a>Configuración del almacenamiento para guardar datos adjuntos
 
@@ -104,7 +104,7 @@ Puede guardar los correos electrónicos entrantes y los datos adjuntos como blob
 
       ![Contenedor de almacenamiento finalizado](./media/tutorial-process-email-attachments-workflow/created-storage-container.png)
 
-   Para crear un contenedor de almacenamiento, también puede usar [Azure PowerShell](/powershell/module/az.storage/new-azstoragecontainer) o la [CLI de Azure](/cli/azure/storage/container#az-storage-container-create).
+   Para crear un contenedor de almacenamiento, también puede usar [Azure PowerShell](/powershell/module/az.storage/new-azstoragecontainer) o la [CLI de Azure](/cli/azure/storage/container#az_storage_container_create).
 
 A continuación, conecte el Explorador de Storage a la cuenta de almacenamiento.
 

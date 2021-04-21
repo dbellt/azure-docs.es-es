@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: 315519472baa672e802855b5ab21b8bae8f51935
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: d03a4865c8db52f74f4130c458fec3028f5b95a4
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106109856"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107481674"
 ---
 # <a name="what-is-azure-digital-twins"></a>¿Qué es Azure Digital Twins?
 
@@ -102,6 +102,6 @@ Puede ver una lista de **términos de IoT comunes** y sus usos en los servicios 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Profundice en el uso de Azure Digital Twins en el inicio rápido: [*Guía de inicio rápido: Exploración de un escenario de ejemplo*](quickstart-adt-explorer.md).
+* Profundice en el uso de Azure Digital Twins en el inicio rápido: [*Guía de inicio rápido: Exploración de un escenario de ejemplo*](quickstart-azure-digital-twins-explorer.md).
 
 * O bien, empiece a obtener información sobre los conceptos de Azure Digital Twins con [*Conceptos: Modelos personalizados*](concepts-models.md).

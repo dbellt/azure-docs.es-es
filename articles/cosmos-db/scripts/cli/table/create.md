@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: sample
 ms.date: 07/29/2020
-ms.openlocfilehash: c6efc013241925085ecc9a5e3ead804ba3e82dee
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9c9dfd7ec4a37ddc4a20ec948445273bbf772c34
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94565983"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107788999"
 ---
 # <a name="create-an-azure-cosmos-table-api-account-and-table-using-azure-cli"></a>Creación de una cuenta de Azure Cosmos y una tabla de Table API con la CLI de Azure
 [!INCLUDE[appliesto-table-api](../../../includes/appliesto-table-api.md)]
@@ -39,10 +39,10 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 
 | Get-Help | Notas |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
-| [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Crea una cuenta de Azure Cosmos DB. |
-| [az cosmosdb table create](/cli/azure/cosmosdb/table#az-cosmosdb-table-create) | Crea una tabla de Table API para Azure Cosmos. |
-| [az group delete](/cli/azure/resource#az-resource-delete) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
+| [az group create](/cli/azure/group#az_group_create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
+| [az cosmosdb create](/cli/azure/cosmosdb#az_cosmosdb_create) | Crea una cuenta de Azure Cosmos DB. |
+| [az cosmosdb table create](/cli/azure/cosmosdb/table#az_cosmosdb_table_create) | Crea una tabla de Table API para Azure Cosmos. |
+| [az group delete](/cli/azure/resource#az_resource_delete) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
