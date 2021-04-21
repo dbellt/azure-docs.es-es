@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: d8aaa8d5013c426ac1ab6b367309c51be4929cee
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: a2d4ebee02d85d10d5db8ec2de0bb1be334770dc
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107366409"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107717664"
 ---
 # <a name="set-up-a-file-share-for-msix-app-attach"></a>Configuración de un recurso compartido de archivos para asociar aplicaciones en formato MSIX (versión preliminar)
 
@@ -77,7 +77,7 @@ Para asignar a las máquinas virtuales de host de sesión permisos en la cuenta 
 
 4. Cree una cuenta de almacenamiento.
 
-5. Cree un recurso compartido de archivos en la cuenta de almacenamiento siguiendo las instrucciones de [Creación de un recurso compartido de archivos de Azure](../storage/files/storage-how-to-create-file-share.md#create-file-share).
+5. Cree un recurso compartido de archivos en la cuenta de almacenamiento siguiendo las instrucciones de [Creación de un recurso compartido de archivos de Azure](../storage/files/storage-how-to-create-file-share.md#create-a-file-share).
 
 6. Una la cuenta de almacenamiento a AD DS siguiendo las instrucciones de [Parte 1: Habilitación de la autenticación de AD DS para los recursos compartidos de archivos de Azure](../storage/files/storage-files-identity-ad-ds-enable.md#option-one-recommended-use-azfileshybrid-powershell-module).
 

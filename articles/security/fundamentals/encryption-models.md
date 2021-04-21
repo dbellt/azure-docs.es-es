@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 9194f38ddea5570d94ba6c87ea6a537cb41fb98c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f76b2811531b49c9312a02a581e876f9ef569a2a
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102051385"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107750975"
 ---
 # <a name="data-encryption-models"></a>Modelos de cifrado de datos
 
@@ -102,7 +102,7 @@ Para las operaciones con claves de cifrado, una identidad de servicio puede tene
 Para obtener una clave para usar al cifrar o descifrar datos en reposo, la identidad de servicio con la que se ejecutará la instancia de Resource Manager debe tener UnwrapKey (para obtener la clave de descifrado) y WrapKey (para insertar una clave en el almacén de claves al crear una nueva clave).
 
 >[!NOTE]
->Para obtener más detalles sobre la autorización del Key Vault, vea la protección de la página del almacén de claves en la [documentación de Azure Key Vault](../../key-vault/general/secure-your-key-vault.md).
+>Para obtener más detalles sobre la autorización del Key Vault, vea la protección de la página del almacén de claves en la [documentación de Azure Key Vault](../../key-vault/general/security-overview.md).
 
 **Ventajas**
 

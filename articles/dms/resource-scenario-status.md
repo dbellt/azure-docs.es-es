@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 07/08/2020
-ms.openlocfilehash: fc2ab86a318086750b11780a7802aa3591065264
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6c1a0853dc59b2e2ceabfd47d81aac364a2b5716
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103463517"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107589438"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Estado de los escenarios de migración que admite Azure Database Migration Service
 
@@ -26,10 +26,6 @@ Azure Database Migration Service está diseñado para admitir una serie de escen
 ## <a name="offline-versus-online-migrations"></a>Migraciones sin conexión o en línea
 
 Con Azure Database Migration Service, puede realizar una migración sin conexión o en línea. Si usa las migraciones *sin conexión*, el tiempo de inactividad de la aplicación comienza al mismo tiempo que la migración. Para limitar el tiempo de inactividad al tiempo necesario para la transición al nuevo entorno cuando finalice la migración, use una migración *en línea*. Es recomendable probar una migración sin conexión para determinar si el tiempo de inactividad es aceptable; si no fuera así, realice una migración en línea.
-
-## <a name="migration-scenario-status"></a>Estado del escenario de migración
-
-El estado de los escenarios de migración que admite Azure Database Migration Service varía con el tiempo. Por lo general, los escenarios se lanzan primero en **versión preliminar privada**. La participación en la versión preliminar privada requiere que los clientes envíen una propuesta a través de la [sitio de versión preliminar de DMS](https://aka.ms/dms-preview). Después de la versión preliminar privada, el estado del escenario cambia a **versión preliminar pública**. Los usuarios de Azure Database Migration Service pueden probar escenarios de migración en la versión preliminar pública directamente desde la interfaz de usuario. No es preciso registrarse.  Sin embargo, los escenarios de migración en versión preliminar pública podrían no estar disponibles en todas las regiones y podrían sufrir cambios adicionales antes del lanzamiento de la versión final. Después de la versión preliminar pública, el estado del escenario cambia a **disponibilidad general**. Disponibilidad general (GA) es el estado de la versión final, y la funcionalidad es completa y accesible para todos los usuarios.
 
 ## <a name="migration-scenario-support"></a>Compatibilidad del escenario de migración
 

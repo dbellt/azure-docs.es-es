@@ -4,12 +4,12 @@ description: Proporciona un resumen de opciones de compatibilidad y limitaciones
 ms.topic: conceptual
 ms.date: 04/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: d7038b47bd4aba8f7747eef455f1e8dd3c77a695
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 354f64eb86cd545860c47562fba7ff43babe72ca
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107257350"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107714153"
 ---
 # <a name="support-matrix-for-sql-server-backup-in-azure-vms"></a>Matriz de compatibilidad para la copia de seguridad de SQL Server en VM de Azure
 
@@ -97,9 +97,9 @@ Solo copia completa |  Secundario
 
 Azure Backup admite una velocidad de transferencia de datos constante de 200 Mbps en las copias de seguridad completas y diferenciales de bases de datos SQL grandes (de 500 GB). Para utilizar el rendimiento óptimo, asegúrese de que:
 
-- La máquina virtual subyacente (que contiene la instancia de SQL Server, que hospeda la base de datos) se configura con el rendimiento de red necesario. Si el rendimiento máximo de la máquina virtual es inferior a 200 Mbps, Azure Backup no puede transferir datos a una velocidad óptima.<br></br>Además, el disco que contiene los archivos de base de datos debe tener suficiente rendimiento aprovisionado. [Más información](../virtual-machines/disks-performance.md) sobre el rendimiento de discos en máquinas virtuales de Azure. 
+- La máquina virtual subyacente (que contiene la instancia de SQL Server, que hospeda la base de datos) se configura con el rendimiento de red necesario. Si el rendimiento máximo de la máquina virtual es inferior a 200 Mbps, Azure Backup no puede transferir datos a una velocidad óptima.<br>Además, el disco que contiene los archivos de base de datos debe tener suficiente rendimiento aprovisionado. [Más información](../virtual-machines/disks-performance.md) sobre el rendimiento de discos en máquinas virtuales de Azure. 
 - Los procesos, que se ejecutan en la máquina virtual, no consumen el ancho de banda de la máquina virtual. 
-- Las programaciones de las copias de seguridad se reparten entre un subconjunto de bases de datos. Si se ejecutan varias copias de seguridad simultáneamente en una máquina virtual, la tasa de consumo de red se compartirá entre todas ellas. [Más información](faq-backup-sql-server.md#can-i-control-how-many-concurrent-backups-run-on-the-sql-server) sobre cómo controlar el número de copias de seguridad simultáneas.
+- Las programaciones de las copias de seguridad se reparten entre un subconjunto de bases de datos. Si se ejecutan varias copias de seguridad simultáneamente en una máquina virtual, la tasa de consumo de red se compartirá entre todas ellas. [Más información](faq-backup-sql-server.yml#can-i-control-how-many-concurrent-backups-run-on-the-sql-server-) sobre cómo controlar el número de copias de seguridad simultáneas.
 
 >[!NOTE]
 > [Descargue el planeador de recursos detallado](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) para calcular el número aproximado de bases de datos protegidas que se recomiendan por servidor en función de los recursos de la máquina virtual, el ancho de banda y la directiva de copia de seguridad.

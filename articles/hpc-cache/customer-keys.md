@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: v-erkel
-ms.openlocfilehash: f587de4ee2ce051cb771db90d7f9ce00ce66b07f
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 36ce494c7fd51a1341834d5c231e32e60c5a32b9
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104772712"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107752001"
 ---
 # <a name="use-customer-managed-encryption-keys-for-azure-hpc-cache"></a>Uso de claves de cifrado administradas por el cliente para Azure HPC Cache
 
@@ -56,7 +56,7 @@ Permisos de acceso al almacén de claves:
 
 * El usuario que crea la instancia de Azure HPC Cache debe tener permisos equivalentes al [rol de colaborador de Key Vault](../role-based-access-control/built-in-roles.md#key-vault-contributor). Se necesitan los mismos permisos para configurar y administrar Azure Key Vault.
 
-  Para obtener más información, consulte [Protección del acceso a un almacén de claves](../key-vault/general/secure-your-key-vault.md).
+  Para obtener más información, consulte [Protección del acceso a un almacén de claves](../key-vault/general/security-overview.md).
 
 ## <a name="1-set-up-azure-key-vault"></a>1. Configuración de Azure Key Vault
 

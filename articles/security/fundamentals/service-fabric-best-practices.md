@@ -7,12 +7,12 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: a7396c9a29c7d9f69dbe6a9cc5cd085c72ebafde
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 91d7e0777cbdad459e4514a0216146e0d5739f6d
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94700953"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107750957"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Procedimientos recomendados de seguridad de Azure Service Fabric
 La implementación de una aplicación en Azure es un proceso rápido, sencillo y rentable. Antes de implementar la aplicación en la nube en producción, revise la lista de procedimientos recomendados y fundamentales para implementar clústeres seguros en la aplicación.
@@ -155,7 +155,7 @@ Service Fabric usa certificados para proporcionar autenticación y cifrado con e
 
 Service Fabric usa certificados X.509 para proteger un clúster y proporcionar características de seguridad de las aplicaciones. Azure Key Vault se usa para [administrar certificados](../../service-fabric/service-fabric-cluster-security-update-certs-azure.md) para clústeres de Service Fabric en Azure. El proveedor de recursos de Azure que crea los clústeres extrae los certificados de un almacén de claves. El proveedor, a continuación, instala los certificados en las máquinas virtuales cuando el clúster se implementa en Azure.
 
-Existe una relación de certificados entre [Azure Key Vault](../../key-vault/general/secure-your-key-vault.md), el clúster de Service Fabric y el proveedor de recursos que usa los certificados. Cuando se crea el clúster, la información sobre la relación de certificados se almacena en un almacén de claves.
+Existe una relación de certificados entre [Azure Key Vault](../../key-vault/general/security-overview.md), el clúster de Service Fabric y el proveedor de recursos que usa los certificados. Cuando se crea el clúster, la información sobre la relación de certificados se almacena en un almacén de claves.
 
 Hay dos pasos básicos para configurar un almacén de claves:
 1. Crear un grupo de recursos específico para el almacén de claves.
