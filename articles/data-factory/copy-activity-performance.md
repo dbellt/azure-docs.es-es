@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/15/2020
-ms.openlocfilehash: cba248d3f254c9bb97c66ff7a3d39275b4b912c4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 75f9080b43333168802a72e60751eec2a765c6d4
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102616084"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106580822"
 ---
 # <a name="copy-activity-performance-and-scalability-guide"></a>Guía de escalabilidad y rendimiento de la actividad de copia
 
@@ -62,7 +62,10 @@ Este uso completo significa que puede calcular el rendimiento general midiendo e
 * Almacén de datos de destino
 * Ancho de banda de red entre los almacenes de datos de origen y de destino
 
-En la tabla siguiente se calcula la duración de la copia. La duración se basa en el tamaño de los datos, y el límite de ancho de banda del almacén de datos o de red de su entorno.
+En la siguiente tabla se muestra el cálculo de la duración del movimiento de datos. La duración de cada celda se calcula en función de un determinado ancho de banda de red y almacén de datos y de un determinado tamaño de carga de datos.
+
+> [!NOTE]
+> La duración proporcionada a continuación está pensada para representar un rendimiento factible en una solución de integración de datos de un extremo a otro que se haya implementado mediante ADF, usando una o varias de las técnicas de optimización del rendimiento descritas en [Características de optimización del rendimiento de la actividad de copia](#copy-performance-optimization-features). Entre estas técnicas se incluye el uso de ForEach para crear particiones y generar varias actividades de copia simultáneas. Se recomienda seguir el procedimiento descrito en [Pasos de optimización del rendimiento](#performance-tuning-steps) con el fin de optimizar el rendimiento de la actividad de copia para su conjunto de datos y su configuración del sistema en particular. Debe usar los números obtenidos en las pruebas de optimización del rendimiento con relación al planeamiento de la implementación de producción, el planeamiento de la capacidad y la proyección de facturación.
 
 &nbsp;
 

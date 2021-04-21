@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/16/2020
 ms.author: sebansal
-ms.openlocfilehash: 78cdc0b59fd178049e755cca5e1e909ac24483f2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ec648f02918717dad6b739aa6ae99206bcec1d6e
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102204055"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106581826"
 ---
 # <a name="tutorial-configure-certificate-auto-rotation-in-key-vault"></a>Tutorial: Configuración de la rotación automática de certificados en Key Vault
 
@@ -51,7 +51,7 @@ Cree un certificado o impórtelo en el almacén de claves (consulte los [pasos p
 
 ## <a name="update-certificate-lifecycle-attributes"></a>Actualización de atributos del ciclo de vida del certificado
 
-En Azure Key Vault, puede actualizar los atributos del ciclo de vida de un certificado tanto antes como después de la hora de creación del certificado.
+En Azure Key Vault, puede actualizar los atributos del ciclo de vida de un certificado tanto en el momento de la creación del certificado como después.
 
 Un certificado creado en Key Vault puede ser:
 
@@ -83,7 +83,7 @@ Key Vault rota automáticamente los certificados mediante asociaciones estableci
         |  Automatically renew at a given time (Renovar automáticamente en un momento dado)| Email all contacts at a given time (Enviar por correo electrónico todos los contactos en un momento dado) |
         |-----------|------|
         |Al seleccionar esta opción, se *activa* la rotación automática. | Al seleccionar esta opción, *no* se realizará la rotación automática, solo se alertará a los contactos.|
-
+         You can learn about [setting up Email contact here](https://docs.microsoft.com/azure/key-vault/certificates/overview-renew-certificate#get-notified-about-certificate-expiration)
 1. Seleccione **Crear**.
 
 ![Ciclo de vida del certificado](../media/certificates/tutorial-rotate-cert/create-cert-lifecycle.png)

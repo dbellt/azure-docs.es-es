@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 02/03/2020
-ms.openlocfilehash: 9028d85346611341afec0d0598f27a77e4f37fdf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9c19eb58e32fec66e5fe698c82133c8583f67b8b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101715503"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107775140"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Creación de clústeres de HDInsight mediante la CLI de Azure
 
@@ -35,7 +35,7 @@ Los pasos de este tutorial describen la creación de un clúster de HDInsight 3.
     # az account set --subscription "SUBSCRIPTIONID"
     ```
 
-2. Establezca las variables de entorno. En este artículo, el uso de variables se basa en Bash. Se necesitarán ligeras variaciones con otros entornos. Vea [az-hdinsight-create](/cli/azure/hdinsight#az-hdinsight-create) para obtener una lista completa de los parámetros posibles para la creación del clúster.
+2. Establezca las variables de entorno. En este artículo, el uso de variables se basa en Bash. Se necesitarán ligeras variaciones con otros entornos. Vea [az-hdinsight-create](/cli/azure/hdinsight#az_hdinsight_create) para obtener una lista completa de los parámetros posibles para la creación del clúster.
 
     |Parámetro | Descripción |
     |---|---|
@@ -61,7 +61,7 @@ Los pasos de este tutorial describen la creación de un clúster de HDInsight 3.
     export componentVersion=Hadoop=2.7
     ```
 
-3. [Cree el grupo de recursos](/cli/azure/group#az-group-create) con el comando siguiente:
+3. [Cree el grupo de recursos](/cli/azure/group#az_group_create) con el comando siguiente:
 
     ```azurecli-interactive
     az group create \
@@ -71,7 +71,7 @@ Los pasos de este tutorial describen la creación de un clúster de HDInsight 3.
 
     Para obtener una lista de las ubicaciones válidas, use el comando `az account list-locations` y luego una de las ubicaciones del valor `name`.
 
-4. [Cree una cuenta de Azure Storage](/cli/azure/storage/account#az-storage-account-create) con el comando siguiente:
+4. [Cree una cuenta de Azure Storage](/cli/azure/storage/account#az_storage_account_create) con el comando siguiente:
 
     ```azurecli-interactive
     # Note: kind BlobStorage is not available as the default storage account.
@@ -84,7 +84,7 @@ Los pasos de este tutorial describen la creación de un clúster de HDInsight 3.
         --sku Standard_LRS
     ```
 
-5. [Extraiga la clave principal de la cuenta de Azure Storage](/cli/azure/storage/account/keys#az-storage-account-keys-list) y almacénela en una variable con el comando siguiente:
+5. [Extraiga la clave principal de la cuenta de Azure Storage](/cli/azure/storage/account/keys#az_storage_account_keys_list) y almacénela en una variable con el comando siguiente:
 
     ```azurecli-interactive
     export AZURE_STORAGE_KEY=$(az storage account keys list \
@@ -93,7 +93,7 @@ Los pasos de este tutorial describen la creación de un clúster de HDInsight 3.
         --query [0].value -o tsv)
     ```
 
-6. [Cree un contenedor de Azure Storage](/cli/azure/storage/container#az-storage-container-create) con el comando siguiente:
+6. [Cree un contenedor de Azure Storage](/cli/azure/storage/container#az_storage_container_create) con el comando siguiente:
 
     ```azurecli-interactive
     az storage container create \
@@ -102,7 +102,7 @@ Los pasos de este tutorial describen la creación de un clúster de HDInsight 3.
         --account-name $AZURE_STORAGE_ACCOUNT
     ```
 
-7. [Cree el clúster de HDInsight](/cli/azure/hdinsight#az-hdinsight-create) con el comando siguiente:
+7. [Cree el clúster de HDInsight](/cli/azure/hdinsight#az_hdinsight_create) con el comando siguiente:
 
     ```azurecli-interactive
     az hdinsight create \

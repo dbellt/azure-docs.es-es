@@ -3,12 +3,12 @@ title: Webhooks para responder a las acciones del registro
 description: Aprenda a usar webhooks para desencadenar eventos cuando tengan lugar acciones de inserción o extracción en uno de los repositorios del registro.
 ms.topic: article
 ms.date: 05/24/2019
-ms.openlocfilehash: 5374b58ba72727500294a173c26e9a131b29fe34
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4f6fb719f8d9d51429a19616aa5548b32a2687e0
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101722252"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107773407"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Webhooks de Azure Container Registry
 
@@ -47,7 +47,7 @@ Formulario de webhook de ejemplo:
 
 ## <a name="create-webhook---azure-cli"></a>Creación de webhooks: CLI de Azure
 
-Para crear un webhook mediante la CLI de Azure, use el comando [az acr webhook create](/cli/azure/acr/webhook#az-acr-webhook-create). El siguiente comando crea un webhook para los eventos de eliminación de imágenes en el registro *mycontainerregistry*:
+Para crear un webhook mediante la CLI de Azure, use el comando [az acr webhook create](/cli/azure/acr/webhook#az_acr_webhook_create). El siguiente comando crea un webhook para los eventos de eliminación de imágenes en el registro *mycontainerregistry*:
 
 ```azurecli-interactive
 az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --actions delete --uri http://webhookuri.com
@@ -67,7 +67,7 @@ Antes de usar el webhook, puede probarlo con el botón **Ping**. El comando Ping
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Para probar un webhook de ACR con la CLI de Azure, use el comando [az acr webhook ping](/cli/azure/acr/webhook#az-acr-webhook-ping).
+Para probar un webhook de ACR con la CLI de Azure, use el comando [az acr webhook ping](/cli/azure/acr/webhook#az_acr_webhook_ping).
 
 ```azurecli-interactive
 az acr webhook ping --registry mycontainerregistry --name myacrwebhook01

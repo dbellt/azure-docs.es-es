@@ -5,12 +5,12 @@ ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.custom: cc996988-fb4f-47, devx-track-azurecli
-ms.openlocfilehash: 5080d16a7b14506b24e07e2ee4ba862c645f83a8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ed87a5a744defb15d4a898aeabdce5267b7431fe
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98875456"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107775662"
 ---
 # <a name="manage-your-function-app"></a>Administración de la aplicación de funciones 
 
@@ -46,14 +46,14 @@ La pestaña **Configuración de la aplicación** mantiene la configuración de l
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azurecli)
 
-El comando [`az functionapp config appsettings list`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-list) devuelve la configuración de la aplicación existente, como en el ejemplo siguiente:
+El comando [`az functionapp config appsettings list`](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_list) devuelve la configuración de la aplicación existente, como en el ejemplo siguiente:
 
 ```azurecli-interactive
 az functionapp config appsettings list --name <FUNCTION_APP_NAME> \
 --resource-group <RESOURCE_GROUP_NAME>
 ```
 
-El comando [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) agrega o actualiza una configuración de la aplicación. En el ejemplo siguiente se crea una configuración con una clave denominada `CUSTOM_FUNCTION_APP_SETTING` y un valor de `12345`:
+El comando [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set) agrega o actualiza una configuración de la aplicación. En el ejemplo siguiente se crea una configuración con una clave denominada `CUSTOM_FUNCTION_APP_SETTING` y un valor de `12345`:
 
 
 ```azurecli-interactive
@@ -260,7 +260,7 @@ Al configurar la lista de **orígenes permitidos** para la aplicación de funcio
 
 Cuando se usa el carácter comodín (`*`), se omiten todos los demás dominios. 
 
-Use el comando [`az functionapp cors add`](/cli/azure/functionapp/cors#az-functionapp-cors-add) para agregar un dominio a la lista de orígenes permitidos. En el ejemplo siguiente se agrega el dominio contoso.com:
+Use el comando [`az functionapp cors add`](/cli/azure/functionapp/cors#az_functionapp_cors_add) para agregar un dominio a la lista de orígenes permitidos. En el ejemplo siguiente se agrega el dominio contoso.com:
 
 ```azurecli-interactive
 az functionapp cors add --name <FUNCTION_APP_NAME> \
@@ -268,7 +268,7 @@ az functionapp cors add --name <FUNCTION_APP_NAME> \
 --allowed-origins https://contoso.com
 ```
 
-Use el comando [`az functionapp cors show`](/cli/azure/functionapp/cors#az-functionapp-cors-show) para enumerar los orígenes permitidos actuales.
+Use el comando [`az functionapp cors show`](/cli/azure/functionapp/cors#az_functionapp_cors_show) para enumerar los orígenes permitidos actuales.
 
 ### <a name="authentication"></a><a name="auth"></a>Autenticación
 

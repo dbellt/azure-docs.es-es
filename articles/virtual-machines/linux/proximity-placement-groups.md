@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 3/8/2021
 ms.author: cynthn
-ms.openlocfilehash: a347c9284608340811f9c2388df26129baeb8837
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e4f91afa86a0d99b4ce42e96295bf2ae1f9fcd9f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102505654"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107771450"
 ---
 # <a name="deploy-vms-to-proximity-placement-groups-using-azure-cli"></a>Implementación de máquinas virtuales en grupos de selección de ubicación de proximidad con la CLI de Azure
 
@@ -23,7 +23,7 @@ Un grupo de selección de ubicación de proximidad es una agrupación lógica qu
 
 
 ## <a name="create-the-proximity-placement-group"></a>Creación de un grupo de selección de ubicación de proximidad
-Cree un grupo de selección de ubicación de proximidad con [`az ppg create`](/cli/azure/ppg#az-ppg-create). 
+Cree un grupo de selección de ubicación de proximidad con [`az ppg create`](/cli/azure/ppg#az_ppg_create). 
 
 ```azurecli-interactive
 az group create --name myPPGGroup --location westus
@@ -36,7 +36,7 @@ az ppg create \
 
 ## <a name="list-proximity-placement-groups"></a>Enumeración de los grupos de selección de ubicación de proximidad
 
-Puede enumerar todos los grupos de selección de ubicación de proximidad con [az ppg list](/cli/azure/ppg#az-ppg-list).
+Puede enumerar todos los grupos de selección de ubicación de proximidad con [az ppg list](/cli/azure/ppg#az_ppg_list).
 
 ```azurecli-interactive
 az ppg list -o table
@@ -44,7 +44,7 @@ az ppg list -o table
 
 ## <a name="create-a-vm"></a>Crear una VM
 
-Cree una máquina virtual dentro del grupo de selección de ubicación de proximidad con [new az vm](/cli/azure/vm#az-vm-create).
+Cree una máquina virtual dentro del grupo de selección de ubicación de proximidad con [new az vm](/cli/azure/vm#az_vm_create).
 
 ```azurecli-interactive
 az vm create \
@@ -57,14 +57,14 @@ az vm create \
    -l westus
 ```
 
-Puede ver la máquina virtual en el grupo de selección de ubicación de proximidad mediante [az ppg show](/cli/azure/ppg#az-ppg-show).
+Puede ver la máquina virtual en el grupo de selección de ubicación de proximidad mediante [az ppg show](/cli/azure/ppg#az_ppg_show).
 
 ```azurecli-interactive
 az ppg show --name myppg --resource-group myppggroup --query "virtualMachines"
 ```
 
 ## <a name="availability-sets"></a>Conjuntos de disponibilidad
-También puede crear un conjunto de disponibilidad en el grupo de selección de ubicación de proximidad. Use el mismo parámetro `--ppg` con [az vm availability-set create](/cli/azure/vm/availability-set#az-vm-availability-set-create) para crear un conjunto de disponibilidad, y todas las máquinas virtuales del conjunto de disponibilidad también se crearán en el mismo grupo de selección de ubicación de proximidad.
+También puede crear un conjunto de disponibilidad en el grupo de selección de ubicación de proximidad. Use el mismo parámetro `--ppg` con [az vm availability-set create](/cli/azure/vm/availability-set#az_vm_availability_set_create) para crear un conjunto de disponibilidad, y todas las máquinas virtuales del conjunto de disponibilidad también se crearán en el mismo grupo de selección de ubicación de proximidad.
 
 ## <a name="scale-sets"></a>Conjuntos de escalado
 

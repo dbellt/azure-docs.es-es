@@ -5,20 +5,20 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: include
-ms.date: 11/06/2020
+ms.date: 04/07/2021
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: d479c3087b971aa17cf145e0111890da07381eab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c4c36c0e099ed7474a5d27f6edcbd4b3ac435f4f
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94386496"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107030840"
 ---
-| Recurso | Límite |
+| Resource | Límite |
 | --- | --- |
 | Rendimiento de los datos |30 Gbps<sup>1</sup> |
-|Reglas|10 000. Todos los tipos de reglas combinados.|
+|Límites de reglas|10 000 destinos u orígenes únicos en las reglas de red|
 |Número máximo de reglas DNAT|298 para una sola dirección IP pública.<br>Todas las direcciones IP públicas adicionales contribuyen a los puertos SNAT disponibles, pero reducen el número de reglas de DNAT disponibles. Por ejemplo, dos direcciones IP públicas permiten 297 reglas de DNAT. Si el protocolo de una regla está configurado tanto para TCP como para UDP, cuenta como dos reglas.|
 |Tamaño mínimo de AzureFirewallSubnet |/26|
 |Intervalo de puertos en reglas de red y aplicación|1 - 65535|

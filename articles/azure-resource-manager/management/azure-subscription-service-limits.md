@@ -2,13 +2,13 @@
 title: Límites y cuotas de suscripción de Azure
 description: Se proporciona una lista de límites, cuotas y restricciones de suscripción y servicio comunes de Azure. Este artículo incluye información acerca de cómo aumentar los límites junto con los valores máximos.
 ms.topic: conceptual
-ms.date: 03/15/2021
-ms.openlocfilehash: 4dd62c926cce765ebc2b21378308650e313716ff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/07/2021
+ms.openlocfilehash: 3ef3e6f3b67e8c92e0137f36e19c62cba79e1c14
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103471014"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107030834"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure
 
@@ -34,9 +34,9 @@ Las [suscripciones de evaluación gratuita](https://azure.microsoft.com/offers/m
 
 Algunos límites se administran a nivel regional.
 
-Usemos las cuotas de vCPU como ejemplo. Para solicitar un aumento de cuota con compatibilidad para vCPU, debe decidir cuántas vCPU quiere usar en las distintas regiones. A continuación, realice una solicitud específica para las cuotas de vCPU del grupo de recursos de Azure para las cantidades y regiones que desee. Si necesita usar 30 vCPU en Oeste de Europa para ejecutar la aplicación allí, deberá solicitar específicamente 30 vCPU en Oeste de Europa. Su cuota de vCPU no se aumenta en ninguna otra región: solo Oeste de Europa tiene la cuota de 30 vCPU.
+Usemos las cuotas de vCPU como ejemplo. Para solicitar un aumento de cuota con compatibilidad para vCPU, debe decidir cuántas vCPU quiere usar en las distintas regiones. Luego, solicite un aumento en las cuotas de vCPU en las cantidades y las regiones que prefiera. Si necesita usar 30 vCPU en Oeste de Europa para ejecutar la aplicación allí, deberá solicitar específicamente 30 vCPU en Oeste de Europa. Su cuota de vCPU no se aumenta en ninguna otra región: solo Oeste de Europa tiene la cuota de 30 vCPU.
 
-Como resultado, debe decidir cuáles deben ser sus cuotas de grupo de recursos de Azure para la carga de trabajo en cada región. A continuación, solicite esa cantidad en cada región en la que se desea implementar. Para obtener ayuda para determinar las cuotas actuales para regiones específicas, consulte [Resolución de errores de cuotas de recursos](../templates/error-resource-quota.md).
+Como resultado, debe decidir cuáles deben ser sus cuotas para la carga de trabajo en cada región. A continuación, solicite esa cantidad en cada región en la que se desea implementar. Para obtener ayuda para determinar las cuotas actuales para regiones específicas, consulte [Resolución de errores de cuotas de recursos](../templates/error-resource-quota.md).
 
 ## <a name="general-limits"></a>Límites generales
 

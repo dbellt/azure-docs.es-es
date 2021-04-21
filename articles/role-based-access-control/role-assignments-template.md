@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 01/21/2021
 ms.author: rolyon
-ms.openlocfilehash: 65b4ec369085e44cdffb0550e9eeaef0196cd35a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ba1df23b40de82a8ef901541884ef29ea0b504a1
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100556021"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107771882"
 ---
 # <a name="assign-azure-roles-using-azure-resource-manager-templates"></a>Asignación de roles de Azure mediante plantillas de Azure Resource Manager
 
@@ -31,7 +31,7 @@ Para asignar un rol, debe especificar el identificador del usuario, del grupo o 
 
 ### <a name="user"></a>Usuario
 
-Para obtener el identificador de un usuario, puede usar los comandos [Get-AzADUser](/powershell/module/az.resources/get-azaduser) o [az ad user show](/cli/azure/ad/user#az-ad-user-show).
+Para obtener el identificador de un usuario, puede usar los comandos [Get-AzADUser](/powershell/module/az.resources/get-azaduser) o [az ad user show](/cli/azure/ad/user#az_ad_user_show).
 
 ```azurepowershell
 $objectid = (Get-AzADUser -DisplayName "{name}").id
@@ -43,7 +43,7 @@ objectid=$(az ad user show --id "{email}" --query objectId --output tsv)
 
 ### <a name="group"></a>Grupo
 
-Para obtener el identificador de un grupo, puede usar los comandos [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup) o [az ad group show](/cli/azure/ad/group#az-ad-group-show).
+Para obtener el identificador de un grupo, puede usar los comandos [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup) o [az ad group show](/cli/azure/ad/group#az_ad_group_show).
 
 ```azurepowershell
 $objectid = (Get-AzADGroup -DisplayName "{name}").id
@@ -67,7 +67,7 @@ objectid=$(az ad sp list --display-name <Azure resource name> --query [].objectI
 
 ### <a name="application"></a>Application
 
-Para obtener el identificador de una entidad de servicio (identidad usada por una aplicación), puede usar los comandos [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal) o [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list). Para una entidad de servicio, use el id. de objeto y **no** el de aplicación.
+Para obtener el identificador de una entidad de servicio (identidad usada por una aplicación), puede usar los comandos [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal) o [az ad sp list](/cli/azure/ad/sp#az_ad_sp_list). Para una entidad de servicio, use el id. de objeto y **no** el de aplicación.
 
 ```azurepowershell
 $objectid = (Get-AzADServicePrincipal -DisplayName "{name}").id

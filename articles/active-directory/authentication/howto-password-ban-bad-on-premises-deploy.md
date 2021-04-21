@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8cae19bd07e1cc87a0aaa25e47cf5f431d566ba
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5134c0eeaf3ebd1467b35cf825aa64bd1b445bd5
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101653820"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107010586"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Planeación e implementación de la protección con contraseña de Azure Active Directory local
 
@@ -88,7 +88,7 @@ Se aplican los siguientes requisitos principales:
 * El servicio de distribución de claves debe habilitarse en todos los controladores de dominio del dominio que ejecutan Windows Server 2012 y versiones posteriores. De manera predeterminada, este servicio se habilita a través de inicio de un desencadenador manual.
 
 * Debe existir conectividad de red entre al menos un controlador de dominio de cada dominio y un servidor que hospede el servicio de proxy para la protección con contraseña de Azure AD. Esta conectividad debe permitir que el controlador de dominio acceda al puerto 135 del asignador de puntos de conexión RPC y al puerto del servidor RPC del servicio de proxy.
-    * De manera predeterminada, el puerto del servidor RPC es un puerto RPC dinámico, pero se puede configurar para [usar un puerto estático](#static).
+    * De manera predeterminada, el puerto del servidor de RPC es un puerto RPC dinámico del intervalo (49152 - 65535), pero se puede configurar para [usar un puerto estático](#static).
 * Todas las máquinas donde se instalará el servicio de proxy de Protección con contraseña de Azure AD deben tener acceso de red a los puntos de conexión siguientes:
 
     |**Punto de conexión**|**Propósito**|

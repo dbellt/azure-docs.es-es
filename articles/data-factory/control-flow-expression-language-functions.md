@@ -7,12 +7,12 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/25/2019
-ms.openlocfilehash: e89cb847bcd5d0137354c07fe97148bcbeca2714
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: af365ef9b94702fa6634235a95a91297d6b7ae50
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104786301"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107136"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Expresiones y funciones de Azure Data Factory
 
@@ -161,6 +161,30 @@ En el ejemplo siguiente, la canalización toma los parámetros **inputPath** y *
     }
 }
 ```
+
+### <a name="replacing-special-characters"></a>Reemplazo de caracteres especiales
+
+El editor de contenido dinámico convierte automáticamente los caracteres de escape, como las comillas dobles y la barra diagonal inversa, en el contenido cuando finaliza la edición. Esto causa problemas si quiere reemplazar el salto de línea o la tabulación mediante **\n** o **\t** en la función replace(). Puede editar el contenido dinámico en la vista de código para quitar el la barra diagonal inversa \ adicional de la expresión, o puede usar los siguientes pasos para reemplazar los caracteres especiales mediante el lenguaje de expresiones:
+
+1. Codificación de URL con el valor original de cadena
+1. Reemplace la cadena codificada con URL; por ejemplo, salto de línea (%0A), retorno de carro (%0D), tabulación horizontal (%09).
+1. Descodificación de URL
+
+Por ejemplo, si la variable *companyName* tiene un carácter de nueva línea en su valor, la expresión `@uriComponentToString(replace(uriComponent(variables('companyName')), '%0A', ''))` puede quitar el carácter de nueva línea. 
+
+```json
+Contoso-
+Corporation
+```
+
+### <a name="escaping-single-quote-character"></a>Escape de un carácter de comilla simple
+
+Las funciones de expresión usan comillas simples para los parámetros de valor de cadena. Use dos comillas simples para escapar un carácter ' en las funciones de cadena. Por ejemplo, la expresión `@concat('Baba', ''' ', 'book store')` devolverá el siguiente resultado.
+
+```
+Baba's book store
+```
+
 ### <a name="tutorial"></a>Tutorial
 En este [tutorial](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-passing-parameters/Azure%20data%20Factory-Whitepaper-PassingParameters.pdf) se le guiará a lo largo del proceso de pasar parámetros entre una canalización y una actividad, así como entre actividades.
 

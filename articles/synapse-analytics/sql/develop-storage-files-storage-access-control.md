@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 726395e9f004130699dab061cfa752a2e516c834
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 266a6c27261107b883fdc0c1cdd274e6345de6db
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106552961"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107483459"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Control del acceso a la cuenta de almacenamiento del grupo de SQL sin servidor en Azure Synapse Analytics
 
@@ -23,6 +23,13 @@ Una consulta del grupo de SQL sin servidor lee los archivos directamente desde A
 - **Nivel de servicio de SQL**: el usuario debe tener permiso para leer datos mediante una [tabla externa](develop-tables-external-tables.md) o para ejecutar la función `OPENROWSET`. Conozca más información sobre [los permisos necesarios en esta sección](develop-storage-files-overview.md#permissions).
 
 En este artículo se describen los tipos de credenciales que puede usar y cómo se realiza la búsqueda de credenciales para los usuarios de SQL y Azure AD.
+
+## <a name="storage-permissions"></a>Permisos de almacenamiento
+
+Un grupo de SQL sin servidor en un área de trabajo de Synapse Analytics puede leer el contenido de los archivos almacenados en Azure Data Lake Storage. Es necesario configurar permisos en el almacenamiento para que un usuario que ejecute una consulta SQL pueda leer los archivos. Hay tres formas de habilitar el acceso a los archivos:
+- El **[control de acceso basado en roles (RBAC)](../../role-based-access-control/overview.md)** permite asignar un rol a usuarios de Azure AD en el inquilino en el que reside el almacenamiento. Los roles RBAC se pueden asignar a usuarios de Azure AD. Un lector debe tener un rol `Storage Blob Data Reader`, `Storage Blob Data Contributor` o `Storage Blob Data Owner`. Un usuario que escribe datos en Azure Storage debe tener el rol `Storage Blob Data Writer` o `Storage Blob Data Owner`. Tenga en cuenta que el rol `Storage Owner` no implica que un usuario sea también `Storage Data Owner`.
+- Las **listas de control de acceso (ACL)** permiten definir un modelo de permisos específico en los archivos y directorios de Azure Storage. Las listas ACL se pueden asignar a usuarios de Azure AD. Si los lectores quieren leer un archivo en una ruta de acceso de Azure Storage, deben ejecutar (X) ACL en cada carpeta de la ruta de acceso del y leer (R) ACL en el archivo. [Más información sobre cómo establecer permisos de ACL en la capa de almacenamiento](../../storage/blobs/data-lake-storage-access-control.md#how-to-set-acls)
+- La **firma de acceso compartido (SAS)** permite que un lector acceda a los archivos de Azure Data Lake Storage mediante el token de tiempo limitado. El lector ni siquiera necesita autenticarse como usuario de Azure A. El token de SAS contiene los permisos concedidos al lector, así como el período durante el cual es válido el token. El token de SAS es una buena opción para el acceso con restricciones de tiempo en el caso de los usuarios que ni siquiera tienen que estar en el mismo inquilino de Azure AD. El token de SAS se puede definir en la cuenta de almacenamiento o en directorios específicos. Obtenga más información sobre el [acceso limitado a recursos de Azure Storage mediante el uso de firmas de acceso compartido](../../storage/common/storage-sas-overview.md).
 
 ## <a name="supported-storage-authorization-types"></a>Tipos de autorización de almacenamiento admitidos
 
@@ -79,7 +86,7 @@ En la tabla siguiente puede encontrar los tipos de autorización disponibles:
 | ------------------------------------- | ------------- | -----------    |
 | [Identidad de usuario](?tabs=user-identity#supported-storage-authorization-types)       | No compatible | Compatible      |
 | [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)       | Compatible     | Compatible      |
-| [Identidad administrada](?tabs=managed-identity#supported-storage-authorization-types) | No compatible | Compatible      |
+| [Identidad administrada](?tabs=managed-identity#supported-storage-authorization-types) | Compatible | Compatible      |
 
 ### <a name="supported-storages-and-authorization-types"></a>Tipos de almacenamiento y autorización admitidos
 
@@ -103,7 +110,7 @@ Al acceder al almacenamiento protegido con firewall, solo se puede usar **Identi
 
 #### <a name="user-identity"></a>Identidad del usuario
 
-Para acceder a un almacenamiento que está protegido por firewall mediante Identidad de usuario, puede usar el módulo Az.Storage de PowerShell.
+Para acceder a una solución de almacenamiento que está protegido por el firewall por medio de una identidad de usuario, puede usar la interfaz de usuario de Azure Portal o el módulo Az.Storage de PowerShell.
 #### <a name="configuration-via-azure-portal"></a>Configuración mediante Azure Portal
 
 1. Busque su cuenta de almacenamiento en Azure Portal.

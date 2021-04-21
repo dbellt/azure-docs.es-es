@@ -6,12 +6,12 @@ ms.author: tyfox
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/20/2020
-ms.openlocfilehash: 47569309f35848e82488abd549751f6f1e5a1baa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: afb30f4648f1649bf6cc6cc6a3bf02f433f49d45
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104954877"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107774938"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Migración a acceso basado en rol detallado para configuraciones de clúster
 
@@ -192,7 +192,7 @@ Las configuraciones de clúster están ahora detrás del control de acceso basad
 
 ### <a name="why-do-i-see-insufficient-privileges-to-complete-the-operation-when-running-the-azure-cli-command-to-assign-the-hdinsight-cluster-operator-role-to-another-user-or-service-principal"></a>¿Por qué veo el mensaje "No tiene privilegios suficientes para completar la operación" al ejecutar el comando de la CLI de Azure para asignar el rol Operador de clúster de HDInsight a otro usuario o entidad de servicio?
 
-Además de tener el rol Propietario, el usuario o la entidad de servicio que ejecuta el comando debe tener suficientes permisos de Azure AD para buscar los identificadores de objeto del usuario asignado. Este mensaje indica que no tiene suficientes permisos de Azure AD. Intente reemplazar el argumento `-–assignee` por `–assignee-object-id` y proporcione el identificador de objeto del usuario asignado como parámetro en lugar del nombre (o el identificador de la entidad de seguridad en el caso de una identidad administrada). Consulte la sección de parámetros opcionales de la [documentación sobre el comando az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) para más información.
+Además de tener el rol Propietario, el usuario o la entidad de servicio que ejecuta el comando debe tener suficientes permisos de Azure AD para buscar los identificadores de objeto del usuario asignado. Este mensaje indica que no tiene suficientes permisos de Azure AD. Intente reemplazar el argumento `-–assignee` por `–assignee-object-id` y proporcione el identificador de objeto del usuario asignado como parámetro en lugar del nombre (o el identificador de la entidad de seguridad en el caso de una identidad administrada). Consulte la sección de parámetros opcionales de la [documentación sobre el comando az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) para más información.
 
 Si sigue sin funcionar, póngase en contacto con el administrador de Azure AD para adquirir los permisos correctos.
 

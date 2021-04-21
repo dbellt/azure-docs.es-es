@@ -5,13 +5,13 @@ author: harelbr
 ms.author: harelbr
 services: monitoring
 ms.topic: conceptual
-ms.date: 03/11/2021
-ms.openlocfilehash: efc1438fdc539af278ebff1f292c5fa0a91b7b91
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.date: 04/08/2021
+ms.openlocfilehash: 24298734a46b8339a2a8818692641b4c10812294
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103016107"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107104888"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Recursos compatibles para las alertas de métricas de Azure Monitor
 
@@ -29,15 +29,16 @@ Esta es la lista completa de los orígenes de métricas de Azure Monitor que se 
 
 |Tipo de recurso  |Dimensiones compatibles |Alertas de varios recursos| Métricas disponibles|
 |---------|---------|-----|----------|
-|Microsoft.Aadiam/azureADMetrics | Sí | No | |
+|Microsoft.Aadiam/azureADMetrics | Sí | No | [Azure AD](../essentials/metrics-supported.md#microsoftaadiamazureadmetrics) |
 |Microsoft.ApiManagement/service | Sí | No | [API Management](../essentials/metrics-supported.md#microsoftapimanagementservice) |
 |Microsoft.AppConfiguration/configurationStores |Sí | No | [App Configuration](../essentials/metrics-supported.md#microsoftappconfigurationconfigurationstores) |
-|Microsoft.AppPlatform/Spring | Sí | No | [Azure Spring Cloud](../essentials/metrics-supported.md#microsoftappplatformspring) |
+|Microsoft.AppPlatform/spring | Sí | No | [Azure Spring Cloud](../essentials/metrics-supported.md#microsoftappplatformspring) |
 |Microsoft.Automation/automationAccounts | Sí| No | [Cuentas de Automation](../essentials/metrics-supported.md#microsoftautomationautomationaccounts) |
 |Microsoft.AVS/privateClouds | No | No | [Azure VMware Solution](../essentials/metrics-supported.md#microsoftavsprivateclouds) |
 |Microsoft.Batch/batchAccounts | Sí | No | [Cuentas de Batch](../essentials/metrics-supported.md#microsoftbatchbatchaccounts) |
 |Microsoft.BotService/botServices | Sí | No | [Servicios de bot](../essentials/metrics-supported.md#microsoftbotservicebotservices) |
-|Microsoft.Cache/Redis | Sí | Sí | [Azure Cache for Redis](../essentials/metrics-supported.md#microsoftcacheredis) |
+|Microsoft.Cache/redis | Sí | Sí | [Azure Cache for Redis](../essentials/metrics-supported.md#microsoftcacheredis) |
+|microsoft.Cdn/profiles | Sí | No | [Perfiles de CDN](../essentials/metrics-supported.md#microsoftcdnprofiles) |
 |Microsoft.ClassicCompute/domainNames/slots/roles | No | No | [Cloud Services clásico](../essentials/metrics-supported.md#microsoftclassiccomputedomainnamesslotsroles) |
 |Microsoft.ClassicCompute/virtualMachines | No | No | [Virtual Machines clásico](../essentials/metrics-supported.md#microsoftclassiccomputevirtualmachines) |
 |Microsoft.ClassicStorage/storageAccounts | Sí | No | [Cuentas de almacenamiento (clásicas)](../essentials/metrics-supported.md#microsoftclassicstoragestorageaccounts) |
@@ -49,7 +50,7 @@ Esta es la lista completa de los orígenes de métricas de Azure Monitor que se 
 |Microsoft.Compute/cloudServices | Sí | No |  [Cloud Services](../essentials/metrics-supported.md#microsoftcomputecloudservices) |
 |Microsoft.Compute/cloudServices/roles | Sí | No |  [Roles de Cloud Services](../essentials/metrics-supported.md#microsoftcomputecloudservicesroles) |
 |Microsoft.Compute/virtualMachines | Sí | Sí<sup>1</sup> | [Máquinas virtuales](../essentials/metrics-supported.md#microsoftcomputevirtualmachines) |
-|Microsoft.Compute/virtualMachineScaleSets | Sí | No |[Conjuntos de escalado de máquinas virtuales](../essentials/metrics-supported.md#microsoftcomputevirtualmachinescalesets) |
+|Microsoft.Compute/virtualMachineScaleSets | Sí | No |[Conjuntos de escalado de máquina virtual](../essentials/metrics-supported.md#microsoftcomputevirtualmachinescalesets) |
 |Microsoft.ContainerInstance/containerGroups | Sí| No | [Grupos de contenedores](../essentials/metrics-supported.md#microsoftcontainerinstancecontainergroups) |
 |Microsoft.ContainerRegistry/registries | No | No | [Registros de contenedor](../essentials/metrics-supported.md#microsoftcontainerregistryregistries) |
 |Microsoft.ContainerService/managedClusters | Sí | No | [Clústeres administrados](../essentials/metrics-supported.md#microsoftcontainerservicemanagedclusters) |

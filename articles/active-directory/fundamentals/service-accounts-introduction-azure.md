@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27353e6086085aadae622e007a38f97e15cbcb7f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d657f1df14b083631227cb7c19f64b65be8801d0
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104587872"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107010472"
 ---
 # <a name="introduction-to-securing-azure-service-accounts"></a>Introducción a la protección de cuentas de servicio de Azure
 
@@ -26,7 +26,7 @@ Hay tres tipos de cuentas de servicio nativas para Azure Active Directory: ident
 
 ## <a name="types-of-azure-active-directory-service-accounts"></a>Tipos de cuentas de servicio de Azure Active Directory
 
-En el caso de los servicios hospedados en Azure, se recomienda usar una identidad administrada, si es posible, y una entidad de servicio en caso contrario. Las identidades administradas no se pueden usar para los servicios hospedados fuera de Azure. En ese caso, se recomienda una entidad de servicio. Si puede usar una identidad administrada o una entidad de servicio, hágalo. Se recomienda no utilizar una cuenta de usuario de Azure Active Directory como entidad de servicio. Consulte la tabla siguiente como resumen.
+En el caso de los servicios hospedados en Azure, se recomienda usar una identidad administrada, si es posible, y una entidad de servicio en caso contrario. Las identidades administradas no se pueden usar para los servicios hospedados fuera de Azure. En ese caso, se recomienda una entidad de servicio. Si puede usar una identidad administrada o una entidad de servicio, hágalo. Se recomienda no utilizar una cuenta de usuario de Azure Active Directory como cuenta de servicio. Consulte la tabla siguiente como resumen.
  
 
 | Hospedaje de servicio| Identidad administrada| Entidad de servicio| Cuenta de usuario de Azure |
@@ -54,7 +54,7 @@ Una entidad de servicio es la representación local de un objeto de aplicación 
 
 Existen dos mecanismos para la autenticación con entidades de servicio: certificados de cliente y secretos de cliente. Los certificados son más seguros: use certificados de cliente si es posible. A diferencia de los secretos de cliente, los certificados de cliente no se pueden insertar accidentalmente en el código.
 
-Para obtener información sobre cómo proteger las entidades de servicio, consulte Protección de entidades de servicio.
+Para obtener información sobre cómo proteger las entidades de servicio, consulte [Protección de entidades de servicio](service-accounts-principal.md).
 
  
 ## <a name="next-steps"></a>Pasos siguientes

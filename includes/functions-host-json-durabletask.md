@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 03/14/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 6a862a051d0040ac99746d81f10ae63d5af7545f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d1b2cbefe64add5048d4e3c7946277b1461a5434
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013738"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105607101"
 ---
 Configuración de [Durable Functions](../articles/azure-functions/durable/durable-functions-overview.md).
 
@@ -100,15 +100,15 @@ Configuración de [Durable Functions](../articles/azure-functions/durable/durabl
 Los nombres de la central de tareas deben empezar por una letra y estar formados únicamente por letras y números. Si no se especifica, el nombre predeterminado de la central de tareas de la aplicación de función es **DurableFunctionsHub**. Para más información, consulte el artículo sobre las [centrales de tareas](../articles/azure-functions/durable/durable-functions-task-hubs.md).
 
 |Propiedad  |Valor predeterminado | Descripción |
-|---------|---------|---------|
+|---------|---------|----------|
 |hubName|DurableFunctionsHub|Se pueden usar nombres de [central de tareas](../articles/azure-functions/durable/durable-functions-task-hubs.md) alternativos para aislar varias aplicaciones de Durable Functions unas de otras, incluso si usan el mismo back-end de almacenamiento.|
 |controlQueueBatchSize|32|El número de mensajes que se van a extraer a la vez de la cola de control.|
-|controlQueueBufferThreshold|256|Número de mensajes de la cola de control que se pueden almacenar en búfer en la memoria a la vez, momento en que el distribuidor esperará para quitar cualquier mensaje adicional de la cola.|
+|controlQueueBufferThreshold| **Plan de consumo**: 32 <br> **Plan dedicado/Premium**: 256 |Número de mensajes de la cola de control que se pueden almacenar en búfer en la memoria a la vez, momento en que el distribuidor esperará para quitar cualquier mensaje adicional de la cola.|
 |partitionCount |4|El recuento de particiones para la cola de control. Puede ser un entero positivo comprendido entre 1 y 16.|
 |controlQueueVisibilityTimeout |5 minutos|El tiempo de espera de visibilidad de los mensajes de la cola de control quitados de la cola.|
 |workItemQueueVisibilityTimeout |5 minutos|El tiempo de espera de visibilidad de los mensajes de la cola de elementos de trabajo quitados de la cola.|
-|maxConcurrentActivityFunctions |10 veces el número de procesadores en la máquina actual.|El número máximo de funciones de actividad que se pueden procesar simultáneamente en una única instancia de host.|
-|maxConcurrentOrchestratorFunctions |10 veces el número de procesadores en la máquina actual.|El número máximo de funciones de Orchestrator que se pueden procesar simultáneamente en una única instancia de host.|
+|maxConcurrentActivityFunctions | **Plan de consumo**: 10 <br> **Plan dedicado/Premium**: 10 veces el número de procesadores en la máquina actual|El número máximo de funciones de actividad que se pueden procesar simultáneamente en una única instancia de host.|
+|maxConcurrentOrchestratorFunctions | **Plan de consumo**: 5 <br> **Plan dedicado/Premium**: 10 veces el número de procesadores en la máquina actual |El número máximo de funciones de Orchestrator que se pueden procesar simultáneamente en una única instancia de host.|
 |maxQueuePollingInterval|30 segundos|Intervalo de sondeo de cola de elementos de trabajo y control máximo en formato *hh:mm:ss:* . Los valores más altos pueden provocar mayores latencias de procesamiento de mensajes. Los valores más bajos pueden provocar mayores costos de almacenamiento debido a transacciones de almacenamiento mayor.|
 |azureStorageConnectionStringName |AzureWebJobsStorage|El nombre de la configuración de aplicación que tiene la cadena de conexión de Azure Storage que se usa para administrar los recursos subyacentes de Azure Storage.|
 |trackingStoreConnectionStringName||Nombre de una cadena de conexión que se usará para las tablas de historial e instancias. Si no se especifica, se usa las conexiones `connectionStringName` (Durable 2.x) o `azureStorageConnectionStringName` (Durable 1.x).|
@@ -121,7 +121,7 @@ Los nombres de la central de tareas deben empezar por una letra y estar formados
 |eventGridPublishRetryInterval|5 minutos|Event Grid publica el intervalo de reintento en formato *hh:mm:ss*.|
 |eventGridPublishEventTypes||Lista de tipos de eventos que se van a publicar en Event Grid. Si no se especifica, se publicarán todos los tipos de evento. Los valores permitidos son `Started`, `Completed`, `Failed` y `Terminated`.|
 |useAppLease|true|Si se establece en `true`, las aplicaciones requerirán que se adquiera una concesión de blob de nivel de aplicación antes de procesar los mensajes de la central de tareas. Para más información, consulte la documentación sobre la [recuperación ante desastres y la distribución geográfica](../articles/azure-functions/durable/durable-functions-disaster-recovery-geo-distribution.md). Disponible a partir de la versión 2.3.0.
-|useLegacyPartitionManagement|true|Cuando se establece en `false`, usa un algoritmo de administración de particiones que reduce la posibilidad de que se ejecute la función duplicada al realizar un escalado horizontal.  Disponible a partir de la versión 2.3.0. En una fase posterior, el valor predeterminado se cambiará a `false`.|
+|useLegacyPartitionManagement|false|Cuando se establece en `false`, usa un algoritmo de administración de particiones que reduce la posibilidad de que se ejecute la función duplicada al realizar un escalado horizontal.  Disponible a partir de la versión 2.3.0.|
 |useGracefulShutdown|false|(Versión preliminar) Habilite el apagado correcto para reducir la posibilidad de que se produzcan errores de apagado del host en las ejecuciones de función en proceso.|
 
 Muchos de estos valores son para optimizar el rendimiento. Para obtener más información, vea [Rendimiento y escalabilidad](../articles/azure-functions/durable/durable-functions-perf-and-scale.md).

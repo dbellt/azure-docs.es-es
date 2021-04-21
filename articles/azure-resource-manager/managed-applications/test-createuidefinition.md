@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: 36d6af7fb42bc1b705b44bdae6f24b454bfd242f
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: eeef454e4c5706b39d07261ade1c2f0ffbc942ad
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107312440"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107478903"
 ---
 # <a name="test-your-portal-interface-for-azure-managed-applications"></a>Prueba de la interfaz de su portal para Azure Managed Applications
 
@@ -36,7 +36,7 @@ Después de [crear el archivo createUiDefinition.json](create-uidefinition-overv
 
    ![Mostrar formulario](./media/test-createuidefinition/show-ui-form.png)
 
-### <a name="troubleshooting"></a>Solución de problemas
+### <a name="troubleshooting"></a>Solucionar problemas
 
 Si no se muestra el formulario después de seleccionar **Versión preliminar**, es posible que haya un error de sintaxis. Busque el indicador rojo en la barra de desplazamiento a la derecha y navegue hasta él.
 
@@ -100,7 +100,7 @@ Si el portal se bloquea en la pantalla de resumen, es posible que haya un error 
 
 ## <a name="test-your-solution-files"></a>Prueba de los archivos de la solución
 
-Ahora que ha comprobado que la interfaz del portal funciona como se espera, es el momento de validar que el archivo createUiDefinition está correctamente integrado con el archivo mainTemplate.json. Puede ejecutar una prueba del script de validación para probar el contenido de los archivos de la solución, incluido el archivo createUiDefinition. El script valida la sintaxis JSON, comprueba si hay expresiones regex en los campos de texto y se asegura de que los valores de salida de la interfaz del portal coincidan con los parámetros de la plantilla. Para más información sobre cómo ejecutar este script, consulte [Ejecución de comprobaciones de validación estática para plantillas](https://github.com/Azure/azure-quickstart-templates/tree/master/test).
+Ahora que ha comprobado que la interfaz del portal funciona como se espera, es el momento de validar que el archivo createUiDefinition está correctamente integrado con el archivo mainTemplate.json. Puede ejecutar una prueba del script de validación para probar el contenido de los archivos de la solución, incluido el archivo createUiDefinition. El script valida la sintaxis JSON, comprueba si hay expresiones regex en los campos de texto y se asegura de que los valores de salida de la interfaz del portal coincidan con los parámetros de la plantilla. Para más información sobre cómo ejecutar este script, consulte [Ejecución de comprobaciones de validación estática para plantillas](https://aka.ms/arm-ttk).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

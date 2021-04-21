@@ -3,12 +3,12 @@ title: Administración de laboratorios en Azure Lab Services | Microsoft Docs
 description: Obtenga información sobre cómo crear y configurar un laboratorio de clase, ver todos los laboratorios, compartir el vínculo de registro con un usuario del laboratorio o eliminar un laboratorio.
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: db7a2f58f99252a7e5076dd86c37b65bbe8ea37a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c6acb9609abac15b9ff92250e3d5d44c585881cc
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96434216"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107481810"
 ---
 # <a name="manage-labs-in-azure-lab-services"></a>Administración de laboratorios en Azure Lab Services 
 En este artículo se describe cómo crear y eliminar un laboratorio de clase. También se muestra cómo ver todos los laboratorios de una cuenta de laboratorio. 
@@ -18,7 +18,7 @@ Para configurar un laboratorio de clase en una cuenta de laboratorio, debe ser m
 
 ## <a name="create-a-classroom-lab"></a>Creación de un laboratorio educativo
 
-1. Vaya al [sitio web de Azure Lab Services](https://labs.azure.com). Internet Explorer 11 aún no se admite. 
+1. Vaya al [sitio web de Azure Lab Services](https://labs.azure.com).
 1. Seleccione **Iniciar sesión** y escriba las credenciales. Seleccione o escriba un **Id. de usuario** que sea miembro del rol **Creador de laboratorio** en la cuenta del laboratorio y escriba la contraseña. Azure Lab Services es compatible con cuentas profesionales y cuentas Microsoft. 
 1. Seleccione **New lab** (Nuevo laboratorio). 
     

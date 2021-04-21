@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 498b75a6541da97e57e23465ae6eb23a6c854727
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4bb095e93a3728835e26cbe283f79569c91b7487
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94836961"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107479073"
 ---
 # <a name="identity-data-storage-for-australian-and-new-zealand-customers-in-azure-active-directory"></a>Almacenamiento de datos de identidad para clientes australianos y neozelandeses en Azure Active Directory
 
@@ -30,7 +30,7 @@ En el caso de los clientes que han proporcionado una dirección de Australia o N
 - Administración de directorios de Azure AD 
 - Authentication
 
-Todos los demás servicios de Azure AD almacenan los datos del cliente en centros de datos globales. Para localizar el centro de datos de un servicio, consulte [Azure Active Directory: Dónde se encuentran sus datos](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located).
+Todos los demás servicios de Azure AD almacenan los datos del cliente en centros de datos globales. Para localizar el centro de datos de un servicio, consulte [Azure Active Directory: Dónde se encuentran sus datos](https://aka.ms/AADDataMap).
 
 ## <a name="microsoft-azure-ad-multi-factor-authentication-mfa"></a>Microsoft Azure AD Multi-Factor Authentication (MFA)
 

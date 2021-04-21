@@ -7,12 +7,12 @@ ms.date: 11/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c748034145781f639da244b16e3df7053da3d5d2
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: c9412e2adeb9b43b4c61437fb41e68bc96b86afd
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103489972"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107481844"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>Uso de funcionalidades sin conexión ampliadas en dispositivos, módulos y dispositivos secundarios IoT Edge
 
@@ -20,7 +20,7 @@ ms.locfileid: "103489972"
 
 Azure IoT Edge permite realizar operaciones sin conexión ampliadas en dispositivos IoT Edge y también operaciones sin conexión en dispositivos secundarios que no son IoT Edge. Si un dispositivo de IoT Edge ha podido conectarse a IoT Hub aunque sea una sola vez, ese dispositivo y cualquier dispositivo secundario podrán seguir funcionando con una conexión intermitente o sin conexión.
 
-## <a name="how-it-works"></a>Funcionamiento
+## <a name="how-it-works"></a>Cómo funciona
 
 Cuando un dispositivo de IoT Edge está en modo sin conexión, el centro de IoT Edge asume tres roles. En primer lugar, almacena los mensajes que deberían enviarse y los guarda hasta que el dispositivo vuelva a tener conexión. En segundo lugar, actúa en nombre de IoT Hub para autenticar módulos y dispositivos secundarios de modo que puedan seguir funcionando. En tercer lugar, permite la comunicación entre dispositivos secundarios que normalmente se comunicarían a través de IoT Hub.
 
@@ -70,7 +70,7 @@ Puede declarar la relación principal-secundario cuando se crea un dispositivo. 
 
 #### <a name="option-2-use-the-az-command-line-tool"></a>Opción 2: Usar la herramienta de línea de comandos `az`
 
-Mediante la [interfaz de línea de comandos de Azure](/cli/azure/) con la [extensión de IoT](https://github.com/azure/azure-iot-cli-extension) (v0.7.0 o posterior), puede administrar relaciones principal-secundario con los subcomandos [device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity). En el ejemplo siguiente se usa una consulta para asignar todos los dispositivos que no son IoT Edge del centro como dispositivos secundarios de un dispositivo IoT Edge.
+Mediante la [interfaz de línea de comandos de Azure](/cli/azure/) con la [extensión de IoT](https://github.com/azure/azure-iot-cli-extension) (v0.7.0 o posterior), puede administrar relaciones principal-secundario con los subcomandos [device-identity](/cli/azure/iot/hub/device-identity/). En el ejemplo siguiente se usa una consulta para asignar todos los dispositivos que no son IoT Edge del centro como dispositivos secundarios de un dispositivo IoT Edge.
 
 ```azurecli
 # Set IoT Edge parent device

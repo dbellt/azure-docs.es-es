@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 08/07/2020
-ms.openlocfilehash: 6de387605a8c127485b68773b6cd1b19c7136d17
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 12600cadaa84ae116818eec06459d5db0c05304a
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107107506"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107773427"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Creación de una oferta de módulo de IoT Edge
 
@@ -273,7 +273,7 @@ Este es un ejemplo de cómo aparece la información de la oferta en Azure Market
 
 <br>Seleccione **Guardar borrador** antes de continuar con la siguiente sección, Versión preliminar.
 
-## <a name="preview"></a>Versión preliminar
+## <a name="preview"></a>Vista previa
 
 La **pestaña Versión preliminar** permite elegir un **público preliminar** limitado para validar la oferta antes de ponerla a disposición de un público más amplio de Marketplace.
 
@@ -419,7 +419,7 @@ Proporcionará la siguiente información en la pestaña **Detalles del repositor
 
 1. Usuario administrador
 
-<br>**Contraseña de Azure Container Registry**: proporcione la contraseña del nombre de usuario administrador asociado a la instancia de Azure Container Registry que tiene su imagen de contenedor. El nombre de usuario y la contraseña son necesarios para asegurarse de que la empresa tiene acceso al registro. Puede obtener la contraseña de Azure Portal a través de **Container Registry** > **Claves de acceso**, o bien de la CLI de Azure con el [comando show.](/cli/azure/acr/credential#az-acr-credential-show)
+<br>**Contraseña de Azure Container Registry**: proporcione la contraseña del nombre de usuario administrador asociado a la instancia de Azure Container Registry que tiene su imagen de contenedor. El nombre de usuario y la contraseña son necesarios para asegurarse de que la empresa tiene acceso al registro. Puede obtener la contraseña de Azure Portal a través de **Container Registry** > **Claves de acceso**, o bien de la CLI de Azure con el [comando show.](/cli/azure/acr/credential#az_acr_credential_show)
 
 :::image type="content" source="media/example-iot-access-keys.png" alt-text="Muestra la pantalla de la clave de acceso en Azure Portal.":::
 

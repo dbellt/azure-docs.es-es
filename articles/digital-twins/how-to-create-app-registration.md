@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 10/13/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: acb5457f10c54a741a738dd8a1008e703b0f23b0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bd45bb264f8e29a2aad870a7daff45fdd44e0d3c
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102051028"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107478818"
 ---
 # <a name="create-an-app-registration-to-use-with-azure-digital-twins"></a>Creación de un registro de aplicaciones para usar con Azure Digital Twins
 
-Al trabajar con una instancia de Azure Digital Twins, es habitual interactuar con esa instancia mediante aplicaciones cliente, como una aplicación cliente personalizada o la aplicación de ejemplo [Azure Digital Twins Explorer](quickstart-adt-explorer.md). Dichas aplicaciones deben autenticarse con Azure Digital Twins para interactuar con él, y algunos de los [mecanismos de autenticación](how-to-authenticate-client.md) que las aplicaciones pueden usar conllevan un **registro de aplicaciones** de [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md).
+Al trabajar con una instancia de Azure Digital Twins, es habitual interactuar con esa instancia mediante aplicaciones cliente, como una aplicación cliente personalizada o la aplicación de ejemplo [Azure Digital Twins Explorer](quickstart-azure-digital-twins-explorer.md). Dichas aplicaciones deben autenticarse con Azure Digital Twins para interactuar con él, y algunos de los [mecanismos de autenticación](how-to-authenticate-client.md) que las aplicaciones pueden usar conllevan un **registro de aplicaciones** de [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md).
 
 Esto no es necesario en todos los escenarios de autenticación. Sin embargo, si va a usar una estrategia de autenticación o un ejemplo de código que requiera un registro de aplicaciones, como un **identificador de cliente** y un **identificador de inquilino**, en este artículo se muestra cómo configurar uno.
 

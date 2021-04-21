@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: cynthn
-ms.openlocfilehash: c0eea74890665297a0d450c8afd0a5d60dd1ae00
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b08e8ebbba3ba91c1c1aa0f135c4cba37ba038b1
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102551817"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107769920"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Cómo crear una máquina virtual Linux en Azure con red varias tarjetas de interfaz de red
 
@@ -183,7 +183,7 @@ Agregue tablas de enrutamiento al sistema operativo invitado completando los pas
 
 En los pasos anteriores se creó una red virtual y una subred, se conectaron las NIC y luego se creó una máquina virtual. No se creó ninguna regla de grupos de seguridad de red ni ninguna dirección IP pública que permitieran el tráfico SSH. Para configurar al sistema operativo invitado para varias NIC, tiene que permitir conexiones remotas y ejecutar comandos localmente en la máquina virtual.
 
-Para permitir el tráfico SSH, cree una regla de grupo de seguridad de red con [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create) de la manera siguiente:
+Para permitir el tráfico SSH, cree una regla de grupo de seguridad de red con [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) de la manera siguiente:
 
 ```azurecli
 az network nsg rule create \
@@ -194,7 +194,7 @@ az network nsg rule create \
     --destination-port-ranges 22
 ```
 
-Cree una dirección IP pública con [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) y asígnela a la primera NIC con [az network nic ip-config update](/cli/azure/network/nic/ip-config#az-network-nic-ip-config-update):
+Cree una dirección IP pública con [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) y asígnela a la primera NIC con [az network nic ip-config update](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_update):
 
 ```azurecli
 az network public-ip create --resource-group myResourceGroup --name myPublicIP
@@ -206,7 +206,7 @@ az network nic ip-config update \
     --public-ip myPublicIP
 ```
 
-Para ver la dirección IP pública de la máquina virtual, use [az vm show](/cli/azure/vm#az-vm-show) de la manera siguiente:
+Para ver la dirección IP pública de la máquina virtual, use [az vm show](/cli/azure/vm#az_vm_show) de la manera siguiente:
 
 ```azurecli
 az vm show --resource-group myResourceGroup --name myVM -d --query publicIps -o tsv

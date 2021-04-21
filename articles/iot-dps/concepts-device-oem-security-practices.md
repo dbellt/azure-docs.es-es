@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 ms.custom: iot-p0-scenario, iot-devices-deviceOEM
 ms.reviewer: nberdy
-ms.openlocfilehash: 788738082cbf9995fb2f7282bc3f574903275528
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dad46e21b35225855d787c367d112362fc95a463
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90527214"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107010548"
 ---
 # <a name="security-practices-for-azure-iot-device-manufacturers"></a>Procedimientos de seguridad para los fabricantes de dispositivos Azure IoT
 A medida que más fabricantes lanzan dispositivos IoT, resulta útil identificar una guía en torno a los procedimientos comunes. En este artículo se resumen los procedimientos de seguridad recomendados que se deben tener en cuenta al fabricar dispositivos para su uso con Azure IoT Device Provisioning Service (DPS).  
@@ -177,7 +177,7 @@ En este punto del proceso, instale el cliente de DPS junto con el ámbito del id
     > Si utiliza un TPM de software, puede instalarlo ahora.  Extraiga la EK_pub al mismo tiempo.
 
 #### <a name="step-4-device-is-packaged-and-sent-to-the-warehouse"></a>Paso 4: El dispositivo se empaqueta y se envía al almacén
-Un dispositivo puede permanecer en un almacén de 6 a 12 meses antes de su implementación. 
+A veces, un dispositivo puede estar en un almacén hasta un año antes de su implementación y aprovisionamiento con DPS.  Si un dispositivo pasa en un almacén mucho tiempo antes de la implementación, los clientes que implementen el dispositivo quizá necesiten actualizar el firmware, el software o las credenciales expiradas.
 
 #### <a name="step-5-device-is-installed-into-the-location"></a>Paso 5: El dispositivo está instalado en la ubicación
 Una vez que el dispositivo llega a su ubicación final, pasa por el aprovisionamiento automatizado con DPS.

@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: keli19
 author: likebupt
-ms.date: 03/19/2021
+ms.date: 04/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 09eabffb0e01ee6c5ea6b541378773a7d60397a3
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 30ae737a170c337fe6be51521aeb358cdcebd44b
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106080754"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107349"
 ---
 # <a name="use-pipeline-parameters-in-the-designer-to-build-versatile-pipelines"></a>Uso de parámetros de canalización en el diseñador para compilar canalizaciones versátiles
 
@@ -30,7 +30,7 @@ En este artículo, aprenderá a realizar las siguientes tareas:
 > * Eliminar y administrar parámetros de canalización
 > * Desencadenar ejecuciones de canalización al ajustar los parámetros de canalización
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Un área de trabajo de Azure Machine Learning. Consulte [Creación de un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
 
@@ -95,9 +95,11 @@ Si quiere enviar la canalización con conjuntos de datos variables, debe promove
 
 Ahora puede especificar otro conjunto de datos mediante el parámetro de canalización la próxima vez que ejecute la canalización.
 
-## <a name="attach-module-parameter-to-pipeline-parameter"></a>Asociación del parámetro de módulo al parámetro de canalización 
+## <a name="attach-and-detach-module-parameter-to-pipeline-parameter"></a>Asociación y desasociación del parámetro de módulo en el parámetro de canalización 
 
-En esta sección, aprenderá a adjuntar el parámetro de módulo al parámetro de canalización.
+En esta sección, aprenderá a asociar y desasociar el parámetro de módulo en el parámetro de canalización.
+
+### <a name="attach-module-parameter-to-pipeline-parameter"></a>Asociación del parámetro de módulo al parámetro de canalización
 
 Puede adjuntar los mismos parámetros de módulos duplicados al mismo parámetro de canalización si desea modificar el valor de una sola vez al desencadenar la ejecución de la canalización.
 
@@ -115,10 +117,16 @@ En el siguiente ejemplo se ha duplicado el módulo **Clean Missing Data** (Limpi
 
    ![Captura de pantalla que muestra cómo adjuntar un parámetro de canalización](media/how-to-use-pipeline-parameter/attach-replace-value-to-pipeline-parameter.png)
 
-Ha adjuntado correctamente el campo **Replacement value** (Valor de reemplazo) al parámetro de canalización. El campo **Replacement value** (Valor de reemplazo) en los módulos no es accionable.
+Ha adjuntado correctamente el campo **Replacement value** (Valor de reemplazo) al parámetro de canalización. 
+
+
+### <a name="detach-module-parameter-to-pipeline-parameter"></a>Desasociación del parámetro de módulo en el parámetro de canalización
+
+Después de asociar el **valor de reemplazo** al parámetro de canalización, no se puede realizar ninguna acción.
+
+Para desasociar el parámetro del módulo en el parámetro de canalización, haga clic en los puntos suspensivos ( **...** ) que hay junto al parámetro de módulo y seleccione **Detach from pipeline parameter** (Desasociar de parámetro de canalización).
 
  ![Captura de pantalla que muestra que no es accionable después de asociar al parámetro de canalización](media/how-to-use-pipeline-parameter/non-actionable-module-parameter.png)
-
 
 ## <a name="update-and-delete-pipeline-parameters"></a>Actualización y eliminación de parámetros de canalización
 
@@ -133,7 +141,7 @@ Siga estos pasos para actualizar un parámetro de canalización de módulo:
 
 ### <a name="delete-a-dataset-pipeline-parameter"></a>Eliminación de un parámetro de canalización de conjunto de datos
 
-Use los pasos siguientes para desasociar un parámetro de canalización de conjunto de datos:
+Use los siguientes pasos para eliminar un parámetro de canalización del conjunto de datos:
 
 1. Seleccione el módulo del conjunto de datos.
 1. Desactive la opción **Set as pipeline parameter** (Establecer como parámetro de canalización).
@@ -147,22 +155,14 @@ Siga estos pasos para eliminar un parámetro de canalización de módulo:
 
 1. Seleccione los puntos suspensivos ( **...** ) junto al parámetro de canalización.
 
-    Esta vista muestra los módulos a los que está asociado el parámetro de canalización. Para eliminar un parámetro de canalización, primero debe desasociarlo de cualquier parámetro de módulo.
+    Esta vista muestra los módulos a los que está asociado el parámetro de canalización.
 
-    ![Captura de pantalla que muestra el parámetro de canalización actual aplicado a un módulo](media/how-to-use-pipeline-parameter/current-pipeline-parameter.png)
+    ![Captura de pantalla que muestra el parámetro de canalización actual aplicado a un módulo](media/how-to-use-pipeline-parameter/delete-pipeline-parameter2.png)
 
-1. En el lienzo, seleccione un módulo al que todavía esté asociado el parámetro de canalización.
-1. En el panel Propiedades del módulo de la derecha, busque el campo al que está asociado el parámetro de canalización.
-1. Pase el mouse por el campo adjunto. A continuación, seleccione los puntos suspensivos ( **...** ) que aparecen.
-1. Seleccione **Detach from pipeline parameter** (Desasociar de parámetro de canalización).
-
-    ![Captura de pantalla que muestra la desasociación de los parámetros de canalización](media/how-to-use-pipeline-parameter/detach-from-pipeline-parameter.png)
-
-1. Repita los pasos anteriores hasta que haya desasociado el parámetro de canalización de todos los campos.
-1. Seleccione los puntos suspensivos ( **...** ) junto al parámetro de canalización.
 1. Seleccione **Delete parameter** (Eliminar parámetro) para eliminar el parámetro de canalización.
 
-    ![Captura de pantalla que muestra la eliminación de parámetros de canalización](media/how-to-use-pipeline-parameter/delete-pipeline-parameter.png)
+    > [!NOTE]
+    > Al eliminar un parámetro de canalización, se desasociarán todos los parámetros del módulo adjuntos y el valor de los parámetros del módulo desasociados mantendrá el valor del parámetro de canalización actual.     
 
 ## <a name="trigger-a-pipeline-run-with-pipeline-parameters"></a>Desencadenamiento de una ejecución de canalización con parámetros de canalización 
 

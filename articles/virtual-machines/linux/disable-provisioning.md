@@ -10,12 +10,12 @@ ms.workload: infrastructure
 ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 7c797957c292b9859ca41951b15f58c3d0be40b2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c70b02bdc554c723f53ad5f8c0d36c5eca87811e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102561080"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107774375"
 ---
 # <a name="disable-or-remove-the-linux-agent-from-vms-and-images"></a>Deshabilitar o quitar el agente Linux de las máquinas virtuales y las imágenes
 
@@ -32,7 +32,7 @@ La plataforma de Azure hospeda numerosas extensiones, que abarcan aplicaciones d
 
 ## <a name="disabling-extension-processing"></a>Deshabilitar el procesamiento de la extensión
 
-Hay varias maneras de deshabilitar el procesamiento de la extensión, en función de sus necesidades, pero antes de continuar, **debe** quitar todas las extensiones implementadas en la VM, por ejemplo, con la CLI de Azure, puede [enumerar](/cli/azure/vm/extension#az-vm-extension-list) y [eliminar](/cli/azure/vm/extension#az-vm-extension-delete):
+Hay varias maneras de deshabilitar el procesamiento de la extensión, en función de sus necesidades, pero antes de continuar, **debe** quitar todas las extensiones implementadas en la VM, por ejemplo, con la CLI de Azure, puede [enumerar](/cli/azure/vm/extension#az_vm_extension_list) y [eliminar](/cli/azure/vm/extension#az_vm_extension_delete):
 
 ```azurecli
 az vm extension delete -g MyResourceGroup --vm-name MyVm -n extension_name
@@ -156,7 +156,7 @@ Al crear la VM a partir de la imagen sin agente Linux, debe asegurarse de que la
 > 
 > Si no hace lo anterior, la plataforma intentará enviar la configuración de la extensión y el tiempo de espera después de 40 min.
 
-Para implementar la VM con extensiones deshabilitadas, puede usar la CLI de Azure con [--enable-Agent](/cli/azure/vm#az-vm-create).
+Para implementar la VM con extensiones deshabilitadas, puede usar la CLI de Azure con [--enable-Agent](/cli/azure/vm#az_vm_create).
 
 ```azurecli
 az vm create \

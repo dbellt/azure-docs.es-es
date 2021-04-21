@@ -3,12 +3,12 @@ title: Eliminación de un almacén de Microsoft Azure Recovery Services
 description: En este artículo, aprenderá a quitar dependencias y, luego, a eliminar un almacén de Azure Backup Recovery Services (MARS).
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 1526e9aeef1574f261dcb1a58ee12a12fbf08866
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: bb6be070ac0fb408ac37c8ae7b003b54da5d6dea
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104864965"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107773664"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Eliminación de un almacén de Recovery Services de Azure Backup
 
@@ -320,7 +320,7 @@ Para eliminar el almacén de Recovery Services existente, sigas estos pasos:
                              [--yes]
     ```
 
-    Para obtener más información, consulte este  [artículo](/cli/azure/backup/protection#az-backup-protection-disable).
+    Para obtener más información, consulte este  [artículo](/cli/azure/backup/protection#az_backup_protection_disable).
 
 - Elimine un almacén de Recovery Services existente:
 

@@ -3,12 +3,12 @@ title: Definición de varias instancias de una propiedad
 description: Use la operación de copia en una plantilla de Azure Resource Manager (plantilla de ARM) para realizar varias iteraciones cuando cree una propiedad en un recurso.
 ms.topic: conceptual
 ms.date: 04/01/2021
-ms.openlocfilehash: 94bc153a49f80694ab9b2d5b04fdf57e8a12e8c8
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 16c293f1c3aff64aeb8b6cae4b7f1aa14dcd0a77
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106385758"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107480008"
 ---
 # <a name="property-iteration-in-arm-templates"></a>Iteración de propiedades en las plantillas de ARM
 
@@ -49,7 +49,7 @@ Los bucles se pueden usar para declarar varias propiedades al:
   ```bicep
   <property-name>: [for <item> in <collection>: {
     <properties>
-  }
+  }]
   ```
 
 - Iterar los elementos de una matriz:
@@ -57,7 +57,7 @@ Los bucles se pueden usar para declarar varias propiedades al:
   ```bicep
   <property-name>: [for (<item>, <index>) in <collection>: {
     <properties>
-  }
+  }]
   ```
 
 - Usar el índice de bucle:
@@ -65,7 +65,7 @@ Los bucles se pueden usar para declarar varias propiedades al:
   ```bicep
   <property-name>: [for <index> in range(<start>, <stop>): {
     <properties>
-  }
+  }]
   ```
 
 ---
@@ -381,5 +381,5 @@ En los ejemplos siguientes, se muestran escenarios comunes en los que se crean v
   - [Iteración de recursos en las plantillas de ARM](copy-resources.md)
   - [Iteración de variables en las plantillas de ARM](copy-variables.md)
   - [Iteración de salida en las plantillas de ARM](copy-outputs.md)
-- Si quiere conocer las secciones de una plantilla, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).
+- Si quiere obtener más información sobre las secciones de una plantilla, vea [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).
 - Para información sobre cómo implementar una plantilla, consulte [Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell](deploy-powershell.md).

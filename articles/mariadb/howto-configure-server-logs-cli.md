@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 4/13/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: cea1571a48afe00350dde247c3c10e222a446247
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 42382076b6c14989eb153725e991c8ef047ad15b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98662396"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107774798"
 ---
 # <a name="configure-and-access-azure-database-for-maria-db-slow-query-logs-by-using-azure-cli"></a>Configuración y acceso a los registros de consultas lentas de Azure Database for Maria DB mediante CLI de Azure.
 
@@ -42,14 +42,14 @@ az mariadb server configuration list --resource-group myresourcegroup --server m
 ```
 
 ## <a name="list-logs-for-azure-database-for-mariadb-server"></a>Lista de registros del servidor de Azure Database for MariaDB
-Si **log_output** está configurado en "File" (Archivo), puede acceder a los registros directamente desde el almacenamiento local del servidor. Para mostrar la lista de archivos de registro de consultas lentas disponibles para el servidor, ejecute el comando [az mariadb server-logs list](/cli/azure/mariadb/server-logs#az-mariadb-server-logs-list).
+Si **log_output** está configurado en "File" (Archivo), puede acceder a los registros directamente desde el almacenamiento local del servidor. Para mostrar la lista de archivos de registro de consultas lentas disponibles para el servidor, ejecute el comando [az mariadb server-logs list](/cli/azure/mariadb/server-logs#az_mariadb_server_logs_list).
 
 Puede enumerar los archivos de registro del servidor **mydemoserver.mariadb.database.azure.com** en el grupo de recursos **myresourcegroup**. A continuación, dirija la lista de archivos de registro a un archivo de texto denominado **log\_files\_list.txt**.
 ```azurecli-interactive
 az mariadb server-logs list --resource-group myresourcegroup --server mydemoserver > log_files_list.txt
 ```
 ## <a name="download-logs-from-the-server"></a>Descarga de registros del servidor
-Si **log_output** está configurado como "File" (Archivo), puede descargar archivos de registro individuales desde el servidor con el comando [az mariadb server-logs download](/cli/azure/mariadb/server-logs#az-mariadb-server-logs-download).
+Si **log_output** está configurado como "File" (Archivo), puede descargar archivos de registro individuales desde el servidor con el comando [az mariadb server-logs download](/cli/azure/mariadb/server-logs#az_mariadb_server_logs_download).
 
 Use el ejemplo siguiente para descargar el archivo de registro específico del servidor **mydemoserver.mariadb.database.azure.com** en el grupo de recursos **myresourcegroup** a su entorno local.
 ```azurecli-interactive

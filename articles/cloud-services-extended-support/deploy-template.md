@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 9849648c8a0a76ff89a6f95e64eeade791e7135c
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 8804febe81afc79a4a7eadb56e8350e758ea38ba
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106381781"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107105517"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-arm-templates"></a>Implementación de una instancia de Cloud Service (soporte extendido) mediante plantillas de ARM
 
@@ -25,14 +25,12 @@ En este tutorial se explica cómo crear la implementación de una instancia de C
 
 2. Cree un nuevo grupo de recursos con [Azure Portal](../azure-resource-manager/management/manage-resource-groups-portal.md) o [PowerShell](../azure-resource-manager/management/manage-resource-groups-powershell.md). Este paso es opcional si se usa un grupo de recursos existente.
 
-3. Cree una dirección IP pública y establezca su propiedad de etiqueta DNS. Cloud Services (soporte extendido) solo admite direcciones IP públicas de la SKU básica (https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#basic). Las direcciones IP públicas de la SKU estándar no funcionan con Cloud Services.
+3. Cree una dirección IP pública y establezca su propiedad de etiqueta DNS. Cloud Services (soporte extendido) solo admite direcciones IP públicas de la SKU [básica](https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#basic). Las direcciones IP públicas de la SKU estándar no funcionan con Cloud Services.
 Si usa una dirección IP estática, se debe hacer referencia a ella como IP reservada en el archivo de configuración del servicio (.cscfg). Si usa una dirección IP existente, omita este paso y agregue la información de la dirección IP directamente en la configuración del equilibrador de carga de la plantilla de ARM.
-
-4. Cree un objeto de perfil de red y asocie la dirección IP pública al front-end del equilibrador de carga. La plataforma Azure crea automáticamente un recurso de equilibrador de carga de SKU "clásico" en la misma suscripción que el recurso de servicio en la nube. El recurso de equilibrador de carga es un recurso de solo lectura en ARM. Todas las actualizaciones del recurso solo se admiten mediante los archivos de implementación de servicios en la nube (.cscfg y csdef).
  
-5. Cree una cuenta de almacenamiento mediante [Azure Portal](../storage/common/storage-account-create.md?tabs=azure-portal) o [PowerShell](../storage/common/storage-account-create.md?tabs=azure-powershell). Este paso es opcional si se usa una cuenta de almacenamiento existente.
+4. Cree una cuenta de almacenamiento mediante [Azure Portal](../storage/common/storage-account-create.md?tabs=azure-portal) o [PowerShell](../storage/common/storage-account-create.md?tabs=azure-powershell). Este paso es opcional si se usa una cuenta de almacenamiento existente.
 
-6. Cargue los archivos de definición de servicio (.csdef) y de configuración del servicio (.cscfg) en la cuenta de almacenamiento mediante [Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob), [AzCopy](../storage/common/storage-use-azcopy-blobs-upload.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) o [PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md#upload-blobs-to-the-container). Obtenga los URI de SAS de ambos archivos que se van a agregar a la plantilla de ARM más adelante en este tutorial.
+5. Cargue los archivos de definición de servicio (.csdef) y de configuración del servicio (.cscfg) en la cuenta de almacenamiento mediante [Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob), [AzCopy](../storage/common/storage-use-azcopy-blobs-upload.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) o [PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md#upload-blobs-to-the-container). Obtenga los URI de SAS de ambos archivos que se van a agregar a la plantilla de ARM más adelante en este tutorial.
 
 6. (Opcional) Cree un almacén de claves y cargue los certificados.
 

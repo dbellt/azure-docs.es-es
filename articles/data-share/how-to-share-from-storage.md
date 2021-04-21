@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 02/23/2021
-ms.openlocfilehash: c94d6f7d4d06d7dbaa6a2ad54f94575a6cc85d33
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4db523624922d8ddcb8c1868b84927926d9ed3d5
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105644664"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107103817"
 ---
 # <a name="share-and-receive-data-from-azure-blob-storage-and-azure-data-lake-storage"></a>Uso compartido y recepción de datos de Azure Blob Storage y Azure Data Lake Storage
 
@@ -58,7 +58,7 @@ Cree un recurso de Azure Data Share en un grupo de recursos de Azure.
 
      **Configuración** | **Valor sugerido** | **Descripción del campo**
     |---|---|---|
-    | Subscription | Su suscripción | Seleccione una suscripción de Azure para la cuenta de recursos compartidos de datos.|
+    | Suscripción | Su suscripción | Seleccione una suscripción de Azure para la cuenta de recursos compartidos de datos.|
     | Grupo de recursos | *test-resource-group* | Use un grupo de recursos existente o cree uno. |
     | Location | *Este de EE. UU. 2* | Seleccione una región para la cuenta de Azure Data Share.
     | Nombre | *datashareaccount* | Asigne un nombre a la cuenta del recurso compartido de datos. |

@@ -4,13 +4,13 @@ description: Extraiga datos de texto de expresiones con intenciones y entidades.
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/01/2020
-ms.openlocfilehash: e6f01354bb5aa2b78d3c9962bac49be39dd2c81f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/13/2021
+ms.openlocfilehash: dd7d113b1c23a0afec82a346e0f7baa1254ebbed
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "95026000"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107500148"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Extracción de datos de texto de expresiones con intenciones y entidades
 LUIS ofrece la capacidad de obtener información de expresiones de lenguaje natural de un usuario. La información se extrae de manera que pueda ser usada por un programa, una aplicación o un bot de chat para tomar medidas. En las secciones siguientes, obtendrá información sobre qué datos se devuelven de las intenciones y entidades con ejemplos de JSON.
@@ -242,7 +242,7 @@ Los nombres de ubicaciones se establecen y conocen, por ejemplo, ciudades, conda
 
 ### <a name="new-and-emerging-names"></a>Nombres nuevos y emergentes
 
-Algunas aplicaciones necesitan poder encontrar nombres nuevos y emergentes, como productos o empresas. Estos tipos de nombres son el tipo más difícil de extracción de datos. Empiece con una **[entidad simple](luis-concept-entity-types.md#simple-entity)** y agregue una [lista de frases](luis-concept-feature.md). [Revise](./luis-how-to-review-endpoint-utterances.md) las expresiones del punto de conexión de forma regular para etiquetar los nombres que no se predijeron correctamente.
+Algunas aplicaciones necesitan poder encontrar nombres nuevos y emergentes, como productos o empresas. Estos tipos de nombres son el tipo más difícil de extracción de datos. Empiece con una **[entidad simple](luis-concept-entity-types.md)** y agregue una [lista de frases](luis-concept-feature.md). [Revise](./luis-how-to-review-endpoint-utterances.md) las expresiones del punto de conexión de forma regular para etiquetar los nombres que no se predijeron correctamente.
 
 ## <a name="patternany-entity-data"></a>Datos de la entidad Pattern.any
 

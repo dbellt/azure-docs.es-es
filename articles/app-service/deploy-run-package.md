@@ -3,12 +3,12 @@ title: Ejecución de una aplicación desde un paquete ZIP
 description: Implemente el paquete ZIP de la aplicación con atomicidad. Mejore la previsibilidad y la confiabilidad del comportamiento de su aplicación durante el proceso de implementación de ZIP.
 ms.topic: article
 ms.date: 01/14/2020
-ms.openlocfilehash: 036dd8c86251af2ed5553939e74a0d85fc303ecb
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d3315370342f54091598aa3f77f70f03bda4ad33
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104577553"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772746"
 ---
 # <a name="run-your-app-in-azure-app-service-directly-from-a-zip-package"></a>Ejecución de una aplicación en Azure App Service directamente desde un paquete ZIP
 
@@ -41,7 +41,7 @@ az webapp config appsettings set --resource-group <group-name> --name <app-name>
 
 ## <a name="run-the-package"></a>Ejecutar el paquete
 
-La manera más sencilla de ejecutar un paquete en App Service es con el comando [az webapp deployment source config-zip](/cli/azure/webapp/deployment/source#az-webapp-deployment-source-config-zip) de la CLI de Azure. Por ejemplo:
+La manera más sencilla de ejecutar un paquete en App Service es con el comando [az webapp deployment source config-zip](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config_zip) de la CLI de Azure. Por ejemplo:
 
 ```azurecli-interactive
 az webapp deployment source config-zip --resource-group <group-name> --name <app-name> --src <filename>.zip

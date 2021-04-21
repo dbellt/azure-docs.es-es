@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: a49fd6f97a9130fa0369d2a36cdc38e59613afc1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: bcf96a222dd40909401b70d8f1812b7d29b6088b
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105544390"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107012469"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Implementación de un clúster de Azure Service Fabric en Availability Zones
 Availability Zones de Azure es una oferta de alta disponibilidad que protege las aplicaciones y los datos de los errores del centro de datos. Una zona de disponibilidad es una ubicación física única equipada con alimentación independiente, refrigeración y redes dentro de una región de Azure.
@@ -33,7 +33,7 @@ La topología recomendada para el tipo de nodo principal requiere los recursos q
 * Un NSG al que hace referencia la subred en la que implementa los conjuntos de escalado de máquinas virtuales.
 
 >[!NOTE]
-> La propiedad de grupo de colocación única del conjunto de escalado de máquinas virtuales debe establecerse en true, ya que Service Fabric no admite un conjunto de escalado de máquinas virtuales único que se distribuya entre zonas.
+> La propiedad de grupo de selección única del conjunto de escalado de máquinas virtuales debe estar establecida en true.
 
 Diagrama que muestra el ![diagrama de la arquitectura de la zona de disponibilidad de Azure Service Fabric, que muestra la arquitectura de la zona de disponibilidad de Azure Service Fabric.][sf-architecture]
 

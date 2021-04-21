@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2f7092d8ce184d7021774814e96935e46d1ffb56
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6b3ac012da97194134f58d061dd9d84e945db554
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100363175"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107774474"
 ---
 # <a name="choose-how-to-authorize-access-to-queue-data-with-azure-cli"></a>Distintas formas de autorizar el acceso para poner datos en cola con la CLI de Azure
 
@@ -63,7 +63,7 @@ En el ejemplo siguiente se muestra cómo crear una cola desde la CLI de Azure me
     > [!IMPORTANT]
     > La propagación de las asignaciones de roles de Azure pueden tardar unos minutos.
 
-1. Llame al comando [`az storage queue create`](/cli/azure/storage/queue#az-storage-queue-create) con el parámetro `--auth-mode` establecido en `login` para crear la cola mediante las credenciales de Azure AD. No olvide reemplazar los valores del marcador de posición entre corchetes angulares por sus propios valores:
+1. Llame al comando [`az storage queue create`](/cli/azure/storage/queue#az_storage_queue_create) con el parámetro `--auth-mode` establecido en `login` para crear la cola mediante las credenciales de Azure AD. No olvide reemplazar los valores del marcador de posición entre corchetes angulares por sus propios valores:
 
     ```azurecli
     az storage queue create \

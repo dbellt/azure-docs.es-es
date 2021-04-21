@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/25/2021
 ms.author: v-jansk
-ms.openlocfilehash: c42f3081a831c267c7bc605267b99e2a916ea3d8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: fd7cee564aa3a00e21d1e707d08a18115d519925
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105613805"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107484683"
 ---
 # <a name="document-translation-get-operations"></a>Traducción de documentos: Obtener operaciones
 
@@ -85,8 +85,8 @@ En una respuesta correcta se devuelve la información siguiente.
 |--- |--- |--- |
 |id|string|Identificador de la operación.|
 |createdDateTimeUtc|string|Fecha y hora de creación de la operación.|
-|lastActionDateTimeUtc|string|Fecha y hora en que se ha actualizado el estado de la operación.|
-|status|String|Lista de posibles estados de un trabajo o documento: <ul><li>Canceled</li><li>Cancelling</li><li>Con error</li><li>NotStarted</li><li>En ejecución</li><li>Correcto</li><li>ValidationFailed</li></ul>|
+|lastActionDateTimeUtc|string|Fecha y hora en que se actualizó el estado de la operación.|
+|status|String|Lista de posibles estados del trabajo o documento: <ul><li>Canceled</li><li>Cancelling</li><li>Con error</li><li>NotStarted</li><li>En ejecución</li><li>Correcto</li><li>ValidationFailed</li></ul>|
 |Resumen|StatusSummary[]|Resumen que contiene los detalles que se muestran a continuación.|
 |summary.total|integer|Recuento total de documentos.|
 |summary.failed|integer|Recuento de documentos con errores.|
@@ -96,14 +96,14 @@ En una respuesta correcta se devuelve la información siguiente.
 |summary.cancelled|integer|Recuento de documentos cancelados.|
 |summary.totalCharacterCharged|integer|Recuento total de caracteres cargados.|
 
-###<a name="error-response"></a>Respuesta de error
+### <a name="error-response"></a>Respuesta de error
 
 |Nombre|Tipo|Descripción|
 |--- |--- |--- |
 |código|string|Enumeraciones que contiene códigos de error de alto nivel. Valores posibles:<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>No autorizado</li></ul>|
 |message|string|Obtiene un mensaje de error de alto nivel.|
 |Destino|string|Obtiene el origen del error. Por ejemplo, sería "documentos" o "id. de documento" en el caso de un documento no válido.|
-|innerError|InnerErrorV2|Nuevo formato de error interno, que cumple las directrices de la API de Cognitive Services. Contiene las propiedades requeridas ErrorCode, Message y las propiedades opcionales Target, Details (par clave-valor), error interno (se puede anidar).|
+|innerError|InnerErrorV2|Nuevo formato de error interno, que cumple las directrices de la API de Cognitive Services. Contiene las propiedades requeridas ErrorCode, mensajey las propiedades opcionales de destino, detalles (par clave-valor), error interno (puede estar anidado).|
 |innerError.code|string|Obtiene la cadena de error de código.|
 |innerError.message|string|Obtiene un mensaje de error de alto nivel.|
 

@@ -2,13 +2,13 @@
 title: Restricciones de nomenclatura de recursos
 description: Muestra las reglas y las restricciones de nomenclatura de recursos de Azure.
 ms.topic: conceptual
-ms.date: 04/06/2021
-ms.openlocfilehash: e1a6f1628f5dcd8570551f9cc13ef508b44732f8
-ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
+ms.date: 04/08/2021
+ms.openlocfilehash: e260c9055b26d82f2fd2f8458d287a35a838f40f
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106505151"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107477798"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Reglas y restricciones de nomenclatura para los recursos de Azure
 
@@ -169,7 +169,7 @@ En las tablas siguientes, el término carácter alfanumérico se refiere a:
 > | --- | --- | --- | --- |
 > | availabilitySets | resource group | 1-80 | Caracteres alfanuméricos, de subrayado, puntos y guiones.<br><br>Comience con un carácter alfanumérico. Termine con un carácter alfanumérico o de subrayado. |
 > | diskEncryptionSets | resource group | 1-80 | Caracteres alfanuméricos y de subrayado. |
-> | disks | resource group | 1-80 | Caracteres alfanuméricos y de subrayado. |
+> | disks | resource group | 1-80 | Caracteres alfanuméricos, de subrayado y guiones. |
 > | galleries | resource group | 1-80 | Caracteres alfanuméricos y puntos.<br><br>Comience y termine con un carácter alfanumérico. |
 > | galleries/applications | galería | 1-80 | Caracteres alfanuméricos, guiones y puntos.<br><br>Comience y termine con un carácter alfanumérico. |
 > | galleries/applications/versions | application | Entero de 32 bits | Números y puntos. |
@@ -177,11 +177,18 @@ En las tablas siguientes, el término carácter alfanumérico se refiere a:
 > | galleries/images/versions | imagen | Entero de 32 bits | Números y puntos. |
 > | images | resource group | 1-80 | Caracteres alfanuméricos, de subrayado, puntos y guiones.<br><br>Comience con un carácter alfanumérico. Termine con un carácter alfanumérico o de subrayado. |
 > | snapshots | resource group | 1-80 | Caracteres alfanuméricos, de subrayado, puntos y guiones.<br><br>Comience con un carácter alfanumérico. Termine con un carácter alfanumérico o de subrayado. |
-> | virtualMachines | resource group | 1-15 (Windows)<br>1-64 (Linux)<br><br>Vea la nota siguiente. | No puede usar espacio ni estos caracteres:<br> `\/"'[]:|<>+=;,?*@&_`<br><br>Las máquinas virtuales no pueden incluir ningún punto ni terminar con un guion.<br><br>Las máquinas virtuales Linux no pueden terminar con un punto ni un guion. |
-> | virtualMachineScaleSets | resource group | 1-15 (Windows)<br>1-64 (Linux)<br><br>Vea la nota siguiente. | No puede usar espacio ni estos caracteres:<br> `\/"'[]:|<>+=;,?*@&`<br><br>No puede comenzar con un carácter de subrayado. No puede terminar con un punto ni un guion. |
+> | virtualMachines | resource group | 1-15 (Windows)<br>1-64 (Linux)<br><br>Vea la nota siguiente. | No puede usar espacio ni estos caracteres:<br> `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`<br><br>Las máquinas virtuales no pueden incluir ningún punto ni terminar con un guion.<br><br>Las máquinas virtuales Linux no pueden terminar con un punto ni un guion. |
+> | virtualMachineScaleSets | resource group | 1-15 (Windows)<br>1-64 (Linux)<br><br>Vea la nota siguiente. | No puede usar espacio ni estos caracteres:<br> `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`<br><br>No puede comenzar con un carácter de subrayado. No puede terminar con un punto ni un guion. |
 
 > [!NOTE]
 > Las máquinas virtuales de Azure tienen dos nombres distintos: el nombre de recurso y el nombre de host. Cuando se crea una máquina virtual en el portal, se usa el mismo valor para ambos nombres. Las restricciones de la tabla anterior son para el nombre de host. El nombre de recurso real puede tener hasta 64 caracteres.
+
+## <a name="microsoftcommunication"></a>Microsoft.Communication
+
+> [!div class="mx-tableFixed"]
+> | Entidad | Ámbito | Length | Caracteres válidos |
+> | --- | --- | --- | --- |
+> | communicationServices | global | 1-63 | Caracteres alfanuméricos, de subrayado y guiones. |
 
 ## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
 

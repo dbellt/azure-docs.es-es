@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: jordane
 author: jpe316
-ms.date: 11/16/2020
-ms.openlocfilehash: cc844cbd2518bb131f6902d1da3e7653951224b5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/08/2021
+ms.openlocfilehash: 2dc50702113f591075b790878347c4ca47beec4e
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102547856"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107027812"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Integración de Git con Azure Machine Learning
 
@@ -25,6 +25,11 @@ Azure Machine Learning es totalmente compatible con los repositorios de Git para
 Al enviar un trabajo a Azure Machine Learning, si los archivos de origen se almacenan en un repositorio de Git local, se realiza un seguimiento de la información sobre el repositorio como parte del proceso de entrenamiento.
 
 Dado que Azure Machine Learning realiza un seguimiento de la información desde un repositorio de Git local, no está vinculado a ningún repositorio central específico. El repositorio se puede clonar desde GitHub, GitLab, Bitbucket, Azure DevOps o cualquier otro servicio compatible con Git.
+
+> [!TIP]
+> Use Visual Studio Code para interactuar con Git a través de una interfaz gráfica de usuario. Para conectarse a una instancia de proceso remota de Azure Machine Learning mediante Visual Studio Code, consulte [Conexión a una instancia de proceso de Azure Machine Learning en Visual Studio Code (versión preliminar)](how-to-set-up-vs-code-remote.md).
+>
+> Para obtener más información sobre las características de control de versiones de Visual Studio Code, consulte [Uso del control de versiones de Visual Studio Code](https://code.visualstudio.com/docs/editor/versioncontrol) y [Trabajo con GitHub en Visual Studio Code](https://code.visualstudio.com/docs/editor/github) (ambos en inglés).
 
 ## <a name="clone-git-repositories-into-your-workspace-file-system"></a>Clonación de repositorios de Git en el sistema de archivos del área de trabajo
 Azure Machine Learning ofrece un sistema de archivos compartido para todos los usuarios del área de trabajo.

@@ -3,12 +3,12 @@ title: Estimación de los costos del plan de consumo en Azure Functions
 description: Obtenga información sobre cómo estimar mejor los costos que se pueden producir al ejecutar la aplicación de funciones en un plan de consumo de Azure.
 ms.date: 9/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 4967e0ff79a638891da4f784cf2f5f1ca4ddfe51
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 648be6325cce5bad36795b113c8bbccb3e21d37b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100578567"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107774010"
 ---
 # <a name="estimating-consumption-plan-costs"></a>Estimación de los costos según el plan de consumo
 
@@ -82,7 +82,7 @@ Use el [explorador de métricas de Azure Monitor](../azure-monitor/essentials/me
       
     |Configuración  |Valor sugerido  |Descripción  |
     |---------|---------|---------|
-    | Subscription    |  Su suscripción  | La suscripción con la aplicación de funciones.  |
+    | Suscripción    |  Su suscripción  | La suscripción con la aplicación de funciones.  |
     | Resource group     | Su grupo de recursos  | El grupo de recursos que contiene la aplicación de funciones.   |
     | Tipo de recurso     |  Servicios de aplicaciones | Las aplicaciones de funciones se muestran como instancias de App Services en Monitor. |
     | Resource     |  Su aplicación de función  | La aplicación de funciones que se va a supervisar.        |
@@ -105,7 +105,7 @@ En este gráfico se muestra un total de 1,11 mil millones de `Function Executio
 
 #### <a name="azure-cli"></a>Azure CLI
 
-La [CLI de Azure](/cli/azure/) tiene comandos para recuperar métricas. Puede usar la CLI desde un entorno de comandos local o directamente desde el portal mediante [Azure Cloud Shell](../cloud-shell/overview.md). Por ejemplo, el comando siguiente [az monitor metrics list](/cli/azure/monitor/metrics#az-monitor-metrics-list) devuelve datos por hora durante el mismo período de tiempo utilizado antes.
+La [CLI de Azure](/cli/azure/) tiene comandos para recuperar métricas. Puede usar la CLI desde un entorno de comandos local o directamente desde el portal mediante [Azure Cloud Shell](../cloud-shell/overview.md). Por ejemplo, el comando siguiente [az monitor metrics list](/cli/azure/monitor/metrics#az_monitor_metrics_list) devuelve datos por hora durante el mismo período de tiempo utilizado antes.
 
 Asegúrese de reemplazar `<AZURE_SUBSCRIPTON_ID>` por el identificador de suscripción de Azure que ejecuta el comando.
 

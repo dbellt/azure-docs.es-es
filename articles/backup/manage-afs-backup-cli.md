@@ -3,12 +3,12 @@ title: Administración de copias de seguridad de recursos compartidos de archivo
 description: Obtenga información sobre cómo usar la CLI de Azure para administrar y supervisar los recursos compartidos de archivos de Azure de los que Azure Backup ha realizado una copia de seguridad.
 ms.topic: conceptual
 ms.date: 01/15/2020
-ms.openlocfilehash: 5a8a785016845b836a102663a959e4b2f28696b6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e389f5cde12734ef4bf0be4ecfba69ba33f5e030
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94566459"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107773610"
 ---
 # <a name="manage-azure-file-share-backups-with-the-azure-cli"></a>Administración de copias de seguridad de recursos compartidos de archivos de Azure con la CLI de Azure
 
@@ -27,7 +27,7 @@ En este artículo se da por supuesto que ya tiene una copia de seguridad de un r
 
 ## <a name="monitor-jobs"></a>Supervisión de trabajos
 
-Al desencadenar operaciones de copia de seguridad o restauración, el servicio de copia de seguridad crea un trabajo para realizar un seguimiento. Para supervisar los trabajos completados o en ejecución, use el cmdlet [az backup job list](/cli/azure/backup/job#az-backup-job-list). Con la CLI, también puede [suspender un trabajo que se esté ejecutando actualmente](/cli/azure/backup/job#az-backup-job-stop) o [esperar hasta que se complete un trabajo](/cli/azure/backup/job#az-backup-job-wait).
+Al desencadenar operaciones de copia de seguridad o restauración, el servicio de copia de seguridad crea un trabajo para realizar un seguimiento. Para supervisar los trabajos completados o en ejecución, use el cmdlet [az backup job list](/cli/azure/backup/job#az_backup_job_list). Con la CLI, también puede [suspender un trabajo que se esté ejecutando actualmente](/cli/azure/backup/job#az_backup_job_stop) o [esperar hasta que se complete un trabajo](/cli/azure/backup/job#az_backup_job_wait).
 
 En el ejemplo siguiente se muestra el estado de los trabajos de copia de seguridad para el almacén de Recovery Services *azurefilesvault*:
 
@@ -92,13 +92,13 @@ az backup job list --resource-group azurefiles --vault-name azurefilesvault
 
 ## <a name="modify-policy"></a>Modificación de directivas
 
-Puede modificar una directiva de copia de seguridad para cambiar la frecuencia de las copias de seguridad o la duración de retención mediante [az backup item set-policy](/cli/azure/backup/item#az-backup-item-set-policy).
+Puede modificar una directiva de copia de seguridad para cambiar la frecuencia de las copias de seguridad o la duración de retención mediante [az backup item set-policy](/cli/azure/backup/item#az_backup_item_set_policy).
 
 Para cambiar la directiva, defina los siguientes parámetros:
 
-* **--container-name**: nombre de la cuenta de almacenamiento que contiene el recurso compartido de archivos. Para recuperar el **nombre** o **nombre descriptivo** del contenedor, use el comando [az backup container list](/cli/azure/backup/container#az-backup-container-list).
-* **--name**: nombre del recurso compartido de archivos para el que desea cambiar la directiva. Para recuperar el **nombre** o **nombre descriptivo** del elemento de copia de seguridad, use el comando [az backup item list](/cli/azure/backup/item#az-backup-item-list).
-* **--policy-name**: nombre de la directiva de copia de seguridad que desea establecer para el recurso compartido de archivos. Puede usar [az backup policy list](/cli/azure/backup/policy#az-backup-policy-list) para ver todas las directivas del almacén.
+* **--container-name**: nombre de la cuenta de almacenamiento que contiene el recurso compartido de archivos. Para recuperar el **nombre** o **nombre descriptivo** del contenedor, use el comando [az backup container list](/cli/azure/backup/container#az_backup_container_list).
+* **--name**: nombre del recurso compartido de archivos para el que desea cambiar la directiva. Para recuperar el **nombre** o **nombre descriptivo** del elemento de copia de seguridad, use el comando [az backup item list](/cli/azure/backup/item#az_backup_item_list).
+* **--policy-name**: nombre de la directiva de copia de seguridad que desea establecer para el recurso compartido de archivos. Puede usar [az backup policy list](/cli/azure/backup/policy#az_backup_policy_list) para ver todas las directivas del almacén.
 
 En el ejemplo siguiente se establece la directiva de copia de seguridad *schedule2* para el recurso compartido de archivos *azurefiles* presente en la cuenta de almacenamiento *afsaccount*.
 
@@ -121,7 +121,7 @@ Name                                  ResourceGroup
 fec6f004-0e35-407f-9928-10a163f123e5  azurefiles
 ```
 
-El atributo **Name** de la salida se corresponde con el nombre del trabajo creado por el servicio de copia de seguridad para la operación de cambio de directiva. Para realizar el seguimiento del estado del trabajo, use el cmdlet [az backup job show](/cli/azure/backup/job#az-backup-job-show).
+El atributo **Name** de la salida se corresponde con el nombre del trabajo creado por el servicio de copia de seguridad para la operación de cambio de directiva. Para realizar el seguimiento del estado del trabajo, use el cmdlet [az backup job show](/cli/azure/backup/job#az_backup_job_show).
 
 ## <a name="stop-protection-on-a-file-share"></a>Detención de la protección en un recurso compartido de archivos
 
@@ -134,12 +134,12 @@ Puede que dejar los puntos de recuperación en el almacenamiento conlleve un cos
 
 Para detener la protección del recurso compartido de archivos, defina los parámetros siguientes:
 
-* **--container-name**: nombre de la cuenta de almacenamiento que contiene el recurso compartido de archivos. Para recuperar el **nombre** o **nombre descriptivo** del contenedor, use el comando [az backup container list](/cli/azure/backup/container#az-backup-container-list).
-* **--item-name**: nombre del recurso compartido de archivos para el que desea detener la protección. Para recuperar el **nombre** o **nombre descriptivo** del elemento de copia de seguridad, use el comando [az backup item list](/cli/azure/backup/item#az-backup-item-list).
+* **--container-name**: nombre de la cuenta de almacenamiento que contiene el recurso compartido de archivos. Para recuperar el **nombre** o **nombre descriptivo** del contenedor, use el comando [az backup container list](/cli/azure/backup/container#az_backup_container_list).
+* **--item-name**: nombre del recurso compartido de archivos para el que desea detener la protección. Para recuperar el **nombre** o **nombre descriptivo** del elemento de copia de seguridad, use el comando [az backup item list](/cli/azure/backup/item#az_backup_item_list).
 
 ### <a name="stop-protection-and-retain-recovery-points"></a>Detención de la protección y conservación de los puntos de recuperación
 
-Para detener la protección conservando los datos, use el cmdlet [az backup protection disable](/cli/azure/backup/protection#az-backup-protection-disable).
+Para detener la protección conservando los datos, use el cmdlet [az backup protection disable](/cli/azure/backup/protection#az_backup_protection_disable).
 
 En el ejemplo siguiente se detiene la protección del recurso compartido de archivos *azurefiles*, pero se conservan todos los puntos de recuperación.
 
@@ -162,11 +162,11 @@ Name                                  ResourceGroup
 fec6f004-0e35-407f-9928-10a163f123e5  azurefiles
 ```
 
-El atributo **Name** de la salida se corresponde con el nombre del trabajo creado por el servicio de copia de seguridad para la operación de detención de la protección. Para realizar el seguimiento del estado del trabajo, use el cmdlet [az backup job show](/cli/azure/backup/job#az-backup-job-show).
+El atributo **Name** de la salida se corresponde con el nombre del trabajo creado por el servicio de copia de seguridad para la operación de detención de la protección. Para realizar el seguimiento del estado del trabajo, use el cmdlet [az backup job show](/cli/azure/backup/job#az_backup_job_show).
 
 ### <a name="stop-protection-without-retaining-recovery-points"></a>Detención de la protección sin conservar los puntos de recuperación
 
-Para detener la protección sin conservar los puntos de recuperación, use el cmdlet [az backup protection disable](/cli/azure/backup/protection#az-backup-protection-disable) con la opción **delete-backup-data** establecida en **true**.
+Para detener la protección sin conservar los puntos de recuperación, use el cmdlet [az backup protection disable](/cli/azure/backup/protection#az_backup_protection_disable) con la opción **delete-backup-data** establecida en **true**.
 
 En el ejemplo siguiente se detiene la protección del recurso compartido de archivos *azurefiles* sin conservar puntos de recuperación.
 
@@ -189,11 +189,11 @@ Si ha detenido la protección de un recurso compartido de archivos de Azure pero
 
 Para reanudar la protección del recurso compartido de archivos, defina los parámetros siguientes:
 
-* **--container-name**: nombre de la cuenta de almacenamiento que contiene el recurso compartido de archivos. Para recuperar el **nombre** o **nombre descriptivo** del contenedor, use el comando [az backup container list](/cli/azure/backup/container#az-backup-container-list).
-* **--item-name**: nombre del recurso compartido de archivos para el que desea reanudar la protección. Para recuperar el **nombre** o **nombre descriptivo** del elemento de copia de seguridad, use el comando [az backup item list](/cli/azure/backup/item#az-backup-item-list).
+* **--container-name**: nombre de la cuenta de almacenamiento que contiene el recurso compartido de archivos. Para recuperar el **nombre** o **nombre descriptivo** del contenedor, use el comando [az backup container list](/cli/azure/backup/container#az_backup_container_list).
+* **--item-name**: nombre del recurso compartido de archivos para el que desea reanudar la protección. Para recuperar el **nombre** o **nombre descriptivo** del elemento de copia de seguridad, use el comando [az backup item list](/cli/azure/backup/item#az_backup_item_list).
 * **--policy-name**: nombre de la directiva de copia de seguridad para la que desea reanudar la protección del recurso compartido de archivos.
 
-En el ejemplo siguiente se usa el cmdlet [az backup protection resume](/cli/azure/backup/protection#az-backup-protection-resume) para reanudar la protección del recurso compartido de archivos *azurefiles* con la directiva de copia de seguridad *schedule1*.
+En el ejemplo siguiente se usa el cmdlet [az backup protection resume](/cli/azure/backup/protection#az_backup_protection_resume) para reanudar la protección del recurso compartido de archivos *azurefiles* con la directiva de copia de seguridad *schedule1*.
 
 ```azurecli-interactive
 az backup protection resume --vault-name azurefilesvault --resource-group azurefiles --container-name "StorageContainer;Storage;AzureFiles;afsaccount” --item-name “AzureFileShare;azurefiles” --policy-name schedule2 --out table
@@ -214,15 +214,15 @@ Name                                  ResourceGroup
 75115ab0-43b0-4065-8698-55022a234b7f  azurefiles
 ```
 
-El atributo **Name** de la salida se corresponde con el nombre del trabajo creado por el servicio de copia de seguridad para la operación de reanudación de la protección. Para realizar el seguimiento del estado del trabajo, use el cmdlet [az backup job show](/cli/azure/backup/job#az-backup-job-show).
+El atributo **Name** de la salida se corresponde con el nombre del trabajo creado por el servicio de copia de seguridad para la operación de reanudación de la protección. Para realizar el seguimiento del estado del trabajo, use el cmdlet [az backup job show](/cli/azure/backup/job#az_backup_job_show).
 
 ## <a name="unregister-a-storage-account"></a>Anulación del registro de una cuenta de almacenamiento
 
 Si desea proteger los recursos compartidos de archivos en una cuenta de almacenamiento determinada mediante un almacén de Recovery Services diferente, primero debe [detener la protección de todos los recursos compartidos de archivos](#stop-protection-on-a-file-share) en esa cuenta de almacenamiento. A continuación, anule el registro de la cuenta del almacén de Recovery Services que se usa actualmente para la protección.
 
-Debe proporcionar un nombre de contenedor para anular el registro de la cuenta de almacenamiento. Para recuperar el **nombre** o **nombre descriptivo** del contenedor, use el comando [az backup container list](/cli/azure/backup/container#az-backup-container-list).
+Debe proporcionar un nombre de contenedor para anular el registro de la cuenta de almacenamiento. Para recuperar el **nombre** o **nombre descriptivo** del contenedor, use el comando [az backup container list](/cli/azure/backup/container#az_backup_container_list).
 
-En el ejemplo siguiente se anula el registro de la cuenta de almacenamiento *afsaccount* de *azurefilesvault* con el cmdlet [az backup container unregister](/cli/azure/backup/container#az-backup-container-unregister).
+En el ejemplo siguiente se anula el registro de la cuenta de almacenamiento *afsaccount* de *azurefilesvault* con el cmdlet [az backup container unregister](/cli/azure/backup/container#az_backup_container_unregister).
 
 ```azurecli-interactive
 az backup container unregister --vault-name azurefilesvault --resource-group azurefiles --container-name "StorageContainer;Storage;AzureFiles;afsaccount" --out table

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/01/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 3c6fb1ca23bcc9c57e73bcaf960e0387611fcff3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 00f9c6510a87770367472c0da6774b94034c6d72
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104599221"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107029784"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Cómo llamar a la API REST de Text Analytics
 
@@ -34,6 +34,14 @@ Antes de usar la API de Text Analytics, debe crear un recurso de Azure con una c
 2.  Seleccione la región que quiera que use su punto de conexión.  Tenga en cuenta que los puntos de conexión de `/analyze` y `/health` solo están disponibles en las siguientes regiones: Oeste de EE. UU. 2, este de EE. UU. 2, centro de EE. UU., Norte de Europa y Oeste de Europa.
 
 3.  Cree el recurso de Text Analytics y vaya a la "hoja de claves y puntos de conexión" a la izquierda de la página. Copie la clave que va a usar más adelante cuando llame a las API. La agregará más adelante como valor en el encabezado `Ocp-Apim-Subscription-Key` .
+
+4. Para comprobar el número de registros de texto que se han enviado mediante el recurso de Text Analytics:
+
+    1. Vaya al recurso de Text Analytics en Azure Portal. 
+    2. Haga clic en **Métricas**, que se encuentra en **Supervisión**, en el menú de navegación izquierdo. 
+    3. Seleccione *Registros de texto procesados* en el cuadro desplegable de **Métrica**.
+    
+Cada registro de texto tiene 1000 caracteres.
 
 ## <a name="change-your-pricing-tier"></a>Cambio del plan de tarifa 
 

@@ -5,12 +5,12 @@ description: En este artículo se describen los dos niveles de cifrado disponibl
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: 3d4f9e3be02a64efa058ea1f84a3e261cb6166fc
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 226516b1178f14789570b45b68cfdbf56f63bbd7
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104867124"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107775158"
 ---
 # <a name="azure-hdinsight-double-encryption-for-data-at-rest"></a>Cifrado doble de datos en reposo en Azure HDInsight
 
@@ -133,7 +133,7 @@ También deberá asignar la identidad administrada al clúster.
 
 #### <a name="using-azure-cli"></a>Uso de la CLI de Azure
 
-En el ejemplo siguiente se muestra cómo usar la CLI de Azure para crear un nuevo clúster de Apache Spark con el cifrado de disco habilitado. Para más información, consulte el comando [az hdinsight create de la CLI de Azure](/cli/azure/hdinsight#az-hdinsight-create). El parámetro `encryption-key-version` es opcional.
+En el ejemplo siguiente se muestra cómo usar la CLI de Azure para crear un nuevo clúster de Apache Spark con el cifrado de disco habilitado. Para más información, consulte el comando [az hdinsight create de la CLI de Azure](/cli/azure/hdinsight#az_hdinsight_create). El parámetro `encryption-key-version` es opcional.
 
 ```azurecli
 az hdinsight create -t spark -g MyResourceGroup -n MyCluster \
@@ -371,7 +371,7 @@ Para rotar la clave, necesita el URI del almacén de claves base. Una vez lo hay
 
 #### <a name="using-azure-cli"></a>Uso de la CLI de Azure
 
-En el ejemplo siguiente se muestra cómo girar la clave de cifrado de disco de un clúster de HDInsight existente. Para más información, consulte el comando [az hdinsight rotate-disk-encryption-key de la CLI de Azure](/cli/azure/hdinsight#az-hdinsight-rotate-disk-encryption-key).
+En el ejemplo siguiente se muestra cómo girar la clave de cifrado de disco de un clúster de HDInsight existente. Para más información, consulte el comando [az hdinsight rotate-disk-encryption-key de la CLI de Azure](/cli/azure/hdinsight#az_hdinsight_rotate_disk_encryption_key).
 
 ```azurecli
 az hdinsight rotate-disk-encryption-key \
@@ -404,7 +404,7 @@ Si el clúster pierde acceso a la clave, se mostrarán advertencias en el portal
 
 **¿Cómo puedo recuperar el clúster si se eliminan las claves?**
 
-Dado que solo se admiten claves habilitadas para eliminación temporal, si las claves se recuperan en el almacén de claves, el clúster debe volver a acceder a ellas. Para recuperar una clave de Azure Key Vault, consulte [Undo-AzKeyVaultKeyRemoval](/powershell/module/az.keyvault/Undo-AzKeyVaultKeyRemoval) o [az-keyvault-key-recover](/cli/azure/keyvault/key#az-keyvault-key-recover).
+Dado que solo se admiten claves habilitadas para eliminación temporal, si las claves se recuperan en el almacén de claves, el clúster debe volver a acceder a ellas. Para recuperar una clave de Azure Key Vault, consulte [Undo-AzKeyVaultKeyRemoval](/powershell/module/az.keyvault/Undo-AzKeyVaultKeyRemoval) o [az-keyvault-key-recover](/cli/azure/keyvault/key#az_keyvault_key_recover).
 
 
 **Si un clúster se escala verticalmente, ¿los nuevos nodos admitirán las claves administradas por el cliente sin problemas?**

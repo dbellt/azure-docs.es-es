@@ -4,12 +4,12 @@ description: Aprenda a personalizar la característica de autenticación y autor
 ms.topic: article
 ms.date: 03/29/2021
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: b7faf47363a5efee6a60951e67d9ad2bed8bf76f
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 9335bb62e494fab50f7beadf3d7bbc423d80cf14
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106076877"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107775734"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Uso avanzado de la autenticación y autorización en Azure App Service
 
@@ -652,7 +652,7 @@ Para ver la versión actual del middleware de autenticación de la plataforma, u
 
 ##### <a name="from-the-azure-cli"></a>Desde la CLI de Azure
 
-En la CLI de Azure, consulte la versión actual del middleware mediante el comando [az webapp auth show](/cli/azure/webapp/auth#az-webapp-auth-show).
+En la CLI de Azure, consulte la versión actual del middleware mediante el comando [az webapp auth show](/cli/azure/webapp/auth#az_webapp_auth_show).
 
 ```azurecli-interactive
 az webapp auth show --name <my_app_name> \
@@ -683,7 +683,7 @@ También puede consultar el punto de conexión de /.auth/version en una aplicaci
 
 #### <a name="update-the-current-runtime-version"></a>Actualización de la versión de tiempo de ejecución
 
-En la CLI de Azure, puede actualizar el valor de `runtimeVersion` en la aplicación mediante el comando [az webapp auth update](/cli/azure/webapp/auth#az-webapp-auth-update).
+En la CLI de Azure, puede actualizar el valor de `runtimeVersion` en la aplicación mediante el comando [az webapp auth update](/cli/azure/webapp/auth#az_webapp_auth_update).
 
 ```azurecli-interactive
 az webapp auth update --name <my_app_name> \
@@ -693,7 +693,7 @@ az webapp auth update --name <my_app_name> \
 
 Reemplace `<my_app_name>` por el nombre de la aplicación. Reemplace también `<my_resource_group>` por el nombre del grupo de recursos para la aplicación. Por último, reemplace `<version>` por una versión válida del tiempo de ejecución 1.x o `~1` en el caso de la versión más reciente. Encontrará las notas de la versión en las diferentes versiones en tiempo de ejecución [aquí] (https://github.com/Azure/app-service-announcements) ) para que pueda identificar la versión a la que debe anclar la aplicación.
 
-Este comando se puede ejecutar desde [Azure Cloud Shell](../cloud-shell/overview.md), para lo que es preciso hacer clic en **Pruébelo** en el código de ejemplo anterior. También puede usar la [CLI de Azure localmente](/cli/azure/install-azure-cli) para ejecutar este comando después de ejecutar [az login](/cli/azure/reference-index#az-login) para iniciar sesión.
+Este comando se puede ejecutar desde [Azure Cloud Shell](../cloud-shell/overview.md), para lo que es preciso hacer clic en **Pruébelo** en el código de ejemplo anterior. También puede usar la [CLI de Azure localmente](/cli/azure/install-azure-cli) para ejecutar este comando después de ejecutar [az login](/cli/azure/reference-index#az_login) para iniciar sesión.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

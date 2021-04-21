@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/02/2021
 ms.topic: conceptual
-ms.openlocfilehash: 9f2047a07586f078555032ed9001fdb602fe3b2a
-ms.sourcegitcommit: af6eba1485e6fd99eed39e507896472fa930df4d
+ms.openlocfilehash: 0a28266210fd8b6f0b731b972f00aa3d413c0d0c
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2021
-ms.locfileid: "106293794"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107027744"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Implementación de Hybrid Runbook Worker en Windows
 
@@ -87,11 +87,11 @@ Hay dos métodos para implementar automáticamente Hybrid Runbook Worker. Puede 
 
 ### <a name="importing-a-runbook-from-the-runbook-gallery"></a>Importación de un runbook desde la galería de runbooks
 
-El procedimiento de importación se describe en detalle en [Importación de un runbook de PowerShell desde GitHub con Azure Portal](automation-runbook-gallery.md#import-a-powershell-runbook-from-github-with-the-azure-portal). El nombre del runbook que se va a importar es **Create Automation Windows HybridWorker**.
+El procedimiento de importación se describe en detalle en [Importación de runbooks desde GitHub con Azure Portal](automation-runbook-gallery.md#import-runbooks-from-github-with-the-azure-portal). El nombre del runbook que se va a importar es **Create Automation Windows HybridWorker**.
 
 El runbook usa los parámetros siguientes.
 
-| Parámetro | Status | Descripción |
+| Parámetro | Estado | Descripción |
 | ------- | ----- | ----------- |
 | `Location` | Mandatory | La ubicación del área de trabajo de Log Analytics. |
 | `ResourceGroupName` | Mandatory | El grupo de recursos de la cuenta de Automation. |
@@ -123,7 +123,7 @@ Realice los pasos siguientes para instalar el rol en la máquina Windows mediant
 
 1. Descargue el script **New-OnPremiseHybridWorker.ps1** de la [Galería de PowerShell](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker). Una vez descargado el script, cópielo o ejecútelo en la máquina de destino. El script usa los parámetros siguientes.
 
-    | Parámetro | Status | Descripción |
+    | Parámetro | Estado | Descripción |
     | --------- | ------ | ----------- |
     | `AAResourceGroupName` | Mandatory | el nombre del grupo de recursos que está asociado a su cuenta de Automation. |
     | `AutomationAccountName` | Mandatory | el nombre de la cuenta de Automation.

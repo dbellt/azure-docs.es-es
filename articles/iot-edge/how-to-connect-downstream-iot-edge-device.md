@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: e0912fb452a7f587fef19de835eea111b349a9a4
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 500833d1bb4fc492942c08239bd488c2d2c16d30
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107310026"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107484326"
 ---
 # <a name="connect-a-downstream-iot-edge-device-to-an-azure-iot-edge-gateway"></a>Conexión de un dispositivo IoT Edge de nivel inferior a una puerta de enlace Azure IoT Edge
 
@@ -78,9 +78,9 @@ También puede crear o administrar relaciones de elementos primarios y secundari
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-La extensión [azure-iot](/cli/azure/ext/azure-iot) de la CLI de Azure proporciona comandos para administrar los recursos de IoT. Puede administrar la relación de elementos primarios y secundarios de dispositivos IoT y IoT Edge al crear nuevas identidades de dispositivos o editando los dispositivos existentes.
+La extensión [azure-iot](/cli/azure/iot) de la CLI de Azure proporciona comandos para administrar los recursos de IoT. Puede administrar la relación de elementos primarios y secundarios de dispositivos IoT y IoT Edge al crear nuevas identidades de dispositivos o editando los dispositivos existentes.
 
-El conjunto de comandos [az iot hub device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) permite administrar las relaciones de elementos primarios y secundarios para un dispositivo determinado.
+El conjunto de comandos [az iot hub device-identity](/cli/azure/iot/hub/device-identity) permite administrar las relaciones de elementos primarios y secundarios para un dispositivo determinado.
 
 El comando `create` incluye parámetros para agregar dispositivos secundarios y establecer un dispositivo primario en el momento de la creación del dispositivo.
 

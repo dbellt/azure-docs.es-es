@@ -8,12 +8,12 @@ ms.date: 08/14/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d88d35eece698c7d0079221ae3c76058d1877948
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 78752d4da42fe07461ae0e82b10343dc7219ad91
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103200471"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107482065"
 ---
 # <a name="give-modules-access-to-a-devices-local-storage"></a>Acceso de los módulos al almacenamiento local de un dispositivo
 
@@ -87,7 +87,7 @@ Puede encontrar más detalles sobre las opciones de creación en la [documentaci
 
 ## <a name="encrypted-data-in-module-storage"></a>Datos cifrados en el almacenamiento de módulos
 
-Cuando los módulos invocan la API de carga de trabajo del demonio de IoT Edge para cifrar datos, la clave de cifrado se deriva mediante el id. de módulo y el id. de generación del módulo. Un id. de generación se usa para proteger los secretos si se quita un módulo de la implementación y, posteriormente, se implementa otro módulo con el mismo id. de módulo en el mismo dispositivo. Puede ver el id. de generación de un módulo mediante el comando [az iot hub module-identity show](/cli/azure/ext/azure-iot/iot/hub/module-identity) de la CLI de Azure.
+Cuando los módulos invocan la API de carga de trabajo del demonio de IoT Edge para cifrar datos, la clave de cifrado se deriva mediante el id. de módulo y el id. de generación del módulo. Un id. de generación se usa para proteger los secretos si se quita un módulo de la implementación y, posteriormente, se implementa otro módulo con el mismo id. de módulo en el mismo dispositivo. Puede ver el id. de generación de un módulo mediante el comando [az iot hub module-identity show](/cli/azure/iot/hub/module-identity) de la CLI de Azure.
 
 Si quiere compartir archivos entre módulos de varias generaciones, no debe contener ningún secreto o se podrá descifrar.
 

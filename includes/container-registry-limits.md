@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 06/18/2020
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 089b1b6f1af2f19c16866858324bde2e151e8bdb
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: b4701260a7d8da030f9f3019060aaa83e7a3a483
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98052925"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104803615"
 ---
-| Recurso | Básico | Estándar | Premium |
+| Resource | Básico | Estándar | Premium |
 |---|---|---|---|
 | Se incluye almacenamiento<sup>1</sup> (GiB) | 10 | 100 | 500 |
 | Límite de almacenamiento (TiB) | 20| 20 | 20 |
 | Tamaño máximo de la capa de imagen (GiB) | 200 | 200 | 200 |
-| Operaciones de lectura por minuto<sup>2, 3</sup> | 1,000 | 3000 | 10 000 |
+| Operaciones de lectura por minuto<sup>2, 3</sup> | 1,000 | 3,000 | 10 000 |
 | Operaciones de escritura por minuto<sup>2, 4</sup> | 100 | 500 | 2\.000 |
 | Ancho de banda de descarga <sup>2</sup> (Mbps) | 30 | 60 | 100 |
 | Ancho de banda de carga <sup>2</sup> (Mbps) | 10 | 20 | 50 |
@@ -30,6 +30,7 @@ ms.locfileid: "98052925"
 | Confianza de contenido | N/D | N/D | [Compatible][content-trust] |
 | Vínculo privado con puntos de conexión privados | N/D | N/D | [Compatible][plink] |
 | &bull; Puntos de conexión privados | N/D | N/D | 10 |
+| Reglas de red IP pública | N/D | N/D | 100 |
 | Acceso a red virtual del punto de conexión de servicio | N/D | N/D | [Versión preliminar][vnet] |
 | Claves administradas por el cliente | N/D | N/D | [Compatible][cmk] |
 | Permisos de ámbito de repositorio | N/D | N/D | [Versión preliminar][token]|

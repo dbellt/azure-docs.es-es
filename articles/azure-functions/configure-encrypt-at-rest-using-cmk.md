@@ -3,12 +3,12 @@ title: Cifrado del origen de la aplicación en reposo
 description: Cifre los datos de la aplicación en Azure Storage e impleméntelos como un archivo de paquete.
 ms.topic: article
 ms.date: 03/06/2020
-ms.openlocfilehash: 6e4cf16118e748e3ee1d1ff4899730463565ec70
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 71668bf27628bb2af2dfc7112d28ba10ecfdf9f3
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92108038"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107768820"
 ---
 # <a name="encrypt-your-application-data-at-rest-using-customer-managed-keys"></a>Cifrado de los datos en reposo de la aplicación mediante claves administradas por el cliente
 
@@ -43,7 +43,7 @@ Si agrega esta configuración de la aplicación, se reiniciará la aplicación d
 
 Ahora puede reemplazar el valor de la configuración de la aplicación `WEBSITE_RUN_FROM_PACKAGE` por una referencia Key Vault a la dirección URL codificada con SAS. Al hacerlo, se conserva la dirección URL de SAS cifrada en Key Vault, lo que proporciona un nivel de seguridad adicional.
 
-1. Utilice el comando [`az keyvault create`](/cli/azure/keyvault#az-keyvault-create) siguiente para crear una instancia de Key Vault.       
+1. Utilice el comando [`az keyvault create`](/cli/azure/keyvault#az_keyvault_create) siguiente para crear una instancia de Key Vault.       
 
     ```azurecli    
     az keyvault create --name "Contoso-Vault" --resource-group <group-name> --location eastus    
@@ -51,13 +51,13 @@ Ahora puede reemplazar el valor de la configuración de la aplicación `WEBSITE_
 
 1. Siga [estas instrucciones para conceder a la aplicación acceso](../app-service/app-service-key-vault-references.md#granting-your-app-access-to-key-vault) a su almacén de claves:
 
-1. Use el comando [`az keyvault secret set`](/cli/azure/keyvault/secret#az-keyvault-secret-set) siguiente para agregar la dirección URL externa como un secreto en su almacén de claves:   
+1. Use el comando [`az keyvault secret set`](/cli/azure/keyvault/secret#az_keyvault_secret_set) siguiente para agregar la dirección URL externa como un secreto en su almacén de claves:   
 
     ```azurecli    
     az keyvault secret set --vault-name "Contoso-Vault" --name "external-url" --value "<SAS-URL>"    
     ```    
 
-1.  Use el comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) siguiente para crear la configuración de la aplicación `WEBSITE_RUN_FROM_PACKAGE` con el valor como una referencia de Key Vault a la dirección URL externa:
+1.  Use el comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) siguiente para crear la configuración de la aplicación `WEBSITE_RUN_FROM_PACKAGE` con el valor como una referencia de Key Vault a la dirección URL externa:
 
     ```azurecli    
     az webapp config appsettings set --settings WEBSITE_RUN_FROM_PACKAGE="@Microsoft.KeyVault(SecretUri=https://Contoso-Vault.vault.azure.net/secrets/external-url/<secret-version>"    

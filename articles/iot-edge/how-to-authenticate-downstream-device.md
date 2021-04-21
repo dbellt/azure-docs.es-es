@@ -8,12 +8,12 @@ ms.date: 10/15/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c799e38092c5983b4ad0e3daea6aae99934c7302
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4702682dcd6af68242fd5a34d1fb2e0a9273da36
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103200882"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107482031"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Autenticación de un dispositivo de bajada en Azure IoT Hub
 
@@ -76,7 +76,7 @@ Al crear la identidad del dispositivo, proporcione la información siguiente:
    >
    >Puede configurar el centro de IoT Edge para volver al comportamiento anterior estableciendo la variable de entorno **AuthenticationMode** en el valor **CloudAndScope**.
 
-También puede usar la [extensión IoT para la CLI de Azure](https://github.com/Azure/azure-iot-cli-extension) con el fin de completar la misma operación. En el ejemplo siguiente se usa el comando [az iot hub device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) para crear un dispositivo IoT con autenticación de clave simétrica y asignar un dispositivo principal:
+También puede usar la [extensión IoT para la CLI de Azure](https://github.com/Azure/azure-iot-cli-extension) con el fin de completar la misma operación. En el ejemplo siguiente se usa el comando [az iot hub device-identity](/cli/azure/iot/hub/device-identity) para crear un dispositivo IoT con autenticación de clave simétrica y asignar un dispositivo principal:
 
 ```azurecli
 az iot hub device-identity create -n {iothub name} -d {new device ID} --pd {existing gateway device ID}
@@ -131,7 +131,7 @@ Para la autenticación con X.509 autofirmado, en ocasiones denominada autenticac
    * Java: [SendEventX509.java](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples/send-event-x509)
    * Python: [send_message_x509.py](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-device/samples/async-hub-scenarios/send_message_x509.py)
 
-También puede usar la [extensión IoT para la CLI de Azure](https://github.com/Azure/azure-iot-cli-extension) para completar la misma operación de creación de dispositivos. En el ejemplo siguiente se usa el comando [az iot hub device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) para crear un dispositivo IoT con autenticación autofirmada X.509 y se asigna un dispositivo principal:
+También puede usar la [extensión IoT para la CLI de Azure](https://github.com/Azure/azure-iot-cli-extension) para completar la misma operación de creación de dispositivos. En el ejemplo siguiente se usa el comando [az iot hub device-identity](/cli/azure/iot/hub/device-identity) para crear un dispositivo IoT con autenticación autofirmada X.509 y se asigna un dispositivo principal:
 
 ```azurecli
 az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID} --am x509_thumbprint --ptp {primary thumbprint} --stp {secondary thumbprint}
@@ -175,7 +175,7 @@ Esta sección se basa en las instrucciones detalladas en el artículo de IoT Hub
    * Java: [SendEventX509.java](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples/send-event-x509)
    * Python: [send_message_x509.py](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-device/samples/async-hub-scenarios/send_message_x509.py)
 
-También puede usar la [extensión IoT para la CLI de Azure](https://github.com/Azure/azure-iot-cli-extension) para completar la misma operación de creación de dispositivos. En el ejemplo siguiente se usa el comando [az iot hub device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) para crear un dispositivo IoT con autenticación firmada por CA X.509 y se asigna un dispositivo principal:
+También puede usar la [extensión IoT para la CLI de Azure](https://github.com/Azure/azure-iot-cli-extension) para completar la misma operación de creación de dispositivos. En el ejemplo siguiente se usa el comando [az iot hub device-identity](/cli/azure/iot/hub/device-identity) para crear un dispositivo IoT con autenticación firmada por CA X.509 y se asigna un dispositivo principal:
 
 ```azurecli
 az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID} --am x509_ca

@@ -10,12 +10,12 @@ ms.date: 11/03/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: feac7b890c973b1541c5362f860432687082953f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 31812a7b2dddad474ab5cd422a15f6e5368dba5c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96533883"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107774636"
 ---
 # <a name="configure-anonymous-public-read-access-for-containers-and-blobs"></a>Configuración de acceso de lectura público anónimo a contenedores y blobs
 
@@ -239,7 +239,7 @@ Cuando el acceso público no está permitido en la cuenta de almacenamiento, no 
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-Para actualizar el nivel de acceso público de uno o varios contenedores con la CLI de Azure, llame al comando [az storage container set permission](/cli/azure/storage/container#az-storage-container-set-permission). Para autorizar esta operación, use la clave de su cuenta, una cadena de conexión o una firma de acceso compartido (SAS). La operación [Set Container ACL](/rest/api/storageservices/set-container-acl) (Establecer ACL de contenedor) que establece el nivel de acceso público del contenedor no admite la autorización con Azure AD. Para obtener más información, consulte [Permisos para llamar a operaciones de datos de blobs y colas](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations).
+Para actualizar el nivel de acceso público de uno o varios contenedores con la CLI de Azure, llame al comando [az storage container set permission](/cli/azure/storage/container#az_storage_container_set_permission). Para autorizar esta operación, use la clave de su cuenta, una cadena de conexión o una firma de acceso compartido (SAS). La operación [Set Container ACL](/rest/api/storageservices/set-container-acl) (Establecer ACL de contenedor) que establece el nivel de acceso público del contenedor no admite la autorización con Azure AD. Para obtener más información, consulte [Permisos para llamar a operaciones de datos de blobs y colas](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations).
 
 En el ejemplo siguiente se crea un contenedor con el acceso público deshabilitado y, a continuación, se actualiza la configuración de acceso público del contenedor para permitir el acceso anónimo al contenedor y sus blobs. No olvide reemplazar los valores del marcador de posición entre corchetes con sus propios valores:
 

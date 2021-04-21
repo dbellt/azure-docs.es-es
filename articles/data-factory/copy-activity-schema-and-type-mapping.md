@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: jingwang
-ms.openlocfilehash: 0aee6030e5608b5413864d6a32dc8442dd346f42
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 68d90fa56d5dce902a44a32b322e582a81e419d5
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100392789"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107011648"
 ---
 # <a name="schema-and-data-type-mapping-in-copy-activity"></a>Asignación de esquemas y tipos de datos en la actividad de copia
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -22,7 +22,7 @@ En este artículo se describe el modo en que la actividad de copia de Azure Data
 
 ### <a name="default-mapping"></a>Asignación predeterminada
 
-De forma predeterminada, la actividad de copia asigna los datos de origen al receptor **por nombres de columna** con distinción de mayúsculas y minúsculas. Si el receptor no existe, por ejemplo, al escribir en los archivos, los nombres de los campos de origen se conservarán como nombres de receptor. Esta asignación predeterminada admite esquemas flexibles y derivación de esquemas del origen al receptor de una ejecución a otra: todos los datos devueltos por el almacén de datos de origen se pueden copiar en el receptor.
+De forma predeterminada, la actividad de copia asigna los datos de origen al receptor **por nombres de columna** con distinción de mayúsculas y minúsculas. Si el receptor no existe, por ejemplo, al escribir en los archivos, los nombres de los campos de origen se conservarán como nombres de receptor. Si el receptor ya existe, debe contener todas las columnas que se copien del origen. Esta asignación predeterminada admite esquemas flexibles y derivación de esquemas del origen al receptor de una ejecución a otra: todos los datos devueltos por el almacén de datos de origen se pueden copiar en el receptor.
 
 Si el origen es un archivo de texto sin línea de encabezado, se requiere una [asignación explícita](#explicit-mapping), ya que el origen no contiene nombres de columna.
 

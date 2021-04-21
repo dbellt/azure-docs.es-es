@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: conceptual
-ms.date: 02/19/2021
-ms.openlocfilehash: 8180fe8554e5fff83e4caef8c245839518649ca1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/05/2021
+ms.openlocfilehash: 0a98f9e4b108d2498fa19bc0b041f9d52272c7d2
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101719056"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107774943"
 ---
 # <a name="manage-azure-resources-and-monitor-costs-by-creating-automation-tasks-preview"></a>Administración de los recursos de Azure y supervisión de los costos mediante la creación de tareas de automatización (versión preliminar)
 
@@ -150,7 +150,7 @@ Para ver el historial de ejecuciones de una tarea junto con sus estados, entrada
 
    Se abre el panel **Ejecución de aplicación lógica** y muestra el flujo de trabajo subyacente que se ejecutó.
 
-   * Un flujo de trabajo siempre se inicia con un [*desencadenador*](../connectors/apis-list.md#triggers-actions). En esta tarea, el flujo de trabajo se inicia con el desencadenador [**Periodicidad**](../connectors/connectors-native-recurrence.md).
+   * Un flujo de trabajo siempre se inicia con un [*desencadenador*](../connectors/apis-list.md#triggers). En esta tarea, el flujo de trabajo se inicia con el desencadenador [**Periodicidad**](../connectors/connectors-native-recurrence.md).
 
    * Cada paso muestra su estado y la duración de la ejecución. Los pasos que tienen duraciones de 0 segundos tardan menos 1 segundo en ejecutarse.
 

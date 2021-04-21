@@ -2,13 +2,13 @@
 title: Creación de una nube privada de Azure VMware Solution
 description: Pasos para crear una nube privada de Azure VMware Solution mediante Azure Portal.
 ms.topic: include
-ms.date: 02/17/2021
-ms.openlocfilehash: da79881e609f982960468a8f26c98178f972ad43
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/07/2021
+ms.openlocfilehash: 6b4e5631d1a4b6c5bf56b01aba12752595ef63b8
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101725411"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107073424"
 ---
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-create-private-cloud.md -->
 
@@ -34,7 +34,7 @@ ms.locfileid: "101725411"
 1. Cuando termine, seleccione **Revisar y crear**. En la siguiente pantalla, compruebe la información especificada. Si toda la información es correcta, seleccione **Crear**.
 
    > [!NOTE]
-   > Este paso tarda aproximadamente dos horas. 
+   > Este paso tarda aproximadamente entre 3 y 4 horas. La adición de un nodo individual a un clúster existente o al mismo clúster tarda entre 30 y 45 minutos.
 
 1. Comprobación de que la implementación se ha realizado correctamente. Navegue hasta el grupo de recursos que creó y seleccione la nube privada.  Una vez que se haya completado la implementación, se mostrará el estado **Correcto**. 
 

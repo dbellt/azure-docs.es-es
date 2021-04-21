@@ -1,16 +1,16 @@
 ---
-title: Procedimientos para desencadenar acciones complejas con alertas de Azure Monitor
+title: Desencadenamiento de acciones complejas con alertas de Azure Monitor
 description: Obtenga información sobre cómo crear una acción de aplicación lógica para procesar las alertas de Azure Monitor.
 author: dkamstra
 ms.author: dukek
 ms.topic: conceptual
 ms.date: 02/19/2021
-ms.openlocfilehash: a1371e00a6d4c5db609466e25c9d94aad5e73398
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: f1e81dca6926ae9f57e428eb1cef761c588a78b6
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102045724"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107029852"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Procedimientos para desencadenar acciones complejas con alertas de Azure Monitor
 
@@ -34,66 +34,66 @@ El proceso es similar si quiere que la aplicación lógica lleve a cabo otra acc
 
 ## <a name="create-an-activity-log-alert-administrative"></a>Creación de una alerta del Registro de actividad: Administrativo
 
-1. [Crear una aplicación lógica](~/articles/logic-apps/quickstart-create-first-logic-app-workflow.md)
+1. [Crear una aplicación lógica](~/articles/logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-2.  Seleccione el desencadenador: **Cuando se recibe una solicitud HTTP**.
+1.  Seleccione el desencadenador: **Cuando se recibe una solicitud HTTP**.
 
 1. En el cuadro de diálogo **Cuando se recibe una solicitud HTTP**, seleccione **Usar una carga de ejemplo para generar el esquema**.
 
-    ![Captura de pantalla que muestra el cuadro de diálogo de la opción Cuando se recibe una solicitud HTTP y la opción Usar una carga de ejemplo para generar el esquema seleccionada. ](~/articles/app-service/media/tutorial-send-email/generate-schema-with-payload.png)
+    ![Instantánea en la que se muestra el cuadro de diálogo "Cuando se recibe una solicitud H T T P" con la opción "Usar una carga de ejemplo para generar el esquema" seleccionada. ](~/articles/app-service/media/tutorial-send-email/generate-schema-with-payload.png)
 
-3.  Copie y pegue la carga de ejemplo siguiente en el cuadro de diálogo:
+1.  Copie y pegue la carga de ejemplo siguiente en el cuadro de diálogo:
 
     ```json
         {
-            "schemaId": "Microsoft.Insights/activityLogs",
-            "data": {
-                "status": "Activated",
-                "context": {
-                "activityLog": {
-                    "authorization": {
-                    "action": "microsoft.insights/activityLogAlerts/write",
-                    "scope": "/subscriptions/…"
+            "schemaId&quot;: &quot;Microsoft.Insights/activityLogs&quot;,
+            &quot;data&quot;: {
+                &quot;status&quot;: &quot;Activated&quot;,
+                &quot;context&quot;: {
+                &quot;activityLog&quot;: {
+                    &quot;authorization&quot;: {
+                    &quot;action&quot;: &quot;microsoft.insights/activityLogAlerts/write&quot;,
+                    &quot;scope&quot;: &quot;/subscriptions/…&quot;
                     },
-                    "channels": "Operation",
-                    "claims": "…",
-                    "caller": "logicappdemo@contoso.com",
-                    "correlationId": "91ad2bac-1afa-4932-a2ce-2f8efd6765a3",
-                    "description": "",
-                    "eventSource": "Administrative",
-                    "eventTimestamp": "2018-04-03T22:33:11.762469+00:00",
-                    "eventDataId": "ec74c4a2-d7ae-48c3-a4d0-2684a1611ca0",
-                    "level": "Informational",
-                    "operationName": "microsoft.insights/activityLogAlerts/write",
-                    "operationId": "61f59fc8-1442-4c74-9f5f-937392a9723c",
-                    "resourceId": "/subscriptions/…",
-                    "resourceGroupName": "LOGICAPP-DEMO",
-                    "resourceProviderName": "microsoft.insights",
-                    "status": "Succeeded",
-                    "subStatus": "",
-                    "subscriptionId": "…",
-                    "submissionTimestamp": "2018-04-03T22:33:36.1068742+00:00",
-                    "resourceType": "microsoft.insights/activityLogAlerts"
+                    &quot;channels&quot;: &quot;Operation&quot;,
+                    &quot;claims&quot;: &quot;…&quot;,
+                    &quot;caller&quot;: &quot;logicappdemo@contoso.com&quot;,
+                    &quot;correlationId&quot;: &quot;91ad2bac-1afa-4932-a2ce-2f8efd6765a3&quot;,
+                    &quot;description&quot;: &quot;&quot;,
+                    &quot;eventSource&quot;: &quot;Administrative&quot;,
+                    &quot;eventTimestamp&quot;: &quot;2018-04-03T22:33:11.762469+00:00&quot;,
+                    &quot;eventDataId&quot;: &quot;ec74c4a2-d7ae-48c3-a4d0-2684a1611ca0&quot;,
+                    &quot;level&quot;: &quot;Informational&quot;,
+                    &quot;operationName&quot;: &quot;microsoft.insights/activityLogAlerts/write&quot;,
+                    &quot;operationId&quot;: &quot;61f59fc8-1442-4c74-9f5f-937392a9723c&quot;,
+                    &quot;resourceId&quot;: &quot;/subscriptions/…&quot;,
+                    &quot;resourceGroupName&quot;: &quot;LOGICAPP-DEMO&quot;,
+                    &quot;resourceProviderName&quot;: &quot;microsoft.insights&quot;,
+                    &quot;status&quot;: &quot;Succeeded&quot;,
+                    &quot;subStatus&quot;: &quot;&quot;,
+                    &quot;subscriptionId&quot;: &quot;…&quot;,
+                    &quot;submissionTimestamp&quot;: &quot;2018-04-03T22:33:36.1068742+00:00&quot;,
+                    &quot;resourceType&quot;: &quot;microsoft.insights/activityLogAlerts&quot;
                 }
                 },
-                "properties": {}
+                &quot;properties&quot;: {}
             }
         }
     ```
 
-9. El **diseñador de Logic App** mostrará una ventana emergente para recordarle que la solicitud enviada a la aplicación lógica debe establecer el encabezado **Content-Type** en **application/json**. Cierre la ventana emergente. La alerta de Azure Monitor establece el encabezado.
+1. Se abrirá una ventana emergente en el **diseñador de aplicaciones lógicas** para recordarle que la solicitud enviada a la aplicación lógica debe establecer el encabezado **Content-Type** en **application/json**. Cierre la ventana emergente. La alerta de Azure Monitor establece el encabezado.
 
-    ![Establecimiento del encabezado Content-Type](media/action-groups-logic-app/content-type-header.png "Establecimiento del encabezado Content-Type")
+    ![Establecimiento del encabezado Content-Type](media/action-groups-logic-app/content-type-header.png &quot;Establecimiento del encabezado Content-Type")
 
-10. Seleccione **+** **Nuevo paso** y luego elija **Agregar una acción**.
+1. Seleccione **+** **Nuevo paso** y luego elija **Agregar una acción**.
 
     ![Agregar una acción](media/action-groups-logic-app/add-action.png "Agregar una acción")
 
-11. Busque y seleccione el conector de Microsoft Teams. Elija la acción **Microsoft Teams – Post message** (Microsoft Teams: publicar mensaje).
+1. Busque y seleccione el conector de Microsoft Teams. Elija la acción **Microsoft Teams – Post message** (Microsoft Teams: publicar mensaje).
 
     ![Acciones de Microsoft Teams](media/action-groups-logic-app/microsoft-teams-actions.png "Acciones de Microsoft Teams")
 
-12. Configure la acción de Microsoft Teams. El **diseñador de aplicaciones lógicas** le pide que se autentique en su cuenta profesional o educativa. Elija el **Id. de equipo** y el **Id. de canal** para enviar el mensaje.
+1. Configure la acción de Microsoft Teams. El **diseñador de aplicaciones lógicas** le pide que se autentique en su cuenta profesional o educativa. Elija el **Id. de equipo** y el **Id. de canal** para enviar el mensaje.
 
 13. Configure el mensaje con una combinación de texto estático y referencias a los \<fields\> del contexto dinámico. Corte y pegue el texto siguiente en el campo **Mensaje**:
 
@@ -111,9 +111,9 @@ El proceso es similar si quiere que la aplicación lógica lleve a cabo otra acc
 
     ![Acción de Microsoft Teams: Publicar un mensaje](media/action-groups-logic-app/teams-action-post-message.png "Acción de Microsoft Teams: publicar un mensaje")
 
-14. En la parte superior del **diseñador de Logic Apps**, seleccione **Guardar** para guardar la aplicación lógica.
+1. En la parte superior del **diseñador de Logic Apps**, seleccione **Guardar** para guardar la aplicación lógica.
 
-15. Abra el grupo de acciones existente y agregue una acción para hacer referencia a la aplicación lógica. Si no existe un grupo de acciones, consulte [Creación y administración de grupos de acciones en Azure Portal](./action-groups.md) para crear uno. No olvide guardar los cambios.
+1. Abra el grupo de acciones existente y agregue una acción para hacer referencia a la aplicación lógica. Si no existe un grupo de acciones, consulte [Creación y administración de grupos de acciones en Azure Portal](./action-groups.md) para crear uno. No olvide guardar los cambios.
 
     ![Actualización del grupo de acciones](media/action-groups-logic-app/update-action-group.png "Actualización del grupo de acciones")
 
@@ -178,7 +178,7 @@ Las entradas de Azure Service Health forman parte del registro de actividad. El 
 
       !["Condición de carga de Service Health"](media/action-groups-logic-app/service-health-payload-condition.png "Condición de carga de Service Health")
 
-   1. En la condición **if true**, siga las instrucciones que aparecen en los pasos 11 a 13 de [Creación de una alerta del registro de actividad](#create-an-activity-log-alert-administrative) para agregar la acción de Teams de Microsoft.
+   1. En la condición **if true**, siga las instrucciones que se indican en los pasos 11 a 13 de [Creación de una alerta del registro de actividad](#create-an-activity-log-alert-administrative) para agregar la acción de Microsoft Teams.
 
    1. Defina el mensaje con una combinación de HTML y contenido dinámico. Corte y pegue el texto siguiente en el campo **Mensaje**. Reemplace los campos `[incidentType]`, `[trackingID]`, `[title]` y `[communication]` por etiquetas de contenido dinámico con el mismo nombre:
 

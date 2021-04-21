@@ -9,10 +9,10 @@ ms.date: 03/12/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 34e841a5f17d589c4fbef54a4a8674a99ac6c640
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96027202"
 ---
 Para poder establecer correctamente un túnel de dispositivo, deben cumplirse los siguientes requisitos:
@@ -28,7 +28,7 @@ Para poder establecer correctamente un túnel de dispositivo, deben cumplirse lo
 
 Una vez que haya configurado la puerta de enlace de red virtual e instalado el certificado de cliente en el almacén del equipo local del cliente de Windows 10, use los ejemplos siguientes para configurar un túnel de dispositivo de cliente.
 
-1. Copie el texto siguiente y guárdelo como ***devicecert.ps1**.
+1. Copie el texto siguiente y guárdelo como ***devicecert.ps1***.
 
    ```
    Param(
@@ -80,7 +80,7 @@ Una vez que haya configurado la puerta de enlace de red virtual e instalado el c
    $Message = "Complete."
    Write-Host "$Message"
    ```
-1. Copie el texto siguiente y guárdelo como _*_VPNProfile.xml_*_ en la misma carpeta que _*devicecert.ps1**. Modifique el texto siguiente para adaptarlo a su entorno.
+1. Copie el siguiente texto y guárdelo como ***VPNProfile.xml** _ en la misma carpeta que _*devicecert.ps1**. Modifique el texto siguiente para adaptarlo a su entorno.
 
    * `<Servers>azuregateway-1234-56-78dc.cloudapp.net</Servers> <= Can be found in the VpnSettings.xml in the downloaded profile zip file`
    * `<Address>192.168.3.5</Address> <= IP of resource in the vnet or the vnet address space`

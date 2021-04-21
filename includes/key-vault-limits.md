@@ -4,12 +4,12 @@ ms.service: key-vault
 ms.topic: include
 ms.date: 03/09/2021
 ms.author: ambapat
-ms.openlocfilehash: d934d40cad5f4eec929cfd273b6e30ea291e48d5
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: c2548b1669366564809ed2fde725cb3399922a29
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103010970"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104803203"
 ---
 El servicio Azure Key Vault admite dos tipos de recursos: almacenes y HSM administrados. En las dos secciones siguientes se describen los límites de servicio para cada uno de ellos, respectivamente.
 
@@ -50,6 +50,17 @@ En esta sección se describen los límites de servicio para el tipo de recurso `
 Vea la [Guía de las limitaciones de Azure Key Vault](../articles/key-vault/general/overview-throttling.md) para obtener información sobre cómo controlar la limitación cuando se superan estos límites.
 
 <sup>1</sup> Un límite global para la suscripción para todos los tipos de transacciones es cinco veces el límite del almacén de claves. Por ejemplo, en las otras transacciones HSM por suscripción, el límite es de 5000 transacciones en 10 segundos por suscripción.
+
+#### <a name="backup-keys-secrets-certificates"></a>Copia de seguridad de claves, secretos y certificados
+
+Al realizar una copia de seguridad de un objeto almacenado en el almacén de claves (secreto, clave o certificado), la operación de copia de seguridad descargará el objeto como un blob cifrado. Este blob no se puede descifrar fuera de Azure. Para obtener datos que se puedan usar de este blob, debe restaurar el blob en un almacén de claves dentro de la misma suscripción de Azure y zona geográfica de Azure.
+
+| Tipo de transacciones | Número máximo de versiones de objetos de almacén de claves que se permiten |
+| --- | --- |
+| Copia de seguridad de clave, secreto o certificado individual |500 |
+
+> [!NOTE]
+> Si se intenta hacer una copia de seguridad de un objeto de clave, secreto o certificado con más versiones que el límite anterior, se producirá un error. No es posible eliminar versiones anteriores de una clave, un secreto o un certificado. 
 
 #### <a name="azure-private-link-integration"></a>Integración de Azure Private Link
 

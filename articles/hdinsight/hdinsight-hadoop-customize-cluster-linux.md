@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, contperf-fy21q2
 ms.date: 03/09/2021
-ms.openlocfilehash: c614f2f60adfa2a29a01000cd3adf4791591b8b5
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: d5500c04b4299c215eba843530dc84932fa10894
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107378761"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107775050"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Personalización de los clústeres de Azure HDInsight mediante acciones de script en Azure
 
@@ -320,12 +320,12 @@ El siguiente script de ejemplo muestra cómo utilizar los cmdlets para promover 
 
 | Get-Help | Descripción |
 | --- | --- |
-| [`az hdinsight script-action delete`](/cli/azure/hdinsight/script-action#az-hdinsight-script-action-delete) |Elimina una acción de script persistente específica en un clúster determinado. Este comando no deshace las acciones realizadas por un script, solo quita la marca persistente.|
-|[`az hdinsight script-action execute`](/cli/azure/hdinsight/script-action#az-hdinsight-script-action-execute)|Ejecución de acciones de script en el clúster de HDInsight especificado.|
-| [`az hdinsight script-action list`](/cli/azure/hdinsight/script-action#az-hdinsight-script-action-list) |Muestra una lista de todas las acciones de script persistentes para el clúster especificado. |
-|[`az hdinsight script-action list-execution-history`](/cli/azure/hdinsight/script-action#az-hdinsight-script-action-list-execution-history)|Muestra una lista del historial de ejecución de todos los scripts para el clúster especificado.|
-|[`az hdinsight script-action promote`](/cli/azure/hdinsight/script-action#az-hdinsight-script-action-promote)|Promueve la ejecución de script ad hoc especificada a un script persistente.|
-|[`az hdinsight script-action show-execution-details`](/cli/azure/hdinsight/script-action#az-hdinsight-script-action-show-execution-details)|Obtiene los detalles de ejecución del script para el identificador de ejecución de script dado.|
+| [`az hdinsight script-action delete`](/cli/azure/hdinsight/script-action#az_hdinsight_script_action_delete) |Elimina una acción de script persistente específica en un clúster determinado. Este comando no deshace las acciones realizadas por un script, solo quita la marca persistente.|
+|[`az hdinsight script-action execute`](/cli/azure/hdinsight/script-action#az_hdinsight_script_action_execute)|Ejecución de acciones de script en el clúster de HDInsight especificado.|
+| [`az hdinsight script-action list`](/cli/azure/hdinsight/script-action#az_hdinsight_script_action_list) |Muestra una lista de todas las acciones de script persistentes para el clúster especificado. |
+|[`az hdinsight script-action list-execution-history`](/cli/azure/hdinsight/script-action#az_hdinsight_script_action_list_execution_history)|Muestra una lista del historial de ejecución de todos los scripts para el clúster especificado.|
+|[`az hdinsight script-action promote`](/cli/azure/hdinsight/script-action#az_hdinsight_script_action_promote)|Promueve la ejecución de script ad hoc especificada a un script persistente.|
+|[`az hdinsight script-action show-execution-details`](/cli/azure/hdinsight/script-action#az_hdinsight_script_action_show_execution_details)|Obtiene los detalles de ejecución del script para el identificador de ejecución de script dado.|
 
 ### <a name="hdinsight-net-sdk"></a>SDK .NET de HDInsight
 

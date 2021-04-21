@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 218c0f345e4ea453a2300b3de85ac8856a09c6ee
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f7c28ecbaa58731c528a9ecb5f869eba2bc0c99f
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103199288"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107484428"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge-devices-classic-editor"></a>Integración e implementación continuas en dispositivos Azure IoT Edge (editor clásico)
 
@@ -162,7 +162,7 @@ Esta canalización ahora está configurada para ejecutarse automáticamente al i
 >[!NOTE]
 >Si quiere usar **implementaciones por capas** en la canalización, estas todavía no se admiten en las tareas de Azure IoT Edge de Azure DevOps.
 >
->Sin embargo, puede usar una [tarea de la CLI de Azure en Azure DevOps](/azure/devops/pipelines/tasks/deploy/azure-cli) para crear la implementación por capas. Para el valor **Script en línea**, puede usar el [comando az iot edge deployment create](/cli/azure/ext/azure-iot/iot/edge/deployment):
+>Sin embargo, puede usar una [tarea de la CLI de Azure en Azure DevOps](/azure/devops/pipelines/tasks/deploy/azure-cli) para crear la implementación por capas. Para el valor **Script en línea**, puede usar el [comando az iot edge deployment create](/cli/azure/iot/edge/deployment):
 >
 >   ```azurecli-interactive
 >   az iot edge deployment create -d {deployment_name} -n {hub_name} --content modules_content.json --layered true

@@ -3,12 +3,12 @@ title: Obtención de la clave de acceso para un recurso de Event Grid
 description: En este artículo se describe cómo obtener una clave de acceso para un tema o dominio de Event Grid.
 ms.topic: how-to
 ms.date: 07/07/2020
-ms.openlocfilehash: a642affbac79766684dc75a37dae0373450d20e8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cd60777b2e28b82d72f8f2bf93fe0be301e9e280
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98632536"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107775230"
 ---
 # <a name="get-access-keys-for-event-grid-resources-topics-or-domains"></a>Obtención de claves de acceso para recursos de Event Grid (temas o dominios)
 Las claves de acceso se utilizan para autenticar los eventos de publicación de una aplicación en recursos de Azure Event Grid (temas y dominios). Se recomienda regenerar las claves periódicamente y almacenarlas de forma segura. Como se le proporcionan dos claves de acceso, puede mantener las conexiones con una mientras se regenera la otra.
@@ -34,13 +34,13 @@ Get-AzEventGridDomainKey -ResourceGroup <RESOURCE GROUP NAME> -Name <DOMAIN NAME
 ```
 
 ## <a name="azure-cli"></a>Azure CLI
-Use la [lista de claves del tema az eventgrid](/cli/azure/eventgrid/topic/key#az-eventgrid-topic-key-list) para obtener las claves de acceso para los temas. 
+Use la [lista de claves del tema az eventgrid](/cli/azure/eventgrid/topic/key#az_eventgrid_topic_key_list) para obtener las claves de acceso para los temas. 
 
 ```azurecli-interactive
 az eventgrid topic key list --resource-group <RESOURCE GROUP NAME> --name <TOPIC NAME>
 ```
 
-Use la [lista de claves del dominio az eventgrid](/cli/azure/eventgrid/domain/key#az-eventgrid-domain-key-list) para obtener las claves de acceso para los dominios. 
+Use la [lista de claves del dominio az eventgrid](/cli/azure/eventgrid/domain/key#az_eventgrid_domain_key_list) para obtener las claves de acceso para los dominios. 
 
 ```azurecli-interactive
 az eventgrid domain key list --resource-group <RESOURCE GROUP NAME> --name <DOMAIN NAME>

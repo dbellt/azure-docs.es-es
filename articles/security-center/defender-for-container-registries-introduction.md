@@ -3,16 +3,16 @@ title: 'Azure Defender para registros de contenedor: ventajas y características
 description: Obtenga información sobre las ventajas y características de Azure Defender para registros de contenedor.
 author: memildin
 ms.author: memildin
-ms.date: 9/22/2020
+ms.date: 04/07/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: ab2ad15da9b1676924197d28e734f6baf59a02ef
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 4840fc27133b1d92cb8aaad80921f9d21901569d
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102176644"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107010699"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>Introducción a Azure Defender para registros de contenedor
 
@@ -47,7 +47,7 @@ Hay tres desencadenadores para un examen de imagen:
 
 - **Al insertar**: cada vez que se inserta una imagen en el registro, Security Center la examina de forma automática. Para desencadenar el examen de una imagen, insértela en el repositorio.
 
-- **Extraído recientemente**: dado que se detectan nuevas vulnerabilidades cada día, **Azure Defender para registros de contenedor** también examina cualquier imagen que se haya extraído en los últimos 30 días. No hay ningún cargo adicional por un nuevo examen; como se mencionó anteriormente, se le facturará una vez por imagen.
+- **Extraído recientemente**: dado que se detectan nuevas vulnerabilidades cada día, **Azure Defender para registros de contenedor** también examina semanalmente cualquier imagen que se haya extraído en los últimos 30 días. No se aplican cargos adicionales por los nuevos exámenes; como se ha mencionado anteriormente, se le facturará una vez por imagen.
 
 - **Al importar**: Azure Container Registry tiene herramientas de importación para incorporar imágenes al registro desde Docker Hub, Microsoft Container Registry u otro registro de contenedor de Azure. **Azure Defender para registros de contenedor** examina las imágenes admitidas que importe. Obtenga más información en [Importación de imágenes de contenedor en un registro de contenedor](../container-registry/container-registry-import-images.md).
  

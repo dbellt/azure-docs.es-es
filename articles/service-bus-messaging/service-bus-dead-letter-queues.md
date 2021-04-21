@@ -4,12 +4,12 @@ description: Aquí se describen las colas de mensajes fallidos de Azure Service 
 ms.topic: article
 ms.date: 04/08/2021
 ms.custom: fasttrack-edit, devx-track-csharp
-ms.openlocfilehash: 6459c8edd03427357810c1ad30161e87c18e059c
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: cb791982b50d7afff7b74d70adfd285bb5e0a11c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107304331"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107773232"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Información general de colas de mensajes fallidos de Service Bus
 
@@ -31,7 +31,7 @@ No es posible obtener el número de mensajes de la cola de mensajes fallidos en 
 
 ![Recuento de mensajes fallidos](./media/service-bus-dead-letter-queues/dead-letter-queue-message-count.png)
 
-También puede obtener el recuento de mensajes fallidos mediante el comando de la CLI de Azure: [`az servicebus topic subscription show`](/cli/azure/servicebus/topic/subscription#az-servicebus-topic-subscription-show). 
+También puede obtener el recuento de mensajes fallidos mediante el comando de la CLI de Azure: [`az servicebus topic subscription show`](/cli/azure/servicebus/topic/subscription#az_servicebus_topic_subscription_show). 
 
 ## <a name="moving-messages-to-the-dlq"></a>Movimiento de mensajes a la cola de mensajes fallidos
 Hay varias actividades en Service Bus que provocan que los mensajes se inserten en la cola de mensajes fallidos desde dentro del propio motor de mensajería. Una aplicación también puede mover mensajes explícitamente a la cola de mensajes fallidos. Las dos propiedades siguientes (motivo del problema de entrega y descripción del problema de entrega) se agregan a los mensajes con problemas de entrega. Las aplicaciones pueden definir sus propios códigos para la propiedad de motivo del problema de entrega, pero el sistema establece los valores siguientes.
@@ -80,4 +80,3 @@ Para más información sobre colas de Service Bus, consulte los siguientes artí
 
 * [Introducción a las colas de Service Bus](service-bus-dotnet-get-started-with-queues.md)
 * [Comparación de colas de Azure y colas de Service Bus](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
-

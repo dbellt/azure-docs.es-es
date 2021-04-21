@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: quickstart
-ms.date: 02/09/2021
+ms.date: 04/07/2021
 ms.author: memildin
-ms.openlocfilehash: 342904a3ae996fe8c2eeddf2edfbc4283a3d03eb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 96a389a581a9ecaddfc418824b3ebe9c780e6bd1
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102439449"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107011594"
 ---
 # <a name="configure-email-notifications-for-security-alerts"></a>Configuración de notificaciones de alertas de seguridad por correo electrónico 
 
@@ -59,6 +59,8 @@ También puede administrar las notificaciones por correo electrónico mediante l
 
 Este es un cuerpo de solicitud de ejemplo para la solicitud PUT al crear una configuración de contacto de seguridad:
 
+Identificador URI: https://management.azure.com/subscriptions/<SubscriptionId> /providers/Microsoft.Security/securityContacts/default?api-version=2020-01-01-preview
+
 ```json
 {
     "properties": {
@@ -69,7 +71,7 @@ Este es un cuerpo de solicitud de ejemplo para la solicitud PUT al crear una con
         },
         "alertNotifications": {
             "state": "On",
-            "minimalSeverity": "High"
+            "minimalSeverity": "Medium"
         },
         "phone": ""
     }

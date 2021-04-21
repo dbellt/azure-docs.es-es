@@ -4,18 +4,21 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
 ms.author: mikben
-ms.openlocfilehash: 8d4e573cefd595669d9cb2cf9a7b83595eea7971
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: 45a772b4a1d65b67f918107fd33135a56f6302f2
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103621940"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "106073201"
 ---
+[!INCLUDE [Public Preview Notice](../../../includes/public-preview-include-android-ios.md)]
+
+
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
-- Un recurso implementado de Communication Services. [Cree un recurso de Communication Services](../../create-communication-resource.md).
-- `User Access Token` para habilitar el cliente de llamada. Para más información sobre [cómo obtener un `User Access Token`](../../access-tokens.md)
+- Un recurso de Communication Services implementado. [Cree un recurso de Communication Services](../../create-communication-resource.md).
+- `User Access Token` para habilitar el cliente de llamada. Para más información sobre [cómo obtener `User Access Token`](../../access-tokens.md)
 - Opcional: Complete el inicio rápido para [empezar a agregar llamadas a su aplicación](../getting-started-with-calling.md)
 
 ## <a name="setting-up"></a>Instalación
@@ -23,9 +26,8 @@ ms.locfileid: "103621940"
 ### <a name="install-the-package"></a>Instalar el paquete
 
 > [!NOTE]
-> En este documento se usa la versión 1.0.0-beta.8 de la biblioteca de cliente para llamadas.
+> En este documento se usa la versión 1.0.0-beta.8 de Calling SDK.
 
-<!-- TODO: update with instructions on how to download, install and add package to project -->
 Busque el nivel de proyecto build.gradle y asegúrese de agregar `mavenCentral()` a la lista de repositorios en `buildscript` y `allprojects`
 ```groovy
 buildscript {
@@ -59,11 +61,11 @@ dependencies {
 
 ## <a name="object-model"></a>Modelo de objetos
 
-Las clases e interfaces siguientes controlan algunas de las características principales de la biblioteca cliente para llamadas de Azure Communication Services:
+Las siguientes clases e interfaces controlan algunas de las características principales del SDK de llamadas de Azure Communication Services:
 
 | Nombre                                  | Descripción                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| CallClient| CallClient es el punto de entrada principal a la biblioteca cliente para llamadas.|
+| CallClient| CallClient es el punto de entrada principal al SDK de llamadas.|
 | CallAgent | CallAgent se usa para iniciar y administrar llamadas. |
 | CommunicationTokenCredential | CommunicationTokenCredential se usa como la credencial de token para crear una instancia de CallAgent.|
 | CommunicationIdentifier | CommunicationIdentifier se usa como un tipo de participante diferente que podría formar parte de una llamada.|
@@ -224,10 +226,10 @@ Para la aplicación de Android es necesario un conjunto de permisos a fin de pod
 
 A fin de registrarse para recibir notificaciones push, la aplicación debe llamar a `registerPushNotification()` en una instancia de *CallAgent* con un token de registro de dispositivos.
 
-Para obtener el token de registro de dispositivos, agregue la biblioteca cliente de Firebase al archivo *build.gradle* del módulo de aplicación mediante la adición de las siguientes líneas en la sección `dependencies` si aún no está ahí:
+Para obtener el token de registro de dispositivos, agregue el SDK de Firebase al archivo *build.gradle* del módulo de aplicación agregando las siguientes líneas en la sección `dependencies` si aún no está ahí:
 
 ```
-    // Add the client library for Firebase Cloud Messaging
+    // Add the SDK for Firebase Cloud Messaging
     implementation 'com.google.firebase:firebase-core:16.0.8'
     implementation 'com.google.firebase:firebase-messaging:20.2.4'
 ```
@@ -244,7 +246,7 @@ Agregue el siguiente complemento al principio del archivo si aún no está ahí:
 apply plugin: 'com.google.gms.google-services'
 ```
 
-Seleccione *Sincronizar ahora* en la barra de herramientas. Agregue el siguiente fragmento de código para obtener el token de registro de dispositivos generado por la biblioteca cliente de Firebase Cloud Messaging para la instancia de la aplicación cliente. Asegúrese de agregar las siguientes importaciones al encabezado de la actividad principal de la instancia. Son necesarias para que el fragmento de código recupere el token:
+Seleccione *Sincronizar ahora* en la barra de herramientas. Agregue el siguiente fragmento de código para obtener el token de registro de dispositivos generado por el SDK de Firebase Cloud Messaging para la instancia de la aplicación cliente. Asegúrese de agregar las siguientes importaciones al encabezado de la actividad principal de la instancia. Son necesarias para que el fragmento de código recupere el token:
 
 ```
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -272,7 +274,7 @@ Agregue este fragmento de código para recuperar el token:
                     }
                 });
 ```
-Registre el token de registro de dispositivos con la biblioteca cliente de servicios de llamada para recibir notificaciones push de llamadas entrantes:
+Registre el token de registro de dispositivos con el SDK de servicios de llamada para recibir notificaciones push de llamadas entrantes:
 
 ```java
 String deviceRegistrationToken = "<Device Token from previous section>";
@@ -288,7 +290,7 @@ catch(Exception e) {
 
 Para recibir notificaciones push de llamadas entrantes, llame a *handlePushNotification()* en una instancia de *CallAgent* con una carga.
 
-Para obtener la carga de Firebase Cloud Messaging, primero cree un nuevo servicio (Archivo > Nuevo > Servicio > Servicio) que amplíe la clase *FirebaseMessagingService* de la biblioteca cliente de Firebase y asegúrese de invalidar el método `onMessageReceived`. Este método es el controlador de eventos al que se llama cuando Firebase Cloud Messaging entrega la notificación push a la aplicación.
+Para obtener la carga de Firebase Cloud Messaging, primero cree un servicio (Archivo > Nuevo > Servicio > Servicio) que amplíe la clase *FirebaseMessagingService* del SDK de Firebase e invalide el método `onMessageReceived`. Este método es el controlador de eventos al que se llama cuando Firebase Cloud Messaging entrega la notificación push a la aplicación.
 
 ```java
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
@@ -318,7 +320,7 @@ Agregue la siguiente definición de servicio al archivo `AndroidManifest.xml`, e
         </service>
 ```
 
-- Una vez recuperada la carga, puede pasarse a la biblioteca cliente de *Communication Services* que se va a analizar en un objeto *IncomingCallInformation* interno que se administrará llamando al método *handlePushNotification* en una instancia de *CallAgent*. Se crea una instancia de `CallAgent` mediante la llamada al método `createCallAgent(...)` en la clase `CallClient`.
+- Una vez recuperada la carga, puede pasarse al SDK de *Communication Services* que se va a analizar en un objeto *IncomingCallInformation* interno, que se administrará llamando al método *handlePushNotification* en una instancia de *CallAgent*. Se crea una instancia de `CallAgent` mediante la llamada al método `createCallAgent(...)` en la clase `CallClient`.
 
 ```java
 try {

@@ -7,14 +7,14 @@ ms.reviewer: cynthn
 ms.service: virtual-machines
 ms.subservice: trusted-launch
 ms.topic: how-to
-ms.date: 03/03/2021
+ms.date: 04/06/2021
 ms.custom: template-how-to
-ms.openlocfilehash: daf4ad39f0379f7e903c40b9d5073ab87f455bab
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 50ecf6e394d5d19d09033554272023bd6796851b
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106218777"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106581191"
 ---
 # <a name="deploy-a-vm-with-trusted-launch-enabled-preview"></a>Implementación de una máquina virtual con el inicio seguro habilitado (versión preliminar)
 
@@ -41,10 +41,13 @@ Cree una máquina virtual con el inicio seguro habilitado.
 5. En **Detalles del proyecto**, asegúrese de que está seleccionada la suscripción correcta.
 6. En **Grupo de recursos**, seleccione **Crear nuevo** y especifique un nombre para el grupo de recursos, o bien seleccione un grupo de recursos existente en la lista desplegable.
 7. En **Detalles de la instancia**, escriba un nombre para la máquina virtual y elija una región que admita el [inicio seguro](trusted-launch.md#public-preview-limitations).
-8. En **Imagen**, seleccione una [imagen que admita el inicio seguro](trusted-launch.md#public-preview-limitations). Es posible que solo vea la versión de la generación 1 de la imagen; es correcto, continúe en el paso siguiente.
-9. Seleccione **Avanzado** en la parte superior de la página para pasar a esta pestaña.
-10. Desplácese hacia abajo hasta la sección **Generación de VM** y seleccione **Gen 2**.
-11. Todavía en la pestaña **Avanzado**, desplácese hacia abajo hasta **Inicio seguro** y active la casilla **Inicio seguro**. Esto hará que aparezcan dos opciones más: Arranque seguro y vTPM. Seleccione las opciones adecuadas para su implementación.
+8. En **Imagen**, seleccione una [imagen de segunda generación que admita el inicio seguro](trusted-launch.md#public-preview-limitations). 
+   > [!TIP]
+   > Si no ve la versión de segunda generación de la imagen que desea en la lista desplegable, seleccione **Ver todas las imágenes** y cambie el filtro **Generación de VM** para que se muestren solo imágenes de segunda generación. Busque la imagen en la lista y, después, use la lista desplegable **Seleccionar** para seleccionar la versión de segunda generación.
+ 
+1. Seleccione **Avanzado** en la parte superior de la página para pasar a esta pestaña.
+1. Desplácese hacia abajo hasta la sección **Generación de VM**. Asegúrese de **Gen 2** está seleccionado.
+1. Todavía en la pestaña **Avanzado**, desplácese hacia abajo hasta **Inicio seguro** y active la casilla **Inicio seguro**. Esto hará que aparezcan dos opciones más: Arranque seguro y vTPM. Seleccione las opciones adecuadas para su implementación.
 
     :::image type="content" source="media/trusted-launch/trusted-launch-portal.png" alt-text="Captura de pantalla que muestra las opciones de inicio seguro.":::
 

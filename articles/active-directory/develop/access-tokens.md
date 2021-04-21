@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 2/18/2021
+ms.date: 04/02/2021
 ms.author: hirsin
 ms.reviewer: mmacy, hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 8630dd2fb1157fbeba99f2a06d73712ab46a63f4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: f5a60f14799e872d835d651fc043edd27dfc6990
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102035074"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107105602"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Tokens de acceso de la Plataforma de identidad de Microsoft
 
@@ -176,6 +176,12 @@ Las identidades de Microsoft pueden autenticarse de diversas maneras, que pueden
 | `ngcmfa` | Equivalente a `mfa`, que se utiliza para el aprovisionamiento de ciertos tipos de credenciales avanzadas. |
 | `wiaormfa`| El usuario utiliza una credencial MFA o Windows para autenticar. |
 | `none` | No se realizó ninguna autenticación. |
+
+## <a name="access-token-lifetime"></a>Vigencia del token de acceso
+
+La duración predeterminada de un token de acceso varía en función de la aplicación cliente que está solicitando el token. Por ejemplo, los clientes compatibles con la evaluación de acceso continuo (CAE) que negocian sesiones compatibles con CAE, tendrán una vigencia de token de larga duración (hasta 28 horas).  Cuando el token de acceso expira, el cliente debe usar el token de actualización para adquirir un nuevo token de actualización (normalmente en modo silencioso) y un token de acceso.
+
+Puede ajustar la vigencia de un token de acceso para controlar la frecuencia con la que la aplicación cliente expira la sesión de la aplicación y requerirá que el usuario se vuelva a autenticar (de forma silenciosa o interactiva). Para más información, consulte [Vigencia de tokens configurable](active-directory-configurable-token-lifetimes.md).
 
 ## <a name="validating-tokens"></a>Validación de los tokens
 

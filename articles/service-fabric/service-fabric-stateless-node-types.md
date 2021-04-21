@@ -1,18 +1,18 @@
 ---
 title: Implementación de tipos de nodo sin estado en un clúster de Service Fabric
-description: Aprenda a crear e implementar tipos de nodo sin estado en el clúster de Azure Service Fabric.
+description: Obtenga información sobre cómo crear e implementar tipos de nodo sin estado en un clúster de Azure Service Fabric.
 author: peterpogorski
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: pepogors
-ms.openlocfilehash: eb19005019a6e4e878f6b0bd6a145048d4a2804c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 74680f7b56ad98851e2839b53c1f9e92b6c6c23a
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103563783"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107030021"
 ---
-# <a name="deploy-an-azure-service-fabric-cluster-with-stateless-only-node-types-preview"></a>Implementación de un clúster de Azure Service Fabric con tipos de nodo sin estado (versión preliminar)
+# <a name="deploy-an-azure-service-fabric-cluster-with-stateless-only-node-types"></a>Implementación de un clúster de Azure Service Fabric con tipos de nodo sin estado
 Los tipos de nodo de Service Fabric incluyen suposiciones inherentes según las cuales se supone que en algún momento se agregarán servicios con estado en los nodos. Los tipos de nodos sin estado reducen las restricciones de esta suposición en cierto tipo de nodo, lo que permite que ese tipo de nodo use otras características, como operaciones de escalado horizontal más rápidas, compatibilidad con actualizaciones automáticas del sistema operativo en la durabilidad Bronze y un escalado horizontal a más de 100 nodos en un solo conjunto de escalado de máquina virtuales.
 
 * Los tipos de nodo principales no se pueden configurar para que no tengan estado.
@@ -23,7 +23,7 @@ Los tipos de nodo de Service Fabric incluyen suposiciones inherentes según las 
 Están disponibles plantillas de ejemplo: [Plantilla de tipos de nodos sin estado de Service Fabric](https://github.com/Azure-Samples/service-fabric-cluster-templates)
 
 ## <a name="enabling-stateless-node-types-in-service-fabric-cluster"></a>Habilitación de tipos de nodo sin estado en el clúster de Service Fabric
-Para establecer uno o varios tipos de nodos como nodos sin estado en un recurso de clúster, establezca la propiedad en **isStateless** "true". Cuando implemente un clúster de Service Fabric con tipos de nodo sin estado, recuerde que debe tener al menos un tipo de nodo principal en el recurso de clúster.
+Para establecer uno o más tipos de nodo como sin estado en un recurso de clúster, establezca la propiedad **isStateless** en **true**. Cuando implemente un clúster de Service Fabric con tipos de nodo sin estado, recuerde que debe tener al menos un tipo de nodo principal en el recurso de clúster.
 
 * El valor de apiVersion del recurso de clúster de Service Fabric debe ser "2020-12-01-preview" o superior.
 
@@ -44,7 +44,7 @@ Para establecer uno o varios tipos de nodos como nodos sin estado en un recurso 
         },
         "httpGatewayEndpointPort": "[parameters('nt0fabricHttpGatewayPort')]",
         "isPrimary": true,
-        "isStateless": false,
+        "isStateless": false, // Primary Node Types cannot be stateless
         "vmInstanceCount": "[parameters('nt0InstanceCount')]"
     },
     {
@@ -72,16 +72,15 @@ Para establecer uno o varios tipos de nodos como nodos sin estado en un recurso 
 Para habilitar los tipos de nodo sin estado, debe configurar el recurso del conjunto de escalado de máquinas virtuales subyacente de la siguiente manera:
 
 * El valor de la propiedad **singlePlacementGroup** debe establecerse en **false** si debe escalar más de 100 máquinas virtuales.
-* El valor **upgradePolicy** del conjunto de escalado cuyo valor de **mode** debe establecerse en **Rolling**.
+* El valor **upgradeMode** del conjunto de escalado debe establecerse en **Rolling**.
 * El modo de actualización gradual requiere la configuración de la extensión de mantenimiento de la aplicación o de los sondeos de estado. Configure el sondeo de estado con la configuración predeterminada para los tipos de nodo sin estado, tal como se sugiere a continuación. Una vez que las aplicaciones se implementan en el tipo de nodo, los puertos de la extensión de mantenimiento o del sondeo de estado se pueden cambiar para supervisar el estado de la aplicación.
 
 >[!NOTE]
-> Es necesario que el número de dominios de error de plataforma se actualice a 5 cuando un tipo de nodo sin estado esté respaldado por un conjunto de escalado de máquinas virtuales que esté abarcando varias zonas. Consulte esta [plantilla](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/15-VM-2-NodeTypes-Windows-Stateless-CrossAZ-Secure) para obtener más información.
-> 
-> **platformFaultDomainCount:5**
+> Al usar el escalado automático con tipos de nodo sin estado, después de la operación de reducción vertical, el estado del nodo no se limpia automáticamente. Para limpiar el estado del nodo de los nodos inactivos durante la escalabilidad automática, se recomienda usar la [aplicación auxiliar de escalabilidad automática de Service Fabric](https://github.com/Azure/service-fabric-autoscale-helper).
+
 ```json
 {
-    "apiVersion": "2018-10-01",
+    "apiVersion": "2019-03-01",
     "type": "Microsoft.Compute/virtualMachineScaleSets",
     "name": "[parameters('vmNodeType1Name')]",
     "location": "[parameters('computeLocation')]",
@@ -92,8 +91,9 @@ Para habilitar los tipos de nodo sin estado, debe configurar el recurso del conj
           "automaticOSUpgradePolicy": {
             "enableAutomaticOSUpgrade": true
           }
-        }
-    }
+        },
+        "platformFaultDomainCount": 5
+    },
     "virtualMachineProfile": {
     "extensionProfile": {
     "extensions": [
@@ -136,6 +136,18 @@ Para habilitar los tipos de nodo sin estado, debe configurar el recurso del conj
     ]
 }
 ```
+
+## <a name="configuring-stateless-node-types-with-multiple-availability-zones"></a>Configuración de tipos de nodo sin estado con varias zonas de disponibilidad
+Para configurar un tipo de nodo sin estado que abarque varias zonas de disponibilidad, siga la documentación que encontrará [aquí](https://docs.microsoft.com/azure/service-fabric/service-fabric-cross-availability-zones#preview-enable-multiple-availability-zones-in-single-virtual-machine-scale-set) y realice los siguientes cambios:
+
+* Establezca **singlePlacementGroup** en **false** si es necesario habilitar varios grupos de selección de ubicación.
+* Establezca **upgradeMode** en **Rolling** y agregue una extensión de mantenimiento de aplicación o sondeos de estado tal y como se ha mencionado anteriormente.
+* Establezca **platformFaultDomainCount:** en **5** para el conjunto de escalado de máquinas virtuales.
+
+>[!NOTE]
+> Independientemente del VMSSZonalUpgradeMode configurado en el clúster, las actualizaciones del conjunto de escalado de máquinas virtuales siempre tienen lugar secuencialmente en una sola zona de disponibilidad cada vez en el caso del tipo de nodo sin estado que abarca varias zonas, ya que se usa el modo de actualización gradual.
+
+Como referencia, consulte la [plantilla](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/15-VM-2-NodeTypes-Windows-Stateless-CrossAZ-Secure) para configurar tipos de nodo sin estado con varias zonas de disponibilidad.
 
 ## <a name="networking-requirements"></a>Requisitos de red
 ### <a name="public-ip-and-load-balancer-resource"></a>Recurso de IP pública y Load Balancer
@@ -184,7 +196,7 @@ Para habilitar el escalado a más de 100 VM en un recurso del conjunto de escal
 ```
 
 >[!NOTE]
-> No es posible hacer un cambio en contexto de SKU en los recursos de IP pública y de Load Balancer. Si va a migrar desde recursos existentes que tienen una SKU básica, consulte la sección sobre la migración de este artículo.
+> No es posible hacer un cambio en contexto de SKU en los recursos de IP pública y de Load Balancer. 
 
 ### <a name="virtual-machine-scale-set-nat-rules"></a>Reglas NAT del conjunto de escalado de máquinas virtuales
 Las reglas NAT de entrada de Load Balancer deben coincidir con los grupos NAT del conjunto de escalado de máquinas virtuales. Cada conjunto de escalado de máquinas virtuales debe tener un único grupo NAT de entrada.
@@ -243,7 +255,7 @@ Standard Load Balancer y la IP pública estándar presentan capacidades nuevas y
 
 
 
-### <a name="migrate-to-using-stateless-node-types-from-a-cluster-using-a-basic-sku-load-balancer-and-a-basic-sku-ip"></a>Migración para usar los tipos de nodo sin estado desde un clúster mediante la instancia de Load Balancer y una dirección IP de una SKU básica
+## <a name="migrate-to-using-stateless-node-types-in-a-cluster"></a>Migración al uso de tipos de nodo sin estado en un clúster
 En todos los escenarios de migración es necesario agregar un nuevo tipo de nodo sin estado. Tenga en cuenta que el tipo de nodo existente no se puede migrar para que sea sin estado.
 
 Para migrar un clúster, que estaba usando una instancia de Load Balancer y una IP con una SKU básica, primero debe crear un recurso de Load Balancer e IP completamente nuevo mediante la SKU estándar. No es posible actualizar estos recursos en contexto.
@@ -256,9 +268,6 @@ Para empezar, deberá agregar los nuevos recursos a la plantilla de Resource Man
 * Un NSG al que hace referencia la subred en la que implementa los conjuntos de escalado de máquinas virtuales.
 
 Una vez haya terminado la implementación de los recursos, puede empezar a deshabilitar los nodos en el tipo de nodo que quiera quitar del clúster original.
-
->[!NOTE]
-> Al usar el escalado automático con tipos de nodos sin estado con durabilidad Bronze, después de la operación de reducción vertical, el estado del nodo no se limpia automáticamente. Para limpiar el estado del nodo de los nodos inactivos durante la escalabilidad automática, se recomienda usar la [aplicación auxiliar de escalabilidad automática de Service Fabric](https://github.com/Azure/service-fabric-autoscale-helper).
 
 ## <a name="next-steps"></a>Pasos siguientes 
 * [Reliable Services](service-fabric-reliable-services-introduction.md)

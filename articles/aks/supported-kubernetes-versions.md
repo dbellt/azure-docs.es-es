@@ -3,23 +3,25 @@ title: Versiones de Kubernetes compatibles en Azure Kubernetes Service
 description: Obtener información sobre la directiva de soporte técnico de la versión de Kubernetes y el ciclo de vida de los clústeres en Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 09/08/2020
+ms.date: 03/29/2021
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: aebbe7ab736b8a7b73900f1d552d723b8a609de6
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: ba75e11a067a257c659f8c659f68bb2bba6fa2e0
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106222765"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107012096"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versiones de Kubernetes compatibles en Azure Kubernetes Service (AKS)
 
-La Comunidad de Kubernetes libera versiones secundarias aproximadamente cada tres meses. Recientemente, la comunidad de Kubernetes ha [aumentado el período de soporte técnico para cada versión de 9 meses a 12 meses](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/) a partir de la versión 1.19. Estas versiones incluyen nuevas características y mejoras. Las versiones de revisión son más frecuentes (a veces semanales) y están previstas para correcciones de errores críticos en una versión secundaria. Estas versiones de revisión incluyen correcciones para vulnerabilidades de seguridad o errores importantes.
+La Comunidad de Kubernetes libera versiones secundarias aproximadamente cada tres meses. Recientemente, la comunidad de Kubernetes ha [aumentado el período de soporte técnico de todas las versiones de 9 a 12 meses](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/), a partir de la versión 1.19. 
+
+Las versiones secundarias incluyen nuevas características y mejoras. Las versiones de revisión son más frecuentes (a veces semanales) y están previstas para correcciones de errores críticos en una versión secundaria. Las versiones de revisión incluyen correcciones para vulnerabilidades de seguridad o errores importantes.
 
 ## <a name="kubernetes-versions"></a>Versiones de Kubernetes
 
-Kubernetes usa el esquema de control de versiones [Versionamiento Semántico](https://semver.org/), lo que significa que cada versión de Kubernetes sigue este esquema de numeración:
+Kubernetes usa el esquema de versiones estándar de [SemVer](https://semver.org/) en todas las versiones:
 
 ```
 [major].[minor].[patch]
@@ -31,20 +33,21 @@ Example:
 
 Cada número en la versión indica compatibilidad general con la versión anterior:
 
-* Las versiones principales cambian cuando cambia una API incompatible o la compatibilidad con versiones anteriores deja de funcionar.
-* Las versiones secundarias cambian cuando se hacen cambios de funcionalidad que son compatibles con otras versiones anteriores secundarias.
-* Las versiones de revisión cambian cuando se hacen correcciones de errores compatibles con versiones anteriores.
+* Las **versiones principales** cambian cuando las actualizaciones de la API no son compatibles o la compatibilidad con versiones anteriores deja de funcionar.
+* Las **versiones secundarias** cambian cuando se realizan actualizaciones de la funcionalidad que son compatibles las versiones anteriores de las restantes versiones secundarias.
+* Las **versiones de revisión** cambian cuando se hacen correcciones de errores compatibles con versiones anteriores.
 
-Los usuarios deben querer ejecutar la última versión de revisión de la versión secundaria que están ejecutando; por ejemplo, si su clúster de producción usa la versión **`1.17.7`** y **`1.17.8`** es la última versión de revisión disponible para la serie *1.17*, debe actualizar a **`1.17.8`** en cuanto pueda asegurarse de que el clúster esté completamente revisado y sea compatible.
+El objetivo es ejecutar la versión de revisión más reciente de la versión secundaria que se ejecuta. Por ejemplo, el clúster de producción está en **`1.17.7`** . **`1.17.8`** es la versión de revisión más reciente disponible para la serie *1.17*. Debe realizar la actualización a **`1.17.8`** lo antes posible para asegurarse de que el clúster tiene todas las revisiones y es compatible.
 
 ## <a name="kubernetes-version-support-policy"></a>Directiva de soporte técnico de versión de Kubernetes
 
-AKS define una versión disponible con carácter general, como una versión habilitada en todas las mediciones de SLO o SLA y cuando está disponible en todas las regiones. AKS es compatible con tres versiones secundarias en disponibilidad general de Kubernetes:
+AKS define una versión disponible con carácter general como una versión habilitada en todas las medidas del SLO o SLA y disponible en todas las regiones. AKS es compatible con tres versiones secundarias en disponibilidad general de Kubernetes:
 
 * La versión secundaria más reciente en disponibilidad general publicada en AKS (a la que nos referiremos como N).
 * Dos versiones secundarias anteriores.
-* Cada versión secundaria compatible también admite un máximo de dos (2) revisiones estables.
-* AKS también puede admitir versiones preliminares que se etiquetan explícitamente y están sujetas a los [términos y condiciones de la versión preliminar][preview-terms].
+    * Cada versión secundaria compatible también admite un máximo de dos (2) revisiones estables.
+
+AKS también puede admitir versiones preliminares que se etiquetan explícitamente y están sujetas a los [términos y condiciones de la versión preliminar][preview-terms].
 
 > [!NOTE]
 > AKS usa prácticas de implementación segura que implican la implementación gradual de regiones. Esto significa que pueden pasar hasta 10 días hábiles hasta que haya una nueva versión disponible en todas las regiones.
@@ -59,7 +62,7 @@ Nueva versión secundaria    |    Lista de versiones admitidas
 
 Donde ".letter" es representativo de las versiones de revisión.
 
-Cuando se introduce una nueva versión secundaria, la versión secundaria y la versión de revisión compatibles más antiguas quedan obsoletas y se retiran. Por ejemplo, si la lista de versiones que se admiten actualmente es:
+Cuando se introduce una nueva versión secundaria, la versión secundaria y la versión de revisión compatibles más antiguas quedan obsoletas y se retiran. Por ejemplo, la lista de versiones que se admiten actualmente es:
 
 ```
 1.17.a
@@ -70,10 +73,10 @@ Cuando se introduce una nueva versión secundaria, la versión secundaria y la v
 1.15.f
 ```
 
-Y AKS publica 1,18.\*, todas las versiones 1.15.\* se quitarán y dejarán de ser compatibles en 30 días.
+Versiones 1.18.\* de AKS, se eliminan todas las versiones 1.15.\* que queden fuera del soporte técnico en 30 días.
 
 > [!NOTE]
-> Tenga en cuenta que si los clientes ejecutan una versión incompatible de Kubernetes, se les pedirá que actualicen al solicitar soporte técnico para el clúster. Los clústeres que ejecutan versiones de Kubernetes no admitidas no están cubiertos por el [las directivas de soporte técnico de AKS](./support-policies.md).
+> Si los clientes ejecutan una versión incompatible de Kubernetes, se les pedirá que la actualicen al solicitar soporte técnico para el clúster. Los clústeres que ejecutan versiones de Kubernetes no admitidas no están cubiertos por el [las directivas de soporte técnico de AKS](./support-policies.md).
 
 Además de lo anterior, AKS admite un máximo de dos versiones de **revisión** de una versión secundaria determinada. Así pues, dadas las siguientes versiones admitidas:
 
@@ -93,7 +96,7 @@ New Supported Version List
 
 ### <a name="supported-kubectl-versions"></a>Versiones de `kubectl` admitidas
 
-Puede usar una versión secundaria de `kubectl` que sea inmediatamente anterior o posterior a la versión de *kube-apiserver*, lo que es coherente con la [directiva de compatibilidad de Kubernetes para kubectl](https://kubernetes.io/docs/setup/release/version-skew-policy/#kubectl).
+Puede usar una versión secundaria de `kubectl` que sea inmediatamente anterior o posterior a la versión de *kube-apiserver* y que sea coherente con la [directiva de compatibilidad de Kubernetes para kubectl](https://kubernetes.io/docs/setup/release/version-skew-policy/#kubectl).
 
 Por ejemplo, si la versión de *kube-apiserver* es *1.17*, puede usar las versiones de `kubectl` comprendidas entre *1.16* y *1.18* con esa versión de *kube-apiserver*.
 
@@ -103,28 +106,29 @@ Para instalar o actualizar la versión de `kubectl`, ejecute `az aks install-cli
 
 Puede consultar las próximas publicaciones de versiones y las que se quedarán obsoletas en el [Calendario publicación de AKS Kubernetes](#aks-kubernetes-release-calendar).
 
-Para nuevas versiones **secundarias** de Kubernetes
-1. AKS publica un anuncio previo con la fecha planificada de la nueva publicación de una versión y el respectivo desuso de una versión antigua en las [notas de la versión de AKS](https://aka.ms/aks/releasenotes) al menos 30 días antes de la eliminación.
-2. AKS publica una [notificación de estado del servicio](../service-health/service-health-overview.md) disponible para todos los usuarios con acceso al portal y AKS, y envía un correo electrónico a los administradores de suscripciones con las fechas de eliminación de versión planeadas.
-````
-To find out who is your subscription administrators or to change it, please refer to [manage Azure subscriptions](../cost-management-billing/manage/add-change-subscription-administrator.md#assign-a-subscription-administrator).
-````
-3. Los usuarios tienen **30 días** a partir de la eliminación de una versión para actualizar a una versión secundaria compatible para seguir recibiendo soporte técnico.
+En el caso de las nuevas versiones **secundarias** de Kubernetes:
+  * AKS publica un anuncio previo con la fecha planificada de la nueva publicación de una versión y el respectivo desuso de una versión antigua en las [notas de la versión de AKS](https://aka.ms/aks/releasenotes) al menos 30 días antes de la eliminación.
+  * AKS publica una [notificación de estado del servicio](../service-health/service-health-overview.md) disponible para todos los usuarios con acceso al portal y AKS, y envía un correo electrónico a los administradores de suscripciones con las fechas de eliminación de versión planeadas.
 
-Para nuevas versiones de **revisión** de Kubernetes
-  * Debido a la naturaleza urgente de las versiones de revisión, se pueden introducir en el servicio a medida que estén disponibles.
-  * En general, AKS no realiza grandes comunicaciones para la publicación de las nuevas versiones de revisión. Sin embargo, AKS supervisa y valida constantemente las revisiones de CVE disponibles para admitirlas en AKS de manera puntual. Si se encuentra una revisión crítica o se requiere una acción del usuario, AKS enviará una notificación a los usuarios para que actualicen a la revisión recién disponible.
-  * Los usuarios tienen **30 días** desde el momento en que se quita una versión de revisión de AKS para actualizarla a una revisión compatible y seguir recibiendo soporte técnico.
+    ````
+    To find out who is your subscription administrators or to change it, please refer to [manage Azure subscriptions](../cost-management-billing/manage/add-change-subscription-administrator.md#assign-a-subscription-administrator).
+    ````
+  * Los usuarios tienen **30 días** a partir de la eliminación de una versión para actualizar a una versión secundaria compatible para seguir recibiendo soporte técnico.
+
+En el caso de las nuevas versiones de **revisión** de Kubernetes:
+  * Dada la naturaleza urgente de las versiones de revisión, se pueden introducir en el servicio en cuanto estén disponibles.
+  * En general, AKS no difunde profusamente el lanzamiento de las versiones de revisión. Sin embargo, AKS supervisa y valida constantemente las revisiones de CVE disponibles para admitirlas en AKS de manera puntual. Si se encuentra una revisión crítica o se requiere una acción del usuario, AKS enviará una notificación a los usuarios para que actualicen a la revisión recién disponible.
+  * Desde que se quita de AKS una versión de revisión los usuarios tienen **30 días** para actualizarla a una revisión compatible sin perder el soporte técnico.
 
 ### <a name="supported-versions-policy-exceptions"></a>Excepciones de directiva de versiones admitidas
 
-AKS se reserva el derecho de agregar o eliminar versiones nuevas/existentes donde se hayan identificado uno o varios problemas de seguridad o errores críticos que afecten a la producción sin previo aviso.
+AKS se reserva el derecho de agregar o eliminar las versiones nuevas o existentes con uno o varios problemas de seguridad o errores críticos que afecten a la producción sin previo aviso.
 
-Las versiones de revisión específicas se pueden omitir, o su implantación puede verse acelerada en función de la gravedad del error o el problema de seguridad.
+Se pueden omitir versiones de revisión concretas o se puede acelerar su lanzamiento en función de la gravedad del error o del problema de seguridad.
 
 ## <a name="azure-portal-and-cli-versions"></a>Versiones de Azure Portal y CLI
 
-Al implementar un clúster de AKS en Azure Portal o con la CLI de Azure, el clúster siempre se establece de forma predeterminada en la versión secundaria n-1 y la revisión más reciente. Por ejemplo, si AKS admite *1.17.a*, *1.17.b*, *1.16.c*, *1.16.d*, *1.15.e* y *1.15.f*, la versión predeterminada seleccionada es la *1.16.c*.
+Cuando se implementa un clúster de AKS en Azure Portal o con la CLI de Azure, los valores predeterminados del clúster son la versión secundaria n-1 y la revisión más reciente. Por ejemplo, si AKS admite *1.17.a*, *1.17.b*, *1.16.c*, *1.16.d*, *1.15.e* y *1.15.f*, la versión predeterminada seleccionada es la *1.16.c*.
 
 Para averiguar qué versiones están disponibles actualmente para su suscripción y región, utilice el comando [az aks get-versions][az-aks-get-versions]. En el ejemplo siguiente se enumeran las versiones de Kubernetes disponibles para la región *EastUS*:
 
@@ -151,28 +155,34 @@ Para ver el historial de versiones anteriores, vea [Kubernetes](https://en.wikip
 
 **¿Con qué frecuencia debo planear actualizar las versiones de Kubernetes para mantenerme con soporte técnico?**
 
-A partir de Kubernetes 1.19, la [comunidad de código abierto ha ampliado el soporte técnico a 1 año](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/). AKS se compromete a habilitar las revisiones y admitir la coincidencia de los compromisos ascendentes, como mínimo. Esto significa que, a partir de los clústeres de AKS en la versión 1.19, podrá actualizar al menos una vez al año para permanecer en una versión con soporte técnico. En el caso de las versiones 1.18 o anteriores, el período de soporte técnico permanece en 9 meses, lo que requiere una actualización una vez cada 9 meses para permanecer en una versión con soporte técnico. Se recomienda probar con regularidad las nuevas versiones y estar preparado para actualizarse a versiones más recientes para aprovechar las mejoras estables más recientes dentro de Kubernetes.
+A partir de Kubernetes 1.19, la [comunidad de código abierto ha ampliado el soporte técnico a 1 año](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/). AKS se compromete a habilitar unas revisiones y un soporte técnico que cumplan los compromisos ascendentes. En el caso de los clústeres de AKS de la versión 1.19, y las versiones superiores, podrá actualizar al menos una vez al año para permanecer en una versión con soporte técnico. 
+
+En el caso de las versiones 1.18, o anteriores, el período de soporte técnico permanece en 9 meses y será preciso realizar una actualización cada 9 meses para permanecer en una versión con soporte técnico. Pruebe con regularidad las nuevas versiones y esté preparado para actualizarse a versiones más recientes para aprovechar las mejoras estables más recientes dentro de Kubernetes.
 
 **¿Qué ocurre cuando un cliente actualiza un clúster de Kubernetes con una versión secundaria que no es compatible?**
 
 Si está en el versión *n-3* o anterior, está fuera del soporte técnico y se le pedirá que la actualice. Si la actualización de la versión n-3 a n-2 se completa correctamente, estará dentro de nuestras directivas de soporte técnico. Por ejemplo:
 
 - Si la versión de AKS admitida más antigua es la *1.15.a* y la suya es la *1.14.b* o anterior, no es compatible.
-- Si la actualización de *1.14.b* a *1.15.a* se realiza correctamente, estará de nuevo dentro de nuestras directivas de soporte técnico.
+- Si la actualización de la versión *1.14.b* a la *1.15.a*, o a cualquier otra versión superior, se realiza correctamente, estará de nuevo dentro de nuestras directivas de soporte técnico.
 
 No se admite el cambio a una versión anterior.
 
 **¿Qué significa "fuera de soporte técnico"?**
 
-"Fuera de soporte técnico" significa que la versión que está ejecutando está fuera de la lista de versiones admitidas, y se le pedirá que actualice el clúster a una versión compatible cuando solicite soporte técnico, a menos que estén en el período de gracia de 30 días después de que la versión haya quedado en desuso. Además, AKS no ofrece ningún entorno de ejecución ni otras garantías para los clústeres que estén fuera de la lista de versiones admitidas.
+"Fuera del soporte técnico" significa lo siguiente:
+* La versión que utiliza está fuera de la lista de versiones admitidas.
+* Se le pedirá que actualice el clúster a una versión compatible cuando solicite soporte técnico, a menos que estén en el período de gracia de 30 días después de que la versión haya quedado en desuso. 
+
+Además, AKS no ofrece ningún entorno de ejecución ni otras garantías para los clústeres que estén fuera de la lista de versiones admitidas.
 
 **¿Qué ocurre cuando un cliente escala un clúster de Kubernetes con una versión secundaria que no es compatible?**
 
-En el caso de las versiones secundarias que no admite AKS, el escalado horizontal o vertical debería seguir funcionando, aunque no hay garantías de Calidad de servicio, por lo que se recomienda encarecidamente actualizar para que el clúster vuelva a ser compatible.
+Tanto la reducción como el escalado horizontales deberían seguir funcionando en las versiones secundarias que no son compatibles con AKS. Dado que no hay garantías de Calidad de servicio, se recomienda realizar la actualización para que el clúster vuelva tener soporte técnico.
 
 **¿Puede un cliente permanecer en una versión de Kubernetes para siempre?**
 
-Si un clúster ha estado sin soporte técnico durante más de tres (3) versiones secundarias y se ha descubierto que presenta riesgos para la seguridad, Azure se pondrá en contacto con usted para que lo actualice con antelación. Si no hace nada, Azure se reserva el derecho de actualizar automáticamente el clúster en su nombre.
+Si un clúster ha estado sin soporte técnico durante más de tres (3) versiones secundarias y se ha descubierto que presenta riesgos para la seguridad, Azure se pondrá en contacto con usted de forma proactiva para que lo actualice con antelación. Si no hace nada, Azure se reserva el derecho de actualizar automáticamente el clúster en su nombre.
 
 **¿Qué versión admite el plano de control si el grupo de nodos no está en una de las versiones de AKS compatibles?**
 
@@ -180,11 +190,16 @@ El plano de control debe estar dentro de una ventana de versiones de todos los g
 
 **¿Puedo saltarme varias versiones de AKS durante la actualización del clúster?**
 
-Cuando se actualiza un clúster de AKS compatible, no pueden omitirse las versiones secundarias de Kubernetes. Por ejemplo, se permiten las actualizaciones entre *1.12.x* -> *1.13.x* o *1.13.x* -> *1.14.x*, pero no entre *1.12.x* -> *1.14.x*.
+Cuando se actualiza un clúster de AKS compatible, no pueden omitirse las versiones secundarias de Kubernetes. Por ejemplo, las actualizaciones entre las siguientes versiones:
+  * *1.12.x* -> *1.13.x*: permitida.
+  * *1.13.x* -> *1.14.x*: permitida.
+  * *1.12.x* -> *1.14.x*: no permitida.
 
-Para actualizar de *1.12.x* -> *1.14.x*, la primera actualización sería de *1.12.x* -> *1.13.x* y, después, de *1.13.x* -> *1.14.x*.
+Para actualizar de *1.12.x* -> *1.14.x*:
+1. Actualización de *1.12.x* -> *1.14.x*.
+1. Actualización de *1.12.x* -> *1.14.x*.
 
-Solo se pueden omitir varias versiones cuando se actualiza de una versión que no es compatible a otra que sí lo es. Por ejemplo, cuando se actualiza de la versión *1.10.x*, que no es compatible, a la versión *1.15.x*, que sí lo es.
+Solo se pueden omitir varias versiones cuando se actualiza de una versión que no es compatible a otra que sí lo es. Por ejemplo, puede realizar la actualización de la versión *1.10.x*, que no es compatible, a la versión *1.15.x*, que lo es.
 
 **¿Puedo crear un nuevo clúster 1.xx.x durante su período de soporte técnico de 30 días?**
 

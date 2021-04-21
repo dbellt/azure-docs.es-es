@@ -3,14 +3,14 @@ title: Implementación de una instancia de Hybrid Runbook Worker en Azure Automa
 description: En este artículo se describe cómo instalar Hybrid Runbook Worker de Azure Automation para ejecutar runbooks en máquinas con Linux en su centro de datos local o en su entorno en la nube.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/02/2021
+ms.date: 04/06/2021
 ms.topic: conceptual
-ms.openlocfilehash: a37f3de48dd675ef1b41f84747f0db3ce1598337
-ms.sourcegitcommit: af6eba1485e6fd99eed39e507896472fa930df4d
+ms.openlocfilehash: 21bb3a353874e401d86741584d102b5c217e69cc
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2021
-ms.locfileid: "106293675"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107030056"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Implementación de Hybrid Runbook Worker en Linux
 
@@ -111,11 +111,11 @@ Hay dos métodos para implementar Hybrid Runbook Worker. Puede importar y ejecut
 
 ### <a name="importing-a-runbook-from-the-runbook-gallery"></a>Importación de un runbook desde la galería de runbooks
 
-El procedimiento de importación se describe en detalle en [Importación de un runbook de PowerShell desde GitHub con Azure Portal](automation-runbook-gallery.md#import-a-powershell-runbook-from-github-with-the-azure-portal). El nombre del runbook que se va a importar es **Create Automation Linux HybridWorker**.
+El procedimiento de importación se describe en detalle en [Importación de runbooks desde GitHub con Azure Portal](automation-runbook-gallery.md#import-runbooks-from-github-with-the-azure-portal). El nombre del runbook que se va a importar es **Create Automation Linux HybridWorker**.
 
 El runbook usa los parámetros siguientes.
 
-| Parámetro | Status | Descripción |
+| Parámetro | Estado | Descripción |
 | ------- | ----- | ----------- |
 | `Location` | Mandatory | La ubicación del área de trabajo de Log Analytics. |
 | `ResourceGroupName` | Mandatory | El grupo de recursos de la cuenta de Automation. |

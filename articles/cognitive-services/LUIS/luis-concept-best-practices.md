@@ -4,13 +4,13 @@ description: Obtenga información sobre los procedimientos recomendados para con
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/17/2020
-ms.openlocfilehash: 2f6ed85416cc5d7c3c2baba2b2cfe489e301d7e5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/13/2021
+ms.openlocfilehash: d5fa2a1e865a4f54de268e7ad756d1d4363f3b78
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98788492"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107500216"
 ---
 # <a name="best-practices-for-building-a-language-understanding-luis-app"></a>Procedimientos recomendados para crear aplicaciones de Language Understanding (LUIS)
 Use el proceso de creación de aplicaciones para compilar la aplicación de LUIS:
@@ -81,7 +81,7 @@ Las entidades con aprendizaje automático se adaptan a la aplicación y requiere
 
 Las entidades con aprendizaje automático pueden usar otras entidades como características. Estas otras entidades pueden ser entidades personalizadas como entidades de expresiones regulares o entidades de lista, o bien se pueden usar como características las entidades creadas previamente.
 
-Obtenga más información sobre las [entidades con aprendizaje automático eficaces](luis-concept-entity-types.md#effective-machine-learned-entities).
+Obtenga más información sobre las [entidades con aprendizaje automático eficaces](luis-concept-entity-types.md#machine-learned-ml-entity).
 
 <a name="#do-build-the-app-iteratively"></a>
 

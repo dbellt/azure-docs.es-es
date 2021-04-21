@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/17/2021
+ms.date: 04/06/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 3699743c5d1b3330715984d2b6116cfebafe74f1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 97a8134e858112d7e1deff6744b5555c172692f2
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104579848"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107028186"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-twitter-account-using-azure-active-directory-b2c"></a>Configuración de la suscripción y del inicio de sesión con una cuenta de Twitter mediante Azure Active Directory B2C
 
@@ -45,7 +45,7 @@ Para habilitar el inicio de sesión de los usuarios con una cuenta de Twitter en
 1. En **Authentication settings** (configuración de autenticación), seleccione **Edit** (editar).
     1. Active la casilla **Enable 3-legged OAuth** (habilitar OAuth de 3 fases).
     1. Active la casilla **Request email address from users** (solicitar dirección de correo electrónico de los usuarios).
-    1. En **Callback URLs** (URL de devolución de llamada), escriba `https://your-tenant.b2clogin.com/your-tenant-name.onmicrosoft.com/your-user-flow-Id/oauth1/authresp`.  Si usa un [dominio personalizado](custom-domain.md), escriba `https://your-domain-name/your-tenant-name.onmicrosoft.com/your-user-flow-Id/oauth1/authresp`. Cuando especifique el nombre de inquilino y el identificador de flujo de usuario, use solo las letras en minúscula, aunque se hayan definido con letras en mayúscula en Azure AD B2C. Sustituya:
+    1. En **Callback URLs** (URL de devolución de llamada), escriba `https://your-tenant.b2clogin.com/your-tenant-name.onmicrosoft.com/your-user-flow-Id/oauth1/authresp`.  Si usa un [dominio personalizado](custom-domain.md), escriba `https://your-domain-name/your-tenant-name.onmicrosoft.com/your-user-flow-Id/oauth1/authresp`. Cuando especifique el nombre de inquilino y el identificador de flujo de usuario, use solo letras en minúscula, aunque se hayan definido en mayúscula en Azure AD B2C. Sustituya:
         - `your-tenant-name` por el nombre del inquilino.
         - `your-domain-name` por el dominio personalizado.
         - `your-user-flow-Id` por el identificador de su flujo de usuario. Por ejemplo, `b2c_1a_signup_signin_twitter`. 
@@ -179,7 +179,7 @@ Puede definir una cuenta de Twitter como proveedor de notificaciones; para ello,
 ## <a name="test-your-custom-policy"></a>Prueba de la directiva personalizada
 
 1. Seleccione la directiva de usuarios de confianza, por ejemplo `B2C_1A_signup_signin`.
-1. En **Aplicación**, seleccione la aplicación web que [registró anteriormente](troubleshoot-custom-policies.md#troubleshoot-the-runtime). La **dirección URL de respuesta** debe mostrar `https://jwt.ms`.
+1. En **Aplicación**, seleccione la aplicación web que [registró anteriormente](tutorial-register-applications.md). La **dirección URL de respuesta** debe mostrar `https://jwt.ms`.
 1. Seleccione el botón **Ejecutar ahora**.
 1. En la página de registro o de inicio de sesión, seleccione **Twitter** para iniciar sesión con la cuenta de Twitter.
 

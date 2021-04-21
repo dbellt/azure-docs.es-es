@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: f2bc71100a92d1811d69af31a7a3085af36f60a8
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: 4c86811ee72d2713fced6320a17d1ccde1866d99
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106121938"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107769956"
 ---
 # <a name="create-an-account-that-supports-customer-managed-keys-for-tables-and-queues"></a>Creación de una cuenta que admita las claves administradas por el cliente para tablas y colas
 
@@ -58,7 +58,7 @@ New-AzStorageAccount -ResourceGroupName <resource_group> `
 
 Para usar la CLI de Azure para crear una cuenta de almacenamiento que se base en la clave de cifrado de la cuenta, asegúrese de haber instalado la CLI de Azure de la versión 2.0.80 o posterior. Para más información, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
-A continuación, cree una cuenta de almacenamiento de uso general v2. Para ello, llame al comando [az storage account create](/cli/azure/storage/account#az-storage-account-create), con los parámetros adecuados:
+A continuación, cree una cuenta de almacenamiento de uso general v2. Para ello, llame al comando [az storage account create](/cli/azure/storage/account#az_storage_account_create), con los parámetros adecuados:
 
 - Incluya la opción `--encryption-key-type-for-queue` y establezca su valor en `Account` a fin de usar la clave de cifrado de la cuenta para cifrar los datos en Queue Storage.
 - Incluya la opción `--encryption-key-type-for-table` y establezca su valor en `Account` a fin de usar la clave de cifrado de la cuenta para cifrar los datos en Table Storage.
@@ -119,7 +119,7 @@ Después de crear una cuenta que se base en la clave de cifrado de cuenta, puede
 
 ## <a name="verify-the-account-encryption-key"></a>Verificación de la clave de cifrado de la cuenta
 
-Para verificar que un servicio de una cuenta de almacenamiento usa la clave de cifrado de la cuenta, llame al comando [az storage account](/cli/azure/storage/account#az-storage-account-show) de la CLI de Azure. Este comando devuelve un conjunto de propiedades de la cuenta de almacenamiento y sus valores. Busque el campo `keyType` de cada servicio dentro de la propiedad de cifrado y verifique que esté establecido en `Account`.
+Para verificar que un servicio de una cuenta de almacenamiento usa la clave de cifrado de la cuenta, llame al comando [az storage account](/cli/azure/storage/account#az_storage_account_show) de la CLI de Azure. Este comando devuelve un conjunto de propiedades de la cuenta de almacenamiento y sus valores. Busque el campo `keyType` de cada servicio dentro de la propiedad de cifrado y verifique que esté establecido en `Account`.
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -134,7 +134,7 @@ $account.Encryption.Services.Table
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-Para comprobar que un servicio de una cuenta de almacenamiento usa la clave de cifrado de la cuenta, llame al comando [az storage account show](/cli/azure/storage/account#az-storage-account-show). Este comando devuelve un conjunto de propiedades de la cuenta de almacenamiento y sus valores. Busque el campo `keyType` de cada servicio dentro de la propiedad de cifrado y verifique que esté establecido en `Account`.
+Para comprobar que un servicio de una cuenta de almacenamiento usa la clave de cifrado de la cuenta, llame al comando [az storage account show](/cli/azure/storage/account#az_storage_account_show). Este comando devuelve un conjunto de propiedades de la cuenta de almacenamiento y sus valores. Busque el campo `keyType` de cada servicio dentro de la propiedad de cifrado y verifique que esté establecido en `Account`.
 
 ```azurecli
 az storage account show /

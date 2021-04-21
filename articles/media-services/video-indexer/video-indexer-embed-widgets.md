@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/25/2021
 ms.author: juliako
 ms.custom: devx-track-js
-ms.openlocfilehash: 822d50bca6bc1139e9b5f0554bcf9a56a8fcbd74
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 56db88bff5b0e92a3819670e200177f10609aaa8
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107532873"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107029733"
 ---
 # <a name="embed-video-indexer-widgets-in-your-apps"></a>Inserción de widgets de Video Indexer en las aplicaciones
 
@@ -97,13 +97,13 @@ Puede insertar vídeos públicos ensamblando la dirección URL de la siguiente m
   
 #### <a name="private-videos"></a>Vídeos privados
 
-Para insertar un vídeo privado, antes debe pasar un token de acceso (use [Get Video Access Token](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Access-Token) en el atributo `src` de iframe:
+Para insertar un vídeo privado, antes debe pasar un token de acceso (use [Get Video Access Token](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Access-Token?) en el atributo `src` de iframe:
 
 `https://www.videoindexer.ai/embed/[insights | player]/<accountId>/<videoId>/?accessToken=<accessToken>`
   
 ### <a name="provide-editing-insights-capabilities"></a>Proporcionar funcionalidades de edición de conclusiones
 
-Para proporcionar funcionalidades de conclusiones de edición en el widget insertado, tiene que pasar un token de acceso que incluya permisos de edición. Use [Get Video Access Token](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Access-Token) con `&allowEdit=true`.
+Para proporcionar funcionalidades de conclusiones de edición en el widget insertado, tiene que pasar un token de acceso que incluya permisos de edición. Use [Get Video Access Token](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Access-Token?) con `&allowEdit=true`.
 
 ## <a name="widgets-interaction"></a>Interacción de widgets
 

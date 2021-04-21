@@ -6,13 +6,13 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 12/04/2020
-ms.custom: devx-track-java
-ms.openlocfilehash: f6f1ed1a3e09397a720dfd4d842b79cd88aa738d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: devx-track-java, devx-track-azurecli
+ms.openlocfilehash: c7083cb6669d7bc779a8e69babfef38988819f8c
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104877678"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107483780"
 ---
 # <a name="application-insights-java-in-process-agent-in-azure-spring-cloud-preview"></a>Agente In-Process de Java de Application Insights en Azure Spring Cloud (versión preliminar)
 
@@ -126,17 +126,17 @@ Aplique la plantilla de ARM con el comando de la CLI:
 * Para una instancia existente de Azure Spring Cloud:
 
 ```azurecli
-az spring-cloud app-insights update [--app-insights/--app-insights-key] "assignedName" [--sampling-rate] "samplingRate" –name "assignedName" –resource-group "resourceGroupName"
+az spring-cloud app-insights update [--app-insights/--app-insights-key] "assignedName" [--sampling-rate] "samplingRate" â€“name "assignedName" â€“resource-group "resourceGroupName"
 ```
 * Para una instancia recién creada de Azure Spring Cloud:
 
 ```azurecli
-az spring-cloud create/update [--app-insights]/[--app-insights-key] "assignedName" --disable-app-insights false --enable-java-agent true --name "assignedName" –resource-group "resourceGroupName"
+az spring-cloud create/update [--app-insights]/[--app-insights-key] "assignedName" --disable-app-insights false --enable-java-agent true --name "assignedName" â€“resource-group "resourceGroupName"
 ```
 * Para deshabilitar Application Insights:
 
 ```azurecli
-az spring-cloud app-insights update --disable –name "assignedName" –resource-group "resourceGroupName"
+az spring-cloud app-insights update --disable â€“name "assignedName" â€“resource-group "resourceGroupName"
 
 ```
 

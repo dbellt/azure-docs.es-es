@@ -9,12 +9,12 @@ ms.subservice: availability
 ms.date: 12/18/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 8c114d6260cf81bcc4fb256fc8a09947ab9ce1d8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 10d45662f84a354ee4b261c2e7255a57aa81ad0f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102502491"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107774492"
 ---
 # <a name="choosing-the-right-number-of-fault-domains-for-virtual-machine-scale-set"></a>Elección del número correcto de dominios de error para el conjunto de escalado de máquinas virtuales
 Los conjuntos de escalado de máquinas virtuales se crean con cinco dominios de error de forma predeterminada en las regiones de Azure sin zonas. Para las regiones que admiten la implementación con zonas de conjuntos de escalado de máquinas virtuales y con esta opción seleccionada, el valor predeterminado del número de dominios de error es 1 para cada una de las zonas. FD=1 en este caso implica que las instancias de VM que pertenecen al conjunto de escalado se distribuirán entre varios bastidores en función del mejor esfuerzo.
@@ -25,7 +25,7 @@ También puede considerar la alineación del número de dominios de error del co
 Puede establecer la propiedad `properties.platformFaultDomainCount` en 1, 2 o 3 (el valor predeterminado es 3 si no se especifica). Consulte la documentación de la API REST [aquí](/rest/api/compute/virtualmachinescalesets/createorupdate).
 
 ## <a name="azure-cli"></a>Azure CLI
-Puede establecer el parámetro `--platform-fault-domain-count` en 1, 2 o 3 (el valor predeterminado es 3 si no se especifica). Consulte la documentación de la CLI de Azure [aquí](/cli/azure/vmss#az-vmss-create).
+Puede establecer el parámetro `--platform-fault-domain-count` en 1, 2 o 3 (el valor predeterminado es 3 si no se especifica). Consulte la documentación de la CLI de Azure [aquí](/cli/azure/vmss#az_vmss_create).
 
 ```azurecli-interactive
 az vmss create \
