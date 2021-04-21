@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 06/16/2020
-ms.openlocfilehash: fc33b24aac8964d0a8390b4b38c5e1862ed639a8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: be1b0da23841b5a63ec044e04a5465e29345f9d1
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102198921"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772206"
 ---
 # <a name="tutorial-access-azure-blob-storage-using-azure-databricks-and-azure-key-vault"></a>Tutorial: Acceso a Azure Blob Storage mediante Azure Databricks y Azure Key Vault
 
@@ -33,7 +33,7 @@ Antes de iniciar este tutorial, instale la [CLI de Azure](/cli/azure/install-azu
 
 ## <a name="create-a-storage-account-and-blob-container-with-azure-cli"></a>Creación de un contenedor de blobs con la CLI de Azure
 
-Primero tendrá que crear una cuenta de almacenamiento de uso general para usar blobs. Si no tiene un [grupo de recursos](/cli/azure/group#az-group-create), cree uno antes de ejecutar el comando. El siguiente comando crea y muestra los metadatos del contenedor de almacenamiento. Copie el **identificador**.
+Primero tendrá que crear una cuenta de almacenamiento de uso general para usar blobs. Si no tiene un [grupo de recursos](/cli/azure/group#az_group_create), cree uno antes de ejecutar el comando. El siguiente comando crea y muestra los metadatos del contenedor de almacenamiento. Copie el **identificador**.
 
 ```azurecli
 az storage account create --name contosoblobstorage5 --resource-group contosoResourceGroup --location eastus --sku Standard_ZRS --encryption-services blob

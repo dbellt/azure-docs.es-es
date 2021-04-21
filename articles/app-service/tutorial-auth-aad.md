@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/29/2020
 ms.custom: devx-track-csharp, seodec18, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 8c3fca6cf7782c3aaac91388a8f8395e288f5ea5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e35a4abbcaf0cd2298d55c06de0ecfbef0dff354
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96558749"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765816"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Tutorial: Autenticación y autorización de usuarios de extremo a extremo en Azure App Service
 
@@ -367,7 +367,7 @@ Mientras que el código de servidor tiene acceso a los encabezados de solicitud,
 
 ### <a name="configure-cors"></a>Configuración de CORS
 
-En Cloud Shell, habilite CORS en la dirección URL del cliente mediante el comando [`az webapp cors add`](/cli/azure/webapp/cors#az-webapp-cors-add). De nuevo, reemplace los marcadores _\<back-end-app-name>_ y _\<front-end-app-name>_ .
+En Cloud Shell, habilite CORS en la dirección URL del cliente mediante el comando [`az webapp cors add`](/cli/azure/webapp/cors#az_webapp_cors_add). De nuevo, reemplace los marcadores _\<back-end-app-name>_ y _\<front-end-app-name>_ .
 
 ```azurecli-interactive
 az webapp cors add --resource-group myAuthResourceGroup --name <back-end-app-name> --allowed-origins 'https://<front-end-app-name>.azurewebsites.net'

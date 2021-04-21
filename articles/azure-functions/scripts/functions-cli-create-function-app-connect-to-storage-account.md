@@ -4,12 +4,12 @@ description: 'Ejemplo de script de la CLI de Azure: creación de una función de
 ms.topic: sample
 ms.date: 04/20/2017
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 13120ad4478febf9281ff423a3a7a8f8f3b25845
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 539c3a7dd95045b2e569dbb339be0e5a0c845902
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97934414"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786297"
 ---
 # <a name="create-a-function-app-with-a-named-storage-account-connection"></a>Creación de una aplicación de funciones con una conexión de cuenta de almacenamiento con nombre 
 
@@ -35,11 +35,11 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 
 | Get-Help | Notas |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Crea un grupo de recursos con una ubicación. |
-| [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Cree una cuenta de almacenamiento. |
-| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Crea una aplicación de función en el [Plan de consumo](../consumption-plan.md) sin servidor. |
-| [az storage account show-connection-string](/cli/azure/storage/account#az-storage-account-show-connection-string) | Obtiene la cadena de conexión para la cuenta. |
-| [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) | Establece la cadena de conexión como una configuración de aplicación en la aplicación de funciones. |
+| [az group create](/cli/azure/group#az_group_create) | Crea un grupo de recursos con una ubicación. |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Cree una cuenta de almacenamiento. |
+| [az functionapp create](/cli/azure/functionapp#az_functionapp_create) | Crea una aplicación de función en el [Plan de consumo](../consumption-plan.md) sin servidor. |
+| [az storage account show-connection-string](/cli/azure/storage/account#az_storage_account_show_connection_string) | Obtiene la cadena de conexión para la cuenta. |
+| [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set) | Establece la cadena de conexión como una configuración de aplicación en la aplicación de funciones. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/08/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: bbfafeaf9ce24911bb4893748d456d22e02fc411
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 870a04af244d18826e1041316895f746e27870eb
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104877146"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786592"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-spring-cloud-app"></a>Tutorial: Uso de una identidad administrada para conectar Key Vault a una aplicación de Azure Spring Cloud
 
@@ -29,14 +29,14 @@ Azure Key Vault se puede utilizar para almacenar de forma segura y controlar est
 * [Instalación de Maven 3.0, o cualquier versión superior](https://maven.apache.org/download.cgi)
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
-Un grupo de recursos es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Cree un grupo de recursos que contenga tanto el almacén de claves como Spring Cloud mediante el comando [az group create](/cli/azure/group#az-group-create):
+Un grupo de recursos es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Cree un grupo de recursos que contenga tanto el almacén de claves como Spring Cloud mediante el comando [az group create](/cli/azure/group#az_group_create):
 
 ```azurecli-interactive
 az group create --name "myResourceGroup" -l "EastUS"
 ```
 
 ## <a name="set-up-your-key-vault"></a>Configuración de un almacén de claves
-Para crear un almacén de claves, utilice el comando [az keyvault create](/cli/azure/keyvault#az-keyvault-create):
+Para crear un almacén de claves, utilice el comando [az keyvault create](/cli/azure/keyvault#az_keyvault_create):
 
 > [!Important]
 > Cada instancia de Key Vault debe tener un nombre único. Reemplace <your-keyvault-name> con el nombre de su almacén de claves en los ejemplos siguientes.
@@ -47,7 +47,7 @@ az keyvault create --name "<your-keyvault-name>" -g "myResourceGroup"
 
 Tome nota del valor `vaultUri` devuelto, que tendrá el formato "https://<suNombreDeAlmacénDeClaves>.vault.azure.net/". Se usará en el paso siguiente.
 
-Ahora puede agregar un secreto a su almacén de claves mediante el comando [az keyvault secret set](/cli/azure/keyvault/secret#az-keyvault-secret-set):
+Ahora puede agregar un secreto a su almacén de claves mediante el comando [az keyvault secret set](/cli/azure/keyvault/secret#az_keyvault_secret_set):
 
 ```azurecli-interactive
 az keyvault secret set --vault-name "<your-keyvault-name>" \

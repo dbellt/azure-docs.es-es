@@ -9,12 +9,12 @@ ms.date: 05/01/2020
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
 ms.reviewer: akjosh
-ms.openlocfilehash: b12715e299f523d7ace56a72b0098b5d7ffac0ab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a9a4abe550da4f0438f875127b3b689045c06e6f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98683061"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763008"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli"></a>Tutorial: Creación y uso de una imagen personalizada para conjuntos de escalado de máquinas virtuales con la CLI de Azure
 Al crear el conjunto de escalado, se especifica la imagen que se usará cuando se implementen las instancias de máquina virtual. Para reducir el número de tareas después de implementar las instancias de máquina virtual, puede usar una imagen de máquina virtual personalizada. Esta imagen de máquina virtual personalizada incluye la instalación o configuración de las aplicaciones necesarias. Las instancias de máquina virtual creadas en el conjunto de escalado usan la imagen de máquina virtual personalizada y están listas para atender el tráfico de la aplicación. En este tutorial, aprenderá a:
@@ -77,7 +77,7 @@ Una galería de imágenes es el recurso principal que se usa para habilitar el u
 
 Los caracteres permitidos para el nombre de la Galería son letras mayúsculas o minúsculas, números y puntos. El nombre de la galería no puede contener guiones.   Los nombres de las galerías deben ser únicos dentro de su suscripción. 
 
-Cree una galería de imágenes mediante [az sig az create](/cli/azure/sig#az-sig-create). En el ejemplo siguiente se crea un grupo de recursos denominado *myGalleryRG* en la región *Este de EE. UU.* y una galería denominada *myGallery*.
+Cree una galería de imágenes mediante [az sig az create](/cli/azure/sig#az_sig_create). En el ejemplo siguiente se crea un grupo de recursos denominado *myGalleryRG* en la región *Este de EE. UU.* y una galería denominada *myGallery*.
 
 ```azurecli-interactive
 az group create --name myGalleryRG --location eastus
@@ -94,7 +94,7 @@ Asegúrese de que la definición de la imagen sea del tipo correcto. Si ha gener
 
 Para más información sobre los valores que se pueden especificar para una definición de imagen, consulte [Definiciones de imagen](../virtual-machines/shared-image-galleries.md#image-definitions).
 
-Cree una definición de imagen en la galería mediante [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create).
+Cree una definición de imagen en la galería mediante [az sig image-definition create](/cli/azure/sig/image-definition#az_sig_image_definition_create).
 
 En este ejemplo, la definición de la imagen se denomina *myImageDefinition* y es para una imagen del sistema operativo Linux [especializada](../virtual-machines/shared-image-galleries.md#generalized-and-specialized-images). Para crear una definición para las imágenes que usan un sistema operativo Windows, utilice `--os-type Windows`. 
 
@@ -116,7 +116,7 @@ az sig image-definition create \
 
 ## <a name="create-the-image-version"></a>Creación de la versión de la imagen
 
-Cree una versión de la imagen a partir de la máquina virtual con [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create).  
+Cree una versión de la imagen a partir de la máquina virtual con [az image gallery create-image-version](/cli/azure/sig/image-version#az_sig_image_version_create).  
 
 Los caracteres permitidos para la versión de una imagen son números y puntos. Los números deben estar dentro del rango de un entero de 32 bits. Formato: *VersiónPrincipal*.*VersiónSecundaria*.*Revisión*.
 
@@ -144,9 +144,9 @@ az sig image-version create \
 
 
 ## <a name="create-a-scale-set-from-the-image"></a>Creación de un conjunto de escalado a partir de una imagen
-Cree un conjunto de escalado a partir de la imagen especializada mediante [`az vmss create`](/cli/azure/vmss#az-vmss-create). 
+Cree un conjunto de escalado a partir de la imagen especializada mediante [`az vmss create`](/cli/azure/vmss#az_vmss_create). 
 
-Cree el conjunto de escalado mediante [`az vmss create`](/cli/azure/vmss#az-vmss-create) con el parámetro --specialized para indicar que la imagen es una imagen especializada. 
+Cree el conjunto de escalado mediante [`az vmss create`](/cli/azure/vmss#az_vmss_create) con el parámetro --specialized para indicar que la imagen es una imagen especializada. 
 
 Use el identificador de definición de imagen en `--image` a fin de crear las instancias del conjunto de escalado a partir de la versión más reciente de la imagen que esté disponible. También puede crear las instancias del conjunto de escalado a partir de una versión específica si proporciona el identificador de la versión de la imagen en `--image`. 
 
@@ -199,7 +199,7 @@ Escriba la dirección IP pública en un explorador web. Se muestra la página we
 
 Puede compartir imágenes entre suscripciones mediante el control de acceso basado en rol (Azure RBAC) de Azure. Puede compartir imágenes en la galería, la definición de la imagen o la versión de la imagen. Cualquier usuario que tenga permisos de lectura para una versión de la imagen, incluso entre suscripciones, podrá implementar una máquina virtual con la versión de la imagen.
 
-Se recomienda que el uso compartido con otros usuarios se realice en el nivel de la galería. Para obtener el identificador de objeto de la galería, use [az sig show](/cli/azure/sig#az-sig-show).
+Se recomienda que el uso compartido con otros usuarios se realice en el nivel de la galería. Para obtener el identificador de objeto de la galería, use [az sig show](/cli/azure/sig#az_sig_show).
 
 ```azurecli-interactive
 az sig show \
@@ -208,7 +208,7 @@ az sig show \
    --query id
 ```
 
-Use el identificador de objeto como ámbito, junto con una dirección de correo electrónico y [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) para dar a un usuario acceso a la galería de imágenes compartidas. Reemplace `<email-address>` y `<gallery iD>` por su propia información.
+Use el identificador de objeto como ámbito, junto con una dirección de correo electrónico y [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) para dar a un usuario acceso a la galería de imágenes compartidas. Reemplace `<email-address>` y `<gallery iD>` por su propia información.
 
 ```azurecli-interactive
 az role assignment create \

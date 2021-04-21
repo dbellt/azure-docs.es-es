@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 03/02/2021
 author: gahl-levy
 ms.author: gahllevy
-ms.openlocfilehash: 9eebc77c5b3d9402c766320fddfdaf05d50b574f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 74e08cce381d173e0c5e1458ae99167a0c8c697f
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102485408"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107504517"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-40-server-version-supported-features-and-syntax"></a>API de Azure Cosmos DB para MongoDB (versión 4.0 de servidor): características y sintaxis que se admiten
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -143,7 +143,7 @@ La API de Azure Cosmos DB para MongoDB admite los siguientes comandos de base de
 | $limit | Sí |
 | $listLocalSessions | No |
 | $listSessions | No |
-| $lookup | Sí |
+| $lookup | Parcial |
 | $match | Sí |
 | $out | Sí |
 | $project | Sí |
@@ -155,6 +155,9 @@ La API de Azure Cosmos DB para MongoDB admite los siguientes comandos de base de
 | $sort | Sí |
 | $sortByCount | Sí |
 | $unwind | Sí |
+
+> [!NOTE]
+> `$lookup` todavía no admite la característica de [subconsultas no correlacionadas](https://docs.mongodb.com/manual/reference/operator/aggregation/lookup/#join-conditions-and-uncorrelated-sub-queries) introducida en la versión 3.6 del servidor. Recibirá un error con un mensaje que contiene el texto `let is not supported` si intenta utilizar el operador `$lookup` con los campos `let` y `pipeline`.
 
 ### <a name="boolean-expressions"></a>Expresiones booleanas
 

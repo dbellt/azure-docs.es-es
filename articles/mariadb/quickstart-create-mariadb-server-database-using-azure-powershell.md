@@ -3,17 +3,20 @@ title: 'Inicio rápido: Creación de un servidor de Azure Database for MariaDB e
 description: En este inicio rápido se describe cómo usar PowerShell para crear un servidor de Azure Database for MariaDB en un grupo de recursos de Azure.
 author: savjani
 ms.author: pariks
+ms.date: 05/26/2020
+ms.topic: quickstart
 ms.service: mariadb
 ms.devlang: azurepowershell
-ms.topic: quickstart
-ms.date: 05/26/2020
-ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 05082ffa891b72b472ed5433282198c61080f073
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom:
+- mvc
+- devx-track-azurepowershell
+- mode-api
+ms.openlocfilehash: 7bfbd223cb337ff7d908032c769afbbf5cafa38f
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98664671"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107531384"
 ---
 # <a name="quickstart-create-an-azure-database-for-mariadb-server-using-powershell"></a>Inicio rápido: Creación de un servidor de Azure Database for MariaDB mediante PowerShell
 

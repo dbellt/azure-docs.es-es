@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/15/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f70229fabe4331adb7740cf09cf2bf8f3e3e4617
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9b74e7d312133c24daad448e029a3c3d4cbdce79
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97587526"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107773088"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-rest-api-calls"></a>Configuración de identidades administradas de recursos de Azure en una VM de Azure mediante llamadas a la API REST
 
@@ -49,13 +49,13 @@ En esta sección, aprenderá a habilitar y deshabilitar una identidad administra
 
 Para crear una máquina virtual de Azure que tenga habilitada la identidad administrada asignada por el sistema, la cuenta debe tener la asignación de roles [Colaborador de la máquina Virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).  No se requiere ninguna otra asignación de roles de directorio de Azure AD.
 
-1. Cree un [grupo de recursos](../../azure-resource-manager/management/overview.md#terminology) para contener e implementar la máquina virtual y sus recursos relacionados, con [az group create](/cli/azure/group/#az-group-create). Puede omitir este paso si ya tiene un grupo de recursos que le gustaría usar en su lugar:
+1. Cree un [grupo de recursos](../../azure-resource-manager/management/overview.md#terminology) para contener e implementar la máquina virtual y sus recursos relacionados, con [az group create](/cli/azure/group/#az_group_create). Puede omitir este paso si ya tiene un grupo de recursos que le gustaría usar en su lugar:
 
    ```azurecli-interactive 
    az group create --name myResourceGroup --location westus
    ```
 
-2. Cree una [interfaz de red](/cli/azure/network/nic#az-network-nic-create) para la máquina virtual:
+2. Cree una [interfaz de red](/cli/azure/network/nic#az_network_nic_create) para la máquina virtual:
 
    ```azurecli-interactive
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic
@@ -309,7 +309,7 @@ Para asignar una identidad asignada por un usuario a una máquina virtual, la cu
    az account get-access-token
    ```
 
-2. Cree una [interfaz de red](/cli/azure/network/nic#az-network-nic-create) para la máquina virtual:
+2. Cree una [interfaz de red](/cli/azure/network/nic#az_network_nic_create) para la máquina virtual:
 
    ```azurecli-interactive
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic

@@ -3,19 +3,18 @@ title: 'Acerca de los secretos de Azure Key Vault: Azure Key Vault'
 description: Información general de los secretos de Azure Key Vault.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 55814dff5cba572e2e22b5a0f9971bc920e32372
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6d4f3f744a85c14c42ffef1c894b237081e871f8
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100526651"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107752433"
 ---
 # <a name="about-azure-key-vault-secrets"></a>Acerca de los secretos de Azure Key Vault
 
@@ -133,5 +132,5 @@ Guías de procedimientos para controlar el acceso en Key Vault:
 - [Información acerca de claves, secretos y certificados](../general/about-keys-secrets-certificates.md)
 - [Información acerca de las claves](../keys/about-keys.md)
 - [Información acerca de los certificados](../certificates/about-certificates.md)
-- [Protección del acceso a un almacén de claves](../general/secure-your-key-vault.md)
+- [Protección del acceso a un almacén de claves](../general/security-overview.md)
 - [Guía del desarrollador de Key Vault](../general/developers-guide.md)

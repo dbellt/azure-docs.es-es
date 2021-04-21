@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: azure-redhat-openshift
 ms.date: 10/26/2020
-ms.openlocfilehash: 55c1b6f6c6690f0c8f00a8a2469834781f35fb3c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: dda4fc6a80bbe07977f8d2a5ffcbea895a4e1fe6
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102449805"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107771846"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Tutorial: Creación de un clúster de la versión 4 de Red Hat OpenShift en Azure
 
@@ -112,7 +112,7 @@ A continuación, creará una red virtual que contenga dos subredes vacías. Si y
 
 2. **Cree un grupo de recursos.** .
 
-   Un grupo de recursos de Azure es un grupo lógico en el que se implementan y administran recursos de Azure. Cuando se crea un grupo de recursos, se le pide que especifique una ubicación. Esta ubicación es donde se almacenan los metadatos del grupo de recursos, y es también el lugar en el que los recursos se ejecutan en Azure si no se especifica otra región al crearlos. Cree un grupo de recursos con el comando [az group create](/cli/azure/group#az-group-create).
+   Un grupo de recursos de Azure es un grupo lógico en el que se implementan y administran recursos de Azure. Cuando se crea un grupo de recursos, se le pide que especifique una ubicación. Esta ubicación es donde se almacenan los metadatos del grupo de recursos, y es también el lugar en el que los recursos se ejecutan en Azure si no se especifica otra región al crearlos. Cree un grupo de recursos con el comando [az group create](/cli/azure/group#az_group_create).
     
    > [!NOTE] 
    > Red Hat OpenShift en Azure no está disponible en todas las regiones en las que se puede crear un grupo de recursos de Azure. Consulte [Regiones disponibles](https://azure.microsoft.com/en-gb/global-infrastructure/services/?products=openshift) para obtener información sobre dónde se admite Red Hat OpenShift en Azure.
