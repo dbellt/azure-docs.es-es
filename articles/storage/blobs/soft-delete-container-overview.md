@@ -10,12 +10,12 @@ ms.date: 03/05/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: af9d520bab3ff49b30672717414fbd651c915dd4
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 2efd673d26231e83d820f7971a740d06e9b2a1d2
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106552384"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785422"
 ---
 # <a name="soft-delete-for-containers-preview"></a>Eliminación temporal de contenedores (versión preliminar)
 
@@ -87,7 +87,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-Para registrarse con la CLI de Azure, llame al comando [az feature register](/cli/azure/feature#az-feature-register).
+Para registrarse con la CLI de Azure, llame al comando [az feature register](/cli/azure/feature#az_feature_register).
 
 ```azurecli
 az feature register --namespace Microsoft.Storage --name ContainerSoftDelete
@@ -110,7 +110,7 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName Containe
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-Para comprobar el estado del registro con la CLI de Azure, llame al comando [az feature](/cli/azure/feature#az-feature-show).
+Para comprobar el estado del registro con la CLI de Azure, llame al comando [az feature](/cli/azure/feature#az_feature_show).
 
 ```azurecli
 az feature show --namespace Microsoft.Storage --name ContainerSoftDelete

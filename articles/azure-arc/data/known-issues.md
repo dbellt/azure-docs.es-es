@@ -9,20 +9,51 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 03/02/2021
 ms.topic: conceptual
-ms.openlocfilehash: 8100d9e12f107e0c4598876c46453b46c6ee4d0e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ee652047a33d73ece2d7648905fa590d90b1fb2f
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102122007"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107029512"
 ---
 # <a name="known-issues---azure-arc-enabled-data-services-preview"></a>Problemas conocidos: Servicios de datos habilitados para Azure Arc (versión preliminar)
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
+## <a name="march-2021"></a>Marzo de 2021
+
+### <a name="data-controller"></a>Controlador de datos
+
+- Puede crear un controlador de datos en modo de conexión directa con Azure Portal. No se admite la implementación con otras herramientas de Servicios de datos habilitados para Azure Arc. En concreto, no se puede implementar un controlador de datos en modo de conexión directa con ninguna de las herramientas siguientes durante esta versión.
+   - Azure Data Studio
+   - CLI de datos de Azure (`azdata`)
+   - Herramientas nativas de Kubernetes
+
+   En [Controlador de datos de Azure Arc | Modo de conexión directa](deploy-data-controller-direct-mode.md) se explica cómo crear el controlador de datos en el portal. 
+
+### <a name="azure-arc-enabled-postgresql-hyperscale"></a>Hiperescala de PostgreSQL habilitada para Azure Arc
+
+- No se admite la implementación de un grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc en un controlador de datos de Arc habilitado para el modo de conexión directa.
+- Al pasar un valor no válido al parámetro `--extensions` al editar la configuración de un grupo de servidores para habilitar extensiones adicionales, se restablece incorrectamente la lista de extensiones habilitadas al momento de la creación del grupo de servidores e impide que el usuario cree extensiones adicionales. La única solución disponible cuando esto sucede es eliminar el grupo de servidores y volver a implementarlo.
+
 ## <a name="february-2021"></a>Febrero de 2021
 
-- El modo de clúster conectado está deshabilitado
+### <a name="data-controller"></a>Controlador de datos
+
+- El modo de clúster de conexión directa está deshabilitado.
+
+### <a name="azure-arc-enabled-postgresql-hyperscale"></a>Hiperescala de PostgreSQL habilitada para Azure Arc
+
+- La restauración a un momento dado no se admite por ahora en el almacenamiento NFS.
+- No es posible habilitar y configurar la extensión pg_cron al mismo tiempo. Debe usar dos comandos para esto. Un comando para habilitarlo y otro para configurarlo. 
+
+   Por ejemplo:
+   ```console
+   § azdata arc postgres server edit -n myservergroup --extensions pg_cron 
+   § azdata arc postgres server edit -n myservergroup --engine-settings cron.database_name='postgres'
+   ```
+
+   El primer comando requiere reiniciar el grupo de servidores. Por lo tanto, antes de ejecutar el segundo comando, asegúrese de que el estado del grupo de servidores ha pasado de Actualizando a Listo. Si ejecuta el segundo comando antes de que se complete el reinicio, se producirá un error. Si ese es el caso, espere unos instantes más y vuelva a ejecutar el segundo comando.
 
 ## <a name="introduced-prior-to-february-2021"></a>Incorporado antes de febrero de 2021
 
@@ -43,12 +74,6 @@ ms.locfileid: "102122007"
 
    :::image type="content" source="media/release-notes/aks-zone-selector.png" alt-text="Desactive las casillas de cada zona para no especificar ninguna.":::
 
-### <a name="postgresql"></a>PostgreSQL
-
-- Hiperescala de PostgreSQL habilitada para Azure Arc devuelve un mensaje de error inexacto cuando no se puede restaurar al punto relativo en el tiempo que se indica. Por ejemplo, si ha especificado una restauración a un momento dado anterior al contenido de las copias de seguridad, se produce un error en la restauración con un mensaje de error como: `ERROR: (404). Reason: Not found. HTTP response body: {"code":404, "internalStatus":"NOT_FOUND", "reason":"Failed to restore backup for server...}`
-Cuando esto suceda, reinicie el comando después de indicar un punto en el tiempo que se encuentre dentro del rango de fechas para las que tiene copias de seguridad. Para determinar este rango, enumere las copias de seguridad y examine las fechas en las que se han realizado.
-- La restauración a un momento dado solo se admite en grupos de servidores. El servidor de destino de una operación de restauración a un momento dado no puede ser el servidor desde el que se ha realizado la copia de seguridad. Debe ser otro grupo de servidores. Pero se admite la restauración completa en el mismo grupo de servidores.
-- Al realizar una restauración completa se necesita un identificador de copia de seguridad. De forma predeterminada, si no indica un identificador de copia de seguridad, se usará la última copia de seguridad. Esto no funciona en esta versión.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

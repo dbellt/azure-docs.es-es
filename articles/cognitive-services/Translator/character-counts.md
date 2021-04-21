@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: lajanuar
-ms.openlocfilehash: 6e81736e3151c9e97a8926b1f67c0a7a0d4c2f3d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 53fc22e1dbdac3240f72e8d64fbaee690597950f
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98895890"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107373934"
 ---
 # <a name="how-the-translator-counts-characters"></a>Cómo Traductor cuenta los caracteres
 
@@ -38,5 +38,7 @@ Para los scripts basados en ideogramas, como el chino y kanji japonés, el servi
 El número de solicitudes, palabras, frases o bytes es irrelevante en el recuento de caracteres.
 
 Las llamadas a los métodos Detect y BreakSentence no se cuentan en el consumo de caracteres. Sin embargo, se espera que las llamadas a los métodos Detect y BreakSentence tengan una proporción razonable frente al uso de otras funciones que se cuentan. Si el número de llamadas Detect o BreakSentence que hace supera en 100 veces el número de otros métodos contados, Microsoft se reserva el derecho a restringir el uso de los métodos Detect y BreakSentence.
+
+Todos los caracteres que se envían a la función translate se cuentan, incluso cuando el contenido no cambia o el idioma de origen y de destino coinciden.
 
 Para obtener más información sobre los recuentos de caracteres, consulte las [Preguntas más frecuentes sobre Traductor](https://www.microsoft.com/en-us/translator/faq.aspx).

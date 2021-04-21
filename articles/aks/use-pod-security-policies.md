@@ -4,17 +4,17 @@ description: Aprenda a controlar las admisiones de pods mediante PodSecurityPoli
 services: container-service
 ms.topic: article
 ms.date: 03/25/2021
-ms.openlocfilehash: d95cdb51136511bdd8529c829c3f680d19e14ba9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4e72bd28910f471656feb27d10c123930305494e
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105611776"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107031229"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>Versión preliminar: Protección del clúster con directivas de seguridad de pod en Azure Kubernetes Service (AKS)
 
 > [!WARNING]
-> **La característica descrita en este documento, directiva de seguridad de pods (versión preliminar), comenzará a dejar de usar la versión 1.21 de Kubernetes, con su eliminación en la versión 1.25.** A medida que Kubernetes Upstream alcanza este hito, la comunidad de Kubernetes trabajará para documentar alternativas viables. El anuncio de desuso anterior se hizo en el momento en que no había una opción viable para los clientes. Ahora que la comunidad Kubernetes está trabajando en una alternativa, ya no es necesario deshacerse por adelantado de Kubernetes.
+> **La característica descrita en este documento, directiva de seguridad de pods (versión preliminar), comenzará a [dejar de usar](https://kubernetes.io/blog/2021/04/06/podsecuritypolicy-deprecation-past-present-and-future/) la versión 1.21 de Kubernetes, con su eliminación en la versión 1.25.** A medida que Kubernetes Upstream alcanza este hito, la comunidad de Kubernetes trabajará para documentar alternativas viables. El anuncio de desuso anterior se hizo en el momento en que no había una opción viable para los clientes. Ahora que la comunidad Kubernetes está trabajando en una alternativa, ya no es necesario deshacerse por adelantado de Kubernetes. 
 >
 > Una vez que la directiva de seguridad de pod (versión preliminar) haya quedado en desuso, deberá deshabilitar la característica en todos los clústeres existentes que la incluyan para realizar futuras actualizaciones de clústeres y seguir recibiendo el soporte técnico de Azure.
 

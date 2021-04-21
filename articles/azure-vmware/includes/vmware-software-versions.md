@@ -2,13 +2,13 @@
 title: Versiones de software de VMware
 description: Versiones de software de VMware compatibles con Azure VMware Solution.
 ms.topic: include
-ms.date: 03/13/2021
-ms.openlocfilehash: 9a1781d163e67c2f9b6a4f756a616e59a969696f
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.date: 03/31/2021
+ms.openlocfilehash: a6441b55bbc6a8f694c50bbf022a6a2ae52d60bf
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/14/2021
-ms.locfileid: "103462528"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106097973"
 ---
 <!-- Used in faq.md and concepts-private-clouds-clusters.md -->
 
@@ -17,10 +17,10 @@ Las versiones de software de VMware utilizadas en las nuevas implementaciones de
 
 | Software              |    Versión   |
 | :---                  |     :---:    |
-| VCSA/vSphere/ESXi |    6.7 U3    | 
-| ESXi                  |    6.7 U3    | 
-| vSAN                  |    6.7 U3    |
-| NSX-T <br />**NOTA:** : La única versión admitida de NSX es NSX-T.               |      2.5     |
+| VCSA/vSphere/ESXi |    6.7 U3l    | 
+| ESXi                  |    6.7 U3l    | 
+| vSAN                  |    6.7 U3l    |
+| NSX-T <br />**NOTA:** : La única versión admitida de NSX es NSX-T.               |      3.1.1     |
 
 
 Si se agregan nuevos clústeres a una nube privada existente, se aplica la versión de software que se está ejecutando actualmente. Para obtener más información, consulte los [requisitos de la versión de software de VMware](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-54E5293B-8707-4D29-BFE8-EE63539CC49B.html).

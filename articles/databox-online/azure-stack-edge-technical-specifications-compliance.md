@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/02/2020
+ms.date: 04/12/2021
 ms.author: alkohli
-ms.openlocfilehash: 8b36bb34f4c9081d807998cb8287797443625a6b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 91bb558d47e56ebbcbdf25b0276c2a247ec81b47
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96460291"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312644"
 ---
 # <a name="azure-stack-edge-pro-technical-specifications"></a>Especificaciones técnicas de Azure Stack Edge Pro
 
@@ -23,16 +23,21 @@ Los componentes de hardware del dispositivo de Microsoft Azure Stack Edge Pro c
 
 El dispositivo Azure Stack Edge Pro tiene las especificaciones de proceso y memoria siguientes:
 
-| Especificación           | Value                  |
-|-------------------------|----------------------------|
-| CPU    | 2 CPU de 10 núcleos Intel Xeon Silver 4114 de 2,2 G                    |
-| Memoria              | 128 GB de RAM (RDIMM 8x de 16 GB)                 |
+| Especificación           | Value                             |
+|-------------------------|-----------------------------------|
+| El tipo de CPU.                | Doble Intel Xeon Silver 4114 2,2 GHz |
+| CPU: bruta                | En total, 20 núcleos y 40 CPU virtuales    |
+| CPU: utilizable             | 32 CPU virtuales                          |
+| Tipo de memoria             | 8 RDIMM de 16 GB                   |
+| Memoria: bruta             | 128 GB de RAM (8 de 16 GB)           |
+| Memoria: utilizable          | 102 GB de RAM                        |
+
 
 ## <a name="fpga-specifications"></a>Especificaciones de FPGA
 
 Se incluye una matriz de puertas programables (FPGA) en cada dispositivo de Azure Stack Edge Pro que permite escenarios de Machine Learning (ML).
 
-| Especificación           | Value                  |
+| Especificación           | Value                      |
 |-------------------------|----------------------------|
 | FPGA   | Intel Arria 10 <br> Los modelos de redes neuronales profundas (DNN) disponibles son los mismos que los [que admiten las instancias FPGA en la nube](../machine-learning/how-to-deploy-fpga-web-service.md#fpga-support-in-azure).|
 
@@ -42,7 +47,7 @@ El dispositivo Azure Stack Edge Pro tiene dos fuentes de alimentación (PSU) de 
 
 | Especificación           | Fuente de alimentación de 750 W                  |
 |-------------------------|----------------------------|
-| Potencia de salida máxima    | 750 W                     |
+| Potencia de salida máxima    | 750 W                      |
 | Frecuencia               | 50/60 Hz                   |
 | Selección del intervalo de voltaje | Intervalo automático: 100-240 V CA |
 | Conectable en funcionamiento           | Sí                        |
@@ -64,7 +69,7 @@ El dispositivo Azure Stack Edge Pro tiene seis interfaces de red: PORT1-PORT6.
 |-------------------------|----------------------------|
 |  Interfaces de red    | 2 interfaces de 1 GbE: 1 administración, no es configurable por el usuario y se usa para la configuración inicial. La otra interfaz la puede configurar el usuario, se puede usar para la transferencia de datos y es DHCP de forma predeterminada. <br>2 interfaces de 25 GbE: estas pueden funcionar como interfaces de 10 GbE. El usuario puede configurar estas interfaces como DHCP (predeterminado) o estáticas. <br> 2 interfaces de 25 GbE: el usuario puede configurar estas interfaces como DHCP (predeterminado) o estáticas.                  |
 
-Los adaptadores de red utilizados son: 
+Los adaptadores de red utilizados son:
 
 | Especificación           | Descripción                 |
 |-------------------------|----------------------------|
@@ -82,7 +87,7 @@ Los dispositivos de Azure Stack Edge Pro tienen unidades de estado sólido (SSD)
 |    Número de unidades de estado sólido (SSD)     |    8                  |
 |    Capacidad de un solo SSD                     |    1,6 TB             |
 |    Capacidad total                          |    12,8 TB            |
-|    Capacidad total utilizable*                  |    ~ 12,5 TB            |
+|    Capacidad total utilizable*                  |    ~ 12,5 TB          |
 
 **Parte del espacio está reservado para uso interno.*
 
@@ -94,19 +99,19 @@ En las tablas siguientes se enumeran las diferentes especificaciones de dimensio
 
 En la tabla siguiente se enumeran las dimensiones del revestimiento en milímetros y pulgadas.
 
-|     Revestimiento     |     Milímetros     |     Pulgadas     |
-|-------------------|---------------------|----------------|
-|    Alto         |    44,45            |    1,75"          |
-|    Ancho          |    434,1           |    17,09"          |
-|    Length          |    740,4           |    29,15"          |
+|     Revestimiento     |     Milímetros    |     Pulgadas     |
+|-------------------|--------------------|----------------|
+|    Alto         |    44,45           |    1,75"       |
+|    Ancho          |    434,1           |    17,09"      |
+|    Length         |    740,4           |    29,15"      |
 
 En la tabla siguiente se enumeran las dimensiones del paquete de envío en milímetros y pulgadas.
 
-|     Paquete     |     Milímetros     |     Pulgadas     |
+|     Paquete       |     Milímetros     |     Pulgadas     |
 |-------------------|---------------------|----------------|
-|    Alto         |    311,2            |    12,25"          |
-|    Ancho          |    642,8          |    25,31"          |
-|    Length          |   1051,1          |    41,38"          |
+|    Alto         |    311,2            |    12,25"      |
+|    Ancho          |    642,8            |    25,31"      |
+|    Length         |   1051,1           |    41,38"      |
 
 ### <a name="enclosure-weight"></a>Peso del revestimiento
 

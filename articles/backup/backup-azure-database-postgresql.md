@@ -2,14 +2,14 @@
 title: Copia de seguridad de Azure Database for PostgreSQL
 description: Más información sobre la copia de seguridad de Azure Database for PostgreSQL con retención a largo plazo (versión preliminar)
 ms.topic: conceptual
-ms.date: 09/08/2020
+ms.date: 04/12/2021
 ms.custom: references_regions
-ms.openlocfilehash: 1e2d83d4a5e21ed747ec9d4dcf2fa03d1e3935cc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4730cad32203642f0d1b84529a5822d7595d6bf8
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98737579"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107375094"
 ---
 # <a name="azure-database-for-postgresql-backup-with-long-term-retention-preview"></a>Copia de seguridad de Azure Database for PostgreSQL con retención a largo plazo (versión preliminar)
 
@@ -135,10 +135,9 @@ Las siguientes instrucciones son una guía paso a paso para configurar la copia 
 
 1. Defina la configuración de **Retención**. Puede agregar una o varias reglas de retención. En cada regla de retención se suponen entradas para copias de seguridad específicas, así como el almacén de datos y el tiempo que se retienen esas copias de seguridad.
 
-1. Puede optar por almacenar las copias de seguridad en uno de los dos almacenes de datos (o niveles): **Almacén de datos de copia de seguridad** (nivel estándar) o **Almacén de datos de archivo** (en versión preliminar). Puede elegir entre **dos opciones de niveles** para definir cuándo las copias de seguridad se dividen en niveles entre los dos almacenes de datos:
+1. Puede optar por almacenar las copias de seguridad en uno de los dos almacenes de datos (o niveles): **Almacén de datos de copia de seguridad** (nivel estándar) o **Almacén de datos de archivo** (en versión preliminar).
 
-    - Elija la opción **Inmediatamente** si prefiere tener una copia de seguridad en los almacenes de datos de copia de seguridad y de archivo simultáneamente.
-    - Elija la opción **On-expiry** (Al expirar) si prefiere trasladar la copia de seguridad al almacén de datos de archivo cuando expire en el almacén de datos de copia de seguridad.
+   Puede elegir la opción **Al expirar** si prefiere trasladar la copia de seguridad al almacén de datos de archivo cuando expire en el almacén de datos de copia de seguridad.
 
 1. Si no hay ninguna otra regla de retención, se aplica la **regla de retención predeterminada**, que a su vez tiene un valor predeterminado de tres meses.
 
@@ -197,7 +196,21 @@ Siga esta guía paso a paso para desencadenar una restauración:
 
     ![Restaurar como archivos](./media/backup-azure-database-postgresql/restore-as-files.png)
 
+1. Si el punto de recuperación está en el nivel de archivo, debe rehidratar el punto de recuperación antes de restaurarlo.
+   
+   ![Configuración de la rehidratación](./media/backup-azure-database-postgresql/rehydration-settings.png)
+   
+   Proporcione los siguientes parámetros adicionales necesarios para la rehidratación:
+   - **Prioridad de la rehidratación:** el valor predeterminado es **Estándar**.
+   - **Duración de la rehidratación:** la duración máxima de rehidratación es de 30 días y la duración mínima de rehidratación es de 10 días. El valor predeterminado es **15**.
+   
+   El punto de recuperación se almacena en el **almacén de datos de Backup** durante la rehidratación especificada.
+
+
 1. Revise la información y seleccione **Restaurar**. Esto desencadenará un trabajo de restauración correspondiente, cuyo seguimiento puede realizar en **Trabajos de copia de seguridad**.
+
+>[!NOTE]
+>La compatibilidad con archivos de Azure Database for PostgreSQL está en versión preliminar pública limitada.
 
 ## <a name="prerequisite-permissions-for-configure-backup-and-restore"></a>Permisos previos para configurar copias de seguridad y restauraciones
 
@@ -220,7 +233,7 @@ Elija una regla de retención en la lista de las que se definieron en la directi
 
 ### <a name="stop-protection"></a>Detener protección
 
-Puede detener la protección de un elemento de copia de seguridad. De este modo también se eliminarán los puntos de recuperación que tenga asociados. Todavía no se ofrece la opción de detener la protección y conservar los puntos de recuperación existentes.
+Puede detener la protección de un elemento de copia de seguridad. De este modo también se eliminarán los puntos de recuperación que tenga asociados. Si los puntos de recuperación no están en el nivel de archivo durante un mínimo de seis meses, la eliminación de esos puntos de recuperación incurrirá en un costo de eliminación temprana. Todavía no se ofrece la opción de detener la protección y conservar los puntos de recuperación existentes.
 
 ![Detener protección](./media/backup-azure-database-postgresql/stop-protection.png)
 
@@ -242,7 +255,7 @@ En esta sección se proporciona información para la solución de problemas de c
 
 ### <a name="usererrormsimissingpermissions"></a>UserErrorMSIMissingPermissions
 
-Proporcione al valor MSI del almacén de Backup acceso de tipo **Lectura** en el servidor de PostgreSQL en el que desea realizar copias de seguridad o restaurar:
+Proporcione al valor MSI del almacén de Backup acceso de tipo **Lectura** en el servidor de PostgreSQL en el que quiera realizar copias de seguridad o restaurar.
 
 Para establecer una conexión segura a la base de datos de PostgreSQL, Azure Backup usa el modelo de autenticación de [Managed Service Identity (MSI)](../active-directory/managed-identities-azure-resources/overview.md). Esto significa que el almacén de copia de seguridad solo tendrá acceso a los recursos a los que el usuario haya concedido explícitamente el permiso.
 
@@ -254,21 +267,17 @@ Pasos:
 
     ![Panel Control de acceso](./media/backup-azure-database-postgresql/access-control-pane.png)
 
-1. Seleccione **Agregar una asignación de roles**.
+1. Seleccione **Agregar asignación de roles**.
 
     ![Agregar asignación de roles](./media/backup-azure-database-postgresql/add-role-assignment.png)
 
 1. En el panel de contexto derecho que se abre, escriba lo siguiente:<br>
 
-    **Rol:** Lector<br>
-    **Asignar acceso a**: elija **Almacén de Backup**.<br>
-    Si no encuentra la opción **Almacén de Backup** en la lista desplegable, elija la opción **Usuario, grupo o entidad de servicio de Azure AD**.<br>
+   - **Rol:** elija el rol **Lector** en la lista desplegable.<br>
+   - **Asignar acceso a:** elija la opción **Usuario, grupo o entidad de servicio** en la lista desplegable.<br>
+   - **Seleccionar**: escriba el nombre del almacén de Backup en el que desea realizar la copia de seguridad de este servidor y sus bases de datos.<br>
 
-    ![Seleccionar rol](./media/backup-azure-database-postgresql/select-role.png)
-
-    **Seleccionar**: escriba el nombre del almacén de Backup en el que desea realizar la copia de seguridad de este servidor y sus bases de datos.<br>
-
-    ![Especificar el nombre del almacén de Backup](./media/backup-azure-database-postgresql/enter-backup-vault-name.png)
+    ![Seleccionar rol](./media/backup-azure-database-postgresql/select-role-and-enter-backup-vault-name.png)
 
 ### <a name="usererrorbackupuserauthfailed"></a>UserErrorBackupUserAuthFailed
 

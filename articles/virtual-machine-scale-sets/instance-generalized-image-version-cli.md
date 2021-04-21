@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 05/01/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: e360ae3cf0c463add9e6445a96c118d9f40ce9cb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: de50540345ac6170d229549cad736dafb04e488c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98878043"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107792370"
 ---
 # <a name="create-a-scale-set-from-a-generalized-image-with-azure-cli"></a>Creación de un conjunto de escalado a partir de una imagen generalizada con la CLI de Azure
 
@@ -24,7 +24,7 @@ Si decide instalar y usar la CLI de forma local, en este tutorial es preciso que
 
 Reemplace los nombres de los recursos según sea necesario en este ejemplo. 
 
-Enumere las definiciones de imagen en una galería mediante [az sig image-definition list](/cli/azure/sig/image-definition#az-sig-image-definition-list) para ver el nombre y el identificador de las definiciones.
+Enumere las definiciones de imagen en una galería mediante [az sig image-definition list](/cli/azure/sig/image-definition#az_sig_image_definition_list) para ver el nombre y el identificador de las definiciones.
 
 ```azurecli-interactive 
 resourceGroup=myGalleryRG
@@ -36,7 +36,7 @@ az sig image-definition list \
    --output tsv
 ```
 
-Cree el conjunto de escalado mediante [`az vmss create`](/cli/azure/vmss#az-vmss-create). 
+Cree el conjunto de escalado mediante [`az vmss create`](/cli/azure/vmss#az_vmss_create). 
 
 Use el identificador de definición de imagen en `--image` a fin de crear las instancias del conjunto de escalado a partir de la versión más reciente de la imagen que esté disponible. También puede crear las instancias del conjunto de escalado a partir de una versión específica si proporciona el identificador de la versión de la imagen en el parámetro `--image`. Tenga en cuenta que el uso de una versión de imagen específica significa que la automatización podría producir un error si dicha versión no está disponible porque se eliminó o se quitó de la región. Se recomienda usar el identificador de definición de la imagen para crear la nueva máquina virtual, a menos que se requiera una versión de imagen específica.
 
