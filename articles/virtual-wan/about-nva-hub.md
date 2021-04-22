@@ -7,18 +7,18 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: scottnap
-ms.openlocfilehash: d5af0cc4eb72a2db850e19e47ed11cd9f6f4536e
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: e70b899ea0133704e4ecab42dd4c2a09bca41804
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106061866"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107226318"
 ---
 # <a name="about-network-virtual-appliance-in-an-azure-virtual-wan-hub-preview"></a>Acerca de una aplicación virtual de red en un centro de conectividad de Azure Virtual WAN (versión preliminar)
 
 Azure Virtual WAN ha trabajado con asociados de red para crear una automatización que facilite la conexión de su equipo local del cliente (CPE) a una puerta de enlace de VPN de Azure que se encuentre en el centro de conectividad virtual. Azure trabaja con algunos asociados de red seleccionados para que los clientes implementen una aplicación virtual de red (NVA) de terceros directamente en el centro de conectividad virtual. Esto permite a los clientes conectar el CPE de su rama a la NVA de la misma marca en el centro de conectividad virtual para poder sacar provecho de todas las funcionalidades propias de SD-WAN.
 
-Las redes Barracuda y Cisco Systems son los primeros asociados en proporcionar las NVA que se pueden implementar directamente en el centro de conectividad de Virtual WAN.  Consulte [Barracuda CloudGen WAN](https://www.barracuda.com/products/cloudgenwan) y [Cisco Cloud OnRamp for Multi-Cloud](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701) para ver la documentación del producto correspondiente. Azure está trabajando con más asociados, por lo que lo normal es que aparezcan otras ofertas.
+Las redes Barracuda y Cisco Systems son los primeros asociados en proporcionar las NVA que se pueden implementar directamente en el centro de conectividad de Virtual WAN.  Consulte [Barracuda CloudGen WAN](https://www.barracuda.com/products/cloudgenwan), [Cisco Cloud OnRamp for Multi-Cloud](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701) y [VMware SD-WAN](https://kb.vmware.com/s/article/82746) para ver la documentación del producto correspondiente. Azure está trabajando con más asociados, por lo que lo normal es que aparezcan otras ofertas.
 
 > [!NOTE]
 > Las únicas ofertas que se pueden implementar en el centro de Virtual WAN son las que están disponibles para ello. No se pueden implementar en una red virtual arbitraria de Azure.

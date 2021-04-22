@@ -146,22 +146,24 @@
           href: document-translation/create-sas-tokens.md
     - name: Referencia
       items:
-        - name: Obtención de formatos de documento
-          href: document-translation/reference/get-document-formats.md
-        - name: Obtención de formatos de glosario
-          href: document-translation/reference/get-glossary-formats.md
-        - name: Obtención de origen de almacenamiento de documentos
-          href: document-translation/reference/get-document-storage-source.md
-        - name: Envío de solicitud por lotes
-          href: document-translation/reference/submit-batch-request.md
-        - name: Estado de documentos de operación Get
-          href: document-translation/reference/get-operation-documents-status.md
+        - name: Obtención de formatos de documento admitidos
+          href: document-translation/reference/get-supported-document-formats.md
+        - name: Obtención de formatos de glosario admitidos
+          href: document-translation/reference/get-supported-glossary-formats.md
+        - name: Obtención de orígenes de almacenamiento admitidos
+          href: document-translation/reference/get-supported-storage-sources.md
+        - name: Inicio de traducción
+          href: document-translation/reference/start-translation.md
         - name: Obtención del estado de los documentos
+          href: document-translation/reference/get-documents-status.md
+        - name: Obtención del estado del documento
           href: document-translation/reference/get-document-status.md
-        - name: Operaciones Get
-          href: document-translation/reference/get-operations.md
-        - name: Cancelar operación
-          href: document-translation/reference/cancel-operation.md
+        - name: Obtención del estado de las traducciones
+          href: document-translation/reference/get-translations-status.md
+        - name: Obtención del estado de la traducción
+          href: document-translation/reference/get-translation-status.md
+        - name: Cancelación de la traducción
+          href: document-translation/reference/cancel-translation.md
 - name: Guías paso a paso
   items:
     - name: Adecuado para empresas

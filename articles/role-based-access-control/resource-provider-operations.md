@@ -9,16 +9,16 @@ author: rolyon
 ms.author: rolyon
 ms.date: 04/09/2021
 ms.custom: generated
-ms.openlocfilehash: d6126e9d782765b992ae2fd51016984389c9b187
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: e11e03ec7379dede6bf998f639a237201c297e72
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107778308"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107303634"
 ---
 # <a name="azure-resource-provider-operations"></a>Operaciones del proveedor de recursos de Azure
 
-En esta sección se enumeran las operaciones de los proveedores de recursos de Azure, que se usan en roles integrados. Puede usar estas operaciones en [roles personalizados de Azure](custom-roles.md) para proporcionar un control de acceso pormenorizado a los recursos en Azure. Las operaciones del proveedor de recursos están en constante evolución. Para obtener las operaciones más recientes, use [Get AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) o [az provider operation list](/cli/azure/provider/operation#az_provider_operation_list).
+En esta sección se enumeran las operaciones de los proveedores de recursos de Azure, que se usan en roles integrados. Puede usar estas operaciones en [roles personalizados de Azure](custom-roles.md) para proporcionar un control de acceso pormenorizado a los recursos en Azure. Las operaciones del proveedor de recursos están en constante evolución. Para obtener las operaciones más recientes, use [Get AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) o [az provider operation list](/cli/azure/provider/operation#az-provider-operation-list).
 
 Haga clic en el nombre del proveedor de recursos en la tabla siguiente para ver la lista de operaciones.
 
@@ -10082,7 +10082,7 @@ Servicio de Azure: [Azure Arc](../azure-arc/index.yml)
 > | Microsoft.HybridCompute/machines/patchInstallationResults/read | Lee cualquier valor de patchInstallationResults de Azure Arc. |
 > | Microsoft.HybridCompute/machines/patchInstallationResults/softwarePatches/read | Lee cualquier valor de patchInstallationResults/softwarePatches de Azure Arc. |
 > | Microsoft.HybridCompute/operations/read | Lee todas las operaciones de Azure Arc para servidores. |
-> | Microsoft.HybridCompute/privateLinkScopes/read | Lee cualquier privateLinkScopes de Azure Arc. |
+> | Microsoft.HybridCompute/privateLinkScopes/read | Lee cualquier objeto privateLinkScopes de Azure Arc. |
 > | Microsoft.HybridCompute/privateLinkScopes/write | Escribe cualquier objeto privateLinkScopes de Azure Arc. |
 > | Microsoft.HybridCompute/privateLinkScopes/delete | Elimina cualquier objeto privateLinkScopes de Azure Arc. |
 > | Microsoft.HybridCompute/privateLinkScopes/privateEndpointConnections/read | Lee cualquier objeto privateEndpointConnections de Azure Arc. |

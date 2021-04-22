@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 774eb05ae43e393db3d11e8e21a427736614809b
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: a37b740333e599d19248ffa9b21be3e4d6fe78b3
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106285117"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306303"
 ---
 # <a name="language-support-for-computer-vision"></a>Compatibilidad con idiomas para Computer Vision
 
@@ -25,7 +25,7 @@ Algunas características de Computer Vision admiten varios idiomas; las caracter
 
 Las API de OCR de Computer Vision admiten varios idiomas. No requieren que especifique un código de idioma. Consulte [Información general sobre el reconocimiento óptico de caracteres (OCR)](overview-ocr.md) para más información.
 
-|Idioma| Código de lenguaje | API de OCR | Read 3.0/3.1 | Read v3.2 versión preliminar |
+|Idioma| Código de lenguaje | API de OCR | Read 3.0/3.1 | Read v3.2 |
 |:-----|:----:|:-----:|:---:|:---:|
 |Afrikáans|`af`| | |✔ |
 |Albanés |`sq`| | |✔ |
@@ -46,7 +46,7 @@ Las API de OCR de Computer Vision admiten varios idiomas. No requieren que espec
 |Danés | `da` |✔ | |✔ |
 |Neerlandés | `nl` |✔ |✔ |✔ |
 |Inglés | `en` |✔ |✔ |✔ |
-|Estonio  |`crh`| | |✔ |
+|Estonio  |`et`| | |✔ |
 |Fiyiano |`fj`| | |✔ |
 |Filipino  |`fil`| | |✔ |
 |Finés | `fi` |✔ | |✔ |

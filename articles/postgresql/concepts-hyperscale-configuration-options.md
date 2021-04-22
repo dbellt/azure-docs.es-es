@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 04/07/2021
-ms.openlocfilehash: ae416c9acd03b3ee239a858aae550fb87293465a
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: 1dd0666c2946896ed324fb3986bb7946890b73de
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107012792"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107388710"
 ---
 # <a name="azure-database-for-postgresql--hyperscale-citus-configuration-options"></a>Opciones de configuración de Hiperescala (Citus) para Azure Database for PostgreSQL
 
@@ -21,7 +21,7 @@ ms.locfileid: "107012792"
  
 Puede seleccionar la configuración de proceso y almacenamiento por separado para los nodos de trabajo y el nodo de coordinación en un grupo de servidores Hiperescala (Citus).  Los recursos de proceso se proporcionan como núcleos virtuales, que representan la CPU lógica del hardware subyacente. El tamaño de almacenamiento para el aprovisionamiento se refiere a la capacidad disponible para los nodos de trabajo y de coordinación en el grupo de servidores Hiperescala (Citus). El almacenamiento incluye archivos de base de datos, archivos temporales, registros de transacciones y registros de servidor PostgreSQL.
 
-### <a name="standard-tier"></a>Nivel Standard
+### <a name="standard-tier"></a>Nivel estándar
  
 | Recurso              | Nodo de trabajo           | Nodo de coordinación      |
 |-----------------------|-----------------------|-----------------------|
@@ -78,7 +78,7 @@ Para todo el clúster de Hiperescala (Citus), las IOPS agregadas alcanzan los si
 > [!IMPORTANT]
 > El nivel Básico de Hiperescala (Citus) está actualmente en versión preliminar.  Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
 >
-> Puede ver una lista completa de otras características nuevas en [Características en versión preliminar de Hiperescala (Citus)](hyperscale-preview-features.md).
+> Puede ver una lista completa de otras características nuevas en [Características en versión preliminar de Hiperescala (Citus) de PostgreSQL](hyperscale-preview-features.md).
 
 El [nivel Básico](concepts-hyperscale-tiers.md) es un grupo de servidores con solo un nodo.  Dado que no hay una distinción entre los nodos de coordinación y de trabajo, es menos complicado elegir recursos de proceso y almacenamiento.
 
@@ -110,6 +110,7 @@ La cantidad total de almacenamiento que se aprovisiona también define la capaci
 Los grupos de servidores Hiperescala (Citus) están disponibles en las siguientes regiones de Azure:
 
 * América:
+    * Sur de Brasil
     * Centro de Canadá
     * Centro de EE. UU.
     * Este de EE. UU.*
@@ -122,6 +123,7 @@ Los grupos de servidores Hiperescala (Citus) están disponibles en las siguiente
     * Centro de Corea del Sur
     * Sudeste de Asia
 * Europa:
+    * Centro de Francia
     * Norte de Europa
     * Sur de Reino Unido
     * Oeste de Europa
