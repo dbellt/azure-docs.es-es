@@ -1,22 +1,22 @@
 ---
-title: Recopilación de métricas del interruptor Resilience4J de Spring Cloud
-description: Recopilación de métricas del interruptor Resilience4J de Spring Cloud.
+title: Recopilación de métricas del interruptor Resilience4J de Spring Cloud con Micrometer
+description: Cómo recopilar de métricas del interruptor Resilience4J de Spring Cloud con Micrometer en Azure Spring Cloud.
 author: MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 12/15/2020
-ms.custom: devx-track-java
-ms.openlocfilehash: 9fc8ccc5ba21f02885b2002d5040051baac92068
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: devx-track-java, devx-track-azurecli
+ms.openlocfilehash: fedebd9182c168b9b7c455d5f6726e66720e0a8b
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104877481"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107479166"
 ---
-# <a name="collect-spring-cloud-resilience4j-circuit-breaker-metrics-preview"></a>Recopilación de métricas del interruptor Resilience4J de Spring Cloud (versión preliminar)
+# <a name="collect-spring-cloud-resilience4j-circuit-breaker-metrics-with-micrometer-preview"></a>Recopilación de métricas del interruptor Resilience4J de Spring Cloud con Micrometer (versión preliminar)
 
-En este documento se explica cómo recopilar métricas del interruptor Resilience4j de Spring Cloud con el agente en proceso de Java de Application Insights.  Con esta característica, se pueden supervisar las métricas del interruptor resilience4j desde Application Insights.
+En este documento se explica cómo recopilar métricas del interruptor Resilience4j de Spring Cloud con el agente en proceso de Java de Application Insights. Con esta característica, se pueden supervisar las métricas del interruptor Resilience4J desde Application Insights con Micrometer.
 
 Usamos [spring-cloud-circuit-breaker-demo](https://github.com/spring-cloud-samples/spring-cloud-circuitbreaker-demo) para mostrar su funcionamiento.
 
