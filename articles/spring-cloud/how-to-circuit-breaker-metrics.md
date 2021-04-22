@@ -6,13 +6,13 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 12/15/2020
-ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: fedebd9182c168b9b7c455d5f6726e66720e0a8b
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.custom: devx-track-java
+ms.openlocfilehash: 0b24e8e07b4038d6def9945b7c347bb81ae5378b
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107479166"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258187"
 ---
 # <a name="collect-spring-cloud-resilience4j-circuit-breaker-metrics-with-micrometer-preview"></a>Recopilación de métricas del interruptor Resilience4J de Spring Cloud con Micrometer (versión preliminar)
 
