@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.author: weetok
 author: dcstwh
 ms.date: 07/16/2020
-ms.openlocfilehash: 5c1a55518c0fac04eafad79a2ed3f7b3677de5e9
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: d0b941325d6bbabcb083b5f71a40c145d3ef48d0
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106223241"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107103477"
 ---
 # <a name="execute-azure-machine-learning-pipelines-in-azure-data-factory"></a>Ejecución de canalizaciones de Azure Machine Learning en Azure Data Factory
 
@@ -55,6 +55,7 @@ mlPipelineId | Identificador de la canalización de Azure Machine Learning publi
 experimentName | Nombre de experimento del historial de ejecuciones de la canalización de Machine Learning | Cadena (o expresión con un valor resultType de cadena) | No
 mlPipelineParameters | Pares clave-valor que se pasan al punto de conexión de la canalización de Azure Machine Learning publicada. Las claves deben coincidir con los nombres de los parámetros de la canalización definidos en la canalización de Machine Learning publicada. | Objeto con pares clave-valor (o expresión con objeto resultType) | No
 mlParentRunId | El identificador principal de la ejecución de la canalización de Azure Machine Learning | Cadena (o expresión con un valor resultType de cadena) | No
+dataPathAssignments | Diccionario que se usa para cambiar las rutas de acceso a los datos en Azure Machine Learning. Habilita el cambio de rutas de acceso a datos. | Objeto con pares clave-valor | No
 continueOnStepFailure | Puede decidir si se continúa la ejecución del resto de pasos de la ejecución de la canalización de Machine Learning si se produce un error en un paso. | boolean | No
 
 > [!NOTE]

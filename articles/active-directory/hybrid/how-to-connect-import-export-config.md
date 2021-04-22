@@ -11,12 +11,12 @@ ms.date: 07/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d67460c654c854c5a855560dde1d67732fa818c7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0e2bdaa2c7a7648124fbe0be60e5a0af2f83238f
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98681962"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107226568"
 ---
 # <a name="import-and-export-azure-ad-connect-configuration-settings"></a>Importación y exportación de opciones de configuración de Azure AD Connect 
 
@@ -42,7 +42,7 @@ Para importar una configuración anteriormente exportada:
 1. Seleccione **Importar configuración de sincronización**. Busque el archivo de configuración JSON anteriormente exportado.
 1. Seleccione **Instalar**.
 
-   ![Captura de pantalla que muestra la pantalla para instalar componentes necesarios](media/how-to-connect-import-export-config/import1.png)
+   ![Captura de pantalla que muestra la pantalla para instalar componentes necesarios](media/how-to-connect-import-export-config/import-1.png)
 
 > [!NOTE]
 > Invalide la configuración de esta página, como el uso de SQL Server en lugar de LocalDB o el uso de una cuenta de servicio existente en lugar de la VSA predeterminada. Esta configuración no se importa desde el archivo de configuración. Está allí para fines de comparación e información.
@@ -57,7 +57,7 @@ Estos son los únicos cambios que se pueden realizar durante la experiencia de i
 - **Credenciales del directorio local**: para cada directorio local incluido en la configuración de sincronización, debe proporcionar credenciales para crear una cuenta de sincronización o suministrar una cuenta de sincronización personalizada creada previamente. Este procedimiento es idéntico a la experiencia de instalación limpia, con la excepción de que no se pueden agregar ni quitar directorios.
 - **Opciones de configuración**: al igual que con una instalación limpia, puede optar por configurar las opciones iniciales de si quiere iniciar la sincronización automática o habilitar el modo de almacenamiento provisional. La principal diferencia es que el modo de almacenamiento provisional está habilitado intencionadamente de forma predeterminada para permitir la comparación de los resultados de la configuración y la sincronización antes de exportar activamente los resultados a Azure.
 
-![Captura de pantalla que muestra la pantalla para conectar los directorios](media/how-to-connect-import-export-config/import2.png)
+![Captura de pantalla que muestra la pantalla para conectar los directorios](media/how-to-connect-import-export-config/import-2.png)
 
 > [!NOTE]
 > Solo un servidor de sincronización puede estar en el rol principal y exportar activamente los cambios de configuración a Azure. Todos los demás servidores deben colocarse en Modo provisional.
@@ -71,21 +71,27 @@ La migración requiere la ejecución de un script de PowerShell que extraiga la 
 ### <a name="migration-process"></a>Proceso de migración 
 Migración de la configuración:
 
-1. Inicie **AzureADConnect.msi** en el nuevo servidor de almacenamiento provisional y deténgase en la página **principal** de Azure AD Connect.
+ 1. Inicie **AzureADConnect.msi** en el nuevo servidor de almacenamiento provisional y deténgase en la página **principal** de Azure AD Connect.
 
-1. Copie **MigrateSettings.ps1** del directorio Microsoft Azure AD Connect\Tools en una ubicación del servidor existente. Un ejemplo es C:\setup, donde "setup" es un directorio creado en el servidor existente.
+ 2. Copie **MigrateSettings.ps1** del directorio Microsoft Azure AD Connect\Tools en una ubicación del servidor existente. Un ejemplo es C:\setup, donde "setup" es un directorio creado en el servidor existente.</br>
+     ![Captura de pantalla que muestra los directorios de Azure AD Connect.](media/how-to-connect-import-export-config/migrate-1.png)
 
-   ![Captura de pantalla que muestra los directorios de Azure AD Connect.](media/how-to-connect-import-export-config/migrate1.png)
+     >[!NOTE]
+     > Si ve un mensaje que indica que no se encuentra un parámetro posicional que acepte el argumento **True**, como se indica a continuación:
+     >
+     >
+     >![Captura de pantalla del error](media/how-to-connect-import-export-config/migrate-5.png). Después edite el archivo MigrateSettings.ps1 y quite **$true** y ejecute el script: ![Captura de pantalla de la edición de la configuración](media/how-to-connect-import-export-config/migrate-6.png)
+ 
 
-1. Ejecute el script tal como se muestra a continuación y guarde todo el directorio de configuración del servidor de nivel inferior. Copie este directorio en el nuevo servidor de almacenamiento provisional. Debe copiar toda la carpeta **Exported-ServerConfiguration-** * al nuevo servidor.
 
-   ![Captura de pantalla que muestra el script en Windows PowerShell.](media/how-to-connect-import-export-config/migrate2.png)
-   ![Captura de pantalla que muestra la copia de la carpeta Exported-ServerConfiguration-*.](media/how-to-connect-import-export-config/migrate3.png)
 
-1. Haga doble clic en el icono de **Azure AD Connect** en el escritorio para iniciarlo. Acepte los términos de licencia del software de Microsoft y seleccione **Personalizar** en la siguiente página.
-1. Seleccione la casilla **Importar configuración de sincronización**. Seleccione **Examinar** para examinar la carpeta Exported-ServerConfiguration-* que se ha copiado. Seleccione MigratedPolicy.json para importar la configuración migrada.
+ 3. Ejecute el script tal como se muestra a continuación y guarde todo el directorio de configuración del servidor de nivel inferior. Copie este directorio en el nuevo servidor de almacenamiento provisional. Debe copiar toda la carpeta **Exported-ServerConfiguration-** * al nuevo servidor.
+     ![Captura de pantalla que muestra el script en Windows PowerShell.](media/how-to-connect-import-export-config/migrate-2.png)![Captura de pantalla que muestra la copia de la carpeta Exported-ServerConfiguration-*.](media/how-to-connect-import-export-config/migrate-3.png)
 
-   ![Captura de pantalla que muestra la opción para importar la configuración de la sincronización.](media/how-to-connect-import-export-config/migrate4.png)
+ 4. Haga doble clic en el icono de **Azure AD Connect** en el escritorio para iniciarlo. Acepte los términos de licencia del software de Microsoft y seleccione **Personalizar** en la siguiente página.
+ 5. Seleccione la casilla **Importar configuración de sincronización**. Seleccione **Examinar** para examinar la carpeta Exported-ServerConfiguration-* que se ha copiado. Seleccione MigratedPolicy.json para importar la configuración migrada.
+
+     ![Captura de pantalla que muestra la opción para importar la configuración de la sincronización.](media/how-to-connect-import-export-config/migrate-4.png)
 
 ## <a name="post-installation-verification"></a>Comprobación posterior a la instalación 
 

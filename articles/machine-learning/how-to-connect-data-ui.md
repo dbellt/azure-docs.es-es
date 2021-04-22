@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.custom: how-to, data4ml
-ms.openlocfilehash: 0e2230bdcf2b2f4358db4a0d600506b711f39c45
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a0265984c4ae83b8869071017e2fb571a7ff548c
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102508238"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107027659"
 ---
 # <a name="connect-to-data-with-the-azure-machine-learning-studio"></a>Conexión a los datos con Azure Machine Learning Studio
 
@@ -69,7 +69,7 @@ En el ejemplo siguiente se muestra el aspecto que tendría el formulario al crea
 Después de crear un almacén de datos, cree un conjunto de datos para interactuar con los datos. Los conjuntos de datos empaquetan sus datos en un objeto consumible evaluado de forma diferida para tareas de aprendizaje automático, como un curso. [Más información sobre los conjuntos de datos](how-to-create-register-datasets.md).
 
 Hay dos tipos de conjuntos de datos, FileDataset y TabularDataset. 
-Los objetos [FileDataset](how-to-create-register-datasets.md#filedataset) crean referencias a uno o varios archivos o direcciones URL públicas. Mientras que los objetos [TabularDataset](how-to-create-register-datasets.md#tabulardataset) representan los datos en formato tabular. 
+Los objetos [FileDataset](how-to-create-register-datasets.md#filedataset) crean referencias a uno o varios archivos o direcciones URL públicas. Mientras que los objetos [TabularDataset](how-to-create-register-datasets.md#tabulardataset) representan los datos en formato tabular. Puede crear objetos TabularDataset a partir de archivos .csv, .tsv, .parquet y .jsonl, así como de los resultados de una consulta SQL.
 
 Los siguientes pasos y la animación muestran cómo crear un conjunto de datos en [Azure Machine Learning Studio](https://ml.azure.com).
 

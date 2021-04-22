@@ -5,21 +5,24 @@ services: service-bus-messaging
 author: clemensv
 ms.service: service-bus-messaging
 ms.topic: include
-ms.date: 11/24/2020
+ms.date: 04/08/2021
 ms.author: clemensv
 ms.custom: include file
-ms.openlocfilehash: ca483d0b71bde945a7e46da785dd6a76b3a8f177
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 08fccf366321b075542f36b86c9bf22d5d877167
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98693413"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107304435"
 ---
-La opción de protocolo AMQP sobre WebSockets se ejecuta a través del puerto TCP 443 como la API HTTP o de REST, pero, de lo contrario, es funcionalmente idéntica a AMQP sin modificar. Esta opción tiene una latencia de conexión inicial un poco más alta debido a los intercambios de protocolo de enlace adicionales y una sobrecarga ligeramente mayor como compensación para compartir el puerto HTTPS. Si se selecciona este modo, el puerto TCP 443 es suficiente para la comunicación. Las opciones siguientes permiten seleccionar el modo WebSockets AMQP o AMQP:
+La opción de protocolo AMQP sobre WebSockets se ejecuta a través del puerto TCP 443 como la API HTTP o de REST, pero, de lo contrario, es funcionalmente idéntica a AMQP sin modificar. Esta opción tiene una mayor latencia de conexión inicial debido a los intercambios de protocolo de enlace adicionales y una sobrecarga ligeramente mayor como compensación para compartir el puerto HTTPS. Si se selecciona este modo, el puerto TCP 443 es suficiente para la comunicación. Las opciones siguientes permiten seleccionar el modo WebSockets AMQP. 
 
 | Lenguaje | Opción   |
 | -------- | ----- |
-| .NET     | La propiedad [ServiceBusConnection.TransportType](/dotnet/api/microsoft.azure.servicebus.servicebusconnection.transporttype) con [TransportType.Amqp](/dotnet/api/microsoft.azure.servicebus.transporttype) o [TransportType.AmqpWebSockets](/dotnet/api/microsoft.azure.servicebus.transporttype) |
-| Java     | [com.microsoft.azure.servicebus.ClientSettings](/java/api/com.microsoft.azure.servicebus.clientsettings.clientsettings) con [com.microsoft.azure.servicebus.primitives.TransportType.AMQP](/java/api/com.microsoft.azure.servicebus.primitives.transporttype) o [com.microsoft.azure.servicebus.primitives.TransportType.AMQP_WEB_SOCKETS](/java/api/com.microsoft.azure.servicebus.primitives.transporttype) |
-| Nodo  | [ServiceBusClientOptions](/javascript/api/@azure/service-bus/servicebusclientoptions) tiene un argumento de constructor `webSocket`. |
-| Python | [ServiceBusClient.transport_type](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-servicebus/latest/azure.servicebus.html#azure.servicebus.ServiceBusClient) con [TransportType.Amqp](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-servicebus/latest/azure.servicebus.html#azure.servicebus.TransportType) o [TransportType.AmqpOverWebSocket](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-servicebus/latest/azure.servicebus.html#azure.servicebus.TransportType) |
+| .NET (Azure.Messaging.ServiceBus)    | Cree [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient.-ctor) mediante un constructor que adopte [ServiceBusClientOptions](/dotnet/api/azure.messaging.servicebus.servicebusclientoptions) como parámetro. Establezca [ServiceBusClientOptions.TransportType](/dotnet/api/azure.messaging.servicebus.servicebusclientoptions.transporttype) en [ServiceBusTransportType.AmqpWebSockets](/dotnet/api/azure.messaging.servicebus.servicebustransporttype). |
+| .NET (Microsoft.Azure.ServiceBus)    | Al crear objetos de cliente, use constructores que adoptan [TransportType](/dotnet/api/microsoft.azure.servicebus.transporttype), [ServiceBusConnection](/dotnet/api/microsoft.azure.servicebus.servicebusconnection) o [ServiceBusConnectionStringBuilder](/dotnet/api/microsoft.azure.servicebus.servicebusconnectionstringbuilder) como parámetros. <p>Para la construcción que adopta `transportType` como parámetro, establezca el parámetro en [TransportType.AmqpWebSockets](/dotnet/api/microsoft.azure.servicebus.transporttype).</p> <p>Para el constructor que adopta `ServiceBusConnection` como parámetro, establezca [ServiceBusConnection.TransportType](/dotnet/api/microsoft.azure.servicebus.servicebusconnection.transporttype) en [TransportType.AmqpWebSockets](/dotnet/api/microsoft.azure.servicebus.transporttype).</p> <p>Si utiliza `ServiceBusConnectionStringBuilder`, use constructores que le den una opción para especificar `transportType`.</p> |
+| Java (com.azure.messaging.servicebus)     | Al crear clientes, establezca [ServiceBusClientBuilder.transportType](/java/api/com.azure.messaging.servicebus.servicebusclientbuilder.transporttype) en [AmqpTransportType.AMQP.AMQP_WEB_SOCKETS](/java/api/com.azure.core.amqp.amqptransporttype). |
+| Java (com.microsoft.azure.servicebus)    | Al crear clientes, establezca `transportType` de [com.microsoft.azure.servicebus.ClientSettings](/java/api/com.microsoft.azure.servicebus.clientsettings.clientsettings#com_microsoft_azure_servicebus_ClientSettings_ClientSettings_com_microsoft_azure_servicebus_security_TokenProvider_com_microsoft_azure_servicebus_primitives_RetryPolicy_java_time_Duration_com_microsoft_azure_servicebus_primitives_TransportType_) en [com.microsoft.azure.servicebus.primitives.TransportType.AMQP_WEB_SOCKETS](/java/api/com.microsoft.azure.servicebus.primitives.transporttype). |
+| JavaScript  | Al crear objetos de cliente de Service Bus, use la propiedad `webSocketOptions` en [ServiceBusClientOptions](/javascript/api/@azure/service-bus/servicebusclientoptions). |
+| Python | Al crear clientes de Service Bus, establezca [ServiceBusClient.transport_type](/python/api/azure-servicebus/azure.servicebus.servicebusclient) en [TransportType.AmqpOverWebSocket](/python/api/azure-servicebus/azure.servicebus.transporttype). |
+

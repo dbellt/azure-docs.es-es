@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 10/21/2020
 ms.author: ccompy
-ms.openlocfilehash: a4eb22320a15cc76a7543c25583003d57ea4e538
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 821746856cb37781c8f6a2e58659ce7db43e1479
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102473751"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105609485"
 ---
 Cuando se utiliza la versión regional de Integración con red virtual, la aplicación puede acceder a:
 
@@ -26,10 +26,10 @@ Si Integración con red virtual se utiliza con redes virtuales de la misma regi�
 * **Grupos de seguridad de red (NSG)** : el tráfico saliente se puede bloquear con un grupo de seguridad de red que se encuentre en la subred de integración. Las reglas de entrada no se aplican, ya que Integración con red virtual no se puede usar para proporcionar acceso de entrada a la aplicación.
 * **Tablas de enrutamiento (UDR)** : puede colocar una tabla de enrutamiento en la subred de integración para enviar el tráfico de salida donde quiera.
 
-De forma predeterminada, su aplicación solo enruta el tráfico de RFC 1918 a su VNet. Si desea enrutar todo el tráfico de salida a la red virtual, aplique el valor WEBSITE_VNET_ROUTE_ALL a la aplicación. Para configurar este valor de la aplicación:
+De forma predeterminada, su aplicación solo enruta el tráfico de RFC 1918 a su VNet. Si desea enrutar todo el tráfico de salida a la red virtual, use los pasos siguientes para agregar el valor `WEBSITE_VNET_ROUTE_ALL` en la aplicación: 
 
 1. Vaya a la interfaz de usuario de **Configuración** en el portal de la aplicación. Seleccione **New application setting** (Nueva configuración de la aplicación).
-1. Escriba **WEBSITE_VNET_ROUTE_ALL** en el cuadro **Nombre** y **1** en el cuadro **Valor**.
+1. Escriba `WEBSITE_VNET_ROUTE_ALL` en el cuadro **Nombre** y `1` en el cuadro **Valor**.
 
    ![Configuración del valor de la aplicación][4]
 
@@ -37,7 +37,7 @@ De forma predeterminada, su aplicación solo enruta el tráfico de RFC 1918 a s
 1. Seleccione **Guardar**.
 
 > [!NOTE]
-> Si enruta todo el tráfico de salida a la VNet, este estará sujeto a los grupos de seguridad de red y las rutas definidas por los usuarios que se apliquen a la subred de integración. Si enruta todo el tráfico de salida a la VNet, las direcciones de salida seguirán siendo las que aparecen en las propiedades de la aplicación, a menos que proporcione otras rutas para enviar allí el tráfico.
+> Si enruta todo el tráfico de salida a la VNet, este estará sujeto a los grupos de seguridad de red y las rutas definidas por los usuarios que se apliquen a la subred de integración. Cuando `WEBSITE_VNET_ROUTE_ALL` se establece en `1`, el tráfico de salida sigue enviándose desde las direcciones que se muestran en las propiedades de la aplicación, a menos que proporcione rutas que dirijan el tráfico a otro lugar.
 > 
 > La integración de red virtual regional no puede usar el puerto 25.
 
@@ -52,70 +52,63 @@ Existen algunas limitaciones cuando se la característica Integración con red v
 * No puede eliminar una VNet con una aplicación integrada. Quite la integración antes de eliminar la VNet.
 * Solo se puede tener una característica Integración con red virtual regional por plan de App Service. Varias aplicaciones en el mismo plan de App Service pueden usar la misma red virtual.
 * No se puede cambiar la suscripción de una aplicación o un plan mientras haya una aplicación que use Integración con red virtual regional.
-* La aplicación no puede resolver direcciones en Azure DNS Private Zones sin que se realicen cambios en la configuración
+* La aplicación no puede resolver direcciones en Azure DNS Private Zones sin que se realicen cambios en la configuración.
 
-La integración con red virtual depende del uso de una subred dedicada.  Al aprovisionar una subred, la subred de Azure pierde 5 direcciones IP desde el inicio. Se usa una dirección de la subred de integración para cada instancia del plan. Si escala la aplicación a cuatro instancias, se usan cuatro direcciones. El débito de 5 direcciones del tamaño de la subred significa que el número máximo de direcciones disponibles por bloque CIDR es:
+La integración con red virtual depende de una subred dedicada. Al aprovisionar una subred, la subred de Azure pierde cinco direcciones IP desde el inicio. Se usa una dirección de la subred de integración para cada instancia del plan. Si escala la aplicación a cuatro instancias, se usan cuatro direcciones. 
 
-- /28 tiene 11 direcciones
-- /27 tiene 27 direcciones
-- /26 tiene 59 direcciones
+Al escalar o reducir verticalmente el tamaño, el espacio de direcciones necesario se duplica durante un breve período de tiempo. Esto afecta a las instancias admitidas reales y disponibles para un tamaño de subred determinado. En la tabla siguiente se muestran las direcciones máximas disponibles por bloque CIDR y el impacto que esto tiene en la escala horizontal:
 
-Si escala o reduce verticalmente el tamaño, necesita doblar la necesidad de la dirección durante un breve período de tiempo. Los límites de tamaño significan que las instancias compatibles reales disponibles por tamaño de subred son:
+| Tamaño de bloque CIDR | Número máximo de direcciones disponibles | Escala horizontal máxima (instancias)<sup>*</sup> |
+|-----------------|-------------------------|---------------------------------|
+| /28             | 11                      | 5                               |
+| /27             | 27                      | 13                              |
+| /26             | 59                      | 29                              |
 
-- Si la subred es /28, la escala horizontal máxima es de 5 instancias
-- Si la subred es /27, la escala horizontal máxima es de 13 instancias
-- Si la subred es /26, la escala horizontal máxima es de 29 instancias
+<sup>*</sup>Se da por supuesto que tendrá que escalar o reducir verticalmente el tamaño o la SKU en algún momento. 
 
-Los límites indicados en la escala horizontal máxima dan por hecho que va a necesitar escalar o reducir verticalmente el tamaño o la SKU en algún momento. 
+Puesto que el tamaño de la subred no se puede cambiar después de la asignación, use una subred lo suficientemente grande como para dar cabida a cualquier escala que pueda alcanzar la aplicación. Para evitar problemas con la capacidad de la subred, debe usar /26 con 64 direcciones.  
 
-Puesto que el tamaño de la subred no se puede cambiar después de la asignación, use una subred lo suficientemente grande como para dar cabida a cualquier escala que pueda alcanzar la aplicación. Para evitar problemas con la capacidad de la subred, el tamaño recomendado es /26 con 64 direcciones.  
-
-Si quiere que las aplicaciones de otro plan lleguen a una VNet a la que ya están conectadas aplicaciones de otro plan, debe seleccionar una subred distinta a la usada por la característica Integración con VNet ya existente.
+Si quiere que las aplicaciones de otro plan lleguen a una VNet a la que ya están conectadas aplicaciones de otro plan, seleccione una subred distinta a la usada por la característica Integración con VNet ya existente.
 
 La característica es totalmente compatible con aplicaciones para Windows y Linux, incluidos los [contenedores personalizados](../articles/app-service/quickstart-custom-container.md). Todos los comportamientos actúan del mismo modo entre aplicaciones para Windows y Linux.
 
 ### <a name="service-endpoints"></a>Puntos de conexión del servicio
 
-La versión regional de Integración con red virtual permite utilizar puntos de conexión de servicio. Si desea usar puntos de conexión de servicio con la aplicación, utilice la versión regional de Integración con red virtual para conectarse a una VNet seleccionada y configurar después los puntos de conexión de servicio con el servicio de destino en la subred que utilice para realizar la integración. Si luego desea tener acceso a un servicio a través de puntos de conexión de servicio:
+La integración con red virtual regional le permite acceder a los servicios de Azure que están protegidos con puntos de conexión de servicio. Para acceder a un servicio protegido mediante puntos de conexión de servicio, debe hacer lo siguiente:
 
-1. Configure la versión regional de Integración con red virtual con su aplicación web.
-1. Vaya al servicio de destino y configure los puntos de conexión de servicio en la subred usada para la integración.
+1. Configure la versión regional de integración con red virtual con su aplicación web para conectarse a una subred específica para la integración.
+1. Vaya al servicio de destino y configure los puntos de conexión de servicio en la subred de integración.
 
 ### <a name="network-security-groups"></a>Grupos de seguridad de red
 
-Puede usar grupos de seguridad de red para bloquear el tráfico de entrada y salida de los recursos de una VNet. Una aplicación que emplee la versión regional de Integración con red virtual puede usar un [grupo de seguridad de red][VNETnsg] para bloquear el tráfico de salida a los recursos de la VNet o Internet. Para bloquear el tráfico dirigido a direcciones públicas, debe tener el valor WEBSITE_VNET_ROUTE_ALL de la aplicación establecido en 1. Las reglas de entrada de un grupo de seguridad de red no se aplican a la aplicación, ya que Integración con red virtual solo afecta al tráfico saliente de la aplicación.
+Puede usar grupos de seguridad de red para bloquear el tráfico de entrada y salida de los recursos de una VNet. Una aplicación que emplee la versión regional de Integración con red virtual puede usar un [grupo de seguridad de red][VNETnsg] para bloquear el tráfico de salida a los recursos de la VNet o Internet. Para bloquear el tráfico dirigido a direcciones públicas, debe tener el valor `WEBSITE_VNET_ROUTE_ALL` de la aplicación establecido en `1`. Las reglas de entrada de un grupo de seguridad de red no se aplican a la aplicación, ya que Integración con red virtual solo afecta al tráfico saliente de la aplicación.
 
-Para controlar el trafico de entrada a la aplicación, use la característica Restricciones de acceso. Un grupo de seguridad de red que se aplique a la subred de integración está en vigor, con independencia de las rutas aplicadas a la subred de integración. Si WEBSITE_VNET_ROUTE_ALL está establecido en 1 y no tiene ninguna ruta que afecte al tráfico de direcciones públicas en la subred de integración, todo el tráfico de salida sigue estando sujeto a los grupos de seguridad de red asignados a la subred de integración. Si WEBSITE_VNET_ROUTE_ALL no se ha definido, los grupos de seguridad de red solo se aplican al tráfico de RFC 1918.
+Para controlar el trafico de entrada a la aplicación, use la característica Restricciones de acceso. Un grupo de seguridad de red que se aplique a la subred de integración está en vigor, con independencia de las rutas aplicadas a la subred de integración. Si `WEBSITE_VNET_ROUTE_ALL` está establecido en `1` y no tiene ninguna ruta que afecte al tráfico de direcciones públicas en la subred de integración, todo el tráfico de salida sigue estando sujeto a los grupos de seguridad de red asignados a la subred de integración. Si `WEBSITE_VNET_ROUTE_ALL` no se ha definido, los grupos de seguridad de red solo se aplican al tráfico de RFC 1918.
 
 ### <a name="routes"></a>Rutas
 
-Las tablas de enrutamiento se pueden usar para enrutar el tráfico de salida de la aplicación al lugar que se desee. De forma predeterminada, las tablas de enrutamiento solo afectan al tráfico de destino de RFC 1918. Si WEBSITE_VNET_ROUTE_ALL se establece en 1, se verán afectadas todas las llamadas salientes. Las rutas que se establecen en la subred de integración no afectan a las respuestas a las solicitudes de entrada de la aplicación. Los destinos más habituales suelen ser puertas de enlace o dispositivos de firewall.
+Las tablas de enrutamiento se pueden usar para enrutar el tráfico de salida de la aplicación al lugar que se desee. De forma predeterminada, las tablas de enrutamiento solo afectan al tráfico de destino de RFC 1918. Al establecer`WEBSITE_VNET_ROUTE_ALL` en `1`, todas sus llamadas salientes se ven afectadas. Las rutas que se establecen en la subred de integración no afectan a las respuestas a las solicitudes de entrada de la aplicación. Los destinos más habituales suelen ser puertas de enlace o dispositivos de firewall.
 
 Si desea enrutar todo el tráfico de salida del entorno local, puede utilizar una tabla de rutas para enviar el tráfico de salida a la puerta de enlace de ExpressRoute. Si no enruta el tráfico a una puerta de enlace, asegúrese de establecer las rutas en la red externa para poder enviar de vuelta las respuestas.
 
-Las rutas del Protocolo de puerta de enlace de borde (BGP) también afectan al tráfico de la aplicación. Si tiene rutas de BGP cuyo origen es algo similar a una puerta de enlace de ExpressRoute, el tráfico de salida de la aplicación se verá afectado. De forma predeterminada, las rutas de BGP solo afectan al tráfico de destino de RFC 1918. Si WEBSITE_VNET_ROUTE_ALL está establecido en 1, todo el tráfico de salida puede verse afectado por las rutas de BGP.
+Las rutas del Protocolo de puerta de enlace de borde (BGP) también afectan al tráfico de la aplicación. Si tiene rutas de BGP cuyo origen es algo similar a una puerta de enlace de ExpressRoute, el tráfico de salida de la aplicación se verá afectado. De forma predeterminada, las rutas de BGP solo afectan al tráfico de destino de RFC 1918. Si `WEBSITE_VNET_ROUTE_ALL` está establecido en `1`, todo el tráfico de salida puede verse afectado por las rutas de BGP.
 
-### <a name="azure-dns-private-zones"></a>Azure DNS Private Zones 
+### <a name="azure-dns-private-zones"></a>Zonas privadas de Azure DNS 
 
-Una vez que la aplicación se integra con la red virtual, usa el mismo servidor DNS que el configurado para la red virtual. De forma predeterminada, la aplicación no funcionará con Azure DNS Private Zones. Para que lo haga es preciso agregar la siguiente configuración de la aplicación:
+Una vez que la aplicación se integra con la red virtual, usa el mismo servidor DNS que el configurado para la red virtual. De forma predeterminada, la aplicación no funcionará con zonas privadas de Azure DNS. Para que lo haga es preciso agregar la siguiente configuración de la aplicación:
 
+1. `WEBSITE_DNS_SERVER` con el valor `168.63.129.16`
+1. `WEBSITE_VNET_ROUTE_ALL` con el valor `1`
 
-1. WEBSITE_DNS_SERVER con el valor 168.63.129.16
-1. WEBSITE_VNET_ROUTE_ALL con el valor 1
-
-
-Esta configuración enviará todas las llamadas salientes desde la aplicación a la red virtual, además de permitir que la aplicación use Azure DNS Private Zones.   Esta configuración enviará todas las llamadas salientes desde la aplicación a la red virtual. Además, permitirá que la aplicación use Azure DNS consultando la zona de DNS privada en el nivel de trabajo. Esta funcionalidad se usa cuando una aplicación en ejecución accede a una zona DNS privada.
-
-> [!NOTE]
->No es posible intentar agregar un dominio personalizado a una aplicación web mediante una zona DNS privada con Integración con red virtual. La validación del dominio personalizado se realiza en el nivel de controlador, no en el nivel de trabajo, lo que impide que se vean los registros DNS. Para utilizar un dominio personalizado de una zona DNS privada, es necesario omitir la validación mediante una instancia de ILB App Service Environment o Application Gateway.
+Esta configuración envía todas las llamadas salientes desde la aplicación a la red virtual y permite que la aplicación tenga acceso a una zona privada de Azure DNS. Con esta configuración, su aplicación puede usar Azure DNS consultando la zona DNS privada en el nivel de trabajo.  
 
 ### <a name="private-endpoints"></a>Puntos de conexión privados
 
-Si quiere realizar llamadas a [Puntos de conexión privados][privateendpoints], debe asegurarse de que las búsquedas de DNS se resuelvan en el punto de conexión privado. Para asegurarse de que las búsquedas de DNS de la aplicación apunten a los puntos de conexión privados, puede:
+Si quiere realizar llamadas a [Puntos de conexión privados][privateendpoints], debe asegurarse de que las búsquedas de DNS se resuelvan en el punto de conexión privado. Puede aplicar este comportamiento de una de las siguientes formas: 
 
-* realizar la integración con Azure DNS Private Zones. Si la red virtual no tiene un servidor DNS personalizado, esto es automático
-* administrar el punto de conexión privado en el servidor DNS que usa la aplicación. Para ello, debe conocer la dirección del punto de conexión privado y, a continuación, apuntar el punto de conexión al que está intentando acceder a esa dirección con un registro A
-* configurar su propio servidor DNS para reenviarlo a Azure DNS Private Zones
+* Realizar la integración con zonas privadas de Azure DNS. Cuando la red virtual no tiene un servidor DNS personalizado, esto se hace automáticamente.
+* Administrar el punto de conexión privado en el servidor DNS que usa la aplicación. Para ello, debe conocer la dirección del punto de conexión privado y, a continuación, apuntar el punto de conexión al que está intentando acceder a esa dirección con un registro A.
+* Configurar su propio servidor DNS para reenviarlo a zonas privadas de Azure DNS.
 
 <!--Image references-->
 [4]: ../includes/media/web-sites-integrate-with-vnet/vnetint-appsetting.png
