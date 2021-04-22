@@ -5,49 +5,64 @@ description: Obtenga más información acerca de los procedimientos recomendados
 services: container-service
 author: zr-msft
 ms.topic: conceptual
-ms.date: 11/13/2019
+ms.date: 03/15/2021
 ms.author: zarhoads
-ms.openlocfilehash: 693cabac616dca8e108a2029c173a5e1b71c2695
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2cd2bab05346f66b933512e677f1d38f4514796c
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97516739"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107105279"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para desarrolladores de aplicaciones para administrar recursos en Azure Kubernetes Services (AKS)
 
-A medida que desarrolla y ejecuta aplicaciones en Azure Kubernetes Service (AKS), hay algunas áreas clave a tener en cuenta. El modo de administrar las implementaciones de aplicaciones puede repercutir negativamente en la experiencia del usuario final de los servicios que proporciona. A fin de tener éxito, tenga en cuenta algunos procedimientos recomendados que puede seguir a medida que desarrolla y ejecuta aplicaciones en AKS.
+A medida que desarrolla y ejecuta aplicaciones en Azure Kubernetes Service (AKS), hay algunas áreas clave a tener en cuenta. El modo de administrar las implementaciones de aplicaciones puede repercutir negativamente en la experiencia del usuario final de los servicios que proporciona. Para que el proceso sea correcto, tenga en cuenta algunos procedimientos recomendados que puede seguir a medida que desarrolla y ejecuta aplicaciones en AKS.
 
-Este artículo de procedimientos recomendados se centra en cómo ejecutar el clúster y las cargas de trabajo desde la perspectiva de un desarrollador de aplicaciones. Para obtener información acerca de los procedimientos recomendados, consulte [Procedimientos recomendados para el aislamiento y la administración de recursos en Azure Kubernetes Service (AKS)][operator-best-practices-isolation]. En este artículo, aprenderá lo siguiente:
+Este artículo se centra en la ejecución del clúster y las cargas de trabajo desde la perspectiva de un desarrollador de aplicaciones. Para obtener información acerca de los procedimientos recomendados, consulte [Procedimientos recomendados para el aislamiento y la administración de recursos en Azure Kubernetes Service (AKS)][operator-best-practices-isolation]. En este artículo, aprenderá lo siguiente:
 
 > [!div class="checklist"]
-> * Cuáles son los límites y solicitudes de recursos del pod
-> * Formas de desarrollar e implementar aplicaciones con Bridge to Kubernetes y Visual Studio Code
-> * Cómo usar la herramienta `kube-advisor` para comprobar si existen problemas con las implementaciones
+> * Solicitudes y límites de recursos de pod
+> * Formas de desarrollar e implementar aplicaciones con Bridge to Kubernetes y Visual Studio Code.
+> * Cómo usar la herramienta `kube-advisor` para comprobar si existen problemas con las implementaciones.
 
 ## <a name="define-pod-resource-requests-and-limits"></a>Definición de los límites y solicitudes de recursos del pod
 
-**Guía de procedimientos recomendados**: configure las solicitudes y los límites de pods en todos los pods de los manifiestos de YAML. Si el clúster de AKS usa *cuotas de recursos*, se puede rechazar la implementación si no define estos valores.
+> **Guía de procedimientos recomendados**
+> 
+> Configure las solicitudes y los límites de pod en todos los pods de los manifiestos de YAML. Si el clúster de AKS usa *cuotas de recursos* y no define estos valores, es posible que la implementación se rechace.
 
-Una manera principal de administrar los recursos de proceso dentro de un clúster de AKS consiste en usar solicitudes y límites de pods. Estos límites y solicitudes permiten que el programador de Kubernetes sepa qué recursos de proceso deben asignarse a un pod.
+Use las solicitudes y los límites de pod para administrar los recursos de proceso dentro de un clúster de AKS. Las solicitudes y los límites de pod informan al programador de Kubernetes sobre los recursos de proceso que se asignarán a un pod.
 
-* Las **solicitudes de CPU/memoria del pod** definen una cantidad establecida de CPU y memoria que el pod necesita regularmente.
-    * Cuando el programador de Kubernetes intenta colocar un pod en un nodo, las solicitudes de pods se usan para determinar qué nodo tiene suficientes recursos disponibles para la programación.
-    * Si no configura una solicitud de pod, el valor predeterminado será el límite definido.
-    * Es muy importante supervisar el rendimiento de su aplicación para ajustar estas solicitudes. Si se realizan solicitudes insuficientes de recursos de pod, su aplicación puede recibir un rendimiento degradado debido a la programación excesiva de un nodo. Si se sobreestiman las solicitudes, su aplicación puede tener mayores dificultades para ser programada.
-* Los **límites de CPU/memoria del pod** equivalen a la cantidad máxima de CPU y memoria que puede usar un pod. Los límites de memoria ayudan a definir qué pods deben eliminarse en caso de inestabilidad de nodos debido a recursos insuficientes. Sin los límites adecuados, los pods establecidos se terminarán hasta que se levante la presión de los recursos. Un pod puede o no superar el límite de CPU durante un período de tiempo, pero el pod no se terminará cuando se supere el límite de CPU. 
-    * Los límites de pod ayudan a definir cuándo ha perdido un pod el control del consumo de recursos. Cuando se supera un límite, el pod tiene prioridad de terminar para mantener el estado del nodo y minimizar el impacto en los pods que comparten el nodo.
-    * Al no establecer un límite de pod, el valor predeterminado es el valor más alto disponible en un nodo determinado.
-    * No establezca un límite de pods superior al que los nodos pueden admitir. Cada nodo de AKS reserva una cierta cantidad de CPU y memoria para los componentes básicos de Kubernetes. La aplicación puede intentar consumir demasiados recursos en el nodo para que otros pods se ejecuten correctamente.
-    * Nuevamente, es muy importante supervisar el rendimiento de su aplicación en diferentes momentos durante el día o la semana. Determine cuándo se produce la máxima demanda y alinee los límites de pods para que los recursos necesarios satisfagan las necesidades máximas de la aplicación.
+### <a name="pod-cpumemory-requests"></a>Solicitudes de CPU/memoria de pod
+Las *solicitudes de pod* definen una cierta cantidad de CPU y memoria que necesita el pod periódicamente.
 
 En las especificaciones de su pod, es un **procedimiento recomendado y muy importante**  definir estas solicitudes y límites en función de la información anterior. Si no incluye estos valores, el scheduler de Kubernetes no puede tener en cuenta los recursos que requieren sus aplicaciones para ayudarlo a tomar decisiones de programación.
 
-Si el Scheduler coloca un Pod en un nodo con recursos insuficientes, el rendimiento de la aplicación se degradará. Se recomienda encarecidamente a los administradores del clúster establecer *cuotas de recursos* en un espacio de nombres que requiera que establezca solicitudes y límites de recursos. Para obtener más información, consulte [cuotas de recursos en clústeres de AKS][resource-quotas].
+Supervise el rendimiento de la aplicación para ajustar las solicitudes de pod. 
+* Si subestima las solicitudes de pod, su aplicación puede recibir un rendimiento degradado debido a la programación excesiva de un nodo. 
+* Si se sobrestiman las solicitudes, su aplicación puede tener mayores dificultades para ser programada.
+
+### <a name="pod-cpumemory-limits"></a>Límites de CPU/memoria de pod** 
+Los *límites de pods* establecen la cantidad máxima de CPU y memoria que puede usar un pod. 
+
+* Los *límites de memoria* definen qué pods se deben terminar cuando los nodos son inestables por haber recursos insuficientes. Sin los límites adecuados, los pods establecidos se terminarán hasta que se levante la presión de los recursos. 
+* Aunque un pod puede exceder el *límite de CPU* periódicamente, el pod no se terminará por exceder el límite de CPU. 
+
+Los límites de pod definen cuándo ha perdido un pod el control del consumo de recursos. Cuando supera el límite, el pod se marca para su terminación. Este comportamiento mantiene el estado del nodo y minimiza el impacto en los pods que comparten el nodo. Al no establecer un límite de pod, el valor predeterminado es el valor más alto disponible en un nodo determinado.
+
+Evite establecer un límite de pod superior al que pueden admitir los nodos. Cada nodo de AKS reserva una cierta cantidad de CPU y memoria para los componentes básicos de Kubernetes. La aplicación puede intentar consumir demasiados recursos en el nodo para que otros pods se ejecuten correctamente.
+
+Supervise el rendimiento de la aplicación en distintos momentos del día o de la semana. Determine cuándo se produce la máxima demanda y ajuste en consonancia los límites del pod para que haya recursos necesarios para las necesidades máximas.
+
+> [!IMPORTANT]
+>
+> En las especificaciones de su pod, defina estas solicitudes y límites en función de la información anterior. Si no se incluyen estos valores, el programador de Kubernetes no tiene en cuenta los recursos que las aplicaciones necesitan para ayudar en la programación de decisiones.
+
+Si el Scheduler coloca un Pod en un nodo con recursos insuficientes, el rendimiento de la aplicación se degradará. El administrador de clústeres **debe** definir *cuotas de recursos* en un espacio de nombres que requiere el establecimiento de límites y solicitudes de recursos. Para obtener más información, consulte [cuotas de recursos en clústeres de AKS][resource-quotas].
 
 Al definir un límite o solicitud de CPU, el valor se mide en unidades de CPU. 
 * CPU *1.0* equivale a un núcleo de CPU virtual subyacente en el nodo. 
-* Se usa la misma unidad de medida para las GPU.
+    * Se usa la misma unidad de medida para las GPU.
 * Puede definir fracciones medidas en milinúcleos. Por ejemplo, *100 m* es *0,1* de un núcleo de vCPU subyacente.
 
 En el siguiente ejemplo básico para un solo pod de NGINX, el pod solicita *100 m* de tiempo de CPU y *128 Mi* de memoria. Los límites de recursos para el pod se definen en *250 m* de CPU y *256 Mi* de memoria:
@@ -74,35 +89,45 @@ Para obtener más información acerca de las asignaciones y medidas de recursos,
 
 ## <a name="develop-and-debug-applications-against-an-aks-cluster"></a>Desarrollo y depuración de aplicaciones en un clúster de AKS
 
-**Guía de procedimientos recomendados**: los equipos de desarrollo deben realizar la implementación y depuración en un clúster de AKS mediante Bridge to Kubernetes.
+> **Guía de procedimientos recomendados** 
+>
+> Los equipos de desarrollo deben realizar la implementación y depuración en un clúster de AKS mediante Bridge to Kubernetes.
 
-Con Bridge to Kubernetes, desarrolle, depure y pruebe aplicaciones directamente en un clúster de AKS. Los desarrolladores de un equipo colaboran para realizar compilaciones y pruebas a lo largo del ciclo de vida de la aplicación. Puede seguir usando herramientas existentes, como Visual Studio o Visual Studio Code. Se instala una extensión para Bridge to Kubernetes que permite desarrollar directamente en un clúster de AKS.
+Con Bridge to Kubernetes, desarrolle, depure y pruebe aplicaciones directamente en un clúster de AKS. Los desarrolladores de un equipo colaboran para realizar compilaciones y pruebas a lo largo del ciclo de vida de la aplicación. Puede seguir usando herramientas existentes, como Visual Studio o Visual Studio Code, con la extensión Bridge to Kubernetes. 
 
-Este proceso de desarrollo y pruebas integrado con Bridge to Kubernetes reduce la necesidad de entornos de prueba locales, como [minikube][minikube]. En su lugar, desarrolle y haga pruebas con un clúster de AKS. Este clúster se puede proteger y aislar como se indicó en la sección anterior sobre el uso de espacios de nombres para aislar un clúster de forma lógica.
+El uso de este proceso de desarrollo y pruebas integrado con Bridge to Kubernetes reduce la necesidad de entornos de prueba locales, como [minikube][minikube]. En su lugar, desarrolle y pruebe con un clúster de AKS, incluso con clústeres protegidos y aislados. 
 
-Bridge to Kubernetes está pensado para su uso con aplicaciones que se ejecutan en nodos y pods de Linux.
+> [!NOTE]
+> Bridge to Kubernetes está pensado para su uso con aplicaciones que se ejecutan en nodos y pods de Linux.
 
-## <a name="use-the-visual-studio-code-extension-for-kubernetes"></a>Uso de la extensión de Visual Studio Code para Kubernetes
+## <a name="use-the-visual-studio-code-vs-code-extension-for-kubernetes"></a>Uso de Visual Studio Code (VS Code) para Kubernetes
 
-**Guía de procedimientos recomendados**: instale y use la extensión de VS Code para Kubernetes al escribir manifiestos de YAML. También puede usar la extensión para la solución de implementación integrada, lo que puede ayudar a los propietarios de aplicaciones que interactúan con poca frecuencia con el clúster de AKS.
+> **Guía de procedimientos recomendados** 
+>
+> Instale y use la extensión de VS Code para Kubernetes al escribir manifiestos de YAML. También puede usar la extensión para la solución de implementación integrada, lo que puede ayudar a los propietarios de aplicaciones que interactúan con poca frecuencia con el clúster de AKS.
 
-La [extensión de Visual Studio Code para Kubernetes][vscode-kubernetes] le ayuda a desarrollar e implementar aplicaciones en AKS. La extensión proporciona IntelliSense para recursos de Kubernetes, así como para gráficos y plantillas de Helm. También puede explorar, implementar y modificar recursos de Kubernetes desde dentro de VS Code. La extensión también proporciona una comprobación de IntelliSense para los límites o solicitudes de recursos que se van a establecer en las especificaciones del pod:
+La [extensión de Visual Studio Code para Kubernetes][vscode-kubernetes] le ayuda a desarrollar e implementar aplicaciones en AKS. Esta extensión proporciona:
+* Recursos de IntelliSense para Kubernetes, gráficos de Helm y plantillas. 
+* Funcionalidades de examen, implementación y edición para recursos de Kubernetes desde VS Code. 
+* Una comprobación de IntelliSense para los límites o solicitudes de recursos que se van a establecer en las especificaciones del pod:
 
-![Advertencia de la extensión de VS Code para Kubernetes que indica que faltan los límites de memoria.](media/developer-best-practices-resource-management/vs-code-kubernetes-extension.png)
+    ![Advertencia de la extensión de VS Code para Kubernetes que indica que faltan los límites de memoria.](media/developer-best-practices-resource-management/vs-code-kubernetes-extension.png)
 
 ## <a name="regularly-check-for-application-issues-with-kube-advisor"></a>Comprobación de forma periódica de problemas de aplicaciones con kube-advisor
 
-**Orientación con procedimientos recomendados**: Ejecute de forma periódica la versión más reciente de la herramienta de código abierto `kube-advisor` para detectar problemas en el clúster. Si aplica cuotas de recursos en un clúster de AKS existente, en primer lugar, ejecute `kube-advisor` para buscar los pods que no tienen definidos los límites y las solicitudes de recursos.
+> **Guía de procedimientos recomendados** 
+> 
+> Ejecute periódicamente la versión más reciente de la herramienta de código abierto `kube-advisor` para detectar problemas en el clúster. Ejecute `kube-advisor` antes de aplicar cuotas de recursos en un clúster de AKS existente para buscar pods que no tengan definidas solicitudes y límites de recursos.
 
-La herramienta [kube-advisor][kube-advisor] es un proyecto de código abierto de AKS asociado que explora un clúster de Kubernetes e informa sobre los problemas que encuentra. Una comprobación útil consiste en identificar los pods que no tienen preparados los límites y las solicitudes de recursos.
+La herramienta [kube-advisor][kube-advisor] es un proyecto de código abierto de AKS asociado que examina un clúster de Kubernetes e informa sobre los problemas identificados. Una comprobación útil consiste en identificar los pods sin límites y solicitudes de recursos vigentes.
 
-La herramienta kube-advisor puede informar sobre la solicitud de recursos y la falta de límites en PodSpecs para las aplicaciones Windows, así como las aplicaciones de Linux, pero la propia herramienta kube-advisor debe programarse en un pod de Linux. Puede programar un pod para que se ejecute en un grupo de nodos con un sistema operativo específico mediante un [selector de nodo][k8s-node-selector] en la configuración del pod.
+Aunque la herramienta `kube-advisor` puede informar sobre la falta de límites y solicitudes de recursos en PodSpecs para las aplicaciones Windows y Linux, la propia `kube-advisor` debe programarse en un pod de Linux. Use un [selector de nodos][k8s-node-selector] en la configuración del pod para programar la ejecución de un pod en un grupo de nodos con un sistema operativo específico.
 
-En un clúster de AKS que hospeda muchos equipos y aplicaciones de desarrollo, puede ser difícil realizar un seguimiento de los pods sin definir estos límites y solicitudes de recursos. Como procedimiento recomendado, ejecute `kube-advisor` de forma periódica en los clústeres de AKS.
+En un clúster de AKS que hospeda muchos equipos y aplicaciones de desarrollo, le resultará fácil realizar un seguimiento de los pods con los límites y solicitudes de recursos. Como procedimiento recomendado, ejecute `kube-advisor` de forma periódica en los clústeres de AKS.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Este artículo de procedimientos recomendados se centra en cómo ejecutar el clúster y las cargas de trabajo desde la perspectiva de un operador de clústeres. Para obtener información acerca de los procedimientos recomendados, consulte [Procedimientos recomendados para el aislamiento y la administración de recursos en Azure Kubernetes Service (AKS)][operator-best-practices-isolation].
+Este artículo se centra en cómo ejecutar el clúster y las cargas de trabajo desde la perspectiva de un operador de clústeres. Para obtener información acerca de los procedimientos recomendados, consulte [Procedimientos recomendados para el aislamiento y la administración de recursos en Azure Kubernetes Service (AKS)][operator-best-practices-isolation].
 
 Para implementar algunos de estos procedimientos recomendados, consulte los artículos siguientes:
 

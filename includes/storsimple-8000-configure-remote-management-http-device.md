@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 473bc0a58fe49c7f454c81402b57ddce7fc745b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "67186376"
 ---
 #### <a name="to-configure-remote-management-on-cloud-appliance"></a>Para configurar la administración remota en el dispositivo de nube, siga estos pasos:
@@ -27,7 +27,7 @@ ms.locfileid: "67186376"
 
     1. Asegúrese de que la opción **Enable remote administration** (Habilitar la administración remota) esté habilitada.
     2. El valor predeterminado es conectarse a través de HTTPS. Puede elegir conectarse mediante HTTP. La conexión a través de HTTP solo es aceptable en redes de confianza. Asegúrese de que HTTP esté habilitado.
-    3. En la barra de comandos de la parte superior de la hoja, haga clic en **... Más** y luego haga clic en **Descargar certificado** para descargar un certificado de administración remota. Puede especificar la ubicación en la que quiere guardar este archivo. Este certificado debe estar instalado en la máquina cliente o host que usa para conectarse al dispositivo de nube.
+    3. En la barra de comandos de la parte superior de la hoja, haga clic en **...Más** y, a continuación, haga clic en **Descargar certificado** para descargar un certificado de administración remota. Puede especificar la ubicación en la que quiere guardar este archivo. Este certificado debe estar instalado en la máquina cliente o host que usa para conectarse al dispositivo de nube.
 
         ![Hoja Administración remota](./media/storsimple-8000-configure-remote-management-http-device/sca-remote-manage4.png)
 5. Haga clic en **Guardar** y, cuando se le pida, confirme los cambios.

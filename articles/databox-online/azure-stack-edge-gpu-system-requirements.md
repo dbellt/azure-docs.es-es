@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 03/17/2021
+ms.date: 04/07/2021
 ms.author: alkohli
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: 67de5cce3bd5a4ca2b383e2809eb237a6e753bf5
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b6984f27ae0ae81c3bf8d98efcce5fb23909c36d
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104577108"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107226097"
 ---
 # <a name="system-requirements-for-azure-stack-edge-pro-with-gpu"></a>Requisitos del sistema de Azure Stack Edge Pro con GPU 
 
@@ -108,6 +108,18 @@ Es recomendable configurar las reglas de firewall para el tráfico de salida en 
 | https://\*.azurecr.io                     | Registros de contenedores personales y de terceros (opcional) | 
 | https://\*.azure-devices.net              | Acceso de IoT Hub (obligatorio)                             | 
 
+### <a name="url-patterns-for-monitoring"></a>Patrones de dirección URL para la supervisión
+
+Agregue los siguientes patrones de dirección URL para Azure Monitor si utiliza la versión en contenedores del agente de Log Analytics para Linux.
+
+| Patrón de URL | Port | Componente o funcionalidad |
+|-------------|-------------|----------------------------|
+| http://\*ods.opinsights.azure.com | 443 | Ingesta de datos |
+| http://\*.oms.opinsights.azure.com | 443 | Incorporación de Operations Management Suite (OMS) |
+| http://\*.dc.services.visualstudio.com | 443 | La telemetría del agente que usa Application Insights en la nube pública de Azure. |
+
+Para más información, consulte [Requisitos de firewall de red](../azure-monitor/containers/container-insights-onboard.md#network-firewall-requirements).
+
 ### <a name="url-patterns-for-gateway-for-azure-government"></a>Patrones de dirección URL para la puerta de enlace de Azure Government
 
 [!INCLUDE [Azure Government URL patterns for firewall](../../includes/azure-stack-edge-gateway-gov-url-patterns-firewall.md)]
@@ -119,6 +131,17 @@ Es recomendable configurar las reglas de firewall para el tráfico de salida en 
 | https:\//mcr.microsoft.com<br></br>https://\*.cdn.mscr.com | Registro de contenedor de Microsoft (obligatorio)               |
 | https://\*.azure-devices.us              | Acceso de IoT Hub (obligatorio)           |
 | https://\*.azurecr.us                    | Registros de contenedores personales y de terceros (opcional) | 
+
+### <a name="url-patterns-for-monitoring-for-azure-government"></a>Patrones de dirección URL para supervisión de Azure Government
+
+Agregue los siguientes patrones de dirección URL para Azure Monitor si utiliza la versión en contenedores del agente de Log Analytics para Linux.
+
+| Patrón de URL | Port | Componente o funcionalidad |
+|-------------|-------------|----------------------------|
+| http://\*ods.opinsights.azure.us | 443 | Ingesta de datos |
+| http://\*.oms.opinsights.azure.us | 443 | Incorporación de Operations Management Suite (OMS) |
+| http://\*.dc.services.visualstudio.com | 443 | La telemetría del agente que usa Application Insights en la nube pública de Azure. |
+
 
 ## <a name="internet-bandwidth"></a>Ancho de banda de Internet
 

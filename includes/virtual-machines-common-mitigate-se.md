@@ -9,13 +9,13 @@ ms.date: 11/12/2019
 ms.author: cynthn;kareni
 ms.custom: include file
 ms.openlocfilehash: a9146099951aba223a7b201c1613e1ec0ba617d4
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96509222"
 ---
-**Última actualización del documento**: 12 de noviembre 2019 10:00 h PST.
+**Última actualización del documento**: 12 de noviembre de 2019, 10:00 PST.
 
 La divulgación de una [nueva clase de vulnerabilidades de CPU](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002), conocidas como ataques de canal lateral de ejecución especulativa, han generado preguntas de los clientes que buscan mayor claridad.  
 
@@ -72,7 +72,7 @@ Puede habilitar características de seguridad adicionales en la máquina virtual
 El sistema operativo de destino debe estar actualizado para habilitar estas características de seguridad adicionales. Aunque hay habilitadas numerosas mitigaciones del canal lateral de ejecución especulativa de forma predeterminada, las características adicionales que se describen aquí deben habilitarse manualmente y pueden afectar al rendimiento. 
 
 
-**Paso 1: deshabilite la característica de hyper-threading en la máquina virtual**. Los clientes que ejecutan código que no es de confianza en una máquina virtual de hyper-threading deben deshabilitarlo o pasar a un tamaño de máquina virtual que no sea hyper-threading. Remítase a [este documento](../articles/virtual-machines/acu.md) para obtener una lista de tamaños de máquina virtual de hyper-threading (donde la proporción de vCPU a Core es 2:1). Para comprobar si la máquina virtual tiene habilitada la característica de hyper-threading, consulte el siguiente script mediante la línea de comandos de Windows desde la máquina virtual.
+**Paso 1: deshabilite la característica de Hyper-Threading en la máquina virtual**. Los clientes que ejecutan código que no es de confianza en una máquina virtual con Hyper-Threading deben deshabilitar esta característica o pasar a un tamaño de máquina virtual que no sea de Hyper-Threading. Remítase a [este documento](../articles/virtual-machines/acu.md) para obtener una lista de tamaños de máquina virtual de hyper-threading (donde la proporción de vCPU a Core es 2:1). Para comprobar si la máquina virtual tiene habilitada la característica de hyper-threading, consulte el siguiente script mediante la línea de comandos de Windows desde la máquina virtual.
 
 Escriba `wmic` para especificar la interfaz interactiva. A continuación, escriba lo siguiente para ver la cantidad de procesadores físicos y lógicos en la máquina virtual.
 
@@ -83,7 +83,7 @@ CPU Get NumberOfCores,NumberOfLogicalProcessors /Format:List
 Si el número de procesadores lógicos es mayor que el de procesadores físicos (núcleos), la característica de hyper-threading está habilitada.  Si está ejecutando una máquina virtual de hyper-threading, [póngase en contacto con el soporte técnico de Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) para deshabilitar la característica de hyper-threading.  Una vez que el hyper-threading esté deshabilitado, **se requerirá un reinicio completo de la máquina virtual**. Consulte [Número de núcleos](#core-count) para saber por qué se reduce el número de núcleos de máquina virtual.
 
 
-**Paso 2**: A la vez que el paso 1, siga las instrucciones descritas en [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) para comprobar que las protecciones se habilitan con el módulo de PowerShell [SpeculationControl](https://aka.ms/SpeculationControlPS).
+**Paso 2**: a la vez que el paso 1, siga las instrucciones descritas en [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) para comprobar que las protecciones se habilitan con el módulo de PowerShell [SpeculationControl](https://aka.ms/SpeculationControlPS).
 
 > [!NOTE]
 > Si descargó este módulo anteriormente, deberá instalar la versión más reciente.
@@ -105,10 +105,10 @@ Si el resultado muestra `MDS mitigation is enabled: False`, [póngase en contact
 
 
 
-**Paso 3**: Para habilitar la compatibilidad del sistema operativo con la copia paralela de direcciones virtuales de kernel (KVAS) y la inserción de destino de rama (BTI), siga las instrucciones de [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) para habilitar las protecciones con las claves del Registro de `Session Manager`. Es necesario reiniciar.
+**Paso 3**: para habilitar la compatibilidad del sistema operativo con la sesión concurrente de direcciones virtuales del kernel (KVAS) y la inserción de destino de rama (BTI), siga las instrucciones descritas en [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) para habilitar las protecciones con las claves del Registro de `Session Manager`. Es necesario reiniciar.
 
 
-**Paso 4**: Para las implementaciones que usan la [virtualización anidada](../articles/virtual-machines/windows/nested-virtualization.md) (solo D3 y E3): Estas instrucciones se aplican dentro de la máquina virtual que se va a usar como un host de Hyper-V.
+**Paso 4**: para las implementaciones que usan la [virtualización anidada](../articles/virtual-machines/windows/nested-virtualization.md) (D3 y E3 solo), estas instrucciones se aplican en la máquina virtual que se usa como host de Hyper-V.
 
 1.  Siga las instrucciones descritas en el artículo [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) para habilitar las protecciones mediante las claves del Registro `MinVmVersionForCpuBasedMitigations`.
 2.  Establezca el tipo de programador del hipervisor en `Core` mediante las instrucciones descritas [aquí](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types).
@@ -119,7 +119,7 @@ Si el resultado muestra `MDS mitigation is enabled: False`, [póngase en contact
 <a name="linux"></a>Se requiere que el sistema operativo de destino esté completamente actualizado para habilitar el conjunto de características de seguridad adicionales. Algunas de las mitigaciones estarán habilitadas de forma predeterminada. La siguiente sección describe las características que están desactivadas de forma predeterminada y sujetas a la compatibilidad de hardware (microcódigo). La habilitación de estas características puede afectar al rendimiento. Consulte la documentación del proveedor de su sistema operativo para más instrucciones
 
 
-**Paso 1: deshabilite la característica de hyper-threading en la máquina virtual**. Los clientes que ejecutan código que no es de confianza en una máquina virtual de hyper-threading deben deshabilitarlo o pasar a una máquina virtual que no sea hyper-threading.  Remítase a [este documento](../articles/virtual-machines/acu.md) para obtener una lista de tamaños de máquina virtual de hyper-threading (donde la proporción de vCPU a Core es 2:1). Para comprobar si está ejecutando una máquina virtual de hyper-threading, ejecute el comando `lscpu` en la máquina virtual de Linux. 
+**Paso 1: deshabilite la característica de Hyper-Threading en la máquina virtual**. Los clientes que ejecutan código que no es de confianza en una máquina virtual con Hyper-Threading deben deshabilitar esta característica o pasar a una máquina virtual sin Hyper-Threading.  Remítase a [este documento](../articles/virtual-machines/acu.md) para obtener una lista de tamaños de máquina virtual de hyper-threading (donde la proporción de vCPU a Core es 2:1). Para comprobar si está ejecutando una máquina virtual de hyper-threading, ejecute el comando `lscpu` en la máquina virtual de Linux. 
 
 Si `Thread(s) per core = 2`, el hyper-threading se ha habilitado. 
 
@@ -145,7 +145,7 @@ Si está ejecutando una máquina virtual de hyper-threading, [póngase en contac
 
 
 
-**Paso 2**: Para mitigar cualquiera de los siguientes puntos vulnerables de canal lateral de ejecución especulativa, consulte la documentación del proveedor de su sistema operativo:   
+**Paso 2**: para mitigar cualquiera de las vulnerabilidades siguientes de canal lateral de ejecución especulativa, consulte la documentación del proveedor de su sistema operativo:   
  
 - [RedHat y CentOS](https://access.redhat.com/security/vulnerabilities) 
 - [SUSE](https://www.suse.com/support/kb/?doctype%5B%5D=DT_SUSESDB_PSDB_1_1&startIndex=1&maxIndex=0) 

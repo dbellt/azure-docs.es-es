@@ -6,12 +6,12 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
-ms.openlocfilehash: 1282d1916d669f1026707e15cc8d5437d885087f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 93e97f1f04aea2a31b62b2014a88a5aaa998ed2d
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101669003"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107376093"
 ---
 # <a name="azure-monitor-for-sap-solutions-providers-preview"></a>Proveedores de Azure Monitor para soluciones de SAP (versión preliminar)
 
@@ -25,6 +25,7 @@ Los clientes también pueden optar por configurar varios proveedores de un tipo 
 - SAP HANA
 - Clúster de alta disponibilidad
 - Microsoft SQL Server
+- SAP NetWeaver
 
 ![Proveedores de Azure Monitor para soluciones de SAP](./media/azure-monitor-sap/azure-monitor-providers.png)
 
@@ -108,6 +109,27 @@ En la versión preliminar pública, los clientes deberían ver los datos siguien
 Para configurar el proveedor de Microsoft SQL Server, se necesitan el identificador del sistema SAP, la dirección IP del host, el número del puerto de SQL Server y el nombre de inicio de sesión y la contraseña de SQL Server.
 
 ![Proveedores de Azure Monitor para soluciones de SAP: SQL](./media/azure-monitor-sap/azure-monitor-providers-sql.png)
+
+## <a name="provider-type-sap-netweaver"></a>Tipo de proveedor: SAP NetWeaver
+
+Los clientes pueden configurar uno o varios proveedores del tipo SAP NetWeaver para habilitar la recopilación de datos de la capa SAP NetWeaver. El proveedor de AMS NetWeaver aprovecha la interfaz del [servicio web SAPControl](https://www.sap.com/documents/2016/09/0a40e60d-8b7c-0010-82c7-eda71af511fa.html) existente para recuperar la información de telemetría adecuada.
+
+A continuación, se muestran los métodos web SOAP estándar de fábrica que AMS invoca para la versión actual.
+|método web|    ABAP|   Java|   Métricas|
+|--|--|--|--|
+|GetSystemInstanceList| X|  X|  Disponibilidad de instancias, servidor de mensajes, puerta de enlace, ICM, disponibilidad de ABAP|
+|GetProcessList|    X|  X|  Si la lista de instancias es ROJA, podemos ver qué proceso hace que el servidor aparezca en ROJO|
+|GetQueueStatistic| X|  X|  Estadísticas de cola (DIA/BATCH/UPD)|
+|ABAPGetWPTable|    X|   -| Uso de procesos de trabajo|
+|EnqGetStatistic|   X   |X  |Bloqueos|
+
+En la versión preliminar pública, los clientes deberían ver los datos siguientes con el proveedor de SAP NetWeaver: 
+- Disponibilidad del sistema y de la instancia
+- Uso de procesos de trabajo
+- Uso de la cola
+- Estadísticas de bloqueos puestos en cola.
+
+![imagen](https://user-images.githubusercontent.com/75772258/114581825-a9f2eb00-9c9d-11eb-8e6f-79cee7c5093f.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/08/2021
-ms.openlocfilehash: d7ae1e72dee28509c1338a1b56cf42a5293af9bf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a45b8db1f17ead8e55bac2b2bf82aa44cb7f080e
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104670263"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107304707"
 ---
 # <a name="glossary-of-iot-terms"></a>Glosario de términos de IoT
 
@@ -435,6 +435,12 @@ En [IoT Edge](#iot-edge), un módulo es un contenedor de Docker que se puede imp
 [MQTT](https://mqtt.org/) es uno de los protocolos de mensajería que admite [IoT Hub](#iot-hub) para la comunicación con dispositivos. Para obtener más información acerca de los protocolos de mensajería que admite IoT Hub, consulte [Enviar y recibir mensajes con IoT Hub](../iot-hub/iot-hub-devguide-messaging.md).
 
 ## <a name="o"></a>O
+
+### <a name="ontology"></a>Ontología
+
+Un conjunto de modelos para un dominio determinado, como el patrimonio, las ciudades inteligentes, los sistemas de IoT, las redes de energía, etc. Las ontologías se suelen usar como esquemas para gráficos de conocimiento como los de [Azure Digital Twins](#azure-digital-twins), ya que proporcionan un punto de partida basado en los procedimientos recomendados y estándares del sector.
+
+Para más información sobre las ontologías, vea [¿Qué es una ontología?](../digital-twins/concepts-ontologies.md)
 
 ### <a name="operations-monitoring"></a>Supervisión de operaciones
 

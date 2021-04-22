@@ -4,13 +4,13 @@ ms.service: media-services
 ms.topic: include
 ms.date: 08/17/2020
 ms.author: inhenkel
-ms.custom: CLI
-ms.openlocfilehash: a6349188a2c6b4da68009df93fbea5fa6eabacf1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.custom: CLI, devx-track-azurecli
+ms.openlocfilehash: ff8bfbeea8bd22619375e88081da0cf9c0770fc9
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102244654"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107513210"
 ---
 <!-- ### Create a storage account -->
 
@@ -20,7 +20,7 @@ Debe tener una cuenta de almacenamiento **Principal** y puede tener cualquier n�
 
 En este ejemplo, se va a crear una cuenta LRS estándar de uso general v2. Si quiere experimentar con las cuentas de almacenamiento, use `--sku Standard_LRS`. Sin embargo, al seleccionar una SKU de producción debe considerar `--sku Standard_RAGRS`, que proporciona replicación geográfica para la continuidad empresarial. Para más información, consulte los comandos [storage accounts](/cli/azure/storage/account).
 
-El siguiente comando crea una cuenta de almacenamiento que se asociará a la cuenta de Media Services. En el siguiente script, puede sustituir `storageaccountforams` por su valor. `amsResourceGroup` debe coincidir con el valor asignado al grupo de recursos del paso anterior. El nombre de la cuenta de almacenamiento debe tener una longitud inferior a 24.
+El siguiente comando crea una cuenta de almacenamiento que se asociará a la cuenta de Media Services. En el siguiente script, reemplace `storageaccountforams` por su propio nombre único con una longitud inferior a 24 caracteres. `amsResourceGroup` debe coincidir con el valor asignado al grupo de recursos del paso anterior.
 
 ```azurecli
 az storage account create --name storageaccountforams --kind StorageV2 --sku Standard_LRS -l westus2 -g amsResourceGroup

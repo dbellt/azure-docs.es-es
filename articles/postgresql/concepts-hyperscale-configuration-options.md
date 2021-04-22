@@ -6,19 +6,22 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 1/12/2021
-ms.openlocfilehash: 48537483501165d4a978afdbd05560613170d187
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: references_regions
+ms.date: 04/07/2021
+ms.openlocfilehash: ae416c9acd03b3ee239a858aae550fb87293465a
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98165618"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107012792"
 ---
 # <a name="azure-database-for-postgresql--hyperscale-citus-configuration-options"></a>Opciones de configuración de Hiperescala (Citus) para Azure Database for PostgreSQL
 
 ## <a name="compute-and-storage"></a>Compute y Storage
  
 Puede seleccionar la configuración de proceso y almacenamiento por separado para los nodos de trabajo y el nodo de coordinación en un grupo de servidores Hiperescala (Citus).  Los recursos de proceso se proporcionan como núcleos virtuales, que representan la CPU lógica del hardware subyacente. El tamaño de almacenamiento para el aprovisionamiento se refiere a la capacidad disponible para los nodos de trabajo y de coordinación en el grupo de servidores Hiperescala (Citus). El almacenamiento incluye archivos de base de datos, archivos temporales, registros de transacciones y registros de servidor PostgreSQL.
+
+### <a name="standard-tier"></a>Nivel Standard
  
 | Recurso              | Nodo de trabajo           | Nodo de coordinación      |
 |-----------------------|-----------------------|-----------------------|
@@ -70,13 +73,46 @@ Para todo el clúster de Hiperescala (Citus), las IOPS agregadas alcanzan los si
 | 19           | 29 184              | 58 368            | 116 812           |
 | 20           | 30 720              | 61 440            | 122 960           |
 
+### <a name="basic-tier-preview"></a>Nivel Básico (versión preliminar)
+
+> [!IMPORTANT]
+> El nivel Básico de Hiperescala (Citus) está actualmente en versión preliminar.  Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
+>
+> Puede ver una lista completa de otras características nuevas en [Características en versión preliminar de Hiperescala (Citus)](hyperscale-preview-features.md).
+
+El [nivel Básico](concepts-hyperscale-tiers.md) es un grupo de servidores con solo un nodo.  Dado que no hay una distinción entre los nodos de coordinación y de trabajo, es menos complicado elegir recursos de proceso y almacenamiento.
+
+| Resource              | Opciones disponibles     |
+|-----------------------|-----------------------|
+| Proceso, núcleos virtuales       | 2, 4, 8               |
+| Memoria por núcleo virtual, GiB | 4                     |
+| Tamaño del almacenamiento, GiB     | 128, 256, 512         |
+| Tipo de almacenamiento          | Uso general (SSD) |
+| E/S                  | Hasta 3 IOPS/GiB      |
+
+La cantidad total de memoria RAM en un solo nodo de Hiperescala (Citus) se basa en el número seleccionado de núcleos virtuales.
+
+| Núcleos virtuales | GiB RAM |
+|--------|---------|
+| 2      | 8       |
+| 4      | 16      |
+| 8      | 32      |
+
+La cantidad total de almacenamiento que se aprovisiona también define la capacidad de E/S disponible para el nodo de nivel Básico.
+
+| Tamaño del almacenamiento, GiB | Número máximo de IOPS |
+|-------------------|--------------|
+| 128               | 384          |
+| 256               | 768          |
+| 512               | 1536        |
+
 ## <a name="regions"></a>Regions
 Los grupos de servidores Hiperescala (Citus) están disponibles en las siguientes regiones de Azure:
 
 * América:
     * Centro de Canadá
     * Centro de EE. UU.
-    * Este de EE. UU.
+    * Este de EE. UU.*
     * Este de EE. UU. 2
     * Centro-Norte de EE. UU
     * Oeste de EE. UU. 2
@@ -90,38 +126,9 @@ Los grupos de servidores Hiperescala (Citus) están disponibles en las siguiente
     * Sur de Reino Unido
     * Oeste de Europa
 
+(\* = admite [características en versión preliminar](hyperscale-preview-features.md))
+
 Es posible que algunas de estas regiones no se activen inicialmente en todas las suscripciones de Azure. Si desea utilizar una región de la lista anterior y no la ve en su suscripción, o si desea usar una región que no está en esta lista, abra una [solicitud de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
-
-## <a name="limits-and-limitations"></a>Límites y limitaciones
-
-En la siguiente sección se describen los límites de capacidad y funcionales en el servicio de Hiperescala (Citus).
-
-### <a name="maximum-connections"></a>Número máximo de conexiones
-
-Cada conexión de PostgreSQL (incluso inactiva) usa al menos 10 MB de memoria, por lo que es importante limitar las conexiones simultáneas. Estos son los límites que elegimos para mantener los nodos en buen estado:
-
-* Nodo de coordinación
-   * Número máximo de conexiones: 300
-   * Número máximo de conexiones de usuario: 297
-* Nodo de trabajo
-   * Número máximo de conexiones: 600
-   * Número máximo de conexiones de usuario: 597
-
-Se producirá un error al intentar conectarse más allá de estos límites. El sistema reserva tres conexiones para supervisar los nodos, por lo que hay tres menos conexiones disponibles para las consultas de usuario que el total de conexiones.
-
-El establecimiento de las nuevas conexiones lleva su tiempo. Esto funciona con la mayoría de las aplicaciones, que solicitan muchas conexiones de corta duración. Se recomienda usar un agrupador de conexiones para reducir las transacciones inactivas y reutilizar las conexiones existentes. Para más información, visite nuestra [entrada de blog](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/not-all-postgres-connection-pooling-is-equal/ba-p/825717).
-
-### <a name="storage-scaling"></a>Escalado de almacenamiento
-
-El almacenamiento en el coordinador y los nodos de trabajo se pueden escalar verticalmente (aumentar), pero no se puede reducir verticalmente (disminuir).
-
-### <a name="storage-size"></a>Tamaño de almacenamiento
-
-Se admite hasta 2 TiB de almacenamiento en los nodos de coordinador y de trabajo. Consulte las opciones de almacenamiento disponibles y el cálculo de IOPS [anterior](#compute-and-storage) para los tamaños de nodo y clúster.
-
-### <a name="database-creation"></a>Creación de base de datos
-
-Azure Portal proporciona credenciales para conectarse exactamente a una base de datos por grupo de servidores de Hiperescala (Citus), la base de datos de `citus`. Actualmente no se permite crear otra base de datos, y el comando CREATE DATABASE producirá un error.
 
 ## <a name="pricing"></a>Precios
 Para conocer la información más actualizada sobre precios, consulte la [página de precios](https://azure.microsoft.com/pricing/details/postgresql/) del servicio.

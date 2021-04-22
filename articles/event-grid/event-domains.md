@@ -2,13 +2,13 @@
 title: Dominios de eventos de Azure Event Grid
 description: En este artículo se describe cómo usar dominios de eventos para administrar el flujo de eventos personalizados a sus diversas organizaciones empresariales, clientes o aplicaciones.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 46a50a8ecc50bd1b80efcba41228564df1c36c9f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 04/13/2021
+ms.openlocfilehash: 32c06ac55f667ec9807c7952127c2cf0f0384024
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102198683"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107374716"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Dominios de eventos para administrar temas de Event Grid
 
@@ -23,7 +23,7 @@ En este artículo se describe cómo usar dominios de eventos para administrar el
 
 Un dominio de eventos es una herramienta de administración para un gran número de temas de Event Grid relacionados con la misma aplicación. Se puede considerar un metatema que puede contener miles de temas individuales.
 
-Los dominios de eventos ponen a su disposición la misma arquitectura que usan los servicios de Azure (por ejemplo, Storage e IoT Hub) para publicar sus eventos. Le permiten publicar eventos en miles de temas. Los dominios también proporcionan control de autenticación y autorización sobre cada tema para que pueda dividir los inquilinos.
+Los dominios de eventos le proporcionan la misma arquitectura que usan los servicios de Azure (por ejemplo, Storage e IoT Hub) para publicar sus eventos. Le permiten publicar eventos en miles de temas. Los dominios también proporcionan control de autenticación y autorización sobre cada tema para que pueda dividir los inquilinos.
 
 ## <a name="example-use-case"></a>Ejemplo de caso de uso
 [!INCLUDE [event-grid-domain-example-use-case.md](../../includes/event-grid-domain-example-use-case.md)]
@@ -43,6 +43,9 @@ Para información sobre estos roles, consulte [Roles integrados para Event Grid]
 ## <a name="subscribing-to-topics"></a>Suscribirse a temas
 
 Suscribirse a eventos de un tema dentro de un dominio de eventos es lo mismo que [crear una suscripción a eventos en un tema personalizado](./custom-event-quickstart.md) o suscribirse a un evento desde un servicio de Azure.
+
+> [!IMPORTANT]
+> El tema de dominio se considera un recurso **autoadministrado** en Event Grid. Puede crear una suscripción de eventos en el ámbito del tema de dominio sin crear dicho tema. En este caso, Event Grid crea el tema de dominio en su nombre de forma automática. Por supuesto, aún puede optar por crear el tema de dominio manualmente. Este comportamiento le ayuda a tener que preocuparse por un recurso menos al tratar con un gran número de temas de dominio. Cuando se elimina la última suscripción a un tema de dominio, dicho tema también se elimina, sin tener en cuenta si se creó de forma manual o automática. 
 
 ### <a name="domain-scope-subscriptions"></a>Suscripciones del ámbito de dominio
 
@@ -94,7 +97,7 @@ Estos son los límites y cuotas relacionados con los dominios de eventos:
 - 50 suscripciones del ámbito de dominio 
 - 5000 eventos por tasa de ingesta por segundo (en un dominio)
 
-Si estos límites no son los adecuados para usted, póngase en contacto con el equipo del producto. Para ello, abra una incidencia de soporte técnico o envíe un correo electrónico a [askgrid@microsoft.com](mailto:askgrid@microsoft.com). 
+Si estos límites no son adecuados para usted, abra una incidencia de soporte técnico o envíe un correo electrónico a [askgrid@microsoft.com](mailto:askgrid@microsoft.com). 
 
 ## <a name="pricing"></a>Precios
 Los dominios de eventos usan el mismo [precio por operaciones](https://azure.microsoft.com/pricing/details/event-grid/) que el resto de características de Event Grid.

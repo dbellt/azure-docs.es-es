@@ -4,13 +4,13 @@ description: En este artículo se describe cómo se puede consultar los recursos
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/22/2020
-ms.openlocfilehash: 57ed43b25c9031138a91f0870d316e1ae7a07a5b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 04/11/2021
+ms.openlocfilehash: 19cc85751fc5e4a165b646ac89d9d6b6e90c4408
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102030974"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107379560"
 ---
 # <a name="perform-log-query-in-azure-monitor-that-span-across-workspaces-and-apps"></a>Realización de consultas de registro en Azure Monitor que abarcan entre áreas de trabajo y aplicaciones
 
@@ -27,7 +27,7 @@ Hay dos métodos para consultar datos almacenados en varias áreas de trabajo y 
 ## <a name="cross-resource-query-limits"></a>Límites de la consulta entre recursos 
 
 * El número de recursos de Application Insights y de áreas de trabajo de Log Analytics que se pueden incluir en una sola consulta se limita a 100.
-* No se admite la consulta entre recursos en el Diseñador de vistas. Puede crear una consulta en Log Analytics y anclarla al panel de Azure para [visualizar una consulta de registro](../visualize/tutorial-logs-dashboards.md). 
+* No se admite la consulta entre recursos en el Diseñador de vistas. Puede crear una consulta en Log Analytics y anclarla al panel de Azure para [visualizar una consulta de registro](../visualize/tutorial-logs-dashboards.md) o incluirla en los [libros](../visualize/workbooks-overview.md).
 * Las consulta entre recursos en las alertas de registro solo se admiten en la [API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules) actual. Si usa la API de alertas de Log Analytics heredada, deberá [cambiar a la API actual](../alerts/alerts-log-api-switch.md).
 
 
@@ -41,15 +41,17 @@ La identificación de un área de trabajo se puede lograr de varias maneras:
 
 * Nombre del recurso:- es un nombre legible del área de trabajo; a veces se denomina *nombre del componente*. 
 
+    >[!IMPORTANT]
+    >Dado que los nombres de aplicación y de área de trabajo no son únicos, este identificador podría ser ambiguo. Se recomienda que la referencia sea por nombre completo, identificador de área de trabajo o identificador de recurso de Azure.
+
     `workspace("contosoretail-it").Update | count`
 
-* Nombre completo: es el nombre completo del área de trabajo, compuesto por el nombre de la suscripción, el grupo de recursos y el nombre del componente con este formato: *nombreSuscripción/grupoDeRecursos/nombreDeComponente*. 
+* Nombre completo: es el “nombre entero” del área de trabajo, compuesto por el nombre de la suscripción, el grupo de recursos y el nombre del componente con este formato: *nombreSuscripción/grupoDeRecursos/nombreDeComponente*. 
 
     `workspace('contoso/contosoretail/contosoretail-it').Update | count`
 
     >[!NOTE]
-    >Dado que los nombres de suscripción de Azure no son únicos, este identificador podría ser ambiguo. 
-    >
+    >Dado que los nombres de suscripción de Azure no son únicos, este identificador podría ser ambiguo.
 
 * Identificador del área de trabajo: es el identificador único e inmutable asignado a cada área de trabajo que se representa como identificador único global (GUID).
 

@@ -12,22 +12,24 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 04/05/2021
+ms.date: 04/09/2021
 ms.author: b-juche
-ms.openlocfilehash: 2031cbf07d700307ae1e11c516f9fc736bce5080
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: 2546236399853f3ed6fad9e07e031edb568fbfe9
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106498912"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107311539"
 ---
 # <a name="configure-adds-ldap-with-extended-groups-for-nfs-volume-access"></a>Configuración de ADDS LDAP con grupos extendidos para el acceso a volúmenes NFS
 
-Al [crear un volumen NFS](azure-netapp-files-create-volumes.md), tiene la opción de habilitar la característica LDAP con grupos extendidos (la opción **LDAP**) para el volumen. Esta característica permite que los usuarios de Active Directory LDAP y grupos extendidos (hasta 1024 grupos) accedan al volumen.  
+Al [crear un volumen NFS](azure-netapp-files-create-volumes.md), tiene la opción de habilitar la característica LDAP con grupos extendidos (la opción **LDAP**) para el volumen. Esta característica permite que los usuarios de Active Directory LDAP y grupos extendidos (hasta 1024 grupos) accedan al volumen. Puede usar la característica LDAP con grupos extendidos con volúmenes NFSv4.1 y NFSv3. 
 
 En este artículo se explican las consideraciones y pasos para habilitar LDAP con grupos extendidos al crear un volumen NFS.  
 
 ## <a name="considerations"></a>Consideraciones
+
+* LDAP con grupos extendidos solo se admite con Active Directory Domain Services (ADDS) o Azure Active Directory Domain Services (AADDS). No se admite OpenLDAP ni otros servicios de directorio de LDAP de terceros. 
 
 * LDAP a través de TLS *no* se debe habilitar si usa Azure Active Directory Domain Services (AADDS).  
 
@@ -69,11 +71,23 @@ En este artículo se explican las consideraciones y pasos para habilitar LDAP co
 
 2. Los volúmenes LDAP requieren una configuración de Active Directory para la configuración del servidor LDAP. Siga las instrucciones de [Requisitos para las conexiones de Active Directory](create-active-directory-connections.md#requirements-for-active-directory-connections) y [Creación de una conexión de Active Directory](create-active-directory-connections.md#create-an-active-directory-connection) para configurar las conexiones de Active Directory en Azure Portal.  
 
-3. Asegúrese de que el servidor LDAP de Active Directory está en funcionamiento en Active Directory. Puede hacerlo instalando y configurando el rol [Active Directory Lightweight Directory Services (AD LDS)](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)) en la máquina de AD.
+    > [!NOTE]
+    > Asegúrese de que ha establecido la configuración de conexión de Active Directory. Se creará una cuenta de máquina en la unidad organizativa (UO) que se especifica en la configuración de la conexión de Active Directory. El cliente LDAP usa la configuración para autenticarse en Active Directory.
 
-4. Los usuarios LDAP de NFS deben tener determinados atributos POSIX en el servidor LDAP. Siga los pasos de [Administración de atributos POSIX de LDAP](create-volumes-dual-protocol.md#manage-ldap-posix-attributes) para configurar los atributos necesarios.  
+3. Asegúrese de que el servidor LDAP de Active Directory está en funcionamiento en Active Directory. 
 
-5. Si quiere configurar un cliente Linux integrado con LDAP, consulte [Configuración de un cliente NFS para Azure NetApp Files](configure-nfs-clients.md).
+4. Los usuarios LDAP de NFS deben tener determinados atributos POSIX en el servidor LDAP. Establezca los atributos para los usuarios LDAP y los grupos LDAP de la manera siguiente: 
+
+    * Atributos necesarios para los usuarios LDAP:   
+        `uid: Alice`, `uidNumber: 139`, `gidNumber: 555`, `objectClass: user`
+    * Atributos necesarios para los grupos LDAP:   
+        `objectClass: group`, `gidNumber: 555`
+
+    Puede administrar los atributos POSIX mediante el complemento de MMC Usuarios y equipos de Active Directory. En el ejemplo siguiente se muestra el editor de atributos de Active Directory:  
+
+    ![Editor de atributos de Active Directory](../media/azure-netapp-files/active-directory-attribute-editor.png) 
+
+5. Si quiere configurar un cliente Linux NFSv4.1 integrado con LDAP, consulte [Configuración de un cliente NFS para Azure NetApp Files](configure-nfs-clients.md).
 
 6.  Siga los pasos de [Creación de un volumen NFS para Azure NetApp Files](azure-netapp-files-create-volumes.md) para crear el volumen de NFS. Durante el proceso de creación del volumen, en la pestaña **Protocolo**, habilite la opción **LDAP**.   
 

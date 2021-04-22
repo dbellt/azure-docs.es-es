@@ -3,12 +3,12 @@ title: Especificación del grupo de recursos para VM en Azure DevTest Labs | Mic
 description: Obtenga información sobre cómo especificar un grupo de recursos para VM en un laboratorio en Azure DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 7b72048405d3025ca21b324b6ad3168dd0c9ac95
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c6f576a20fc8fada9dd515e8ba2a266761a3e586
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85483370"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107377495"
 ---
 # <a name="specify-a-resource-group-for-lab-virtual-machines-in-azure-devtest-labs"></a>Especificación de un grupo de recursos para máquinas virtuales de laboratorio en Azure DevTest Labs
 
@@ -76,7 +76,7 @@ Si usa la plantilla de Azure Resource Manager para crear un laboratorio, use la 
         {
             "type": "microsoft.devtestlab/labs",
             "name": "[parameters('lab_name')]",
-            "apiVersion": "2018_10_15_preview",
+            "apiVersion": "2018-10-15-preview",
             "location": "eastus",
             "tags": {},
             "scale": null,
@@ -103,7 +103,7 @@ Tiene las siguientes opciones como propietario de un laboratorio cuando se usa e
 Esta configuración se aplica a nuevas máquinas virtuales creadas en el laboratorio. Las máquinas virtuales antiguas en el laboratorio creadas en sus propios grupos de recursos seguirán sin verse afectadas. Los entornos creados en su laboratorio se mantienen en sus propios grupos de recursos.
 
 Cómo usar esta API:
-- Use la versión **2018_10_15_preview** de la API.
+- Use la versión de API **2018-10-15-preview**.
 - Si especifica un nuevo grupo de recursos, asegúrese de tener **permisos de escritura en grupos de recursos** en su suscripción. Si carece de permisos de escritura, se genera un error al crear nuevas máquinas virtuales en el grupo de recursos especificado.
 - Al usar la API, pase el **id. del grupo de recursos completo**. Por ejemplo: `/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>`. Asegúrese de que el grupo de recursos esté en la misma suscripción que el laboratorio. 
 

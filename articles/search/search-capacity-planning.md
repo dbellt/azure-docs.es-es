@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/15/2021
-ms.openlocfilehash: d848c1ed1ab9d4cb24dec9423d93ec62ab45633b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/06/2021
+ms.openlocfilehash: b1f742c1de259f6c1c06d9b31a8788699f0b8426
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99537228"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106580027"
 ---
 # <a name="estimate-and-manage-capacity-of-an-azure-cognitive-search-service"></a>Estimación y administración de la capacidad de un servicio de Azure Cognitive Search
 
@@ -48,17 +48,19 @@ En Cognitive Search, la administración de particiones de base de datos es un d
 
 + Anomalías de Autocompletar: las consultas de tipo Autocompletar, donde las coincidencias se realizan según los primeros caracteres de un término especificado parcialmente, aceptan un parámetro aproximado que perdona pequeñas desviaciones de ortografía. En Autocompletar, la coincidencia aproximada se restringe a los términos de la partición de base de datos actual. Por ejemplo, si una partición de base de datos contiene "Microsoft" y se escribe un término parcial "micor", el motor de búsqueda combinará con "Microsoft" en esa partición de base de datos, pero no en otras particiones de base de datos que contengan las partes restantes del índice.
 
-## <a name="how-to-evaluate-capacity-requirements"></a>Cómo evaluar los requisitos de capacidad
+## <a name="approaching-estimation"></a>Aproximándose a la estimación
 
-La capacidad y los costos de ejecución del servicio están relacionados. Los niveles imponen límites en dos niveles: almacenamiento y contenido (recuento de índices de un servicio, por ejemplo). Es importante tener en cuenta estos dos aspectos, porque el límite real será el que se alcance primero.
+La capacidad y los costos de ejecución del servicio están relacionados. Los niveles imponen límites en dos niveles: contenido (recuento de índices de un servicio, por ejemplo) y almacenamiento. Es importante tener en cuenta estos dos aspectos, porque el límite real será el que se alcance primero.
 
-Las cantidades de índices y otros objetos normalmente vienen determinadas por los requisitos empresariales y de ingeniería. Por ejemplo, podría tener varias versiones del mismo índice para desarrollo, pruebas y producción activos.
+Los recuentos de índices y otros objetos normalmente vienen determinados por los requisitos empresariales y de ingeniería. Por ejemplo, podría tener varias versiones del mismo índice para desarrollo, pruebas y producción activos.
 
 Las necesidades de almacenamiento vienen determinadas por el tamaño de los índices que espera compilar. No hay ninguna heurística o generalización sólida que ayude con las estimaciones. La única manera de determinar el tamaño de un índice es [compilar uno](search-what-is-an-index.md). Su tamaño se basará en los datos importados, en el análisis de texto y en la configuración del índice, por ejemplo, si habilita los proveedores de sugerencias, el filtrado y la ordenación.
 
 Para la búsqueda de texto completo, la estructura de datos principal es una estructura de [índice invertido](https://en.wikipedia.org/wiki/Inverted_index), que tiene características diferentes de los datos de origen. Para un índice invertido, el tamaño y la complejidad vienen determinados por el contenido, y no necesariamente por la cantidad de datos que se incorporan. Un origen de datos de gran tamaño con mucha redundancia podría dar lugar a un índice más pequeño que un conjunto de datos más pequeño que incluya contenido muy variable. Así que es poco probable deducir el tamaño del índice en función del tamaño del conjunto de datos original.
 
-> [!NOTE] 
+Los atributos del índice, como la habilitación de filtros y la ordenación, afectarán a los requisitos de almacenamiento. El uso de proveedores de sugerencias también tiene implicaciones de almacenamiento. Para obtener más información, consulte [Atributos y tamaño de índice](search-what-is-an-index.md#index-size).
+
+> [!NOTE]
 > Aunque el cálculo de las necesidades futuras de índices y almacenamiento se hace a partir de suposiciones, vale la pena hacerlo. Si la capacidad de un nivel resulta demasiado baja, tendrá que aprovisionar un nuevo servicio en un nivel superior y luego [volver a cargar los índices](search-howto-reindex.md). No existe ninguna actualización local de un servicio de un nivel a otro.
 >
 
@@ -87,7 +89,7 @@ Los recursos dedicados pueden adaptarse a mayores tiempos de muestreo y procesam
     + Comience alto, en S2 o incluso S3, si las pruebas incluyen indexación a gran escala y cargas de consulta.
     + Empiece con Almacenamiento optimizado, en L1 o L2, si va a indexar una gran cantidad de datos y la carga de consultas es relativamente baja, como con una aplicación empresarial interna.
 
-1. [Genere un índice inicial](search-what-is-an-index.md) para determinar cómo se traducen los datos de origen a un índice. Esta es la única manera de calcular el tamaño del índice.
+1. [Genere un índice inicial](search-what-is-an-index.md) para determinar cómo se traducen los datos de origen a un índice. Esta es la única manera de calcular el tamaño del índice. 
 
 1. [Supervise el almacenamiento, los límites del servicio, el volumen de consultas y la latencia](search-monitor-usage.md) en el portal. El portal muestra las consultas por segundo, las consultas limitadas y la latencia de búsqueda. Todos estos valores pueden ayudarle a decidir si ha seleccionado el nivel correcto.
 
@@ -111,7 +113,7 @@ El nivel Almacenamiento optimizado es útil para cargas de trabajo de datos de g
 
 **Contratos de nivel de servicio**
 
-El nivel Gratis y las características en vista previa no ofrecen [contratos de nivel de servicio (SLA)](https://azure.microsoft.com/support/legal/sla/search/v1_0/). Para todos los niveles facturables, los SLA tomarán efecto cuando se aprovisione suficiente redundancia para el servicio. Necesitará dos o más réplicas para los SLA de consulta (lectura). Necesitará tres o más réplicas para los SLA de consulta e indización (lectura-escritura). El número de particiones no afecta a los SLA.
+El nivel Gratis y las características en versión preliminar no están cubiertos por [Acuerdos de Nivel de Servicio (SLA)](https://azure.microsoft.com/support/legal/sla/search/v1_0/). Para todos los niveles facturables, los SLA tomarán efecto cuando se aprovisione suficiente redundancia para el servicio. Necesitará dos o más réplicas para los SLA de consulta (lectura). Necesitará tres o más réplicas para los SLA de consulta e indización (lectura-escritura). El número de particiones no afecta a los SLA.
 
 ## <a name="tips-for-capacity-planning"></a>Sugerencias para el planeamiento de capacidad
 
@@ -119,24 +121,30 @@ El nivel Gratis y las características en vista previa no ofrecen [contratos de 
 
 + Recuerde que la única desventaja de un aprovisionamiento inferior es que es posible que deba anular un servicio si los requisitos reales son mayores que los que había previsto. Para evitar la interrupción del servicio, se crea un nuevo servicio en un nivel superior y se ejecuta en paralelo hasta que todas las solicitudes y las aplicaciones se dirijan al nuevo punto de conexión.
 
-## <a name="when-to-add-partitions-and-replicas"></a>Cuándo agregar particiones y réplicas
+## <a name="when-to-add-capacity"></a>Cuándo ampliar la capacidad
 
-Inicialmente, se asigna un servicio a un nivel mínimo de recursos que consta de una partición y una réplica.
+Inicialmente, se asigna un servicio a un nivel mínimo de recursos que consta de una partición y una réplica. El [plan que elija](search-sku-tier.md) determina el tamaño y la velocidad de la partición y cada plan se optimiza alrededor de un conjunto de características que se adapta a varios escenarios. Si elige un plan de gama superior, puede que necesite menos particiones que si elige S1. Una de las preguntas que tendrá que responder mediante pruebas autodirigidas es si una partición más grande y más cara aumentará más el rendimiento que dos particiones más baratas en un servicio aprovisionado con un plan inferior.
 
 Un único servicio debe tener recursos suficientes para controlar todas las cargas de trabajo (indexación y consultas). Ninguna carga de trabajo se ejecuta en segundo plano. Puede programar la indexación en horas en las que las solicitudes de consulta son menos frecuentes por naturaleza, pero el servicio no dará prioridad a una tarea sobre otra. Además, una determinada cantidad de redundancia suaviza el rendimiento de la consulta cuando los servicios o nodos se están actualizando internamente.
 
-Como norma general, las aplicaciones de búsqueda tienden a necesitar más réplicas que particiones, sobre todo cuando las operaciones de servicio están orientadas a las cargas de trabajo de consulta. En la siguiente sección sobre [alta disponibilidad](#HA) se explica el motivo.
+Algunas directrices para determinar si se debe ampliar la capacidad incluyen:
 
-El [plan que elija](search-sku-tier.md) determina el tamaño y la velocidad de la partición y cada plan se optimiza alrededor de un conjunto de características que se adapta a varios escenarios. Si elige un plan de gama superior, puede que necesite menos particiones que si elige S1. Una de las preguntas que tendrá que responder mediante pruebas autodirigidas es si una partición más grande y más cara aumentará más el rendimiento que dos particiones más baratas en un servicio aprovisionado con un plan inferior.
++ Cumplimiento de los criterios de alta disponibilidad para el Acuerdo de Nivel de Servicio
++ La frecuencia de los errores HTTP 503 va en aumento
++ Se esperan grandes volúmenes de consultas
+
+Como norma general, las aplicaciones de búsqueda tienden a necesitar más réplicas que particiones, sobre todo cuando las operaciones de servicio están orientadas a las cargas de trabajo de consulta. Cada réplica es una copia del índice, lo que permite que el servicio equilibre la carga de las solicitudes en varias copias. Azure Cognitive Search administra todo el equilibrio de carga y la replicación de un índice, y puede modificar el número de réplicas asignado a su servicio en cualquier momento. Puede asignar hasta 12 réplicas en un servicio de búsqueda estándar y 3 réplicas en un servicio de búsqueda básico. La asignación de réplicas se puede realizar desde [Azure Portal](search-create-service-portal.md) o una de las opciones de programación.
 
 Las aplicaciones de búsqueda que requieren una actualización de datos casi en tiempo real necesitan una proporción mayor de particiones que de réplicas. Al agregarse particiones, se distribuyen las operaciones de lectura y escritura entre un número mayor de recursos de proceso. Además, se cuenta con más espacio en disco para almacenar documentos e índices adicionales.
 
-Las consultas en índices de mayor tamaño tardan más tiempo en realizarse. Por lo tanto, es posible que con cada aumento incremental de las particiones sea necesario también un aumento menor, pero proporcional, de las réplicas. La complejidad y el volumen de las consultas afectarán a la rapidez con que se ejecuta la consulta.
+Por último, las consultas en índices de mayor tamaño tardan más tiempo en realizarse. Por lo tanto, es posible que con cada aumento incremental de las particiones sea necesario también un aumento menor, pero proporcional, de las réplicas. La complejidad y el volumen de las consultas afectarán a la rapidez con que se ejecuta la consulta.
 
 > [!NOTE]
 > La adición de más réplicas o particiones aumenta el costo de ejecución del servicio y puede generar pequeñas variaciones en cómo se ordenan los resultados. Asegúrese de activar la [calculadora de precios](https://azure.microsoft.com/pricing/calculator/) para comprender las implicaciones que tiene en la facturación el agregar más nodos. El [gráfico siguiente](#chart) puede ayudarle a establecer una referencia cruzada con el número de unidades de búsqueda necesarias para una configuración específica. Para obtener más información sobre cómo las réplicas adicionales afectan al procesamiento de las consultas, visite [Organización de los resultados](search-pagination-page-layout.md#ordering-results).
 
-## <a name="how-to-allocate-replicas-and-partitions"></a>Cómo asignar réplicas y particiones
+<a name="adjust-capacity"></a>
+
+## <a name="add-or-reduce-replicas-and-partitions"></a>Adición o reducción de réplicas y particiones
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) y seleccione su servicio de búsqueda.
 
@@ -158,7 +166,7 @@ Las consultas en índices de mayor tamaño tardan más tiempo en realizarse. Por
 
    :::image type="content" source="media/search-capacity-planning/3-save-confirm.png" alt-text="Guardar cambios" border="true":::
 
-   Los cambios en la capacidad pueden tardar hasta varias horas en completarse. No se puede cancelar una vez que se ha iniciado el proceso y no hay ningún tipo de supervisión en tiempo real de los ajustes de réplica y partición. Sin embargo, el siguiente mensaje se puede seguir viendo mientras se están realizando los cambios.
+   Los cambios en la capacidad pueden tardar entre 15 minutos y varias horas en completarse. No se puede cancelar una vez que se ha iniciado el proceso y no hay ningún tipo de supervisión en tiempo real de los ajustes de réplica y partición. Sin embargo, el siguiente mensaje se puede seguir viendo mientras se están realizando los cambios.
 
    :::image type="content" source="media/search-capacity-planning/4-updating.png" alt-text="Mensaje de estado del portal" border="true":::
 
@@ -192,31 +200,7 @@ En el sitio web de Azure se explican con detalle la capacidad, los precios y las
 > El número de réplicas y particiones se dividirse equitativamente en 12 (en concreto, 1, 2, 3, 4, 6, 12). Esto se debe a que Azure Cognitive Search divide previamente cada índice en 12 particiones para que se pueda repartir en porciones iguales entre todas las particiones. Por ejemplo, si su servicio tiene tres particiones y crea un nuevo índice, cada partición contendrá 4 particiones del índice. La manera en que Azure Cognitive Search particiona un índice es un detalle de implementación, sujeto a cambios en la futura versión. Aunque el número es 12 hoy, no debe esperar que ese número se siempre 12 en el futuro.
 >
 
-<a id="HA"></a>
-
-## <a name="high-availability"></a>Alta disponibilidad
-
-Dado que es sencillo y relativamente rápido escalar verticalmente, generalmente se recomienda que comience con una partición y una o dos réplicas, y que después escale verticalmente conforme se crean volúmenes de consulta. Las cargas de trabajo de consulta se ejecutan principalmente en réplicas. Es probable que necesite más réplicas si requiere más rendimiento o alta disponibilidad.
-
-Las recomendaciones generales para alta disponibilidad son:
-
-+ Dos réplicas para alta disponibilidad de cargas de trabajo de solo lectura (consultas)
-
-+ Tres o más réplicas para lograr una alta disponibilidad en las cargas de trabajo de lectura y escritura (se agregan, actualizan o eliminan consultas e indexación como documentos individuales).
-
-Los Acuerdos de Nivel de Servicio (SLA) de Azure Cognitive Search están destinados a las operaciones de consulta y actualizaciones de índices que constan de procesos de incorporación, actualización o eliminación de documentos.
-
-El nivel básico alcanza el límite en una partición y tres réplicas. Si desea la flexibilidad de responder inmediatamente a las fluctuaciones en la demanda para el rendimiento de indexación y consulta, considere uno de los niveles Estándar.  Si descubre que el crecimiento de sus requisitos de almacenamiento es mucho más rápido que el del rendimiento de consultas, tenga en cuenta uno de los niveles Almacenamiento optimizado.
-
-## <a name="about-queries-per-second-qps"></a>Acerca de las consultas por segundo (QPS)
-
-Debido al gran número de factores que determinan el rendimiento de las consultas, Microsoft no publica los números de QPS esperados. Todos los clientes deben desarrollar los cálculos de QPS de forma independiente mediante el nivel de servicio, la configuración, el índice y las construcciones de consulta que son válidas para la aplicación. El tamaño y la complejidad del índice, el tamaño y la complejidad de la consulta, y la cantidad de tráfico son los determinantes principales de las consultas por segundo. No hay manera de ofrecer estimaciones significativas cuando estos factores son desconocidos.
-
-Las estimaciones son más predecibles cuando se calculan en los servicios que se ejecutan en recursos dedicados (niveles Básico y Estándar). Puede calcular el número de QPS con más precisión porque tiene control sobre más parámetros. Para instrucciones sobre cómo realizar una estimación, consulte [Consideraciones sobre el rendimiento y la optimización de Azure Cognitive Search](search-performance-optimization.md).
-
-En el caso de los niveles de Almacenamiento optimizado (L1 y L2), debe esperar un rendimiento más bajo de las consultas y una latencia superior que en los niveles Estándar.
-
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Cómo calcular y administrar los costos](search-sku-manage-costs.md)
+> [Administrar costos](search-sku-manage-costs.md)

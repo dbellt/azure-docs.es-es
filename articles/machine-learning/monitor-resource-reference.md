@@ -9,13 +9,13 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.custom: subject-monitoring
-ms.date: 10/02/2020
-ms.openlocfilehash: f130fc0c65c49c33c838812fc2758619e0d1bca0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/07/2021
+ms.openlocfilehash: de4d934144d6721db8c00d7199061842e518e44f
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102521346"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107031076"
 ---
 # <a name="monitoring-azure-machine-learning-data-reference"></a>Supervisión de la referencia de datos de Azure Machine Learning
 
@@ -28,49 +28,62 @@ En esta sección se enumeran todas las métricas de la plataforma recopiladas au
 **Modelo**
 
 | Métrica | Unidad | Descripción |
-| ----- | ----- | ----- |
-| Error al realizar la implementación del modelo | Count | Número de implementaciones de modelos que dieron error. |
-| Implementación del modelo iniciada | Count | Número de implementaciones de modelos que se iniciaron. |
-| Implementación de modelo correcta | Count | El número de implementaciones de modelos que se realizaron correctamente. |
-| Error en el registro de modelo | Count | El número de registros de modelos que dieron error. |
-| Registro de modelo realizado correctamente | Count | El número de registros de modelo que se realizaron correctamente. |
+|--|--|--|
+| Model Register Succeeded (Registro de modelo realizado correctamente) | Count | Número de registros de modelo que se realizaron correctamente en este espacio de trabajo. |
+| Model Register Failed (Error en el registro de modelo) | Count | Número de registros de modelo erróneos de este espacio de trabajo. |
+| Model Deploy Started (Implementación de modelo iniciada) | Count | Número de implementaciones de modelos que se iniciaron en este espacio de trabajo. |
+| Model Deploy Succeeded (Implementación de modelo correcta) | Count | Número de implementaciones de modelos que se realizaron correctamente en este espacio de trabajo. |
+| Error al realizar la implementación de modelo | Count | Número de implementaciones de modelo erróneas de este espacio de trabajo. |
 
 **Cuota**
 
 La información de cuota es solo para proceso de Azure Machine Learning.
 
 | Métrica | Unidad | Descripción |
-| ----- | ----- | ----- |
-| Núcleos activos | Count | El número de núcleos de proceso activos. |
-| Nodos activos | Count | El número de nodos de proceso activos. |
-| Núcleos inactivos | Count | El número de núcleos de proceso inactivos. |
-| Nodos inactivos | Count | El número de nodos de ejecución inactivos. |
-| Núcleos de salida | Count | Número de núcleos de salida. |
-| Nodos de salida | Count | Número de nodos de salida. |
-| Núcleos con prioridad | Count | Número de núcleos con prioridad. |
-| Nodos con prioridad | Count | Número de nodos con prioridad. |
-| Porcentaje de uso de la cuota | Percent | Porcentaje de cuota usada. |
-| Núcleos totales | Count | Los núcleos totales. |
-| Nodos totales | Count | Los núcleos totales. |
-| Núcleos no utilizables | Count | El número de núcleos no utilizables. |
-| Nodos no utilizables | Count | El número de nodos no utilizables. |
+|--|--|--|
+| Total Nodes (Nodos totales) | Count | Número de nodos totales. Este total incluye algunos de los nodos activos, nodos inactivos, nodos inutilizables, nodos con prioridad, nodos salientes. |
+| Active Nodes (Nodos activos) | Count | Número de nodos activos. Nodos que ejecutan activamente un trabajo. |
+| Idle Nodes (Nodos inactivos) | Count | Número de nodos inactivos. Los nodos inactivos son los nodos que no ejecutan ningún trabajo, pero que pueden aceptar un nuevo trabajo si está disponible. |
+| Nodos no utilizables | Count | Número de nodos inutilizables. Los nodos inutilizables no funcionan debido a algún problema que no se puede resolver. Azure reciclará estos nodos. |
+| Preempted Nodes (Nodos con prioridad) | Count | Número de nodos con prioridad. Estos nodos son los nodos de prioridad baja que se quitan del grupo de nodos disponible. |
+| Leaving Nodes (Nodos de salida) | Count | Número de nodos de salida. Los nodos de salida son los nodos que acaban de procesar un trabajo y pasan al estado inactivo. |
+| Total Cores (Núcleos totales) | Count | Número de núcleos totales |
+| Active Cores (Núcleos activos) | Count | Número de núcleos activos |
+| Idle Cores (Núcleos inactivos) | Count | Número de núcleos inactivos |
+| Unusable Cores (Núcleos no utilizables) | Count | Número de núcleos no utilizables |
+| Preempted Cores (Núcleos con prioridad) | Count | Número de núcleos con prioridad |
+| Leaving Cores (Núcleos de salida) | Count | Número de núcleos de salida |
+| Porcentaje de uso de la cuota | Count | Porcentaje de cuota utilizada |
 
 **Recurso**
 
+| Métrica| Unidad | Descripción |
+|--|--|--|
+| CpuUtilization | Count | Porcentaje de uso en un nodo de CPU. El uso se notifica en intervalos de un minuto. |
+| GpuUtilization | Count | Porcentaje de uso en un nodo de GPU. El uso se notifica en intervalos de un minuto. |
+| GpuMemoryUtilization | Count | Porcentaje de uso de memoria en un nodo de GPU. El uso se notifica en intervalos de un minuto. |
+| GpuEnergyJoules | Count | Energía en intervalos en Joules en un nodo de GPU. La energía se notifica en intervalos de un minuto. |
+
+**Run**
+
+Información sobre las ejecuciones de aprendizaje para el área de trabajo.
+
 | Métrica | Unidad | Descripción |
-| ----- | ----- | ----- |
-| CpuUtilization | Percent | Porcentaje de la CPU utilizado para un nodo concreto durante una ejecución o trabajo. Esta métrica solo se publica cuando se ejecuta un trabajo en un nodo. Un trabajo puede usar uno o varios nodos. Esta métrica se publica por nodo. |
-| GpuUtilization | Percent | Porcentaje de la GPU utilizado para un nodo concreto durante una ejecución o trabajo. Un nodo puede tener una o varias GPU. Esta métrica se publica por GPU por nodo. |
-
-**Ejecutar**
-
-Información sobre las ejecuciones de aprendizaje.
-
-| Métrica | Unidad | Descripción |
-| ----- | ----- | ----- |
-| Ejecuciones finalizadas | Count | Número de ejecuciones completadas. |
-| Ejecuciones con error | Count | Número de ejecuciones con error. |
-| Ejecuciones iniciadas | Count | Número de ejecuciones iniciadas. |
+|--|--|--|
+| Ejecuciones canceladas | Count | Número de ejecuciones canceladas para esta área de trabajo. El recuento se actualiza cuando una ejecución se cancela correctamente. |
+| Cancelar ejecuciones solicitadas | Count | Número de ejecuciones en las que se solicitó la cancelación para esta área de trabajo. El recuento se actualiza cuando se ha recibido la solicitud de cancelación de una ejecución. |
+| Ejecuciones finalizadas | Count | Número de ejecuciones finalizadas correctamente para esta área de trabajo. El recuento se actualiza cuando se ha completado una ejecución y se ha recopilado la salida. |
+| Ejecuciones con error | Count | Número de ejecuciones con error para esta área de trabajo. El recuento se actualiza cuando se produce un error en una ejecución. |
+| Finalizando ejecuciones | Count | Número de ejecuciones especificadas para finalizar el estado de esta área de trabajo. El recuento se actualiza cuando se ha completado una ejecución pero la recopilación de la salida todavía está en curso. | 
+| Ejecuciones que no responden | Count | Número de ejecuciones que no responden para esta área de trabajo. El recuento se actualiza cuando una ejecución entra en el estado No responde. |
+| Ejecuciones no iniciadas | Count | Número de ejecuciones en estado No iniciada para esta área de trabajo. El recuento se actualiza cuando se recibe una solicitud para crear una ejecución, pero aún no se ha rellenado la información de la ejecución. |
+| Preparando ejecuciones | Count | Número de ejecuciones que se están preparando para esta área de trabajo. El recuento se actualiza cuando una ejecución entra en el estado Preparándose mientras se prepara el entorno de ejecución. |
+| Aprovisionamiento de ejecuciones | Count | Número de ejecuciones que se están aprovisionando para esta área de trabajo. El recuento se actualiza cuando una ejecución está esperando la creación o el aprovisionamiento del destino de proceso. |
+| Ejecuciones en cola | Count | Número de ejecuciones en cola para esta área de trabajo. El recuento se actualiza cuando una ejecución se pone en cola en el destino de proceso. Puede producirse cuando se espera a que los nodos de ejecución necesarios estén listos. |
+| Ejecuciones iniciadas | Count | Número de ejecuciones en curso para esta área de trabajo. El recuento se actualiza cuando la ejecución se inicia en los recursos necesarios. |
+| Iniciando ejecuciones | Count | Número de ejecuciones iniciadas para esta área de trabajo. El recuento se actualiza después de que se hayan rellenado la solicitud para crear la ejecución y la información de ejecución, como el identificador de ejecución. |
+| Errors | Count | Número de errores de ejecución en esta área de trabajo. El recuento se actualiza cada vez que la ejecución encuentra un error. |
+| Advertencias | Count | Número de advertencias de ejecución en esta área de trabajo. El recuento se actualiza cada vez que una ejecución encuentra una advertencia. |
 
 ## <a name="metric-dimensions"></a>Dimensiones de métricas
 

@@ -7,12 +7,12 @@ ms.author: brendm
 author: bmitchell287
 ms.date: 10/18/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: de113e3c005e11bd2bcd13ec6c1554664ba8fbaf
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 52b3d902b2cbfdacfe92117dcf0057dab1fe9a83
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104877434"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107012216"
 ---
 # <a name="set-up-a-spring-cloud-config-server-instance-for-your-service"></a>Configuración de una instancia de Config Server en Spring Cloud para su servicio
 
@@ -242,9 +242,9 @@ Azure Spring Cloud puede acceder a los repositorios de Git públicos, protegidos
 
    ![Servidor de Spring Cloud Config](media/spring-cloud-tutorial-config-server/config-server-azure-repos.png)
 
-## <a name="delete-your-app-configuration"></a>Eliminación de la configuración de la aplicación
+## <a name="delete-your-configuration"></a>Eliminación de la configuración
 
-Una vez guardado un archivo de configuración, aparece el botón **Delete app configuration** (Eliminar configuración de la aplicación) en la pestaña **Configuration** (Configuración). Si se selecciona este botón, se borrará completamente la configuración existente. Debe hacerlo si desea conectar la instancia de Config Server a otro origen, por ejemplo, para pasarla de GitHub a Azure DevOps.
+Puede seleccionar el botón **Restablecer** que aparece en la pestaña **Config Server** para borrar completamente la configuración existente. Elimine la configuración de Config Server si desea conectar la instancia de Config Server a otro origen, por ejemplo, para pasarla de GitHub a Azure DevOps.
 
 
 

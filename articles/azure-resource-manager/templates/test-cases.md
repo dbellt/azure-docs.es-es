@@ -2,15 +2,15 @@
 title: Casos de prueba del kit de herramientas para pruebas
 description: En este artículo se describen las pruebas que se ejecutan en el kit de herramientas para pruebas de plantillas de Resource Manager.
 ms.topic: conceptual
-ms.date: 12/03/2020
+ms.date: 04/12/2021
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 31e30b4853da03e28a4a2d15292050805f5bc292
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 7805d6dbdb8b93968a2792ed6dfaf2ac8fea9ae5
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106064160"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107363400"
 ---
 # <a name="default-test-cases-for-arm-template-test-toolkit"></a>Casos de prueba predeterminados del kit de herramientas para pruebas de plantillas de Resource Manager
 
@@ -637,7 +637,7 @@ En el ejemplo siguiente **se supera** esta prueba.
 
 Nombre de la prueba: **No se debe usar ManagedIdentityExtension**
 
-No aplique la extensión ManagedIdentity a una máquina virtual. Para más información, consulte [Dejar de usar la extensión de identidades administradas de máquina virtual y empezar a usar Azure Instance Metadata Service](../../active-directory/managed-identities-azure-resources/howto-migrate-vm-extension.md).
+No aplique la extensión ManagedIdentity a una máquina virtual. La extensión quedó en desuso en 2019 y ya no debe usarse.
 
 ## <a name="outputs-cant-include-secrets"></a>Las salidas no pueden incluir secretos
 

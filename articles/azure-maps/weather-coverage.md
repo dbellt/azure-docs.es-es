@@ -1,6 +1,6 @@
 ---
-title: Cobertura de los servicios de Weather de Azure Maps (versión preliminar)
-description: Más información sobre la cobertura de los servicios de Weather (versión preliminar) de Microsoft Azure Maps.
+title: Cobertura de los servicios Weather de Azure Maps (versión preliminar)
+description: Más información sobre la cobertura de los servicios Weather (versión preliminar) de Microsoft Azure Maps.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 12/07/2020
@@ -9,19 +9,14 @@ ms.service: azure-maps
 services: azure-maps
 ms.custom: references_regions
 manager: philmea
-ms.openlocfilehash: 6c4e9eb765a72b7a0b495f81a954b484ef6aa2b7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5ac209dc898c2d30f8d50a8989b188ef5a9f5046
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96905492"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257677"
 ---
-# <a name="azure-maps-weather-services-preview-coverage"></a>Cobertura de los servicios de Weather de Azure Maps
-
-> [!IMPORTANT]
-> Los servicios de Weather de Azure Maps se encuentran actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
+# <a name="azure-maps-weather-services-coverage"></a>Cobertura de los servicios Weather de Azure Maps
 
 En este artículo se proporciona información sobre la cobertura de Azure Maps [Weather Services](/rest/api/maps/weather). Los servicios de datos meteorológicos de Azure Maps devuelven detalles como mosaicos de radar, condiciones meteorológicas actuales, previsiones meteorológicas y el tiempo a lo largo de una ruta.
 

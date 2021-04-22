@@ -12,12 +12,12 @@ ms.date: 03/17/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 56ffa8c33c409e274318407a70f33edaabb5073d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 75d838e8ce785a4f59b056bf0dec736b982ea716
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104578505"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107283820"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Códigos de error de autenticación y autorización de Azure AD
 
@@ -123,7 +123,7 @@ Por ejemplo, si ha recibido el código de error "AADSTS50058", busque "50058" en
 | AADSTS50055 | InvalidPasswordExpiredPassword: la contraseña ha expirado. |
 | AADSTS50056 | Contraseña no válida o nula: la contraseña no existe en el almacén de este usuario. |
 | AADSTS50057 | UserDisabled: la cuenta de usuario está deshabilitada. Un administrador ha deshabilitado la cuenta. |
-| AADSTS50058 | UserInformationNotProvided: esto significa que un usuario no ha iniciado sesión. Este es un error común que se espera cuando un usuario no está autenticado y aún no ha iniciado sesión.</br>Si este error se produce en un contexto de inicio de sesión único en el que el usuario ha iniciado sesión anteriormente, significa que la sesión SSO no se encuentra o no es válida.</br>Este error puede devolverse a la aplicación si se especifica prompt=none. |
+| AADSTS50058 | UserInformationNotProvided: esto significa que un usuario no ha iniciado sesión. Este es un error común que se espera cuando un usuario no está autenticado y aún no ha iniciado sesión.</br>Si este error se encuentra en un contexto de inicio de sesión único en el que el usuario ha iniciado sesión anteriormente, significa que la sesión SSO no se encuentra o no es válida.</br>Este error puede devolverse a la aplicación si se especifica prompt=none. |
 | AADSTS50059 | MissingTenantRealmAndNoUserInformationProvided: no se ha encontrado ninguna información de identificación del inquilino ni en la solicitud ni implícita en ninguna credencial proporcionada. El usuario puede ponerse en contacto con el administrador del inquilino para ayudar a resolver el problema. |
 | AADSTS50061 | SignoutInvalidRequest: la solicitud de cierre de sesión no es válida. |
 | AADSTS50064 | CredentialAuthenticationError: error de validación de credenciales en el nombre de usuario o la contraseña. |

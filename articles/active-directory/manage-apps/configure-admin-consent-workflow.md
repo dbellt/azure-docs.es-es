@@ -2,26 +2,26 @@
 title: Configuración del flujo de trabajo de consentimiento del administrador en Azure Active Directory | Microsoft Docs
 description: Aprenda a configurar una manera para que los usuarios finales soliciten acceso a las aplicaciones que requieren el consentimiento del administrador.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 10/29/2019
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95d89ea0cbc7d1e0379a9cbfce40f11d4f8ac93f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9811c3d1833a02ad3cbaf22b9f0b31fd2da5bb6d
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101643769"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107375192"
 ---
-# <a name="configure-the-admin-consent-workflow-preview"></a>Configuración del flujo de trabajo de consentimiento del administrador (versión preliminar)
+# <a name="configure-the-admin-consent-workflow"></a>Configuración del flujo de trabajo de consentimiento del administrador
 
-En este artículo se describe cómo habilitar la característica del flujo de trabajo de consentimiento del administrador (versión preliminar), que proporciona a los usuarios finales una manera de solicitar acceso a las aplicaciones que requieren el consentimiento del administrador.
+En este artículo se describe cómo habilitar la característica del flujo de trabajo de consentimiento del administrador, que proporciona a los usuarios finales una manera de solicitar acceso a las aplicaciones que requieren el consentimiento del administrador.
 
 Sin un flujo de trabajo de consentimiento del administrador, un usuario de un inquilino en el que esté deshabilitado el consentimiento del usuario se bloqueará cuando intente acceder a cualquier aplicación que requiera permisos para acceder a los datos de la organización. El usuario recibe un mensaje de error genérico que indica que no está autorizado para acceder a la aplicación y debe pedir ayuda a su administrador. Pero a menudo, el usuario no sabe con quién debe ponerse en contacto, por lo que terminan desistiendo o creando una cuenta local en la aplicación. Incluso cuando se notifica a un administrador, no siempre hay un proceso simplificado para ayudar al administrador a conceder acceso y notificar a sus usuarios.
  
@@ -38,7 +38,7 @@ Para habilitar el flujo de trabajo de consentimiento del administrador y elegir 
 3. En el cuadro de búsqueda del filtro, escriba "**Azure Active Directory**" y seleccione el elemento **Azure Active Directory**.
 4. En el menú de navegación, haga clic en **Aplicaciones empresariales**. 
 5. En **Administrar**, seleccione **Configuración del usuario**.
-6. En **Solicitudes de consentimiento del administrador (versión preliminar)** , establezca **Los usuarios pueden solicitar el consentimiento del administrador para las aplicaciones en las que no puedan proporcionar un consentimiento** en **Sí**.
+6. En **Solicitudes de consentimiento del administrador**, establezca **Los usuarios pueden solicitar el consentimiento del administrador para las aplicaciones en las que no puedan proporcionar un consentimiento** en **Sí**.
 
    ![Configuración del flujo de trabajo de consentimiento del administrador](media/configure-admin-consent-workflow/admin-consent-requests-settings.png)
  
@@ -78,7 +78,7 @@ Para revisar las solicitudes de consentimiento del administrador y tomar medidas
 2. Haga clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo. Se abrirá la **extensión de Azure Active Directory**
 3. En el cuadro de búsqueda del filtro, escriba "**Azure Active Directory**" y seleccione el elemento **Azure Active Directory**.
 4. En el menú de navegación, haga clic en **Aplicaciones empresariales**.
-5. En **Actividad**, seleccione **Solicitudes de consentimiento del administrador (versión preliminar)** .
+5. En **Actividad**, seleccione **Solicitudes de consentimiento del administrador**.
 
    > [!NOTE]
    > Los revisores solo verán las solicitudes de administración que se crearon después de designarse como revisor.
@@ -112,11 +112,7 @@ Los solicitantes recibirán notificaciones por correo electrónico en estos caso
  
 ## <a name="audit-logs"></a>Registros de auditoría 
  
-En la tabla siguiente se describen los escenarios y los valores de auditoría disponibles para el flujo de trabajo de consentimiento del administrador. 
-
-> [!NOTE]
-> El contexto de usuario del actor de auditoría falta actualmente en todos los escenarios. Se trata de una limitación conocida en la versión preliminar.
-
+En la tabla siguiente se describen los escenarios y los valores de auditoría disponibles para el flujo de trabajo de consentimiento del administrador.
 
 |Escenario  |Servicio de auditoría  |Categoría de auditoría  |Actividad de auditoría  |Actor de auditoría  |Limitaciones del registro de auditoría  |
 |---------|---------|---------|---------|---------|---------|

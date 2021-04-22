@@ -8,12 +8,12 @@ ms.date: 04/09/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 79fe8acd06084c58b0cf9b47bf93e933c648510c
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: ca16099cffc22a19c2ee35b00ae6f1bcbe2977a7
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107481997"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312406"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-tpm-on-linux"></a>Creación y aprovisionamiento de un dispositivo IoT Edge con un TPM en Linux
 
@@ -149,7 +149,7 @@ Recupere la información de aprovisionamiento de la máquina virtual y úsela pa
 Al crear una inscripción en DPS, tiene la oportunidad de declarar un **Estado inicial de dispositivo gemelo**. En el dispositivo gemelo, puede establecer etiquetas para agrupar dispositivos por cualquier métrica que necesite en su solución, como la región, el entorno, la ubicación o el tipo de dispositivo. Estas etiquetas se usan para crear [implementaciones automáticas](how-to-deploy-at-scale.md).
 
 > [!TIP]
-> En la CLI de Azure, puede crear una [inscripción](/cli/azure/iot/dps/enrollment) y usar la marca **edge-enabled** para especificar que se trata de un dispositivo IoT Edge.
+> En la CLI de Azure, puede crear una [inscripción](/cli/azure/ext/azure-iot/iot/dps/enrollment) y usar la marca **edge-enabled** para especificar que se trata de un dispositivo IoT Edge.
 
 1. En [Azure Portal](https://portal.azure.com), navegue hasta la instancia de IoT Hub Device Provisioning Service.
 
