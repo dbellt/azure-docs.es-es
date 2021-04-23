@@ -8,32 +8,34 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/03/2021
+ms.date: 04/08/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 0477153b466702bec0fa2d5221fee1e054d06314
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 7fac7df0978b23e535d8761b436b14e2f41e5f91
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102033781"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107209509"
 ---
 # <a name="set-up-a-force-password-reset-flow-in-azure-active-directory-b2c"></a>Configuración de un flujo de restablecimiento de contraseña forzado en Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-Como administrador, puede [restablecer la contraseña de un usuario](manage-users-portal.md#reset-a-users-password) si este no la recuerda. También puede forzar al usuario a que restablezca la contraseña. En este artículo, aprenderá a forzar un restablecimiento de contraseña en estos escenarios.
+> [!IMPORTANT]
+> Forzar el restablecimiento de contraseña es una característica en versión preliminar pública de Azure AD B2C. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="overview"></a>Información general
+Como administrador, puede [restablecer la contraseña de un usuario](manage-users-portal.md#reset-a-users-password) si este no la recuerda. También puede forzar al usuario a que restablezca la contraseña. En este artículo, aprenderá a forzar un restablecimiento de contraseña en estos escenarios.
 
-Cuando un administrador restablece la contraseña de un usuario desde Azure Portal, el valor del atributo [forceChangePasswordNextSignIn](user-profile-attributes.md#password-profile-property) se establece en `true`.
-
-El [proceso de inicio de sesión y registro](add-sign-up-and-sign-in-policy.md) comprueba el valor de este atributo. Una vez que el usuario completa el inicio de sesión, si el atributo está establecido en `true`, el usuario debe restablecer su contraseña. Después, el valor del atributo se vuelve a establecer en `false`.
+Cuando un administrador restablece la contraseña de un usuario desde Azure Portal, el valor del atributo [forceChangePasswordNextSignIn](user-profile-attributes.md#password-profile-property) se establece en `true`. El [proceso de inicio de sesión y registro](add-sign-up-and-sign-in-policy.md) comprueba el valor de este atributo. Una vez que el usuario completa el inicio de sesión, si el atributo está establecido en `true`, el usuario debe restablecer su contraseña. Después, el valor del atributo se vuelve a establecer en `false`.
 
 ![Flujo de restablecimiento de contraseña forzado](./media/force-password-reset/force-password-reset-flow.png)
 
 El flujo de restablecimiento de contraseña es aplicable a las cuentas locales de Azure AD B2C que utilizan una [dirección de correo electrónico](identity-provider-local.md#email-sign-in) o un [nombre de usuario](identity-provider-local.md#username-sign-in) con una contraseña para el inicio de sesión.
+
+::: zone pivot="b2c-user-flow"
 
 ### <a name="force-a-password-reset-after-90-days"></a>Restablecimiento de contraseña forzado después de 90 días
 
@@ -41,13 +43,11 @@ Como administrador, puede establecer la expiración de la contraseña de un usua
 
 Una vez que se ha establecido una directiva de expiración de contraseña, también debe configurar el flujo de restablecimiento de contraseña, tal como se describe en este artículo.  
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
 ## <a name="configure-your-policy"></a>Configuración de la directiva
-
-::: zone pivot="b2c-user-flow"
 
 Para habilitar la configuración de **Restablecimiento de la contraseña forzado** en un flujo de usuario de registro o de inicio de sesión:
 
@@ -79,23 +79,7 @@ Para habilitar la configuración de **Restablecimiento de la contraseña forzado
 
 ::: zone pivot="b2c-custom-policy"
 
-1. Obtenga el ejemplo de un restablecimiento de contraseña forzada en [GitHub](https://github.com/azure-ad-b2c/samples/tree/master/policies/force-password-reset).
-1. En cada archivo, reemplace la cadena `yourtenant` por el nombre del inquilino de Azure AD B2C. Por ejemplo, si el nombre del inquilino de B2C es *contosob2c*, todas las instancias de `yourtenant.onmicrosoft.com` se convierten en `contosob2c.onmicrosoft.com`.
-1. Cargue los archivos de directivas en el siguiente orden: la directiva de extensiones `TrustFrameworkExtensionsCustomForcePasswordReset.xml` y luego la directiva de usuarios de confianza `SignUpOrSigninCustomForcePasswordReset.xml`.
-
-### <a name="test-the-policy"></a>Prueba de la directiva
-
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador de usuarios o como administrador de contraseñas. Para más información acerca de los roles disponibles, consulte [Asignación de roles de administrador en Azure Active Directory](../active-directory/roles/permissions-reference.md#all-roles).
-1. Seleccione el icono **Directorio y suscripción** en la barra de herramientas del portal y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
-1. En Azure Portal, busque y seleccione **Azure AD B2C**.
-1. Seleccione **Usuarios**. Busque y seleccione el usuario que va a usar para probar el restablecimiento de la contraseña y, después, seleccione **Restablecer contraseña**.
-1. En Azure Portal, busque y seleccione **Azure AD B2C**.
-1. En **Directivas**, seleccione **Identity Experience Framework**.
-1. Seleccione la directiva `B2C_1A_signup_signin_Custom_ForcePasswordReset` para abrirla. 
-1. En **Aplicación**, seleccione la aplicación web que [registró anteriormente](troubleshoot-custom-policies.md#troubleshoot-the-runtime). La **dirección URL de respuesta** debe mostrar `https://jwt.ms`.
-1. Seleccione el botón **Ejecutar ahora**.
-1. Inicie sesión con la cuenta de usuario para la que desea restablecer la contraseña.
-1. Ahora debe cambiar la contraseña del usuario. Cambie la contraseña y seleccione **Continuar**. El token se devuelve al `https://jwt.ms` y debe mostrarse.
+Esta característica solo está disponible actualmente para los Flujos de usuario. Para ver los pasos de configuración, elija **Flujo de usuario** más arriba.
 
 ::: zone-end
 

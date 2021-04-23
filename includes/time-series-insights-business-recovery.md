@@ -4,13 +4,13 @@ ms.service: time-series-insights
 author: deepakpalled
 ms.author: dpalled
 manager: diviso
-ms.date: 07/09/2020
-ms.openlocfilehash: f25c335c568c112c05f81df51d69e83aeff423e2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 04/01/2021
+ms.openlocfilehash: 6529aa49d06e64947deb5ae54db0c39ad2575569
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96025930"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106288578"
 ---
 ## <a name="business-disaster-recovery"></a>Recuperación ante desastres de la empresa
 
@@ -24,7 +24,7 @@ Entre las características de alta disponibilidad adicionales proporcionadas med
 
 - **Conmutación por error**: Azure proporciona [replicación geográfica y equilibrio de carga](/azure/architecture/resiliency/recovery-loss-azure-region).
 - **Restauración de datos** y **recuperación del almacenamiento**: Azure proporciona [varias opciones para conservar y recuperar datos](/azure/architecture/resiliency/recovery-data-corruption).
-- **Azure Site Recovery**: Azure proporciona características de recuperación del sitio a través de [Azure Site Recovery](../articles/site-recovery/index.yml).
+- **Azure Site Recovery**: Azure proporciona características de recuperación a través de [Azure Site Recovery](../articles/site-recovery/index.yml).
 - **Azure Backup**: [Azure Backup](../articles/backup/backup-architecture.md) admite la copia de seguridad local y en la nube de las máquinas virtuales de Azure.
 
 Asegúrese de habilitar las características de Azure pertinentes para proporcionar una alta disponibilidad global entre regiones para los dispositivos y usuarios.
@@ -44,7 +44,7 @@ La integración de Azure Time Series Insights con los demás servicios proporcio
 
 ### <a name="azure-time-series-insights"></a>Azure Time Series Insights
 
-Existen varias maneras de mantener los datos, las aplicaciones y los servicios de Azure Time Series Insights en ejecución, incluso si se ha interrumpido. 
+Existen varias maneras de mantener los datos, las aplicaciones y los servicios de Azure Time Series Insights en ejecución, incluso si se ha interrumpido.
 
 Sin embargo, puede determinar que también se requiera una copia de seguridad completa del entorno de Azure Time Series, con los siguientes objetivos:
 
@@ -63,12 +63,13 @@ Para crear un entorno duplicado:
 Si se produce un evento:
 
 1. Si la región primaria resulta afectada durante un incidente de desastre, vuelva a enrutar las operaciones al entorno de copia de Azure Time Series Insights de respaldo.
+1. Dado que los números de secuencia de centro se reinician a partir de 0 después de la conmutación por error, vuelva a crear el origen de eventos en ambas regiones o entornos con grupos de consumidores diferentes para evitar la creación de lo que parecerían eventos duplicados.
 1. Use la segunda región para realizar copias de seguridad y recuperar todos los datos de telemetría y consulta de Azure Time Series Insights.
 
 > [!IMPORTANT]
 > Si se produce una conmutación por error:
-> 
-> * También puede producirse un retraso.
-> * Podría producirse un pico momentáneo en el procesamiento de los mensajes dado que las operaciones se vuelven a enrutar.
-> 
+>
+> - También puede producirse un retraso.
+> - Podría producirse un pico momentáneo en el procesamiento de los mensajes dado que las operaciones se vuelven a enrutar.
+>
 > Para más información, lea [Mitigación de la latencia en Azure Time Series Insights](../articles/time-series-insights/time-series-insights-environment-mitigate-latency.md).
