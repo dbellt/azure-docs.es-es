@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: scottnap
-ms.openlocfilehash: e70b899ea0133704e4ecab42dd4c2a09bca41804
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: 7c3ae14cd409e7bfc9be77c1a593964b73a12ddc
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107226318"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107791056"
 ---
 # <a name="about-network-virtual-appliance-in-an-azure-virtual-wan-hub-preview"></a>Acerca de una aplicación virtual de red en un centro de conectividad de Azure Virtual WAN (versión preliminar)
 
@@ -77,13 +77,14 @@ NVA en el centro de conectividad virtual está disponible en versión preliminar
 
 |Región geopolítica | Regiones de Azure|
 |---|---|
-| Norteamérica| Oeste de EE. UU., Centro-sur de EE. UU. y Este de EE. UU. 2   |
-| Sudamérica | Sur de Brasil |
-| Europa | Oeste de Europa, Sur de Reino Unido|
+| Norteamérica| Centro de Canadá, Este de Canadá, Centro de EE. UU., Este de EE. UU., Este de EE. UU. 2, Centro-norte de EE. UU., Centro-oeste de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2 |
+| Sudamérica | Sur de Brasil, Sudeste de Brasil |
+| Europa | Centro de Francia, Sur de Francia, Norte de Alemania, Centro-oeste de Alemania, Norte de Europa, Este de Noruega, Oeste de Noruega, Norte de Suiza, Oeste de Suiza, Sur de Reino Unido, Oeste de Reino Unido, Oeste de Europa|
 |  Oriente Medio | Norte de Emiratos Árabes Unidos |
-| Asia | Japón Oriental |
-| Australia | Este de Australia |
-
+| Asia |  Este de Asia, Este de Japón, Oeste de Japón, Centro de Corea del Sur, Sur de Corea del Sur, Sudeste de Asia | 
+| Australia | Sudeste de Australia, Este de Australia, Centro de Australia, Centro de Australia 2|
+| África | Norte de Sudáfrica |
+| India | Sur de la India, India occidental, India central | 
 ## <a name="faq"></a>Preguntas más frecuentes
 
 ### <a name="i-am-a-network-appliance-partner-and-want-to-get-our-nva-in-the-hub--can-i-join-this-partner-program"></a>Soy asociado de dispositivos de red y quiero que nuestra NVA esté en el centro de conectividad.  ¿Puedo participar en este programa para asociados?
@@ -92,7 +93,7 @@ Desafortunadamente, no tenemos capacidad para incorporar nuevas ofertas para aso
 
 ### <a name="can-i-deploy-any-nva-from-azure-marketplace-into-the-virtual-wan-hub"></a>¿Puedo implementar cualquier NVA desde Azure Marketplace en el centro de conectividad de Virtual WAN?
 
-Actualmente, [Barracuda CloudGen WAN](https://aka.ms/BarracudaMarketPlaceOffer) y [Cisco Cloud vWAN Application](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cisco.cisco_cloud_vwan_app?tab=Overview) son los únicos productos disponibles para implementarse en el centro de conectividad de Virtual WAN.
+Actualmente, solo [Barracuda CloudGen WAN](https://aka.ms/BarracudaMarketPlaceOffer), [Cisco Cloud vWAN Application](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cisco.cisco_cloud_vwan_app?tab=Overview) y [VMware Sd-WAN](https://aka.ms/vmwareMarketplaceLink) son los únicos productos disponibles para implementarse en el centro de conectividad de Virtual WAN.
 
 ### <a name="what-is-the-cost-of-the-nva"></a>¿Cuál es el costo de la NVA?
 
@@ -104,7 +105,7 @@ No. Si desea implementar una NVA, debe usar un centro de conectividad Estándar.
 
 ### <a name="can-i-deploy-an-nva-into-a-secure-hub"></a>¿Se puede implementar una NVA en un centro de conectividad Seguro?
 
-Sí. Barracuda CloudGen WAN se puede implementar en un centro de conectividad con Azure Firewall.
+Sí. Se puede implementar una NVA de asociado en un centro de conectividad con Azure Firewall.
 
 ### <a name="can-i-connect-any-cpe-device-in-my-branch-office-to-barracuda-cloudgen-wan-nva-in-the-hub"></a>¿Se pueden conectar todos los dispositivos CPE de una sucursal a la NVA Barracuda CloudGen WAN del centro de conectividad?
 

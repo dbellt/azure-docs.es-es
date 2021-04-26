@@ -16,16 +16,8 @@
       displayName: 'Troubleshooting, import'
 - name: Inicios rápidos de LUIS
   items:
-    - name: Compilación de una aplicación de un dominio creado previamente
-      href: luis-get-started-create-app.md
     - name: Uso del portal de LUIS
-      items:
-        - name: Creación de una aplicación
-          href: get-started-portal-build-app.md
-          displayName: 'intent, entity, create app, test, example utterance'
-        - name: Implementación de una aplicación
-          href: get-started-portal-deploy-app.md
-          displayName: 'assign key, assign resource, add key, add resource, test, deploy, endpoint, query, publish'
+      href: luis-get-started-create-app.md
     - name: Uso del explorador
       href: luis-get-started-get-intent-from-browser.md
     - name: Uso de las bibliotecas cliente y de la API REST

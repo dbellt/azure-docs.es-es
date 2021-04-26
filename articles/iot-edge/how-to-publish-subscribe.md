@@ -10,12 +10,12 @@ ms.date: 11/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 25d4774144ff4ea601badb1fb71b51c8142def26
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 1c4760362e7c2b3965638b3213910b5b8cd6f079
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107304123"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107516185"
 ---
 # <a name="publish-and-subscribe-with-azure-iot-edge-preview"></a>Publicación y suscripción con Azure IoT Edge (versión preliminar)
 
@@ -94,7 +94,7 @@ Los módulos implementados por IoT Edge usan la [autenticación de claves simét
 Una vez que un cliente MQTT se autentica en el centro de IoT Edge, debe estar autorizado para conectarse. Una vez conectado, debe estar autorizado para publicar o suscribirse a temas concretos. El centro de IoT Edge concede estas autorizaciones en función de su directiva de autorización. La directiva de autorización es un conjunto de instrucciones expresadas como estructura JSON que se envía al centro de IoT Edge a través de su gemelo. Edite el gemelo de un centro de IoT Edge para configurar su directiva de autorización.
 
 > [!NOTE]
-> Para la versión preliminar pública, la edición de las directivas de autorización del agente MQTT solo está disponible a través de Visual Studio, Visual Studio Code o la CLI de Azure. Azure Portal actualmente no admite la edición del gemelo del centro de IoT Edge ni de su directiva de autorización.
+> En el caso de la versión preliminar pública, solo la CLI de Azure admite implementaciones que contienen directivas de autorización de agente MQTT. Azure Portal actualmente no admite la edición del gemelo del centro de IoT Edge ni de su directiva de autorización.
 
 Cada instrucción de la directiva de autorización consta de la combinación de `identities`, los efectos `allow` o `deny`, `operations` y `resources`:
 
@@ -170,10 +170,11 @@ Hay un par de cosas que hay que tener en cuenta al escribir la directiva de auto
 - De manera predeterminada, se deniegan todas las operaciones.
 - Las instrucciones de autorización se evalúan en el orden en que aparecen en la definición JSON. Se inicia examinando `identities` y, a continuación, seleccione las primeras instrucciones allow o deny que coincidan con la solicitud. En caso de conflictos entre las instrucciones allow y deny, gana la instrucción deny.
 - Se pueden usar varias variables (por ejemplo, sustituciones) en la directiva de autorización:
-    - `{{iot:identity}}` representa la identidad del cliente conectado actualmente. Por ejemplo, una identidad de dispositivo como `myDevice` o una identidad de módulo como `myEdgeDevice/SampleModule`.
-    - `{{iot:device_id}}` representa la identidad del dispositivo conectado actualmente. Por ejemplo, una identidad de dispositivo como `myDevice` o la identidad del dispositivo donde se ejecuta un módulo, como `myEdgeDevice`.
-    - `{{iot:module_id}}` representa la identidad del módulo conectado actualmente. Esta variable está en blanco para los dispositivos conectados o una identidad de módulo como `SampleModule`.
-    - `{{iot:this_device_id}}` representa la identidad del dispositivo IoT Edge que ejecuta la directiva de autorización. Por ejemplo, `myIoTEdgeDevice`.
+
+  - `{{iot:identity}}` representa la identidad del cliente conectado actualmente. Por ejemplo, una identidad de dispositivo como `myDevice` o una identidad de módulo como `myEdgeDevice/SampleModule`.
+  - `{{iot:device_id}}` representa la identidad del dispositivo conectado actualmente. Por ejemplo, una identidad de dispositivo como `myDevice` o la identidad del dispositivo donde se ejecuta un módulo, como `myEdgeDevice`.
+  - `{{iot:module_id}}` representa la identidad del módulo conectado actualmente. Esta variable está en blanco para los dispositivos conectados o una identidad de módulo como `SampleModule`.
+  - `{{iot:this_device_id}}` representa la identidad del dispositivo IoT Edge que ejecuta la directiva de autorización. Por ejemplo, `myIoTEdgeDevice`.
 
 Las autorizaciones para los temas de IoT Hub se tratan de forma ligeramente diferente que para los temas definidos por el usuario. Estos son los puntos clave para recordar:
 
@@ -220,40 +221,43 @@ Cree dos dispositivos IoT en IoT Hub y obtenga sus contraseñas. Use la CLI de A
 
 1. Cree dos dispositivos IoT en IoT Hub y establézcalos como primarios del dispositivo IoT Edge:
 
-    ```azurecli-interactive
-    az iot hub device-identity create --device-id  sub_client --hub-name <iot_hub_name> --pd <edge_device_id>
-    az iot hub device-identity create --device-id  pub_client --hub-name <iot_hub_name> --pd <edge_device_id>
-    ```
+   ```azurecli-interactive
+   az iot hub device-identity create --device-id  sub_client --hub-name <iot_hub_name> --pd <edge_device_id>
+   az iot hub device-identity create --device-id  pub_client --hub-name <iot_hub_name> --pd <edge_device_id>
+   ```
 
 2. Para obtener sus contraseñas, genere un token de SAS:
 
-    - Para un dispositivo:
-    
-       ```azurecli-interactive
-       az iot hub generate-sas-token -n <iot_hub_name> -d <device_name> --key-type primary --du 3600
-       ```
-    
-       donde 3600 es la duración del token de SAS en segundos (por ejemplo, 3600 = 1 hora).
-    
-    - Para un módulo:
-    
-       ```azurecli-interactive
-       az iot hub generate-sas-token -n <iot_hub_name> -d <device_name> -m <module_name> --key-type primary --du 3600
-       ```
-    
-       donde 3600 es la duración del token de SAS en segundos (por ejemplo, 3600 = 1 hora).
+   - Para un dispositivo:
+
+     ```azurecli-interactive
+     az iot hub generate-sas-token -n <iot_hub_name> -d <device_name> --key-type primary --du 3600
+     ```
+
+     donde 3600 es la duración del token de SAS en segundos (por ejemplo, 3600 = 1 hora).
+
+   - Para un módulo:
+
+     ```azurecli-interactive
+     az iot hub generate-sas-token -n <iot_hub_name> -d <device_name> -m <module_name> --key-type primary --du 3600
+     ```
+
+     donde 3600 es la duración del token de SAS en segundos (por ejemplo, 3600 = 1 hora).
 
 3. Copie el token de SAS, que es el valor correspondiente a la clave "sas" de la salida. A continuación se muestra un ejemplo de salida del comando de la CLI de Azure anterior:
 
-    ```
-    {
-       "sas": "SharedAccessSignature sr=example.azure-devices.net%2Fdevices%2Fdevice_1%2Fmodules%2Fmodule_a&sig=H5iMq8ZPJBkH3aBWCs0khoTPdFytHXk8VAxrthqIQS0%3D&se=1596249190"
-    }
-    ```
+   ```output
+   {
+      "sas": "SharedAccessSignature sr=example.azure-devices.net%2Fdevices%2Fdevice_1%2Fmodules%2Fmodule_a&sig=H5iMq8ZPJBkH3aBWCs0khoTPdFytHXk8VAxrthqIQS0%3D&se=1596249190"
+   }
+   ```
 
 ### <a name="authorize-publisher-and-subscriber-clients"></a>Autorización de los clientes publicador y suscriptor
 
-Para autorizar al editor y suscriptor, edite el gemelo del centro de IoT Edge mediante la creación de una implementación con la CLI de Azure, Visual Studio o Visual Studio Code para incluir la siguiente directiva de autorización:
+Para autorizar al publicador y suscriptor, edite el gemelo del centro de IoT Edge en una implementación de IoT Edge que incluya la siguiente directiva de autorización.
+
+>[!NOTE]
+>Actualmente, las implementaciones que contienen las propiedades de autorización MQTT solo se pueden aplicar a dispositivos IoT Edge mediante la CLI de Azure.
 
 ```json
 {
@@ -377,13 +381,13 @@ Además, cree una ruta como `FROM /messages/* INTO $upstream` para enviar los da
 
 La obtención del dispositivo/módulo gemelo no es un patrón MQTT típico. El cliente debe emitir una solicitud para el gemelo que va a servir IoT Hub.
 
-Para recibir gemelos, el cliente debe suscribirse a un tema específico de IoT Hub `$iothub/twin/res/#`. El nombre de este tema se hereda de IoT Hub, y todos los clientes deben suscribirse al mismo tema. No significa que los dispositivos ni módulos reciban los gemelos unos de otros. IoT Hub y el centro de IoT Edge saben qué gemelo se debe entregar a dónde, incluso si todos los dispositivos escuchan el mismo nombre de tema. 
+Para recibir gemelos, el cliente debe suscribirse a un tema específico de IoT Hub `$iothub/twin/res/#`. El nombre de este tema se hereda de IoT Hub, y todos los clientes deben suscribirse al mismo tema. No significa que los dispositivos ni módulos reciban los gemelos unos de otros. IoT Hub y el centro de IoT Edge saben qué gemelo se debe entregar a dónde, incluso si todos los dispositivos escuchan el mismo nombre de tema.
 
 Una vez que se realice la suscripción, el cliente  debe solicitar el gemelo mediante la publicación de un mensaje en el tema específico de IoT Hub `$iothub/twin/GET/?rid=<request_id>/#`, donde `<request_id>` es un identificador arbitrario. IoT Hub enviará entonces su respuesta con los datos solicitados en el tema `$iothub/twin/res/200/?rid=<request_id>`, al que se suscribe el cliente. Así es como un cliente puede emparejar sus solicitudes con las respuestas.
 
 ### <a name="receive-twin-patches"></a>Recepción de revisiones de gemelos
 
-Para recibir las revisiones de gemelos, un cliente debe suscribirse al tema especial de IoTHub `$iothub/twin/PATCH/properties/desired/#`. Una vez que se realiza la suscripción, el cliente recibe las revisiones de gemelos enviadas por IoT Hub en este tema. 
+Para recibir las revisiones de gemelos, un cliente debe suscribirse al tema especial de IoTHub `$iothub/twin/PATCH/properties/desired/#`. Una vez que se realiza la suscripción, el cliente recibe las revisiones de gemelos enviadas por IoT Hub en este tema.
 
 ### <a name="receive-direct-methods"></a>Recepción de métodos directos
 
@@ -398,23 +402,23 @@ El envío de un método directo es una llamada HTTP y, por tanto, no pasa por el
 Para conectar dos agentes MQTT, el centro de IoT Edge incluye un puente MQTT. Un puente MQTT se usa normalmente para conectar un agente MQTT en ejecución con otro agente MQTT. Por lo general, solo se inserta en otro agente un subconjunto del tráfico local.
 
 > [!NOTE]
-> Actualmente, el puente del centro de IoT Edge solo se puede usar entre dispositivos IoT Edge anidados. No se puede usar para enviar datos a IoT Hub, ya que IoT Hub no es un agente MQTT con todas las características. Para obtener más información sobre la compatibilidad de características del agente MQTT de IoT Hub, consulte [Comunicación con la instancia de IoT Hub mediante el protocolo MQTT](../iot-hub/iot-hub-mqtt-support.md). Para obtener más información sobre el anidamiento de dispositivos IoT Edge, consulte [Conexión de un dispositivo IoT Edge de nivel inferior a una puerta de enlace Azure IoT Edge](how-to-connect-downstream-iot-edge-device.md#configure-iot-edge-on-devices) 
+> Actualmente, el puente del centro de IoT Edge solo se puede usar entre dispositivos IoT Edge anidados. No se puede usar para enviar datos a IoT Hub, ya que IoT Hub no es un agente MQTT con todas las características. Para obtener más información sobre la compatibilidad de características del agente MQTT de IoT Hub, consulte [Comunicación con la instancia de IoT Hub mediante el protocolo MQTT](../iot-hub/iot-hub-mqtt-support.md). Para obtener más información sobre el anidamiento de dispositivos IoT Edge, consulte [Conexión de un dispositivo IoT Edge de nivel inferior a una puerta de enlace Azure IoT Edge](how-to-connect-downstream-iot-edge-device.md#configure-iot-edge-on-devices).
 
 En una configuración anidada, el puente MQTT del centro de IoT Edge actúa como cliente del agente MQTT primario, por lo que se deben establecer reglas de autorización en EdgeHub primario para permitir que EdgeHub secundario publique y se suscriba a temas específicos definidos por el usuario para los que está configurado el puente.
 
 El puente MQTT de IoT Edge se configura a través de una estructura JSON que se envía al centro de IoT Edge a través de su gemelo. Edite el gemelo de un centro de IoT Edge para configurar su puente MQTT.
 
 > [!NOTE]
-> Para la versión preliminar pública, la configuración del puente MQTT solo está disponible a través de Visual Studio, Visual Studio Code o la CLI de Azure. Azure Portal actualmente no admite la edición del gemelo del centro de IoT Edge ni de su configuración de puente MQTT.
+> En el caso de la versión preliminar pública, solo la CLI de Azure admite implementaciones que contienen configuraciones de puente MQTT. Azure Portal actualmente no admite la edición del gemelo del centro de IoT Edge ni de su configuración de puente MQTT.
 
 El puente MQTT puede configurarse para conectar un agente MQTT de IoT Edge Hub a varios agentes externos. Para cada agente externo, se requiere la siguiente configuración:
 
 - `endpoint` es la dirección del agente MQTT remoto con el que se va a conectar. Actualmente solo se admiten dispositivos IoT Edge primarios y se definen mediante la variable `$upstream`.
 - `settings` define los temas a los que se va a aplicar el puente para un punto de conexión. Puede haber varias configuraciones por punto de conexión, y se usan los valores siguientes para configurarlo:
-    - `direction`: Ya sea `in` para suscribirse a los temas del agente remoto, o `out` para publicar en los temas del agente remoto
-    - `topic`: Patrón de tema principal con el que se debe asociar. Se pueden usar [caracteres comodín de MQTT](https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718107) para definir este patrón. Se pueden aplicar distintos prefijos a este patrón de tema en el agente local y en el agente remoto.
-    - `outPrefix`: Prefijo que se aplica a al patrón `topic` en el agente remoto.
-    - `inPrefix`: Prefijo que se aplica a al patrón `topic` en el agente local.
+  - `direction`: Ya sea `in` para suscribirse a los temas del agente remoto, o `out` para publicar en los temas del agente remoto
+  - `topic`: Patrón de tema principal con el que se debe asociar. Se pueden usar [caracteres comodín de MQTT](https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718107) para definir este patrón. Se pueden aplicar distintos prefijos a este patrón de tema en el agente local y en el agente remoto.
+  - `outPrefix`: Prefijo que se aplica a al patrón `topic` en el agente remoto.
+  - `inPrefix`: Prefijo que se aplica a al patrón `topic` en el agente local.
 
 A continuación se muestra un ejemplo de configuración de puente MQTT de IoT Edge que vuelve a publicar todos los mensajes recibidos en los temas `alerts/#` de un dispositivo IoT Edge primario en un dispositivo IoT Edge secundario en los mismos temas, y vuelve a publicar todos los mensajes enviados en los temas `/local/telemetry/#` de un dispositivo IoT Edge secundario en un dispositivo IoT Edge primario en los temas `/remote/messages/#`.
 

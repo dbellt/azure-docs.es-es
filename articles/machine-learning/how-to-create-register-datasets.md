@@ -12,12 +12,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.openlocfilehash: 592c128a05b66b268c954ccd32b06863df5b25d1
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: f47d610a24de2cfc8f1131f61afc8c8173a34376
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107029121"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786628"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Creación de conjuntos de datos de Azure Machine Learning
 
@@ -190,9 +190,10 @@ Después de crear y [registrar](#register-datasets) el conjunto de datos, puede 
 Si no necesita realizar ninguna limpieza y transformación de datos, consulte cómo consumir los conjuntos de datos en los scripts de entrenamiento para enviar experimentos de aprendizaje automático en [Entrenamiento con conjuntos de datos](how-to-train-with-datasets.md).
 
 ### <a name="filter-datasets-preview"></a>Filtrado de conjuntos de datos (versión preliminar)
+
 Las funcionalidades de filtrado dependen del tipo de conjunto de datos que tenga. 
 > [!IMPORTANT]
-> El filtrado de conjuntos de datos con el método de versión preliminar pública [`filter()`](/python/api/azureml-core/azureml.data.tabulardataset#filter-expression-) es una característica en versión preliminar [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) y puede cambiar en cualquier momento. 
+> El filtrado de conjuntos de datos con el método de versión preliminar [`filter()`](/python/api/azureml-core/azureml.data.tabulardataset#filter-expression-) es una característica en versión preliminar [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) y puede cambiar en cualquier momento. 
 > 
 **En el caso de TabularDatasets**, puede conservar o quitar columnas con los métodos [keep_columns()](/python/api/azureml-core/azureml.data.tabulardataset#keep-columns-columns--validate-false-) y [drop_columns()](/python/api/azureml-core/azureml.data.tabulardataset#drop-columns-columns-).
 
@@ -230,9 +231,62 @@ labeled_dataset = labeled_dataset.filter(labeled_dataset['label'] == 'dog')
 labeled_dataset = labeled_dataset.filter((labeled_dataset['label']['isCrowd'] == True) & (labeled_dataset.file_metadata['Size'] > 100000))
 ```
 
+### <a name="partition-data-preview"></a>Datos de partición (versión preliminar)
+
+Puede particionar un conjunto de datos incluyendo el parámetro `partitions_format` al crear un objeto TabularDataset o FileDataset. 
+
+> [!IMPORTANT]
+> La creación de particiones de conjunto de datos es una funcionalidad [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) en versión preliminar y puede cambiar en cualquier momento. 
+
+Al particionar un conjunto de datos, la información de partición de cada ruta de acceso de archivo se extrae en columnas según el formato especificado. El formato debe empezar en la posición de la primera clave de partición hasta el final de la ruta de acceso del archivo. 
+
+Por ejemplo, dada la ruta de acceso `../Accounts/2019/01/01/data.jsonl` en la que la partición está por nombre de departamento y hora, `partition_format='/{Department}/{PartitionDate:yyyy/MM/dd}/data.jsonl'` crea una columna de cadena "Department" con el valor "Accounts" y una columna de fecha y hora "PartitionDate" con el valor `2019-01-01`.
+
+Si ya existen particiones de los datos y quiere conservar ese formato, incluya el parámetro `partitioned_format` en el método [`from_files()`](/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory#from-files-path--validate-true--partition-format-none-) para crear un objeto FileDataset. 
+
+Para crear un objeto TabularDataset que conserve las particiones existentes, incluya el parámetro `partitioned_format` en el método [from_parquet_files()](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#from-parquet-files-path--validate-true--include-path-false--set-column-types-none--partition-format-none-) o [from_delimited_files()](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none--support-multi-line-false--empty-as-string-false--encoding--utf8--).
+
+En el ejemplo siguiente:
+* Se crea un objeto FileDataset a partir de archivos con particiones.
+* Se obtienen las claves de particiones.
+* Se crea un nuevo objeto FileDataset indexado mediante
+ 
+```Python
+
+file_dataset = Dataset.File.from_files(data_paths, partition_format = '{userid}/*.wav')
+ds.register(name='speech_dataset')
+
+# access partition_keys
+indexes = file_dataset.partition_keys # ['userid']
+
+# get all partition key value pairs should return [{'userid': 'user1'}, {'userid': 'user2'}]
+partitions = file_dataset.get_partition_key_values()
+
+
+partitions = file_dataset.get_partition_key_values(['userid'])
+# return [{'userid': 'user1'}, {'userid': 'user2'}]
+
+# filter API, this will only download data from user1/ folder
+new_file_dataset = file_dataset.filter(ds['userid'] == 'user1').download()
+```
+
+También puede crear una nueva estructura de particiones para objetos TabularDataset con el método [partitions_by()](/python/api/azureml-core/azureml.data.tabulardataset#partition-by-partition-keys--target--name-none--show-progress-true--partition-as-file-dataset-false-).
+
+```Python
+
+ dataset = Dataset.get_by_name('test') # indexed by country, state, partition_date
+
+# call partition_by locally
+new_dataset = ds.partition_by(name="repartitioned_ds", partition_keys=['country'], target=DataPath(datastore, "repartition"))
+partition_keys = new_dataset.partition_keys # ['country']
+```
+
+>[!IMPORTANT]
+> Las particiones TabularDataset también se pueden aplicar en canalizaciones de Azure Machine Learning como entrada a ParallelRunStep en muchas aplicaciones de modelos. Vea un ejemplo en la [documentación del acelerador de muchos modelos](https://github.com/microsoft/solution-accelerator-many-models/blob/master/01_Data_Preparation.ipynb).
+
 ## <a name="explore-data"></a>Exploración de datos
 
-Después de haber limpiado y trasformado los datos, puede [registrar](#register-datasets) el conjunto de datos y, luego, cargarlo en el cuaderno para explorar los datos antes del entrenamiento del modelo.
+Después de haber realizado la limpieza y transformación de datos, puede [registrar](#register-datasets) el conjunto de datos y, luego, cargarlo en el cuaderno para explorar los datos antes del entrenamiento del modelo.
 
 En el caso de FileDatasets, puede **montar** o **descargar** su conjunto de datos y aplicar las bibliotecas de Python que usaría normalmente para la exploración de datos. [Obtenga más información sobre la diferencia entre el montaje y la descarga](how-to-train-with-datasets.md#mount-vs-download).
 

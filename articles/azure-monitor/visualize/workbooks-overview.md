@@ -5,12 +5,12 @@ services: azure-monitor
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: a02e5fced0a9e338a32d8d8beaa9e4b5fca994e8
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 3d75d7605ba082aac84973aef247de79d55b4c9c
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107309490"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107482779"
 ---
 # <a name="azure-monitor-workbooks"></a>Libros de Azure Monitor
 
@@ -50,13 +50,24 @@ Los libros proporcionan un amplio conjunto de funciones para visualizar los dato
 
 :::image type="content" source="./media/workbooks-overview/visualizations.png" alt-text="Ejemplo de visualizaciones de libros" border="false" lightbox="./media/workbooks-overview/visualizations.png":::
 
+### <a name="pinning-visualizations"></a>Anclado de visualizaciones
+
+Los pasos de texto, consulta y métricas de un libro se pueden anclar mediante el botón de anclaje en esos elementos, mientras el libro está en modo de anclaje, o bien, si el autor del libro tiene habilitada la configuración para ese elemento con el fin de que el icono para anclar esté visible.
+
+Para acceder al modo de anclaje, haga clic en **editar** para entrar en el modo de edición, luego seleccione el icono para anclar azul en la barra superior. Luego aparecerá un icono de anclaje individual por encima de cada cuadro de *Editar* de la parte correspondiente del libro en el lado derecho de la pantalla.
+
+:::image type="content" source="./media/workbooks-overview/pin-experience.png" alt-text="Captura de pantalla de la experiencia de anclado." border="false":::
+
+> [!NOTE]
+> El estado del libro se guarda en el momento del anclaje, y los libros anclados en un panel no se actualizarán si se modifica el libro subyacente. Para actualizar una parte del libro anclada, deberá eliminarla y volver a anclarla.
+
 ## <a name="getting-started"></a>Introducción
 
 Para explorar la experiencia de los libros, navegue primero hasta el servicio Azure Monitor. Para ello, escriba **monitor** en el cuadro de búsqueda de Azure Portal.
 
 A continuación, seleccione **Libros**.
 
-:::image type="content" source="./media/workbooks-overview/workbooks.png" alt-text="Captura de pantalla con el botón de Workbooks resaltado en un cuadro rojo" border="false":::
+:::image type="content" source="./media/workbooks-overview/workbooks.png" alt-text="Captura de pantalla con el botón Libros resaltado con un cuadro rojo." border="false":::
 
 ### <a name="gallery"></a>Galería
 
@@ -71,7 +82,7 @@ Hay cuatro pestañas en la galería para ayudar a organizar los tipos de libro.
 | Pestaña              | Descripción                                       |
 |------------------|---------------------------------------------------|
 | Todo | Muestra los cuatro elementos principales de cada tipo: libros, plantillas públicas y mis plantillas. Los libros se ordenan por fecha de modificación, por lo que verá los ocho libros modificados más recientes.|
-| Libros | Muestra la lista de todos los libros disponibles que creó o que se comparten con usted. |
+| Workbooks | Muestra la lista de todos los libros disponibles que creó o que se comparten con usted. |
 | Plantillas públicas | Muestra la lista de todas las plantillas de libro funcionales disponibles listas para usar publicadas por Microsoft. Por categoría. |
 | Mis plantillas | Muestra la lista de todas las plantillas de libro implementadas disponibles que creó o que se comparten con usted. Por categoría. |
 
@@ -97,7 +108,7 @@ En el fondo, las plantillas también difieren de los libros guardados. Al guarda
 
 Seleccione **Análisis de los errores de la aplicación** para ver una de las plantillas de libro de la aplicación predeterminadas.
 
-:::image type="content" source="./media/workbooks-overview/failure-analysis.png" alt-text="Captura de pantalla de la plantilla de análisis de los errores de la aplicación" border="false" lightbox="./media/workbooks-overview/failure-analysis.png":::
+:::image type="content" source="./media/workbooks-overview/failure-analysis.png" alt-text="Captura de pantalla de la plantilla de análisis de los errores de la aplicación." border="false" lightbox="./media/workbooks-overview/failure-analysis.png":::
 
 Como se indicó anteriormente, al abrir la plantilla se crea un libro temporal para poder interactuar con él. De forma predeterminada, el libro se abre en modo de lectura, lo que muestra solo la información de la experiencia de análisis previsto creada por el autor original de la plantilla.
 
@@ -111,27 +122,15 @@ Para comprender cómo se agrupa esta plantilla de libro, debe cambiar al modo de
 
 Una vez que haya cambiado al modo de edición, observará que aparece un número de cuadros de **Editar** a la derecha correspondiente con cada aspecto individual del libro.
 
-:::image type="content" source="./media/workbooks-overview/edit-mode.png" alt-text="Captura de pantalla del botón de edición" border="false" lightbox="./media/workbooks-overview/edit-mode.png":::
+:::image type="content" source="./media/workbooks-overview/edit-mode.png" alt-text="Captura de pantalla del botón de edición." border="false" lightbox="./media/workbooks-overview/edit-mode.png":::
 
 Si seleccionamos el botón Editar inmediatamente debajo de la cuadrícula de los datos de la solicitud, podemos ver que esta parte del libro consta de una consulta Kusto en los datos de un recurso de Application Insights.
 
-:::image type="content" source="./media/workbooks-overview/kusto.png" alt-text="Captura de pantalla de la consulta Kusto subyacente" border="false" lightbox="./media/workbooks-overview/kusto.png":::
+:::image type="content" source="./media/workbooks-overview/kusto.png" alt-text="Captura de pantalla de la consulta Kusto subyacente." border="false" lightbox="./media/workbooks-overview/kusto.png":::
 
-
-Al hacer clic en los botones otros **Editar** de la derecha, se mostrarán varios componentes principales que conforman los libros, como los [cuadros de texto](../visualize/workbooks-text-visualizations.md) basados en marcado, los elementos de la interfaz de usuario de la [selección de parámetros](../visualize/workbooks-parameters.md) y otros [tipos de gráficos y visualizaciones](#visualizations).
+Al seleccionar los demás botones **Editar** de la derecha, se mostrarán varios componentes principales que conforman los libros, como los [cuadros de texto](../visualize/workbooks-text-visualizations.md) basados en marcado, los elementos de la interfaz de usuario de la [selección de parámetros](../visualize/workbooks-parameters.md) y otros [tipos de gráficos y visualizaciones](#visualizations).
 
 Explorar las plantillas predefinidas en modo de edición y después modificarlas para adaptarlas a sus necesidades y guardar su propio libro personalizado es una excelente manera de empezar a obtener información sobre lo que es posible con los libros de Azure Monitor.
-
-## <a name="pinning-visualizations"></a>Anclado de visualizaciones
-
-Los pasos de texto, consulta y métricas de un libro se pueden anclar mediante el botón de anclaje en esos elementos, mientras el libro está en modo de anclaje, o bien, si el autor del libro tiene habilitada la configuración para ese elemento con el fin de que el icono para anclar esté visible.
-
-Para acceder al modo de anclaje, haga clic en **editar** para entrar en el modo de edición, luego seleccione el icono para anclar azul en la barra superior. Luego aparecerá un icono de anclaje individual por encima de cada cuadro de *Editar* de la parte correspondiente del libro en el lado derecho de la pantalla.
-
-:::image type="content" source="./media/workbooks-overview/pin-experience.png" alt-text="Captura de pantalla de la experiencia de anclado." border="false":::
-
-> [!NOTE]
-> El estado del libro se guarda en el momento del anclaje, y los libros anclados en un panel no se actualizarán si se modifica el libro subyacente. Para actualizar una parte del libro anclada, deberá eliminarla y volver a anclarla.
 
 ## <a name="dashboard-time-ranges"></a>Intervalos de tiempo del panel
 

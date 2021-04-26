@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/12/2021
+ms.date: 04/19/2021
 ms.author: b-juche
-ms.openlocfilehash: ae94ac9719a827a2d1af258398988f0972e61b3a
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: a8c06b25b923d663e982e940100be7b9a2a009e1
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107305521"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107726851"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Preguntas más frecuentes acerca de Azure NetApp Files
 
@@ -213,6 +213,43 @@ Actualmente no se admite la administración de `SMB Shares`, `Sessions` y `Open 
 ### <a name="how-can-i-obtain-the-ip-address-of-an-smb-volume-via-the-portal"></a>¿Cómo puedo obtener la dirección IP de un volumen SMB a través del portal?
 
 Use el vínculo de la **vista JSON** en el panel Información general del volumen y busque el identificador **startIP** en **properties** -> **mountTargets**.
+
+### <a name="smb-encryption-faqs"></a>Preguntas frecuentes sobre el cifrado SMB
+
+En esta sección se responden las preguntas más frecuentes sobre el cifrado SMB (SMB 3.0 y SMB 3.1.1).
+
+#### <a name="what-is-smb-encryption"></a>¿Qué el cifrado SMB?  
+
+El [cifrado SMB](/windows-server/storage/file-server/smb-security) proporciona cifrados de datos SMB de un extremo a otro y protege los datos de los incidentes de interceptación en redes que no son de confianza. El cifrado SMB se admite en SMB 3.0 y versiones mayores. 
+
+#### <a name="how-does-smb-encryption-work"></a>¿Cómo funciona el cifrado SMB?
+
+Al enviar una solicitud al almacenamiento, el cliente cifra la solicitud, que el almacenamiento descifra a continuación. El servidor cifra de forma similar las respuestas y las descifra el cliente.
+
+#### <a name="which-clients-support-smb-encryption"></a>¿Qué clientes admiten el cifrado SMB?
+
+Windows 10, Windows 2012 y versiones posteriores admiten el cifrado SMB.
+
+#### <a name="with-azure-netapp-files-at-what-layer-is-smb-encryption-enabled"></a>Con Azure NetApp Files, ¿en qué nivel se habilita el cifrado SMB?  
+
+El cifrado SMB se habilita en el nivel de recurso compartido.
+
+#### <a name="what-forms-of-smb-encryption-are-used-by-azure-netapp-files"></a>¿Qué formas de cifrado SMB usa Azure NetApp Files?
+
+SMB 3.0 emplea el algoritmo AES-CCM, mientras que SMB 3.1.1 emplea el algoritmo AES-GCM.
+
+#### <a name="is-smb-encryption-required"></a>¿Es necesario el cifrado SMB?
+
+El cifrado SMB no es necesario. Por lo tanto, solo se habilita para un recurso compartido determinado si el usuario solicita que Azure NetApp Files lo habilite. Los recursos compartidos de Azure NetApp Files nunca se exponen a Internet. Solo son accesibles desde una red virtual determinada, a través de VPN o Express Route, por lo que los recursos compartidos de Azure NetApp Files son intrínsecamente seguros. La elección de habilitar el cifrado SMB es totalmente del usuario. Tenga en cuenta la penalización de rendimiento prevista antes de habilitar esta característica.
+
+#### <a name="what-is-the-anticipated-impact-of-smb-encryption-on-client-workloads"></a><a name="smb_encryption_impact"></a>¿Cuál es el impacto previsto del cifrado SMB en las cargas de trabajo de cliente?
+
+Aunque el cifrado SMB afecta tanto al cliente (sobrecarga de CPU para cifrar y descifrar los mensajes) como al almacenamiento (reducción del rendimiento), en la tabla siguiente solo se resalta el impacto en el almacenamiento. Debe probar el impacto en el rendimiento del cifrado en sus propias aplicaciones antes de implementar cargas de trabajo en producción.
+
+|     Perfil de E/S       |     Impacto        |
+|-  |-  |
+|     Cargas de trabajo de lectura y escritura      |     De 10 % a 15 %        |
+|     Uso intensivo de metadatos        |     5 %    |
 
 ## <a name="capacity-management-faqs"></a>Preguntas más frecuentes sobre la administración de la capacidad
 
