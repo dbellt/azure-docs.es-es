@@ -23,20 +23,20 @@
       href: Face-API-How-to-Topics/specify-detection-model.md
     - name: Adición de caras a un grupo
       href: Face-API-How-to-Topics/how-to-add-faces.md
+    - name: Uso de la estructura de PersonDirectory
+      href: Face-API-How-to-Topics/use-persondirectory.md
+    - name: Usar la característica a gran escala
+      href: Face-API-How-to-Topics/how-to-use-large-scale.md
     - name: Uso del atributo HeadPose
       href: Face-API-How-to-Topics/how-to-use-headpose.md
     - name: Mitigación de la latencia cuando se usa el servicio Face
       href: Face-API-How-to-Topics/how-to-mitigate-latency.md
-    - name: Usar la característica a gran escala
-      href: Face-API-How-to-Topics/how-to-use-large-scale.md
     - name: Análisis de vídeos en tiempo real
       href: Face-API-How-to-Topics/HowtoAnalyzeVideo_Face.md
     - name: Migración de datos de cara
       href: Face-API-How-to-Topics/how-to-migrate-face-data.md
     - name: Uso del contenedor de Face
       items:
-        - name: Documentación de contenedores de Cognitive Services
-          href: /azure/cognitive-services/containers/index?context=/azure/cognitive-services/face/context/context
         - name: Introducción a los contenedores
           href: /azure/cognitive-services/cognitive-services-container-support?context=/azure/cognitive-services/face/context/context
         - name: Instalación y ejecución de contenedores
@@ -45,6 +45,9 @@
           href: face-resource-container-config.md
         - name: Uso de instancias de contenedores
           href: /azure/cognitive-services/containers/azure-container-instance-recipe?context=/azure/cognitive-services/face/context/context
+        - name: Toda la documentación de contenedores de Cognitive Services
+          href: ../containers/index.yml
+          maintainContext: true
     - name: Adecuado para empresas
       items:
         - name: Configuración de redes virtuales

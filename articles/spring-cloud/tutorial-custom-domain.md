@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 7d01f3d5efeee2db5f468a0fe6217d1ff3c313a7
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 493752a3857b80b43668b6bf1b20480604442955
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107375022"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107568002"
 ---
 # <a name="tutorial-map-an-existing-custom-domain-to-azure-spring-cloud"></a>Tutorial: Asignación de un dominio personalizado existente a Azure Spring Cloud
 
@@ -30,7 +30,7 @@ El tráfico web se cifra mediante certificados. Estos certificados TLS/SSL se pu
 
 ## <a name="keyvault-private-link-considerations"></a>Consideraciones de vínculo privado de Key Vault
 
-Las IP de administración de Azure Spring Cloud no forman parte de los servicios de Microsoft de confianza de Azure. Por lo tanto, para permitir que Azure Spring Cloud cargue certificados desde una instancia de Key Vault protegida con conexiones de puntos de conexión privado, debe agregar las siguientes direcciones IP al firewall de Azure Key Vault:
+Las IP de administración de Azure Spring Cloud aún no forman parte de los servicios de Microsoft de confianza de Azure. Por lo tanto, para permitir que Azure Spring Cloud cargue certificados desde una instancia de Key Vault protegida con conexiones de puntos de conexión privado, debe agregar las siguientes direcciones IP al firewall de Azure Key Vault:
 
 ```
 20.53.123.160 52.143.241.210 40.65.234.114 52.142.20.14 20.54.40.121 40.80.210.49 52.253.84.152 20.49.137.168 40.74.8.134 51.143.48.243

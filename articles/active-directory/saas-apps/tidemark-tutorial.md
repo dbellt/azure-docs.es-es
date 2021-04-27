@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: c9e1de7b5dee8e351cd8744287c07b0bbb174512
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8cbccc3fb4cc513d7c86253ae07fbced4626a15e
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92516467"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107599662"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tidemark"></a>Tutorial: integración de Azure Active Directory con Tidemark
 
@@ -113,7 +113,7 @@ Para configurar el inicio de sesión único de Azure AD con Tidemark, realice lo
     - `https://<subdomain>.tidemark.net/saml`
 
     > [!NOTE]
-    > Estos valores no son reales. Actualice estos valores con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de Tidemark](http://www.tidemark.com/contact-us) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Estos valores no son reales. Actualice estos valores con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el equipo de soporte técnico de Tidemark para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
@@ -131,7 +131,7 @@ Para configurar el inicio de sesión único de Azure AD con Tidemark, realice lo
 
 ### <a name="configure-tidemark-single-sign-on"></a>Configuración del inicio de sesión único de Tidemark
 
-Para configurar el inicio de sesión único en **Tidemark**, es preciso enviar el **certificado (Base64)** descargado y las direcciones URL correspondientes copiadas de Azure Portal al [equipo de soporte técnico de Tidemark](http://www.tidemark.com/contact-us). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **Tidemark**, es preciso enviar el **certificado (Base64)** descargado y las direcciones URL correspondientes copiadas de Azure Portal al equipo de soporte técnico de Tidemark. Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 
@@ -185,7 +185,7 @@ En esta sección, permitirá que Britta Simon use el inicio de sesión único de
 
 ### <a name="create-tidemark-test-user"></a>Creación de un usuario de prueba de Tidemark
 
-En esta sección, creará un usuario llamado Britta Simon en Tidemark. Trabaje con el [equipo de soporte técnico de Tidemark](http://www.tidemark.com/contact-us) para agregar los usuarios a la plataforma de Tidemark. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en Tidemark. Trabaje con el equipo de soporte técnico de Tidemark para agregar los usuarios a la plataforma de Tidemark. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
 

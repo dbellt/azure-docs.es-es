@@ -8,18 +8,16 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 4c7925c1bc397e15d8b6e0f2f21d5e9147109b83
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 2eb0e3ce2ac20c89d9c0176ca3e7b33dc839c923
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106064858"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107718834"
 ---
 # <a name="quickstart-add-a-simulated-device-to-your-iot-central-application"></a>Inicio rápido: Adición de un dispositivo simulado a una aplicación de IoT Central
 
-*Este artículo se aplica a los administradores, operadores y compiladores.*
-
-Una plantilla de dispositivo define las capacidades de un dispositivo que se conecta a la aplicación en IoT Central. Entre estas se incluyen la telemetría que envía el dispositivo, las propiedades del dispositivo y los comandos a los que responde un dispositivo. En una plantilla de dispositivo, un generador u operador puede agregar dispositivos reales y simulados a una aplicación. Los dispositivos simulados son útiles para probar el comportamiento de la aplicación IoT Central antes de conectar dispositivos reales.
+Una plantilla de dispositivo define las capacidades de un dispositivo que se conecta a la aplicación en IoT Central. Entre estas se incluyen la telemetría que envía el dispositivo, las propiedades del dispositivo y los comandos a los que responde un dispositivo. Mediante una plantilla de dispositivo puede agregar dispositivos reales y simulados a una aplicación. Los dispositivos simulados son útiles para probar el comportamiento de la aplicación IoT Central antes de conectar dispositivos reales.
 
 En este inicio rápido se agrega una plantilla de dispositivo para una placa de desarrollo de ESP32-Azure IoT Kit y se crea un dispositivo simulado. Para completar este inicio rápido no se necesita un dispositivo real, se trabaja con una simulación del dispositivo. Un dispositivo ESP32:
 
@@ -33,8 +31,6 @@ En este inicio rápido se agrega una plantilla de dispositivo para una placa de 
 Complete el inicio rápido [Creación de una aplicación de Azure IoT Central](./quick-deploy-iot-central.md) para crear una aplicación de IoT Central mediante la plantilla **Aplicación personalizada > Aplicación personalizada**.
 
 ## <a name="create-a-device-template"></a>Crear una plantilla de dispositivo
-
-Los desarrolladores pueden crear y editar plantillas de dispositivo en una aplicación de IoT Central. Después de publicar una plantilla de dispositivo, puede generar un dispositivo simulado o conectar dispositivos reales desde la plantilla de dispositivo. Los dispositivos simulados permiten probar el comportamiento de la aplicación antes de conectar un dispositivo real.
 
 Para agregar una nueva plantilla de dispositivo a una aplicación, seleccione la pestaña **Device Templates** (Plantillas de dispositivo) en el panel izquierdo.
 
@@ -85,7 +81,7 @@ Una plantilla de dispositivo puede incluir propiedades de la nube. Las propiedad
 
 ## <a name="views"></a>Vistas
 
-Los desarrolladores pueden personalizar la aplicación para que muestre información pertinente sobre el dispositivo a un operador. Las personalizaciones permiten al operador administrar los dispositivos conectados a la aplicación. Puede crear dos tipos de vistas para que un operador interactúe con los dispositivos:
+Puede personalizar la aplicación para que muestre información pertinente sobre el dispositivo. Las personalizaciones permiten que otra persona administre los dispositivos conectados a la aplicación. Puede crear dos tipos de vistas para interactuar con los dispositivos:
 
 * Formularios para ver y editar las propiedades del dispositivo y la nube
 * Paneles para visualizar dispositivos, lo que incluye los datos de telemetría que envían.
@@ -94,13 +90,13 @@ Los desarrolladores pueden personalizar la aplicación para que muestre informac
 
 Las vistas predeterminadas son una forma rápida de empezar a visualizar información importante de los dispositivos. Puede generar hasta tres vistas predeterminadas para la plantilla de dispositivo:
 
-* La vista **Commands** (Comandos) permite que el operador envíe comandos al dispositivo.
+* La vista **Commands** (Comandos) le permite enviar comandos al dispositivo.
 * La vista **Overview** (Información general) usa gráficos y métricas para mostrar la telemetría del dispositivo.
 * La vista **About** (Acerca de) muestra las propiedades del dispositivo.
 
-Seleccione el nodo **Views** (Vistas) en la plantilla de dispositivo. Puede ver que IoT Central generó automáticamente dos vistas, **Overview** (Información general) y **About** (Acerca de), al agregar la plantilla.
+Seleccione el nodo **Views** (Vistas) en la plantilla de dispositivo. Puede ver que IoT Central generó automáticamente las vistas **Overview** (Información general), **About** (Acerca de) y **Raw Data** (Datos sin procesar), al agregar la plantilla.
 
-Para agregar un formulario para la **administración de dispositivos** que los operadores puedan usar para administrar el dispositivo:
+Para agregar un nuevo formulario para administrar el dispositivo:
 
 1. Seleccione el nodo **Views** (Vistas) y, después, seleccione el icono **Editing device and cloud data** (Editar datos del dispositivo y de la nube) para agregar una vista.
 
@@ -120,25 +116,23 @@ Para publicar una plantilla de dispositivo, siga estos pasos:
 
 1. Vaya a la plantilla de dispositivo **Sensor Controller** en la página **Device Templates** (Plantillas de dispositivo).
 
-1. Seleccione **Publish** (Publicar):
+1. Seleccione **Publicar** en la barra de comandos de la parte superior de la página.
 
-    :::image type="content" source="media/quick-create-simulated-device/published-model.png" alt-text="Captura de pantalla que muestra la ubicación del icono de publicación.":::
+1. En el cuadro de diálogo que aparece, seleccione **Publicar.**
 
-1. En el cuadro de diálogo **Publish this device template to the application** (Publicar esta plantilla de dispositivo en la aplicación), seleccione **Publish** (Publicar).
-
-Una vez que se publica una plantilla de dispositivo, se puede ver en la página **Devices** (Dispositivos). En una plantilla de dispositivo publicada no se puede editar un modelo de dispositivo sin crear una versión. Sin embargo, puede modificar las propiedades de la nube, las personalizaciones y las vistas en una plantilla de dispositivo publicada sin control de versiones. Después de realizar los cambios, seleccione **Publish** (Publicar) para enviar esos cambios al operador.
+Una vez que se publica una plantilla de dispositivo, se puede ver en la página **Devices** (Dispositivos). En una plantilla de dispositivo publicada no se puede editar un modelo de dispositivo sin crear una versión. Sin embargo, puede modificar las propiedades de la nube, las personalizaciones y las vistas en una plantilla de dispositivo publicada sin control de versiones. Después de realizar los cambios, seleccione **Publicar** para insertar esos cambios para que los usen los dispositivos reales y simulados.
 
 ## <a name="add-a-simulated-device"></a>Adición de un dispositivo simulado
 
 Para agregar un dispositivo simulado a la aplicación, use la plantilla de dispositivo **ESP32** que creó.
 
-1. Para agregar un nuevo dispositivo como operador, elija **Dispositivos** en el panel izquierdo. En la pestaña **Devices** (Dispositivos) se muestra **All devices** (Todos los dispositivos) y la plantilla de dispositivo **Sensor Controller** para el dispositivo ESP32. Seleccione **Sensor Controller**.
+1. Para agregar un nuevo dispositivo, elija **Dispositivos** en el panel izquierdo. En la pestaña **Devices** (Dispositivos) se muestra **All devices** (Todos los dispositivos) y la plantilla de dispositivo **Sensor Controller** para el dispositivo ESP32. Seleccione **Sensor Controller**.
 
 1. Para agregar un dispositivo DevKit simulado, seleccione **+ New** (+ Nuevo). Use el **identificador de dispositivo** sugerido o escriba el suyo propio. Un identificador de dispositivo puede contener letras, números y el carácter `-`. También puede escribir el nombre del nuevo dispositivo. Asegúrese de que la opción **Simulate this device** (Simular este dispositivo) esté establecida en **Yes** (Sí) y seleccione **Create** (Crear).
 
     :::image type="content" source="media/quick-create-simulated-device/simulated-device.png" alt-text="Captura de pantalla que muestra el dispositivo simulado de Sensor Controller.":::
 
-Mediante los datos simulados ya puede interactuar con las vistas que creó el generador para la plantilla de dispositivo:
+Ahora ya puede interactuar con las vistas que ha creado anteriormente mediante los datos simulados:
 
 1. Seleccione el dispositivo simulado en la página **Devices** (Dispositivos).
 
@@ -150,25 +144,9 @@ Mediante los datos simulados ya puede interactuar con las vistas que creó el ge
 
     * En la vista **Commands** (Comandos) se pueden ejecutar comandos, como **reboot**, en el dispositivo.
 
-    * La vista de **administración de dispositivos** es el formulario que ha creado para que el operador administre el dispositivo.
+    * La vista de **administración de dispositivos** es el formulario que ha creado para administrar el dispositivo.
 
     * La vista **Datos sin procesar** le permite ver los datos de telemetría sin procesar y los valores de propiedades que envía el dispositivo. Esta vista es útil para depurar dispositivos.
-
-## <a name="use-a-simulated-device-to-improve-views"></a>Uso de un dispositivo simulado para mejorar las vistas
-
-Después de crear un dispositivo simulado, el generador puede usarlo para mejorar y desarrollar las vistas de la plantilla de dispositivo.
-
-1. Elija **Device templates** (Plantillas de dispositivo) en el panel izquierdo y seleccione la plantilla **Sensor Controller**.
-
-1. Seleccione la vista que desea editar, como **Overview** (Información general), o cree una. Seleccione **Configure preview device** (Configurar dispositivo en versión preliminar) y, después, **Select from a running device** (Seleccionar en un dispositivo en ejecución). Aquí puede elegir entre no tener ningún dispositivo en versión preliminar, un dispositivo real configurado para realizar pruebas o un dispositivo existente que ha agregado a IoT Central.
-
-1. Elija el dispositivo simulado en la lista. Después, seleccione **Aplicar**. Ahora puede ver el mismo dispositivo simulado en la experiencia de creación de las vistas de plantilla de dispositivos. Esta vista es útil para gráficos y otras visualizaciones.
-
-    :::image type="content" source="media/quick-create-simulated-device/configure-preview.png" alt-text="Captura de pantalla que muestra una versión preliminar de un dispositivo configurada.":::
-
-## <a name="clean-up-resources"></a>Limpieza de recursos
-
-[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

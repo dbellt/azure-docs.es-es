@@ -6,14 +6,14 @@ ms.author: amverma
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: overview
-ms.date: 03/18/2021
+ms.date: 04/09/2021
 ms.reviewer: cynthn
-ms.openlocfilehash: 65b37a8c07e083f5e9809812e2d4446cc48717d1
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 554764b89e5da4cd6777ec89fcb2f2d5ad104ebf
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104720600"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600274"
 ---
 # <a name="high-performance-computing-on-infiniband-enabled-h-series-and-n-series-vms"></a>Informática de alto rendimiento en máquinas virtuales de las series H y N habilitadas con InfiniBand
 
@@ -47,4 +47,5 @@ El cuarto, con el fin de mejorar el rendimiento y la escalabilidad, consiste en 
 - Aprenda a [configurar y optimizar](configure.md) las máquinas virtuales tanto de la [serie H](../../sizes-hpc.md) como de la [serie N](../../sizes-gpu.md) habilitadas con InfiniBand.
 - En los artículos [Introducción a las máquinas virtuales de la serie HBv3](hb-series-overview.md) e [Introducción a las máquinas virtuales de la serie HC](hc-series-overview.md), aprenderá a configurar de forma óptima las cargas de trabajo para mejorar el rendimiento y la escalabilidad.
 - En los [blogs de Azure Compute Community Tech](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute), encontrará los anuncios más recientes, ejemplos de la carga de trabajo HPC y resultados de HPC.
+- Pruebe sus conocimientos con un [módulo de aprendizaje sobre la optimización de aplicaciones HPC en Azure](https://docs.microsoft.com/learn/modules/optimize-tightly-coupled-hpc-apps/).
 - Si desea una visión general de la arquitectura de la ejecución de cargas de trabajo de HPC, consulte [Informática de alto rendimiento (HPC) en Azure](/azure/architecture/topics/high-performance-computing/).

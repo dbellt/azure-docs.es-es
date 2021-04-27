@@ -6,13 +6,13 @@ ms.author: weetok
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 12/09/2020
-ms.openlocfilehash: fa424f7e1f5e1f885dd433b8abc8aae1dc1bc206
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/16/2021
+ms.openlocfilehash: 392b1a1650ab40951704d003f2a5e5337cf3c0f5
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97006204"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107566715"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>Integración de datos mediante Azure Data Factory y Azure Data Share
 
@@ -64,12 +64,9 @@ En Azure Data Factory, los servicios vinculados definen la información de conex
 
 ### <a name="create-an-azure-sql-database-linked-service"></a>Creación de un servicio vinculado de Azure SQL Database
 
-1. En la página de creación se crean los recursos de Azure Data Factory, como canalizaciones, conjuntos de datos, flujos de datos, desencadenadores y servicios vinculados. Para crear un servicio vinculado, haga clic en el botón **Connections** (Conexiones) en la esquina inferior derecha.
+1. Para crear un servicio vinculado, seleccione **Administrar** centro en la barra lateral izquierda; en el panel **Conexiones**, seleccione **Servicios vinculados** y, a continuación, seleccione **Nuevo** para agregar un nuevo servicio vinculado.
 
     ![Configuración en el portal 2](media/lab-data-flow-data-share/configure2.png)
-1. En la pestaña Connections (Conexiones), haga clic en **New** (Nuevo) para agregar un nuevo servicio vinculado.
-
-    ![Configuración en el portal 3](media/lab-data-flow-data-share/configure3.png)
 1. El primer servicio vinculado que configurará es el correspondiente a Azure SQL Database. Puede usar la barra de búsqueda para filtrar la lista de almacenes de datos. Haga clic en el icono **Azure SQL Database** y, después, en Continue (Continuar).
 
     ![Configuración en el portal 4](media/lab-data-flow-data-share/configure-4.png)
@@ -99,9 +96,11 @@ En Azure Data Factory, los servicios vinculados definen la información de conex
 
 En la sección *Transformación de datos mediante flujos de datos de asignación* creará este tipo de flujos de datos. Antes de crear flujos de datos de asignación, se recomienda activar el modo de depuración, que permite probar la lógica de transformación en segundos en un clúster de Spark activo.
 
-Para activar la depuración, haga clic en el control deslizante **Data flow debug** (Depuración de flujo de datos) en la barra superior de Azure Data Factory. Haga clic en OK (Aceptar) cuando aparezca el cuadro de diálogo de confirmación. El clúster tardará entre 5 y 7 minutos en iniciarse. Continúe en *Ingesta de datos de Azure SQL Database en ADLS Gen2 mediante la actividad de copia* mientras se inicializa.
+Para activar la depuración, haga clic en el control deslizante **Data flow debug** (Depuración de flujo de datos) de la barra superior del lienzo de flujo de datos o del lienzo de la canalización cuando tenga actividades de **Data Flow**. Haga clic en OK (Aceptar) cuando aparezca el cuadro de diálogo de confirmación. El clúster tardará entre 5 y 7 minutos en iniciarse. Continúe en *Ingesta de datos de Azure SQL Database en ADLS Gen2 mediante la actividad de copia* mientras se inicializa.
 
 ![Configuración en el portal 10](media/lab-data-flow-data-share/configure10.png)
+
+![Captura de pantalla que muestra el control deslizante Data flow debug (Depuración de flujo de datos).](media/lab-data-flow-data-share/configure-11.png)
 
 ## <a name="ingest-data-using-the-copy-activity"></a>Ingesta de datos mediante la actividad de copia
 

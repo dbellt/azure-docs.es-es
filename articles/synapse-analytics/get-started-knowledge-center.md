@@ -10,18 +10,18 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 04/04/2021
-ms.openlocfilehash: 92d1534b5dd0233ce88b81d605c6502b67a121df
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: f4cc631bd3ff05dc63566677ec96ef0360d362c9
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107307901"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107517358"
 ---
 # <a name="explore-the-synapse-knowledge-center"></a>Exploración del Centro de conocimientos de Synapse
 
 En este tutorial, aprenderá a usar el Centro de conocimientos de Synapse Studio.
 
-## <a name="introduction-to-the-knowledge-center"></a>Introducción al Centro de conocimientos
+## <a name="finding-to-the-knowledge-center"></a>Búsqueda en el Centro de conocimientos
 
 Hay dos formas de buscar el Centro de conocimientos en Synapse Studio:
 
@@ -30,12 +30,14 @@ Hay dos formas de buscar el Centro de conocimientos en Synapse Studio:
 
 Elija cualquier método y abra el **Centro de conocimientos**.
 
+## <a name="exploring-the-knowledge-center"></a>Exploración del Centro de conocimientos
+
 Una vez que esté visible, se percatará de que el **Centro de conocimientos** le permite realizar estas tres acciones:
 * **Usar ejemplos inmediatamente**. Si quiere un ejemplo rápido de cómo funciona Synapse, elija esta opción.
 * **Examinar la galería**. Esta opción le permite vincular conjuntos de datos de ejemplo y agregar código de ejemplo en forma de scripts de SQL, cuadernos y canalizaciones.
 * **Visita por Synapse Studio**. Esta opción le permite realizar una breve visita por las partes básicas de Synapse Studio. Resulta útil si nunca ha usado Synapse Studio.
 
-## <a name="exploring-use-samples-immediately"></a>Exploración: use los ejemplos de inmediato
+## <a name="use-samples-immediately-three-samples-to-help-you-get-started-fast"></a>Uso de ejemplos inmediatamente: tres ejemplos que le ayudarán a empezar a trabajar rápidamente
 
 En esta sección, hay tres elementos:
 * Exploración de datos de ejemplo con Spark
@@ -49,7 +51,7 @@ En esta sección, hay tres elementos:
 1. Desplácese hasta la primera consulta (líneas 28 a 32) y seleccione el texto de la consulta.
 1. Haga clic en Ejecutar. Solo se ejecutará el código que haya seleccionado.
 
-## <a name="loading-more-nyc-taxi-data"></a>Carga de más datos de taxis de Nueva York
+## <a name="gallery-a-collectiopn-of-sample-data-sets-and-sample-code"></a>Galería: recopilación de conjuntos de datos de ejemplo y código de ejemplo
 
 1. Vaya al **Centro de conocimiento** y haga clic en **Examinar la galería**.
 1. Seleccione la pestaña **Scripts de SQL** en la parte superior.

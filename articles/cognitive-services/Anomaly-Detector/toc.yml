@@ -35,8 +35,6 @@
           href: how-to/deploy-anomaly-detection-on-iot-edge.md
         - name: Contenedores
           items:
-            - name: Documentación de contenedores de Cognitive Services
-              href: 'https://docs.microsoft.com/azure/cognitive-services/containers/'
             - name: Instalación y ejecución de contenedores
               displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull'
               href: anomaly-detector-container-howto.md
@@ -45,6 +43,9 @@
               displayName: 'docker, container, apikey, billing, log, mount, run, pull, port'
             - name: Uso de instancias de contenedores
               href: how-to/deploy-anomaly-detection-on-container-instances.md
+            - name: Toda la documentación de contenedores de Cognitive Services
+              href: ../containers/index.yml
+              maintainContext: true
     - name: Adecuado para empresas
       items:
         - name: Configuración de redes virtuales

@@ -6,13 +6,13 @@ ms.author: tcare
 ms.service: azure-arc
 ms.topic: tutorial
 ms.date: 03/03/2021
-ms.custom: template-tutorial
-ms.openlocfilehash: a94784f2f3fc622e0232033d63bc957279a7d34c
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.custom: template-tutorial, devx-track-azurecli
+ms.openlocfilehash: 9a228ce6f8b18afb77b656765abbad0bb4ae877f
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106076350"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107589149"
 ---
 # <a name="tutorial-implement-cicd-with-gitops-using-azure-arc-enabled-kubernetes-clusters"></a>Tutorial: Implementación de CI/CD con GitOps mediante clústeres de Kubernetes habilitados para Azure Arc
 
@@ -47,13 +47,13 @@ En este tutorial se da por supuesto que está familiarizado con Azure DevOps, Az
 
   ```azurecli
   az extension add --name connectedk8s
-  az extension add --name k8s-configuration
+  az extension add --name k8sconfiguration
   ```
   * Para actualizar las extensiones a la versión más reciente, ejecute los siguientes comandos:
 
     ```azurecli
     az extension update --name connectedk8s
-    az extension update --name k8s-configuration
+    az extension update --name k8sconfiguration
     ```
 
 ## <a name="import-application-and-gitops-repos-into-azure-repos"></a>Importación de los repositorios de la aplicación y de GitOps en Azure Repos
@@ -166,8 +166,7 @@ kubectl create secret docker-registry <secret-name> \
     --docker-password=<service-principal-password>
 ```
 
-> [!TIP]
-> Para evitar tener que establecer un secreto de extracción de imágenes para cada pod, considere la posibilidad de agregar el secreto de extracción de imágenes a la cuenta de servicio en los espacios de nombres `dev` y `stage`. Consulte el [tutorial de Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#add-imagepullsecrets-to-a-service-account) para más información.
+Para evitar tener que establecer un secreto de extracción de imágenes para cada pod, considere la posibilidad de agregar el secreto de extracción de imágenes a la cuenta de servicio en los espacios de nombres `dev` y `stage`. Consulte el [tutorial de Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#add-imagepullsecrets-to-a-service-account) para más información.
 
 ## <a name="create-environment-variable-groups"></a>Creación de grupos de variables de entorno
 

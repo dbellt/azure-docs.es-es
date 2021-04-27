@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: iangithinji
 ms.reviewer: arvindh, japere
-ms.openlocfilehash: d81ad34c81a451f1faecb6cb33c0cc427567f122
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 202ccf6f540ec78c2bb30e0f0a0173609bba578c
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107379611"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751461"
 ---
 # <a name="single-sign-on-options-in-azure-ad"></a>Opciones de inicio de sesión único en Azure AD
 
@@ -86,13 +86,12 @@ Con el inicio de sesión con contraseña, los usuarios inician sesión con nombr
 
 El inicio de sesión único basado en contraseñas usa el proceso de autenticación existente que proporciona la aplicación. Cuando se habilita el inicio de sesión único con contraseña para una aplicación, Azure AD recopila y almacena de forma segura los nombres de usuario y contraseñas de la aplicación. Las credenciales de usuario se almacenan en un estado cifrado en el directorio.
 
+Además, el administrador puede habilitar las directivas de acceso condicional o la autenticación multifactor de Azure AD con el inicio de sesión único basado en contraseña.
+
 Elija el inicio de sesión único basado en contraseñas si:
 
 - Una aplicación no admite el protocolo de inicio de sesión único de SAML.
 - Una aplicación se autentica con un nombre de usuario y una contraseña en lugar de con tokens de acceso y encabezados.
-
->[!NOTE]
->No se pueden aplicar directivas de acceso condicional ni la autenticación multifactor para el inicio de sesión único basado en contraseña.
 
 Se admite el inicio de sesión único basado en contraseñas para cualquier aplicación basada en la nube cuya página de inicio de sesión esté basada en HTML. Puede utilizar cualquiera de los siguientes exploradores:
 

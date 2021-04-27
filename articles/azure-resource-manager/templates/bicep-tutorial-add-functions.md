@@ -2,20 +2,20 @@
 title: 'Tutorial: Adición de funciones a archivos de Bicep de Azure Resource Manager'
 description: Agregue funciones a archivos de Bicep para construir valores.
 author: mumian
-ms.date: 03/10/2021
+ms.date: 04/20/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: references_regions
-ms.openlocfilehash: b909beb0cce9ad04ba00068ee25247520dcff47d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 43dec6ceb21a6604bc0034b3f14b79ffd2cbe263
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102633162"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107773808"
 ---
 # <a name="tutorial-add-functions-to-azure-resource-manager-bicep-file"></a>Tutorial: Adición de funciones a un archivo de Bicep de Azure Resource Manager
 
-En este tutorial, aprenderá a agregar [funciones de plantilla](template-functions.md) a un archivo de Bicep. Las funciones se usan para construir valores de forma dinámica. Además de estas funciones de plantilla proporcionadas por el sistema, también puede crear [funciones definidas por el usuario](./template-user-defined-functions.md). Este tutorial se realiza en **7 minutos**.
+En este tutorial, aprenderá a agregar [funciones de plantilla](template-functions.md) a un archivo de Bicep. Las funciones se usan para construir valores de forma dinámica. Actualmente, Bicep no admite funciones definidas por el usuario. Este tutorial se realiza en **7 minutos**.
 
 [!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 

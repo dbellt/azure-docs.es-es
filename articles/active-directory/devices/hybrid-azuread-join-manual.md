@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: tutorial
-ms.date: 05/14/2019
+ms.date: 04/16/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28cc8a858d1779e17c893d64eda5f907bb4c808e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 1aafcd8ace846d7da65d95d4148872d5a6eddeee
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104577995"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107587857"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Tutorial: Configuración manual de dispositivos unidos a Azure Active Directory híbrido
 
@@ -145,7 +145,7 @@ El siguiente script muestra un ejemplo de uso del cmdlet. En este script, `$aadA
 
 El cmdlet `Initialize-ADSyncDomainJoinedComputerSync`:
 
-* Usa el módulo de PowerShell de Active Directory y las herramientas de Azure Active Directory Domain Services (Azure AD DS). Estas herramientas se basan en los servicios web de Active Directory que se ejecutan en un controlador de dominio. Active Directory Web Services es compatible con los controladores de dominio en los que se ejecuta Windows Server 2008 R2, y las versiones posteriores.
+* Usa el módulo de PowerShell de Active Directory y las herramientas de Active Directory Domain Services (AD DS). Estas herramientas se basan en los servicios web de Active Directory que se ejecutan en un controlador de dominio. Active Directory Web Services es compatible con los controladores de dominio en los que se ejecuta Windows Server 2008 R2, y las versiones posteriores.
 * Solo es compatible con la versión 1.1.166.0 del módulo de MSOnline PowerShell. Para descargar este módulo, use [este vínculo](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0).
 * Si no se instalan las herramientas de AD DS, `Initialize-ADSyncDomainJoinedComputerSync` producirá un error. Las herramientas de AD DS se pueden instalar mediante el Administrador del servidor en **Características** > **Herramientas de administración de servidor remoto** > **Herramientas de administración de roles**.
 

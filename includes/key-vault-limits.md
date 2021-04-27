@@ -4,12 +4,12 @@ ms.service: key-vault
 ms.topic: include
 ms.date: 03/09/2021
 ms.author: ambapat
-ms.openlocfilehash: c2548b1669366564809ed2fde725cb3399922a29
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9ecfcff00e6f44f5c739513c063baaa3fa02a3db
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104803203"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107753312"
 ---
 El servicio Azure Key Vault admite dos tipos de recursos: almacenes y HSM administrados. En las dos secciones siguientes se describen los límites de servicio para cada uno de ellos, respectivamente.
 
@@ -65,9 +65,9 @@ Al realizar una copia de seguridad de un objeto almacenado en el almacén de cla
 #### <a name="azure-private-link-integration"></a>Integración de Azure Private Link
 
 > [!NOTE]
-> El número de almacenes de claves con puntos de conexión privados habilitados por suscripción es un límite ajustable. El límite que se muestra a continuación es el límite predeterminado. Si desea solicitar un aumento del límite para su servicio, envíe un correo electrónico a akv-privatelink@microsoft.com. Estas solicitudes se aprobarán caso por caso.
+> El número de almacenes de claves con puntos de conexión privados habilitados por suscripción es un límite ajustable. El límite que se muestra a continuación es el límite predeterminado. Si desea solicitar un aumento del límite para el servicio, cree una solicitud de soporte técnico, que se evaluará de manera individualizada.
 
-| Recurso | Límite |
+| Resource | Límite |
 | -------- | -----:|
 | Puntos de conexión privados por almacén de claves | 64 |
 | Almacenes de claves con puntos de conexión privados por suscripción | 400 |

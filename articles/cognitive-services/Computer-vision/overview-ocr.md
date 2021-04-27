@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 03/29/2021
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 41b3552a633c9cebce1138fa042dbd154eee0cb5
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: da4ada8b505c747d24738e175a1701b5ea73b4e4
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107314123"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107536732"
 ---
 # <a name="what-is-optical-character-recognition"></a>¿Qué es el reconocimiento óptico de caracteres?
 
@@ -42,7 +42,6 @@ La llamada a **Read** usa las imágenes y los documentos como entrada. Tienen lo
 * Formatos de archivos admitidos: JPEG, PNG, BMP, PDF y TIFF.
 * En el caso de los archivos PDF y TIFF, se procesan hasta 2000 páginas (solo las primeras dos páginas en el nivel Gratis).
 * El tamaño de archivo debe ser inferior a 50 MB (4 MB para el nivel Gratis); y sus dimensiones, de al menos 50x50 píxeles y, como máximo, de 10 000x10 000 píxeles. 
-* Los archivos PDF deben tener unas dimensiones de 17x17 pulgadas como máximo, lo que se corresponde con los tamaños de papel Legal o A3 y más pequeños.
 
 ## <a name="read-api"></a>Read API 
 
@@ -50,6 +49,21 @@ Computer Vision [Read API](https://centraluseuap.dev.cognitive.microsoft.com/doc
 
 ![Cómo OCR convierte imágenes y documentos en una salida estructurada con texto extraído](./Images/how-ocr-works.svg)
 
+### <a name="key-features"></a>Características principales
+
+Read API incluye las características siguientes. 
+
+* Extracción de texto de impresión en 73 idiomas
+* Extracción de texto manuscrito en inglés
+* Líneas de texto y palabras con puntuaciones de ubicación y confianza
+* No se requiere identificación de idioma
+* Compatibilidad con idiomas mixtos, modo mixto (impresión y escritura a mano)
+* Selección de páginas e intervalos de páginas de documentos grandes de varias páginas
+* Orden de lectura natural para las líneas de texto
+* Clasificación de escritura a mano para líneas de texto
+* Disponible como contenedor sin distribución de Docker para la implementación local
+
+Aprenda a [usar las características de OCR](./vision-api-how-to-topics/call-read-api.md).
 
 ## <a name="use-the-cloud-api-or-deploy-on-premise"></a>Uso de Cloud API o implementación local
 Las instancias de Read Cloud API 3.x son la opción preferida para la mayoría de los clientes debido a su facilidad de integración y su inmediata productividad. Azure y el servicio Computer Vision controlan las necesidades de escalado, rendimiento, seguridad de los datos y cumplimiento, lo que le permite centrarse en satisfacer las necesidades de los clientes.

@@ -4,15 +4,15 @@ description: Vea cómo se crean y administran los recursos compartidos de archiv
 author: roygara
 ms.service: storage
 ms.topic: quickstart
-ms.date: 10/18/2018
+ms.date: 04/15/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6a88124397812f7599ce54b46b23d22e626cf520
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d7867a4bd60bb179c18fff49691072d683660f7e
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94629825"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107717881"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-the-azure-portal"></a>Guía de inicio rápido: Creación y administración de recursos compartidos de archivos de Azure con Azure Portal 
 [Azure Files](storage-files-introduction.md) es el sencillo sistema de archivos en la nube de Microsoft. Los recursos compartidos de archivos de Azure se pueden montar en Windows, Linux y macOS. En esta guía se describen los conceptos básicos sobre cómo trabajar con recursos compartidos de archivos de Azure mediante [Azure Portal](https://portal.azure.com/).
@@ -26,12 +26,13 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 Para crear un recurso compartido de archivos de Azure:
 
 1. Seleccione la cuenta de almacenamiento desde el panel.
-2. En la página de la cuenta de almacenamiento, en la sección **Services** (Servicios), seleccione **Files** (Archivos).
-    ![Captura de pantalla de la sección de servicios de la cuenta de almacenamiento; seleccione el servicio Files](media/storage-how-to-use-files-portal/create-file-share-1.png)
+1. En la página de la cuenta de almacenamiento, en la sección **Services** (Servicios), seleccione **Files** (Archivos).
+    
+    ![Captura de pantalla de la sección de almacenamiento de datos de la cuenta de almacenamiento. Seleccionar recursos compartidos de archivos.](media/storage-how-to-use-files-portal/create-file-share-1.png)
 
-3. En el menú de la parte superior de la página **File service**, haga clic en **Recurso compartido de archivos**. Se abre la página **New file share** (Nuevo recurso compartido de archivos).
-4. En **Name** (Nombre), escriba *myshare*.
-5. Haga clic en **Aceptar** para crear el recurso compartido de archivos de Azure.
+1. En el menú de la parte superior de la página **File service**, haga clic en **Recurso compartido de archivos**. Se abre la página **New file share** (Nuevo recurso compartido de archivos).
+1. En **Nombre,** escriba *myshare*, escriba una comilla y deje la opción **Transacción optimizada** seleccionada para **Niveles**.
+1. Seleccione **Crear** para crear el recurso compartido de archivos de Azure.
 
 Los nombres de recursos compartidos deben estar formados por letras minúsculas, números y guiones sencillos, pero no pueden empezar con un guion. Para obtener detalles completos sobre cómo asignar un nombre a recursos compartidos y archivos, consulte [Asignación de nombres y referencia a recursos compartidos, directorios, archivos y metadatos](/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 
@@ -60,20 +61,21 @@ Ahora que ha creado un recurso compartido de archivos de Azure, puede montarlo c
 Para crear un nuevo directorio denominado *myDirectory* en la raíz del recurso compartido de archivos de Azure:
 
 1. En la página **File Service** (Servicio File), seleccione el recurso compartido de archivos **myshare**. Se abre la página del recurso compartido de archivos.
-2. En el menú que aparece en la parte superior de la página, seleccione **+ Add directory** (Agregar directorio) y su cuenta. Se abre la página **New directory** (Nuevo directorio).
-3. Escriba *myDirectory* y, luego, haga clic en **OK** (Aceptar).
+1. En el menú que aparece en la parte superior de la página, seleccione **+ Add directory** (Agregar directorio) y su cuenta. Se abre la página **New directory** (Nuevo directorio).
+1. Escriba *myDirectory* y, luego, haga clic en **OK** (Aceptar).
 
 #### <a name="upload-a-file"></a>Cargar un archivo 
 Para demostrar la carga de un archivo, primero debe crear o seleccionar un archivo para cargar. Puede hacerlo por cualquier medio que considere oportuno. Una vez haya seleccionado el archivo que desea cargar:
 
 1. Haga clic en el directorio **myDirectory**. Se abre el panel **myDirectory**.
-2. En el menú de la parte superior, haga clic en **Upload** (Cargar). Se abre el panel **Upload files** (Cargar archivos).  
+1. En el menú en la parte superior, seleccione **Cargar**. Se abre el panel **Upload files** (Cargar archivos).  
+    
     ![Captura de pantalla del panel de carga de archivos](media/storage-how-to-use-files-portal/upload-file-1.png)
 
-3. Haga clic en el icono de carpeta para abrir una ventana donde examinar los archivos locales. 
-4. Seleccione un archivo y haga clic en **Open** (Abrir). 
-5. En la página **Upload files** (Cargar archivos), compruebe el nombre de archivo y, a continuación, haga clic en **Upload** (Cargar).
-6. Cuando termine, el archivo debe aparecer en la lista en la página **myDirectory**.
+1. Haga clic en el icono de carpeta para abrir una ventana donde examinar los archivos locales. 
+1. Seleccione un archivo y haga clic en **Open** (Abrir). 
+1. En la página **Upload files** (Cargar archivos), compruebe el nombre de archivo y, a continuación, haga clic en **Upload** (Cargar).
+1. Cuando termine, el archivo debe aparecer en la lista en la página **myDirectory**.
 
 #### <a name="download-a-file"></a>Descarga de un archivo
 Para descargar una copia del archivo cargado, haga clic en él con el botón derecho. Después de hacer clic en el botón de descarga, la experiencia exacta dependerá del sistema operativo y el explorador que use.

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1977663f4661fca316e4839671abd76e07b5acda
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 0986a1d6a75f0d464eb405841af821c606c68200
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107304807"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107565328"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Uso de tablas externas con Synapse SQL
 
@@ -339,7 +339,7 @@ Especifica la carpeta o la ruta de acceso del archivo y el nombre de archivo de 
 Si especifica un valor de LOCATION de una carpeta, una consulta del grupo de SQL sin servidor seleccionará la carpeta de la tabla externa y recuperará los archivos.
 
 > [!NOTE]
-> A diferencia de Hadoop y PolyBase, el grupo de SQL sin servidor no devuelve subcarpetas a menos que especifique /** al final de la ruta de acceso.
+> A diferencia de Hadoop y PolyBase, el grupo de SQL sin servidor no devuelve subcarpetas a menos que especifique /** al final de la ruta de acceso. Al igual que Hadoop y PolyBase, no devuelve archivos cuyo nombre comienza por un carácter de subrayado (_) o un punto (.).
 
 En este ejemplo, si LOCATION='/webdata/', una consulta del grupo de SQL sin servidor, devolverá filas de mydata.txt. No devolverá mydata2. txt y mydata3. txt porque se encuentran en una subcarpeta.
 

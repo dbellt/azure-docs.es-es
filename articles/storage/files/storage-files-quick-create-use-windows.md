@@ -4,15 +4,15 @@ description: Cree y use un recurso compartido de Azure Files en Azure Portal. Co
 author: roygara
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/01/2019
+ms.date: 04/15/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 4c5629f80c37c9f79dc9a39c4d8304acbee9679d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5a3c664f6c6c0532ef915357cfbcbc8228202502
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92489581"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107718306"
 ---
 # <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>Inicio rápido: Creación y administración de un recurso compartido de Azure Files con Windows Virtual Machines
 
@@ -42,19 +42,19 @@ Para poder trabajar con un recurso compartido de archivos de Azure, es necesario
 A continuación creará un recurso compartido de archivos.
 
 1. Cuando se complete la implementación de la cuenta de Azure Storage, seleccione **Ir al recurso**.
-1. Seleccione **Archivos** en el panel de la cuenta de almacenamiento.
+1. Seleccione **Recursos compartidos de archivos** en el panel de la cuenta de almacenamiento.
 
-    ![Seleccionar Archivos](./media/storage-files-quick-create-use-windows/click-files.png)
+    ![Seleccione Recursos compartidos de archivos.](./media/storage-files-quick-create-use-windows/click-files.png)
 
-1. Seleccione **Recurso compartido de archivos**.
+1. Seleccione **+ Recurso compartido de archivos**.
 
-    ![Haga clic en el botón para agregar un recurso compartido de archivos](./media/storage-files-quick-create-use-windows/create-file-share.png)
+    ![Seleccione + Recurso compartido de archivos para crear un recurso compartido de archivos.](./media/storage-files-quick-create-use-windows/create-file-share.png)
 
-1. Dele al nuevo recurso compartido el nombre *qsfileshare* > escriba "1" para **Cuota** > seleccione **Crear**. El valor máximo de la cuota es 5 TiB, pero para esta guía de inicio rápido solo se necesita 1 GiB.
+1. Asigne el nombre *qsfileshare* al nuevo recurso compartido de archivos, escriba "1" como **Cuota**, deje la opción **Transacción optimizada** seleccionada, y seleccione **Crear**. El valor máximo de la cuota es 5 TiB (o 100 TiB si tiene habilitada la opción para grandes recursos compartidos de archivos), pero para este inicio rápido solo se necesita 1 GiB.
 1. Cree un nuevo archivo txt denominado *qsTestFile* en la máquina local.
 1. Seleccione el nuevo recurso compartido de archivos y en su ubicación, haga clic en **Cargar**.
 
-    ![Cargar un archivo](./media/storage-files-quick-create-use-windows/create-file-share-portal5.png)
+    ![Cargar un archivo.](./media/storage-files-quick-create-use-windows/create-file-share-portal5.png)
 
 1. Vaya a la ubicación donde creó el archivo .txt > seleccione *qsTestFile.txt* > seleccione **Cargar**.
 
@@ -63,14 +63,14 @@ Ya ha creado una cuenta de Azure Storage y un recurso compartido de archivos con
 ### <a name="deploy-a-vm"></a>Implementación de una máquina virtual
 
 1. A continuación, expanda el menú del lado izquierdo del portal y elija **Crear un recurso** en la esquina superior izquierda de Azure Portal.
-1. En el cuadro de búsqueda que está encima de la lista de recursos de **Azure Marketplace**, busque **Windows Server 2016 Datacenter**, selecciónelo y, después, elija **Crear**.
+1. En el cuadro de búsqueda que está encima de la lista de recursos de **Azure Marketplace**, busque **Windows Server 2016 Datacenter**.
 1. En la pestaña **Conceptos básicos**, en **Detalles del proyecto**, seleccione el grupo de recursos que creó para esta guía de inicio rápido.
 
-   ![Especificación de la información básica de la máquina virtual en la hoja del Portal](./media/storage-files-quick-create-use-windows/vm-resource-group-and-subscription.png)
+   ![Especifique la información básica de la máquina virtual en la hoja del Portal.](./media/storage-files-quick-create-use-windows/vm-resource-group-and-subscription.png)
 
 1. En **Detalles de la instancia**, asigne a la máquina virtual el nombre *qsVM*.
 1. Deje la configuración predeterminada en **Región**, **Opciones de disponibilidad**, **Imagen** y **Tamaño**.
-1. En **Cuenta de administrador**, agregue *VMadmin* como el **Nombre de usuario** y escriba una **Contraseña** para la máquina virtual.
+1. En **Cuenta de administrador**, agregue un **nombre de usuario** y escriba una **contraseña** para la máquina virtual.
 1. En **Reglas de puerto de entrada**, elija **Permitir los puertos seleccionados** y luego seleccione **RDP (3389)** y **HTTP** en la lista desplegable.
 1. Seleccione **Revisar + crear**.
 1. Seleccione **Crear**. La creación de una máquina virtual nueva tardará varios minutos en completarse.
@@ -96,60 +96,50 @@ Ya ha creado una nueva máquina virtual y ha conectado un disco de datos. Ahora 
 ## <a name="map-the-azure-file-share-to-a-windows-drive"></a>Asigne el recurso compartido de archivos de Azure a una unidad de Windows
 
 1. En Azure Portal, vaya al recurso compartido de archivos *qsfileshare* y seleccione **Conectar**.
-1. Copie el contenido de la segunda casilla y péguelo en el **Bloc de notas**.
+1. Seleccione una letra de unidad y copie el contenido del segundo cuadro y péguelo en el **Bloc de notas**.
 
-   ![Captura de pantalla que muestra el contenido del cuadro de segundos que debe copiar y pegar en el Bloc de notas.](./media/storage-files-quick-create-use-windows/portal_netuse_connect2.png)
+   :::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png" alt-text="Captura de pantalla que muestra el contenido del cuadro que debe copiar y pegar en el Bloc de notas" lightbox="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png":::.
 
-1. En la máquina virtual, abra **Explorador de archivos** y seleccione **Este equipo** en la ventana. Esta selección cambiará los menús disponibles en la barra de herramientas. En el menú **Equipo**, seleccione **Conectar a unidad de red**.
-1. Seleccione la letra de unidad y escriba la ruta de acceso UNC. Si ha seguido las sugerencias de nomenclatura en esta guía de inicio rápido, copie *\\qsstorageacct.file.core.windows.net\qsfileshare* desde el **Bloc de notas**.
-
-   Asegúrese de que ambas casillas están seleccionadas.
-
-   ![Captura de pantalla del cuadro de diálogo "Conectar a unidad de red"](./media/storage-files-quick-create-use-windows/mountonwindows10.png)
-
-1. Seleccione **Finalizar**.
-1. En el cuadro de diálogo **Seguridad de Windows**:
-
-   - Desde el Bloc de notas, copie el nombre de la cuenta de almacenamiento precedido de AZURE\ y péguelo en el cuadro de diálogo **Windows Security** como nombre de usuario. Si ha seguido las sugerencias de nomenclatura en esta guía de inicio rápido, copie *AZURE\qsstorageacct*.
-   - Desde el Bloc de notas, copie la clave de la cuenta de almacenamiento y péguela en el cuadro de diálogo **Windows Security** como contraseña.
-
-      ![Ruta de acceso UNC en el panel Conectar de Azure Files](./media/storage-files-quick-create-use-windows/portal_netuse_connect3.png)
+1. En la máquina virtual, abra **PowerShell** y pegue el contenido del **Bloc de notas** y presione Entrar para ejecutar el comando. Debe asignar la unidad.
 
 ## <a name="create-a-share-snapshot"></a>Creación de una instantánea de recurso compartido
 
 Ahora que ha asignado la unidad, puede crear una instantánea.
 
-1. En el portal, vaya al recurso compartido de archivos y seleccione **Crear instantánea**.
+1. En el portal, vaya al recurso compartido de archivos, seleccione **Instantáneas** y, a continuación, seleccione **+ Agregar instantánea**.
 
-   ![Crear una instantánea](./media/storage-files-quick-create-use-windows/create-snapshot.png)
+   ![Seleccione instantáneas en la sección de operaciones y, a continuación, seleccione Agregar instantánea.](./media/storage-files-quick-create-use-windows/create-snapshot.png)
 
 1. En la máquina virtual, abra *qstestfile.txt* y escriba "este archivo se ha modificado" > Guarde y cierre el archivo.
 1. Cree otra instantánea.
 
 ## <a name="browse-a-share-snapshot"></a>Búsqueda de una instantánea de recurso compartido
 
-1. En el recurso compartido de archivos, seleccione **Ver instantáneas**.
-1. En el panel **Instantáneas de recursos compartidos de archivos**, seleccione la primera instantánea en la lista.
+1. En el recurso compartido de archivos, seleccione **Instantáneas**.
+1. En la hoja **Instantáneas**, seleccione la primera instantánea de la lista.
 
    ![Instantánea seleccionada en la lista de marcas de tiempo](./media/storage-files-quick-create-use-windows/snapshot-list.png)
 
-1. En el panel de esa instantánea, seleccione *qsTestFile.txt*.
+1. Abra esa instantánea y seleccione *qsTestFile.txt*.
 
 ## <a name="restore-from-a-snapshot"></a>Restauración desde una instantánea
 
 1. En la hoja de instantánea de recurso compartido de archivo, haga clic con el botón derecho en *qsTestFile* y seleccione el botón **Restaurar**.
+
+    :::image type="content" source="media/storage-files-quick-create-use-windows/restore-share-snapshot.png" alt-text="Captura de pantalla de la hoja de instantáneas, qstestfile está seleccionado y el botón Restaurar está resaltado.":::
+
 1. Seleccione **Sobrescribir el archivo original**.
 
-   ![Botones Descargar y Restaurar](./media/storage-files-quick-create-use-windows/snapshot-download-restore-portal.png)
+   ![Captura de pantalla de la ventana emergente de restauración. La opción Sobrescribir el archivo original está seleccionada.](./media/storage-files-quick-create-use-windows/snapshot-download-restore-portal.png)
 
 1. En la máquina virtual, abra el archivo. Se ha restaurado la versión no modificada.
 
 ## <a name="delete-a-share-snapshot"></a>Eliminación de una instantánea de recurso compartido
 
-1. En el recurso compartido de archivos, seleccione **Ver instantáneas**.
-1. En el panel **Instantáneas de recursos compartidos de archivos**, seleccione las últimas instantáneas en la lista y haga clic en **Eliminar**.
+1. En el recurso compartido de archivos, seleccione **Instantáneas**.
+1. En la hoja **Instantáneas**, seleccione la primera instantánea de la lista y seleccione **Eliminar**.
 
-   ![Botón Eliminar](./media/storage-files-quick-create-use-windows/portal-snapshots-delete.png)
+   ![Captura de pantalla de la hoja Instantáneas, con la última instantánea seleccionada y el botón Eliminar resaltado.](./media/storage-files-quick-create-use-windows/portal-snapshots-delete.png)
 
 ## <a name="use-a-share-snapshot-in-windows"></a>Uso de una instantánea de recurso compartido en Windows
 
@@ -173,7 +163,10 @@ Al igual que con las instantáneas VSS en el entorno local, puede ver las instan
 
 1. Seleccione **Restaurar**. Esta acción copia el contenido de todo un directorio de forma recursiva en la ubicación original en el momento de la creación de la instantánea del recurso compartido.
 
-   ![Botón Restaurar en mensaje de advertencia](./media/storage-files-quick-create-use-windows/snapshot-windows-restore.png) Nota: Si el archivo no ha cambiado, no verá una versión anterior de ese archivo, ya que este tiene la misma versión que la instantánea. Esto es coherente con el modo en que funciona en un servidor de archivos de Windows.
+   ![Botón Restaurar en mensaje de advertencia](./media/storage-files-quick-create-use-windows/snapshot-windows-restore.png)
+    
+    > [!NOTE]
+    > Si el archivo no ha cambiado, no verá una versión anterior de ese archivo, ya que este tiene la misma versión que la instantánea. Esto es coherente con el modo en que funciona en un servidor de archivos de Windows.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

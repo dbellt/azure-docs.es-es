@@ -12,12 +12,12 @@ ms.date: 04/12/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 4130ed4bb690edb3c0c5d72d7d158262ed6ff39d
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 3d53c96c4b0306911b0c8a0b8576f35a73419db0
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107305606"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107498159"
 ---
 # <a name="tutorial-develop-and-plan-provisioning-for-a-scim-endpoint"></a>Tutorial: Desarrollo y planeación del aprovisionamiento de un punto de conexión de SCIM
 
@@ -210,7 +210,8 @@ Al implementar un punto de conexión de SCIM para garantizar la compatibilidad c
 * No exija una coincidencia entre mayúsculas y minúsculas en los elementos estructurales de SCIM, en particular en los valores de operación **PATCH** `op`, como se define en la [sección 3.5.2](https://tools.ietf.org/html/rfc7644#section-3.5.2). AAD emite los valores de `op` como **Agregar**, **Reemplazar** y **Quitar**.
 * Microsoft AAD realiza solicitudes para recuperar un usuario y un grupo al azar para tener la seguridad de que el punto de conexión y las credenciales sean válidas. También las realiza como parte del flujo de **Probar conexión** de [Azure Portal](https://portal.azure.com). 
 * El atributo en el que se pueden consultar los recursos debe establecerse como un atributo coincidente en la aplicación en [Azure Portal](https://portal.azure.com). Consulte [Personalización de las asignaciones de atributos de aprovisionamiento de usuarios](customize-application-attributes.md).
-* Admitir HTTPS en el punto de conexión de SCIM
+* No se admite el atributo de derechos.
+* Compatibilidad con HTTPS en el punto de conexión de SCIM.
 * [Detección de esquemas](#schema-discovery)
   * La detección de esquemas no se admite actualmente en la aplicación personalizada, pero se usa en determinadas aplicaciones de la galería. En el futuro, la detección de esquemas se usará como método principal para agregar atributos adicionales a un conector. 
   * Si un valor no está presente, no envíe valores NULL.

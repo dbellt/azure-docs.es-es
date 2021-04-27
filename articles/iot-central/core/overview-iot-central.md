@@ -3,23 +3,23 @@ title: Introducción a Azure IoT Central | Microsoft Docs
 description: Azure IoT Central es una plataforma de aplicaciones de IoT que simplifica la creación de soluciones de IoT y ayuda a reducir la carga y el costo de las operaciones de administración de IoT y el desarrollo. En este artículo se proporciona información general sobre las características de Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/23/2020
+ms.date: 04/19/2021
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc, contperf-fy21q2
-ms.openlocfilehash: 6f7b24c711d99b1127ee77a920b305acb114d20e
-ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
+ms.openlocfilehash: 88f59c1b3fc1014cef5035845f1f2e8616bea908
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106505134"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739915"
 ---
 # <a name="what-is-azure-iot-central"></a>¿Qué es Azure IoT Central?
 
 IoT Central es una plataforma de aplicaciones de IoT que reduce la carga y el costo del desarrollo, la administración y el mantenimiento de soluciones de IoT de nivel empresarial. La elección de compilar con IoT Central ofrece la oportunidad de centrar el tiempo, el dinero y la energía en transformar su negocio con datos de IoT, en lugar de simplemente mantener y actualizar una infraestructura de IoT compleja y continuamente en constante evolución.
 
-La interfaz de usuario web le permite supervisar las condiciones del dispositivo, crear reglas y administrar millones de dispositivos y sus datos a lo largo de su ciclo de vida. Además, le permite actuar sobre la información del dispositivo mediante la extensión de IoT Intelligence en aplicaciones de línea de negocio.
+La interfaz de usuario web le permite conectar rápidamente dispositivos, supervisar sus condiciones, crear reglas y administrar millones de dispositivos y sus datos a lo largo de su ciclo de vida. Además, le permite actuar sobre la información del dispositivo mediante la extensión de IoT Intelligence en aplicaciones de línea de negocio.
 
 Para IoT Central, en este artículo se describe lo siguiente:
 
@@ -41,14 +41,18 @@ La documentación IoT Central hace referencia a cuatro roles de usuario que inte
 
 ## <a name="create-your-iot-central-application"></a>Creación de la aplicación IoT Central
 
-Como generador de soluciones, use IoT Central para crear una solución de IoT personalizada hospedada en la nube para su organización. Normalmente, una solución de personalizada IoT consta de:
+Puede implementar rápidamente una aplicación de IoT Central nueva y, luego, personalizarla según sus requisitos específicos. Comience con una _plantilla de aplicación_ genérica o con una de las enfocadas al sector:
 
-- Una aplicación basada en la nube que recibe los datos de telemetría de los dispositivos y le permite administrar los dispositivos.
-- Varios dispositivos que ejecutan código personalizado y que están conectados a la aplicación en la nube.
+- [Minoristas](../retail/overview-iot-central-retail.md)
+- [Sector energético](../energy/overview-iot-central-energy.md)
+- [Gobierno](../government/overview-iot-central-government.md)
+- [Atención sanitaria](../healthcare/overview-iot-central-healthcare.md).
 
-Puede implementar rápidamente una aplicación IoT Central nueva y, luego, personalizarla según sus requisitos específicos en el explorador. Puede empezar con una _plantilla de aplicación_ genérica o con una de las plantillas de aplicación específicas para los sectores [minorista](../retail/overview-iot-central-retail.md), [energético](../energy/overview-iot-central-energy.md), [gubernamental](../government/overview-iot-central-government.md) o [sanitario](../healthcare/overview-iot-central-healthcare.md).
+Consulte el inicio rápido [Creación de una aplicación](quick-deploy-iot-central.md) para ver un tutorial sobre cómo crear la primera aplicación.
 
-Como generador de soluciones, se usan las herramientas web para crear una _plantilla de dispositivo_ para los dispositivos que se conectan a la aplicación. Una plantilla de dispositivo es el plano técnico que define las características y el comportamiento de un tipo de dispositivo, por ejemplo:
+## <a name="connect-devices"></a>Conexión de dispositivos
+
+Después de crear la aplicación, el primer paso es crear y conectar los dispositivos. Cada dispositivo conectado a IoT Central usa una _plantilla de dispositivo_. Una plantilla de dispositivo es el plano técnico que define las características y el comportamiento de un tipo de dispositivo, por ejemplo:
 
 - La telemetría que envía. Los ejemplos incluyen la temperatura y la humedad. La telemetría es la transmisión de datos.
 - Las propiedades empresariales que un operador puede modificar. Los ejemplos incluyen una dirección de cliente y la fecha en que se prestó servicio por última vez.
@@ -56,9 +60,9 @@ Como generador de soluciones, se usan las herramientas web para crear una _plant
 - Propiedades, que un operador establece, que determinan el comportamiento del dispositivo. Por ejemplo, la temperatura de destino del dispositivo.
 - Comandos, a los que un operador puede llamar, que se ejecutan en un dispositivo. Por ejemplo, un comando para reiniciar un dispositivo de forma remota.
 
-Esta [plantilla de dispositivo](howto-set-up-template.md) incluye:
+Cada [plantilla de dispositivo](howto-set-up-template.md) incluye:
 
-- Un _modelo de dispositivo_ que describe las funcionalidades que debe implementar un dispositivo. Entre estas funcionalidades, se incluyen:
+- Un _modelo de dispositivo_ que describe las funcionalidades que debe implementar el dispositivo. Entre estas funcionalidades, se incluyen:
 
   - La telemetría que transmite a IoT Central.
   - Las propiedades de solo lectura que utiliza para notificar el estado a IoT Central.
@@ -68,25 +72,21 @@ Esta [plantilla de dispositivo](howto-set-up-template.md) incluye:
 - Propiedades de la nube que no están almacenadas en el dispositivo.
 - Personalizaciones, paneles y formularios que forman parte de la aplicación IoT Central.
 
-### <a name="create-device-templates"></a>Creación de plantillas de dispositivo
-
-Como generador de soluciones, tiene varias opciones para crear plantillas de dispositivo:
+Tiene varias opciones para crear plantillas de dispositivo:
 
 - Diseñe la plantilla de dispositivo en IoT Central e implemente el modelo de dispositivo en el código del dispositivo.
 - Cree un modelo de dispositivo mediante Visual Studio Code y publíquelo en un repositorio. Implemente el código del dispositivo desde el modelo y conecte el dispositivo a la aplicación de IoT Central. IoT Central encuentra el modelo de dispositivo en el repositorio y crea automáticamente una plantilla de dispositivo simple.
 - Cree un modelo de dispositivo mediante Visual Studio Code. Implemente el código del dispositivo a partir del modelo. Importe manualmente el modelo de dispositivo en la aplicación de IoT Central y agregue las propiedades, las personalizaciones y los paneles a la nube que necesite la aplicación de IoT Central.
 
-Como generador de soluciones, puede usar IoT Central para generar código para que los dispositivos de prueba validen las plantillas de dispositivo.
-
-Si es un desarrollador de dispositivos, consulte [Introducción al desarrollo de dispositivos de IoT Central](./overview-iot-central-developer.md) para obtener una introducción a la implementación de dispositivos que usan estas plantillas de dispositivo.
+Consulte el inicio rápido [Adición de un dispositivo simulado](quick-create-simulated-device.md) para ver un tutorial sobre cómo crear y conectar su primer dispositivo.
 
 ### <a name="customize-the-ui"></a>Personalización de la interfaz de usuario
 
-Como generador de soluciones, también puede personalizar la interfaz de usuario de la aplicación IoT Central para los operadores responsables del uso cotidiano de la aplicación. Entre las personalizaciones que puede crear un generador de soluciones se incluyen:
+También puede personalizar la interfaz de usuario de la aplicación de IoT Central para los operadores responsables del uso cotidiano de la aplicación. Las personalizaciones que puede realizar incluyen:
 
-- Definir el diseño de las propiedades y la configuración en una plantilla de dispositivo.
 - Configurar paneles personalizados para ayudar a los operadores a descubrir información y resolver los problemas con mayor rapidez.
 - Configurar análisis personalizados para explorar los datos de series temporales de los dispositivos conectados.
+- Definir el diseño de las propiedades y la configuración en una plantilla de dispositivo.
 
 ## <a name="manage-your-devices"></a>Administración de los dispositivos
 
@@ -96,9 +96,9 @@ Como operador, se usa la aplicación IoT Central para [administrar los dispositi
 - Solucionar problemas y errores de los dispositivos.
 - Aprovisionar dispositivos nuevos.
 
-Como generador de soluciones, puede [definir reglas y acciones](howto-configure-rules.md) personalizadas que funcionen a través de la transmisión de datos desde dispositivos conectados. Un operador puede habilitar o deshabilitar estas reglas en el nivel de dispositivo para controlar y automatizar las tareas dentro de la aplicación.
+Puede [definir reglas y acciones personalizadas](howto-configure-rules.md) que se aplican a la transmisión de datos desde los dispositivos conectados. Un operador puede habilitar o deshabilitar estas reglas en el nivel de dispositivo para controlar y automatizar las tareas dentro de la aplicación.
 
-Con cualquier solución de IoT diseñada para funcionar a escala es importante tener un enfoque estructurado en relación con la administración de dispositivos. No basta con conectar los dispositivos a la nube, sino que es necesario mantener los dispositivos conectados y en buen estado. Un operador puede usar las siguientes funcionalidades de IoT Central para administrar los dispositivos a lo largo del ciclo de vida de la aplicación:
+Al igual que con cualquier solución de IoT diseñada para funcionar a gran escala, es importante tener un enfoque estructurado en relación con la administración de dispositivos. No basta con conectar los dispositivos a la nube, sino que es necesario mantener los dispositivos conectados y en buen estado. Use las siguientes funcionalidades de IoT Central para administrar los dispositivos a lo largo del ciclo de vida de la aplicación:
 
 ### <a name="dashboards"></a>Paneles
 

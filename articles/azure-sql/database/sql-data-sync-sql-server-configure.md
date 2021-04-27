@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/14/2019
-ms.openlocfilehash: 6b7ead2e54889327bfbea188ad464012c3861556
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 75de7b122bff75ea13e3b66bb0b79452142dc36c
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105968618"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107500097"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-databases-in-azure-sql-database-and-sql-server"></a>Tutorial: Configuración de SQL Data Sync entre Azure SQL Database y SQL Server
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -236,6 +236,11 @@ Para ver las preguntas más frecuentes sobre el agente de cliente, consulte [Pre
 **¿Es necesario aprobar manualmente el vínculo privado antes de poder empezar a usarlo?**
 
 Sí, debe aprobar manualmente el punto de conexión privado administrado por el servicio en la página de conexiones del punto de conexión privado de Azure Portal durante la implementación del grupo de sincronización o mediante PowerShell.
+
+**¿Por qué aparece un error de firewall cuando el trabajo de sincronización aprovisiona mi base de datos de Azure?**
+
+Quizá porque los recursos de Azure no pueden acceder al servidor. Asegúrese de que el firewall de la base de datos de Azure tiene la opción "Permitir que los servicios y recursos de Azure accedan a este servidor" establecida en "Sí".
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

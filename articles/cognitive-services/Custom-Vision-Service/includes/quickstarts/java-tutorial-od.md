@@ -4,12 +4,12 @@ ms.custom: devx-track-java
 ms.author: pafarley
 ms.service: cognitive-services
 ms.date: 10/13/2020
-ms.openlocfilehash: cb4b21fdb034ea2939377c1010a789de3fb8786f
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 16112ffe7ba5fbc23335f9b60cdcbc045ea7cd2b
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106113445"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107725178"
 ---
 Comience a usar la biblioteca cliente de Custom Vision para Java con el fin de crear un modelo de detección de objetos. Siga estos pasos para instalar el paquete y probar el código de ejemplo para realizar tareas básicas. Utilice este ejemplo como plantilla para crear su propia aplicación de reconocimiento de imágenes.
 

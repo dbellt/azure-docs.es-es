@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: quickstart
-ms.date: 01/24/2021
+ms.date: 04/19/2021
 ms.author: memildin
-ms.openlocfilehash: 25639509cfb689e025ea4388f302378648af8ba6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f9ab258f59279112d0b90c5d460e6761ac911a2d
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102439500"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107713361"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>Automatización de la incorporación de Azure Security Center mediante PowerShell
 
@@ -35,7 +35,7 @@ En este ejemplo, se habilitará Security Center en una suscripción con el ident
 
 6. Asigne [directivas de seguridad predeterminadas](tutorial-security-policy.md) de Security Center.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Estos pasos deben realizarse antes de ejecutar los cmdlets de Security Center:
 
@@ -75,9 +75,9 @@ Estos pasos deben realizarse antes de ejecutar los cmdlets de Security Center:
     > Se recomienda habilitar el aprovisionamiento automático para asegurarse de que las máquinas virtuales de Azure estén protegidos automáticamente por Azure Security Center.
     >
 
-1. Opcional: se recomienda firmemente definir los detalles de contacto de seguridad para las suscripciones que incorpore, que se usarán como destinatarios de las notificaciones y alertas generadas por Security Center:
+1. Opcional: se recomienda encarecidamente [definir los detalles de contacto de seguridad](security-center-provide-security-contact-details.md) para las suscripciones que incorpore, que se usarán como destinatarios de las notificaciones y alertas generadas por Security Center:
 
-    ```Set-AzSecurityContact -Name "default1" -Email "CISO@my-org.com" -Phone "2142754038" -AlertAdmin -NotifyOnAlert```
+    ```Set-AzSecurityContact -Name "default1" -Email "CISO@my-org.com" -AlertAdmin -NotifyOnAlert```
 
 1. Asigne la iniciativa de directiva predeterminada de Security Center:
 

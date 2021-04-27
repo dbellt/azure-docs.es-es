@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.author: cshoe
-ms.openlocfilehash: 335f78bba24947b1b6c3d6132bc38f237b3298b9
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: fb874c25ab688cc5e6723d1023157b8acd9478b9
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106449213"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107483858"
 ---
 # <a name="quickstart-building-your-first-static-site-with-azure-static-web-apps"></a>Inicio rápido: creación del primer sitio estático con Azure Static Web Apps
 
@@ -58,21 +58,35 @@ Después, abra Visual Studio Code y vaya a **Archivo > Abrir carpeta** para abr
     # <a name="no-framework"></a>[Ningún marco](#tab/vanilla-javascript)
     :::image type="content" source="media/getting-started/extension-presets-no-framework.png" alt-text="Valores preestablecidos de la aplicación: Ningún marco":::
 
-    Escriba **./** como ubicación de los archivos de aplicación.
+    Escriba **./** como la ubicación de los archivos de aplicación.
 
     :::image type="content" source="media/getting-started/extension-app-location.png" alt-text="Ubicación de los archivos de la aplicación":::
 
-    Seleccione **Omitir por ahora** como ubicación de la API de Azure Functions.
+    Seleccione **Skip for now** (Omitir por ahora) como la ubicación de la API de Azure Functions.
 
     :::image type="content" source="media/getting-started/extension-api-location.png" alt-text="Ubicación de la API":::
 
-    Escriba **./** como ubicación de la salida de la compilación.
+    Escriba **./** como la ubicación de la salida de compilación.
 
     :::image type="content" source="media/getting-started/extension-build-location.png" alt-text="Ubicación de la salida de la compilación de aplicación":::
 
     # <a name="angular"></a>[Angular](#tab/angular)
 
-    :::image type="content" source="media/getting-started/extension-presets-angular.png" alt-text="Valores preestablecidos de la aplicación: Angular":::
+    Aunque hay un valor preestablecido de Angular, seleccione la opción **Personalizar** para proporcionar una ubicación de salida adecuada para esta aplicación.
+
+    :::image type="content" source="media/getting-started/extension-presets-no-framework.png" alt-text="Valores preestablecidos de la aplicación: Angular":::
+
+    Escriba **./** como la ubicación de los archivos de aplicación.
+
+    :::image type="content" source="media/getting-started/extension-app-location.png" alt-text="Ubicación de los archivos de la aplicación: Angular":::
+
+    Seleccione **Skip for now** (Omitir por ahora) como la ubicación de la API de Azure Functions.
+
+    :::image type="content" source="media/getting-started/extension-api-location.png" alt-text="Ubicación de la API: Angular":::
+
+    Especifique **dist/angular-basic** como la ubicación de salida de compilación.
+
+    :::image type="content" source="media/getting-started/extension-angular.png" alt-text="Ubicación de la salida de compilación de aplicación: Angular":::
 
     # <a name="react"></a>[React](#tab/react)
 

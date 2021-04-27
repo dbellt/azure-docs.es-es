@@ -13,12 +13,12 @@ author: williamdassafMSFT
 ms.author: wiassaf
 ms.reviewer: ''
 ms.date: 2/1/2021
-ms.openlocfilehash: 1f4bd28d2b95aeebe07fcad84d757327622d51f0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 295889cf64d27761021dd09549a3366ea142516e
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101690437"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107752039"
 ---
 # <a name="automate-management-tasks-using-elastic-jobs-preview"></a>Automatización de tareas de administración mediante Trabajos elásticos (versión preliminar)
 
@@ -159,7 +159,7 @@ El resultado de los pasos de un trabajo en cada base de datos de destino se regi
 
 #### <a name="job-history"></a>Historial de trabajos
 
-El historial de ejecución de trabajos elásticos se puede ver en la *base de datos de trabajos* mediante una [consulta en la tabla jobs.job_executions](elastic-jobs-tsql-create-manage.md#monitor-job-execution-status). Un trabajo de limpieza del sistema purga el historial de ejecución anterior a 45 días. Para eliminar el historial de menos de 45 días de antigüedad, llame al procedimiento almacenado **sp_purge_history** de la *base de datos de trabajos*.
+El historial de ejecución de trabajos elásticos se puede ver en la *base de datos de trabajos* mediante una [consulta en la tabla jobs.job_executions](elastic-jobs-tsql-create-manage.md#monitor-job-execution-status). Un trabajo de limpieza del sistema purga el historial de ejecución anterior a 45 días. Para eliminar el historial que tenga menos de 45 días de antigüedad, llame al procedimiento almacenado **sp_purge_history** en la *base de datos de trabajos*.
 
 #### <a name="job-status"></a>Estado del trabajo
 

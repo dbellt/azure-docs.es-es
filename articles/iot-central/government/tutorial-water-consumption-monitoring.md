@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 476a0c2d75dcbee5c1ed4d758e0cbc9d4726ff95
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b65013bbf21faa8bffdcf799a991952b69f5fead
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97587203"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107714477"
 ---
 # <a name="tutorial-create-a-water-consumption-monitoring-application-with-azure-iot-central"></a>Tutorial: Creación de una aplicación de supervisión del consumo de agua con Azure IoT Central
 
@@ -200,22 +200,23 @@ La aplicación de supervisión del consumo de agua que ha creado tiene tres regl
 
    ![Panel Reglas](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-rules.png)
 
-1. Seleccione **High pH alert**, que es una de las reglas preconfiguradas en la aplicación.
+1. Seleccione **High water flow alert** (Alerta de flujo de agua elevado), que es una de las reglas preconfiguradas en la aplicación.
 
      ![Alerta de pH alto](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-highflowalert.png)
 
-    La regla `High flow alert` está configurada para compararse con la condición `Acidity (pH)` es `greater than``Max flow threshold`. Max flow threshold es una propiedad en la nube definida en la plantilla de dispositivo **Smart Valve** (Válvula inteligente). El valor de `Max flow threshold` se establece por instancia de dispositivo.
+    La regla `High water flow alert` está configurada para compararse con la condición `Flow` es `greater than``Max flow threshold`. Max flow threshold es una propiedad en la nube definida en la plantilla de dispositivo **Smart Valve** (Válvula inteligente). El valor de `Max flow threshold` se establece por instancia de dispositivo.
 
 Ahora, se creará una acción de correo electrónico.
 
 Para agregar una acción a la regla:
 
 1. Seleccione **+ Email** (+ Correo electrónico).
-1. Escriba **High pH alert** como valor descriptivo de **Display name** (Nombre para mostrar) de la acción.
+1. Escriba **High flow alert** (Alerta de flujo elevado) como valor descriptivo de **Display name** (Nombre para mostrar) de la acción.
 1. Escriba la dirección de correo electrónico asociada a la cuenta de Azure IoT Central en **To** (Para).
 1. Tiene la opción de escribir una nota e incluirla en el texto del correo electrónico.
 1. Seleccione **Done** (Listo) para completar la acción.
-1. Seleccione **Save** (Guardar) para guardar y activar la nueva regla.
+1. Seleccione **Guardar** para guardar la regla nueva.
+1. Habilite la regla.
 
 A los pocos minutos de que se cumpla la condición configurada, recibirá un correo electrónico.
 

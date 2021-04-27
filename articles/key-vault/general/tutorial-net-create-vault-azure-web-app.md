@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 2960726cf687908e8e4aed9333fce490dd7ff006
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 901f2b938512f842a5b4c34adbfc61f9379e5131
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98788744"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772174"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-in-net"></a>Tutorial: Uso de una identidad administrada para conectar Key Vault a una aplicación web de Azure en .NET
 
@@ -34,7 +34,7 @@ Para completar este tutorial, necesita:
 
 * Suscripción a Azure. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * El [SDK para .NET Core 3.1 (o posterior)](https://dotnet.microsoft.com/download/dotnet-core/3.1).
-* Una instalación de [Git](https://www.git-scm.com/downloads).
+* Una instalación de [Git](https://www.git-scm.com/downloads), versión 2.28.0 o posterior.
 * La [CLI de Azure](/cli/azure/install-azure-cli) o [Azure PowerShell](/powershell/azure/)
 * [Azure Key Vault](./overview.md). Puede crear un almacén de claves mediante [Azure Portal](quick-create-portal.md), la [CLI de Azure](quick-create-cli.md) o [Azure PowerShell](quick-create-powershell.md).
 * Un [secreto](../secrets/about-secrets.md) de Key Vault. Puede crear un secreto mediante [Azure Portal](../secrets/quick-create-portal.md), [PowerShell](../secrets/quick-create-powershell.md) o la [CLI de Azure](../secrets/quick-create-cli.md).
@@ -78,14 +78,14 @@ En este paso, va a implementar la aplicación de .NET Core en Azure App Service 
 En la ventana de terminal, seleccione **Ctrl + C** para cerrar el servidor Web.  Inicialice un repositorio de Git para el proyecto de .NET Core:
 
 ```bash
-git init
+git init --initial-branch=main
 git add .
 git commit -m "first commit"
 ```
 
 Puede utilizar FTP y Git local para implementar una aplicación web de Azure mediante un *usuario de implementación*. Después de configurar el usuario de implementación, podrá usarlo para todas las implementaciones de Azure. El nombre de usuario y la contraseña de implementación en el nivel de cuenta son diferentes de las credenciales de la suscripción de Azure. 
 
-Para configurar el usuario de implementación, ejecute el comando [az webapp deployment user set](/cli/azure/webapp/deployment/user?#az-webapp-deployment-user-set). Elija un nombre de usuario y una contraseña que sigan estas siguientes directrices: 
+Para configurar el usuario de implementación, ejecute el comando [az webapp deployment user set](/cli/azure/webapp/deployment/user?#az_webapp_deployment_user_set). Elija un nombre de usuario y una contraseña que sigan estas siguientes directrices: 
 
 - El nombre de usuario debe ser único en Azure. Para las inserciones locales de Git, no puede contener el símbolo de arroba (@). 
 - La contraseña debe tener al menos ocho caracteres de longitud y contener dos de los tres elementos siguientes: letras, números y símbolos. 
@@ -100,7 +100,7 @@ Anote el nombre de usuario y la contraseña que se usarán para implementar las 
 
 ### <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Un grupo de recursos es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Cree un grupo de recursos para contener tanto almacén de claves como la aplicación web mediante el comando [az group create](/cli/azure/group?#az-group-create):
+Un grupo de recursos es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Cree un grupo de recursos para contener tanto almacén de claves como la aplicación web mediante el comando [az group create](/cli/azure/group?#az_group_create):
 
 ```azurecli-interactive
 az group create --name "myResourceGroup" -l "EastUS"
@@ -167,8 +167,13 @@ Local git is configured with url of 'https://&lt;username&gt;@&lt;your-webapp-na
 }
 </pre>
 
-
 La dirección URL de Git remoto se muestra en la propiedad `deploymentLocalGitUrl`, con el formato `https://<username>@<your-webapp-name>.scm.azurewebsites.net/<your-webapp-name>.git`. Guarde esta dirección URL. Lo necesitará más adelante.
+
+Ahora configure la aplicación web para implementarla desde la rama `main`:
+
+```azurecli-interactive
+ az webapp config appsettings set -g MyResourceGroup -name "<your-webapp-name>"--settings deployment_branch=main
+```
 
 Vaya a la nueva aplicación con el siguiente comando. Reemplace `<your-webapp-name>` por el nombre de la aplicación.
 
@@ -238,7 +243,7 @@ En esta sección va a configurar el acceso web a Key Vault y a actualizar el có
 
 En este tutorial usaremos una [identidad administrada](../../active-directory/managed-identities-azure-resources/overview.md) para la autenticación en Key Vault. La identidad administrada administra automáticamente las credenciales de la aplicación.
 
-Para crear la identidad de la aplicación, ejecute el comando [az webapp-identity assign](/cli/azure/webapp/identity?#az-webapp-identity-assign) en la CLI de Azure:
+Para crear la identidad de la aplicación, ejecute el comando [az webapp-identity assign](/cli/azure/webapp/identity?#az_webapp_identity_assign) en la CLI de Azure:
 
 ```azurecli-interactive
 az webapp identity assign --name "<your-webapp-name>" --resource-group "myResourceGroup"
@@ -254,7 +259,7 @@ El comando devolverá este fragmento de código JSON:
 }
 ```
 
-Para conceder permisos a la aplicación web para realizar operaciones **get** y **list** en el almacén de claves, pase el valor de `principalId` al comando [az keyvault set-policy](/cli/azure/keyvault?#az-keyvault-set-policy) de la CLI de Azure:
+Para conceder permisos a la aplicación web para realizar operaciones **get** y **list** en el almacén de claves, pase el valor de `principalId` al comando [az keyvault set-policy](/cli/azure/keyvault?#az_keyvault_set_policy) de la CLI de Azure:
 
 ```azurecli-interactive
 az keyvault set-policy --name "<your-keyvault-name>" --object-id "<principalId>" --secret-permissions get list
@@ -338,4 +343,4 @@ Donde antes aparecía "Hola mundo!", ahora debería ver que se muestra el valor 
 - [Tutorial: Uso de Azure Key Vault con una máquina virtual en .NET](./tutorial-net-virtual-machine.md)
 - Más información sobre las [identidades administradas para recursos de Azure](../../active-directory/managed-identities-azure-resources/overview.md)
 - Consulte [Guía del desarrollador de Azure Key Vault](./developers-guide.md).
-- [Protección del acceso a un almacén de claves](./secure-your-key-vault.md)
+- [Protección del acceso a un almacén de claves](./security-overview.md)
