@@ -9,12 +9,12 @@ ms.date: 11/17/2020
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: b524869998dd2464ed359ec61ce655a807899aaa
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: d3247a86795b9661196c3264c60b06e7c61d6e23
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102565723"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107877917"
 ---
 # <a name="programmatically-create-azure-subscriptions-with-preview-apis"></a>Creación de suscripciones de Azure mediante programación con las versiones preliminares de las API
 
@@ -198,7 +198,7 @@ Para obtener una lista completa de todos los parámetros, consulte [New-AzSubscr
 
 En primer lugar, instale esta extensión de versión preliminar mediante la ejecución de `az extension add --name subscription`.
 
-Ejecute el comando [az account create](/cli/azure/ext/subscription/account#-ext-subscription-az-account-create) siguiente y reemplace `<enrollmentAccountObjectId>` por el elemento `name` copiado en el primer paso (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Para especificar los propietarios, consulte [cómo obtener identificadores de objeto de usuario](grant-access-to-create-subscription.md#userObjectId).
+Ejecute el comando [az account create](/cli/azure/account#-ext-subscription-az-account-create) siguiente y reemplace `<enrollmentAccountObjectId>` por el elemento `name` copiado en el primer paso (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Para especificar los propietarios, consulte [cómo obtener identificadores de objeto de usuario](grant-access-to-create-subscription.md#userObjectId).
 
 ```azurecli-interactive
 az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscription" --enrollment-account-object-id "<enrollmentAccountObjectId>" --owner-object-id "<userObjectId>","<servicePrincipalObjectId>"
@@ -213,7 +213,7 @@ az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscript
 | `owner-upn`    | No       | String | La dirección de correo electrónico de cualquier usuario que se agrega como propietario de Azure RBAC a la suscripción al crearla. Puede utilizar el parámetro en lugar de `owner-object-id`.|
 | `owner-spn` | No       | String | El identificador de aplicación de cualquier entidad de servicio que se agrega como propietario de Azure RBAC a la suscripción al crearla. Puede utilizar el parámetro en lugar de `owner-object-id`. Al usar el parámetro, la entidad de servicio debe tener [acceso de lectura al directorio](/powershell/azure/active-directory/signing-in-service-principal#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).|
 
-Para obtener una lista completa de todos los parámetros, vea [az account create](/cli/azure/ext/subscription/account#-ext-subscription-az-account-create).
+Para obtener una lista completa de todos los parámetros, vea [az account create](/cli/azure/account#-ext-subscription-az-account-create).
 
 ---
 
@@ -365,7 +365,7 @@ POST https://management.azure.com<invoiceSectionId>/providers/Microsoft.Subscrip
 | `skuId` | Sí      | String | Identificador de SKU que determina el tipo de plan de Azure. |
 | `owners`      | No       | String | El identificador de objeto de cualquier usuario o entidad de servicio que se agregue como propietario de Azure RBAC a la suscripción al crearla.  |
 | `costCenter` | No      | String | Centro de coste asociado a la suscripción. Se muestra en el archivo .csv del uso. |
-| `managementGroupId` | No      | String | Identificador del grupo de administración al que se agregará la suscripción. Para obtener la lista de grupos de administración, consulte [Grupos de administración: API de lista](/rest/api/resources/managementgroups/list). Use el identificador de un grupo de administración de la API. |
+| `managementGroupId` | No      | String | Identificador del grupo de administración al que se agregará la suscripción. Para obtener la lista de grupos de administración, consulte [Grupos de administración: API de lista](/rest/api/managementgroups/entities/list). Use el identificador de un grupo de administración de la API. |
 
 En la respuesta, se recupera un objeto `subscriptionCreationResult` para la supervisión. Cuando finaliza la creación de la suscripción, el objeto `subscriptionCreationResult` devuelve un objeto `subscriptionLink`, el cual incluye el identificador de la suscripción.
 
