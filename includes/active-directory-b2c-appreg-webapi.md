@@ -5,12 +5,12 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 10/16/2019
 ms.author: mimart
-ms.openlocfilehash: 7cbf6ca7606210b70ae9efa69a8cc6551eb6f36f
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 85883cd465626764d7af0c20af480b6075e13f9e
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106073459"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108070592"
 ---
 Los recursos de API web tienen que registrarse en el inquilino antes de que puedan aceptar y responder a solicitudes de recursos protegidos por aplicaciones cliente que presenten un token de acceso.
 
@@ -34,7 +34,7 @@ A continuación, habilite el flujo de concesión implícita:
 1. En **Concesión implícita**, active las casillas **Tokens de acceso** y **Tokens de id.**
 1. Seleccione **Guardar**.
 
-#### <a name="applications"></a>[Aplicaciones](#tab/applications/)
+#### <a name="applications-legacy"></a>[Aplicaciones (heredado)](#tab/applications/)
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Seleccione el filtro **Directorio y suscripción** en el menú superior y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.

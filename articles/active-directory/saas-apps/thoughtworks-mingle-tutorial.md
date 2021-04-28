@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: c3eeb1577e628965e3e5a35fa20c072224383149
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a2450a45140b3ba47c172f05d2eb7200252ca23b
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92514633"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108071062"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thoughtworks-mingle"></a>Tutorial: Integración de Azure Active Directory con Thoughtworks Mingle
 
@@ -30,7 +30,7 @@ La integración de Thoughtworks Mingle con Azure AD proporciona las siguientes v
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con Thoughtworks Mingle, necesita los siguientes elementos:
 
@@ -104,7 +104,7 @@ Para configurar el inicio de sesión único de Azure AD con Thoughtworks Mingle,
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.mingle.thoughtworks.com`
 
     > [!NOTE]
-    > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico de Thoughtworks Mingle](https://support.thoughtworks.com/hc/categories/201743486-Mingle-Community-Support) para obtener este valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el equipo de soporte técnico de Thoughtworks Mingle para obtener este valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **XML de metadatos de federación** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
@@ -120,13 +120,13 @@ Para configurar el inicio de sesión único de Azure AD con Thoughtworks Mingle,
 
     c. URL de cierre de sesión
 
-### <a name="configure-thoughtworks-mingle-single-sign-on"></a>Configuración del inicio de sesión único de Thoughtworks Mingle
+### <a name="configure-thoughtworks-mingle-single-sign-on&quot;></a>Configuración del inicio de sesión único de Thoughtworks Mingle
 
 1. Inicie sesión en su sitio de compañía de **Thoughtworks Mingle** como administrador.
 
 2. Haga clic en la pestaña **Administración** y en **Configuración de SSO**.
    
-    ![Pestaña Administrador](./media/thoughtworks-mingle-tutorial/ic785157.png "Configuración de SSO")
+    ![Pestaña Administrador](./media/thoughtworks-mingle-tutorial/ic785157.png &quot;Configuración de SSO")
 
 3. En la sección **Configuración de SSO**, siga estos pasos:
    
@@ -186,7 +186,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
-### <a name="create-thoughtworks-mingle-test-user"></a>Creación de un usuario de prueba de Thoughtworks Mingle
+### <a name="create-thoughtworks-mingle-test-user&quot;></a>Creación de un usuario de prueba de Thoughtworks Mingle
 
 Para que los usuarios de Azure AD puedan iniciar sesión, deben aprovisionarse en la aplicación Thoughtworks Mingle con sus nombres de usuario de Azure Active Directory. En el caso de Thoughtworks Mingle, el aprovisionamiento es una tarea manual.
 
@@ -196,7 +196,7 @@ Para que los usuarios de Azure AD puedan iniciar sesión, deben aprovisionarse e
 
 2. Haga clic en **Perfil**.
    
-    ![Su primer proyecto](./media/thoughtworks-mingle-tutorial/ic785160.png "Su primer proyecto")
+    ![Su primer proyecto](./media/thoughtworks-mingle-tutorial/ic785160.png &quot;Su primer proyecto")
 
 3. Haga clic en la pestaña **Administración** y luego en **Usuarios**.
    

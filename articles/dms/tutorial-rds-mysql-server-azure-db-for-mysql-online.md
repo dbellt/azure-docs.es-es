@@ -12,19 +12,19 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 06/09/2020
-ms.openlocfilehash: 13095824122f1d4b59ecde445efa1ea8bfa60dcd
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: b989a85e3973c25e5b3a08c407d5d09e47c6a500
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106063583"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108127963"
 ---
 # <a name="tutorial-migrate-rds-mysql-to-azure-database-for-mysql-online-using-dms"></a>Tutorial: Migración de RDS MySQL a Azure Database for MySQL en línea mediante DMS
 
 Puede utilizar Azure Database Migration Service para migrar bases de datos de una instancia de RDS MySQL a [Azure Database for MySQL](../mysql/index.yml) mientras la base de datos de origen permanece en línea durante la migración. En otras palabras, la migración se puede completar con un tiempo de inactividad mínimo para la aplicación. En este tutorial, va a migrar la base de datos de ejemplo **Employees** de una instancia de RDS MySQL a Azure Database for MySQL mediante la actividad de migración en línea de Azure Database Migration Service.
 
 > [!IMPORTANT]
-> El escenario de migración en línea de "RDS MySQL a Azure Database for MySQL" se va a reemplazar por un escenario de migración sin conexión en paralelo y de alto rendimiento el 1 de junio de 2021. En el caso de las migraciones en línea, puede usar esta nueva oferta junto con la [replicación de datos](https://docs.microsoft.com/azure/mysql/concepts-data-in-replication). Como alternativa, use herramientas de código abierto, como [MyDumper/MyLoader](https://centminmod.com/mydumper.html), con replicación de datos en las migraciones en línea. 
+> El escenario de migración en línea de "RDS MySQL a Azure Database for MySQL" se va a reemplazar por un escenario de migración sin conexión en paralelo y de alto rendimiento el 1 de junio de 2021. En el caso de las migraciones en línea, puede usar esta nueva oferta junto con la [replicación de datos](../mysql/concepts-data-in-replication.md). Como alternativa, use herramientas de código abierto, como [MyDumper/MyLoader](https://centminmod.com/mydumper.html), con replicación de datos en las migraciones en línea. 
 
 En este tutorial, aprenderá a:
 > [!div class="checklist"]
