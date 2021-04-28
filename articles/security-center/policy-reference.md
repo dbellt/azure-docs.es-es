@@ -1,25 +1,25 @@
 ---
 title: Definiciones de directivas integradas en Azure Security Center
 description: Aquí se enumeran las definiciones de directivas integradas de Azure Policy en Azure Security Center. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar los recursos de Azure.
-ms.date: 04/14/2021
+ms.date: 04/21/2021
 ms.topic: reference
 author: memildin
 ms.author: memildin
 ms.service: security-center
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 8023dcc29fe8ea3af853237e911524549e4d2bcb
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: 7c40e40566555d9c752f0e93671f2c361f618b82
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107739645"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108146750"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-security-center"></a>Definiciones integradas de Azure Policy en Azure Security Center
 
 Esta página es un índice de las definiciones de directivas integradas de [Azure Policy](../governance/policy/overview.md) relacionadas con Azure Security Center. Están disponibles las siguientes agrupaciones de definiciones de directivas:
 
 - El grupo [iniciativas](#azure-security-center-initiatives) muestra las definiciones de iniciativas de Azure Policy en la categoría "Security Center".
-- En el grupo [iniciativa predeterminada](#azure-security-center-initiatives) se muestran todas las definiciones de Azure Policy que forman parte de la iniciativa predeterminada de Azure Security Center, [Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction). Este punto de referencia ampliamente respetado creado por Microsoft está basado en los controles del [Centro de seguridad de Internet (CIS)](https://www.cisecurity.org/benchmark/azure/) y del [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) y hace hincapié en la seguridad centrada en la nube.
+- En el grupo [iniciativa predeterminada](#azure-security-center-initiatives) se muestran todas las definiciones de Azure Policy que forman parte de la iniciativa predeterminada de Azure Security Center, [Azure Security Benchmark](/security/benchmark/azure/introduction). Este punto de referencia ampliamente respetado creado por Microsoft está basado en los controles del [Centro de seguridad de Internet (CIS)](https://www.cisecurity.org/benchmark/azure/) y del [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) y hace hincapié en la seguridad centrada en la nube.
 - El grupo [categoría](#azure-security-center-category) muestra todas las definiciones de Azure Policy en la categoría "Security Center".
 
 Para más información acerca de las directivas de seguridad, consulte [Uso de directivas de seguridad](./tutorial-security-policy.md). Puede encontrar elementos integrados adicionales de Azure Policy para otros servicios en [Definiciones de elementos integrados de Azure Policy](../governance/policy/samples/built-in-policies.md).

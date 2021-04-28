@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 02/19/2015
 ms.author: gwallace
 ms.custom: devx-track-python
-ms.openlocfilehash: a9d6ec6aa5f30af04bf64e238f4a25ec6aef4f5d
-ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
+ms.openlocfilehash: fc1400ef97c93e356b3b2d34fb9cfb29b792c3fc
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106504760"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108135588"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-python"></a>Usar Twilio para capacidades de voz y SMS en Python
 Esta guía describe cómo realizar tareas comunes de programación con el servicio de API de Twilio en Azure. Entre los escenarios descritos se incluyen realizar una llamada telefónica y enviar un mensaje de servicio de mensajes cortos (SMS). Para obtener más información sobre Twilio y el uso de voz y mensajes SMS en sus aplicaciones, consulte la sección [Pasos siguientes](#NextSteps) .
@@ -268,10 +268,10 @@ Ahora que conoce los fundamentos del servicio Twilio, siga estos vínculos para 
 [try_twilio]: https://www.twilio.com/try-twilio
 [twilio_console]:  https://www.twilio.com/console
 [twilio_security_guidelines]: https://www.twilio.com/docs/security
-[twilio_howtos]: https://www.twilio.com/docs/howto
+[twilio_howtos]: https://www.twilio.com/docs/all
 [twilio_on_github]: https://github.com/twilio
 [twilio_support]: https://www.twilio.com/help/contact
 [twilio_quickstarts]: https://www.twilio.com/docs/quickstart
-[azure_ips]: https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address
-[azure_vm_setup]: https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal
-[azure_nsg]: https://docs.microsoft.com/azure/virtual-network/manage-network-security-group
+[azure_ips]: ./virtual-network/virtual-network-public-ip-address.md
+[azure_vm_setup]: ./virtual-machines/linux/quick-create-portal.md
+[azure_nsg]: ./virtual-network/manage-network-security-group.md

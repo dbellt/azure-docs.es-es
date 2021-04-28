@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 07/22/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: eaa4a219a1020639c930f8a07bfcaa1c45d0cef8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 596c0deb833c5af7b85c1680062a24f075cf28cf
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104877527"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108134634"
 ---
 # <a name="set-up-autoscale-for-microservice-applications"></a>Configuración de la escalabilidad automática para aplicaciones de microservicios
 
@@ -25,7 +25,7 @@ El escalado automático es una característica integrada de Azure Spring Cloud q
 Para seguir estos procedimientos, necesita:
 
 * Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
-* Una instancia del servicio Azure Spring Cloud implementada. Como comienzo, siga el [inicio rápido para implementar una aplicación mediante la CLI de Azure](./spring-cloud-quickstart.md).
+* Una instancia del servicio Azure Spring Cloud implementada. Como comienzo, siga el [inicio rápido para implementar una aplicación mediante la CLI de Azure](./quickstart.md).
 * Al menos una aplicación ya creada en su instancia de servicio.
 
 ## <a name="navigate-to-the-autoscale-page-in-the-azure-portal"></a>Vaya a la página Escalabilidad automática de Azure Portal

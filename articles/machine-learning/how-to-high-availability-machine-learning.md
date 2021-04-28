@@ -5,17 +5,17 @@ description: Aprenda cómo hacer que los recursos relacionados con Azure Machine
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 09/16/2020
-ms.openlocfilehash: 7a1a63893e6e2988fc5f21e84f21c74315d856b4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f2ff4d57db8b419bf4d18b6b19e89075ae74c512
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "93325472"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107885045"
 ---
 # <a name="increase-azure-machine-learning-resiliency"></a>Aumento de la resistencia Azure Machine Learning
 

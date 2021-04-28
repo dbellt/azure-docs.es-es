@@ -1,18 +1,18 @@
 ---
 title: Definiciones de directivas integradas de Azure Database for PostgreSQL
 description: Aquí se enumeran las definiciones de directivas integradas de Azure Policy en Azure Database for PostgreSQL. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar los recursos de Azure.
-ms.date: 04/14/2021
+ms.date: 04/21/2021
 ms.topic: reference
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 61e8246c8eddced3138227364f22e8f021c4ea94
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: ec86d408102c3b481c26199b6ad66dcbf5b232f1
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107496574"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107861917"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-database-for-postgresql"></a>Definiciones integradas de Azure Policy para Azure Database for PostgreSQL
 

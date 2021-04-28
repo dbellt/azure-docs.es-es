@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 07/09/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: e8410b4e0997798eba5ee91f361c3a5f1ce47ef1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 43bafeee90b1995c363ca03d031abc7d648001cf
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104586308"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108126352"
 ---
 # <a name="migrate-log-disk-to-ultra-disk"></a>Migración del disco de registro al disco Ultra
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -162,7 +162,7 @@ Llegados a este punto, la base de datos pasa a estar en línea con el registro e
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Revise las [prácticas recomendadas de rendimiento](performance-guidelines-best-practices.md) para obtener una configuración adicional para mejorar el rendimiento. 
+Revise las [prácticas recomendadas de rendimiento](./performance-guidelines-best-practices-checklist.md) para obtener una configuración adicional para mejorar el rendimiento. 
 
 Para obtener información general de SQL Server en Azure Virtual Machines, vea los siguientes artículos:
 

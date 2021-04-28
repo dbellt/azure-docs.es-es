@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 03/29/2021
 ms.author: v-erkel
-ms.openlocfilehash: d61612b6e491fae550559e499cb360efc0f7c044
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: ebf68c1eb06984e2de8114c53e1bb55d52aed70a
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107258918"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107862640"
 ---
 # <a name="edit-storage-targets"></a>Edición de los destinos de almacenamiento
 
@@ -45,7 +45,7 @@ Para quitar un destino de almacenamiento, abra la página **Destinos de almacena
 
 [Configurar la CLI de Azure para Azure HPC Cache](./az-cli-prerequisites.md).
 
-Use [az hpc-cache storage-target remove](/cli/azure/ext/hpc-cache/hpc-cache/storage-target#ext-hpc-cache-az-hpc-cache-storage-target-remove) para eliminar un destino de almacenamiento de la memoria caché.
+Use [az hpc-cache storage-target remove](/cli/azure/hpc-cache/storage-target#az_hpc_cache_storage_target_remove) para eliminar un destino de almacenamiento de la memoria caché.
 
 ```azurecli
 $ az hpc-cache storage-target remove --resource-group cache-rg --cache-name doc-cache0629 --name blob1
@@ -84,7 +84,7 @@ Después de realizar los cambios, haga clic en **Aceptar** para actualizar el de
 
 [Configurar la CLI de Azure para Azure HPC Cache](./az-cli-prerequisites.md).
 
-Para cambiar el espacio de nombres de un destino de almacenamiento de blobs con la CLI de Azure, use el comando [az hpc-cache blob-storage-target update](/cli/azure/ext/hpc-cache/hpc-cache/blob-storage-target#ext-hpc-cache-az-hpc-cache-blob-storage-target-update). Solo se puede cambiar el valor de `--virtual-namespace-path`.
+Para cambiar el espacio de nombres de un destino de almacenamiento de blobs con la CLI de Azure, use el comando [az hpc-cache blob-storage-target update](/cli/azure/hpc-cache/blob-storage-target#az_hpc_cache_blob_storage_target_update). Solo se puede cambiar el valor de `--virtual-namespace-path`.
 
   ```azurecli
   az hpc-cache blob-storage-target update --cache-name cache-name --name target-name \
@@ -125,7 +125,7 @@ Use la página **Espacio de nombres** de su instancia de Azure HPC Cache para ac
 
 [Configurar la CLI de Azure para Azure HPC Cache](./az-cli-prerequisites.md).
 
-Use la opción ``--junction`` del comando [az hpc-cache nfs-storage-target update](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target) para cambiar la ruta de acceso del espacio de nombres, la exportación de NFS o el subdirectorio de exportación.
+Use la opción ``--junction`` del comando [az hpc-cache nfs-storage-target update](/cli/azure/hpc-cache/nfs-storage-target) para cambiar la ruta de acceso del espacio de nombres, la exportación de NFS o el subdirectorio de exportación.
 
 El parámetro ``--junction`` usa estos valores:
 
@@ -170,7 +170,7 @@ Use el selector desplegable para elegir un nuevo modelo de uso. Haga clic en **A
 
 [Configurar la CLI de Azure para Azure HPC Cache](./az-cli-prerequisites.md).
 
-Use el comando [az hpc-cache nfs-storage-target update](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target#ext-hpc-cache-az-hpc-cache-nfs-storage-target-update).
+Use el comando [az hpc-cache nfs-storage-target update](/cli/azure/hpc-cache/nfs-storage-target#az_hpc_cache_nfs_storage_target_update).
 
 El comando update es casi idéntico al comando que se usa para agregar un destino de almacenamiento de NFS. Consulte [Creación de un destino de almacenamiento de NFS](hpc-cache-add-storage.md#create-an-nfs-storage-target) para obtener más información y ejemplos.
 
@@ -178,7 +178,7 @@ Para cambiar el modelo de uso, actualice la opción ``--nfs3-usage-model``. Ejem
 
 El nombre de la memoria caché, el nombre del destino de almacenamiento y el grupo de recursos son obligatorios.
 
-Si quiere, compruebe los nombres de los modelos de uso con el comando [az hpc-cache usage-model list](/cli/azure/ext/hpc-cache/hpc-cache/usage-model#ext-hpc-cache-az-hpc-cache-usage-model-list).
+Si quiere, compruebe los nombres de los modelos de uso con el comando [az hpc-cache usage-model list](/cli/azure/hpc-cache/usage-model#az_hpc_cache_usage-model-list).
 
 Si la memoria caché se ha detenido o no tiene un estado correcto, la actualización se aplicará después de que la memoria caché vuelva al estado correcto.
 

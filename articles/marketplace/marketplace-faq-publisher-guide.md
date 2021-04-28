@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 09/11/2020
-ms.openlocfilehash: 584e1e943f215aa4a69368fb71cb3053b1444a01
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 15816d58105841ee53f3724158ebcbfa65df4877
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94660226"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108133140"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Preguntas habituales sobre el marketplace comercial de Microsoft
 
@@ -46,7 +46,7 @@ Para más información, consulte el [centro del marketplace comercial de Microso
 
 ### <a name="is-there-a-listing-fee-for-the-microsoft-commercial-marketplace"></a>¿Hay que pagar por anunciarse en el marketplace comercial de Microsoft?
 
-No, la publicación de ofertas en el marketplace comercial no tiene ningún costo. Mantenemos un pequeño porcentaje de la venta, como honorario de transacción, y lo invertimos en el programa de premios de Marketplace, la innovación de la plataforma y las operaciones comerciales de marketplace. Esta cuota de transacción se reduce para las ofertas de [venta conjunta con incentivos de Azure](./marketplace-co-sell.md) y para ofertas de SaaS de pago en AppSource que están asociadas a una aplicación de Microsoft Teams o un mínimo de dos complementos de Microsoft 365 (Excel, PowerPoint, Word, Outlook y SharePoint).
+No, la publicación de ofertas en el marketplace comercial no tiene ningún costo. Mantenemos un pequeño porcentaje de la venta, como honorario de transacción, y lo invertimos en el programa de premios de Marketplace, la innovación de la plataforma y las operaciones comerciales de marketplace. Esta cuota de transacción se reduce para las ofertas de [venta conjunta con incentivos de Azure](./co-sell-overview.md) y para ofertas de SaaS de pago en AppSource que están asociadas a una aplicación de Microsoft Teams o un mínimo de dos complementos de Microsoft 365 (Excel, PowerPoint, Word, Outlook y SharePoint).
 
 ### <a name="how-do-i-sign-up-to-be-a-publisher-in-the-microsoft-commercial-marketplace"></a>¿Cómo me registro como editor en el marketplace comercial de Microsoft?
 

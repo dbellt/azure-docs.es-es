@@ -8,12 +8,12 @@ author: shashankbarsin
 ms.author: shasb
 ms.custom: references_regions
 description: Uso de ubicaciones personalizadas para implementar servicios de PaaS de Azure en clústeres de Kubernetes habilitado para Azure Arc
-ms.openlocfilehash: ddda6420acd7126cb46b043f5c1bce67758342bc
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: b3a0d89f0c352b8344aea68a613653eae43a41e4
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106450915"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108147776"
 ---
 # <a name="custom-locations-on-azure-arc-enabled-kubernetes"></a>Ubicaciones personalizadas en Kubernetes habilitado para Azure Arc
 
@@ -27,7 +27,7 @@ Puede encontrar una información general conceptual sobre esta característica e
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- [Instalar o actualizar la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) a la versión >= 2.16.0.
+- [Instalar o actualizar la CLI de Azure](/cli/azure/install-azure-cli) a la versión >= 2.16.0.
 
 - Extensiones de la CLI de Azure `connectedk8s` (versión >= 1.1.0), `k8s-extension` (versión >= 0.2.0) y `customlocation` (versión >= 0.1.0). Instale estas extensiones de la CLI de Azure mediante la ejecución de los siguientes comandos:
   

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/15/2021
 ms.author: jeedes
-ms.openlocfilehash: 864415f421f4fbecf31fd52a624ac568b4cf9c80
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a5a6833e07e6743eed4013739f9acda6b5bd1fa4
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103574771"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108145943"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github-enterprise-managed-user"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con GitHub Enterprise Managed User
 
@@ -39,7 +39,7 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 
 * GitHub Enterprise Managed User admite el inicio de sesión único iniciado por **SP e IDP**.
 * GitHub Enterprise Managed User admite el aprovisionamiento de usuarios **Just-In-Time**.
-* GitHub Enterprise Managed User admite el [aprovisionamiento **automatizado** de usuarios](https://docs.microsoft.com/azure/active-directory/saas-apps/github-enterprise-managed-user-provisioning-tutorial).
+* GitHub Enterprise Managed User admite el [aprovisionamiento **automatizado** de usuarios](./github-enterprise-managed-user-provisioning-tutorial.md).
 
 ## <a name="adding-github-enterprise-managed-user-from-the-gallery"></a>Adición de un usuario administrado de GitHub Enterprise Managed User desde la galería
 
@@ -128,7 +128,7 @@ Para configurar el inicio de sesión único en **GitHub Enterprise Managed User*
 
 En esta sección, se crea un usuario llamado B.Simon en GitHub Enterprise Managed User. GitHub Enterprise Managed User admite el aprovisionamiento Just-In-Time, que está habilitado de manera predeterminada. No hay ningún elemento de acción para usted en esta sección. Si el usuario ya no existe en GitHub Enterprise Managed User, se crea uno nuevo cuando se intenta acceder a GitHub Enterprise Managed User.
 
-GitHub Enterprise Managed User también admite el aprovisionamiento automático de usuarios. [Aquí](https://docs.microsoft.com/azure/active-directory/saas-apps/github-enterprise-managed-user-provisioning-tutorial) puede encontrar más detalles sobre cómo configurar el aprovisionamiento automático de usuarios.
+GitHub Enterprise Managed User también admite el aprovisionamiento automático de usuarios. [Aquí](./github-enterprise-managed-user-provisioning-tutorial.md) puede encontrar más detalles sobre cómo configurar el aprovisionamiento automático de usuarios.
 
 ## <a name="test-sso"></a>Prueba de SSO 
 
@@ -144,11 +144,9 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Haga clic en **Probar esta aplicación** en Azure Portal; debería iniciar sesión automáticamente en la instancia de GitHub Enterprise Managed User para la que ha configurado el inicio de sesión único. 
 
-También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de GitHub Enterprise Managed User en Aplicaciones, si se ha configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión; y si se ha configurado en modo IDP, se debería iniciar sesión automáticamente en la instancia de GitHub Enterprise Managed User para la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de GitHub Enterprise Managed User en Aplicaciones, si se ha configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión; y si se ha configurado en modo IDP, se debería iniciar sesión automáticamente en la instancia de GitHub Enterprise Managed User para la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que haya configurado GitHub Enterprise Managed User, puede aplicar el control de sesión, que protege su organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Una vez que haya configurado GitHub Enterprise Managed User, puede aplicar el control de sesión, que protege su organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

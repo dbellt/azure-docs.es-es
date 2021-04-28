@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.custom: mvc, seodec18
 ms.date: 03/25/2021
 ms.author: keithp
-ms.openlocfilehash: 0791f2e8d5119c2087286a24cf83b4259ee9e7af
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f453370530359bc967316957b717f40904f6e392
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105611657"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108125992"
 ---
 # <a name="troubleshooting-the-azure-dedicated-hsm-service"></a>Solución de problemas del servicio Azure Dedicated HSM
 
@@ -33,7 +33,7 @@ Dedicated HSM no está disponible libremente para su uso, ya que ofrece recursos
 
 ### <a name="getting-access-to-dedicated-hsm"></a>Obtención de acceso a Dedicated HSM
 
-En primer lugar, pregunte qué casos de uso tiene que no se pueden resolver mediante [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/overview) o [HSM administrado de Azure](https://docs.microsoft.com/azure/key-vault/managed-hsm/overview). Si cree que Dedicated HSM se ajusta sus requisitos de almacenamiento de claves, envíe un correo electrónico a HSMrequest@microsoft.com para solicitar acceso. Detalle la aplicación, las regiones en las que desea HSM y el volumen de HSM que precisa. Si trabaja con un representante de Microsoft, como un ejecutivo de cuentas o un arquitecto de soluciones en la nube, por ejemplo, puede incluirlos en cualquier solicitud.
+En primer lugar, pregunte qué casos de uso tiene que no se pueden resolver mediante [Azure Key Vault](../key-vault/general/overview.md) o [HSM administrado de Azure](../key-vault/managed-hsm/overview.md). Si cree que Dedicated HSM se ajusta sus requisitos de almacenamiento de claves, envíe un correo electrónico a HSMrequest@microsoft.com para solicitar acceso. Detalle la aplicación, las regiones en las que desea HSM y el volumen de HSM que precisa. Si trabaja con un representante de Microsoft, como un ejecutivo de cuentas o un arquitecto de soluciones en la nube, por ejemplo, puede incluirlos en cualquier solicitud.
 
 ## <a name="hsm-provisioning"></a>Aprovisionamiento de HSM
 
@@ -152,4 +152,4 @@ No se puede eliminar el recurso de Azure para un HSM a menos que el HSM se haya 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo se proporciona información detallada sobre las áreas del ciclo de vida de la implementación de HSM que pueden tener problemas o requerir una solución de problemas o una consideración cuidadosa. Esperamos que este artículo le ayude a evitar retrasos y frustraciones innecesarias y, si tiene adiciones o cambios pertinentes, genere una solicitud de soporte técnico con Microsoft y háganoslo saber. 
+En este artículo se proporciona información detallada sobre las áreas del ciclo de vida de la implementación de HSM que pueden tener problemas o requerir una solución de problemas o una consideración cuidadosa. Esperamos que este artículo le ayude a evitar retrasos y frustraciones innecesarias y, si tiene adiciones o cambios pertinentes, genere una solicitud de soporte técnico con Microsoft y háganoslo saber.

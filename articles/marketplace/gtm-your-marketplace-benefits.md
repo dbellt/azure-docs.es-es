@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 03/09/2021
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: 58e55527c84db0c368e676f2bf1314dca32e78db
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: dc156afa2c5b5143e1543ef58203d6dea5d046c3
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102631084"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108145004"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Las ventajas de Marketplace comercial
 
@@ -100,7 +100,7 @@ Además de las ventajas de las recompensas, los asociados de aplicaciones empres
 
 ### <a name="publisher-agreement"></a>Contrato del anunciante
 
-Todas las actividades descritas en esta página se incluyen en el [contrato del anunciante](https://go.microsoft.com/fwlink/?LinkID=699560) de Microsoft y se incluyen en el anexo del programa de ventajas comerciales.
+Todas las actividades descritas en esta página se incluyen en el [contrato del anunciante](/legal/marketplace/msft-publisher-agreement) de Microsoft y se incluyen en el anexo del programa de ventajas comerciales.
 
 ### <a name="cancellation-policy"></a>Directiva de cancelaciones
 
