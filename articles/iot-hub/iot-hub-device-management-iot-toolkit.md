@@ -7,18 +7,18 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: junhan
-ms.openlocfilehash: d85e0e967dd802a77ccbc11b884d7a9f2891524d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b48def283ea27fdd0eaa3230a2eb9a8327461ff1
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "81688089"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567020"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-for-azure-iot-hub-device-management"></a>Uso de Azure IoT Tools para Visual Studio Code para la administración de dispositivos de Azure IoT Hub
 
 ![Diagrama integral](media/iot-hub-get-started-e2e-diagram/2.png)
 
-[Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) es una útil extensión de Visual Studio Code que facilita la administración de IoT Hub y el desarrollo de aplicaciones de IoT. Incluye opciones de administración que puede usar para realizar varias tareas.
+En este artículo, aprenderá a usar Azure IoT Tools para Visual Studio Code con distintas opciones de administración en la máquina de desarrollo. [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) es una útil extensión de Visual Studio Code que facilita la administración de IoT Hub y el desarrollo de aplicaciones de IoT. Incluye opciones de administración que puede usar para realizar varias tareas.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -35,15 +35,7 @@ Los dispositivos gemelos son documentos JSON que almacenan información sobre el
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="what-you-learn"></a>Conocimientos que adquirirá
-
-Aprenderá a usar Azure IoT Tools para Visual Studio Code con distintas opciones de administración en la máquina de desarrollo.
-
-## <a name="what-you-do"></a>Qué debe hacer
-
-Ejecute Azure IoT Tools para Visual Studio Code con diversas opciones de administración.
-
-## <a name="what-you-need"></a>Lo que necesita
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una suscripción de Azure activa.
 * Un centro de Azure IoT en su suscripción.

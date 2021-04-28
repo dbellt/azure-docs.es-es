@@ -7,12 +7,12 @@ ms.author: brendm
 author: bmitchell287
 ms.date: 10/06/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 5632f9a6126615255306cc89425bd08a9ffa9753
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 97261755f55f9193d0169e91597318928bb45b97
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104877538"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108134706"
 ---
 # <a name="scale-an-application-in-azure-spring-cloud"></a>Escalado de una aplicación en Azure Spring Cloud
 
@@ -29,7 +29,7 @@ Cuando termine, sabrá cómo realizar cambios manuales rápidos en cada aplicaci
 Para seguir estos procedimientos, necesita:
 
 * Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar. 
-* Una instancia del servicio Azure Spring Cloud implementada.  Como comienzo, siga el [inicio rápido para implementar una aplicación mediante la CLI de Azure](spring-cloud-quickstart.md).
+* Una instancia del servicio Azure Spring Cloud implementada.  Como comienzo, siga el [inicio rápido para implementar una aplicación mediante la CLI de Azure](./quickstart.md).
 * Al menos una aplicación ya creada en su instancia de servicio.
 
 ## <a name="navigate-to-the-scale-page-in-the-azure-portal"></a>Vaya a la página Escalar de Azure Portal
@@ -63,11 +63,11 @@ Asegúrese de seleccionar **Save** (Guardar) para aplicar la configuración de e
 Tras unos segundos, se muestran los cambios realizados en la página **Overview** (Información general), y puede encontrar más detalles en la pestaña **Application instances** (Instancias de la aplicación). El escalado no requiere cambios en el código ni nuevas implementaciones.
 
 ## <a name="upgrade-to-the-standard-tier"></a>Actualización al nivel Estándar
-Si está en el nivel Básico y se le imponen una o varias de estas [limitaciones](spring-cloud-quotas.md), puede actualizar al nivel Estándar. Para hacerlo, seleccione primero la columna de nivel Estándar y haga clic en el botón **Actualizar** para ir al menú Plan de tarifa.
+Si está en el nivel Básico y se le imponen una o varias de estas [limitaciones](./quotas.md), puede actualizar al nivel Estándar. Para hacerlo, seleccione primero la columna de nivel Estándar y haga clic en el botón **Actualizar** para ir al menú Plan de tarifa.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este ejemplo se ha explicado cómo escalar manualmente una aplicación de Azure Spring Cloud. Para aprender a supervisar una aplicación mediante la configuración de alertas, consulte [Configuración de la escalabilidad automática](spring-cloud-tutorial-setup-autoscale.md).
+En este ejemplo se ha explicado cómo escalar manualmente una aplicación de Azure Spring Cloud. Para aprender a supervisar una aplicación mediante la configuración de alertas, consulte [Configuración de la escalabilidad automática](./how-to-setup-autoscale.md).
 
 > [!div class="nextstepaction"]
-> [Aprenda a configurar las alertas](spring-cloud-tutorial-alerts-action-groups.md)
+> [Aprenda a configurar las alertas](./tutorial-alerts-action-groups.md)

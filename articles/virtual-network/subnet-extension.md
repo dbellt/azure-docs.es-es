@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2019
 ms.author: anupand
-ms.openlocfilehash: 7effa870bc57bccc33652df343cdb0c187642ce8
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: e39859e3cc4d28ac4b1456fcdaec65ecfb9c7f31
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108141134"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107728219"
 ---
 # <a name="subnet-extension"></a>Extensión de subred
 La migración de cargas de trabajo a la nube pública requiere una cuidadosa planeación y coordinación. Una de las consideraciones clave puede ser la capacidad de conservar las direcciones IP. Esto puede ser importante especialmente si las aplicaciones tienen dependencias de dirección IP o si tiene requisitos de cumplimiento para usar direcciones IP específicas. Azure Virtual Network resuelve este problema, ya que le permite crear una red virtual y subredes con el intervalo de direcciones IP que usted prefiera.
@@ -53,4 +53,4 @@ En el ejemplo anterior, el NVA de Azure y el NVA local se comunican y aprenden s
 En la sección siguiente, encontrará información sobre las soluciones de extensión de subred que hemos probado en Azure.
 
 ## <a name="next-steps"></a>Pasos siguientes 
-[Ampliación de las subredes locales a Azure mediante Azure Extended Network](/windows-server/manage/windows-admin-center/azure/azure-extended-network).
+[Ampliación de las subredes locales a Azure mediante Azure Extended Network](https://docs.microsoft.com/windows-server/manage/windows-admin-center/azure/azure-extended-network).

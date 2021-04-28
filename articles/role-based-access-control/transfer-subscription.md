@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 04/06/2021
 ms.author: rolyon
-ms.openlocfilehash: 5baf5f503542f31b26c4c210741f1ce986f6a549
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: 72dc92ae211034e2a49bc77f60880f17ab15dec7
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106580114"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107868184"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Transferencia de una suscripción de Azure a otro directorio de Azure AD
 
@@ -116,7 +116,7 @@ Para completar estos pasos, necesitará lo siguiente:
 
 ### <a name="install-the-azure-resource-graph-extension"></a>Instalación de la extensión Azure Resource Graph
 
- La extensión de la CLI de Azure para [Azure Resource Graph](../governance/resource-graph/index.yml), *resource-graph*, le permite usar el comando [az graph](/cli/azure/ext/resource-graph/graph) para consultar los recursos que administra Azure Resource Manager. Usará este comando en pasos posteriores.
+ La extensión de la CLI de Azure para [Azure Resource Graph](../governance/resource-graph/index.yml), *resource-graph*, le permite usar el comando [az graph](/cli/azure/graph) para consultar los recursos que administra Azure Resource Manager. Usará este comando en pasos posteriores.
 
 1. Use [az extension list](/cli/azure/extension#az_extension_list) para ver si tiene instalada la extensión *resource-graph*.
 
@@ -233,7 +233,7 @@ Cuando se crea un almacén de claves, se asocia automáticamente a un identifica
 
 ### <a name="list-azure-sql-databases-with-azure-ad-authentication"></a>Lista de instancias de Azure SQL Database con autenticación de Azure AD
 
-- Use [az sql server ad-admin list](/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_list) y la extensión [az graph](/cli/azure/ext/resource-graph/graph) para ver si está usando instancias de Azure SQL Database con integración de la autenticación de Azure AD habilitada. Para obtener más información, consulte [Configuración y administración de la autenticación de Azure Active Directory con SQL](../azure-sql/database/authentication-aad-configure.md).
+- Use [az sql server ad-admin list](/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_list) y la extensión [az graph](/cli/azure/graph) para ver si está usando instancias de Azure SQL Database con integración de la autenticación de Azure AD habilitada. Para obtener más información, consulte [Configuración y administración de la autenticación de Azure Active Directory con SQL](../azure-sql/database/authentication-aad-configure.md).
 
     ```azurecli
     az sql server ad-admin list --ids $(az graph query -q 'resources | where type == "microsoft.sql/servers" | project id' -o tsv | cut -f1)
@@ -255,7 +255,7 @@ Cuando se crea un almacén de claves, se asocia automáticamente a un identifica
     subscriptionId=$(az account show --query id | sed -e 's/^"//' -e 's/"$//')
     ```
 
-1. Use la extensión [az graph](/cli/azure/ext/resource-graph/graph) para mostrar otros recursos de Azure con dependencias de directorio de Azure AD conocidas.
+1. Use la extensión [az graph](/cli/azure/graph) para mostrar otros recursos de Azure con dependencias de directorio de Azure AD conocidas.
 
     ```azurecli
     az graph query -q \

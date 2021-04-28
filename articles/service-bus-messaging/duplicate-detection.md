@@ -2,13 +2,13 @@
 title: Detección de mensajes duplicados de Azure Service Bus | Microsoft Docs
 description: En este artículo se explica cómo puede detectar duplicados en mensajes de Azure Service Bus. El mensaje duplicado se puede omitir y quitar.
 ms.topic: article
-ms.date: 01/13/2021
-ms.openlocfilehash: 527c2dea34b02733907372b6e75a40a5ef5fc289
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/19/2021
+ms.openlocfilehash: baeda3509cb5646c658f79fb11610ecfdd1ffd3d
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101711933"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751281"
 ---
 # <a name="duplicate-detection"></a>Detección de duplicados
 
@@ -37,36 +37,29 @@ El valor *MessageId* siempre puede ser algún GUID, pero el anclaje del identifi
 >- El [nivel premier](service-bus-premium-messaging.md) no admite la creación de particiones, por lo que se recomienda usar identificadores de mensaje únicos en las aplicaciones y no depender de claves de partición para la detección de duplicados. 
 
 
-## <a name="enable-duplicate-detection"></a>Habilitación de la detección de duplicados
+## <a name="duplicate-detection-window-size"></a>Tamaño de la ventana de detección de duplicados
 
-En el portal, la característica se activa durante la creación de la entidad con la casilla **Habilitar detección de duplicados**, que está desactivada de forma predeterminada. La configuración para la creación de nuevos temas es equivalente.
-
-![Captura de pantalla del cuadro de diálogo Crear cola con la opción Habilitar detección de duplicados seleccionada y resaltada en rojo.][1]
-
-> [!IMPORTANT]
-> No puede habilitar o deshabilitar la detección de duplicados después de crear la cola. Solo puede hacerlo en el momento de creación de la cola. 
-
-Mediante programación, establezca el indicador con la propiedad [QueueDescription.requiresDuplicateDetection](/dotnet/api/microsoft.servicebus.messaging.queuedescription.requiresduplicatedetection#Microsoft_ServiceBus_Messaging_QueueDescription_RequiresDuplicateDetection) en la API de .NET Framework completa. Con la API de Azure Resource Manager, el valor se establece con la propiedad [queueProperties.requiresDuplicateDetection](/azure/templates/microsoft.servicebus/namespaces/queues#property-values).
-
-El historial de tiempo de detección de duplicados predeterminado es de 10 minutos para colas y temas, con un valor mínimo de 20 segundos y un valor máximo de 7 días. Esta configuración se puede cambiar en la ventana de propiedades de colas y temas de Azure Portal.
-
-![Captura de pantalla de la característica de Service Bus con el valor Propiedades resaltado y la opción del historial de detección de duplicados resaltada en rojo.][2]
-
-Mediante programación, puede configurar el tamaño de la ventana de detección de duplicados durante el cual se conservan los identificadores de mensaje, mediante la propiedad [QueueDescription.DuplicateDetectionHistoryTimeWindow](/dotnet/api/microsoft.servicebus.messaging.queuedescription.duplicatedetectionhistorytimewindow#Microsoft_ServiceBus_Messaging_QueueDescription_DuplicateDetectionHistoryTimeWindow) con la API de .NET Framework completa. Con la API de Azure Resource Manager, el valor se establece con la propiedad [queueProperties.duplicateDetectionHistoryTimeWindow](/azure/templates/microsoft.servicebus/namespaces/queues#property-values).
+Además de habilitar la detección de duplicados, también puede configurar el tamaño de la ventana de tiempo del historial de detección de duplicados durante la cual se retienen los id. de mensaje.
+Este valor predeterminado es de 10 minutos para colas y temas, con un valor mínimo de 20 segundos y un valor máximo de 7 días.
 
 La habilitación de la detección de duplicados y el tamaño de la ventana afecta directamente al rendimiento de la cola (y del tema), dado que todos los identificadores de mensaje registrados deben coincidir con el identificador de mensaje recién enviado.
 
 Mantener la ventana pequeña significa que menos identificadores de mensaje se deben conservar y coincidir, y el rendimiento resulta afectado en un menor grado. En las entidades de alto rendimiento que requieren la detección de duplicados, debe mantener la ventana lo más pequeña posible.
 
 ## <a name="next-steps"></a>Pasos siguientes
-
-Para más información sobre la mensajería de Service Bus, consulte los siguientes temas:
-
-* [Colas, temas y suscripciones de Service Bus](service-bus-queues-topics-subscriptions.md)
-* [Introducción a las colas de Service Bus](service-bus-dotnet-get-started-with-queues.md)
-* [Uso de temas y suscripciones de Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+Puede habilitar la detección de mensajes duplicados mediante Azure Portal, PowerShell, CLI, la plantilla de Resource Manager, .NET, Java, Python y JavaScript. Para obtener más información, consulte [Habilitar la detección de mensajes duplicados](enable-duplicate-detection.md). 
 
 En escenarios en los que el código de cliente no puede volver a enviar un mensaje con el mismo valor de *MessageId* que antes, es importante diseñar mensajes que se puedan volver a procesar de forma segura. En esta [entrada de blog sobre idempotencia](https://particular.net/blog/what-does-idempotent-mean) se describen diversas técnicas de cómo hacerlo.
 
-[1]: ./media/duplicate-detection/create-queue.png
-[2]: ./media/duplicate-detection/queue-prop.png
+Pruebe los ejemplos en el lenguaje que prefiera para explorar las características de Azure Service Bus. 
+
+- [Ejemplos de la biblioteca cliente de Azure Service Bus para Java](/samples/azure/azure-sdk-for-java/servicebus-samples/)
+- [Ejemplos de la biblioteca cliente de Azure Service Bus para Python](/samples/azure/azure-sdk-for-python/servicebus-samples/)
+- [Ejemplos de la biblioteca cliente de Azure Service Bus para JavaScript](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
+- [Ejemplos de la biblioteca cliente de Azure Service Bus para TypeScript](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
+- [Ejemplos de Azure.Messaging.ServiceBus para .NET](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/)
+
+A continuación, encontrará ejemplos de las bibliotecas cliente de .NET y Java anteriores:
+- [Ejemplos de Microsoft.Azure.ServiceBus para .NET](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/)
+- [Ejemplos de azure-servicebus para Java](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/MessageBrowse)
+

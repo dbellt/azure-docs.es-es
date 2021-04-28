@@ -3,12 +3,12 @@ title: Soluciones de migración para máquinas virtuales de Azure VMware Solutio
 description: Obtenga información sobre las soluciones de migración principales para las máquinas virtuales de Azure VMware Solution.
 ms.topic: reference
 ms.date: 03/22/2021
-ms.openlocfilehash: ad3ef11ee6cc55c83abd985d4945c3bb844932d2
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: d4497af48c2f1875de9e163d2d562d93df66da4b
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104787476"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108126226"
 ---
 # <a name="migration-solutions-for-azure-vmware-solution-virtual-machines-vms"></a>Soluciones de migración para máquinas virtuales (VM) de Azure VMware Solution
 
@@ -18,4 +18,5 @@ Nuestros asociados de migración tienen soluciones de migración líderes del se
 
 Igualmente, no es necesario usar VMware HCX como herramienta de migración, lo que significa que también puede migrar las cargas de trabajo físicas a Azure VMware Solution. Además, las migraciones al entorno de Azure VMware Solution no necesitan una conexión de ExpressRoute si no está disponible dentro del entorno de origen.  Las migraciones se pueden realizar en varias ubicaciones si decide hospedarlas en varias regiones de Azure.
 
-Para obtener más información sobre estas operaciones, consulte [RiverMeadow](https://www.rivermeadow.com/migrating-to-vmware-on-azure).
+Puede encontrar más información sobre estas soluciones de copia de seguridad aquí:
+- [RiverMeadow](https://www.rivermeadow.com/migrating-to-vmware-on-azure).

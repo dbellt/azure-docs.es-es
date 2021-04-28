@@ -7,16 +7,16 @@ ms.service: attestation
 ms.topic: quickstart
 ms.date: 11/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: ae283785b4d4dc80c6b9b6c3997aaf82c9ff0f2f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 648317c6e534d7f6af84704e9dd2b2fb603806ee
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102178718"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108016318"
 ---
 # <a name="quickstart-set-up-azure-attestation-with-azure-cli"></a>Inicio rápido: Configuración de Azure Attestation con la CLI de Azure
 
-Comience a usar [Azure Attestation mediante la CLI de Azure](/cli/azure/ext/attestation/attestation).
+Comience a usar [Azure Attestation mediante la CLI de Azure](/cli/azure/attestation).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -69,13 +69,13 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 A continuación se incluyen comandos que puede usar para crear y administrar el proveedor de atestación:
 
-1. Ejecute el comando [az attestation create](/cli/azure/ext/attestation/attestation#ext_attestation_az_attestation_create) para crear un proveedor de atestación sin requisito de firma de directivas:
+1. Ejecute el comando [az attestation create](/cli/azure/attestation#az_attestation_create) para crear un proveedor de atestación sin requisito de firma de directivas:
 
    ```azurecli
    az attestation create --name "myattestationprovider" --resource-group "MyResourceGroup" --location westus
    ```
    
-1. Ejecute el comando [az attestation show](/cli/azure/ext/attestation/attestation#ext_attestation_az_attestation_show) para recuperar propiedades del proveedor de atestación como status y AttestURI:
+1. Ejecute el comando [az attestation show](/cli/azure/attestation#az_attestation_show) para recuperar propiedades del proveedor de atestación como status y AttestURI:
 
    ```azurecli
    az attestation show --name "myattestationprovider" --resource-group "MyResourceGroup"
@@ -95,7 +95,7 @@ A continuación se incluyen comandos que puede usar para crear y administrar el 
    TagsTable:
    ```
 
-Puede eliminar un proveedor de atestación mediante el comando [az attestation delete](/cli/azure/ext/attestation/attestation#ext_attestation_az_attestation_delete):
+Puede eliminar un proveedor de atestación mediante el comando [az attestation delete](/cli/azure/attestation#az_attestation_delete):
 
 ```azurecli
 az attestation delete --name "myattestationprovider" --resource-group "sample-resource-group"
@@ -105,7 +105,7 @@ az attestation delete --name "myattestationprovider" --resource-group "sample-re
 
 Use los comandos que se describen aquí para proporcionar la administración de directivas para un proveedor de atestación, pero no más de uno a la vez.
 
-El comando [az attestation policy show](/cli/azure/ext/attestation/attestation/policy#ext_attestation_az_attestation_policy_show) devuelve la directiva actual para el TEE especificado:
+El comando [az attestation policy show](/cli/azure/attestation/policy#az_attestation_policy_show) devuelve la directiva actual para el TEE especificado:
 
 ```azurecli
 az attestation policy show --name "myattestationprovider" --resource-group "MyResourceGroup" --attestation-type SGX-IntelSDK
@@ -120,7 +120,7 @@ Estos son los tipos de TEE que se admiten:
 - `SGX-OpenEnclaveSDK`
 - `TPM`
 
-Use el comando [az attestation policy set](/cli/azure/ext/attestation/attestation/policy#ext_attestation_az_attestation_policy_set) para establecer una nueva directiva para el tipo de atestación especificado.
+Use el comando [az attestation policy set](/cli/azure/attestation/policy#az_attestation_policy_set) para establecer una nueva directiva para el tipo de atestación especificado.
 
 Para establecer la directiva en formato de texto para un tipo determinado de atestación mediante la ruta de acceso del archivo:
 

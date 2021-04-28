@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 09/28/2020
+ms.date: 04/21/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c8f817ad06742e6f84c3cb87dda0c36866540267
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 1d4b6c8d442d1a0d6e9451b314ee95ae50c20ede
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106450623"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107891504"
 ---
 Por ahora, los discos Ultra tienen limitaciones adicionales, como se indica a continuación:
 
@@ -64,6 +64,17 @@ En la tabla siguiente se describen las regiones en las que los discos Ultra Disk
     - [LSv2](../articles/virtual-machines/lsv2-series.md)
     - [M](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
     - [Mv2](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
+    - [HBv2](../articles/virtual-machines/hbv2-series.md)
+    - [HB](../articles/virtual-machines/hb-series.md)
+    - [HC](../articles/virtual-machines/hc-series.md)
+    - [NDv2](../articles/virtual-machines/ndv2-series.md)
+    - [ND](../articles/virtual-machines/nd-series.md)
+    - [NC_T4_v3](../articles/virtual-machines/nct4-v3-series.md)
+    - [NCv2](../articles/virtual-machines/ncv2-series.md)
+    - [NCv3](../articles/virtual-machines/ncv3-series.md)
+    - [NVv3](../articles/virtual-machines/nvv3-series.md)
+    - [NVv4](../articles/virtual-machines/nvv4-series.md)
+    
 - No todos los tamaños de máquina virtual están disponibles en todas las regiones admitidas con discos Ultra.
 - Solo están disponibles como discos de datos. 
 - Compatibilidad de forma predeterminada con el tamaño de sector físico de 4 k. El tamaño de sector de 512E se puede encontrar como una oferta disponible con carácter general (sin necesidad de registrarse). La mayoría de las aplicaciones son compatibles con los tamaños de sector de 4 k, pero algunas requieren tamaños de sector de 512 bytes. Un ejemplo sería Oracle Database, que requiere la versión 12.2 o posterior para admitir los discos nativos de 4 k. En las versiones anteriores de Oracle DB, se requiere un tamaño de sector de 512 bytes.

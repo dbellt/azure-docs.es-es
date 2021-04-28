@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: 4c8a50f419fbf80d9159bbe3748bbe000ef4b369
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 02bb1f539369cf72a5d5b6503a3584069589b19e
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108134202"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107727355"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-azure-vms"></a>Preguntas más frecuentes sobre SQL Server en VM de Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -171,7 +171,7 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más comunes 
    Sí. Los medios de instalación de SQL Server están ubicados en una carpeta en la unidad **C** . Ejecute **Setup.exe** desde esa ubicación para agregar instancias de SQL Server nuevas o para cambiar otras características instaladas de SQL Server en la máquina. Tenga en cuenta que algunas características, como Copia de seguridad automatizada, Aplicación de revisión automatizada e integración de Azure Key Vault, solo funcionan con la instancia predeterminada o con una instancia con nombre que se haya configurado correctamente (consulte la pregunta 3). Los clientes que usan el modelo de licencias de [Software Assurance a través de la Ventaja híbrida de Azure](licensing-model-azure-hybrid-benefit-ahb-change.md) o de **pago por uso** pueden instalar varias instancias de SQL Server en la máquina virtual sin incurrir en costos adicionales de licencias. Las instancias de SQL Server adicionales pueden agotar los recursos del sistema a menos que se configuren correctamente. 
 
 1. **¿Cuál es el número máximo de instancias de una máquina virtual?**
-   Las versiones de SQL Server 2012 a SQL Server 2019 pueden admitir [50](/sql/sql-server/editions-and-components-of-sql-server-version-15#RDBMSSP) instancias en un servidor independiente. Este es el mismo límite, independientemente de que sea en el entorno local de Azure. Consulte las [prácticas recomendadas](./performance-guidelines-best-practices-checklist.md) para aprender a preparar mejor su entorno. 
+   Las versiones de SQL Server 2012 a SQL Server 2019 pueden admitir [50](/sql/sql-server/editions-and-components-of-sql-server-version-15#RDBMSSP) instancias en un servidor independiente. Este es el mismo límite, independientemente de que sea en el entorno local de Azure. Consulte las [prácticas recomendadas](performance-guidelines-best-practices.md#multiple-instances) para aprender a preparar mejor su entorno. 
 
 1. **¿Puedo desinstalar la instancia predeterminada de SQL Server?**
 
@@ -347,7 +347,7 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más comunes 
 * [Aprovisionamiento de SQL Server en una VM Windows](create-sql-vm-portal.md)
 * [Migración de una base de datos a SQL Server en una máquina virtual de Azure](migrate-to-vm-from-sql-server.md)
 * [Alta disponibilidad y recuperación ante desastres para SQL Server en Azure Virtual Machines](business-continuity-high-availability-disaster-recovery-hadr-overview.md)
-* [Directrices de rendimiento para SQL Server en Azure Virtual Machines](./performance-guidelines-best-practices-checklist.md)
+* [Directrices de rendimiento para SQL Server en Azure Virtual Machines](performance-guidelines-best-practices.md)
 * [Estrategias de desarrollo y patrones de aplicación de SQL Server en Azure Virtual Machines](application-patterns-development-strategies.md)
 
 **Máquinas virtuales Linux**:

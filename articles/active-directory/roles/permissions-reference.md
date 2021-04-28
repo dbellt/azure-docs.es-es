@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 04/06/2021
+ms.date: 04/20/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e356363d91c3aa429fd958c1dd3bc553e7a4d29
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: cf614922503212488c822ac020960b0ddb99fc28
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107030243"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780072"
 ---
 # <a name="azure-ad-built-in-roles"></a>Roles integrados de Azure AD
 
@@ -519,7 +519,7 @@ Administra las [solicitudes de la Caja de seguridad del cliente](/office365/admi
 
 ## <a name="desktop-analytics-administrator"></a>Administrador de análisis de escritorio
 
-los usuarios con este rol pueden administrar los servicios Análisis de escritorio y de personalización y directivas de Office. En el caso de Análisis de escritorio, esto incluye la posibilidad de ver el inventario de recursos, crear planes de implementación y ver la implementación y el estado de mantenimiento. En el caso del servicio de personalización y directivas de Office, este rol permite a los usuarios administrar las directivas de Office.
+Los usuarios con este rol pueden administrar el servicio de Análisis de escritorio. Esto incluye la posibilidad de ver el inventario de recursos, crear planes de implementación y ver la implementación y el estado de mantenimiento.
 
 > [!div class="mx-tableFixed"]
 > | Acciones | Descripción |
@@ -527,9 +527,6 @@ los usuarios con este rol pueden administrar los servicios Análisis de escritor
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Leer y configurar Azure Service Health |
 > | microsoft.azure.supportTickets/allEntities/allTasks | Crear y administrar incidencias de Soporte técnico de Azure |
 > | microsoft.office365.desktopAnalytics/allEntities/allTasks | Administrar todos los aspectos del Análisis de escritorio |
-> | microsoft.office365.serviceHealth/allEntities/allTasks | Leer y configurar Service Health en el centro de administración de Microsoft 365 |
-> | microsoft.office365.supportTickets/allEntities/allTasks | Crear y administrar las solicitudes de servicio de Microsoft 365 |
-> | microsoft.office365.webPortal/allEntities/standard/read | Leer las propiedades básicas de todos los recursos en el centro de administración de Microsoft 365 |
 
 ## <a name="directory-readers"></a>Lectores de directorios
 
@@ -885,7 +882,7 @@ Los usuarios de este rol pueden leer la configuración y la información adminis
 > Actualmente, el rol de lector global tiene algunas limitaciones:
 >
 >- [Centro de administración de OneDrive](https://admin.onedrive.com/): el centro de administración de OneDrive no admite el rol de lector global.
->- [Centro de administración de M365](https://admin.microsoft.com/Adminportal/Home#/homepage): el lector global no puede leer las solicitudes de la Caja de seguridad del cliente. En el panel izquierdo del Centro de administración de M365 no aparecerá la pestaña **Solicitudes de la Caja de seguridad del cliente** bajo **Soporte**.
+>- [Centro de administración de M365](https://admin.microsoft.com/Adminportal/Home#/homepage): el lector global no puede leer las aplicaciones integradas. No encontrará la pestaña **Aplicaciones integradas** en **Configuración** en el panel izquierdo del Centro de administración de M365.
 >- [Centro de seguridad y cumplimiento de Office](https://sip.protection.office.com/homepage): el lector global no puede leer los registros de auditoría de SCC, realizar búsqueda de contenido ni consultar la puntuación de seguridad.
 >- [Centro de administración de Teams](https://admin.teams.microsoft.com): el lector global no puede leer **Ciclo de vida de Teams**, **Análisis e informes**, **Administración de dispositivos de teléfono IP** ni **Catálogo de aplicaciones**.
 >- [Privileged Access Management (PAM)](/office365/securitycompliance/privileged-access-management-overview) no admite el rol de lector global.

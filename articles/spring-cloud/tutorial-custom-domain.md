@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 493752a3857b80b43668b6bf1b20480604442955
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: 583124e9e3ca657ee13e4726eda981ae26022856
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107568002"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108138524"
 ---
 # <a name="tutorial-map-an-existing-custom-domain-to-azure-spring-cloud"></a>Tutorial: Asignación de un dominio personalizado existente a Azure Spring Cloud
 
@@ -23,7 +23,7 @@ El servicio de nombres de dominio (DNS) es una técnica para almacenar nombres d
 El tráfico web se cifra mediante certificados. Estos certificados TLS/SSL se pueden almacenar en Azure Key Vault. 
 
 ## <a name="prerequisites"></a>Prerrequisitos
-* Una aplicación implementada en Azure Spring Cloud (consulte [Inicio rápido: Inicio de una aplicación de Azure Spring Cloud existente desde Azure Portal](spring-cloud-quickstart.md)) o puede usar una aplicación existente.
+* Una aplicación implementada en Azure Spring Cloud (consulte [Inicio rápido: Inicio de una aplicación de Azure Spring Cloud existente desde Azure Portal](./quickstart.md)) o puede usar una aplicación existente.
 * Un nombre de dominio con acceso al registro DNS para el proveedor de dominios, como GoDaddy.
 * Un certificado privado (es decir, el certificado autofirmado) de un proveedor de terceros. El certificado debe coincidir con el dominio.
 * Una instancia implementada de [Azure Key Vault](../key-vault/general/overview.md).
@@ -164,7 +164,7 @@ Vaya a su proveedor de DNS y agregue un registro CNAME para asignar el dominio a
 ![Página de registros DNS](./media/custom-dns-tutorial/dns-records.png)
 
 ## <a name="map-your-custom-domain-to-azure-spring-cloud-app"></a>Asignación del dominio personalizado a la aplicación de Azure Spring Cloud
-Si no tiene una aplicación en Azure Spring Cloud, siga las instrucciones que se indican en [Inicio rápido: Inicio de una aplicación de Azure Spring Cloud existente desde Azure Portal](./spring-cloud-quickstart.md).
+Si no tiene una aplicación en Azure Spring Cloud, siga las instrucciones que se indican en [Inicio rápido: Inicio de una aplicación de Azure Spring Cloud existente desde Azure Portal](./quickstart.md).
 
 #### <a name="portal"></a>[Portal](#tab/Azure-portal)
 Vaya a la página de la aplicación.
@@ -234,4 +234,4 @@ Una vez finalizada la operación, vaya a cualquiera de las direcciones URL HTTP 
 ## <a name="see-also"></a>Consulte también
 * [¿Qué es Azure Key Vault?](../key-vault/general/overview.md)
 * [Importación de un certificado](../key-vault/certificates/certificate-scenarios.md#import-a-certificate)
-* [Inicio de la aplicación Spring Cloud desde la CLI de Azure](./spring-cloud-quickstart.md)
+* [Inicio de la aplicación Spring Cloud desde la CLI de Azure](./quickstart.md)

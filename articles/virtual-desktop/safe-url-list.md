@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/04/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 00ae761af44b9e6537149c96607c0ba00e6439c8
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: 183b956c0ec38101f7875fe01dd7c6ef9c8c8c8f
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107514992"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107891687"
 ---
 # <a name="required-url-list"></a>Lista de direcciones URL requeridas
 
@@ -95,7 +95,7 @@ Las máquinas virtuales de Azure que cree para Windows Virtual Desktop deben ten
 
 |Dirección|Puerto TCP de salida|Propósito|Etiqueta de servicio|
 |---|---|---|---|
-|*.wvd.microsoft.us|443|Tráfico de servicio|WindowsVirtualDesktop|
+|*.wvd.azure.us|443|Tráfico de servicio|WindowsVirtualDesktop|
 |gcs.monitoring.core.usgovcloudapi.net|443|Tráfico de agente|AzureCloud|
 |monitoring.core.usgovcloudapi.net|443|Tráfico de agente|AzureCloud|
 |fairfax.warmpath.usgovcloudapi.net|443|Tráfico de agente|AzureCloud|

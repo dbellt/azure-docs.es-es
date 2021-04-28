@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 03/25/2021
 ms.custom: devx-track-java
-ms.openlocfilehash: ed729dde51316b9a67f396e3f7de3d7d9f6d4568
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 3350924bbf064009523c9b6892856a9c7d4ff818
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107378795"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108129088"
 ---
 # <a name="use-a-managed-identity-to-connect-azure-sql-database-to-an-azure-spring-cloud-app"></a>Uso de una identidad administrada para conectar Azure SQL Database a una aplicación de Azure Spring Cloud
 
@@ -24,8 +24,8 @@ En este artículo se describe cómo crear una identidad administrada para una ap
 
 ## <a name="prerequisites"></a>Requisitos previos
 En este ejemplo se utilizan los siguientes recursos.
-* Siga el [tutorial de JPA de datos de Spring](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-sql-server) para aprovisionar un Azure SQL Database y conseguir que funcione con una aplicación de Java de forma local
-* Siga el [tutorial de identidad administrada asignada por el sistema de Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-howto-enable-system-assigned-managed-identity) para aprovisionar una aplicación de Azure Spring Cloud con una instancia administrada habilitada
+* Siga el [tutorial de JPA de datos de Spring](/azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-sql-server) para aprovisionar un Azure SQL Database y conseguir que funcione con una aplicación de Java de forma local
+* Siga el [tutorial de identidad administrada asignada por el sistema de Azure Spring Cloud](./how-to-enable-system-assigned-managed-identity.md) para aprovisionar una aplicación de Azure Spring Cloud con una instancia administrada habilitada
 
 ## <a name="grant-permission-to-the-managed-identity"></a>Conceder permiso a la identidad administrada
 Conéctese al servidor SQL y ejecute la siguiente consulta SQL:
@@ -57,6 +57,6 @@ Vuelva a compilar la aplicación e implementarla en la aplicación Azure Spring 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Procedimiento para obtener acceso al blob de almacenamiento con identidad administrada en Azure Spring Cloud](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/managed-identity-storage-blob)
-* [Habilitación de la identidad administrada asignada por el sistema para una aplicación de Azure Spring Cloud](./spring-cloud-howto-enable-system-assigned-managed-identity.md)
+* [Habilitación de la identidad administrada asignada por el sistema para una aplicación de Azure Spring Cloud](./how-to-enable-system-assigned-managed-identity.md)
 * [Más información sobre las identidades administradas para recursos de Azure](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/overview.md)
-* [Autenticación de Azure Spring Cloud con Key Vault en Acciones de GitHub](./spring-cloud-github-actions-key-vault.md)
+* [Autenticación de Azure Spring Cloud con Key Vault en Acciones de GitHub](./github-actions-key-vault.md)

@@ -4,12 +4,12 @@ description: Escalado automático en Microsoft Azure
 ms.subservice: autoscale
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 4727d562e21b92e58c8091f1161cf53198ff0b26
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6b3ac08addac4fb668b58ebb218ffb57bb920813
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101726009"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108139694"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure"></a>Información general sobre el escalado automático en Microsoft Azure
 En este artículo se explican el concepto del escalado automático de Microsoft Azure y las ventajas que aporta, y se realiza una introducción para empezar a usarlo.  
@@ -107,8 +107,8 @@ Puede configurar el escalado automático en los siguientes lugares:
 | Servicio API Management|[Escalado automático de una instancia de Azure API Management](../../api-management/api-management-howto-autoscale.md)
 | Clústeres de Azure Data Explorer|[Administración del escalado de clústeres de Azure Data Explorer para ajustarse a los cambios en la demanda](/azure/data-explorer/manage-cluster-horizontal-scaling)|
 | Logic Apps |[Incorporación de capacidad del Entorno del servicio de integración (ISE)](../../logic-apps/ise-manage-integration-service-environment.md#add-ise-capacity)|
-| Spring Cloud |[Configuración de la escalabilidad automática para aplicaciones de microservicios](../../spring-cloud/spring-cloud-tutorial-setup-autoscale.md)|
-| Azure Service Bus |[Actualización automática de las unidades de mensajería de un espacio de nombres de Azure Service Bus](../../service-bus-messaging/automate-update-messaging-units.md)|
+| Spring Cloud |[Configuración de la escalabilidad automática para aplicaciones de microservicios](../../spring-cloud/how-to-setup-autoscale.md)|
+| Service Bus |[Actualización automática de las unidades de mensajería de un espacio de nombres de Azure Service Bus](../../service-bus-messaging/automate-update-messaging-units.md)|
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre el escalado automático, consulte los tutoriales de escalado automático anteriores o los siguientes recursos:
