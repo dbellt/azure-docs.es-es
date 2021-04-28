@@ -8,12 +8,12 @@ ms.subservice: confidential-computing
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: JenCook
-ms.openlocfilehash: 0ba6ee92111da66a2118ba4c490b94e5bc9449e0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 571c1a4ce545976db09f46a07d963d5344c02c29
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102551392"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107791020"
 ---
 # <a name="application-development-on-intel-sgx"></a>Desarrollo de aplicaciones en Intel SGX 
 
@@ -23,6 +23,7 @@ La infraestructura de computación confidencial requiere herramientas y software
 Para aprovechar la eficacia de los enclaves y los entornos aislados, deberá usar herramientas que admitan la computación confidencial. Hay varias herramientas que admiten el desarrollo de aplicaciones de enclave. Por ejemplo, puede usar estos marcos de código abierto: 
 
 - [Open Enclave Software Development Kit (OE SDK)](#oe-sdk)
+- [Kit de desarrollo de software de EGo](#ego)
 - [El marco de trabajo del Consorcio de Computación Confidencial (CCF)](#ccf)
 
 ## <a name="overview"></a>Información general
@@ -48,6 +49,10 @@ Durante el diseño de la aplicación, es importante identificar y determinar qu�
 Use una biblioteca o un marco de trabajo compatible con el proveedor si quiere escribir código que se ejecute en un enclave. [Open Enclave SDK](https://github.com/openenclave/openenclave) (OE SDK) es un SDK de código abierto que permite la abstracción sobre diferente hardware habilitado para la computación confidencial. 
 
 OE SDK se compila como una única capa de abstracción en cualquier hardware de cualquier CSP. OE SDK se puede usar sobre las máquinas virtuales de computación confidencial de Azure para crear y ejecutar aplicaciones a partir de los enclaves.
+
+## <a name="ego-software-development-kit"></a>Kit de desarrollo de software de EGo <a id="ego"></a>
+
+[EGo](https://ego.dev/) es un SDK de código abierto que permite ejecutar aplicaciones escritas en el lenguaje de programación Go dentro de los enclaves. EGo se basa en el SDK de OE y viene con una biblioteca de Go en el enclave para la atestación y el sellado. Muchas aplicaciones de Go existentes se ejecutan en EGo sin modificaciones.  
 
 ## <a name="confidential-consortium-framework-ccf"></a>Marco de trabajo del Consorcio de Computación Confidencial (CCF) <a id="ccf"></a>
 

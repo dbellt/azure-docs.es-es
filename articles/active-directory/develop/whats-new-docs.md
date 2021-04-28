@@ -11,12 +11,12 @@ ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
 ms.author: marsma
-ms.openlocfilehash: 68136cc259e0be4a2f9449aa9ec15f4a14a63890
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 5e40f7a84b08983c6541a134e75e1f418577fb07
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106074988"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108130852"
 ---
 # <a name="microsoft-identity-platform-docs-whats-new"></a>Documentos de la plataforma de identidad de Microsoft: Novedades
 
@@ -26,7 +26,7 @@ Estas son las novedades de la documentación de la Plataforma de identidad de Mi
 
 ### <a name="new-articles"></a>Artículos nuevos
 
-- [Restauración o eliminación de una aplicación recientemente eliminada con la Plataforma de identidad de Microsoft](quickstart-restore-app.md)
+- [Restauración o eliminación de una aplicación recientemente eliminada con la Plataforma de identidad de Microsoft](./howto-restore-app.md)
 
 ### <a name="updated-articles"></a>Artículos actualizados
 

@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 04/01/2021
 ms.author: vikancha
-ms.openlocfilehash: a3408d30a9caa24355cf3976235c3a9b8061b95f
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: c16e324809fd688adf4a970f105cb364e73d7004
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107531235"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108128800"
 ---
 # <a name="fpga-attestation-for-azure-np-series-vms-preview"></a>Atestación de FPGA para las máquinas virtuales de Azure de la serie NP (versión preliminar)
 
@@ -52,7 +52,7 @@ https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-lates
 
 El archivo netlist se debe cargar en un contenedor de blobs de Azure Storage para que el servicio de atestación pueda acceder a él.  
 
-Consulte esta página para más información sobre la creación de la cuenta, un contenedor y la carga del archivo netlist como un blob en ese contenedor: [https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-cli](/azure/storage/blobs/storage-quickstart-blobs-cli).  
+Consulte esta página para más información sobre la creación de la cuenta, un contenedor y la carga del archivo netlist como un blob en ese contenedor: [https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-cli](../storage/blobs/storage-quickstart-blobs-cli.md).  
 
 También puede usar Azure Portal para hacerlo.  
 
@@ -124,5 +124,4 @@ El servicio escribirá su salida en el contenedor. Si la fase de validación se 
 
 Si se produce un error de validación, se escribe el archivo error-*.txt, que indica el paso con errores. Compruebe también los archivos de registro si el registro de errores indica que se produjo un error en la atestación. Al ponerse en contacto con nosotros para obtener soporte técnico, asegúrese de incluir todos estos archivos como parte de la solicitud de soporte técnico junto con el identificador de orquestación.  
 
-Puede usar Azure Portal para crear el contenedor, así como para cargar el archivo netlist y descargar los archivos bitstream y de registro. El envío de una solicitud de atestación y la supervisión del progreso mediante el portal no se admiten en este momento y se deben realizar mediante scripts, como se ha descrito anteriormente. 
-
+Puede usar Azure Portal para crear el contenedor, así como para cargar el archivo netlist y descargar los archivos bitstream y de registro. El envío de una solicitud de atestación y la supervisión del progreso mediante el portal no se admiten en este momento y se deben realizar mediante scripts, como se ha descrito anteriormente.

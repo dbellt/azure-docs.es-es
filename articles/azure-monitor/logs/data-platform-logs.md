@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 10/22/2020
 ms.author: bwren
-ms.openlocfilehash: 6cb85bc1da7d98d3e2ad46229588a91d971ce014
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9794c5f048b8795652e4b31e0134b36a77715abe
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105567297"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107873386"
 ---
 # <a name="azure-monitor-logs-overview"></a>Introducción a los registros de Azure Monitor
 Los registros de Azure Monitor son una característica de Azure Monitor que recopila y organiza los datos de registro y rendimiento de los [recursos supervisados](../monitor-reference.md). Los datos de orígenes diferentes, como los [registros de la plataforma](../essentials/platform-logs-overview.md) de los servicios de Azure, los datos de registro y de rendimiento de los [agentes de máquinas virtuales](../agents/agents-overview.md), y los datos de uso y rendimiento de las[aplicaciones](../app/app-insights-overview.md) se pueden consolidar en una sola área de trabajo para que se puedan analizar juntos con un lenguaje de consulta sofisticado que sea capaz de analizar rápidamente millones de registros. Puede realizar una consulta simple que solo recupere un conjunto específico de registros o realizar un análisis de datos sofisticado para identificar patrones críticos en los datos de supervisión. Trabaje con consultas de registros y sus resultados de forma interactiva mediante Log Analytics, úselas en una regla de alertas para recibir notificaciones proactivas de los problemas o visualice los resultados en un libro o panel.
@@ -29,7 +29,7 @@ En la tabla siguiente se enumeran algunas de las distintas formas en que se pued
 | **Alerta** | Configurar un [regla de alerta de registro](../alerts/alerts-log.md) que envíe una notificación o realice [una acción automatizada](../alerts/action-groups.md) cuando los resultados de la consulta coincidan con un resultado concreto. |
 | **Visualizar** | Ancle los resultados representados como tablas o gráficos a un [panel de Azure](../../azure-portal/azure-portal-dashboards.md).<br>Cree un [libro](../visualize/workbooks-overview.md) para combinar con varios conjuntos de datos en un informe interactivo. <br>Exportar los resultados de una consulta a [Power BI](../visualize/powerbi.md) para usar diferentes visualizaciones y compartirlos con usuarios fuera de Azure.<br>Exporte los resultados de una consulta a [Grafana](../visualize/grafana-plugin.md) para aprovechar sus paneles y combinar con otros orígenes de datos.|
 | **Insights** | Compatibilidad con [Insights](../monitor-reference.md#insights-and-core-solutions), que proporciona una experiencia de supervisión personalizada para determinadas aplicaciones y servicios.  |
-| **Recuperar** | Obtenga acceso a los resultados de la consulta de registro desde una línea de comandos mediante la [CLI de Azure](/cli/azure/ext/log-analytics/monitor/log-analytics).<br>Obtenga acceso a los resultados de la consulta de registro desde una línea de comandos mediante [cmdlets de PowerShell](/powershell/module/az.operationalinsights).<br>Obtenga acceso a los resultados de la consulta de registro de una aplicación personalizada con la [API REST](https://dev.loganalytics.io/). |
+| **Recuperar** | Obtenga acceso a los resultados de la consulta de registro desde una línea de comandos mediante la [CLI de Azure](/cli/azure/monitor/log-analytics).<br>Obtenga acceso a los resultados de la consulta de registro desde una línea de comandos mediante [cmdlets de PowerShell](/powershell/module/az.operationalinsights).<br>Obtenga acceso a los resultados de la consulta de registro de una aplicación personalizada con la [API REST](https://dev.loganalytics.io/). |
 | **Exportarar** | Configure la [exportación automatizada de datos de registro](./logs-data-export.md) a una cuenta de Azure Storage o a Azure Event Hubs.<br>Cree un flujo de trabajo para recuperar datos de registro y cópielo en una ubicación externa mediante [Logic Apps](./logicapp-flow-connector.md). |
 
 ![Información general de los registros](media/data-platform-logs/logs-overview.png)

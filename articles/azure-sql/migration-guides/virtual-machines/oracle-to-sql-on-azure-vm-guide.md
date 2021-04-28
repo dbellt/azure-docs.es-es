@@ -10,19 +10,19 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: d4fb33e8e904d12e242f7eeaf9c2dc50a02eff4d
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: 2133f3da926dfd1e92d911004393893f58d27db6
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105961258"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108136460"
 ---
 # <a name="migration-guide-oracle-to-sql-server-on-azure-virtual-machines"></a>Guía de migración: Oracle a SQL Server en Azure Virtual Machines
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
 
 En esta guía se explica cómo migrar los esquemas de Oracle a SQL Server en Azure Virtual Machines mediante SQL Server Migration Assistant para Oracle. 
 
-Para ver otras guías de migración, consulte [Migración de bases de datos](https://docs.microsoft.com/data-migration). 
+Para ver otras guías de migración, consulte [Migración de bases de datos](/data-migration). 
 
 ## <a name="prerequisites"></a>Requisitos previos 
 
@@ -220,7 +220,7 @@ Para publicar el esquema y migrar los datos, siga estos pasos:
    ![Captura de pantalla que muestra una instancia de SQL Server en SSMA.](./media/oracle-to-sql-on-azure-vm-guide/validate-in-ssms.png)
 
 En lugar de usar SSMA, podría utilizar SQL Server Integration Services (SSIS) para migrar los datos. Para obtener más información, consulte: 
-- El artículo [SQL Server Integration Services](https://docs.microsoft.com//sql/integration-services/sql-server-integration-services).
+- El artículo [SQL Server Integration Services](//sql/integration-services/sql-server-integration-services).
 - Las notas del producto [SSIS para la migración de datos híbrida y de Azure](https://download.microsoft.com/download/D/2/0/D20E1C5F-72EA-4505-9F26-FEF9550EFD44/SSIS%20Hybrid%20and%20Azure.docx).
 
 
@@ -292,5 +292,3 @@ El equipo de ingeniería de datos SQL ha desarrollado estos recursos. El objetiv
 
 - Para evaluar la capa de acceso de la aplicación, use [Data Access Migration Toolkit (versión preliminar)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit).
 - Para obtener detalles sobre cómo realizar pruebas A/B de capa de acceso a datos, vea [Información general de Asistente para experimentación con bases de datos](/sql/dea/database-experimentation-assistant-overview).
-
-

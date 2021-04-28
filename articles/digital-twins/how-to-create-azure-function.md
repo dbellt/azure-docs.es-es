@@ -7,142 +7,144 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: f1ed4b9beda9848bba8fb12783f49dcf8016d3dd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5dddaabf47a261f741b3b1cb8d3319d589c4e474
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104590626"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107480768"
 ---
 # <a name="connect-function-apps-in-azure-for-processing-data"></a>Configuración de aplicaciones de funciones de Azure para procesar datos
 
-La actualización de gemelos digitales basados en los datos se controla mediante [**rutas de evento**](concepts-route-events.md) con recursos de proceso como, por ejemplo, una función creada mediante [Azure Functions](../azure-functions/functions-overview.md). Las funciones se pueden utilizar para actualizar un gemelo digital en respuesta a:
-* Datos de telemetría de dispositivo procedentes de IoT Hub
-* Cambio de propiedad u otros datos procedentes de otro gemelo digital dentro del grafo gemelo
+Los gemelos digitales se pueden actualizar en función de los datos mediante [rutas de eventos](concepts-route-events.md) con recursos de proceso. Por ejemplo, una función que se haya realizado mediante [Azure Functions](../azure-functions/functions-overview.md) puede actualizar un gemelo digital en respuesta a:
+* Datos de telemetría de dispositivos procedentes de Azure IoT Hub.
+* Un cambio de propiedad u otros datos procedentes de otro gemelo digital dentro del grafo gemelo.
 
-Este artículo le guiará por la creación de una función de Azure para su utilización con Azure Digital Twins. 
+Este artículo se le mostrará cómo crear una función de Azure para su utilización con Azure Digital Twins. Para crear una función, deberá seguir estos pasos básicos:
 
-Se trata de una introducción a los pasos que contiene:
+1. Cree un proyecto de Azure Functions en Visual Studio.
+2. Escriba una función que tenga un desencadenador de [Azure Event Grid](../event-grid/overview.md).
+3. Agregue código de autenticación a la función para que pueda acceder a Azure Digital Twins.
+4. Publique la aplicación de funciones en Azure.
+5. Configure la [seguridad](concepts-security.md) para la aplicación de funciones.
 
-1. Creación de un proyecto de Azure Functions en Visual Studio
-2. Escritura de una función con un desencadenador de [Event°Grid](../event-grid/overview.md)
-3. Incorporación de código de autenticación a la función (para poder acceder a Azure Digital Twins)
-4. Publicación de la aplicación de funciones en Azure
-5. Configuración del acceso de [seguridad](concepts-security.md) para la aplicación de funciones
-
-## <a name="prerequisite-set-up-azure-digital-twins-instance"></a>Requisito previo: Configuración de la instancia de Azure Digital Twins
+## <a name="prerequisite-set-up-azure-digital-twins"></a>Requisito previo: configuración de Azure Digital Twins
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
 ## <a name="create-a-function-app-in-visual-studio"></a>Creación de una aplicación de funciones en Visual Studio
 
-En Visual Studio 2019, seleccione _Archivo > Nuevo > Proyecto_, busque la plantilla _Azure Functions_. Seleccione _Next_ (Siguiente).
+En Visual Studio 2019, selecciona **Archivo** > **Nuevo** > **Proyecto**. Busque la plantilla de **Azure Functions**. Seleccione **Next** (Siguiente).
 
 :::image type="content" source="media/how-to-create-azure-function/create-azure-function-project.png" alt-text="Captura de pantalla de Visual Studio que muestra el cuadro de diálogo Nuevo proyecto. La plantilla de proyecto de Azure Functions está resaltada.":::
 
-Especifique un nombre para la aplicación de funciones y seleccione _Crear_.
+Especifique un nombre para la aplicación de funciones y, después, seleccione __Crear__.
 
-:::image type="content" source="media/how-to-create-azure-function/configure-new-project.png" alt-text="Captura de pantalla de Visual Studio que muestra el cuadro de diálogo para configurar un nuevo proyecto, incluido el nombre del proyecto, la ubicación de almacenamiento, la opción para crear una nueva solución y el nombre de la solución.":::
+:::image type="content" source="media/how-to-create-azure-function/configure-new-project.png" alt-text="Captura de pantalla de Visual Studio que muestra el cuadro de diálogo para configurar un nuevo proyecto. La configuración incluye el nombre del proyecto, la ubicación de almacenamiento, la opción para crear una nueva solución y el nombre de la solución.":::
 
-Seleccione el tipo de aplicación de funciones de *Desencadenador de Event Grid* y seleccione _Crear_.
+Seleccione el tipo de aplicación de funciones **Desencadenador de Event Grid** y, después, seleccione __Crear__.
 
 :::image type="content" source="media/how-to-create-azure-function/event-grid-trigger-function.png" alt-text="Captura de pantalla de Visual Studio que muestra el cuadro de diálogo para crear una nueva aplicación de Azure Functions. La opción Desencadenador de Event Grid está resaltada.":::
 
-Una vez creada la aplicación de funciones, Visual Studio generará un código de ejemplo en un archivo **Function1.cs** en la carpeta del proyecto. Esta breve función se usa para registrar eventos.
+Después de crear la aplicación de funciones, Visual Studio genera un código de ejemplo en un archivo *Function1.cs* en la carpeta del proyecto. Esta breve función se usa para registrar eventos.
 
-:::image type="content" source="media/how-to-create-azure-function/visual-studio-sample-code.png" alt-text="Captura de pantalla de Visual Studio en la ventana de proyecto del nuevo proyecto que se ha creado. Hay código para una función de ejemplo denominada Function1." lightbox="media/how-to-create-azure-function/visual-studio-sample-code.png":::
+:::image type="content" source="media/how-to-create-azure-function/visual-studio-sample-code.png" alt-text="Captura de pantalla de Visual Studio. Se muestra la ventana del proyecto nuevo. Se muestra el código de una función de ejemplo en un archivo denominado Function1." lightbox="media/how-to-create-azure-function/visual-studio-sample-code.png":::
 
-## <a name="write-a-function-with-an-event-grid-trigger"></a>Escritura de una función con un desencadenador de Event Grid
+## <a name="write-a-function-that-has-an-event-grid-trigger"></a>Escritura de una función que tenga un desencadenador de Event Grid
 
-Para escribir una función, agregue el SDK a la aplicación de funciones. La aplicación de funciones interactúa con Azure Digital Twins mediante el [SDK de Azure Digital Twins para .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client). 
+Para escribir una función, agregue un SDK a la aplicación de funciones. La aplicación de funciones interactúa con Azure Digital Twins con el [SDK de Azure Digital Twins para .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client). 
 
-Para poder usar el SDK, debe incluir los siguientes paquetes en el proyecto. Puede instalar los paquetes mediante el administrador de paquetes NuGet de Visual Studio o agregar los paquetes mediante `dotnet` en una herramienta de línea de comandos.
+Para usar el SDK, debe incluir los siguientes paquetes en el proyecto. Instale los paquetes mediante el administrador de paquetes NuGet de Visual Studio. O bien, agregue los paquetes mediante `dotnet` en una herramienta de línea de comandos.
 
 * [Azure.DigitalTwins.Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core/)
 * [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/)
 * [System.Net.Http](https://www.nuget.org/packages/System.Net.Http/)
 * [Azure.Core](https://www.nuget.org/packages/Azure.Core/)
 
-Después, en el Explorador de soluciones de Visual Studio, abra el archivo _Function1.cs_ en el que tiene el código de ejemplo y agregue las siguientes instrucciones `using` para estos paquetes a la función.
+A continuación, en el Explorador de soluciones de Visual Studio, abra el archivo _Function1.cs_, que incluye el código de ejemplo. Agregue las siguientes instrucciones `using` para los paquetes.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="Function_dependencies":::
 
 ## <a name="add-authentication-code-to-the-function"></a>Incorporación de código de autenticación a la función
 
-Ahora declarará variables de nivel de clase y agregará un código de autenticación que permitirá a la función acceder a Azure Digital Twins. Agregará lo siguiente a la función en el archivo _Function1.cs_.
+Ahora declare las variables de nivel de clase y agregue un código de autenticación que permitirá a la función acceder a Azure Digital Twins. Agregue las variables y el código a la función en el archivo _Function1.cs_.
 
-* Código para leer la dirección URL del servicio Azure Digital Twins como una **variable de entorno**. Se recomienda leer la dirección URL del servicio en una variable de entorno, en lugar de codificarla de forma rígida en la función. Establecerá el valor de esta variable de entorno [más adelante en este artículo](#set-up-security-access-for-the-function-app). Para más información sobre las variables de entorno, consulte [*Administración de la aplicación de funciones*](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal).
+* **Código para leer la URL del servicio Azure Digital Twins como una variable de entorno.** Se recomienda leer la dirección URL del servicio en una variable de entorno, en lugar de codificarla de forma rígida en la función. Establecerá el valor de esta variable de entorno [más adelante en este artículo](#set-up-security-access-for-the-function-app). Para más información sobre las variables de entorno, consulte [Administración de la aplicación de funciones](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal).
 
     :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="ADT_service_URL":::
 
-* Una variable estática para contener una instancia de HttpClient. HttpClient es relativamente costoso de crear y queremos evitar tener que hacerlo para cada invocación de función.
+* **Una variable estática para contener una instancia de HttpClient.** HttpClient es relativamente costoso de crear, por lo que queremos evitar crearlo para cada invocación de función.
 
     :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="HTTP_client":::
 
-* Puede usar las credenciales de identidad administrada en Azure Functions.
+* **Credenciales de identidad administrada.**
     :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="ManagedIdentityCredential":::
 
-* Agregue una variable local _DigitalTwinsClient_ dentro de la función para que contenga la instancia del cliente de Azure Digital Twins. *No* haga que esta variable sea estática dentro de la clase.
+* **Una variable local _DigitalTwinsClient_.** Agregue una variable dentro de la función para que contenga la instancia del cliente de Azure Digital Twins. *No* haga que esta variable sea estática dentro de la clase.
     :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="DigitalTwinsClient":::
 
-* Agregue una comprobación nula para _adtInstanceUrl_ y ajuste la lógica de la función en un bloque try/catch para detectar cualquier excepción.
+* **Una comprobación de NULL para _adtInstanceUrl_.** Agregue una comprobación de NULL y, a continuación, encapsule la lógica de la función en un bloque try/catch para detectar cualquier excepción.
 
-Después de estos cambios, el código de la función será similar al siguiente:
+Después de estos cambios, el código de la función tendrá un aspecto similar al del siguiente ejemplo.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs":::
 
-Ahora que la aplicación está escrita, puede publicarla en Azure siguiendo los pasos descritos en la sección a continuación.
+Ahora que la aplicación está escrita, puede publicarla en Azure.
 
 ## <a name="publish-the-function-app-to-azure"></a>Publicación de la aplicación de funciones en Azure
 
 [!INCLUDE [digital-twins-publish-azure-function.md](../../includes/digital-twins-publish-azure-function.md)]
 
-### <a name="verify-function-publish"></a>Comprobación de la publicación de funciones
+### <a name="verify-the-publication-of-your-function"></a>Comprobación de la publicación de la función
 
-1. Inicie sesión con sus credenciales en [Azure Portal](https://portal.azure.com/).
-2. En la barra de búsqueda que se encuentra en la parte superior de la ventana, busque el **nombre de la aplicación de funciones**.
+1. Use sus credenciales para iniciar sesión en [Azure Portal](https://portal.azure.com/).
+2. En el cuadro de búsqueda de la parte superior de la ventana, busque el nombre de la aplicación de funciones y selecciónelo.
 
-    :::image type="content" source="media/how-to-create-azure-function/search-function-app.png" alt-text="Busque la aplicación de funciones por su nombre en Azure Portal." lightbox="media/how-to-create-azure-function/search-function-app.png":::
+    :::image type="content" source="media/how-to-create-azure-function/search-function-app.png" alt-text="Captura de pantalla que muestra Azure Portal. En el campo de búsqueda, escriba el nombre de la aplicación de funciones." lightbox="media/how-to-create-azure-function/search-function-app.png":::
 
-3. En la página *Aplicación de funciones* que se abre, elija *Funciones* en las opciones de menú de la izquierda. Si la función se publica correctamente, verá su nombre en la lista.
-Tenga en cuenta que es posible que tenga que esperar unos minutos o actualizar la página un par de veces antes de poder ver la función en la lista de funciones publicadas.
+3. En la página **Aplicación de funciones** que se abrirá, en el menú de la izquierda, elija **Funciones**. Si la función se ha publicado correctamente, su nombre aparecerá en la lista.
+
+    > [!Note] 
+    > Es posible que tenga que esperar unos minutos o actualizar la página un par de veces antes de que se muestre la función en la lista de funciones publicadas.
 
     :::image type="content" source="media/how-to-create-azure-function/view-published-functions.png" alt-text="Visualización de las funciones publicadas en Azure Portal." lightbox="media/how-to-create-azure-function/view-published-functions.png":::
 
-Para que la aplicación de funciones pueda acceder a Azure Digital Twins, deberá tener una identidad administrada por el sistema con permisos para acceder a la instancia de Azure Digital Twins. Va a realizar esa configuración a continuación.
+Para acceder a Azure Digital Twins, la aplicación de funciones necesita una identidad administrada por el sistema con permisos para acceder a la instancia de Azure Digital Twins. Va a realizar esa configuración a continuación.
 
 ## <a name="set-up-security-access-for-the-function-app"></a>Configuración del acceso de seguridad para la aplicación de funciones
 
-Puede configurar el acceso de seguridad para la aplicación de funciones mediante la CLI de Azure o Azure Portal. Siga los pasos para su opción preferida a continuación.
+Puede configurar el acceso de seguridad para la aplicación de funciones mediante la CLI de Azure o Azure Portal. Siga los pasos de su opción preferida.
 
 # <a name="cli"></a>[CLI](#tab/cli)
 
-Puede ejecutar estos comandos en [Azure Cloud Shell](https://shell.azure.com) o en una [instalación local de la CLI de Azure](/cli/azure/install-azure-cli).
-Puede usar la identidad administrada por el sistema de la aplicación de funciones para asignarle el rol _**Propietario de datos de Azure Digital Twins**_ para la instancia de Azure Digital Twins. Esto proporcionará el permiso de la aplicación de funciones en la instancia para realizar actividades del plano de datos. A continuación, haga que la dirección URL de la instancia de Azure Digital Twins sea accesible para la función mediante la definición de una variable de entorno.
+Ejecute estos comandos en [Azure Cloud Shell](https://shell.azure.com) o en una [instalación local de la CLI de Azure](/cli/azure/install-azure-cli).
+Puede usar la identidad administrada por el sistema de la aplicación de funciones para asignarle el rol **Propietario de datos de Azure Digital Twins** para la instancia de Azure Digital Twins. Este role le concede a la aplicación de funciones el permiso en la instancia para realizar actividades del plano de datos. A continuación, permita que la función acceda a la dirección URL de la instancia mediante la definición de una variable de entorno.
 
-### <a name="assign-access-role"></a>Asignación de roles de acceso
+### <a name="assign-an-access-role"></a>Asignación de un rol de acceso
 
 [!INCLUDE [digital-twins-permissions-required.md](../../includes/digital-twins-permissions-required.md)]
 
-El esqueleto de la función de los ejemplos anteriores requiere que se le pase un token de portador para poder autenticarse con Azure Digital Twins. Para asegurarse de que se pasa este token de portador, debe configurar permisos a la [identidad de servicio administrada (MSI)](../active-directory/managed-identities-azure-resources/overview.md) para que la aplicación de funciones pueda acceder a Azure Digital Twins. Esto solo debe realizarse una vez para cada aplicación de funciones.
+El esqueleto de la función en los ejemplos anteriores requiere que se le pase un token de portador. Si no se pasa un token de portador, la aplicación de funciones no puede autenticarse con Azure Digital Twins. 
+
+Para asegurarse de que se pase el token de portador, configure los permisos de [identidades administradas](../active-directory/managed-identities-azure-resources/overview.md) para que la aplicación de funciones pueda acceder a Azure Digital Twins. Estos permisos se configuran solo una vez para cada aplicación de funciones.
 
 
-1. Use el siguiente comando para ver los detalles de la identidad administrada por el sistema de la función. Anote el valor del campo _principalId_ de la salida.
+1. Use el siguiente comando para ver los detalles de la identidad administrada por el sistema de la función. Anote el valor del campo `principalId` de la salida.
 
     ```azurecli-interactive 
     az functionapp identity show -g <your-resource-group> -n <your-App-Service-(function-app)-name> 
     ```
 
     >[!NOTE]
-    > Si el resultado está vacío en lugar de mostrar los detalles de una identidad, cree una nueva identidad administrada por el sistema para la función mediante este comando:
+    > Si el resultado está vacío en lugar de mostrar los detalles de la identidad, cree una nueva identidad administrada por el sistema para la función con este comando:
     > 
     >```azurecli-interactive    
     >az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>  
     >```
     >
-    > La salida mostrará los detalles de la identidad, incluido el valor de _principalId_ requerido para el siguiente paso. 
+    > La salida muestra los detalles de la identidad, incluido el valor de `principalId` requerido para el siguiente paso. 
 
-1. Use el valor de _principalId_ en el siguiente comando para asignar la identidad de la aplicación de funciones al rol _Propietario de datos de Azure Digital Twins_ en la instancia de Azure Digital Twins.
+1. Use el valor `principalId` en el siguiente comando para asignar la identidad de la aplicación de funciones al rol _Propietario de datos de Azure Digital Twins_  de la instancia de Azure Digital Twins.
 
     ```azurecli-interactive 
     az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
@@ -150,10 +152,10 @@ El esqueleto de la función de los ejemplos anteriores requiere que se le pase u
 
 ### <a name="configure-application-settings"></a>Configuración de la aplicación
 
-Por último, haga que la dirección URL de la instancia de Azure Digital Twins sea accesible para la función mediante el establecimiento de una **variable de entorno** para ella. Para más información sobre las variables de entorno, consulte [*Administración de la aplicación de funciones*](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal). 
+Permita que la función acceda a la dirección URL de la instancia mediante la definición de una variable de entorno para este fin. Para más información sobre las variables de entorno, consulte [Administración de la aplicación de funciones](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal). 
 
 > [!TIP]
-> Para crear la dirección URL de la instancia de Azure Digital Twins, agregue *https://* al principio del *nombre de host* de la instancia de Azure Digital Twins. Para ver el nombre de host, junto con todas las propiedades de la instancia, puede ejecutar `az dt show --dt-name <your-Azure-Digital-Twins-instance>`.
+> Para crear la dirección URL de la instancia de Azure Digital Twins, agregue *https://* al principio del nombre de host de la instancia. Para ver el nombre de host, junto con todas las propiedades de la instancia, ejecute `az dt show --dt-name <your-Azure-Digital-Twins-instance>`.
 
 ```azurecli-interactive 
 az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-host-name>"
@@ -163,78 +165,81 @@ az functionapp config appsettings set -g <your-resource-group> -n <your-App-Serv
 
 Realice los pasos siguientes en [Azure Portal](https://portal.azure.com/).
 
-### <a name="assign-access-role"></a>Asignación de roles de acceso
+### <a name="assign-an-access-role"></a>Asignación de un rol de acceso
 
 [!INCLUDE [digital-twins-permissions-required.md](../../includes/digital-twins-permissions-required.md)]
 
-Una identidad administrada asignada por el sistema permite que los recursos de Azure se autentiquen en servicios en la nube (por ejemplo, Azure Key Vault) sin almacenar las credenciales en el código. Una vez habilitada, todos los permisos necesarios se pueden conceder mediante el control de acceso basado en roles de Azure. El ciclo de vida de este tipo de identidad administrada está ligado al ciclo de vida de este recurso. Además, cada recurso solo puede tener una identidad administrada asignada por el sistema.
+Una identidad administrada asignada por el sistema permite que los recursos de Azure se autentiquen en servicios en la nube (por ejemplo, Azure Key Vault) sin almacenar las credenciales en el código. Después de habilitar la identidad administrada asignada por el sistema, se pueden conceder todos los permisos necesarios a través del control de acceso basado en rol de Azure. 
 
-1. Busque la aplicación de funciones en [Azure Portal](https://portal.azure.com/); para ello, escriba su nombre en la barra de búsqueda. Seleccione la aplicación en los resultados. 
+El ciclo de vida de este tipo de identidad administrada está ligado al ciclo de vida de este recurso. Además, cada recurso puede tener solo una identidad administrada asignada por el sistema.
 
-    :::image type="content" source="media/how-to-create-azure-function/portal-search-for-function-app.png" alt-text="Captura de pantalla de Azure Portal: Se está buscando el nombre de la aplicación de funciones en la barra de búsqueda del portal y el resultado de la búsqueda está resaltado.":::
+1. Busque la aplicación de funciones en [Azure Portal](https://portal.azure.com/); para ello, escriba su nombre en el cuadro de búsqueda. Seleccione la aplicación en los resultados. 
 
-1. En la página de la aplicación de funciones, seleccione _Identidad_ en la barra de navegación de la izquierda para trabajar con una identidad administrada para la función. En la página _Asignado por el sistema_, compruebe que el _Estado_ está establecido en **Activado** (si no es así, establézcalo ahora y *guarde* el cambio).
+    :::image type="content" source="media/how-to-create-azure-function/portal-search-for-function-app.png" alt-text="Captura de pantalla de Azure Portal.El nombre de la aplicación de funciones aparece en la barra de búsqueda del portal y el resultado de la búsqueda está resaltado.":::
 
-    :::image type="content" source="media/how-to-create-azure-function/verify-system-managed-identity.png" alt-text="Captura de pantalla de Azure Portal: en la página Identidad de la aplicación de funciones, la opción Estado está establecida en Activado." lightbox="media/how-to-create-azure-function/verify-system-managed-identity.png":::
+1. En la página de la aplicación de funciones, en el menú de la izquierda, seleccione __Identidad__ para trabajar con una identidad administrada para la función. En la página __Asignado por el sistema__, compruebe que el __Estado__ está establecido en **Activado**. Si no es así, establézcalo ahora y **Guarde** el cambio.
 
-1. Seleccione el botón _Asignaciones de roles de Azure_ para abrir la página *Asignaciones de roles de Azure*.
+    :::image type="content" source="media/how-to-create-azure-function/verify-system-managed-identity.png" alt-text="Captura de pantalla de Azure Portal. En la página Identidad de la aplicación de funciones, la opción Estado está establecida en Activado." lightbox="media/how-to-create-azure-function/verify-system-managed-identity.png":::
 
-    :::image type="content" source="media/how-to-create-azure-function/add-role-assignment-1.png" alt-text="Captura de pantalla de Azure Portal: Un resaltado alrededor del botón Asignaciones de roles de Azure en Permisos en la página Identidad de Azure Functions." lightbox="media/how-to-create-azure-function/add-role-assignment-1.png":::
+1. Seleccione __Asignaciones de roles de Azure__.
 
-    Seleccione _+ Agregar asignación de roles (versión preliminar)_ .
+    :::image type="content" source="media/how-to-create-azure-function/add-role-assignment-1.png" alt-text="Captura de pantalla del Azure Portal. En la página Identidad de la función de Azure, en Permisos, está resaltado el botón Asignaciones de roles de Azure." lightbox="media/how-to-create-azure-function/add-role-assignment-1.png":::
 
-    :::image type="content" source="media/how-to-create-azure-function/add-role-assignment-2.png" alt-text="Captura de pantalla de Azure Portal con un resaltado alrededor de + Agregar asignación de roles (versión preliminar) en la página Asignaciones de roles de Azure." lightbox="media/how-to-create-azure-function/add-role-assignment-2.png":::
+    Seleccione __+ Agregar asignación de roles (versión preliminar)__ .
 
-1. En la página _Agregar asignación de roles (versión preliminar)_ que se abre, seleccione los siguientes valores:
+    :::image type="content" source="media/how-to-create-azure-function/add-role-assignment-2.png" alt-text="Captura de pantalla de Azure Portal. En la página Asignaciones de roles de Azure, el botón Agregar asignación de roles está resaltado." lightbox="media/how-to-create-azure-function/add-role-assignment-2.png":::
 
-    * **Ámbito**: grupo de recursos
-    * **Suscripción**: seleccione la suscripción de Azure.
-    * **Grupo de recursos**: seleccione el grupo de recursos en la lista desplegable.
-    * **Rol**: seleccione _Propietario de datos de Azure Digital Twins_ en la lista desplegable.
+1. En la página __Agregar asignación de roles (versión preliminar)__ , seleccione los siguientes valores:
 
-    Luego, presione el botón _Guardar_ para guardar los detalles.
+    * **Ámbito**: _Grupo de recursos_.
+    * **Suscripción**: Seleccione su suscripción a Azure.
+    * **Grupo de recursos**: seleccione el grupo de recursos.
+    * **Rol**: _Propietario de datos de Azure Digital Twins_.
 
-    :::image type="content" source="media/how-to-create-azure-function/add-role-assignment-3.png" alt-text="Captura de pantalla de Azure Portal: Cuadro de diálogo para agregar una nueva asignación de roles (versión preliminar). Hay campos para Ámbito, Suscripción, Grupo de recursos y Rol.":::
+    Seleccione __Guardar__ para guardar los detalles.
+
+    :::image type="content" source="media/how-to-create-azure-function/add-role-assignment-3.png" alt-text="Captura de pantalla de Azure Portal en la que se muestra cómo agregar una nueva asignación de roles. El cuadro de diálogo muestra los campos Ámbito, Suscripción, Grupo de recursos y Rol.":::
 
 ### <a name="configure-application-settings"></a>Configuración de la aplicación
 
-Para hacer que la dirección URL de la instancia de Azure Digital Twins sea accesible para la función, establezca una **variable de entorno** para ella. Para más información sobre las variables de entorno, consulte [*Administración de la aplicación de funciones*](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal). La configuración de la aplicación se expone como variables de entorno para acceder a la instancia de Digital Twins. 
+Para hacer que la dirección URL de la instancia de Azure Digital Twins sea accesible para la función, establezca una variable de entorno. La configuración de la aplicación se expone como variables de entorno que permiten acceder a la instancia de Azure Digital Twins. Para más información sobre las variables de entorno, consulte [Administración de la aplicación de funciones](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal). 
 
-Para establecer una variable de entorno con la dirección URL de la instancia, obtenga primero la dirección URL buscando el nombre de host de la instancia de Azure Digital Twins. Busque la instancia en la barra de búsqueda de [Azure Portal](https://portal.azure.com). A continuación, seleccione _Información general_ en la barra de navegación izquierda para ver el _Nombre de host_. Copie este valor.
+Para establecer una variable de entorno con la dirección URL de la instancia, busque primero el nombre de host de la instancia: 
 
-:::image type="content" source="media/how-to-create-azure-function/instance-host-name.png" alt-text="Captura de pantalla de Azure Portal: En la página Información general de la instancia de Azure Digital Twins, el valor Nombre de host está resaltado.":::
+1. Busque la instancia en [Azure Portal](https://portal.azure.com). 
+1. En el menú de la izquierda, seleccione __Información general__. 
+1. Copie el valor de __Nombre de host__.
 
-Ahora puede seguir estos pasos para crear una configuración de la aplicación:
+    :::image type="content" source="media/how-to-create-azure-function/instance-host-name.png" alt-text="Captura de pantalla de Azure Portal. Está resaltado el valor Nombre de host en la página Información general de la instancia.":::
 
-1. Busque la aplicación de funciones en la barra de búsqueda del portal y selecciónela en los resultados.
+Ahora puede crear una configuración de la aplicación:
 
-    :::image type="content" source="media/how-to-create-azure-function/portal-search-for-function-app.png" alt-text="Captura de pantalla de Azure Portal: Se está buscando el nombre de la aplicación de funciones en la barra de búsqueda del portal y el resultado de la búsqueda está resaltado.":::
+1. En la barra de búsqueda del portal, busque la aplicación de funciones y selecciónela en los resultados.
 
-1. Seleccione _Configuración_ en la barra de navegación de la izquierda. En la pestaña _Configuración de la aplicación_, seleccione _+ Nueva configuración de la aplicación_.
+    :::image type="content" source="media/how-to-create-azure-function/portal-search-for-function-app.png" alt-text="Captura de pantalla de Azure Portal. Se está buscando el nombre de la aplicación de funciones en la barra de búsqueda del portal. El resultado de la búsqueda está resaltado.":::
 
-    :::image type="content" source="media/how-to-create-azure-function/application-setting.png" alt-text="Captura de pantalla de Azure Portal: En la página Configuración de la aplicación de funciones, el botón para crear una nueva configuración de aplicación está resaltado.":::
+1. En el lado izquierdo, seleccione __Configuración__. Después, en la pestaña __Configuración de la aplicación__, seleccione __+ Nueva configuración de la aplicación__.
 
-1. En la ventana que se abre, use el valor de nombre de host copiado anteriormente para crear una configuración de la aplicación.
+    :::image type="content" source="media/how-to-create-azure-function/application-setting.png" alt-text="Captura de pantalla de Azure Portal. En la pestaña Configuración de la aplicación de funciones, el botón para crear una nueva configuración de aplicación está resaltado.":::
+
+1. En la ventana que se abre, use el valor de nombre de host que copió para crear una configuración de la aplicación.
     * **Nombre**: ADT_SERVICE_URL
     * **Valor**: https://{nombre-de-host-de-azure-digital-twins}
     
-    Seleccione _Aceptar_ para crear una configuración de la aplicación.
+    Seleccione __Aceptar__ para crear una configuración de la aplicación.
     
-    :::image type="content" source="media/how-to-create-azure-function/add-application-setting.png" alt-text="Captura de pantalla de Azure Portal: El botón Aceptar se resalta después de rellenar los campos Nombre y Valor en la página Agregar o editar la configuración de la aplicación.":::
+    :::image type="content" source="media/how-to-create-azure-function/add-application-setting.png" alt-text="Captura de pantalla de Azure Portal. En la página Agregar o editar configuración de la aplicación, aparecen rellenados los campos Nombre y Valor. El botón Aceptar está resaltado.":::
 
-1. Después de crear la configuración, debe aparecer en la pestaña _Configuración de la aplicación_. Compruebe que *ADT_SERVICE_URL* aparece en la lista y, a continuación, guarde la nueva configuración de la aplicación; para ello, seleccione _Guardar_.
+1. Después de crear la configuración, debería aparecer en la pestaña __Configuración de la aplicación__. Compruebe que **ADT_SERVICE_URL** aparezca en la lista. A continuación, seleccione __Guardar__ para guardar la nueva configuración de la aplicación.
 
-    :::image type="content" source="media/how-to-create-azure-function/application-setting-save-details.png" alt-text="Captura de pantalla de Azure Portal: La página Configuración de la aplicación, con la nueva opción ADT_SERVICE_URL resaltada. El botón Guardar también está resaltado.":::
+    :::image type="content" source="media/how-to-create-azure-function/application-setting-save-details.png" alt-text="Captura de pantalla de Azure Portal. En la pestaña Configuración de la aplicación, está resaltada la nueva configuración ADT_SERVICE_URL. El botón Guardar también está resaltado.":::
 
-1. Cualquier cambio en la configuración de la aplicación requiere un reinicio de la aplicación para que surta efecto; por lo tanto, seleccione _Continuar_ para reiniciar la aplicación cuando se le solicite.
+1. Cualquier cambio en la configuración de la aplicación requiere un reinicio de la aplicación; por lo tanto, seleccione __Continuar__ para reiniciar la aplicación cuando se le solicite.
 
-    :::image type="content" source="media/how-to-create-azure-function/save-application-setting.png" alt-text="Captura de pantalla de Azure Portal: Hay un aviso de que los cambios realizados en la configuración de la aplicación reiniciarán la aplicación. El botón Continuar está resaltado.":::
+    :::image type="content" source="media/how-to-create-azure-function/save-application-setting.png" alt-text="Captura de pantalla de Azure Portal. Una nota indica que los cambios realizados en la configuración de la aplicación reiniciarán la aplicación. El botón Continuar está resaltado.":::
 
 ---
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, ha seguido los pasos para configurar una aplicación de funciones de Azure para usarla con Azure Digital Twins.
-
-A continuación, consulte cómo crear una función básica para ingerir datos de IoT Hub en Azure Digital Twins:
-* [*Procedimiento: Ingesta de telemetría de IoT Hub*](how-to-ingest-iot-hub-data.md)
+En este artículo, ha configurado una aplicación de funciones de Azure para usarla con Azure Digital Twins. A continuación, consulte cómo crear una función básica para [ingerir datos de IoT Hub en Azure Digital Twins](how-to-ingest-iot-hub-data.md).

@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: db7c0f2dbc547d78e3caa9ab37450c86278929bd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 13ba043582efe4a9e8d52f96f279b02ad8dab963
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102555948"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108141368"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-windows-virtual-machine-in-azure"></a>Tutorial: Supervisión de cambios y actualización de una máquina virtual Windows en Azure
 
@@ -178,7 +178,7 @@ Las opciones de configuración disponibles para Windows son:
 * Registro de Windows
 * Archivos de Windows
 
-Para obtener información detallada sobre Change Tracking, consulte [Solución de los problemas de una máquina virtual](../../automation/automation-tutorial-troubleshoot-changes.md).
+Para obtener información detallada sobre Change Tracking, consulte [Solución de los problemas de una máquina virtual](../../automation/troubleshoot/change-tracking.md).
 
 ### <a name="view-inventory"></a>Visualización del inventario
 

@@ -1,19 +1,19 @@
 ---
-title: 'Restauración de Azure Database for MySQL con Azure Portal: servidor flexible'
-description: En este artículo se explica cómo realizar operaciones en Azure Database for MySQL con Azure Portal.
+title: Restauración de un servidor flexible de Azure Database for MySQL con Azure Portal
+description: En este artículo se explica cómo realizar operaciones de restauración en el servidor flexible de Azure Database for MySQL mediante Azure Portal.
 author: mksuni
 ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
-ms.date: 09/21/2020
-ms.openlocfilehash: 062d53fcb122ebacd004d7dca5e11f5a883354cd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/01/2021
+ms.openlocfilehash: 962a2cbdbcc238517616c9ade235eed9b8cae6f7
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93241963"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107502052"
 ---
-# <a name="point-in-time-restore-of-a-azure-database-for-mysql---flexible-server-preview"></a>Recuperación a un momento dado de Azure Database for MySQL: servidor flexible (versión preliminar)
+# <a name="point-in-time-restore-of-a-azure-database-for-mysql---flexible-server-preview-using-azure-portal"></a>Restauración a un momento dado de Azure Database for MySQL: servidor flexible (versión preliminar) con Azure Portal
 
 
 > [!IMPORTANT]
@@ -37,12 +37,9 @@ Siga estos pasos para restaurar un servidor flexible utilizando su copia de segu
 
 3.  En la página Información general, haga clic en **Restaurar**.
 
-    [Marcador de posición]
-
 4.  Se mostrará la página de restauración con una opción para elegir entre el **punto de restauración más reciente** y uno personalizado.
 
 5.  Seleccione el **punto de restauración más reciente**.
-
 
 6.  Indique un nombre de servidor nuevo en el campo **Restaurar en el servidor nuevo**.
 
@@ -60,8 +57,6 @@ Siga estos pasos para restaurar un servidor flexible mediante la copia de seguri
 
 2.  En la página Información general, haga clic en **Restaurar**.
 
-    [Marcador de posición]
-
 3.  Se mostrará la página de restauración con una opción para elegir entre el primer punto de restauración y uno personalizado.
 
 4.  Elija un **punto de restauración personalizado**.
@@ -70,14 +65,23 @@ Siga estos pasos para restaurar un servidor flexible mediante la copia de seguri
 
 6.  Indique un nombre de servidor nuevo en el campo **Restaurar en el servidor nuevo**.
 
-6.  Indique un nombre de servidor nuevo en el campo **Restaurar en el servidor nuevo**. 
-   
+6.  Indique un nombre de servidor nuevo en el campo **Restaurar en el servidor nuevo**.
+
     :::image type="content" source="./media/concept-backup-restore/restore-blade-custom.png" alt-text="ver información general":::
- 
+
 7.  Haga clic en **Aceptar**.
 
 8.  Se mostrará una notificación en la que se indica que se ha iniciado la operación de restauración.
 
-## <a name="next-steps"></a>Pasos siguientes
 
-Marcador de posición
+## <a name="perform-post-restore-tasks"></a>Tareas posteriores a la restauración
+Una vez finalizada la restauración, deberá realizar las siguientes tareas para que los usuarios y las aplicaciones vuelvan a conectarse:
+
+- Si el nuevo servidor está destinado a reemplazar al original, redirija a los clientes y las aplicaciones cliente al nuevo servidor.
+- Asegúrese de que haya vigentes reglas de red virtual adecuadas para que los usuarios se conecten. Estas reglas no se copian desde el servidor original.
+- No se olvide de emplear los permisos de nivel de base de datos y los inicios de sesión apropiados.
+- Configure las alertas según corresponda para el servidor recién restaurado.
+
+
+## <a name="next-steps"></a>Pasos siguientes
+Más información sobre la [continuidad empresarial](concepts-business-continuity.md).

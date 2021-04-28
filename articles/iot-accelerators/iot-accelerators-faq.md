@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 1fd2b8461bd66c826dc4890c331b740c4703f896
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 61993df77b0831926f16339a741a2553e80c2a0d
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96903996"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107713847"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>Preguntas más frecuentes acerca de los aceleradores de soluciones de IoT
 
@@ -24,7 +24,7 @@ Consulte también la sección [Preguntas frecuentes específicas de la factoría
 El código fuente se almacena en los siguientes repositorios de GitHub:
 
 * [Acelerador de la solución de factoría conectada](https://github.com/Azure/azure-iot-connected-factory)
-* [Acelerador de soluciones de simulación de dispositivos](https://github.com/Azure/device-simulation-dotnet)
+* [Acelerador de soluciones de simulación de dispositivos](https://github.com/Azure/azure-iot-pcs-device-simulation)
 
 ### <a name="where-can-i-find-the-remote-monitoring-and-predictive-maintenance-solution-accelerators"></a>¿Dónde puedo encontrar los aceleradores de soluciones de supervisión remota y mantenimiento predictivo?
 
@@ -36,7 +36,7 @@ Las implementaciones existentes no se verán afectadas por la eliminación de lo
 
 ### <a name="how-do-i-deploy-device-simulation-solution-accelerator"></a>¿Cómo implemento el acelerador de soluciones de simulación de dispositivos?
 
-Para implementar el acelerador de soluciones de simulación de dispositivos, consulte el repositorio de [simulación de dispositivos](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) de GitHub.
+Para implementar el acelerador de soluciones de simulación de dispositivos, consulte el repositorio de [simulación de dispositivos](https://github.com/Azure/azure-iot-pcs-device-simulation/blob/master/README.md) de GitHub.
 
 ### <a name="where-can-i-find-information-about-the-removed-solution-accelerators"></a>¿Dónde puedo encontrar información sobre los aceleradores de soluciones quitados?
 

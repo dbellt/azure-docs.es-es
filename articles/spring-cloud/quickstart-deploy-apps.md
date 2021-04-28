@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 08/03/2020
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 727354593488cd5af77408eaa7c8d9e747a0b071
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 99a2544a755f04bad0fcf36ead865a4311705566
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104877592"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108132852"
 ---
 # <a name="quickstart-build-and-deploy-apps-to-azure-spring-cloud"></a>Inicio rápido: Compilación e implementación de aplicaciones en Azure Spring Cloud
 
@@ -24,8 +24,8 @@ En esta guía de inicio rápido, se compilan e implementan aplicaciones de micro
 
 * Complete las guías de inicio rápido anteriores de esta serie:
 
-  * [Aprovisionamiento del servicio Azure Spring Cloud](spring-cloud-quickstart-provision-service-instance.md).
-  * [Configuración del servidor de configuración de Azure Spring Cloud](spring-cloud-quickstart-setup-config-server.md).
+  * [Aprovisionamiento del servicio Azure Spring Cloud](./quickstart-provision-service-instance.md).
+  * [Configuración del servidor de configuración de Azure Spring Cloud](./quickstart-setup-config-server.md).
 
 ## <a name="download-the-sample-app"></a>Descarga de la aplicación de ejemplo
 
@@ -183,7 +183,7 @@ En este documento se explica cómo compilar e implementar aplicaciones de micros
 * Complemento de Maven
 * Intellij
 
-Antes de realizar la implementación mediante la CLI de Azure o Maven, complete los ejemplos que [aprovisionan una instancia de Azure Spring Cloud](spring-cloud-quickstart-provision-service-instance.md) y [configure el servidor de configuración](spring-cloud-quickstart-setup-config-server.md).
+Antes de realizar la implementación mediante la CLI de Azure o Maven, complete los ejemplos que [aprovisionan una instancia de Azure Spring Cloud](./quickstart-provision-service-instance.md) y [configure el servidor de configuración](./quickstart-setup-config-server.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -313,7 +313,7 @@ Para realizar la implementación en Azure, debe iniciar sesión con su cuenta de
 1. En el campo **Nombre**, anexe *:gateway* al **Nombre** existente.
 1. En el cuadro de texto **Artefacto**, seleccione *com.piggymetrics:gateway:1.0-SNAPSHOT*.
 1. En el cuadro de texto **Suscripción**, compruebe su suscripción.
-1. En el cuadro de texto **Spring Cloud**, seleccione la instancia de Azure Spring Cloud que creó en el artículo sobre el [aprovisionamiento de una instancia de Azure Spring Cloud](./spring-cloud-quickstart-provision-service-instance.md).
+1. En el cuadro de texto **Spring Cloud**, seleccione la instancia de Azure Spring Cloud que creó en el artículo sobre el [aprovisionamiento de una instancia de Azure Spring Cloud](./quickstart-provision-service-instance.md).
 1. En **Punto de conexión público**, seleccione *Habilitar*.
 1. En el cuadro de texto **Aplicación:** , seleccione **Crear aplicación...** .
 1. Escriba *gateway* y haga clic en **Aceptar**.
@@ -355,7 +355,7 @@ También puede navegar por el Azure Portal para buscar la dirección URL.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía de inicio rápido, ha creado recursos de Azure que seguirán acumulando cargos si permanecen en la suscripción. Si no tiene intención de pasar al siguiente inicio rápido, consulte [Limpieza de recursos](spring-cloud-quickstart-logs-metrics-tracing.md#clean-up-resources). De lo contrario, pase al siguiente inicio rápido:
+En esta guía de inicio rápido, ha creado recursos de Azure que seguirán acumulando cargos si permanecen en la suscripción. Si no tiene intención de pasar al siguiente inicio rápido, consulte [Limpieza de recursos](./quickstart-logs-metrics-tracing.md#clean-up-resources). De lo contrario, pase al siguiente inicio rápido:
 
 > [!div class="nextstepaction"]
-> [Registros, métricas y seguimiento](spring-cloud-quickstart-logs-metrics-tracing.md)
+> [Registros, métricas y seguimiento](./quickstart-logs-metrics-tracing.md)
