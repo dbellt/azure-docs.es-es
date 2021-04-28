@@ -8,12 +8,12 @@ author: vamahtan
 ms.author: vamahtan
 ms.reviewer: stmummer
 ms.date: 03/17/2021
-ms.openlocfilehash: d45b46f69480f24f5b2724116984a903093ffc62
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 586d2f8a887f6da39111d2e3f01744952cd9a1c3
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104593363"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108133320"
 ---
 # <a name="verify-co-sell-status-of-a-commercial-marketplace-offer"></a>Comprobación del estado de la venta conjunta de una oferta del marketplace comercial
 
@@ -40,4 +40,4 @@ En la tabla siguiente se muestran todos los posibles estados de la venta conjunt
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para obtener información sobre los requisitos de venta conjunta, consulte [Requisitos de venta conjunta](co-sell-requirements.md).
-- Para configurar una oferta para la venta conjunta, consulte [Configuración de la venta conjunta para una oferta del marketplace comercial](commercial-marketplace-co-sell.md).
+- Para configurar una oferta para la venta conjunta, consulte [Configuración de la venta conjunta para una oferta del marketplace comercial](./co-sell-configure.md).

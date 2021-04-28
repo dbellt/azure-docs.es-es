@@ -3,12 +3,12 @@ title: Creación mediante programación de paneles de Azure
 description: Use un panel de Azure Portal como plantilla para crear paneles de Azure mediante programación. Incluye referencia JSON.
 ms.topic: how-to
 ms.date: 12/4/2020
-ms.openlocfilehash: 416eeb772e347b28fcb4a4dcc93c746562ea3571
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 92848ac238ff11a90afc82713639b8abebf076ec
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107767066"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107878801"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Creación mediante programación de paneles de Azure
 
@@ -658,27 +658,27 @@ Prepare el entorno para la CLI de Azure.
 
 - En estos ejemplos se utiliza el siguiente panel: [portal-dashboard-template-testvm.json](https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/azure-portal/portal-dashboard-template-testvm.json). Reemplace el contenido entre corchetes angulares por sus valores.
 
-Ejecute el comando [az portal dashboard create](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_create) para crear un panel:
+Ejecute el comando [az portal dashboard create](/cli/azure/portal/dashboard#az_portal_dashboard_create) para crear un panel:
 
 ```azurecli
 az portal dashboard create --resource-group myResourceGroup --name 'Simple VM Dashboard' \
    --input-path portal-dashboard-template-testvm.json --location centralus
 ```
 
-Puede actualizar un panel mediante el comando [az portal dashboard update](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_update):
+Puede actualizar un panel mediante el comando [az portal dashboard update](/cli/azure/portal/dashboard#az_portal_dashboard_update):
 
 ```azurecli
 az portal dashboard update --resource-group myResourceGroup --name 'Simple VM Dashboard' \
 --input-path portal-dashboard-template-testvm.json --location centralus
 ```
 
-Consulte los detalles de un panel ejecutando el comando [az portal dashboard show](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_show):
+Consulte los detalles de un panel ejecutando el comando [az portal dashboard show](/cli/azure/portal/dashboard#az_portal_dashboard_show):
 
 ```azurecli
 az portal dashboard show --resource-group myResourceGroup --name 'Simple VM Dashboard'
 ```
 
-Para ver todos los paneles de la suscripción actual, use [az portal dashboard list](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_list):
+Para ver todos los paneles de la suscripción actual, use [az portal dashboard list](/cli/azure/portal/dashboard#az_portal_dashboard_list):
 
 ```azurecli
 az portal dashboard list
@@ -694,4 +694,4 @@ az portal dashboard list --resource-group myResourceGroup
 
 Para más información acerca de los escritorios, consulte [Administración de las preferencias y la configuración de Azure Portal](set-preferences.md).
 
-Para más información sobre la compatibilidad de la CLI de Azure con los paneles, consulte [az portal dashboard](/cli/azure/ext/portal/portal/dashboard).
+Para más información sobre la compatibilidad de la CLI de Azure con los paneles, consulte [az portal dashboard](/cli/azure/portal/dashboard).

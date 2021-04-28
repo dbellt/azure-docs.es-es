@@ -3,13 +3,13 @@ title: Supervisión de un clúster de Azure Kubernetes Service (AKS) implementad
 description: Obtenga información sobre cómo habilitar la supervisión de un clúster de Azure Kubernetes Service (AKS) con Container Insights ya implementado en la suscripción.
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.custom: devx-track-terraform, devx-track-azurecli
-ms.openlocfilehash: fba12fb8dd5c6c91883a88d4acfdca6c6d332c24
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: devx-track-terraform
+ms.openlocfilehash: 2fc46c987477a728f9e4e3fb69b5022c8756459c
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105109631"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108073906"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>Habilitar la supervisión de un clúster de Azure Kubernetes Service (AKS) ya implementado
 

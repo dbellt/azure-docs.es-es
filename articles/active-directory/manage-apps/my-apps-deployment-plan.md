@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 02/29/2020
 ms.author: baselden
-ms.openlocfilehash: 777daecc119a158f11d865489e4eb497c3bc7899
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 9f05e14de9d6ebe76f722d1e4b21bc2085a74888
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107376603"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108125143"
 ---
 # <a name="plan-azure-active-directory-my-apps-configuration"></a>Planeamiento de la configuración de Aplicaciones de Azure Active Directory
 
@@ -81,7 +81,7 @@ Para obtener más información, consulte [Configuración del consentimiento de l
 
 ### <a name="group-owner-consent-for-apps-accessing-data"></a>Consentimiento del propietario de un grupo para las aplicaciones que acceden a los datos
 
-Los propietarios de grupos y equipos pueden dar permiso a aplicaciones tales como las aplicaciones que publican otros proveedores, para obtener acceso a los datos de la organización asociados al grupo. Consulte [Consentimiento específico de recursos en Microsoft Teams](https://docs.microsoft.com/microsoftteams/resource-specific-consent) para obtener más información. 
+Los propietarios de grupos y equipos pueden dar permiso a aplicaciones tales como las aplicaciones que publican otros proveedores, para obtener acceso a los datos de la organización asociados al grupo. Consulte [Consentimiento específico de recursos en Microsoft Teams](/microsoftteams/resource-specific-consent) para obtener más información. 
 
 Puede configurar si quiere permitir o deshabilitar esta característica.
 
@@ -257,4 +257,3 @@ Puede usar [Privileged Identity Management](../privileged-identity-management/pi
 [Planeamiento de una implementación de Azure AD Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
 
 [Planeación de la implementación de un proxy de aplicación](application-proxy-deployment-plan.md)
-

@@ -9,14 +9,14 @@ ms.reviewer: sgilley
 ms.author: copeters
 author: lostmygithubaccount
 ms.date: 07/14/2020
-ms.topic: conceptual
-ms.custom: how-to, data4ml
-ms.openlocfilehash: f42a2f9e606eaa0475f2e35c479e99545ecf8193
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: how-to
+ms.custom: data4ml
+ms.openlocfilehash: 4b6ae5668715431875090be999806dc5a9d994c9
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102521907"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107885099"
 ---
 # <a name="collect-data-from-models-in-production"></a>Recopilación de datos de modelos en producción
 
@@ -55,7 +55,7 @@ La ruta de acceso a los datos de salida en el blob sigue esta sintaxis:
 >[!NOTE]
 > En las versiones del SDK de Azure Machine Learning para Python anteriores a la versión 0.1.0 A16, el argumento `designation` se denomina `identifier`. Si desarrolló el código con una versión anterior, debe actualizarlo en consecuencia.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://aka.ms/AMLFree) antes de empezar.
 

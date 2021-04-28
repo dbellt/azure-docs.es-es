@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 2b442edc537ec64b12df215a18ab017ee47becff
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 95873a4a4b815df53e42bf265a3187f73344f882
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107791740"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108072592"
 ---
 # <a name="manage-streaming-endpoints-with--media-services-v3"></a>Administración de puntos de conexión de streaming con Media Services v3
 

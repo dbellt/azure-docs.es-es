@@ -3,12 +3,12 @@ title: Restablecimiento de las credenciales de vSphere para Azure VMware Solutio
 description: Aprenda a restablecer las credenciales de vSphere para la nube privada de Azure VMware Solution y asegúrese de que el conector de HCX tiene las credenciales de vSphere más recientes.
 ms.topic: how-to
 ms.date: 03/31/2021
-ms.openlocfilehash: 793b79e42a0adbca54804d1b66102736aff22d7a
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 3533de03cbea0014a8a50cd0103f96273f0680a7
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106109108"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108145310"
 ---
 # <a name="reset-vsphere-credentials-for-azure-vmware-solution"></a>Restablecimiento de las credenciales de vSphere para Azure VMware Solution
 
@@ -21,7 +21,7 @@ Además de este procedimiento, también puede ver el vídeo para [restablecer la
  En primer lugar, vamos a restablecer las credenciales de los componentes de Azure VMware Solution. Las credenciales de administrador de vCenter Server CloudAdmin y NSX-T no expiran; sin embargo, puede seguir estos pasos para generar nuevas contraseñas para estas cuentas.
 
 > [!NOTE]
-> Si usa las credenciales de CloudAdmin para servicios conectados, como HCX, vRealize Orchestrator, vRealize Operations Manager o VMware Horizon, las conexiones dejarán de funcionar una vez que actualice la contraseña.  Estos servicios deben detenerse antes de iniciar la rotación de contraseñas.  Si no lo hace, pueden producirse bloqueos temporales en las cuentas de administrador de vCenter CloudAdmin y NSX-T, ya que estos servicios llamarán continuamente con sus credenciales antiguas.  Para obtener más información sobre cómo configurar cuentas independientes para los servicios conectados, vea [Conceptos de acceso e identidad](https://docs.microsoft.com/azure/azure-vmware/concepts-identity).
+> Si usa las credenciales de CloudAdmin para servicios conectados, como HCX, vRealize Orchestrator, vRealize Operations Manager o VMware Horizon, las conexiones dejarán de funcionar una vez que actualice la contraseña.  Estos servicios deben detenerse antes de iniciar la rotación de contraseñas.  Si no lo hace, pueden producirse bloqueos temporales en las cuentas de administrador de vCenter CloudAdmin y NSX-T, ya que estos servicios llamarán continuamente con sus credenciales antiguas.  Para obtener más información sobre cómo configurar cuentas independientes para los servicios conectados, vea [Conceptos de acceso e identidad](./concepts-identity.md).
 
 1. En Azure Portal, abra una sesión de Azure Cloud Shell.
 

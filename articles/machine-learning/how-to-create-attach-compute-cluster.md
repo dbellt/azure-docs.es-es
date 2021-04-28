@@ -5,18 +5,18 @@ description: Aprenda a crear clústeres de proceso en el área de trabajo de Azu
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to, devx-track-azurecli
+ms.topic: how-to
+ms.custom: devx-track-azurecli
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 1e3549a6f5f4f9d7f6a6da574378c90c20e42dcf
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 116a0fd6fce399327d8ac5434a383d80e8b351e6
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106169579"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107890049"
 ---
 # <a name="create-an-azure-machine-learning-compute-cluster"></a>Creación de un clúster de proceso de Azure Machine Learning
 
@@ -36,6 +36,14 @@ En este artículo, aprenderá a:
 
 * La [extensión de la CLI de Azure para Machine Learning Service](reference-azure-machine-learning-cli.md), el [SDK de Python para Azure Machine Learning](/python/api/overview/azure/ml/intro) o la [extensión de Visual Studio Code para Azure Machine Learning](tutorial-setup-vscode-extension.md).
 
+* Si usa el SDK de Python, [configure el entorno de desarrollo con un área de trabajo](how-to-configure-environment.md).  Una vez configurado el entorno, conéctelo al área de trabajo en el script de Python:
+
+    ```python
+    from azureml.core import Workspace
+    
+    ws = Workspace.from_config() 
+    ```
+
 ## <a name="what-is-a-compute-cluster"></a>¿Qué es un clúster de proceso?
 
 El clúster de Proceso de Azure Machine Learning es una infraestructura de proceso administrado que permite al usuario crear fácilmente un proceso de uno o varios nodos. El proceso se crea dentro de la región de su área de trabajo y es un recurso que se puede compartir con otros usuarios del área de trabajo. El proceso se escala verticalmente de forma automática cuando se envía un trabajo y se puede colocar en una instancia de Azure Virtual Network. El proceso se ejecuta en un entorno con contenedores y empaqueta las dependencias del modelo en un [contenedor de Docker](https://www.docker.com/why-docker).
@@ -53,7 +61,7 @@ Los clústeres de proceso pueden ejecutar trabajos de manera segura en un [entor
 * Azure permite colocar _bloqueos_ en los recursos, de modo que no se puedan eliminar o sean de solo lectura. __No aplique bloqueos de recursos al grupo de recursos que contiene el área de trabajo__. Al aplicar un bloqueo al grupo de recursos que contiene el área de trabajo se evitan las operaciones de escalado de los clústeres de proceso de Azure ML. Para obtener más información sobre el bloqueo de recursos, vea [Bloqueo de recursos para impedir cambios inesperados](../azure-resource-manager/management/lock-resources.md).
 
 > [!TIP]
-> Por lo general, los clústeres pueden escalar verticalmente hasta 100 nodos, siempre y cuando tenga la cuota suficiente para el número de núcleos necesarios. De forma predeterminada, los clústeres se configuran con la comunicación entre nodos del clúster habilitada para, por ejemplo, permitir trabajos de MPI. No obstante, puede escalar los clústeres a miles de nodos simplemente [generando una incidencia de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) y solicitando la inclusión en la lista de permitidos de su suscripción, área de trabajo o un clúster específico para deshabilitar la comunicación entre nodos. 
+> Por lo general, los clústeres pueden escalar verticalmente hasta 100 nodos, siempre y cuando tenga la cuota suficiente para el número de núcleos necesarios. De forma predeterminada, los clústeres se configuran con la comunicación entre nodos del clúster habilitada para, por ejemplo, permitir trabajos de MPI. No obstante, puede escalar los clústeres a miles de nodos simplemente [generando una incidencia de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) y solicitando la inclusión en la lista de permitidos de su suscripción, área de trabajo o un clúster específico para deshabilitar la comunicación entre nodos.
 
 
 ## <a name="create"></a>Crear
@@ -70,11 +78,11 @@ El proceso se reduce verticalmente a cero nodos cuando no se utiliza.   Se crean
     
 # <a name="python"></a>[Python](#tab/python)
 
-para crear un recurso de Proceso de Azure Machine Learning persistente en Python, especifique las propiedades **vm_size** y **max_nodes**. Azure Machine Learning usará valores predeterminados inteligentes para las demás propiedades. 
+
+para crear un recurso de Proceso de Azure Machine Learning persistente en Python, especifique las propiedades **vm_size** y **max_nodes**. Azure Machine Learning usará valores predeterminados inteligentes para las demás propiedades.
     
 * **vm_size**: la familia máquina virtual de los nodos creados por el Proceso de Azure Machine Learning.
 * **max_nodes**: el número máximo de nodos hasta los que se aumenta automáticamente cuando ejecuta un trabajo en Proceso de Azure Machine Learning.
-
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=cpu_cluster)]
 
@@ -88,7 +96,7 @@ Cuando cree una instancia de Proceso de Azure Machine Learning, puede configurar
 az ml computetarget create amlcompute -n cpu --min-nodes 1 --max-nodes 1 -s STANDARD_D3_V2
 ```
 
-Para más información, consulte [az ml computetarget create amlcompute](/cli/azure/ext/azure-cli-ml/ml/computetarget/create#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute).
+Para más información, consulte [az ml computetarget create amlcompute](/cli/azure/ml/computetarget/create#az_ml_computetarget_create_amlcompute).
 
 # <a name="studio"></a>[Estudio](#tab/azure-studio)
 
@@ -132,16 +140,18 @@ En Studio, elija **Prioridad baja** al crear una máquina virtual.
 
 * Configure la identidad administrada en la configuración de aprovisionamiento:  
 
-    * Identidad administrada asignada por el sistema:
+    * Identidad administrada asignada por el sistema que se creó en un área de trabajo denominada `ws`.
         ```python
         # configure cluster with a system-assigned managed identity
         compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_D2_V2',
                                                                 max_nodes=5,
                                                                 identity_type="SystemAssigned",
                                                                 )
+        cpu_cluster_name = "cpu-cluster"
+        cpu_cluster = ComputeTarget.create(ws, cpu_cluster_name, compute_config)
         ```
     
-    * Identidad administrada asignada por el usuario:
+    * Identidad administrada asignada por el usuario que se creó en un área de trabajo denominada `ws`.
     
         ```python
         # configure cluster with a user-assigned managed identity
@@ -154,7 +164,7 @@ En Studio, elija **Prioridad baja** al crear una máquina virtual.
         cpu_cluster = ComputeTarget.create(ws, cpu_cluster_name, compute_config)
         ```
 
-* Agregue la identidad administrada a un clúster de proceso existente 
+* Agregue la identidad administrada a un clúster de proceso existente denominado `cpu_cluster`.
     
     * Identidad administrada asignada por el sistema:
     

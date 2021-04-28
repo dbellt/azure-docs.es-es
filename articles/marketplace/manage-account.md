@@ -7,12 +7,12 @@ ms.topic: article
 author: varsha-sarah
 ms.author: vavargh
 ms.date: 04/07/2021
-ms.openlocfilehash: c76d9d06425405cf7f43e089cb9c2995e30410ee
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 8edac35fd83ef5dbf122e7f0959564fa072fbadd
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107108081"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108144932"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>Administración de la cuenta de marketplace comercial en el Centro de partners
 
@@ -179,7 +179,7 @@ La configuración de administración de dispositivos solo se aplica a la publica
 
 ## <a name="create-a-billing-profile"></a>Creación de un perfil de facturación
 
-Si va a publicar una oferta de [Dynamics 365 for Customer Engagement y Power Apps](./partner-center-portal/create-new-customer-engagement-offer.md) o [Dynamics 365 for Operations](./partner-center-portal/create-new-operations-offer.md) tendrá que rellenar el *perfil de facturación*.
+Si va a publicar una oferta de [Dynamics 365 for Customer Engagement y Power Apps](dynamics-365-customer-engage-offer-setup.md) o [Dynamics 365 for Operations](./partner-center-portal/create-new-operations-offer.md) tendrá que rellenar el *perfil de facturación*.
 
 La dirección de facturación se rellena previamente a partir de la entidad legal y puede actualizarla más adelante. Los campos IMPUESTO y CIF son obligatorios para algunos países y opcionales para otros. No se puede editar el nombre del país o región y el nombre de la empresa.
 
@@ -189,7 +189,7 @@ La dirección de facturación se rellena previamente a partir de la entidad lega
 
 ## <a name="multi-user-account-management"></a>Administración de cuentas multiusuario
 
-El Centro de partners usa [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis) (Azure AD) para la administración y el acceso a la cuenta multiusuario. La instancia de Azure AD de la organización se asocia automáticamente con la cuenta del Centro de partners como parte del proceso de inscripción.
+El Centro de partners usa [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) para la administración y el acceso a la cuenta multiusuario. La instancia de Azure AD de la organización se asocia automáticamente con la cuenta del Centro de partners como parte del proceso de inscripción.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

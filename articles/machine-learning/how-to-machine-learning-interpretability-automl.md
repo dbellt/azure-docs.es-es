@@ -5,17 +5,17 @@ description: Aprenda a obtener explicaciones sobre cómo el modelo de aprendizaj
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to, automl, responsible-ml
+ms.topic: how-to
+ms.custom: automl, responsible-ml
 ms.author: mithigpe
 author: minthigpen
 ms.date: 07/09/2020
-ms.openlocfilehash: 3258a1d53c4aa5010758bcd93ef32c53611f4684
-ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
+ms.openlocfilehash: 716ed2920b1e731a8515b7f099e77853955d9943
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107576472"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107884811"
 ---
 # <a name="interpretability-model-explanations-in-automated-machine-learning-preview"></a>Capacidad de interpretación: explicaciones de los modelos en el aprendizaje automático automatizado (versión preliminar)
 
@@ -31,7 +31,7 @@ En este artículo aprenderá a:
 - Habilitar visualizaciones para ayudarle a ver patrones en datos y explicaciones.
 - Implementar la interpretación durante la inferencia o puntuación.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Características de interoperabilidad. Ejecute `pip install azureml-interpret` para obtener el paquete necesario.
 - Conocimiento de la compilación de experimentos de aprendizaje automático automatizado. Para más información sobre cómo usar el SDK de Azure Machine Learning, complete este [tutorial de modelo de regresión](tutorial-auto-train-models.md) o consulte cómo [configurar experimentos de aprendizaje automático automatizado](how-to-configure-auto-train.md).

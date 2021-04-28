@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/05/2020
 ms.author: apimpm
-ms.openlocfilehash: 223d119786d99eac611ece597fc0e8de4fcaf6bd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: c7901dd4a238b27a31f95f1e22ddf9dc1ae5327a
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98762413"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107813076"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Procedimiento para implementar la recuperación ante desastres mediante copias de seguridad y restauración del servicio en Azure API Management
 
@@ -78,11 +79,14 @@ Todas las tareas que se realizan en los recursos mediante Azure Resource Manager
 5. Elija **Azure Service Management** (Administración de servicios de Azure).
 6. Haga clic en **Seleccionar**.
 
-    ![Adición de permisos](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
+    :::image type="content" source="./media/api-management-howto-disaster-recovery-backup-restore/add-app-permission.png" alt-text="Captura de pantalla que muestra cómo agregar permisos de aplicación":::. 
 
 7. Haga clic en **Permisos delegados** al lado de la aplicación recién agregada, active la casilla **Access Azure Service Management (preview)** [Acceso a Azure Service Management (versión preliminar)].
+
+    :::image type="content" source="./media/api-management-howto-disaster-recovery-backup-restore/delegated-app-permission.png" alt-text="Captura de pantalla que muestra la incorporación de permisos de aplicación delegados":::.
+
 8. Haga clic en **Seleccionar**.
-9. Haga clic en **Concesión de permisos**.
+9. Haga clic en **Agregar permisos**.
 
 ### <a name="configuring-your-app"></a>Configuración de la aplicación
 
@@ -227,7 +231,7 @@ La restauración es una operación de larga duración que puede tardar 30 minuto
 -   Configuración de [identidad administrada](api-management-howto-use-managed-service-identity.md).
 -   Configuración de [diagnóstico de Azure Monitor](api-management-howto-use-azure-monitor.md).
 -   Configuración de [protocolos y cifrado](api-management-howto-manage-protocols-ciphers.md).
--   Contenido del [portal para desarrolladores](api-management-howto-developer-portal.md#is-the-portals-content-saved-with-the-backuprestore-functionality-in-api-management).
+-   Contenido del [portal para desarrolladores](developer-portal-faq.md#is-the-portals-content-saved-with-the-backuprestore-functionality-in-api-management).
 
 La frecuencia con la que se crean las copias de seguridad afecta al objetivo de punto de recuperación. Para minimizarlo, se recomienda implementar copias de seguridad habituales y realizar copias de seguridad a petición después de hacer cambios en el servicio API Management.
 

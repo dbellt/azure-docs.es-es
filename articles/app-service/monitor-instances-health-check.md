@@ -6,12 +6,12 @@ author: msangapu-msft
 ms.topic: article
 ms.date: 12/03/2020
 ms.author: msangapu
-ms.openlocfilehash: e9d92c60e74ac9106246ccd445afaca926065e5f
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 73f3caf77bcf1f0e77f7f97ef747d4a8f35033e5
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104871204"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107886647"
 ---
 # <a name="monitor-app-service-instances-using-health-check"></a>Supervisión de instancias de App Service mediante la comprobación de estado
 
@@ -51,7 +51,7 @@ Además de configurar las opciones de la comprobación de estado, también puede
 | Nombre del valor de configuración de la aplicación | Valores permitidos | Descripción |
 |-|-|-|
 |`WEBSITE_HEALTHCHECK_MAXPINGFAILURES` | 2 - 10 | Número máximo de errores de ping. Por ejemplo, si se establece en `2`, las instancias se quitarán después de `2` ping con error. Además, al escalar vertical u horizontalmente, App Service hace ping en la ruta de acceso de comprobación de estado para asegurarse de que las nuevas instancias están listas. |
-|`WEBSITE_HEALTHCHECK_MAXUNHEALTYWORKERPERCENT` | 0 - 100 | Para evitar saturar las instancias correctas, no se excluirán más de la mitad de las instancias. Por ejemplo, si un plan de App Service se escala a cuatro instancias y tres son incorrectas, se excluirán dos como máximo. Las otras dos instancias (una correcta y otra incorrecta) seguirán recibiendo solicitudes. En el peor de los casos, si todas las instancias están en mal estado, no se excluye ninguna. Para invalidar este comportamiento, establezca la configuración de la aplicación en un valor entre `0` y `100`. Un valor mayor significa que se eliminarán más instancias incorrectas (el valor predeterminado es 50). |
+|`WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT` | 0 - 100 | Para evitar saturar las instancias correctas, no se excluirán más de la mitad de las instancias. Por ejemplo, si un plan de App Service se escala a cuatro instancias y tres son incorrectas, se excluirán dos como máximo. Las otras dos instancias (una correcta y otra incorrecta) seguirán recibiendo solicitudes. En el peor de los casos, si todas las instancias están en mal estado, no se excluye ninguna. Para invalidar este comportamiento, establezca la configuración de la aplicación en un valor entre `0` y `100`. Un valor mayor significa que se eliminarán más instancias incorrectas (el valor predeterminado es 50). |
 
 #### <a name="authentication-and-security"></a>Autenticación y seguridad
 

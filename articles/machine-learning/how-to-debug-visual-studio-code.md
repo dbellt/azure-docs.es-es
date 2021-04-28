@@ -5,16 +5,16 @@ description: Depure de manera interactiva el código, las canalizaciones y las i
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 09/30/2020
-ms.openlocfilehash: 783b5afdaef369582614cde3525f7968fdb5e567
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d3c4438cdfa8ddd41cb306e84623ccd569ac1680
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102508646"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107885585"
 ---
 # <a name="interactive-debugging-with-visual-studio-code"></a>Depuración interactiva con Visual Studio Code
 
@@ -278,7 +278,7 @@ ip_address: 10.3.0.5
 Guarde el valor de `ip_address`. Se usa en la siguiente sección.
 
 > [!TIP]
-> También puede encontrar la dirección IP en los registros de la ejecución secundaria para este paso de canalización. Para obtener más información sobre cómo ver esta información, vea [Supervisión de métricas y ejecuciones de experimentos de Azure ML](how-to-track-experiments.md).
+> También puede encontrar la dirección IP en los registros de la ejecución secundaria para este paso de canalización. Para obtener más información sobre cómo ver esta información, vea [Supervisión de métricas y ejecuciones de experimentos de Azure ML](how-to-log-view-metrics.md).
 
 ### <a name="configure-development-environment"></a>Configuración del entorno de desarrollo
 

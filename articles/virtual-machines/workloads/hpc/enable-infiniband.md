@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/18/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 089976f2009e006f53dd2a77f09f57d5090429b7
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: dba336c8690bba2bb388a8b9ab2d52b651166da5
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104721243"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107599611"
 ---
 # <a name="enable-infiniband"></a>Habilitar InfiniBand
 
@@ -67,7 +67,7 @@ sudo systemctl restart waagent
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga más información sobre la instalación de varias [bibliotecas de MPI compatibles](setup-mpi.md), así como sobre su configuración óptima de las VM.
+- Más información sobre cómo instalar y ejecutar varias [bibliotecas MPI admitidas](setup-mpi.md) en las máquinas virtuales.
 - Revise la [información general de la serie HBv3](hbv3-series-overview.md) y la [información general de la serie HC](hc-series-overview.md).
 - En los [blogs de Azure Compute Community Tech](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute), encontrará los anuncios más recientes, ejemplos de la carga de trabajo HPC y resultados de HPC.
 - Si desea una visión general de la arquitectura de la ejecución de cargas de trabajo de HPC, consulte [Informática de alto rendimiento (HPC) en Azure](/azure/architecture/topics/high-performance-computing/).

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/18/2021
 ms.author: Zhchia
-ms.openlocfilehash: b8513f62b6f181a1490d136062c5de81db847ba7
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: ffc7aea2323f356c924c9d19b160d42a2bf59a69
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107533395"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108146192"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Tutorial: Configuración de G Suite para el aprovisionamiento automático de usuarios
 
@@ -273,7 +273,7 @@ Una vez configurado el aprovisionamiento, use los recursos siguientes para super
 * 17/10/2020 - Se ha agregado compatibilidad con atributos adicionales de usuario y grupo de G Suite.
 * 17/10/2020 - Se han actualizado los nombres de atributo de destino de G Suite para que coincidan con lo que se define [aquí](https://developers.google.com/admin-sdk/directory).
 * 17/10/2020 - Se han actualizado las asignaciones de atributos predeterminadas.
-* 18/03/2021: ahora, el correo electrónico del administrador está sincronizado en lugar de asignar identificadores para todos los nuevos usuarios. En el caso de los usuarios ya existentes que se hayan aprovisionado con un administrador como identificador, puede efectuar un reinicio mediante [Microsoft Graph](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http&preserve-view=true) con el ámbito "completo" para asegurarse de que se aprovisione el correo electrónico. Este cambio solo afecta el trabajo de aprovisionamiento de GSuite, no al trabajo de aprovisionamiento anterior que comenzaba por Goov2OutDelta. Tenga en cuenta que el correo electrónico del administrador se aprovisiona cuando el usuario se crea por primera vez o cuando cambia el administrador. El correo electrónico del administrador no se aprovisiona si el administrador cambia su dirección de correo electrónico. 
+* 18/03/2021: ahora, el correo electrónico del administrador está sincronizado en lugar de asignar identificadores para todos los nuevos usuarios. En el caso de los usuarios ya existentes que se hayan aprovisionado con un administrador como identificador, puede efectuar un reinicio mediante [Microsoft Graph](/graph/api/synchronization-synchronizationjob-restart?preserve-view=true&tabs=http&view=graph-rest-beta) con el ámbito "completo" para asegurarse de que se aprovisione el correo electrónico. Este cambio solo afecta el trabajo de aprovisionamiento de GSuite, no al trabajo de aprovisionamiento anterior que comenzaba por Goov2OutDelta. Tenga en cuenta que el correo electrónico del administrador se aprovisiona cuando el usuario se crea por primera vez o cuando cambia el administrador. El correo electrónico del administrador no se aprovisiona si el administrador cambia su dirección de correo electrónico. 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

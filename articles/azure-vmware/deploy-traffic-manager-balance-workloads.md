@@ -3,12 +3,12 @@ title: Implementación de Traffic Manager para equilibrar las cargas de trabajo 
 description: Aprenda a integrar Traffic Manager con Azure VMware Solution para equilibrar las cargas de trabajo de aplicaciones en varios puntos de conexión de distintas regiones.
 ms.topic: how-to
 ms.date: 02/08/2021
-ms.openlocfilehash: 46570c5a61fc0a641d83126fd0f8ef35b3dc42cc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 029bb9512bd19effd1c7aeb5104c7bb6d7ccdca5
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99988590"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107876929"
 ---
 # <a name="deploy-traffic-manager-to-balance-azure-vmware-solution-workloads"></a>Implementación de Traffic Manager para equilibrar las cargas de trabajo de Azure VMware Solution
 
@@ -132,7 +132,7 @@ En los pasos siguientes se comprueba la configuración del segmento NSX-T en el 
 
 Ahora que ha leído sobre la integración de Azure Traffic Manager con Azure VMware Solution, puede obtener más información acerca de:
 
-- [Uso de Azure Application Gateway en Azure VMware Solution](protect-azure-vmware-solution-with-application-gateway.md).
-- [Métodos de enrutamiento de Traffic Manager](../traffic-manager/traffic-manager-routing-methods.md).
-- [Combinación de servicios de equilibrio de carga en Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
-- [Medición del rendimiento de Traffic Manager](../traffic-manager/traffic-manager-performance-considerations.md).
+- [Uso de Azure Application Gateway en Azure VMware Solution](protect-azure-vmware-solution-with-application-gateway.md)
+- [Métodos de enrutamiento de Traffic Manager](../traffic-manager/traffic-manager-routing-methods.md)
+- [Combinación de servicios de equilibrio de carga en Azure](../traffic-manager/traffic-manager-load-balancing-azure.md)
+- [Medición del rendimiento de Traffic Manager](../traffic-manager/traffic-manager-performance-considerations.md)

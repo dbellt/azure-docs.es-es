@@ -8,14 +8,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 01/31/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python
-ms.openlocfilehash: b61050db29ff960b7923f2211b2f09649608b37e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: how-to
+ms.custom: devx-track-python
+ms.openlocfilehash: dcab70d75ca5a46242b1d43d28e148dc5f54b2d2
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102520326"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107888969"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>Creación, ejecución y eliminación de recursos de Azure Machine Learning mediante REST
 

@@ -5,18 +5,18 @@ description: Información sobre la creación y administración de una instancia 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to, devx-track-azurecli
+ms.topic: how-to
+ms.custom: devx-track-azurecli
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 2778f52b312e5d2fda7879b834fcd204285b7144
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4ae4094e4a356c5394c2bdf887d3b60e40989ecd
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105628958"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107885747"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Creación y administración de una instancia de proceso de Azure Machine Learning
 
@@ -93,7 +93,7 @@ Para más información acerca de las clases, los métodos y los parámetros que 
 az ml computetarget create computeinstance  -n instance -s "STANDARD_D3_V2" -v
 ```
 
-Para más información, vea la referencia de [az ml computetarget create computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/create#ext_azure_cli_ml_az_ml_computetarget_create_computeinstance).
+Para más información, vea la referencia de [az ml computetarget create computeinstance](/cli/azure/ml/computetarget/create#az_ml_computetarget_create_computeinstance).
 
 # <a name="studio"></a>[Estudio](#tab/azure-studio)
 
@@ -181,7 +181,7 @@ En todos los siguientes ejemplos, el nombre de la instancia de proceso es **inst
     az ml computetarget stop computeinstance -n instance -v
     ```
 
-    Para más información, consulte [az ml computetarget stop computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance#ext-azure-cli-ml-az-ml-computetarget-computeinstance-stop).
+    Para más información, consulte [az ml computetarget stop computeinstance](/cli/azure/ml/computetarget/computeinstance#az_ml_computetarget_computeinstance_stop).
 
 * Start 
 
@@ -189,7 +189,7 @@ En todos los siguientes ejemplos, el nombre de la instancia de proceso es **inst
     az ml computetarget start computeinstance -n instance -v
     ```
 
-    Para más información, consulte [az ml computetarget start computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance#ext-azure-cli-ml-az-ml-computetarget-computeinstance-start).
+    Para más información, consulte [az ml computetarget start computeinstance](/cli/azure/ml/computetarget/computeinstance#az_ml_computetarget_computeinstance_start).
 
 * Reinicio 
 
@@ -197,7 +197,7 @@ En todos los siguientes ejemplos, el nombre de la instancia de proceso es **inst
     az ml computetarget restart computeinstance -n instance -v
     ```
 
-    Para más información, consulte[az ml computetarget restart computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance#ext-azure-cli-ml-az-ml-computetarget-computeinstance-restart).
+    Para más información, consulte[az ml computetarget restart computeinstance](/cli/azure/ml/computetarget/computeinstance#az_ml_computetarget_computeinstance_restart).
 
 * Eliminar
 
@@ -205,7 +205,7 @@ En todos los siguientes ejemplos, el nombre de la instancia de proceso es **inst
     az ml computetarget delete -n instance -v
     ```
 
-    Para más información, consulte [az ml computetarget delete computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget#ext-azure-cli-ml-az-ml-computetarget-delete).
+    Para más información, consulte [az ml computetarget delete computeinstance](/cli/azure/ml/computetarget#az_ml_computetarget_delete).
 
 # <a name="studio"></a>[Estudio](#tab/azure-studio)
 

@@ -1,20 +1,20 @@
 ---
 title: 'Inicio rápido: Creación de una instancia de Azure Data Factory con Python'
 description: Use una instancia de Data Factory para copiar los datos de una ubicación de Azure Blob Storage a otra.
-author: dcstwh
-ms.author: weetok
+author: ssabat
+ms.author: susabat
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 04/12/2021
 ms.custom: seo-python-october2019, devx-track-python
-ms.openlocfilehash: 534b5b3aca86cc2f6d7ee2d703939420f80abb8e
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 665944688533b4efa6e0e14077ae7df22d352d50
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107365100"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108123634"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Inicio rápido: Creación de una factoría de datos y una canalización con Python
 
@@ -75,7 +75,7 @@ Las canalizaciones pueden ingerir datos de distintos almacenes de datos. Las can
     ```
     > [!NOTE] 
     > El paquete "azure-identity" puede tener conflictos con "azure-cli" en algunas dependencias comunes. Si encuentra algún problema de autenticación, elimine el paquete "azure-cli" y sus dependencias, o bien use un equipo limpio sin una instalación del paquete "azure-cli" para que funcione.
-    > Para las nubes soberanas, debe usar las constantes específicas de la nube adecuadas.  Consulte [Conexión a todas las regiones con las bibliotecas de Azure para múltiples nubes de Python | Microsoft Docs](https://docs.microsoft.com/azure/developer/python/azure-sdk-sovereign-domain) para instrucciones de conexión con Python en nubes soberanas.
+    > Para las nubes soberanas, debe usar las constantes específicas de la nube adecuadas.  Consulte [Conexión a todas las regiones con las bibliotecas de Azure para múltiples nubes de Python | Microsoft Docs](/azure/developer/python/azure-sdk-sovereign-domain) para instrucciones de conexión con Python en nubes soberanas.
     
     
 ## <a name="create-a-data-factory-client"></a>Creación de un cliente de factoría de datos

@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/25/2021
 ms.author: dpless
 ms.reviewer: jroth
-ms.openlocfilehash: 001a9a15c259d0b0d73eec9c9a39ad7c27f26721
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f1138f0b33e75968f51965355528805dd29033b3
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105572288"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108145652"
 ---
 # <a name="storage-performance-best-practices-for-sql-server-on-azure-vms"></a>Almacenamiento: procedimientos recomendados de rendimiento de SQL Server en VM de Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -53,7 +53,7 @@ Revise la siguiente lista de comprobación para obtener una breve descripción d
 - La [expansión de disco basada en crédito](../../../virtual-machines/disk-bursting.md#credit-based-bursting) (P1-P20) solo se debe tener en cuenta para cargas de trabajo de desarrollo y pruebas más pequeñas y sistemas departamentales.
 - Aprovisione la cuenta de almacenamiento en la misma región que la VM de SQL Server. 
 - Deshabilite el almacenamiento con redundancia geográfica de Azure (replicación geográfica) y use LRS (almacenamiento con redundancia local) en la cuenta de almacenamiento.
-- Formatee el disco de datos para que use un tamaño de unidad de asignación de 64 KB para todos los archivos de datos ubicados en una unidad que no sea la unidad temporal `D:\` (que tiene un valor predeterminado de 4 KB). Las VM de SQL Server implementadas a través de Azure Marketplace se ofrecen con discos de datos formateados con el tamaño de la unidad de asignación y la intercalación para el bloque de almacenamiento establecido en 64 KB. 
+- Formatee el disco de datos para que use un tamaño de bloque (tamaño de unidad de asignación) de 64 KB para todos los archivos de datos ubicados en una unidad que no sea la unidad temporal `D:\` (que tiene un valor predeterminado de 4 KB). Las VM con SQL Server implementadas mediante Azure Marketplace se ofrecen con discos de datos formateados con un tamaño de bloque y una intercalación del bloque de almacenamiento establecidos en 64 KB. 
 
 Para comparar la lista de comprobación de almacenamiento con las demás, consulte la [Lista de comprobación de procedimientos recomendados de rendimiento](performance-guidelines-best-practices-checklist.md). 
 
@@ -163,7 +163,7 @@ Por ejemplo, la documentación de la [serie M](../../../virtual-machines/m-serie
 
 Del mismo modo, puede ver que la VM Standard_M32ts admite 20 000 IOPS de disco sin almacenamiento en caché y un rendimiento de disco no almacenado en caché de 500 MBps. Este límite se rige en función del nivel de máquina virtual, independientemente del almacenamiento en disco prémium subyacente.
 
-Para obtener más información, consulte los [límites almacenados y no almacenados en caché](../../../virtual-machines/linux/disk-performance-linux.md#virtual-machine-uncached-vs-cached-limits).
+Para obtener más información, consulte los [límites almacenados y no almacenados en caché](../../../virtual-machines/disks-performance.md#virtual-machine-uncached-vs-cached-limits).
 
 
 ### <a name="cached-and-temp-storage-throughput"></a>Rendimiento de almacenamiento temporal y en caché
@@ -231,7 +231,7 @@ Para obtener más información sobre las limitaciones del disco y el uso del alm
 
 ## <a name="write-acceleration"></a>Aceleración de escritura
 
-La Aceleración de escritura es una característica de disco que solo está disponible para las máquinas virtuales de (VM) [serie M](https://docs.microsoft.com/azure/virtual-machines/m-series). El propósito de la Aceleración de escritura es mejorar la latencia de E/S de las operaciones de escritura en Azure Premium Storage cuando se necesita una latencia de E/S de un solo dígito, debido a las grandes cargas de trabajo de OLTP o a los entornos de almacenamiento de datos. 
+La Aceleración de escritura es una característica de disco que solo está disponible para las máquinas virtuales de (VM) [serie M](../../../virtual-machines/m-series.md). El propósito de la Aceleración de escritura es mejorar la latencia de E/S de las operaciones de escritura en Azure Premium Storage cuando se necesita una latencia de E/S de un solo dígito, debido a las grandes cargas de trabajo de OLTP o a los entornos de almacenamiento de datos. 
 
 Use la Aceleración de escritura para mejorar la latencia de las operaciones de escritura en la unidad que hospeda los archivos de registro. No use la Aceleración de escritura para archivos de datos de SQL Server. 
 

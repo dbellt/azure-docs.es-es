@@ -9,12 +9,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: sstein
 ms.date: 03/31/2021
-ms.openlocfilehash: 522f4ec2f28f9d8975a8a7a7b10e435f602af855
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 730a03ce06efe96347d32409961638532823f6dc
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107484037"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107883587"
 ---
 # <a name="migrate-databases-from-sql-server-to-sql-managed-instance-by-using-log-replay-service-preview"></a>Migración de bases de datos de SQL Server a SQL Managed Instance mediante el servicio de reproducción de registros (versión preliminar)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

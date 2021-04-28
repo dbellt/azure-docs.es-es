@@ -8,12 +8,12 @@ author: vamahtan
 ms.author: vamahtan
 ms.reviewer: stmummer
 ms.date: 4/15/2021
-ms.openlocfilehash: dcb77e45f5e1469363eb279626a866c7f719de40
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: ff67d5150e6bb95e900d3a81e0025216ffb19471
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107537532"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108133392"
 ---
 # <a name="co-sell-with-microsoft-sales-teams-and-partners-overview"></a>Información general sobre la venta conjunta de los equipos de ventas de Microsoft y los asociados
 
@@ -87,6 +87,6 @@ Para obtener información sobre cómo lograr el estado Listo para la venta conju
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para obtener información sobre los requisitos, consulte [Requisitos de la venta conjunta](co-sell-requirements.md).
-- Para configurar una oferta para la venta conjunta, consulte [Opción de venta conjunta en el marketplace comercial](commercial-marketplace-co-sell.md).
+- Para configurar una oferta para la venta conjunta, consulte [Opción de venta conjunta en el marketplace comercial](./co-sell-configure.md).
 - Para comprobar el estado de venta conjunta, consulte [Comprobación del estado de venta conjunta de una oferta de Marketplace comercial](co-sell-status.md).
 - Más información en [Venta conjunta con Microsoft](https://partner.microsoft.com/membership/sell-with-microsoft).

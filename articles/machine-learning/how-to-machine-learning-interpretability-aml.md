@@ -9,14 +9,14 @@ ms.author: mithigpe
 author: minthigpen
 ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, responsible-ml
-ms.openlocfilehash: d79458cfc76adcfd35a6b8dee40c0c45786abc28
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.topic: how-to
+ms.custom: devx-track-python, responsible-ml
+ms.openlocfilehash: 6afe193cb29b313f45335e46aa9fcaec2e8bf240
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107763296"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107889059"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>Uso del paquete de interpretación para explicar los modelos de Machine Learning y las predicciones en Python (versión preliminar)
 

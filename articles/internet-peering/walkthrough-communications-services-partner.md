@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: how-to
 ms.date: 03/30/2021
 ms.author: gatharej
-ms.openlocfilehash: ff6750883a904ff5ddbddd3ddfd1ed82e72aebbc
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: 4c4e3e2331ce334fbdd1c273fecd899bcd24612b
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106498906"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108124570"
 ---
 # <a name="azure-internet-peering-for-communications-services-walkthrough"></a>Tutorial de emparejamiento de Internet de Azure para Communication Services
 
@@ -47,7 +47,7 @@ Para establecer una interconexión directa con el emparejamiento de Internet de 
 
 En caso de que el nodo del mismo nivel ya haya asociado el ASN público a una suscripción a Azure, omita este paso.
 
-[Asociación de un ASN del mismo nivel a una suscripción de Azure mediante el portal - Azure | Microsoft Docs](https://docs.microsoft.com/azure/internet-peering/howto-subscription-association-portal)
+[Asociación de un ASN del mismo nivel a una suscripción de Azure mediante el portal - Azure | Microsoft Docs](./howto-subscription-association-portal.md)
 
 El siguiente paso consiste en crear una conexión de emparejamiento directo para Peering Service.
 
@@ -56,7 +56,7 @@ El siguiente paso consiste en crear una conexión de emparejamiento directo para
 
 **2. Cree una conexión de emparejamiento directo para Peering Service:**
 
-Siga las instrucciones de [Creación o modificación de un emparejamiento directo mediante el portal](https://docs.microsoft.com/azure/internet-peering/howto-direct-portal).
+Siga las instrucciones de [Creación o modificación de un emparejamiento directo mediante el portal](./howto-direct-portal.md).
 
 Asegúrese de que cumple el requisito de alta disponibilidad.
 
@@ -83,10 +83,10 @@ Usar para servicios de emparejamiento:   **Habilitado**
   **2a. Use una conexión de emparejamiento directo existente para Peering Service**
 
 Si tiene un emparejamiento directo existente que quisiera usar para admitir Peering Service, puede activarlo en Azure Portal.
-1.  Siga las instrucciones de [Conversión de un emparejamiento directo heredado en un recurso de Azure mediante el portal](https://docs.microsoft.com/azure/internet-peering/howto-legacy-direct-portal).
+1.  Siga las instrucciones de [Conversión de un emparejamiento directo heredado en un recurso de Azure mediante el portal](./howto-legacy-direct-portal.md).
 Si es necesario, solicite circuitos adicionales para cumplir el requisito de alta disponibilidad.
 
-2.  Siga los pasos de [Habilitación de Peering Service](https://docs.microsoft.com/azure/internet-peering/howto-peering-service-portal) en un emparejamiento directo mediante el portal.
+2.  Siga los pasos de [Habilitación de Peering Service](./howto-peering-service-portal.md) en un emparejamiento directo mediante el portal.
 
 
 
@@ -94,7 +94,7 @@ Si es necesario, solicite circuitos adicionales para cumplir el requisito de alt
 **3. Registre los prefijos para el enrutamiento optimizado**
 
 Para un enrutamiento optimizado de los prefijos de la infraestructura de servicios de comunicación, debe registrar todos los prefijos con sus interconexiones de emparejamiento.
-[Registro de Azure Peering Service: Azure Portal | Microsoft Docs](https://docs.microsoft.com/azure/peering-service/azure-portal)
+[Registro de Azure Peering Service: Azure Portal | Microsoft Docs](../peering-service/azure-portal.md)
 
 La clave de prefijo se rellena automáticamente para los asociados de servicios de comunicaciones, por lo que el socio no necesita usar ninguna clave de prefijo para registrarse. 
 
@@ -141,4 +141,4 @@ Asegúrese de que los prefijos que se están registrando se anuncien a través d
 
 **P.** ¿Se pueden usar las API para la incorporación?
 
-**R.** Actualmente no hay compatibilidad con la API, y la configuración debe realizarse a través del portal web. 
+**R.** Actualmente no hay compatibilidad con la API, y la configuración debe realizarse a través del portal web.
