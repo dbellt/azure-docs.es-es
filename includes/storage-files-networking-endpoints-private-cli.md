@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 5/11/2020
 ms.author: rogarana
 ms.custom: include file, devx-track-azurecli
-ms.openlocfilehash: e6cc45c3aedc013b63f9d7876b923e7db36ccd37
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: fd0953348de109101ed14c20ac342054d2faf3a1
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107512480"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107893321"
 ---
 Para crear un punto de conexión privado para la cuenta de almacenamiento, primero debe obtener una referencia a la cuenta de almacenamiento y la subred de la red virtual a la que quiere agregar el punto de conexión privado. Reemplace `<storage-account-resource-group-name>`, `<storage-account-name>`, `<vnet-resource-group-name>`, `<vnet-name>` y `<vnet-subnet-name>` a continuación:
 

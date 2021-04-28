@@ -7,12 +7,12 @@ ms.date: 09/14/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: devx-track-python, github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: 1ed2b007ae00516a030e67b7f6abacbd00a8d403
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: aa4475ccedfb19ece540337f493bcc5ed64af035
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107772890"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107832471"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Implementación de App Service con Acciones de GitHub
 
@@ -235,7 +235,7 @@ Puede restaurar las dependencias de NuGet y ejecutar MSBuild con `run`.
   run: nuget restore
 
 - name: Add msbuild to PATH
-  uses: microsoft/setup-msbuild@v1.0.0
+  uses: microsoft/setup-msbuild@v1.0.2
 
 - name: Run msbuild
   run: msbuild .\SampleWebApplication.sln
@@ -359,7 +359,7 @@ jobs:
       run: nuget restore
   
     - name: Add msbuild to PATH
-      uses: microsoft/setup-msbuild@v1.0.0
+      uses: microsoft/setup-msbuild@v1.0.2
 
     - name: Run MSBuild
       run: msbuild .\SampleWebApplication.sln
@@ -581,7 +581,7 @@ jobs:
       run: nuget restore
   
     - name: Add msbuild to PATH
-      uses: microsoft/setup-msbuild@v1.0.0
+      uses: microsoft/setup-msbuild@v1.0.2
 
     - name: Run MSBuild
       run: msbuild .\SampleWebApplication.sln

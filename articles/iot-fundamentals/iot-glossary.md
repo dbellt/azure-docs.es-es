@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/08/2021
-ms.openlocfilehash: a45b8db1f17ead8e55bac2b2bf82aa44cb7f080e
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: ceb39893327af82e8dff3e82ef570727b3bdfa33
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107304707"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108141957"
 ---
 # <a name="glossary-of-iot-terms"></a>Glosario de términos de IoT
 
@@ -178,7 +178,7 @@ La administración de dispositivos abarca el ciclo de vida completo asociado a l
 
 ### <a name="device-model"></a>Modelo de dispositivo
 
-Un modelo de dispositivo es un tipo de [modelo](#model) que usa el [lenguaje de definición de Digital Twins](#digital-twins-definition-language-dtdl) para describir las funcionalidades de un dispositivo IoT Plug and Play. Un modelo de dispositivo simple usa una sola interfaz para describir las funcionalidades del dispositivo. Un modelo de dispositivo más complejo incluye varios componentes, cada uno de los cuales describe un conjunto de funcionalidades. Para obtener más información, consulte [Componentes de los modelos de IoT Plug and Play](../iot-pnp/concepts-components.md).
+Un modelo de dispositivo es un tipo de [modelo](#model) que usa el [lenguaje de definición de Digital Twins](#digital-twins-definition-language-dtdl) para describir las funcionalidades de un dispositivo IoT Plug and Play. Un modelo de dispositivo simple usa una sola interfaz para describir las funcionalidades del dispositivo. Un modelo de dispositivo más complejo incluye varios componentes, cada uno de los cuales describe un conjunto de funcionalidades. Para obtener más información, consulte [Componentes de los modelos de IoT Plug and Play](../iot-pnp/concepts-modeling-guide.md).
 
 ### <a name="device-modeling"></a>Modelado de dispositivos
 

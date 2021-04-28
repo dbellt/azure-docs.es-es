@@ -8,14 +8,14 @@ ms.subservice: core
 ms.author: laobri
 author: lobrien
 ms.date: 03/04/2021
-ms.topic: conceptual
-ms.custom: how-to, synapse-azureml
-ms.openlocfilehash: 2c69ec853cdeeed6f9e28fb9f2884053580ce08e
-ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
+ms.topic: how-to
+ms.custom: synapse-azureml
+ms.openlocfilehash: 8ef4eca10971f9f7f405292fa7b722b26c7d53cd
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107576387"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107896772"
 ---
 # <a name="how-to-use-apache-spark-powered-by-azure-synapse-analytics-in-your-machine-learning-pipeline-preview"></a>Uso de Apache Spark (con tecnología de Azure Synapse Analytics) en la canalización de aprendizaje automático (versión preliminar)
 

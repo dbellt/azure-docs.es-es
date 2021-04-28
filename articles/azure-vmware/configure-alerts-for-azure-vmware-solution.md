@@ -3,16 +3,16 @@ title: Configuración de alertas y trabajo con métricas en Azure VMware Solutio
 description: Aprenda a usar alertas para recibir notificaciones. Conozca también cómo trabajar con métricas para obtener información más detallada sobre la nube privada de Azure VMware Solution.
 ms.topic: how-to
 ms.date: 04/02/2021
-ms.openlocfilehash: 486f25eba017b2d4e37c0796909a0d26adee6ba8
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 2e7a04a11b5a569c6e12e7a8315f13ea740a812c
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107309635"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108126291"
 ---
 # <a name="configure-azure-alerts-in-azure-vmware-solution"></a>Configuración de alertas de Azure en Azure VMware Solution 
 
-En este artículo va a aprender a configurar [grupos de acciones de Azure](/azure/azure-monitor/alerts/action-groups) en [alertas de Microsoft Azure](/azure/azure-monitor/alerts/alerts-overview) para recibir notificaciones de eventos desencadenados que defina. También va a aprender a usar [métricas de Azure Monitor](/azure/azure-monitor/essentials/data-platform-metrics) para obtener información más detallada sobre la nube privada de Azure VMware Solution.
+En este artículo va a aprender a configurar [grupos de acciones de Azure](../azure-monitor/alerts/action-groups.md) en [alertas de Microsoft Azure](../azure-monitor/alerts/alerts-overview.md) para recibir notificaciones de eventos desencadenados que defina. También va a aprender a usar [métricas de Azure Monitor](../azure-monitor/essentials/data-platform-metrics.md) para obtener información más detallada sobre la nube privada de Azure VMware Solution.
 
 
 ## <a name="supported-metrics-and-activities"></a>Métricas y actividades admitidas
@@ -126,13 +126,8 @@ Las siguientes métricas son visibles por medio de métricas de Azure Monitor.
 ## <a name="next-steps"></a>Pasos siguientes
 
 Ahora que ha configurado una regla de alerta para la nube privada de Azure VMware Solution, puede que quiera obtener más información sobre:
-- [Métricas de Azure Monitor](/azure/azure-monitor/essentials/data-platform-metrics)
-- [Alertas de Azure Monitor](/azure/azure-monitor/alerts/alerts-overview)
-- [Grupos de acciones de Azure](/azure/azure-monitor/alerts/action-groups)
+- [Métricas de Azure Monitor](../azure-monitor/essentials/data-platform-metrics.md)
+- [Alertas de Azure Monitor](../azure-monitor/alerts/alerts-overview.md)
+- [Grupos de acciones de Azure](../azure-monitor/alerts/action-groups.md)
 
 También puede continuar con una de las otras guías de procedimientos de [Azure VMware Solution](index.yml).
-
-
-
-
-

@@ -5,13 +5,13 @@ author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 01/19/2021
-ms.openlocfilehash: 659f6527d43e1b45a11fddf774050ca6d42bfe12
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/16/2021
+ms.openlocfilehash: f7a4041d87e00fa01ae5ae4dff0cade3b9755d31
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98896670"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600947"
 ---
 # <a name="transformation-functions-in-power-query-for-data-wrangling"></a>Funciones de transformación en Power Query para la limpieza y transformación de datos
 
@@ -99,6 +99,23 @@ Mantener y quitar la parte superior, mantener el rango (funciones M correspondie
 | Control de errores de nivel de fila | El control de errores de nivel de fila no se admite actualmente. Por ejemplo, para filtrar los valores no numéricos de una columna, una opción sería transformar la columna de texto en números. Cada celda que no se pueda transformar tendrá un estado de error y debe filtrarse. Este escenario no es posible en M con escalabilidad horizontal. |
 | Table.Transpose | No compatible |
 | Table.Pivot | No compatible |
+| Table.SplitColumn | Compatibilidad parcial |
+
+## <a name="m-script-workarounds"></a>Soluciones alternativas de script M
+
+### <a name="for-splitcolumn-there-is-an-alternate-for-split-by-length-and-by-position"></a>Para ```SplitColumn``` hay una alternativa para dividir por longitud y por posición
+
+* Table.AddColumn(Source, "Primeros caracteres", each Text.Start([Email], 7), type text)
+* Table.AddColumn(#"Primeros caracteres insertados", "Rango de texto", each Text.Middle([Email], 4, 9), type text)
+
+Se puede acceder a esta opción desde "Extraer" en la cinta de opciones.
+
+![Power Query Agregar columna](media/wrangling-data-flow/pq-split.png)
+
+### <a name="for-tablecombinecolumns"></a>Para ```Table.CombineColumns```
+
+* Table.AddColumn(RemoveEmailColumn, "Nombre", each [FirstName] & " " & [LastName])
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

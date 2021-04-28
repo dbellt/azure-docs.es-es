@@ -14,12 +14,12 @@ ms.custom:
 - devx-track-azurecli
 ms.date: 04/10/2019
 ms.author: wesmc
-ms.openlocfilehash: 6cc20a362ceebe56beb0d2baa48ea479d3b322a7
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: a9478948cd5232c863014631acb884cd637a2f7d
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106067653"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107864026"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-c"></a>Inicio rápido: Envío de telemetría desde un dispositivo a un centro de IoT y su lectura con una aplicación de back-end (C)
 
@@ -114,7 +114,7 @@ Sin embargo, en esta guía de inicio rápido, preparará un entorno de desarroll
 
 ## <a name="register-a-device"></a>Registrar un dispositivo
 
-Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En esta sección, usará Azure Cloud Shell con la [extensión de IoT](/cli/azure/ext/azure-iot/iot) para registrar un dispositivo simulado.
+Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En esta sección, usará Azure Cloud Shell con la [extensión de IoT](/cli/azure/iot) para registrar un dispositivo simulado.
 
 1. Ejecute los siguientes comandos en Azure Cloud Shell para crear la identidad del dispositivo.
 
@@ -183,7 +183,7 @@ La aplicación de dispositivo simulado se conecta a un punto de conexión espec�
 
 ## <a name="read-the-telemetry-from-your-hub"></a>Lectura de los datos de telemetría procedentes de su instancia de IoT Hub
 
-En esta sección, usará Azure Cloud Shell con la [extensión de IoT](/cli/azure/ext/azure-iot/iot) para supervisar los mensajes de dispositivo que envía el dispositivo simulado.
+En esta sección, usará Azure Cloud Shell con la [extensión de IoT](/cli/azure/iot) para supervisar los mensajes de dispositivo que envía el dispositivo simulado.
 
 1. Mediante Azure Cloud Shell, ejecute el siguiente comando para conectarse y leer mensajes desde el centro de IoT:
 

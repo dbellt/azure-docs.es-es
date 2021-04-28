@@ -12,12 +12,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: ad641c2270f94b9d902a25e8d061fb1137a0cdb7
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 59955b291ce706a77d0dd5ab052809fe725166d9
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102518609"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107387894"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Dónde guardar y escribir los archivos para los experimentos de Azure Machine Learning
 
@@ -30,13 +30,13 @@ Al iniciar las ejecuciones de entrenamiento en un [destino de proceso](concept-c
 
 Para poder iniciar un experimento en la máquina local o en un destino de proceso, debe asegurarse de que los archivos necesarios están disponibles para ese destino de proceso, por ejemplo, los archivos de dependencia y los de datos que su código necesita para ejecutarse.
 
-Azure Machine Learning ejecuta scripts de entrenamiento mediante la copia de todo el directorio de origen. Si tiene información confidencial que no quiere cargar, use un [archivo .ignore](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) o no lo incluya en el directorio de origen. En su lugar, acceda a los datos mediante un [almacén de datos](/python/api/azureml-core/azureml.data).
+Azure Machine Learning ejecuta scripts de entrenamiento mediante la copia de todo el directorio de origen. Si tiene información confidencial que no quiere cargar, use un [archivo .ignore](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) o no la incluya en el directorio de origen. En su lugar, acceda a los datos mediante un [almacén de datos](/python/api/azureml-core/azureml.data).
 
 El límite de almacenamiento para las instantáneas del experimento es de 300 MB y 2000 archivos.
 
 Por este motivo, se recomienda:
 
-* **Almacenar los archivos en un [almacén de datos](/python/api/azureml-core/azureml.data) de Azure Machine Learning.** Así se evitan los problemas de latencia del experimento y tiene las ventajas de acceder a los datos desde un destino de proceso remoto, lo que significa que la autenticación y el montaje son administrados por Azure Machine Learning. Más información sobre cómo especificar un almacén de datos como el directorio de origen y cómo cargar los archivos en el almacén de datos, en el artículo [Datos de acceso desde almacenes de datos](how-to-access-data.md).
+* **Almacenar los archivos en un [conjunto de datos](/python/api/azureml-core/azureml.data) de Azure Machine Learning.** Así se evitan los problemas de latencia del experimento y tiene las ventajas de acceder a los datos desde un destino de proceso remoto, lo que significa que la autenticación y el montaje son administrados por Azure Machine Learning. Más información sobre cómo especificar un conjunto de datos como origen de datos de entrada en el script de entrenamiento en [Entrenamiento de modelos con conjuntos de datos de Azure Machine Learning](how-to-train-with-datasets.md).
 
 * **Si solo necesita dos archivos de datos y scripts de dependencias, y no puede usar un almacén de datos,** coloque los archivos en el mismo directorio de carpetas que el script de entrenamiento. Especifique esta carpeta como su `source_directory` directamente en el script de entrenamiento o en el código que lo llama.
 
@@ -64,9 +64,9 @@ Jupyter Notebook| Cree un archivo `.amlignore` o mueva el Bloc de notas a un sub
 
 Debido al aislamiento de los experimentos de entrenamiento, los cambios en los archivos que se producen durante las ejecuciones no necesariamente persisten fuera de su entorno. Si el script modifica los archivos de forma local al proceso, los cambios no se conservan para la siguiente ejecución del experimento ni se propagan a la máquina cliente automáticamente. Por tanto, los cambios realizados durante la primera ejecución del experimento no afectan a los realizados durante la segunda, ni deberían afectar.
 
-Al escribir los cambios, se recomienda escribir los archivos en un almacén de datos de Azure Machine Learning. Consulte [Datos de acceso desde almacenes de datos](how-to-access-data.md).
+Al escribir cambios, se recomienda escribir los archivos en el almacenamiento mediante un conjunto de datos de Azure Machine Learning con un [objeto OutputFileDatasetConfig](/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig). Consulte [Creación de un objeto OutputFileDatasetConfig](how-to-train-with-datasets.md#where-to-write-training-output).
 
-Si no necesita un almacén de datos, escriba los archivos en la carpeta `./outputs` o `./logs`.
+De lo contrario, escriba los archivos en las carpetas `./outputs` o `./logs`.
 
 >[!Important]
 > Dos carpetas, *outputs* y *logs*, reciben un tratamiento especial por parte de Azure Machine Learning. Durante el entrenamiento, si escribe archivos en las carpetas llamadas `./outputs` y `./logs`, los archivos se cargarán automáticamente en su historial de ejecución, por lo que tendrá acceso a ellos una vez completada su ejecución.
@@ -77,6 +77,6 @@ Si no necesita un almacén de datos, escriba los archivos en la carpeta `./outpu
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Más información sobre el [acceso a los datos desde almacenes de datos](how-to-access-data.md).
+* Más información en [Conexión a los servicios de almacenamiento en Azure](how-to-access-data.md).
 
 * Obtenga más información sobre la [creación de destinos de proceso para la implementación y el entrenamiento de modelos](how-to-create-attach-compute-studio.md)

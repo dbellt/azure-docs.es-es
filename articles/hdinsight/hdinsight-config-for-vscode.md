@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 04/07/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: a9a444c2557ea17114123cbd5084cbbd9fe6dac6
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: e5bfa66f7c7d22617c17c6bd57eff373574021f4
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107259935"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108142070"
 ---
 # <a name="azure-hdinsight-configuration-settings-reference"></a>Referencia de configuración de Azure HDInsight
 
@@ -81,5 +81,5 @@ Para información general sobre cómo trabajar con la configuración en VS Code,
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para información sobre Azure HDInsight para VSCode, consulte [Spark y Hive para Visual Studio Code Tools](https://docs.microsoft.com/sql/big-data-cluster/spark-hive-tools-vscode).
+- Para información sobre Azure HDInsight para VSCode, consulte [Spark y Hive para Visual Studio Code Tools](/sql/big-data-cluster/spark-hive-tools-vscode).
 - Para ver un vídeo de demostración del uso de Spark y Hive para Visual Studio Code, consulte [Spark y Hive para Visual Studio Code](https://go.microsoft.com/fwlink/?linkid=858706).

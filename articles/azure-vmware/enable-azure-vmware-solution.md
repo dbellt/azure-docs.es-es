@@ -3,13 +3,13 @@ title: Solicitud de la cuota del host y habilitación de Azure VMware Solution
 description: Aprenda a solicitar la capacidad o la cuota del host y habilitar el proveedor de recursos de Azure VMware Solution. También puede solicitar más hosts en una nube privada de Azure VMware Solution existente.
 ms.topic: how-to
 ms.custom: contperf-fy21q3
-ms.date: 02/17/2021
-ms.openlocfilehash: 5d154f5c63ffccdbf1729e641133b54be478d884
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/21/2021
+ms.openlocfilehash: 855e1dbc45889855a1fe9ef16f89615f471872fa
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100653178"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107950899"
 ---
 # <a name="request-host-quota-and-enable-azure-vmware-solution"></a>Solicitud de la cuota del host y habilitación de Azure VMware Solution
 
@@ -106,10 +106,6 @@ Acceda a Azure Portal desde el Centro de partners mediante el procedimiento de *
       >Azure VMware Solution recomienda como mínimo tres hosts para poner en marcha la nube privada y N+1 hosts para la redundancia. 
    
    1. Seleccione **Revisar + crear** para enviar la solicitud.
-
-## <a name="register-the-microsoftavs-resource-provider"></a>Registre el proveedor de recursos **Microsoft.AVS**.
-
-[!INCLUDE [register-resource-provider-steps](includes/register-resource-provider-steps.md)]
 
 
 ## <a name="next-steps"></a>Pasos siguientes

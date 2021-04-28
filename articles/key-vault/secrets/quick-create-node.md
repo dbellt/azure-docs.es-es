@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: 3d8f20f598243754e3fd39f649e7c84d55b64817
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 90e505a4d505cc52920f1c7727afb321f4eda462
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107751677"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107814161"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-javascript-version-4"></a>Inicio rápido: Biblioteca cliente de secretos de Azure Key Vault para JavaScript (versión 4)
 
@@ -285,6 +285,6 @@ En este inicio rápido, ha creado un almacén de claves, ha almacenado un secret
 
 - Lea una [introducción a Azure Key Vault](../general/overview.md).
 - Lea una [introducción a los secretos de Azure Key Vault](about-secrets.md).
-- Procedimientos para [proteger el acceso a un almacén de claves](../general/security-overview.md)
+- Procedimientos para [proteger el acceso a un almacén de claves](../general/security-features.md)
 - Consulte la [guía del desarrollador de Azure Key Vault](../general/developers-guide.md).
-- Consulte [Introducción a la seguridad de Azure Key Vault](../general/security-overview.md)
+- Consulte [Introducción a la seguridad de Azure Key Vault](../general/security-features.md)

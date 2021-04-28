@@ -1,18 +1,18 @@
 ---
 title: Actividad de validación en Azure Data Factory
 description: La actividad de validación no continúa la ejecución de la canalización hasta que valida el conjunto de datos adjunto con determinados criterios que el usuario especifica.
-author: dcstwh
-ms.author: weetok
+author: chez-charlie
+ms.author: chez
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 2c5208f754e66f92cf5019fdad3026decac88284
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 0668750903d284ecf2020e2dd56a527c14f70b94
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104785961"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107906210"
 ---
 # <a name="validation-activity-in-azure-data-factory"></a>Actividad de validación en Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]

@@ -9,14 +9,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 02/26/2021
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: 34adcf2218e29572ec9a86583addc7c021313085
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.topic: how-to
+ms.custom: devx-track-python, contperf-fy21q1
+ms.openlocfilehash: 4154d73cbf7a82c78dcc8ea30f11b8d984dd6af0
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102519646"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107896682"
 ---
 # <a name="hyperparameter-tuning-a-model-with-azure-machine-learning"></a>Ajuste de hiperparámetros de un modelo con Azure Machine Learning
 
@@ -183,7 +183,7 @@ run_logger.log("accuracy", float(val_accuracy))
 
 El script de entrenamiento calcula el parámetro `val_accuracy` y lo registra como la métrica principal de "precisión". Cada vez que se registra la métrica, el servicio de ajuste de hiperparámetros la recibe. Será usted quien tenga que determinar la frecuencia de los informes.
 
-Para obtener más información sobre cómo registrar valores en series de entrenamiento de modelos, consulte [Habilitación del registro en series de entrenamiento de Azure ML](how-to-track-experiments.md).
+Para obtener más información sobre cómo registrar valores en series de entrenamiento de modelos, consulte [Habilitación del registro en series de entrenamiento de Azure ML](how-to-log-view-metrics.md).
 
 ## <a name="specify-early-termination-policy"></a><a name="early-termination"></a> Especificación de una directiva de terminación anticipada
 
@@ -424,7 +424,7 @@ Puede visualizar las ejecuciones de ajuste de hiperparámetros en Estudio de Azu
 
 ### <a name="studio"></a>Estudio
 
-Puede visualizar todas las ejecuciones de ajuste de hiperparámetros en [Estudio de Azure Machine Learning](https://ml.azure.com). Para más información sobre cómo ver un experimento en el portal, consulte [Visualización de registros de ejecución en Studio](how-to-monitor-view-training-logs.md#view-the-experiment-in-the-web-portal).
+Puede visualizar todas las ejecuciones de ajuste de hiperparámetros en [Estudio de Azure Machine Learning](https://ml.azure.com). Para más información sobre cómo ver un experimento en el portal, consulte [Visualización de registros de ejecución en Studio](how-to-log-view-metrics.md#view-the-experiment-in-the-web-portal).
 
 - **Gráfico de métricas**: esta visualización realiza un seguimiento de las métricas registradas para cada ejecución secundaria de Hyperdrive durante el ajuste de hiperparámetros. Cada línea representa una ejecución secundaria y cada punto mide el valor de la métrica principal en esa iteración del tiempo de ejecución.  
 
@@ -464,7 +464,7 @@ Una vez que se han completado todas las series de ajuste de hiperparámetros, id
 ```Python
 best_run = hyperdrive_run.get_best_run_by_primary_metric()
 best_run_metrics = best_run.get_metrics()
-parameter_values = best_run.get_details()['runDefinition']['Arguments']
+parameter_values = best_run.get_details()['runDefinition']['arguments']
 
 print('Best Run Id: ', best_run.id)
 print('\n Accuracy:', best_run_metrics['accuracy'])
@@ -481,5 +481,5 @@ Consulte los cuadernos train-hyperparameter-* en esta carpeta:
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Seguimiento de experimentos](how-to-track-experiments.md)
+* [Seguimiento de experimentos](how-to-log-view-metrics.md)
 * [Implementar un modelo entrenado](how-to-deploy-and-where.md)

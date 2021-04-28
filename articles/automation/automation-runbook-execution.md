@@ -5,12 +5,13 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/23/2021
 ms.topic: conceptual
-ms.openlocfilehash: 165c9ea721bec7fc7a1657f5dde5c19d9e254e20
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 0807b11adfc46b9c32a8f7bd36a2f7d4db519975
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104954350"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107830527"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Ejecución de un runbook en Azure Automation
 
@@ -138,7 +139,7 @@ Los trabajos que se ejecutan en el mismo proceso de espacio aislado pueden afect
 
 En la tabla siguiente se describen los estados posibles para un trabajo. Puede ver un resumen del estado de todos los trabajos del runbook o profundizar en los detalles de un trabajo específico del runbook en Azure Portal. También puede configurar la integración con el área de trabajo de Log Analytics para reenviar flujos de trabajos y el estado del trabajo del runbook. Para más información sobre la integración con los registros de Azure Monitor, consulte [Reenvío del estado del trabajo y flujos de trabajo de Automation a los registros de Azure Monitor](automation-manage-send-joblogs-log-analytics.md). Consulte también [Obtención de estados del trabajo](manage-runbooks.md#obtain-job-statuses) para ver un ejemplo de cómo trabajar con estados en un runbook.
 
-| Estado | Descripción |
+| Status | Descripción |
 |:--- |:--- |
 | En activación |El trabajo se está activando. |
 | Completed |El trabajo se completó correctamente. |

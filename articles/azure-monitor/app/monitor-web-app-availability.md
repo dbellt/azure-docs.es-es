@@ -1,50 +1,27 @@
 ---
-title: Supervisión de la disponibilidad y la capacidad de respuesta de cualquier sitio web | Microsoft Docs
-description: Configure pruebas web en Application Insights. Obtenga alertas si un sitio web deja de estar disponible o responde con lentitud.
+title: 'Supervisión de la disponibilidad y la capacidad de respuesta de cualquier sito web: Azure Monitor'
+description: Configure pruebas de ping en Application Insights. Obtenga alertas si un sitio web deja de estar disponible o responde con lentitud.
 ms.topic: conceptual
-ms.date: 03/10/2021
+ms.date: 04/15/2021
 ms.reviewer: sdash
-ms.openlocfilehash: d7c610e374dcb7b97850d815ba8bb927cdebacfc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 60698862e26175425221940a4b69867cb414fe86
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103012571"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107598880"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>Supervisión de la disponibilidad de un sitio web
 
-Después de haber implementado la aplicación o sitio web, puede configurar pruebas periódicas para supervisar la disponibilidad y capacidad de respuesta. [Azure Application Insights](./app-insights-overview.md) envía solicitudes web a su aplicación a intervalos regulares desde puntos de todo el mundo. Puede enviar una alerta si la aplicación no responde o si responde de manera demasiada lenta.
+El nombre "prueba de ping de dirección URL" es un poco inapropiado. Para que quede claro, estas pruebas no usan el protocolo de mensajes de control de Internet (ICMP) para comprobar la disponibilidad del sitio. En cambio, usan funcionalidad más avanzada de solicitud HTTP para validar si un punto de conexión responde. También miden el rendimiento asociado con esa respuesta y permiten establecer criterios de éxito personalizados junto con características más avanzadas, como analizar solicitudes dependientes y facilitar los reintentos.
 
-Puede configurar pruebas de disponibilidad para cualquier punto de conexión HTTP o HTTPS que sea accesible desde la red pública de Internet. No hace falta realizar cambios en el sitio web que está probando. De hecho, incluso no hace falta que sea un sitio de su propiedad. Puede probar la disponibilidad de una API de REST de la que depende su servicio.
+Para crear una prueba de disponibilidad, debe usar un recurso existente de Application Insight o crear el [recurso de Application Insights](create-new-resource.md).
 
-### <a name="types-of-availability-tests"></a>Tipos de pruebas de disponibilidad:
+Para crear la primera solicitud de disponibilidad, abra el panel Disponibilidad y seleccione   **Create Test** (Crear prueba).
 
-Hay tres tipos de pruebas de disponibilidad:
+:::image type="content" source="./media/monitor-web-app-availability/availability-create-test-001.png" alt-text="Captura de pantalla de la creación de una prueba.":::
 
-* [Prueba de ping de la dirección URL](#create-a-url-ping-test): una prueba sencilla que se puede crear en el portal de Azure.
-* [Prueba web de varios pasos](availability-multistep.md): una grabación de una secuencia de solicitudes web que se pueden reproducir para probar los escenarios más complejos. Las pruebas web de varios pasos se crean en Visual Studio Enterprise y se carga en el portal para su ejecución.
-* [Pruebas de disponibilidad de seguimiento personalizado](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability): Si decide crear una aplicación personalizada para ejecutar pruebas de disponibilidad, puede usar el método `TrackAvailability()` para enviar los resultados a Application Insights.
-
-**Puede crear hasta 100 pruebas de disponibilidad por recurso de Application Insights.**
-
-> [!IMPORTANT]
-> Tanto la [prueba de ping de URL](#create-a-url-ping-test) como la [prueba web de varios pasos](availability-multistep.md) se basan en la infraestructura DNS de la Internet pública para resolver los nombres de dominio de los puntos de conexión de prueba. Esto significa que, si usa un DNS privado, debe asegurarse de que todos los nombres de dominio de la prueba también pueden resolverse mediante los servidores de nombres de dominio públicos o, cuando no sea posible, puede usar las [pruebas de disponibilidad de seguimiento personalizadas](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) en su lugar.
-
-## <a name="create-an-application-insights-resource"></a>Creación de recursos en Application Insights
-
-Para crear una prueba de disponibilidad, primero deberá crear un recurso de Application Insights. Si ya creó un recurso, siga con la siguiente sección para [crear una prueba de ping de dirección URL](#create-a-url-ping-test).
-
-En Azure Portal, seleccione **Crear un recurso** > **Herramientas para desarrolladores** > **Application Insights** y [cree un recurso de Application Insights](create-new-resource.md).
-
-## <a name="create-a-url-ping-test"></a>Creación de una prueba de ping de la dirección URL
-
-El nombre "prueba de ping de dirección URL" es un poco inapropiado. Para que quede claro, esta prueba no usa ICMP (Protocolo de mensajes de control de Internet) para comprobar la disponibilidad del sitio. En cambio, usa la funcionalidad más avanzada de solicitud HTTP para validar si un punto de conexión responde. También mide el rendimiento asociado con esa respuesta y agrega la capacidad de establecer criterios de éxito personalizados junto con características más avanzadas, como analizar solicitudes dependientes y permitir reintentos.
-
-Para crear la primera solicitud de disponibilidad, abra el panel Disponibilidad y seleccione **Crear prueba**.
-
-![Fill at least the URL of your website](./media/monitor-web-app-availability/availability-create-test-001.png)
-
-### <a name="create-a-test"></a>Creación de una prueba
+## <a name="create-a-test"></a>Creación de una prueba
 
 |Configuración| Explicación
 |----|----|----|
@@ -59,7 +36,7 @@ Para crear la primera solicitud de disponibilidad, abra el panel Disponibilidad 
 > [!NOTE]
 > Se recomienda probar desde varias ubicaciones con un **mínimo de cinco ubicaciones**. Esto es para evitar falsas alarmas que pueden deberse a problemas transitorios con una ubicación específica. Además, hemos descubierto que la configuración óptima es que el **número de ubicaciones de prueba sea igual que el umbral de ubicación de la alerta + 2**.
 
-### <a name="success-criteria"></a>Criterios de éxito
+## <a name="success-criteria"></a>Criterios de éxito
 
 |Configuración| Explicación
 |----|----|----|
@@ -67,18 +44,18 @@ Para crear la primera solicitud de disponibilidad, abra el panel Disponibilidad 
 | **Respuesta HTTP** | el código de estado devuelto que se considera correcto. 200 es el código que indica que se ha devuelto una página web normal.|
 | **Coincidencia de contenido** | Una cadena, como "Bienvenido". Probamos que se produce una coincidencia exacta entre mayúsculas y minúsculas en todas las respuestas. Debe ser una cadena sin formato, sin caracteres comodín. No se olvide de que si el contenido cambia, es posible que tenga que actualizarla. **En la coincidencia de contenido solo se admiten caracteres en inglés** |
 
-### <a name="alerts"></a>Alertas
+## <a name="alerts"></a>Alertas
 
 |Configuración| Explicación
 |----|----|----|
 |**Casi en tiempo real (versión preliminar)** | Se recomienda usar alertas casi en tiempo real. La configuración de este tipo de alertas se realiza después de crear la prueba de disponibilidad.  |
 |**Umbral de la ubicación de la alerta**|se recomienda un mínimo de 3/5 ubicaciones. La relación óptima entre el umbral de ubicación de la alerta y el número de ubicaciones de prueba es **umbral de ubicación de la alerta** = **número de ubicaciones de prueba - 2, con un mínimo de cinco ubicaciones de prueba.**|
 
-### <a name="location-population-tags"></a>Etiquetas para rellenar la ubicación
+## <a name="location-population-tags"></a>Etiquetas para rellenar la ubicación
 
 Se pueden usar las siguientes etiquetas para rellenar el atributo de ubicación geográfica al implementar una prueba de ping de la dirección URL para averiguar la disponibilidad mediante Azure Resource Manager.
 
-#### <a name="azure-gov"></a>Azure Gov
+### <a name="azure-gov"></a>Azure Gov
 
 | Display Name (Nombre para mostrar)   | Nombre de rellenado     |
 |----------------|---------------------|
@@ -115,11 +92,11 @@ Los resultados de la prueba de disponibilidad se pueden visualizar con vistas de
 
 Después de unos minutos, haga clic en **Actualizar** para ver los resultados.
 
-![Captura de pantalla que muestra la página Disponibilidad con el botón Actualizar resaltado.](./media/monitor-web-app-availability/availability-refresh-002.png)
+:::image type="content" source="./media/monitor-web-app-availability/availability-refresh-002.png" alt-text="Captura de pantalla que muestra la página Disponibilidad con el botón Actualizar resaltado.":::
 
 En la vista de dispersión se muestran ejemplos de los resultados de las pruebas, que incluyen detalles sobre los pasos de las pruebas de diagnóstico. El motor de pruebas almacena los detalles de diagnóstico de las pruebas con errores. En el caso de las pruebas correctas, los detalles de diagnóstico se almacenan para un subconjunto de las ejecuciones. Mantenga el mouse sobre cualquiera de los puntos rojos o verdes para ver la prueba, el nombre de esta y su ubicación.
 
-![Vista de línea](./media/monitor-web-app-availability/availability-scatter-plot-003.png)
+:::image type="content" source="./media/monitor-web-app-availability/availability-scatter-plot-003.png" alt-text="Vista de línea" border="false":::
 
 Seleccione una prueba o una ubicación determinadas, o bien reduzca el período de tiempo para ver más resultados del período de tiempo que le interese. Use el Explorador de búsqueda para ver los resultados de todas las ejecuciones, o use consultas de Analytics para ejecutar informes personalizados en estos datos.
 
@@ -127,28 +104,29 @@ Seleccione una prueba o una ubicación determinadas, o bien reduzca el período 
 
 Para editar, eliminar o deshabilitar temporalmente una prueba, haga clic en el botón de puntos suspensivos junto al nombre de la prueba. Pueden tardar hasta 20 minutos para que los cambios se propaguen a todos los agentes de prueba después de realizar un cambio.
 
-![Visualice los detalles de la prueba. Edición y deshabilitación de una prueba web](./media/monitor-web-app-availability/edit.png)
+:::image type="content" source="./media/monitor-web-app-availability/edit.png" alt-text="Vea los detalles de la prueba. Edite y deshabilitar una prueba web." border="false":::
 
 Tal vez le interese deshabilitar las pruebas de disponibilidad o las reglas de alerta asociadas a ellas mientras esté realizando el mantenimiento del servicio.
 
 ## <a name="if-you-see-failures"></a>Si ve errores
 
-Haga clic en un punto rojo.
+Seleccione un punto rojo.
 
-![Click a red dot](./media/monitor-web-app-availability/open-instance-3.png)
+:::image type="content" source="./media/monitor-web-app-availability/end-to-end.png" alt-text="Captura de pantalla de la pestaña de detalles de una transacción completa." border="false":::
 
 Puede ver los detalles de transacción en todos los componentes desde el resultado de la prueba de disponibilidad. Aquí puede:
 
+* Revise el informe de solución de problemas para determinar qué puede haber provocado que la prueba fallase, pero la aplicación siga estando disponible.
 * Inspeccionar la respuesta recibida desde el servidor.
 * Diagnosticar errores con la telemetría de lado servidor correlacionada que se recopiló durante el procesamiento de la prueba de disponibilidad con error.
 * Registrar un problema o elemento de trabajo en GIT o Azure Boards para realizar un seguimiento del problema. El error contiene un vínculo a este evento.
 * Abra el resultado de la prueba web en Visual Studio.
 
-Obtenga más información acerca de la experiencia de diagnósticos de transacción extremo a extremo [aquí](./transaction-diagnostics.md).
+Para obtener más información sobre la experiencia completa de diagnóstico de transacciones, consulte la [documentación sobre el diagnóstico de transacciones](./transaction-diagnostics.md).
 
 Haga clic en la fila de excepciones para ver los detalles de la excepción del lado servidor que ha provocado un error en la prueba de disponibilidad sintética. También puede obtener la [instantánea de depuración](./snapshot-debugger.md) para realizar diagnósticos de nivel de código más completos.
 
-![Diagnósticos del servidor](./media/monitor-web-app-availability/open-instance-4.png)
+:::image type="content" source="./media/monitor-web-app-availability/open-instance-4.png" alt-text="Diagnósticos del servidor":::
 
 Además de los resultados sin formato, también puede ver dos métricas de disponibilidad clave en el [Explorador de métricas](../essentials/metrics-getting-started.md):
 
@@ -160,12 +138,9 @@ Además de los resultados sin formato, también puede ver dos métricas de dispo
 * [Use scripts de PowerShell para configurar una prueba de disponibilidad](./powershell.md#add-an-availability-test) automáticamente.
 * Configure un [webhook](../alerts/alerts-webhooks.md) que se llama cuando se genera una alerta.
 
-## <a name="troubleshooting"></a>Solución de problemas
-
-[Artículo de solución de problemas](troubleshoot-availability.md) dedicado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Alertas de disponibilidad](availability-alerts.md)
 * [Pruebas web de varios pasos](availability-multistep.md)
-
+* [Solución de problemas](troubleshoot-availability.md)

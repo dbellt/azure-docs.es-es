@@ -5,24 +5,42 @@ services: app-service
 author: cephalin
 ms.service: app-service
 ms.topic: include
-ms.date: 02/02/2018
+ms.date: 04/27/2021
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: cc44780bd9b42e00ecfb3d140486fec87c767a76
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 4bc789435d99c5faed80ffdb13a8bbf4ac6d48a4
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107765763"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108121134"
 ---
-[!INCLUDE [resource group intro text](resource-group.md)]
+En Cloud Shell, cree un plan de App Service con el comando [`az appservice plan create`](/cli/azure/appservice/plan).
 
-En Cloud Shell, cree un grupo de recursos con el comando [`az group create`](/cli/azure/group#az_group_create). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *Oeste de Europa*. Para ver todas las ubicaciones de App Service que se admiten en Linux en el nivel **Básico**, ejecute el comando [`az appservice list-locations --sku B1 --linux-workers-enabled`](/cli/azure/appservice#az_appservice_list_locations).
+<!-- [!INCLUDE [app-service-plan](app-service-plan.md)] -->
+
+En el siguiente ejemplo se crea un plan de App Service denominado `myAppServicePlan` con el plan de tarifa **Gratis**:
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location "West Europe"
+az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
 ```
 
-Generalmente se crean el grupo de recursos y los recursos en una región cercana. 
+Cuando se crea el plan de App Service, la CLI de Azure muestra información similar al ejemplo siguiente:
 
-Cuando finaliza el comando, una salida de JSON muestra las propiedades del grupo de recursos.
+<pre>
+{ 
+  "adminSiteName": null,
+  "appServicePlanName": "myAppServicePlan",
+  "geoRegion": "West Europe",
+  "hostingEnvironmentProfile": null,
+  "id": "/subscriptions/0000-0000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/myAppServicePlan",
+  "kind": "app",
+  "location": "West Europe",
+  "maximumNumberOfWorkers": 1,
+  "name": "myAppServicePlan",
+  &lt; JSON data removed for brevity. &gt;
+  "targetWorkerSizeId": 0,
+  "type": "Microsoft.Web/serverfarms",
+  "workerTierName": null
+} 
+</pre>

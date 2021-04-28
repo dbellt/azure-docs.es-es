@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: how-to
 ms.date: 04/15/2021
 ms.author: inhenkel
-ms.openlocfilehash: 0efbadf69dec6d0ea06fd743a62d69c0d25a7e33
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 43997810798322a628490aa72db74944f2fc38c7
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108138668"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107589859"
 ---
 # <a name="create-a-media-services-and-storage-account-with-a-private-link"></a>Creación de una cuenta de Media Services y una cuenta de almacenamiento con un vínculo privado
 
@@ -22,9 +22,9 @@ ms.locfileid: "108138668"
 
 Cree una cuenta de Media Services y una cuenta de almacenamiento con vínculos privados a una red virtual. La plantilla de Azure Resource Manager (ARM) configura el DNS para ambos vínculos privados. Por último, la plantilla crea una máquina virtual para permitir al usuario probar los vínculos privados.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
-Consulte [Inicio rápido: Creación e implementación de plantillas de Azure Resource Manager mediante Azure Portal](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
+Consulte [Inicio rápido: Creación e implementación de plantillas de Azure Resource Manager mediante Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal).
 
 ## <a name="limitations"></a>Limitaciones
 

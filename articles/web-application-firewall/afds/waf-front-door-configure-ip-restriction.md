@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 12/22/2020
 ms.author: tyao
-ms.openlocfilehash: 65e378c0380804c13e4b42d855aede7781b93592
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 32bf7a5ecc93fa23c8c704dc346048c26c086121
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102211675"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107860858"
 ---
 # <a name="configure-an-ip-restriction-rule-with-a-web-application-firewall-for-azure-front-door"></a>Configuración de una regla de restricción de IP con un firewall de aplicaciones web para Azure Front Door
 
@@ -37,7 +37,7 @@ Para crear un perfil de Azure Front Door, siga las instrucciones que se describe
    |Configuración  |Value  |
    |---------|---------|
    |Directiva de     |WAF global (Front Door)|
-   |Suscripción     |Seleccione su suscripción.|
+   |Suscripción     |Seleccionar su suscripción|
    |Resource group     |Seleccione el grupo de recursos en que se encuentra Front Door.|
    |Nombre de la directiva     |Escriba un nombre para la directiva.|
    |Estado de directiva     |habilitado|
@@ -95,7 +95,7 @@ Para crear un perfil de Azure Front Door, siga las instrucciones que se describe
 
 ### <a name="create-a-waf-policy"></a>Creación de una directiva WAF
 
-Cree una directiva WAF mediante el comando [az network front-door waf-policy create](/cli/azure/ext/front-door/network/front-door/waf-policy#ext-front-door-az-network-front-door-waf-policy-create). En el ejemplo que se indica a continuación, reemplace el nombre de la directiva *IPAllowPolicyExampleCLI* por un nombre de directiva único.
+Cree una directiva WAF mediante el comando [az network front-door waf-policy create](/cli/azure/network/front-door/waf-policy#az_network_front_door_waf_policy_create). En el ejemplo que se indica a continuación, reemplace el nombre de la directiva *IPAllowPolicyExampleCLI* por un nombre de directiva único.
 
 ```azurecli-interactive 
 az network front-door waf-policy create \
@@ -105,7 +105,7 @@ az network front-door waf-policy create \
   ```
 ### <a name="add-a-custom-ip-access-control-rule"></a>Adición de una regla de control de acceso por IP personalizada
 
-Use el comando [az network front-door waf-policy custom-rule create](/cli/azure/ext/front-door/network/front-door/waf-policy/rule#ext-front-door-az-network-front-door-waf-policy-rule-create) para agregar una regla de control de acceso por IP personalizada para la directiva WAF que acaba de crear.
+Use el comando [az network front-door waf-policy custom-rule create](/cli/azure/network/front-door/waf-policy/rule#az_network_front_door_waf_policy_rule_create) para agregar una regla de control de acceso por IP personalizada para la directiva WAF que acaba de crear.
 
 En los siguientes ejemplos:
 -  Reemplace *IPAllowPolicyExampleCLI* por la directiva única que creó anteriormente.
@@ -138,7 +138,7 @@ az network front-door waf-policy rule match-condition add \
   ```
                                                    
 ### <a name="find-the-id-of-a-waf-policy"></a>Búsqueda del identificador de una directiva de WAF 
-Para buscar el identificador de una directiva WAF, utilice el comando [az network front-door waf-policy show](/cli/azure/ext/front-door/network/front-door/waf-policy#ext-front-door-az-network-front-door-waf-policy-show). Reemplace *IPAllowPolicyExampleCLI* en el ejemplo siguiente por la directiva que ha creado anteriormente.
+Para buscar el identificador de una directiva WAF, utilice el comando [az network front-door waf-policy show](/cli/azure/network/front-door/waf-policy#az_network_front_door_waf_policy_show). Reemplace *IPAllowPolicyExampleCLI* en el ejemplo siguiente por la directiva que ha creado anteriormente.
 
    ```azurecli
    az network front-door  waf-policy show \
@@ -148,7 +148,7 @@ Para buscar el identificador de una directiva WAF, utilice el comando [az networ
 
 ### <a name="link-a-waf-policy-to-an-azure-front-door-front-end-host"></a>Vinculación de una directiva de WAF a un host de front-end de Azure Front Door
 
-Establezca el identificador *WebApplicationFirewallPolicyLink* de Azure Front Door en el identificador de la directiva mediante el uso del comando [az network front-door update](/cli/azure/ext/front-door/network/front-door#ext-front-door-az-network-front-door-update). Reemplace *IPAllowPolicyExampleCLI* por la directiva única que creó anteriormente.
+Establezca el identificador *WebApplicationFirewallPolicyLink* de Azure Front Door en el identificador de la directiva mediante el uso del comando [az network front-door update](/cli/azure/network/front-door#az_network_front_door_update). Reemplace *IPAllowPolicyExampleCLI* por la directiva única que creó anteriormente.
 
    ```azurecli
    az network front-door update \

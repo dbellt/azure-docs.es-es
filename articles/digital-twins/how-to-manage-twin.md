@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 666e77a06bd2934622400cc2f11830d6ebc34ddb
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 02ea87bba8c28f0217479ffc65ccc65903fc0442
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104954656"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107903045"
 ---
 # <a name="manage-digital-twins"></a>Administración de Digital Twins
 
@@ -143,7 +143,7 @@ Para ver todos los gemelos digitales de la instancia, use una [consulta](how-to-
 
 Este es el cuerpo de la consulta básica que devolverá una lista de todos los gemelos digitales en la instancia:
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="GetAllTwins":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="GetAllTwins":::
 
 ## <a name="update-a-digital-twin"></a>Actualización de un gemelo digital
 

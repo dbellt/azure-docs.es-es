@@ -3,12 +3,12 @@ title: Permisos a repositorios en Azure Container Registry
 description: Cree un token con permisos orientados a repositorios específicos de un registro Premium para extraer o insertar imágenes, o realizar otras acciones.
 ms.topic: article
 ms.date: 02/04/2021
-ms.openlocfilehash: 0ac479b696a377509cee6459efd8bbb9de940d2a
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 8cdcd3e09603f24c37ad7323a273ca97f76fcd0c
+ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107781404"
+ms.lasthandoff: 04/23/2021
+ms.locfileid: "107930504"
 ---
 # <a name="create-a-token-with-repository-scoped-permissions"></a>Creación de un token con permisos orientados al repositorio
 
@@ -76,7 +76,8 @@ En el ejemplo siguiente se crea un token en el registro *myregistry* con los per
 ```azurecli
 az acr token create --name MyToken --registry myregistry \
   --repository samples/hello-world \
-  content/write content/read
+  content/write content/read \
+  --output json
 ```
 
 La salida muestra detalles sobre el token. De forma predeterminada, se generan dos contraseñas que no expiran, pero también se puede establecer una fecha de expiración. Se recomienda guardar las contraseñas en un lugar seguro para usarlas más adelante para la autenticación. Las contraseñas no se pueden recuperar de nuevo, pero se pueden generar otras.

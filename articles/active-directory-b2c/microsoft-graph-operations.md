@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/28/2021
+ms.date: 04/22/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 41336d59d51685d5daf78a1809ce6c0df2cd6124
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: da70f06bf2789bad300a29bd7307f69af2945756
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104781320"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107895872"
 ---
 # <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Administración de Azure AD B2C con Microsoft Graph
 
@@ -37,7 +37,7 @@ Para usar MS Graph API e interactuar con los recursos de su inquilino de Azure 
 
 ## <a name="user-phone-number-management-beta"></a>Administración de números de teléfono de usuarios (versión beta)
 
-Número de teléfono que un usuario puede emplear para iniciar sesión mediante [llamadas de voz o SMS](identity-provider-local.md#phone-sign-in-preview) o [autenticación multifactor](multi-factor-authentication.md). Para obtener más información, vea [API de métodos de autenticación de Azure AD](/graph/api/resources/phoneauthenticationmethod).
+Número de teléfono que un usuario puede emplear para iniciar sesión mediante [llamadas de voz o SMS](identity-provider-local.md#phone-sign-in) o [autenticación multifactor](multi-factor-authentication.md). Para obtener más información, vea [API de métodos de autenticación de Azure AD](/graph/api/resources/phoneauthenticationmethod).
 
 - [Add (Agregar)](/graph/api/authentication-post-phonemethods)
 - [Lista](/graph/api/authentication-list-phonemethods)
@@ -48,6 +48,9 @@ Número de teléfono que un usuario puede emplear para iniciar sesión mediante 
 Tenga en cuenta que la operación [Enumerar](/graph/api/authentication-list-phonemethods) solo devuelve los números de teléfono habilitados. El siguiente número de teléfono debe estar habilitado para su uso con las operaciones Enumerar. 
 
 ![Habilitación de inicio de sesión telefónico](./media/microsoft-graph-operations/enable-phone-sign-in.png)
+
+> [!NOTE]
+> En la versión beta actual, esta API solo funciona si el número de teléfono está almacenado con un espacio entre el código de país y el número de teléfono. El servicio Azure AD B2C no agrega actualmente este espacio de manera predeterminada.
 
 ## <a name="self-service-password-reset-email-address-beta"></a>Dirección de correo electrónico de autoservicio de restablecimiento de contraseña (versión beta)
 
@@ -140,7 +143,7 @@ Para más información sobre cómo acceder a los registros de auditoría de Azur
 
 ## <a name="conditional-access"></a>Acceso condicional
 
-- [Enumeración de todas las directivas de acceso condicional](/graph/api/conditionalaccessroot-list-policies?view=graph-rest-beta&tabs=http)
+- [Enumeración de todas las directivas de acceso condicional](/graph/api/conditionalaccessroot-list-policies?tabs=http)
 - [Lectura de propiedades y relaciones de una directiva de acceso condicional](/graph/api/conditionalaccesspolicy-get)
 - [Creación de una directiva de acceso condicional nueva](/graph/api/resources/application)
 - [Actualización de una directiva de acceso condicional](/graph/api/conditionalaccesspolicy-update)
