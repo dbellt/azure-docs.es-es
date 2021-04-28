@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 01/29/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: b62e341d35a4ff7fd5a7ddd6d9f19b138aaf0aa9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e8c926c2fbc5b19f67fb78d321ee3293c73be939
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99071654"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107869354"
 ---
 # <a name="perform-a-point-in-time-restore-on-block-blob-data"></a>Habilitación y administración de la restauración a un momento dado para blobs en bloques
 
@@ -86,7 +86,7 @@ Get-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-Para configurar la restauración a un momento dado con la CLI de Azure, instale primero la versión 2.2.0 o posterior de la CLI de Azure. Después, llame al comando [az storage account blob-service-properties update](/cli/azure/ext/storage-blob-preview/storage/account/blob-service-properties#ext_storage_blob_preview_az_storage_account_blob_service_properties_update) para habilitar la restauración a un momento dado y la otra configuración de protección de datos necesaria para la cuenta de almacenamiento.
+Para configurar la restauración a un momento dado con la CLI de Azure, instale primero la versión 2.2.0 o posterior de la CLI de Azure. Después, llame al comando [az storage account blob-service-properties update](/cli/azure/storage/account/blob-service-properties#az_storage_account_blob_service_properties_update) para habilitar la restauración a un momento dado y la otra configuración de protección de datos necesaria para la cuenta de almacenamiento.
 
 En el ejemplo siguiente se habilita la eliminación temporal y se establece el período de retención de la eliminación temporal en 14 días, se habilita la fuente de cambios y el control de versiones y se habilita la restauración a un momento dado con un período de restauración de 7 días. Al ejecutar el ejemplo, no olvide reemplazar los valores entre corchetes angulares por sus propios valores:
 

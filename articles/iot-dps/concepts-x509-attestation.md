@@ -7,12 +7,12 @@ ms.date: 09/14/2020
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 9eee315aac28847710662b463add7d6e68d8d505
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d3847ec5ce253d2d5f2ad18ce9a0cc912335e2f4
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94967302"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108142004"
 ---
 # <a name="x509-certificate-attestation"></a>Atestación de certificados de cliente X.509
 
@@ -38,7 +38,7 @@ Para más información consulte [Explicación de los conceptos de certificados d
 
 ### <a name="root-certificate"></a>Certificado raíz
 
-Un certificado raíz es un certificado X.509 autofirmado que representa una entidad de certificación (CA). Es el término o anclaje de veracidad de la cadena de certificados. Una organización puede emitir sus propios certificados raíz o puede adquirirlos a través de una entidad de certificación raíz. Para más información, consulte [Obtención de certificados de entidad de certificación X.509](../iot-hub/iot-hub-security-x509-get-started.md#get-x509-ca-certificates). También se puede hacer referencia al certificado raíz como un certificado de CA raíz.
+Un certificado raíz es un certificado X.509 autofirmado que representa una entidad de certificación (CA). Es el término o anclaje de veracidad de la cadena de certificados. Una organización puede emitir sus propios certificados raíz o puede adquirirlos a través de una entidad de certificación raíz. Para más información, consulte [Obtención de certificados de entidad de certificación X.509](../iot-hub/tutorial-x509-scripts.md). También se puede hacer referencia al certificado raíz como un certificado de CA raíz.
 
 ### <a name="intermediate-certificate"></a>Certificado intermedio
 

@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Obtenga información sobre cómo instalar y configurar un controlador de entrada NGINX que usa Let’s Encrypt para la generación automática de certificados TLS en un clúster de Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 08/17/2020
-ms.openlocfilehash: a3f78c0777d1377c8afdc5b43b457873de395cd6
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 04/23/2021
+ms.openlocfilehash: 74a44a4f3cb17084c0c2f433ad66a77928e037a6
+ms.sourcegitcommit: aaba99b8b1c545ad5d19f400bcc2d30d59c63f39
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107779802"
+ms.lasthandoff: 04/26/2021
+ms.locfileid: "108006807"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>Creación de un controlador de entrada HTTPS en Azure Kubernetes Service (AKS)
 
@@ -270,7 +270,7 @@ En el ejemplo siguiente, el tráfico a la dirección *hello-world-ingress.MY_CUS
 Cree un archivo denominado `hello-world-ingress.yaml` mediante el ejemplo de YAML siguiente. Actualice los *hosts* y el *host* al nombre DNS que creó en un paso anterior.
 
 ```yaml
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: hello-world-ingress
@@ -288,20 +288,29 @@ spec:
   - host: hello-world-ingress.MY_CUSTOM_DOMAIN
     http:
       paths:
-      - backend:
-          serviceName: aks-helloworld-one
-          servicePort: 80
-        path: /hello-world-one(/|$)(.*)
-      - backend:
-          serviceName: aks-helloworld-two
-          servicePort: 80
-        path: /hello-world-two(/|$)(.*)
-      - backend:
-          serviceName: aks-helloworld-one
-          servicePort: 80
-        path: /(.*)
+      - path: /hello-world-one(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: aks-helloworld-one
+            port:
+              number: 80
+      - path: /hello-world-two(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: aks-helloworld-two
+            port:
+              number: 80
+      - path: /(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: aks-helloworld-one
+            port:
+              number: 80
 ---
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: hello-world-ingress-static
@@ -319,9 +328,13 @@ spec:
   - host: hello-world-ingress.MY_CUSTOM_DOMAIN
     http:
       paths:
-      - backend:
-          serviceName: aks-helloworld-one
-          servicePort: 80
+      - path:
+        pathType: Prefix
+        backend:
+          service:
+            name: aks-helloworld-one
+            port: 
+              number: 80
         path: /static(/|$)(.*)
 ```
 

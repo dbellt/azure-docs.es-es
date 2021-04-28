@@ -2,13 +2,13 @@
 title: Información general de los almacenes de Backup
 description: Información general de los almacenes de Backup.
 ms.topic: conceptual
-ms.date: 08/17/2020
-ms.openlocfilehash: c189997ecc4814917182246b35003649d317ac77
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/19/2021
+ms.openlocfilehash: e2d720da9474a35870de01559201d22c9e5b567f
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92091294"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739087"
 ---
 # <a name="backup-vaults-overview"></a>Información general de los almacenes de Backup
 
@@ -28,7 +28,8 @@ Un almacén de Backup es una entidad que almacena las copias de seguridad y los 
 
 ## <a name="encryption-settings-in-the-backup-vault"></a>Configuración de cifrado en el almacén de Backup
 
-En esta sección se describen las opciones disponibles para cifrar los datos de copia de seguridad almacenados en el almacén de Backup.
+En esta sección se describen las opciones disponibles para cifrar los datos de copia de seguridad almacenados en el almacén de Backup. El servicio Azure Backup usa la aplicación **Backup Management Service** para acceder a Azure Key Vault, pero no a la identidad administrada del almacén de Backup.
+
 
 ### <a name="encryption-of-backup-data-using-platform-managed-keys"></a>Cifrado de datos de copia de seguridad mediante claves administradas por la plataforma
 
@@ -87,7 +88,7 @@ La operación siguiente es destructiva y no se puede deshacer. Todos los datos d
 
 Para eliminar correctamente un almacén, debe seguir los pasos en este orden:
 
-- Debe comprobar si hay elementos protegidos:
+- Compruebe si hay algún elemento protegido:
   - Vaya a **Instancias de Backup** en la barra de navegación izquierda. Todos los elementos que aparecen aquí deben eliminarse primero.
 
 Después de completar estos pasos, puede continuar y eliminar el almacén.

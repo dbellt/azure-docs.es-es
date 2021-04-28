@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 10/29/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: faab8aa124ca2f290938cb6cff0a2f4d072caffd
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 52f332f2c92f97123dc9ab3234edcbdeda410da9
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106073340"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108121090"
 ---
 ## <a name="create-a-self-signed-root-certificate"></a><a name="rootcert"></a>Creación de un certificado raíz autofirmado
 
-Use el cmdlet New-SelfSignedCertificate para crear un certificado raíz autofirmado. Para obtener información adicional sobre los parámetros, consulte [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate).
+Use el cmdlet New-SelfSignedCertificate para crear un certificado raíz autofirmado. Para obtener información adicional sobre los parámetros, consulte [New-SelfSignedCertificate](/powershell/module/pki/new-selfsignedcertificate).
 
 1. En un equipo con Windows 10 o Windows Server 2016, abra una consola de Windows PowerShell con privilegios elevados. Estos ejemplos no funcionan en Azure Cloud Shell "Try It". Debe ejecutar estos ejemplos localmente.
 1. Utilice el ejemplo siguiente para crear el certificado raíz autofirmado. En el ejemplo siguiente se crea un certificado raíz firmado automáticamente con el nombre "P2SRootCert" que se instala automáticamente en "Certificates-Current User\Personal\Certificates". Puede ver el certificado si abre *certmgr.msc*, o bien *Administrar certificados de usuario*.
@@ -39,7 +39,7 @@ Cada equipo cliente que se conecta a una red virtual con una conexión de punto 
 
 Los pasos siguientes lo llevan por el proceso de generación de un certificado de cliente a partir de un certificado autofirmado. Puede generar varios certificados de cliente desde el mismo certificado raíz. Al generar certificados de cliente mediante los pasos siguientes, el certificado de cliente se instala automáticamente en el equipo que se usó para generar el certificado. Si desea instalar un certificado de cliente en otro equipo cliente, puede exportar el certificado.
 
-Los ejemplos usan el cmdlet New-SelfSignedCertificate para generar un certificado de cliente que expira en un año. Para obtener información adicional sobre los parámetros (por ejemplo, cómo establecer un valor de expiración diferente para el certificado de cliente), consulte [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate).
+Los ejemplos usan el cmdlet New-SelfSignedCertificate para generar un certificado de cliente que expira en un año. Para obtener información adicional sobre los parámetros (por ejemplo, cómo establecer un valor de expiración diferente para el certificado de cliente), consulte [New-SelfSignedCertificate](/powershell/module/pki/new-selfsignedcertificate).
 
 ### <a name="example-1---powershell-console-session-still-open"></a>Ejemplo 1: sesión de consola de PowerShell aún abierta
 

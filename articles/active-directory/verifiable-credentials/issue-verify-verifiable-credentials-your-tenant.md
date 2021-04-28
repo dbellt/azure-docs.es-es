@@ -10,12 +10,12 @@ ms.subservice: verifiable-credentials
 ms.date: 04/01/2021
 ms.author: barclayn
 ms.reviewer: ''
-ms.openlocfilehash: e4772b6701065a44416d849faa9a501bd7895f27
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 310c821bf102d267d0b5f77dbf206b896ab2f1c7
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106553386"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739231"
 ---
 # <a name="tutorial---issue-and-verify-verifiable-credentials-using-your-tenant-preview"></a>Tutorial: emisión y comprobación de credenciales verificables mediante el inquilino (versión preliminar)
 
@@ -271,14 +271,14 @@ Siga los mismos pasos que hemos seguido en el tutorial anterior para emitir la c
 
   ![pantalla de adición de credencial después de la autenticación](media/enable-your-tenant-verifiable-credentials/add-credential-not-verified-authenticated.png)
 
-Hemos emitido una credencial verificable usando nuestro inquilino para generar la credencial verificable mientras seguimos usando nuestro inquilino de B2C para la autenticación.
+Hemos emitido una credencial verificable usando el inquilino para generar la credencial verificable mientras seguimos usando el inquilino de B2C original para la autenticación.
 
   ![credencial verificable emitida por Azure AD y autenticada por nuestra instancia de Azure B2C](media/enable-your-tenant-verifiable-credentials/my-vc-b2c.png)
 
 
 ## <a name="test-verifying-the-vc-using-the-sample-app"></a>Prueba de comprobación de la credencial verificable mediante la aplicación de ejemplo
 
-Ahora que hemos emitido la credencial verificable desde nuestro propio inquilino con notificaciones desde Azure AD, vamos a comprobarla con nuestra aplicación de ejemplo.
+Ahora que hemos emitido la credencial verificable desde su propio inquilino con notificaciones desde Azure AD, vamos a comprobarla con la aplicación de ejemplo.
 
 1. Detenga la ejecución del servicio ngrok del emisor.
 

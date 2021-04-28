@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/16/2021
+ms.date: 04/19/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: e694a5f6144cee65be074d05ce0015d31bfdf65e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 8f9f6dc1abd08c5e53f3d44a8f6ec1b3e20786ed
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104675832"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107717448"
 ---
 # <a name="customize-the-user-interface-with-html-templates-in-azure-active-directory-b2c"></a>Personalización de la interfaz de usuario con plantillas HTML en Azure Active Directory B2C
 
@@ -261,7 +261,7 @@ Debería ver una página similar al ejemplo siguiente con los elementos centrado
 
 Para configurar la personalización de la interfaz de usuario, copie **ContentDefinition** y sus elementos secundarios del archivo base en el archivo de extensiones.
 
-1. Abra el archivo base de la directiva. Por ejemplo, <em>`SocialAndLocalAccounts/`**`TrustFrameworkBase.xml`**</em>. Este archivo base es uno de los archivos de directivas incluidos en el paquete de inicio de directivas personalizadas, que debería haber obtenido en el requisito previo, [Introducción a las directivas personalizadas en Azure Active Directory B2C](./custom-policy-get-started.md).
+1. Abra el archivo base de la directiva. Por ejemplo, <em>`SocialAndLocalAccounts/`**`TrustFrameworkBase.xml`**</em>. Este archivo base es uno de los archivos de directivas incluidos en el paquete de inicio de directivas personalizadas, que debería haber obtenido en el requisito previo, [Introducción a las directivas personalizadas en Azure Active Directory B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy).
 1. Busque y copie todo el contenido del elemento **ContentDefinitions**.
 1. Abra el archivo de extensión. Por ejemplo, *TrustFrameworkExtensions.xml*. Busque el elemento **BuildingBlocks**. Si el elemento no existe, agréguelo.
 1. Pegue todo el contenido del elemento **ContentDefinitions** que ha copiado como elemento secundario del elemento **BuildingBlocks**.
@@ -390,7 +390,7 @@ Para usar el ejemplo:
     
 1. Guarde los archivos `\*.html` y cárguelos en Blob Storage.
 1. Ahora modifique la directiva, que apunta al archivo HTML, como se mencionó anteriormente.
-1. Si ve que faltan las fuentes, imágenes o CSS, compruebe las referencias en la directiva de extensiones y los archivos \*.html.
+1. Si ve que faltan las fuentes, imágenes o CSS, compruebe las referencias en la directiva de extensiones y los archivos `\*.html`.
 
 ## <a name="use-company-branding-assets-in-custom-html"></a>Uso de recursos de personalización de marca de empresa en HTML personalizado
 

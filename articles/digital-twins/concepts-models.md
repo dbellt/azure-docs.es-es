@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: d3570a22fdd935237e673ea3e43ab5e463b66456
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b3f0dd599f982e19fee7febc3b85d46f91a55b35
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104590541"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107589302"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Descripción de los modelos gemelos de Azure Digital Twins
 
@@ -32,10 +32,18 @@ DTDL se basa en JSON-LD y es independiente del lenguaje de programación. DTDL n
 
 En el resto de este artículo se resume el uso del lenguaje en Azure Digital Twins.
 
-> [!NOTE] 
-> No todos los servicios que usan DTDL implementan las mismas características exactas de DTDL. Por ejemplo, IoT Plug and Play no usa las características de DTDL que son para los grafos, mientras que Azure Digital Twins no implementa actualmente comandos de DTDL.
->
-> Para más información sobre las características de DTDL que son específicas para Azure Digital Twins, consulte la sección que aparece más adelante en este artículo sobre los [detalles específicos de la implementación de DTDL de Azure Digital Twins](#azure-digital-twins-dtdl-implementation-specifics).
+### <a name="azure-digital-twins-dtdl-implementation-specifics"></a>Detalles específicos de la implementación de DTDL de Azure Digital Twins
+
+No todos los servicios que usan DTDL implementan las mismas características exactas de DTDL. Por ejemplo, IoT Plug and Play no usa las características de DTDL que son para los grafos, mientras que Azure Digital Twins no implementa actualmente comandos de DTDL. 
+
+Para que un modelo de DTDL sea compatible con Azure Digital Twins, tiene que cumplir estos requisitos:
+
+* Todos los elementos de DTDL de nivel superior de un modelo deben ser de tipo *interfaz*. Esto se debe a que las API del modelo de Azure Digital Twins pueden recibir objetos JSON que representan una interfaz o una matriz de interfaces. Como resultado, no se permite ningún otro tipo de elemento de DTDL en el nivel superior.
+* DTDL para Azure Digital Twins no debe definir ningún *comando*.
+* Azure Digital Twins solo permite un único nivel de anidamiento de componente. Esto significa que una interfaz que se usa como componente no puede tener ningún componente. 
+* Las interfaces no pueden ser definidas insertadas en línea dentro de otras interfaces de DTDL, sino que deben definirse como entidades independientes de nivel superior con sus propios identificadores. A continuación, cuando otra interfaz quiere incluir esa interfaz como componente o a través de la herencia, puede hacer referencia a su identificador.
+
+Azure Digital Twins tampoco observa el atributo `writable` en las propiedades o relaciones. Aunque esto puede establecerse según las especificaciones de DTDL, el valor no lo usa Azure Digital Twins. En su lugar, siempre se tratan como grabables por parte de los clientes externos que tienen permisos de escritura generales en el servicio Azure Digital Twins.
 
 ## <a name="elements-of-a-model"></a>Elementos de un modelo
 
@@ -50,7 +58,7 @@ Una interfaz de modelo de DTDL puede contener cero, uno o varios de los campos s
     
     >[!TIP] 
     >Los componentes también se pueden usar para la organización, a fin de agrupar conjuntos de propiedades relacionadas dentro de una interfaz de modelo. En esta situación, puede considerar cada componente como un espacio de nombres o "carpeta" dentro de la interfaz.
-* **Relación**: las relaciones permiten representar cómo un gemelo digital puede estar implicado con otros gemelos digitales. Las relaciones pueden representar distintos significados semánticos, como *contains* ("floor contains room"), *cools* ("hvac cools room"), *isBilledTo* ("compressor is billed to user"), etc. Las relaciones permiten que la solución proporcione un grafo de las entidades interrelacionadas.
+* **Relación**: las relaciones permiten representar cómo un gemelo digital puede estar implicado con otros gemelos digitales. Las relaciones pueden representar distintos significados semánticos, como *contains* ("floor contains room"), *cools* ("hvac cools room"), *isBilledTo* ("compressor is billed to user"), etc. Las relaciones permiten que la solución proporcione un grafo de las entidades interrelacionadas. Las relaciones también pueden tener [propiedades](#properties-of-relationships) propias.
 
 > [!NOTE]
 > La [especificación de DTDL](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) también define **comandos**, que son métodos que se pueden ejecutar en un gemelo digital (como un comando de restablecimiento o un comando para encender o apagar un ventilador). Sin embargo, *en este momento no se admiten comandos en Azure Digital Twins*.
@@ -73,20 +81,40 @@ La telemetría y las propiedades a menudo funcionan en conjunto para controlar l
 
 También puede publicar un evento de telemetría desde la API de Azure Digital Twins. Como con otros tipos de telemetría, es un evento de corta duración que requiere un agente de escucha para el control.
 
-### <a name="azure-digital-twins-dtdl-implementation-specifics"></a>Detalles específicos de la implementación de DTDL de Azure Digital Twins
+#### <a name="properties-of-relationships"></a>Propiedades de las relaciones
 
-Para que un modelo de DTDL sea compatible con Azure Digital Twins, debe cumplir estos requisitos.
+DTDL también permite que las **relaciones** tengan propiedades propias. Al definir una relación dentro de un modelo de DTDL, la relación puede tener su propio campo `properties` donde puede definir propiedades personalizadas para describir el estado específico de la relación.
 
-* Todos los elementos de DTDL de nivel superior de un modelo deben ser de tipo *interfaz*. Esto se debe a que las API del modelo de Azure Digital Twins pueden recibir objetos JSON que representan una interfaz o una matriz de interfaces. Como resultado, no se permite ningún otro tipo de elemento de DTDL en el nivel superior.
-* DTDL para Azure Digital Twins no debe definir ningún *comando*.
-* Azure Digital Twins solo permite un único nivel de anidamiento de componente. Esto significa que una interfaz que se usa como componente no puede tener ningún componente. 
-* Las interfaces no pueden ser definidas insertadas en línea dentro de otras interfaces de DTDL, sino que deben definirse como entidades independientes de nivel superior con sus propios identificadores. A continuación, cuando otra interfaz quiere incluir esa interfaz como componente o a través de la herencia, puede hacer referencia a su identificador.
+## <a name="model-inheritance"></a>Herencia de modelo
 
-Azure Digital Twins tampoco observa el atributo `writable` en las propiedades o relaciones. Aunque esto puede establecerse según las especificaciones de DTDL, el valor no lo usa Azure Digital Twins. En su lugar, siempre se tratan como grabables por parte de los clientes externos que tienen permisos de escritura generales en el servicio Azure Digital Twins.
+En algunas ocasiones, puede que quiera especializar aún más un modelo. Por ejemplo, podría resultar útil tener un modelo genérico *Sala* y las variantes especializadas *SalaDeConferencias* y *Gimnasio*. Para expresar la especialización, DTDL admite la herencia: las interfaces pueden heredar de una o varias interfaces. 
 
-## <a name="example-model-code"></a>Código de modelo de ejemplo
+En el ejemplo siguiente se recrea el modelo *Planeta* del ejemplo de DTDL anterior como subtipo de un modelo *CuerpoCelestial* más grande. Primero se define el modelo "primario" y, a continuación, el modelo "secundario" se basa en él mediante el campo `extends`.
+
+:::code language="json" source="~/digital-twins-docs-samples/models/CelestialBody-Planet-Crater.json":::
+
+En este ejemplo, *CuerpoCelestial* aporte un nombre, una masa y una temperatura a *Planeta*. La sección `extends` es un nombre de interfaz o una matriz de nombres de interfaz (lo que permite que la interfaz de extensión herede de varios modelos primarios si lo desea).
+
+Una vez que se aplica la herencia, la interfaz de extensión expone todas las propiedades de toda la cadena de herencia.
+
+La interfaz de extensión no puede cambiar ninguna de las definiciones de las interfaces primarias; solo puede agregar a ellas. Tampoco puede volver a definir una funcionalidad que ya esté definida en ninguna de sus interfaces primarias (incluso si las funcionalidades están definidas para ser iguales). Por ejemplo, si una interfaz primaria define una propiedad `double` *masa*, la interfaz de extensión no puede contener una declaración de *masa*, incluso si también es `double`.
+
+## <a name="model-code"></a>Código del modelo
 
 Los modelos de tipo gemelo se pueden escribir en cualquier editor de texto. El lenguaje DTDL sigue la sintaxis JSON, por lo que debe almacenar los modelos con la extensión *.json*. El uso de la extensión JSON permitirá que muchos editores de texto de programación proporcionen comprobación de sintaxis básica y resaltado para los documentos de DTDL. También hay una [extensión de DTDL](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) disponible para [Visual Studio Code](https://code.visualstudio.com/).
+
+### <a name="possible-schemas"></a>Esquemas posibles
+
+Según DTDL, el esquema de los atributos *Propiedad* y *Telemetría* puede ser de tipos primitivos estándar, `integer`, `double`, `string` y `Boolean`, y otros tipos como `DateTime` y `Duration`. 
+
+Además de los tipos primitivos, los campos *Propiedad* y *Telemetría* pueden tener estos tipos complejos:
+* `Object`
+* `Map`
+* `Enum`
+
+Los campos *Telemetría* también admiten `Array`.
+
+### <a name="example-model"></a>Ejemplo del modelo
 
 Esta sección contiene un ejemplo de un modelo típico, escrito como una interfaz DTDL. El modelo describe los **planetas**, cada uno con un nombre, una masa y una temperatura.
  
@@ -106,31 +134,6 @@ Los campos del modelo son los siguientes:
 
 > [!NOTE]
 > Tenga en cuenta que la interfaz de componente (em este ejemplo, *Cráter*) se define en la misma matriz que la interfaz que la usa (*Planeta*). Los componentes se deben definir de esta manera en las llamadas API para encontrar la interfaz.
-
-### <a name="possible-schemas"></a>Esquemas posibles
-
-Según DTDL, el esquema de los atributos *Propiedad* y *Telemetría* puede ser de tipos primitivos estándar, `integer`, `double`, `string` y `Boolean`, y otros tipos como `DateTime` y `Duration`. 
-
-Además de los tipos primitivos, los campos *Propiedad* y *Telemetría* pueden tener estos tipos complejos:
-* `Object`
-* `Map`
-* `Enum`
-
-Los campos *Telemetría* también admiten `Array`.
-
-### <a name="model-inheritance"></a>Herencia de modelo
-
-En algunas ocasiones, puede que quiera especializar aún más un modelo. Por ejemplo, podría resultar útil tener un modelo genérico *Sala* y las variantes especializadas *SalaDeConferencias* y *Gimnasio*. Para expresar la especialización, DTDL admite la herencia: las interfaces pueden heredar de una o varias interfaces. 
-
-En el ejemplo siguiente se recrea el modelo *Planeta* del ejemplo de DTDL anterior como subtipo de un modelo *CuerpoCelestial* más grande. Primero se define el modelo "primario" y, a continuación, el modelo "secundario" se basa en él mediante el campo `extends`.
-
-:::code language="json" source="~/digital-twins-docs-samples/models/CelestialBody-Planet-Crater.json":::
-
-En este ejemplo, *CuerpoCelestial* aporte un nombre, una masa y una temperatura a *Planeta*. La sección `extends` es un nombre de interfaz o una matriz de nombres de interfaz (lo que permite que la interfaz de extensión herede de varios modelos primarios si lo desea).
-
-Una vez que se aplica la herencia, la interfaz de extensión expone todas las propiedades de toda la cadena de herencia.
-
-La interfaz de extensión no puede cambiar ninguna de las definiciones de las interfaces primarias; solo puede agregar a ellas. Tampoco puede volver a definir una funcionalidad que ya esté definida en ninguna de sus interfaces primarias (incluso si las funcionalidades están definidas para ser iguales). Por ejemplo, si una interfaz primaria define una propiedad `double` *masa*, la interfaz de extensión no puede contener una declaración de *masa*, incluso si también es `double`.
 
 ## <a name="best-practices-for-designing-models"></a>Procedimientos recomendados para el diseño de modelos
 

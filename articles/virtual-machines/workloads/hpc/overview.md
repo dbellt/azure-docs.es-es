@@ -8,12 +8,12 @@ ms.subservice: hpc
 ms.topic: overview
 ms.date: 04/09/2021
 ms.reviewer: cynthn
-ms.openlocfilehash: 554764b89e5da4cd6777ec89fcb2f2d5ad104ebf
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: 8017b3e84c80acc71fca1442c4493bd1ec239175
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107600274"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108141224"
 ---
 # <a name="high-performance-computing-on-infiniband-enabled-h-series-and-n-series-vms"></a>Informática de alto rendimiento en máquinas virtuales de las series H y N habilitadas con InfiniBand
 
@@ -47,5 +47,5 @@ El cuarto, con el fin de mejorar el rendimiento y la escalabilidad, consiste en 
 - Aprenda a [configurar y optimizar](configure.md) las máquinas virtuales tanto de la [serie H](../../sizes-hpc.md) como de la [serie N](../../sizes-gpu.md) habilitadas con InfiniBand.
 - En los artículos [Introducción a las máquinas virtuales de la serie HBv3](hb-series-overview.md) e [Introducción a las máquinas virtuales de la serie HC](hc-series-overview.md), aprenderá a configurar de forma óptima las cargas de trabajo para mejorar el rendimiento y la escalabilidad.
 - En los [blogs de Azure Compute Community Tech](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute), encontrará los anuncios más recientes, ejemplos de la carga de trabajo HPC y resultados de HPC.
-- Pruebe sus conocimientos con un [módulo de aprendizaje sobre la optimización de aplicaciones HPC en Azure](https://docs.microsoft.com/learn/modules/optimize-tightly-coupled-hpc-apps/).
+- Pruebe sus conocimientos con un [módulo de aprendizaje sobre la optimización de aplicaciones HPC en Azure](/learn/modules/optimize-tightly-coupled-hpc-apps/).
 - Si desea una visión general de la arquitectura de la ejecución de cargas de trabajo de HPC, consulte [Informática de alto rendimiento (HPC) en Azure](/azure/architecture/topics/high-performance-computing/).

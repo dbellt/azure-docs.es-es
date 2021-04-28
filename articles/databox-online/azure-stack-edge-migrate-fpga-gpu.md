@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 03/11/2021
 ms.author: alkohli
-ms.openlocfilehash: 430e34a1ca631be00ef46170affd4b56c79894a9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5ad065ff74a7cec293b83497d6258bcf62975f26
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105566411"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108139298"
 ---
 # <a name="migrate-workloads-from-an-azure-stack-edge-pro-fpga-to-an-azure-stack-edge-pro-gpu"></a>Migración de las cargas de trabajo de Azure Stack Edge Pro con FPGA a Azure Stack Edge Pro con GPU
 
@@ -157,10 +157,10 @@ Ahora se copiarán los datos del dispositivo de origen en los recursos compartid
 
 Siga estos pasos para sincronizar los datos en los recursos compartidos en la nube de Edge en el dispositivo de destino:
 
-1. [Agregue recursos compartidos](azure-stack-edge-j-series-manage-shares.md#add-a-share) correspondientes a los nombres de los recursos compartidos creados en el dispositivo de origen. Al crear recursos compartidos, asegúrese de que la opción **Seleccionar el contenedor de blobs** está establecida en **Utilizar existente** y luego seleccione el contenedor que se usó con el dispositivo anterior.
-1. [Agregue usuarios](azure-stack-edge-j-series-manage-users.md#add-a-user) que tenían acceso al dispositivo anterior.
-1. [Actualice los datos del recurso compartido](azure-stack-edge-j-series-manage-shares.md#refresh-shares) desde Azure. Al actualizar el recurso compartido, se desplegarán todos los datos en la nube desde el contenedor existente hasta los recursos compartidos.
-1. Vuelva a crear las programaciones de ancho de banda para asociarlas a sus recursos compartidos. Consulte [Adición de una programación de ancho de banda](azure-stack-edge-j-series-manage-bandwidth-schedules.md#add-a-schedule) para obtener pasos detallados.
+1. [Agregue recursos compartidos](./azure-stack-edge-gpu-manage-shares.md#add-a-share) correspondientes a los nombres de los recursos compartidos creados en el dispositivo de origen. Al crear recursos compartidos, asegúrese de que la opción **Seleccionar el contenedor de blobs** está establecida en **Utilizar existente** y luego seleccione el contenedor que se usó con el dispositivo anterior.
+1. [Agregue usuarios](./azure-stack-edge-gpu-manage-users.md#add-a-user) que tenían acceso al dispositivo anterior.
+1. [Actualice los datos del recurso compartido](./azure-stack-edge-gpu-manage-shares.md#refresh-shares) desde Azure. Al actualizar el recurso compartido, se desplegarán todos los datos en la nube desde el contenedor existente hasta los recursos compartidos.
+1. Vuelva a crear las programaciones de ancho de banda para asociarlas a sus recursos compartidos. Consulte [Adición de una programación de ancho de banda](./azure-stack-edge-gpu-manage-bandwidth-schedules.md#add-a-schedule) para obtener pasos detallados.
 
 
 ### <a name="2-from-edge-local-shares"></a>2. Desde los recursos compartidos locales de Edge

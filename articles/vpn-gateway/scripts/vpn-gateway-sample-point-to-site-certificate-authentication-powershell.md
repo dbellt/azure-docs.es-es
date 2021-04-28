@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: sample
 ms.date: 02/11/2021
 ms.author: alzam
-ms.openlocfilehash: 04d0fe2b322f6b70cb1cda8d61fbd49638ec214a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9310920ead3b36516a9beb16e7cb9be732e7628f
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100385836"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107948264"
 ---
 # <a name="configure-a-point-to-site-vpn---certificate-authentication---powershell-script-sample"></a>Configuración de una VPN de punto a sitio: autenticación de certificados: script de ejemplo de PowerShell
 
@@ -111,7 +111,7 @@ Este script usa los siguientes comandos para crear la implementación. Cada elem
 | [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) | Crea una dirección IP pública. |
 | [New-AzVirtualNetworkGatewayIpConfig](/powershell/module/az.network/new-azvirtualnetworkgatewayipconfig) | Crea una configuración de IP de puerta de enlace. |
 | [New-AzVirtualNetworkGateway](/powershell/module/az.network/new-azvirtualnetworkgateway) | Crea una puerta de enlace de VPN. |
-| [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) | Crea un certificado raíz autofirmado. |
+| [New-SelfSignedCertificate](/powershell/module/pki/new-selfsignedcertificate) | Crea un certificado raíz autofirmado. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Quita un grupo de recursos y todos los recursos incluidos en él. |
 | [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) | Establece la configuración de subred para la red virtual. |
 

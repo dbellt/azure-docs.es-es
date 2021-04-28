@@ -3,16 +3,16 @@ title: Actividad de anexión de variables en Azure Data Factory
 description: Aprenda a configurar la actividad de anexión de variables para agregar un valor a una variable de matriz existente definida en una canalización de Data Factory
 ms.service: data-factory
 ms.topic: conceptual
-author: dcstwh
-ms.author: weetok
+author: chez-charlie
+ms.author: chez
 ms.reviewer: jburchel
 ms.date: 10/09/2018
-ms.openlocfilehash: 1ca58fc208bb02d137b977e0b18857e8c87a5440
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5739be457f824fd523e26171de59439da314dd31
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104783853"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107906753"
 ---
 # <a name="append-variable-activity-in-azure-data-factory"></a>Actividad de anexión de variables en Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]

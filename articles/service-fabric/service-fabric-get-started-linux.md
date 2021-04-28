@@ -4,12 +4,12 @@ description: Instale el SDK y el motor en tiempo de ejecución, y cree un clúst
 ms.topic: conceptual
 ms.date: 10/16/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 14b8a278605a908b4182c724831b2e42de54a753
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fcf0aeec27415d03c528e42ad5341a92bd299d88
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93086897"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107869408"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparación del entorno de desarrollo en Linux
 > [!div class="op_single_selector"]
@@ -24,7 +24,7 @@ En los pasos descritos en este artículo se supone que va a instalar de forma na
 Puede administrar las entidades de Service Fabric hospedadas en la nube o en el entorno local mediante la interfaz de la línea de comandos (CLI) de Azure Service Fabric. Para más información acerca de cómo instalar la CLI, consulte [Configuración de la CLI de Service Fabric](./service-fabric-cli.md).
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Se admiten estas versiones de sistemas operativos para desarrollo.
 
@@ -261,7 +261,7 @@ Después de instalar los generadores, cree ejecutables invitados o servicios de 
 
 ## <a name="set-up-net-core-31-development"></a>Configuración del desarrollo con .NET Core 3.1
 
-Instale el [SDK de .NET Core 3.1 para Ubuntu](https://www.microsoft.com/net/core#linuxubuntu) para iniciar la [creación de aplicaciones de Service Fabric en C#](service-fabric-create-your-first-linux-application-with-csharp.md). Los paquetes de aplicaciones de Service Fabric en .NET Core se hospedan en NuGet.org.
+Instale el [SDK de .NET Core 3.1 para Ubuntu](/dotnet/core/install/linux-ubuntu) para iniciar la [creación de aplicaciones de Service Fabric en C#](service-fabric-create-your-first-linux-application-with-csharp.md). Los paquetes de aplicaciones de Service Fabric en .NET Core se hospedan en NuGet.org.
 
 ## <a name="set-up-java-development"></a>Configuración del desarrollo de Java
 

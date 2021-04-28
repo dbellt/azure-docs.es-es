@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/25/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: d71720b446baa8e2e5e15c407a69d9ff884004b2
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 21910718d837750db7ae87afa36a2e7576a729cf
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107307697"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108016570"
 ---
 # <a name="sdks-and-rest-apis"></a>SDK y API REST
 
@@ -31,7 +31,7 @@ Las API de Communication Services están documentadas junto con otras API REST d
 | Azure Resource Manager | Azure.ResourceManager.Communication | [REST](https://docs.microsoft.com/rest/api/communication/communicationservice)| Aprovisiona y administra recursos de Communication Services.|
 | Comunes | Azure.Communication.Common| REST | Proporciona tipos base para otros SDK |
 | Identidad | Azure.Communication.Identity| [REST](https://docs.microsoft.com/rest/api/communication/communicationidentity)| Administración de usuarios y tokens de acceso|
-| Números de teléfono _(beta)_| Azure.Communication.PhoneNumbers| [REST](https://docs.microsoft.com/rest/api/communication/phonenumberadministration)| Adquisición y administración de números de teléfono |
+| Números de teléfono _(beta)_| Azure.Communication.PhoneNumbers| [REST](/rest/api/communication/phonenumbers)| Adquisición y administración de números de teléfono |
 | Chat | Azure.Communication.Chat| [REST](https://docs.microsoft.com/rest/api/communication/) con señalización propietaria | Incorpora chat basado en texto en tiempo real a las aplicaciones. |
 | SMS| Azure.Communication.SMS | [REST](https://docs.microsoft.com/rest/api/communication/sms)| Envía y recibe mensajes SMS.|
 | Llamar| Azure.Communication.Calling | Transporte propietario | Permite usar la voz, el vídeo, el uso compartido de pantalla y otras capacidades de comunicación de datos en tiempo real. |
@@ -60,8 +60,8 @@ Ciertas API de REST y los métodos de SDK correspondientes tienen límites que s
 
 | API                                                                                                                          | Limitación            |
 |------------------------------------------------------------------------------------------------------------------------------|---------------------|
-| [Todas las API de plan de número de teléfono de búsqueda](https://docs.microsoft.com/rest/api/communication/phonenumberadministration)         | 4 solicitudes/día      |
-| [Plan de número de teléfono de compra](https://docs.microsoft.com/rest/api/communication/phonenumberadministration/purchasesearch) | 1 compra al mes  |
+| [Todas las API de plan de número de teléfono de búsqueda](/rest/api/communication/phonenumbers)         | 4 solicitudes/día      |
+| [Plan de número de teléfono de compra](/rest/api/communication/phonenumbers/purchasephonenumbers) | 1 compra al mes  |
 | [Envío de SMS](https://docs.microsoft.com/rest/api/communication/sms/send)                                                       | 200 solicitudes por minuto |
 
 

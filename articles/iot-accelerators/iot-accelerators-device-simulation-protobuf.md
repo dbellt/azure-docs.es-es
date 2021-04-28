@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: mvc, amqp, devx-track-csharp
 ms.date: 11/06/2018
 ms.author: dobett
-ms.openlocfilehash: a94f3cc6b2387857d19c7b98fa0be64dd6646ec9
-ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
+ms.openlocfilehash: 2d2c33d0b6f86bc1a779361b86d242cde4c5df38
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107713865"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107873674"
 ---
 # <a name="serialize-telemetry-using-protocol-buffers"></a>Serialización de datos de telemetría con búferes de protocolo
 
@@ -37,7 +37,7 @@ Los pasos de esta guía le muestran cómo:
 Para seguir los pasos de esta guía, necesita:
 
 * Código de Visual Studio. También puede descargar [Visual Studio Code para Mac, Linux y Windows](https://code.visualstudio.com/download).
-* .NET Core. También puede descargar [.NET Core para Mac, Linux y Windows](https://www.microsoft.com/net/download).
+* .NET Core. También puede descargar [.NET Core para Mac, Linux y Windows](https://dotnet.microsoft.com/download).
 * Postman También puede descargar [Postman para Mac, Linux y Windows](https://www.getpostman.com/apps).
 * Una instancia de [IoT Hub implementada en la suscripción de Azure](../iot-hub/iot-hub-create-through-portal.md). Necesita la cadena de conexión de IoT Hub para completar los pasos descritos en esta guía. Puede obtener la cadena de conexión de Azure Portal.
 * Una [base de datos de Cosmos DB implementada en la suscripción de Azure](../cosmos-db/create-sql-api-dotnet.md#create-account) que use SQL API y que esté configurada para tener una [coherencia fuerte](../cosmos-db/how-to-manage-database-account.md). Necesita la cadena de conexión de la base de datos de Cosmos DB para completar los pasos descritos en esta guía. Puede obtener la cadena de conexión de Azure Portal.

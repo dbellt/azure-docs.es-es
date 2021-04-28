@@ -6,12 +6,12 @@ author: vineetvikram
 ms.author: vivikram
 ms.manager: abhemraj
 ms.date: 03/18/2021
-ms.openlocfilehash: c78778f9152fd4c07fb9e550e562cfef858333c8
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: ff05a01ad8173923ff614657d0231f743f38ba1c
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104786743"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107714765"
 ---
 # <a name="set-up-an-appliance-with-a-script"></a>Configuración de un dispositivo con un script
 
@@ -34,7 +34,7 @@ Escenario | Requisitos
 VMware | Windows Server 2016, con 32 GB de memoria, ocho vCPU, alrededor de 80 GB de almacenamiento en disco
 Hyper-V | Windows Server 2016, con 16 GB de memoria, ocho vCPU, alrededor de 80 GB de almacenamiento en disco
 
-- El servidor también necesita un conmutador virtual externo. Requiere una dirección IP estática o dinámica y acceso a Internet.
+- El servidor también necesita un conmutador virtual externo. Requiere una dirección IP estática o dinámica. 
 - Antes de implementar el dispositivo, consulte los requisitos detallados del dispositivo para los [servidores en VMware](migrate-appliance.md#appliance---vmware) y [en Hyper-V](migrate-appliance.md#appliance---hyper-v).
 - No ejecute el script en un dispositivo de Azure Migrate existente.
 

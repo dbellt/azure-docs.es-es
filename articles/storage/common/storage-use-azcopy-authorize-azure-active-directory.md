@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 04/01/2021
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: dd3aeaf133c02ef54eceaff776ead34cc2318260
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 9c5e7d1cf318e50e778c59b97b20b03d23fbfe5c
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106220484"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107903135"
 ---
 # <a name="authorize-access-to-blobs-with-azcopy-and-azure-active-directory-azure-ad"></a>Autorización del acceso a blobs con AzCopy y Azure Active Directory (Azure AD)
 
@@ -159,7 +159,7 @@ Reemplace el marcador de posición `<application-id>` por el identificador de ap
 
 Si prefiere usar sus propias credenciales para la autorización, puede cargar un certificado en el registro de la aplicación y utilizar ese certificado para iniciar sesión.
 
-Además de cargar el certificado en el registro de la aplicación, también deberá tener una copia del certificado guardada en el equipo o la máquina virtual donde se ejecutará AzCopy. Esta copia del certificado debe tener el formato .PFX o .PEM e incluir la clave privada. La clave privada debe estar protegida por contraseña. Si está usando Windows y el certificado solo existe en un almacén de certificados, asegúrese de exportarlo a un archivo PFX (incluida la clave privada). Para obtener instrucciones, consulte [Export-PfxCertificate](/powershell/module/pkiclient/export-pfxcertificate)
+Además de cargar el certificado en el registro de la aplicación, también deberá tener una copia del certificado guardada en el equipo o la máquina virtual donde se ejecutará AzCopy. Esta copia del certificado debe tener el formato .PFX o .PEM e incluir la clave privada. La clave privada debe estar protegida por contraseña. Si está usando Windows y el certificado solo existe en un almacén de certificados, asegúrese de exportarlo a un archivo PFX (incluida la clave privada). Para obtener instrucciones, consulte [Export-PfxCertificate](/powershell/module/pki/export-pfxcertificate)
 
 A continuación, establezca la variable de entorno `AZCOPY_SPA_CERT_PASSWORD` en la contraseña del certificado.
 

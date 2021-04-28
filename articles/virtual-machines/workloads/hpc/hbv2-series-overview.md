@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/28/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 59dd953b2116bc1ec7bd0a581cc181df64fbf49e
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 965e7c92e17d5ba689fccc0ee6eb321fe2a36695
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104721154"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108138087"
 ---
 # <a name="hbv2-series-virtual-machine-overview"></a>Introducción a las máquinas virtuales de la serie HBv2 
 
@@ -59,7 +59,7 @@ El anclaje de procesos funcionará en las máquinas virtuales de la serie HBv2 p
 | Compatibilidad con Orchestrator        | CycleCloud, Batch, AKS; [Opciones de configuración del clúster](../../sizes-hpc.md#cluster-configuration-options)  |
 
 > [!NOTE] 
-> Windows Server 2012 R2 no se admite en HBv2 ni en otras máquinas virtuales con más de 64 núcleos (virtuales o físicos). Obtenga más información [aquí](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
+> Windows Server 2012 R2 no se admite en HBv2 ni en otras máquinas virtuales con más de 64 núcleos (virtuales o físicos). Obtenga más información [aquí](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

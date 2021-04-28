@@ -10,19 +10,19 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: f20af8c61bbfbbbbc20c29470648c3df6a272396
-ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
+ms.openlocfilehash: 429a0d19a0d82ee53c228ad5bfac5ac1d5101fa2
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107285503"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108136614"
 ---
 # <a name="migration-guide-ibm-db2-to-azure-sql-database"></a>Guía de migración: de IBM Db2 a Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
 
 Con esta guía [aprenderá a migrar](https://azure.microsoft.com/migration/migration-journey) las bases de datos de IBM Db2 a Azure SQL Database mediante [SQL Server Migration](https://azure.microsoft.com/en-us/migration/sql-server/) Assistant para Db2. 
 
-Para ver otras guías de migración, consulte la [Guía de Azure Database Migration](https://docs.microsoft.com/data-migration). 
+Para ver otras guías de migración, consulte la [Guía de Azure Database Migration](/data-migration). 
 
 ## <a name="prerequisites"></a>Requisitos previos 
 

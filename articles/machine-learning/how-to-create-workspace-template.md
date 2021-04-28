@@ -5,17 +5,17 @@ description: Aprenda a usar una plantilla de Azure Resource Manager para crear u
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
+ms.topic: how-to
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
-ms.date: 09/30/2020
-ms.openlocfilehash: 9df8a67fd3dfbf23986f1cc5ed18392463fc7ecb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/21/2021
+ms.openlocfilehash: 4a8934d2e33188a325078019ea73cde68e831562
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102522213"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107896304"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Uso de una plantilla de Azure Resource Manager para crear un área de trabajo para Azure Machine Learning
 
@@ -26,7 +26,7 @@ En este artículo aprenderá varias formas de crear un área de trabajo de Azure
 
 Para obtener más información, consulte [Implementación de una aplicación con la plantilla de Azure Resource Manager](../azure-resource-manager/templates/deploy-powershell.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Una **suscripción de Azure**. Si no tiene una ya, pruebe la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 
@@ -650,32 +650,6 @@ Para evitar este problema, se recomienda uno de los siguientes enfoques:
 
     ```text
     /subscriptions/{subscription-guid}/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault
-    ```
-
-### <a name="virtual-network-not-linked-to-private-dns-zone"></a>Red virtual no vinculada a una zona DNS privada
-
-Al crear un área de trabajo con un punto de conexión privado, la plantilla crea una zona DNS privada denominada __privatelink.api.azureml.ms__. Se agrega un __vínculo de red virtual__ automáticamente a esta zona DNS privada. El vínculo solo se agrega para el área de trabajo y el punto de conexión privado primeros que crea en un grupo de recursos. Si crea otra red virtual y otro área de trabajo con un punto de conexión privado en el mismo grupo de recursos, es posible que la segunda red virtual no se agregue a la zona DNS privada.
-
-Para ver los vínculos de red virtual que ya existen para la zona DNS privada, use el siguiente comando de la CLI de Azure:
-
-```azurecli
-az network private-dns link vnet list --zone-name privatelink.api.azureml.ms --resource-group myresourcegroup
-```
-
-Para agregar la red virtual que contiene otra área de trabajo y un punto de conexión privado, siga estos pasos:
-
-1. Para encontrar el identificador de red virtual de la red que desea agregar, use el siguiente comando:
-
-    ```azurecli
-    az network vnet show --name myvnet --resource-group myresourcegroup --query id
-    ```
-    
-    Este comando devuelve un valor similar a "/subscriptions/GUID/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/myvnet". Guarde este valor y úselo en el paso siguiente.
-
-2. Para agregar un vínculo de red virtual a la zona DNS privada privatelink.api.azureml.ms, use el siguiente comando. Para el parámetro `--virtual-network`, utilice la salida del comando anterior:
-
-    ```azurecli
-    az network private-dns link vnet create --name mylinkname --registration-enabled true --resource-group myresourcegroup --virtual-network myvirtualnetworkid --zone-name privatelink.api.azureml.ms
     ```
 
 ## <a name="next-steps"></a>Pasos siguientes

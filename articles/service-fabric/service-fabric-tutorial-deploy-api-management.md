@@ -3,13 +3,13 @@ title: Integrar API Management con Service Fabric en Azure
 description: Aprenda a usar rápidamente Azure API Management y a enrutar el tráfico a un servicio de back-end de Service Fabric.
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 681a1c5241743a0164d83d73753efa0b6c446109
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.custom: mvc
+ms.openlocfilehash: dcf448ce6e2b553b67801d96369161e368d35f0a
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101735597"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108076354"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>Integrar API Management con Service Fabric en Azure
 

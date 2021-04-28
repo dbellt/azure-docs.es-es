@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: andster
 keywords: visualstudio
-ms.openlocfilehash: f26bec64012e0b0909b7df5422c57ff2cb1c347e
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: b37c8bde959822dfcb1b3db2ec96b377217d2bfc
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107478563"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108138218"
 ---
 # <a name="visual-studio-images-on-azure"></a>Imágenes de Visual Studio en Azure
 El uso de Visual Studio en una máquina virtual (VM) de Azure preconfigurada es la manera más fácil y rápida de tener un entorno de desarrollo que funcione correctamente desde el principio. En [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images%3Bmicrosoft%3Bwindows&page=1&subcategories=application-infrastructure) encontrará varias imágenes del sistema con distintas configuraciones de Visual Studio.
@@ -44,7 +44,7 @@ Para obtener más información, consulte la [Directiva de mantenimiento de Visua
 ## <a name="what-features-are-installed"></a>¿Qué características están instaladas?
 Cada imagen contiene el conjunto de características recomendado para esa edición de Visual Studio. Por lo general, la instalación incluye:
 
-* Todas las cargas de trabajo disponibles, incluidos los componentes opcionales recomendados de cada carga de trabajo. Puede encontrar más información sobre las cargas de trabajo, los componentes y los SDK incluidos en Visual Studio en la [documentación de Visual Studio](https://docs.microsoft.com/visualstudio/install/workload-and-component-ids).
+* Todas las cargas de trabajo disponibles, incluidos los componentes opcionales recomendados de cada carga de trabajo. Puede encontrar más información sobre las cargas de trabajo, los componentes y los SDK incluidos en Visual Studio en la [documentación de Visual Studio](/visualstudio/install/workload-and-component-ids).
 * SDK de .NET 4.6.2 y .NET 4.7, paquetes de destino y herramientas de desarrollo
 * Visual F#
 * Extensión de GitHub para Visual Studio

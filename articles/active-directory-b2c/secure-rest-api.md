@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/15/2020
+ms.date: 04/19/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f6907db7f6e53247a8f2fc0042e8c8e6b081dbd3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 462d69a8bde0dec2689ac30620276b5bcd335410
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97516380"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107717700"
 ---
 # <a name="secure-your-restful-services"></a>Protección de los servicios RESTful 
 
@@ -230,9 +230,50 @@ Una notificación proporciona un almacenamiento temporal de datos durante la eje
 
 ### <a name="acquiring-an-access-token"></a>Obtención un token de acceso 
 
-Puede obtener un token de acceso de varias maneras: obteniéndolo de un [proveedor de identidades federado](idp-pass-through-user-flow.md), mediante una llamada a una API REST que devuelve un token de acceso, mediante un [flujo de ROPC](../active-directory/develop/v2-oauth-ropc.md) o mediante el [flujo de credenciales del cliente](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md).  
+Puede obtener un token de acceso de varias maneras: obteniéndolo de un [proveedor de identidades federado](idp-pass-through-user-flow.md), mediante una llamada a una API REST que devuelve un token de acceso, mediante un [flujo de ROPC](../active-directory/develop/v2-oauth-ropc.md) o mediante el [flujo de credenciales del cliente](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). El flujo de credenciales del cliente se usa principalmente para las interacciones entre servidores que se deben ejecutar en segundo plano, sin la interacción inmediata con un usuario.
 
-En el ejemplo siguiente se usa un perfil técnico de API REST para realizar una solicitud al punto de conexión del token de Azure AD con las credenciales de cliente pasadas como autenticación HTTP básica. Para configurarlo en Azure AD, consulte [La Plataforma de identidad de Microsoft y el flujo de credenciales de cliente de OAuth 2.0](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). Es posible que tenga que modificarlo para interactuar con el proveedor de identidades. 
+#### <a name="acquiring-an-azure-ad-access-token"></a>Adquisición de un token de acceso de Azure AD 
+
+En el ejemplo siguiente se usa un perfil técnico de API REST para realizar una solicitud al punto de conexión del token de Azure AD con las credenciales de cliente pasadas como autenticación HTTP básica. Para obtener más información, consulte [La Plataforma de identidad de Microsoft y el flujo de credenciales de cliente de OAuth 2.0](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). 
+
+Para adquirir un token de acceso de Azure AD, cree una aplicación en el inquilino de Azure AD:
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Seleccione el filtro **Directorio y suscripción** en el menú superior y, luego, elija el directorio que contiene el inquilino de Azure AD.
+1. Seleccione **Azure Active Directory** en el menú izquierdo. O bien seleccione **Todos los servicios** y busque y seleccione **Azure Active Directory**.
+1. Seleccione **Registros de aplicaciones** y luego **Nuevo registro**.
+1. Escriba un **Nombre** para la aplicación. Por ejemplo, *App_Aut_Credenciales_Clientes*.
+1. En **Tipos de cuenta admitidos**, seleccione **Solo las cuentas de este directorio organizativo**.
+1. Seleccione **Registrar**.
+2. Registre el **Id. de aplicación (cliente)** . 
+
+
+Para un flujo de credenciales de cliente, tiene que crear un secreto de aplicación. El secreto de cliente también se conoce como contraseña de la aplicación. La aplicación usará el secreto para adquirir un token de acceso.
+
+1. En la página **Azure AD B2C: Registros de aplicaciones**, seleccione la aplicación que ha creado, por ejemplo, *App_Aut_Credenciales_Clientes*.
+1. En el menú de la izquierda, en **Administrar**, seleccione **Certificados y secretos**.
+1. Seleccione **Nuevo secreto de cliente**.
+1. Escriba una descripción para el secreto de cliente en el cuadro **Descripción**. Por ejemplo, *clientsecret1*.
+1. En **Expira**, seleccione el tiempo durante el cual el secreto es válido y, a continuación, seleccione **Agregar**.
+1. Registre el **valor** del secreto para usarlo en el código de la aplicación cliente. Este valor secreto no se volverá a mostrar una vez que abandone esta página. Use este valor como secreto de aplicación en el código de la aplicación.
+
+#### <a name="create-azure-ad-b2c-policy-keys"></a>Creación de las claves de directiva de Azure AD B2C
+
+Tiene que almacenar el identificador de cliente y el secreto de cliente que haya registrado previamente en el inquilino de Azure AD B2C.
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
+2. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el filtro **Directorio y suscripciones** del menú superior y elija el directorio que contiene el inquilino.
+3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
+4. En la página de introducción, seleccione **Identity Experience Framework**.
+5. Seleccione **Claves de directiva** y luego **Agregar**.
+6. En **Opciones**, elija `Manual`.
+7. Escriba un **Nombre** para la clave de directiva, `SecureRESTClientId`. Se agregará el prefijo `B2C_1A_` automáticamente al nombre de la clave.
+8. En **Secreto**, escriba el identificador de cliente que haya registrado previamente.
+9. En **Uso de claves**, seleccione `Signature`.
+10. Haga clic en **Crear**.
+11. Cree otra clave de directiva con la siguiente configuración:
+    -   **Nombre**: `SecureRESTClientSecret`.
+    -   **Secreto**: escriba el secreto de cliente que haya registrado previamente.
 
 Para ServiceUrl, reemplace el nombre del inquilino con el nombre del inquilino de Azure AD. Consulte las opciones disponibles en la referencia del [perfil técnico de RESTful](restful-technical-profile.md).
 
@@ -251,7 +292,7 @@ Para ServiceUrl, reemplace el nombre del inquilino con el nombre del inquilino d
   </CryptographicKeys>
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="grant_type" DefaultValue="client_credentials" />
-    <InputClaim ClaimTypeReferenceId="scope" DefaultValue="https://secureb2cfunction.azurewebsites.net/.default" />
+    <InputClaim ClaimTypeReferenceId="scope" DefaultValue="https://graph.microsoft.com/.default" />
   </InputClaims>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="bearerToken" PartnerClaimType="access_token" />

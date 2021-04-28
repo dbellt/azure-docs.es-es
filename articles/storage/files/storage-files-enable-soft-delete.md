@@ -4,16 +4,16 @@ description: Obtenga información sobre cómo habilitar la eliminación temporal
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/23/2021
+ms.date: 04/05/2021
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: 428ef41340cd565bef0fa3c1e6519fb8862b091a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a0dff310ce4a40b7a66cc548f3c77213f4a10e00
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105727576"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107717030"
 ---
 # <a name="enable-soft-delete-on-azure-file-shares"></a>Habilitación de la eliminación temporal en recursos compartidos de archivos de Azure
 
@@ -26,12 +26,13 @@ En las secciones siguientes se muestra cómo habilitar y usar la eliminación te
 ## <a name="getting-started"></a>Introducción
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
-1. Vaya a la cuenta de almacenamiento y seleccione **Recursos compartidos de archivos** en **File service**.
+1. Vaya a la cuenta de almacenamiento y seleccione **Recursos compartidos de archivos** en **Almacenamiento de datos**.
+1. Seleccione **Habilitado** junto a **Eliminación temporal**.
 1. Seleccione **Enabled** (Habilitado) para **Soft delete for all file shares** (Eliminación temporal para todos los recursos compartidos de archivos).
 1. Seleccione **File share retention period in days** (Período de retención del recurso compartido de archivos en días) y escriba el número que prefiera.
 1. Seleccione **Guardar** para confirmar la configuración de retención de datos.
 
-:::image type="content" source="media/storage-how-to-recover-deleted-account/enable-soft-delete-files.png" alt-text="Captura de pantalla del panel de configuración de la eliminación temporal de la cuenta de almacenamiento. Se resaltan la sección de eliminación temporal de recursos compartidos de archivos, el botón de alternancia para habilitar, se establece un período de retención y se guarda. De esta forma, se habilitará la eliminación temporal para todos los recursos compartidos de archivos de la cuenta de almacenamiento.":::
+    :::image type="content" source="media/storage-how-to-recover-deleted-account/files-enable-soft-delete-new-ui.png" alt-text="Captura de pantalla del panel de configuración de la eliminación temporal de la cuenta de almacenamiento. Se resaltan la sección de eliminación temporal de recursos compartidos de archivos, el botón de alternancia para habilitar, se establece un período de retención y se guarda. De esta forma, se habilitará la eliminación temporal para todos los recursos compartidos de archivos de la cuenta de almacenamiento.":::
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
@@ -129,11 +130,12 @@ Si desea dejar de usar la eliminación temporal, siga estas instrucciones. Para 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. Vaya a la cuenta de almacenamiento y seleccione **Recursos compartidos de archivos** en **File service**.
+1. Vaya a la cuenta de almacenamiento y seleccione **Recursos compartidos de archivos** en **Almacenamiento de datos**.
+1. Seleccione el vínculo situado junto a **Eliminación temporal**.
 1. Seleccione **Disabled** (Deshabilitado) para **Soft delete for all file shares** (Eliminación temporal para todos los recursos compartidos de archivos).
 1. Seleccione **Guardar** para confirmar la configuración de retención de datos.
 
-    :::image type="content" source="media/storage-how-to-recover-deleted-account/disable-soft-delete-files.png" alt-text="Deshabilitar la eliminación temporal le permitirá eliminar de forma inmediata y permanente todos los recursos compartidos de archivos de la cuenta de almacenamiento cuando descanse.":::
+    :::image type="content" source="media/storage-how-to-recover-deleted-account/files-disable-soft-delete.png" alt-text="Deshabilitar la eliminación temporal le permitirá eliminar de forma inmediata y permanente todos los recursos compartidos de archivos de la cuenta de almacenamiento cuando descanse.":::
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 

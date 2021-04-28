@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/04/2021
-ms.openlocfilehash: 4d4a801d0cf0a2355334272053ff86dd846b6bbf
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 9228faade46c2bfec3ed5170be5e256ead7d5220
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107030311"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108017913"
 ---
 # <a name="troubleshooting-sql-insights-preview"></a>Solución de problemas de SQL Insights (versión preliminar)
 Para solucionar los problemas de recopilación de datos en SQL insights, compruebe el estado de la máquina de supervisión en la pestaña **Administrar perfil**. Contendrá uno de los siguientes estados:
@@ -28,7 +28,7 @@ La máquina de supervisión muestra un estado *No se está recopilando* si no ha
 
 SQL Insights usa la siguiente consulta para recuperar esta información:
 
-```
+```kusto
 InsightsMetrics 
     | extend Tags = todynamic(Tags) 
     | extend SqlInstance = tostring(Tags.sql_instance) 
@@ -163,14 +163,14 @@ La máquina de supervisión mostrará el estado *Recopilando con errores* si hay
 
 SQL Insights usa las siguientes consultas para recuperar esta información:
 
-```
+```kusto
 InsightsMetrics 
     | extend Tags = todynamic(Tags) 
     | extend SqlInstance = tostring(Tags.sql_instance) 
     | where TimeGenerated > ago(240m) and isnotempty(SqlInstance) and Namespace == 'sqlserver_server_properties' and Name == 'uptime' 
 ```
 
-```
+```kusto
 WorkloadDiagnosticLogs
 | summarize Errors = countif(Status == 'Error')
 ```

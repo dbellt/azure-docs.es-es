@@ -13,12 +13,12 @@ ms.date: 09/15/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 05bfcc86c72d9eb393da919035ce198948b943f2
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 69df3dc8ef9f2ab4519f5bcb8947da221908f5a7
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105559135"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108126748"
 ---
 # <a name="microsoft-enterprise-sso-plug-in-for-apple-devices-preview"></a>Complemento Microsoft Enterprise SSO para dispositivos Apple (versión preliminar)
 
@@ -54,7 +54,7 @@ Para usar el complemento Microsoft Enterprise SSO en dispositivos Apple:
 
 ### <a name="ios-requirements"></a>Requisitos de iOS:
 - iOS 13.0 o posterior debe estar instalado en el dispositivo.
-- Debe instalarse una aplicación de Microsoft que proporcione el complemento Microsoft Enterprise SSO para dispositivos de Apple en el dispositivo. En el caso de la versión preliminar pública, estas aplicaciones se refieren a la [aplicación Microsoft Authenticator](/azure/active-directory/user-help/user-help-auth-app-overview).
+- Debe instalarse una aplicación de Microsoft que proporcione el complemento Microsoft Enterprise SSO para dispositivos de Apple en el dispositivo. En el caso de la versión preliminar pública, estas aplicaciones se refieren a la [aplicación Microsoft Authenticator](../user-help/user-help-auth-app-overview.md).
 
 
 ### <a name="macos-requirements"></a>Requisitos de macOS:

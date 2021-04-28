@@ -6,12 +6,12 @@ ms.service: azure
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: 12b90bf709cb20bed844940570663a76052a540d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 2110bd812827ab4ff47f170a74a71f90df061833
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101738946"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108129664"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guía de introducción para desarrolladores de Azure
 
@@ -109,7 +109,7 @@ Azure Spring Cloud es una plataforma de microservicios sin servidor que le permi
 
 > **Cuándo se debe usar:** Como servicio totalmente administrado, Azure Spring Cloud es una buena opción para minimizar los costes operativos asociados a la ejecución de microservicios basados en Spring Boot o Spring Cloud en Azure. 
 >
-> **Introducción:** [Implemente su primera aplicación de Azure Spring Cloud](../../spring-cloud/spring-cloud-quickstart.md).
+> **Introducción:** [Implemente su primera aplicación de Azure Spring Cloud](../../spring-cloud/quickstart.md).
 
 
 ### <a name="enhance-your-applications-with-azure-services"></a>Mejore sus aplicaciones con los servicios de Azure
