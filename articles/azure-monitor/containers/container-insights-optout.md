@@ -3,13 +3,12 @@ title: Cómo detener la supervisión del clúster de Azure Kubernetes Service | 
 description: En este artículo se describe cómo interrumpir la supervisión del clúster de Azure AKS con Container Insights.
 ms.topic: conceptual
 ms.date: 08/19/2019
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 619b6fc4cce860e5869fd0b31e303b4a474f8428
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 5398f7830166e801804e4a8f3693bb46883272b0
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107774032"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108071584"
 ---
 # <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-container-insights"></a>Cómo detener la supervisión de Azure Kubernetes Service (AKS) con Container Insights
 

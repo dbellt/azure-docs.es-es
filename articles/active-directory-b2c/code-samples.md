@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: sample
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: b09587d90024a8c376be8b0d93f7ef7b6cc51a1e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5c9c72a56b356aad3b9d948d49caf4c8de99a47e
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103008491"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108070756"
 ---
 # <a name="azure-active-directory-b2c-code-samples"></a>Ejemplos de código de Azure Active Directory B2C
 
@@ -49,7 +49,6 @@ En las tablas siguientes se proporcionan vínculos a ejemplos para aplicaciones 
 |--------| ----------- |
 | [ms-identity-javascript-react-tutorial](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/tree/main/3-Authorization-II/2-call-api-b2c) | Una aplicación de página única que llama a una API web. La autenticación se realiza con Azure AD B2C mediante MSAL React. En este ejemplo se usa el flujo de código de autorización con PKCE. |
 | [ms-identity-b2c-javascript-spa](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa) | Una aplicación de página única que llama a una API web. La autenticación se realiza con Azure AD B2C mediante MSAL.js. En este ejemplo se usa el flujo de código de autorización con PKCE. |
-| [javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) | Una aplicación de página única que llama a una API web. La autenticación se realiza con Azure AD B2C mediante MSAL.js. En este ejemplo se usa el flujo implícito.|
 | [javascript-nodejs-management](https://github.com/Azure-Samples/ms-identity-b2c-javascript-nodejs-management/tree/main/Chapter1) | Una aplicación de página única que llama a Microsoft Graph para administrar usuarios en un directorio B2C. La autenticación se realiza con Azure AD B2C mediante MSAL.js. En este ejemplo se usa el flujo de código de autorización con PKCE.|
 
 ## <a name="consoledaemon-apps"></a>Aplicaciones de consola o de demonio

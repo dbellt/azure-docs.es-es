@@ -10,12 +10,12 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 322f54e4fa2e8096f68d5bbc216032a5b4e53c22
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 579af219c095fcf2e8faa77e0fb3fe7e2ea55d79
+ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105726711"
+ms.lasthandoff: 04/23/2021
+ms.locfileid: "107931718"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 Antes de comenzar, compruebe lo siguiente:
@@ -176,7 +176,7 @@ async function createChatThread() {
       }
     ]
   };
-  const createChatTtreadResult = await chatClient.createChatThread(
+  const createChatThreadResult = await chatClient.createChatThread(
     createChatThreadRequest,
     createChatThreadOptions
   );

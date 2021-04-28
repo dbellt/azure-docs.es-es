@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2020
 ms.author: yelevin
-ms.openlocfilehash: 10812cf97f4f0dfc6f7957608eddf7acf929c3fc
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: 25deccdd190e13d3f0ade319c7a8243e20847ee6
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106579764"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108071057"
 ---
 # <a name="use-logstash-to-connect-data-sources-to-azure-sentinel"></a>Uso de Logstash para conectar orígenes de datos a Azure Sentinel
 
@@ -83,7 +83,7 @@ Use la información del documento [Estructura de un archivo de configuración](h
 
 > [!TIP]
 > -  Puede encontrar el identificador y la clave principal del área de trabajo en el recurso del área de trabajo, en **Agents management** (Administración de agentes).
-> - **Sin embargo**, dado que tener credenciales y otra información confidencial almacenada en texto no cifrado en los archivos de configuración no está de acuerdo con los procedimientos recomendados de seguridad, se recomienda encarecidamente usar el **almacén de claves de Logstash** para incluir de forma segura el **identificador del área de trabajo** y la **clave principal del área de trabajo** en la configuración. Consulte la [documentación de Elastic](https://www.elastic.co/guide/en/elasticsearch/reference/current/get-started-logstash-user.html) para obtener instrucciones.
+> - **Sin embargo**, dado que tener credenciales y otra información confidencial almacenada en texto no cifrado en los archivos de configuración no está de acuerdo con los procedimientos recomendados de seguridad, se recomienda encarecidamente usar el **almacén de claves de Logstash** para incluir de forma segura el **identificador del área de trabajo** y la **clave principal del área de trabajo** en la configuración. Consulte la [documentación de Elastic](https://www.elastic.co/guide/en/logstash/current/getting-started-with-logstash.html) para obtener instrucciones.
 
 #### <a name="sample-configurations"></a>Configuraciones de ejemplo
 

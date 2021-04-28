@@ -10,18 +10,18 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 84053df34ffda0d4686ad80a9e5f3af00ac53d72
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 10d9cd87e15303515c02903c9127c1fd0e1c791a
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94949503"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108070891"
 ---
 # <a name="walkthrough-add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Tutorial: Agregue los intercambios de notificaciones de la API de REST a directivas personalizadas de Azure Active Directory B2C.
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C (Azure AD B2C) permite a los desarrolladores de identidades integrar una interacción con una API RESTful en un recorrido del usuario. Al final de este tutorial podrá crear un recorrido del usuario de Azure AD B2C que interactúe con [servicios RESTful](custom-policy-rest-api-intro.md).
+Azure Active Directory B2C (Azure AD B2C) permite a los desarrolladores de identidades integrar una interacción con una API RESTful en un recorrido del usuario. Al final de este tutorial podrá crear un recorrido del usuario de Azure AD B2C que interactúe con [servicios RESTful](api-connectors-overview.md).
 
 En este escenario, enriquecemos los datos de token del usuario mediante la integración con un flujo de trabajo de línea de negocio corporativo. Durante el registro o inicio de sesión con una cuenta local o federada, Azure AD B2C invoca una API REST para obtener los datos de perfil extendido del usuario de un origen de datos remoto. En este ejemplo, Azure AD B2C envía el identificador único del usuario: objectId. Después, la API REST devuelve el saldo de la cuenta del usuario (un número aleatorio). Use este ejemplo como punto de partida para la integración con su propio sistema CRM, base de datos de marketing o cualquier flujo de trabajo de línea de negocio.
 
@@ -29,8 +29,8 @@ También puede diseñar la interacción como un perfil técnico de validación. 
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-- Realice los pasos del artículo [Introducción a las directivas personalizadas](custom-policy-get-started.md). Debe tener una directiva personalizada activa para registrar e iniciar sesión de cuentas locales.
-- Más información sobre cómo [integrar notificaciones de API REST en la directiva personalizada de Azure AD B2C](custom-policy-rest-api-intro.md).
+- Realice los pasos del artículo [Introducción a las directivas personalizadas](tutorial-create-user-flows.md?pivots=b2c-custom-policy). Debe tener una directiva personalizada activa para registrar e iniciar sesión de cuentas locales.
+- Más información sobre cómo [integrar notificaciones de API REST en la directiva personalizada de Azure AD B2C](api-connectors-overview.md).
 
 ## <a name="prepare-a-rest-api-endpoint"></a>Preparación del punto de conexión de API REST
 

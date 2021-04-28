@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/21/2020
-ms.openlocfilehash: 46b056c22a6d1c70a729f5b9558f53c685a878f0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 2f92c0646ef8c14134e8fc2f9b7558519f71fe8d
+ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101732860"
+ms.lasthandoff: 04/23/2021
+ms.locfileid: "107931008"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Servidor flexible (versión preliminar) de Azure Database for MySQL
 
@@ -136,7 +136,7 @@ Una de las ventajas de ejecutar una carga de trabajo en Azure es su alcance glob
 | --- | --- | --- |
 | Oeste de Europa | :heavy_check_mark: | :heavy_check_mark: |
 | Norte de Europa | :heavy_check_mark: | :heavy_check_mark: |
-| Sur de Reino Unido | :heavy_check_mark: | :x: | 
+| Sur de Reino Unido | :heavy_check_mark: | :heavy_check_mark: | 
 | Este de EE. UU. 2 | :heavy_check_mark: | :heavy_check_mark: |
 | Oeste de EE. UU. 2 | :heavy_check_mark: | :heavy_check_mark: |
 | Centro de EE. UU. | :heavy_check_mark: | :x: | 
@@ -144,8 +144,10 @@ Una de las ventajas de ejecutar una carga de trabajo en Azure es su alcance glob
 | Centro de Canadá | :heavy_check_mark: | :x: | 
 | Sudeste de Asia | :heavy_check_mark: | :heavy_check_mark: |
 | Centro de Corea del Sur | :heavy_check_mark: | :x: | 
-| Japón Oriental | :heavy_check_mark: | :x: | 
+| Japón Oriental | :heavy_check_mark: | :heavy_check_mark: | 
 | Este de Australia | :heavy_check_mark: | :heavy_check_mark: |
+| Centro de Francia | :heavy_check_mark: | :x:|
+| Sur de Brasil | :heavy_check_mark: | :x: |
 
 Estamos trabajando para agregar nuevas regiones pronto.
 

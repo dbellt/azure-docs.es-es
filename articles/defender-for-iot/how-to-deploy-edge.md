@@ -1,26 +1,26 @@
 ---
-title: Implementación del microagente de Defender para IoT para IoT Edge
+title: Implementación del módulo de seguridad de IoT Edge
 description: Aprenda cómo implementar un agente de seguridad de Defender para IoT en IoT Edge.
 ms.topic: conceptual
-ms.date: 1/30/2020
-ms.openlocfilehash: 38e2aa38ab07a4768e95d91ed0ebc866d7edf39f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/21/2021
+ms.openlocfilehash: 71efb0bb12d1e20f918481a086fd411d3a237e33
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104784227"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107813603"
 ---
-# <a name="deploy-a-defender-iot-micro-agent-on-your-iot-edge-device"></a>Implementación de un microagente de Defender para IoT en el dispositivo IoT Edge
+# <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Implementación de un módulo de seguridad en el dispositivo IoT Edge
 
 El módulo **Defender para IoT** proporciona una solución de seguridad completa para los dispositivos IoT Edge.
-El microagente de Defender para IoT recopila, agrega y analiza los datos de seguridad sin procesar del sistema operativo y del sistema de contenedores para generar alertas y recomendaciones de seguridad que requieren acción.
-Para más información, consulte [Microagente de Defender para IoT para IoT Edge](security-edge-architecture.md).
+El módulo de seguridad recopila, agrega y analiza los datos de seguridad sin procesar del sistema operativo y del sistema de contenedores para generar alertas y recomendaciones de seguridad que requieren acción.
+Para aprender más, consulte [Módulo de seguridad de Azure Security Center for IoT](security-edge-architecture.md).
 
-En este artículo, aprenderá a implementar un microagente de Defender para IoT en el dispositivo IoT Edge.
+En este artículo, aprenderá a implementar un módulo de seguridad en el dispositivo IoT Edge.
 
-## <a name="deploy-defender-iot-micro-agent"></a>Implementación de un microagente de Defender para IoT
+## <a name="deploy-security-module"></a>Implementación de un módulo de seguridad
 
-Siga estos pasos para implementar un microagente de Defender para IoT para IoT Edge de Defender para IoT.
+Siga estos pasos para implementar un módulo de seguridad de Defender para IoT para IoT Edge.
 
 ### <a name="prerequisites"></a>Prerrequisitos
 
@@ -159,7 +159,7 @@ Complete cada uno de los pasos para completar la implementación de IoT Edge de 
 
 ## <a name="diagnostic-steps"></a>Pasos de diagnósticos
 
-Si encuentra algún problema, los registros de contenedor son la mejor manera conocer el estado de un dispositivo de microagente de Defender para IoT de IoT Edge. Use los comandos y las herramientas de esta sección para recopilar información.
+Si encuentra algún problema, los registros de contenedor son la mejor manera conocer el estado de un dispositivo de módulo de seguridad IoT Edge. Use los comandos y las herramientas de esta sección para recopilar información.
 
 ### <a name="verify-the-required-containers-are-installed-and-functioning-as-expected"></a>Comprobación de que los contenedores necesarios están instalados y funcionan según lo previsto
 

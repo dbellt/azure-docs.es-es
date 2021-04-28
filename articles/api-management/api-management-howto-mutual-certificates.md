@@ -9,12 +9,13 @@ ms.service: api-management
 ms.topic: article
 ms.date: 01/26/2021
 ms.author: apimpm
-ms.openlocfilehash: d5d261368260a1c9658ae0bef8bdf63a7ca6bafe
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 9d198f34abe826af2dce0c1ed9950600d4c7bbd3
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107750633"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107812307"
 ---
 # <a name="secure-backend-services-using-client-certificate-authentication-in-azure-api-management"></a>Protección de servicios back-end con la autenticación de certificados de cliente en Azure API Management
 
@@ -32,7 +33,7 @@ API Management proporciona dos opciones para administrar los certificados que se
 Se recomienda el uso de certificados de Key Vault, ya que esto ayuda a mejorar la seguridad de API Management:
 
 * Los certificados almacenados en almacenes de claves se pueden reutilizar entre servicios.
-* Las [directivas de acceso](../key-vault/general/security-overview.md#privileged-access) granular se pueden aplicar a los certificados almacenados en los almacenes de claves.
+* Las [directivas de acceso](../key-vault/general/security-features.md#privileged-access) granular se pueden aplicar a los certificados almacenados en los almacenes de claves.
 * Los certificados actualizados en el almacén de claves se rotan automáticamente en API Management. Después de la actualización en el almacén de claves, un certificado en API Management se actualiza en un plazo de 4 horas. También puede actualizar manualmente el certificado mediante Azure Portal o a través de la API REST de administración.
 
 ## <a name="prerequisites"></a>Requisitos previos

@@ -3,13 +3,13 @@ title: 'Creación de un centro de eventos con la captura habilitada: Azure Event
 description: Creación de un espacio de nombres de Azure Event Hubs con un centro de eventos y habilitación de la funcionalidad de captura mediante una plantilla de Azure Resource Manager
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 1b7ce00c1db0866b1965ed6d1bba31aa28f8bc24
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: d17561fca32f272450748378a61c5c3ad77f9ec4
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107304943"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108071404"
 ---
 # <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>Creación de un espacio de nombres con Event Hubs y habilitación de la característica Capture mediante una plantilla
 

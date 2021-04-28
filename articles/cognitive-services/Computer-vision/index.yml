@@ -66,7 +66,7 @@ conceptualContent:
           url: Tutorials/storage-lab-tutorial.md
         - itemType: reference
           text: Referencia de API Análisis de imágenes
-          url: 'https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f21b'
+          url: 'https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b'
       footerLink:
         text: Más
         url: index-image-analysis.yml
@@ -118,9 +118,9 @@ additionalContent:
         - title: API de REST
           links:
             - text: Reconocimiento óptico de caracteres (OCR)
-              url: 'https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005'
+              url: 'https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005'
             - text: Análisis de imágenes
-              url: 'https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f21b'
+              url: 'https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b'
         - title: Recursos
           links:
             - text: Precios

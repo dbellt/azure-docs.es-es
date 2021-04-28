@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: ba5b375f75d2655045e62583679839c8dd2a5720
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 0c1a3362c4f1dfd3396ccd4704933d06d2611414
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107752451"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107814125"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante Azure Portal
 
@@ -81,8 +81,8 @@ Cuando ya no lo necesite, elimine el grupo de recursos; de este modo se eliminar
 En este inicio rápido ha creado una instancia de Key Vault y ha almacenado un secreto en ella. Para más información sobre Key Vault y cómo integrarlo con las aplicaciones, continúe con los artículos siguientes.
 
 - Lea una [introducción a Azure Key Vault](../general/overview.md).
-- Lea [Protección del acceso a un almacén de claves](../general/security-overview.md)
+- Lea [Protección del acceso a un almacén de claves](../general/security-features.md)
 - [Uso de Key Vault con una aplicación web de App Service](../general/tutorial-net-create-vault-azure-web-app.md)
 - Consulte [Uso de Key Vault con una aplicación implementada en una máquina virtual](../general/tutorial-net-virtual-machine.md)
 - Consulte la [guía del desarrollador de Azure Key Vault](../general/developers-guide.md).
-- Consulte [Introducción a la seguridad de Azure Key Vault](../general/security-overview.md)
+- Consulte [Introducción a la seguridad de Azure Key Vault](../general/security-features.md)

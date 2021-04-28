@@ -8,14 +8,13 @@ ms.topic: quickstart
 ms.service: signalr
 ms.custom:
 - subject-armqs
-- devx-track-azurecli
 - mode-arm
-ms.openlocfilehash: 075915f2a06e29eb5b80425913c6e7a2c476ff99
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 622b681121f742ba8de0f92adbcce1c7e1fa8f7a
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107536520"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108070414"
 ---
 # <a name="quickstart-use-an-arm-template-to-deploy-azure-signalr-service"></a>Inicio rápido: Uso de una plantilla de Resource Manager para implementar Azure SignalR Service
 

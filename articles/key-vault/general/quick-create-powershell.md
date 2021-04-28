@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: quickstart
 ms.date: 01/27/2021
 ms.author: mbaldwin
-ms.openlocfilehash: e77493bc73bc2d6f590d9bdcf891171fbd71f74e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cc6d9ca2621a56242d7472a088e55651f5502c9c
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99070227"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107814809"
 ---
 # <a name="quickstart-create-a-key-vault-using-powershell"></a>Inicio rápido: Creación de un almacén de claves mediante PowerShell
 
@@ -48,5 +48,5 @@ En este inicio rápido, ha creado una instancia de Key Vault mediante Azure Powe
 
 - Lea una [introducción a Azure Key Vault](overview.md).
 - Consulte la referencia para los [cmdlets de Key Vault de Azure PowerShell](/powershell/module/az.keyvault/).
-- Consulte [Introducción a la seguridad de Azure Key Vault](security-overview.md)
+- Consulte [Introducción a la seguridad de Azure Key Vault](security-features.md)
 
