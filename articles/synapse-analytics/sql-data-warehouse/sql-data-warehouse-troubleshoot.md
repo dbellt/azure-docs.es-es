@@ -11,12 +11,12 @@ ms.date: 11/13/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: af653585ec1b57b5fd697dc755e495a96e04e677
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: f03b71f956f075a730939f657f42c94bebec5b02
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107565413"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108146588"
 ---
 # <a name="troubleshooting-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Solución de problemas del grupo de SQL dedicado (anteriormente SQL DW) en Azure Synapse Analytics
 
@@ -55,7 +55,7 @@ En este artículo se enumeran los problemas comunes de un grupo de SQL dedicado 
 | Problemas de espacio de TempDB | [Supervise el uso del espacio de TempDB](sql-data-warehouse-manage-monitor.md#monitor-tempdb).  Las causas comunes para quedarse sin espacio de TempDB son:<br>- No hay suficientes recursos asignados a la consulta, lo que provoca que los datos se derramen en TempDB.  Consulte [Administración de cargas de trabajos](resource-classes-for-workload-management.md) <br>- Las estadísticas faltan o no están actualizadas, lo que provoca un movimiento de datos excesivo.  Para más información sobre cómo crear estadísticas, vea [Mantenimiento de estadísticas de tablas](sql-data-warehouse-tables-statistics.md).<br>- El espacio de TempDB se asigna por nivel de servicio.  El [escalado del grupo de SQL dedicado (anteriormente SQL DW)](sql-data-warehouse-manage-compute-overview.md#scaling-compute) a una configuración de DWU superior asigna más espacio de TempDB.|
 | Un bajo rendimiento de las consultas y unos planes mal diseñados suelen ser el resultado de la falta de estadísticas | La causa más común del rendimiento ineficiente es la falta de estadísticas en las tablas.  Para obtener más información sobre cómo crear estadísticas y por qué son tan importantes para el rendimiento, vea [Mantenimiento de estadísticas de tablas](sql-data-warehouse-tables-statistics.md). |
 | Baja simultaneidad o consultas en cola                             | Para comprender el modo de equilibrar la asignación de memoria con la simultaneidad, es importante entender la [administración de la carga de trabajo](resource-classes-for-workload-management.md) . |
-| Implementación de procedimientos recomendados                              | El mejor lugar para empezar a aprender formas de mejorar el rendimiento de las consultas es el artículo sobre [Procedimientos recomendados para el grupo de SQL dedicado (anteriormente SQL DW)](sql-data-warehouse-best-practices.md). |
+| Implementación de procedimientos recomendados                              | El mejor lugar para empezar a aprender formas de mejorar el rendimiento de las consultas es el artículo sobre [Procedimientos recomendados para el grupo de SQL dedicado (anteriormente SQL DW)](../sql/best-practices-dedicated-sql-pool.md). |
 | Mejora del rendimiento con el escalado                      | En ocasiones, la solución para mejorar el rendimiento consiste simplemente en agregar más potencia de proceso a las consultas mediante el [escalado del grupo de SQL dedicado (anteriormente SQL DW)](sql-data-warehouse-manage-compute-overview.md). |
 | Bajo rendimiento de las consultas como resultado de poca calidad del índice     | A veces, la velocidad de las consultas se puede reducir debido a la [baja calidad del índice de almacén de columnas](sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality).  Para más información al respecto y conocer el modo de [volver a generar los índices para mejorar la calidad del segmento](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality), consulte este artículo. |
 

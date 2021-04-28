@@ -11,22 +11,22 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 03/20/2021
 ms.author: mathapli
-ms.openlocfilehash: a714434c39a0c40c2e908f2d0c424f02851921a6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: fb5f00cf2e7078ab8d85f0ac1c2a2d54be907f89
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105933685"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108127180"
 ---
 # <a name="azure-hybrid-benefit-for-linux-virtual-machine-scale-set-public-preview"></a>Ventaja híbrida de Azure para los conjuntos de escalado de máquinas virtuales de Linux (versión preliminar pública)
 
-**La Ventaja híbrida de Azure para los conjuntos de escalado de máquinas virtuales de Linux está en versión preliminar pública**. La ventaja de AHB puede ayudarle a reducir el costo que supone la ejecución de los [conjuntos de escalado de máquinas virtuales](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview) de RHEL y SLES.
+**La Ventaja híbrida de Azure para los conjuntos de escalado de máquinas virtuales de Linux está en versión preliminar pública**. La ventaja de AHB puede ayudarle a reducir el costo que supone la ejecución de los [conjuntos de escalado de máquinas virtuales](./overview.md) de RHEL y SLES.
 
 Con esta ventaja, solo paga por el costo de la infraestructura del conjunto de escalado. La ventaja está disponible para todas las imágenes de pago por uso (PAYG) de Marketplace de RHEL y SLES.
 
 
 >[!NOTE]
-> En este artículo se describe la Ventaja híbrida de Azure para VMSS de Linux. Hay un artículo independiente [disponible [aquí y llamado AHB para VM de Linux](https://docs.microsoft.com/azure/virtual-machines/linux/azure-hybrid-benefit-linux), que ya está disponible para los clientes de Azure desde noviembre de 2020.
+> En este artículo se describe la Ventaja híbrida de Azure para VMSS de Linux. Hay un artículo independiente [disponible [aquí y llamado AHB para VM de Linux](../virtual-machines/linux/azure-hybrid-benefit-linux.md), que ya está disponible para los clientes de Azure desde noviembre de 2020.
 
 ## <a name="benefit-description"></a>Descripción de la ventaja
 La ventaja híbrida de Azure le permite usar las licencias de acceso a la nube existentes de Red Hat o SUSE y convertir de forma flexible las instancias del conjunto de escalado de máquinas virtuales para realizar la facturación de tipo "bring-your-own-subscription" (BYOS). 
@@ -94,7 +94,7 @@ az vmss update -g myResourceGroup -n myVmName --license-type None
 ```
 
 >[!NOTE]
-> Los conjuntos de escalado tienen una ["directiva de actualización"](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) que determina cómo se actualizan las VM con el modelo de conjunto de escalado más reciente. Por lo tanto, si el VMSS tiene una directiva de actualización "automática", la ventaja AHB se aplicará automáticamente a medida que se actualicen las instancias de VM. Si VMSS tiene una directiva de actualización "gradual" en función de las actualizaciones programadas, se aplicará AHB.
+> Los conjuntos de escalado tienen una ["directiva de actualización"](./virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) que determina cómo se actualizan las VM con el modelo de conjunto de escalado más reciente. Por lo tanto, si el VMSS tiene una directiva de actualización "automática", la ventaja AHB se aplicará automáticamente a medida que se actualicen las instancias de VM. Si VMSS tiene una directiva de actualización "gradual" en función de las actualizaciones programadas, se aplicará AHB.
 En el caso de tener una directiva de actualización "manual", tendrá que realizar la "actualización manual" de cada VM existente.  
 
 ### <a name="cli-example-to-upgrade-virtual-machine-scale-set-instances-in-case-of-manual-upgrade-policy"></a>Ejemplo de la CLI para actualizar las instancias del conjunto de escalado de máquinas virtuales en el caso de que la directiva sea de "actualización manual". 

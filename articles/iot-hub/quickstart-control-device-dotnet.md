@@ -14,12 +14,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - devx-track-azurecli
 ms.date: 03/04/2020
-ms.openlocfilehash: b89cc9dfb0a98f61b74ecf42471d08129661fb22
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 92f27c16b5dd45352a3a6cb65dd4bf78e88188f0
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106059894"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107868562"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-net"></a>Inicio rápido: Control de un dispositivo conectado a un centro de IoT (.NET)
 
@@ -39,7 +39,7 @@ El inicio rápido usa dos aplicaciones .NET escritas anteriormente:
 
 * Las dos aplicaciones de ejemplo que se ejecutan en este inicio rápido se escriben con C#. Se necesita el SDK de .NET Core 3.1, o cualquier versión superior, en su máquina de desarrollo.
 
-    Puede descargar el SDK de .NET Core para varias plataformas desde [.NET](https://www.microsoft.com/net/download/all).
+    Puede descargar el SDK de .NET Core para varias plataformas desde [.NET](https://dotnet.microsoft.com/download).
 
     Puede verificar la versión actual de C# en el equipo de desarrollo con el comando siguiente:
 

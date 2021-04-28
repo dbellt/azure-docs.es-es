@@ -3,12 +3,12 @@ title: Procedimientos recomendados
 description: Obtenga información sobre los procedimientos recomendados y sugerencias útiles para desarrollar sus soluciones de Azure Batch.
 ms.date: 03/11/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7ef94b07a5131726c42a94088fd3ee1f413dbec7
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 1a53915f4cdbae03fd86137f3a436bb6e9a6f615
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104802359"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108147596"
 ---
 # <a name="azure-batch-best-practices"></a>Procedimientos recomendados de Azure Batch
 
@@ -32,7 +32,7 @@ Los [grupos](nodes-and-pools.md#pools) de Batch son los recursos de proceso para
 - **Los grupos deben tener más de un nodo de proceso:** no se garantiza la disponibilidad permanente de los nodos individuales. Aunque no es habitual, los errores de hardware, las actualizaciones del sistema operativo y un sinfín de otros problemas pueden hacer que los nodos individuales estén sin conexión. Si la carga de trabajo de Batch requiere un progreso determinista y garantizado, debe asignar grupos con varios nodos.
 
 - **No utilice imágenes con fechas de final de ciclo de vida (EOL) inminentes.**
-    Se recomienda encarecidamente evitar las imágenes con fechas de final del ciclo de vida (EOL) inminentes para el soporte técnico de Batch. Estas fechas se pueden detectar con la [`ListSupportedImages` API](https://docs.microsoft.com/rest/api/batchservice/account/listsupportedimages), [PowerShell](https://docs.microsoft.com/powershell/module/az.batch/get-azbatchsupportedimage) o la [CLI de Azure](https://docs.microsoft.com/cli/azure/batch/pool/supported-images). Es su responsabilidad actualizar periódicamente la vista de las fechas de fin del ciclo de vida correspondientes a los grupos y migrar las cargas de trabajo antes de que esta se produzca. Si usa una imagen personalizada con un agente de nodo especificado, deberá asegurarse de seguir las fechas de final del ciclo de vida del soporte técnico de Batch de la imagen de la que deriva su imagen personalizada o con la que se alinea.
+    Se recomienda encarecidamente evitar las imágenes con fechas de final del ciclo de vida (EOL) inminentes para el soporte técnico de Batch. Estas fechas se pueden detectar con la [`ListSupportedImages` API](/rest/api/batchservice/account/listsupportedimages), [PowerShell](/powershell/module/az.batch/get-azbatchsupportedimage) o la [CLI de Azure](/cli/azure/batch/pool/supported-images). Es su responsabilidad actualizar periódicamente la vista de las fechas de fin del ciclo de vida correspondientes a los grupos y migrar las cargas de trabajo antes de que esta se produzca. Si usa una imagen personalizada con un agente de nodo especificado, deberá asegurarse de seguir las fechas de final del ciclo de vida del soporte técnico de Batch de la imagen de la que deriva su imagen personalizada o con la que se alinea.
 
 - **No reutilice los nombres de recursos.**
     Los recursos de Batch (trabajos, grupos, etc.) suelen ser inestables a lo largo del tiempo. Por ejemplo, puede crear un grupo el lunes, eliminarlo el martes y, después, crear otro grupo el jueves. Cada recurso nuevo que cree debe recibir un nombre único que no haya usado antes. Esto puede hacerse mediante el uso de un GUID (como el nombre de recurso completo o como parte del mismo) o insertando la hora en que se creó el recurso en el nombre del mismo. Batch admite la propiedad [DisplayName](/dotnet/api/microsoft.azure.batch.jobspecification.displayname), que se puede usar para dar a un recurso un nombre legible, incluso si el identificador de recurso real es algo que no es descriptivo. El uso de nombres únicos facilita la diferenciación de un recurso determinado en los registros y las métricas. También elimina la ambigüedad si alguna vez tiene que archivar un caso de soporte técnico para un recurso.

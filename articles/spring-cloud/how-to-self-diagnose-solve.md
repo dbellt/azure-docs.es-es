@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 03b29e6ddd16731073b33fef14d5aafb54df2abe
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: a84ed0efe7cf5f8fe140cb3d47b7ad19d4b8b817
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107227864"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108134688"
 ---
 # <a name="self-diagnose-and-solve-problems-in-azure-spring-cloud"></a>Autodiagnóstico y solución de problemas en Azure Spring Cloud
 
@@ -24,7 +24,7 @@ Los diagnósticos de Azure Spring Cloud constituyen una experiencia interactiva 
 Para completar este artículo, necesitará lo siguiente:
 
 * Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
-* Una instancia del servicio Azure Spring Cloud implementada. Para comenzar, siga nuestro [inicio rápido sobre la implementación de una aplicación mediante la CLI de Azure](spring-cloud-quickstart.md).
+* Una instancia del servicio Azure Spring Cloud implementada. Para comenzar, siga nuestro [inicio rápido sobre la implementación de una aplicación mediante la CLI de Azure](./quickstart.md).
 * Al menos una aplicación ya creada en su instancia de servicio.
 
 ## <a name="navigate-to-the-diagnostics-page"></a>Vaya a la página de diagnósticos.
@@ -56,5 +56,5 @@ Algunos resultados contienen documentación relacionada.
  ![Detalles relacionados](media/spring-cloud-diagnose/related-details.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Supervisión de recursos de Spring Cloud mediante alertas y grupos de acciones](spring-cloud-tutorial-alerts-action-groups.md).
-* [Controles de seguridad para el servicio Azure Spring Cloud](spring-cloud-concept-security-controls.md)
+* [Supervisión de recursos de Spring Cloud mediante alertas y grupos de acciones](./tutorial-alerts-action-groups.md).
+* [Controles de seguridad para el servicio Azure Spring Cloud](./concept-security-controls.md)

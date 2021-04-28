@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/05/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0dcb959184e12ffa22ae25443087684123598e47
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 28e7a6be84a260c26b27b9e6042a6c323d4167ec
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106382475"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108128764"
 ---
 # <a name="register-a-microsoft-graph-application"></a>Registro de una aplicación de Microsoft Graph
 
@@ -58,7 +58,7 @@ Antes de que los scripts y las aplicaciones puedan interactuar con [Microsoft Gr
 
 ## <a name="grant-api-access"></a>Concesión de acceso de API
 
-Para que la aplicación tenga acceso a los datos de Microsoft Graph, conceda a la aplicación registrada los [permisos de aplicación](https://docs.microsoft.com/graph/permissions-reference) pertinentes. Los permisos efectivos de la aplicación son el nivel completo de privilegios que concede el permiso. Por ejemplo, para *crear*, *leer*, *actualizar* y *eliminar* cada usuario de su inquilino de Azure AD B2C, agregue el permiso **User.ReadWrite.All**. 
+Para que la aplicación tenga acceso a los datos de Microsoft Graph, conceda a la aplicación registrada los [permisos de aplicación](/graph/permissions-reference) pertinentes. Los permisos efectivos de la aplicación son el nivel completo de privilegios que concede el permiso. Por ejemplo, para *crear*, *leer*, *actualizar* y *eliminar* cada usuario de su inquilino de Azure AD B2C, agregue el permiso **User.ReadWrite.All**. 
 
 > [!NOTE]
 > El permiso **User.ReadWrite.All** no incluye la capacidad actualizar las contraseñas de las cuentas de usuario. Si la aplicación tiene que actualizar las contraseñas de las cuentas de usuario, [conceda el rol Administrador de usuarios](#optional-grant-user-administrator-role). Al conceder el rol [Administrador de usuarios](../active-directory/roles/permissions-reference.md#user-administrator), no se requiere **User.ReadWrite.All**. El rol de administrador de usuarios incluye todo lo necesario para administrar usuarios.

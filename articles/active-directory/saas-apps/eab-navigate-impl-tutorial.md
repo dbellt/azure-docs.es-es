@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/26/2021
 ms.author: jeedes
-ms.openlocfilehash: a1f288aaa51585b825cd9a9970c4d179dbfd34da
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 1d2a095f224b7f5df9a81f421bd6becfd32265b1
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106223156"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108148024"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-eab-implementation"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con EAB Implementation
 
@@ -79,7 +79,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En la sección **Configuración básica de SAML**, especifique los valores de los siguientes campos:
 
-    a. En el cuadro de texto **Identificador (id. de entidad)** , escriba exactamente el siguiente valor: `https://impl.bouncer.eab.com`
+    a. En el cuadro de texto **Identificador (id. de entidad)** , escriba exactamente el siguiente valor: `https://impl.bouncer.eab.com`.
     
     b. En el cuadro de texto **Dirección URL de respuesta (URL del Servicio de consumidor de aserciones)** , escriba los valores siguientes como filas independientes: 
     
@@ -138,7 +138,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Vaya directamente a la dirección URL de inicio de sesión de EAB Implementation e inicie el flujo de inicio de sesión desde allí.
 
-* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de EAB Implementation en Aplicaciones, se le redirigirá a la URL de inicio de sesión de EAB Implementation. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de EAB Implementation en Aplicaciones, se le redirigirá a la URL de inicio de sesión de EAB Implementation. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

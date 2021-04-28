@@ -6,12 +6,12 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.date: 07/15/2018
 ms.author: juergent
-ms.openlocfilehash: e17739c65c0b80beb1f6fdd09f31897b317d7858
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7647fdd9d7dd9d535477fdc4e69ea382a9c25443
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102506895"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108146264"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>SAP Business One en Azure Virtual Machines
 En este documento se ofrecen instrucciones para implementar SAP Business One en Azure Virtual Machines. La documentación no es un sustituto de la documentación de instalación de Business One para SAP. La documentación debe cubrir las instrucciones básicas de planeación e implementación de la infraestructura de Azure en la que se ejecutan las aplicaciones de Business One.
@@ -134,7 +134,7 @@ Si se usa SAP HANA como DBMS en las secciones siguientes, se deben seguir las co
 
 Para las configuraciones de alta disponibilidad y recuperación ante desastres de SAP HANA como base de datos de Business One en Azure, debe leer la documentación de [Alta disponibilidad de SAP HANA para máquinas virtuales de Azure](./sap-hana-availability-overview.md) y la documentación a la que se señala desde ese documento.
 
-Para las estrategias de copia de seguridad y restauración de SAP HANA, debería leer el documento [Guía de copia de seguridad de SAP HANA en Azure Virtual Machines](./sap-hana-backup-guide.md) y la documentación a la que se señala desde ese documento.
+Para las estrategias de copia de seguridad y restauración de SAP HANA, debería leer el documento [Guía de copia de seguridad de SAP HANA en Azure Virtual Machines](../../../backup/sap-hana-db-about.md) y la documentación a la que se señala desde ese documento.
 
  
 ### <a name="business-one-client-server"></a>Servidor del cliente de Business One

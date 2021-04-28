@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 09/17/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 04174b9cffb7e853dee235a4141ccda74a7847c6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9a55b32cd511fa3fbcce4b429f7a2d74125b4ab8
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104877417"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108134957"
 ---
 # <a name="how-to-identify-outbound-public-ip-addresses-in-azure-spring-cloud"></a>Procedimiento para identificar las direcciones IP públicas de salida en Azure Spring Cloud
 
@@ -46,4 +46,4 @@ az spring-cloud show --resource-group <group_name> --name <service_name> --query
 ## <a name="next-steps"></a>Pasos siguientes
 > [!div class="nextstepaction"]
 * [Más información sobre las identidades administradas para recursos de Azure](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/overview.md)
-* [Más información sobre Key Vault en Azure Spring Cloud](spring-cloud-tutorial-managed-identities-key-vault.md)
+* [Más información sobre Key Vault en Azure Spring Cloud](./tutorial-managed-identities-key-vault.md)

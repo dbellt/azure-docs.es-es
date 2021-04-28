@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/23/2021
-ms.openlocfilehash: 8688458d85084f3d3dab4678fa91ed827a337739
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9771c68dda6f457586f27ea45fbc52aa118e8006
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105047358"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107874790"
 ---
 # <a name="configure-maintenance-window-preview"></a>Configuración de la ventana de mantenimiento (versión preliminar)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -178,7 +178,7 @@ Al establecer la ventana de mantenimiento, cada región tiene sus propias opcion
 
 ### <a name="discover-sql-database-and-elastic-pool-maintenance-windows"></a>Detección de ventanas de mantenimiento de grupos elásticos y SQL Database
 
-En el ejemplo siguiente se devuelven las ventanas de mantenimiento disponibles para la región *eastus2* mediante el comando [az maintenance public-configuration list](/cli/azure/ext/maintenance/maintenance/public-configuration#ext_maintenance_az_maintenance_public_configuration_list). Para las bases de datos y los grupos elásticos, establezca `maintenanceScope` en `SQLDB`.
+En el ejemplo siguiente se devuelven las ventanas de mantenimiento disponibles para la región *eastus2* mediante el comando [az maintenance public-configuration list](/cli/azure/maintenance/public-configuration#az_maintenance_public_configuration_list). Para las bases de datos y los grupos elásticos, establezca `maintenanceScope` en `SQLDB`.
 
    ```azurecli
    location="eastus2"
@@ -188,7 +188,7 @@ En el ejemplo siguiente se devuelven las ventanas de mantenimiento disponibles p
 
 ### <a name="discover-sql-managed-instance-maintenance-windows"></a>Detección de las ventanas de mantenimiento de SQL Managed Instance
 
-En el ejemplo siguiente se devuelven las ventanas de mantenimiento disponibles para la región *eastus2* mediante el comando [az maintenance public-configuration list](/cli/azure/ext/maintenance/maintenance/public-configuration#ext_maintenance_az_maintenance_public_configuration_list). Para las instancias administradas, establezca `maintenanceScope` en `SQLManagedInstance`.
+En el ejemplo siguiente se devuelven las ventanas de mantenimiento disponibles para la región *eastus2* mediante el comando [az maintenance public-configuration list](/cli/azure/maintenance/public-configuration#az_maintenance_public_configuration_list). Para las instancias administradas, establezca `maintenanceScope` en `SQLManagedInstance`.
 
    ```azurecli
    az maintenance public-configuration list --query "[?location=='eastus2'&&contains(maintenanceScope,'SQLManagedInstance')]"

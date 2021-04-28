@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2021
 ms.author: Zhchia
-ms.openlocfilehash: ca01289ce66afe642081e5be17373e640dd1e46d
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 39d1e9e439ad1b14b6f6517868c21c682c45a7a3
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104864829"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108130600"
 ---
 # <a name="tutorial-configure-grammarly-for-automatic-user-provisioning"></a>Tutorial: Configuración de Grammarly para el aprovisionamiento automático de usuarios
 
-En este tutorial se describen los pasos que debe realizar en Grammarly y Azure Active Directory (Azure AD) para configurar el aprovisionamiento automático de usuarios. Cuando se configura, Azure AD aprovisiona y cancela el aprovisionamiento de usuarios y grupos de manera automática en [Grammarly](https://www.grammarly.com/) mediante el servicio de aprovisionamiento de Azure AD. Para obtener información importante acerca de lo que hace este servicio, cómo funciona y ver preguntas frecuentes al respecto, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../manage-apps/user-provisioning.md). 
+En este tutorial se describen los pasos que debe realizar en Grammarly y Azure Active Directory (Azure AD) para configurar el aprovisionamiento automático de usuarios. Cuando se configura, Azure AD aprovisiona y cancela el aprovisionamiento de usuarios y grupos de manera automática en [Grammarly](https://www.grammarly.com/) mediante el servicio de aprovisionamiento de Azure AD. Para obtener información importante acerca de lo que hace este servicio, cómo funciona y ver preguntas frecuentes al respecto, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
 ## <a name="capabilities-supported"></a>Funcionalidades admitidas
@@ -37,14 +37,14 @@ En este tutorial se describen los pasos que debe realizar en Grammarly y Azure 
 
 En el escenario descrito en este tutorial se supone que ya cuenta con los requisitos previos siguientes:
 
-* [Un inquilino de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
-* Una cuenta de usuario en Azure AD con [permiso](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) para configurar el aprovisionamiento (por ejemplo, Administrador de aplicaciones, Administrador de aplicaciones en la nube, Propietario de la aplicación o Administrador global). 
+* [Un inquilino de Azure AD](../develop/quickstart-create-new-tenant.md) 
+* Una cuenta de usuario en Azure AD con [permiso](../roles/permissions-reference.md) para configurar el aprovisionamiento (por ejemplo, Administrador de aplicaciones, Administrador de aplicaciones en la nube, Propietario de la aplicación o Administrador global). 
 * Una cuenta de negocios de Grammarly con acceso de administrador.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Paso 1. Planeación de la implementación de aprovisionamiento
-1. Obtenga información sobre [cómo funciona el servicio de aprovisionamiento](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
-1. Determine quién estará en el [ámbito de aprovisionamiento](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
-1. Determine qué datos se van a [asignar entre Azure AD y Grammarly](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
+1. Obtenga información sobre [cómo funciona el servicio de aprovisionamiento](../app-provisioning/user-provisioning.md).
+1. Determine quién estará en el [ámbito de aprovisionamiento](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+1. Determine qué datos se van a [asignar entre Azure AD y Grammarly](../app-provisioning/customize-application-attributes.md). 
 
 ## <a name="step-2-configure-grammarly-to-support-provisioning-with-azure-ad"></a>Paso 2. Configuración de Grammarly para admitir el aprovisionamiento con Azure AD
 
@@ -52,7 +52,7 @@ Póngase en contacto con su representante de Grammarly o escriba en <support@gra
 
 ## <a name="step-3-add-grammarly-from-the-azure-ad-application-gallery"></a>Paso 3. Incorporación de Grammarly desde la galería de aplicaciones de Azure AD
 
-Para empezar a administrar el aprovisionamiento de Grammarly, agregue Grammarly desde la galería de aplicaciones de Azure AD. Si ha configurado previamente Grammarly para el inicio de sesión único, puede usar la misma aplicación. Sin embargo, se recomienda crear una aplicación independiente al probar inicialmente la integración. Para obtener más información sobre cómo agregar una aplicación desde la galería, consulte [este inicio rápido](../manage-apps/add-application-portal.md).
+Para empezar a administrar el aprovisionamiento de Grammarly, agregue Grammarly desde la galería de aplicaciones de Azure AD. Si ha configurado previamente Grammarly para el inicio de sesión único, puede usar la misma aplicación. Sin embargo, se recomienda crear una aplicación independiente al probar inicialmente la integración. Para obtener más información sobre cómo agregar una aplicación desde la galería, vea [este inicio rápido](../manage-apps/add-application-portal.md).
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Paso 4. Determinar quién estará en el ámbito de aprovisionamiento
 
@@ -60,7 +60,7 @@ Puede usar el servicio de aprovisionamiento de Azure AD para definir quién se 
 
 * Al asignar usuarios y grupos a Grammarly, debe seleccionar un rol que no sea el de **Acceso predeterminado**. Los usuarios con el rol de acceso predeterminado se excluyen del aprovisionamiento y se marcarán como no autorizados en los registros de aprovisionamiento. Si el único rol disponible en la aplicación es el rol de acceso predeterminado, puede [actualizar el manifiesto de aplicación](../develop/howto-add-app-roles-in-azure-ad-apps.md) para agregar más roles.
 
-* Empiece por algo pequeño. Pruebe con un pequeño conjunto de usuarios y grupos antes de implementarlo para todos. Cuando el ámbito del aprovisionamiento se define en los usuarios y grupos asignados, puede controlar esta opción asignando uno o dos usuarios o grupos a la aplicación. Cuando el ámbito se establece en todos los usuarios y grupos, puede especificar un [filtro de ámbito basado en atributos](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+* Empiece por algo pequeño. Pruebe con un pequeño conjunto de usuarios y grupos antes de implementarlo para todos. Cuando el ámbito del aprovisionamiento se define en los usuarios y grupos asignados, puede controlarlo asignando uno o dos usuarios, o grupos, a la aplicación. Cuando el ámbito se establece en todos los usuarios y grupos, puede especificar un [filtro de ámbito basado en atributos](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 
 ## <a name="step-5-configure-automatic-user-provisioning-to-grammarly"></a>Paso 5. Configuración del aprovisionamiento automático de usuarios en Grammarly
@@ -120,7 +120,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 1. Cuando esté listo para realizar el aprovisionamiento, seleccione **Guardar**.
 
-    ![Captura de pantalla que muestra el botón Guardar.](common/provisioning-configuration-save.png)
+    ![Captura de pantalla en la que se muestra el botón Guardar.](common/provisioning-configuration-save.png)
 
 Esta operación inicia el ciclo de sincronización inicial de todos los usuarios y grupos definidos en **Ámbito** en la sección **Configuración**. El ciclo de sincronización inicial tarda más tiempo en realizarse que los ciclos posteriores, que se producen aproximadamente cada 40 minutos si el servicio de aprovisionamiento de Azure AD está ejecutándose.
 
@@ -128,9 +128,9 @@ Esta operación inicia el ciclo de sincronización inicial de todos los usuarios
 
 Una vez configurado el aprovisionamiento, use los recursos siguientes para supervisar la implementación:
 
-* Use los [registros de aprovisionamiento](../reports-monitoring/concept-provisioning-logs.md) para determinar qué usuarios se han aprovisionado correctamente y los que no.
+* Use los [registros de aprovisionamiento](../reports-monitoring/concept-provisioning-logs.md) para determinar los usuarios que se han aprovisionado correctamente y los que no.
 * Consulte la [barra de progreso](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) para ver el estado del ciclo de aprovisionamiento y cuánto falta para que finalice.
-* Si la configuración de aprovisionamiento parece estar en mal estado, la aplicación pasará a estar en cuarentena. Para obtener más información sobre los estados de cuarentena, consulte [Estado de cuarentena del aprovisionamiento de aplicaciones](../app-provisioning/application-provisioning-quarantine-status.md).
+* Si la configuración de aprovisionamiento parece estar en mal estado, la aplicación pasará a estar en cuarentena. Para obtener más información sobre los estados de cuarentena, vea [Estado de cuarentena del aprovisionamiento de aplicaciones](../app-provisioning/application-provisioning-quarantine-status.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

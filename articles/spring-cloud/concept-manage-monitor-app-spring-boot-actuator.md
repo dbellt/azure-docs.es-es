@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 93fd286aa76a0409a515abbf8c9dabd88a9a65c4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: bfe5dc7c4f6fc40154a6fc9bc3a087873ba9eaef
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104877457"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108129250"
 ---
 # <a name="manage-and-monitor-app-with-azure-spring-boot-actuator"></a>Administración y supervisión de aplicaciones con el accionador de Spring Boot de Azure
 
@@ -21,7 +21,7 @@ ms.locfileid: "104877457"
 Después de implementar el nuevo archivo binario en la aplicación, recomendamos comprobar la característica y ver información sobre la aplicación en ejecución. En este artículo se explica cómo acceder a la API desde un punto de conexión de prueba proporcionado por Azure Spring Cloud y exponer las características listas para producción de la aplicación.
 
 ## <a name="prerequisites"></a>Requisitos previos
-En este artículo se presupone que tiene una aplicación Spring Boot 2.x que se puede implementar y arrancar correctamente en el servicio Azure Spring Cloud.  Consulte [Quickstart: Inicio de una aplicación de Azure Spring Cloud existente desde Azure Portal](spring-cloud-quickstart.md)
+En este artículo se presupone que tiene una aplicación Spring Boot 2.x que se puede implementar y arrancar correctamente en el servicio Azure Spring Cloud.  Consulte [Quickstart: Inicio de una aplicación de Azure Spring Cloud existente desde Azure Portal](./quickstart.md)
 
 ## <a name="verify-app-through-test-endpoint"></a>Comprobación de la aplicación a través del punto de conexión de prueba
 1. Vaya al **Panel de la aplicación** y haga clic en la aplicación para acceder a la página de información general de la aplicación.
@@ -76,6 +76,5 @@ Para ver todos los puntos de conexión integrados, lea [Exponer puntos de conexi
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Descripción de las métricas en Azure Spring Cloud](spring-cloud-concept-metrics.md)
-* [Descripción del estado de las aplicaciones en Azure Spring Cloud](spring-cloud-concept-app-status.md)
-
+* [Descripción de las métricas en Azure Spring Cloud](./concept-metrics.md)
+* [Descripción del estado de las aplicaciones en Azure Spring Cloud](./concept-app-status.md)

@@ -3,22 +3,23 @@ title: Servicios y categorías admitidos de los registros de recursos de Azure M
 description: Referencia de Azure Monitor para conocer el esquema de los eventos y servicios admitidos para los registros de recursos de Azure.
 ms.topic: reference
 ms.date: 03/30/2021
-ms.openlocfilehash: a4ab4a2e425b752198223da5efd1b07466ab83d1
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: b9bac212a8be040349a8d78c64d7beab291e1f9e
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106166945"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108016029"
 ---
 # <a name="supported-categories-for-azure-resource-logs"></a>Categorías admitidas en los registros de recursos de Azure
 
 > [!NOTE]
-> Los registros de recurso se conocían anteriormente como registros de diagnóstico. El nombre se cambió en octubre de 2019, dado que los tipos de registros recopilados por Azure Monitor evolucionaron para incluir algo más que tan solo el recurso de Azure.
+> Esta lista se genera automáticamente. Cualquier modificación realizada en esta lista a través de GitHub puede sobrescribirse sin previo aviso. Póngase en contacto con el autor de este artículo para obtener más información sobre cómo hacer actualizaciones permanentes.
 
 Los [registros de recursos de Azure Monitor](../essentials/platform-logs-overview.md) son los registros emitidos por los servicios de Azure que describen el funcionamiento de dichos servicios o recursos. Todos los registros de recursos disponibles a través de Azure Monitor comparten un esquema común de nivel superior, con flexibilidad para que cada servicio emita propiedades únicas para sus propios eventos.
 
-Una combinación del tipo de recurso (disponible en la propiedad `resourceId`) y la `category` identifica un esquema de forma única. Hay un esquema común para todos los registros de recursos con campos específicos de servicio que se han agregado para distintas categorías de registros. Para obtener más información, consulte [Esquema específico de servicio y común para los registros de recursos de Azure]().
+Los registros de recurso se conocían anteriormente como registros de diagnóstico. El nombre se cambió en octubre de 2019, dado que los tipos de registros recopilados por Azure Monitor evolucionaron para incluir algo más que tan solo el recurso de Azure.
 
+Una combinación del tipo de recurso (disponible en la propiedad `resourceId`) y la `category` identifica un esquema de forma única. Hay un esquema común para todos los registros de recursos con campos específicos de servicio que se han agregado para distintas categorías de registros. Para obtener más información, consulte [Esquema específico de servicio y común para los registros de recursos de Azure]().
 
 ## <a name="costs"></a>Costos
 
@@ -653,14 +654,6 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 |---|---|---|
 |FrontdoorAccessLog|Registro de acceso de Front Door|No|
 |FrontdoorWebApplicationFirewallLog|Registro de firewall de aplicaciones web de Front Door|No|
-
-
-## <a name="microsoftnetworkloadbalancers"></a>Microsoft.Network/loadBalancers
-
-|Category|Nombre para mostrar de categoría|Costos de exportación|
-|---|---|---|
-|LoadBalancerAlertEvent|Eventos de alerta de equilibrador de carga|No|
-|LoadBalancerProbeHealthStatus|Estado de mantenimiento de sondeo de equilibrador de carga|No|
 
 
 ## <a name="microsoftnetworknetworksecuritygroups"></a>Microsoft.Network/networksecuritygroups

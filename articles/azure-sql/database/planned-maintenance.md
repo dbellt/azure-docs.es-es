@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: sstein
 ms.date: 3/23/2021
-ms.openlocfilehash: 259a8581d16f4fd6958a0d9ec2631f667d362b19
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: 76b094cbaf75c093afef308d85f549786928287d
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106579478"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108128404"
 ---
 # <a name="plan-for-azure-maintenance-events-in-azure-sql-database-and-azure-sql-managed-instance"></a>Planeación de eventos de mantenimiento de Azure en Azure SQL Database e Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -35,7 +35,7 @@ El evento de mantenimiento puede producir una o varias reconfiguraciones, en fun
 
 ## <a name="how-to-simulate-a-planned-maintenance-event"></a>Simulación de un evento de mantenimiento planeado
 
-Asegurarse de que la aplicación cliente sea resistente a los eventos de mantenimiento antes de la implementación en producción ayudará a mitigar el riesgo de errores de la aplicación y contribuirá a la disponibilidad de la aplicación para los usuarios finales. Puede probar el comportamiento de la aplicación cliente durante los eventos de mantenimiento planeados mediante la [Prueba de la resistencia a errores de la aplicación](https://docs.microsoft.com/azure/azure-sql/database/high-availability-sla#testing-application-fault-resiliency) a través de PowerShell, la CLI o la API REST. Consulte también el [inicio de la conmutación por error manual](https://aka.ms/mifailover-techblog) para Instancia administrada. Producirá un comportamiento idéntico al evento de mantenimiento y dejará sin conexión la réplica principal.
+Asegurarse de que la aplicación cliente sea resistente a los eventos de mantenimiento antes de la implementación en producción ayudará a mitigar el riesgo de errores de la aplicación y contribuirá a la disponibilidad de la aplicación para los usuarios finales. Puede probar el comportamiento de la aplicación cliente durante los eventos de mantenimiento planeados mediante la [Prueba de la resistencia a errores de la aplicación](./high-availability-sla.md#testing-application-fault-resiliency) a través de PowerShell, la CLI o la API REST. Consulte también el [inicio de la conmutación por error manual](https://aka.ms/mifailover-techblog) para Instancia administrada. Producirá un comportamiento idéntico al evento de mantenimiento y dejará sin conexión la réplica principal.
 
 ## <a name="retry-logic"></a>Lógica de reintento
 
