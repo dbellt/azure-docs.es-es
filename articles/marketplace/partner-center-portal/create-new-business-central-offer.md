@@ -7,12 +7,12 @@ ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 12/02/2020
-ms.openlocfilehash: 65df5f178ce0ec845fca6343c51049b6bf426e18
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 001f7453c29e7a8525fb88a96dd9a867468460e3
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107106044"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107501440"
 ---
 # <a name="create-a-dynamics-365-for-business-central-offer"></a>Creación de una oferta de Dynamics 365 Business Central
 
@@ -33,7 +33,7 @@ Antes de comenzar, debe [crear una cuenta de marketplace comercial en el Centro 
 
 ## <a name="new-offer"></a>Nueva oferta
 
-Escriba un **Identificador de oferta**. Se trata de un identificador único para cada oferta de su cuenta.
+Escriba un **Identificador de oferta**. Este valor es un identificador único para cada oferta de su cuenta.
 
 - Se muestra a los clientes en la dirección web de la oferta de Marketplace y en las plantillas de Azure Resource Manager, si procede.
 - El identificador de oferta en combinación con el del editor debe tener una longitud de menos de 40 caracteres.
@@ -51,7 +51,7 @@ Seleccione **Crear** para generar la oferta y continuar.
 
 ### <a name="alias"></a>Alias
 
-Escriba un nombre descriptivo que se usará para hacer referencia a esta oferta únicamente dentro del Centro de partners. Este nombre (previamente rellenado con lo que especificó al crear la oferta) no se usará en el marketplace y es diferente del nombre de la oferta que se muestra a los clientes. Si quiere actualizar el nombre de la oferta más adelante, vaya a la página [Offer Listing](#offer-listing) (Descripción de la oferta).
+Escriba un nombre descriptivo que se usará para hacer referencia a esta oferta únicamente dentro del Centro de partners. Este nombre (rellenado previamente con lo que se haya especificado al crear la oferta) no se usará en el marketplace y es diferente al nombre de la oferta que se muestra a los clientes. Si quiere actualizar el nombre de la oferta más adelante, vaya a la página [Offer Listing](#offer-listing) (Descripción de la oferta).
 
 ### <a name="setup-details"></a>Detalles de la configuración
 
@@ -118,11 +118,11 @@ Esta página le permite definir los detalles de la oferta, como el nombre de la 
 > [!NOTE]
 > Proporcione los detalles de la descripción de la oferta solo en un idioma. No es necesario que los detalles de la oferta estén en inglés si la descripción de la oferta comienza con la frase "Esta aplicación solo está disponible en [idioma distinto del inglés]". También es aceptable especificar una *dirección URL de vínculo útil* para ofrecer contenido en un idioma distinto del que se usa en el contenido de la descripción de la oferta.
 
-A continuación se muestra un ejemplo de cómo aparece la información de la oferta en Microsoft AppSource (los precios mostrados son meramente ilustrativos y no pretenden reflejar los costos reales):
-<!-- update screen? -->
+A continuación se muestra un ejemplo de cómo aparece la información de la oferta en Microsoft AppSource (los precios mostrados son meramente ilustrativos y no reflejan los costos reales):
+
 :::image type="content" source="media/example-d365-business-central.png" alt-text="Ilustración de cómo aparece esta oferta en Microsoft AppSource.":::
 
-#### <a name="call-out-descriptions"></a>Descripciones destacadas
+### <a name="call-out-descriptions"></a>Descripciones destacadas
 
 1. Logotipo
 2. Productos
@@ -174,11 +174,11 @@ Proporcione logotipos e imágenes que se usarán al mostrar la oferta a los clie
 [!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!Note]
->Si tiene un problema al cargar archivos, asegúrese de que la red local no bloquee el servicio https://upload.xboxlive.com que usa el Centro de partners.
+>Si tiene un problema al cargar archivos, asegúrese de que la red local no bloquee el servicio `https://upload.xboxlive.com` que usa el Centro de partners.
 
 #### <a name="logos"></a>Logotipos
 
-Proporcione un archivo PNG para el logotipo de tamaño **Grande**. El Centro de partners lo usará para crear otros tamaños necesarios. Opcionalmente, puede reemplazarlo por una imagen diferente.
+Proporcione un archivo PNG para el logotipo de tamaño **Grande**. El Centro de partners usará este archivo inicial para crear otros tamaños necesarios. Como alternativa, puede reemplazar la imagen redimensionada por su propia imagen posteriormente.
 
 Estos logotipos se usan en distintos lugares de la publicación:
 
@@ -194,7 +194,7 @@ Agregue capturas de pantallas que muestren el funcionamiento de la oferta. Son n
 
 Opcionalmente, puede agregar hasta cuatro vídeos que muestren la oferta. Los vídeos deben estar hospedados en un sitio externo. Para cada uno de ellos, escriba el nombre del vídeo, su dirección y una imagen en miniatura del vídeo (1280 x 720 píxeles).
 
-Para ver más recursos sobre las listas de marketplace, consulte [Procedimientos recomendados para las listas de ofertas de marketplace](../gtm-offer-listing-best-practices.md).
+Para ver más recursos enumerados en el marketplace, consulte [Procedimientos recomendados para la publicación de ofertas](../gtm-offer-listing-best-practices.md).
 
 Seleccione **Guardar borrador** antes de continuar.
 
@@ -225,6 +225,8 @@ Seleccione **Guardar borrador** antes de continuar.
 
 Esta página especifica los detalles técnicos usados para conectarse a la oferta. Esta conexión nos permite aprovisionar su oferta para el cliente final, en caso de que este elija adquirirla.
 
+Las extensiones enviadas para la oferta deben cumplir los requisitos especificados en la [lista de comprobación de validación técnica](/dynamics365/business-central/dev-itpro/developer/devenv-checklist-submission).
+
 ### <a name="file-upload"></a>Carga de archivos
 
 Si seleccionó **Complemento** anteriormente, aquí se cargará el archivo de paquete de la oferta, junto con los archivos de paquete de cualquier extensión de la que tenga dependencias.
@@ -242,14 +244,6 @@ Se requiere si la oferta debe instalarse junto con otra extensión que no se pub
 
 Seleccione **Guardar borrador** antes de continuar.
 
-<!-- ## Test drive technical configuration
-
-This page lets you set up a demonstration ("test drive") that allows customers to try your offer before purchasing it. Learn more in [What is test drive](../what-is-test-drive.md).
-
-To enable a test drive, select the **Enable a test drive** check box on the [Offer setup](#test-drive) tab. To remove test drive from your offer, clear this check box.
-
-When you've finished setting up your test drive, select **Save draft** before continuing.
--->
 ## <a name="supplemental-content"></a>Contenido complementario
 
 Esta página le permite proporcionar información adicional que nos ayuda a validar la oferta. Esta información no se muestra a los clientes ni se publica en Marketplace.
@@ -285,9 +279,9 @@ Cuando haya completado todas las secciones necesarias de la oferta, seleccione *
 Si es la primera vez que publica esta oferta, puede:
 
 - Ver el estado de finalización de cada sección de la oferta.
-    - **No iniciada**: la sección no se ha modificado y se debe completar.
-    - **Incompleta**: la sección tiene errores que deben corregirse o se necesita más información. Vuelva a las secciones y actualícelas.
-    - **Completa**: la sección está completa, se han proporcionado todos los datos necesarios y no hay ningún error. Para poder enviar la oferta, todas sus secciones deben estar en estado Completa.
+  - **No iniciada**: la sección no se ha modificado y se debe completar.
+  - **Incompleta**: la sección tiene errores que deben corregirse o se necesita más información. Vuelva a las secciones y actualícelas.
+  - **Completa**: la sección está completa, se han proporcionado todos los datos necesarios y no hay ningún error. Para poder enviar la oferta, todas sus secciones deben estar en estado Completa.
 - En la sección **Notas para la certificación**, envíe instrucciones para la realización de pruebas al equipo de certificación para asegurarse de que la aplicación se prueba correctamente, además de todas las notas adicionales que pueden resultar útiles para conocer la aplicación.
 - Enviar la oferta para su publicación, para lo que debe seleccionar **Enviar**. Le enviaremos un correo electrónico cuando haya alguna versión preliminar de la oferta disponible para su revisión y aprobación. Para publicar la oferta para el público, vuelva al Centro de partners y seleccione **Publicar**.
 

@@ -3,17 +3,17 @@ title: Integración y entrega continuas para las áreas de trabajo de Synapse
 description: Aprenda a usar la integración y la entrega continuas para implementar los cambios en el área de trabajo de un entorno (desarrollo, prueba o producción) a otro.
 author: liudan66
 ms.service: synapse-analytics
-ms.subservice: cicd
+ms.subservice: ''
 ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 2d49deef4cc7f646032219ff9e8f541cc9c1afd6
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 833478d956560c981bd6cc3ba03b48bb602f563c
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108131194"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739681"
 ---
 # <a name="continuous-integration-and-delivery-for-azure-synapse-workspace"></a>Integración y entrega continuas para las áreas de trabajo de Azure Synapse
 
@@ -25,17 +25,17 @@ En las áreas de trabajo de Azure Synapse Analytics, la integración continua y 
 
 En este artículo se describe cómo usar una canalización de versión de Azure DevOps para automatizar la implementación de un área de trabajo de Azure Synapse en varios entornos.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 Estos requisitos previos y estas configuraciones deben estar en vigor para automatizar la implementación de un área de trabajo de Azure Synapse en varios entornos.
 
 ### <a name="azure-devops"></a>Azure DevOps
 
 - Se ha preparado un proyecto de Azure DevOps para ejecutar la canalización de versión.
-- [Conceda a los usuarios que van a registrar acceso "Básico" al código a nivel de organización](/azure/devops/organizations/accounts/add-organization-users?view=azure-devops&tabs=preview-page&preserve-view=true), con el fin de que puedan ver el repositorio.
+- [Conceda a los usuarios que van a registrar acceso "Básico" al código a nivel de organización](/azure/devops/organizations/accounts/add-organization-users?view=azure-devops&tabs=preview-page), con el fin de que puedan ver el repositorio.
 - Conceda derechos de propietario al repositorio de Azure Synapse.
 - Asegúrese de que ha creado un agente de máquina virtual de Azure DevOps auto-hospedado o use un agente hospedado de Azure DevOps.
-- Permisos para [ crear una conexión con el servicio Azure Resource Manager para el grupo de recursos](/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml&preserve-view=true).
+- Permisos para [ crear una conexión con el servicio Azure Resource Manager para el grupo de recursos](/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml).
 - Los administradores de Azure Active Directory (Azure AD) deben [instalar la extensión Azure DevOps Synapse Workspace Deployment Agent en la organización de Azure DevOps](/azure/devops/marketplace/install-extension).
 - Cree o designe una cuenta de servicio existente para que se ejecute la canalización. Puede usar un token de acceso personal, en lugar de una cuenta de servicio, pero las canalizaciones no funcionarán después de que se elimine la cuenta de usuario.
 
@@ -158,7 +158,7 @@ Use la extensión [Synapse workspace deployment](https://marketplace.visualstudi
 
 1. Seleccione la conexión, el grupo de recursos y el nombre del área de trabajo de destino. 
 
-1. Seleccione **…** que se encuentran junto al cuadro **Reemplazar parámetros de plantilla** y escriba los valores de parámetro deseados para el área de trabajo de destino, incluidas las cadenas de conexión y las claves de cuenta que se usan en los servicios vinculados. [Para más información, haga clic aquí] (https://techcommunity.microsoft.com/t5/data-architecture-blog/ci-cd-in-azure-synapse-analytics-part-4-the-release-pipeline/ba-p/2034434)
+1. Seleccione los puntos suspensivos (**…**) que se encuentran junto al cuadro **Reemplazar parámetros de plantilla** y escriba los valores de parámetro deseados para el área de trabajo de destino, incluidas las cadenas de conexión y las claves de cuenta que se usan en los servicios vinculados. [Para más información, haga clic aquí] (https://techcommunity.microsoft.com/t5/data-architecture-blog/ci-cd-in-azure-synapse-analytics-part-4-the-release-pipeline/ba-p/2034434)
 
     ![Implementación del área de trabajo de Synapse](media/create-release-artifacts-deployment.png)
 

@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.date: 11/03/2019
 ms.topic: conceptual
-ms.openlocfilehash: 5309fd60640c45ade42bab4c5727cf1f0a8d9d70
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cd44d3361e96a22ddb70fb5568926583ac3dbb67
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105025482"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107952699"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Preguntas frecuentes: Recuperación ante desastres de Azure a Azure
 
@@ -158,7 +158,7 @@ Site Recovery puede crear puntos de recuperación coherentes con la aplicación 
 
 ### <a name="can-i-enable-app-consistent-replication-for-linux-vms"></a>¿Puedo habilitar la replicación coherente con la aplicación en máquinas virtuales Linux?
 
-Sí. El agente de movilidad para Linux admite scripts personalizados para la coherencia con la aplicación. El agente utiliza un script personalizado con opciones anteriores y posteriores. [Más información](site-recovery-faq.md#can-i-enable-replication-with-app-consistency-in-linux-servers)
+Sí. El agente de movilidad para Linux admite scripts personalizados para la coherencia con la aplicación. El agente utiliza un script personalizado con opciones anteriores y posteriores. [Más información](site-recovery-faq.yml)
 
 ### <a name="how-are-recovery-points-generated-and-saved"></a>¿Cómo se generan y guardan los puntos de recuperación?
 

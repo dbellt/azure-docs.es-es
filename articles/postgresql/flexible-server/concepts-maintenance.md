@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: ffee15776a48b6495f78b6becf81c620e1dc4d69
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 50ef040f1cb7d8c533ec5ee31e9bffa2e6dca2f5
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91336316"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107478019"
 ---
 # <a name="scheduled-maintenance-in-azure-database-for-postgresql--flexible-server"></a>Mantenimiento programado en Azure Database for PostgreSQL: Servidor flexible
  
@@ -39,9 +39,16 @@ A la hora de especificar las preferencias de la programación de mantenimiento, 
 >
 > Sin embargo, en el caso de una actualización de emergencia crítica, como una vulnerabilidad grave, la ventana de notificación podría ser inferior a cinco días. La actualización crítica se puede aplicar al servidor aunque se haya realizado un mantenimiento programado correcto durante los últimos 30 días.
 
-Se puede actualizar la configuración de programación en cualquier momento. Si hay un mantenimiento programado para el Servidor flexible y se actualizan las preferencias de programación, el evento actual continúa según lo programado y el cambio de configuración de programación se aplica cuando finaliza correctamente. 
+Se puede actualizar la configuración de programación en cualquier momento. Si hay un mantenimiento programado para el servidor flexible y se actualizan las preferencias de programación, el lanzamiento actual continuará según lo programado, y el cambio de configuración de programación se aplicará cuando finalice correctamente para el siguiente mantenimiento programado.
 
-Si el sistema cancela el evento de mantenimiento o no se completa correctamente, creará una notificación sobre el evento de mantenimiento cancelado o con errores, respectivamente. El siguiente intento de mantenimiento se programa según la configuración de programación actual y se recibirá una notificación al respecto con cinco días de antelación.
+Puede definir una programación administrada por el sistema o una programación personalizada para cada servidor flexible de la suscripción a Azure.  
+* Con la programación personalizada, puede elegir el día de la semana y una ventana de una hora para la ventana de mantenimiento del servidor.  
+* Con la programación administrada por el sistema, el sistema elegirá cualquier ventana de una hora entre las 23:00 y las 7:00 según la hora de la región del servidor.  
+
+Como parte del lanzamiento de los cambios, primero aplicamos las actualizaciones a los servidores configurados con programaciones administradas por el sistema y, después, las aplicaciones a los servidores con programaciones personalizadas después de un intervalo mínimo de siete días dentro de una región determinada. Si planea recibir actualizaciones anticipadas en la línea de servidores de los entornos de desarrollo y pruebas, se recomienda configurar una programación administrada por el sistema para los servidores que se usan en los entornos de desarrollo y pruebas. De este modo, podrá recibir primero la actualización más reciente en el entorno de desarrollo/pruebas para las pruebas y evaluaciones de validación. Si se produce algún comportamiento o cambios importantes, tendrá tiempo para solucionarlos antes de que la misma actualización se implemente en los servidores de producción con una programación administrada personalizada. La actualización comienza a implementarse en los servidores flexibles de programación personalizada después de siete días y se aplica al servidor en la ventana de mantenimiento definida. En este momento, no hay ninguna opción para aplazar la actualización una vez enviada la notificación. La programación personalizada se recomienda solo para los entornos de producción. 
+
+En raras ocasiones, el sistema puede cancelar el evento de mantenimiento, o bien este puede no completarse correctamente. Si se produce un error en la actualización, esta se revertirá y se restaurará la versión anterior de los archivos binarios. En estos escenarios de actualización con errores, es posible que el servidor se reinicie durante la ventana de mantenimiento. Si se produce un error en la actualización o se cancela, el sistema creará una notificación sobre el evento de mantenimiento con errores o cancelado, respectivamente, para notificárselo. El siguiente intento de mantenimiento se programará según la configuración de programación actual, y el usuario recibirá una notificación al respecto con cinco días de antelación. 
+
  
 ## <a name="next-steps"></a>Pasos siguientes
  

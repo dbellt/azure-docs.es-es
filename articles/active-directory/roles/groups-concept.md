@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 051963060531283b868a5a20e13e871de1919ccb
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: e1fea64305d4735c5bf1bf59b86ae5283600e622
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107256079"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107502205"
 ---
 # <a name="use-cloud-groups-to-manage-role-assignments-in-azure-active-directory-preview"></a>Uso de grupos en la nube para administrar asignaciones de roles en Azure Active Directory (versión preliminar)
 
@@ -63,6 +63,7 @@ Los siguientes escenarios no se admiten en este momento:
 - Use el nuevo [Centro de administración de Exchange](https://admin.exchange.microsoft.com/) para la asignación de roles mediante la pertenencia a grupos. El antiguo Centro de administración de Exchange no es compatible aún con esta característica. Los cmdlets de PowerShell de Exchange funcionarán según lo previsto.
 - El portal de Azure Information Protection (el portal clásico) todavía no reconoce la pertenencia al rol mediante el grupo. Puede [migrar a la plataforma de etiquetado de confidencialidad unificada](/azure/information-protection/configure-policy-migrate-labels) y, a continuación, usar el Centro de seguridad y cumplimiento de Office 365 a fin de utilizar las asignaciones de grupo para administrar roles.
 - [Apps Admin Center](https://config.office.com/) no es compatible aún con esta característica. Asigne usuarios directamente al rol de administrador de aplicaciones de Office.
+- [M365 Compliance Center](https://compliance.microsoft.com/) aún no es compatible con esta característica. Asigne usuarios directamente a los roles adecuados de Azure AD para usar este portal.
 
 Estamos solucionando estos problemas.
 

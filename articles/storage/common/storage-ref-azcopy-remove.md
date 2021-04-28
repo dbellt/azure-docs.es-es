@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: d28a20a6afc78939491e56f46a32782b4c0844cc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bd221215d6be3c14ce1200e8bd374a97cb7608a0
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98879010"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107503021"
 ---
 # <a name="azcopy-remove"></a>azcopy remove
 
@@ -30,7 +30,6 @@ azcopy remove [resourceURL] [flags]
 - [Introducción a AzCopy](storage-use-azcopy-v10.md)
 - [Transferencia de datos con AzCopy y Blob Storage](./storage-use-azcopy-v10.md#transfer-data)
 - [Transferencia de datos con AzCopy y File Storage](storage-use-azcopy-files.md)
-- [Configurar, optimizar y solucionar problemas de AzCopy](storage-use-azcopy-configure.md)
 
 ## <a name="examples"></a>Ejemplos
 
@@ -103,7 +102,7 @@ azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory
 
 **--list-of-files** string   Define la ubicación de un archivo que contiene la lista de archivos y directorios que se van a eliminar. Las rutas de acceso relativas deben delimitarse mediante saltos de línea y las rutas de acceso NO deben estar codificadas como URL. 
 
-**--list-of-versions** string Especifica un archivo en el que cada identificador de versión aparece en una línea independiente. Asegúrese de que el origen apunte a un único blob y que todos los identificadores de versión especificados en el archivo con esta marca solo pertenezcan al blob de origen. Los identificadores de versión especificados del blob determinado se eliminarán de Azure Storage. 
+Cadena **--list-of-versions** Especifica un archivo en el que cada id. de versión aparece en una línea independiente. Asegúrese de que el origen apunte a un único blob y que todos los id. de versión especificados en el archivo con esta marca solo pertenezcan al blob de origen. Los identificadores de versión especificados del blob determinado se eliminarán de Azure Storage. 
 
 **--log-level** string   Define el nivel de detalle del registro para el archivo de registro. Los niveles disponibles son: `INFO`(todas las solicitudes/respuestas), `WARNING`(respuestas lentas), `ERROR`(solo solicitudes con errores) y `NONE`(sin registros de salida). (`INFO` predeterminado) (`INFO` predeterminado)
 

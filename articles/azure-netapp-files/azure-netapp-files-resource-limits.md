@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/30/2021
+ms.date: 04/20/2021
 ms.author: b-juche
-ms.openlocfilehash: 9b061184f97abeea79912aadbae2c2b188206c72
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: f023bfa2b3941f7d667f4be34a8ee8dc1ed9a9c3
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106058007"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107750201"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Límites de recursos para Azure NetApp Files
 
@@ -29,7 +29,7 @@ Entender los límites de recursos de Azure NetApp Files ayuda a administrar los 
 
 En la tabla siguiente se describen los límites de recursos de Azure NetApp Files:
 
-|  Recurso  |  Límite predeterminado  |  Ajustable a través de la solicitud de soporte técnico  |
+|  Resource  |  Límite predeterminado  |  Ajustable a través de la solicitud de soporte técnico  |
 |----------------|---------------------|--------------------------------------|
 |  Número de cuentas de NetApp por región de Azure por suscripción  |  10    |  Sí   |
 |  Número de grupos de capacidad por cuenta de NetApp   |    25     |   Sí   |
@@ -56,7 +56,7 @@ Para más información, consulte [Preguntas más frecuentes sobre la administrac
 
 ## <a name="maxfiles-limits"></a>Límites de número máximo de archivos <a name="maxfiles"></a> 
 
-Los volúmenes de Azure NetApp Files tienen un límite denominado *maxfiles*. El límite de maxfiles es el número de archivos que puede contener un volumen. El límite de maxfiles de un volumen de Azure NetApp Files se indexa en función del tamaño (cuota) del volumen. El límite de maxfiles de un volumen aumenta o disminuye a la velocidad de 20 millones de archivos por TiB del tamaño del volumen aprovisionado. 
+Los volúmenes de Azure NetApp Files tienen un límite denominado *maxfiles*. El límite de maxfiles es el número de archivos que puede contener un volumen. Los sistemas de archivos de Linux hacen referencia al límite como *inodes*. El límite de maxfiles de un volumen de Azure NetApp Files se indexa en función del tamaño (cuota) del volumen. El límite de maxfiles de un volumen aumenta o disminuye a la velocidad de 20 millones de archivos por TiB del tamaño del volumen aprovisionado. 
 
 El servicio ajusta dinámicamente el límite de maxfiles de un volumen en función de su tamaño aprovisionado. Por ejemplo, un volumen configurado inicialmente con un tamaño de 1 TiB tendría un límite de maxfiles de 20 millones. Los cambios posteriores en el tamaño del volumen provocarán un reajuste automático del límite de maxfiles en función de las siguientes reglas: 
 
@@ -68,7 +68,9 @@ El servicio ajusta dinámicamente el límite de maxfiles de un volumen en funci�
 |    > 3 TiB, pero <= 4 TiB    |    80 millones     |
 |    > 4 TiB                 |    100 millones    |
 
-Si ya ha asignado al menos 4 TiB de cuota para un volumen, puede iniciar una [solicitud de soporte](#limit_increase) para aumentar el límite de maxfiles más allá de 100 millones. Por cada 100 millones de archivos que aumente (o una fracción de esta cantidad), debe aumentar la cuota de volumen correspondiente en 4 TiB.  Por ejemplo, si aumenta el límite de maxfiles de 100 millones de archivos a 200 millones de archivos (o cualquier número entre estos), debe aumentar la cuota de volumen de 4 TiB a 8 TiB.
+Si ya ha asignado al menos 4 TiB de cuota para un volumen, puede iniciar una [solicitud de soporte técnico](#limit_increase) para aumentar el límite de maxfiles (inodes) más allá de 100 millones. Por cada 100 millones de archivos que aumente (o una fracción de esta cantidad), debe aumentar la cuota de volumen correspondiente en 4 TiB.  Por ejemplo, si aumenta el límite de maxfiles de 100 millones de archivos a 200 millones de archivos (o cualquier número entre estos), debe aumentar la cuota de volumen de 4 TiB a 8 TiB.
+
+Puede aumentar el límite de maxfiles a 500 millones si la cuota del volumen es de al menos 20 TiB. <!-- ANF-11854 --> 
 
 ## <a name="request-limit-increase"></a>Solicitud de aumento del límite<a name="limit_increase"></a> 
 
@@ -86,7 +88,7 @@ Desde el plano de navegación de Azure Portal:
 4. Haga clic en la pestaña Detalles:
     1. En el cuadro Descripción, proporcione la siguiente información para el tipo de recurso correspondiente:
 
-        |  Recurso  |    Recursos primarios      |    Nuevos límites solicitados     |    Motivo de aumento de cuota       |
+        |  Resource  |    Recursos primarios      |    Nuevos límites solicitados     |    Motivo de aumento de cuota       |
         |----------------|------------------------------|---------------------------------|------------------------------------------|
         |  Cuenta |  *Subscription ID*   |  *Nuevo número máximo de **cuentas** solicitado*    |  *¿Qué escenario o caso de uso motivó la solicitud?*  |
         |  grupo    |  *Identificador de suscripción, URI de la cuenta de NetApp*  |  *Nuevo número máximo de **grupos** solicitado*   |  *¿Qué escenario o caso de uso motivó la solicitud?*  |

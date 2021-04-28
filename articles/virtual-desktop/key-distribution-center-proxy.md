@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/20/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 9dce264b7f2c88aed11f5b82a61f83cbac6c9697
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 79ae61d21693ae56dff280402c7a3d114822be7f
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107785116"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108132366"
 ---
 # <a name="configure-a-kerberos-key-distribution-center-proxy-preview"></a>Configuración de un proxy del Centro de distribución de claves de Kerberos (versión preliminar)
 
@@ -29,7 +29,7 @@ Hay dos componentes en el servicio de Windows Virtual Desktop que deben autentic
 - La fuente del cliente de Windows Virtual Desktop que proporciona a los usuarios una lista de las aplicaciones o escritorios disponibles a los que tienen acceso. Este proceso de autenticación se produce en Azure Active Directory, lo que significa que este componente no es el centro de este artículo.
 - La sesión de RDP que es el resultado de que un usuario seleccione uno de los recursos disponibles. Este componente usa la autenticación Kerberos y requiere un proxy KDC para los usuarios remotos.
 
-En este artículo se muestra cómo configurar la fuente en el cliente de Windows Virtual Desktop en el Azure Portal. Si quiere obtener información sobre cómo configurar el rol de puerta de enlace RD, consulte [Implementar el rol de puerta de enlace de RD](/azure/virtual-desktop/rd-gateway-role).
+En este artículo se muestra cómo configurar la fuente en el cliente de Windows Virtual Desktop en el Azure Portal. Si quiere obtener información sobre cómo configurar el rol de puerta de enlace RD, consulte [Implementar el rol de puerta de enlace de RD](/windows-server/remote/remote-desktop-services/remote-desktop-gateway-role).
 
 ## <a name="requirements"></a>Requisitos
 
@@ -37,7 +37,7 @@ Para configurar un host de sesión de Windows Virtual Desktop con un proxy KDC, 
 
 - Acceso al Azure Portal y a una cuenta de administrador de Azure.
 - Los equipos cliente remotos deben ejecutar Windows 10 o Windows 7 y tener instalado el [cliente de Escritorio de Windows](/windows-server/remote/remote-desktop-services/clients/windowsdesktop). Actualmente, no se admite el cliente web.
-- Debe tener un proxy KDC instalado en la máquina. Para obtener información sobre cómo hacerlo, consulte [Configuración del rol de puerta de enlace de RD para Windows Virtual Desktop](rd-gateway-role.md).
+- Debe tener un proxy KDC instalado en la máquina. Para obtener información sobre cómo hacerlo, consulte [Configuración del rol de puerta de enlace de RD para Windows Virtual Desktop](/windows-server/remote/remote-desktop-services/remote-desktop-gateway-role).
 - El sistema operativo de la máquina debe ser Windows Server 2016 o posterior.
 
 Una vez que haya asegurado de cumplir estos requisitos, estará listo para comenzar.
@@ -70,6 +70,6 @@ Para configurar el proxy de KDC:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener información sobre cómo administrar el lado Servicios de escritorio remoto del proxy KDC y asignar el rol puerta de enlace de RD, consulte [implementar el rol de puerta de enlace de RD](rd-gateway-role.md).
+Para obtener información sobre cómo administrar el lado Servicios de escritorio remoto del proxy KDC y asignar el rol puerta de enlace de RD, consulte [implementar el rol de puerta de enlace de RD](/windows-server/remote/remote-desktop-services/remote-desktop-gateway-role).
 
 Si está interesado en escalar los servidores proxy de KDC, aprenda a configurar la alta disponibilidad del proxy KDC en [Agregar alta disponibilidad a la Web RD y la puerta de enlace Web](/windows-server/remote/remote-desktop-services/rds-rdweb-gateway-ha).

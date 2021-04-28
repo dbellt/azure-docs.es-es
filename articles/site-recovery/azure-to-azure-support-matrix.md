@@ -3,12 +3,12 @@ title: Matriz de soporte para la recuperación ante desastres de máquinas virtu
 description: Resume la compatibilidad con la recuperación ante desastres de máquinas virtuales de Azure en una región secundaria con Azure Site Recovery.
 ms.topic: article
 ms.date: 11/29/2020
-ms.openlocfilehash: 02268471d58cbd473493b6001aa9f1df271077bb
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: daba23ec1382f1b5fb18bffba48d0571fe998a2f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107376161"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107792460"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de soporte para la recuperación ante desastres de máquinas virtuales de Azure entre regiones de Azure
 
@@ -46,21 +46,27 @@ Puede replicar y recuperar máquinas virtuales entre dos regiones cualesquiera d
 America | Centro de Canadá y Este de Canadá, Centro-sur de EE. UU.., centro-oeste de EE. UU., este de EE. UU., este de EE. UU. 2, oeste de EE. UU., oeste de EE. UU. 2 centro de EE. UU., centro-norte de EE. UU.
 Europa | Oeste de Reino Unido, Sur de Reino Unido, Norte de Europa, Oeste de Europa, Oeste de Sudáfrica, Norte de Sudáfrica, Este de Noruega, Centro de Francia, Norte de Suiza, Centro-oeste de Alemania
 Asia | Sur de la India, Centro de la India, India occidental, Sudeste de Asia, Este de Asia, Este de Japón, Oeste de Japón, Centro de Corea del Sur, Sur de Corea del Sur
+JIO | JIO del Oeste de la India
 Australia    | Este de Australia, Sudeste de Australia, Centro de Australia, Centro de Australia 2
 Azure Government    | Virginia Gob. EE. UU., Iowa Gob. EE. UU., US Gov de Arizona, US Gov de Texas, US DOD este, US DOD central
 Alemania    | Centro de Alemania y Nordeste de Alemania
 China | Este de China, Norte de China, Norte de China 2 y Este de China 2
-Regiones restringidas reservadas para la recuperación ante desastres dentro de un país |La región Oeste de Suiza está reservada para el Norte de Suiza, la región Sur de Francia está reservada para el Centro de Francia, la región Centro de Emiratos Árabes Unidos está restringida para los clientes del Norte de Emiratos Árabes Unidos y la región Oeste de Noruega para los clientes del Este de Noruega.
+Brasil | Sur de Brasil
+Regiones restringidas reservadas para la recuperación ante desastres dentro de un país |Oeste de Suiza reservado para el Norte de Suiza; Sur de Francia reservado para el Centro de Francia; Centro de Emiratos Árabes Unidos restringido para los clientes del Norte de Emiratos Árabes Unidos; Oeste de Noruega para clientes del Este de Noruega; JIO del Centro de la India para clientes de JIO del Oeste de la India; Sudeste de Brasil para el Sur de Brasil.
+
+La replicación y recuperación de VM entre dos regiones de continentes diferentes se limita a los siguientes pares de regiones:
+
+* Sudeste de Asia y Este de Australia
+* Sudeste de Asia y Sudeste de Australia
+* Oeste de Europa y Centro-sur de EE. UU.
 
 >[!NOTE]
 >
-> - En la región **Sur de Brasil**, puede replicar y conmutar por error en las siguientes regiones: Centro-sur de EE. UU., Centro-oeste de EE. UU., Este de EE. UU., Este de EE. UU. 2, Oeste de EE. UU., Oeste de EE. UU. 2 y Centro-norte de EE. UU.
-> - La región Sur de Brasil solo puede utilizarse como la región de origen desde la que las máquinas virtuales replican mediante Site Recovery. No puede ser una región de destino. Esto se debe a problemas de latencia provocados por las distancias geográficas. Tenga en cuenta que si realiza la conmutación por error desde Sur de Brasil como región de origen a un destino, se admite la conmutación por recuperación a Sur de Brasil desde la región de destino.
+> - En la región **Sur de Brasil**, puede replicar y conmutar por error en las siguientes regiones: Sudeste de Brasil, Centro-sur de EE. UU., Centro-oeste de EE. UU., Este de EE. UU., Este de EE. UU. 2, Oeste de EE. UU., Oeste de EE. UU. 2 y Centro-norte de EE. UU.
+> - La región Sur de Brasil solo puede utilizarse como la región de origen desde la que las máquinas virtuales replican mediante Site Recovery. No puede ser una región de destino. Esto se debe a problemas de latencia provocados por las distancias geográficas. Tenga en cuenta que si realiza la conmutación por error desde Sur de Brasil como región de origen a un destino, se admite la conmutación por recuperación a Sur de Brasil desde la región de destino. El Sudeste de Brasil solo se puede usar como región de destino.
 > - Puede trabajar dentro de las regiones para las que tenga un acceso adecuado.
 > - Si la región donde quiere crear un almacén no aparece, asegúrese de que su suscripción tiene acceso para crear recursos en esa región.
 > - Si no ve una región dentro de un clúster geográfico al habilitar la replicación, asegúrese de que su suscripción tiene permisos para crear máquinas virtuales en dicha región.
-
-
 
 ## <a name="cache-storage"></a>Almacenamiento en caché
 

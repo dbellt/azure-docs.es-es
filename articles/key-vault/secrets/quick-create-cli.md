@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-azurecli
 ms.date: 01/27/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 655ea1920fc80c8cd677281f09cfca21120e1d61
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: dc5fa0eeabc437f16ca64c34b4bb72e62c0c3b21
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107726455"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107815043"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-azure-cli"></a>Inicio rápido: Establecimiento y recuperación de un secreto desde Azure Key Vault mediante la CLI de Azure
 
@@ -68,4 +68,4 @@ En este inicio rápido, ha creado una instancia de Key Vault y ha almacenado un 
 - Lea una [introducción a Azure Key Vault](../general/overview.md).
 - Aprenda a [almacenar secretos multilínea en Key Vault](multiline-secrets.md)
 - Consulte la referencia de los [comandos az keyvault de la CLI de Azure](/cli/azure/keyvault).
-- Consulte [Introducción a la seguridad de Azure Key Vault](../general/security-overview.md)
+- Consulte [Introducción a la seguridad de Azure Key Vault](../general/security-features.md)

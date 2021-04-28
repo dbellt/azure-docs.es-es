@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 04/21/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8779ee2d3c4d83c06a2c1803e65219d43f0ef14
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 436a972693aafd220d277d7411c0da12636e9cc6
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106275811"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107829807"
 ---
 # <a name="enable-passwordless-security-key-sign-in"></a>Habilitación del inicio de sesión con clave de seguridad sin contraseña 
 
@@ -32,6 +32,7 @@ Este documento se centra en la habilitación de la autenticación sin contraseñ
 - WebAuthN requiere Windows 10, versión 1903 o posterior**
 
 Para usar claves de seguridad para iniciar sesión en servicios y aplicaciones web, debe tener un explorador que admita el protocolo WebAuthN. Entre ellas se incluyen Microsoft Edge, Chrome, Firefox y Safari.
+
 
 ## <a name="prepare-devices"></a>Preparación de dispositivos
 
@@ -90,7 +91,9 @@ Si quiere compartir comentarios o detectar problemas con esta característica, c
 
 El aprovisionamiento y desaprovisionamiento de administrador de claves de seguridad no está disponible.
 
-**Nota:** El inicio de sesión almacenado en caché de FIDO2 produce un error en una máquina unida a Azure AD híbrido específica con la versión win10 20H2 (cuando LOS a DC no están disponibles). Esto se encuentra actualmente en investigación con ingeniería.
+### <a name="cached-logon-on-hybrid-azure-ad-joined-devices"></a>Inicio de sesión almacenado en caché en dispositivos unidos de Azure AD híbrido.
+
+El inicio de sesión almacenado en la caché con las claves FIDO2 devuelve un error en los dispositivos unidos a Azure AD híbrido en la versión 20H2 de Windows 10. Como resultado, los usuarios no podrán iniciar sesión cuando la línea de visión al controlador de dominio local no esté disponible. Esta opción se está investigando actualmente.
 
 ### <a name="upn-changes"></a>Cambios de UPN
 

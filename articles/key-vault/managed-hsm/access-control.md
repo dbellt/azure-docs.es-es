@@ -9,12 +9,12 @@ ms.subservice: managed-hsm
 ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: ambapat
-ms.openlocfilehash: 0c0a0c5f62f92aaf195e207dfd505ffb017d924e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bea1ccf0777c6325bc86c15e0f88304c465d89c9
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100653907"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107750291"
 ---
 # <a name="managed-hsm-access-control"></a>Control de acceso de HSM administrado
 
@@ -65,6 +65,7 @@ En la siguiente tabla se muestran los puntos de conexión para los planos de adm
 | Plano de administración | **Global:**<br> management.azure.com:443<br> | Creación, lectura, actualización, eliminación y traslado de HSM administrados<br>Establecimiento de etiquetas de HSM administrado | Azure RBAC |
 | Plano de datos | **Global:**<br> &lt;hsm-name&gt;.managedhsm.azure.net:443<br> | **Claves**: decrypt, encrypt,<br> unwrap, wrap, verify, sign, get, list, update, create, import, delete, backup, restore, purge<br/><br/> **Administración de roles del plano de datos (RBAC local de HSM administrado)** _: enumerar definiciones de roles, asignar roles, eliminar asignaciones de roles, definir roles personalizados<br/><br/>_ *Copia de seguridad y restauración **: creación y restauración de copias de seguridad, comprobación de las operaciones de creación y restauración de copias de seguridad de estado <br/><br/>** Dominio de seguridad**: descargar y cargar el dominio de seguridad | RBAC local de HSM administrado |
 |||||
+
 ## <a name="management-plane-and-azure-rbac"></a>Plano de administración y RBAC de Azure
 
 En el plano de administración, utilice RBAC de Azure para autorizar las operaciones que un llamador puede ejecutar. En el modelo de Azure RBAC, cada suscripción a Azure tiene una instancia de Azure Active Directory. Puede conceder acceso a usuarios, grupos y aplicaciones desde este directorio. El acceso se concede para administrar recursos de la suscripción de Azure que usan el modelo de implementación de Azure Resource Manager. Para conceder acceso, use [Azure Portal](https://portal.azure.com/), la [CLI de Azure](/cli/azure/install-classic-cli), [Azure PowerShell](/powershell/azureps-cmdlets-docs) o las [API de REST de Azure Resource Manager](/rest/api/authorization/roleassignments).
@@ -87,6 +88,6 @@ Conceda a una entidad de seguridad acceso para ejecutar operaciones con claves e
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para seguir un tutorial de introducción para un administrador, consulte [¿Qué es HSM administrado?](overview.md).
+- Para seguir un tutorial de introducción para un administrador, consulte el documento sobre [qué es HSM administrado](overview.md).
 - Para ver un tutorial de administración de roles, consulte [RBAC local de HSM administrado](role-management.md)
-- Para más información sobre el registro de uso del registro de HSM administrado, consulte [Registro de HSM administrado](logging.md).
+- Para obtener más información sobre el registro de uso del registro de HSM administrado, consulte el documento sobre el [registro de HSM administrado](logging.md).

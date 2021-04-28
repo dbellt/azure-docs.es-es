@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 621bd392c12bb6ef1269eaed4731063490664f7e
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 12739d535e37c4d1de89e69237a0daddd9569217
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107750795"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107897476"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procedimientos: Uso del portal para crear una aplicación de Azure AD y una entidad de servicio con acceso a los recursos
 
@@ -138,7 +138,7 @@ Hay dos tipos de autenticación disponibles para las entidades de servicio: aute
 
 ### <a name="option-1-upload-a-certificate"></a>Opción 1: Carga de un certificado
 
-Puede usar un certificado existente si lo tiene.  Si quiere, puede crear un certificado autofirmado con *fines de prueba únicamente*. Para crear un certificado autofirmado, abra PowerShell y ejecute [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) con los parámetros siguientes para crear el certificado en el almacén de certificados del usuario en su equipo:
+Puede usar un certificado existente si lo tiene.  Si quiere, puede crear un certificado autofirmado con *fines de prueba únicamente*. Para crear un certificado autofirmado, abra PowerShell y ejecute [New-SelfSignedCertificate](/powershell/module/pki/new-selfsignedcertificate) con los parámetros siguientes para crear el certificado en el almacén de certificados del usuario en su equipo:
 
 ```powershell
 $cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocation "Cert:\CurrentUser\My"  -KeyExportPolicy Exportable -KeySpec Signature
@@ -182,7 +182,7 @@ Si decide no usar un certificado, puede crear un secreto de aplicación nuevo.
    ![Copie el valor del secreto porque no podrá recuperarlo más adelante](./media/howto-create-service-principal-portal/copy-secret.png)
 
 ## <a name="configure-access-policies-on-resources"></a>Configuración de directivas de acceso sobre los recursos
-Puede que tenga que configurar permisos adicionales para los recursos a los que la aplicación tiene que acceder. Por ejemplo, también debe [actualizar las directivas de acceso de un almacén de claves](../../key-vault/general/security-overview.md#privileged-access) para proporcionar a la aplicación acceso a las claves, los secretos o los certificados.
+Puede que tenga que configurar permisos adicionales para los recursos a los que la aplicación tiene que acceder. Por ejemplo, también debe [actualizar las directivas de acceso de un almacén de claves](../../key-vault/general/security-features.md#privileged-access) para proporcionar a la aplicación acceso a las claves, los secretos o los certificados.
 
 1. En <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>, vaya al almacén de claves y seleccione **Directivas de acceso**.
 1. Seleccione **Agregar directiva de acceso** y, luego, seleccione la clave, el secreto y los permisos de certificado que quiere conceder a la aplicación.  Seleccione la entidad de servicio que creó anteriormente.
