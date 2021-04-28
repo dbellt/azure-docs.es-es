@@ -4,13 +4,13 @@ description: Obtenga información acerca de los tipos de credenciales de impleme
 ms.topic: article
 ms.date: 02/11/2021
 ms.reviewer: byvinyal
-ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: b77a26f61e1168846156de990806bbed2f7c41e3
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 008bfa58c117fc1b43227ba73902d921cec25795
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107789544"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107830582"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configuración de credenciales de implementación para Azure App Service
 Para proteger la implementación de aplicaciones desde un equipo local, [Azure App Service](./overview.md) admite dos tipos de credenciales para la [implementación de Git local](deploy-local-git.md) y la [implementación de FTP/S](deploy-ftp.md). Estas credenciales no son las mismas que las de su suscripción a Azure.

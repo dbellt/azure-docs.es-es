@@ -1,18 +1,18 @@
 ---
 title: Controles de cumplimiento normativo de Azure Policy para Azure Spring Cloud
 description: Enumera los controles de cumplimiento normativo de Azure Policy disponibles para Azure Spring Cloud. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar el cumplimiento de los recursos de Azure.
-ms.date: 04/14/2021
+ms.date: 04/21/2021
 ms.topic: sample
 author: bmitchell287
 ms.author: brendm
 ms.service: spring-cloud
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: ed5e31613d3ca1aa1bbe34f9fc30e3affcfd1726
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 9ae1071fe5c01b404dfac7aea6d7f49ab3e68cf8
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107500881"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107870179"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-spring-cloud"></a>Controles de cumplimiento normativo de Azure Policy para Azure Spring Cloud
 

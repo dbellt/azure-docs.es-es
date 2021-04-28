@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 3f9a6afe3202df40e26332c3a8c91b8c3eca8a32
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: 39db32a7ee7eb8fed1da9ac8c9eb609efcf57c74
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107012275"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108070828"
 ---
 # <a name="call-the-image-analysis-api"></a>Llamada a API Análisis de imágenes
 
@@ -32,7 +32,7 @@ Envíe una imagen local o una imagen remota a Analyze API. Si la imagen es local
 
 ###  <a name="select-visual-features"></a>Selección de características visuales
 
-[Analyze API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f21b) proporciona acceso a todas las características de análisis de imágenes del servicio. Es preciso especificar las características que se desea usar, para lo que se establecen los parámetros de consulta de dirección URL. Un parámetro puede tener varios valores, que se separan por comas. Cada una de las características que especifique requerirá un tiempo de cálculo adicional, por lo que solo debe especificar las que realmente necesite.
+[Analyze API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) proporciona acceso a todas las características de análisis de imágenes del servicio. Es preciso especificar las características que se desea usar, para lo que se establecen los parámetros de consulta de dirección URL. Un parámetro puede tener varios valores, que se separan por comas. Cada una de las características que especifique requerirá un tiempo de cálculo adicional, por lo que solo debe especificar las que realmente necesite.
 
 |Parámetro URL | Value | Descripción|
 |---|---|--|
@@ -71,7 +71,7 @@ Así podría ser una dirección URL rellena:
 > [!NOTE]
 > **Llamadas API con ámbito**
 >
-> A algunas de las características de Image Analysis se les puede llamar directamente, así como a través de una llamada a Analyze API. Por ejemplo, si se desea realizar un análisis con ámbito solo de etiquetas de imagen, es preciso hacer una solicitud a `https://{endpoint}/vision/v3.2-preview.3/tag`. Consulte la [documentación de referencia](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f21b) para ver otras características a las que se puede llamar por separado.
+> A algunas de las características de Image Analysis se les puede llamar directamente, así como a través de una llamada a Analyze API. Por ejemplo, si se desea realizar un análisis con ámbito solo de etiquetas de imagen, es preciso hacer una solicitud a `https://{endpoint}/vision/v3.2-preview.3/tag`. Consulte la [documentación de referencia](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) para ver otras características a las que se puede llamar por separado.
 
 ## <a name="get-results-from-the-service"></a>Obtención de resultados a partir del servicio
 
@@ -139,4 +139,4 @@ Consulte la siguiente lista de posibles errores y sus causas:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para probar la API REST, vaya a la [referencia de Image Analysis API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f21b).
+Para probar la API REST, vaya a la [referencia de Image Analysis API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b).

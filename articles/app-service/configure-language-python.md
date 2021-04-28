@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 03/16/2021
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 844846afa438a2d3425ecf6392b50f0411d8c03e
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 605d1e0f67ac959d2c7325e04e2fd10d9d2419be
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107309006"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107829501"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Configuración de una aplicación de Python en Linux para Azure App Service
 
@@ -27,7 +27,7 @@ Puede usar [Azure Portal](https://portal.azure.com) o la CLI de Azure para la co
 - **CLI de Azure**: tiene dos opciones.
 
     - Ejecute los comandos en [Azure Cloud Shell](../cloud-shell/overview.md).
-    - Ejecute los comandos localmente instalando la versión más reciente de la [CLI de Azure](/cli/azure/install-azure-cli) y, luego, inicie sesión en Azure con [az login](/cli/azure/reference-index#az-login).
+    - Ejecute los comandos localmente instalando la versión más reciente de la [CLI de Azure](/cli/azure/install-azure-cli) y, luego, inicie sesión en Azure con [az login](/cli/azure/reference-index#az_login).
     
 > [!NOTE]
 > Linux es actualmente la opción recomendada para ejecutar aplicaciones de Python en App Service. Para obtener información acerca de la opción de Windows, consulte [Configuración de un entorno de Python en Azure App Service (Windows)](/visualstudio/python/managing-python-on-azure-app-service).
@@ -169,8 +169,10 @@ Para App Service, haga las siguientes modificaciones:
 1. Modifique también las listas de `MIDDLEWARE` y `INSTALLED_APPS` para incluir Whitenoise:
 
     ```python
-    MIDDLEWARE = [
-        "whitenoise.middleware.WhiteNoiseMiddleware",
+    MIDDLEWARE = [                                                                   
+        'django.middleware.security.SecurityMiddleware',
+        # Add whitenoise middleware after the security middleware                             
+        'whitenoise.middleware.WhiteNoiseMiddleware',
         # Other values follow
     ]
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2021
 ms.author: keithp
-ms.openlocfilehash: fa1c01c2d9da19ec1f60878de83a509b7cf561e8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b845ecabe74040e154886476a8ba28efecc99325
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105606834"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107868868"
 ---
 # <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-the-azure-cli"></a>Tutorial: Implementación de HSM en una red virtual existente con la CLI de Azure
 
@@ -102,7 +102,7 @@ az network vnet subnet create \
 
 Después de configurar la red, use estos comandos de la CLI de Azure para aprovisionar los HSM.
 
-1. Use el comando [az dedicated-hsm create](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_create) para aprovisionar el primer HSM. El HSM se denomina hsm1. Sustituya su suscripción:
+1. Use el comando [az dedicated-hsm create](/cli/azure/dedicated-hsm#az_dedicated_hsm_create) para aprovisionar el primer HSM. El HSM se denomina hsm1. Sustituya su suscripción:
 
    ```azurecli
    az dedicated-hsm create --location westus --name hsm1 --resource-group myRG --network-profile-network-interfaces \
@@ -111,7 +111,7 @@ Después de configurar la red, use estos comandos de la CLI de Azure para aprovi
 
    Esta implementación tardará aproximadamente entre 25 y 30 minutos en completarse, tiempo ocupado principalmente por los dispositivos HSM.
 
-1. Para ver un HSM actual, ejecute el comando [az dedicated-hsm show](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_show):
+1. Para ver un HSM actual, ejecute el comando [az dedicated-hsm show](/cli/azure/dedicated-hsm#az_dedicated_hsm_show):
 
    ```azurecli
    az dedicated-hsm show --resource group myRG --name hsm1
@@ -124,19 +124,19 @@ Después de configurar la red, use estos comandos de la CLI de Azure para aprovi
         /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.Network/virtualNetworks/MyHSM-vnet/subnets/MyHSM-vnet
    ```
 
-1. Ejecute el comando [az dedicated-hsm list](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_list) para ver los detalles de los HSM actuales:
+1. Ejecute el comando [az dedicated-hsm list](/cli/azure/dedicated-hsm#az_dedicated_hsm_list) para ver los detalles de los HSM actuales:
 
    ```azurecli
    az dedicated-hsm list --resource-group myRG
    ```
 
-Hay algunos otros comandos que pueden resultar útiles. Use el comando [az dedicated-hsm update](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_update) para actualizar un HSM:
+Hay algunos otros comandos que pueden resultar útiles. Use el comando [az dedicated-hsm update](/cli/azure/dedicated-hsm#az_dedicated_hsm_update) para actualizar un HSM:
 
 ```azurecli
 az dedicated-hsm update --resource-group myRG –name hsm1
 ```
 
-Para eliminar un HSM, use el comando [az dedicated-hsm delete](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_delete):
+Para eliminar un HSM, use el comando [az dedicated-hsm delete](/cli/azure/dedicated-hsm#az_dedicated_hsm_delete):
 
 ```azurecli
 az dedicated-hsm delete --resource-group myRG –name hsm1
