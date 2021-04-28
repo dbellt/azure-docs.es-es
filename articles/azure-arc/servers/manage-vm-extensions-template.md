@@ -3,12 +3,13 @@ title: Habilitación de la extensión de máquina virtual mediante la plantilla 
 description: En este artículo se describe cómo implementar extensiones de máquina virtual en servidores habilitados para Azure Arc que se ejecutan en entornos de nube híbrida mediante una plantilla de Azure Resource Manager.
 ms.date: 04/13/2021
 ms.topic: conceptual
-ms.openlocfilehash: 095f95192a2054d34e438d8683ac9c2e20a824f1
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: d32be184a7e5bb713aee83cd3023f271299d3872
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107389645"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107832867"
 ---
 # <a name="enable-azure-vm-extensions-by-using-arm-template"></a>Habilitación de las extensiones de máquina virtual de Azure mediante la plantilla de ARM
 
