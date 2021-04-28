@@ -4,14 +4,14 @@ description: Se describen los problemas críticos por resolver y las soluciones 
 ms.service: storsimple
 author: v-dalc
 ms.topic: article
-ms.date: 03/17/2021
+ms.date: 04/13/2021
 ms.author: alkohli
-ms.openlocfilehash: b2c2af4267140370c2aa9421a67cb3a6f413165f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 498e3d11d8188850a918c67a9a88643d15c134c5
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104657559"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107389526"
 ---
 # <a name="storsimple-virtual-array-update-13-release-notes"></a>Notas de la versión de StorSimple Virtual Array Update 1.3
 
@@ -45,12 +45,12 @@ Esta actualización contiene las siguientes mejoras: KB4540725
 
 ## <a name="download-update-13"></a>Descarga de Update 1.3
 
-Para descargar esta actualización, vaya al servidor de [Catálogo de Microsoft Update](https://www.catalog.update.microsoft.com/Home.aspx) y descargue el paquete KB4575898. Este paquete contiene los siguientes paquetes:
+Para descargar esta actualización, vaya al servidor de [Catálogo de Microsoft Update](https://www.catalog.update.microsoft.com/Home.aspx) y descargue el paquete KB4575898. Este paquete contiene los siguientes paquetes. Instale los paquetes en este orden:
 
-- **KB4540725**, que contiene las actualizaciones acumulativas de Windows desde 2012 R2 hasta marzo de 2020. Para más información sobre qué se incluye en este paquete acumulativo, vaya a [Paquete acumulativo mensual (marzo)](https://support.microsoft.com/help/4540725).
-- **KB4565541**, que contiene las actualizaciones acumulativas de Windows desde 2012 R2 hasta julio de 2020. Para más información sobre qué se incluye en este paquete acumulativo, vaya a [Paquete acumulativo mensual (febrero)](https://support.microsoft.com/help/4565541).
-- **KB4565622**, que contiene las actualizaciones acumulativas de .NET Framework hasta julio de 2020. Para más información sobre qué se incluye en este paquete acumulativo, vaya a [Paquete acumulativo mensual (febrero)](https://support.microsoft.com/help/4565622).
-- **KB3011067**, que contiene las actualizaciones de software del dispositivo.
+1. **KB4540725**, que contiene las actualizaciones acumulativas de Windows desde 2012 R2 hasta marzo de 2020. Para más información sobre qué se incluye en este paquete acumulativo, vaya a [Paquete acumulativo mensual (marzo)](https://support.microsoft.com/help/4540725).
+1. **KB4565541**, que contiene las actualizaciones acumulativas de Windows desde 2012 R2 hasta julio de 2020. Para más información sobre qué se incluye en este paquete acumulativo, vaya al [paquete acumulativo de seguridad mensual de julio](https://support.microsoft.com/help/4565541).
+1. **KB4565622**, que contiene las actualizaciones acumulativas de .NET Framework hasta julio de 2020. Para más información sobre qué se incluye en este paquete acumulativo, vaya a [KB4565622](https://support.microsoft.com/help/4565622).<!--The Help link opens the KB. I can't find a monthly rollup. I updated the link text to accurately describe what opens.-->
+1. **KB3011067**, que contiene las actualizaciones de software del dispositivo.
 
 Descargue KB4575898 y siga estas instrucciones para [aplicar la actualización a través de la interfaz de usuario local](./storsimple-virtual-array-install-update-11.md#use-the-local-web-ui).
 

@@ -6,12 +6,12 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 01/22/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d24e67eac54b3ce4eadfc6a4bde47410d59fae8b
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: 543beb95fd5f207ae7e9a9076feceef42cc854b4
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106581112"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108130078"
 ---
 # <a name="get-started-with-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Introducción a Azure Application Insights Agent para servidores locales
 
@@ -27,7 +27,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ### <a name="install-prerequisites"></a>Requisitos previos de instalación
 
-- Para habilitar la supervisión, necesitará una cadena de conexión. La cadena de conexión se muestra en la hoja de información general del recurso de Application Insights. Para obtener más información, consulte la página [Cadenas de conexión](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net#finding-my-connection-string).
+- Para habilitar la supervisión, necesitará una cadena de conexión. La cadena de conexión se muestra en la hoja de información general del recurso de Application Insights. Para obtener más información, consulte la página [Cadenas de conexión](./sdk-connection-string.md?tabs=net#finding-my-connection-string).
 
 > [!NOTE]
 > Desde abril de 2020, TLS 1.1 y 1.0 están en desuso para Galería de PowerShell.
@@ -99,4 +99,3 @@ Haga mucho más con Application Insights Agent:
 
 - Revise las [instrucciones detalladas](status-monitor-v2-detailed-instructions.md) para obtener una explicación de los comandos que se encuentran aquí.
 - Use nuestra guía para [solucionar problemas](status-monitor-v2-troubleshoot.md) de Application Insights Agent.
-

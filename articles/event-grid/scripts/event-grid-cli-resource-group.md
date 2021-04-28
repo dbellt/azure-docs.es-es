@@ -5,12 +5,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 07/08/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 09869b2c60b5ffa703b5f1a53c06a5d7d923988d
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 31309ffc6397fec942b48209c7fd7c950e0fdb97
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107766594"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107871352"
 ---
 # <a name="subscribe-to-events-for-a-resource-group-with-azure-cli"></a>Suscripción a eventos de un grupo de recursos con la CLI de Azure
 
@@ -37,7 +37,7 @@ Este script usa el siguiente comando para crear la suscripción de eventos. Cada
 | Get-Help | Notas |
 |---|---|
 | [az eventgrid event-subscription create](/cli/azure/eventgrid/event-subscription#az_eventgrid_event_subscription_create) | Cree una suscripción de Event Grid. |
-| [az eventgrid event-subscription create](/cli/azure/ext/eventgrid/eventgrid/event-subscription#ext-eventgrid-az-eventgrid-event-subscription-create): versión de la extensión | Cree una suscripción de Event Grid. |
+| [az eventgrid event-subscription create](/cli/azure/eventgrid/event-subscription#az_eventgrid_event_subscription_create): versión de la extensión | Cree una suscripción de Event Grid. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: sgilley
 author: sdgilley
-ms.date: 09/30/2020
-ms.topic: conceptual
-ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: 472bc66c75881d622e8ecfe23031f58db773a919
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/22/2021
+ms.topic: how-to
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 6271875c368f637140010401cf2ebe21039be9a9
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102518932"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107897368"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>Creación y administración de áreas de trabajo de Azure Machine Learning 
 
@@ -186,16 +186,6 @@ El SDK de Azure Machine Learning para Python proporciona la clase [PrivateEndpoi
 > [!IMPORTANT]  
 > El uso de un punto de conexión privado con áreas de trabajo de Azure Machine Learning se encuentra actualmente en versión preliminar pública. Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.     
 > Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-### <a name="multiple-workspaces-with-private-endpoint"></a>Varias áreas de trabajo con punto de conexión privado
-
-Al crear un punto de conexión privado, se crea una nueva zona DNS privada denominada __privatelink.api.azureml.ms__. Contiene un vínculo a la red virtual. Si crea varias áreas de trabajo con puntos de conexión privados en el mismo grupo de recursos, solo la red virtual del primer punto de conexión privado se puede agregar a la zona DNS. Para agregar entradas para las redes virtuales usadas por áreas de trabajo o puntos de conexión privados adicionales, siga estos pasos:
-
-1. En [Azure Portal](https://portal.azure.com), seleccione el grupo de recursos que contiene el área de trabajo. A continuación, seleccione el recurso de zona DNS privada denominado __privatelink.api.azureml.ms__.
-2. En __Configuración__, seleccione __Vínculos de red virtual__.
-3. Seleccione __Agregar__. En la página __Agregar el vínculo de red virtual__, proporcione un __Nombre de vínculo__ único y, a continuación, seleccione la __Red virtual__ que se va a agregar. Seleccione __Aceptar__ para agregar el vínculo de red.
-
-Para obtener más información, vea [Configuración de DNS para puntos de conexión privados de Azure](../private-link/private-endpoint-dns.md).
 
 ### <a name="vulnerability-scanning"></a>Examen de vulnerabilidades
 

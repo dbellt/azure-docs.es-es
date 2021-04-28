@@ -8,43 +8,47 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 03/15/2021
+ms.date: 04/14/2021
 ms.author: lajanuar
-ms.openlocfilehash: ed8516f9a898131338fb5b4d75e25cd774c5ab43
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 00e51d2c9515191b6d127355f49eeed3000a46ed
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106285366"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107514720"
 ---
-# <a name="form-recognizer-prebuilt-identification-card-id-model"></a>Modelo de tarjeta de identificación (ID) precompilada de Form Recognizer
+# <a name="form-recognizer-prebuilt-identification-id-document-model"></a>Modelo de documento de identificación (ID) precompilado de Form Recognizer
 
-Azure Form Recognizer puede analizar y extraer información de tarjetas de identificación (ID) expedidas por la Administración mediante alguno de sus modelos de ID precompilados. Combina nuestras eficaces funcionalidades de [reconocimiento óptico de caracteres (OCR)](../computer-vision/overview-ocr.md) con capacidades de reconocimiento de ID para extraer información clave de pasaportes de todo el mundo y de permisos de conducir de EE. UU. (de los 50 estados y del D.C.). La API de ID extrae información clave de estos documentos de identidad, como el nombre, el apellido, la fecha de nacimiento, el número del documento, etc. Esta API está disponible en la versión preliminar de Form Recognizer v2.1 como un servicio en la nube y como un contenedor local.
+Azure Form Recognizer puede analizar y extraer información de documentos de identificación (ID) expedidos por la Administración mediante sus modelos de ID precompilados. Combina nuestras eficaces funcionalidades de [reconocimiento óptico de caracteres (OCR)](../computer-vision/overview-ocr.md) con capacidades de reconocimiento de ID para extraer información clave de pasaportes de todo el mundo y de permisos de conducir de EE. UU. (de los 50 estados y del D.C.). La API de ID extrae información clave de estos documentos de identidad, como el nombre, el apellido, la fecha de nacimiento, el número del documento, etc. Esta API está disponible en la versión preliminar de Form Recognizer v2.1 como un servicio en la nube y como un contenedor local.
 
-## <a name="what-does-the-id-service-do"></a>¿Qué hace el servicio de ID? 
+## <a name="what-does-the-id-service-do"></a>¿Qué hace el servicio de ID?
 
-El servicio de identificaciones precompiladas extrae los principales valores de pasaportes de todo el mundo y permisos de conducir de EE. UU. y los devuelve en una respuesta JSON estructurada organizada. 
+El servicio de identificaciones precompiladas extrae los principales valores de pasaportes de todo el mundo y permisos de conducir de EE. UU. y los devuelve en una respuesta JSON estructurada organizada.
+
+### <a name="drivers-license-example"></a>**Ejemplo de permiso de conducir**
 
 ![Permiso de conducir de ejemplo](./media/id-example-drivers-license.JPG)
+
+### <a name="passport-example"></a>**Ejemplo de pasaporte**
 
 ![Pasaporte de ejemplo](./media/id-example-passport-result.JPG)
 
 ### <a name="fields-extracted"></a>Campos extraídos
 
-|Nombre| Tipo | Descripción | Value | 
+|Nombre| Tipo | Descripción | Value |
 |:-----|:----|:----|:----|
-|  País | country | Código de país conforme con la norma ISO 3166 estándar. | "USA" | 
-|  DateOfBirth | date | Fecha de nacimiento en formato AAAA-MM-DD. | "1980-01-01" | 
-|  DateOfExpiration | date | Fecha de expiración en formato AAAA-MM-DD. | "2019-05-05" |  
-|  DocumentNumber | string | Número de pasaporte, número de permiso de conducir, etc. pertinente. | "340020013" |  
-|  FirstName | string | Nombre extraído e inicial del segundo nombre, si procede. | "JENNIFER" | 
-|  LastName | string | Apellido extraído | "BROOKS" |   
+|  País | country | Código de país conforme con la norma ISO 3166 estándar. | "USA" |
+|  DateOfBirth | date | Fecha de nacimiento en formato AAAA-MM-DD. | "1980-01-01" |
+|  DateOfExpiration | date | Fecha de expiración en formato AAAA-MM-DD. | "2019-05-05" |
+|  DocumentNumber | string | Número de pasaporte, número de permiso de conducir, etc. pertinente. | "340020013" |
+|  FirstName | string | Nombre extraído e inicial del segundo nombre, si procede. | "JENNIFER" |
+|  LastName | string | Apellido extraído | "BROOKS" |
 |  Nacionalidad | country | Código de país conforme con la norma ISO 3166 estándar. | "USA" |
-|  Sex | gender | Los valores extraídos posibles son "M", "F" y "X". | "F" | 
+|  Sex | gender | Los valores extraídos posibles son "M", "F" y "X". | "F" |
 |  MachineReadableZone | object | Zona de lectura automática del pasaporte extraída, incluidas dos líneas de 44 caracteres cada una. | "P<USABROOKS<<JENNIFER<<<<<<<<<<<<<<<<<<<<<<< 3400200135USA8001014F1905054710000307<715816" |
-|  DocumentType | string | Tipo de documento, por ejemplo, pasaporte o permiso de conducir. | "passport" |  
+|  DocumentType | string | Tipo de documento, por ejemplo, pasaporte o permiso de conducir. | "passport" |
 |  Dirección | string | Dirección extraída (solo permiso de conducir) | "123 STREET ADDRESS YOUR CITY WA 99999-1234"|
-|  Region | string | Valor extraído de región, estado, provincia, etc. (solo permiso de conducir) | "Washington" | 
+|  Region | string | Valor extraído de región, estado, provincia, etc. (solo permiso de conducir) | "Washington" |
 
 ### <a name="additional-features"></a>Características adicionales
 
@@ -58,7 +62,7 @@ La API de ID también devuelve la siguiente información:
   > [!NOTE]
   > Las identificaciones precompiladas no detectan la autenticidad del ID.
   >
-  > Las identificaciones precompiladas de Form Recognizer extraen información clave de los datos de identificador. Sin embargo, no detectan la validez ni la autenticidad del documento de identidad original. 
+  > Las identificaciones precompiladas de Form Recognizer extraen información clave de los datos de identificador. Sin embargo, no detectan la validez ni la autenticidad del documento de identidad original.
 
 ## <a name="try-it-out"></a>Prueba
 
@@ -71,12 +75,12 @@ Para probar el servicio de ID de Form Recognizer, vaya a la herramienta de inter
 
 [!INCLUDE [input requirements](./includes/input-requirements-receipts.md)]
 
-## <a name="supported-id-types"></a>Tipos de identificador admitidos  
+## <a name="supported-id-types"></a>Tipos de identificador admitidos
 
-* **Identificaciones precompiladas, v2.1-preview.3** Extrae valores clave de pasaportes de todo el mundo y de permisos de conducir de EE. UU. 
+* **Identificaciones precompiladas, v2.1-preview.3** Extrae valores clave de pasaportes de todo el mundo y de permisos de conducir de EE. UU.
 
   > [!NOTE]
-  > Compatibilidad con el tipo de ID. 
+  > Compatibilidad con el tipo de ID.
   >
   > Los tipos de ID admitidos actualmente son los pasaportes de todo el mundo y los permisos de conducir de EE. UU. Estamos tratando de ampliar nuestra compatibilidad con identificaciones a otros documentos de identidad de todo el mundo.
 
@@ -112,7 +116,7 @@ Cuando el campo **status** tenga el valor **succeeded**, la respuesta JSON inclu
 Consulte el siguiente ejemplo de una respuesta JSON correcta: El nodo `readResults` contiene todo el texto reconocido. El texto se organiza por página, después, por líneas y, finalmente, por palabras individuales. El nodo `documentResults` contiene los valores específicos de ID que el modelo ha descubierto. Este nodo es también donde encontrará pares clave-valor útiles, como el nombre, el apellido, el número de documento, etc.
 
 ```json
-{ 
+{
    "status": "succeeded",
   "createdDateTime": "2021-03-04T22:29:33Z",
   "lastUpdatedDateTime": "2021-03-04T22:29:36Z",
@@ -157,7 +161,7 @@ Consulte el siguiente ejemplo de una respuesta JSON correcta: El nodo `readResul
           ...
       }
     ],
-    
+
      "documentResults": [
       {
         "docType": "prebuilt:idDocument:passport",
@@ -243,11 +247,10 @@ Consulte el siguiente ejemplo de una respuesta JSON correcta: El nodo `readResul
 }
 ```
 
-
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Pruebe sus propios ID y ejemplos en la [interfaz de usuario de ejemplo de Form Recognizer](https://fott-preview.azurewebsites.net/).
-- Realice un [inicio rápido de Form Recognizer](quickstarts/client-library.md) para empezar a escribir una aplicación de procesamiento de ID con Form Recognizer en el lenguaje de desarrollo que prefiera.
+* Pruebe sus propios ID y ejemplos en la [interfaz de usuario de ejemplo de Form Recognizer](https://fott-preview.azurewebsites.net/).
+* Realice un [inicio rápido de Form Recognizer](quickstarts/client-library.md) para empezar a escribir una aplicación de procesamiento de ID con Form Recognizer en el lenguaje de desarrollo que prefiera.
 
 ## <a name="see-also"></a>Consulte también
 

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 03/22/2021
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: 8e8bdaa7a812d8c7accfea59b58b75a58d50e21e
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 8e1d16ad0d3fd0e45917754b028c4af362a1e9f4
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107789616"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108142970"
 ---
 # <a name="deploy-azure-spot-virtual-machines-using-the-azure-cli"></a>Implementación de máquinas virtuales de acceso puntual de Azure con la CLI de Azure
 
@@ -90,7 +90,7 @@ curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-versio
 
 Esta primera respuesta podría tardar hasta 2 minutos. A partir ahora, se deben mostrar los resultados de salida casi de inmediato.
 
-En un equipo que tenga instalada la CLI de Azure (por ejemplo, su equipo local), simule una expulsión mediante [az vm simulate-eviction](https://docs.microsoft.com/cli/azure/vm#az_vm_simulate_eviction). Reemplace el nombre del grupo de recursos y el nombre de la VM con los suyos. 
+En un equipo que tenga instalada la CLI de Azure (por ejemplo, su equipo local), simule una expulsión mediante [az vm simulate-eviction](/cli/azure/vm#az_vm_simulate_eviction). Reemplace el nombre del grupo de recursos y el nombre de la VM con los suyos. 
 
 ```azurecli-interactive
 az vm simulate-eviction --resource-group mySpotRG --name mySpot

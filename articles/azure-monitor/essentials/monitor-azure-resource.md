@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: 203af340a8bd48bdb6dee70f92c2ecc39708b8e1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: cb778d826ef094d71fd27f3c10bc1f2c292baa47
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105732336"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107862406"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Supervisión de recursos de Azure con Azure Monitor
 Si tiene aplicaciones y procesos empresariales críticos que dependen de recursos de Azure, querrá supervisar esos recursos para su disponibilidad, rendimiento y funcionamiento. En este artículo se describen los datos de supervisión generados por los recursos de Azure y cómo puede usar las características de Azure Monitor para analizar y alertar sobre estos datos.
@@ -131,7 +131,7 @@ Los registros de Azure Monitor consolidan los registros y las métricas de vario
 Puede acceder a los datos de supervisión recopilados en el recurso desde una línea de comandos o incluirlos en un script mediante [Azure PowerShell](/powershell/azure/) o la [interfaz de la línea de comandos de Azure](/cli/azure/). 
 
 - Consulte la [referencia de métricas de la CLI](/cli/azure/monitor/metrics) para acceder a los datos de métricas de la CLI.
-- Consulte la [referencia de Log Analytics de la CLI](/cli/azure/ext/log-analytics/monitor/log-analytics) para acceder a los datos de los registros de Azure Monitor mediante una consulta de registro desde la CLI.
+- Consulte la [referencia de Log Analytics de la CLI](/cli/azure/monitor/log-analytics) para acceder a los datos de los registros de Azure Monitor mediante una consulta de registro desde la CLI.
 - Consulte la [referencia de métricas de Azure PowerShell](/powershell/module/azurerm.insights/get-azurermmetric) para acceder a los datos de métricas desde Azure PowerShell.
 - Consulte la [referencia de consulta de registro de Azure PowerShell](/powershell/module/az.operationalinsights/Invoke-AzOperationalInsightsQuery) para acceder a los datos de los registros de Azure Monitor mediante una consulta de registro desde Azure PowerShell.
 

@@ -7,12 +7,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: e606e21fe2b80683737970b92d57ce87b9103144
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 7c1e908b5b113c5a2eff81105b1f0cd622c57b5e
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107106877"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108127522"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Preguntas más frecuentes sobre la transición de Cloud Partner Portal al Centro de partners
 
@@ -81,11 +81,11 @@ En el caso de los tipos de oferta admitidos en el Centro de partners, todas las 
 | Máquina virtual | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Puede encontrar más información en el artículo sobre la [planificación de ofertas de máquina virtual](marketplace-virtual-machines.md). |
 | Aplicación de Azure | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Más información en [Creación de una oferta de aplicación de Azure](create-new-azure-apps-offer.md). |
 | Dynamics 365 Business Central | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Más información en [Creación de una oferta de Dynamics 365 Business Central](partner-center-portal/create-new-business-central-offer.md). |
-| Dynamics 365 for Customer Engagement y Power Apps | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Más información en [Creación de una oferta de Dynamics 365 for Customer Engagement y PowerApps](partner-center-portal/create-new-customer-engagement-offer.md). |
+| Dynamics 365 for Customer Engagement y Power Apps | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Más información en [Creación de una oferta de Dynamics 365 for Customer Engagement y PowerApps](dynamics-365-customer-engage-offer-setup.md). |
 | Dynamics 365 for Operations | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Más información en [Creación de una oferta de Dynamics 365 for Operations](partner-center-portal/create-new-operations-offer.md). |
 | Aplicación Power BI | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Más información en [Creación de una aplicación de Power BI para AppSource](partner-center-portal/create-power-bi-app-offer.md). |
 | Módulo IoT Edge | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Más información en [Creación, configuración y publicación de una oferta de módulo de IoT Edge en Azure Marketplace](partner-center-portal/azure-iot-edge-module-creation.md). |
-| Contenedor | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Más información en [Creación de una oferta de contenedor de Azure](./create-azure-container-offer.md). |
+| Contenedor | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Más información en [Creación de una oferta de contenedor de Azure](./azure-container-offer-setup.md). |
 | Servicio de consultoría | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Más información en [Creación de una oferta de servicios de consultoría](./create-consulting-service-offer.md). |
 | Servicio administrado | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Más información en [Creación de una oferta de servicio administrado](./plan-managed-service-offer.md). |
 | Servicio administrado de Dynamics NAV | No | Microsoft ha evolucionado el Servicio administrado de Dynamics NAV a [Dynamics 365 Business Central](/dynamics365/business-central/), por lo que sus ofertas se han eliminado de la lista en AppSource. Los clientes ya no pueden detectar estas ofertas y no se han movido al Centro de partners. Para que las ofertas estén disponibles en AppSource, puede adaptarlas a ofertas de Dynamics 365 Business Central y enviarlas al [Centro de partners](https://partner.microsoft.com/). Más información en [Creación de una oferta de Dynamics 365 Business Central](partner-center-portal/create-new-business-central-offer.md). |

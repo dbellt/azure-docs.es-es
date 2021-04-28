@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 5473daedc8a7ad5a3b6ddffc65234160d4b3019d
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 8a543d3f6a875c41b3657ccc947c6f697bbcfd09
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104877684"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108129124"
 ---
 # <a name="app-and-deployment-in-azure-spring-cloud"></a>Aplicación e implementación en Azure Spring Cloud
 
@@ -58,4 +58,4 @@ Las siguientes características o propiedades se definen en el nivel de implemen
 * **La administración de implementación no está disponible en el nivel Básico**: use el nivel Estándar para la funcionalidad de implementación azul-verde.
 
 ## <a name="see-also"></a>Consulte también
-* [Configuración de un entorno de ensayo en Azure Spring Cloud](spring-cloud-howto-staging-environment.md)
+* [Configuración de un entorno de ensayo en Azure Spring Cloud](./how-to-staging-environment.md)

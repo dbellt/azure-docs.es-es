@@ -3,12 +3,12 @@ title: Introducción a la incorporación de asociados (Azure Event Grid)
 description: Se proporciona información general sobre cómo incorporarse como asociado de Event Grid.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: d16337eada829a817110abf7842f763972d0718f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9af80efc1ba342768f9bb6d504f921b52494d955
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105109346"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107890715"
 ---
 # <a name="partner-onboarding-overview-azure-event-grid"></a>Introducción a la incorporación de asociados (Azure Event Grid)
 
@@ -153,7 +153,7 @@ Después de realizar una publicación en el punto de conexión del espacio de no
   * [Plantilla ARM](/azure/templates/microsoft.eventgrid/allversions)
   * [Esquema de plantilla de ARM](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2020-04-01-preview/Microsoft.EventGrid.json)
   * [API de REST](/azure/templates/microsoft.eventgrid/2020-04-01-preview/partnernamespaces)
-  * [Extensión de la CLI](/cli/azure/ext/eventgrid/)
+  * [Extensión de la CLI](/cli/azure/eventgrid)
 
 ### <a name="sdks"></a>SDK
   * [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.EventGrid/5.3.1-preview)
