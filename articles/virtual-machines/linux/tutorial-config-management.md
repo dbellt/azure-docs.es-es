@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/27/2019
 ms.author: magoedte
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 16e8cfd9c6b20e3a8d17ba335079b1b6fe8b499f
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: bbc294f006859e30aa891c7aa1b9ad4d1665a21c
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107785044"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108139964"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-linux-virtual-machine-in-azure"></a>Tutorial: Supervisión de los cambios y actualización de una máquina virtual Linux en Azure
 
@@ -170,7 +170,7 @@ Una vez que se ha habilitado la solución, puede tardar algún tiempo mientras s
 
 En la máquina virtual, seleccione **Change Tracking** en **OPERACIONES**. Seleccione **Editar configuración**, se muestra la página **Seguimiento de cambios**. Seleccione el tipo de configuración a la que desea realizar un seguimiento y, después, seleccione **+ Agregar** para configurar las opciones. La opción disponible en Linux es **Archivos de Linux**
 
-Para obtener información detallada Change Tracking, consulte [Solucionar de los problemas de los cambios en una máquina virtual](../../automation/automation-tutorial-troubleshoot-changes.md).
+Para obtener información detallada Change Tracking, consulte [Solucionar de los problemas de los cambios en una máquina virtual](../../automation/troubleshoot/change-tracking.md).
 
 ### <a name="view-inventory"></a>Visualización del inventario
 

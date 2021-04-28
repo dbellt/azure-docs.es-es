@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: yajin1
-ms.openlocfilehash: e26def56fbd03626c3efc660db57012ee1b767ea
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ba75af247888a2404619ec0a3db3b0a5d3310502
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105048211"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108142430"
 ---
 # <a name="troubleshooting-guide-for-azure-signalr-service-common-issues"></a>Guía para la solución de problemas comunes de Azure SignalR Service
 
@@ -354,7 +354,7 @@ Normalmente, este escenario lo causan métodos asincrónico en sincrónicos o `T
 
 Consulte [Procedimientos recomendados para el rendimiento de ASP.NET Core](/aspnet/core/performance/performance-best-practices#avoid-blocking-calls).
 
-Consulte más información sobre el [colapso del grupo de subprocesos](https://docs.microsoft.com/archive/blogs/vancem/diagnosing-net-core-threadpool-starvation-with-perfview-why-my-service-is-not-saturating-all-cores-or-seems-to-stall).
+Consulte más información sobre el [colapso del grupo de subprocesos](/archive/blogs/vancem/diagnosing-net-core-threadpool-starvation-with-perfview-why-my-service-is-not-saturating-all-cores-or-seems-to-stall).
 
 ### <a name="how-to-detect-thread-pool-starvation"></a>Detección del colapso del grupo de subprocesos
 
@@ -363,8 +363,8 @@ Compruebe el número de subprocesos. Si no hay picos en ese momento, siga estos 
     
   :::image type="content" source="media/signalr-howto-troubleshoot-guide/metrics-thread-count.png" alt-text="Captura de pantalla del panel con el número subprocesos Max en Azure App Service.":::
 
-* Si utiliza .NET Framework, puede encontrar las [métricas](https://docs.microsoft.com/dotnet/framework/debug-trace-profile/performance-counters#lock-and-thread-performance-counters) en el monitor de rendimiento en la máquina virtual del servidor.
-* Si usa .NET Core en un contenedor, consulte [Recopilación de diagnósticos en contenedores](https://docs.microsoft.com/dotnet/core/diagnostics/diagnostics-in-containers).
+* Si utiliza .NET Framework, puede encontrar las [métricas](/dotnet/framework/debug-trace-profile/performance-counters#lock-and-thread-performance-counters) en el monitor de rendimiento en la máquina virtual del servidor.
+* Si usa .NET Core en un contenedor, consulte [Recopilación de diagnósticos en contenedores](/dotnet/core/diagnostics/diagnostics-in-containers).
 
 También puede usar código para detectar la colapso del grupo de subprocesos:
 

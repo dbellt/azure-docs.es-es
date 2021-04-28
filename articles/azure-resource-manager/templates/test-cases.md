@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 04/12/2021
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 7805d6dbdb8b93968a2792ed6dfaf2ac8fea9ae5
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 5dc4891bbc8bf6397a0f041fa845f4fb0ad6c600
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107363400"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108142520"
 ---
 # <a name="default-test-cases-for-arm-template-test-toolkit"></a>Casos de prueba predeterminados del kit de herramientas para pruebas de plantillas de Resource Manager
 
@@ -698,7 +698,7 @@ Nombre de la prueba: **CommandToExecute debe usar ProtectedSettings para secreto
 En una extensión de script personalizado, use la propiedad cifrada `protectedSettings` cuando `commandToExecute` incluya datos secretos, como una contraseña. Ejemplos de tipos de datos de secreto son las funciones `secureString`, `secureObject`, `list()` o scripts.
 
 Para obtener más información sobre la extensión de scripts personalizados para máquinas virtuales, consulte [Windows](
-/azure/virtual-machines/extensions/custom-script-windows), [Linux](/azure/virtual-machines/extensions/custom-script-linux)y el esquema [Microsoft. Compute virtualMachines/extensions](/azure/templates/microsoft.compute/virtualmachines/extensions).
+/azure/virtual-machines/extensions/custom-script-windows), [Linux](../../virtual-machines/extensions/custom-script-linux.md)y el esquema [Microsoft. Compute virtualMachines/extensions](/azure/templates/microsoft.compute/virtualmachines/extensions).
 
 En este ejemplo, una plantilla con un parámetro denominado `adminPassword` y el tipo `secureString` **pasa** la prueba porque la propiedad cifrada `protectedSettings` incluye `commandToExecute`.
 

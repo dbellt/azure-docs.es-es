@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/19/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: a84ed5a6f80b038ced2077fe3c038bd9801ca033
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 6a8be63c134c25373f85a146ed3df7316e1eb7dc
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105732948"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108132412"
 ---
 # <a name="troubleshooting-azure-spring-cloud-in-virtual-networks"></a>Solución de problemas de Azure Spring Cloud en redes virtuales
 
@@ -20,7 +20,7 @@ Este documento le ayudará a resolver diversos problemas que pueden surgir al us
 
 ## <a name="i-encountered-a-problem-with-creating-an-azure-spring-cloud-service-instance"></a>Ha aparecido un problema al crear una instancia de servicio de Azure Spring Cloud
 
-Para crear una instancia de Azure Spring Cloud, debe tener permisos suficientes para implementar la instancia en la red virtual.  La instancia de servicio de Spring Cloud debe [concederse a sí misma el permiso de servicio de Azure Spring Cloud para la red virtual](spring-cloud-tutorial-deploy-in-azure-virtual-network.md#grant-service-permission-to-the-virtual-network).
+Para crear una instancia de Azure Spring Cloud, debe tener permisos suficientes para implementar la instancia en la red virtual.  La instancia de servicio de Spring Cloud debe [concederse a sí misma el permiso de servicio de Azure Spring Cloud para la red virtual](./how-to-deploy-in-azure-virtual-network.md#grant-service-permission-to-the-virtual-network).
 
 Si usa Azure Portal para configurar la instancia de servicio en Azure Spring Cloud, Azure Portal validará los permisos.
 
@@ -38,7 +38,7 @@ Para configurar la instancia de servicio de Azure Spring Cloud mediante la plant
 | Mensaje de error | Solución |
 |------|------|
 | Resources created by Azure Spring Cloud were disallowed by policy (La directiva no permitió los recursos creados por Azure Spring Cloud). | Los recursos de red se crearán al implementar Azure Spring Cloud en su propia red virtual. Compruebe si se ha definido [Azure Policy](../governance/policy/overview.md) para bloquear esa creación. Los recursos que no se pudieron crear se encuentran en el mensaje de error. |
-| Required traffic is not allowlisted (El tráfico necesario no está en la lista de permitidos). | Vea [Responsabilidades del cliente para ejecutar Azure Spring Cloud en una red virtual](spring-cloud-vnet-customer-responsibilities.md) para asegurarse de que el tráfico necesario esté en la lista de permitidos. |
+| Required traffic is not allowlisted (El tráfico necesario no está en la lista de permitidos). | Vea [Responsabilidades del cliente para ejecutar Azure Spring Cloud en una red virtual](./vnet-customer-responsibilities.md) para asegurarse de que el tráfico necesario esté en la lista de permitidos. |
 
 ## <a name="my-application-cant-be-registered"></a>No se puede registrar mi aplicación
 
@@ -46,4 +46,4 @@ Este problema se produce si la red virtual está configurada con la configuraci�
 
 ## <a name="other-issues"></a>Otros problemas
 
-[Solución de problemas comunes de Azure Spring Cloud](./spring-cloud-troubleshoot.md).
+[Solución de problemas comunes de Azure Spring Cloud](./troubleshoot.md).

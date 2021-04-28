@@ -8,12 +8,12 @@ ms.collection: linux
 ms.topic: article
 ms.date: 03/16/2020
 ms.author: rogardle
-ms.openlocfilehash: 09264f9f20411e7536eb4a1dbf12ac297e7e3ef9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 06f0eb1ef36e711c5297af936d704f442596fc1a
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101675707"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107887583"
 ---
 # <a name="set-up-a-direct-interconnection-between-azure-and-oracle-cloud-infrastructure"></a>Configurar una interconexión directa entre Azure y Oracle Cloud Infrastructure  
 
@@ -29,7 +29,7 @@ Para crear una [experiencia integrada de nube múltiple](oracle-oci-overview.md)
 
 En la siguiente imagen se muestra una descripción general de alto nivel de la interconexión:
 
-![Conexión de red entre nubes](media/configure-azure-oci-networking/azure-oci-connect.png)
+![Conexión de red entre nubes](https://user-images.githubusercontent.com/37556655/115093592-bced0180-9ecf-11eb-976d-9d4c7a1be2a8.png)
 
 ## <a name="prerequisites"></a>Prerrequisitos
 

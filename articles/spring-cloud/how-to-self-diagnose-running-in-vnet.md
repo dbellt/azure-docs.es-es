@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/25/2021
 ms.custom: devx-track-java
-ms.openlocfilehash: 5407213b62902326d53b73e42ee3af1ba9b11524
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f2b2dcc7e22ce904035a6805d78e59ad14f9bff1
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104877533"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108134796"
 ---
 # <a name="self-diagnose-running-azure-spring-cloud-in-vnet"></a>Autodiagnóstico de la ejecución de Azure Spring Cloud en la red virtual
 El diagnóstico de Azure Spring Cloud admite aplicaciones de solución de problemas interactivas que se ejecutan en redes virtuales sin configuración. El diagnóstico de Azure Spring Cloud los identifica y le guía por la información que ayuda a solucionarlos.
@@ -61,7 +61,7 @@ Si selecciona **Required Outbound Traffic** (Tráfico saliente necesario), los r
 * *Tráfico saliente necesario resuelto sin problemas en la subred "subnet01".
 * *Tráfico saliente necesario resuelto sin problemas en la subred "subnet02".
 
-Si una subred está bloqueada por las reglas de firewall o del grupo de seguridad de red, y si no ha bloqueado el registro, encontrará los siguientes errores. Puede comprobar si se ha pasado por alto alguna [responsabilidad del cliente](spring-cloud-vnet-customer-responsibilities.md).
+Si una subred está bloqueada por las reglas de firewall o del grupo de seguridad de red, y si no ha bloqueado el registro, encontrará los siguientes errores. Puede comprobar si se ha pasado por alto alguna [responsabilidad del cliente](./vnet-customer-responsibilities.md).
     
    ![Error del punto de conexión](media/spring-cloud-self-diagnose-vnet/self-diagostic-endpoint-failed.png)
 
@@ -70,4 +70,4 @@ Si no hay datos en `Required Outbound Traffic Table Renderings` al cabo de 30 m
    ![Punto de conexión de diagnóstico desconocido](media/spring-cloud-self-diagnose-vnet/self-diagostic-endpoint-unknown.png)
 
 ## <a name="see-also"></a>Consulte también
-* [Autodiagnóstico de Azure Spring Cloud](spring-cloud-howto-self-diagnose-solve.md)
+* [Autodiagnóstico de Azure Spring Cloud](./how-to-self-diagnose-solve.md)

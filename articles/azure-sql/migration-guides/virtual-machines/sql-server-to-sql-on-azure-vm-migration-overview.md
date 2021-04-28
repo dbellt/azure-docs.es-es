@@ -10,12 +10,12 @@ author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: 2702451aa3645b2702f8f38c37574a6601249dac
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b3f81b9c6855522718f69f76adfd5fe9a3c6059c
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105641415"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108136254"
 ---
 # <a name="migration-overview-sql-server-to-sql-server-on-azure-vms"></a>Información general sobre la migración: De SQL Server a SQL Server en VM de Azure
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -29,7 +29,7 @@ Puede migrar las instancias de SQL Server que se ejecutan de forma local o en:
 - Amazon Relational Database Service (AWS RDS) 
 - Compute Engine (Google Cloud Platform o GCP)
 
-Para ver otras guías de migración, consulte [Migración de bases de datos](https://docs.microsoft.com/data-migration). 
+Para ver otras guías de migración, consulte [Migración de bases de datos](/data-migration). 
 
 ## <a name="overview"></a>Información general
 
@@ -40,7 +40,7 @@ Ahorre costos al traer su propia licencia con el [modelo de licencias de Ventaja
 
 ## <a name="choose-appropriate-target"></a>Elección del destino adecuado
 
-Azure Virtual Machines se ejecuta en muchas regiones diferentes de Azure y también ofrece varios [tamaños de máquina](../../../virtual-machines/sizes.md) y distintas [opciones de almacenamiento](../../../virtual-machines/disks-types.md). A la hora de determinar el tamaño correcto de la VM y el almacenamiento de la carga de trabajo de SQL Server, consulte [Directrices de rendimiento para SQL Server en Azure Virtual Machines](../../virtual-machines/windows/performance-guidelines-best-practices.md#vm-size-guidance). Para determinar los requisitos de almacenamiento y tamaño de VM de la carga de trabajo, se recomienda cambiar establecer su tamaño a través de una [evaluación de Azure Migrate](../../../migrate/concepts-assessment-calculation.md#types-of-assessments) basada en el rendimiento. Si esta opción no está disponible, consulte el siguiente artículo sobre la creación de su propia [base de referencia de rendimiento](https://azure.microsoft.com/services/virtual-machines/sql-server/).
+Azure Virtual Machines se ejecuta en muchas regiones diferentes de Azure y también ofrece varios [tamaños de máquina](../../../virtual-machines/sizes.md) y distintas [opciones de almacenamiento](../../../virtual-machines/disks-types.md). A la hora de determinar el tamaño correcto de la VM y el almacenamiento de la carga de trabajo de SQL Server, consulte [Directrices de rendimiento para SQL Server en Azure Virtual Machines](../../virtual-machines/windows/performance-guidelines-best-practices-checklist.md#vm-size). Para determinar los requisitos de almacenamiento y tamaño de VM de la carga de trabajo, se recomienda cambiar establecer su tamaño a través de una [evaluación de Azure Migrate](../../../migrate/concepts-assessment-calculation.md#types-of-assessments) basada en el rendimiento. Si esta opción no está disponible, consulte el siguiente artículo sobre la creación de su propia [base de referencia de rendimiento](https://azure.microsoft.com/services/virtual-machines/sql-server/).
 
 También debe tener en cuenta la instalación y configuración correctas de SQL Server en una VM. Se recomienda usar la [galería de imágenes de máquina virtual de Azure SQL](../../virtual-machines/windows/create-sql-vm-portal.md), ya que permite crear una VM con SQL Server con la versión, la edición y el sistema operativo correctos. También se registrará la VM de Azure con el [proveedor de recursos](../../virtual-machines/windows/create-sql-vm-portal.md) de SQL Server automáticamente, y se habilitarán características como las copias de seguridad automatizadas y la aplicación automatizada de revisiones.
 

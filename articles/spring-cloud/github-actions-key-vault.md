@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 09/08/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 0ea0db1faf8c452958b8d95c193d45506057777c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9c51a7a953fca4ebdd7014beeb39e732670b15df
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104877679"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108129034"
 ---
 # <a name="authenticate-azure-spring-cloud-with-key-vault-in-github-actions"></a>Autenticación de Azure Spring Cloud con Key Vault en Acciones de GitHub
 
@@ -42,7 +42,7 @@ Con resultados:
     "managementEndpointUrl": "https://management.core.windows.net/"
 }
 ```
-Luego, guarde los resultados en **secrets** de GitHub, como se describe en [Autenticación y configuración de un repositorio de GitHub con Azure](./spring-cloud-howto-github-actions.md#set-up-github-repository-and-authenticate).
+Luego, guarde los resultados en **secrets** de GitHub, como se describe en [Autenticación y configuración de un repositorio de GitHub con Azure](./how-to-github-actions.md#set-up-github-repository-and-authenticate).
 
 ## <a name="add-access-policies-for-the-credential"></a>Incorporación de directivas de acceso a la credencial
 La credencial que ha creado anteriormente solo puede obtener información general sobre Key Vault, no sobre el contenido que almacena.  Para obtener los secretos almacenados en Key Vault, es preciso establecer directivas de acceso para la credencial.
@@ -114,4 +114,4 @@ jobs:
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Acciones de GitHub en Spring Cloud](./spring-cloud-howto-github-actions.md)
+* [Acciones de GitHub en Spring Cloud](./how-to-github-actions.md)

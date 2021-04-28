@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 04/05/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: d0470759a589927b65462f258b20446af608175c
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 69677ed419fa9bac2cbcb06c394c92f68d0b7777
+ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106284057"
+ms.lasthandoff: 04/23/2021
+ms.locfileid: "107930936"
 ---
 # <a name="configure-azure-cosmos-db-account-with-periodic-backup"></a>Configuración de una cuenta de Azure Cosmos DB con copia de seguridad periódica
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -30,6 +30,9 @@ Azure Cosmos DB crea automáticamente copias de seguridad de los datos a interva
   :::image type="content" source="./media/configure-periodic-backup-restore/automatic-backup.png" alt-text="Copias de seguridad completas periódicas de todas las entidades de Cosmos DB en Azure Storage con GRS" lightbox="./media/configure-periodic-backup-restore/automatic-backup.png" border="false":::
 
 * Las copias de seguridad se crean sin afectar el rendimiento ni la disponibilidad de la aplicación. Azure Cosmos DB realiza la copia de seguridad de datos en segundo plano sin consumir ningún rendimiento aprovisionado (RU) adicional ni afectar al rendimiento y la disponibilidad de la base de datos.
+
+> [!Note]
+> No se admiten las cuentas con Synapse Link habilitado.
 
 ## <a name="backup-storage-redundancy"></a><a id="backup-storage-redundancy"></a>Redundancia del almacenamiento de copia de seguridad
 

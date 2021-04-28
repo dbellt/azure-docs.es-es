@@ -1,18 +1,18 @@
 ---
 title: Actividad de filtro en Azure Data Factory
 description: La actividad de filtro filtra las entradas.
-author: dcstwh
-ms.author: weetok
+author: chez-charlie
+ms.author: chez
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 05/04/2018
-ms.openlocfilehash: 97693d9f31b01bf6187843586f6971c92fe79bff
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 6a488fff5e5c5f75697e787cdcede4de080a04ba
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104786199"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107906281"
 ---
 # <a name="filter-activity-in-azure-data-factory"></a>Actividad de filtro en Azure Data Factory
 Puede usar una actividad de filtro en una canalización para aplicar una expresión de filtro a una matriz de entrada. 
@@ -37,8 +37,8 @@ Propiedad | Descripción | Valores permitidos | Obligatorio
 -------- | ----------- | -------------- | --------
 name | Nombre de la actividad `Filter`. | String | Sí
 type | Se debe establecer en **filter**. | String | Sí
-condición | Condición que se usará para filtrar la entrada. | Expresión | Sí
-items | Matriz de entrada en la que se debe aplicar el filtro. | Expresión | Sí
+condición | Condición que se usará para filtrar la entrada. | Expression | Yes
+items | Matriz de entrada en la que se debe aplicar el filtro. | Expression | Sí
 
 ## <a name="example"></a>Ejemplo
 

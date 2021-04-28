@@ -8,19 +8,19 @@ author: amjads1
 ms.author: amjads
 ms.collection: linux
 ms.date: 02/05/2021
-ms.openlocfilehash: 2e862915bcc524db50e7e66c969b713f729c64aa
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 5ab11ac23fac73341c111d0d81fc225358bb689f
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107479651"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108138290"
 ---
 # <a name="use-the-linux-diagnostic-extension-40-to-monitor-metrics-and-logs"></a>Uso de la extensión Diagnostics de Linux 4.0 para supervisar métricas y registros
 
 En este documento se describen las versiones más recientes de la extensión Diagnostics de Linux (LAD).
 
 > [!IMPORTANT]
-> Para obtener información sobre la versión 3.x, consulte [Uso de la extensión Diagnostics de Linux 3.0 para supervisar métricas y registros](./diagnostics-linux-v3.md). Para obtener información acerca de la versión 2.3 y anteriores, consulte [Supervisión de los datos de rendimiento y diagnóstico de una máquina virtual Linux](https://docs.microsoft.com/previous-versions/azure/virtual-machines/linux/classic/diagnostic-extension-v2).
+> Para obtener información sobre la versión 3.x, consulte [Uso de la extensión Diagnostics de Linux 3.0 para supervisar métricas y registros](./diagnostics-linux-v3.md). Para obtener información acerca de la versión 2.3 y anteriores, consulte [Supervisión de los datos de rendimiento y diagnóstico de una máquina virtual Linux](/previous-versions/azure/virtual-machines/linux/classic/diagnostic-extension-v2).
 
 ## <a name="introduction"></a>Introducción
 

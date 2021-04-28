@@ -7,14 +7,14 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 02/15/2021
+ms.date: 04/14/2021
 ms.author: rolyon
-ms.openlocfilehash: 081335779ffc4b3a6ddf09e56b773c6d34b210be
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 40a17da6383fb1f368c74a82fefa71991cdc1b19
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100556043"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107517681"
 ---
 # <a name="steps-to-assign-an-azure-role"></a>Pasos para asignar un rol de Azure
 
@@ -78,6 +78,8 @@ Para asignar roles, debe haber iniciado sesión con un usuario que tenga asignad
 - `Microsoft.Authorization/roleAssignments/delete`
 
 Si la cuenta de usuario no tiene permisos para asignar un rol dentro de la suscripción, verá un mensaje de error indicando que su cuenta "no tiene autorización para realizar la acción 'Microsoft.Authorization/roleAssignments/write'". En este caso, póngase en contacto con los administradores de la suscripción, ya que ellos pueden asignar los permisos en su nombre.
+
+Si usa una entidad de servicio para asignar roles, puede obtener el error "No tiene privilegios suficientes para completar la operación". Este error probablemente se deba a que Azure está intentando buscar la identidad del usuario asignado en Azure Active Directory (Azure AD) y la entidad de servicio no puede leer Azure AD de manera predeterminada. En este caso, debe conceder permisos a la entidad de servicio para leer datos en el directorio. Como alternativa, si está usando la CLI de Azure, puede crear la asignación de roles con el identificador de objeto del usuario asignado para omitir la búsqueda de Azure AD. Para más información, consulte [Solución de problemas de RBAC de Azure](troubleshooting.md).
 
 ## <a name="step-5-assign-role"></a>Paso 5. Asignación de un rol
 

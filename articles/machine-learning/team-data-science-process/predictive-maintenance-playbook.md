@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: 9b6cf2abfa797965d75bacd0b9c5e2eaf02b57a4
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 5a8b722b7bef393422eec395f16de0f38e806152
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107308581"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108141764"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guía de Azure AI para soluciones de mantenimiento predictivo
 
@@ -439,9 +439,9 @@ Microsoft Azure ofrece rutas de aprendizaje de los conceptos fundamentales sobre
 
 | Recursos de aprendizaje  | Disponibilidad |
 |:-------------------|--------------|
-| [Microsoft Docs: rol Científico de datos](https://docs.microsoft.com/learn/roles/data-scientist) | Público |
-| [Microsoft Docs: rol Ingeniero de IA](https://docs.microsoft.com/learn/roles/ai-engineer) | Público |
-| [Microsoft Docs: rol Ingeniero de datos](https://docs.microsoft.com/learn/roles/data-engineer) | Público |
+| [Microsoft Docs: rol Científico de datos](/learn/roles/data-scientist) | Público |
+| [Microsoft Docs: rol Ingeniero de IA](/learn/roles/ai-engineer) | Público |
+| [Microsoft Docs: rol Ingeniero de datos](/learn/roles/data-engineer) | Público |
 | [Microsoft AI School](https://www.microsoft.com/ai/ai-school) | Público |
 | [LinkedIn Learning](https://www.linkedin.com/learning) | Público |
 | [Microsoft: Listas de reproducción en YouTube para inteligencia artificial y análisis](https://www.youtube.com/c/MicrosoftAzure/playlists?view=50&sort=dd&shelf_id=7) | Público |

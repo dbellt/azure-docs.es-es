@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 09/08/2020
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 643d1cd6df3791b2e5ea2118425eecb29dbcdea2
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1c456599ac6c2ca87f7beb88398d1ef9117f3106
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104877575"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108134616"
 ---
 # <a name="quickstart-set-up-azure-spring-cloud-configuration-server"></a>Inicio rápido: configuración del servidor de configuración de Azure Spring Cloud
 
@@ -23,7 +23,7 @@ El servidor de configuración de Azure Spring Cloud es un servicio de configurac
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Complete la guía de inicio rápido anterior de esta serie: [Aprovisionamiento del servicio Azure Spring Cloud](spring-cloud-quickstart-provision-service-instance.md).
+* Complete la guía de inicio rápido anterior de esta serie: [Aprovisionamiento del servicio Azure Spring Cloud](./quickstart-provision-service-instance.md).
 
 ## <a name="azure-spring-cloud-config-server-procedures"></a>Procedimientos de Azure Spring Cloud Config Server
 
@@ -51,7 +51,7 @@ Azure Spring Cloud Config Server es un servicio de configuración centralizado p
 
 #### <a name="portal"></a>[Portal](#tab/Azure-portal)
 
-En el procedimiento siguiente se configura el servidor de configuración mediante Azure Portal para implementar el [ejemplo de Piggymetrics](spring-cloud-quickstart-sample-app-introduction.md).
+En el procedimiento siguiente se configura el servidor de configuración mediante Azure Portal para implementar el [ejemplo de Piggymetrics](./quickstart-sample-app-introduction.md).
 
 1. Vaya a la página **Información general** del servicio y seleccione **Config Server**.
 
@@ -73,7 +73,7 @@ En el procedimiento siguiente se configura el servidor de configuración mediant
 
 #### <a name="cli"></a>[CLI](#tab/Azure-CLI)
 
-En el procedimiento siguiente se usa la CLI de Azure para configurar el servidor de configuración para implementar el [ejemplo de Piggymetrics](spring-cloud-quickstart-sample-app-introduction.md).
+En el procedimiento siguiente se usa la CLI de Azure para configurar el servidor de configuración para implementar el [ejemplo de Piggymetrics](./quickstart-sample-app-introduction.md).
 
 Configure config-server con la ubicación del repositorio de Git del proyecto:
 
@@ -84,7 +84,7 @@ az spring-cloud config-server git set -n <service instance name> --uri https://g
 ::: zone-end
 
 > [!TIP]
-> Si usa un repositorio privado para el servidor de configuración, consulte el [tutorial sobre la configuración de la autenticación](./spring-cloud-howto-config-server.md).
+> Si usa un repositorio privado para el servidor de configuración, consulte el [tutorial sobre la configuración de la autenticación](./how-to-config-server.md).
 
 ## <a name="troubleshooting-of-azure-spring-cloud-config-server"></a>Solución de problemas de Azure Spring Cloud Config Server
 
@@ -113,7 +113,7 @@ En el procedimiento siguiente se explica cómo solucionar los problemas de confi
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía de inicio rápido, ha creado recursos de Azure que seguirán acumulando cargos si permanecen en la suscripción. Si no tiene intención de pasar al siguiente inicio rápido, consulte [Limpieza de recursos](spring-cloud-quickstart-logs-metrics-tracing.md#clean-up-resources). De lo contrario, pase al siguiente inicio rápido:
+En esta guía de inicio rápido, ha creado recursos de Azure que seguirán acumulando cargos si permanecen en la suscripción. Si no tiene intención de pasar al siguiente inicio rápido, consulte [Limpieza de recursos](./quickstart-logs-metrics-tracing.md#clean-up-resources). De lo contrario, pase al siguiente inicio rápido:
 
 > [!div class="nextstepaction"]
-> [Compilación e implementación de aplicaciones](spring-cloud-quickstart-deploy-apps.md)
+> [Compilación e implementación de aplicaciones](./quickstart-deploy-apps.md)

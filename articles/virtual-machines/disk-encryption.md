@@ -8,12 +8,12 @@ ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 09ec15eb45029c42fd5bc02288a0c45e167e7092
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 4607778c78b8b062b265a5754337c09c41ba83f1
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108146300"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107531522"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage"></a>Cifrado del lado servidor de Azure Disk Storage
 
@@ -21,7 +21,7 @@ La mayoría de los discos administrados de Azure se cifran con el cifrado de Azu
 
 Los datos de los discos administrados de Azure se cifran de forma transparente mediante [cifrado AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) de 256 bits, uno de los cifrados de bloques más sólidos que hay disponibles, y son compatibles con FIPS 140-2. Para más información sobre de los módulos criptográficos subyacentes en los discos administrados de Azure, consulte [Cryptography API: Next Generation](/windows/desktop/seccng/cng-portal)
 
-El cifrado de Azure Storage no afecta al rendimiento de los discos administrados y no implica ningún costo adicional. Para más información sobre el cifrado de almacenamiento, consulte [Cifrado de Azure Storage](../storage/common/storage-service-encryption.md).
+El cifrado de Azure Storage no afecta al rendimiento de los discos administrados y no implica ningún costo adicional. Para más información sobre el cifrado de almacenamiento, consulte [Cifrado de Azure Storage](/azure/storage/common/storage-service-encryption).
 
 > [!NOTE]
 > Los discos temporales no son discos administrados y no están cifrados mediante SSE a menos que habilite el cifrado en el host.

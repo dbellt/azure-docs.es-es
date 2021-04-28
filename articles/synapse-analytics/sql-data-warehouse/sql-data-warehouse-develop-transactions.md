@@ -11,12 +11,12 @@ ms.date: 03/22/2019
 ms.author: xiaoyul
 ms.custom: azure-synapse
 ms.reviewer: igorstan
-ms.openlocfilehash: 8144c588d4b6794cadc0577bf63dabc2cc3e0efd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3b661931d13fb179401fff2559579a155bd31dfb
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98677293"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108139946"
 ---
 # <a name="use-transactions-in-a-sql-pool-in-azure-synapse"></a>Uso de transacciones en un grupo de SQL en Azure Synapse 
 
@@ -214,4 +214,4 @@ Los pasos son los siguientes:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información sobre la optimización de transacciones, vea [Procedimientos recomendados relacionados con las transacciones](sql-data-warehouse-develop-best-practices-transactions.md). Para más información sobre otros procedimientos recomendados del grupo de SQL, consulte [Procedimientos recomendados del grupo de SQL](sql-data-warehouse-best-practices.md).
+Para obtener más información sobre la optimización de transacciones, vea [Procedimientos recomendados relacionados con las transacciones](sql-data-warehouse-develop-best-practices-transactions.md). Para más información sobre otros procedimientos recomendados del grupo de SQL, consulte [Procedimientos recomendados del grupo de SQL](../sql/best-practices-dedicated-sql-pool.md).

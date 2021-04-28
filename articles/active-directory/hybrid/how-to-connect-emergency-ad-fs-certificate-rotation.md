@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 03/22/2021
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9035c0a91bbbd7493437c692540fcbb3136a094e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9741c2e85a7cd3523ffe7fe8262e5f5d821b62c3
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105612955"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108126604"
 ---
 # <a name="emergency-rotation-of-the-ad-fs-certificates"></a>Rotación de emergencia de los certificados de AD FS
 En caso de que necesite rotar los certificados de AD FS inmediatamente, puede seguir los pasos que se describen a continuación en esta sección.
@@ -26,7 +26,7 @@ En caso de que necesite rotar los certificados de AD FS inmediatamente, puede s
 
 > [!NOTE]
 > Microsoft recomienda encarecidamente usar un módulo de seguridad de hardware (HSM) para proteger los certificados.
-> Para obtener más información, vea [Módulo de seguridad de hardware](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#hardware-security-module-hsm) en los procedimientos recomendados para proteger AD FS.
+> Para obtener más información, vea [Módulo de seguridad de hardware](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#hardware-security-module-hsm) en los procedimientos recomendados para proteger AD FS.
 
 ## <a name="determine-your-token-signing-certificate-thumbprint"></a>Determinación de la huella digital del certificado de firma de tokens
 Para revocar el antiguo certificado de firma de tokens que AD FS está usando actualmente, debe determinar la huella digital del certificado de firma de tokens.  Para ello, siga estos pasos:
@@ -69,7 +69,7 @@ Puede usar los pasos siguientes para generar los nuevos certificados de firma de
 ## <a name="generating-new-certificates-manually-if-autocertificaterollover-is-set-to-false"></a>Generación de nuevos certificados manualmente si AutoCertificateRollover está establecido en FALSE
 Si no usa los certificados de firma y descifrado de tokens autofirmados y generados automáticamente, debe renovar y configurar estos certificados manualmente.  Esto implica crear dos nuevos certificados de firma de tokens e importarlos.  A continuación, se promueve uno a principal, se revoca el certificado antiguo y se configura el segundo certificado como secundario.
 
-En primer lugar, debe obtener dos nuevos certificados de la entidad de certificación e importarlos en el almacén de certificados personales del equipo local en cada servidor de la federación. Para obtener instrucciones, consulte el artículo [Importación de un certificado](https://technet.microsoft.com/library/cc754489.aspx).
+En primer lugar, debe obtener dos nuevos certificados de la entidad de certificación e importarlos en el almacén de certificados personales del equipo local en cada servidor de la federación. Para obtener instrucciones, consulte el artículo [Importación de un certificado](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754489(v=ws.11)).
 
 >[!IMPORTANT]
 >La razón por la que estamos creando dos certificados es porque Azure conserva la información relativa al certificado anterior.  Al crear un segundo certificado, estamos forzando a Azure a liberar la información sobre el antiguo y sustituirla por la del segundo.
@@ -118,9 +118,9 @@ Para actualizar la información del certificado en Azure AD, ejecute el comando
 ## <a name="replace-ssl-certificates"></a>Reemplazo de certificados SSL
 En caso de que necesite reemplazar el certificado de firma de tokens debido a un riesgo, también debe revocar y reemplazar los certificados SSL para AD FS y los servidores WAP.  
 
-La revocación de los certificados SSL debe realizarse en la entidad de certificación (CA) que emitió el certificado.  Estos certificados suelen emitirlos proveedores de terceros como GoDaddy.  Para obtener un ejemplo, consulte (Revocación de un certificado | Certificados SSL - GoDaddy Help US).  Para obtener más información, vea [Funcionamiento de la revocación de certificados](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee619754(v=ws.10)?redirectedfrom=MSDN).
+La revocación de los certificados SSL debe realizarse en la entidad de certificación (CA) que emitió el certificado.  Estos certificados suelen emitirlos proveedores de terceros como GoDaddy.  Para obtener un ejemplo, consulte (Revocación de un certificado | Certificados SSL - GoDaddy Help US).  Para obtener más información, vea [Funcionamiento de la revocación de certificados](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee619754(v=ws.10)).
 
-Una vez que se ha revocado el certificado SSL anterior y se ha emitido uno nuevo, puede reemplazar los certificados SSL. Para obtener más información, vea [Reemplazar el certificado SSL para AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap#replacing-the-ssl-certificate-for-ad-fs).
+Una vez que se ha revocado el certificado SSL anterior y se ha emitido uno nuevo, puede reemplazar los certificados SSL. Para obtener más información, vea [Reemplazar el certificado SSL para AD FS](/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap#replacing-the-ssl-certificate-for-ad-fs).
 
 
 ## <a name="remove-your-old-certificates"></a>Retirada de los certificados antiguos
@@ -139,29 +139,10 @@ Si los asociados de la federación no pueden usar los metadatos de la federació
 
 
 ## <a name="revoke-refresh-tokens-via-powershell"></a>Revocación de tokens de actualización a través de PowerShell
-Ahora queremos revocar los tokens de actualización para los usuarios que puedan tenerlos y obligarles a volver a iniciar sesión y obtener nuevos tokens.  Esto hará que los usuarios cierren la sesión en su teléfono y en las sesiones actuales de correo web, junto con otros elementos que usen tokens y tokens de actualización.  Puede encontrar información [aquí](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0&preserve-view=true), además de en el artículo [Revocación del acceso de usuario en Azure Active Directory](../../active-directory/enterprise-users/users-revoke-access.md).
+Ahora queremos revocar los tokens de actualización para los usuarios que puedan tenerlos y obligarles a volver a iniciar sesión y obtener nuevos tokens.  Esto hará que los usuarios cierren la sesión en su teléfono y en las sesiones actuales de correo web, junto con otros elementos que usen tokens y tokens de actualización.  Puede encontrar información [aquí](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?preserve-view=true&view=azureadps-2.0), además de en el artículo [Revocación del acceso de usuario en Azure Active Directory](../../active-directory/enterprise-users/users-revoke-access.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Administración de certificados SSL en AD FS y WAP en Windows Server 2016](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap#replacing-the-ssl-certificate-for-ad-fs)
-- [Obtención y configuración de certificados de descifrado y firma de tokens para AD FS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn781426(v=ws.11)#updating-federation-partners)
+- [Administración de certificados SSL en AD FS y WAP en Windows Server 2016](/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap#replacing-the-ssl-certificate-for-ad-fs)
+- [Obtención y configuración de certificados de descifrado y firma de tokens para AD FS](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn781426(v=ws.11)#updating-federation-partners)
 - [Renovación de certificados de federación para Microsoft 365 y Azure Active Directory](how-to-connect-fed-o365-certs.md)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

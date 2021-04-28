@@ -14,18 +14,18 @@ ms.topic: how-to
 ms.date: 03/17/2021
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7f8aa7e8cd38de37f5d3757804f7836612ad64cb
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: b408020ecf6e4618f97c8bc51749278dc0361579
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107227762"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108138920"
 ---
 # <a name="monitor-media-services-metrics"></a>Supervisión de las métricas de Media Services
 
 [!INCLUDE [media services api v3 logo](../includes/v3-hr.md)]
 
-[Azure Monitor](/azure/azure-monitor/overview) le permite supervisar métricas y registros de diagnóstico que le ayudan a conocer el rendimiento de sus aplicaciones. Para obtener una descripción detallada de esta característica y entender por qué se recomienda usar las métricas y los registros de diagnóstico de Azure Media Services, consulte [Supervisión de métricas y registros de diagnóstico de Media Services con Azure Monitor](monitor-media-services-data-reference.md).
+[Azure Monitor](../../../azure-monitor/overview.md) le permite supervisar métricas y registros de diagnóstico que le ayudan a conocer el rendimiento de sus aplicaciones. Para obtener una descripción detallada de esta característica y entender por qué se recomienda usar las métricas y los registros de diagnóstico de Azure Media Services, consulte [Supervisión de métricas y registros de diagnóstico de Media Services con Azure Monitor](monitor-media-services-data-reference.md).
 
 Azure Monitor proporciona varias maneras de interactuar con las métricas, como la representación en gráficos en el portal, el acceso a ellas a través de la API REST o consultarlas mediante la CLI de Azure. En este artículo se muestra cómo supervisar las métricas con los gráficos de Azure Portal y la CLI de Azure.
 
@@ -69,8 +69,8 @@ Para obtener otras métricas, sustituya "Egress" por el nombre de la métrica qu
 
 ## <a name="see-also"></a>Consulte también
 
-- [Métricas de Azure Monitor](/azure/azure-monitor/data-platform)
-- [Creación, visualización y administración de alertas de métricas mediante Azure Monitor](/azure/azure-monitor/alerts/alerts-metric).
+- [Métricas de Azure Monitor](../../../azure-monitor/data-platform.md)
+- [Creación, visualización y administración de alertas de métricas mediante Azure Monitor](../../../azure-monitor/alerts/alerts-metric.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: kgremban
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 330eaf5c12372347917e9f3a4aeafb6a2088c592
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3c7fd6c842d465dd5af5257628044666f10f2ece
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103492581"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107538206"
 ---
 # <a name="what-is-azure-iot-edge-for-linux-on-windows-preview"></a>Qué es Azure IoT Edge para Linux en Windows (versión preliminar)
 
@@ -48,7 +48,7 @@ La comunicación bidireccional entre el proceso de Windows y la máquina virtual
 
 IoT Edge para Linux en Windows destaca la interoperabilidad entre los componentes de Windows y Linux.
 
-Para obtener ejemplos que muestran la comunicación entre las aplicaciones de Windows y los módulos de IoT Edge, consulte [Ejemplos de Windows 10 IoT](https://github.com/microsoft/Windows-IoT-Samples).
+Para obtener ejemplos que muestran la comunicación entre las aplicaciones de Windows y los módulos de IoT Edge, consulte [Ejemplos de IoT para Windows 10 y EFLOW](https://aka.ms/AzEFLOW-Samples).
 
 ## <a name="public-preview"></a>Versión preliminar pública
 
@@ -58,7 +58,7 @@ IoT Edge para Linux en Windows se encuentra actualmente en [versión preliminar 
 
 Use los canales de soporte y comentarios de IoT Edge para obtener asistencia con IoT Edge para Linux en Windows.
 
-**Informes de errores**: se pueden notificar errores en la [página de problemas](https://github.com/azure/iotedge/issues) del proyecto de código abierto de IoT Edge. Los errores relacionados con Azure IoT Edge para Linux en Windows se pueden indicar en la [Página de problemas iotedge-eflow](https://github.com/azure/iotedge-eflow/issues).
+**Informes de errores**: se pueden notificar errores en la [página de problemas](https://github.com/azure/iotedge/issues) del proyecto de código abierto de IoT Edge. Los errores relacionados con Azure IoT Edge para Linux en Windows se pueden indicar en la [Página de problemas iotedge-eflow](https://aka.ms/AzEFLOW-Issues).
 
 **Equipo de soporte técnico al cliente de Microsoft**: los usuarios que dispongan de un [plan de soporte técnico](https://azure.microsoft.com/support/plans/) pueden ponerse en contacto con este equipo creando una incidencia de soporte técnico directamente en [Azure Portal](https://ms.portal.azure.com/signin/index/?feature.settingsportalinstance=mpac).
 

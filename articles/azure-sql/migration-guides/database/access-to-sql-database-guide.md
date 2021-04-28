@@ -9,18 +9,18 @@ ms.topic: how-to
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 03/19/2021
-ms.openlocfilehash: 137adbb045a4c449193f9029b9c72f09ddc439b1
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.openlocfilehash: 741a47120b9410f91ef7f6de21879aab796e9a5e
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107388472"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108136735"
 ---
 # <a name="migration-guide-access-to-azure-sql-database"></a>Guía de migración: de Access a Azure SQL Database
 
 En esta guía va a aprender a [migrar](https://azure.microsoft.com/migration/migration-journey) la base de datos de Microsoft Access a una base de datos de Azure SQL mediante [SQL Server Migration](https://azure.microsoft.com/en-us/migration/sql-server/) Assistant para Access (SSMA para Access).
 
-Para ver otras guías de migración, consulte [Guía de Azure Database Migration](https://docs.microsoft.com/data-migration). 
+Para ver otras guías de migración, consulte [Guía de Azure Database Migration](/data-migration). 
 
 ## <a name="prerequisites"></a>Requisitos previos
 

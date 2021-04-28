@@ -1,18 +1,14 @@
 ---
 title: Tipos y descripciones de alertas
 description: Revise las descripciones de alertas de Defender para IoT.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 4/8/2021
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 9ef7aa388d0f25adcafec1cb4a5b38dcfb8597a1
-ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
+ms.openlocfilehash: 483563b53a5849b0354986269568bc42b9124cc2
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107210472"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107478002"
 ---
 # <a name="alert-types-and-descriptions"></a>Tipos y descripciones de alertas
 
@@ -20,7 +16,7 @@ En este artículo se describen todos los tipos de alerta que pueden generarse a 
 
 ## <a name="policy-engine-alerts"></a>Alertas del motor de directivas
 
-Las alertas del motor de directivas describen las desviaciones del comportamiento de red aprendido de la línea base.
+Las alertas del motor de directivas describen las desviaciones detectadas del comportamiento de línea base aprendido.
 
 | Título  | Descripción | severity |
 |--|--|--|
@@ -122,6 +118,8 @@ Las alertas del motor de directivas describen las desviaciones del comportamient
 
 ## <a name="anomaly-engine-alerts"></a>Alertas del motor de anomalías
 
+Las alertas del motor de anomalías describen las anomalías detectadas en la actividad de red.
+
 | Título | Descripción | severity |
 |--|--|--|
 | Patrón de excepción anómalo en dispositivo secundario | Se ha detectado un número excesivo de errores en un dispositivo de origen. Esto puede ser resultado de un problema operativo. | Minor |
@@ -150,6 +148,8 @@ Las alertas del motor de directivas describen las desviaciones del comportamient
 | Tráfico inesperado para el puerto estándar | Se ha detectado tráfico en un dispositivo mediante un puerto reservado para otro protocolo. | Principal |
 
 ## <a name="protocol-violation-engine-alerts"></a>Alertas del motor de infracciones de protocolo
+
+Las alertas del motor de protocolo describen las desviaciones detectadas en la estructura de los paquetes o en los valores de campo en comparación con las especificaciones del protocolo.
 
 | Título | Descripción | severity |
 |--|--|--|
@@ -181,6 +181,8 @@ Las alertas del motor de directivas describen las desviaciones del comportamient
 
 ## <a name="malware-engine-alerts"></a>Alertas del motor de malware
 
+Las alertas del motor de malware describen la actividad de red malintencionada que se ha detectado.
+
 | Título | Descripción| severity |
 |--|--|--|
 | Intento de conexión a una dirección IP malintencionada conocida | Se ha detectado actividad sospechosa en la red. Esta actividad puede estar asociada con un ataque que aproveche un método usado por malware conocido. | Principal |
@@ -210,6 +212,8 @@ Las alertas del motor de directivas describen las desviaciones del comportamient
 | Tráfico sospechoso detectado | Se ha detectado actividad sospechosa en la red. Esta actividad puede estar asociada con un ataque que aproveche un método usado por malware conocido. | Crítico |
 
 ## <a name="operational-engine-alerts"></a>Alertas del motor operativo
+
+Las alertas del motor operativo describen los incidentes operativos que se han detectado, o las entidades que no funcionan correctamente.
 
 | Título | Descripción | severity |
 |--|--|--|

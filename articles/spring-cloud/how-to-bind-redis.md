@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/31/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 414f7dc64027b286d8a963452d2b86126b3c5818
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: dda826b50a74c109609fc7eec734b1d0de927ab3
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104877677"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108135354"
 ---
 # <a name="bind-azure-cache-for-redis-to-your-azure-spring-cloud-application"></a>Enlace de Azure Cache for Redis a una aplicación de Azure Spring Cloud 
 
@@ -26,7 +26,7 @@ En lugar de configurar manualmente las aplicaciones de Spring Boot, puede enlaza
 * Una instancia de servicio de Azure Cache for Redis
 * Extensión de Azure Spring Cloud para la CLI de Azure
 
-Si no tiene una instancia implementada de Azure Spring Cloud, siga los pasos descritos en el [inicio rápido sobre la implementación de una aplicación de Azure Spring Cloud](spring-cloud-quickstart.md).
+Si no tiene una instancia implementada de Azure Spring Cloud, siga los pasos descritos en el [inicio rápido sobre la implementación de una aplicación de Azure Spring Cloud](./quickstart.md).
 
 ## <a name="bind-azure-cache-for-redis"></a>Enlace de Azure Cache for Redis
 
@@ -58,4 +58,4 @@ Si no tiene una instancia implementada de Azure Spring Cloud, siga los pasos des
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo ha aprendido a enlazar una aplicación de Azure Spring Cloud a Azure Cache for Redis. Para más información sobre el enlace de servicios a una aplicación, consulte [Enlace a una instancia de Azure Database for MySQL](spring-cloud-howto-bind-mysql.md).
+En este artículo ha aprendido a enlazar una aplicación de Azure Spring Cloud a Azure Cache for Redis. Para más información sobre el enlace de servicios a una aplicación, consulte [Enlace a una instancia de Azure Database for MySQL](./how-to-bind-mysql.md).
