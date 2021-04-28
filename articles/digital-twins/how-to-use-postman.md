@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: how-to
 ms.date: 11/10/2020
-ms.openlocfilehash: d4a6e25578cd26b10b34f74a9f859d4957cc553b
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: a528e224511fda363afb80a7749a018e07b5fa26
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104783819"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107588010"
 ---
 # <a name="how-to-use-postman-to-send-requests-to-the-azure-digital-twins-apis"></a>Uso de Postman para enviar solicitudes a las API de Azure Digital Twins
 
@@ -77,6 +77,8 @@ De lo contrario, puede abrir una ventana de [Azure Cloud Shell](https://shell.az
     ```
     ---
 
+    >[!NOTE]
+    > Si necesita acceder a la instancia de Azure Digital Twins mediante una entidad de servicio o una cuenta de usuario que pertenezca a un inquilino distinto de Azure Active Directory de la instancia, necesitará solicitar un **token** del inquilino "principal" de la instancia de Azure Digital Twins. Para obtener más información sobre este proceso, consulte [*Procedimiento: Escritura de código de autenticación de aplicación.* ](how-to-authenticate-client.md#authenticate-across-tenants)
 
 3. Copie el valor de `accessToken` en el resultado y guárdelo para usarlo en la siguiente sección. Este es el **valor del token** que proporcionará a Postman para autenticar las solicitudes.
 

@@ -4,7 +4,7 @@ description: Introducción a los informes de actividad de inicio de sesión en e
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: mtillman
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
@@ -13,27 +13,27 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/16/2021
+ms.date: 04/19/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b17e7f34da1428eec219a393417b0a2a7b461078
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: dc9aa77b3fdc3cda94670545f847bb9de31e1160
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106552740"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107718960"
 ---
 # <a name="azure-active-directory-sign-in-activity-reports---preview"></a>Informes de actividad de inicio de sesión de Azure Active Directory: versión preliminar
 
-La arquitectura de los informes de Azure Active Directory (Azure AD) consta de los siguientes componentes:
+Como administrador de TI, quiere saber cómo funciona el entorno de TI. La información sobre el estado del sistema le permite evaluar si es necesario responder a posibles problemas y cómo hacerlo. 
 
-- **Actividad** 
-    - **Inicios de sesión**: información sobre cuándo los usuarios, las aplicaciones y los recursos administrados inician sesión en Azure AD y acceden a los recursos.
-    - **Registros de auditoría** - [: los](concept-audit-logs.md)registros de auditoría proporcionan información de la actividad del sistema sobre la administración de usuarios y grupos, aplicaciones administradas y actividades de directorio.
-- **Seguridad** 
-    - **Inicios de sesión de riesgo**: un [inicio de sesión de riesgo](../identity-protection/overview-identity-protection.md) es un indicador de un intento de inicio de sesión de alguien que no es el propietario legítimo de una cuenta de usuario.
-    - **Usuarios marcados en riesgo**: un [usuario en riesgo](../identity-protection/overview-identity-protection.md) es un indicador de una cuenta de usuario que puede haber estado en peligro.
+Para ayudarle a conseguir este objetivo, el portal de Azure Active Directory le proporciona acceso a tres registros de actividad:
+
+- **Inicios de sesión**: información sobre los inicios de sesión y cómo los usuarios emplean los recursos.
+- **[Auditoría](concept-audit-logs.md)** : información sobre los cambios aplicados al inquilino, como la administración de usuarios y grupos o las actualizaciones aplicadas a los recursos del inquilino.
+- **[Aprovisionamiento](concept-provisioning-logs.md)** : actividades realizadas por el servicio de aprovisionamiento, como la creación de un grupo en ServiceNow o un usuario importado de Workday.
+
 
 El informe inicios de sesión clásico de Azure Active Directory proporciona información general sobre los inicios de sesión de usuario interactivos. Además, ahora tiene acceso a tres informes de inicio de sesión adicionales que están en versión preliminar:
 
@@ -130,7 +130,8 @@ Los inicios de sesión de usuario interactivos son inicios de sesión en los que
 
 
 
-Nota: El informe de inicios de sesión de usuario interactivo se usa para incluir algunos inicios de sesión no interactivos de los clientes de Microsoft Exchange. Aunque esos inicios de sesión no son interactivos, se han incluido en el informe de inicios de sesión de usuarios interactivos para obtener mayor visibilidad. Una vez que el informe de inicios de sesión de usuarios no interactivos se introdujo en la versión preliminar pública en noviembre de 2020, los registros de eventos de inicio de sesión no interactivos se movieron al informe de inicio de sesión de usuario no interactivo para aumentar la precisión. 
+> [!NOTE] 
+> El informe de inicios de sesión de usuario interactivo se usa para incluir algunos inicios de sesión no interactivos de los clientes de Microsoft Exchange. Aunque esos inicios de sesión no son interactivos, se han incluido en el informe de inicios de sesión de usuarios interactivos para obtener mayor visibilidad. Una vez que el informe de inicios de sesión de usuarios no interactivos se introdujo en la versión preliminar pública en noviembre de 2020, los registros de eventos de inicio de sesión no interactivos se movieron al informe de inicio de sesión de usuario no interactivo para aumentar la precisión. 
 
 
 **Tamaño del informe:** pequeño <br> 
@@ -326,6 +327,18 @@ Para que sea más fácil sintetizar los datos, se agrupan los eventos no interac
 Seleccione un elemento en la vista de lista para mostrar todos los inicios de sesión que se han agrupado en un nodo.
 
 Seleccione un elemento agrupado para ver todos los detalles del inicio de sesión. 
+
+
+## <a name="sign-in-error-code"></a>Código de error de inicio de sesión
+
+Si se produce un error al iniciar sesión, puede obtener más información sobre el motivo en la sección **Información básica** del elemento de registro relacionado. 
+
+![Captura de pantalla que muestra una vista de información detallada.](./media/concept-all-sign-ins/error-code.png)
+ 
+Aunque el elemento de registro proporciona un motivo del error, hay casos en los que puede obtener más información con la [herramienta de búsqueda de errores de inicio de sesión](https://login.microsoftonline.com/error). Por ejemplo, si está disponible, esta herramienta proporciona los pasos de corrección.  
+
+![Herramienta de búsqueda de códigos de error](./media/concept-all-sign-ins/error-code-lookup-tool.png)
+
 
 
 ## <a name="filter-sign-in-activities"></a>Filtrado de las actividades de inicio de sesión

@@ -1,17 +1,17 @@
 ---
 title: Actualización de dispositivos para el sistema operativo en tiempo real de Azure | Microsoft Docs
 description: Introducción a la actualización de dispositivos para el sistema operativo en tiempo real de Azure
-author: valls
+author: ValOlson
 ms.author: valls
 ms.date: 3/18/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 66da860a5cdae1f5c7c18e4136b1f2d960492ca8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d03ed1b23966d92a4e289534c427b84e5fc14789
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105629060"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108141909"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-azure-real-time-operating-system-rtos"></a>Tutorial de actualización de dispositivos para Azure IoT Hub mediante el sistema operativo en tiempo real (RTOS) de Azure
 
@@ -27,9 +27,9 @@ En este tutorial, aprenderá a:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 * Acceso a IoT Hub. Se recomienda usar el nivel S1 (Estándar) o superior.
-* Una instancia de Device Update y una cuenta vinculada a IoT Hub. Si aún no lo ha hecho, siga la guía para [crear y vincular](http://create-device-update-account.md/) una cuenta de Device Update.
+* Una instancia de Device Update y una cuenta vinculada a IoT Hub. Si aún no lo ha hecho, siga la guía para [crear y vincular](create-device-update-account.md) una cuenta de Device Update.
 
 ## <a name="get-started"></a>Introducción
 
@@ -41,7 +41,7 @@ Cada proyecto de ejemplo de Azure RTOS específico de la placa contiene código 
 6. Publique la imagen de firmware de publicación y el manifiesto en Device Update para IoT Hub.
 7. Por último, descargue y ejecute el proyecto en el dispositivo.
 
-Obtenga más información sobre [Azure RTOS](https://docs.microsoft.com/azure/rtos/).  
+Obtenga más información sobre [Azure RTOS](/azure/rtos/).  
 
 ## <a name="tag-your-device"></a>Etiquetado del dispositivo
 

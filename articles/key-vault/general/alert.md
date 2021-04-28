@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 03/31/2021
 ms.author: mbaldwin
-ms.openlocfilehash: f8f9dd6d51b974ebd31804daf0402ca5535ffc92
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 51a354bfc6df43938d8e2117a7d93f9bd6749225
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107751587"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108140792"
 ---
 # <a name="monitoring-and-alerting-for-azure-key-vault"></a>Supervisión y alertas de Azure Key Vault
 
@@ -26,7 +26,7 @@ Una vez que haya empezado a usar Key Vault para almacenar los secretos de produc
 + Configuración de las métricas y creación de un panel
 + Creación de alertas en los umbrales especificados
 
-Azure Monitor para Key Vault combina los registros y las métricas para proporcionar una solución de supervisión global. [Obtenga más información acerca de Azure Monitor para Key Vault aquí](https://docs.microsoft.com/azure/azure-monitor/insights/key-vault-insights-overview#introduction-to-azure-monitor-for-key-vault).
+Azure Monitor para Key Vault combina los registros y las métricas para proporcionar una solución de supervisión global. [Obtenga más información acerca de Azure Monitor para Key Vault aquí](../../azure-monitor/insights/key-vault-insights-overview.md#introduction-to-azure-monitor-for-key-vault).
 
 ## <a name="basic-key-vault-metrics-to-monitor"></a>Métricas básicas de Key Vault para supervisar
 
@@ -210,6 +210,4 @@ Consulte los siguientes parámetros de configuración.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Enhorabuena, ha creado correctamente un panel de supervisión y configurado las alertas para el almacén de claves. Si ha seguido todos los pasos anteriores, debería recibir alertas por correo electrónico cuando el almacén de claves cumpla los criterios de alerta que ha configurado. A continuación se muestra un ejemplo. Use las herramientas que ha configurado en este artículo para supervisar activamente el estado de su almacén de claves. 
-
-
+Enhorabuena, ha creado correctamente un panel de supervisión y configurado las alertas para el almacén de claves. Si ha seguido todos los pasos anteriores, debería recibir alertas por correo electrónico cuando el almacén de claves cumpla los criterios de alerta que ha configurado. A continuación se muestra un ejemplo. Use las herramientas que ha configurado en este artículo para supervisar activamente el estado de su almacén de claves.

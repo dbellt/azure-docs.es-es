@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 7446b2050fdd7bbc7704953c053da0629231191c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 22a0629d50ee8181ffcbfe7dad32ab76fb3e68fd
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101715129"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107714171"
 ---
 # <a name="select-a-vmware-migration-option"></a>Selección de una opción de migración de VMware
 
@@ -34,7 +34,8 @@ Use estas comparaciones seleccionadas para que le ayuden a decidir qué método 
 **Disco de destino** | Discos administrados | Discos administrados
 **Límites del disco** | Disco del sistema operativo: 2 TB<br/><br/> Disco de datos: 32 TB<br/><br/> Número máximo de discos: 60 | Disco del sistema operativo: 2 TB<br/><br/> Disco de datos: 32 TB<br/><br/> Número máximo de discos: 63
 **Discos de acceso directo** | No compatible | Compatible
-**Arranque UEFI** | Compatible. | Compatible.
+**Arranque UEFI** | Compatible. | Compatible. 
+**Conectividad** | Internet público <br/> ExpressRoute con emparejamiento de Microsoft <br/> <br/> [Aprenda a usar](./replicate-using-expressroute.md) puntos de conexión privados para la replicación a través de un emparejamiento privado de ExpressRoute o una conexión VPN S2S. |Internet público <br/> ExpressRoute con emparejamiento privado <br/> ExpressRoute con emparejamiento de Microsoft <br/> VPN de sitio a sitio
 
 ## <a name="compare-deployment-steps"></a>Comparación de los pasos de implementación
 

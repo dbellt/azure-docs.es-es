@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 4affed8a1226f02970928b2c227b0295167959de
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 93e6fcc11703fc24d97bc19ab9cc0d2129ff666f
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106277104"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108143330"
 ---
 # <a name="performance-tiers-for-block-blob-storage"></a>Niveles de rendimiento para el almacenamiento de blobs en bloques
 
@@ -63,7 +63,7 @@ El rendimiento Estándar admite distintos [niveles de acceso](storage-blob-stora
 
 ## <a name="migrate-from-standard-to-premium"></a>Migración de Estándar a Premium
 
-No se puede convertir una cuenta de almacenamiento de rendimiento Estándar existente en una cuenta de almacenamiento de blobs en bloques con rendimiento Premium. Para migrar a una cuenta de almacenamiento de rendimiento Premium, debe crear una cuenta de BlockBlobStorage y migrar los datos a la nueva cuenta. Para más información, consulte [Creación de una cuenta de BlockBlobStorage](storage-blob-create-account-block-blob.md).
+No se puede convertir una cuenta de almacenamiento de rendimiento Estándar existente en una cuenta de almacenamiento de blobs en bloques con rendimiento Premium. Para migrar a una cuenta de almacenamiento de rendimiento Premium, debe crear una cuenta de BlockBlobStorage y migrar los datos a la nueva cuenta. Para más información, consulte [Creación de una cuenta de BlockBlobStorage](../common/storage-account-create.md).
 
 Para copiar blobs entre cuentas de almacenamiento, puede usar la versión más reciente de la herramienta [AzCopy](../common/storage-use-azcopy-v10.md#transfer-data) de la línea de comandos. Otras herramientas, como Azure Data Factory, también están disponibles para el movimiento y la transformación de datos.
 

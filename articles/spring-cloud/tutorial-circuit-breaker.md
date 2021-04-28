@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 04/06/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 09acdc0c4ea2dbe90c0b7b037b6aec501cc1dd55
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 04a325f313c57158de082c88c2ef7446cb696fdb
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106223037"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108132384"
 ---
 # <a name="tutorial-use-circuit-breaker-dashboard-with-azure-spring-cloud"></a>Tutorial: Uso del panel de Circuit Breaker con Azure Spring Cloud
 
@@ -20,7 +20,7 @@ ms.locfileid: "106223037"
 
 Spring [Cloud Netflix Turbine](https://github.com/Netflix/Turbine) se usa con frecuencia para agregar varias secuencias de métricas [Hystrix](https://github.com/Netflix/Hystrix), de modo que las secuencias se puedan supervisar en una sola vista mediante el panel de Hystrix. En este tutorial se muestra cómo usarlas en Azure Spring Cloud.
 > [!NOTE]
-> Netflix Hystrix se usa ampliamente en muchas aplicaciones de Spring Cloud existentes, pero ya no está en desarrollo activo. Si está desarrollando un proyecto nuevo, utilice en su lugar implementaciones de Spring Cloud Circuit Breaker como [resilience4j](https://github.com/resilience4j/resilience4j). A diferencia de Turbine, que se muestra en este tutorial, el nuevo marco de Spring Cloud Circuit Breaker unifica todas las implementaciones de su canalización de datos de métricas en Micrometer, que también se admite en Azure Spring Cloud. [Más información](https://docs.microsoft.com/azure/spring-cloud/how-to-circuit-breaker-metrics).
+> Netflix Hystrix se usa ampliamente en muchas aplicaciones de Spring Cloud existentes, pero ya no está en desarrollo activo. Si está desarrollando un proyecto nuevo, utilice en su lugar implementaciones de Spring Cloud Circuit Breaker como [resilience4j](https://github.com/resilience4j/resilience4j). A diferencia de Turbine, que se muestra en este tutorial, el nuevo marco de Spring Cloud Circuit Breaker unifica todas las implementaciones de su canalización de datos de métricas en Micrometer, que también se admite en Azure Spring Cloud. [Más información](./how-to-circuit-breaker-metrics.md).
 
 ## <a name="prepare-your-sample-applications"></a>Preparación de las aplicaciones de ejemplo
 El ejemplo se bifurca desde este [repositorio](https://github.com/StackAbuse/spring-cloud/tree/master/spring-turbine).
@@ -41,7 +41,7 @@ mvn clean package -D skipTests -f recommendation-service/pom.xml
 mvn clean package -D skipTests -f hystrix-turbine/pom.xml
 ```
 ## <a name="provision-your-azure-spring-cloud-instance"></a>Aprovisionamiento de la instancia de Azure Spring Cloud
-Siga el procedimiento [Aprovisionamiento de una instancia de servicio en la CLI de Azure](./spring-cloud-quickstart.md#provision-an-instance-of-azure-spring-cloud).
+Siga el procedimiento [Aprovisionamiento de una instancia de servicio en la CLI de Azure](./quickstart.md#provision-an-instance-of-azure-spring-cloud).
 
 ## <a name="deploy-your-applications-to-azure-spring-cloud"></a>Implementación de las aplicaciones en Azure Spring Cloud
 Estas aplicaciones no usan **Config Server**, por lo que no es necesario configurar **Config Server** para Azure Spring Cloud.  Cree e implemente de la manera siguiente:
@@ -81,6 +81,5 @@ Las secuencias de métricas de Hystrix también son accesibles desde `test-endpo
 Como aplicación web, el panel de Hystrix debe estar funcionando en `test-endpoint`. Si no funciona correctamente, puede haber dos motivos: en primer lugar, el uso de `test-endpoint` ha cambiado la dirección URL base de `/ to /<APP-NAME>/<DEPLOYMENT-NAME>`, o, en segundo lugar, la aplicación web usa la ruta de acceso absoluta para el recurso estático. Para que funcione en `test-endpoint`, es posible que tenga que editar manualmente el <base>en los archivos de front-end.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Aprovisionamiento de una instancia de servicio en la CLI de Azure](spring-cloud-quickstart.md#provision-an-instance-of-azure-spring-cloud)
+* [Aprovisionamiento de una instancia de servicio en la CLI de Azure](./quickstart.md#provision-an-instance-of-azure-spring-cloud)
 * [Preparación de una aplicación Java Spring para su implementación en Azure Spring Cloud](how-to-prepare-app-deployment.md)
-

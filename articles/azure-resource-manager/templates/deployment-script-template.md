@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 04/15/2021
 ms.author: jgao
-ms.openlocfilehash: c39b332e9ee62a8502d5e2fdf155819194a30e34
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 77865cea4621b36d8b1de0e00f0ce8e00fdba252
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107762198"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108124966"
 ---
 # <a name="use-deployment-scripts-in-arm-templates"></a>Uso de scripts de implementación en plantillas de Resource Manager
 
@@ -136,7 +136,7 @@ El siguiente código JSON es un ejemplo: Para más información, consulte el [es
 
 Detalles de los valores de propiedad:
 
-- `identity`: En la versión 2020-10-01, u otra posterior, de la API del script de implementación, una identidad administrada asignada por el usuario es opcional a menos que necesite realizar cualquier acción específica de Azure en el script.  En la versión 2019-10-01-preview de la API se requiere una identidad administrada, ya que el servicio del script de implementación la usa para ejecutar los scripts. Cuando se especifica la propiedad de identidad, el servicio de script llama a `Connect-AzAccount -Identity` antes de invocar el script de usuario. Actualmente, solo se admiten identidades asignadas por el usuario. Para iniciar sesión con otra identidad, puede llamar a [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) en el script.
+- `identity`: En la versión 2020-10-01, u otra posterior, de la API del script de implementación, una identidad administrada asignada por el usuario es opcional a menos que necesite realizar cualquier acción específica de Azure en el script.  En la versión 2019-10-01-preview de la API se requiere una identidad administrada, ya que el servicio del script de implementación la usa para ejecutar los scripts. Cuando se especifica la propiedad de identidad, el servicio de script llama a `Connect-AzAccount -Identity` antes de invocar el script de usuario. Actualmente, solo se admiten identidades asignadas por el usuario. Para iniciar sesión con otra identidad, puede llamar a [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) en el script.
 - `kind`: especifica el tipo de script. Actualmente, se admiten los scripts de Azure PowerShell y de la CLI de Azure. Los valores son **AzurePowerShell** y **AzureCLI**.
 - `forceUpdateTag`: el cambio de este valor entre implementaciones de plantilla obliga a que se vuelva a ejecutar el script de implementación. Si usa la función `newGuid()` o `utcNow()`, ambas funciones solo se pueden usar en el valor predeterminado de un parámetro. Para más información, consulte la sección [Ejecución de un script varias veces](#run-script-more-than-once).
 - `containerSettings`: permite especificar la configuración para personalizar la instancia de contenedor de Azure. El script de implementación requiere una nueva instancia de Azure Container Instance. No se puede especificar una instancia de Azure Container Instance existente. Sin embargo, puede personalizar el nombre del grupo de contenedores mediante `containerGroupName`. Si no se especifica, el nombre de grupo se genera automáticamente.

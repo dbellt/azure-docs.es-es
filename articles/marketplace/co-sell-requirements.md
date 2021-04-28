@@ -8,12 +8,12 @@ author: vamahtan
 ms.author: vamahtan
 ms.reviewer: stmummer
 ms.date: 3/17/2021
-ms.openlocfilehash: 28fdd8b10c7106380c296c8131ade909ee88d0f8
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 3fc50ef5a50c2c499b1c886bcf5aa73b11ba7c45
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107107098"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108133356"
 ---
 # <a name="co-sell-requirements"></a>Requisitos de venta conjunta
 
@@ -50,12 +50,12 @@ Para que una oferta obtenga el estado Listo para la venta conjunta, debe cumplir
 
 ### <a name="complete-the-co-sell-with-microsoft-tab"></a>Completar la pestaña Venta conjunta con Microsoft
 
-Al publicar o actualizar la oferta, proporcione toda la información necesaria en la pestaña **Venta conjunta con Microsoft** como se indica en [Configuración de la venta conjunta para una oferta del marketplace comercial](commercial-marketplace-co-sell.md). Esto incluye proporcionar los siguientes documentos:
+Al publicar o actualizar la oferta, proporcione toda la información necesaria en la pestaña **Venta conjunta con Microsoft** como se indica en [Configuración de la venta conjunta para una oferta del marketplace comercial](./co-sell-configure.md). Esto incluye proporcionar los siguientes documentos:
 
 - Página de descripción de la solución u oferta
 - Presentación de la solución u oferta
 
-Se proporcionan plantillas para ayudarle a crear estos documentos. Si desea conocer más detalles sobre la información obligatoria y opcional de la pestaña Venta conjunta con Microsoft, consulte [Configuración de la venta conjunta para una oferta del marketplace comercial](commercial-marketplace-co-sell.md).
+Se proporcionan plantillas para ayudarle a crear estos documentos. Si desea conocer más detalles sobre la información obligatoria y opcional de la pestaña Venta conjunta con Microsoft, consulte [Configuración de la venta conjunta para una oferta del marketplace comercial](./co-sell-configure.md).
 
 ### <a name="publish-your-offer-live"></a>Publicación de la oferta
 
@@ -81,7 +81,7 @@ Requisito 2: aprobar la validación técnica de Microsoft para una solución bas
 - La validación técnica debe confirmar que más del 50% de la infraestructura de la oferta usa código IP repetible en Azure. Tenga en cuenta que las máquinas virtuales de Azure y las soluciones de Aplicación de Azure comercializables en el marketplace comercial deben cumplir este requisito de forma predeterminada.
 
 Requisito 3: proporcionar un diagrama de la arquitectura de referencia:
-- Cargue un diagrama de la arquitectura de referencia con los documentos sobre venta conjunta en el Centro de partners para su revisión. Para obtener instrucciones sobre cómo crear este diagrama, consulte [Diagrama de arquitectura de referencia](reference-architecture-diagram.md). Para más información sobre cómo cargar el diagrama, consulte [Configuración de la venta conjunta para una oferta del marketplace comercial](commercial-marketplace-co-sell.md).
+- Cargue un diagrama de la arquitectura de referencia con los documentos sobre venta conjunta en el Centro de partners para su revisión. Para obtener instrucciones sobre cómo crear este diagrama, consulte [Diagrama de arquitectura de referencia](reference-architecture-diagram.md). Para más información sobre cómo cargar el diagrama, consulte [Configuración de la venta conjunta para una oferta del marketplace comercial](./co-sell-configure.md).
 
 ## <a name="requirements-for-business-applications-co-sell-incentivized-status"></a>Requisitos para el estado incentivado de venta conjunta para Business Applications
 
@@ -89,4 +89,4 @@ Este estado se aplica a las soluciones basadas en IP integradas en Dynamics 365
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Configuración de la venta conjunta para una oferta del marketplace comercial](commercial-marketplace-co-sell.md)
+- [Configuración de la venta conjunta para una oferta del marketplace comercial](./co-sell-configure.md)

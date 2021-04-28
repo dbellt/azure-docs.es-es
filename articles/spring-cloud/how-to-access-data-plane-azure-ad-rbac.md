@@ -8,12 +8,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 02/04/2021
 ms.custom: devx-track-java
-ms.openlocfilehash: 90ee39039b0734bf434e7339a973358989c08175
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: d94232a78257d21f5400b2cddbf8269635962542
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107311369"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108144608"
 ---
 # <a name="access-config-server-and-service-registry"></a>Acceso a Config Server y Service Registry
 
@@ -39,7 +39,7 @@ Para usar Azure AD y RBAC, debe asignar el rol *Lector de datos de Azure Spring
 
 Después de asignar el rol Lector de datos de Azure Spring Cloud, los clientes pueden acceder a los puntos de conexión de Spring Cloud Config Server y Spring Cloud Service Registry. Siga estos procedimientos:
 
-1. Obtener un token de acceso. Una vez que un usuario de Azure AD tenga asignado el rol Lector de datos de Azure Spring Cloud, los clientes podrán usar los siguientes comandos para iniciar sesión en la CLI de Azure con un usuario, entidad de servicio o identidad administrada para obtener un token de acceso. Para obtener más información, consulte [Autenticación en la CLI de Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli). 
+1. Obtener un token de acceso. Una vez que un usuario de Azure AD tenga asignado el rol Lector de datos de Azure Spring Cloud, los clientes podrán usar los siguientes comandos para iniciar sesión en la CLI de Azure con un usuario, entidad de servicio o identidad administrada para obtener un token de acceso. Para obtener más información, consulte [Autenticación en la CLI de Azure](/cli/azure/authenticate-azure-cli). 
 
     ```azurecli
     az login
@@ -51,7 +51,7 @@ Después de asignar el rol Lector de datos de Azure Spring Cloud, los clientes p
     * *'https://SERVICE_NAME.svc.azuremicroservices.io/config/actuator/'* 
 
 >[!NOTE]
-> Si usa Azure China, reemplace `*.azuremicroservices.io` por`*.microservices.azure.cn`, [más información](https://docs.microsoft.com/azure/china/resources-developer-guide#check-endpoints-in-azure).
+> Si usa Azure China, reemplace `*.azuremicroservices.io` por`*.microservices.azure.cn`, [más información](/azure/china/resources-developer-guide#check-endpoints-in-azure).
 
 3. Acceda al punto de conexión creado con el token de acceso. Coloque el token de acceso en un encabezado para proporcionar autorización.  Solo se admite el método "GET".
 
@@ -60,7 +60,7 @@ Después de asignar el rol Lector de datos de Azure Spring Cloud, los clientes p
     Si la respuesta es *401 no autorizado*, compruebe si el rol se ha asignado correctamente.  El rol tardará varios minutos en surtir efecto o bien, compruebe que el token de acceso no ha expirado.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Inicio de sesión con la CLI de Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli)
+* [Inicio de sesión con la CLI de Azure](/cli/azure/authenticate-azure-cli)
 * [Puntos de conexión listos para producción](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready-endpoints)
 
 ## <a name="see-also"></a>Consulte también
