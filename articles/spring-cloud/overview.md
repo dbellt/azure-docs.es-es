@@ -8,12 +8,12 @@ ms.date: 12/02/2020
 ms.author: brendm
 ms.custom: devx-track-java, contperf-fy21q2
 customer intent: As an Azure Cloud user, I want to deploy, run, and monitor Spring Boot microservices.
-ms.openlocfilehash: a92e535cb1edeb0eeaa285e442b4b24766e20ead
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 119128fcc2b2f08ba101c5c44768281cf7e6e600
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104877478"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108132816"
 ---
 # <a name="what-is-azure-spring-cloud"></a>¿Qué es Azure Spring Cloud?
 
@@ -50,26 +50,26 @@ Al formar parte del ecosistema de Azure, Azure Spring Cloud facilita el enlace c
 En esta documentación se incluyen secciones en las que se explica no solo cómo empezar a usar los servicios de Azure Spring Cloud, sino también cómo sacar provecho de ellos.
 
 * Primeros pasos
-    * [Inicio de la primera aplicación](spring-cloud-quickstart.md)
-    * [Aprovisionamiento de un servicio de Azure Spring Cloud](spring-cloud-quickstart-provision-service-instance.md)
+    * [Inicio de la primera aplicación](./quickstart.md)
+    * [Aprovisionamiento de un servicio de Azure Spring Cloud](./quickstart-provision-service-instance.md)
     * [Configuración del servidor de configuración]()
-    * [Compilación e implementación de aplicaciones](spring-cloud-quickstart-deploy-apps.md)
-    * [Uso de registros, métricas y seguimiento](spring-cloud-quickstart-logs-metrics-tracing.md)
+    * [Compilación e implementación de aplicaciones](./quickstart-deploy-apps.md)
+    * [Uso de registros, métricas y seguimiento](./quickstart-logs-metrics-tracing.md)
 * Instrucciones
     * [Desarrollo](how-to-prepare-app-deployment.md): Prepare una aplicación de Java Spring existente para su implementación en Azure Spring Cloud. Si se configura correctamente, Azure Spring Cloud proporciona servicios sólidos para supervisar, escalar y actualizar aplicaciones de Java Spring Cloud.
-    * [Implementación](spring-cloud-howto-staging-environment.md): Cómo configurar una implementación de almacenamiento provisional con el patrón de implementación blue-green en Azure Spring Cloud. La implementación azul/verde es un patrón de entrega continua de Azure DevOps que se basa en mantener una versión existente (azul) activa mientras se implementa una nueva (verde).
-    * [Configuración de aplicaciones](spring-cloud-howto-start-stop-delete.md):  inicie, detenga y elimine de aplicaciones de Azure Spring Cloud. Cambie el estado de una aplicación en Azure Spring Cloud mediante Azure Portal o la CLI de Azure.
-    * [Escala](spring-cloud-howto-scale-manual.md): escale cualquier aplicación de microservicios desde el panel de Azure Spring Cloud de Azure Portal o mediante la configuración de la escalabilidad automática. Hay direcciones IP públicas disponibles para comunicarse con recursos externos, como las bases de datos, el almacenamiento y los almacenes de claves.
-    * [Supervisión de aplicaciones](spring-cloud-howto-distributed-tracing.md): herramientas de seguimiento distribuido para depurar y supervisar fácilmente problemas complejos. Azure Spring Cloud integra Spring Cloud Sleuth con Application Insights de Azure. Esta integración proporciona una funcionalidad eficaz de seguimiento distribuido desde Azure Portal.
-    * [Protección de aplicaciones](spring-cloud-howto-enable-system-assigned-managed-identity.md): los recursos de Azure proporcionan una identidad administrada automáticamente en Azure Active Directory. Puede usar esta identidad para autenticar a cualquier servicio que admita la autenticación de Azure AD, sin necesidad de tener credenciales en el código.
-    * [Integración con otros servicios de Azure](spring-cloud-howto-bind-cosmos.md): en lugar de configurar manualmente las aplicaciones de Spring Boot, puede enlazar automáticamente determinados servicios de Azure a sus aplicaciones, por ejemplo, puede enlazar una aplicación a una base de datos de Azure Cosmos DB.
-    * [Automatización](spring-cloud-howto-cicd.md): Las herramientas de integración continua y entrega continua permiten implementar rápidamente las actualizaciones en las aplicaciones existentes con el mínimo esfuerzo y riesgo. Azure DevOps ayuda a organizar y controlar estas tareas clave. 
-    * [Solución de problemas](spring-cloud-howto-self-diagnose-solve.md): los diagnósticos de Azure Spring Cloud proporcionan una experiencia interactiva que sirve de ayuda para solucionar problemas de las aplicaciones. No se requiere ninguna configuración. Cuando encuentre problemas, el diagnóstico de Azure Spring Cloud los identifica y le guía por la información que ayuda a solucionarlos.
+    * [Implementación](./how-to-staging-environment.md): Cómo configurar una implementación de almacenamiento provisional con el patrón de implementación blue-green en Azure Spring Cloud. La implementación azul/verde es un patrón de entrega continua de Azure DevOps que se basa en mantener una versión existente (azul) activa mientras se implementa una nueva (verde).
+    * [Configuración de aplicaciones](./how-to-start-stop-delete.md):  inicie, detenga y elimine de aplicaciones de Azure Spring Cloud. Cambie el estado de una aplicación en Azure Spring Cloud mediante Azure Portal o la CLI de Azure.
+    * [Escala](./how-to-scale-manual.md): escale cualquier aplicación de microservicios desde el panel de Azure Spring Cloud de Azure Portal o mediante la configuración de la escalabilidad automática. Hay direcciones IP públicas disponibles para comunicarse con recursos externos, como las bases de datos, el almacenamiento y los almacenes de claves.
+    * [Supervisión de aplicaciones](./how-to-distributed-tracing.md): herramientas de seguimiento distribuido para depurar y supervisar fácilmente problemas complejos. Azure Spring Cloud integra Spring Cloud Sleuth con Application Insights de Azure. Esta integración proporciona una funcionalidad eficaz de seguimiento distribuido desde Azure Portal.
+    * [Protección de aplicaciones](./how-to-enable-system-assigned-managed-identity.md): los recursos de Azure proporcionan una identidad administrada automáticamente en Azure Active Directory. Puede usar esta identidad para autenticar a cualquier servicio que admita la autenticación de Azure AD, sin necesidad de tener credenciales en el código.
+    * [Integración con otros servicios de Azure](./how-to-bind-cosmos.md): en lugar de configurar manualmente las aplicaciones de Spring Boot, puede enlazar automáticamente determinados servicios de Azure a sus aplicaciones, por ejemplo, puede enlazar una aplicación a una base de datos de Azure Cosmos DB.
+    * [Automatización](./how-to-cicd.md): Las herramientas de integración continua y entrega continua permiten implementar rápidamente las actualizaciones en las aplicaciones existentes con el mínimo esfuerzo y riesgo. Azure DevOps ayuda a organizar y controlar estas tareas clave. 
+    * [Solución de problemas](./how-to-self-diagnose-solve.md): los diagnósticos de Azure Spring Cloud proporcionan una experiencia interactiva que sirve de ayuda para solucionar problemas de las aplicaciones. No se requiere ninguna configuración. Cuando encuentre problemas, el diagnóstico de Azure Spring Cloud los identifica y le guía por la información que ayuda a solucionarlos.
     * [Migración](/azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud): Cómo migrar una aplicación de Spring Cloud o de Spring Boot existente para ejecutarse en Azure Spring Cloud.
 
  Para empezar, consulte:
 
 > [!div class="nextstepaction"]
-> [Inicio rápido de Spring Cloud](spring-cloud-quickstart.md)
+> [Inicio rápido de Spring Cloud](./quickstart.md)
 
 Los ejemplos están disponibles en GitHub: [Ejemplos de Azure Spring Cloud](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/).

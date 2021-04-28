@@ -8,16 +8,16 @@ author: palanis-MSFT
 ms.author: palanis
 ms.reviewer: stmummer
 ms.date: 3/17/2021
-ms.openlocfilehash: ab7a0c3fa947fdf62672013b5a557d0447eb67c5
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: d38123aef6ac51423b90fa06d720574bb595bb14
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107106860"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108133464"
 ---
 # <a name="configure-co-sell-for-a-commercial-marketplace-offer"></a>Configuración de la venta conjunta para una oferta del marketplace comercial
 
-En este artículo se describe cómo configurar la pestaña **Venta conjunta con Microsoft** para una oferta del marketplace comercial. Proporcionar información en esta pestaña es totalmente opcional, pero es necesario para lograr los estados [Co-sell Ready e IP Co-sell Incentivized](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status) (Preparado para la venta conjunta y Venta conjunta con incentivos de IP). Los equipos de ventas de Microsoft usan la información que se proporciona para obtener más información sobre la oferta al evaluar su idoneidad para las necesidades de los clientes. Esta información no está disponible directamente para los clientes. Para obtener más información sobre la venta conjunta, consulte [Participación de asociados de venta conjunta](marketplace-co-sell.md) y [Venta conjunta con Microsoft](https://partner.microsoft.com/membership/co-sell-with-microsoft).
+En este artículo se describe cómo configurar la pestaña **Venta conjunta con Microsoft** para una oferta del marketplace comercial. Proporcionar información en esta pestaña es totalmente opcional, pero es necesario para lograr los estados [Co-sell Ready e IP Co-sell Incentivized](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status) (Preparado para la venta conjunta y Venta conjunta con incentivos de IP). Los equipos de ventas de Microsoft usan la información que se proporciona para obtener más información sobre la oferta al evaluar su idoneidad para las necesidades de los clientes. Esta información no está disponible directamente para los clientes. Para obtener más información sobre la venta conjunta, consulte [Participación de asociados de venta conjunta](./co-sell-overview.md) y [Venta conjunta con Microsoft](https://partner.microsoft.com/membership/co-sell-with-microsoft).
 
 La opción de venta conjunta está disponible para los siguientes tipos de ofertas:
 

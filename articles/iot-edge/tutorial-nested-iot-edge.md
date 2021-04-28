@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: bfecc88dc0c504cee615f1a3d35f9208aeb724f8
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 79ccd1f8107eb5d287cf74084978b92715b936fa
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107309243"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108133752"
 ---
 # <a name="tutorial-create-a-hierarchy-of-iot-edge-devices"></a>Tutorial: Creación de una jerarquía de dispositivos IoT Edge
 
@@ -77,7 +77,7 @@ Para crear una jerarquía de dispositivos IoT Edge, necesitará:
     --query "properties.outputs.[publicFQDN.value, publicSSH.value]" -o tsv
    ```
 
-   La máquina virtual usa claves SSH para autenticar a los usuarios. Si no está familiarizado con la creación y el uso de claves SSH, puede seguir [las instrucciones relativas a los pares de claves SSH pública y privada para máquinas virtuales Linux en Azure](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys).
+   La máquina virtual usa claves SSH para autenticar a los usuarios. Si no está familiarizado con la creación y el uso de claves SSH, puede seguir [las instrucciones relativas a los pares de claves SSH pública y privada para máquinas virtuales Linux en Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
 
    IoT Edge versión 1.2 viene preinstalado con esta plantilla de ARM, lo que ahorra la necesidad de instalar manualmente los recursos en las máquinas virtuales. Si va a instalar IoT Edge en sus propios dispositivos, consulte [Instalación de Azure IoT Edge para Linux (versión 1.2)](how-to-install-iot-edge.md) o [Actualización de IoT Edge a la versión 1.2.](how-to-update-iot-edge.md#special-case-update-from-10-or-11-to-12)
 
@@ -309,7 +309,7 @@ Cuando se ejecuta `iotedge check` desde la capa inferior, el programa intenta ex
 En este tutorial, se usa el puerto 8000, por lo que es necesario especificarlo:
 
 ```bash
-sudo iotedge check --diagnostics-image-name $upstream:8000/azureiotedge-diagnostics:1.2.0-rc4
+sudo iotedge check --diagnostics-image-name $upstream:8000/azureiotedge-diagnostics:1.2
 ```
 
 El valor de `azureiotedge-diagnostics` se extrae del registro de contenedor vinculado al módulo del registro. En este tutorial se ha establecido de forma predeterminada en https://mcr.microsoft.com:.

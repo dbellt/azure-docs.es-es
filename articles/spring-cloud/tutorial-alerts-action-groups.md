@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 12/29/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: d12a48729616a5181f019f84f19779390e736cb4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 919c72453b4fcbe3b7decc7a045a6656171ecb06
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104877134"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108132456"
 ---
 # <a name="tutorial-monitor-spring-cloud-resources-using-alerts-and-action-groups"></a>Tutorial: Supervisión de recursos de Spring Cloud mediante alertas y grupos de acciones
 
@@ -26,7 +26,7 @@ Hay dos pasos para configurar una canalización de alertas:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Además de los requisitos de Azure Spring, los procedimientos de este tutorial funcionan con una instancia implementada de Azure Spring Cloud.  Siga un [inicio rápido](spring-cloud-quickstart.md) para comenzar.
+Además de los requisitos de Azure Spring, los procedimientos de este tutorial funcionan con una instancia implementada de Azure Spring Cloud.  Siga un [inicio rápido](./quickstart.md) para comenzar.
 
 Los procedimientos siguientes inicializan **Grupo de acciones** y **Alertas** a partir de la opción **Alertas** situada en el panel de navegación izquierdo de una instancia de Spring Cloud. (El procedimiento también se puede iniciar desde la página **Información general de Monitor**, en Azure Portal). 
 
@@ -86,7 +86,7 @@ En los pasos anteriores se creó un **Grupo de acciones** que usa notificaciones
 
 1. Haga clic en **Done**(Listo).
 
-   Para más información sobre las condiciones disponibles para supervisar, consulte [Métricas en Azure Spring Cloud](spring-cloud-concept-metrics.md#user-metrics-options).
+   Para más información sobre las condiciones disponibles para supervisar, consulte [Métricas en Azure Spring Cloud](./concept-metrics.md#user-metrics-options).
 
 1. En **Acciones**, haga clic en **Seleccionar grupo de acciones**. En el panel **Acciones**, seleccione el **Grupo de acciones** definido previamente.
 

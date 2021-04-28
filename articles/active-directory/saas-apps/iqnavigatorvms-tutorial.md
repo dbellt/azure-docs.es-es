@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: jeedes
-ms.openlocfilehash: beef52641b9744b39873a7f48e39eb2f94ed4c9f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2fe674f0f290c58a7e32a05c3666be8fc2c324bc
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92459737"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108074608"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-iqnavigator-vms"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con IQNavigator VMS
 
@@ -28,7 +28,7 @@ En este tutorial, obtendrá información sobre cómo integrar IQNavigator VMS co
 
 Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -93,7 +93,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     d. En el cuadro de texto **Estado de la retransmisión**, escriba una dirección URL que siga este patrón: `https://<subdomain>.iqnavigator.com`
 
     > [!NOTE]
-    > Estos valores no son reales. Actualice estos valores con la dirección URL de respuesta y el estado de la retransmisión. Para obtener estos valores, póngase en contacto con el [equipo de soporte técnico de cliente de IQNavigator VMS](https://www.beeline.com/support-iqn/). También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Estos valores no son reales. Actualice estos valores con la dirección URL de respuesta y el estado de la retransmisión. Para obtener estos valores, póngase en contacto con el [equipo de soporte técnico de cliente de IQNavigator VMS](https://www.beeline.com/contact-support/). También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 1. La aplicación IQNavigator espera el valor del identificador de usuario único con la notificación del identificador de nombre. El cliente puede asignar el valor correcto de la notificación del identificador de nombre. En este caso, asignamos user.UserPrincipalName para la demostración. Pero debe asignar el valor correcto según la configuración de su organización.
 
@@ -135,11 +135,11 @@ En esta sección, va a conceder a B.Simon acceso a IQNavigator VMS mediante el i
 
 ## <a name="configure-iqnavigator-vms-sso"></a>Configuración del inicio de sesión único de IQNavigator VMS
 
-Para configurar el inicio de sesión único en **IQNavigator VMS**, debe enviar la **dirección URL de metadatos de federación de la aplicación** al [equipo de soporte técnico de IQNavigator VMS](https://www.beeline.com/support-iqn/). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **IQNavigator VMS**, debe enviar la **dirección URL de metadatos de federación de la aplicación** al [equipo de soporte técnico de IQNavigator VMS](https://www.beeline.com/contact-support/). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-iqnavigator-vms-test-user"></a>Creación de un usuario de prueba de IQNavigator VMS
 
-En esta sección, creará el usuario Britta Simon en IQNavigator VMS. Trabaje con el [equipo de soporte técnico de IQNavigator VMS](https://www.beeline.com/support-iqn/) para agregar los usuarios a la plataforma de IQNavigator VMS. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará el usuario Britta Simon en IQNavigator VMS. Trabaje con el [equipo de soporte técnico de IQNavigator VMS](https://www.beeline.com/contact-support/) para agregar los usuarios a la plataforma de IQNavigator VMS. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ## <a name="test-sso"></a>Prueba de SSO 
 

@@ -7,12 +7,12 @@ ms.author: brendm
 author: bmitchell287
 ms.date: 10/18/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 52b3d902b2cbfdacfe92117dcf0057dab1fe9a83
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: 773ae30cd888e76793bd65f8f31a8c110b128c01
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107012216"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108135228"
 ---
 # <a name="set-up-a-spring-cloud-config-server-instance-for-your-service"></a>Configuración de una instancia de Config Server en Spring Cloud para su servicio
 
@@ -24,7 +24,7 @@ Spring Cloud Config ofrece soporte técnico para servidor y cliente para las con
 
 ## <a name="prerequisites"></a>Requisitos previos
 * Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar. 
-* Un servicio de Azure Spring Cloud aprovisionado y en ejecución. Para configurar e iniciar el servicio Azure Spring Cloud, consulte [Inicio rápido: Inicio de una aplicación Java Spring mediante la CLI de Azure](spring-cloud-quickstart.md).
+* Un servicio de Azure Spring Cloud aprovisionado y en ejecución. Para configurar e iniciar el servicio Azure Spring Cloud, consulte [Inicio rápido: Inicio de una aplicación Java Spring mediante la CLI de Azure](./quickstart.md).
 
 ## <a name="restriction"></a>Restricción
 
@@ -250,4 +250,4 @@ Puede seleccionar el botón **Restablecer** que aparece en la pestaña **Config 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, ha aprendido a habilitar y configurar una instancia de Config Server de Spring Cloud. Para más información sobre la administración de la aplicación, consulte [Escalado de una aplicación en Azure Spring Cloud](spring-cloud-howto-scale-manual.md).
+En este artículo, ha aprendido a habilitar y configurar una instancia de Config Server de Spring Cloud. Para más información sobre la administración de la aplicación, consulte [Escalado de una aplicación en Azure Spring Cloud](./how-to-scale-manual.md).

@@ -4,16 +4,16 @@ description: Replique servidores de Azure Analysis Services con la escalabilidad
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/10/2020
+ms.date: 04/27/2021
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a2385cb811e322bd44daefa03d821b2ae47e0652
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: b7d212fafb41981fbb78c1ef176c187590216bb6
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107769272"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108145850"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Escalabilidad horizontal de Azure Analysis Services
 

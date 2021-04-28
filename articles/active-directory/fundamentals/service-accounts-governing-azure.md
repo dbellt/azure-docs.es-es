@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f540ab40a14af09aa8667860286021f572eb6f1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aec870e6027d9a6d2e6c3b66363f93c73fad5e78
+ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104587906"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108064150"
 ---
 # <a name="governing-azure-ad-service-accounts"></a>Gobernanza de las cuentas de servicio de Azure AD
 
@@ -172,7 +172,7 @@ Establezca un proceso de revisión para asegurarse de que las cuentas de servici
 
 **Los procesos de desaprovisionamiento deben incluir las siguientes tareas.**
 
-1. Después de desaprovisionar la aplicación o el script asociado, [supervise los inicios de sesión](../reports-monitoring/concept-sign-ins.md#sign-ins-report) y el acceso a los recursos de la cuenta de servicio.
+1. Después de desaprovisionar la aplicación o el script asociado, [supervise los inicios de sesión](../reports-monitoring/concept-sign-ins.md) y el acceso a los recursos de la cuenta de servicio.
 
    * Si la cuenta aún está activa, determine cómo se está usando antes de realizar los pasos siguientes.
  

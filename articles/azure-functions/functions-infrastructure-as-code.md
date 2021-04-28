@@ -4,13 +4,13 @@ description: Obtenga información sobre cómo crear una plantilla de Azure Resou
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 9df4c62a65fd133c6ea8dc84e33d7c7b02d94cbf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: fasttrack-edit, devx-track-azurepowershell
+ms.openlocfilehash: 4bbd3491c45b15d43ae0e94b37b916cd8091e655
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99494046"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107834217"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatización de la implementación de recursos para una aplicación de función en Azure Functions
 

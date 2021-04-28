@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 03/30/2021
 ms.author: tamram
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: d6d94efea52d920b8bfe69be2ee07c8b829792d8
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 786eb981acd61d952f95f89a7d90e4f732f3cda4
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107484105"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107887655"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Actualización a una cuenta de almacenamiento de uso general v2
 

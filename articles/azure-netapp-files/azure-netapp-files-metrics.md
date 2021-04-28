@@ -12,18 +12,22 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/04/2020
+ms.date: 04/12/2021
 ms.author: b-juche
-ms.openlocfilehash: a17e6cc0479cf8ff2306736994a369d9e44dfdda
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b581470a886ff73739edfee7f45c64295eeeb1f0
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96745951"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107388621"
 ---
 # <a name="metrics-for-azure-netapp-files"></a>Métricas de Azure NetApp Files
 
 Azure NetApp Files proporciona métricas sobre el almacenamiento asignado, el uso de almacenamiento real, el número de IOPS del volumen y la latencia. Mediante el análisis de estas métricas, puede comprender mejor el patrón de uso y el rendimiento de volumen de las cuentas de NetApp.  
+
+Puede consultar las métricas para un grupo de capacidad o un volumen si selecciona el **grupo de capacidad** o el **volumen**, respectivamente.  A continuación, haga clic en **Métrica** para ver las métricas disponibles: 
+
+[![Instantánea que muestra cómo navegar a la lista desplegable Métrica.](../media/azure-netapp-files/metrics-navigate-volume.png) ](../media/azure-netapp-files/metrics-navigate-volume.png#lightbox)
 
 ## <a name="usage-metrics-for-capacity-pools"></a><a name="capacity_pools"></a>Métricas de uso de grupos de capacidad
 

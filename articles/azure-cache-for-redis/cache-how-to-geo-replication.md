@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.author: yegu
-ms.openlocfilehash: 8701f7bcb2e7ff705e4f1d1b401f4eb3e680f28b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0be2bb59b46dc827001d89f8e0f1be23f35a714d
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102501046"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107536098"
 ---
 # <a name="configure-geo-replication-for-premium-azure-cache-for-redis-instances"></a>Configuración de la replicación geográfica para las instancias de Azure Cache for Redis prémium
 
@@ -42,7 +42,7 @@ Algunas características no son compatibles con la replicación geográfica:
 
 Una vez que se configura la replicación geográfica, se aplican las siguientes restricciones al par de cachés vinculadas:
 
-- La caché vinculada secundaria es de solo lectura, porque puede leer de ella, pero no puede escribir datos. 
+- La caché vinculada secundaria es de solo lectura, porque puede leer de ella, pero no puede escribir datos. Si decide leer desde la instancia de replicación geográfica secundaria, es importante tener en cuenta que cada vez que se produce una sincronización de datos completa entre las instancias principal y secundaria de replicación geográfica (se produce cuando se actualiza alguna de las dos y también en algunos escenarios de reinicio), la instancia secundaria de replicación geográfica generará errores (indicando que hay una sincronización de datos completa en curso) en cualquier operación de Redis que realice en ella hasta que se complete la sincronización de datos completa entre las instancias principal y secundaria de replicación geográfica. Las aplicaciones que leen desde la instancia de replicación geográfica secundaria deben crearse para revertir a la instancia de replicación geográfica principal cada vez que la secundaria genere tales errores. 
 - Se quitarán los datos existentes en la caché vinculada secundaria antes de la vinculación. Sin embargo, si la replicación geográfica se quita posteriormente, los datos replicados permanecen en la caché vinculada secundaria.
 - No puede [escalar](cache-how-to-scale.md) ninguna de las cachés mientras están vinculadas.
 - No puede [cambiar el número de particiones](cache-how-to-premium-clustering.md) si la caché tiene la agrupación en clústeres habilitada.

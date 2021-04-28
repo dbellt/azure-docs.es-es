@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/06/2021
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: d45c40bb6878da80f68fff9642b55da68706743a
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 1020496f7aea0c30ed815f21756addfd9ed0ae09
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107305844"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108124282"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Aplicación de escritorio que llama a API web: Adquisición de un token
 
@@ -284,7 +284,7 @@ La clase define las constantes siguientes:
 - ``SelectAccount`` obliga a STS a presentar el cuadro de diálogo de selección de cuenta que contiene las cuentas para las que el usuario tiene una sesión. Esta opción es útil cuando los desarrolladores de aplicaciones quieren permitir a los usuarios elegir entre diferentes identidades. Esta opción dirige a MSAL para que envíe ``prompt=select_account`` al proveedor de identidades. Es la opción predeterminada. Funciona bien para proporcionar la mejor experiencia posible en función de la información disponible, como cuenta y presencia de una sesión para el usuario. No la cambie a menos que tenga buena razón para hacerlo.
 - ``Consent`` permite que el desarrollador de la aplicación obligue al usuario a pedir consentimiento, aunque ya lo haya otorgado antes. En este caso, MSAL envía `prompt=consent` al proveedor de identidades. Esta opción se puede usar en algunas aplicaciones centradas en la seguridad donde la gobernanza de la organización exige que se presente al usuario el cuadro de diálogo de consentimiento cada vez que se usa la aplicación.
 - ``ForceLogin`` permite que el desarrollador de la aplicación obligue al servicio a solicitar las credenciales al usuario, incluso si este mensaje de usuario no es necesario. Esta opción puede ser útil para permitir que el usuario vuelva a iniciar sesión si se produce un error al adquirir un token. En este caso, MSAL envía `prompt=login` al proveedor de identidades. A veces se usa en aplicaciones centradas en la seguridad donde la gobernanza de la organización exige que el usuario vuelva a iniciar sesión cada vez que accede a determinadas partes de una aplicación.
-- ``Create`` desencadena una experiencia de inicio de sesión, que se usa con External Identities, mediante el envío de `prompt=create` al proveedor de identidades. Este aviso no se debe enviar en el caso de aplicaciones de Azure AD B2C. Para más información, consulte [Incorporación de un flujo de usuario de registro de autoservicio a una aplicación](https://aka.ms/msal-net-prompt-create).
+- ``Create`` desencadena una experiencia de inicio de sesión, que se usa con External Identities, mediante el envío de `prompt=create` al proveedor de identidades. Este aviso no se debe enviar en el caso de aplicaciones de Azure AD B2C. Para más información, consulte [Incorporación de un flujo de usuario de registro de autoservicio a una aplicación](../external-identities/self-service-sign-up-user-flow.md).
 - ``Never`` (solo para .NET 4.5 y WinRT) no pregunta al usuario, sino que, en su lugar, intenta usar la cookie almacenada en la vista web insertada oculta. Para más información, consulte las vistas web de MSAL.NET. Se puede producir un error al usar esta opción. En ese caso, `AcquireTokenInteractive` produce una excepción para notificar que se necesita una interacción de la interfaz de usuario. Debe usar otro parámetro `Prompt`.
 - ``NoPrompt`` no envía ningún símbolo del sistema al proveedor de identidades. Esta opción solo es útil para directivas de perfil de edición de Azure Active Directory (Azure AD) B2C. Para más información, consulte [Información específica sobre Azure AD B2C](https://aka.ms/msal-net-b2c-specificities).
 

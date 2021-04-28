@@ -1,5 +1,5 @@
 ---
-title: Procedimiento para unir dos o más archivos de vídeo con .NET | Microsoft Docs
+title: Procedimiento para unir dos o más archivos de vídeo con .NET | Microsoft Docs
 description: En este artículo se muestra cómo unir dos o más archivos de vídeo.
 services: media-services
 documentationcenter: ''
@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 03/24/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5eacc366961d3101a7eaf8877a34ef2d462ea76b
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: c94976fd494cd4745a5da95557f3e6a4954e721a
+ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106281659"
+ms.lasthandoff: 04/23/2021
+ms.locfileid: "107930666"
 ---
 # <a name="how-to-stitch-two-or-more-video-files-with-net"></a>Procedimiento para unir dos o más archivos de vídeo con .NET
 
@@ -31,7 +31,3 @@ En el ejemplo siguiente se ilustra cómo generar un valor preestablecido para un
 ## <a name="prerequisites"></a>Requisitos previos
 
 Clone o descargue los [ejemplos de .NET de Media Services](https://github.com/Azure-Samples/media-services-v3-dotnet/).  El código al que se hace referencia a continuación se encuentra en la [carpeta EncodingWithMESCustomStitchTwoAssets](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/main/VideoEncoding/EncodingWithMESCustomStitchTwoAssets/Program.cs).
-
-### <a name="net-code"></a>Código .NET
-
-[!code-csharp[Main](../../../media-services-v3-dotnet/VideoEncoding/EncodingWithMESCustomStitchTwoAssets/Program.cs)]

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 03/29/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 26262f83e14602d6ea93f96ec47630ef870c357d
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: d3c65c08691a234934a1641af9cc8203f655ef8c
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107309312"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108144320"
 ---
 # <a name="estimate-azure-monitor-costs"></a>Cálculo de costos de Azure Monitor
 
@@ -159,7 +159,7 @@ Por último, vamos a calcular el costo total. En este ejemplo, supongamos que ob
 | Origen de datos        | Estimación de tamaño por día (en megabytes)   |
 |-------------------------------------|------------------------------------------|
 | Contadores de rendimiento   | 90-130 |
-| Eventos    | 2-15 |
+| Events    | 2-15 |
 | Diagnostico de Windows Virtual Desktop | \< 1 |
 
 En este ejemplo, el total de datos ingeridos para Azure Monitor para Windows Virtual Desktop se encuentra entre 92 y 145 megabytes por VM por día. En otras palabras, cada 31 días, cada VM infiere aproximadamente de 3 a 5 gigabytes de datos.
@@ -180,7 +180,7 @@ Para obtener más información sobre cómo administrar derechos y permisos en el
 Estas son algunas sugerencias para optimizar la configuración de Log Analytics para administrar la ingesta de datos:
 
 - Use un área de trabajo de Log Analytics designada para los recursos de Windows Virtual Desktop para asegurarse de que Log Analytics solo recopile los contadores de rendimiento y eventos de las máquinas virtuales en su implementación de Windows Virtual Desktop.
-- Ajuste la configuración del almacenamiento de Log Analytics para administrar los costos. Puede reducir el período de retención, evaluar si un plan de tarifa de almacenamiento fijo sería más rentable, o establecer límites para la cantidad de datos que puede ingerir a los efectos de limitar el impacto de una implementación incorrecta. Para obtener más información, consulte [Administración del uso y los costos con los registros de Azure Monitor](../azure-monitor/platform/manage-cost-storage.md).
+- Ajuste la configuración del almacenamiento de Log Analytics para administrar los costos. Puede reducir el período de retención, evaluar si un plan de tarifa de almacenamiento fijo sería más rentable, o establecer límites para la cantidad de datos que puede ingerir a los efectos de limitar el impacto de una implementación incorrecta. Para obtener más información, consulte [Administración del uso y los costos con los registros de Azure Monitor](../azure-monitor/logs/manage-cost-storage.md).
 
 ### <a name="remove-excess-data"></a>Eliminación del exceso de datos
 
@@ -208,7 +208,7 @@ Perf
 
 Esta consulta mostrará todos los contadores de rendimiento que se han habilitado en el entorno, no solo los predeterminados para Azure Monitor para Windows Virtual Desktop. Esta información puede ayudarle a entender las áreas que debe atender para reducir los costos, como la reducción de la frecuencia de un contador o quitarlo por completo.
 
-Para reducir los costos, también puede quitar contadores de rendimiento. Para obtener información sobre cómo quitar contadores de rendimiento o editar los contadores existentes para reducir su frecuencia, consulte [Configuración de contadores de rendimiento](../azure-monitor/platform/data-sources-performance-counters.md#configuring-performance-counters).
+Para reducir los costos, también puede quitar contadores de rendimiento. Para obtener información sobre cómo quitar contadores de rendimiento o editar los contadores existentes para reducir su frecuencia, consulte [Configuración de contadores de rendimiento](../azure-monitor/agents/data-sources-performance-counters.md#configuring-performance-counters).
 
 ### <a name="manage-windows-event-logs"></a>Administración de registros de eventos de Windows
 

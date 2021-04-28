@@ -11,18 +11,18 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 761bc4db7760ef5e84e3fc3c8a5deea5d4508f51
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 89542a0a30bacf5cb45755fb578b22ce5c34ba4e
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94951934"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108070720"
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-to-validate-user-input"></a>Tutorial: Integrar intercambios de notificaciones de API REST en el recorrido del usuario de Azure AD B2C para validar la entrada del usuario
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-El marco de experiencia de identidad (IEF) subyacente a Azure Active Directory B2C (Azure AD B2C) permite a los desarrolladores de identidades integrar una interacción con una API RESTful en un recorrido del usuario.  Al final de este tutorial podrá crear un recorrido del usuario de Azure AD B2C que interactúe con [servicios RESTful](custom-policy-rest-api-intro.md) para validar la entrada del usuario.
+El marco de experiencia de identidad (IEF) subyacente a Azure Active Directory B2C (Azure AD B2C) permite a los desarrolladores de identidades integrar una interacción con una API RESTful en un recorrido del usuario.  Al final de este tutorial podrá crear un recorrido del usuario de Azure AD B2C que interactúe con [servicios RESTful](api-connectors-overview.md) para validar la entrada del usuario.
 
 En este escenario, se agregará la posibilidad de que los usuarios escriban un número de fidelidad en la página de inicio de sesión de Azure AD B2C. Validaremos si esta combinación de correo electrónico y número de fidelidad está asignada a un código promocional mediante el envío de estos datos a una API REST. Si la API REST encuentra un código promocional para este usuario, se devolverá a Azure AD B2C. Por último, el código promocional se insertará en las notificaciones del token para que la aplicación lo consuma.
 
@@ -30,8 +30,8 @@ La interacción también se puede diseñar como un paso de orquestación. Esto e
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-- Realice los pasos del artículo [Introducción a las directivas personalizadas](custom-policy-get-started.md). Debe tener una directiva personalizada activa para registrar e iniciar sesión de cuentas locales.
-- Más información sobre cómo [integrar notificaciones de API REST en la directiva personalizada de Azure AD B2C](custom-policy-rest-api-intro.md).
+- Realice los pasos del artículo [Introducción a las directivas personalizadas](tutorial-create-user-flows.md?pivots=b2c-custom-policy). Debe tener una directiva personalizada activa para registrar e iniciar sesión de cuentas locales.
+- Más información sobre cómo [integrar notificaciones de API REST en la directiva personalizada de Azure AD B2C](api-connectors-overview.md).
 
 ## <a name="prepare-a-rest-api-endpoint"></a>Preparación del punto de conexión de API REST
 

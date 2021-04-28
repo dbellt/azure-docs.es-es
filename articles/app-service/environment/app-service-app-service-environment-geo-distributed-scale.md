@@ -6,13 +6,13 @@ ms.assetid: c1b05ca8-3703-4d87-a9ae-819d741787fb
 ms.topic: article
 ms.date: 09/07/2016
 ms.author: stefsch
-ms.custom: seodec18, references_regions
-ms.openlocfilehash: 004b32118521f72c5b59ad7bab2d4e41244b85c4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: seodec18, references_regions, devx-track-azurepowershell
+ms.openlocfilehash: 215132888749a54996b3341e43ef8d91c101a460
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85833611"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107834307"
 ---
 # <a name="geo-distributed-scale-with-app-service-environments"></a>Escala distribuida geográficamente con entornos de App Service
 ## <a name="overview"></a>Información general

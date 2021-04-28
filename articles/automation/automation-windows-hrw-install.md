@@ -5,12 +5,13 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/02/2021
 ms.topic: conceptual
-ms.openlocfilehash: 0a28266210fd8b6f0b731b972f00aa3d413c0d0c
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 4bf27ffc888e189f15e1c435309cbeddb1c11fec
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107027744"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107830347"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Implementación de Hybrid Runbook Worker en Windows
 
@@ -91,7 +92,7 @@ El procedimiento de importación se describe en detalle en [Importación de runb
 
 El runbook usa los parámetros siguientes.
 
-| Parámetro | Estado | Descripción |
+| Parámetro | Status | Descripción |
 | ------- | ----- | ----------- |
 | `Location` | Mandatory | La ubicación del área de trabajo de Log Analytics. |
 | `ResourceGroupName` | Mandatory | El grupo de recursos de la cuenta de Automation. |
@@ -123,7 +124,7 @@ Realice los pasos siguientes para instalar el rol en la máquina Windows mediant
 
 1. Descargue el script **New-OnPremiseHybridWorker.ps1** de la [Galería de PowerShell](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker). Una vez descargado el script, cópielo o ejecútelo en la máquina de destino. El script usa los parámetros siguientes.
 
-    | Parámetro | Estado | Descripción |
+    | Parámetro | Status | Descripción |
     | --------- | ------ | ----------- |
     | `AAResourceGroupName` | Mandatory | el nombre del grupo de recursos que está asociado a su cuenta de Automation. |
     | `AutomationAccountName` | Mandatory | el nombre de la cuenta de Automation.

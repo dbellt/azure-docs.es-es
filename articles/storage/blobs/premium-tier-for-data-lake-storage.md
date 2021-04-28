@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 10/30/2020
 ms.author: normesta
-ms.openlocfilehash: be440407fb6f4d9715ba80c584af023a5f662394
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a9ed305dbd081486f0b892fcc38ada83e9666bd9
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93324215"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108143348"
 ---
 # <a name="premium-tier-for-azure-data-lake-storage"></a>Nivel Premium para Azure Data Lake Storage
 
@@ -57,7 +57,7 @@ Es posible que algunas características de Blob Storage no estén disponibles o 
 
 ## <a name="enabling-the-premium-performance-tier"></a>Habilitación del nivel de rendimiento Premium 
 
-Para usar el nivel Premium para Azure Data Lake Storage, puede crear una cuenta BlockBlobStorage con la opción **Espacio de nombres jerárquico** **habilitada**. Para obtener una guía completa, consulte [Creación de una cuenta BlockBlobStorage](storage-blob-create-account-block-blob.md).
+Para usar el nivel Premium para Azure Data Lake Storage, puede crear una cuenta BlockBlobStorage con la opción **Espacio de nombres jerárquico** **habilitada**. Para obtener una guía completa, consulte [Creación de una cuenta BlockBlobStorage](../common/storage-account-create.md).
 
 Al crear la cuenta, asegúrese de elegir la opción de rendimiento **Premium** y el tipo de cuenta **BlockBlobStorage**.
 
@@ -111,4 +111,3 @@ Use el nivel Premium para Azure Data Lake Storage con su servicio de análisis f
 - [Tutorial: Azure Data Lake Storage Gen2, Azure Databricks y Spark](data-lake-storage-use-databricks-spark.md) 
 - [Uso de Azure Data Lake Storage Gen2 con clústeres de Azure HDInsight](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md). Actualmente, HDInsight admite una cuenta que use el nivel de rendimiento Premium junto con un clúster de HBase que tenga habilitadas las escrituras aceleradas.
 - [Inicio rápido: Creación de un área de trabajo de Synapse](../../synapse-analytics/quickstart-create-workspace.md)
-

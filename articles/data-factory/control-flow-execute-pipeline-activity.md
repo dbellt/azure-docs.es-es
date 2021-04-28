@@ -1,18 +1,18 @@
 ---
 title: Actividad de ejecución de canalización en Azure Data Factory
 description: Aprenda a usar la actividad de ejecución de canalización para invocar una canalización de Data Factory desde otra canalización de Data Factory.
-author: dcstwh
-ms.author: weetok
+author: chez-charlie
+ms.author: chez
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: a24bd6988a9bc8f15723ebf931f2751a09c42e26
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c2f3d601e991fab77281351116624fa55a3b4dce
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104783751"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107904089"
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>Actividad de ejecución de canalización en Azure Data Factory
 

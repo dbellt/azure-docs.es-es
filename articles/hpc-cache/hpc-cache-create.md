@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: 63a179f7123f088c9c60fbfb8996a5b21d1c704d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 02934a1943ef37d282dd2a2e7862c5695bbd6ecb
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104773273"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107862712"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Creación de una instancia de Azure HPC Cache
 
@@ -107,7 +107,7 @@ Cuando finaliza la creación, aparece una notificación con un vínculo a la nue
 > [!NOTE]
 > Actualmente, la CLI de Azure no admite la creación de una caché con claves de cifrado administradas por el cliente. Use Azure Portal.
 
-Use el comando [az hpc-cache create](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-create) para crear una nueva instancia de Azure HPC Cache.
+Use el comando [az hpc-cache create](/cli/azure/hpc-cache#az_hpc_cache_create) para crear una nueva instancia de Azure HPC Cache.
 
 Especifique estos valores:
 
@@ -126,7 +126,7 @@ nets/<cache_subnet_name>"``
   * El tamaño de la caché (en GB)
   * La SKU de las máquinas virtuales que se usan en la infraestructura de caché
 
-  [az hpc-cache skus list](/cli/azure/ext/hpc-cache/hpc-cache/skus) muestra las SKU disponibles y las opciones de tamaño de caché válidas para cada una. Las opciones de tamaño de caché van de 3 TB a 48 TB, pero solo se admiten algunos valores.
+  [az hpc-cache skus list](/cli/azure/hpc-cache/skus) muestra las SKU disponibles y las opciones de tamaño de caché válidas para cada una. Las opciones de tamaño de caché van de 3 TB a 48 TB, pero solo se admiten algunos valores.
 
   En este gráfico se muestra qué combinaciones de tamaño de caché y SKU son válidas en el momento en que se ha preparado este documento (julio de 2020).
 

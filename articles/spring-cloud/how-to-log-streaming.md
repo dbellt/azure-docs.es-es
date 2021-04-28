@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/14/2019
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 1eeb291c7a058efd8905e95ebf1ea14fed046691
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: df58be32123f662ae2a2782d6ebb7f19bd5c339c
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104877449"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108134941"
 ---
 # <a name="stream-azure-spring-cloud-app-logs-in-real-time"></a>Streaming de registros de aplicaciones de Azure Spring Cloud en tiempo real
 
@@ -23,7 +23,7 @@ Azure Spring Cloud permite el streaming de registros en la CLI de Azure para obt
 ## <a name="prerequisites"></a>Prerequisites
 
 * Instale la [extensión de la CLI de Azure](/cli/azure/install-azure-cli) para Spring Cloud, la versión mínima es 0.2.0.
-* Una instancia de **Azure Spring Cloud** con una aplicación en ejecución, por ejemplo [Spring Cloud App](./spring-cloud-quickstart.md).
+* Una instancia de **Azure Spring Cloud** con una aplicación en ejecución, por ejemplo [Spring Cloud App](./quickstart.md).
 
 > [!NOTE]
 >  La extensión de la CLI de ASC se actualiza de la versión 0.2.0 a la 0.2.1. Este cambio afecta a la sintaxis del comando de la transmisión de registros `az spring-cloud app log tail`, que se reemplaza por `az spring-cloud app logs`. El comando `az spring-cloud app log tail` quedará en desuso en una futura versión. Si ha usado la versión 0.2.0, puede actualizar a 0.2.1. En primer lugar, quite la versión anterior con el comando `az extension remove -n spring-cloud`.  Luego, instale la 0.2.1 mediante el comando: `az extension add -n spring-cloud`.
@@ -90,6 +90,5 @@ az spring-cloud app logs -h
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Inicio rápido: Supervisión de aplicaciones de Azure Spring Cloud con registros, métricas y seguimiento](spring-cloud-quickstart-logs-metrics-tracing.md)
+* [Inicio rápido: Supervisión de aplicaciones de Azure Spring Cloud con registros, métricas y seguimiento](./quickstart-logs-metrics-tracing.md)
 * [Análisis de registros y métricas con la configuración de diagnóstico](./diagnostic-services.md)
-

@@ -2,14 +2,14 @@
 title: Creación y configuración de almacenes de Recovery Services
 description: En este artículo, aprenderá a crear y configurar almacenes de Recovery Services que almacenan las copias de seguridad y los puntos de recuperación. Aprenda a usar Restauración entre regiones para restaurar en una región secundaria.
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 04/14/2021
 ms.custom: references_regions
-ms.openlocfilehash: 1a20cd2b1245febea5fd18a9f6fe6e7a7bb6f04b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5e2983e473fac72d02f0fdbc8c307e96326ac0a6
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101716761"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107518582"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>Creación y configuración de un almacén de Recovery Services
 
@@ -69,7 +69,7 @@ Como este proceso se encuentra en el nivel de almacenamiento, hay [implicaciones
 >- La restauración entre regiones de bases de datos de SQL y SAP HANA está en versión preliminar en todas las regiones públicas de Azure.
 >- CRR es una característica opcional de nivel de almacén para cualquier almacén GRS (está desactivada de forma predeterminada).
 >- Tras la incorporación, los elementos de copia de seguridad pueden tardar hasta 48 horas en estar disponibles en las regiones secundarias.
->- Actualmente, CRR para máquinas virtuales de Azure solo se admite para las máquinas virtuales de Azure Resource Manager. No se admitirán las máquinas virtuales de Azure clásicas.  Si otros tipos de administración admiten CRR, se inscribirán **automáticamente**.
+>- Actualmente, se admite CRR para las máquinas virtuales de Azure, las máquinas virtuales de Azure Resource Manager y las máquinas virtuales de Azure cifradas. No se admitirán las máquinas virtuales de Azure clásicas. Si otros tipos de administración admiten CRR, se inscribirán **automáticamente**.
 >- Una vez que la protección se inicia por primera vez, **actualmente no se puede revertir** la restauración entre regiones a GRS o LRS.
 >- Actualmente, la región secundaria [RPO](azure-backup-glossary.md#rpo-recovery-point-objective) está activa hasta 12 horas a partir de la región primaria, aunque la replicación del [almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS) ](../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) es de 15 minutos.
 

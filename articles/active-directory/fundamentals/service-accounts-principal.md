@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 297c0a53fb2ab4ee0b2c5291cabf5a63c8841664
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 6f101c8a3d3af9658414e816afff9050402d71ce
+ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105604709"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108064078"
 ---
 # <a name="securing-service-principals"></a>Protección de entidades de servicio
 
@@ -116,7 +116,7 @@ Al usar Microsoft Graph, consulte la documentación de la API específica, [como
 
 [Creación de una entidad de servicio](../develop/howto-create-service-principal-portal.md)
 
- [Supervisión de inicios de sesión de entidad de servicio](../reports-monitoring/concept-sign-ins.md#sign-ins-report)
+ [Supervisión de inicios de sesión de entidad de servicio](../reports-monitoring/concept-sign-ins.md)
 
 **Para obtener más información acerca de la protección de cuentas de servicio:**
 

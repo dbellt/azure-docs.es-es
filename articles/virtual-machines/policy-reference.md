@@ -1,19 +1,19 @@
 ---
 title: Definiciones de directivas integradas para Azure Virtual Machines
 description: Aquí se enumeran las definiciones de directivas integradas de Azure Policy para Azure Virtual Machines. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar los recursos de Azure.
-ms.date: 04/14/2021
+ms.date: 04/21/2021
 ms.topic: reference
 author: cynthn
 ms.author: cynthn
 ms.service: virtual-machines
 ms.subservice: security
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 6e337318418dd4aa8c7021e77706252497b18944
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: b3baeba692b5f810add9243dafa25dc945246556
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107502500"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107861104"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-virtual-machines"></a>Definiciones integradas de Azure Policy para Azure Virtual Machines
 
