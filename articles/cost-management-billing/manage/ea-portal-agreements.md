@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: c2c3636e98d67616826b03cca9657b806c5bd653
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: d03ae5062cc81b3e042ed3b714838e14929dbba2
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98598014"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104778226"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Acuerdos y enmiendas de Contrato Enterprise de Azure
 
@@ -145,7 +145,7 @@ Todas las cuotas descritas anteriormente no suponen un Prepago de servicio. Para
 
 ## <a name="requesting-a-quota-increase"></a>Solicitud de un aumento de la cuota
 
-Puede solicitar un aumento de la cuota en cualquier momento mediante el envío de una [solicitud en línea](https://g.microsoftonline.com/0WAEP00en/6). Para que se procese la solicitud, indique la siguiente información:
+Puede solicitar un aumento de la cuota en cualquier momento mediante el envío de una [solicitud en línea](https://ms.portal.azure.com/). Para que se procese la solicitud, indique la siguiente información:
 
 - La cuenta de Microsoft o bien la cuenta profesional o educativa asociada con el propietario de la cuenta de la suscripción. Se trata de la dirección de correo electrónico utilizada para iniciar sesión en Microsoft Azure Portal y administrar las suscripciones. Identifique también que esta cuenta está asociada a una inscripción de Contrato Enterprise.
 - Los recursos y la cantidad para los que desea aumentar la cuota.

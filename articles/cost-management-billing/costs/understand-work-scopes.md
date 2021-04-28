@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 729444b1d1ccf55f34e54a4b59508131458c472b
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 693045d094ddbf5ad6df81eca8cd16d9cac62fe4
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054811"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107308615"
 ---
 # <a name="understand-and-work-with-scopes"></a>Descripción y uso de ámbitos
 
@@ -42,7 +42,7 @@ Azure admite tres ámbitos para la administración de recursos. Cada ámbito adm
 
 - [**Grupos de administración**](../../governance/management-groups/overview.md): contenedores jerárquicos, de hasta ocho niveles, para organizar las suscripciones de Azure.
 
-    Tipo de recurso: [Microsoft.Management/managementGroups](/rest/api/resources/managementgroups)
+    Tipo de recurso: [Microsoft.Management/managementGroups](/rest/api/managementgroups/)
 
 - **Suscripciones**: contenedores principales para recursos de Azure.
 
@@ -244,7 +244,7 @@ Cuando trabaja con las API de Cost Management, conocer el ámbito es fundamental
 3. Copie el identificador del grupo de administración de la tabla.
 4. El ámbito es: `"/providers/Microsoft.Management/managementGroups/{id}"`
 
-### <a name="subscription"></a>Suscripción
+### <a name="subscription"></a>Subscription
 
 1. Abra Azure Portal y vaya a **Suscripciones** en la lista de servicios.
 2. Copie el identificador de suscripción de la tabla.
