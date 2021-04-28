@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/12/2021
 ms.author: radeltch
-ms.openlocfilehash: ea1296fd4e31c2deaed79e980ab764c523a2bfd7
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: e34ca9c3164713e62ae28581055644933d8c791d
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107364369"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108127210"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Alta disponibilidad de SAP HANA en máquinas virtuales de Azure en SUSE Linux Enterprise Server
 
@@ -516,7 +516,7 @@ Este paso es importante para optimizar la integración con el clúster y mejorar
      chown -R hn1adm:sapsys /hana/shared/myHooks
     ```
 
-   2. Detenga HANA en ambos nodos. Ejecútelo como <sid\>adm:  
+   2. Detenga HANA en ambos nodos. Ejecute como <sid\>adm:  
    
     ```bash
     sapcontrol -nr 03 -function StopSystem
@@ -535,7 +535,7 @@ Este paso es importante para optimizar la integración con el clúster y mejorar
     ha_dr_saphanasr = info
     ```
 
-2. **[A]** El clúster requiere la configuración de elementos que usan el programa sudo en cada nodo de clúster para <sid\>adm. En este ejemplo, esto se consigue mediante la creación de un archivo nuevo. Ejecute los comandos como `root`.    
+2. **[A]** El clúster requiere la configuración de sudoers en cada nodo de clúster para <sid\>adm. En este ejemplo, esto se consigue mediante la creación de un archivo nuevo. Ejecute los comandos como `root`.    
     ```bash
     cat << EOF > /etc/sudoers.d/20-saphana
     # Needed for SAPHanaSR python hook
@@ -668,7 +668,7 @@ Antes de continuar, asegúrese de que ha configurado completamente el clúster d
 
 ### <a name="additional-setup-in-azure-load-balancer-for-activeread-enabled-setup"></a>Configuración adicional en Azure Load Balancer para la configuración activa/habilitada para lectura
 
-Para continuar con los pasos adicionales del aprovisionamiento de la segunda dirección IP virtual, asegúrese de que ha configurado Azure Load Balancer como se describe en la sección [Implementación manual](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability#manual-deployment).
+Para continuar con los pasos adicionales del aprovisionamiento de la segunda dirección IP virtual, asegúrese de que ha configurado Azure Load Balancer como se describe en la sección [Implementación manual](#manual-deployment).
 
 1. Para el equilibrador de carga **estándar**, siga los pasos adicionales que se indican a continuación en el mismo equilibrador de carga que creó en la sección anterior.
 
@@ -699,7 +699,7 @@ Para continuar con los pasos adicionales del aprovisionamiento de la segunda dir
 
 ### <a name="configure-hana-activeread-enabled-system-replication"></a>Configuración de la replicación del sistema de HANA activo/habilitado para lectura
 
-Los pasos para configurar la replicación del sistema de HANA se describen en la sección [Configuración de la replicación del sistema de SAP HANA 2.0](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability#configure-sap-hana-20-system-replication). Si va a implementar un escenario secundario habilitado para lectura, mientras configura la replicación del sistema en el segundo nodo, ejecute el siguiente comando como **hanasid** adm:
+Los pasos para configurar la replicación del sistema de HANA se describen en la sección [Configuración de la replicación del sistema de SAP HANA 2.0](#configure-sap-hana-20-system-replication). Si va a implementar un escenario secundario habilitado para lectura, mientras configura la replicación del sistema en el segundo nodo, ejecute el siguiente comando como **hanasid** adm:
 
 ```
 sapcontrol -nr 03 -function StopWait 600 10 

@@ -5,17 +5,16 @@ description: Obtenga información sobre cómo conectarse a una instancia de proc
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to
+ms.topic: how-to
 ms.author: luquinta
 author: luisquintanilla
 ms.date: 04/08/2021
-ms.openlocfilehash: 14f0d15d48193267c224f3497c24651ca3249b0b
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 7199534fa581ccb235bc8091d9459c640d53b74f
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107028597"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107884631"
 ---
 # <a name="connect-to-an-azure-machine-learning-compute-instance-in-visual-studio-code-preview"></a>Conexión a una instancia de proceso de Azure Machine Learning en Visual Studio Code (versión preliminar)
 

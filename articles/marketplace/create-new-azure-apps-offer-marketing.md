@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 11/06/2020
-ms.openlocfilehash: 6ba49ebc593e67e1168f6427ade38b7d80bf7edf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 94b7b0761d40906ba5a8043ff02953db74b6c1b5
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96621440"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108145022"
 ---
 # <a name="how-to-sell-your-azure-application-offer"></a>Venta de una oferta de Aplicación de Azure
 
@@ -23,7 +23,7 @@ En este artículo se describen otras opciones que puede elegir si va a vender un
 
 Proporcionar información en la pestaña **Co-sell with Microsoft** (Venta conjunta con Microsoft) es totalmente opcional. Sin embargo, es necesario para lograr los estados _Co-sell Ready_ (Preparado para la venta conjunta) e _IP Co-sell Ready_ (Preparado para la venta conjunta por IP). Los equipos de ventas de Microsoft usa esta información para obtener más datos sobre su solución al evaluar su idoneidad para las necesidades de los clientes. Los clientes no pueden acceder directamente a la información de esta pestaña.
 
-Para más información e instrucciones para configurar la pestaña **Venta conjunta con Microsoft**, consulte el artículo [Opción de venta conjunta en el marketplace comercial](commercial-marketplace-co-sell.md).
+Para más información e instrucciones para configurar la pestaña **Venta conjunta con Microsoft**, consulte el artículo [Opción de venta conjunta en el marketplace comercial](./co-sell-configure.md).
 
 ## <a name="resell-through-csps"></a>Revender mediante los CSP
 

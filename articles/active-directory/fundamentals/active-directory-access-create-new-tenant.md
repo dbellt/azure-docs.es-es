@@ -12,12 +12,12 @@ ms.date: 09/10/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc51c645c470f2b5b0a009eaf831db2f1957617e
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 93ae1982dfaef6e10edf39013474b6663dd688d0
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107780145"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108130618"
 ---
 # <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>Inicio rápido: Creación de un inquilino en Azure Active Directory
 
@@ -63,9 +63,9 @@ El nuevo inquilino se crea con el dominio contoso.onmicrosoft.com.
 
 ## <a name="your-user-account-in-the-new-tenant"></a>Su cuenta de usuario en el nuevo inquilino
 
-Cuando se crea un inquilino de Azure AD, usted se convierte en el primer usuario de ese inquilino. Como primer usuario, se le asigna automáticamente el rol [Administrador global](https://docs.microsoft.com/azure/active-directory/roles/permissions-reference#global-administrator). Para comprobar la cuenta de usuario, vaya a la página [**Usuarios**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/MsGraphUsers).
+Cuando se crea un inquilino de Azure AD, usted se convierte en el primer usuario de ese inquilino. Como primer usuario, se le asigna automáticamente el rol [Administrador global](../roles/permissions-reference.md#global-administrator). Para comprobar la cuenta de usuario, vaya a la página [**Usuarios**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/MsGraphUsers).
 
-De forma predeterminada, también aparece como [contacto técnico](https://docs.microsoft.com/microsoft-365/admin/manage/change-address-contact-and-more?view=o365-worldwide#what-do-these-fields-mean) del inquilino. La información de contacto técnico es algo que puede cambiar en [**Propiedades**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties).
+De forma predeterminada, también aparece como [contacto técnico](/microsoft-365/admin/manage/change-address-contact-and-more?view=o365-worldwide#what-do-these-fields-mean) del inquilino. La información de contacto técnico es algo que puede cambiar en [**Propiedades**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties).
 
 > [!WARNING]
 > Asegúrese de que el directorio tenga al menos dos cuentas que tengan asignados privilegios de administrador global. Esto le ayudará en caso de que un administrador global esté bloqueado. Para más información, consulte el artículo [Administración de cuentas de acceso de emergencia Azure AD](../roles/security-emergency-access.md).

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 04/02/2021
 ms.author: cshoe
 ms.custom: devx-track-js
-ms.openlocfilehash: e19d39a32d48ec55473bb957595d47ec5148e74b
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: d279ae82d85fd877320e95c92446481c43aac40b
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107588792"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108125650"
 ---
 # <a name="set-up-local-development-for-azure-static-web-apps-preview"></a>Configuración del desarrollo local para Azure Static Web Apps (versión preliminar)
 
@@ -79,7 +79,7 @@ Abra un terminal en la carpeta raíz del sitio existente de Azure Static Web App
 
     `swa start`
 
-1. Vaya a http://localhost:4280 para ver la aplicación en el explorador.
+1. Vaya a `http://localhost:4280` para ver la aplicación en el explorador.
 
 ### <a name="other-ways-to-start-the-cli"></a>Otras maneras de iniciar la CLI
 
@@ -113,7 +113,7 @@ Una vez que ha iniciado sesión:
 
 - Puede usar el punto de conexión `/.auth/me` o un punto de conexión de función para recuperar la [entidad de seguridad del cliente](./user-information.md) del usuario.
 
-- Al desplazarse a `./auth/logout` se borra la entidad de seguridad del cliente y se cierra la sesión del usuario ficticio.
+- Al desplazarse a `/.auth/logout` se borra la entidad de seguridad del cliente y se cierra la sesión del usuario ficticio.
 
 ## <a name="debugging"></a>Depuración
 

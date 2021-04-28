@@ -14,12 +14,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4de9f5a21f38f741dcf65d285446d9482716d4f2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2e35d3ffa98c2713f86bb56974670832e9fd416a
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85608133"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108137858"
 ---
 # <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>Procedimientos: Solución de errores de inicio de sesión mediante informes de Azure Active Directory
 
@@ -57,11 +57,11 @@ Necesita:
 
 6. El motivo del error es una descripción del error. Por ejemplo, en el escenario anterior, el motivo del error es que **el nombre de usuario o la contraseña no son válidos o que el nombre de usuario o la contraseña locales no son válidos**. La solución consiste sencillamente en iniciar sesión de nuevo con la contraseña y el usuario correctos.
 
-7. Puede obtener información adicional, incluidas algunas ideas sobre posibles soluciones, buscando el código de error (**50126** en este ejemplo) en la [referencia de códigos de error de inicios de sesión](reference-sign-ins-error-codes.md). 
+7. Puede obtener información adicional, incluidas algunas ideas sobre posibles soluciones, buscando el código de error (**50126** en este ejemplo) en la [referencia de códigos de error de inicios de sesión](./concept-sign-ins.md). 
 
 8. Si nada de lo demás funciona o el problema persiste a pesar de tomar las medidas recomendadas, [abra una incidencia de soporte técnico](../fundamentals/active-directory-troubleshooting-support-howto.md) siguiendo los pasos de la pestaña **Solución de problemas y soporte técnico**. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Referencia de códigos de error de inicio de sesión](reference-sign-ins-error-codes.md)
+* [Referencia de códigos de error de inicio de sesión](./concept-sign-ins.md)
 * [Información general sobre los informes de inicios de sesión](concept-sign-ins.md)

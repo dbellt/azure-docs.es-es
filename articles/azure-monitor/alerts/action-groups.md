@@ -5,12 +5,12 @@ author: dkamstra
 ms.topic: conceptual
 ms.date: 04/07/2021
 ms.author: dukek
-ms.openlocfilehash: 7010e20b65142cf0ab85c29d6b22c925c977f1f8
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 1486415c5d225163dd2b2c7e79cd008ad0a76588
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107104990"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107514876"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Creación y administración de grupos de acciones en Azure Portal
 Un grupo de acciones es una colección de las preferencias de notificación que el propietario de una suscripción de Azure define. Las alertas de Azure Monitor y Service Health usan grupos de acciones para notificar a los usuarios que se ha desencadenado una alerta. Varias alertas pueden usar el mismo grupo de acciones o distintos grupos de acciones en función de los requisitos del usuario. 
@@ -147,6 +147,13 @@ Si no recibe notificaciones en la *dirección correo electrónico principal*, in
   :::image type="content" source="media/action-groups/active-directory-add-primary-email.png" alt-text="Ejemplo de cómo agregar la dirección de correo electrónico principal." border="true":::
 
 En un grupo de acciones puede tener un número limitado de acciones de correo electrónico. Consulte el artículo de [información sobre las limitaciones](./alerts-rate-limiting.md).
+
+Al configurar el *Rol de ARM de correo electrónico*, debe asegurarse de que se cumplen las siguientes tres condiciones:
+
+1. El tipo de entidad que se asignará al rol debe ser **"User"** .
+2. La asignación debe realizarse en el nivel de **suscripción**.
+3. El usuario debe tener un correo electrónico configurado en su **perfil de AAD**. 
+
 
 ### <a name="function"></a>Función
 Llama a un punto de conexión del desencadenador HTTP existente en [Azure Functions](../../azure-functions/functions-get-started.md). Para controlar una solicitud, el punto de conexión debe controlar el verbo HTTP POST.

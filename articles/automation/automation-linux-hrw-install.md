@@ -5,12 +5,13 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/06/2021
 ms.topic: conceptual
-ms.openlocfilehash: 21bb3a353874e401d86741584d102b5c217e69cc
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 24dc0d2b243eb6c13e5670a1438876132c5e429e
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107030056"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107833659"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Implementación de Hybrid Runbook Worker en Linux
 
@@ -115,7 +116,7 @@ El procedimiento de importación se describe en detalle en [Importación de runb
 
 El runbook usa los parámetros siguientes.
 
-| Parámetro | Estado | Descripción |
+| Parámetro | Status | Descripción |
 | ------- | ----- | ----------- |
 | `Location` | Mandatory | La ubicación del área de trabajo de Log Analytics. |
 | `ResourceGroupName` | Mandatory | El grupo de recursos de la cuenta de Automation. |

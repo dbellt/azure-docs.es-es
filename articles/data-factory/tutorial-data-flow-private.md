@@ -1,19 +1,19 @@
 ---
 title: Transformación de datos con un flujo de datos de asignación de red virtual administrado por Azure Data Factory
 description: En este tutorial se proporcionan instrucciones detalladas para usar Azure Data Factory con el objetivo de transformar los datos con flujos de datos de asignación.
-author: dcstwh
-ms.author: weetok
+author: ssabat
+ms.author: susabat
 ms.reviewer: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/14/2021
-ms.openlocfilehash: ad101bee84256662d1436ba8d8a49304aecb9129
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: ac868fdf3ca80d489d479b5be0c57bd14a90ccbb
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107518292"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107905709"
 ---
 # <a name="transform-data-securely-by-using-mapping-data-flow"></a>Transformación de datos de forma segura mediante flujos de datos de asignación
 

@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 04/14/2021
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40
-ms.openlocfilehash: bdcfb0adf2c92fa6e084c2efbc2e5c066a3e3ede
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 2a975a0aba06ecfd010fe328ef6c8cda75290f2b
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107305861"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107515590"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform"></a>Permisos y consentimiento en la plataforma de identidad de Microsoft
 
@@ -43,11 +43,7 @@ Debido a estas definiciones de tipos de permisos, el recurso tiene control espec
 
 Al fragmentar la funcionalidad de un recurso en conjuntos de permisos pequeños, se pueden crear aplicaciones de terceros para solicitar solo los permisos que necesitan para realizar sus tareas. Los usuarios y administradores pueden saber a qué datos puede acceder la aplicación. Además, pueden estar más seguros de que la aplicación no se comporte con una intención malintencionada. Los desarrolladores deben cumplir siempre con el principio del mínimo privilegio y pedir solo los permisos que necesitan para que sus aplicaciones funcionen.
 
-En OAuth 2.0, estos tipos de conjuntos de permisos se denominan *ámbitos*. A menudo se hace referencia a ellos como *permisos*. En la Plataforma de identidad de Microsoft, un permiso se representa como un valor de cadena. En el ejemplo de Microsoft Graph, el valor de cadena para cada permiso es el siguiente:
-
-* Leer el calendario de un usuario mediante `Calendars.Read`
-* Escribir en el calendario de un usuario mediante `Calendars.ReadWrite`
-* Enviar correo electrónico con un usuario mediante `Mail.Send`
+En OAuth 2.0, estos tipos de conjuntos de permisos se denominan *ámbitos*. A menudo se hace referencia a ellos como *permisos*. En la Plataforma de identidad de Microsoft, un permiso se representa como un valor de cadena. Una aplicación solicita los permisos que necesita al especificar el permiso en el parámetro de consulta `scope`. La plataforma de identidad admite varios [ámbitos de OpenID Connect](#openid-connect-scopes) bien definidos, así como permisos basados en recursos (cada permiso se indica al anexar el valor de permiso al identificador del recurso o al URI del identificador de aplicación). Por ejemplo, la cadena de permiso `https://graph.microsoft.com/Calendars.Read` se usa para solicitar permiso para leer los calendarios de los usuarios en Microsoft Graph.
 
 Una aplicación suele solicitar estos permisos, para lo que especifica los ámbitos en las solicitudes al punto de conexión de la autorización de la Plataforma de identidad de Microsoft. Sin embargo, algunos permisos con privilegios elevados solo se pueden conceder con el consentimiento del administrador. Se pueden solicitar o conceder con el [punto de conexión de consentimiento del administrador](#admin-restricted-permissions). Siga leyendo para obtener más información.
 

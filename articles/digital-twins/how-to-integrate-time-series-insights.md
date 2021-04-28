@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 4/7/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: d89ee4c8e66ba4dda004fbd27e15b96ab13c642b
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 1ac9a0bc83c2a33becb5348862e5a572dddf3ac2
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107783780"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108133932"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-time-series-insights"></a>Integración de Azure Digital Twins con Azure Time Series Insights
 
@@ -100,7 +100,7 @@ az dt endpoint create eventhub -n <your-Azure-Digital-Twins-instance-name> --eve
 
 ### <a name="create-twins-hub-event-route"></a>Creación de la ruta de eventos del centro de gemelos
 
-Las instancias de Azure Digital Twins pueden emitir [eventos de actualización de gemelos](how-to-interpret-event-data.md) cada vez que se actualiza el estado de uno de estos elementos. En esta sección, creará una **ruta de eventos** de Azure Digital Twins que dirigirá estos eventos de actualización al centro de gemelos para su posterior procesamiento.
+Las instancias de Azure Digital Twins pueden emitir [eventos de actualización de gemelos](./concepts-event-notifications.md) cada vez que se actualiza el estado de uno de estos elementos. En esta sección, creará una **ruta de eventos** de Azure Digital Twins que dirigirá estos eventos de actualización al centro de gemelos para su posterior procesamiento.
 
 Cree una [ruta](concepts-route-events.md#create-an-event-route) en Azure Digital Twins para enviar eventos de actualización de gemelos al punto de conexión anterior. El filtro de esta ruta permitirá que solo los mensajes de actualización de gemelos pasen al punto de conexión. Especifique un nombre para la ruta de eventos del centro de gemelos.
 

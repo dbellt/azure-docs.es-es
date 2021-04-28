@@ -3,18 +3,18 @@ title: 'Inicio rápido: Creación de un plano técnico con la CLI de Azure'
 description: En este inicio rápido se usa Azure Blueprints para crear, definir e implementar artefactos mediante la CLI de Azure.
 ms.date: 01/27/2021
 ms.topic: quickstart
-ms.openlocfilehash: fbe5c12f1c94d4b59dbdc2a97b6a4cb9af5a2328
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 506877eddd78ce54681bd4870e1d9040b4738c27
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105563674"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107877415"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-azure-cli"></a>Inicio rápido: Definición y asignación de un plano técnico de Azure Blueprint con la CLI de Azure
 
 Aprender a crear y asignar planos técnicos permite definir patrones comunes para desarrollar configuraciones reutilizables y de implementación rápida basadas en plantillas de Azure Resource Manager, directivas, seguridad, etc. En este tutorial, aprenderá a usar planos técnicos de Azure Blueprint para realizar algunas de las tareas más comunes relacionadas con la creación, asignación y administración de directivas en toda la organización, como, por ejemplo:
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free) antes de empezar.
 - Si es la primera vez que usa Azure Blueprints, registre el proveedor de recursos a través de la CLI de Azure con `az provider register --namespace Microsoft.Blueprint`.
@@ -117,7 +117,7 @@ El primer paso para definir un patrón estándar de cumplimiento es elaborar un 
 
      > [!NOTE]
      > Use el nombre de archivo _blueprint.json_ al importar las definiciones de plano técnico.
-     > Este nombre de archivo se usa al llamar a [az blueprint import](/cli/azure/ext/blueprint/blueprint#ext_blueprint_az_blueprint_import).
+     > Este nombre de archivo se usa al llamar a [az blueprint import](/cli/azure/blueprint#az_blueprint_import).
 
      El objeto blueprint se crea en la suscripción predeterminada de forma predeterminada. Para especificar el grupo de administración, use el parámetro **managementgroup**. Para especificar la suscripción, use el parámetro **subscription**.
 
