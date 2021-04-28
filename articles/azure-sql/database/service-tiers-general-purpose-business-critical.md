@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
 ms.date: 12/14/2020
-ms.openlocfilehash: 95e11e98be8a58611a435de533ffcc16ec5ce357
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: d4053628247cc01851aa19b66514398da0660a81
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102048563"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107883569"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-service-tiers"></a>Niveles de servicio de Azure SQL Database e Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -37,7 +37,7 @@ Este artículo se analizan las diferencias entre los niveles de servicio, las co
 
 En la tabla siguiente se describen las diferencias principales entre los niveles de servicio de la última generación (Gen5). Tenga en cuenta que las características del nivel de servicio pueden ser diferentes en SQL Database e Instancia administrada de SQL.
 
-|-| Tipo de recurso | Uso general |  Hiperescala | Crítico para la empresa |
+|-| Tipo de recurso | De uso general |  Hiperescala | Crítico para la empresa |
 |:---:|:---:|:---:|:---:|:---:|
 | **Más adecuado para** | |  Ofrece opciones de proceso y almacenamiento equilibradas adecuadas para un presupuesto limitado. | La mayoría de las cargas de trabajo empresariales. Escalado automático del tamaño de almacenamiento hasta 100 TB, escalado de procesos vertical y horizontal fluido, restauración rápida de bases de datos. | Aplicaciones de OLTP con una alta tasa de transacciones y latencia de E/S baja. Ofrece mayor resistencia a los errores y rapidez en las conmutaciones por error mediante varias réplicas actualizadas sincrónicamente.|
 |  **Disponible en estos tipos de recurso:** ||SQL Database / Instancia administrada de SQL | Base de datos única de Azure SQL Database | SQL Database / Instancia administrada de SQL |
@@ -53,7 +53,7 @@ En la tabla siguiente se describen las diferencias principales entre los niveles
 | | Instancia administrada de SQL  | [24 GB por núcleo virtual](../managed-instance/resource-limits.md#service-tier-characteristics) | N/D | Hasta 4 TB: [limitado en función del tamaño de almacenamiento](../managed-instance/resource-limits.md#service-tier-characteristics) |
 | **Rendimiento de escritura de registros** | SQL Database | [1,875 MB/s por núcleo virtual (máximo 30 MB/s)](resource-limits-vcore-single-databases.md#general-purpose---provisioned-compute---gen4) | 100 MB/s | [6 MB/s por núcleo virtual (máximo 96 MB/s)](resource-limits-vcore-single-databases.md#business-critical---provisioned-compute---gen4) |
 | | Instancia administrada de SQL | [3 MB/s por núcleo virtual (máximo 22 MB/s)](../managed-instance/resource-limits.md#service-tier-characteristics) | N/D | [4 MB/s por núcleo virtual (máximo 48 MB/s)](../managed-instance/resource-limits.md#service-tier-characteristics) |
-|**Disponibilidad**|All| 99,99% |  [99,95 % con una réplica secundaria; 99,99 % con más réplicas](service-tier-hyperscale-frequently-asked-questions-faq.md#what-slas-are-provided-for-a-hyperscale-database) | 99,99% <br/> [99,995 % con una base de datos única con redundancia de zona](https://azure.microsoft.com/blog/understanding-and-leveraging-azure-sql-database-sla/) |
+|**Disponibilidad**|All| 99,99% |  [99,95 % con una réplica secundaria; 99,99 % con más réplicas](service-tier-hyperscale-frequently-asked-questions-faq.yml#what-slas-are-provided-for-a-hyperscale-database) | 99,99% <br/> [99,995 % con una base de datos única con redundancia de zona](https://azure.microsoft.com/blog/understanding-and-leveraging-azure-sql-database-sla/) |
 |**Copias de seguridad**|All|RA-GRS, de 7 a 35 días (7 días de manera predeterminada). La retención máxima para el nivel Básico es 7 días. | RA-GRS, 7 días, recuperación a un momento dado (PITR) en un tiempo constante | RA-GRS, de 7 a 35 días (7 días de forma predeterminada) |
 |**OLTP en memoria** | | N/D | N/D | Disponible |
 |**Réplicas de solo lectura**| | 0 integradas <br> 0 a 4 con [replicación geográfica](active-geo-replication-overview.md) | 0 a 4 integradas | 1 integrada, incluida en el precio <br> 0 a 4 con [replicación geográfica](active-geo-replication-overview.md) |

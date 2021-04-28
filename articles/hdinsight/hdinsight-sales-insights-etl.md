@@ -3,14 +3,14 @@ title: 'Tutorial: Creación de una canalización de ETL de un extremo a otro par
 description: Aprenda a crear canalizaciones de ETL con Azure HDInsight para obtener información sobre los datos de ventas mediante clústeres a petición de Spark y Power BI.
 ms.service: hdinsight
 ms.topic: tutorial
-ms.custom: hdinsightactive, devx-track-azurecli
+ms.custom: hdinsightactive
 ms.date: 04/15/2020
-ms.openlocfilehash: 140709a0ddb548c126ceca208fdeef2db77616bf
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: f41f202ede49892608e1ca3c5fdfbe703b6a5293
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107761806"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108074950"
 ---
 # <a name="tutorial-create-an-end-to-end-data-pipeline-to-derive-sales-insights-in-azure-hdinsight"></a>Tutorial: Creación de una canalización de datos de un extremo a otro para derivar información de ventas en Azure HDInsight
 

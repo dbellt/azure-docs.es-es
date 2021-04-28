@@ -9,12 +9,12 @@ ms.subservice: sql-dw
 ms.date: 11/20/2020
 ms.author: jrasnick
 ms.custom: azure-synapse, devx-track-azurecli
-ms.openlocfilehash: 532c06cc49f9fddab09c6678ee5fff9fe32347cb
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: 3903aa0be5ffa63bc4292371c59002846ec9363c
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107565940"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107892101"
 ---
 # <a name="quickstart-create-a-synapse-sql-pool-with-azure-cli"></a>Inicio rápido: Creación de un grupo de Synapse SQL con la CLI de Azure
 
@@ -77,43 +77,43 @@ Cree el grupo de SQL. En este ejemplo se usa DW100c como objetivo del servicio, 
 > [!NOTE]
 > Debe haber creado antes un área de trabajo. Para más información, consulte [Inicio rápido: Creación de un área de trabajo de Azure Synapse con la CLI de Azure](../quickstart-create-workspace-cli.md).
 
-Use el comando [az synapse sql pool create](/cli/azure/ext/synapse/synapse/sql/pool#ext_synapse_az_synapse_sql_pool_create) para crear el grupo de SQL:
+Use el comando [az synapse sql pool create](/cli/azure/synapse/sql/pool#az_synapse_sql_pool_create) para crear el grupo de SQL:
 
 ```azurecli
 az synapse sql pool create --resource-group myResourceGroup --name mySampleDataWarehouse \
    --performance-level "DW1000c" --workspace-name testsynapseworkspace
 ```
 
-Para más información sobre las opciones de parámetro, consulte [az synapse sql pool](/cli/azure/ext/synapse/synapse/sql/pool).
+Para más información sobre las opciones de parámetro, consulte [az synapse sql pool](/cli/azure/synapse/sql/pool).
 
-Puede ver los grupos de SQL mediante el comando [az synapse sql pool list](/cli/azure/ext/synapse/synapse/sql/pool#ext_synapse_az_synapse_sql_pool_list):
+Puede ver los grupos de SQL mediante el comando [az synapse sql pool list](/cli/azure/synapse/sql/pool#az_synapse_sql_pool_list):
 
 ```azurecli
 az synapse sql pool list --resource-group myResourceGroup --workspace-name testsynapseworkspace
 ```
 
-Use el comando [az synapse sql pool update](/cli/azure/ext/synapse/synapse/sql/pool#ext_synapse_az_synapse_sql_pool_update) para actualizar un grupo existente:
+Use el comando [az synapse sql pool update](/cli/azure/synapse/sql/pool#az_synapse_sql_pool_update) para actualizar un grupo existente:
 
 ```azurecli
 az synapse sql pool update --resource-group myResourceGroup --name mySampleDataWarehouse \
    --workspace-name testsynapseworkspace
 ```
 
-Use el comando [az synapse sql pool pause](/cli/azure/ext/synapse/synapse/sql/pool#ext_synapse_az_synapse_sql_pool_pause) para pausar un grupo:
+Use el comando [az synapse sql pool pause](/cli/azure/synapse/sql/pool#az_synapse_sql_pool_pause) para pausar un grupo:
 
 ```azurecli
 az synapse sql pool pause --resource-group myResourceGroup --name mySampleDataWarehouse \
    --workspace-name testsynapseworkspace
 ```
 
-Use el comando [az synapse sql pool resume](/cli/azure/ext/synapse/synapse/sql/pool#ext_synapse_az_synapse_sql_pool_resume) para reanudar un grupo pausado:
+Use el comando [az synapse sql pool resume](/cli/azure/synapse/sql/pool#az_synapse_sql_pool_resume) para reanudar un grupo pausado:
 
 ```azurecli
 az synapse sql pool resume --resource-group myResourceGroup --name mySampleDataWarehouse \
    --workspace-name testsynapseworkspace
 ```
 
-Para quitar un grupo de SQL existente, use el comando [az synapse sql pool delete](/cli/azure/ext/synapse/synapse/sql/pool#ext_synapse_az_synapse_sql_pool_delete):
+Para quitar un grupo de SQL existente, use el comando [az synapse sql pool delete](/cli/azure/synapse/sql/pool#az_synapse_sql_pool_delete):
 
 ```azurecli
 az synapse sql pool delete --resource-group myResourceGroup --name mySampleDataWarehouse \

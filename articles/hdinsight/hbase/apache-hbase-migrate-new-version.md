@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
-ms.openlocfilehash: 43b46d19503856f5eae38272299f73d9c80055b8
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 6c473b534a6f14699babe2f8f4f661e83d275785
+ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104868892"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108064168"
 ---
 # <a name="migrate-an-apache-hbase-cluster-to-a-new-version"></a>Migración de un clúster de Apache HBase a una versión nueva
 
@@ -33,13 +33,13 @@ Este es un ejemplo de una matriz de compatibilidad de versiones. Y indica la com
 | Compatibilidad servidor-servidor | N | Y | Y |
 | Compatibilidad de formato de archivo | N | Y | Y |
 | Compatibilidad de API de cliente | N | Y | Y |
-| Compatibilidad binaria de cliente | N | N | Y |
+| Compatibilidad binaria de cliente | N | No | Y |
 | **Compatibilidad de API limitada del servidor** |  |  |  |
 | Stable | N | Y | Y |
-| En evolución | N | N | Y |
-| Inestable | N | N | N |
+| En evolución | N | No | Y |
+| Inestable | N | No | N |
 | Compatibilidad de dependencia | N | Y | Y |
-| Compatibilidad de las operaciones | N | N | Y |
+| Compatibilidad de las operaciones | N | No | Y |
 
 ## <a name="upgrade-with-same-apache-hbase-major-version"></a>Actualización con la misma versión principal de Apache HBase
 
@@ -91,7 +91,7 @@ Para actualizar el clúster de Apache HBase en Azure HDInsight, realice los paso
     
             Provide Script URL.
     
-            Provide hostname as a parameter (i.e. hn0, hn1, hn2.. or wn2 etc.).
+            Provide hostname as a parameter (i.e. hn* or wn* etc.).
     ...
             exit
         fi

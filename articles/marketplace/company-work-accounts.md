@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 05/30/2019
-ms.openlocfilehash: 69e9f9d6d7d132476796a1cdfdaaa2490457640c
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: c4433572f503ca086b88e6e42600fff623f34a11
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107108036"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108133212"
 ---
 # <a name="company-work-accounts-and-partner-center"></a>Cuentas profesionales y el Centro de partners
 
@@ -44,7 +44,7 @@ Para crear una nueva cuenta profesional para su empresa, siga los pasos a contin
 
 La dirección de correo electrónico para la cuenta de usuario tiene que ser un nombre de dominio comprobado en el directorio. Puede ver una lista de todos los dominios comprobados en el directorio seleccionando **Azure Active Directory** -> **Nombres de dominio personalizados** en el menú de navegación de la izquierda.
 
-Para más información sobre cómo agregar dominios personalizados en Azure Active Directory, consulte [Incorporación o asociación de un dominio en Azure AD](/azure/active-directory/fundamentals/add-custom-domain).
+Para más información sobre cómo agregar dominios personalizados en Azure Active Directory, consulte [Incorporación o asociación de un dominio en Azure AD](../active-directory/fundamentals/add-custom-domain.md).
 
 ## <a name="troubleshoot-work-email-sign-in"></a>Solución de problemas de inicio de sesión de correo electrónico profesional
 

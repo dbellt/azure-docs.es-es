@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 04/02/2021
 ms.author: mazha
 ms.custom: devx-track-js
-ms.openlocfilehash: 386a424e45d1b718b68cbbf53322fd704317a06b
-ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
+ms.openlocfilehash: 607ba08f0d1d8ea08b30efa420bb2fde55da97b0
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107285231"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108123760"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Introducción al desarrollo de Azure CDN
 > [!div class="op_single_selector"]
@@ -349,8 +349,8 @@ Por último, vamos a eliminar el perfil.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Puede consultar la referencia del SDK de Azure CDN para Node.js [aquí](https://docs.microsoft.com/javascript/api/@azure/arm-cdn).
+Puede consultar la referencia del SDK de Azure CDN para Node.js [aquí](/javascript/api/@azure/arm-cdn).
 
-Encontrará más documentación sobre el SDK de Azure para JavaScript en la [referencia completa](https://docs.microsoft.com/javascript/api/?view=azure-node-latest).
+Encontrará más documentación sobre el SDK de Azure para JavaScript en la [referencia completa](/javascript/api/?view=azure-node-latest).
 
 Administre sus recursos de red CDN con [PowerShell](cdn-manage-powershell.md).

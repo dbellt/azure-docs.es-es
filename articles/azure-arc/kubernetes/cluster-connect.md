@@ -7,12 +7,12 @@ ms.topic: article
 author: shashankbarsin
 ms.author: shasb
 description: Uso de Conexión de clúster para conectarse de manera segura a clústeres de Kubernetes habilitados para Azure Arc
-ms.openlocfilehash: c6b6555c7d18c0aa0d2e7c94ad2c32353da19502
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 54a462164e4b992451cc66f8a0ec229aff27f2e1
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106450904"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108145598"
 ---
 # <a name="use-cluster-connect-to-connect-to-azure-arc-enabled-kubernetes-clusters"></a>Uso de Conexión de clúster para conectarse a clústeres de Kubernetes habilitados para Azure Arc
 
@@ -26,7 +26,7 @@ Puede encontrar información general y algunos conceptos sobre esta característ
 
 ## <a name="prerequisites"></a>Requisitos previos   
 
-- [Instale o actualice la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) a la versión 2.16.0 o posteriores.
+- [Instale o actualice la CLI de Azure](/cli/azure/install-azure-cli) a la versión 2.16.0 o posteriores.
 
 - Instale la extensión `connectedk8s` de la CLI de Azure, versión 1.1.0 o posteriores.
 
@@ -148,8 +148,8 @@ You must be logged in to the server (Error:Error while retrieving group info. Er
 ```
 
 Para eludir este error:
-1. Cree una [entidad de servicio](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli). Es menos probable que una de estas sea miembro de más de 200 grupos.
-1. [Inicie sesión](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli#sign-in-using-a-service-principal) en la CLI de Azure con la entidad de servicio antes de ejecutar el comando `az connectedk8s proxy`.
+1. Cree una [entidad de servicio](/cli/azure/create-an-azure-service-principal-azure-cli). Es menos probable que una de estas sea miembro de más de 200 grupos.
+1. [Inicie sesión](/cli/azure/create-an-azure-service-principal-azure-cli#sign-in-using-a-service-principal) en la CLI de Azure con la entidad de servicio antes de ejecutar el comando `az connectedk8s proxy`.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

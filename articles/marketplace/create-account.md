@@ -8,12 +8,12 @@ author: varsha-sarah
 ms.author: vavargh
 ms.custom: contperf-fy21q2
 ms.date: 04/06/2021
-ms.openlocfilehash: 09810008c402d9c47d609fc0c77781af141edd30
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 2b3516d5f573f13655963b678a2f164c460fd140
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107108024"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108133158"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Creación de una cuenta de Marketplace comercial en el Centro de partners
 
@@ -56,7 +56,7 @@ Inicie sesión con una cuenta profesional para que pueda vincular el dominio de 
 
 #### <a name="agree-to-the-terms-and-conditions"></a>Aceptación de los términos y condiciones
 
-Como parte del proceso de registro en el marketplace comercial, debe aceptar los términos y condiciones del [Acuerdo de publicador de Microsoft](https://go.microsoft.com/fwlink/?LinkID=699560). Si nunca ha usado Microsoft Partner Network, también debe aceptar los términos y condiciones del Contrato de Microsoft Partner Network.
+Como parte del proceso de registro en el marketplace comercial, debe aceptar los términos y condiciones del [Acuerdo de publicador de Microsoft](/legal/marketplace/msft-publisher-agreement). Si nunca ha usado Microsoft Partner Network, también debe aceptar los términos y condiciones del Contrato de Microsoft Partner Network.
 
 Ha creado una cuenta del marketplace comercial en el Centro de partners. Vaya a [Incorporación de nuevos publicadores al programa del marketplace comercial](add-publishers.md).
 
@@ -93,7 +93,7 @@ A continuación, podrá asignar los roles y permisos de usuario adecuados a los 
 
 1. Seleccione el identificador de MPN que quiere vincular a su cuenta de publicador y escriba el nombre de la empresa.
 
-1. Lea los términos y condiciones del [contrato de publicador de Microsoft](https://go.microsoft.com/fwlink/?LinkID=699560) y, a continuación, seleccione **Aceptar y continuar** para completar la inscripción.
+1. Lea los términos y condiciones del [contrato de publicador de Microsoft](/legal/marketplace/msft-publisher-agreement) y, a continuación, seleccione **Aceptar y continuar** para completar la inscripción.
 
     > [!IMPORTANT]
     > Para aceptar estos términos, necesita tener autorización para actuar en nombre de la empresa.
@@ -119,7 +119,7 @@ Al registrarse en el programa del marketplace comercial con la misma cuenta que 
 1. En la parte superior derecha, seleccione **Configuración** > **Configuración de la cuenta** > **Programas**.
 1. En **Marketplace comercial**, seleccione **Introducción** y escriba su dirección de correo electrónico del trabajo.
 1. Rellene los detalles en la página del **perfil de publicador**.
-1. Lea los términos y condiciones del [contrato de publicador de Microsoft](https://go.microsoft.com/fwlink/?LinkID=699560) y, a continuación, seleccione **Aceptar y continuar** para completar la inscripción.
+1. Lea los términos y condiciones del [contrato de publicador de Microsoft](/legal/marketplace/msft-publisher-agreement) y, a continuación, seleccione **Aceptar y continuar** para completar la inscripción.
 
     >[!Important]
     > Para aceptar estos términos, necesita tener autorización para actuar en nombre de la empresa.

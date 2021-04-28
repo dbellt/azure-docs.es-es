@@ -9,12 +9,12 @@ ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: d777588f0abdd1f771deb259c597f6407e61d874
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 1213d5f7421cc71255f29d013fa47878559110ee
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107364624"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107481589"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Red virtual administrada de Azure Data Factory (versión preliminar)
 
@@ -121,9 +121,9 @@ New-AzResource -ApiVersion "${apiVersion}" -ResourceId "${integrationRuntimeReso
 ## <a name="limitations-and-known-issues"></a>Limitaciones y problemas conocidos
 ### <a name="supported-data-sources"></a>Orígenes de datos compatibles
 Los orígenes de datos siguientes pueden establecer una conexión a través de un vínculo privado desde la red virtual administrada de ADF.
-- Azure Blob Storage
-- Azure Table Storage
-- Azure Files
+- Azure Blob Storage (sin incluir la cuenta de almacenamiento V1)
+- Azure Table Storage (sin incluir la cuenta de almacenamiento V1)
+- Azure Files (sin incluir la cuenta de almacenamiento V1)
 - Azure Data Lake Gen2
 - Azure SQL Database (sin incluir Azure SQL Managed Instance)
 - Azure Synapse Analytics

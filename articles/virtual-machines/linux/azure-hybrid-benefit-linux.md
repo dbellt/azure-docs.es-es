@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: 774f4be6a5aa0e0e772086c52938881c6637b261
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: a0eb992f50ed8c4f7cc9695607fae0cba01377e2
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107588197"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108143132"
 ---
 # <a name="how-azure-hybrid-benefit-applies-for-linux-virtual-machines"></a>Aplicación de la Ventaja híbrida de Azure en máquinas virtuales Linux
 
@@ -178,7 +178,7 @@ A fin de usar Ventaja híbrida de Azure para las máquinas virtuales de SLES y p
 
 ## <a name="azure-hybrid-benefit-on-reserved-instances-is-in-preview"></a>La Ventaja híbrida de Azure en las instancias reservadas está en versión preliminar
 
-Las reservas de Azure (Azure Reserved Virtual Machine Instances) le permitirán ahorrar dinero, ya que se compromete a planes de uno o tres años para varios productos. Obtenga más información sobre las [Instancias reservadas aquí](https://docs.microsoft.com/azure/cost-management-billing/reservations/save-compute-costs-reservations). La Ventaja híbrida de Azure está disponible en versión preliminar para la [Instancia reservada de máquina virtual (RIs)](https://review.docs.microsoft.com/azure/cost-management-billing/reservations/save-compute-costs-reservations#charges-covered-by-reservation). Esto significa que, si ha adquirido costos de proceso con una tarifa de descuento mediante RI, puede aplicar el beneficio de AHB en los costos de licencia de RHEL y SUSE. Los pasos para aplicar la ventaja AHB para una instancia de RI son exactamente iguales que los de una máquina virtual normal.
+Las reservas de Azure (Azure Reserved Virtual Machine Instances) le permitirán ahorrar dinero, ya que se compromete a planes de uno o tres años para varios productos. Obtenga más información sobre las [Instancias reservadas aquí](../../cost-management-billing/reservations/save-compute-costs-reservations.md). La Ventaja híbrida de Azure está disponible en versión preliminar para la [Instancia reservada de máquina virtual (RIs)](https://review.docs.microsoft.com/azure/cost-management-billing/reservations/save-compute-costs-reservations#charges-covered-by-reservation). Esto significa que, si ha adquirido costos de proceso con una tarifa de descuento mediante RI, puede aplicar el beneficio de AHB en los costos de licencia de RHEL y SUSE. Los pasos para aplicar la ventaja AHB para una instancia de RI son exactamente iguales que los de una máquina virtual normal.
 ![AHB para RIs](./media/azure-hybrid-benefit/reserved-instances.png)
 
 >[!NOTE]
@@ -212,7 +212,7 @@ R: Sí, puede hacerlo. Puede usar el tipo de licencia `RHEL_BYOS` para las máqu
 
 *P: ¿Puedo usar la Ventaja híbrida de Azure en conjuntos de escalado de máquinas virtuales para RHEL y SLES?*
 
-A: Sí, la Ventaja híbrida de Azure en conjuntos de escalado de máquinas virtuales para RHEL y SLES está en versión preliminar. Puede obtener [más información sobre esta ventaja y cómo usarla aquí](/azure/virtual-machine-scale-sets/azure-hybrid-benefit-linux). 
+A: Sí, la Ventaja híbrida de Azure en conjuntos de escalado de máquinas virtuales para RHEL y SLES está en versión preliminar. Puede obtener [más información sobre esta ventaja y cómo usarla aquí](../../virtual-machine-scale-sets/azure-hybrid-benefit-linux.md). 
 
 *P: ¿Puedo usar la Ventaja híbrida de Azure en instancias reservadas para RHEL y SLES?*
 

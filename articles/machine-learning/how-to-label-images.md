@@ -6,15 +6,15 @@ author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 07/27/2020
 ms.custom: data4ml
-ms.openlocfilehash: 5ba399418d8f93204b168c1058be20ffc775ef70
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 3418eeb2ada6951c45e24961c6dc2c45a74f32d3
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99096972"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107885027"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Etiquetado de imágenes en un proyecto de etiquetado 
 
@@ -74,11 +74,6 @@ Se pueden desencadenar algoritmos de aprendizaje automático. Si estos algoritmo
 * En el caso de los modelos de identificación de objetos, puede ver que los cuadros de límite y las etiquetas ya están presentes.  Corrija los que sean incorrectos antes de enviar la página.
 
 * En el caso de los modelos de segmentación, puede ver que los polígonos y las etiquetas ya están presentes.  Corrija los que sean incorrectos antes de enviar la página. 
-
-    > [!IMPORTANT]
-    > Las características indicadas con "(versión preliminar)" se encuentran en versión preliminar pública.   
-    > Se ofrece la versión preliminar sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 
 En las primeras fases de un proyecto de etiquetado, es posible que el modelo de Machine Learning sea suficientemente preciso para preetiquetar un pequeño subconjunto de imágenes. Una vez que se etiqueten estas imágenes, el proyecto de etiquetado volverá al etiquetado manual para recopilar más datos para la siguiente ronda del entrenamiento del modelo. Con el paso del tiempo, el modelo pasará a ser más seguro en una mayor proporción de imágenes, lo cual dará como resultado posteriormente un mayor número de tareas preetiquetadas en el proyecto.
 

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 08/04/2020
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 907bf06323d13b2d26dec5003e4739f2ae9faf74
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: b3b94de0fe97bb812921b831a92de44887df4070
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107378523"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108132978"
 ---
 # <a name="quickstart-monitoring-azure-spring-cloud-apps-with-logs-metrics-and-tracing"></a>Inicio rápido: supervisión de aplicaciones de Azure Spring Cloud con registros, métricas y seguimiento
 
@@ -26,9 +26,9 @@ En los procedimientos siguientes se explica cómo usar el streaming de registro,
 
 * Complete las guías de inicio rápido anteriores de esta serie:
 
-  * [Aprovisionamiento del servicio Azure Spring Cloud](spring-cloud-quickstart-provision-service-instance.md).
-  * [Configuración del servidor de configuración de Azure Spring Cloud](spring-cloud-quickstart-setup-config-server.md).
-  * [Compile e implemente las aplicaciones](spring-cloud-quickstart-deploy-apps.md).
+  * [Aprovisionamiento del servicio Azure Spring Cloud](./quickstart-provision-service-instance.md).
+  * [Configuración del servidor de configuración de Azure Spring Cloud](./quickstart-setup-config-server.md).
+  * [Compile e implemente las aplicaciones](./quickstart-deploy-apps.md).
 
 ## <a name="logs"></a>Registros
 
@@ -73,7 +73,7 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
 
    [ ![Consulta de Log Analytics: Steeltoe](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query-steeltoe.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query-steeltoe.png#lightbox)
 
-1. Para más información sobre el lenguaje de consulta que se utiliza en Log Analytics, consulte [Consultas de registros de Azure Monitor](/azure/data-explorer/kusto/query/). Para consultar todos los registros de Log Analytics desde un cliente centralizado, vea [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/query-monitor-data).
+1. Para más información sobre el lenguaje de consulta que se utiliza en Log Analytics, consulte [Consultas de registros de Azure Monitor](/azure/data-explorer/kusto/query/). Para consultar todos los registros de Log Analytics desde un cliente centralizado, vea [Azure Data Explorer](/azure/data-explorer/query-monitor-data).
 
 ## <a name="metrics"></a>Métricas
 
@@ -115,9 +115,9 @@ Con la funcionalidad de supervisión integrada de Azure Spring Cloud, puede depu
 
 Complete los pasos anteriores: 
 
-* [Aprovisionamiento de una instancia de Azure Spring Cloud](spring-cloud-quickstart-provision-service-instance.md)
-* [Configure el servidor de configuración](spring-cloud-quickstart-setup-config-server.md)
-* [Compile e implemente las aplicaciones](spring-cloud-quickstart-deploy-apps.md).
+* [Aprovisionamiento de una instancia de Azure Spring Cloud](./quickstart-provision-service-instance.md)
+* [Configure el servidor de configuración](./quickstart-setup-config-server.md)
+* [Compile e implemente las aplicaciones](./quickstart-deploy-apps.md).
 
 ## <a name="logs"></a>Registros
 
@@ -171,7 +171,7 @@ Para obtener los registros mediante Azure Toolkit for IntelliJ:
 
    [ ![Consulta de Log Analytics](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query.png#lightbox)
 
-1. Para más información sobre el lenguaje de consulta que se utiliza en Log Analytics, consulte [Consultas de registros de Azure Monitor](/azure/data-explorer/kusto/query/). Para consultar todos los registros de Log Analytics desde un cliente centralizado, vea [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/query-monitor-data).
+1. Para más información sobre el lenguaje de consulta que se utiliza en Log Analytics, consulte [Consultas de registros de Azure Monitor](/azure/data-explorer/kusto/query/). Para consultar todos los registros de Log Analytics desde un cliente centralizado, vea [Azure Data Explorer](/azure/data-explorer/query-monitor-data).
 
 ## <a name="metrics"></a>Métricas
 
@@ -228,6 +228,6 @@ Para explorar más funcionalidades de supervisión de Azure Spring Cloud, consul
 > [!div class="nextstepaction"]
 > [Servicios de diagnóstico](diagnostic-services.md)
 >
-> [Seguimiento distribuido](spring-cloud-howto-distributed-tracing.md)
+> [Seguimiento distribuido](./how-to-distributed-tracing.md)
 >
-> [Streaming de registros en tiempo real](spring-cloud-howto-log-streaming.md)
+> [Streaming de registros en tiempo real](./how-to-log-streaming.md)

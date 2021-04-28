@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 901f2b938512f842a5b4c34adbfc61f9379e5131
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: fdefca482dfa1afeb3eebb284b08eaadf4f1af60
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107772174"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107897061"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-in-net"></a>Tutorial: Uso de una identidad administrada para conectar Key Vault a una aplicación web de Azure en .NET
 
@@ -172,7 +172,7 @@ La dirección URL de Git remoto se muestra en la propiedad `deploymentLocalGitUr
 Ahora configure la aplicación web para implementarla desde la rama `main`:
 
 ```azurecli-interactive
- az webapp config appsettings set -g MyResourceGroup -name "<your-webapp-name>"--settings deployment_branch=main
+ az webapp config appsettings set -g MyResourceGroup --name "<your-webapp-name>" --settings deployment_branch=main
 ```
 
 Vaya a la nueva aplicación con el siguiente comando. Reemplace `<your-webapp-name>` por el nombre de la aplicación.
@@ -343,4 +343,4 @@ Donde antes aparecía "Hola mundo!", ahora debería ver que se muestra el valor 
 - [Tutorial: Uso de Azure Key Vault con una máquina virtual en .NET](./tutorial-net-virtual-machine.md)
 - Más información sobre las [identidades administradas para recursos de Azure](../../active-directory/managed-identities-azure-resources/overview.md)
 - Consulte [Guía del desarrollador de Azure Key Vault](./developers-guide.md).
-- [Protección del acceso a un almacén de claves](./security-overview.md)
+- [Protección del acceso a un almacén de claves](./security-features.md)

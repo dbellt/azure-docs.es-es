@@ -4,12 +4,12 @@ description: 'Inicio rápido: Aprenda a crear un panel en Azure Portal mediante 
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.date: 12/4/2020
-ms.openlocfilehash: d951c692c7d3c282ae68c5f9b53e9cda5407df10
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 76d4e3b9c1c906dd91a7355af2c7cb957ef6ac95
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107481028"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107891741"
 ---
 # <a name="quickstart-create-an-azure-portal-dashboard-with-azure-cli"></a>Inicio rápido: Creación de un panel de Azure Portal con la CLI de Azure
 
@@ -73,20 +73,20 @@ Para más información, consulte el artículo sobre la [referencia de las planti
 
 Ahora puede implementar la plantilla desde la CLI de Azure.
 
-1. Ejecute el comando [az portal dashboard create](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_create) para implementar la plantilla:
+1. Ejecute el comando [az portal dashboard create](/cli/azure/portal/dashboard#az_portal_dashboard_create) para implementar la plantilla:
 
    ```azurecli
    az portal dashboard create --resource-group myResourceGroup --name 'Simple VM Dashboard' \
       --input-path portal-dashboard-template-testvm.json --location centralus
    ```
 
-1. Compruebe que el panel se ha creado correctamente ejecutando el comando [az portal dashboard show](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_show):
+1. Compruebe que el panel se ha creado correctamente ejecutando el comando [az portal dashboard show](/cli/azure/portal/dashboard#az_portal_dashboard_show):
 
    ```azurecli
    az portal dashboard show --resource-group myResourceGroup --name 'Simple VM Dashboard'
    ```
 
-Para ver todos los paneles de la suscripción actual, use [az portal dashboard list](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_list):
+Para ver todos los paneles de la suscripción actual, use [az portal dashboard list](/cli/azure/portal/dashboard#az_portal_dashboard_list):
 
 ```azurecli
 az portal dashboard list
@@ -98,7 +98,7 @@ También puede ver todos los paneles de un grupo de recursos:
 az portal dashboard list --resource-group myResourceGroup
 ```
 
-Puede actualizar un panel mediante el comando [az portal dashboard update](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_update):
+Puede actualizar un panel mediante el comando [az portal dashboard update](/cli/azure/portal/dashboard#az_portal_dashboard_update):
 
 ```azurecli
 az portal dashboard update --resource-group myResourceGroup --name 'Simple VM Dashboard' \
@@ -119,7 +119,7 @@ Para quitar la máquina virtual y el panel asociado, elimine el grupo de recurso
 az group delete --name myResourceGroup
 ```
 
-Para quitar solo el panel, use el comando [az portal dashboard delete](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_delete):
+Para quitar solo el panel, use el comando [az portal dashboard delete](/cli/azure/portal/dashboard#az_portal_dashboard_delete):
 
 ```azurecli
 az portal dashboard delete --resource-group myResourceGroup --name "Simple VM Dashboard"
@@ -127,4 +127,4 @@ az portal dashboard delete --resource-group myResourceGroup --name "Simple VM Da
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre la compatibilidad de la CLI de Azure con los paneles, consulte [az portal dashboard](/cli/azure/ext/portal/portal/dashboard).
+Para más información sobre la compatibilidad de la CLI de Azure con los paneles, consulte [az portal dashboard](/cli/azure/portal/dashboard).

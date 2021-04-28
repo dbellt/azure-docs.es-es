@@ -4,13 +4,13 @@ ms.service: media-services
 ms.topic: include
 ms.date: 08/17/2020
 ms.author: inhenkel
-ms.custom: CLI
-ms.openlocfilehash: f0d0322f6f5f14b94a67285fe8688d72c941b3a4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: CLI, devx-track-azurecli
+ms.openlocfilehash: 44c349afe4bee4762b6dc2564c200f68f3296cc4
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105105854"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107893313"
 ---
 <!-- ### Create a storage account -->
 

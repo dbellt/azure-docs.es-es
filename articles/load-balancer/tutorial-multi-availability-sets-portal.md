@@ -4,17 +4,16 @@ titleSuffix: Azure Load Balancer
 description: En este tutorial implementará una instancia de Azure Load Balancer con más de un conjunto de disponibilidad en el grupo de servidores back-end.
 author: asudbring
 ms.author: allensu
-ms.service: virtual-network
-ms.subservice: nat
+ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 04/16/2021
+ms.date: 04/21/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 21ff43217a7b2bd874a384f3b07a48d5223a1be2
-ms.sourcegitcommit: 089c2bd1ac4861f43c4b89396d3d056a6eef4913
+ms.openlocfilehash: 71115da01f47572d77243f25204d5b1127db22cd
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107602326"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107887169"
 ---
 # <a name="tutorial-create-a-load-balancer-with-more-than-one-availability-set-in-the-backend-pool-using-the-azure-portal"></a>Tutorial: Creación de un equilibrador de carga con más de un conjunto de disponibilidad en el grupo de servidores back-end mediante Azure Portal
 
@@ -178,7 +177,7 @@ Creará una regla de equilibrio de carga para el **puerto 80** con SNAT de sali
 
 6. En **Agregar grupo back-end**, escriba o seleccione la siguiente información:
 
-    | Configuración | Value |
+    | Configuración | Valor |
     | ------- | ----- |
     | Nombre | Escriba **myBackendPool**. |
     | Virtual network | Seleccione **myVNet**. |
@@ -193,7 +192,7 @@ Creará una regla de equilibrio de carga para el **puerto 80** con SNAT de sali
 
 10. En **Agregar sondeo de estado**, escriba o seleccione la siguiente información:
 
-    | Configuración | Value |
+    | Configuración | Valor |
     | ------- | ----- |
     | Nombre | Escriba **myHTTPProbe**. |
     | Protocolo | Seleccione **HTTP**. |
@@ -210,7 +209,7 @@ Creará una regla de equilibrio de carga para el **puerto 80** con SNAT de sali
 
 14. Escriba o seleccione la siguiente información para **Agregar rega de equilibrio de carga**:
 
-    | Configuración | Value |
+    | Configuración | Valor |
     | ------- | ----- |
     | Nombre | Escriba **myHTTPRule**. |
     | Versión de la dirección IP | Deje el valor predeterminado, **IPv4**. |
@@ -263,7 +262,7 @@ En esta sección creará dos grupos de disponibilidad con dos máquinas virtuale
 
 5. En la pestaña **Redes**, escriba o seleccione la siguiente información:
 
-    | Parámetro | Value |
+    | Parámetro | Valor |
     | ------- | ----- |
     | **Interfaz de red** |   |
     | Virtual network | Seleccione **myVNet**. |
@@ -284,7 +283,7 @@ En esta sección creará dos grupos de disponibilidad con dos máquinas virtuale
 
 8. Repita los pasos del 1 al 7 para crear la segunda máquina virtual del conjunto. Reemplace la configuración de la máquina virtual por la siguiente información:
 
-    | Configuración | Value |
+    | Configuración | Valor |
     | ------- | ----- |
     | Nombre | Escriba **myVM2**. |
     | Conjunto de disponibilidad | Seleccione **myAvailabilitySet1**. |
@@ -327,7 +326,7 @@ En esta sección creará dos grupos de disponibilidad con dos máquinas virtuale
 
 5. En la pestaña **Redes**, escriba o seleccione la siguiente información:
 
-    | Parámetro | Value |
+    | Parámetro | Valor |
     | ------- | ----- |
     | **Interfaz de red** |   |
     | Virtual network | Seleccione **myVNet**. |
@@ -348,7 +347,7 @@ En esta sección creará dos grupos de disponibilidad con dos máquinas virtuale
 
 8. Repita los pasos del 1 al 7 para crear la segunda máquina virtual del conjunto. Reemplace la configuración de la máquina virtual por la siguiente información:
 
-    | Configuración | Value |
+    | Configuración | Valor |
     | ------- | ----- |
     | Nombre | Escriba **myVM4**. |
     | Conjunto de disponibilidad | Seleccione **myAvailabilitySet2**. |
