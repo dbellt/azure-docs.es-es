@@ -10,13 +10,13 @@ author: gvashishtha
 ms.date: 02/16/2020
 ms.topic: conceptual
 ms.reviewer: larryfr
-ms.custom: deploy
-ms.openlocfilehash: 0bb17ded6822c477fe2107c66711af5e2dc384d3
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: deploy, devx-track-azurecli
+ms.openlocfilehash: 8775696a35bfccc363aa2c6ec06c6c44115916b9
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105107846"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107479277"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>Servicio de alto rendimiento con Triton Inference Server (versión preliminar) 
 
@@ -376,7 +376,7 @@ local_service.delete()
 
 * [Solucione problemas de una implementación con errores](how-to-troubleshoot-deployment.md) y obtenga información sobre cómo solucionar errores comunes que puede experimentar al implementar un modelo.
 
-* Si los registros de implementación muestran **TritonServer failed to start** (Error al iniciar TritonServer), vea la [documentación de código abierto de Nvidia](https://github.com/triton-inference-server/server).
+* Si los registros de implementación muestran **Error al iniciar TritonServer**, consulte la [documentación de código abierto de Nvidia](https://github.com/triton-inference-server/server).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

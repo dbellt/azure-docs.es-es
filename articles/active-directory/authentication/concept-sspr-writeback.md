@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53f416a23dbb47660097c41ada09c8c135434bcb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4b8a84da331568d36b6f6910054fdb2aea76f490
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96743656"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530338"
 ---
 # <a name="how-does-self-service-password-reset-writeback-work-in-azure-active-directory"></a>¿Cómo funciona la escritura diferida del autoservicio de restablecimiento de contraseña en Azure Active Directory?
 
@@ -140,7 +140,7 @@ Las contraseñas se escriben en diferido en todas las situaciones siguientes:
    * Cualquier operación obligatoria de autoservicio de cambio de contraseña del administrador (por ejemplo, la expiración de la contraseña).
    * Cualquier operación de autoservicio de restablecimiento de contraseña del administrador que se origina en el [portal de restablecimiento de contraseñas](https://passwordreset.microsoftonline.com).
    * Cualquier operación de restablecimiento de contraseña del usuario final iniciada por el administrador desde [Azure Portal](https://portal.azure.com).
-   * Cualquier operación de restablecimiento de contraseña del usuario final que inicie el administrador desde la [versión beta de Microsoft Graph API](/graph/api/passwordauthenticationmethod-resetpassword?tabs=http&view=graph-rest-beta).
+   * Cualquier operación de restablecimiento de contraseña del usuario final que inicie el administrador desde [API de Microsoft Graph](/graph/api/passwordauthenticationmethod-resetpassword?tabs=http).
 
 ## <a name="unsupported-writeback-operations"></a>Operaciones de reescritura no admitidas
 
@@ -149,7 +149,7 @@ Las contraseñas no se vuelven a escribir en ninguna de las situaciones siguient
 * **Operaciones de usuario final no admitidas**
    * Cualquier usuario final que restablezca su propia contraseña mediante PowerShell versión 1, versión 2 o Microsoft Graph API.
 * **Operaciones de administrador no admitidas**
-   * Cualquier operación de restablecimiento de contraseña del usuario final que inicie el administrador desde PowerShell versión 1, versión 2 o Microsoft Graph API (se admite la [versión beta de Microsoft Graph API](/graph/api/passwordauthenticationmethod-resetpassword?tabs=http&view=graph-rest-beta)).
+   * Cualquier operación de restablecimiento de contraseña del usuario final que inicie el administrador desde PowerShell versión 1, versión 2 o API de Microsoft Graph (se admite [API de Microsoft Graph](/graph/api/passwordauthenticationmethod-resetpassword?tabs=http)).
    * Cualquier operación de restablecimiento de contraseña del usuario final que inicie el administrador desde el [Centro de administración de Microsoft 365](https://admin.microsoft.com).
    * Ningún administrador puede usar la herramienta de restablecimiento de contraseña para restablecer su propia contraseña para la escritura diferida de contraseñas.
 

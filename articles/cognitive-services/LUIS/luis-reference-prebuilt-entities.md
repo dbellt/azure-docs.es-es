@@ -8,13 +8,13 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 07/20/2020
-ms.openlocfilehash: cb3c74a2176ee7fcac53afb5185e8c62e66f4dfb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/13/2021
+ms.openlocfilehash: 7155a829655645e13e0485ed7d51305ec50e5b0a
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104798806"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107502766"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>Entidades por la referencia cultural en el modelo de LUIS
 
@@ -23,7 +23,7 @@ Language Understanding (LUIS) proporciona entidades precompiladas.
 ## <a name="entity-resolution"></a>Resolución de entidades
 Cuando una entidad precompilada se incluye en la aplicación, LUIS incluye la resolución de la entidad correspondiente en la respuesta del punto de conexión. Todas las expresiones de ejemplo también se etiquetan con la entidad.
 
-No se puede modificar el comportamiento de las entidades creadas previamente, pero puede mejorar la resolución si [agrega la entidad precompilada como una característica a una entidad de aprendizaje automático o subentidad](luis-concept-entity-types.md#effective-prebuilt-entities).
+El comportamiento de las entidades creadas previamente no se puede modificar, pero es posible mejorar la resolución al [agregar la entidad precompilada como una característica a una entidad o subentidad de aprendizaje automático](luis-concept-entity-types.md#prebuilt-entity).
 
 ## <a name="availability"></a>Disponibilidad
 A menos que se indique lo contrario, las entidades precompiladas están disponibles en todas las configuraciones locales de aplicación LUIS (referencias culturales). En la siguiente tabla se muestran las entidades precompiladas que se admiten para cada referencia cultural.

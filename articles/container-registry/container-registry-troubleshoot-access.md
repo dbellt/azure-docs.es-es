@@ -3,12 +3,12 @@ title: Solución de problemas de red con el registro
 description: Síntomas, causas y resolución de problemas comunes al acceder a un registro de contenedor de Azure en una red virtual o detrás de un firewall
 ms.topic: article
 ms.date: 03/30/2021
-ms.openlocfilehash: ae75959028e19ec61e6dcf41308e54df38139d59
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: dc2110405713791d11fb438565fc091da9c9dd5c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106220120"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780759"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>Solución de problemas de red con el registro
 
@@ -28,6 +28,7 @@ Puede encontrarse con uno o varios de los siguientes:
 * No se puede agregar o modificar la configuración de red virtual o las reglas de acceso público
 * ACR Tasks no puede insertar ni extraer imágenes
 * Azure Security Center no pueden examinar imágenes en el registro o los resultados de los exámenes no aparecen en Azure Security Center
+* Recibirá un error `host is not reachable` al intentar acceder a un registro configurado con un punto de conexión privado.
 
 ## <a name="causes"></a>Causas
 
@@ -38,7 +39,7 @@ Puede encontrarse con uno o varios de los siguientes:
 
 ## <a name="further-diagnosis"></a>Diagnóstico detallado 
 
-Ejecute el comando [az acr check-helth](/cli/azure/acr#az-acr-check-health) para tener más información sobre el estado del entorno y el acceso opcional a un registro de destino. Por ejemplo, diagnostique ciertos problemas de configuración o conectividad de la red. 
+Ejecute el comando [az acr check-helth](/cli/azure/acr#az_acr_check_health) para tener más información sobre el estado del entorno y el acceso opcional a un registro de destino. Por ejemplo, diagnostique ciertos problemas de configuración o conectividad de la red. 
 
 Puede encontrar ejemplos de comandos en [Comprobación del mantenimiento de un registro de contenedor de Azure](container-registry-check-health.md). Si se notifican errores, revise la [referencia de error](container-registry-health-error-reference.md) y las siguientes secciones para ver las soluciones recomendadas.
 
@@ -86,6 +87,8 @@ Vínculos relacionados:
 
 Confirme que la red virtual está configurada con un punto de conexión privado para Private Link o un punto de conexión de servicio (versión preliminar). Actualmente, no se admite un punto de conexión de Azure Bastion.
 
+Si se configura un punto de conexión privado, confirme que DNS resuelve el FQDN público del registro, como *myregistry.azurecr.io*, en la dirección IP privada del registro. Use una utilidad de red como `dig` o `nslookup` para la búsqueda de DNS. Asegúrese de que los [registros DNS estén configurados](container-registry-private-link.md#dns-configuration-options) para el FQDN del registro y para cada uno de los FQDN del punto de conexión de datos.
+
 Revise las reglas del grupo de seguridad de red y las etiquetas de servicio que se usan para limitar el tráfico que va desde otros recursos de la red hacia el registro. 
 
 Si se ha configurado un punto de conexión de servicio al registro, confirme que se agrega una regla de red al registro que permita el acceso desde la subred de esa red. El punto de conexión de servicio solo admite el acceso desde máquinas virtuales y clústeres de AKS en la red.
@@ -94,11 +97,10 @@ Si quiere restringir el acceso al registro mediante una red virtual en otra susc
 
 Si Azure Firewall o una solución similar está configurada en la red, compruebe que el tráfico de salida de otros recursos, como un clúster de AKS, está habilitado para llegar a los puntos de conexión del registro.
 
-Si se configura un punto de conexión privado, confirme que DNS resuelve el FQDN público del registro, como *myregistry.azurecr.io*, en la dirección IP privada del registro. Use una utilidad de red como `dig` o `nslookup` para la búsqueda de DNS.
-
 Vínculos relacionados:
 
 * [Conexión privada a un registro de contenedor de Azure mediante Azure Private Link](container-registry-private-link.md)
+* [Solución de problemas de conectividad de puntos de conexión privados de Azure](../private-link/troubleshoot-private-endpoint-connectivity.md)
 * [Restricción del acceso a un registro de contenedor mediante un punto de conexión de servicio en una red virtual de Azure](container-registry-vnet.md)
 * [Reglas de red de salida y FQDN necesarios para clústeres de AKS](../aks/limit-egress-traffic.md#required-outbound-network-rules-and-fqdns-for-aks-clusters)
 * [Kubernetes: Resolución de depuración de DNS](https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/)

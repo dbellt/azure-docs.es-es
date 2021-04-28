@@ -7,12 +7,12 @@ manager: bsiva
 ms.topic: tutorial
 ms.date: 3/2/2021
 ms.author: rahugup
-ms.openlocfilehash: 2c1a0ee78e866a12105eca77653b1063943d06db
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4e9eda21f637c285b218b7fdc627631225efdf12
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105561073"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108131303"
 ---
 # <a name="java-web-app-containerization-and-migration-to-azure-kubernetes-service"></a>Migración y contenedores de aplicaciones web de Java a Azure Kubernetes Service
 
@@ -20,7 +20,7 @@ En este artículo, aprenderá a incluir en contenedores las aplicaciones web de 
 
 La herramienta de contenedorización de aplicaciones de Azure Migrate admite actualmente las acciones siguientes:
 
-- Inclusión en contenedores de las aplicaciones ASP.NET e implementación en contenedores de Windows en AKS. [Más información](./tutorial-containerize-aspnet-kubernetes.md)
+- Inclusión en contenedores de las aplicaciones ASP.NET e implementación en contenedores de Windows en AKS. [Más información](./tutorial-app-containerization-aspnet-kubernetes.md)
 - Inclusión en contenedores de aplicaciones web de Java en Apache Tomcat (en servidores Linux) e implementación en contenedores de Linux en AKS.
 
 
@@ -261,4 +261,4 @@ Para solucionar cualquier problema con la herramienta, puede ver los archivos de
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Inclusión en contenedores de las aplicaciones ASP.NET e implementación en contenedores de Windows en AKS. [Más información](./tutorial-containerize-aspnet-kubernetes.md)
+- Inclusión en contenedores de las aplicaciones ASP.NET e implementación en contenedores de Windows en AKS. [Más información](./tutorial-app-containerization-aspnet-kubernetes.md)

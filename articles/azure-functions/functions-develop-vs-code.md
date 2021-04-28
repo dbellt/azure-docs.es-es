@@ -4,12 +4,12 @@ description: Aprenda a desarrollar y probar Azure Functions mediante la extensi�
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/21/2019
-ms.openlocfilehash: d4353e6be313d61716933879efa930e22472781b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c2869b2b30722495523a9f0dfb2d70a17a205854
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99493960"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107871280"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Desarrollo de Azure Functions con Visual Studio Code
 
@@ -85,7 +85,7 @@ Estos requisitos previos solo son necesarios para [ejecutar y depurar las funcio
 
 + Se recomienda [PowerShell 7](/powershell/scripting/install/installing-powershell-core-on-windows). Para obtener información sobre la versión, consulte [Versiones de PowerShell](functions-reference-powershell.md#powershell-versions).
 
-+ [.NET Core 3.1 Runtime](https://www.microsoft.com/net/download) y [.NET Core 2.1 Runtime](https://dotnet.microsoft.com/download/dotnet-core/2.1)  
++ [.NET Core 3.1 Runtime](https://dotnet.microsoft.com/download) y [.NET Core 2.1 Runtime](https://dotnet.microsoft.com/download/dotnet/2.1)  
 
 + La [extensión de PowerShell](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell) para Visual Studio Code  
 
@@ -326,7 +326,7 @@ Los pasos siguientes publican el proyecto en una nueva aplicación de funciones 
 
 1. Siguiendo las indicaciones, proporcione esta información:
 
-    | Prompt | Value | Descripción |
+    | Prompt | Valor | Descripción |
     | ------ | ----- | ----------- |
     | Selección de una aplicación de funciones en Azure | Crear una aplicación de funciones en Azure | En el siguiente aviso, escriba un nombre único global que identifique la nueva aplicación de funciones y seleccione ENTRAR. Los siguientes son caracteres válidos para un nombre de aplicación de función: `a-z`, `0-9` y `-`. |
     | Seleccione un sistema operativo | Windows | La aplicación de funciones se ejecuta en Windows. |

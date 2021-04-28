@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 07/27/2020
-ms.openlocfilehash: 394b3390386c60e2a64f52dd944dfcdb0d33951e
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 1202843781ab1c08b2d573967e5118ed04d48990
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107727031"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108129916"
 ---
 # <a name="what-is-azure-sql"></a>¿Qué es Azure SQL? 
 [!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
@@ -168,7 +168,7 @@ Para **SQL en máquinas virtuales de Azure**, Microsoft proporciona un contrato 
 
 **Instancia administrada de Azure SQL**  simplifica en gran medida la migración de aplicaciones existentes a Azure, lo que le permite comercializar aplicaciones de base de datos migradas rápidamente en Azure.
 
-**SQL en máquinas virtuales de Azure** es perfecto si las aplicaciones nuevas o existentes requieren bases de datos grandes o acceso a todas las características de SQL Server o Windows/Linux, y quiere ahorrarse el tiempo y el dinero de adquirir nuevo hardware local. También es una buena opción si quiere migrar aplicaciones y bases de datos locales existentes a Azure tal cual, en casos en que SQL Database o Instancia administrada de SQL no sea una opción adecuada. Dado que no es necesario cambiar los niveles de presentación, aplicación y datos, se ahorra tiempo y presupuesto en renovar la arquitectura de la solución existente. En su lugar, puede centrarse en migrar todas las soluciones a Azure y realizar algunas optimizaciones del rendimiento que requiere la plataforma de Azure. Para obtener más información, consulte [Procedimientos recomendadas para mejorar el rendimiento para SQL Server en Azure Virtual Machines](virtual-machines/windows/performance-guidelines-best-practices.md).
+**SQL en máquinas virtuales de Azure** es perfecto si las aplicaciones nuevas o existentes requieren bases de datos grandes o acceso a todas las características de SQL Server o Windows/Linux, y quiere ahorrarse el tiempo y el dinero de adquirir nuevo hardware local. También es una buena opción si quiere migrar aplicaciones y bases de datos locales existentes a Azure tal cual, en casos en que SQL Database o Instancia administrada de SQL no sea una opción adecuada. Dado que no es necesario cambiar los niveles de presentación, aplicación y datos, se ahorra tiempo y presupuesto en renovar la arquitectura de la solución existente. En su lugar, puede centrarse en migrar todas las soluciones a Azure y realizar algunas optimizaciones del rendimiento que requiere la plataforma de Azure. Para obtener más información, consulte [Procedimientos recomendadas para mejorar el rendimiento para SQL Server en Azure Virtual Machines](./virtual-machines/windows/performance-guidelines-best-practices-checklist.md).
 
 [!INCLUDE [sql-database-create-manage-portal](includes/sql-database-create-manage-portal.md)]
 

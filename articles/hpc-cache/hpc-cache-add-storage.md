@@ -4,14 +4,14 @@ description: Definición de los destinos de almacenamiento para que Azure HPC Ca
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 04/22/2021
 ms.author: v-erkel
-ms.openlocfilehash: 44b2534d7aeb12f4819a6c42cfb29d057ce26ddc
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 47cbb3caa46f62ef6b1d4384c50d161963cce908
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107259037"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107905565"
 ---
 # <a name="add-storage-targets"></a>Incorporación de destinos de almacenamiento
 
@@ -19,7 +19,7 @@ Los *destinos de almacenamiento* son espacios de almacenamiento en servidores de
 
 Puede definir hasta 20 destinos de almacenamiento diferentes para una caché. La caché presenta todos los destinos de almacenamiento en un espacio de nombres agregado.
 
-Las rutas de acceso del espacio de nombres se configuran por separado después de agregar los destinos de almacenamiento. En general, un destino de almacenamiento de NFS puede tener hasta diez rutas de acceso de espacio de nombres, o más, para algunas configuraciones grandes. Lea [Rutas de acceso de espacio de nombres de NFS](add-namespace-paths.md#nfs-namespace-paths) para obtener más información.
+Las rutas de acceso del espacio de nombres se configuran por separado después de agregar los destinos de almacenamiento.
 
 Recuerde que las exportaciones de almacenamiento deben ser accesibles desde la red virtual de la caché. En el caso del almacenamiento en hardware local, es posible que tenga que configurar un servidor DNS que pueda resolver nombres de host para el acceso al almacenamiento de NFS. Obtenga más información en [Acceso DNS](hpc-cache-prerequisites.md#dns-access).
 
@@ -126,7 +126,7 @@ Compruebe también la configuración del firewall de la cuenta de almacenamiento
 
 ### <a name="add-a-blob-storage-target-with-azure-cli"></a>Incorporación de un destino de almacenamiento de blobs con la CLI de Azure
 
-Use la interfaz [az hpc-cache blob-storage-target add](/cli/azure/ext/hpc-cache/hpc-cache/blob-storage-target#ext-hpc-cache-az-hpc-cache-blob-storage-target-add) para definir un destino de almacenamiento en Azure Blob Storage.
+Use la interfaz [az hpc-cache blob-storage-target add](/cli/azure/hpc-cache/blob-storage-target#az_hpc_cache_blob_storage_target_add) para definir un destino de almacenamiento en Azure Blob Storage.
 
 > [!NOTE]
 > Actualmente, los comandos de la CLI de Azure requieren la creación de una ruta de acceso de espacio de nombres al agregar un destino de almacenamiento. Esto es diferente del proceso que se usa con la interfaz de Azure Portal.
@@ -229,7 +229,7 @@ Cuando termine, haga clic en **Aceptar** para agregar el destino de almacenamien
 
 [Configuración de la CLI de Azure para Azure HPC Cache](./az-cli-prerequisites.md).
 
-Use el comando [az hpc-cache nfs-storage-target add](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target#ext-hpc-cache-az-hpc-cache-nfs-storage-target-add) de la CLI de Azure para crear el destino de almacenamiento.
+Use el comando [az hpc-cache nfs-storage-target add](/cli/azure/hpc-cache/nfs-storage-target#az_hpc_cache_nfs_storage_target_add) de la CLI de Azure para crear el destino de almacenamiento.
 
 > [!NOTE]
 > Actualmente, los comandos de la CLI de Azure requieren la creación de una ruta de acceso de espacio de nombres al agregar un destino de almacenamiento. Esto es diferente del proceso que se usa con la interfaz de Azure Portal.
@@ -240,7 +240,7 @@ Proporcione estos valores además del nombre de la caché y el grupo de recursos
 * ``--nfs3-target``: dirección IP del sistema de almacenamiento NFS. (Puede usar un nombre de dominio completo aquí si la caché tiene acceso a un servidor DNS que lo resuelva).
 * ``--nfs3-usage-model``: uno de los perfiles de almacenamiento en caché de datos, que se describe en la sección [Selección de un modelo de uso](#choose-a-usage-model) anterior.
 
-  Compruebe los nombres de los modelos de uso con el comando [az hpc-cache usage-model list](/cli/azure/ext/hpc-cache/hpc-cache/usage-model#ext-hpc-cache-az-hpc-cache-usage-model-list).
+  Compruebe los nombres de los modelos de uso con el comando [az hpc-cache usage-model list](/cli/azure/hpc-cache/usage-model#az_hpc_cache_usage_model_list).
 
 * ``--junction``: parámetro de unión que vincula la ruta de acceso del archivo virtual orientado al cliente con una ruta de acceso de exportación del sistema de almacenamiento.
 
@@ -350,13 +350,13 @@ Lea [Editar destinos de almacenamiento](hpc-cache-edit-storage.md) para obtener 
 
 [Configuración de la CLI de Azure para Azure HPC Cache](./az-cli-prerequisites.md).
 
-Use la opción [az hpc-cache storage-target list](/cli/azure/ext/hpc-cache/hpc-cache/storage-target#ext-hpc-cache-az-hpc-cache-storage-target-list) para mostrar los destinos de almacenamiento de la caché existentes. Proporcione el nombre de la caché y el grupo de recursos (a menos que lo haya establecido como global).
+Use la opción [az hpc-cache storage-target list](/cli/azure/hpc-cache/storage-target#az_hpc_cache_storage-target-list) para mostrar los destinos de almacenamiento de la caché existentes. Proporcione el nombre de la caché y el grupo de recursos (a menos que lo haya establecido como global).
 
 ```azurecli
 az hpc-cache storage-target list --resource-group "scgroup" --cache-name "sc1"
 ```
 
-Use [az hpc-cache storage-target show](/cli/azure/ext/hpc-cache/hpc-cache/storage-target#ext-hpc-cache-az-hpc-cache-storage-target-list) para ver detalles sobre un destino de almacenamiento concreto (especifíquelo por su nombre).
+Use [az hpc-cache storage-target show](/cli/azure/hpc-cache/storage-target#az_hpc_cache_storage-target-list) para ver detalles sobre un destino de almacenamiento concreto (especifíquelo por su nombre).
 
 Ejemplo:
 

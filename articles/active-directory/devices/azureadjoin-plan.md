@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc20ca3f3cf6197f8a3ed3a7e0362046f129d369
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 383bd00bb0daf165f37ed98e48a5d36708367920
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107305878"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108130870"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procedimientos: Planeación de la implementación de la unión a Azure AD
 
@@ -24,7 +24,7 @@ Unión a Azure AD permite unir dispositivos directamente a Azure AD sin necesida
 
 Este artículo proporciona la información que necesita para planear su implementación de Unión a Azure AD.
  
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 En este artículo se da por hecho que está familiarizado con la [introducción a la administración de dispositivos en Azure Active Directory](./overview.md).
 
@@ -239,7 +239,7 @@ Seleccione **Sí** si necesita que los usuarios ejecuten MFA al unir dispositivo
 
 ![Requerir Multi-factor Authentication para unir dispositivos](./media/azureadjoin-plan/03.png)
 
-**Recomendación:** Use la acción de usuario [Registrar o unir dispositivos](/azure/active-directory/conditional-access/concept-conditional-access-cloud-apps#user-actions) en el acceso condicional para aplicar MFA durante la unión de dispositivos.
+**Recomendación:** Use la acción de usuario [Registrar o unir dispositivos](../conditional-access/concept-conditional-access-cloud-apps.md#user-actions) en el acceso condicional para aplicar MFA durante la unión de dispositivos.
 
 ## <a name="configure-your-mobility-settings"></a>Configurar las opciones de movilidad
 

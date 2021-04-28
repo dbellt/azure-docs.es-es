@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: ffc5bafca305086b0c524c76eb91b8aec2e2655d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e795431a0a3e42b7aa91ac7dcb95c7bcb9c9990b
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98602442"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107892083"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinco pasos para asegurar su infraestructura de identidad
 
@@ -75,7 +75,7 @@ Microsoft recomienda adoptar la directiva moderna de contraseñas basada en las 
 2. Deshabilitar las reglas de expiración, que solo consiguen que los usuarios elijan contraseñas fáciles de adivinar, como **Spring2019!**
 3. Deshabilitar los requisitos de composición de caracteres y evitar que los usuarios elijan contraseñas comúnmente atacadas, ya que solo se consigue que los usuarios elijan sustituciones de caracteres predecibles en las contraseñas.
 
-Si crea identidades directamente en Azure AD, puede usar [PowerShell para evitar que las contraseñas de los usuarios expiren](../../active-directory/authentication/concept-sspr-policy.md). Las organizaciones híbridas deben implementar estas directivas utilizando la [configuración de la directiva de grupo de dominio](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/hh994572(v%3dws.10)) o [Windows PowerShell](/powershell/module/addsadministration/set-addefaultdomainpasswordpolicy).
+Si crea identidades directamente en Azure AD, puede usar [PowerShell para evitar que las contraseñas de los usuarios expiren](../../active-directory/authentication/concept-sspr-policy.md). Las organizaciones híbridas deben implementar estas directivas utilizando la [configuración de la directiva de grupo de dominio](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/hh994572(v%3dws.10)) o [Windows PowerShell](/powershell/module/activedirectory/set-addefaultdomainpasswordpolicy).
 
 ### <a name="protect-against-leaked-credentials-and-add-resilience-against-outages"></a>Protéjase contra la filtración de credenciales y mejore la resistencia contra las interrupciones
 

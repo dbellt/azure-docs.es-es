@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: 62e2306abc2d3132651fb40aab8c2f5b4d5043f4
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: 07611a3620a2fd8efe0da075b03b55a5be3a5be9
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105960884"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107505384"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Migración de tráfico de Azure SQL Database a puertas de enlace más recientes
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,10 +29,18 @@ La información más actualizada se mantendrá en la tabla [Direcciones IP de la
 ## <a name="status-updates"></a>Actualizaciones de estado
 
 # <a name="in-progress"></a>[En curso](#tab/in-progress-ip)
+## <a name="may-2021"></a>Mayo de 2021
+Se están agregando nuevas puertas de enlace de SQL a las siguientes regiones:
+- Sur de Reino Unido: 51.140.144.36, 51.105.72.32  
+- Centro-oeste de EE. UU.: 13.71.193.32, 13.71.193.33 
+
+Esta puerta de enlace de SQL comenzará a aceptar el tráfico de clientes el 17 de mayo de 2021.
 
 ## <a name="april-2021"></a>Abril de 2021
 Se están agregando nuevas puertas de enlace de SQL a las siguientes regiones:
-- Este de EE. UU. 2: 40.70.144.193; estas puertas de enlace de SQL comenzarán a aceptar el tráfico de clientes el 30 de abril de 2021.
+- Este de EE. UU. 2: 40.70.144.193
+
+Esta puerta de enlace de SQL comenzará a aceptar el tráfico de clientes el 30 de abril de 2021.
 
 Se están agregando nuevas puertas de enlace de SQL a las siguientes regiones:
 - Este de Noruega: 51.120.96.33
@@ -46,7 +54,6 @@ Estas puertas de enlace de SQL comenzarán a aceptar el tráfico del cliente el 
 
 ## <a name="march-2021"></a>Marzo de 2021
 Las siguientes puertas de enlace de SQL en varias regiones están en proceso de desactivación:
-
 - Sur de Brasil: 104.41.11.5
 - Este de Asia: 191.234.2.139
 - Este de EE. UU: 191.238.6.43
@@ -59,6 +66,9 @@ Las siguientes puertas de enlace de SQL en varias regiones están en proceso de 
 - Oeste de EE. UU.: 23.99.34.75
 
 No se prevé ningún impacto para los clientes, ya que estas puertas de enlace (que se ejecutan en hardware anterior) no enrutan el tráfico de los clientes. Las direcciones IP de estas puertas de enlace se desactivarán el 15 de marzo de 2021.
+
+# <a name="completed"></a>[Completado](#tab/completed-ip)
+Se han completado las siguientes migraciones de puerta de enlace: 
 
 ## <a name="february-2021"></a>Febrero de 2021
 Se están agregando nuevas puertas de enlace de SQL a las siguientes regiones:
@@ -83,8 +93,7 @@ Se están agregando nuevas puertas de enlace de SQL a las siguientes regiones:
 
 Estas puertas de enlace de SQL comenzarán a aceptar el tráfico del cliente el 31 de enero de 2021.
 
-# <a name="completed"></a>[Completado](#tab/completed-ip)
-Se han completado las siguientes migraciones de puerta de enlace: 
+
 
 ### <a name="october-2020"></a>Octubre de 2020
 

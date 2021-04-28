@@ -7,12 +7,12 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 03/30/2021
 ms.author: kumud
-ms.openlocfilehash: 9b608312d66e6a3e7455c4577ea4644b33e4e82e
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 8ed448f9f4f8dc688271f2ce671b2d89da0f342f
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106079959"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108146819"
 ---
 # <a name="azure-networking-architecture-documentation"></a>Documentación de la arquitectura de redes de Azure
 
@@ -46,11 +46,12 @@ En la tabla siguiente se incluyen artículos en los que se describe cómo implem
 |Título |Descripción  |
 |---------|---------|
 |[Aplicación de niveles N para varias regiones](/azure/architecture/reference-architectures/n-tier/multi-region-sql-server))  | Describe una aplicación de niveles N para varias regiones que usa Traffic Manager para redirigir las solicitudes entrantes a una región principal. Si esa región deja de estar disponible, Traffic Manager conmuta por error en la región secundaria.      |
-| [SaaS multiinquilino en Azure](https://docs.microsoft.com/azure/architecture/example-scenario/multi-saas/multitenant-saas)       |   Usa una solución de varios inquilinos que incluya una combinación de Front Door y Application Gateway.  Front Door ayuda a equilibrar la carga del tráfico entre regiones y Application Gateway redirige y equilibra la carga del tráfico internamente en la aplicación a varios servicios que satisfacen las necesidades empresariales de los clientes.  |
-| [Aplicación web de varios niveles creada para lograr alta disponibilidad y recuperación ante desastres ](https://docs.microsoft.com/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery)        |      Implementa aplicaciones resistentes de varios niveles diseñadas para una alta disponibilidad y recuperación ante desastres. Si la región principal no está disponible, Traffic Manager conmuta por error en la región secundaria.  |
+| [SaaS multiinquilino en Azure](/azure/architecture/example-scenario/multi-saas/multitenant-saas)       |   Usa una solución de varios inquilinos que incluya una combinación de Front Door y Application Gateway.  Front Door ayuda a equilibrar la carga del tráfico entre regiones y Application Gateway redirige y equilibra la carga del tráfico internamente en la aplicación a varios servicios que satisfacen las necesidades empresariales de los clientes.  |
+| [Aplicación web de varios niveles creada para lograr alta disponibilidad y recuperación ante desastres ](/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery)        |      Implementa aplicaciones resistentes de varios niveles diseñadas para una alta disponibilidad y recuperación ante desastres. Si la región principal no está disponible, Traffic Manager conmuta por error en la región secundaria.  |
 |[IaaS: aplicación web con base de datos relacional](/azure/architecture/high-availability/ref-arch-iaas-web-and-db)    |   Describe cómo usar los recursos distribuidos en varias zonas para proporcionar una arquitectura de alta disponibilidad para el hospedaje de una aplicación web de infraestructura como servicio (IaaS) y una base de datos de SQL Server.     |
 |[Compartir ubicación en tiempo real mediante servicios de Azure sin servidor económicos](/azure/architecture/example-scenario/signalr/#azure-front-door)       |   Usa Azure Front Door para proporcionar a las aplicaciones una disponibilidad mayor que si se implementa en una única región. Si una interrupción regional afecta a la región primaria, puede usar Front Door realizar una conmutación por error a la región secundaria.      |
 |[Aplicaciones virtuales de red de alta disponibilidad](/azure/architecture/reference-architectures/dmz/nva-ha)     | Muestra cómo implementar un conjunto de aplicaciones de red virtual (NVA) de alta disponibilidad en Azure.        |
+|[Equilibrio de carga de varias regiones con Traffic Manager y Application Gateway](/azure/architecture/high-availability/reference-architecture-traffic-manager-application-gateway)     | Describe cómo implementar aplicaciones de varios niveles resistentes en varias regiones de Azure, con el fin de lograr disponibilidad y una sólida infraestructura de recuperación ante desastres.        |
 
 ## <a name="secure-your-network-resources"></a>Protección de los recursos de red
 

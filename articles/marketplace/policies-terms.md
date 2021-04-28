@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 04/16/2021
-ms.openlocfilehash: 7938403e67d7059e8744e7023e8a7614df37e20f
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: bc66c922f5d5954adce0361ed88fc80ba80e0836
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107599628"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108133104"
 ---
 # <a name="commercial-marketplace-policies-and-terms"></a>Términos y directivas de Marketplace comercial
 
@@ -24,8 +24,8 @@ Las ofertas de Marketplace comercial deben cumplir nuestros términos y nuestras
 
 ## <a name="publisher-agreement"></a>Contrato del anunciante
 
-- [Contrato de publicador de Microsoft](https://go.microsoft.com/fwlink/?LinkID=699560)
-- [Historial de cambios para el Contrato de publicador de Microsoft](https://go.microsoft.com/fwlink/?linkid=2159975&clcid=0x409)
+- [Contrato de publicador de Microsoft](/legal/marketplace/msft-publisher-agreement)
+- [Historial de cambios para el Contrato de publicador de Microsoft](/legal/marketplace/mpa-change-history)
 
 El Contrato de publicador de Microsoft describe la relación para publicar ofertas en el marketplace comercial. Regula su acceso y uso de las características del Centro de partners relacionadas con la publicación y el listado de ofertas en las tiendas en línea del marketplace comercial.
 

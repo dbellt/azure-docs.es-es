@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: 5171cefdb82b958ae8148ff63f1daef5f67916c6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 23597804a34a9bc409db179010569024aa472016
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105044964"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107725933"
 ---
 # <a name="install-log-analytics-agent-on-linux-computers"></a>Instalación del agente de Log Analytics en equipos Linux
 En este artículo, se proporcionan detalles sobre la instalación del agente de Log Analytics en equipos Linux con los métodos siguientes:
@@ -71,16 +71,16 @@ El ejecutable python2 debe tener un alias para *python*. A continuación se ofre
     ```
 
 ## <a name="supported-linux-hardening"></a>Protección de Linux admitida
-El agente de OMS tiene compatibilidad de personalización limitada para Linux. 
+El agente de OMS presenta capacidades limitadas de personalización y protección en Linux.
 
 Actualmente se admiten los siguientes: 
 - FIPs
 
-Los siguientes están planeados pero todavía no se admiten:
+No se admite lo siguiente:
 - CIS
 - SELINUX
 
-Otros métodos de protección y personalización no se admiten ni están planeados para el agente de OMS.  
+Está prevista la compatibilidad con capacidades de protección en CIS y SELINUX para el [agente de supervisión de Azure](https://docs.microsoft.com/azure/azure-monitor/agents/azure-monitor-agent-overview). Otros métodos de protección y personalización no se admiten ni están previstos para el agente de OMS.  
 
 ## <a name="agent-prerequisites"></a>Requisitos del agente
 

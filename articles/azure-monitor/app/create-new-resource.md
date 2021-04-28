@@ -3,12 +3,12 @@ title: Creación de un recurso de Azure Application Insights | Microsoft Docs
 description: Describe la configuración manual de la supervisión de Application Insights para una nueva aplicación activa.
 ms.topic: conceptual
 ms.date: 02/10/2021
-ms.openlocfilehash: 6158b5604046897e20053c67321f26d650c21b7f
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: ee5a6d6042f9c781a3e75915613e1dcbb52a7b68
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107566229"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108015688"
 ---
 # <a name="create-an-application-insights-resource"></a>Creación de recursos en Application Insights
 
@@ -155,7 +155,7 @@ az monitor app-insights component create --app demoApp --location eastus --kind 
 }
 ```
 
-Para obtener la documentación completa de la CLI de Azure para este comando y obtener información sobre cómo recuperar la clave de instrumentación, consulte la [documentación de la CLI de Azure](/cli/azure/ext/application-insights/monitor/app-insights/component#ext-application-insights-az-monitor-app-insights-component-create).
+Para obtener la documentación completa de la CLI de Azure para este comando y obtener información sobre cómo recuperar la clave de instrumentación, consulte la [documentación de la CLI de Azure](/cli/azure/monitor/app-insights/component#az_monitor_app_insights_component_create).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Búsqueda de diagnóstico](./diagnostic-search.md)
@@ -168,4 +168,3 @@ Para obtener la documentación completa de la CLI de Azure para este comando y o
 [diagnostic]: ./diagnostic-search.md
 [metrics]: ../essentials/metrics-charts.md
 [start]: ./app-insights-overview.md
-

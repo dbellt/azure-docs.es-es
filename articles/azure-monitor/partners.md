@@ -1,14 +1,16 @@
 ---
 title: Asociados que se integran con Azure Monitor
 description: Obtenga información sobre los asociados de Azure Monitor y sobre cómo puede acceder a documentación para integrarlos.
+author: rboucher
+ms.author: robb
 ms.topic: conceptual
-ms.date: 02/19/2021
-ms.openlocfilehash: 2a8e03d4bcfac81a5a718c3572227d48da23ea5a
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.date: 04/14/2021
+ms.openlocfilehash: d449f660fa97af8b5c24542258029834a964b3f2
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107374372"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751623"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integraciones de asociados de Azure Monitor
 
@@ -111,7 +113,7 @@ Si todavía usa la anterior integración configurada manualmente, consulte la [d
 
 Dynatrace OneAgent se integra con máquinas virtuales Azure y App Services a través del mecanismo de extensión de Azure. De esta forma, Dynatrace OneAgent puede recopilar métricas de rendimiento sobre los hosts, la red y los servicios. Además de simplemente mostrar las métricas, Dynatrace permite visualizar entornos de un extremo a otro. Muestra las transacciones desde el lado cliente a la capa de base de datos. Dynatrace proporciona una correlación de problemas basada en inteligencia artificial y un análisis de las causas principales totalmente integrado para proporcionar información en el nivel de método sobre el código y la base de datos. Esto facilita bastante la solución de problemas y las optimizaciones de rendimiento.
 
-[Documentación de Dynatrack](https://help.dynatrace.com/infrastructure-monitoring/paas/how-do-i-monitor-microsoft-azure-web-apps/)
+[Documentación de Dynatrace](https://www.dynatrace.com/support/help/technology-support/cloud-platforms/microsoft-azure-services/)
 
 
 ## <a name="elastic"></a>Elastic

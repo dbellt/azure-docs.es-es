@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 09/02/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 28e94cdb0df0a18b41f4c8a0ded362b50df6dcac
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a64ccec49248f48a85782cfe9537513a97b2bdfc
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100652979"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107868166"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Introducción a las colas de Service Bus
 En este tutorial se describen los pasos siguientes:
@@ -30,7 +30,7 @@ En este tutorial se describen los pasos siguientes:
     3. Cree un **tema** en el espacio de nombres.
     4. Cree **una suscripción** al tema en el espacio de nombres.
 3. [Visual Studio 2017 Update 3 (versión 15.3, 26730.01)](https://www.visualstudio.com/vs) o posterior.
-4. [NET Core SDK](https://www.microsoft.com/net/download/windows), versión 2.0 o posterior.
+4. [NET Core SDK](https://dotnet.microsoft.com/download), versión 2.0 o posterior.
  
 ## <a name="send-messages-to-the-topic"></a>Envío de mensajes al tema
 

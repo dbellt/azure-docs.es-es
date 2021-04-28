@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.author: ali
 author: AliciaLiMicrosoft
 ms.date: 04/19/2021
-ms.openlocfilehash: 6659b515ee2d25a4b9136ccfac4cc3444e491438
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: 5e312941e02c5605132971a55041a0b4f7d6dbc9
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107741296"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108139100"
 ---
 # <a name="log-analytics-migration-guide-for-azure-hdinsight-clusters"></a>Guía de migración de Log Analytics para clústeres de Azure HDInsight
 
@@ -59,7 +59,7 @@ En las secciones siguientes se describe cómo los clientes pueden usar la nueva 
 ## <a name="activate-a-new-azure-monitor-integration"></a>Activación de una nueva integración de Azure Monitor 
 
 > [!NOTE]
-> Tiene que tener un área de trabajo de Log Analytics creada en una suscripción a la que tenga acceso antes de habilitar la nueva integración. Para obtener más información sobre la creación de un área de trabajo de Log Analytics, consulte [Creación de un área de trabajo de Log Analytics en Azure Portal](../azure-monitor/learn/quick-create-workspace.md).
+> Tiene que tener un área de trabajo de Log Analytics creada en una suscripción a la que tenga acceso antes de habilitar la nueva integración. Para obtener más información sobre la creación de un área de trabajo de Log Analytics, consulte [Creación de un área de trabajo de Log Analytics en Azure Portal](../azure-monitor/logs/quick-create-workspace.md).
 
 Para activar la nueva integración, vaya a la página del portal del clúster y desplácese hacia abajo en el menú de la izquierda hasta llegar a la sección **Supervisión**. En la sección **Supervisión,** seleccione **Monitor integration** (Integración de Monitor). A continuación, seleccione **Habilitar** y podrá elegir el área de trabajo de Log Analytics a la que quiere que se envíen los registros. Seleccione **Guardar** una vez que haya elegido el área de trabajo. 
 
@@ -112,7 +112,7 @@ Puede escribir sus propias consultas en el editor Consultas de registros. Las co
 
 #### <a name="insights"></a>Información detallada
 
-En Información se encuentran paneles de visualización específicos del clúster creados mediante [Azure Workbooks](../azure-monitor/platform/workbooks-overview.md). Estos paneles le dan gráficos y visualizaciones detallados de cómo se ejecuta el clúster. Los paneles tienen secciones para cada tipo de clúster, YARN, métricas del sistema y registros de componentes. Para acceder al panel del clúster, visite la página del clúster en el portal, desplácese hacia abajo hasta la sección **Supervisión** y seleccione el panel **Información**. El panel se carga automáticamente si ha habilitado la nueva integración. Espere unos segundos para que los gráficos se carguen a medida que consulten los registros.
+En Información se encuentran paneles de visualización específicos del clúster creados mediante [Azure Workbooks](../azure-monitor/visualize/workbooks-overview.md). Estos paneles le dan gráficos y visualizaciones detallados de cómo se ejecuta el clúster. Los paneles tienen secciones para cada tipo de clúster, YARN, métricas del sistema y registros de componentes. Para acceder al panel del clúster, visite la página del clúster en el portal, desplácese hacia abajo hasta la sección **Supervisión** y seleccione el panel **Información**. El panel se carga automáticamente si ha habilitado la nueva integración. Espere unos segundos para que los gráficos se carguen a medida que consulten los registros.
 
 :::image type="content" source="./media/log-analytics-migration/visualization-dashboard.png" lightbox="./media/log-analytics-migration/visualization-dashboard.png" alt-text="Captura de pantalla en la que se muestra el panel de visualización.":::
 
@@ -132,7 +132,7 @@ Use nuestro nuevo libro a escala para obtener una experiencia de supervisión de
 
 #### <a name="alerts"></a>Alertas
 
-Puede agregar alertas personalizadas a los clústeres y áreas de trabajo en el editor Consultas de registro. Para ir al editor Consultas de registros, seleccione el panel **Registros** en el portal del clúster o del área de trabajo. Ejecute una consulta y, a continuación, seleccione **Nueva regla de alertas**, como se muestra en la captura de pantalla siguiente. Para obtener más información, lea sobre la [configuración de alertas](../azure-monitor/platform/alerts-log.md).
+Puede agregar alertas personalizadas a los clústeres y áreas de trabajo en el editor Consultas de registro. Para ir al editor Consultas de registros, seleccione el panel **Registros** en el portal del clúster o del área de trabajo. Ejecute una consulta y, a continuación, seleccione **Nueva regla de alertas**, como se muestra en la captura de pantalla siguiente. Para obtener más información, lea sobre la [configuración de alertas](../azure-monitor/alerts/alerts-log.md).
 
 :::image type="content" source="./media/log-analytics-migration/new-rule-alert.png" alt-text="Captura de pantalla que muestra la nueva alerta de reglas." border="false":::
 

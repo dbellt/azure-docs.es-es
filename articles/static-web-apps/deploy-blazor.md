@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 04/09/2021
 ms.author: cshoe
-ms.openlocfilehash: 5b8a94409f082177192847f2c65d44a513ecdbe4
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: d683507e8c35db5af3ef7e91674f6a55254e22e2
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107305045"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108132430"
 ---
 # <a name="tutorial-building-a-static-web-app-with-blazor-in-azure-static-web-apps"></a>Tutorial: Creación de una aplicación web estática con Blazor en Azure Static Web Apps
 
@@ -43,17 +43,13 @@ Juntos, estos proyectos constituyen los elementos necesarios para crear una apli
 
 ## <a name="fallback-route"></a>Ruta de reserva
 
-La aplicación expone direcciones URL como _/counter_ y _/fetchdata_ que se asignan a rutas específicas de la aplicación. Puesto que esta aplicación se implementa como una aplicación de página única, cada ruta recibe el archivo _index.html_. Para asegurarse de que la solicitud de cualquier ruta de acceso devuelva _index.html_, se implementa una [ruta de reserva](./routes.md#fallback-routes) en el archivo _staticwebapp.config.json_ que se encuentra en la carpeta _wwwroot_ del proyecto Client.
+La aplicación expone direcciones URL como _/counter_ y _/fetchdata_ que se asignan a rutas específicas de la aplicación. Puesto que esta aplicación se implementa como una aplicación de página única, cada ruta recibe el archivo _index.html_. Para asegurarse de que la solicitud de cualquier ruta de acceso devuelva _index.html_, se implementa una [ruta de reserva](./configuration.md#fallback-routes) en el archivo _staticwebapp.config.json_ que se encuentra en la carpeta _wwwroot_ del proyecto Client.
 
 ```json
 {
-  "routes": [
-    {
-      "route": "/*",
-      "serve": "/index.html",
-      "statusCode": 200
-    }
-  ]
+  "navigationFallback": {
+    "rewrite": "/index.html"
+  }
 }
 ```
 

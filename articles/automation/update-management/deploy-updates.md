@@ -3,14 +3,14 @@ title: Creación de implementaciones de actualizaciones para Update Management e
 description: En este artículo se describe cómo programar implementaciones de actualizaciones y revisar su estado.
 services: automation
 ms.subservice: update-management
-ms.date: 03/19/2021
+ms.date: 04/19/2021
 ms.topic: conceptual
-ms.openlocfilehash: 6d35d6b49ab72d8aa7b25506011147ab624273fd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e410e5de529bde122fe42d21b593a6fc483dcbc0
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104669685"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107726690"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Implementación de actualizaciones y revisión de los resultados
 
@@ -69,15 +69,30 @@ Para programar una implementación de actualizaciones nueva, siga estos pasos. E
 
 7. Use el área **Clasificaciones de actualizaciones** para especificar [clasificaciones de actualizaciones](view-update-assessments.md#work-with-update-classifications) para productos. En cada producto, anule la selección de todas las clasificaciones de actualizaciones compatibles, salvo las que se incluirán en la implementación de actualizaciones.
 
+   :::image type="content" source="./media/deploy-updates/update-classifications-example.png" alt-text="Ejemplo que muestra la selección de clasificaciones de actualizaciones específicas.":::
+
     Si la implementación está pensada para aplicar solo un conjunto de actualizaciones específico, es necesario anular la selección de todas las clasificaciones de actualización preseleccionadas al configurar la opción **Incluir o excluir las actualizaciones** como se describe en el paso siguiente. Esto garantiza que solo se instalen en las máquinas de destino las actualizaciones que haya especificado para *incluirse* en esta implementación.
 
+   >[!NOTE]
+   > La implementación de actualizaciones mediante la clasificación de actualizaciones no funciona en las versiones RTM de CentOS. Para implementar correctamente actualizaciones para CentOS, seleccione todas las clasificaciones para asegurarse de que se aplican las actualizaciones. Actualmente no hay ningún método compatible para habilitar la disponibilidad de datos de clasificación nativos en CentOS. Consulte lo siguiente para obtener más información sobre [las clasificaciones de actualización](overview.md#update-classifications).
+
 8. Use la región **Incluir o excluir las actualizaciones** para agregar o excluir actualizaciones seleccionadas de la implementación. En la página **Incluir/excluir**, escriba los números de identificador de artículo de KB que se van a incluir o excluir para actualizaciones de Windows. Para distribuciones de Linux compatibles, especifique el nombre del paquete.
+
+   :::image type="content" source="./media/deploy-updates/include-specific-updates-example.png" alt-text="Ejemplo que muestra cómo incluir actualizaciones específicas.":::
 
    > [!IMPORTANT]
    > Es importante recordar que las exclusiones tienen prioridad sobre las inclusiones. Por ejemplo, si define una regla de exclusión con `*`, Update Management excluirá todas las revisiones o los paquetes de la instalación. Las revisiones excluidas aparecen todavía como que faltan en la máquina. En el caso de las máquinas Linux, si incluye un paquete que tiene un paquete dependiente excluido, Update Management no instalará el paquete principal.
 
    > [!NOTE]
    > No se pueden especificar actualizaciones reemplazadas para incluirlas en la implementación de actualizaciones.
+
+   Estos son algunos escenarios de ejemplo que le ayudarán a comprender cómo usar la inclusión, la exclusión y la clasificación de actualizaciones simultáneamente en las implementaciones de actualizaciones:
+
+   * Si solo quiere instalar una lista específica de actualizaciones, no debe seleccionar ninguna **clasificación de actualizaciones** y proporcionar una lista de las actualizaciones que se aplicarán mediante la opción **Incluir**.
+
+   * Si quiere instalar solo actualizaciones críticas y de seguridad, junto con una o varias actualizaciones de controladores opcionales, debe seleccionar **Seguridad** y **Crítica** en **Clasificaciones de actualizaciones**. A continuación, en la opción **Incluir**, especifique las actualizaciones del controlador.
+
+   * Si quiere instalar solo actualizaciones críticas y de seguridad, pero si quiere omitir una o varias actualizaciones para Python y así evitar que se rompa la aplicación heredada, debe seleccionar **Seguridad** y **Crítica** en **Clasificaciones de actualizaciones**. A continuación, para la opción **Excluir**, agregue los paquetes de Python que se omitirán.
 
 9. Seleccione **Configuración de programación**. La hora de inicio predeterminada es 30 minutos después de la hora actual. Puede establecer la hora de inicio en cualquier momento a partir de 10 minutos en el futuro.
 

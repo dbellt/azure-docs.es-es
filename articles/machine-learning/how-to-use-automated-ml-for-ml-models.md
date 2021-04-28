@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: nibaccam
-author: aniththa
+author: cartacioS
 ms.reviewer: nibaccam
 ms.date: 12/20/2020
-ms.topic: conceptual
-ms.custom: how-to, automl
-ms.openlocfilehash: 2e06375441d6540d6630cfe9d4d8c3beec558879
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.topic: how-to
+ms.custom: automl
+ms.openlocfilehash: e744f7bb4d457e18f73c308fa5eaf29918b97e88
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103562729"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107888321"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Creación, revisión e implementación de modelos de aprendizaje automático automatizado con Azure Machine Learning
 
@@ -29,7 +29,7 @@ Para obtener un ejemplo completo, pruebe el [tutorial para crear un modelo de cl
 
 Si prefiere una experiencia basada en código de Python, [configure sus experimentos de aprendizaje automático automatizado](how-to-configure-auto-train.md) con el SDK de Azure Machine Learning.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Suscripción a Azure. Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 
@@ -180,15 +180,15 @@ Explore en profundidad los modelos completados para ver los detalles de la ejecu
 
 [![Detalles de la iteración](media/how-to-use-automated-ml-for-ml-models/iteration-details.png)](media/how-to-use-automated-ml-for-ml-models/iteration-details-expanded.png)
 
-## <a name="model-explanations"></a>Explicaciones del modelo
+## <a name="model-explanations-preview"></a>Explicaciones de modelos (versión preliminar)
 
-Para entender mejor el modelo, vea qué características de datos (con o sin diseño) han influido en las predicciones del modelo con el panel de explicaciones del modelo. 
+Para entender mejor el modelo, puede ver qué características de datos (con o sin diseño) han influido en las predicciones del modelo con el panel de explicaciones del modelo. 
 
-El panel de explicaciones del modelo proporciona un análisis general del modelo entrenado junto con sus predicciones y explicaciones. También permite profundizar en un punto de datos individual y sus importancias de características individuales. [Obtenga más información sobre las visualizaciones y trazados específicos del panel de explicaciones](how-to-machine-learning-interpretability-aml.md#visualizations).
+El panel de explicaciones del modelo proporciona un análisis general del modelo entrenado junto con sus predicciones y explicaciones. También permite profundizar en un punto de datos individual y sus importancias de características individuales. [Obtenga más información sobre las visualizaciones del panel de explicaciones](how-to-machine-learning-interpretability-aml.md#visualizations).
 
 Para obtener explicaciones de un modelo determinado: 
 
-1. En la pestaña **Modelos**, seleccione el modelo que quiere usar. 
+1. En la pestaña **Modelos**, seleccione el modelo del que quiere conocer más información. 
 1. Seleccione el botón **Explicar modelo** y proporcione un proceso que se pueda usar para generar las explicaciones.
 1. Compruebe el estado en la pestaña **Ejecuciones secundarias**. 
 1. Cuando termine, vaya a la pestaña **Explicaciones (versión preliminar)** , que contiene el panel de explicaciones. 

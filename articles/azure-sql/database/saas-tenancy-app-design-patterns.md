@@ -10,12 +10,12 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 8a13c641d50a68d9661b4aa6caf8effb82d53dd7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b3d819cc87d653b2ef132539a77dbc57220ca5d1
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92793235"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108142340"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Patrones de inquilinato de base de datos SaaS multiinquilino
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -115,7 +115,7 @@ Otras características de administración que escalan bien incluyen las siguient
 
 #### <a name="automation"></a>Automation
 
-Las operaciones de administración se pueden incluir en un script y ofrecer con un modelo de [devops][http-visual-studio-devops-485m].  Las operaciones incluso pueden ser automatizadas y expuestas en la aplicación.
+Las operaciones de administración se pueden incluir en un script y ofrecer con un modelo de [devops](/azure/devops/user-guide/what-is-azure-devops).  Las operaciones incluso pueden ser automatizadas y expuestas en la aplicación.
 
 Por ejemplo, puede automatizar la recuperación de un solo inquilino a un momento anterior en el tiempo.  La recuperación solo necesita restaurar la base de datos de un solo inquilino que almacena al inquilino.  Esta restauración no influye en otros inquilinos, lo que confirma que las operaciones de administración se encuentran en el nivel granular de cada inquilino individual.
 

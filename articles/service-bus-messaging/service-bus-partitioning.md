@@ -4,12 +4,12 @@ description: Describe cómo realizar la partición de los temas y las colas de S
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9c500a69f853b11437a0dcaa48213fe3a84da53b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bc41bcf31102b19dd35f62452b956faf4f029551
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97796642"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107750921"
 ---
 # <a name="partitioned-queues-and-topics"></a>Temas y colas con particiones
 
@@ -146,6 +146,7 @@ En su implementación actual, Service Bus impone las siguientes limitaciones en 
 * Actualmente Service Bus permite hasta 100 colas o temas particionados por espacio de nombres. Cada cola o tema con particiones se tiene en cuenta para la cuota de 10.000 entidades por espacio de nombres (no se aplica al nivel Premium).
 
 ## <a name="next-steps"></a>Pasos siguientes
+Puede habilitar la partición mediante Azure Portal, PowerShell, CLI, la plantilla de Resource Manager, .NET, Java, Python y JavaScript. Para obtener más información, consulte [Habilitar la partición](enable-partitions.md). 
 
 Obtenga información sobre los conceptos básicos de la especificación de mensajería de AMQP 1.0 en la [guía del protocolo AMQP 1.0](service-bus-amqp-protocol-guide.md).
 

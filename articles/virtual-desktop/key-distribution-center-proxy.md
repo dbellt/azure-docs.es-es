@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/20/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 21db7ed0cf13a3ed282929b09847c6c3ba8a36ed
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 9dce264b7f2c88aed11f5b82a61f83cbac6c9697
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107307255"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785116"
 ---
 # <a name="configure-a-kerberos-key-distribution-center-proxy-preview"></a>Configuración de un proxy del Centro de distribución de claves de Kerberos (versión preliminar)
 
@@ -36,7 +36,7 @@ En este artículo se muestra cómo configurar la fuente en el cliente de Windows
 Para configurar un host de sesión de Windows Virtual Desktop con un proxy KDC, necesitará lo siguiente:
 
 - Acceso al Azure Portal y a una cuenta de administrador de Azure.
-- Los equipos cliente remotos deben ejecutar Windows 10 o Windows 7 y tener instalado el [cliente de Escritorio de Windows](/windows-server/remote/remote-desktop-services/clients/windowsdesktop).
+- Los equipos cliente remotos deben ejecutar Windows 10 o Windows 7 y tener instalado el [cliente de Escritorio de Windows](/windows-server/remote/remote-desktop-services/clients/windowsdesktop). Actualmente, no se admite el cliente web.
 - Debe tener un proxy KDC instalado en la máquina. Para obtener información sobre cómo hacerlo, consulte [Configuración del rol de puerta de enlace de RD para Windows Virtual Desktop](rd-gateway-role.md).
 - El sistema operativo de la máquina debe ser Windows Server 2016 o posterior.
 

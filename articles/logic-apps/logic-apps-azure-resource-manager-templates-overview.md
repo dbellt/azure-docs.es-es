@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 11/06/2020
-ms.openlocfilehash: 44131ecf6fd3d8d2f07f0fe567fb924ac8621682
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 08363a1a1de8f95c4ff74fbe20f4052796c41f49
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106110009"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108018518"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Introducción: Automatización de la implementación para Azure Logic Apps mediante plantillas de Azure Resource Manager
 
@@ -1121,7 +1121,7 @@ Esta es la plantilla de ejemplo parametrizada que se usa en los ejemplos de este
          "defaultValue": "",
          "metadata": {
             "description": "Name of the storage account the connector should use."
-         },
+         }
 
       },
       "azureblob_1_accountName": {
@@ -1164,7 +1164,7 @@ Esta es la plantilla de ejemplo parametrizada que se usa en los ejemplos de este
                            "connection": {
                               "name": "@parameters('$connections')['azureblob']['connectionId']"
                            }
-                        },
+                        }
                      },
                      "method": "post",
                      "body": "@triggerBody()?['Body']",

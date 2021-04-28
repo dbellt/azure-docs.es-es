@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: aa364ec434db980bf226008537ca928628fcac1b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 35aa0110106f121adb9373f83ff29d299ce049fc
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100392092"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108135984"
 ---
 # <a name="copy-data-to-and-from-azure-synapse-analytics-using-azure-data-factory"></a>Copia de datos en y desde Azure Synapse Analytics con Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -252,7 +252,7 @@ Para usar esta característica, cree un [servicio vinculado de Azure Storage](da
 ```
 
 ## <a name="best-practices-when-using-polybase"></a>Procedimientos recomendados al usar PolyBase
-En las secciones siguientes se proporcionan procedimientos recomendados adicionales a los que se mencionan en [Procedimientos recomendados para Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-best-practices.md).
+En las secciones siguientes se proporcionan procedimientos recomendados adicionales a los que se mencionan en [Procedimientos recomendados para Azure Synapse Analytics](../../synapse-analytics/sql/best-practices-dedicated-sql-pool.md).
 
 ### <a name="required-database-permission"></a>Permiso de base de datos necesario
 El uso de PolyBase requiere que el usuario que se usa para cargar datos en Azure Synapse Analytics tenga [permiso "CONTROL"](/sql/relational-databases/security/permissions-database-engine) en la base de datos de destino. Una manera de conseguirlo es agregar ese usuario como miembro del rol "db_owner". Obtenga información sobre cómo hacerlo siguiendo [esta sección](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md#authorization).

@@ -1,19 +1,19 @@
 ---
 title: Integración y entrega continuas para las áreas de trabajo de Synapse
 description: Aprenda a usar la integración y la entrega continuas para implementar los cambios en el área de trabajo de un entorno (desarrollo, prueba o producción) a otro.
-services: synapse-analytics
-author: liud
+author: liudan66
 ms.service: synapse-analytics
+ms.subservice: cicd
 ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: de3738573bb9bb6f045a45d290c74ba9e6902a5e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2d49deef4cc7f646032219ff9e8f541cc9c1afd6
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103561964"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108131194"
 ---
 # <a name="continuous-integration-and-delivery-for-azure-synapse-workspace"></a>Integración y entrega continuas para las áreas de trabajo de Azure Synapse
 
@@ -21,16 +21,61 @@ ms.locfileid: "103561964"
 
 La integración continua (CI) es el proceso de automatizar la compilación y las pruebas de código cada vez que un miembro del equipo confirma cambios en el control de versiones. La implementación continua (CD) es el proceso de compilar, probar, configurar e implementar desde varios entornos de pruebas o ensayo en un entorno de producción.
 
-En las áreas de trabajo de Azure Synapse, la integración y la entrega continuas (CI/CD) mueven todas las entidades de un entorno (desarrollo, prueba, producción) a otro. Para promover el área de trabajo a otra área de trabajo, hay dos partes: use [plantillas de Azure Resource Manager](../../azure-resource-manager/templates/overview.md) para crear o actualizar los recursos del área de trabajo (grupos y área de trabajo); migrar artefactos (scripts de SQL, cuadernos, definiciones de trabajos de Spark, canalizaciones, conjuntos de datos, flujos de datos, etc.) con herramientas de CI/CD de Synapse en Azure DevOps. 
+En las áreas de trabajo de Azure Synapse Analytics, la integración continua y entrega continua (CI/CD) mueve todas las entidades de un entorno (desarrollo, prueba, producción) a otro. Para promover un área de trabajo a otro, hay dos partes. En primer lugar, use una [plantilla de Azure Resource Manager](../../azure-resource-manager/templates/overview.md) para crear o actualizar recursos del área de trabajo (los grupos y el área de trabajo). A continuación, migre los artefactos (scripts SQL, el cuaderno, la definición de trabajos de Spark, las canalizaciones, los conjuntos de datos, los flujos de datos, etc.) con las herramientas de CI/CD de Azure Synapse Analytics en Azure DevOps. 
 
-En este artículo se describe el uso de canalizaciones de versión de Azure para automatizar la implementación de un área de trabajo de Synapse en varios entornos.
+En este artículo se describe cómo usar una canalización de versión de Azure DevOps para automatizar la implementación de un área de trabajo de Azure Synapse en varios entornos.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
--   El área de trabajo que se usa para el desarrollo se ha configurado con un repositorio de Git en Studio. Consulte [Control de código fuente en Synapse Studio](source-control.md).
--   Un proyecto de Azure DevOps se ha preparado para ejecutar la canalización de versión.
+Estos requisitos previos y estas configuraciones deben estar en vigor para automatizar la implementación de un área de trabajo de Azure Synapse en varios entornos.
 
-## <a name="set-up-a-release-pipelines"></a>Configuración una canalización de versión
+### <a name="azure-devops"></a>Azure DevOps
+
+- Se ha preparado un proyecto de Azure DevOps para ejecutar la canalización de versión.
+- [Conceda a los usuarios que van a registrar acceso "Básico" al código a nivel de organización](/azure/devops/organizations/accounts/add-organization-users?view=azure-devops&tabs=preview-page&preserve-view=true), con el fin de que puedan ver el repositorio.
+- Conceda derechos de propietario al repositorio de Azure Synapse.
+- Asegúrese de que ha creado un agente de máquina virtual de Azure DevOps auto-hospedado o use un agente hospedado de Azure DevOps.
+- Permisos para [ crear una conexión con el servicio Azure Resource Manager para el grupo de recursos](/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml&preserve-view=true).
+- Los administradores de Azure Active Directory (Azure AD) deben [instalar la extensión Azure DevOps Synapse Workspace Deployment Agent en la organización de Azure DevOps](/azure/devops/marketplace/install-extension).
+- Cree o designe una cuenta de servicio existente para que se ejecute la canalización. Puede usar un token de acceso personal, en lugar de una cuenta de servicio, pero las canalizaciones no funcionarán después de que se elimine la cuenta de usuario.
+
+### <a name="azure-active-directory"></a>Azure Active Directory
+
+- En Azure AD, cree una entidad de servicio para usarla en la implementación. La tarea Synapse Workspace Deployment no admite el uso de una identidad administrada en la versión 1*, ni en las anteriores.
+- Para poder realizar esta acción, es preciso tener derechos de administrador en Azure AD.
+
+### <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
+
+> [!NOTE]
+> Estos requisitos previos de pueden automatizar e implementar mediante la misma canalización, una plantilla de Resource Manager o la CLI de Azure, pero el proceso no se describe en este artículo.
+
+- El área de trabajo de "origen" que se usa para el desarrollo se debe configurar con un repositorio de Git en Synapse Studio. Para más información, consulte [Control de código fuente en Synapse Studio](source-control.md#configuration-method-2-manage-hub).
+
+- Un área de trabajo en blanco en la que realizar la implementación. Para configurar el área de trabajo en blanco:
+
+  1. Cree de un área de trabajo de Azure Synapse Analytics.
+  1. Conceda tanto al agente de máquina virtual como al colaborador de la entidad de servicio los derechos necesarios en el grupo de recursos en el que se hospeda la nueva área de trabajo.
+  1. En la nueva área de trabajo, no configure la conexión del repositorio de Git.
+  1. En Azure Portal, busque la nueva área de trabajo Azure Synapse Analytics y concédase, tanto a usted como a todo aquel que vaya a ejecutar la canalización de Azure DevOps, derechos de propietario del área de trabajo de Azure Synapse Analytics. 
+  1. Agregue el agente de máquina virtual de Azure DevOps y la entidad de servicio al rol Colaborador del área de trabajo (se debería haber heredado, pero compruebe que es así).
+  1. En el área de trabajo de Azure Synapse Analytics, vaya a **Studio** > **Manage** > **IAM** (Administrar > IAM). Agregue el agente de máquina virtual de Azure DevOps y la entidad de servicio al grupo de administradores del área de trabajo.
+  1. Abra la cuenta de almacenamiento que se usa para el área de trabajo. En IAM, agregue el agente de máquina virtual y la entidad de servicio al rol Colaborador de Seleccionar datos de Storage Blob.
+  1. Cree un almacén de claves en la suscripción de soporte técnico y asegúrese de que tanto el área de trabajo existente como la nueva tienen, al menos, permisos GET y LIST en el almacén.
+  1. Para que la implementación automatizada funcione, asegúrese de que las cadenas de conexión especificadas en los servicios vinculados están en el almacén de claves.
+
+### <a name="additional-prerequisites"></a>Requisitos previos adicionales
+ 
+ - No se crean grupos de Spark ni entornos de ejecución de integración autohospedados en ninguna canalización. Si tiene un servicio vinculado que usa un entorno de ejecución de integración autohospedado, créelo manualmente en la nueva área de trabajo.
+ - Si va a desarrollar cuadernos y están conectados a un grupo de Spark, vuelva a crear este último en el área de trabajo.
+ - Los cuadernos que estén vinculados a un grupo de Spark que no exista en un entorno no se implementarán.
+ - Los nombres de los grupos de Spark deben ser los mismos en ambas áreas de trabajo.
+ - Asigne el mismo nombre a todas las bases de datos, grupos de SQL y otros recursos en ambas áreas de trabajo.
+ - Si los grupos de SQL aprovisionados se pausan al intentar realizar la implementación, esta podría no realizarse.
+
+Para más información, consulte el artículo sobre [CI/CD en Azure Synapse Analytics, parte 4: la canalización de versión](https://techcommunity.microsoft.com/t5/data-architecture-blog/ci-cd-in-azure-synapse-analytics-part-4-the-release-pipeline/ba-p/2034434). 
+
+
+## <a name="set-up-a-release-pipeline"></a>Configuración de una canalización de versión
 
 1.  En [Azure DevOps](https://dev.azure.com/), abra el proyecto creado para la versión.
 
@@ -58,9 +103,9 @@ En este artículo se describe el uso de canalizaciones de versión de Azure para
 
     ![Agregar un artefacto](media/release-creation-publish-branch.png)
 
-## <a name="set-up-a-stage-task-for-arm-resource-create-and-update"></a>Configuración de una tarea de fase para la creación y actualización de recursos de Azure Resource Manager 
+## <a name="set-up-a-stage-task-for-an-arm-template-to-create-and-update-resource"></a>Configuración de una tarea de fase para una plantilla de Resource Manager para crear y actualizar recursos 
 
-Agregue una tarea de implementación de Azure Resource Manager para crear o actualizar recursos, incluidos los grupos y las áreas de trabajo:
+Si tiene una plantilla de Resource Manager para implementar un recurso, como un área de trabajo de Azure Synapse, grupos de Spark y SQL o un almacén de claves, agregue una tarea de implementación de Azure Resource Manager para crear o actualizar esos recursos:
 
 1. En la vista de fase, seleccione **Ver tareas de la fase**.
 
@@ -89,7 +134,7 @@ Agregue una tarea de implementación de Azure Resource Manager para crear o actu
  > [!WARNING]
 > En el modo de implementación completa, se **eliminarán** aquellos recursos que existan en el grupo de recursos, pero no estén especificados en la nueva plantilla de Resource Manager. Para más información, consulte [Modos de implementación de Azure Resource Manager](../../azure-resource-manager/templates/deployment-modes.md).
 
-## <a name="set-up-a-stage-task-for-artifacts-deployment"></a>Configuración de una tarea de fase para la implementación de artefactos 
+## <a name="set-up-a-stage-task-for-synapse-artifacts-deployment"></a>Configuración de una tarea de fase para la implementación de artefactos de Synapse 
 
 Use la extensión [Synapse workspace deployment](https://marketplace.visualstudio.com/items?itemName=AzureSynapseWorkspace.synapsecicd-deploy) para implementar otros elementos del área de trabajo de Synapse, como conjuntos de datos, scripts de SQL, cuadernos, definiciones de trabajos de Spark, flujos de datos, canalizaciones, servicios vinculados, credenciales e instancias de IR (Integration Runtime).  
 
@@ -113,7 +158,7 @@ Use la extensión [Synapse workspace deployment](https://marketplace.visualstudi
 
 1. Seleccione la conexión, el grupo de recursos y el nombre del área de trabajo de destino. 
 
-1. Seleccione **…** junto al cuadro **Reemplazar parámetros de plantilla** y escriba los valores de los parámetros deseados del área de trabajo de destino. 
+1. Seleccione **…** que se encuentran junto al cuadro **Reemplazar parámetros de plantilla** y escriba los valores de parámetro deseados para el área de trabajo de destino, incluidas las cadenas de conexión y las claves de cuenta que se usan en los servicios vinculados. [Para más información, haga clic aquí] (https://techcommunity.microsoft.com/t5/data-architecture-blog/ci-cd-in-azure-synapse-analytics-part-4-the-release-pipeline/ba-p/2034434)
 
     ![Implementación del área de trabajo de Synapse](media/create-release-artifacts-deployment.png)
 
@@ -225,6 +270,7 @@ Este es un ejemplo del aspecto de la definición de una plantilla de parámetros
     }
 }
 ```
+
 Esta es una explicación de cómo se construye la plantilla anterior, desglosada por tipo de recurso.
 
 #### <a name="notebooks"></a>Cuaderno 
@@ -262,19 +308,19 @@ Esta es una explicación de cómo se construye la plantilla anterior, desglosada
 
 ## <a name="best-practices-for-cicd"></a>Procedimientos recomendados para CI/CD
 
-Si usa la integración de Git con el área de trabajo de Synapse y tiene una canalización de CI/CD que mueve los cambios del entorno de desarrollo al de prueba y, luego, al de producción, los procedimientos recomendados son los siguientes:
+Si usa la integración de Git con el área de trabajo de Azure Synapse y tiene una canalización de CI/CD que mueve los cambios del entorno de desarrollo al de prueba y, luego, al de producción, es aconsejable realice estos procedimientos:
 
--   **Integración de Git**. Configure solo el área de trabajo de desarrollo de Synapse con la integración de Git. Los cambios en las áreas de trabajo de prueba y producción se implementan a través de CI/CD y no se necesita la integración de Git.
+-   **Integración de Git**. Configure solo el área de trabajo de Azure Synapse de desarrollo con integración de Git. Los cambios en las áreas de trabajo de prueba y producción se implementan a través de CI/CD y no se necesita la integración de Git.
 -   **Prepare los grupos antes de la migración de los artefactos**. Si tiene un script de SQL o un cuaderno asociados a grupos del área de trabajo de desarrollo, se espera el mismo nombre de los grupos en distintos entornos. 
 -   **Infraestructura como código (IaC)** . Administración de la infraestructura (redes, máquinas virtuales, equilibradores de carga y topología de conexión) en un modelo descriptivo, donde se usa el mismo control de versiones que utiliza el equipo de DevOps para el código fuente. 
 -   **Otros**. Consulte [Procedimientos recomendados para artefactos de ADF](../../data-factory/continuous-integration-deployment.md#best-practices-for-cicd).
 
 ## <a name="troubleshooting-artifacts-deployment"></a>Solución de problemas en la implementación de artefactos 
 
-### <a name="use-the-synapse-workspace-deployment-task"></a>Uso de la tarea de implementación del área de trabajo de Synapse
+### <a name="use-the-azure-synapse-analytics-workspace-deployment-task"></a>Use la tarea de implementación del área de trabajo de Azure Synapse Analytics
 
-En Synapse, hay varios artefactos que no son recursos de ARM. Esto difiere con respecto a Azure Data Factory. La tarea de implementación de plantilla de ARM no funcionará correctamente para implementar artefactos de Synapse.
+En Azure Synapse Analytics, hay varios artefactos que no son recursos de Azure Resource Manager. Esto difiere con respecto a Azure Data Factory. La tarea de implementación de la plantilla de Resource Manager no funcionará correctamente para implementar artefactos de Azure Synapse Analytics.
  
 ### <a name="unexpected-token-error-in-release"></a>Error de token inesperado en la versión
 
-Cuando el archivo de parámetros tiene valores de parámetro que no son de escape, la canalización de versión no podrá analizar el archivo y generará el error "token inesperado". Se recomienda invalidar los parámetros o usar Azure KeyVault para recuperar los valores de parámetro. Como alternativa, también puede usar caracteres de escape dobles.
+Cuando el archivo de parámetros tiene valores de parámetro que no son de escape, la canalización de versión no podrá analizar el archivo y generará el error "token inesperado". Se recomienda invalidar los parámetros o usar Azure Key Vault para recuperar los valores de los parámetros. Como alternativa, también puede usar caracteres de escape dobles.

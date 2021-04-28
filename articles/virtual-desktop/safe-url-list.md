@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/04/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: c937f9d75613b6550a2f05dd63a8b31dd83fe0b7
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 00ae761af44b9e6537149c96607c0ba00e6439c8
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106445730"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107514992"
 ---
 # <a name="required-url-list"></a>Lista de direcciones URL requeridas
 
@@ -19,6 +19,52 @@ Para implementar y usar Windows Virtual Desktop, debe desbloquear determinadas 
 
 >[!IMPORTANT]
 >Windows Virtual Desktop no admite implementaciones que bloqueen las direcciones URL que se muestran en este artículo.
+
+## <a name="required-url-check-tool"></a>Herramienta de comprobación de direcciones URL requeridas
+
+La herramienta de comprobación de direcciones URL requeridas examinará las URL e indicará si están accesibles las URL que la máquina virtual necesita para funcionar. En caso negativo, la herramienta indicará que las direcciones URL son inaccesibles para que pueda desbloquearlas si es necesario.
+
+Es importante tener en cuenta los siguientes aspectos:
+
+- La herramienta de comprobación de direcciones URL requeridas únicamente se puede usar en implementaciones de nubes comerciales.
+- La herramienta de comprobación de direcciones URL requeridas no pueden examinar las URL que tienen caracteres comodín. Por tanto, hay que asegurarse de desbloquear esas URL en primer lugar.
+
+### <a name="requirements"></a>Requisitos
+
+Para usar la herramienta comprobación de direcciones URL requeridas, hay que cumplir los siguientes requisitos:
+
+- La máquina virtual debe tener .NET Framework 4.6.2.
+- La versión de RDAgent debe ser 1.0.2944.400 o superior.
+- El archivo WVDAgentUrlTool.exe debe estar en la misma carpeta que WVDAgentUrlTool.config.
+
+### <a name="how-to-use-the-required-url-check-tool"></a>Uso de la herramienta comprobación de direcciones URL requeridas
+
+Para usar la herramienta, siga estos pasos:
+
+1. Abra un símbolo del sistema como administrador en la máquina virtual.
+2. Ejecute el siguiente comando para cambiar el directorio a la misma carpeta que el agente de compilación:
+
+    ```console
+    cd C:\Program Files\Microsoft RDInfra\RDAgent_1.0.2944.1200
+    ```
+
+3. Ejecute el siguiente comando:
+
+    ```console
+    WVDAgentUrlTool.exe
+    ```
+ 
+4. Una vez que ejecute el archivo, verá una lista de direcciones URL accesibles e inaccesibles.
+
+    Por ejemplo, en la captura de pantalla siguiente se muestra un escenario en el que tendría que desbloquear dos direcciones URL requeridas que no tengan caracteres comodín:
+
+    > [!div class="mx-imgBorder"]
+    > ![Captura de pantalla de la salida de las direcciones URL que no están accesibles.](media/noaccess.png)
+    
+    Este es el aspecto que debería tener la salida una vez que haya desbloqueado todas las URL requeridas sin caracteres comodín:
+
+    > [!div class="mx-imgBorder"]
+    > ![Captura de pantalla de la salida de direcciones URL que son accesibles.](media/access.png)
 
 ## <a name="virtual-machines"></a>Máquinas virtuales
 

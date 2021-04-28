@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: deb02c161dfe41bf79b7905fde23678425aaf55f
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: c5c596735ad91f38d5ba4217135a9373d2856182
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106448379"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107538454"
 ---
 # <a name="msix-app-attach-glossary"></a>Glosario sobre la conexión de aplicaciones en formato MSIX
 
@@ -33,7 +33,7 @@ Un paquete de MSIX es un archivo o aplicación de MSIX.
 
 ## <a name="msix-share"></a>Recurso compartido MSIX
 
-Un recurso compartido MSIX es un recurso compartido de red que contiene paquetes de MSIX expandidos. Los recursos compartidos de MSIX admiten SMB 3 o posterior. Las aplicaciones se almacenan provisionalmente desde este recurso compartido de MSIX sin tener que trasladar los archivos de aplicación a la unidad del sistema.
+Un recurso compartido MSIX es un recurso compartido de red que contiene paquetes de MSIX expandidos. Los recursos compartidos de MSIX deben admitir SMB 3 o posterior. Los recursos compartidos también deben ser accesibles para las máquinas virtuales (VM) en la cuenta de sistema del grupo de hosts. Los paquetes MSIX se almacenan provisionalmente desde el recurso compartido de MSIX sin tener que trasladar los archivos de aplicación a la unidad del sistema. 
 
 ## <a name="msix-image"></a>Imagen de MSIX
 

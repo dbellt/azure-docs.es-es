@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 03/15/2021
 ms.author: stegag
-ms.openlocfilehash: 232e084e44696c6aa88a9dd33092c48a96e35f85
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 96a43e9a71d5fe6cdec772ec5e32d5dd639ab068
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104772013"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108134398"
 ---
 # <a name="troubleshoot-azure-vpn-gateway-using-diagnostic-logs"></a>Solución de problemas de Azure VPN Gateway mediante registros de diagnóstico
 
@@ -34,7 +34,7 @@ Observe que hay varias columnas disponibles en estas tablas. En este artículo, 
 
 ## <a name="set-up-logging"></a><a name="setup"></a>Configuración de los registros
 
-Para obtener información sobre cómo configurar eventos de registro de diagnóstico desde Azure VPN Gateway con Azure Log Analytics, consulte [Configuración de alertas de eventos de registro de recursos de VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log).
+Para obtener información sobre cómo configurar eventos de registro de diagnóstico desde Azure VPN Gateway con Azure Log Analytics, consulte [Configuración de alertas de eventos de registro de recursos de VPN Gateway](./vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md).
 
 ## <a name="gatewaydiagnosticlog"></a><a name="GatewayDiagnosticLog"></a>GatewayDiagnosticLog
 
@@ -100,8 +100,8 @@ Solo después de identificar la marca de tiempo de una desconexión, puede cambi
 
 
 Algunas sugerencias para la solución de problemas:
-- Si ve un evento de desconexión en una instancia de puerta de enlace, seguido de un evento de conexión en la instancia de puerta de enlace **diferente** en unos segundos, está examinando una conmutación por error de puerta de enlace. Normalmente, se trata de un comportamiento esperado debido al mantenimiento en una instancia de puerta de enlace. Para más información sobre este comportamiento, consulte [acerca de la redundancia de Azure VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-highlyavailable#about-azure-vpn-gateway-redundancy).
-- Se observará el mismo comportamiento si ejecuta intencionadamente un restablecimiento de puerta de enlace en el lado de Azure, lo que provoca un reinicio de la instancia de puerta de enlace activa. Para más información sobre este comportamiento, consulte [Restablecimiento de una puerta de enlace o conexión de VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-resetgw-classic).
+- Si ve un evento de desconexión en una instancia de puerta de enlace, seguido de un evento de conexión en la instancia de puerta de enlace **diferente** en unos segundos, está examinando una conmutación por error de puerta de enlace. Normalmente, se trata de un comportamiento esperado debido al mantenimiento en una instancia de puerta de enlace. Para más información sobre este comportamiento, consulte [acerca de la redundancia de Azure VPN Gateway](./vpn-gateway-highlyavailable.md#about-azure-vpn-gateway-redundancy).
+- Se observará el mismo comportamiento si ejecuta intencionadamente un restablecimiento de puerta de enlace en el lado de Azure, lo que provoca un reinicio de la instancia de puerta de enlace activa. Para más información sobre este comportamiento, consulte [Restablecimiento de una puerta de enlace o conexión de VPN](./reset-gateway.md).
 - Si ve un evento de desconexión en una instancia de puerta de enlace, seguido de un evento de conexión en la **misma** instancia de puerta de enlace en pocos segundos, es posible que esté examinando un problema de red que provoca un tiempo de espera de DPD o una desconexión enviada erróneamente por el dispositivo local.
 
 ## <a name="routediagnosticlog"></a><a name="RouteDiagnosticLog"></a>RouteDiagnosticLog
@@ -168,7 +168,7 @@ Sugerencias para solución de problemas:
 - Si no se puede establecer el túnel IPsec, Azure lo seguirá intentando cada pocos segundos. Por esta razón, la solución de problemas de "VPN inactiva" es muy conveniente en IKEdiagnosticLog, ya que no es necesario esperar a que se produzca un tiempo específico para reproducir el problema. Además, el error en teoría siempre será el mismo cada vez que se intenta, por lo que solo se puede ampliar una negociación de error de "ejemplo" en cualquier momento.
 
 - SA\_INIT contiene los parámetros de IPsec que el homólogo desea usar para esta negociación de IPSec. Documento oficial   
-El artículo [Parámetros de IPSec/IKE predeterminados](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices#ipsec) muestra los parámetros de IPsec que admite la puerta de enlace de Azure con la configuración predeterminada.
+El artículo [Parámetros de IPSec/IKE predeterminados](./vpn-gateway-about-vpn-devices.md#ipsec) muestra los parámetros de IPsec que admite la puerta de enlace de Azure con la configuración predeterminada.
 
 
 ## <a name="p2sdiagnosticlog"></a><a name="P2SDiagnosticLog"></a>P2SDiagnosticLog
@@ -202,4 +202,3 @@ Además, siempre que un cliente se conecte a través de IKEv2 o OpenVPN de punto
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para configurar alertas en los registros de recursos de túnel, consulte [Configuración de alertas en los registros de diagnóstico de VPN Gateway](vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md).
-

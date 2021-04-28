@@ -4,12 +4,12 @@ description: Aprenda a exponer un servicio WCF local a una aplicación web en la
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 06/23/2020
-ms.openlocfilehash: 22b582634b623b39545eca225c8df0130606c2bb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6f12133277d60560a19f35dead3a30be7c934adf
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90983886"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108137714"
 ---
 # <a name="expose-an-on-premises-wcf-service-to-a-web-application-in-the-cloud-by-using-azure-relay"></a>Exposición de un servicio WCF local a una aplicación web en la nube con Azure Relay
 
@@ -245,7 +245,7 @@ En esta sección va a crear una aplicación de ASP.NET simple que mostrará los 
     ![Especificación de la autenticación][18]
 
 1. De vuelta en **Crear una aplicación web ASP.NET**, seleccione **Crear** para crear la aplicación MVC.
-1. Configure los recursos de Azure para una aplicación web nueva. Siga los pasos descritos en la sección [Publicación de la aplicación web](../app-service/quickstart-dotnet-framework.md#launch-the-publish-wizard). A continuación, vuelva a este tutorial y siga con el paso siguiente.
+1. Configure los recursos de Azure para una aplicación web nueva. Siga los pasos descritos en la sección [Publicación de la aplicación web](../app-service/quickstart-dotnetcore.md?tabs=netframework48#publish-your-web-app). A continuación, vuelva a este tutorial y siga con el paso siguiente.
 1. En **Explorador de soluciones**, haga clic con el botón derecho en **Modelos** y después seleccione **Agregar** > **Clase**.
 1. Asigne a la clase el nombre *Product.cs* y, después, seleccione **Agregar**.
 

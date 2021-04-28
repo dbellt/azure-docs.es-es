@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d707106d66c77ad1f3a1156906add8bb85fd0ce0
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 74009759bb9ca2a0516148fc1387b150b67452ab
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107305980"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107387911"
 ---
 # <a name="continuous-access-evaluation"></a>Evaluación continua de acceso
 
@@ -53,7 +53,7 @@ La evaluación continua de acceso se implementa mediante la habilitación de ser
 Este proceso habilita el escenario en el que los usuarios pierden el acceso a los archivos, el correo electrónico, el calendario o las tareas de SharePoint Online de la organización y Teams desde las aplicaciones cliente de Microsoft 365 en cuestión de minutos después de uno de estos eventos críticos. 
 
 > [!NOTE] 
-> Teams no admite todavía eventos de riesgo de usuario.
+> Teams y SharePoint Online no admiten aún evento de riesgo de usuario.
 
 ### <a name="conditional-access-policy-evaluation-preview"></a>Evaluación de directivas de acceso condicional (versión preliminar)
 

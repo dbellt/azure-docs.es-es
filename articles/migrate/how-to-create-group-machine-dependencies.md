@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 11/25/2020
-ms.openlocfilehash: 6ded5d4ed8c2a55939bba908a05adbd2dea2ccbf
-ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
+ms.openlocfilehash: 0d935cac68fc1b9e8d97a875c4b6e48078324fb8
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107714783"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108143618"
 ---
 # <a name="set-up-dependency-visualization"></a>Configuración de la visualización de dependencias
 
@@ -55,7 +55,7 @@ En este artículo se describe cómo configurar el análisis de dependencias basa
     ![Agregar una nueva área de trabajo](./media/how-to-create-group-machine-dependencies/workspace.png)
 
 > [!Note]
-> [Obtenga información](https://docs.microsoft.com/azure/azure-monitor/logs/private-link-security) sobre cómo configurar el área de trabajo de OMS para la conectividad de un punto de conexión privado.  
+> [Obtenga información](../azure-monitor/logs/private-link-security.md) sobre cómo configurar el área de trabajo de OMS para la conectividad de un punto de conexión privado.  
 
 ## <a name="download-and-install-the-vm-agents"></a>Descarga e instalación de los agentes en máquinas virtuales
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1aafcd8ace846d7da65d95d4148872d5a6eddeee
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: 9f1043bf94276c752b816e458ee7513837db0ecd
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107587857"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108130636"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Tutorial: Configuración manual de dispositivos unidos a Azure Active Directory híbrido
 
@@ -76,7 +76,7 @@ En el caso de la versión 1703 o anterior de los dispositivos Windows 10, si su 
 A partir de la versión 1803 de Windows 10, aunque se produzca un error en el intento de unión por parte de un dispositivo a Azure AD híbrido en un dominio federado mediante AD FS y aunque Azure AD Connect esté configurado para sincronizar los objetos de equipo o dispositivo con Azure AD, el dispositivo intentará completar la unión a Azure AD híbrido mediante el equipo o dispositivo sincronizado.
 
 > [!NOTE]
-> Para que la combinación de sincronización de registro de dispositivos se realice correctamente, como parte de la configuración de registro del dispositivo, no excluya los atributos de dispositivo predeterminados de la configuración de sincronización de Azure AD Connect. Para más información sobre los atributos de dispositivo predeterminados sincronizados con Azure AD, consulte [Sincronización de Azure AD Connect: Atributos sincronizados con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-sync-attributes-synchronized#windows-10).
+> Para que la combinación de sincronización de registro de dispositivos se realice correctamente, como parte de la configuración de registro del dispositivo, no excluya los atributos de dispositivo predeterminados de la configuración de sincronización de Azure AD Connect. Para más información sobre los atributos de dispositivo predeterminados sincronizados con Azure AD, consulte [Sincronización de Azure AD Connect: Atributos sincronizados con Azure Active Directory](../hybrid/reference-connect-sync-attributes-synchronized.md#windows-10).
 
 Para comprobar si el dispositivo puede acceder a los recursos de Microsoft anteriores en la cuenta del sistema, puede usar el script para [probar la conectividad del Registro de dispositivos](/samples/azure-samples/testdeviceregconnectivity/testdeviceregconnectivity/).
 
