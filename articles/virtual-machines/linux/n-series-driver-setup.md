@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 11/11/2019
 ms.author: vikancha
-ms.openlocfilehash: c61d0164b84258e8e0c9d130e809b0d86fd41eda
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: dd9461e30138ee1a59a93db45aa5f739bfe88f94
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108073978"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107565311"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Instalación de controladores de GPU de NVIDIA en máquinas virtuales de la serie N con Linux
 
@@ -140,7 +140,7 @@ Por ejemplo, CentOS 8 y RHEL 8 necesitarán los pasos siguientes.
    sudo yum install dkms
    
    CUDA_REPO_PKG=cuda-repo-rhel8-10.2.89-1.x86_64.rpm
-   wget https://developer.download.nvidia.com/compute/cuda/repos/rhel8/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
+   wget https://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
 
    sudo rpm -ivh /tmp/${CUDA_REPO_PKG}
    rm -f /tmp/${CUDA_REPO_PKG}

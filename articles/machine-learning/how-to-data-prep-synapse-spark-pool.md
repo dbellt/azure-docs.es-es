@@ -5,18 +5,18 @@ description: Obtenga información sobre cómo conectar e iniciar grupos de Apach
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: nibaccam
 author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 03/02/2021
-ms.custom: how-to, devx-track-python, data4ml, synapse-azureml
-ms.openlocfilehash: 1852bfdb4bf8513aaa5d43993e2b6ff804808dbd
-ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
+ms.custom: devx-track-python, data4ml, synapse-azureml
+ms.openlocfilehash: ec0ceb496d2e6d1b15819aa6b2353e54a5303354
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107575656"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107889779"
 ---
 # <a name="attach-apache-spark-pools-powered-by-azure-synapse-analytics-for-data-wrangling-preview"></a>Conexión de grupos de Apache Spark (con tecnología de Azure Synapse Analytics) para la limpieza y transformación de datos (versión preliminar)
 
