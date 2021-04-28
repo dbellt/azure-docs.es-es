@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/26/2021
+ms.date: 04/14/2021
 ms.author: aldomel
-ms.openlocfilehash: 0dd053fa268e88c281c1fe6c00339fe6a6edf27a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 232b83fef2da312828f4f9f332ab2505e3a68100
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105732608"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107503650"
 ---
 # <a name="virtual-network-traffic-routing"></a>Enrutamiento del tráfico de redes virtuales
 
@@ -32,7 +32,7 @@ Azure crea automáticamente rutas del sistema y las asigna a todas las subredes 
 
 Cada ruta contiene un prefijo de dirección y el tipo de próximo salto. Cuando el tráfico que sale de una subred se envía a una dirección IP que está dentro del prefijo de la dirección de ruta, la ruta que contiene el prefijo es la que utiliza Azure. Obtenga más información acerca de [la selección de rutas por parte de Azure](#how-azure-selects-a-route) cuando varias rutas contienen los mismos prefijos o cuando los prefijos se solapan. Cuando se crea una red virtual, Azure crea automáticamente los siguientes rutas del sistema predeterminadas para cada subred de la red virtual:
 
-|Source |Prefijos de dirección                                        |Tipo del próximo salto  |
+|Source |Prefijos de dirección                                        |Tipo de próximo salto  |
 |-------|---------                                               |---------      |
 |Valor predeterminado|Único para la red virtual                           |Virtual network|
 |Valor predeterminado|0.0.0.0/0                                               |Internet       |
@@ -111,7 +111,7 @@ Cuando hay una coincidencia exacta del prefijo entre una ruta con un prefijo de 
    3. Etiquetas regionales de AzureCloud (por ejemplo, AzureCloud.canadacentral, AzureCloud.eastasia)
    4. La etiqueta de AzureCloud </br></br>
 
-Para usar esta característica, especifique un nombre de etiqueta de servicio para el parámetro de prefijo de dirección en los comandos de la tabla de rutas. Por ejemplo, en PowerShell puede crear una ruta para dirigir el tráfico enviado a un prefijo de IP de Azure Storage a una aplicación virtual mediante: </br>
+Para usar esta característica, especifique un nombre de etiqueta de servicio para el parámetro de prefijo de dirección en los comandos de la tabla de rutas. Por ejemplo, en PowerShell puede crear una ruta para dirigir el tráfico enviado a un prefijo de IP de Azure Storage a una aplicación virtual mediante: </br></br>
 
 ```azurepowershell-interactive
 New-AzRouteConfig -Name "StorageRoute" -AddressPrefix "Storage" -NextHopType "VirtualAppliance" -NextHopIpAddress "10.0.100.4"
@@ -123,6 +123,10 @@ El mismo comando en la CLI será: </br>
 az network route-table route create -g MyResourceGroup --route-table-name MyRouteTable -n StorageRoute --address-prefix Storage --next-hop-type VirtualAppliance --next-hop-ip-address 10.0.100.4
 ```
 </br>
+
+#### <a name="known-issues-april-2021"></a>Problemas conocidos (abril de 2021)
+
+Cuando hay rutas BGP presentes o se configura un punto de conexión de servicio en la subred, es posible que las rutas no se evalúen con la prioridad correcta. Actualmente hay una corrección en curso para estos escenarios. </br>
 
 
 > [!NOTE] 
@@ -171,7 +175,7 @@ Si varias rutas contienen el mismo prefijo de dirección, Azure selecciona el ti
 Por ejemplo, una tabla de rutas contiene las rutas siguientes:
 
 
-|Source   |Prefijos de dirección  |Tipo del próximo salto           |
+|Source   |Prefijos de dirección  |Tipo de próximo salto           |
 |---------|---------         |-------                 |
 |Valor predeterminado  | 0.0.0.0/0        |Internet                |
 |Usuario     | 0.0.0.0/0        |Puerta de enlace de red virtual |

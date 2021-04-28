@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/12/2021
 ms.author: radeltch
-ms.openlocfilehash: 774344c4215088482b110de91f8951bae4a41d25
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 5abbd1ed5c33d0ec0957d34dd8d78a958208e8f6
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107365831"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108142880"
 ---
 # <a name="high-availability-of-sap-hana-scale-up-with-azure-netapp-files-on-red-hat-enterprise-linux"></a>Alta disponibilidad del escalado vertical de SAP HANA con Azure NetApp Files en Red Hat Enterprise Linux
 
@@ -668,7 +668,7 @@ En este ejemplo, cada nodo de clúster tiene sus propios sistemas de archivos NF
 
 A partir de SAP HANA 2.0 SPS 01, SAP permite el uso de configuraciones activas/habilitadas para lectura para la replicación del sistema de SAP HANA, donde los sistemas secundarios de la replicación del sistema de SAP HANA se pueden usar activamente para cargas de trabajo de lectura intensiva. Para admitir esta configuración en un clúster, se requiere una segunda dirección IP virtual que permita a los clientes tener acceso a la base de datos secundaria de SAP HANA habilitada para lectura. Para garantizar que todavía se puede tener acceso al sitio de replicación secundario tras una adquisición, el clúster debe mover la dirección IP virtual con el sistema secundario del recurso SAPHana.
 
-La configuración adicional, necesaria para administrar la replicación del sistema de HANA activo/habilitado para lectura en un clúster de Red Hat de alta disponibilidad con una segunda IP virtual, se describe en [Configuración de la replicación del sistema de HANA activo/habilitado para lectura en el clúster de Pacemaker](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel#configure-hana-activeread-enabled-system-replication-in-pacemaker-cluster).  
+La configuración adicional, necesaria para administrar la replicación del sistema de HANA activo/habilitado para lectura en un clúster de Red Hat de alta disponibilidad con una segunda IP virtual, se describe en [Configuración de la replicación del sistema de HANA activo/habilitado para lectura en el clúster de Pacemaker](./sap-hana-high-availability-rhel.md#configure-hana-activeread-enabled-system-replication-in-pacemaker-cluster).  
 
 Antes de continuar, asegúrese de que ha configurado completamente el clúster de Red Hat de alta disponibilidad que administra la base de datos de SAP HANA, tal como se describe en las secciones anteriores de la documentación.    
 

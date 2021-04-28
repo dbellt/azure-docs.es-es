@@ -5,12 +5,12 @@ ms.custom: references_regions
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 03/23/2021
-ms.openlocfilehash: 838eb517697c0625139058a19c7def764e869ed5
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: 1971e847745853730938409961b0531213932917
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107588180"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108129592"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Notas de la versión de Azure HDInsight
 
@@ -69,11 +69,11 @@ En las próximas versiones, se realizarán los siguientes cambios.
 ### <a name="os-version-upgrade"></a>Actualización de la versión del sistema operativo
 Los clústeres de HDInsight se ejecutan actualmente en Ubuntu 16.04 LTS. Como se comenta en el [ciclo de versiones de Ubuntu](https://ubuntu.com/about/release-cycle),el kernel de Ubuntu 16.04 alcanzará el final del ciclo de vida (EOL) en abril de 2021. Comenzaremos a implementar la nueva imagen de clúster de HDInsight 4.0 que se ejecuta en Ubuntu 18.04 en mayo de 2021. Los clústeres de HDInsight 4.0 recién creados se ejecutarán en Ubuntu 18.04 de forma predeterminada una vez que esté disponible. Los clústeres existentes en Ubuntu 16.04 se ejecutarán tal y como están con soporte técnico completo.
 
-HDInsight 3.6 seguirá funcionando en Ubuntu 16.04. El soporte técnico estándar terminará el 30 de junio de 2021 y cambiará a soporte técnico Basic a partir del 1 de julio de 2021. Para más información sobre las fechas y las opciones de soporte técnico, consulte las [versiones de Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions). Ubuntu 18.04 no será compatible con HDInsight 3.6. Si desea usar Ubuntu 18.04, deberá migrar los clústeres a HDInsight 4.0. 
+HDInsight 3.6 seguirá funcionando en Ubuntu 16.04. El soporte técnico estándar terminará el 30 de junio de 2021 y cambiará a soporte técnico Basic a partir del 1 de julio de 2021. Para más información sobre las fechas y las opciones de soporte técnico, consulte las [versiones de Azure HDInsight](./hdinsight-component-versioning.md#supported-hdinsight-versions). Ubuntu 18.04 no será compatible con HDInsight 3.6. Si desea usar Ubuntu 18.04, deberá migrar los clústeres a HDInsight 4.0. 
 
 Debe quitar y volver a crear los clústeres si desea mover los existentes a Ubuntu 18.04. Planee crear o volver a crear el clúster una vez sea compatible con Ubuntu 18.04. Se enviará otra notificación cuando la nueva imagen esté disponible en todas las regiones.
 
-Se recomienda encarecidamente probar previamente las acciones de script y las aplicaciones personalizadas implementadas en nodos perimetrales en una máquina virtual Ubuntu 18.04. Puede [crear una máquina virtual Ubuntu Linux sencilla en la versión 18.04-LTS](https://azure.microsoft.com/resources/templates/101-vm-simple-linux/) y, a continuación, crear y usar un [par de claves de Secure Shell (SSH)](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys#ssh-into-your-vm) en la máquina virtual para ejecutar y probar las acciones de script y las aplicaciones personalizadas implementadas en los nodos perimetrales.
+Se recomienda encarecidamente probar previamente las acciones de script y las aplicaciones personalizadas implementadas en nodos perimetrales en una máquina virtual Ubuntu 18.04. Puede [crear una máquina virtual Ubuntu Linux sencilla en la versión 18.04-LTS](https://azure.microsoft.com/resources/templates/101-vm-simple-linux/) y, a continuación, crear y usar un [par de claves de Secure Shell (SSH)](../virtual-machines/linux/mac-create-ssh-keys.md#ssh-into-your-vm) en la máquina virtual para ejecutar y probar las acciones de script y las aplicaciones personalizadas implementadas en los nodos perimetrales.
 
 ### <a name="disable-stardard_a5-vm-size-as-head-node-for-hdinsgiht-40"></a>Deshabilitación del tamaño Stardard_A5 de máquina virtual como nodo principal para HDInsgiht 4.0
 El nodo principal del clúster de HDInsight es responsable de inicializar y administrar el clúster. El tamaño Standard_A5 de máquina virtual tiene problemas de confiabilidad como nodo principal para HDInsight 4.0. A partir de la próxima versión de mayo de 2021, los clientes no podrán crear nuevos clústeres con el tamaño Standard_A5 de máquina virtual como nodo principal. Puede usar otras máquinas virtuales de 2 núcleos, como E2_v3 o E2s_v3. Los clústeres existentes se ejecutarán tal cual. Se recomienda encarecidamente una máquina virtual de 4 núcleos como mínimo para que el nodo principal garantice la alta disponibilidad y confiabilidad de los clústeres de HDInsight de producción.

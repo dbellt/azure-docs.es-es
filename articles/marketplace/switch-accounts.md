@@ -8,12 +8,12 @@ author: varsha-sarah
 ms.author: vavargh
 ms.custom: contperf-fy21q2
 ms.date: 04/07/2021
-ms.openlocfilehash: dd484a836e12cb670174dd5d7da9c70d00b57888
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: c84bc351c60b084d711ee6484450dc4c7720fc97
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107108068"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108132996"
 ---
 # <a name="switch-accounts-in-partner-center"></a>Cambio de cuentas en el Centro de partners
 
@@ -31,7 +31,7 @@ Si no ve el *selector de cuentas*, significa que solo forma parte de una cuenta.
 Al seleccionar este selector, todas las cuentas de las que forma parte aparecen como una lista. Después, puede seleccionar cualquiera de ellas para cambiar a la que quiera. Después de cambiar, todo el Centro de partners se mostrará en el contexto de esa cuenta.
 
 > [!NOTE]
-> El Centro de partners usa [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis) (Azure AD) para la administración y el acceso a la cuenta multiusuario. La instancia de Azure AD de la organización se asocia automáticamente con la cuenta del Centro de partners como parte del proceso de inscripción.
+> El Centro de partners usa [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) para la administración y el acceso a la cuenta multiusuario. La instancia de Azure AD de la organización se asocia automáticamente con la cuenta del Centro de partners como parte del proceso de inscripción.
 
 En el ejemplo a continuación, el usuario que inició sesión forma parte de las tres cuentas resaltadas. Para cambiar entre ellas, puede hacer clic en la que quiera.
 

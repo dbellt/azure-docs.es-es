@@ -3,12 +3,12 @@ title: Autenticación y autorización de Azure Service Bus | Microsoft Docs
 description: Autentique aplicaciones en Service Bus con la autenticación de firma de acceso compartido (SAS).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: ccb526abd99be50e33c8adb918186944b7af3bd6
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: 73b6dc1004ec40c228c0ef5104de5f21eccd0437
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107516661"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107988755"
 ---
 # <a name="service-bus-authentication-and-authorization"></a>Autenticación y autorización de Service Bus
 Hay dos maneras de autenticar y autorizar el acceso a los recursos de Azure Service Bus: Azure Activity Directory (Azure AD) y firma de acceso compartido (SAS). En este artículo se proporcionan detalles sobre el uso de estos dos tipos de mecanismos de seguridad. 
@@ -45,8 +45,6 @@ Para obtener acceso a una entidad, el cliente requiere un token SAS generado con
 
 La compatibilidad de la autenticación de SAS con Service Bus se incluye en el SDK .NET de Azure 2.0 y versiones posteriores. SAS incluye compatibilidad con una regla de autorización de acceso compartido. Todas las API que aceptan una cadena de conexión como parámetro incluyen compatibilidad con cadenas de conexión SAS.
 
-> [!IMPORTANT]
-> Si usa Azure Active Directory Access Control (también conocido como Access Control Service o ACS) junto con Service Bus, tenga en cuenta que la compatibilidad con este método ahora está limitada y debe [migrar la aplicación para usar SAS](service-bus-migrate-acs-sas.md) o usar la autenticación de OAuth 2.0 con Azure AD (recomendado). Para más información sobre el desuso de ACS, consulte [esta entrada de blog](/archive/blogs/servicebus/upcoming-changes-to-acs-enabled-namespaces).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte los siguientes artículos para más información sobre la autenticación con Azure AD:

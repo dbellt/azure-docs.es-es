@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 03/24/2021
-ms.openlocfilehash: 8e149270d8f98cbf72d3864d238a3d8ddfd61c67
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b8d49e3b3c6f6407fe241e00ada5039bd94fd706
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105639540"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107870884"
 ---
 # <a name="tutorial-share-data-using-azure-data-share"></a>Tutorial: Uso compartido de datos mediante Azure Data Share  
 
@@ -136,13 +136,13 @@ Use estos comandos para crear el recurso:
    az group create --name testresourcegroup --location "East US 2"
    ```
 
-1. Ejecute el comando [az datashare account create](/cli/azure/ext/datashare/datashare/account#ext_datashare_az_datashare_account_create) para crear una cuenta de Data Share:
+1. Ejecute el comando [az datashare account create](/cli/azure/datashare/account#az_datashare_account_create) para crear una cuenta de Data Share:
 
    ```azurecli
    az datashare account create --resource-group testresourcegroup --name datashareaccount --location "East US 2" 
    ```
 
-   Ejecute el comando [az datashare account list](/cli/azure/ext/datashare/datashare/account#ext_datashare_az_datashare_account_list) para ver las cuentas de Data Share:
+   Ejecute el comando [az datashare account list](/cli/azure/datashare/account#az_datashare_account_list) para ver las cuentas de Data Share:
 
    ```azurecli
    az datashare account list --resource-group testresourcegroup
@@ -210,7 +210,7 @@ Use estos comandos para crear el recurso:
    az storage container create --name ContosoMarketplaceContainer --account-name ContosoMarketplaceAccount
    ```
 
-1. Ejecute el comando [az datashare create](/cli/azure/ext/datashare/datashare#ext_datashare_az_datashare_create) para crear la instancia de Data Share:
+1. Ejecute el comando [az datashare create](/cli/azure/datashare#az_datashare_create) para crear la instancia de Data Share:
 
    ```azurecli
    az datashare create --resource-group testresourcegroup \
@@ -218,7 +218,7 @@ Use estos comandos para crear el recurso:
      --description "Data Share" --share-kind "CopyBased" --terms "Confidential"
    ```
 
-1. Use el comando [az datashare invitation create](/cli/azure/ext/datashare/datashare/invitation#ext_datashare_az_datashare_invitation_create) para crear la invitación para la dirección especificada:
+1. Use el comando [az datashare invitation create](/cli/azure/datashare/invitation#az_datashare_invitation_create) para crear la invitación para la dirección especificada:
 
    ```azurecli
    az datashare invitation create --resource-group testresourcegroup \

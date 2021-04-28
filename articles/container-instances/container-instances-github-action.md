@@ -4,12 +4,12 @@ description: Configure una acción de GitHub que automatice los pasos necesarios
 ms.topic: article
 ms.date: 08/20/2020
 ms.custom: github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: e6a4d9ecff292d79f132f933c36b0030e04f4efa
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: df8f7a546767f1198cee6fc6ceb6032645c14989
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107771306"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107868995"
 ---
 # <a name="configure-a-github-action-to-create-a-container-instance"></a>Configuración de una acción de GitHub para crear una instancia de contenedor
 
@@ -31,7 +31,7 @@ En este artículo se muestran dos maneras de configurar el flujo de trabajo:
 > [!IMPORTANT]
 > La acción de GitHub para Azure Container Instances está actualmente en versión preliminar. Las versiones preliminares están a su disposición con la condición de que acepte los [términos de uso adicionales][terms-of-use]. Es posible que algunos de los aspectos de esta característica cambien antes de ofrecer disponibilidad general.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * **Cuenta de GitHub**: Cree una cuenta en https://github.com si aún no tiene una.
 * **CLI de Azure**: Para completar los pasos de la CLI de Azure, puede usar Azure Cloud Shell o una instalación local de la CLI de Azure. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][azure-cli-install].
@@ -319,4 +319,4 @@ Explore [GitHub Marketplace](https://github.com/marketplace?type=actions) para v
 [az-container-show]: /cli/azure/container#az_container_show
 [az-container-delete]: /cli/azure/container#az_container_delete
 [az-extension-add]: /cli/azure/extension#az_extension_add
-[az-container-app-up]: /cli/azure/ext/deploy-to-azure/container/app#ext-deploy-to-azure-az-container-app-up
+[az-container-app-up]: /cli/azure/container/app#az_container_app_up

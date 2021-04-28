@@ -7,18 +7,18 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/15/2021
-ms.openlocfilehash: caa2b3171e80439fedd8941ebc864a226f1a21b8
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: 4ffbca8e4e70a5201b374d4fac9bdb136c860573
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107600002"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108144968"
 ---
 # <a name="how-to-get-featured-in-microsoft-appsource-and-azure-marketplace"></a>Cómo aparecer como destacado en Microsoft AppSource y Azure Marketplace
 
 Azure Marketplace y AppSource cuentan con secciones de **aplicaciones destacadas** en los que puede mostrarse su aplicación:
 
-* En primer lugar, si tiene una oferta de EVALUACIÓN, CONSULTORÍA o TRANSACCIÓN, puede reunir los requisitos para la **ventaja de la posición en categorías destacadas del marketplace comercial** mediante las [ventajas del marketplace comercial](/azure/marketplace/gtm-your-marketplace-benefits). Si cumple los requisitos, la oferta del marketplace comercial se destacará automáticamente en una de las categorías que se encuentran en el lado izquierdo de la publicación. La categoría y temporalidad de la posición destacada se basarán en la disponibilidad. Para fortalecer la posición de la oferta en el marketplace, consulte este vídeo sobre [procedimientos recomendados para optimizar las ofertas](https://partner.microsoft.com/asset/detail/best-practices-for-optimizing-your-listing-mp4) (microsoft.com).
+* En primer lugar, si tiene una oferta de EVALUACIÓN, CONSULTORÍA o TRANSACCIÓN, puede reunir los requisitos para la **ventaja de la posición en categorías destacadas del marketplace comercial** mediante las [ventajas del marketplace comercial](./gtm-your-marketplace-benefits.md). Si cumple los requisitos, la oferta del marketplace comercial se destacará automáticamente en una de las categorías que se encuentran en el lado izquierdo de la publicación. La categoría y temporalidad de la posición destacada se basarán en la disponibilidad. Para fortalecer la posición de la oferta en el marketplace, consulte este vídeo sobre [procedimientos recomendados para optimizar las ofertas](https://partner.microsoft.com/asset/detail/best-practices-for-optimizing-your-listing-mp4) (microsoft.com).
 * En segundo lugar, revise la lista de procedimientos recomendados y los siguientes criterios para ganarse un espacio.
 
 El algoritmo de selección de aplicaciones destacadas genera una puntuación para una aplicación de Microsoft, igual que la clasificación de crédito de una persona en los Estados Unidos.  La selección semanal de aplicaciones destacadas se basará en un cálculo del rendimiento de la aplicación y del servicio.

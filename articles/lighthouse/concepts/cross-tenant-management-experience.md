@@ -3,12 +3,12 @@ title: Experiencias de administración entre inquilinos
 description: La administración de recursos delegados de Azure habilita una experiencia de administración entre inquilinos.
 ms.date: 03/29/2021
 ms.topic: conceptual
-ms.openlocfilehash: 027d1d5e81d5a652a7e2d5441c40440c661f730f
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 005d8f15c20749dff7d45385124a08a64b213afb
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107778632"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108139046"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiencias de administración entre inquilinos
 
@@ -104,7 +104,7 @@ La mayoría de las tareas y servicios se pueden realizar en recursos delegados a
 - Creación de una [configuración de diagnóstico](../..//azure-monitor/essentials/diagnostic-settings.md) en inquilinos de cliente para enviar registros de recursos a áreas de trabajo en el inquilino de administración
 - Para las cargas de trabajo de SAP, [supervise las métricas de soluciones de SAP con una vista agregada a través de los inquilinos del cliente](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-lighthouse-and-azure-monitor-for-sap-solutions-to/ba-p/1537293).
 
-[Redes de Azure](../../networking/networking-overview.md):
+[Redes de Azure](../../networking/fundamentals/networking-overview.md):
 
 - Implementación y administración de [Azure Virtual Network](../../virtual-network/index.yml) y las tarjetas de interfaz de red virtual (vNIC) en inquilinos administrados
 - Implementación y configuración de [Azure Firewall](../../firewall/overview.md) para proteger los recursos de Virtual Network de los clientes

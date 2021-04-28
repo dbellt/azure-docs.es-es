@@ -6,22 +6,22 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/11/2021
+ms.date: 04/19/2021
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 73bef1648b08f5c1e0664ef1da15375bc44149cc
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8c0158ea4e93b4bbefa7b41b5a280fa804ede35f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105045355"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107791290"
 ---
 # <a name="create-a-storage-account"></a>Creación de una cuenta de Storage
 
-Una cuenta de Azure Storage contiene todos los objetos de datos de Azure Storage: blobs, archivos, colas, tablas y discos. La cuenta de almacenamiento proporciona un espacio de nombres único para los datos de Azure Storage que es accesible desde cualquier lugar del mundo a través de HTTP o HTTPS. Los datos de la cuenta de Azure Storage son duraderos y altamente disponibles, seguros y escalables a gran escala.
+Una cuenta de Azure Storage contiene todos los objetos de datos de Azure Storage: blobs, archivos, colas y tablas. La cuenta de almacenamiento proporciona un espacio de nombres único para los datos de Azure Storage que es accesible desde cualquier lugar del mundo a través de HTTP o HTTPS. Para obtener más información sobre las cuentas de Azure Storage, consulte [Introducción a las cuentas de almacenamiento](storage-account-overview.md).
 
-En este artículo de procedimientos se aprende a crear una cuenta de almacenamiento con [Azure Portal](https://portal.azure.com/), [Azure PowerShell](/powershell/azure/), la [CLI de Azure](/cli/azure) o una [plantilla de Azure Resource Manager](../../azure-resource-manager/management/overview.md).  
+En este artículo de procedimientos se aprende a crear una cuenta de almacenamiento con [Azure Portal](https://portal.azure.com/), [Azure PowerShell](/powershell/azure/), la [CLI de Azure](/cli/azure) o una [plantilla de Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -35,7 +35,7 @@ Ninguno.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Para crear una cuenta de almacenamiento de Azure con PowerShell, asegúrese de que ha instalado la versión 0.7 o posterior del módulo Az de Azure PowerShell. Para obtener más información, consulte [Presentación del módulo Az de Azure PowerShell](/powershell/azure/new-azureps-module-az).
+Para crear una cuenta de Azure Storage con PowerShell, asegúrese de que ha instalado la versión 0.7 o posterior del [módulo Az de PowerShell](https://www.powershellgallery.com/packages/Az). Para obtener más información, consulte [Presentación del módulo Az de Azure PowerShell](/powershell/azure/new-azureps-module-az).
 
 Para saber cuál es su versión actual, ejecute el comando siguiente:
 
@@ -43,7 +43,7 @@ Para saber cuál es su versión actual, ejecute el comando siguiente:
 Get-InstalledModule -Name "Az"
 ```
 
-Para instalar o actualizar Azure PowerShell, consulte [Instalación del módulo Azure PowerShell](/powershell/azure/install-Az-ps).
+Para instalar o actualizar Azure PowerShell, consulte [Instalación del módulo Azure PowerShell](/powershell/azure/install-az-ps).
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
@@ -72,7 +72,7 @@ Ninguno.
 
 ---
 
-## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
+Inicie de sesión en Azure.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -90,7 +90,7 @@ Connect-AzAccount
 
 Para iniciar Azure Cloud Shell, inicie sesión en [Azure Portal](https://portal.azure.com).
 
-Para iniciar sesión en la instalación local de la CLI, ejecute el comando [az login](/cli/azure/reference-index#az-login):
+Para iniciar sesión en la instalación local de la CLI, ejecute el comando [az login](/cli/azure/reference-index#az_login):
 
 ```azurecli-interactive
 az login
@@ -104,35 +104,112 @@ N/D
 
 ## <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
 
-Cada cuenta de almacenamiento debe pertenecer a un grupo de recursos de Azure. Un grupo de recursos es un contenedor lógico para agrupar servicios de Azure. Al crear una cuenta de almacenamiento, puede elegir entre crear un grupo de recursos o usar uno existente. En este artículo se muestra cómo crear un nuevo grupo de recursos.
+Una cuenta de almacenamiento es un recurso de Azure Resource Manager. Resource Manager es el servicio de implementación y administración de Azure. Para más información, consulte [Información general de Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 
-Una cuenta de almacenamiento de **uso general v2** proporciona acceso a todos los servicios de Azure Storage: Blob, File, Queue, Table y Disk. Los pasos indicados aquí crean una cuenta de almacenamiento de uso general v2, pero los pasos para crear cualquier otro tipo de cuenta de almacenamiento son similares. Para obtener más información sobre los tipos de cuentas de almacenamiento y otros parámetros de la cuenta de almacenamiento, consulte [Introducción a las cuentas de Azure Storage](storage-account-overview.md).
+Cada recurso de Resource Manager, incluida una cuenta de Azure Storage, debe pertenecer a un grupo de recursos de Azure. Un grupo de recursos es un contenedor lógico para agrupar servicios de Azure. Al crear una cuenta de almacenamiento, puede elegir entre crear un grupo de recursos o usar uno existente. En este artículo de información se muestra cómo crear un nuevo grupo de recursos.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
+Siga estos pasos para crear una cuenta de Azure Storage con Azure Portal:
+
+1. En el menú izquierdo del portal, seleccione **Cuentas de almacenamiento** para mostrar una lista de las cuentas de almacenamiento.
+1. En la página **Cuentas de almacenamiento**, seleccione **Nuevo**.
+
+Las opciones de la nueva cuenta de almacenamiento se organizan en pestañas en la página **Creación de una cuenta de almacenamiento**. En las secciones siguientes se describe cada una de las pestañas y sus opciones.
+
+### <a name="basics-tab"></a>Pestaña Aspectos básicos
+
+En la pestaña **Aspectos básicos**, proporcione la información esencial de la cuenta de almacenamiento. Después de completar la pestaña **Aspectos básicos**, puede personalizar aún más la nueva cuenta de almacenamiento; para ello, establezca las opciones en las otras pestañas, o bien seleccione **Revisar y crear** para aceptar las opciones predeterminadas y continuar con la validación y la creación de la cuenta.
+
+En la siguiente tabla se describen los campos de la pestaña **Aspectos básicos**.
+
+| Sección | Campo | Obligatorio u opcional | Descripción |
+|--|--|--|--|
+| Detalles del proyecto | Suscripción | Obligatorio | Seleccione la suscripción para la nueva cuenta de almacenamiento. |
+| Detalles del proyecto | Grupo de recursos | Obligatorio | Cree un nuevo grupo de recursos para esta cuenta de almacenamiento o seleccione uno existente. Para obtener más información, vea el apartado [Grupos de recursos](../../azure-resource-manager/management/overview.md#resource-groups). |
+| Detalles de instancia | Nombre de la cuenta de almacenamiento | Obligatorio | Seleccione un nombre único para la cuenta de almacenamiento. Los nombres de las cuentas de almacenamiento deben tener entre 3 y 24 caracteres y solo pueden incluir números y letras en minúscula. |
+| Detalles de instancia | Region | Obligatorio | Seleccione la región adecuada para la cuenta de almacenamiento. Para obtener más información, consulte [Regiones y zonas de disponibilidad en Azure](../../availability-zones/az-overview.md).<br /><br />No todas las regiones son compatibles con todos los tipos de cuentas de almacenamiento o las configuraciones de redundancia. Para más información, vea [Redundancia de Azure Storage](storage-redundancy.md).<br /><br />Tenga en cuenta que la elección de la región puede tener un impacto en la facturación. Para obtener más información, vea [Facturación de la cuenta de almacenamiento](storage-account-overview.md#storage-account-billing). |
+| Detalles de instancia | Rendimiento | Obligatorio | Seleccione rendimiento **estándar** para las cuentas de almacenamiento de uso general v2 (valor predeterminado). Microsoft recomienda este tipo de cuenta para la mayoría de los escenarios. Para obtener más información, consulte la sección [Tipos de cuentas de almacenamiento](storage-account-overview.md#types-of-storage-accounts).<br /><br />Seleccione **Prémium** para aquellos escenarios que requieran baja latencia. Después de seleccionar **Prémium,** seleccione el tipo de cuenta de almacenamiento prémium que quiera crear. Están disponibles los siguientes tipos de cuentas de almacenamiento: <ul><li>[Blobs en bloques](../blobs/storage-blob-performance-tiers.md)</li><li>[Recursos compartidos de archivos](../files/storage-files-planning.md#management-concepts)</li><li>[Blobs en páginas](../blobs/storage-blob-pageblob-overview.md)</li></ul> |
+| Detalles de instancia | Redundancia | Obligatorio | Seleccione la configuración de redundancia que quiera. No todas las opciones de redundancia están disponibles para todos los tipos de cuentas de almacenamiento en todas las regiones. Para obtener más información sobre la configuración de redundancia, consulte la [Redundancia de Azure Storage](storage-redundancy.md).<br /><br />Si selecciona una configuración con redundancia geográfica (GRS o GZRS), los datos se replican en un centro de datos de una región diferente. Para obtener acceso de lectura a los datos de la región secundaria, seleccione **Hacer que el acceso de lectura a los datos esté disponible en caso de que no estén disponibles a nivel regional**. |
+
+En la imagen siguiente se muestra una configuración estándar para una nueva cuenta de almacenamiento.
+
+:::image type="content" source="media/storage-account-create/create-account-basics-tab.png" alt-text="Captura de pantalla que muestra una configuración estándar para una nueva cuenta de almacenamiento: pestaña de Aspectos básicos":::.
+
+### <a name="advanced-tab"></a>Ficha Opciones avanzadas
+
+En la pestaña **Opciones avanzadas**, puede configurar opciones adicionales y modificar la configuración predeterminada de la nueva cuenta de almacenamiento. Algunas de estas opciones también se pueden configurar después de crear la cuenta de almacenamiento, mientras que otras deben configurarse en el momento de la creación.
+
+En la siguiente tabla se describen los campos de la ficha **Opciones avanzadas**.
+
+| Sección | Campo | Obligatorio u opcional | Descripción |
+|--|--|--|--|
+| Seguridad | Habilitar la transferencia segura | Opcionales | Habilite la transferencia segura para requerir que las solicitudes entrantes a esta cuenta de almacenamiento solo se realicen a través del protocolo HTTPS (valor predeterminado). Esto se recomienda para una seguridad óptima. Para obtener más información, consulte [Requisito de transferencia segura para garantizar conexiones seguras](storage-require-secure-transfer.md). |
+| Seguridad | Habilitar el cifrado de infraestructura | Opcionales | De forma predeterminada, se comprueba que el cifrado de infraestructura no está habilitado. Habilite el cifrado de infraestructura para cifrar los datos tanto en el nivel de servicio como en el nivel de infraestructura. Para obtener más información, consulte [Creación de una cuenta de almacenamiento con el cifrado de infraestructura habilitado para realizar el cifrado doble de datos](infrastructure-encryption-enable.md). |
+| Seguridad | Habilitar el acceso público a blobs | Opcionales | Cuando se habilita, esta opción permite a un usuario con los permisos adecuados habilitar el acceso público anónimo a un contenedor en la cuenta de almacenamiento (valor predeterminado). Deshabilitar esta configuración impide todo acceso público anónimo a la cuenta de almacenamiento. Para más información, consulte el artículo en el que se explica cómo [impedir el acceso de lectura público anónimo a contenedores y blobs](../blobs/anonymous-read-access-prevent.md).<br> <br> Aunque se habilite el acceso público a los blobs, los datos del blob no estarán disponibles para el acceso público a menos que el usuario realice el paso adicional para configurar explícitamente la opción de acceso público del contenedor. |
+| Seguridad | Habilitar el acceso a la clave de la cuenta de almacenamiento (versión preliminar) | Opcionales | Cuando se habilita, esta configuración permite a los clientes autorizar las solicitudes a la cuenta de almacenamiento mediante las claves de acceso de la cuenta o una cuenta de Azure Active Directory (Azure AD) (valor predeterminado). Si se deshabilita esta configuración, impedirá que se realice la autorización con las claves de acceso de la cuenta. Para obtener más información, consulte [Impedir la autorización con clave compartida para una cuenta de Azure Storage (versión preliminar)](shared-key-authorization-prevent.md). |
+| Seguridad | Versión de TLS mínima | Obligatorio | Seleccione la versión mínima necesaria de la Seguridad de la capa de transporte (TLS) para las solicitudes entrantes de una cuenta de almacenamiento. El valor predeterminado es la versión 1.2 de TLS. Cuando esta opción se establece en el valor predeterminado, se rechazan las solicitudes entrantes realizadas con TLS 1.0 o TLS 1.1. Para obtener más información, consulte [Aplicación de una versión mínima necesaria de Seguridad de la capa de transporte (TLS) para las solicitudes a una cuenta de almacenamiento](transport-layer-security-configure-minimum-version.md). |
+| Data Lake Storage Gen2 | Habilitar el espacio de nombres jerárquico | Opcionales | Para usar esta cuenta de almacenamiento para las cargas de trabajo de Azure Data Lake Storage Gen2, configure un espacio de nombres jerárquico. Para más información, vea [Introducción a Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md). |
+| Blob Storage | Habilitación del recurso compartido de archivos de red (NFS) v3 (versión preliminar) | Opcionales | NFS v3 proporciona compatibilidad con el sistema de archivos de Linux en cuanto a la escala de almacenamiento de objetos, y permite a los clientes de Linux montar un contenedor en la instancia de Blob Storage desde una máquina virtual (VM) de Azure o un equipo local. Para obtener más información, consulte [Compatibilidad del protocolo Network File System (NFS) 3.0 en Azure Blob Storage (versión preliminar)](../blobs/network-file-system-protocol-support.md). |
+| Blob Storage | Nivel de acceso | Obligatorio | Los niveles de acceso a blobs permiten almacenar datos de blob de la manera más rentable, en función del uso. Seleccione el nivel de acceso frecuente (valor predeterminado) para los datos a los que se accede con frecuencia. Seleccione el nivel de acceso esporádico para los datos a los que se accede con poca frecuencia. Para obtener más información, vea [Niveles de acceso de Azure Blob Storage: frecuente, esporádico y archivo](../blobs/storage-blob-storage-tiers.md). |
+| Azure Files | Habilitación de recursos compartidos de archivos grandes | Opcionales | Solo está disponible para las cuentas de almacenamiento prémium para los recursos compartidos de archivos. Para obtener más información, consulte [Habilitación de recursos compartidos de archivos estándar para incluir hasta 100 TiB](../files/storage-files-planning.md#enable-standard-file-shares-to-span-up-to-100-tib). |
+| Tablas y colas | Habilitar la compatibilidad con claves administradas por el cliente | Opcionales | Para habilitar la compatibilidad con claves administradas por el cliente para tablas y colas, debe seleccionar esta configuración en el momento de crear la cuenta de almacenamiento. Para obtener más información, consulte [Creación de una cuenta que admita las claves administradas por el cliente para tablas y colas](account-encryption-key-create.md). |
+
+### <a name="networking-tab"></a>Pestaña Redes
+
+En la pestaña **Redes**, puede configurar la conectividad de red y las preferencias de enrutamiento para la nueva cuenta de almacenamiento. Estas opciones también se pueden configurar después de crear la cuenta de almacenamiento.
+
+En la siguiente tabla se describen los campos de la ficha **Redes**.
+
+| Sección | Campo | Obligatorio u opcional | Descripción |
+|--|--|--|--|
+| Conectividad de red | Método de conectividad | Obligatorio | De forma predeterminada, el tráfico de red entrante se enruta al punto de conexión público de su cuenta de almacenamiento. Puede especificar que el tráfico se debe enrutar al punto de conexión público a través de una red virtual de Azure. También puede configurar puntos de conexión privados para la cuenta de almacenamiento. Para obtener más información, consulte [Uso de puntos de conexión privados para Azure Storage](storage-private-endpoints.md). |
+| Enrutamiento de red | Preferencia de enrutamiento | Obligatorio | La preferencia de enrutamiento de red especifica cómo se enruta el tráfico de red al punto de conexión público de la cuenta de almacenamiento desde los clientes a través de Internet. De forma predeterminada, una nueva cuenta de almacenamiento usa el enrutamiento de red de Microsoft. También puede elegir enrutar el tráfico de red a través del punto de acceso POP más cercano a la cuenta de almacenamiento, lo que puede reducir los costos de red. Para obtener más información, consulte [Preferencias de enrutamiento de red para Azure Storage](network-routing-preference.md). |
+
+### <a name="data-protection-tab"></a>Pestaña Protección de datos
+
+En la pestaña **Protección de datos**, puede configurar opciones de protección de datos para los datos de blobs en la nueva cuenta de almacenamiento.  Estas opciones también se pueden configurar después de crear la cuenta de almacenamiento. Para obtener información general sobre las opciones de protección de datos de Azure Storage, consulte [Información general sobre la protección de datos](../blobs/data-protection-overview.md).
+
+En la tabla siguiente se describen los campos de la pestaña **Protección de datos**.
+
+| Sección | Campo | Obligatorio u opcional | Descripción |
+|--|--|--|--|
+| Recuperación | Habilitar la restauración a un momento dado para contenedores | Opcionales | La restauración a un momento dado proporciona protección contra eliminaciones accidentales o daños, ya que le permite restaurar los datos de blobs en bloques a un estado anterior. Para obtener más información, consulte la [Restauración a un momento dado de los blobs en bloques](../blobs/point-in-time-restore-overview.md).<br /><br />La habilitación de la restauración a un momento dado también permite el control de versiones de blobs, la eliminación temporal de los blobs y la fuente de cambios de blobs. Estas características de requisitos previos pueden tener un impacto en el costo. Para obtener más información, consulte [Precios y facturación](../blobs/point-in-time-restore-overview.md#pricing-and-billing) de la restauración a un momento dado. |
+| Recuperación | Habilitación de la eliminación temporal para blobs | Opcionales | La eliminación temporal de blobs protege a cada uno de los blobs, instantáneas o versiones de errores accidentales al borrar o sobrescribir los datos, ya que conserva en el sistema los datos eliminados durante el período de retención que se especifique. Durante el período de retención, puede restaurar un objeto eliminado temporalmente a su estado en el momento en que se eliminó. Para obtener más información, consulte [Eliminación temporal para los blobs](../blobs/soft-delete-blob-overview.md).<br /><br />Microsoft recomienda habilitar la eliminación temporal de blobs para las cuentas de almacenamiento y establecer un período de retención mínimo de siete días. |
+| Recuperación | Habilitación de la eliminación temporal para contenedores (versión preliminar) | Opcionales | La eliminación temporal de contenedores protege los contenedores y su contenido de eliminaciones accidentales, ya que conserva en el sistema los datos eliminados durante el período de retención que se especifique. Durante el período de retención, puede restaurar un contenedor eliminado temporalmente a su estado en el momento en que se eliminó. Para más información, consulte [Eliminación temporal de contenedores (versión preliminar)](../blobs/soft-delete-container-overview.md).<br /><br />Microsoft recomienda habilitar la eliminación temporal de contenedores para las cuentas de almacenamiento y establecer un período de retención mínimo de siete días. |
+| Recuperación | Habilitar la eliminación temporal para recursos compartidos de archivos | Opcionales | La eliminación temporal de recursos compartidos de archivos protege un recurso compartido de archivos y su contenido de eliminaciones accidentales al mantener los datos eliminados en el sistema durante un período de retención específico. Durante el período de retención, puede restaurar un recurso compartido de archivos eliminado temporalmente a su estado en el momento en que se eliminó. Para obtener más información, consulte [Prevención de la eliminación accidental de recursos compartidos de archivos de Azure](../files/storage-files-prevent-file-share-deletion.md).<br /><br />Microsoft recomienda habilitar la eliminación temporal de los recursos compartidos de archivos de las cargas de trabajo de Azure Files y establecer un período de retención mínimo de siete días. |
+| Seguimiento | Habilitar el control de versiones para blobs | Opcionales | El control de versiones de blobs guarda automáticamente el estado de un blob en una versión anterior cuando se sobrescribe ese blob. Para más información, consulte [Control de versiones de blobs](../blobs/versioning-overview.md).<br /><br />Microsoft recomienda habilitar el control de versiones de blobs para conseguir una protección de datos óptima para la cuenta de almacenamiento. |
+| Seguimiento | Habilitar la fuente de cambios del blob | Opcionales | La fuente de cambios de blobs proporciona registros de transacciones de todos los cambios en todos los blobs de la cuenta de almacenamiento, así como en sus metadatos. Para obtener más información, consulte [Compatibilidad con la fuente de cambios en Azure Blob Storage](../blobs/storage-blob-change-feed.md). |
+
+### <a name="tags-tab"></a>Pestaña Etiquetas
+
+En la pestaña **Etiquetas**, puede especificar etiquetas de Resource Manager para ayudar a organizar los recursos de Azure. Para obtener más información, consulte [Etiquetado de recursos, grupos de recursos y suscripciones para una organización lógica](../../azure-resource-manager/management/tag-resources.md).
+
+### <a name="review--create-tab"></a>Pestaña Revisar y crear
+
+Al ir a la pestaña **Revisar y crear**, Azure ejecuta la validación en la configuración de la cuenta de almacenamiento que ha elegido. Si se supera la validación, puede continuar con la creación de la cuenta de almacenamiento.
+
+En cambio, si se produce un error en la validación, el portal indica qué configuración debe modificarse.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-En primer lugar, cree un grupo de recursos con PowerShell mediante el comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup):
+Para crear una cuenta de almacenamiento v2 de uso general con PowerShell, primero debe crear un grupo de recursos mediante una llamada al comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup):
 
-```powershell
-# put resource group in a variable so you can use the same group name going forward,
-# without hard-coding it repeatedly
-$resourceGroup = "storage-resource-group"
-$location = "westus"
+```azurepowershell-interactive
+$resourceGroup = "<resource-group>"
+$location = "<location>"
 New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
 
 Si no está seguro de qué región especificar para el parámetro `-Location`, puede recuperar una lista de regiones admitidas para la suscripción con el comando [Get-AzLocation](/powershell/module/az.resources/get-azlocation):
 
-```powershell
+```azurepowershell-interactive
 Get-AzLocation | select Location
 ```
 
-Luego, para crear una cuenta de almacenamiento de uso general v2 con almacenamiento con redundancia local con acceso de lectura (RA-GRS), use el comando [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount). Recuerde que el nombre de la cuenta de almacenamiento debe ser único en Azure, así que reemplace el valor de marcador de posición entre corchetes por su propio valor único:
+A continuación, para crear una cuenta de almacenamiento estándar v2 de uso general con almacenamiento con redundancia local con acceso de lectura (RA-GRS), use el comando [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount). Recuerde que el nombre de la cuenta de almacenamiento debe ser único en Azure, así que reemplace el valor de marcador de posición entre corchetes por su propio valor único:
 
-```powershell
+```azurepowershell-interactive
 New-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Name <account-name> `
   -Location $location `
@@ -140,62 +217,60 @@ New-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Kind StorageV2
 ```
 
-> [!IMPORTANT]
-> Si planea usar [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), incluya `-EnableHierarchicalNamespace $True` en esta lista de parámetros.
+Para habilitar un espacio de nombres jerárquico para que la cuenta de almacenamiento use [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), incluya el parámetro `-EnableHierarchicalNamespace $True` en la llamada al comando **New-AzStorageAccount**.
 
-Para crear una cuenta de almacenamiento de uso general v2 con otra opción de replicación, sustituya el valor deseado de la tabla siguiente por el parámetro **SkuName**.
+En la tabla siguiente se muestran los valores que se usarán para los parámetros `-SkuName` y `-Kind` para crear un tipo determinado de cuenta de almacenamiento con la configuración de redundancia deseada.
 
-|Opción Replicación  |Parámetro SkuName  |
-|---------|---------|
-|Almacenamiento con redundancia local (LRS)     |Standard_LRS         |
-|Almacenamiento con redundancia de zona (ZRS)     |Standard_ZRS         |
-|Almacenamiento con redundancia geográfica (GRS)     |Standard_GRS         |
-|Almacenamiento con redundancia geográfica con acceso de lectura (GRS)     |Standard_RAGRS         |
-|Almacenamiento con redundancia de zona geográfica (GZRS)    |Standard_GZRS         |
-|Almacenamiento con redundancia de zona geográfica con acceso de lectura (RA-GZRS)    |Standard_RAGZRS         |
+| Tipo de cuenta de almacenamiento | Configuraciones de redundancia admitidas | Valor del parámetro -Kind | Valores posibles para el parámetro -SkuName | Admite el espacio de nombres jerárquico |
+|--|--|--|--|--|
+| De uso general estándar, v2 | LRS / GRS / RA-GRS / ZRS / GZRS / RA-GZRS | StorageV2 | Standard_LRS / Standard_GRS / Standard_RAGRS/ Standard_ZRS / Standard_GZRS / Standard_RAGZRS | Sí |
+| Blobs en bloques Premium | LRS / ZRS | BlockBlobStorage | Premium_LRS / Premium_ZRS | Sí |
+| Recursos compartidos de archivos Prémium | LRS / ZRS | FileStorage | Premium_LRS / Premium_ZRS | No |
+| Blobs en páginas Premium | LRS | StorageV2 | Premium_LRS | No |
+| De uso general v1, estándar, heredado | LRS / GRS / RA-GRS | Storage | Standard_LRS / Standard_GRS / Standard_RAGRS | No |
+| Instancia de Blob Storage heredada | LRS / GRS / RA-GRS | BlobStorage | Standard_LRS / Standard_GRS / Standard_RAGRS | No |
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-Primero, cree un grupo de recursos con la CLI de Azure mediante el comando [az group create](/cli/azure/group#az_group_create).
+Para crear una cuenta de almacenamiento v2 de uso general con la CLI de Azure, primero debe crear un grupo de recursos mediante una llamada al comando [az group create](/cli/azure/group#az_group_create).
 
 ```azurecli-interactive
 az group create \
-    --name storage-resource-group \
-    --location westus
+  --name storage-resource-group \
+  --location westus
 ```
 
 Si no está seguro de qué región especificar para el parámetro `--location`, puede recuperar una lista de regiones admitidas para la suscripción con el comando [az account list-locations](/cli/azure/account#az_account_list).
 
 ```azurecli-interactive
 az account list-locations \
-    --query "[].{Region:name}" \
-    --out table
+  --query "[].{Region:name}" \
+  --out table
 ```
 
-Luego, para crear una cuenta de almacenamiento de uso general v2 con almacenamiento con redundancia local con acceso de lectura (RA-GRS), use el comando [az storage account create](/cli/azure/storage/account#az_storage_account_create). Recuerde que el nombre de la cuenta de almacenamiento debe ser único en Azure, así que reemplace el valor de marcador de posición entre corchetes por su propio valor único:
+A continuación, para crear una cuenta de almacenamiento estándar de uso general v2 con almacenamiento con redundancia local con acceso de lectura (RA-GRS), use el comando [az storage account create](/cli/azure/storage/account#az_storage_account_create). Recuerde que el nombre de la cuenta de almacenamiento debe ser único en Azure, así que reemplace el valor de marcador de posición entre corchetes por su propio valor único:
 
 ```azurecli-interactive
 az storage account create \
-    --name <account-name> \
-    --resource-group storage-resource-group \
-    --location westus \
-    --sku Standard_RAGRS \
-    --kind StorageV2
+  --name <account-name> \
+  --resource-group storage-resource-group \
+  --location westus \
+  --sku Standard_RAGRS \
+  --kind StorageV2
 ```
 
-> [!IMPORTANT]
-> Si planea usar [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), incluya `--enable-hierarchical-namespace true` en esta lista de parámetros.
+Para habilitar un espacio de nombres jerárquico para que la cuenta de almacenamiento use [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), incluya el parámetro `--enable-hierarchical-namespace true` en la llamada al comando **az storage account create**. Para crear un espacio de nombres jerárquico debe usar la versión 2.0.79 o posterior de la CLI de Azure.
 
-Para crear una cuenta de almacenamiento de uso general v2 con otra opción de replicación, sustituya el valor deseado de la tabla siguiente por el parámetro **sku**.
+En la tabla siguiente se muestran los valores que se usarán para los parámetros `-sku` y `-kind` para crear un tipo determinado de cuenta de almacenamiento con la configuración de redundancia deseada.
 
-|Opción Replicación  |Parámetro sku  |
-|---------|---------|
-|Almacenamiento con redundancia local (LRS)     |Standard_LRS         |
-|Almacenamiento con redundancia de zona (ZRS)     |Standard_ZRS         |
-|Almacenamiento con redundancia geográfica (GRS)     |Standard_GRS         |
-|Almacenamiento con redundancia geográfica con acceso de lectura (GRS)     |Standard_RAGRS         |
-|Almacenamiento con redundancia de zona geográfica (GZRS)    |Standard_GZRS         |
-|Almacenamiento con redundancia de zona geográfica con acceso de lectura (RA-GZRS)    |Standard_RAGZRS         |
+| Tipo de cuenta de almacenamiento | Configuraciones de redundancia admitidas | Valor del parámetro -kind | Valores posibles del parámetro -sku | Admite el espacio de nombres jerárquico |
+|--|--|--|--|--|
+| De uso general estándar, v2 | LRS / GRS / RA-GRS / ZRS / GZRS / RA-GZRS | StorageV2 | Standard_LRS / Standard_GRS / Standard_RAGRS/ Standard_ZRS / Standard_GZRS / Standard_RAGZRS | Sí |
+| Blobs en bloques Premium | LRS / ZRS | BlockBlobStorage | Premium_LRS / Premium_ZRS | Sí |
+| Recursos compartidos de archivos Prémium | LRS / ZRS | FileStorage | Premium_LRS / Premium_ZRS | No |
+| Blobs en páginas Premium | LRS | StorageV2 | Premium_LRS | No |
+| De uso general v1, estándar, heredado | LRS / GRS / RA-GRS | Storage | Standard_LRS / Standard_GRS / Standard_RAGRS | No |
+| Instancia de Blob Storage heredada | LRS / GRS / RA-GRS | BlobStorage | Standard_LRS / Standard_GRS / Standard_RAGRS | No |
 
 # <a name="template"></a>[Plantilla](#tab/template)
 
@@ -219,7 +294,7 @@ az deployment group create --resource-group $resourceGroupName --template-uri "h
 ```
 
 > [!NOTE]
-> Esta plantilla sirve solo como ejemplo. Hay muchas opciones de una cuenta de almacenamiento que no se configuran como parte de esta plantilla. Por ejemplo, si desea utilizar [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), debe modificar esta plantilla estableciendo la propiedad `isHnsEnabledad` del objeto `StorageAccountPropertiesCreateParameters` en `true`. 
+> Esta plantilla sirve solo como ejemplo. Hay muchas opciones de una cuenta de almacenamiento que no se configuran como parte de esta plantilla. Por ejemplo, si quiere utilizar [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), debe modificar esta plantilla estableciendo la propiedad `isHnsEnabledad` del objeto `StorageAccountPropertiesCreateParameters` en `true`.
 
 Para obtener información sobre cómo modificar esta plantilla o crear otras nuevas, consulte:
 
@@ -248,7 +323,7 @@ Remove-AzStorageAccount -Name <storage-account> -ResourceGroupName <resource-gro
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-Para eliminar la cuenta de almacenamiento, utilice el comando [az storage account delete](/cli/azure/storage/account#az-storage-account-delete):
+Para eliminar la cuenta de almacenamiento, utilice el comando [az storage account delete](/cli/azure/storage/account#az_storage_account_delete):
 
 ```azurecli-interactive
 az storage account delete --name <storage-account> --resource-group <resource-group>
@@ -285,5 +360,5 @@ Como alternativa, puede eliminar el grupo de recursos, que elimina la cuenta de 
 
 - [Introducción a las cuentas de almacenamiento](storage-account-overview.md)
 - [Actualización a una cuenta de almacenamiento de uso general v2](storage-account-upgrade.md)
-- [Traslado de una cuenta de Azure Storage a otra región](storage-account-move.md)
+- [Traslado de una cuenta de almacenamiento a otra región](storage-account-move.md)
 - [recuperar una cuenta de almacenamiento eliminada](storage-account-recover.md)

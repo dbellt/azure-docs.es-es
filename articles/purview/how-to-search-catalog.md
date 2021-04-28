@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 03/16/2021
-ms.openlocfilehash: 7799266bf9cece1ed789d6fab64ec970a09fbfcb
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 178604335968c3664bde51c144759c1c040c359d
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104588480"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107564920"
 ---
 # <a name="search-the-azure-purview-data-catalog"></a>Búsqueda en Azure Purview Data Catalog
 
@@ -55,8 +55,8 @@ A continuación se muestran los operadores que puede usar para crear una consult
 | NOT | Especifica que un recurso no puede contener la palabra clave a la derecha de la cláusula NOT. | La consulta `hive NOT database` devuelve los recursos que contienen la palabra "hive", pero no la palabra "database". |
 | () | Agrupa un conjunto de palabras clave y operadores. Al combinar varios operadores, los paréntesis especifican el orden de las operaciones. | La consulta `hive AND (database OR warehouse)` devuelve recursos que contienen la palabra "hive" y la palabra "database" o "warehouse", o ambas. |
 | "" | Especifica el contenido exacto de una frase con la que la consulta debe coincidir. | La consulta `"hive database"` devuelve los recursos que contienen la frase "hive database" en sus propiedades. |
-| * | Carácter comodín que coincide con uno o varios caracteres; no puede ser el primer carácter de una palabra clave. | La consulta `hiv\`* devuelve los recursos que tienen propiedades que comienzan por "hiv", como "hive" o "hive-table". |
-| ? | Carácter comodín que coincide con un único carácter. No puede ser el primer carácter de una palabra clave. | La consulta `hiv?` devuelve los recursos que tienen propiedades que comienzan por "hiv" y son de cuatro letras, como "hive" o "hiva". |
+| * | Carácter comodín que coincide con uno o varios caracteres; no puede ser el primer carácter de una palabra clave. | La consulta `dat*` devuelve los recursos que tienen propiedades que comienzan por "dat", como "data" o "database". |
+| ? | Carácter comodín que coincide con un único carácter. No puede ser el primer carácter de una palabra clave. | La consulta `dat?` devuelve los recursos que tienen propiedades que comienzan por "dat" y son de cuatro letras, como "date" o "data". |
 
 > [!Note]
 > Especifique siempre los operadores booleanos de texto (**AND**, **OR**, **NOT**) en mayúsculas. De lo contrario, el caso no es importante, ni tampoco los espacios adicionales.

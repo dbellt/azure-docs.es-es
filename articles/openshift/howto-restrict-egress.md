@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 04/09/2021
-ms.openlocfilehash: 24c4686306aff9d84fe7bf74ddfdccff987244d9
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: c15e7261587952c93d059cfcfadd06c7d204d80d
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107368564"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108135680"
 ---
 # <a name="control-egress-traffic-for-your-azure-red-hat-openshift-aro-cluster-preview"></a>Control del tráfico de salida del clúster de Red Hat OpenShift (ARO) en Azure (versión preliminar)
 
@@ -19,7 +19,7 @@ En este artículo se proporcionan los detalles necesarios que permiten proteger 
 
 ## <a name="before-you-begin"></a>Antes de comenzar
 
-En este artículo se asume que va a crear un clúster. Si necesita un clúster de ARO básico, consulte el tutorial de [inicio rápido de ARO](https://docs.microsoft.com/azure/openshift/tutorial-create-cluster).
+En este artículo se asume que va a crear un clúster. Si necesita un clúster de ARO básico, consulte el tutorial de [inicio rápido de ARO](./tutorial-create-cluster.md).
 
 > [!IMPORTANT]
 > Las características en vista previa de ARO están disponibles como opción de participación y autoservicio. Las versiones preliminares se proporcionan "tal cual" y "como están disponibles", y están excluidas de los Acuerdos de nivel de servicio y la garantía limitada. Las versiones preliminares de ARO reciben cobertura parcial del soporte al cliente en la medida de lo posible.
@@ -99,7 +99,7 @@ En OpenShift Container Platform, los clientes pueden rechazar la notificación d
 
 ### <a name="azure-monitor-for-containers"></a>Azure Monitor para contenedores
 
-Hay dos opciones para proporcionar a los contenedores acceso a Azure Monitor; puede permitir [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) de Azure Monitor, **o bien** proporcionar acceso a las reglas de aplicación y FQDN necesarias.  Estas son las [instrucciones](https://docs.microsoft.com/azure/azure-monitor/containers/container-insights-azure-redhat4-setup) sobre cómo agregar Azure Monitor al clúster de ARO existente.
+Hay dos opciones para proporcionar a los contenedores acceso a Azure Monitor; puede permitir [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) de Azure Monitor, **o bien** proporcionar acceso a las reglas de aplicación y FQDN necesarias.  Estas son las [instrucciones](../azure-monitor/containers/container-insights-azure-redhat4-setup.md) sobre cómo agregar Azure Monitor al clúster de ARO existente.
 
 #### <a name="required-network-rules"></a>Reglas de red obligatorias
 

@@ -5,12 +5,12 @@ author: rashi-ms
 ms.author: rajosh
 ms.topic: conceptual
 ms.date: 02/07/2021
-ms.openlocfilehash: a22fa184f91cb409f7a4d7795a4bc34bdd83e598
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: c9319465c4e77eab294606ed046f7946948f2cc1
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106077812"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108140378"
 ---
 # <a name="assessment-overview-migrate-to-azure-sql"></a>Información general sobre la evaluación (migración a Azure SQL)
 
@@ -127,7 +127,7 @@ Si selecciona el tipo de implementación de destino como **Recomendado** en las 
 Si la instancia de SQL no está lista para Azure SQL Database y Azure SQL Managed Instance, el tipo de implementación recomendado se marca como *Potentially ready for Azure VM* (Potencialmente listo para VM de Azure).
 - Se recomienda que el usuario cree una evaluación en Azure Migrate con el tipo de evaluación como "Azure VM" para determinar si el servidor en el que se ejecuta la instancia está listo para migrarse a una máquina virtual de Azure en su lugar. Observe lo siguiente:
     - Las evaluaciones de máquinas virtuales de Azure en Azure Migrate siguen actualmente el enfoque de migración mediante lift-and-shift y no tendrán en cuenta las métricas de rendimiento específicas para ejecutar instancias y bases de datos de SQL en la máquina virtual de Azure. 
-    - Al ejecutar una evaluación de máquinas virtuales de Azure en un servidor, el tamaño recomendado y las estimaciones de costos serán para todas las instancias que se ejecutan en ese servidor y se pueden migrar a una máquina virtual de Azure mediante la herramienta Server Migration. Antes de migrar, [revise las directrices de rendimiento](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md) para SQL Server en máquinas virtuales de Azure.
+    - Al ejecutar una evaluación de máquinas virtuales de Azure en un servidor, el tamaño recomendado y las estimaciones de costos serán para todas las instancias que se ejecutan en ese servidor y se pueden migrar a una máquina virtual de Azure mediante la herramienta Server Migration. Antes de migrar, [revise las directrices de rendimiento](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist.md) para SQL Server en máquinas virtuales de Azure.
 
 
 ## <a name="calculate-sizing"></a>Cálculo del dimensionamiento

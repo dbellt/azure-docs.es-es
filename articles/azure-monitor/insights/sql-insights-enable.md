@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/15/2021
-ms.openlocfilehash: 385bf6382fd25406fc9927df806f35dbf973d8fa
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 012aa364fe9e379455b6b63f7c9e541d2d5b97ed
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108142538"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107726905"
 ---
 # <a name="enable-sql-insights-preview"></a>Habilitación de SQL Insights (versión preliminar)
 En este artículo se describe cómo habilitar [SQL Insights](sql-insights-overview.md) para supervisar las implementaciones de SQL. La supervisión se realiza desde una máquina virtual de Azure que establece una conexión con las implementaciones de SQL y usa vistas de administración dinámica para recopilar datos de supervisión. Puede controlar qué conjuntos de datos se recopilan y la frecuencia de recopilación mediante un perfil de supervisión.
@@ -125,7 +125,7 @@ Cada tipo de SQL ofrece métodos para que la máquina virtual de supervisión te
 
 SQL Insights admite el acceso a su instancia de Azure SQL Database a través de su punto de conexión público, así como de su red virtual.
 
-Para el acceso a través del punto de conexión público, debe agregar una regla en la página **Configuración de firewall** y en la sección de [configuración del firewall de IP](../../azure-sql/database/network-access-controls-overview.md#ip-firewall-rules).  Para especificar el acceso desde una red virtual, puede establecer [reglas de firewall de red virtual](../../azure-sql/database/network-access-controls-overview.md#virtual-network-firewall-rules) y establecer las [etiquetas de servicio que necesita el agente de Azure Monitor](../agents/azure-monitor-agent-overview.md#networking).  [En este artículo](../../azure-sql/database/network-access-controls-overview.md#ip-vs-virtual-network-firewall-rules) se describen las diferencias entre estos dos tipos de reglas de firewall.
+Para el acceso a través del punto de conexión público, debe agregar una regla en la página **Configuración de firewall** y en la sección de [configuración del firewall de IP](https://docs.microsoft.com/azure/azure-sql/database/network-access-controls-overview#ip-firewall-rules).  Para especificar el acceso desde una red virtual, puede establecer [reglas de firewall de red virtual](https://docs.microsoft.com/azure/azure-sql/database/network-access-controls-overview#virtual-network-firewall-rules) y establecer las [etiquetas de servicio que necesita el agente de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/agents/azure-monitor-agent-overview#networking).  [En este artículo](https://docs.microsoft.com/azure/azure-sql/database/network-access-controls-overview#ip-vs-virtual-network-firewall-rules) se describen las diferencias entre estos dos tipos de reglas de firewall.
 
 :::image type="content" source="media/sql-insights-enable/set-server-firewall.png" alt-text="Establecer el firewall del servidor" lightbox="media/sql-insights-enable/set-server-firewall.png":::
 
@@ -134,11 +134,11 @@ Para el acceso a través del punto de conexión público, debe agregar una regla
 
 ### <a name="azure-sql-managed-instances"></a>Instancias administradas de Azure SQL 
 
-Si la máquina virtual de supervisión va a estar en la misma red virtual que los recursos de Instancia administrada de SQL Database, consulte [Conexión dentro de la misma red virtual](../../azure-sql/managed-instance/connect-application-instance.md#connect-inside-the-same-vnet). Si la máquina virtual de supervisión va a estar en una red virtual diferente a la de los recursos de Instancia administrada de SQL Database, consulte [Conexión dentro de una red virtual diferente](../../azure-sql/managed-instance/connect-application-instance.md#connect-inside-a-different-vnet).
+Si la máquina virtual de supervisión va a estar en la misma red virtual que los recursos de Instancia administrada de SQL Database, consulte [Conexión dentro de la misma red virtual](https://docs.microsoft.com/azure/azure-sql/managed-instance/connect-application-instance#connect-inside-the-same-vnet). Si la máquina virtual de supervisión va a estar en una red virtual diferente a la de los recursos de Instancia administrada de SQL Database, consulte [Conexión dentro de una red virtual diferente](https://docs.microsoft.com/azure/azure-sql/managed-instance/connect-application-instance#connect-inside-a-different-vnet).
 
 
 ### <a name="azure-virtual-machine-and-azure-sql-virtual-machine"></a>Máquina virtual de Azure y máquina virtual de Azure SQL  
-Si la máquina virtual de supervisión está en la misma red virtual que los recursos de máquina virtual de SQL, consulte [Conexión a SQL Server en una red virtual](../../azure-sql/virtual-machines/windows/ways-to-connect-to-sql.md#connect-to-sql-server-within-a-virtual-network). Si la máquina virtual de supervisión va a estar en una red virtual diferente de la de los recursos de máquina virtual de SQL, consulte [Conexión a SQL Server a través de Internet](../../azure-sql/virtual-machines/windows/ways-to-connect-to-sql.md#connect-to-sql-server-over-the-internet).
+Si la máquina virtual de supervisión está en la misma red virtual que los recursos de máquina virtual de SQL, consulte [Conexión a SQL Server en una red virtual](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/ways-to-connect-to-sql#connect-to-sql-server-within-a-virtual-network). Si la máquina virtual de supervisión va a estar en una red virtual diferente de la de los recursos de máquina virtual de SQL, consulte [Conexión a SQL Server a través de Internet](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/ways-to-connect-to-sql#connect-to-sql-server-over-the-internet).
 
 ## <a name="store-monitoring-password-in-key-vault"></a>Almacenamiento de la contraseña de supervisión en Key Vault
 Debe almacenar las contraseñas de conexión del usuario de SQL en un almacén de claves en lugar de escribirlas directamente en las cadenas de conexión del perfil de supervisión.

@@ -11,26 +11,31 @@ ms.date: 12/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c84636ea86b3b640aef365c1c5d8e634b9a1f48
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8fe220cf7b5cb8b67e5ab7ded221494e89a28aa5
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99593170"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530260"
 ---
 # <a name="how-to-programmatically-configure-cloud-sync-using-ms-graph-api"></a>Configuración mediante programación de la sincronización en la nube mediante MS Graph API
 
 En el documento siguiente se describe cómo replicar un perfil de sincronización desde cero usando solo instancias de MS Graph API.  
 La estructura de este procedimiento consta de los siguientes pasos.  Son las siguientes:
 
-- [Configuración básica](#basic-setup)
-- [Creación de las entidades de servicio](#create-service-principals)
-- [Creación del trabajo de sincronización](#create-sync-job)
-- [Actualización del dominio de destino](#update-targeted-domain)
-- [Habilitación de sincronización de hashes de contraseñas](#enable-sync-password-hashes-on-configuration-blade)
-- [Eliminaciones accidentales](#accidental-deletes)
-- [Inicio del trabajo de sincronización](#start-sync-job)
-- [Revisión del estado](#review-status)
+- [Configuración mediante programación de la sincronización en la nube mediante MS Graph API](#how-to-programmatically-configure-cloud-sync-using-ms-graph-api)
+  - [Configuración básica](#basic-setup)
+    - [Habilitación de las marcas de inquilino](#enable-tenant-flags)
+  - [Creación de entidades de servicio](#create-service-principals)
+  - [Creación del trabajo de sincronización](#create-sync-job)
+  - [Actualización del dominio de destino](#update-targeted-domain)
+  - [Habilitación de la sincronización de hashes de contraseñas en la hoja de configuración](#enable-sync-password-hashes-on-configuration-blade)
+  - [Eliminaciones accidentales](#accidental-deletes)
+    - [Habilitación y establecimiento del umbral](#enabling-and-setting-the-threshold)
+    - [Permitir eliminaciones](#allowing-deletes)
+  - [Inicio del trabajo de sincronización](#start-sync-job)
+  - [Revisión del estado](#review-status)
+  - [Pasos siguientes](#next-steps)
 
 Use estos comandos del [Módulo Microsoft Azure Active Directory para Windows PowerShell](/powershell/module/msonline/) para permitir la sincronización de un inquilino de producción, un requisito previo para poder llamar al servicio web de administración de ese inquilino.
 
@@ -45,7 +50,7 @@ Use estos comandos del [Módulo Microsoft Azure Active Directory para Windows Po
 El primero de estos dos comandos requiere las credenciales de Azure Active Directory. Estos commandlets identifican de manera implícita el inquilino y permiten que se sincronice.
 
 ## <a name="create-service-principals"></a>Creación de entidades de servicio
-A continuación, es necesario crear la [aplicación o la entidad de servicio de AD2AAD](/graph/api/applicationtemplate-instantiate?view=graph-rest-beta&tabs=http).
+A continuación, es necesario crear la [aplicación o la entidad de servicio de AD2AAD](/graph/api/applicationtemplate-instantiate?view=graph-rest-beta&tabs=http&preserve-view=true).
 
 Debe usar el identificador de aplicación 1a4721b3-e57f-4451-ae87-ef078703ec94. El valor de displayName es la dirección URL del dominio de AD, si se usa en el portal (por ejemplo, contoso.com), pero puede tener un nombre diferente.
 
@@ -61,7 +66,7 @@ Debe usar el identificador de aplicación 1a4721b3-e57f-4451-ae87-ef078703ec94. 
 ## <a name="create-sync-job"></a>Creación del trabajo de sincronización
 La salida del comando anterior devolverá el valor de objectId de la entidad de servicio que se creó. En este ejemplo, es 614ac0e9-a59b-481f-bd8f-79a73d167e1c.  Use Microsoft Graph para agregar un trabajo de sincronización a esa entidad de servicio.  
 
-Puede encontrar documentación sobre la creación de un trabajo de sincronización [aquí](/graph/api/synchronization-synchronizationjob-post?tabs=http&view=graph-rest-beta).
+Puede encontrar documentación sobre la creación de un trabajo de sincronización [aquí](/graph/api/synchronization-synchronizationjob-post?tabs=http&view=graph-rest-beta&preserve-view=true).
 
 Si no registró el identificador anterior, puede encontrar la entidad de servicio mediante la ejecución de la siguiente llamada de MS Graph. Para hacer esa llamada, necesitará los permisos Directory.Read.All:
  
@@ -282,11 +287,11 @@ El trabajo se puede volver a recuperar con el siguiente comando:
 
  `GET https://graph.microsoft.com/beta/servicePrincipals/[SERVICE_PRINCIPAL_ID]/synchronization/jobs/ ` 
 
-Puede encontrar documentación sobre cómo recuperar trabajos [aquí](/graph/api/synchronization-synchronizationjob-list?tabs=http&view=graph-rest-beta). 
+Puede encontrar documentación sobre cómo recuperar trabajos [aquí](/graph/api/synchronization-synchronizationjob-list?tabs=http&view=graph-rest-beta&preserve-view=true). 
  
 Para iniciar el trabajo, emita esta solicitud con el identificador de objeto de la entidad de servicio creada en el primer paso y el identificador de trabajo devuelto por la solicitud que creó el trabajo.
 
-Puede encontrar documentación sobre cómo iniciar un trabajo [aquí](/graph/api/synchronization-synchronizationjob-start?tabs=http&view=graph-rest-beta). 
+Puede encontrar documentación sobre cómo iniciar un trabajo [aquí](/graph/api/synchronization-synchronizationjob-start?tabs=http&view=graph-rest-beta&preserve-view=true). 
 
  ```
  POST  https://graph.microsoft.com/beta/servicePrincipals/8895955e-2e6c-4d79-8943-4d72ca36878f/synchronization/jobs/AD2AADProvisioning.fc96887f36da47508c935c28a0c0b6da/start
@@ -294,7 +299,7 @@ Puede encontrar documentación sobre cómo iniciar un trabajo [aquí](/graph/api
 
 La respuesta esperada es: HTTP 204/Sin contenido.
 
-Otros comandos para controlar el trabajo se documentan [aquí](/graph/api/resources/synchronization-synchronizationjob?view=graph-rest-beta).
+Otros comandos para controlar el trabajo se documentan [aquí](/graph/api/resources/synchronization-synchronizationjob?view=graph-rest-beta&preserve-view=true).
  
 Para reiniciar un trabajo, usaría:
 
@@ -320,4 +325,4 @@ Busque los detalles pertinentes en la sección "estado" del objeto devuelto.
 
 - [¿Qué es la sincronización en la nube de Azure AD Connect?](what-is-cloud-sync.md)
 - [Transformaciones](how-to-transformation.md)
-- [API de sincronización de Azure AD](/graph/api/resources/synchronization-overview?view=graph-rest-beta)
+- [API de sincronización de Azure AD](/graph/api/resources/synchronization-overview?view=graph-rest-beta&preserve-view=true)

@@ -1,14 +1,14 @@
 ---
 title: Detalles de la estructura de asignaciones de directivas
 description: Describe la definición de asignación de directiva utilizada por Azure Policy para relacionar las definiciones de directiva y los parámetros con los recursos para su evaluación.
-ms.date: 03/17/2021
+ms.date: 04/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: 909c1c361e092c512a73854a40e22a67efe5f2f8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9de210b17264330e79ab5978a449e7a494054be2
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104604872"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535877"
 ---
 # <a name="azure-policy-assignment-structure"></a>Estructura de asignaciones de Azure Policy
 
@@ -60,6 +60,30 @@ Todos los ejemplos de Azure Policy se encuentran en [Ejemplos de Azure Policy](.
 ## <a name="display-name-and-description"></a>Nombre para mostrar y descripción
 
 Use **displayName** y **description** para identificar la asignación de directiva y proporcionar el contexto para su uso con el conjunto específico de recursos. **displayName** tiene una longitud máxima de _128_ caracteres y **description** tiene una longitud máxima de _512_ caracteres.
+
+## <a name="metadata"></a>Metadatos
+
+La propiedad `metadata` opcional almacena información sobre la asignación de la directiva. Los clientes pueden definir las propiedades y los valores útiles para su organización en `metadata`. Aun así, hay algunas propiedades _comunes_ que se usan en Azure Policy. Cada propiedad `metadata` tiene un límite de 1024 caracteres.
+
+### <a name="common-metadata-properties"></a>Propiedades de metadatos comunes
+
+- `assignedBy` (cadena): nombre descriptivo de la entidad de seguridad que creó la asignación.
+- `createdBy` (cadena): el GUID de la entidad de seguridad que creó la asignación.
+- `createdOn` (cadena): el formato de fecha y hora universal ISO 8601 de la hora de creación de la asignación.
+- `parameterScopes`(objeto): colección de pares clave-valor donde la clave coincide con un nombre de parámetro configurado [strongType](./definition-structure.md#strongtype) y el valor define el ámbito de recurso usado en el portal para proporcionar la lista de recursos disponibles mediante la coincidencia de _strongType_. El portal establece este valor si el ámbito es diferente del ámbito de asignación. Si se establece, una edición de la asignación de directiva en el portal establece automáticamente el ámbito del parámetro en este valor. Sin embargo, el ámbito no está bloqueado en el valor y se puede cambiar a otro ámbito.
+
+  El ejemplo siguiente de `parameterScopes` es para un parámetro _strongType_ denominado **backupPolicyId** que establece un ámbito para la selección de recursos cuando la asignación se edita en el portal.
+
+  ```json
+  "metadata": {
+      "parameterScopes": {
+          "backupPolicyId": "/subscriptions/{SubscriptionID}/resourcegroups/{ResourceGroupName}"
+      }
+  }
+  ```
+
+- `updatedBy` (cadena): nombre descriptivo de la entidad de seguridad que actualizó la asignación, si la hubiera.
+- `updatedOn` (cadena): el formato de fecha y hora universal ISO 8601 de la hora de actualización de la asignación, si lo hubiera.
 
 ## <a name="enforcement-mode"></a>Modo de cumplimiento
 

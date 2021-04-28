@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4c27895c5163d59ca785aa15fa3739359e5be457
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dd70bccde30c2b844cfa6188a3fb06a075558a91
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101666594"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108143006"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configuraciones y operaciones de infraestructura de SAP HANA en Azure
 En este documento se proporcionan instrucciones para configurar la infraestructura de Azure y sobre el funcionamiento de los sistemas SAP HANA que se implementaron en máquinas virtuales nativas de Azure. En el documento también se incluye información sobre la configuración de la escalabilidad horizontal de SAP HANA para la SKU de máquinas virtuales M128s. Este documento no pretende reemplazar ninguna documentación estándar de SAP, incluido el contenido siguiente:
@@ -290,9 +290,9 @@ En las siguientes secciones se describen algunas de las operaciones relacionadas
 ### <a name="back-up-and-restore-operations-on-azure-vms"></a>Operaciones de copia de seguridad y restauración en máquinas virtuales Azure
 En los documentos siguientes se describe cómo realizar la copia de seguridad y la restauración de una implementación de SAP HANA:
 
-- [SAP HANA: información general sobre copias de seguridad](./sap-hana-backup-guide.md)
-- [Azure Backup de SAP HANA en el nivel de archivo](./sap-hana-backup-file-level.md)
-- [Copia de seguridad de SAP HANA basada en instantáneas de almacenamiento](./sap-hana-backup-guide.md)
+- [SAP HANA: información general sobre copias de seguridad](../../../backup/sap-hana-db-about.md)
+- [Azure Backup de SAP HANA en el nivel de archivo](../../../backup/sap-hana-db-about.md)
+- [Copia de seguridad de SAP HANA basada en instantáneas de almacenamiento](../../../backup/sap-hana-db-about.md)
 
 
 ### <a name="start-and-restart-vms-that-contain-sap-hana"></a>Iniciar y reiniciar máquinas virtuales que contienen SAP HANA

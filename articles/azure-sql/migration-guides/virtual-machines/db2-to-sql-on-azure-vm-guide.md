@@ -10,19 +10,19 @@ author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: 43eff2bea6f6d95291e9ba9650ff42187e39fc70
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: 2de361a63d3e0ed45b5d99d48063064cc46a0390
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107600172"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108136362"
 ---
 # <a name="migration-guide-ibm-db2-to-sql-server-on-azure-vm"></a>Guía de migración: de Db2 a SQL Server en VM de Azure
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
 
 Con esta guía de aprenderá a migrar bases de datos de usuario de IBM Db2 a SQL Server en VM de Azure mediante SQL Server Migration Assistant para Db2. 
 
-Para ver otras guías de migración, consulte la [Guía de Azure Database Migration](https://docs.microsoft.com/data-migration). 
+Para ver otras guías de migración, consulte la [Guía de Azure Database Migration](/data-migration). 
 
 ## <a name="prerequisites"></a>Requisitos previos
 

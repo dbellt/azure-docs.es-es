@@ -7,18 +7,18 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 11/11/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 37c8b4bc186c217ecb27638f5f50297102345de7
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 593065b200ab0dc98e5fa97299c137aedfd1be63
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104877703"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108129322"
 ---
 # <a name="access-your-application-in-a-private-network"></a>Acceso a una aplicación en una red privada
 
 En este documento se explica cómo acceder a un punto de conexión de la aplicación en una red privada.  Para obtener acceso, debe crear una **zona DNS privada de Azure** en su suscripción para traducir o resolver el nombre de dominio completo (FQDN) privado en su dirección IP.
 
-Cuando **Assign Endpoint** (Asignar punto de conexión) para aplicaciones en una instancia de servicio en Azure Spring Cloud se implementa en la red virtual, el punto de conexión es un FQDN privado. Solo se puede tener acceso al dominio en la red privada. Las aplicaciones y los servicios usan el punto de conexión de la aplicación. Incluyen el **punto de conexión de prueba** descrito en [Visualización de aplicaciones e implementaciones](spring-cloud-howto-staging-environment.md#view-apps-and-deployments). El **streaming de registro**, que se describe en [Streaming de registros de aplicaciones de Azure Spring Cloud en tiempo real](spring-cloud-howto-log-streaming.md), también funcionan solo dentro de la red privada.
+Cuando **Assign Endpoint** (Asignar punto de conexión) para aplicaciones en una instancia de servicio en Azure Spring Cloud se implementa en la red virtual, el punto de conexión es un FQDN privado. Solo se puede tener acceso al dominio en la red privada. Las aplicaciones y los servicios usan el punto de conexión de la aplicación. Incluyen el **punto de conexión de prueba** descrito en [Visualización de aplicaciones e implementaciones](./how-to-staging-environment.md#view-apps-and-deployments). El **streaming de registro**, que se describe en [Streaming de registros de aplicaciones de Azure Spring Cloud en tiempo real](./how-to-log-streaming.md), también funcionan solo dentro de la red privada.
 
 ## <a name="create-a-private-dns-zone"></a>Crear una zona DNS privada
 
@@ -48,7 +48,7 @@ Para vincular la zona DNS privada a una red virtual, debe crear un vínculo de r
 
 4. Escriba **azure-spring-cloud-dns-link** para **Nombre del vínculo**.
 
-5. En **Red virtual**, seleccione la red virtual que ha creado tal como se explica en [Implementación de Azure Spring Cloud en la red virtual de Azure (inyección de VNet)](spring-cloud-tutorial-deploy-in-azure-virtual-network.md).
+5. En **Red virtual**, seleccione la red virtual que ha creado tal como se explica en [Implementación de Azure Spring Cloud en la red virtual de Azure (inyección de VNet)](./how-to-deploy-in-azure-virtual-network.md).
 
     ![Agregar el vínculo de red virtual](media/spring-cloud-access-app-vnet/add-virtual-network-link.png)
 
@@ -58,7 +58,7 @@ Para vincular la zona DNS privada a una red virtual, debe crear un vínculo de r
 
 Para usar la zona DNS privada para traducir o resolver DNS, debe crear un registro de tipo "A" en la zona.
 
-1. Seleccione el recurso de red virtual que ha creado tal como se explica en [Implementación de Azure Spring Cloud en la red virtual de Azure (inyección de VNet)](spring-cloud-tutorial-deploy-in-azure-virtual-network.md).
+1. Seleccione el recurso de red virtual que ha creado tal como se explica en [Implementación de Azure Spring Cloud en la red virtual de Azure (inyección de VNet)](./how-to-deploy-in-azure-virtual-network.md).
 
 2. En el cuadro de búsqueda **Dispositivos conectados**, escriba *kubernetes-internal*.
 
@@ -85,7 +85,7 @@ $SERVICE_RUNTIME_RG --query "[0].privateIpAddress" -o tsv`
 
 6. En **Agregar conjunto de registros**, escriba o seleccione esta información:
 
-    |Configuración     |Value                                                                      |
+    |Configuración     |Valor                                                                      |
     |------------|---------------------------------------------------------------------------|
     |Nombre        |Escriba *\**                                                                 |
     |Tipo        |Seleccione **A**.                                                               |
@@ -99,7 +99,7 @@ $SERVICE_RUNTIME_RG --query "[0].privateIpAddress" -o tsv`
 
 ## <a name="assign-private-fqdn-for-your-application"></a>Asignación de un FQDN privado para la aplicación
 
-Después de seguir el procedimiento descrito en [Creación e implementación de aplicaciones de microservicio](spring-cloud-tutorial-deploy-in-azure-virtual-network.md), puede asignar un FQDN privado para la aplicación.
+Después de seguir el procedimiento descrito en [Creación e implementación de aplicaciones de microservicio](./how-to-deploy-in-azure-virtual-network.md), puede asignar un FQDN privado para la aplicación.
 
 1. Seleccione la instancia del servicio de Azure Spring Cloud implementada en la red virtual y abra la pestaña **Aplicaciones** en el menú de la izquierda.
 
@@ -119,9 +119,9 @@ Después de la asignación, puede tener acceso al FQDN privado de la aplicación
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Exposición de las aplicaciones a Internet mediante Application Gateway y Azure Firewall](spring-cloud-expose-apps-gateway-azure-firewall.md)
+- [Exposición de las aplicaciones a Internet mediante Application Gateway y Azure Firewall](./expose-apps-gateway-azure-firewall.md)
 
 ## <a name="see-also"></a>Consulte también
 
-- [Solución de problemas de Azure Spring Cloud en una red virtual](spring-cloud-troubleshooting-vnet.md)
-- [Responsabilidades del cliente para ejecutar Azure Spring Cloud en una red virtual](spring-cloud-vnet-customer-responsibilities.md)
+- [Solución de problemas de Azure Spring Cloud en una red virtual](./troubleshooting-vnet.md)
+- [Responsabilidades del cliente para ejecutar Azure Spring Cloud en una red virtual](./vnet-customer-responsibilities.md)

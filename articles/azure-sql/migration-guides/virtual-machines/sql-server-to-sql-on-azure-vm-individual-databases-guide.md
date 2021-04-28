@@ -10,12 +10,12 @@ author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 03/19/2021
-ms.openlocfilehash: e7fc4bacd73cec0fdab3117ada190fb7964b4282
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 77aec881cdf934888356dd276cad7d0698d56ad1
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106550904"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108136241"
 ---
 # <a name="migration-guide-sql-server-to-sql-server-on-azure-virtual-machines"></a>Guía de migración de SQL Server a SQL Server en Azure Virtual Machines
 
@@ -30,7 +30,7 @@ Puede migrar las instancias de SQL Server que se ejecutan de forma local o en:
 - Amazon Relational Database Service (AWS RDS).
 - Compute Engine (Google Cloud Platform [GCP]).
 
-Para obtener información sobre estrategias de migración adicionales, consulte [Información general sobre la migración de VM con SQL Server](sql-server-to-sql-on-azure-vm-migration-overview.md). Para ver otras guías de migración, consulte las [Guías de Azure Database Migration](https://docs.microsoft.com/data-migration).
+Para obtener información sobre estrategias de migración adicionales, consulte [Información general sobre la migración de VM con SQL Server](sql-server-to-sql-on-azure-vm-migration-overview.md). Para ver otras guías de migración, consulte las [Guías de Azure Database Migration](/data-migration).
 
 :::image type="content" source="media/sql-server-to-sql-on-azure-vm-migration-overview/migration-process-flow-small.png" alt-text="Diagrama que muestra un flujo de proceso de migración.":::
 
@@ -53,7 +53,7 @@ Antes de iniciar la migración, debe detectar la topología del entorno de SQL y
 Azure Migrate evalúa la idoneidad de la migración de los equipos locales, realiza el ajuste de tamaño basado en el rendimiento y proporciona estimaciones del costo para la ejecución en el entorno local. Para planear la migración, use Azure Migrate para [identificar los orígenes de datos existentes y los detalles sobre las características](../../../migrate/concepts-assessment-calculation.md) que usan sus instancias de SQL Server. Este proceso implica el examen de la red para identificar todas las instancias de SQL Server de su organización con la versión y las características en uso.
 
 > [!IMPORTANT]
-> Cuando elija una máquina virtual de Azure de destino para la instancia de SQL Server, asegúrese de tener en cuenta las [Directrices de rendimiento para SQL Server en Azure Virtual Machines](../../virtual-machines/windows/performance-guidelines-best-practices.md).
+> Cuando elija una máquina virtual de Azure de destino para la instancia de SQL Server, asegúrese de tener en cuenta las [Directrices de rendimiento para SQL Server en Azure Virtual Machines](../../virtual-machines/windows/performance-guidelines-best-practices-checklist.md).
 
 Para conocer más herramientas de detección, consulte la lista de [servicios y herramientas](../../../dms/dms-tools-matrix.md#business-justification-phase) disponibles para escenarios de migración de datos.
 
@@ -146,7 +146,7 @@ En la tabla siguiente se proporciona una lista de los componentes y métodos de 
 | **Característica** | **Componente** | **Métodos de migración** |
 | --- | --- | --- |
 | **Bases de datos** | Modelo | Script con SQL Server Management Studio. |
-|| TempDB | Planee trasladar tempDB al [disco temporal de la VM de Azure (SSD)](../../virtual-machines/windows/performance-guidelines-best-practices.md#temporary-disk)) para obtener el mejor rendimiento. Asegúrese de elegir un tamaño de VM que tenga un disco SSD local suficiente para alojar tempDB. |
+|| TempDB | Planee trasladar tempDB al [disco temporal de la VM de Azure (SSD)](../../virtual-machines/windows/performance-guidelines-best-practices-checklist.md#storage)) para obtener el mejor rendimiento. Asegúrese de elegir un tamaño de VM que tenga un disco SSD local suficiente para alojar tempDB. |
 || Bases de datos de usuario con secuencia de archivos | Utilice los métodos de [copia de seguridad y restauración](../../virtual-machines/windows/migrate-to-vm-from-sql-server.md#back-up-and-restore) para la migración. Data Migration Assistant no admite las bases de datos con secuencia de archivos. |
 | **Seguridad** | Inicios de sesión de SQL Server y Windows | Use Data Migration Assistant para [migrar los inicios de sesión de usuario](/sql/dma/dma-migrateserverlogins). |
 || Roles de SQL Server | Script con SQL Server Management Studio. |
@@ -193,7 +193,7 @@ La fase después de la migración es fundamental para reconciliar cualquier prob
 Para obtener más información acerca de estos problemas y los pasos para mitigarlos, consulte lo siguiente:
 
 - [Guía de optimización y validación posterior a la migración](/sql/relational-databases/post-migration-validation-and-optimization-guide)
-- [Ajuste del rendimiento en máquina virtuales de Azure SQL](../../virtual-machines/windows/performance-guidelines-best-practices.md)
+- [Ajuste del rendimiento en máquina virtuales de Azure SQL](../../virtual-machines/windows/performance-guidelines-best-practices-checklist.md)
 - [Centro de optimización de costos de Azure](https://azure.microsoft.com/overview/cost-optimization/)
 
 ## <a name="next-steps"></a>Pasos siguientes

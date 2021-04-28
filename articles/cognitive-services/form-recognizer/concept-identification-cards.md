@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 04/14/2021
 ms.author: lajanuar
-ms.openlocfilehash: 00e51d2c9515191b6d127355f49eeed3000a46ed
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: 42b6cb96cdcfbf4e9c2e927265954776093bb330
+ms.sourcegitcommit: 18cd3c1c8cc47258c6a1a04e0e03d6248c52ef24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107514720"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107992330"
 ---
 # <a name="form-recognizer-prebuilt-identification-id-document-model"></a>Modelo de documento de identificación (ID) precompilado de Form Recognizer
 
@@ -35,7 +35,7 @@ El servicio de identificaciones precompiladas extrae los principales valores de 
 
 ### <a name="fields-extracted"></a>Campos extraídos
 
-|Nombre| Tipo | Descripción | Value |
+|Nombre| Tipo | Descripción | Valor |
 |:-----|:----|:----|:----|
 |  País | country | Código de país conforme con la norma ISO 3166 estándar. | "USA" |
 |  DateOfBirth | date | Fecha de nacimiento en formato AAAA-MM-DD. | "1980-01-01" |
@@ -45,7 +45,7 @@ El servicio de identificaciones precompiladas extrae los principales valores de 
 |  LastName | string | Apellido extraído | "BROOKS" |
 |  Nacionalidad | country | Código de país conforme con la norma ISO 3166 estándar. | "USA" |
 |  Sex | gender | Los valores extraídos posibles son "M", "F" y "X". | "F" |
-|  MachineReadableZone | object | Zona de lectura automática del pasaporte extraída, incluidas dos líneas de 44 caracteres cada una. | "P<USABROOKS<<JENNIFER<<<<<<<<<<<<<<<<<<<<<<< 3400200135USA8001014F1905054710000307<715816" |
+|  MachineReadableZone | objeto | Zona de lectura automática del pasaporte extraída, incluidas dos líneas de 44 caracteres cada una. | "P<USABROOKS<<JENNIFER<<<<<<<<<<<<<<<<<<<<<<< 3400200135USA8001014F1905054710000307<715816" |
 |  DocumentType | string | Tipo de documento, por ejemplo, pasaporte o permiso de conducir. | "passport" |
 |  Dirección | string | Dirección extraída (solo permiso de conducir) | "123 STREET ADDRESS YOUR CITY WA 99999-1234"|
 |  Region | string | Valor extraído de región, estado, provincia, etc. (solo permiso de conducir) | "Washington" |
@@ -98,7 +98,7 @@ La operación [Analyze ID](https://westus.dev.cognitive.microsoft.com/docs/servi
 Need to update this with updated APIM links when available
 -->
 
-El segundo paso consiste en llamar a la operación [**Get Analyze idDocument Result**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/GetAnalyzeFormResult). Esta operación toma como entrada el identificador de resultado que la operación Analyze ID ha creado. Devuelve una respuesta JSON que contiene un campo de **estado** con los siguientes valores posibles. Llamará a esta operación de forma iterativa hasta que se devuelva con el valor **correcto**. Use un intervalo de 3 a 5 segundos para evitar superar la tasa de solicitudes por segundo (RPS).
+El segundo paso consiste en llamar a la operación [**Get Analyze idDocument Result**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/5f74a7738978e467c5fb8707). Esta operación toma como entrada el identificador de resultado que la operación Analyze ID ha creado. Devuelve una respuesta JSON que contiene un campo de **estado** con los siguientes valores posibles. Llamará a esta operación de forma iterativa hasta que se devuelva con el valor **correcto**. Use un intervalo de 3 a 5 segundos para evitar superar la tasa de solicitudes por segundo (RPS).
 
 |Campo| Tipo | Valores posibles |
 |:-----|:----:|:----|

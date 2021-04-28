@@ -2,13 +2,13 @@
 title: Cifrado de datos de copia de seguridad mediante claves administradas por el cliente
 description: Obtenga información sobre el modo en que Azure Backup le permite cifrar los datos de copia de seguridad mediante claves administradas por el cliente.
 ms.topic: conceptual
-ms.date: 04/01/2021
-ms.openlocfilehash: b6cb1a288d0052b39bbeb52ed9fd20e68a6427ed
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.date: 04/19/2021
+ms.openlocfilehash: bd51be06e707674f3e35b3478d7f99d096be912a
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106167897"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107718780"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Cifrado de datos de copia de seguridad mediante claves administradas por el cliente
 
@@ -44,7 +44,7 @@ En este artículo se tratan los temas siguientes:
     >Use la versión 5.3.0 del módulo Az o una versión posterior para utilizar las claves administradas del cliente en las copias de seguridad del almacén de Recovery Services.
     
     >[!Warning]
-    >Si usa PowerShell para administrar las claves de cifrado para la copia de seguridad, no se recomienda actualizar las claves desde el portal.<br></br>Si actualiza la clave desde el portal, no puede usar PowerShell para actualizar también la clave de cifrado hasta que esté disponible una actualización de PowerShell que admita el nuevo modelo. Sin embargo, puede seguir actualizando la clave desde Azure Portal.
+    >Si usa PowerShell para administrar las claves de cifrado para la copia de seguridad, no se recomienda actualizar las claves desde el portal.<br>Si actualiza la clave desde el portal, no puede usar PowerShell para actualizar también la clave de cifrado hasta que esté disponible una actualización de PowerShell que admita el nuevo modelo. Sin embargo, puede seguir actualizando la clave desde Azure Portal.
 
 Si no ha creado y configurado un almacén de Recovery Services, [lea aquí cómo hacerlo](backup-create-rs-vault.md).
 
@@ -383,6 +383,16 @@ Cuando indique la clave administrada por el cliente que se debe usar para cifrar
 La opción **Seleccionar de Key Vault** ayuda a habilitar la rotación automática de la clave seleccionada. De esta forma, se elimina el esfuerzo manual de actualizarla a la versión siguiente. Sin embargo, con esta opción:
 - La actualización de la versión de la clave puede tardar hasta una hora en surtir efecto.
 - Cuando se aplica una nueva versión de la clave, la versión anterior también debe estar disponible (en estado habilitado) durante al menos un trabajo de copia de seguridad posterior después de que la actualización de la clave haya surtido efecto.
+
+### <a name="using-azure-policies-for-auditing-and-enforcing-encryption-utilizing-customer-managed-keys-in-preview"></a>Uso de las directivas de Azure para auditar y aplicar el cifrado mediante claves administradas por el cliente (en versión preliminar)
+
+Azure Backup permite usar las directivas de Azure para auditar y aplicar el cifrado de datos en el almacén de Recovery Services mediante claves administradas por el cliente. Uso de las directivas de Azure:
+
+- La directiva de auditoría se puede usar para auditar almacenes con cifrado mediante claves administradas por el cliente habilitadas después del 01/04/2021. En el caso de los almacenes con el cifrado de CMK habilitado antes de esta fecha, puede que la directiva no se aplique o que se muestren falsos resultados negativos (es decir, estos almacenes se pueden presentar como no compatibles, a pesar de tener habilitado el **cifrado de CMK**).
+- Para usar la directiva de auditoría para auditar almacenes con el **cifrado de CMK** habilitado antes del 01/04/2021, use Azure Portal para actualizar una clave de cifrado. Esto ayuda a actualizar al nuevo modelo. Si no desea cambiar la clave de cifrado, vuelva a proporcionar la misma clave mediante el URI de la clave o la opción de selección de clave. 
+
+   >[!Warning]
+    >Si usa PowerShell para administrar las claves de cifrado para la copia de seguridad, no se recomienda actualizar las claves desde el portal.<br>Si actualiza la clave desde el portal, no puede usar PowerShell para actualizar también la clave de cifrado hasta que esté disponible una actualización de PowerShell que admita el nuevo modelo. Sin embargo, puede seguir actualizando la clave desde Azure Portal.
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 

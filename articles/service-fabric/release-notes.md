@@ -5,12 +5,12 @@ ms.date: 04/13/2021
 ms.topic: conceptual
 hide_comments: true
 hideEdit: true
-ms.openlocfilehash: 2a035f531e03dc42e8be4f3dab403406eb7c8f14
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: e06bb472a87f05eb8830468512c27e3abaeafbe1
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107518633"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108138614"
 ---
 # <a name="service-fabric-releases"></a>Versiones de Service Fabric
 
@@ -31,7 +31,7 @@ Nos complace anunciar que la versión 8.0 del entorno de tiempo de ejecución d
 ### <a name="key-announcements"></a>Anuncios clave
 
 - **Disponibilidad general** del soporte técnico para .NET 5 para Windows.
-- **Disponibilidad general** de [NodeTypes sin estado](https://docs.microsoft.com/azure/service-fabric/service-fabric-stateless-node-types).
+- **Disponibilidad general** de [NodeTypes sin estado](./service-fabric-stateless-node-types.md).
 - Capacidad de mover instancias de servicio sin estado.
 - Capacidad de agregar DefaultLoad con parámetros en el manifiesto de aplicación.
 - Para las actualizaciones de réplica de base de datos única: capacidad de definir parte de la configuración de nivel de clúster en el nivel de aplicación.

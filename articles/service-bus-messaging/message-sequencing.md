@@ -2,17 +2,17 @@
 title: Marcas de tiempo y secuenciación de mensajes de Azure Service Bus | Microsoft Docs
 description: En este artículo se explica cómo conservar la secuenciación y el orden (con marcas de tiempo) de los mensajes de Azure Service Bus.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: fdb18802e576ad114fd3f783d5efd7bb826a5f94
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/14/2021
+ms.openlocfilehash: 3d5300568232afae1238445113d60eda8cdb2f1b
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85341168"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107497105"
 ---
 # <a name="message-sequencing-and-timestamps"></a>Secuenciación y marcas de tiempo de los mensajes
 
-La secuenciación y las marcas de tiempo son dos características que siempre están habilitadas en todas las entidades y la superficie de Service Bus mediante las propiedades [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber) y [EnqueuedTimeUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc) de los mensajes recibidos o examinados.
+La secuenciación y las marcas de tiempo son dos características que siempre están habilitadas en todas las entidades y la superficie de Service Bus mediante las propiedades `SequenceNumber` y `EnqueuedTimeUtc` de los mensajes recibidos o examinados.
 
 En aquellos casos en los que sea importante el orden absoluto de los mensajes o en los que un consumidor necesite un identificador único de confianza para los mensajes, el agente marca los mensajes con un número de secuencia creciente, sin espacios, relativo a la cola o el tema. Para las entidades con particiones, el número de secuencia se emite con respecto a la partición.
 
@@ -30,7 +30,11 @@ Puede enviar mensajes a una cola o tema para su procesamiento retrasado; por eje
 
 Los mensajes programados no se materializan en la cola hasta la hora de puesta en cola definida. Antes de esa hora, pueden cancelarse. La cancelación elimina el mensaje.
 
-Para programar mensajes, establezca la propiedad [ScheduledEnqueueTimeUtc](/dotnet/api/microsoft.azure.servicebus.message.scheduledenqueuetimeutc) al enviar un mensaje mediante la ruta de envío normal, o explícitamente con le API [ScheduleMessageAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync#Microsoft_Azure_ServiceBus_QueueClient_ScheduleMessageAsync_Microsoft_Azure_ServiceBus_Message_System_DateTimeOffset_). Lo segundo devuelve inmediatamente el valor de **SequenceNumber** del mensaje programado, que luego puede usarse para cancelar dicho mensaje si es necesario. Los mensajes programados y sus números de secuencia también se pueden detectar mediante la [exploración de mensajes](message-browsing.md).
+Puede programar mensajes mediante cualquiera de nuestros clientes de dos maneras:
+- Use la API de envío normal, pero establezca la propiedad `ScheduledEnqueueTimeUtc` en el mensaje antes de enviarlo.
+- Use la API de programación de mensajes y pase el mensaje normal y la hora programada. Esto devuelve el valor de **SequenceNumber** del mensaje programado, que luego puede usarse para cancelar dicho mensaje si es necesario. 
+
+Los mensajes programados y sus números de secuencia también se pueden detectar mediante la [exploración de mensajes](message-browsing.md).
 
 El valor de **SequenceNumber** de un mensaje programado solo es válido mientras el mensaje está en este estado. A medida que el mensaje pasa al estado activo, se anexa a la cola como si se hubiera puesto en cola en el instante actual, lo que incluye asignar un nuevo **SequenceNumber**.
 

@@ -1,19 +1,19 @@
 ---
 title: Transformación de datos mediante un flujo de datos de asignación
 description: Este tutorial proporciona instrucciones detalladas para usar Azure Data Factory con el objetivo de transformar los datos con un flujo de datos de asignación.
-author: kromerm
-ms.author: makromer
+author: dcstwh
+ms.author: weetok
 ms.reviewer: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/16/2021
-ms.openlocfilehash: dda6d756b1e660fa90e54c6cc0b80178363cd73e
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: f8570c8b252fae91986508abd3725cbbedd361a0
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107905745"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107565430"
 ---
 # <a name="transform-data-using-mapping-data-flows"></a>Transformación de datos mediante flujos de datos de asignación
 
@@ -35,7 +35,7 @@ En este tutorial, realizará los siguientes pasos:
 > * Realización de la serie de pruebas de la canalización.
 > * Supervisión de una actividad de Data Flow
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 * **Suscripción de Azure**. Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
 * **Cuenta de Azure Storage**. El almacenamiento ADLS se puede usar como almacén de datos de *origen* y *receptor*. Si no tiene una cuenta de almacenamiento, consulte [Crear una cuenta de almacenamiento](../storage/common/storage-account-create.md) para crear una.
 

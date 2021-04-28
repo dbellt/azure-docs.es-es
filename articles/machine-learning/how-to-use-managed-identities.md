@@ -8,14 +8,14 @@ ms.author: roastala
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/22/2020
-ms.openlocfilehash: 3246f6668a653c05599001a2f8d8fc8d376936ce
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: eda711d6dce705cb64c1545a9c6ffe9b373ad442
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105642421"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108140432"
 ---
 # <a name="use-managed-identities-with-azure-machine-learning-preview"></a>Utilice identidades administradas con Azure Machine Learning (versión preliminar)
 
@@ -234,7 +234,7 @@ Una vez que haya configurado ACR sin el usuario administrador tal y como se ha d
 
 Al crear el área de trabajo, puede especificar una identidad administrada asignada por el usuario para acceder a los recursos asociados: ACR, KeyVault, Storage y App Insights.
 
-En primer lugar, [cree una identidad administrada asignada por el usuario](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli) y anote el identificador de recurso de ARM de la identidad administrada.
+En primer lugar, [cree una identidad administrada asignada por el usuario](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md) y anote el identificador de recurso de ARM de la identidad administrada.
 
 A continuación, use CLI de Azure o el SDK de Python para crear el área de trabajo. Cuando use la CLI, especifique el identificador mediante el parámetro `--primary-user-assigned-identity`. Al usar el SDK, use `primary_user_assigned_identity`. A continuación, se muestran ejemplos de uso de la CLI de Azure y de Python para crear un área de trabajo con estos parámetros:
 

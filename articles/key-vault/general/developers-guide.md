@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: f2c0b82f14fd16ecb9eef163e7a263f4327cfc46
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 4f9523594c07209d530a143713061be6d0467af8
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107364556"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107753387"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guía del desarrollador de Azure Key Vault
 
@@ -45,7 +45,7 @@ El acceso a la capa de administración se controla mediante el [Control de acces
 
 Consulte las [Bibliotecas de cliente](client-libraries.md) para ver los paquetes de instalación y el código fuente.
 
-Para obtener más información acerca del plano de administración de Key Vault, consulte [Plano de administración de Key Vault](./secure-your-key-vault.md#management-plane-and-azure-rbac).
+Para obtener más información acerca del plano de administración de Key Vault, consulte [Plano de administración de Key Vault](security-overview.md).
 
 ## <a name="authenticate-to-key-vault-in-code"></a>Autenticación en Key Vault mediante el código
 
@@ -105,7 +105,7 @@ El acceso a las claves, los secretos y los certificados se controla mediante el 
 
 Consulte las [Bibliotecas de cliente](client-libraries.md) para ver los paquetes de instalación y el código fuente.
 
-Para obtener más información sobre la seguridad del plano de datos de Key Vault, consulte las [Directivas de acceso y plano de datos de Key Vault](./secure-your-key-vault.md#data-plane-and-access-policies) y el [Plano de datos de Key Vault y Azure RBAC](./secure-your-key-vault.md#data-plane-and-azure-rbac).
+Para obtener más información sobre el plano de datos de Key Vault, consulte [Información general de Key Vault](security-overview.md).
 
 ### <a name="code-examples"></a>Ejemplos de código
 

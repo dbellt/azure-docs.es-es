@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0396698fe63cb62fc1cfaf5d930b8a97a7b1bbc
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: f5bfce7ef2621cbe3bbbfdd95bf9a75e427c8cbd
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106552264"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107531883"
 ---
 # <a name="reset-redemption-status-for-a-guest-user-preview"></a>Restablecimiento del estado de canje para un usuario invitado (versión preliminar)
 
@@ -37,7 +37,9 @@ Si un usuario quiere iniciar sesión con otro correo electrónico:
 3. Use uno de los métodos siguientes para restablecer el estado de canje del usuario.
 
 > [!NOTE]
->Durante la versión preliminar pública, cuando se restablece la dirección de correo electrónico del usuario, se recomienda establecer la propiedad `mail` en la nueva dirección de correo electrónico. De este modo, el usuario puede canjear la invitación iniciando sesión en el directorio, además de usar el vínculo de canje en la invitación.
+>Durante la versión preliminar pública, tenemos dos recomendaciones:
+>- Cuando vuelva a establecer la dirección de correo electrónico del usuario en una nueva, se recomienda establecer la propiedad `mail`. De este modo, el usuario puede canjear la invitación iniciando sesión en el directorio, además de usar el vínculo de canje en la invitación.
+>- Cuando vuelva a establecer el estado de un usuario invitado B2B, asegúrese de hacerlo en el contexto del usuario. Actualmente no se admiten las llamadas solo de la aplicación.
 >
 ## <a name="use-powershell-to-reset-redemption-status"></a>Uso de PowerShell para restablecer el estado de canje
 
@@ -54,7 +56,7 @@ New-AzureADMSInvitation -InvitedUserEmailAddress <<external email>> -SendInvitat
 
 ## <a name="use-microsoft-graph-api-to-reset-redemption-status"></a>Uso de Microsoft Graph API para restablecer el estado de canje
 
-Con la [API de invitación de Microsoft Graph](/graph/api/resources/invitation?view=graph-rest-1.0), establezca la propiedad `resetRedemption` en `true` y especifique la nueva dirección de correo electrónico en la propiedad `invitedUserEmailAddress`.
+Con la [API de invitación de Microsoft Graph](/graph/api/resources/invitation?view=graph-rest-beta&preserve-view=true), establezca la propiedad `resetRedemption` en `true` y especifique la nueva dirección de correo electrónico en la propiedad `invitedUserEmailAddress`.
 
 ```json
 POST https://graph.microsoft.com/beta/invitations  

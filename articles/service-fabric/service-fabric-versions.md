@@ -3,12 +3,12 @@ title: Versiones de Azure Service Fabric
 description: Obtenga información sobre las versiones de clúster de Azure Service Fabric y las versiones de plataforma que se admiten activamente
 ms.topic: troubleshooting
 ms.date: 04/12/2021
-ms.openlocfilehash: d106462578879ef3ff6ba902c7c950f2bf6ab308
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 4e656b0cd051079d4504ee2a55a9bf6993065396
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108140126"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107515318"
 ---
 # <a name="service-fabric-supported-versions"></a>Versiones admitidas de Service Fabric
 En las tablas de este artículo se describen las versiones de Service Fabric y de plataforma que se admiten activamente.
@@ -23,7 +23,7 @@ En las tablas de este artículo se describen las versiones de Service Fabric y d
 | 7.2 RTO-CU5 | 7.0 CU4 | 7.1 |Versión 4.2 o anterior | .NET Core 3.1, .NET Core 2.1,<br>Todas las versiones iguales o posteriores a 4.5 Net Full Framework | [Consulte la versión del sistema operativo admitida](#supported-windows-versions-and-support-end-date)| 30 de noviembre de 2021 |
 | 7.1 |7.0 CU3 |N/D | Versión 4.1 o anterior | .NET Core 3.1, .NET Core 2.1,<br>Todas las versiones iguales o posteriores a 4.5 Net Full Framework | [Consulte la versión del sistema operativo admitida](#supported-windows-versions-and-support-end-date) | 31 de julio de 2021 |
 
-** Service Fabric no proporciona un entorno de ejecución de .NET Core. El autor del servicio es responsable de asegurarse de que esté <a href="/dotnet/core/deploying/">disponible</a>.
+** Service Fabric no proporciona un entorno de ejecución de .NET Core. El autor del servicio es responsable de asegurarse de que esté <a href="https://docs.microsoft.com/dotnet/core/deploying/">disponible</a>.
 
 ## <a name="supported-windows-versions-and-support-end-date"></a>Versiones de Windows admitidas y fecha de finalización del soporte técnico
 El soporte técnico para Service Fabric en un sistema operativo específico finaliza cuando la compatibilidad con la versión del sistema operativo alcanza su fin de ciclo de vida.
@@ -31,44 +31,44 @@ El soporte técnico para Service Fabric en un sistema operativo específico fina
 
 ### <a name="windows-server"></a>Windows Server
 
-| Versión del sistema operativo | Fecha de finalización de soporte técnico de Service Fabric | Vínculo del ciclo de vida del sistema operativo |
+| Versión del SO | Fecha de finalización de soporte técnico de Service Fabric | Vínculo del ciclo de vida del sistema operativo |
 |---|---|---|
-|Windows Server 2019|9/1/2029|<a href="/lifecycle/products/windows-server-2019">Windows Server 2019: ciclo de vida de Microsoft</a>|
-|Windows Server 2016 |12/1/2027|<a href="/lifecycle/products/windows-server-2016">Windows Server 2016: ciclo de vida de Microsoft</a>|
-|Windows Server 2012 R2 |10/10/2023|<a href="/lifecycle/products/windows-server-2012-r2">Windows Server 2012 R2: ciclo de vida de Microsoft</a>|
-|Versión 20H2 |10/5/2022|<a href="/lifecycle/products/windows-server">Windows Server: ciclo de vida de Microsoft</a>|
-|Versión 2004 |14/12/2021|<a href="/lifecycle/products/windows-server">Windows Server: ciclo de vida de Microsoft</a>|
-|Version 1909 |11/5/2021|<a href="/lifecycle/products/windows-server">Windows Server: ciclo de vida de Microsoft</a>|
+|Windows Server 2019|9/1/2029|<a href="https://docs.microsoft.com/lifecycle/products/windows-server-2019">Windows Server 2019: ciclo de vida de Microsoft</a>|
+|Windows Server 2016 |12/1/2027|<a href="https://docs.microsoft.com/lifecycle/products/windows-server-2016">Windows Server 2016: ciclo de vida de Microsoft</a>|
+|Windows Server 2012 R2 |10/10/2023|<a href="https://docs.microsoft.com/lifecycle/products/windows-server-2012-r2">Windows Server 2012 R2: ciclo de vida de Microsoft</a>|
+|Versión 20H2 |10/5/2022|<a href="https://docs.microsoft.com/lifecycle/products/windows-server">Windows Server: ciclo de vida de Microsoft</a>|
+|Versión 2004 |14/12/2021|<a href="https://docs.microsoft.com/lifecycle/products/windows-server">Windows Server: ciclo de vida de Microsoft</a>|
+|Version 1909 |11/5/2021|<a href="https://docs.microsoft.com/lifecycle/products/windows-server">Windows Server: ciclo de vida de Microsoft</a>|
 
 <br>
 
 ### <a name="windows-10"></a>Windows 10
 
-| Versión del sistema operativo | Fecha de finalización de soporte técnico de Service Fabric | Vínculo del ciclo de vida del sistema operativo |
+| Versión del SO | Fecha de finalización de soporte técnico de Service Fabric | Vínculo del ciclo de vida del sistema operativo |
 | --- | --- | --- |
-| Windows 10 2019 LTSC | 9/1/2029 | <a href="/lifecycle/products/windows-10-2019-ltsc">Windows 10 2019 LTSC: ciclo de vida de Microsoft</a> |
-| Versión 20H2 | 9/5/2023 | <a href="/lifecycle/products/windows-10-enterprise-and-education">Windows 10 Enterprise y Education: ciclo de vida de Microsoft</a> |
-| Versión 2004 | 14/12/2021| <a href="/lifecycle/products/windows-10-enterprise-and-education">Windows 10 Enterprise y Education: ciclo de vida de Microsoft</a> |
-| Version 1909 | 10/5/2022 | <a href="/lifecycle/products/windows-10-enterprise-and-education">Windows 10 Enterprise y Education: ciclo de vida de Microsoft</a> |
-| Versión 1809 | 11/5/2021 | <a href="/lifecycle/products/windows-10-enterprise-and-education">Windows 10 Enterprise y Education: ciclo de vida de Microsoft</a> |
-| Versión 1803 | 11/5/2021 | <a href="/lifecycle/products/windows-10-enterprise-and-education">Windows 10 Enterprise y Education: ciclo de vida de Microsoft</a> |
+| Windows 10 2019 LTSC | 9/1/2029 | <a href="https://docs.microsoft.com/lifecycle/products/windows-10-2019-ltsc">Windows 10 2019 LTSC: ciclo de vida de Microsoft</a> |
+| Versión 20H2 | 9/5/2023 | <a href="https://docs.microsoft.com/lifecycle/products/windows-10-enterprise-and-education">Windows 10 Enterprise y Education: ciclo de vida de Microsoft</a> |
+| Versión 2004 | 14/12/2021| <a href="https://docs.microsoft.com/lifecycle/products/windows-10-enterprise-and-education">Windows 10 Enterprise y Education: ciclo de vida de Microsoft</a> |
+| Version 1909 | 10/5/2022 | <a href="https://docs.microsoft.com/lifecycle/products/windows-10-enterprise-and-education">Windows 10 Enterprise y Education: ciclo de vida de Microsoft</a> |
+| Versión 1809 | 11/5/2021 | <a href="https://docs.microsoft.com/lifecycle/products/windows-10-enterprise-and-education">Windows 10 Enterprise y Education: ciclo de vida de Microsoft</a> |
+| Versión 1803 | 11/5/2021 | <a href="https://docs.microsoft.com/lifecycle/products/windows-10-enterprise-and-education">Windows 10 Enterprise y Education: ciclo de vida de Microsoft</a> |
 
 ## <a name="linux"></a>Linux
 
-| Entorno de ejecución de Service Fabric | Versión desde la que se puede actualizar directamente |Versión anterior a la que se puede cambiar |Versiones del SDK o paquete de NuGet compatibles | Entornos de ejecución de dotnet admitidos** | Versión del sistema operativo | Finalización del soporte técnico |
+| Entorno de ejecución de Service Fabric | Versión desde la que se puede actualizar directamente |Versión anterior a la que se puede cambiar |Versiones del SDK o paquete de NuGet compatibles | Entornos de ejecución de dotnet admitidos** | Versión del SO | Finalización del soporte técnico |
 | --- | --- | --- | --- | --- | --- | --- |
 | 8.0 RTO | 7.1 CU8 | 7.2 | Versión 5.0 o anterior | .NET Core 3.1, .NET Core 2.1 | [Consulte la versión del sistema operativo admitida](#supported-linux-versions-and-support-end-date) | Versión actual |
 | 7.2 CU7 | 7.0 CU9 | 7.1 | Versión 4.2 o anterior | .NET Core 3.1, .NET Core 2.1 | [Consulte la versión del sistema operativo admitida](#supported-linux-versions-and-support-end-date) | 30 de noviembre de 2021 |
 | 7.2 RTO-CU6 | 7.0 CU4 | 7.1 | Versión 4.2 o anterior | .NET Core 3.1, .NET Core 2.1 | [Consulte la versión del sistema operativo admitida](#supported-linux-versions-and-support-end-date) | 30 de noviembre de 2021 |
 | 7.1 | 7.0 CU3 | N/D | Versión 4.1 o anterior | .NET Core 3.1, .NET Core 2.1 | [Consulte la versión del sistema operativo admitida](#supported-linux-versions-and-support-end-date) | 31 de julio de 2021 |
 
-** Service Fabric no proporciona un entorno de ejecución de .NET Core y el autor del servicio es responsable de asegurarse de que esté <a href="/dotnet/core/deploying/">disponible</a>
+** Service Fabric no proporciona un entorno de ejecución de .NET Core y el autor del servicio es responsable de asegurarse de que esté <a href="https://docs.microsoft.com/dotnet/core/deploying/">disponible</a>
 
 ## <a name="supported-linux-versions-and-support-end-date"></a>Versiones de Linux admitidas y fecha de finalización del soporte técnico
 El soporte técnico para Service Fabric en un sistema operativo específico finaliza cuando la compatibilidad con la versión del sistema operativo alcanza su fin de ciclo de vida.
 
 #### <a name="ubuntu"></a>Ubuntu
-| Versión del sistema operativo | Fecha de finalización de soporte técnico de Service Fabric| Vínculo del ciclo de vida del sistema operativo |
+| Versión del SO | Fecha de finalización de soporte técnico de Service Fabric| Vínculo del ciclo de vida del sistema operativo |
 | --- | --- | --- |
 | Ubuntu 18.04 | Abril de 2028 | <a href="https://wiki.ubuntu.com/Releases">Ciclo de vida de Ubuntu</a>|
 | Ubuntu 16.04 | Abril de 2024 | <a href="https://wiki.ubuntu.com/Releases">Ciclo de vida de Ubuntu</a>|

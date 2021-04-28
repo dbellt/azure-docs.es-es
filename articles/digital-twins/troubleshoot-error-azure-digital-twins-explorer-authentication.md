@@ -6,12 +6,12 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 4/8/2021
-ms.openlocfilehash: 9f315a0446c1fb712558c1031df56760e6d5b7e7
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 1f8373130fbead2204dd0ac2515595d68dd3b2e8
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108123436"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107491339"
 ---
 # <a name="authentication-failed"></a>Error de autenticación
 
@@ -31,7 +31,7 @@ La aplicación de Azure Digital Twins Explorer usa [DefaultAzureCredential](/dot
 
 Como indica el texto del error, este puede producirse si no se han proporcionado credenciales locales para `DefaultAzureCredential`.
 
-Para más información sobre el uso de credenciales locales con Azure Digital Twins Explorer, consulte la sección [*Configuración de credenciales locales de Azure*](./quickstart-azure-digital-twins-explorer.md#set-up-local-azure-credentials) de la *guía de inicio rápido de Azure Digital Twins: exploración de un escenario de ejemplo*.
+Para más información sobre el uso de credenciales locales con Azure Digital Twins Explorer, consulte la sección [*Configuración de credenciales locales de Azure*](quickstart-adt-explorer.md#set-up-local-azure-credentials) de la *guía de inicio rápido de Azure Digital Twins: exploración de un escenario de ejemplo*.
 
 ### <a name="cause-2"></a>Causa 2
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5a4cc2b964bcf4fa49d90c8b6d5aa546b7148a1
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 6c1d78094effe6919587f24c2262612e4fab347d
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106107952"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107575384"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Identidad del dispositivo y virtualización del escritorio
 
@@ -89,7 +89,7 @@ A la hora de implementar un entorno VDI no persistente, Microsoft recomienda que
 - En el caso de Windows de nivel inferior:
    - Implemente el comando **autoworkplacejoin /leave** como parte del script de cierre de sesión. Este comando se debe desencadenar en el contexto del usuario y ejecutarse antes de que el usuario cierre la sesión completamente, mientras aún haya conectividad de red.
 - En el caso de Windows actual en un entorno federado (por ejemplo, AD FS):
-   - Implemente el comando **dsregcmd /join** como parte de la secuencia de arranque de la máquina virtual.
+   - Implemente **dsregcmd /join** como parte de la secuencia u orden de arranque de la máquina virtual y antes de que el usuario inicie sesión.
    - **NO** ejecute el comando dsregcmd /leave como parte del proceso de apagado o reinicio de la máquina virtual.
 - Defina e implemente el proceso para [administrar dispositivos obsoletos](manage-stale-devices.md).
    - Una vez que disponga de una estrategia para identificar los dispositivos no persistentes que se hayan unido a Azure AD híbrido, puede efectuar una limpieza más concienzuda de estos dispositivos para garantizar que su directorio no se quede sin espacio debido al acceso de muchos dispositivos obsoletos.

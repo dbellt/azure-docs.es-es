@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c2d4181a80f48f5f6dd5775e6eb3bd172a65df8
-ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
+ms.openlocfilehash: 94077a1c6329aa1fecf9593f2df41fa77afc8a44
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107209636"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765924"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Funcionamiento: Autoservicio de restablecimiento de contraseña de Azure AD
 
@@ -93,7 +93,7 @@ Cuando el registro no sea un requisito, no se instará a los usuarios a completa
 
 Para asegurarse de que los métodos de autenticación sean correctos cuando es necesario restablecer o cambiar la contraseña de los usuarios, puede exigir que estos confirmen la información que hayan registrado transcurrido un periodo de tiempo determinado. Esta opción solo está disponible si habilita la opción **Exigir a los usuarios que se registren al iniciar sesión**.
 
-Los valores válidos para solicitar a un usuario que confirme los métodos que ha registrado abarcan de *0* a *730* días. Si el valor se establece en *0*, nunca se solicitará a los usuarios que confirmen la información de autenticación.
+Los valores válidos para solicitar a un usuario que confirme los métodos que ha registrado abarcan de *0* a *730* días. Si el valor se establece en *0*, nunca se solicitará a los usuarios que confirmen la información de autenticación. Al usar la experiencia de registro combinada, los usuarios deberán confirmar su identidad antes de volver a confirmar su información.
 
 ## <a name="authentication-methods"></a>Métodos de autenticación
 

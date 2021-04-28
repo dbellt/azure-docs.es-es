@@ -4,14 +4,14 @@ description: Aprenda a configurar el control de acceso basado en roles con Azure
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 03/30/2021
+ms.date: 04/19/2021
 ms.author: thweiss
-ms.openlocfilehash: 1a6bdf55e52a7060423d2a016f07eee3608f50d4
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 209d18dfbadea89f14fd90da9a1bc57b3ccf0dfe
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106063481"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107728082"
 ---
 # <a name="configure-role-based-access-control-with-azure-active-directory-for-your-azure-cosmos-db-account-preview"></a>Configuración del control de acceso basado en roles con Azure Active Directory para la cuenta de Azure Cosmos DB (versión preliminar).
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -45,6 +45,16 @@ El control de acceso basado en roles del plano de datos de Azure Cosmos DB se b
 
 ## <a name="permission-model"></a><a id="permission-model"></a> Modelo de permiso
 
+> [!IMPORTANT]
+> Este modelo de permisos solo incluye las operaciones de base de datos que permiten leer y escribir datos. **No** incluye ningún tipo de operaciones de administración, como la creación de contenedores o la modificación de su rendimiento. Esto significa que **no puede usar ningún SDK del plano de datos de Azure Cosmos DB** para autenticar las operaciones de administración con una identidad de AAD. En su lugar, tiene que usar [Azure RBAC](role-based-access-control.md) a través de:
+> - [Plantillas de ARM](manage-with-templates.md)
+> - [Scripts de Azure PowerShell](manage-with-powershell.md)
+> - [Scripts de la CLI de Azure](manage-with-cli.md)
+> - Bibliotecas de administración de Azure disponibles en
+>   - [.NET](https://www.nuget.org/packages/Azure.ResourceManager.CosmosDB)
+>   - [Java](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-cosmos)
+>   - [Python](https://pypi.org/project/azure-mgmt-cosmosdb/)
+
 En la tabla siguiente se enumeran todas las acciones expuestas por el modelo de permiso.
 
 | Nombre | Operaciones correspondientes de la base de datos |
@@ -64,9 +74,6 @@ Se admiten caracteres comodín en los niveles de *contenedores* y *elementos*:
 
 - `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/*`
 - `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/*`
-
-> [!IMPORTANT]
-> Este modelo de permisos solo incluye las operaciones de base de datos que permiten leer y escribir datos. **No** incluye ningún tipo de operaciones de administración, como la creación de contenedores o la modificación de su rendimiento. Para autenticar las operaciones de administración con una identidad de AAD, use el [control de acceso basado en roles de Azure](role-based-access-control.md) en su lugar.
 
 ### <a name="metadata-requests"></a><a id="metadata-requests"></a> Solicitudes de metadatos
 

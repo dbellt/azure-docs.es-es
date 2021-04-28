@@ -8,12 +8,12 @@ author: varsha-sarah
 ms.author: vavargh
 ms.custom: contperf-fy21q2
 ms.date: 04/07/2021
-ms.openlocfilehash: d5b9197bfd2526dd414406ebf1aca509d3b3fa91
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 108beee178cbf65bb4ba4f29479b335ab8d01a1e
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107108041"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108141602"
 ---
 # <a name="add-and-manage-users-for-the-commercial-marketplace"></a>Adición y administración de usuarios para el marketplace comercial
 
@@ -38,7 +38,7 @@ Para agregar usuarios a la cuenta del Centro de partners que ya existen en la [c
 
 ## <a name="create-new-users"></a>Creación de nuevos usuarios
 
-Para crear nuevas cuentas de usuario, debe tener una cuenta con permisos de [administrador global](/azure/active-directory/roles/permissions-reference).
+Para crear nuevas cuentas de usuario, debe tener una cuenta con permisos de [administrador global](../active-directory/roles/permissions-reference.md).
 
 1. Vaya a **Usuarios** (en **Configuración de la cuenta**), seleccione **Agregar usuarios** y, a continuación, elija **Crear nuevos usuarios**.
 1. Escriba un nombre, apellidos y nombre de usuario para cada usuario nuevo.
@@ -52,7 +52,7 @@ La creación de un nuevo usuario en el Centro de partners, también crea una cue
 
 ## <a name="invite-new-users-by-email"></a>Invitar a nuevos usuarios por correo electrónico
 
-Para invitar a los usuarios que actualmente no forman parte de la cuenta profesional de la empresa (inquilino de Azure AD) mediante correo electrónico, debe tener una cuenta con permisos de [administrador global](/azure/active-directory/roles/permissions-reference).
+Para invitar a los usuarios que actualmente no forman parte de la cuenta profesional de la empresa (inquilino de Azure AD) mediante correo electrónico, debe tener una cuenta con permisos de [administrador global](../active-directory/roles/permissions-reference.md).
 
 1. Vaya a **Usuarios** (en **Configuración de la cuenta**), seleccione **Agregar usuarios** y, a continuación, elija **Invite users by email** (Invitar usuarios por correo electrónico).
 1. Escriba una o varias direcciones de correo electrónico (hasta 10), separadas por comas o por puntos y comas.
@@ -63,7 +63,7 @@ Los usuarios recibirán una invitación por correo electrónico para unirse a la
 
 Si necesita volver a enviar una invitación, vaya a la página *Usuarios*, busque la invitación en la lista de usuarios y seleccione su dirección de correo electrónico (o el texto que dice *invitación pendiente*). A continuación, en la parte inferior de la página, seleccione **Volver a enviar la invitación**.
 
-Si la organización usa [integración de directorios](https://docs.microsoft.com/previous-versions/azure/azure-services/jj573653(v=azure.100)) para sincronizar el servicio de directorio local con Azure AD, no podrá crear nuevos usuarios, grupos o aplicaciones de Azure AD en el Centro de partners. Usted (u otro administrador del directorio local) deberán crearlos directamente en el directorio local antes de poder verlos y agregarlos en el Centro de partners.
+Si la organización usa [integración de directorios](/previous-versions/azure/azure-services/jj573653(v=azure.100)) para sincronizar el servicio de directorio local con Azure AD, no podrá crear nuevos usuarios, grupos o aplicaciones de Azure AD en el Centro de partners. Usted (u otro administrador del directorio local) deberán crearlos directamente en el directorio local antes de poder verlos y agregarlos en el Centro de partners.
 
 ## <a name="remove-a-user"></a>Eliminación de un usuario
 
@@ -71,7 +71,7 @@ Para quitar un usuario de la cuenta profesional (inquilino de Azure AD), vaya a 
 
 ## <a name="change-a-user-password"></a>Cambiar una contraseña de usuario
 
-Si uno de los usuarios tiene que cambiar su contraseña, podrá hacerlo él mismo si proporcionó un *correo electrónico de recuperación de contraseña* al crear la cuenta de usuario. También puede actualizar la contraseña de un usuario mediante los pasos siguientes. Para cambiar la contraseña de un usuario en la cuenta profesional de la empresa (inquilino de Azure AD), debe iniciar sesión en una cuenta con permisos de [administrador global](/azure/active-directory/roles/permissions-reference). Esta operación cambiará la contraseña del usuario en el inquilino de Azure AD y la contraseña que usa para acceder al Centro de partners.
+Si uno de los usuarios tiene que cambiar su contraseña, podrá hacerlo él mismo si proporcionó un *correo electrónico de recuperación de contraseña* al crear la cuenta de usuario. También puede actualizar la contraseña de un usuario mediante los pasos siguientes. Para cambiar la contraseña de un usuario en la cuenta profesional de la empresa (inquilino de Azure AD), debe iniciar sesión en una cuenta con permisos de [administrador global](../active-directory/roles/permissions-reference.md). Esta operación cambiará la contraseña del usuario en el inquilino de Azure AD y la contraseña que usa para acceder al Centro de partners.
 
 1. En la página **Usuarios** (en **Configuración de la cuenta**), seleccione el nombre de la cuenta de usuario que desea editar.
 1. Seleccione el botón **Restablecer contraseña** situado en la parte inferior de la página.

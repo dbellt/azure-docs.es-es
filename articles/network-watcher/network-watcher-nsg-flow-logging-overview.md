@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
-ms.openlocfilehash: f737be68a28f95ab5402ba5ea08e85fcf1b04d37
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: 3a9e36f691a107f17e92ffbeb1221459d688b97e
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107565906"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108146984"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introducción al registro de flujo de grupos de seguridad de red
 
@@ -353,7 +353,7 @@ Cuando se deshabilita el registro de flujo, se detiene el registro de flujo para
 
 *Eliminar registros de flujo*
 
-Cuando se elimina el registro de flujo, no solo se detiene el registro de flujo para el NSG asociado, sino que también se elimina el recurso de registro de flujo con su configuración y sus asociaciones. Para volver a iniciar el registro de flujo, se debe crear un nuevo recurso de registro de flujo para ese NSG. Un registro de flujo se puede eliminar mediante [PowerShell](https://docs.microsoft.com/powershell/module/az.network/remove-aznetworkwatcherflowlog), en [la CLI](https://docs.microsoft.com/cli/azure/network/watcher/flow-log#az_network_watcher_flow_log_delete) o con la [API de REST](https://docs.microsoft.com/rest/api/network-watcher/flowlogs/delete). La opción de eliminar registros de flujo desde Azure Portal está en desarrollo.    
+Cuando se elimina el registro de flujo, no solo se detiene el registro de flujo para el NSG asociado, sino que también se elimina el recurso de registro de flujo con su configuración y sus asociaciones. Para volver a iniciar el registro de flujo, se debe crear un nuevo recurso de registro de flujo para ese NSG. Un registro de flujo se puede eliminar mediante [PowerShell](/powershell/module/az.network/remove-aznetworkwatcherflowlog), en [la CLI](/cli/azure/network/watcher/flow-log#az_network_watcher_flow_log_delete) o con la [API de REST](/rest/api/network-watcher/flowlogs/delete). La opción de eliminar registros de flujo desde Azure Portal está en desarrollo.    
 
 Además, cuando se elimina un NSG, se elimina de forma predeterminada el recurso de registro de flujo asociado.
 

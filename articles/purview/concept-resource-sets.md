@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 02/03/2021
-ms.openlocfilehash: cbf070dce056795ad8e4a5f3e4d609e7d36d631e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 330a6e54ee88781f71c4a861051aab94f8eef81f
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103200811"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107587908"
 ---
 # <a name="understanding-resource-sets"></a>Descripción de los conjuntos de recursos
 
@@ -102,14 +102,15 @@ Nombre completo: `https://myblob.blob.core.windows.net/sample-data/data{N}.csv`
 
 Nombre para mostrar: "data"
 
-## <a name="known-issues-with-resource-sets"></a>Problemas conocidos con los conjuntos de recursos
+## <a name="customizing-resource-set-grouping-using-pattern-rules"></a>Personalización de la agrupación de conjunto de recursos mediante reglas de patrón
 
-Aunque los conjuntos de recursos funcionan bien en la mayoría de los casos, es posible que se encuentre con los siguientes problemas, en los que Azure Purview:
+Al analizar una cuenta de almacenamiento, Azure Purview usa un conjunto de patrones definidos para determinar si un grupo de recursos es un conjunto de recursos. En algunos casos, es posible que la agrupación de un conjunto de recursos de Azure Purview no refleje adecuadamente el estado de los datos. Entre los posibles problemas se pueden incluir:
 
-- Marca incorrectamente un recurso como un conjunto de recursos
-- Coloca un recurso en un conjunto de recursos equivocado
-- Marca incorrectamente un recurso como que no es un conjunto de recursos
+- Marcar incorrectamente un recurso como un conjunto de recursos
+- Colocar un recurso en un conjunto de recursos equivocado
+- Marcar incorrectamente un recurso como que no es un conjunto de recursos
 
+Para personalizar o invalidar la forma en que Azure Purview detecta qué recursos se agrupan como conjuntos de recursos, además de cómo se muestran dentro del catálogo, puede definir reglas de patrón en el centro de administración. Para obtener instrucciones paso a paso y sintaxis, consulte las [reglas de patrón del conjunto de recursos](how-to-resource-set-pattern-rules.md).
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para empezar a trabajar con Azure Purview, consulte [Inicio rápido: Creación de una cuenta de Azure Purview](create-catalog-portal.md).

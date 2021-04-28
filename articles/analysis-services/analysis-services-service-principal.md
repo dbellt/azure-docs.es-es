@@ -4,16 +4,16 @@ description: Aprenda a crear una entidad de servicio para automatizar las tareas
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 04/27/2021
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 04bc6ecd6e0a32e9234d07e995a7e012b17e3bbe
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 20902ca35cd734fd4485f59d560c605b507558d3
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107769164"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108130168"
 ---
 # <a name="automation-with-service-principals"></a>Automatización con entidades de servicio
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: 394cfe25c0015218e6b78606d7cf5d83cd2292ae
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 29340852cabcc77b7488f734a4677697b4a9b972
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108146966"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535224"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-powershell"></a>Configuración de registros de flujo de grupos de seguridad de red con PowerShell
 
@@ -29,7 +29,7 @@ ms.locfileid: "108146966"
 
 Los registros de flujo de grupos de seguridad de red son una característica de Network Watcher que permite ver información acerca del tráfico IP de entrada y de salida en un grupo de seguridad de red. Estos registros de flujo se escriben en formato JSON y muestran los flujos de entrada y salida en función de cada regla, la NIC a la que se aplica el flujo, información de 5-tupla sobre el flujo (IP de origen/destino, puerto de origen/destino, protocolo), y si se permitió o denegó el tráfico.
 
-La especificación detallada de todos los comandos de registros de flujo de grupos de seguridad de red para varias versiones de AzPowerShell se puede [encontrar aquí](/powershell/module/az.network/#network-watcher)
+La especificación detallada de todos los comandos de registros de flujo de grupos de seguridad de red para varias versiones de AzPowerShell se puede [encontrar aquí](https://docs.microsoft.com/powershell/module/az.network/#network-watcher)
 
 ## <a name="register-insights-provider"></a>Registro del proveedor de Insights
 

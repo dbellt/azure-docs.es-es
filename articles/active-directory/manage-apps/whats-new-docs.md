@@ -9,12 +9,12 @@ ms.workload: identity
 ms.author: iangithinji
 author: iantheninja
 manager: CelesteDG
-ms.openlocfilehash: 17dca502d3c65563cb9e4d2c382afb79f4d612e9
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 57a26592ec34153020e88450f3eb36b3361649b4
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107376059"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108144182"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Administración de aplicaciones en Azure Active Directory: Novedades
 
@@ -83,7 +83,7 @@ Le damos la bienvenida a las novedades sobre la documentación de administració
 - [Descripción del inicio de sesión vinculado](configure-linked-sign-on.md)
 - [Inicio de sesión único basado en contraseña](configure-password-single-sign-on-non-gallery-applications.md)
 - [Configuración del inicio de sesión único basado en SAML](configure-saml-single-sign-on.md)
-- [Solución de problemas comunes al agregar o eliminar una aplicación en Azure Active Directory](troubleshoot-adding-apps.md)
+- [Solución de problemas comunes al agregar o eliminar una aplicación en Azure Active Directory](/troubleshoot/azure/active-directory/troubleshoot-adding-apps)
 - [Visualización de las aplicaciones con el inquilino de Azure AD para la administración de identidades](application-types.md)
 - [Explicación del proceso de asignación de usuarios a aplicaciones en Azure Active Directory](ways-users-get-assigned-to-applications.md)
 - [Inicio rápido: Eliminación de una aplicación del inquilino de Azure Active Directory (Azure AD)](delete-application-portal.md)
@@ -141,7 +141,7 @@ Le damos la bienvenida a las novedades sobre la documentación de administració
 
 ### <a name="updated-articles"></a>Artículos actualizados
 - [Inicio rápido: Incorporación de una aplicación al inquilino de Azure Active Directory (Azure AD)](add-application-portal.md)
-- [Solución de problemas comunes al agregar o eliminar una aplicación en Azure Active Directory](troubleshoot-adding-apps.md)
+- [Solución de problemas comunes al agregar o eliminar una aplicación en Azure Active Directory](/troubleshoot/azure/active-directory/troubleshoot-adding-apps)
 - [Administración del consentimiento a las aplicaciones y evaluación de las solicitudes de consentimiento](manage-consent-requests.md)
 - [Visualización de las aplicaciones con el inquilino de Azure AD para la administración de identidades](application-types.md)
 - [Explicación del proceso de asignación de usuarios a aplicaciones en Azure Active Directory](ways-users-get-assigned-to-applications.md)

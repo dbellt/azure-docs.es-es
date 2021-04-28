@@ -6,12 +6,12 @@ ms.author: chrhar
 ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 01/25/2021
-ms.openlocfilehash: f64cc67ad6f0296ad289d858795ee783943f3daf
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: fb1c1d64d77ca1c69960b77cbec7f60bb717c26c
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107259874"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108143528"
 ---
 # <a name="tutorial-access-data-in-cosmos-db-using-mongoose-with-azure-static-web-apps"></a>Tutorial: Acceso a datos en Cosmos DB mediante Mongoose con Azure Static Web Apps
 
@@ -37,7 +37,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 ## <a name="create-a-cosmos-db-serverless-database"></a>Creación de una base de datos sin servidor de Cosmos DB
 
-Comience por crear una cuenta [sin servidor de Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/serverless). Al usar una cuenta sin servidor, solo paga por los recursos que se usan y no es necesario crear una infraestructura completa.
+Comience por crear una cuenta [sin servidor de Cosmos DB](../cosmos-db/serverless.md). Al usar una cuenta sin servidor, solo paga por los recursos que se usan y no es necesario crear una infraestructura completa.
 
 1. Vaya a [https://portal.azure.com](https://portal.azure.com).
 2. Haga clic en **Crear un recurso**.
@@ -140,4 +140,3 @@ Si no va a seguir usando esta aplicación, elimine el grupo de recursos mediante
 Pase al siguiente artículo, donde aprenderá a configurar el desarrollo local.
 > [!div class="nextstepaction"]
 > [Configuración del desarrollo local](./local-development.md)
- 
