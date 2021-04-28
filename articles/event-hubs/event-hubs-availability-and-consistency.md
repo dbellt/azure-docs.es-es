@@ -4,12 +4,12 @@ description: Cómo proporcionar el máximo nivel de disponibilidad y coherencia 
 ms.topic: article
 ms.date: 03/15/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e014a33e94fe7f90569dd2ef1e9b620eef274842
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 02f26aaf369db177d77d27f3274b34fe1c400419
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104952871"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107988953"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Disponibilidad y coherencia en Event Hubs
 En este artículo se proporciona información sobre la disponibilidad y la coherencia que admite Azure Event Hubs. 
@@ -60,14 +60,14 @@ producer.SendAsync(events, sendOptions)
 
 
 ### <a name="java"></a>[Java](#tab/java)
-Para enviar eventos a una partición específica, cree el lote con el método [createBatch](/java/api/com.azure.messaging.eventhubs.eventhubproducerclient.createbatch). Para ello, especifique el **identificador de partición** o la **clave de partición** en [createBatchOptions](/java/api/com.azure.messaging.eventhubs.models.createbatchoptions). El código siguiente envía un lote de eventos a una partición específica mediante la especificación de una clave de partición. 
+Para enviar eventos a una partición específica, cree el lote con el método [createBatch](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/src/main/java/com/azure/messaging/eventhubs/EventHubProducerClient.java). Para ello, especifique el **identificador de partición** o la **clave de partición** en [createBatchOptions](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/src/main/java/com/azure/messaging/eventhubs/models/CreateBatchOptions.java). El código siguiente envía un lote de eventos a una partición específica mediante la especificación de una clave de partición. 
 
 ```java
 CreateBatchOptions batchOptions = new CreateBatchOptions();
 batchOptions.setPartitionKey("cities");
 ```
 
-También puede usar el método [EventHubProducerClient.send](/java/api/com.azure.messaging.eventhubs.eventhubproducerclient.send#com_azure_messaging_eventhubs_EventHubProducerClient_send_java_lang_Iterable_com_azure_messaging_eventhubs_EventData__com_azure_messaging_eventhubs_models_SendOptions_). Para ello, especifique el **identificador de partición** o la **clave de partición** en [SendOptions](/java/api/com.azure.messaging.eventhubs.models.sendoptions).
+También puede usar el método [EventHubProducerClient.send](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/src/main/java/com/azure/messaging/eventhubs/EventHubProducerClient.java). Para ello, especifique el **identificador de partición** o la **clave de partición** en [SendOptions](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/src/main/java/com/azure/messaging/eventhubs/models/SendOptions.java).
 
 ```java
 List<EventData> events = Arrays.asList(new EventData("Melbourne"), new EventData("London"), new EventData("New York"));

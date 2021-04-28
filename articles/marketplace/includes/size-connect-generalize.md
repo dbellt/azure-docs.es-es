@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: include
 author: mingshen-ms
 ms.author: krsh
-ms.date: 03/25/2021
-ms.openlocfilehash: 8898a762e8a1e7a2d5c104f99d12032c676a5ca4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/16/2021
+ms.openlocfilehash: e119d40cd0b8f482d33c3c86c644cf6a0846390a
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105629907"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107727137"
 ---
 ## <a name="generalize-the-image"></a>Generalizar la imagen
 
@@ -40,6 +40,9 @@ El siguiente proceso generaliza una máquina virtual Linux y la vuelve a impleme
 
 ### <a name="capture-image"></a>Capture la imagen
 
+> [!NOTE]
+> La suscripción de Azure que contiene la SIG debe estar en el mismo inquilino que la cuenta de publicador para poder publicar. Además, la cuenta de publicador debe tener al menos acceso de colaborador a la suscripción que contiene la SIG.
+
 Una vez que la VM esté lista, puede capturarla en una instancia de Azure Shared Image Gallery. Siga estos pasos para realizar la captura:
 
 1. En [Azure Portal](https://ms.portal.azure.com/), vaya a la página de la máquina virtual.
@@ -51,8 +54,6 @@ Una vez que la VM esté lista, puede capturarla en una instancia de Azure Share
 7. Proporcione un **Número de versión** para la imagen.
 8. Seleccione **Revisar y crear** para revisar sus selecciones.
 9. Una vez que pase la validación, seleccione **Crear**.
-
-La suscripción de Azure que contiene la SIG debe estar en el mismo inquilino que la cuenta de publicador para poder publicar. Además, la cuenta del publicador debe tener acceso de Propietario a la SIG. 
 
 Para conceder el acceso, siga estos pasos:
 

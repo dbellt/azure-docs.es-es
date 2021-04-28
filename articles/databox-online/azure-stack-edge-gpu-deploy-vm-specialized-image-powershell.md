@@ -6,45 +6,36 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/30/2021
+ms.date: 04/15/2021
 ms.author: alkohli
-ms.openlocfilehash: d03aeb9759fb321b580fa65e06dc09ccde4a44a0
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 6bfa42e99f295b429eba40a27eb59becb8aa80a1
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106555939"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107575961"
 ---
-# <a name="deploy-a-vm-from-a-specialized-image-on-your-azure-stack-edge-pro-device-via-azure-powershell"></a>Implementación de una máquina virtual a partir de una imagen especializada en el dispositivo Azure Stack Edge Pro a través de Azure PowerShell 
+# <a name="deploy-a-vm-from-a-specialized-image-on-your-azure-stack-edge-pro-gpu-device-via-azure-powershell"></a>Implementación de una máquina virtual a partir de una imagen especializada en el dispositivo Azure Stack Edge Pro GPU a través de Azure PowerShell 
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-En este artículo se describen los pasos necesarios para implementar una máquina virtual (VM) en el dispositivo Azure Stack Edge Pro a partir de una imagen especializada. 
+En este artículo se describen los pasos necesarios para implementar una máquina virtual (VM) en el dispositivo Azure Stack Edge Pro GPU a partir de una imagen especializada. 
 
-## <a name="about-specialized-images"></a>Acerca de las imágenes especializadas
+Para preparar una imagen generalizada para la implementación de máquinas virtuales en Azure Stack Edge Pro GPU, consulte [Preparación de una imagen generalizada desde un VHD de Windows](azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md) o [Preparación de una imagen generalizada a partir de una imagen ISO](azure-stack-edge-gpu-prepare-windows-generalized-image-iso.md).
+
+## <a name="about-vm-images"></a>Acerca de las imágenes de máquinas virtuales
 
 Se puede utilizar un archivo VHD o VHDX de Windows para crear una imagen *especializada* o *generalizada*. En la tabla siguiente se resumen las diferencias principales entre las imágenes *especializadas* y *generalizadas*.
 
+[!INCLUDE [about-vm-images-for-azure-stack-edge](../../includes/azure-stack-edge-about-vm-images.md)]
 
-|Tipo de imagen  |Generalizada  |Especializada  |
-|---------|---------|---------|
-|Destino     |Implementado en cualquier sistema         | Destinado a un sistema específico        |
-|Configuración después del arranque     | Configuración requerida en el primer arranque de la máquina virtual.          | No se necesita configuración. <br> La plataforma enciende la máquina virtual.        |
-|Configuración     |Nombre de host, administrador-usuario y otros valores específicos de la máquina virtual necesarios.         |Preconfigurada.         |
-|Se usa para     |Crear varias máquinas virtuales a partir de la misma imagen.         |Migrar una máquina específica o restaurar una máquina virtual de una copia de seguridad anterior.         |
-
-
-En este artículo se describen los pasos necesarios para realizar la implementación a partir de una imagen especializada. Para realizar la implementación a partir de una imagen generalizada, consulte la información que aparece en [Uso de VHD de Windows generalizado](azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md) correspondiente a su dispositivo.
-
-
-## <a name="vm-image-workflow"></a>Flujo de trabajo de la imagen de máquina virtual
+## <a name="workflow"></a>Flujo de trabajo
 
 En líneas generales, el flujo de trabajo para implementar una máquina virtual a partir de una imagen especializada es el siguiente:
 
 1. Copie el VHD en una cuenta de almacenamiento local en el dispositivo de GPU de Azure Stack Edge Pro.
 1. Cree un disco administrado a partir del VHD.
 1. Cree una máquina virtual a partir del disco administrado y asocie el disco administrado.
-
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -65,7 +56,6 @@ Compruebe que el cliente puede conectarse a Azure Resource Manager local.
     ```
 
 2. Proporcione el nombre de usuario `EdgeArmUser` y la contraseña para conectarse mediante Azure Resource Manager. Si no recuerda la contraseña, consulte [Restablecimiento de la contraseña de Azure Resource Manager](azure-stack-edge-gpu-set-azure-resource-manager-password.md) y use esta contraseña para iniciar la sesión.
- 
 
 ## <a name="deploy-vm-from-specialized-image"></a>Implementación de una máquina virtual a partir de una imagen especializada
 
@@ -75,10 +65,10 @@ Las secciones siguientes contienen instrucciones paso a paso para implementar un
 
 Siga estos pasos para copiar el VHD en la cuenta de almacenamiento local:
 
-1. Copie el VHD de origen en una cuenta de almacenamiento de blobs local en Azure Stack Edge. 
+1. Copie el VHD de origen en una cuenta de almacenamiento de blobs local en Azure Stack Edge.
 
 1. Anote el URI resultante. Se usará en un paso posterior.
-    
+
     Para crear una cuenta de almacenamiento local y acceder a ella, consulte las secciones [Creación de una cuenta de almacenamiento](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#create-a-storage-account) hasta [Carga de un archivo VHD](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#upload-a-vhd) en el artículo [Implementación de máquinas virtuales en el dispositivo Azure Stack Edge mediante Azure PowerShell](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md). 
 
 ## <a name="create-a-managed-disk-from-vhd"></a>Creación de un disco administrado a partir de un archivo VHD
@@ -301,7 +291,5 @@ En este artículo solo se usa un grupo de recursos para crear todos los recursos
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En función de la naturaleza de la implementación, puede elegir uno de los procedimientos siguientes.
-
-- [Implementación de máquinas virtuales a partir de una imagen generalizada mediante Azure PowerShell](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md)  
-- [Implementación de una máquina virtual mediante Azure Portal](azure-stack-edge-gpu-deploy-virtual-machine-portal.md)
+- [Preparación de una imagen generalizada desde un VHD de Windows para implementar máquinas virtuales en Azure Stack Edge Pro GPU](azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md)
+- [Preparación de una imagen generalizada desde una ISO para implementar máquinas virtuales en Azure Stack Edge Pro GPU](azure-stack-edge-gpu-prepare-windows-generalized-image-iso.md)

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 2/12/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: aa4dde51c077152dd5c8a938ad64ad0a051f89ad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 22b41fce59bf7dbe9db1186036c5ed44f07a4aad
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100563387"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107484492"
 ---
 # <a name="convert-industry-standard-ontologies-to-dtdl-for-azure-digital-twins"></a>Conversión de ontologías estándar del sector a DTDL para Azure Digital Twins
 
@@ -49,7 +49,9 @@ El ejemplo es una aplicación de línea de comandos de .NET Core denominada **Rd
 
 Aquí puede obtener el ejemplo: [**RdfToDtdlConverter**](/samples/azure-samples/rdftodtdlconverter/digital-twins-model-conversion-samples/). 
 
-Para descargar el código en la máquina, pulse el botón *Descargar archivo ZIP* que se encuentra debajo del título en la página de aterrizaje del ejemplo. Se descargará un archivo *ZIP* de nombre *RdfToDtdlConverter_sample_application_to_convert_RDF_to_DTDL.zip*, que podrá descomprimir y explorar.
+Para descargar el código en la máquina, seleccione el botón **Examinar código** debajo del título de la página de ejemplo, que le llevará al repositorio de GitHub para el ejemplo. Seleccione el botón **Code** (Código) y **Download ZIP** (Descargar ZIP) para descargar el ejemplo como un archivo *.ZIP* denominado *RdfToDtdlConverter-main.zip*. A continuación, puede descomprimir el archivo y explorar el código.
+
+:::image type="content" source="media/concepts-ontologies-convert/download-repo-zip.png" alt-text="Captura de pantalla del repositorio RdfToDtdlConverter en GitHub. El botón Code (Código) está seleccionado y se muestra un pequeño cuadro de diálogo en el que el botón Download ZIP (Descargar ZIP) está resaltado" lightbox="media/concepts-ontologies-convert/download-repo-zip.png":::
 
 Puede usar este ejemplo para ver los patrones de conversión en contexto y tener como bloque de creación de sus propias aplicaciones la realización de conversiones de modelos de acuerdo con sus propias necesidades específicas.
 

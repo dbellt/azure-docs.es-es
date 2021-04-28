@@ -9,22 +9,23 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 60c5ddcc67db6e4a0649458cfbd5c2949aa9a32a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ce46b7afe7344fabde03805dc2a0977411be5811
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102202049"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107716086"
 ---
 # <a name="delete-resources-from-azure"></a>Eliminación de recursos de Azure
 
-> [!NOTE]
->  Las opciones para eliminar recursos que se describen en este artículo son irreversibles.
+En este artículo se describe cómo eliminar recursos de Azure.
 
-> [!NOTE]
->  Dado que el único modo de conectividad que se ofrece actualmente para los servicios de datos habilitados para Azure Arc es el modo Conectado indirectamente, la eliminación de una instancia de Kubernetes no la elimina de Azure y la eliminación de una instancia de Azure no la elimina de Kubernetes.  Por ahora, la eliminación de un recurso es un proceso de dos pasos y se mejorará en el futuro.  En el futuro, Kubernetes será el origen de verdad y Azure se actualizará para reflejarlo.
+> [!WARNING]
+> Al eliminar recursos como se describe en este artículo, estas acciones son irreversibles.
 
-En algunos casos, puede que tenga que eliminar manualmente los recursos de los servicios de datos habilitados para Azure Arc en Azure Resource Manager (ARM).  Puede eliminar estos recursos con cualquiera de las siguientes opciones.
+En el modo de conexión indirecto, la eliminación de una instancia de Kubernetes no la elimina de Azure y la eliminación de una instancia de Azure no la elimina de Kubernetes. En el modo de conexión indirecto, la eliminación de un recurso es un proceso de dos pasos y se mejorará en el futuro. Kubernetes será el origen de verdad y el portal se actualizará para reflejarlo.
+
+En algunos casos, puede que tenga que eliminar manualmente en Azure los recursos de los servicios de datos habilitados para Azure Arc.  Puede eliminar estos recursos con cualquiera de las siguientes opciones.
 
 - [Eliminación de recursos de Azure](#delete-resources-from-azure)
   - [Eliminación de un grupo de recursos completo](#delete-an-entire-resource-group)
@@ -38,6 +39,7 @@ En algunos casos, puede que tenga que eliminar manualmente los recursos de los s
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## <a name="delete-an-entire-resource-group"></a>Eliminación de un grupo de recursos completo
+
 Si ha utilizado un grupo de recursos específico y dedicado para los servicios de datos habilitados para Azure Arc y desea eliminar *todo* lo que hay dentro del grupo de recursos, puede eliminar el grupo de recursos, lo que eliminará todo lo que contiene.  
 
 Para eliminar un grupo de recursos en Azure Portal, realice los pasos siguientes:

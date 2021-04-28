@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: kumud
-ms.openlocfilehash: bb078b9738e995a1c507f7934a7dd64f075d5fe0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0d171dee87a391c5e1d66db10363e6823ef387c1
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100596534"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107774168"
 ---
 # <a name="resource-logging-for-a-network-security-group"></a>Registro de recursos de un grupo de seguridad de red
 
@@ -28,7 +28,7 @@ Al habilitar el registro para un grupo de seguridad de red, puede recopilar los 
 
 Los registros de diagnóstico solo están disponibles para los grupos de seguridad de red implementados con el modelo de implementación de Azure Resource Manager. No se puede habilitar el registro de diagnóstico para los grupos de seguridad de red implementados con el modelo de implementación clásica. Para entender mejor los dos modelos, consulte [Descripción de los modelos de implementación de Azure](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-El registro de recursos se habilita por separado para *cada* grupo de seguridad de red para el que desee recopilar datos. Si lo que le interesan son los registros de actividades (operaciones), consulte el [registro de actividades](../azure-monitor/essentials/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) de Azure.
+El registro de recursos se habilita por separado para *cada* grupo de seguridad de red para el que desee recopilar datos. Si lo que le interesan son los registros de actividades (operaciones), consulte el [registro de actividades](../azure-monitor/essentials/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) de Azure. Si le interesa el flujo de tráfico IP a través de los grupos de seguridad de red, consulte los [registros de flujo de NSG](../network-watcher/network-watcher-nsg-flow-logging-overview.md) de Azure Network Watcher. 
 
 ## <a name="enable-logging"></a>Habilitación del registro
 
@@ -95,9 +95,9 @@ Vea y analice los registros. Para más información, consulte [Visualización y 
 
 Puede ejecutar los comandos siguientes en [Azure Cloud Shell](https://shell.azure.com/bash), o mediante la ejecución de la CLI de Azure en el equipo. Azure Cloud Shell es un shell interactivo gratuito. Tiene las herramientas comunes de Azure preinstaladas y configuradas para usarlas en la cuenta. Si ejecuta la CLI desde el equipo, necesita la versión 2.0.38 o posterior. Ejecute `az --version` en el equipo para encontrar la versión instalada. Si debe actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli). Si ejecuta la CLI localmente, también debe ejecutar `az login` para iniciar sesión en Azure con una cuenta que tenga los [permisos necesarios](virtual-network-network-interface.md#permissions).
 
-Para habilitar el registro de recursos se necesita el identificador de un grupo de seguridad de red existente. Si no tiene ninguno, puede crear uno con [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create).
+Para habilitar el registro de recursos se necesita el identificador de un grupo de seguridad de red existente. Si no tiene ninguno, puede crear uno con [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create).
 
-Recupere el grupo de seguridad de red para el que desea habilitar el registro de recursos con [az network nsg show](/cli/azure/network/nsg#az-network-nsg-show). Por ejemplo, para recuperar un grupo de seguridad de red denominado *myNsg* que existe en un grupo de recursos denominado *myResourceGroup*, escriba el siguiente comando:
+Recupere el grupo de seguridad de red para el que desea habilitar el registro de recursos con [az network nsg show](/cli/azure/network/nsg#az_network_nsg_show). Por ejemplo, para recuperar un grupo de seguridad de red denominado *myNsg* que existe en un grupo de recursos denominado *myResourceGroup*, escriba el siguiente comando:
 
 ```azurecli-interactive
 nsgId=$(az network nsg show \
@@ -109,7 +109,7 @@ nsgId=$(az network nsg show \
 
 Puede escribir registros de recursos para tres tipos de destino. Para más información, consulte [Destinos del registro](#log-destinations). En este artículo, los registros se envían al destino *Log Analytics*, pero no es más que un ejemplo. Para más información, consulte [Categorías de registro](#log-categories).
 
-Habilite el registro de recursos para el grupo de seguridad de red con [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create). En el ejemplo siguiente se registran los datos de categoría de eventos y de contadores en un área de trabajo denominada *myWorkspace*, que se encuentra en un grupo de recursos denominado *myWorkspaces*, y el identificador del grupo de seguridad de red que recuperó anteriormente:
+Habilite el registro de recursos para el grupo de seguridad de red con [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create). En el ejemplo siguiente se registran los datos de categoría de eventos y de contadores en un área de trabajo denominada *myWorkspace*, que se encuentra en un grupo de recursos denominado *myWorkspaces*, y el identificador del grupo de seguridad de red que recuperó anteriormente:
 
 ```azurecli-interactive
 az monitor diagnostic-settings create \

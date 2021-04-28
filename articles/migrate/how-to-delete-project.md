@@ -6,12 +6,12 @@ ms.author: panshar
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 10/22/2019
-ms.openlocfilehash: bfb4db5d3ebf69f9c7f552c175d33a8b817d1562
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8c94bb23f5d514fef5cdacb855657efdf5219631
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100595149"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107714747"
 ---
 # <a name="delete-an-azure-migrate-project"></a>Eliminación de un proyecto de Azure Migrate
 
@@ -49,7 +49,9 @@ En estas tablas, se resumen los recursos creados para la detección, la evaluaci
 > [!NOTE]
 > Elimine el almacén de claves con precaución, ya que puede contener claves de seguridad.
 
-### <a name="vmwarephysical-server"></a>Servidores físicos o de VMware
+### <a name="projects-with-public-endpoint-connectivity"></a>Proyectos con conectividad de punto de conexión público
+
+#### <a name="vmwarephysical-server"></a>Servidores físicos o de VMware
 
 **Recurso** | **Tipo**
 --- | ---
@@ -63,9 +65,9 @@ migrateappligwsa* | Cuenta de almacenamiento
 migrateapplilsa* | Cuenta de almacenamiento
 migrateapplicsa* | Cuenta de almacenamiento
 migrateapplikv* | Almacén de claves
-migrateapplisbns16041 | Espacio de nombres de Service Bus
+migrateapplisbns* | Espacio de nombres de Service Bus
 
-### <a name="hyper-v-vm"></a>Máquina virtual de Hyper-V 
+#### <a name="hyper-v-vm"></a>Máquina virtual de Hyper-V
 
 **Recurso** | **Tipo**
 --- | ---
@@ -74,6 +76,50 @@ migrateapplisbns16041 | Espacio de nombres de Service Bus
 HyperV*kv | Almacén de claves
 HyperV*Site | Microsoft.OffAzure/HyperVSites
 "ProjectName"-MigrateVault-* | Almacén de Recovery Services
+
+<br/>
+En las tablas siguientes se resumen los recursos creados por Azure Migrate para detectar, evaluar y migrar servidores a través de una red privada mediante [Azure Private Link](./how-to-use-azure-migrate-with-private-endpoints.md).
+
+### <a name="projects-with-private-endpoint-connectivity"></a>Proyectos con conectividad de punto de conexión privado
+
+#### <a name="vmware-vms---agentless-migrations"></a>Migración sin agentes de máquinas virtuales de VMware
+
+**Tipo** | **Recurso** | **Punto de conexión privado <br/>** |
+--- | --- | ---
+Microsoft.Migrate/migrateprojects | "ProjectName" | "ProjectName"\*pe 
+Sitio de detección (sitio maestro) | "ProjectName"*mastersite | "ProjectName"\*mastersite\*pe 
+Microsoft.Migrate/assessmentProjects | "ApplianceName"*project | "ApplianceName"\*project\*pe 
+Almacén de claves | "ProjectName"*kv | "ProjectName"\*kv\*pe
+Microsoft.OffAzure/VMwareSites | "ApplianceName"*site | N/D
+Almacén de Recovery Services | "ApplianceName"*vault | N/D
+Cuenta de almacenamiento | "ApplianceName"*usa | "ApplianceName"\*usa\*pe
+Almacén de Recovery Services | "ProjectName"-MigrateVault-* | N/D
+Cuenta de almacenamiento | migrateappligwsa* | N/D
+Cuenta de almacenamiento | migrateapplilsa* | N/D
+Almacén de claves | migrateapplikv* | N/D
+Espacio de nombres de Service Bus | migrateapplisbns* | N/D
+
+#### <a name="hyper-v-vms"></a>Máquinas virtuales de Hyper-V 
+
+**Tipo** | **Recurso** | **Punto de conexión privado <br/>** |
+--- | --- | ---
+Microsoft.Migrate/migrateprojects | "ProjectName" | "ProjectName"\*pe 
+Sitio de detección (sitio maestro) | "ProjectName"*mastersite | "ProjectName"\*mastersite\*pe 
+Microsoft.Migrate/assessmentProjects | "ApplianceName"*project | "ApplianceName"\*project\*pe 
+Almacén de claves | "ProjectName"*kv | "ProjectName"\*kv\*pe
+Microsoft.OffAzure/HyperVSites | "ApplianceName"*site | N/D
+Almacén de Recovery Services | "ProjectName"-MigrateVault-* | "ProjectName"-MigrateVault-*pe
+
+#### <a name="physical-servers--aws-vms--gcp-vms"></a>Servidores físicos, máquinas virtuales de AWS o máquinas virtuales de GCP 
+
+**Tipo** | **Recurso** | **Punto de conexión privado <br/>** |
+--- | --- | ---
+Microsoft.Migrate/migrateprojects | "ProjectName" | "ProjectName"\*pe 
+Sitio de detección (sitio maestro) | "ProjectName"*mastersite | "ProjectName"\*mastersite\*pe 
+Microsoft.Migrate/assessmentProjects | "ApplianceName"*project | "ApplianceName"\*project\*pe 
+Almacén de claves | "ProjectName"*kv | "ProjectName"\*kv\*pe
+Microsoft.OffAzure/serversites | "ApplianceName"*site | N/D
+Almacén de Recovery Services | "ProjectName"-MigrateVault-* | "ProjectName"-MigrateVault-*pe
 
 
 ## <a name="next-steps"></a>Pasos siguientes

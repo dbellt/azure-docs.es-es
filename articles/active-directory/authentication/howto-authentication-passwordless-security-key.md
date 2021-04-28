@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/21/2021
+ms.date: 02/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 436a972693aafd220d277d7411c0da12636e9cc6
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: a88bb7904143f69a0eea84ea291c65e3244c70a1
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107829807"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765870"
 ---
 # <a name="enable-passwordless-security-key-sign-in"></a>Habilitación del inicio de sesión con clave de seguridad sin contraseña 
 
@@ -32,7 +32,6 @@ Este documento se centra en la habilitación de la autenticación sin contraseñ
 - WebAuthN requiere Windows 10, versión 1903 o posterior**
 
 Para usar claves de seguridad para iniciar sesión en servicios y aplicaciones web, debe tener un explorador que admita el protocolo WebAuthN. Entre ellas se incluyen Microsoft Edge, Chrome, Firefox y Safari.
-
 
 ## <a name="prepare-devices"></a>Preparación de dispositivos
 

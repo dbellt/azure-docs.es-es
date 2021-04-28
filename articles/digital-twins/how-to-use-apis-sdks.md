@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: f4f3fc8c928cd284088cc51120f1a7b485b4fac0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 21247f6b396cb1f7016c74cbec528149c0583724
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104595352"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107587212"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Uso de las API y los SDK de Azure Digital Twins
 
@@ -180,6 +180,7 @@ En la lista siguiente se proporcionan detalles adicionales y directrices general
 * Puede usar una herramienta de prueba de REST de HTTP como Postman para realizar llamadas directas a las API de Azure Digital Twins. Para más información sobre este proceso, consulte [*Procedimiento: Realización de solicitudes con Postman*](how-to-use-postman.md).
 * Para usar el SDK, cree una instancia de la clase `DigitalTwinsClient`. El constructor requiere credenciales que se pueden obtener con una variedad de métodos de autenticación en el paquete de `Azure.Identity`. Para más información sobre `Azure.Identity`, consulte la [documentación del espacio de nombres](/dotnet/api/azure.identity). 
 * Es posible que encuentre útil `InteractiveBrowserCredential` al comenzar, pero hay muchas otras opciones, incluidas las credenciales para la [identidad administrada](/dotnet/api/azure.identity.interactivebrowsercredential), que probablemente va a usar para autenticar las [funciones de Azure configuradas con MSI](../app-service/overview-managed-identity.md?tabs=dotnet) en Azure Digital Twins. Para más información sobre `InteractiveBrowserCredential`, consulte la [documentación de la clase](/dotnet/api/azure.identity.interactivebrowsercredential).
+* Las solicitudes a las API de Azure Digital Twins requieren un usuario o una entidad de servicio que forme parte del mismo inquilino de [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) donde reside la instancia de Azure Digital Twins. Para evitar exámenes malintencionados de los puntos de conexión de Azure Digital Twins, las solicitudes con tokens de acceso desde fuera del inquilino de origen recibirán un mensaje de error "404 No se ha encontrado el subdominio". Este error se devolverá *incluso si* al usuario o a la entidad de servicio se le ha concedido un rol de propietario de datos o de lector de datos de Azure Digital Twins mediante la colaboración de [Azure AD B2B](../active-directory/external-identities/what-is-b2b.md). Para obtener información sobre cómo lograr el acceso a través de varios inquilinos, consulte [*Procedimiento: Escribir código de autenticación de aplicación*](how-to-authenticate-client.md#authenticate-across-tenants).
 * Todas las llamadas de API de servicio se exponen como funciones miembro en la clase `DigitalTwinsClient`.
 * Todas las funciones de servicio se encuentran en versiones sincrónicas y asincrónicas.
 * Todas las funciones de servicio inician una excepción en cualquier estado de devolución de 400 o superior. Asegúrese de ajustar las llamadas en una sección `try` y de capturar al menos `RequestFailedExceptions`. Para más información sobre este tipo de excepción, consulte [este artículo](/dotnet/api/azure.requestfailedexception).
@@ -187,6 +188,7 @@ En la lista siguiente se proporcionan detalles adicionales y directrices general
 * Los métodos de servicio con los resultados paginados devuelven `Pageable<T>` o `AsyncPageable<T>` como resultados. Para más información sobre la clase `Pageable<T>`, consulte [este artículo](/dotnet/api/azure.pageable-1); para más información sobre `AsyncPageable<T>`, consulte [este artículo](/dotnet/api/azure.asyncpageable-1).
 * Puede recorrer en iteración los resultados paginados mediante un bucle `await foreach`. Para más información sobre este proceso, consulte [este artículo](/archive/msdn-magazine/2019/november/csharp-iterating-with-async-enumerables-in-csharp-8).
 * El SDK subyacente es `Azure.Core`. Consulte la [documentación del espacio de nombres de Azure](/dotnet/api/azure) como referencia sobre los tipos y la infraestructura del SDK.
+
 
 Los métodos de servicio devuelven objetos fuertemente tipados siempre que sea posible. Sin embargo, dado que Azure Digital Twins se basa en los modelos configurados de forma personalizada por el usuario en tiempo de ejecución (a través de los modelos DTDL cargados en el servicio), muchas API de servicio toman y devuelven datos gemelos en formato JSON.
 

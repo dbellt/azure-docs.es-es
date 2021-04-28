@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 8804febe81afc79a4a7eadb56e8350e758ea38ba
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 5ca70e0f0ce1dca01248f942fb81a8e8f5469991
+ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107105517"
+ms.lasthandoff: 04/26/2021
+ms.locfileid: "108001365"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-arm-templates"></a>Implementación de una instancia de Cloud Service (soporte extendido) mediante plantillas de ARM
 
@@ -24,15 +24,12 @@ En este tutorial se explica cómo crear la implementación de una instancia de C
 1. Consulte los [requisitos previos de implementación](deploy-prerequisite.md) de Cloud Services (soporte extendido) y cree los recursos asociados.
 
 2. Cree un nuevo grupo de recursos con [Azure Portal](../azure-resource-manager/management/manage-resource-groups-portal.md) o [PowerShell](../azure-resource-manager/management/manage-resource-groups-powershell.md). Este paso es opcional si se usa un grupo de recursos existente.
-
-3. Cree una dirección IP pública y establezca su propiedad de etiqueta DNS. Cloud Services (soporte extendido) solo admite direcciones IP públicas de la SKU [básica](https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#basic). Las direcciones IP públicas de la SKU estándar no funcionan con Cloud Services.
-Si usa una dirección IP estática, se debe hacer referencia a ella como IP reservada en el archivo de configuración del servicio (.cscfg). Si usa una dirección IP existente, omita este paso y agregue la información de la dirección IP directamente en la configuración del equilibrador de carga de la plantilla de ARM.
  
-4. Cree una cuenta de almacenamiento mediante [Azure Portal](../storage/common/storage-account-create.md?tabs=azure-portal) o [PowerShell](../storage/common/storage-account-create.md?tabs=azure-powershell). Este paso es opcional si se usa una cuenta de almacenamiento existente.
+3. Cree una cuenta de almacenamiento mediante [Azure Portal](../storage/common/storage-account-create.md?tabs=azure-portal) o [PowerShell](../storage/common/storage-account-create.md?tabs=azure-powershell). Este paso es opcional si se usa una cuenta de almacenamiento existente.
 
-5. Cargue los archivos de definición de servicio (.csdef) y de configuración del servicio (.cscfg) en la cuenta de almacenamiento mediante [Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob), [AzCopy](../storage/common/storage-use-azcopy-blobs-upload.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) o [PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md#upload-blobs-to-the-container). Obtenga los URI de SAS de ambos archivos que se van a agregar a la plantilla de ARM más adelante en este tutorial.
+4. Cargue los archivos de definición de servicio (.csdef) y de configuración del servicio (.cscfg) en la cuenta de almacenamiento mediante [Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob), [AzCopy](../storage/common/storage-use-azcopy-blobs-upload.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) o [PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md#upload-blobs-to-the-container). Obtenga los URI de SAS de ambos archivos que se van a agregar a la plantilla de ARM más adelante en este tutorial.
 
-6. (Opcional) Cree un almacén de claves y cargue los certificados.
+5. (Opcional) Cree un almacén de claves y cargue los certificados.
 
     -  Los certificados pueden adjuntarse a los servicios en la nube para permitir la comunicación segura hacia el servicio, y desde él. Para poder usar certificados, se deben especificar sus huellas digitales en el archivo de configuración del servicio (.cscfg) y cargarse en un almacén de claves. Un almacén de claves se puede crear mediante [Azure Portal](../key-vault/general/quick-create-portal.md) o [PowerShell](../key-vault/general/quick-create-powershell.md).
     - El almacén de claves asociado se debe crear en la misma región y suscripción que el servicio en la nube.

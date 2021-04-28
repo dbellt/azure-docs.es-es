@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: f0f3baf1bf56f958408f789961812c0555f289f1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 0882efeccfc8dc83686d75ab39b8364219c3b5f1
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102043650"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107588095"
 ---
 # <a name="redundancy-options-for-managed-disks"></a>Opciones de redundancia para Managed Disks
 
@@ -52,7 +52,7 @@ Para obtener información detallada, consulte la [página de precios de Azure](h
 
 ### <a name="comparison-with-other-disk-types"></a>Comparación con otros tipos de disco
 
-A excepción de tener más latencia de escritura, los discos que usan ZRS son idénticos a los discos que usan LRS. Tienen los mismos objetivos de rendimiento.
+A excepción de tener más latencia de escritura, los discos que usan ZRS son idénticos a los discos que usan LRS. Tienen los mismos objetivos de rendimiento. Se recomienda realizar pruebas [comparativas de disco](disks-benchmarks.md) para simular la carga de trabajo de la aplicación y comparar la latencia entre los discos LRS y ZRS. 
 
 ### <a name="create-zrs-managed-disks"></a>Creación de discos administrados ZRS
 

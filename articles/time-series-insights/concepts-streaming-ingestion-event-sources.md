@@ -9,12 +9,12 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 03/18/2021
-ms.openlocfilehash: 4e22d93d3037c190193f53b7cfdbc87cff2da6ed
-ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
+ms.openlocfilehash: 4021a705668db82e47a23808ef0f6546f86866be
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106504403"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108138272"
 ---
 # <a name="azure-time-series-insights-gen2-event-sources"></a>Orígenes de eventos de Azure Time Series Insights Gen2
 
@@ -29,11 +29,14 @@ Los eventos se deben enviar como JSON con codificación UTF8.
 
 El origen del evento es el vínculo entre el centro y el entorno de Azure Time Series Insights Gen2, y se crea un recurso de tipo independiente `Time Series Insights event source` en el grupo de recursos. Los recursos de IoT Hub o del Centro de eventos pueden residir en la misma suscripción de Azure que el entorno de Azure Time Series Insights Gen2 o una suscripción diferente. Sin embargo, es un procedimiento recomendado hospedar el entorno de Azure Time Series Insights y la instancia de IoT Hub o el Centro de eventos en la misma región de Azure.
 
-Puede usar [Azure Portal](./tutorials-set-up-tsi-environment.md#create-an-azure-time-series-insights-gen2-environment), la [CLI de Azure](https://docs.microsoft.com/cli/azure/ext/timeseriesinsights/tsi/event-source), las [plantillas de Azure Resource Manager](time-series-insights-manage-resources-using-azure-resource-manager-template.md) y la [API de REST](/rest/api/time-series-insights/management(gen1/gen2)/eventsources) para crear, editar o quitar los orígenes de eventos del entorno.
+Puede usar [Azure Portal](./tutorial-set-up-environment.md#create-an-azure-time-series-insights-gen2-environment), la [CLI de Azure](/cli/azure/tsi/event-source), las [plantillas de Azure Resource Manager](time-series-insights-manage-resources-using-azure-resource-manager-template.md) y la [API de REST](/rest/api/time-series-insights/management(gen1/gen2)/eventsources) para crear, editar o quitar los orígenes de eventos del entorno.
+
+> [!WARNING]
+> No restrinja el acceso a través de una red de Internet pública a un centro u origen de eventos usado por Time Series Insights o, de lo contrario, se interrumpirá la conexión necesaria.
 
 ## <a name="start-options"></a>Opciones de inicio
 
-Al crear un origen de eventos, tiene la opción de especificar qué datos preexistentes se deben recopilar. Esta configuración es opcional. Están disponibles las opciones siguientes:
+Al crear un origen de eventos, puede especificar qué datos preexistentes se deben recopilar. Esta configuración es opcional. Están disponibles las opciones siguientes:
 
 | Nombre   |  Descripción  |  Ejemplo de plantilla de Azure Resource Manager |
 |----------|-------------|------|
@@ -46,18 +49,17 @@ Al crear un origen de eventos, tiene la opción de especificar qué datos preexi
 > - Si selecciona EarliestAvailable y tiene muchos datos preexistentes, es posible que experimente una latencia inicial elevada, ya que el entorno de Azure Time Series Insights Gen2 procesa todos los datos.
 > - La alta latencia debería mitigarse a medida que se indexan los datos. Envíe una incidencia de soporte técnico a través de Azure Portal si sufre una latencia elevada de forma continuada.
 
-* EarliestAvailable
+- EarliestAvailable
 
 ![Diagrama de EarliestAvailable](media/concepts-streaming-event-sources/event-source-earliest-available.png)
 
-* EventSourceCreationTime
+- EventSourceCreationTime
 
 ![Diagrama de EventSourceCreationTime](media/concepts-streaming-event-sources/event-source-creation-time.png)
 
-* CustomEnqueuedTime
+- CustomEnqueuedTime
 
 ![Diagrama de CustomEnqueuedTime](media/concepts-streaming-event-sources/event-source-custom-enqueued-time.png)
-
 
 ## <a name="streaming-ingestion-best-practices"></a>Procedimientos recomendados para la ingesta de streaming
 
@@ -113,9 +115,9 @@ Las marcas de tiempo deben enviarse en formato ISO 8601 y se almacenarán en UTC
 
 El desplazamiento de zona horaria debe tener el formato de uno de los siguientes:
 
-±HHMMZ</br>
-±HH:MM</br>
-±HH:MMZ</br>
+±HHMMZ<br />
+±HH:MM<br />
+±HH:MMZ
 
 ## <a name="next-steps"></a>Pasos siguientes
 

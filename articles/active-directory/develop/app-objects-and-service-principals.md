@@ -13,12 +13,12 @@ ms.date: 04/16/2021
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
-ms.openlocfilehash: 1d117ecaed626c6226a381c34b3d9a0f4f21175b
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: fc1b5356ab607ecb60a457a7295831958e6815e1
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108126802"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107727067"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Objetos de aplicación y de entidad de servicio de Azure Active Directory
 
@@ -53,7 +53,7 @@ El primer tipo de entidad de servicio es la representación local o la instancia
 
 Cuando una aplicación tiene permiso para acceder a los recursos de un inquilino (tras el registro o [consentimiento](developer-glossary.md#consent)), se crea un objeto de entidad de seguridad de servicio. También puede crear objetos de entidad de servicio en un inquilino mediante [Azure PowerShell](howto-authenticate-service-principal-powershell.md), la [CLI de Azure](/cli/azure/create-an-azure-service-principal-azure-cli), [Microsoft Graph](/graph/api/serviceprincipal-post-serviceprincipals?tabs=http), [Azure Portal][AZURE-Portal] y otras herramientas. Si usa el portal, se crea automáticamente una entidad de servicio al registrar una aplicación.
 
-El segundo tipo de entidad de servicio se usa para representar una [identidad administrada](../managed-identities-azure-resources/overview.md). Las identidades administradas eliminan la necesidad de que los desarrolladores administren las credenciales. Además, proporcionan una identidad que usan las aplicaciones al conectarse a recursos que admiten la autenticación de Azure AD. Cuando se habilita una identidad administrada, se crea en el inquilino una entidad de servicio que representa esa identidad administrada. A las entidades de servicio que representan identidades administradas se les pueden conceder acceso y permisos, pero no se pueden actualizar ni modificar directamente.
+El segundo tipo de entidad de servicio se usa para representar una [identidad administrada](/azure/active-directory/managed-identities-azure-resources/overview). Las identidades administradas eliminan la necesidad de que los desarrolladores administren las credenciales. Además, proporcionan una identidad que usan las aplicaciones al conectarse a recursos que admiten la autenticación de Azure AD. Cuando se habilita una identidad administrada, se crea en el inquilino una entidad de servicio que representa esa identidad administrada. A las entidades de servicio que representan identidades administradas se les pueden conceder acceso y permisos, pero no se pueden actualizar ni modificar directamente.
 
 El tercer tipo de entidad de servicio representa una aplicación heredada (una aplicación creada antes de que se introdujeran o crearan registros de aplicaciones mediante experiencias heredadas). Una entidad de servicio heredada puede tener credenciales, nombres de entidad de seguridad de servicio, direcciones URL de respuesta y otras propiedades que un usuario autorizado puede editar, pero no tiene un registro de aplicación asociado. La entidad de servicio solo se puede usar en el inquilino donde se creó.
 

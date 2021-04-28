@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 05/19/2020
+ms.date: 04/26/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c175a6d225be268f27854b9ab63886892cf029fb
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: fdf6398daf2c0206f5239a90667448d9ea789f65
+ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105557282"
+ms.lasthandoff: 04/26/2021
+ms.locfileid: "108001095"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Notas para desarrolladores sobre directivas personalizadas en Azure Active Directory B2C
 
@@ -99,13 +99,13 @@ Las funcionalidades de las directivas personalizadas se encuentran en constante 
 | ------- | :-----------: | :-------: | :--: | ----- |
 | [Autenticación de factor de teléfono](phone-factor-technical-profile.md) |  |  | X |  |
 | [Autenticación de MFA de Azure AD](multi-factor-auth-technical-profile.md) |  | X |  |  |
-| [Contraseña de un solo uso](one-time-password-technical-profile.md) |  | X |  |  |
+| [Contraseña de un solo uso](one-time-password-technical-profile.md) |  |  | X |  |
 | [Azure Active Directory](active-directory-technical-profile.md) como directorio local |  |  | X |  |
 | Subsistema de correo electrónico de Azure para la comprobación de correo electrónico |  |  | X |  |
-| [Proveedores de servicios de correo electrónico de terceros](custom-email-mailjet.md) |  |X  |  |  |
+| [Proveedores de servicios de correo electrónico de terceros](custom-email-mailjet.md) |  |  | X |  |
 | [Compatibilidad con varios lenguajes](localization.md)|  |  | X |  |
 | [Validaciones de predicado](predicates.md) |  |  | X | Por ejemplo, la complejidad de la contraseña. |
-| [Controles de presentación](display-controls.md) |  |X  |  |  |
+| [Controles de presentación](display-controls.md) |  |  |X  |  |
 
 
 ### <a name="app-ief-integration"></a>Integración de aplicaciones IEF

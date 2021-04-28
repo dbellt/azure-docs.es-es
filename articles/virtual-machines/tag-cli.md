@@ -1,5 +1,5 @@
 ---
-title: Cómo etiquetar una máquina virtual de Azure mediante la CLI
+title: Cómo etiquetar una máquina virtual de Azure mediante la CLI de Azure
 description: Más información sobre cómo etiquetar una máquina virtual con la CLI de Azure
 author: cynthn
 ms.service: virtual-machines
@@ -8,14 +8,14 @@ ms.workload: infrastructure-services
 ms.date: 11/11/2020
 ms.author: cynthn
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 32d15730557c96362602b5e324254c76637ecb55
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 20bb4ab622a01646bcc61d0f691c514a25a06edc
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98897449"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107502613"
 ---
-# <a name="how-to-tag-a-vm-using-the-cli"></a>Etiquetado de una máquina virtual mediante la CLI
+# <a name="how-to-tag-a-vm-using-the-azure-cli"></a>Etiquetado de una máquina virtual mediante la CLI de Azure
 
 En este artículo se describe cómo etiquetar una máquina virtual mediante la CLI de Azure. Las etiquetas son pares clave-valor definidos por el usuario que se pueden colocar directamente en un recurso o un grupo de recursos. Actualmente, Azure admite un máximo de 50 etiquetas por recurso y grupo de recursos. Las etiquetas se pueden colocar en un recurso en el momento de su creación, o bien se pueden agregar a un recurso existente. También puede etiquetar una máquina virtual mediante Azure [PowerShell](tag-powershell.md).
 

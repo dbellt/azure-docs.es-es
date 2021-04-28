@@ -2,13 +2,13 @@
 title: Uso de Azure Backup Server para realizar copias de seguridad de cargas de trabajo
 description: En este artículo, aprenderá a preparar su entorno para proteger las cargas de trabajo y hacer copias de seguridad de ellas mediante Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
-ms.date: 11/13/2018
-ms.openlocfilehash: d476c228a619f03f798c1a2cd6854a8d603c3637
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/14/2021
+ms.openlocfilehash: 144a5e26f5ad10d120a49f6a0385c3a310448dbc
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98987029"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107713685"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalación y actualización de Azure Backup Server
 
@@ -28,7 +28,7 @@ En este artículo se explica cómo preparar el entorno para la copia de segurida
 >
 >
 
-Una instancia de MABS implementada en una máquina virtual de Azure puede crear copias de seguridad de máquinas virtuales en Azure, pero deben encontrarse en el mismo dominio para habilitar dicha operación. El proceso para realizar una copia de una máquina virtual de Azure es el mismo que al realizar una copia de seguridad de máquinas virtuales locales, aunque la implementación de MABS en Azure tiene algunas limitaciones. Para más información sobre las limitaciones, consulte [DPM como máquina virtual de Azure](/system-center/dpm/install-dpm#setup-prerequisites).
+Una instancia de MABS implementada en una máquina virtual de Azure puede crear copias de seguridad de máquinas virtuales en Azure, pero deben encontrarse en el mismo dominio para habilitar dicha operación. El proceso para realizar una copia de una máquina virtual de Azure es el mismo que al realizar una copia de seguridad de máquinas virtuales locales, aunque la implementación de MABS en Azure tiene algunas limitaciones. Para más información sobre las limitaciones, vea [DPM como máquina virtual de Azure](/system-center/dpm/install-dpm#setup-prerequisites).
 
 > [!NOTE]
 > Azure cuenta con dos modelos de implementación para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../azure-resource-manager/management/deployment-models.md). En este artículo se proporcionan información y procedimientos para restaurar las máquinas virtuales implementadas mediante el modelo de Resource Manager.
@@ -41,8 +41,8 @@ Azure Backup Server hereda gran parte de la funcionalidad de copia de seguridad 
 
 El primer paso para que funcione Azure Backup Server es configurar un equipo con Windows Server. El servidor puede estar en Azure o en el entorno local.
 
-* Para proteger las cargas de trabajo locales, el servidor MABS debe ubicarse en el entorno local.
-* Para proteger las cargas de trabajo de máquinas virtuales de Azure, el servidor MABS debe estar ubicado en Azure y se debe ejecutar como una máquina virtual de Azure.
+* Para proteger las cargas de trabajo locales, el servidor MABS debe ubicarse en el entorno local y conectarse a un dominio.
+* Para proteger las cargas de trabajo de máquinas virtuales de Azure, el servidor MABS debe estar ubicado en Azure, se debe ejecutar como una máquina virtual de Azure y se debe conectar a un dominio.
 
 ### <a name="using-a-server-in-azure"></a>Uso de un servidor en Azure
 
@@ -72,7 +72,7 @@ Puede desduplicar el almacenamiento de DPM con la desduplicación de Windows Ser
 >
 > La instalación de Azure Backup Server no está admitida en Windows Server Core ni Microsoft Hyper-V Server.
 
-Siempre una Azure Backup Server a un dominio. Si piensa mover el servidor a un dominio diferente, instale primero Azure Backup Server y luego una el servidor al nuevo dominio. *No se permite* mover una máquina de Azure Backup Server existente a un dominio nuevo después de la implementación.
+Siempre una Azure Backup Server a un dominio. *No se permite* mover una máquina de Azure Backup Server existente a un dominio nuevo después de la implementación.
 
 Si envía datos de copia de seguridad a Azure o los mantiene localmente, Azure Backup Server debe registrarse en un almacén de Recovery Services.
 
@@ -276,11 +276,11 @@ Estos son los pasos en caso de que necesite migrar MABS a un nuevo servidor sin 
 7. Restaure la base de datos de DPM realizada en el paso 1.
 8. Conecte el almacenamiento del servidor de copia de seguridad original al nuevo servidor.
 9. Desde SQL, restaure la base de datos de DPM.
-10. Ejecute CMD (como administrador) en el nuevo servidor. Vaya a la ubicación de instalación de Microsoft Azure Backup y la carpeta bin.
+10. Ejecute CMD (como administrador) en el nuevo servidor. Vaya a la ubicación de instalación de Microsoft Azure Backup y la carpeta bin.
 
     Ejemplo de ruta de acceso: `C:\windows\system32>cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\"`
 
-11. Para conectarse a Azure Backup, ejecute `DPMSYNC -SYNC`
+11. Para conectarse a Azure Backup, ejecute `DPMSYNC -SYNC`.
 
     Si ha agregado **nuevos** discos al bloque de almacenamiento de DPM en lugar de mover los antiguos, ejecute `DPMSYNC -Reallocatereplica`.
 
@@ -366,7 +366,8 @@ Para actualizar MABS, realice los siguientes pasos:
 ## <a name="troubleshooting"></a>Solución de problemas
 
 Si el servidor de Microsoft Azure Backup produce un error durante la fase de instalación (o copia de seguridad o restauración), consulte este [documento de códigos de error](https://support.microsoft.com/kb/3041338) para más información.
-También puede consultar [Azure Backup - Preguntas más frecuentes](backup-azure-backup-faq.md)
+
+También puede consultar [Preguntas frecuentes sobre Azure Backup](backup-azure-backup-faq.yml).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

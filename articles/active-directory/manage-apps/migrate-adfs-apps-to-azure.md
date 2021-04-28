@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 03/01/2021
 ms.author: iangithinji
 ms.reviewer: baselden
-ms.openlocfilehash: 83e506c0a3d0b9718f94d48ea8e6b23f43e811f3
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: b0fd3dae2ff9c6de39462d19dc41a32ba51171e0
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107377945"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107534876"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Traslado de la autenticación de las aplicaciones de los Servicios de federación de Active Directory (AD FS) a Azure Active Directory
 
@@ -177,7 +177,7 @@ Las aplicaciones que necesitan las funcionalidades de protocolo siguientes no se
 
 Las aplicaciones que necesitan las funcionalidades de notificación en token siguientes no se pueden migrar en estos momentos.
 
-* Notificaciones de almacenes de atributos que no son el directorio de Azure AD, a menos que los datos estén sincronizados con Azure AD. Para más información, consulte [Introducción a la API de sincronización de Azure AD](/graph/api/resources/synchronization-overview?view=graph-rest-beta).
+* Notificaciones de almacenes de atributos que no son el directorio de Azure AD, a menos que los datos estén sincronizados con Azure AD. Para más información, consulte [Introducción a la API de sincronización de Azure AD](/graph/api/resources/synchronization-overview).
 * Emisión de atributos de varios valores de directorio. Por ejemplo, en este momento no se puede emitir una notificación de varios valores para las direcciones de proxy.
 
 ## <a name="map-app-settings-from-ad-fs-to-azure-ad"></a>Asignación de la configuración de una aplicación de AD FS a Azure AD

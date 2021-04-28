@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 03/18/2021
-ms.openlocfilehash: b10d2e10f95470cadf67af762a0d7320bc09b7e0
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: d7fc04e65e2b79d43c48acd5a8c621f28d5c0403
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106075702"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107714675"
 ---
 # <a name="azure-migrate-appliance"></a>Dispositivo con Azure Migrate
 
@@ -128,7 +128,44 @@ download.microsoft.com/download | Permita descargas del centro de descargas de M
 *.discoverysrv.windowsazure.us <br/> *.migration.windowsazure.us | Conéctese a las direcciones URL del servicio Azure Migrate.
 *.hypervrecoverymanager.windowsazure.us | **Se usa para la migración sin agentes de VMware.**<br/><br/> Conéctese a las direcciones URL del servicio Azure Migrate.
 *.blob.core.usgovcloudapi.net  |  **Se usa para la migración sin agentes de VMware.**<br/><br/>Cargue los datos al almacenamiento para la migración.
-*.applicationinsights.us | Cargue los registros del dispositivo que se usan para la supervisión interna.
+*.applicationinsights.us | Cargue los registros del dispositivo que se usan para la supervisión interna.  
+
+### <a name="public-cloud-urls-for-private-link-connectivity"></a>Direcciones URL de nube pública para la conectividad de vínculo privado
+
+El dispositivo necesita acceso a las siguientes direcciones URL (directamente o a través de proxy) a través del acceso de vínculo privado y superior. 
+
+**URL** | **Detalles**  
+--- | --- | 
+*.portal.azure.com  | Acceda a Azure Portal.
+\* .windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com <br/> *.office.com | Inicie sesión en la suscripción de Azure.
+*.microsoftonline.com <br/> *.microsoftonline-p.com | Cree aplicaciones de Azure Active Directory (AD) para que el dispositivo se comunique con Azure Migrate.
+management.azure.com | Cree aplicaciones de Azure AD para que el dispositivo se comunique con Azure Migrate.
+*.services.visualstudio.com (opcional) | Cargue los registros del dispositivo que se usan para la supervisión interna.
+aka.ms/* (opcional) | Permita el acceso a los vínculos aka; se usa para descargar e instalar las actualizaciones más recientes de los servicios del dispositivo.
+download.microsoft.com/download | Permita descargas del centro de descargas de Microsoft.
+*.servicebus.windows.net | **Se usa para la migración sin agentes de VMware.**<br/><br/> Comunicación entre el dispositivo y el servicio Azure Migrate.
+*.vault.azure.net | **Se usa para la migración sin agentes de VMware.**<br/><br/>  Asegúrese de que los servidores que se van a replicar tengan acceso a esto.
+*.hypervrecoverymanager.windowsazure.com | **Se usa para la migración sin agentes de VMware.**<br/><br/> Conéctese a las direcciones URL del servicio Azure Migrate.
+*.blob.core.windows.net |  **Se usa para la migración sin agentes de VMware.**<br/><br/>Cargue los datos al almacenamiento para la migración.
+
+### <a name="government-cloud-urls-for-private-link-connectivity"></a>Direcciones URL de nube gubernamental para la conectividad de vínculo privado   
+
+El dispositivo necesita acceso a las siguientes direcciones URL (directamente o a través de proxy) a través del acceso de vínculo privado y superior. 
+
+**URL** | **Detalles**  
+--- | --- |
+*.portal.azure.us  | Acceda a Azure Portal.
+graph.windows.net | Inicie sesión en la suscripción de Azure.
+login.microsoftonline.us  | Cree aplicaciones de Azure Active Directory (AD) para que el dispositivo se comunique con Azure Migrate.
+management.usgovcloudapi.net | Cree aplicaciones de Azure AD para que el dispositivo se comunique con el servicio Azure Migrate.
+*.services.visualstudio.com (opcional) | Cargue los registros del dispositivo que se usan para la supervisión interna.
+aka.ms/* (opcional) | Permita el acceso a los vínculos aka; se usa para descargar e instalar las actualizaciones más recientes de los servicios del dispositivo.
+download.microsoft.com/download | Permita descargas del centro de descargas de Microsoft.
+*.servicebus.usgovcloudapi.net  | **Se usa para la migración sin agentes de VMware.**<br/><br/> Comunicación entre el dispositivo y el servicio Azure Migrate. 
+*.vault.usgovcloudapi.net | **Se usa para la migración sin agentes de VMware.**<br/><br/> Administre secretos en Azure Key Vault.
+*.hypervrecoverymanager.windowsazure.us | **Se usa para la migración sin agentes de VMware.**<br/><br/> Conéctese a las direcciones URL del servicio Azure Migrate.
+*.blob.core.usgovcloudapi.net  |  **Se usa para la migración sin agentes de VMware.**<br/><br/>Cargue los datos al almacenamiento para la migración.
+*.applicationinsights.us (opcional) | Cargue los registros del dispositivo que se usan para la supervisión interna.  
 
 ## <a name="collected-data---vmware"></a>Datos recopilados: VMware
 

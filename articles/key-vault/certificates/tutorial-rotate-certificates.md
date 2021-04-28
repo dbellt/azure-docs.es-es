@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/16/2020
 ms.author: sebansal
-ms.openlocfilehash: ec88dfc7ded7ecb1d640eb4d73ef4c8045e549cf
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 50cc8f2454aa18dd9a0f1365490fadedcbb623b7
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107791992"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108140684"
 ---
 # <a name="tutorial-configure-certificate-auto-rotation-in-key-vault"></a>Tutorial: Configuración de la rotación automática de certificados en Key Vault
 
@@ -83,7 +83,7 @@ Key Vault rota automáticamente los certificados mediante asociaciones estableci
       |-----------|------|
       |Al seleccionar esta opción, se *activa* la rotación automática. | Al seleccionar esta opción, *no* se realizará la rotación automática, solo se alertará a los contactos.|
       
-      Dispone de información sobre cómo configurar el contacto de correo electrónico [en esta página](https://docs.microsoft.com/azure/key-vault/certificates/overview-renew-certificate#get-notified-about-certificate-expiration).
+      Dispone de información sobre cómo configurar el contacto de correo electrónico [en esta página](./overview-renew-certificate.md#get-notified-about-certificate-expiration).
 
 1. Seleccione **Crear**.
 

@@ -11,18 +11,18 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 03/08/2021
 ms.custom: how-to, devx-track-python, data4ml, synapse-azureml
-ms.openlocfilehash: 511ee1aa5f5036f5ca5450def0e4481c0608db33
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: 23184eee67013e39400446db5f744dd0ddb7bc50
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107227354"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107575748"
 ---
 # <a name="link-azure-synapse-analytics-and-azure-machine-learning-workspaces-preview"></a>Vinculación de áreas de trabajo de Azure Synapse Analytics y Azure Machine Learning (versión preliminar)
 
 En este artículo, aprenderá a crear un servicio vinculado que vincule el área de trabajo de [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) y el [área de trabajo de Azure Machine Learning](concept-workspace.md).
 
-Con el área de trabajo de Azure Machine Learning vinculada con el área de trabajo de Azure Synapse, puede adjuntar un grupo de Apache Spark como una instancia de proceso dedicada para la limpieza y transformación de datos a gran escala y realizar el entrenamiento del modelo desde el mismo cuaderno.
+Con el área de trabajo de Azure Machine Learning vinculada con el área de trabajo de Azure Synapse, puede adjuntar un grupo de Apache Spark como una instancia de proceso dedicada para la limpieza y transformación de datos a gran escala o realizar el entrenamiento del modelo desde el mismo cuaderno de Python.
 
 Puede vincular ambas áreas de trabajo mediante el [SDK de Python](#link-sdk) o [Estudio de Azure Machine Learning](#link-studio).
 

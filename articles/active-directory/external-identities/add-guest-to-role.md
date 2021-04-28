@@ -12,16 +12,18 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5e9983c265fcc032908424f747066f8f348771f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 32a931fe43b6be406f0b2a4b8193c1631261f7e5
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87907841"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107575673"
 ---
 # <a name="grant-permissions-to-users-from-partner-organizations-in-your-azure-active-directory-tenant"></a>Conceda permisos a los usuarios de organizaciones asociadas en el inquilino de Azure Active Directory
 
 Los usuarios de colaboración B2B de Azure Active Directory (Azure AD) se agregan como usuarios invitados al directorio y los permisos de invitado del directorio están restringidos de forma predeterminada. Asimismo, su empresa puede necesitar algunos usuarios invitados para cubrir más roles con privilegios en su organización. Para respaldar la definición de roles de privilegios más elevados, se pueden agregar usuarios invitados a los roles que desee, según las necesidades de su organización.
+
+Si se asigna un rol de directorio a un usuario invitado, se le concederán permisos adicionales que incluyen el rol, incluidos los permisos de lectura básicos. Consulte [Roles integrados de Azure AD](https://docs.microsoft.com/azure/active-directory/roles/permissions-reference).
 
 ## <a name="default-role"></a>Rol predeterminado
 

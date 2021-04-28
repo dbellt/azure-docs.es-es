@@ -3,14 +3,14 @@ title: Resolución de problemas de Update Management de Azure Automation
 description: En este artículo se describe cómo solucionar y resolver problemas con Update Management de Azure Automation.
 services: automation
 ms.subservice: update-management
-ms.date: 01/13/2021
+ms.date: 04/16/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: c16b032502401b633532ab0fcf9518aa85a1b8d6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f23632ba6a6b83f92b2bfc90beb4c1a8613c090a
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100579745"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107587370"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Solución de problemas de Update Management
 
@@ -188,11 +188,13 @@ Para registrar el proveedor de recursos de Automation, realice los pasos siguien
 
 5. Si no aparece, registre el proveedor de Microsoft.Automation siguiendo los pasos descritos en [Resolución de errores del registro del proveedor de recursos](../../azure-resource-manager/templates/error-register-resource-provider.md).
 
-## <a name="scenario-scheduled-update-with-a-dynamic-schedule-missed-some-machines"></a><a name="scheduled-update-missed-machines"></a>Escenario: Faltan algunas máquinas en la actualización programada con una programación dinámica
+## <a name="scenario-scheduled-update-did-not-patch-some-machines"></a><a name="scheduled-update-missed-machines"></a>Escenario: La actualización programada no ha actualizado algunas máquinas
 
 ### <a name="issue"></a>Problema
 
-No aparecen todas las máquinas incluidas en una versión preliminar de la actualización en la lista de máquinas revisadas durante una ejecución programada.
+No todas las máquinas incluidas en una versión preliminar de actualización aparecen en la lista de máquinas a las que se ha hecho una revisión durante una ejecución programada, o las máquinas virtuales para los ámbitos seleccionados de un grupo dinámico no aparecen en la lista de versión preliminar de actualización en el portal.
+
+La lista de versión preliminar de actualización consta de todas las máquinas recuperadas por una consulta de [Azure Resource Graph](../../governance/resource-graph/overview.md) para los ámbitos seleccionados. Los ámbitos se filtran para las máquinas que tienen instalado Hybrid Runbook Worker y para las que tiene permisos de acceso.
 
 ### <a name="cause"></a>Causa
 
@@ -201,6 +203,12 @@ Este problema puede tener una de las siguientes causas:
 * Las suscripciones definidas en el ámbito de una consulta dinámica no están configuradas para el proveedor de recursos de Automation registrado.
 
 * Las máquinas no estaban disponibles o no tenían etiquetas adecuadas cuando se ejecutó la programación.
+
+* No tiene el acceso correcto en los ámbitos seleccionados.
+
+* La consulta de Azure Resource Graph no recupera las máquinas esperadas.
+
+* El sistema Hybrid Runbook Worker no está instalado en las máquinas.
 
 ### <a name="resolution"></a>Solución
 
@@ -238,31 +246,15 @@ Utilice el procedimiento siguiente si la suscripción está configurada para el 
 
 7. Vuelva a ejecutar la programación de actualización para asegurarse de que la implementación con los grupos dinámicos especificados incluya todas las máquinas.
 
-## <a name="scenario-expected-machines-dont-appear-in-preview-for-dynamic-group"></a><a name="machines-not-in-preview"></a>Escenario: Las máquinas esperadas no aparecen en la versión preliminar del grupo dinámico
-
-### <a name="issue"></a>Problema
-
-Las máquinas virtuales de los ámbitos seleccionados de un grupo dinámico no aparecen en la lista de versión preliminar de Azure Portal. Esta lista consta de todas las máquinas recuperadas por una consulta de ARG para los ámbitos seleccionados. Los ámbitos se filtran para las máquinas que tienen instalado Hybrid Runbook Worker y para las que tiene permisos de acceso.
-
-### <a name="cause"></a>Causa
-
-A continuación, se indican las causas posibles para este problema:
-
-* No tiene el acceso correcto en los ámbitos seleccionados.
-* La consulta de ARG no recupera las máquinas esperadas.
-* Hybrid Runbook Worker no está instalado en las máquinas.
-
-### <a name="resolution"></a>Solución 
-
 #### <a name="incorrect-access-on-selected-scopes"></a>Acceso incorrecto en los ámbitos seleccionados
 
 En Azure Portal solo se muestran las máquinas para las que tiene acceso de escritura en un ámbito determinado. Si no tiene el acceso correcto a un ámbito, consulte [Tutorial: Concesión de acceso de usuario a los recursos de Azure mediante Azure Portal](../../role-based-access-control/quickstart-assign-role-user-portal.md).
 
-#### <a name="arg-query-doesnt-return-expected-machines"></a>La consulta de ARG no devuelve las máquinas esperadas
+#### <a name="resource-graph-query-doesnt-return-expected-machines"></a>La consulta de Azure Resource Graph no devuelve las máquinas esperadas
 
 Siga los pasos que se indican a continuación para averiguar si las consultas funcionan correctamente.
 
-1. Ejecute una consulta de ARG con el formato que se muestra a continuación en la hoja de Resource Graph Explorer en Azure Portal. Esta consulta imita los filtros seleccionados al crear el grupo dinámico en Update Management. Consulte [Uso de grupos dinámicos con Update Management](../update-management/configure-groups.md).
+1. Ejecute una consulta de Azure Resource Graph con el formato que se muestra a continuación en la hoja de Resource Graph Explorer en Azure Portal. Si no lleva mucho tiempo usando Azure Resource Graph, consulte este [inicio rápido](../../governance/resource-graph/first-query-portal.md) para aprender a trabajar con el explorador de Resource Graph. Esta consulta imita los filtros seleccionados al crear el grupo dinámico en Update Management. Consulte [Uso de grupos dinámicos con Update Management](../update-management/configure-groups.md).
 
     ```kusto
     where (subscriptionId in~ ("<subscriptionId1>", "<subscriptionId2>") and type =~ "microsoft.compute/virtualmachines" and properties.storageProfile.osDisk.osType == "<Windows/Linux>" and resourceGroup in~ ("<resourceGroupName1>","<resourceGroupName2>") and location in~ ("<location1>","<location2>") )
@@ -287,7 +279,7 @@ Siga los pasos que se indican a continuación para averiguar si las consultas fu
 
 #### <a name="hybrid-runbook-worker-not-installed-on-machines"></a>Hybrid Runbook Worker no está instalado en las máquinas
 
-Las máquinas aparecen en los resultados de la consulta de ARG, pero todavía no se muestran en la versión preliminar del grupo dinámico. En este caso, es posible que las máquinas no estén designadas como instancias de Hybrid Worker y, por tanto, no puedan ejecutar trabajos de Azure Automation y Update Management. Para asegurarse de que las máquinas que espera ver estén configuradas como instancias de Hybrid Runbook Worker:
+Las máquinas aparecen en los resultados de la consulta de azure Resource Graph, pero todavía no se muestran en la versión preliminar del grupo dinámico. En este caso, es posible que las máquinas no estén designadas como instancias de Hybrid Worker del sistema y, por tanto, no puedan ejecutar trabajos de Azure Automation y Update Management. Para asegurarse de que las máquinas que espera ver estén configuradas como instancias de Hybrid Runbook Worker del sistema:
 
 1. En Azure Portal, vaya a la cuenta de Automation de una máquina que no aparezca correctamente.
 
@@ -297,11 +289,9 @@ Las máquinas aparecen en los resultados de la consulta de ARG, pero todavía no
 
 4. Compruebe que la instancia de Hybrid Worker está presente para esa máquina.
 
-5. Si la máquina no está configurada como Hybrid Worker, realice los ajustes según las instrucciones que se indican en [Automatización de recursos en los centros de datos o nube con Hybrid Runbook Worker](../automation-hybrid-runbook-worker.md).
+5. Si la máquina no está configurada como Hybrid Runbook Worker del sistema, revise los métodos para habilitar la máquina en la sección [Enable Update Management](../update-management/overview.md#enable-update-management) (Habilitar administración de actualizaciones) del artículo Información general de la administración de actualizaciones. El método que se va a habilitar se basa en el entorno en el que se ejecuta la máquina.
 
-6. Una la máquina al grupo de Hybrid Runbook Worker.
-
-7. Repita los pasos anteriores para todas las máquinas que no se han mostrado en la versión preliminar.
+6. Repita los pasos anteriores para todas las máquinas que no se han mostrado en la versión preliminar.
 
 ## <a name="scenario-update-management-components-enabled-while-vm-continues-to-show-as-being-configured"></a><a name="components-enabled-not-working"></a>Escenario: Componentes de Update Management habilitados, mientras la máquina virtual se sigue mostrando como configurada
 

@@ -4,12 +4,12 @@ description: Información sobre las definiciones del esquema de alertas comunes 
 author: ofirmanor
 ms.topic: conceptual
 ms.date: 04/12/2021
-ms.openlocfilehash: 5ec2adc4594c71f640b027d799b0a3c133ca2333
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 6d835b6d2c3519bc47decf8256ab3f3380170df6
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107308666"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107565124"
 ---
 # <a name="common-alert-schema-definitions"></a>Definiciones de esquemas de alertas comunes
 
@@ -72,7 +72,7 @@ Cualquier instancia de alerta describe el recurso afectado y la causa de la aler
 
 | Campo | Descripción|
 |:---|:---|
-| alertId | GUID que identifica de forma única la instancia de alerta. |
+| alertId | Identificador de recurso único que identifica la instancia de alerta. |
 | alertRule | Nombre de la regla de alertas que generó la instancia de la alerta. |
 | severity | Gravedad de la alerta. Valores posibles: Sev0, Sev1, Sev2, Sev3 o Sev4. |
 | signalType | Identifica la señal en que se definió la regla de alertas. Valores posibles: Métrica, Registro o Registro de actividad. |

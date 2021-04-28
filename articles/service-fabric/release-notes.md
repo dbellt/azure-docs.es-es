@@ -1,26 +1,28 @@
 ---
 title: Versiones de Azure Service Fabric
 description: Notas de la versión de Azure Service Fabric. Incluyen información sobre las características y mejoras más recientes de Service Fabric.
-ms.date: 06/10/2019
+ms.date: 04/13/2021
 ms.topic: conceptual
 hide_comments: true
 hideEdit: true
-ms.openlocfilehash: f7e929000b85462e7fabf6d717c52abc454b47ad
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 2a035f531e03dc42e8be4f3dab403406eb7c8f14
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107313341"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107518633"
 ---
 # <a name="service-fabric-releases"></a>Versiones de Service Fabric
 
+En este artículo se proporciona más información sobre las versiones y actualizaciones más recientes para los SDK y el runtime de Service Fabric.
+
+Los recursos siguientes también están disponibles:
 - <a href="https://github.com/Azure/Service-Fabric-Troubleshooting-Guides" target="blank">Guías de solución de problemas</a> 
 - <a href="https://github.com/Azure/service-fabric-issues" target="blank">Seguimiento de problemas</a> 
 - <a href="/azure/service-fabric/service-fabric-support" target="blank">Opciones de soporte técnico</a> 
 - <a href="/azure/service-fabric/service-fabric-versions" target="blank">Versiones compatibles</a> 
 - <a href="https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0" target="blank">Ejemplos de código</a>
 
-En este artículo se proporciona más información sobre las versiones y actualizaciones más recientes para los SDK y el runtime de Service Fabric.
 
 ## <a name="service-fabric-80"></a>Service Fabric 8.0
 
@@ -88,7 +90,7 @@ Debido a la actual crisis de la COVID-19 y teniendo en cuenta los desafíos a lo
 Podrá actualizar a la versión 7.1 desde [Azure Portal](./service-fabric-cluster-upgrade-version-azure.md#manual-upgrades-with-azure-portal) o desde una [implementación de Azure Resource Manager](./service-fabric-cluster-upgrade-version-azure.md#resource-manager-template).
 
 Los clústeres de Service Fabric con actualizaciones automáticas habilitadas comenzarán a recibir la actualización 7.1 automáticamente una vez que se reanude el procedimiento de lanzamiento estándar. Realizaremos otro anuncio antes de que comience el lanzamiento estándar en el [sitio de Tech Community de Service Fabric](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric).
-También hemos publicado [aquí](./service-fabric-versions.md#supported-versions) actualizaciones sobre la fecha de finalización del soporte para las versiones principales desde la 6.5 hasta la 7.1. 
+También hemos publicado [aquí](./service-fabric-versions.md) actualizaciones sobre la fecha de finalización del soporte para las versiones principales desde la 6.5 hasta la 7.1. 
 
 #### <a name="key-announcements"></a>Anuncios clave
 

@@ -6,23 +6,24 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 04/28/2020
-ms.openlocfilehash: 90b2a39b9a5f3b4d011ff1a1ef3651dff75a1cf6
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.date: 04/14/2021
+ms.openlocfilehash: 7681e9c28bbbbcec06bcc1cf2bf469f1b4189d79
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105968312"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107520180"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---hyperscale-citus"></a>Copia de seguridad y restauración en Azure Database for PostgreSQL: Hiperescala (Citus)
 
-Azure Database for PostgreSQL: Hiperescala (Citus) crea automáticamente copias de seguridad de cada nodo y las almacena en un almacenamiento con redundancia local. Las copias de seguridad se pueden usar para restaurar el clúster de Hiperescala (Citus) a una hora especificada. Las copias de seguridad y las restauraciones son una parte esencial de cualquier estrategia de continuidad del negocio, ya que protegen los datos frente a daños o eliminaciones accidentales.
+Azure Database for PostgreSQL: Hiperescala (Citus) crea automáticamente copias de seguridad de cada nodo y las almacena en un almacenamiento con redundancia local. Las copias de seguridad se pueden usar para restaurar el grupo de servidores de Hiperescala (Citus) a una hora especificada.
+Las copias de seguridad y las restauraciones son una parte esencial de cualquier estrategia de continuidad del negocio, ya que protegen los datos frente a daños o eliminaciones accidentales.
 
 ## <a name="backups"></a>Copias de seguridad
 
-Al menos una vez al día, Azure Database for PostgreSQL realiza copias de seguridad de instantáneas de los archivos de datos y del registro de transacciones de la base de datos. Las copias de seguridad permiten restaurar un servidor a un momento dado dentro del período de retención. (El período de retención es actualmente de 35 días para todos los clústeres). Todas las copias de seguridad se cifran mediante cifrado AES de 256 bits.
+Al menos una vez al día, Azure Database for PostgreSQL realiza copias de seguridad de instantáneas de los archivos de datos y del registro de transacciones de la base de datos. Las copias de seguridad permiten restaurar un servidor a un momento dado dentro del período de retención. (El período de retención es actualmente de 35 días para todos los grupos de servidores). Todas las copias de seguridad se cifran mediante cifrado AES de 256 bits.
 
-En las regiones de Azure que admiten zonas de disponibilidad, las instantáneas de copia de seguridad se almacenan en tres zonas de disponibilidad. Siempre que haya al menos una zona de disponibilidad en línea, el clúster de Hiperescala (Citus) se puede restaurar.
+En las regiones de Azure que admiten zonas de disponibilidad, las instantáneas de copia de seguridad se almacenan en tres zonas de disponibilidad. Siempre que haya al menos una zona de disponibilidad en línea, se puede restaurar el grupo de servidores de Hiperescala (Citus).
 
 Los archivos de copia de seguridad no se pueden exportar. Solo se pueden usar para operaciones de restauración en Azure Database for PostgreSQL.
 
@@ -32,38 +33,16 @@ Para obtener información sobre los precios del almacenamiento de copia de segur
 
 ## <a name="restore"></a>Restauración
 
-En Azure Database for PostgreSQL, la restauración de un clúster de Hiperescala (Citus) crea un clúster nuevo a partir de las copias de seguridad de los nodos originales. 
+Puede restaurar un grupo de servidores de Hiperescala (Citus) a un momento dado de cualquiera de los últimos 35 días.  La restauración a un momento dado es útil en diversos escenarios. Por ejemplo, cuando un usuario elimina accidentalmente los datos, elimina una tabla importante o la base de datos, o si una aplicación sobrescribe accidentalmente los datos correctos con datos incorrectos.
 
 > [!IMPORTANT]
->Solo puede restaurar el clúster de Hiperescala (Citus) dentro de la misma suscripción y el mismo grupo de recursos, con un nombre de clúster diferente.
+> Los grupos de servidores eliminados de Hiperescala (Citus) no se pueden restaurar. Si elimina el grupo de servidores, todos los nodos que pertenecen a este se eliminan y no se pueden recuperar. Para proteger los recursos del grupo de servidores, después de la implementación, de eliminaciones accidentales o cambios inesperados, los administradores pueden aprovechar los [bloqueos de administración](../azure-resource-manager/management/lock-resources.md).
 
+El proceso de restauración crea un nuevo grupo de servidores en la misma región, suscripción y grupo de recursos de Azure que el original. El grupo de servidores tiene la misma configuración del original: el mismo número de nodos, de núcleos virtuales, tamaño de almacenamiento, roles de usuario, versión de PostgreSQL y versión de la extensión de Citus.
 
-> [!IMPORTANT]
-> Los clústeres eliminados de Hiperescala (Citus) no se pueden restaurar. Si elimina el clúster, todos los nodos que pertenecen a este se eliminan y no se pueden recuperar. Para proteger los recursos de clúster, después de la implementación, de eliminaciones accidentales o cambios inesperados, los administradores pueden aprovechar los [bloqueos de administración](../azure-resource-manager/management/lock-resources.md).
-
-### <a name="point-in-time-restore-pitr"></a>Restauración a un momento dado
-
-Puede restaurar un clúster a un momento dado cualquiera de los últimos 35 días.
-La restauración a un momento dado es útil en diversos escenarios. Por ejemplo, cuando un usuario elimina accidentalmente los datos, elimina una tabla importante o la base de datos, o si una aplicación sobrescribe accidentalmente los datos correctos con datos incorrectos.
-
-El proceso de restauración crea un nuevo clúster en la misma región, suscripción y grupo de recursos de Azure que el clúster original. El clúster tiene la misma configuración del original: el mismo número de nodos, de núcleos virtuales, tamaño de almacenamiento, roles de usuario, versión de PostgreSQL y versión de la extensión de Citus.
-
-La configuración del firewall y los parámetros del servidor de PostgreSQL no se conservan del grupo de servidores original sino que se restablecen a los valores predeterminados. El firewall impedirá todas las conexiones. Tendrá que ajustar manualmente estos valores después de la restauración.
-
-> [!IMPORTANT]
-> Tendrá que abrir una solicitud de soporte técnico para realizar la restauración a un momento dado del clúster de Hiperescala (Citus).
-
-### <a name="post-restore-tasks"></a>Tareas posteriores a la restauración
-
-Cuando efectúe una restauración con cualquiera de los mecanismos de recuperación, debe hacer lo siguiente para que los usuarios y las aplicaciones vuelvan a conectarse:
-
-* Si el nuevo servidor está destinado a reemplazar al servidor original, redirija los clientes y las aplicaciones de cliente al nuevo servidor.
-* Asegúrese de aplicar el firewall de nivel de servidor adecuado para que se conecten los usuarios. Estas reglas no se copian del grupo de servidores original.
-* Ajuste los parámetros del servidor PostgreSQL según sea necesario. Los parámetros no se copian del grupo de servidores original.
-* No se olvide de emplear los permisos de nivel de base de datos y los inicios de sesión apropiados.
-* Configure las alertas según corresponda.
+La configuración del firewall y los parámetros del servidor de PostgreSQL no se conservan del grupo de servidores original sino que se restablecen a los valores predeterminados. El firewall impedirá todas las conexiones. Tendrá que ajustar manualmente estos valores después de la restauración. En general, puede consultar nuestra lista de [tareas posteriores a la restauración](howto-hyperscale-restore-portal.md#post-restore-tasks) sugeridas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+* Consulte los pasos para [restaurar un grupo de servidores](howto-hyperscale-restore-portal.md) en Azure Portal.
 * Obtenga más información acerca de las  [zonas de disponibilidad de Azure](../availability-zones/az-overview.md).
-* Establezca  [alertas sugeridas](./howto-hyperscale-alert-on-metric.md#suggested-alerts) en los grupos de servidores de Hiperescala (Citus).

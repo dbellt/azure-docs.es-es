@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 04/05/2021
+ms.date: 04/19/2021
 ms.author: b-juche
-ms.openlocfilehash: b6a2d7ad92c209a93d740d60808c2cbd2f90c6b4
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: c702c41228512eceebeaf45ccae709db38a85a51
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107258425"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107725691"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Creación de un volumen de protocolo dual (NFSv3 y SMB) para Azure NetApp Files
 
@@ -111,6 +111,27 @@ Para crear volúmenes NFS, consulte [Creación de un volumen NFS](azure-netapp-f
     Esta ruta de acceso del volumen es el nombre del volumen compartido. El nombre debe comenzar con un carácter alfabético y debe ser único dentro de cada suscripción y región.  
 
     * Especifique el **estilo de seguridad** que se vaya a usar: NTFS (valor predeterminado) o UNIX.
+
+    * Si desea habilitar el cifrado del protocolo SMB3 para el volumen de protocolo dual, seleccione **Habilitar cifrado del protocolo SMB3**.   
+
+        Esta característica habilita el cifrado solo para los datos SMB3 en proceso. No cifra los datos NFSv3 en proceso. Los clientes SMB que no usen el cifrado SMB3 no podrán acceder a este volumen. Los datos en reposo se cifrarán al margen de esta configuración. Consulte [Preguntas frecuentes sobre el cifrado SMB](azure-netapp-files-faqs.md#smb-encryption-faqs) para obtener información adicional. 
+
+        La característica **Cifrado del protocolo SMB3** está actualmente en su versión preliminar. Si es la primera vez que usa esta característica, regístrela antes de usarla: 
+
+        ```azurepowershell-interactive
+        Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSMBEncryption
+        ```
+
+        Compruebe el estado del registro de la característica: 
+
+        > [!NOTE]
+        > **RegistrationState** puede estar en el estado `Registering` hasta 60 minutos antes de cambiar a `Registered`. Espere hasta que el estado sea `Registered` antes de continuar.
+
+        ```azurepowershell-interactive
+        Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSMBEncryption
+        ```
+        
+        También puede usar los comandos de la [CLI de Azure](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` y `az feature show` para registrar la característica y mostrar el estado del registro.  
 
     * Si lo desea, [configure la directiva de exportación para el volumen](azure-netapp-files-configure-export-policy.md).
 

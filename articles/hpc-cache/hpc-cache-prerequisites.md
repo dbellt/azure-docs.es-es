@@ -4,14 +4,14 @@ description: Requisitos previos para usar Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 04/14/2021
 ms.author: v-erkel
-ms.openlocfilehash: a03c3987c0cada69f6a7d47d7c1aa7cbf6d5015a
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 3cddbba3dca64561d7e2b7b27715152a26a8c9e9
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107258884"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107717592"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Requisitos previos para Azure HPC Cache
 
@@ -59,7 +59,7 @@ El procedimiento recomendado es crear una subred para cada caché. Puede crear u
 La caché necesita DNS para acceder a los recursos que están fuera de su red virtual. En función de los recursos que use, puede que tenga que configurar un servidor DNS personalizado y el reenvío entre ese servidor y los servidores de Azure DNS:
 
 * Para acceder a los puntos de conexión de Azure Blob Storage y otros recursos internos, necesita el servidor DNS basado en Azure.
-* Para acceder al almacenamiento local, debe configurar un servidor DNS personalizado que pueda resolver los nombres de host de almacenamiento. Debe hacer esto **antes** de crear la memoria caché.
+* Para acceder al almacenamiento local, debe configurar un servidor DNS personalizado que pueda resolver los nombres de host de almacenamiento. Debe hacer esto antes de crear la memoria caché.
 
 Si solo usa Blob Storage, puede emplear el servidor DNS predeterminado proporcionado por Azure para la caché. Sin embargo, si necesita acceder al almacenamiento u otros recursos fuera de Azure, debe crear un servidor DNS personalizado y configurarlo para reenviar cualquier solicitud de resolución específica de Azure al servidor de Azure DNS.
 
@@ -72,8 +72,8 @@ Debe realizar estos pasos de configuración antes de crear la memoria caché par
   Siga estos pasos para agregar el servidor DNS a la red virtual en Azure Portal:
 
   1. Abra la red virtual en Azure Portal.
-  1. Elija **Servidores DNS** en el menú **Configuración** de la barra lateral.
-  1. Seleccionar **Personalizado**
+  1. Elija Servidores DNS en el menú Configuración de la barra lateral.
+  1. Seleccionar Personalizado
   1. Escriba la dirección IP del servidor DNS en el campo.
 
 También se puede usar un servidor DNS sencillo para equilibrar la carga de las conexiones de cliente entre todos los puntos de montaje de caché disponibles.
@@ -106,14 +106,16 @@ Si quiere usar Azure Blob Storage con su instancia de caché, necesita una cue
 
 Cree la cuenta antes de intentar agregar un destino de almacenamiento. Puede crear un contenedor al agregar el destino.
 
-Para crear una cuenta de almacenamiento compatible, use esta configuración:
+Para crear una cuenta de almacenamiento compatible, use una de estas combinaciones:
 
-* Rendimiento: **Estándar**
-* Tipo de cuenta: **StorageV2 (de uso general v2)**
-* Replicación: **Almacenamiento con redundancia local (LRS)**
-* Nivel de acceso (predeterminado): **Acceso frecuente**
+| Rendimiento | Tipo | Replicación | Nivel de acceso |
+|--|--|--|--|
+| Estándar | StorageV2 (uso general v2)| Almacenamiento con redundancia local (LRS) o almacenamiento con redundancia de zona (ZRS) | Acceso frecuente |
+| Premium | Blobs en bloques | Almacenamiento con redundancia local (LRS) | Acceso frecuente |
 
-Se recomienda usar una cuenta de almacenamiento que esté en la misma ubicación que la caché.
+La cuenta de almacenamiento debe ser accesible desde la subred privada de la caché. Si su cuenta usa un punto de conexión privado o un punto de conexión público restringido a redes virtuales específicas, asegúrese de habilitar el acceso desde la subred de la caché. (No se recomienda un punto de conexión público abierto).
+
+Se recomienda usar una cuenta de almacenamiento que esté en la misma región de Azure que la caché.
 
 También debe proporcionar a la aplicación de caché acceso a su cuenta de almacenamiento de Azure, como se mencionó en [Permisos](#permissions) anteriormente. Siga el procedimiento descrito en [Incorporación de destinos de almacenamiento](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) para proporcionar a la caché los roles de acceso necesarios. Si no es el propietario de la cuenta de almacenamiento, pida a este que realice este paso.
 
@@ -127,9 +129,9 @@ Si usa un sistema de almacenamiento NFS (por ejemplo, un sistema NAS de hardware
 
 Se puede encontrar más información en [Solución de problemas de configuración de NAS y destinos de almacenamiento de NFS](troubleshoot-nas.md).
 
-* **Conectividad de red:** Azure HPC Cache necesita un acceso de red de alto ancho de banda entre la subred de la memoria caché y el centro de datos del sistema NFS. Se recomienda el acceso [ExpressRoute](../expressroute/index.yml) o similar. Si usa una VPN, es posible que deba configurarla para fijar TCP MSS en 1350 para asegurarse de que no se bloqueen los paquetes grandes. Lea [Restricciones de tamaño de paquetes de VPN](troubleshoot-nas.md#adjust-vpn-packet-size-restrictions) como ayuda adicional para solucionar problemas de configuración de VPN.
+* Conectividad de red: Azure HPC Cache necesita un acceso de red de alto ancho de banda entre la subred de la memoria caché y el centro de datos del sistema NFS. Se recomienda el acceso [ExpressRoute](../expressroute/index.yml) o similar. Si usa una VPN, es posible que deba configurarla para fijar TCP MSS en 1350 para asegurarse de que no se bloqueen los paquetes grandes. Lea [Restricciones de tamaño de paquetes de VPN](troubleshoot-nas.md#adjust-vpn-packet-size-restrictions) como ayuda adicional para solucionar problemas de configuración de VPN.
 
-* **Acceso a puertos:** La memoria caché necesita acceso a determinados puertos TCP/UDP en el sistema de almacenamiento. Los distintos tipos de almacenamiento tienen distintos requisitos de puertos.
+* Acceso a puertos: La memoria caché necesita acceso a determinados puertos TCP/UDP en el sistema de almacenamiento. Los distintos tipos de almacenamiento tienen distintos requisitos de puertos.
 
   Para comprobar la configuración del sistema de almacenamiento, siga este procedimiento.
 
@@ -157,7 +159,7 @@ Se puede encontrar más información en [Solución de problemas de configuració
 
   * Compruebe la configuración del firewall para asegurarse de que permite el tráfico en todos estos puertos necesarios. Asegúrese de comprobar los firewalls que se usan en Azure, así como los firewalls locales de su centro de datos.
 
-* **Acceso raíz** (lectura y escritura): La memoria caché se conecta al sistema back-end como el ID. de usuario 0. Compruebe esta configuración en el sistema de almacenamiento:
+* Acceso raíz (lectura y escritura): La memoria caché se conecta al sistema back-end como el ID. de usuario 0. Compruebe esta configuración en el sistema de almacenamiento:
   
   * Habilite `no_root_squash`. Esta opción garantiza que el usuario raíz remoto pueda tener acceso a los archivos que pertenecen a la raíz.
 
@@ -190,9 +192,9 @@ A continuación, se ofrece una introducción general de los pasos. Estos pasos p
 
    * En lugar de usar la configuración de la cuenta de almacenamiento para una cuenta estándar de Blob Storage, siga las instrucciones del [documento de procedimientos](../storage/blobs/network-file-system-protocol-support-how-to.md). El tipo de cuenta de almacenamiento admitido puede variar según la región de Azure.
 
-   * En la sección **Redes**, elija un punto de conexión privado en la red virtual segura que creó (recomendado) o un punto de conexión público con acceso restringido de la red virtual segura.
+   * En la sección Redes, elija un punto de conexión privado en la red virtual segura que creó (recomendado) o un punto de conexión público con acceso restringido de la red virtual segura.
 
-   * No olvide completar la sección **Avanzado** para habilitar el acceso a NFS.
+   * No olvide completar la sección Avanzado para habilitar el acceso a NFS.
 
    * Proporcione a la aplicación de caché acceso a su cuenta de almacenamiento de Azure, como se indicó anteriormente en [Permisos](#permissions). Puede hacerlo la primera vez que cree un destino de almacenamiento. Siga el procedimiento descrito en [Incorporación de destinos de almacenamiento](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) para proporcionar a la caché los roles de acceso necesarios.
 

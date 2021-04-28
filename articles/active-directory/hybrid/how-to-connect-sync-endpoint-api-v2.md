@@ -12,12 +12,12 @@ ms.date: 12/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ecfd277f2cc86102d59b201e7b43fa8519bdd3a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4434b59044aed8c9814431864e5c3c9b7d98254c
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98937603"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107575724"
 ---
 # <a name="azure-ad-connect-sync-v2-endpoint-api"></a>API de punto de conexión de Azure AD Connect Sync V2 
 Microsoft ha implementado un nuevo punto de conexión (API) para Azure AD Connect que mejora el rendimiento de las operaciones del servicio de sincronización para Azure Active Directory. Al usar el nuevo punto de conexión V2, experimentará mejoras de rendimiento notables en la exportación y la importación respecto a Azure AD. Este nuevo punto de conexión admite lo siguiente:
@@ -27,6 +27,12 @@ Microsoft ha implementado un nuevo punto de conexión (API) para Azure AD Conne
  
 > [!NOTE]
 > Actualmente, el nuevo punto de conexión no tiene ningún límite de tamaño de grupo configurado para los grupos de Microsoft 365 que se escriben de manera diferida. Esto puede afectar a las latencias del ciclo de sincronización de Active Directory. Se recomienda aumentar los tamaños de grupo por incrementos.  
+
+>[!NOTE]
+> La API de punto de conexión de Sincronización de Azure AD Connect V2 de momento solo está disponible en estos entornos de Azure:
+> - Azure Commercial
+> - Nube de Azure China
+> - La nube de Azure Gobierno de EE. UU. no estará disponible en la nube de Azure Alemania.
 
 ## <a name="prerequisites"></a>Requisitos previos  
 Para poder usar el nuevo punto de conexión V2, debe usar [Azure AD Connect versión 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) o posterior y seguir los pasos de implementación que se proporcionan a continuación para habilitar el punto de conexión V2 para el servidor de Azure AD Connect.   

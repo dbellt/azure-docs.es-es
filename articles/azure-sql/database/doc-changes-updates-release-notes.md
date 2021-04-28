@@ -9,14 +9,14 @@ ms.subservice: service
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 03/10/2021
+ms.date: 04/17/2021
 ms.author: sstein
-ms.openlocfilehash: 9827a40b2ebc91c17ad7b5457259b8d82565edee
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d0522fe2c8b6d6b623903a720e6c8e760bd6aa92
+ms.sourcegitcommit: 089c2bd1ac4861f43c4b89396d3d056a6eef4913
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105640084"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107602088"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Novedades de Azure SQL Database e Instancia administrada de SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -95,6 +95,7 @@ Las características siguientes están habilitadas en el modelo de implementaci�
 
 |Problema  |Fecha de detección  |Estado  |Fecha de resolución  |
 |---------|---------|---------|---------|
+|[Cambiar el tipo de conexión no afecta a las conexiones a través del punto de conexión del grupo de conmutación por error](#changing-the-connection-type-does-not-affect-connections-through-the-failover-group-endpoint)|Enero de 2021|Tiene solución alternativa||
 |[Se puede producir un error transitorio en el procedimiento sp_send_dbmail cuando se usa el parámetro @query](#procedure-sp_send_dbmail-may-transiently-fail-when--parameter-is-used)|Enero de 2021|Tiene solución alternativa||
 |[Las transacciones distribuidas se pueden ejecutar después de quitar Managed Instance del grupo de confianza de servidor](#distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group)|Octubre de 2020|Tiene solución alternativa||
 |[No se pueden ejecutar transacciones distribuidas después de la operación de escalado de Managed Instance](#distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation)|Octubre de 2020|Tiene solución alternativa||
@@ -126,6 +127,12 @@ Las características siguientes están habilitadas en el modelo de implementaci�
 |La restauración de una base de datos a un momento dado del nivel de servicio Crítico para la empresa al De uso general no se completará correctamente si la base de datos de origen contiene objetos OLTP en memoria.||Resuelto|Octubre de 2019|
 |Característica Correo electrónico de base de datos con servidores de correo externos (que no son de Azure) mediante una conexión segura||Resuelto|Octubre de 2019|
 |Las bases de datos independientes no se admiten en la Instancia administrada de SQL||Resuelto|Agosto de 2019|
+
+### <a name="changing-the-connection-type-does-not-affect-connections-through-the-failover-group-endpoint"></a>Cambiar el tipo de conexión no afecta a las conexiones a través del punto de conexión del grupo de conmutación por error
+
+Si una instancia participa en un grupo de [conmutación por error automática](https://docs.microsoft.com/azure/azure-sql/database/auto-failover-group-overview), el cambio del [tipo de conexión](https://docs.microsoft.com/azure/azure-sql/managed-instance/connection-types-overview) de la instancia no afecta a las conexiones establecidas a través del punto de conexión del agente de escucha del grupo de conmutación por error.
+
+**Solución alternativa**: quitar y volver a crear el grupo de conmutación por error automática después de cambiar el tipo de conexión.
 
 ### <a name="procedure-sp_send_dbmail-may-transiently-fail-when-query-parameter-is-used"></a>Se puede producir un error transitorio en el procedimiento sp_send_dbmail cuando se usa el parámetro @query
 
