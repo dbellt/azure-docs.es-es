@@ -7,13 +7,12 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: asrastog
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 90b7b6aebfce1c37bef76d371d829048d755e39e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 00765a51ad07cd53fde403ed1cfabb73c5692026
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92147262"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108076876"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Ordenación de eventos de conexión de dispositivos de Azure IoT Hub mediante Azure Cosmos DB
 
@@ -335,7 +334,7 @@ Puede ver los resultados del procedimiento almacenado ejecutado en el documento 
 
 ## <a name="use-the-azure-cli"></a>Uso de la CLI de Azure
 
-En lugar de usar [Azure Portal](https://portal.azure.com), puede llevar a cabo los pasos de IoT Hub mediante la CLI de Azure. Para más información, consulte las páginas de la CLI de Azure para [crear una suscripción de eventos](/cli/azure/eventgrid/event-subscription) y [crear un dispositivo IoT](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-create).
+En lugar de usar [Azure Portal](https://portal.azure.com), puede llevar a cabo los pasos de IoT Hub mediante la CLI de Azure. Para más información, consulte las páginas de la CLI de Azure para [crear una suscripción de eventos](/cli/azure/eventgrid/event-subscription) y [crear un dispositivo IoT](/cli/azure/iot/hub/device-identity#az_iot_hub_device_identity_create).
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

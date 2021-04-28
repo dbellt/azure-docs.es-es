@@ -1,5 +1,5 @@
 ---
-title: Máquinas virtuales de Azure de la serie Msv2 (versión preliminar)
+title: 'Serie de memoria media Msv2 y Mdsv2: Azure Virtual Machines'
 description: Especificaciones de las máquinas virtuales de la serie Msv2.
 author: ayshakeen
 ms.service: virtual-machines
@@ -7,18 +7,14 @@ ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: jushiman
-ms.openlocfilehash: a7f4757467523837423d52998eb6b8204090e627
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d85623184ad52fb0d4acd4c49d08badfaf886b30
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102562578"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107728237"
 ---
-# <a name="msv2-and-mdsv2-series-medium-memory-preview"></a>Serie Msv2 y Mdsv2 de memoria media (versión preliminar)
-
-
-> [!IMPORTANT]
-> Para unirse a la versión preliminar, rellene el formulario en **https://aka.ms/Mv2MedMemoryPreview** .  
+# <a name="msv2-and-mdsv2-series-medium-memory"></a>Serie de memoria media Msv2 y Mdsv2
 
 La serie de máquinas virtuales Msv2 y Mdsv2 de memoria media incluye el procesador Intel® Xeon® Platinum 8280 (Cascade Lake) con una frecuencia de base en todos los núcleos de 2,7 GHz y una frecuencia turbo en un único núcleo de 4,0 GHz. Con estas máquinas virtuales, los clientes consiguen una mayor flexibilidad con las opciones de disco local y sin disco. Los clientes también tienen acceso a un conjunto de nuevos tamaños de máquina virtual aislada con más CPU y memoria: hasta 192 vCPU con 4 TiB de memoria. 
 

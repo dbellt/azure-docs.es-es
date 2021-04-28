@@ -1,14 +1,14 @@
 ---
 title: Administración de extensiones de máquina virtual con servidores habilitados para Azure Arc
 description: Los servidores habilitados para Azure Arc pueden administrar la implementación de extensiones de máquina virtual que proporcionan tareas de automatización y configuración posteriores a la implementación con máquinas virtuales que no son de Azure.
-ms.date: 03/22/2021
+ms.date: 04/13/2021
 ms.topic: conceptual
-ms.openlocfilehash: 9af2700f036352188e646188485285482ee70c69
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 67f1b5b3db6ef446342e8381d54d487af1f3426a
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104799588"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107389798"
 ---
 # <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers"></a>Administración de extensiones de máquina virtual con servidores habilitados para Azure Arc
 
@@ -20,6 +20,9 @@ Los servidores habilitados para Azure Arc permiten implementar extensiones de m�
 - La [CLI de Azure](manage-vm-extensions-cli.md)
 - [Azure PowerShell](manage-vm-extensions-powershell.md)
 - [Plantillas de Azure Resource Manager](manage-vm-extensions-template.md)
+
+> [!NOTE]
+> Los servidores habilitados de Azure Arc no admiten la implementación y administración de extensiones de máquina virtual en máquinas virtuales de Azure. Para las máquinas virtuales de Azure, consulte el siguiente artículo de [información general sobre la extensión de máquina virtual](../../virtual-machines/extensions/overview.md).
 
 ## <a name="key-benefits"></a>Ventajas principales
 

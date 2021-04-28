@@ -9,12 +9,12 @@ ms.subservice: managed-hsm
 ms.topic: conceptual
 ms.date: 09/17/2020
 ms.author: ambapat
-ms.openlocfilehash: 7a30a7ab6689b602bc9ad4f696a6fe54c80f2151
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9ef3b19e5064c8a88bf80eebf57539be72747fe4
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90993686"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107482524"
 ---
 # <a name="best-practices-when-using-managed-hsm"></a>Procedimientos recomendados al usar Managed HSM
 
@@ -23,8 +23,10 @@ ms.locfileid: "90993686"
 Managed HSM es un servicio en la nube que protege las claves de cifrado. Como estas claves son confidenciales y críticas para la empresa, asegúrese de proteger el acceso a los HSM administrados de modo que solo se admitan las aplicaciones y los usuarios autorizados. En este [artículo](access-control.md) se proporciona información general sobre modelo de acceso. Explica la autenticación y autorización, y el control de acceso basado en roles.
 - Cree un [grupo de seguridad de Azure Active Directory](../../active-directory/fundamentals/active-directory-manage-groups.md) para los administradores de HMS (en lugar de asignar el rol Administrador a usuarios individuales). Esto impedirá el "bloqueo de administración" en caso de eliminación de una cuenta individual.
 - Bloquee el acceso a los grupos de administración, las suscripciones, los grupos de recursos y los HSM administrados: use RBAC de Azure para controlar el acceso a los grupos de administración, las suscripciones y los grupos de recursos.
-- Cree asignaciones de roles por clave con [RBAC local de Managed HSM](access-control.md#data-plane-and-managed-hsm-local-rbac).
-- Establezca la entidad de seguridad de acceso con privilegios mínimos para asignar los roles.
+- Cree asignaciones de roles por clave mediante [RBAC local de HSM administrado](access-control.md#data-plane-and-managed-hsm-local-rbac).
+- Para mantener la separación de tareas, evite asignar varios roles a las mismas entidades de seguridad. 
+- Utilice la entidad de seguridad con menos privilegios de acceso para asignar los roles.
+- Cree una definición de rol personalizada con un conjunto preciso de permisos.
 
 ## <a name="choose-regions-that-support-availability-zones"></a>Elección de las regiones que admiten zonas de disponibilidad
 

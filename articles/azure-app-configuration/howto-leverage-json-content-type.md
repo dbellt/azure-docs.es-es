@@ -10,12 +10,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 08/03/2020
 ms.author: avgupta
-ms.openlocfilehash: 19de46bc87b72ada221c63e36e87d0545304d344
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 2be560d16b133696c520b8872406ff6a36b0087b
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102122160"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108137126"
 ---
 # <a name="leverage-content-type-to-store-json-key-values-in-app-configuration"></a>Aproveche el tipo de contenido para almacenar los pares clave-valor JSON en App Configuration
 
@@ -170,7 +170,7 @@ az appconfig kv export -d file --format json --path "~/Export.json" --separator 
 ```
 
 > [!NOTE]
-> Si el almacén de App Configuration tiene algunos pares clave-valor sin tipo de contenido JSON, también se exportarán al mismo archivo en formato de cadena. Si solo desea exportar los pares clave-valor JSON, asígneles una etiqueta o un prefijo único y use el filtrado de etiquetas o prefijos durante la exportación.
+> Si el almacén de App Configuration tiene algunos pares clave-valor sin tipo de contenido JSON, también se exportarán al mismo archivo en formato de cadena.
 
 
 ## <a name="consuming-json-key-values-in-applications"></a>Consumo de pares clave-valor JSON en aplicaciones

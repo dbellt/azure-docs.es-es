@@ -12,12 +12,12 @@ ms.date: 03/16/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c26c56940e95fe32b709aa01fbaa9e567e797197
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: f67bc46b4f612d3d2f377070d5d8280512e0e3df
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106074546"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107576370"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Historial de lanzamiento de versiones
 El equipo de Azure Active Directory (Azure AD) actualiza periódicamente Azure AD Connect con nuevas características y funcionalidades. No todas las adiciones son aplicables a todas las audiencias.
@@ -59,6 +59,12 @@ Siga este vínculo para más información acerca de la [actualización automáti
 
 ## <a name="1640"></a>1.6.4.0
 
+>[!NOTE]
+> La API de punto de conexión de Sincronización de Azure AD Connect V2 ya está disponible en estos entornos de Azure:
+> - Azure Commercial
+> - Nube de Azure China
+> - La nube de Azure Gobierno de EE. UU. no estará disponible en la nube de Azure Alemania.
+
 ### <a name="release-status"></a>Estado de la versión
 31/03/2021: publicado solo para descargas, no está disponible para actualización automática
 
@@ -73,7 +79,7 @@ Siga este vínculo para más información acerca de la [actualización automáti
 >[!NOTE]
 > - Esta versión estará disponible solo para descarga.
 > - Para actualizar a esta versión, será necesaria una sincronización completa debido a los cambios de la regla de sincronización.
-> - En esta versión, el valor predeterminado del servidor AADConnect es el nuevo punto de conexión V2. Tenga en cuenta que este punto de conexión no se admite en la nube nacional alemana, la nube nacional china y la nube de la Administración Pública de Estados Unidos y, si necesita implementar esta versión en estas nubes, debe seguir [estas instrucciones](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-endpoint-api-v2#rollback) para volver al punto de conexión de la versión 1. Si no lo hace, se producirán errores en la sincronización.
+> - En esta versión, el valor predeterminado del servidor AADConnect es el nuevo punto de conexión V2. Tenga en cuenta que este punto de conexión no se admite en la nube nacional alemana y, si necesita implementar esta versión en este entorno, debe seguir [estas instrucciones](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-endpoint-api-v2#rollback) para volver al punto de conexión de la versión 1. Si no lo hace, se producirán errores en la sincronización.
 
 ### <a name="release-status"></a>Estado de la versión
 19/03/2021: publicado solo para descargas, no está disponible para actualización automática

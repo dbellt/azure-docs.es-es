@@ -9,13 +9,12 @@ ms.topic: how-to
 ms.date: 03/27/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 11323f2aec05935b9dc45187ed54597e61af924d
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: a1698a56ad7e92a59b664ce8f8bca2355fb44fb1
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106554130"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108074716"
 ---
 # <a name="enable-soft-delete-for-blobs"></a>Habilitación de la eliminación temporal para blobs
 
@@ -62,7 +61,7 @@ $properties.DeleteRetentionPolicy.Days
 
 # <a name="cli"></a>[CLI](#tab/azure-CLI)
 
-Para habilitar la eliminación temporal de blobs con la CLI de Azure, llame al comando [az storage account blob-service-properties update](/cli/azure/ext/storage-blob-preview/storage/account/blob-service-properties#ext_storage_blob_preview_az_storage_account_blob_service_properties_update) y especifique el período de retención en días.
+Para habilitar la eliminación temporal de blobs con la CLI de Azure, llame al comando [az storage account blob-service-properties update](/cli/azure/storage/account/blob-service-properties#az_storage_account_blob_service_properties_update) y especifique el período de retención en días.
 
 En el ejemplo siguiente, se habilita la eliminación temporal de blobs y se establece un período de retención de siete días. No olvide reemplazar los valores del marcador de posición entre corchetes con sus propios valores:
 
@@ -73,7 +72,7 @@ az storage account blob-service-properties update --account-name <storage-accoun
     --delete-retention-days 7
 ```
 
-Para comprobar la configuración actual de la eliminación temporal de blobs, llame al comando [az storage account blob-service-properties show](/cli/azure/ext/storage-blob-preview/storage/account/blob-service-properties#ext_storage_blob_preview_az_storage_account_blob_service_properties_show):
+Para comprobar la configuración actual de la eliminación temporal de blobs, llame al comando [az storage account blob-service-properties show](/cli/azure/storage/account/blob-service-properties#az_storage_account_blob_service_properties_show):
 
 ```azurecli-interactive
 az storage account blob-service-properties show --account-name <storage-account> \

@@ -8,12 +8,12 @@ ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 7eadc9121c54b636fa8b42579284d4018043e1c1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: efdd9666c8876ddaf12b9555fa66beb62c56e93e
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91355132"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107740077"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-cognitive-search"></a>Solución de problemas comunes con el indizador en Azure Cognitive Search
 
@@ -68,6 +68,86 @@ Se describen más detalles sobre el acceso a los datos en una instancia administ
 ### <a name="cosmosdb-indexing-isnt-enabled"></a>La "indexación" de CosmosDB no está habilitada.
 
 Azure Cognitive Search tiene una dependencia implícita del indexado de Cosmos DB. Si desactiva el indexado automático en Cosmos DB, Azure Cognitive Search devuelve un estado correcto, pero no puede indexar el contenido del contenedor. Para instrucciones sobre cómo establecer y activar el indexado, consulte [Administración automática en Azure Cosmos DB](../cosmos-db/how-to-manage-indexing-policy.md#use-the-azure-portal).
+
+### <a name="sharepoint-online-conditional-access-policies"></a>Directivas de acceso condicional de SharePoint Online
+
+Al crear un indexador de SharePoint Online, tendrá que realizar un paso que requiere que inicie sesión en la aplicación de AAD después de proporcionar un código de dispositivo. Si recibe el mensaje "Your sign-in was successful but your admin requires the device requesting access to be managed" (El inicio de sesión se ha realizado correctamente, pero el administrador requiere que se administre el dispositivo que solicita el acceso), es probable que se bloquee el acceso del indexador a la biblioteca de documentos de SharePoint Online debido a una directiva de [acceso condicional](https://review.docs.microsoft.com/azure/active-directory/conditional-access/overview).
+
+Para actualizar la directiva para permitir que el indexador acceda a la biblioteca de documentos, siga estos pasos:
+
+1. Abra Azure Portal, busque **Acceso condicional de Azure AD** y seleccione **Directivas** en el menú de la izquierda. Si no tiene acceso para ver esta página, deberá buscar a alguien que tenga acceso u obtener acceso.
+
+1. Determine cuál es la directiva que bloquea el acceso del indexador de SharePoint Online a la biblioteca de documentos. La directiva que podría estar bloqueando el indexador incluirá la cuenta de usuario que usó para autenticarse durante el paso de creación del indexador en la sección **Usuarios y grupos**. Es posible que la directiva también tenga **condiciones** que:
+    * Restrinjan las plataformas **Windows**.
+    * Restrinjan **aplicaciones móviles y equipos cliente de escritorio**.
+    * Configuren **Estado de dispositivo** como **Sí.**
+
+1. Una vez que haya confirmado que hay una directiva que bloquea el indexador, deberá hacer una exención para el indexador. Recupere la dirección IP del servicio de búsqueda.
+
+    1. Obtenga el nombre de dominio completo (FQDN) del servicio de búsqueda. Tendrá el siguiente aspecto: `<search-service-name>.search.windows.net`. Para averiguar el nombre de dominio completo, busque el servicio de búsqueda en Azure Portal.
+
+   ![Obtención del nombre de dominio completo del servicio](media\search-indexer-howto-secure-access\search-service-portal.png "Obtención del nombre de dominio completo del servicio")
+
+    La dirección IP del servicio de búsqueda se puede obtener usando `nslookup` (o `ping`) con el nombre de dominio completo. En el ejemplo siguiente, agregaría "150.0.0.1" a una regla de entrada en el firewall de Azure Storage. La configuración del firewall puede tardar hasta 15 minutos en actualizarse para que el indexador del servicio de búsqueda pueda acceder a la cuenta de Azure Storage.
+
+    ```azurepowershell
+
+    nslookup contoso.search.windows.net
+    Server:  server.example.org
+    Address:  10.50.10.50
+    
+    Non-authoritative answer:
+    Name:    <name>
+    Address:  150.0.0.1
+    Aliases:  contoso.search.windows.net
+    ```
+
+1. Obtenga los intervalos de direcciones IP del entorno de ejecución del indexador de su región.
+
+    Se usan direcciones IP adicionales para las solicitudes que se originan en el [entorno de ejecución multiinquilino](search-indexer-securing-resources.md#indexer-execution-environment) del indexador. Puede obtener este intervalo de direcciones IP de la etiqueta de servicio.
+
+    Los intervalos de direcciones IP de la etiqueta de servicio `AzureCognitiveSearch` pueden obtenerse a través de [Discovery API (versión preliminar)](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) o el [archivo JSON descargable](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
+
+    En este tutorial, suponiendo que el servicio de búsqueda sea la nube pública de Azure, se debe descargar el [archivo JSON público de Azure](https://www.microsoft.com/download/details.aspx?id=56519).
+
+   ![Descargar el archivo JSON](media\search-indexer-troubleshooting\service-tag.png "Descargar el archivo JSON")
+
+    En el archivo JSON, suponiendo que el servicio de búsqueda esté en la región Centro-oeste de EE. UU., a continuación, se muestra la lista de direcciones IP para el entorno de ejecución multiinquilino del indexador.
+
+    ```json
+        {
+          "name": "AzureCognitiveSearch.WestCentralUS",
+          "id": "AzureCognitiveSearch.WestCentralUS",
+          "properties": {
+            "changeNumber": 1,
+            "region": "westcentralus",
+            "platform": "Azure",
+            "systemService": "AzureCognitiveSearch",
+            "addressPrefixes": [
+              "52.150.139.0/26",
+              "52.253.133.74/32"
+            ]
+          }
+        }
+    ```
+
+1. Vuelva a la página Acceso condicional de Azure Portal, seleccione **Ubicaciones con nombre** en el menú de la izquierda y, después, seleccione **+ Ubicación de los intervalos de direcciones IP**. Asigne un nombre a la nueva ubicación con nombre y agregue los intervalos de direcciones IP del servicio de búsqueda y los entornos de ejecución del indexador que recopiló en los dos últimos pasos.
+    * En el caso de la dirección IP del servicio de búsqueda, es posible que tenga que agregar "/32" al final de la dirección IP, ya que solo acepta intervalos IP válidos.
+    * Recuerde que en el caso de los intervalos IP del entorno de ejecución del indexador, solo tiene que agregar los intervalos IP de la región en la que se encuentra el servicio de búsqueda.
+
+1. Excluya la nueva ubicación con nombre de la directiva. 
+    1. En el menú izquierdo, seleccione **Directivas**. 
+    1. Seleccione la directiva que bloquea al indexador.
+    1. Seleccione **Condiciones**.
+    1. Seleccione **Ubicaciones**.
+    1. Seleccione **Excluir** y agregue la nueva ubicación con nombre.
+    1. **Guarde** los cambios.
+
+1. Espere unos minutos a que la directiva se actualice y aplique las nuevas reglas de directiva.
+
+1. Intente volver a crear el indexador.
+    1. Envíe una solicitud de actualización del objeto de origen de datos que creó.
+    1. Vuelva a enviar la solicitud de creación del indexador. Use el nuevo código para iniciar sesión y, después, envíe otra solicitud de creación del indexador después del inicio de sesión correcto.
 
 ## <a name="document-processing-errors"></a>Errores en el procesamiento de documentos
 

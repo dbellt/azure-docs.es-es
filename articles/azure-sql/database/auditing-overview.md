@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 03/17/2021
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 8513127f4a79c9c94323140462ad2d2648a0130d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: bc7ac6b97d10e5941e46b8be3e12baff32bded4a
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104577695"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107483068"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Auditoría para Azure SQL Database y Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -100,7 +100,7 @@ En la sección siguiente se describe la configuración de auditoría mediante Az
 
   > [!NOTE]
   > - No es posible habilitar la auditoría en un grupo de SQL dedicado en pausa. Para habilitar la auditoría, quite la pausa del grupo de SQL dedicado. Más información sobre el [grupo de SQL dedicado](../..//synapse-analytics/sql/best-practices-dedicated-sql-pool.md).
-  > - Cuando la auditoría se configura para un área de trabajo de Log Analytics o para un destino del Centro de eventos a través del cmdlet de PowerShell o Azure Portal, se crea una [configuración de diagnóstico](../../azure-monitor/essentials/diagnostic-settings.md) con la categoría "SQLSecurityAuditEvents" habilitada.
+  > - Cuando la auditoría se configura para un área de trabajo de Log Analytics o para un destino del centro de eventos mediante el cmdlet de PowerShell o Azure Portal, se crea una [configuración de diagnóstico](../../azure-monitor/essentials/diagnostic-settings.md) con la categoría "SQLSecurityAuditEvents" habilitada.
 
 1. Vaya a [Azure Portal](https://portal.azure.com).
 2. Vaya a **Auditoría** bajo el encabezado Seguridad en el panel de la **base de datos SQL** o el **servidor SQL**.

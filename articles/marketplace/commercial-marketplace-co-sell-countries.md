@@ -7,16 +7,16 @@ ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
 ms.date: 08/27/2019
-ms.openlocfilehash: d361744ffe66a1ea91849149d05c6741eff600f5
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: d480f400bfd5a8d1ad59c9e4bcf1e8425171cc4a
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106077319"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108123328"
 ---
 # <a name="co-sell-country-and-region-codes"></a>Códigos de país y región de venta conjunta
 
-Use estos códigos de país o región de dos letras al [proporcionar información de contacto sobre la página de venta conjunta de su oferta](commercial-marketplace-co-sell.md).
+Use estos códigos de país o región de dos letras al [proporcionar información de contacto sobre la página de venta conjunta de su oferta](./co-sell-configure.md).
 
 Si el contacto cubre todos los países o regiones, use el código de tres letras "OOO".
 
@@ -276,4 +276,4 @@ Si un contacto cubre más de un país o región, escriba cada uno de los código
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga más información sobre la [opción de venta conjunta en el marketplace comercial](./commercial-marketplace-co-sell.md).
+- Obtenga más información sobre la [opción de venta conjunta en el marketplace comercial](./co-sell-configure.md).

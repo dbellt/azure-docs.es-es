@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 3/14/2021
 ms.author: mbaldwin
-ms.openlocfilehash: e70906cbf26c899744bfbe137da4ce9cfa651b20
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: d157419614ee3a3f89036177e962e5b7fc4466b2
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107753153"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107815040"
 ---
 # <a name="how-to-create-an-azure-key-vault-and-vault-access-policy-by-using-a-resource-manager-template"></a>Creación de un almacén de claves de Azure y una directiva de acceso al almacén mediante una plantilla de Resource Manager
 
@@ -213,10 +213,10 @@ Write-Host "Press [ENTER] to continue..."
 
 - Lea una [introducción a Azure Key Vault](../general/overview.md).
 - Obtenga más información sobre [Administrador de recursos de Azure](../../azure-resource-manager/management/overview.md).
-- Consulte [Introducción a la seguridad de Azure Key Vault](security-overview.md)
+- Consulte [Introducción a la seguridad de Azure Key Vault](security-features.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Protección del acceso a un almacén de claves](security-overview.md)
+- [Protección del acceso a un almacén de claves](security-features.md)
 - [Autenticación en un almacén de claves](authentication.md)
 - [Guía del desarrollador de Azure Key Vault](developers-guide.md)

@@ -3,12 +3,12 @@ title: Creación de un recurso de Azure Application Insights | Microsoft Docs
 description: Describe la configuración manual de la supervisión de Application Insights para una nueva aplicación activa.
 ms.topic: conceptual
 ms.date: 02/10/2021
-ms.openlocfilehash: 459f61d9e13a2098403f3e78c7a529e49bf65e59
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 6158b5604046897e20053c67321f26d650c21b7f
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102100940"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107566229"
 ---
 # <a name="create-an-application-insights-resource"></a>Creación de recursos en Application Insights
 
@@ -32,7 +32,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com) y cree un recurso de 
    | **Nombre**      | `Unique value` | Nombre que identifica la aplicación que está supervisando. |
    | **Grupo de recursos**     | `myResourceGroup`      | Nombre para el grupo de recursos nuevo o existente que hospedará los datos de Application Insights. |
    | **Región** | `East US` | Elija una ubicación cerca de usted o de donde se hospeda la aplicación. |
-   | **Modo de recursos** | `Classic` o `Workspace-based` | Los recursos basados en el área de trabajo se encuentran actualmente en versión preliminar pública y permiten enviar la telemetría de Application Insights a un área de trabajo común de Log Analytics. Para obtener más información, consulte el [artículo sobre los recursos basados en áreas de trabajo](create-workspace-resource.md).
+   | **Modo de recursos** | `Classic` o `Workspace-based` | Los recursos basados en el área de trabajo permiten enviar la telemetría de Application Insights a un área de trabajo común de Log Analytics. Para obtener más información, consulte el [artículo sobre los recursos basados en áreas de trabajo](create-workspace-resource.md).
 
 > [!NOTE]
 > Aunque puede usar el mismo nombre de recurso en distintos grupos de recursos, puede ser beneficioso usar un nombre único global. Esto puede ser útil si tiene previsto [realizar consultas entre recursos](../logs/cross-workspace-query.md#identifying-an-application) ya que simplifica la sintaxis necesaria.

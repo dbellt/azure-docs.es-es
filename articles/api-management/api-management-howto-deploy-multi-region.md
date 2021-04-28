@@ -2,23 +2,17 @@
 title: Implementación de servicios de Azure API Management en varias regiones de Azure
 titleSuffix: Azure API Management
 description: Aprenda a implementar una instancia del servicio Azure API Management en varias regiones de Azure.
-services: api-management
-documentationcenter: ''
 author: mikebudzynski
-manager: cfowler
-editor: ''
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 04/20/2020
+ms.topic: how-to
+ms.date: 04/13/2021
 ms.author: apimpm
-ms.openlocfilehash: 427ebfe865002612be2f9aeb9db416f5c2f41e52
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9546813173e72b1f264c3668ee889bbeea07ce7f
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88065461"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107534084"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Implementación de una instancia del servicio Azure API Management en varias regiones de Azure
 
@@ -27,24 +21,30 @@ Azure API Management admite la implementación en varias regiones, lo que permit
 Inicialmente, un nuevo servicio Azure API Management contiene solo una [unidad][unit] en una única región de Azure, la región primaria. Se pueden agregar unidades adicionales a las regiones primaria o secundarias. Un componente de puerta de enlace de API Management se implementa en cada región primaria y secundaria seleccionada. Las solicitudes de la API entrantes se dirigen automáticamente a la región más cercana. Si una región se queda sin conexión, las solicitudes de la API se enrutarán automáticamente para evitar la región con errores hacia la siguiente puerta de enlace más cercana.
 
 > [!NOTE]
-> Solo el componente de puerta de enlace de API Management se implementa en todas las regiones. El componente de administración de servicios y el portal para desarrolladores se hospedan en la región primaria únicamente. Por lo tanto, en caso de interrupción de la región primaria, el acceso al portal para desarrolladores y la capacidad de cambiar la configuración (por ejemplo, agregar API y aplicar directivas) se verán impedidos hasta que la región primaria vuelva a estar en línea. Mientras la región principal esté sin conexión, las regiones secundarias seguirán atendiendo al tráfico de las API con la configuración más reciente disponible.
+> Solo el componente de puerta de enlace de API Management se implementa en todas las regiones. El componente de administración de servicios y el portal para desarrolladores se hospedan en la región primaria únicamente. Por lo tanto, en caso de interrupción de la región primaria, el acceso al portal para desarrolladores y la capacidad de cambiar la configuración (por ejemplo, agregar API y aplicar directivas) se verán impedidos hasta que la región primaria vuelva a estar en línea. Mientras la región primaria esté sin conexión, las regiones secundarias seguirán atendiendo el tráfico de API con la configuración más reciente disponible. Opcionalmente, habilite la [redundancia de zona](zone-redundancy.md) para mejorar la disponibilidad y resistencia de las regiones primarias o secundarias.
 
 >[!IMPORTANT]
-> La característica para permitir el almacenamiento de datos de clientes en una única región solo está disponible actualmente en la región Sudeste Asiático (Singapur) de la geoárea Asia Pacífico. En todas las demás regiones, los datos del cliente se almacenan en la geoárea.
+> La característica para permitir el almacenamiento de datos de clientes en una sola región solo está disponible actualmente en la región de Sudeste Asiático (Singapur) de la geoárea Asia Pacífico. En todas las demás regiones, los datos de clientes se almacenan en la geoárea.
 
 [!INCLUDE [premium.md](../../includes/api-management-availability-premium.md)]
 
-## <a name="deploy-api-management-service-to-a-new-region"></a><a name="add-region"> </a>Implementación del servicio API Management en una nueva región
 
-> [!NOTE]
-> Si todavía no ha creado una instancia del servicio API Management, consulte [Creación de una instancia del servicio API Management][create an api management service instance].
+## <a name="prerequisites"></a>Requisitos previos
 
-1. En Azure Portal, vaya al servicio API Management y haga clic en la entrada **Ubicaciones** del menú.
-2. Haga clic en **+ Agregar** en la barra superior.
-3. Seleccione la ubicación en la lista desplegable y establezca el número de unidades con el control deslizante.
-4. Haga clic en el botón **Agregar** para confirmar.
-5. Repita este proceso hasta que configure todas las ubicaciones.
-6. Haga clic en **Guardar** en la barra superior para iniciar el proceso de implementación.
+* Si todavía no ha creado una instancia del servicio API Management, consulte [Creación de una instancia del servicio API Management](get-started-create-service-instance.md). Seleccione el nivel de servicio Prémium.
+* Si la instancia de API Management está implementada en una [red virtual,](api-management-using-with-vnet.md), asegúrese de configurar una red virtual, una subred y una dirección IP pública en la ubicación que planea agregar.
+
+## <a name="deploy-api-management-service-to-an-additional-location"></a><a name="add-region"> </a>Implementación del servicio API Management en una ubicación adicional
+
+1. En Azure Portal, vaya al servicio API Management y seleccione la entrada **Ubicaciones** del menú.
+1. Seleccione **+ Agregar** en la barra superior.
+1. Seleccione la ubicación en la lista desplegable.
+1. Seleccione el número de **[unidades](upgrade-and-scale.md)** de escalado de la ubicación.
+1. Opcionalmente, habilite [**Zonas de disponibilidad**](zone-redundancy.md).
+1. Si la instancia de API Management se ha implementado en una [red virtual](api-management-using-with-vnet.md), configure las siguientes opciones de la red virtual en la ubicación. Seleccione una red virtual, una subred y una dirección IP pública existentes que estén disponibles en la ubicación.
+1. Seleccione **Agregar** para confirmar.
+1. Repita este proceso hasta que configure todas las ubicaciones.
+1. Seleccione **Guardar** en la barra superior para iniciar el proceso de implementación.
 
 ## <a name="delete-an-api-management-service-location"></a><a name="remove-region"> </a>Eliminación de una ubicación del servicio API Management
 

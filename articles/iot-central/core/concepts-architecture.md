@@ -8,18 +8,16 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: c2d5310d1a664aa2e22d4241d8066e41d9c82bd1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bcda4ca252101ed1505f71a1b5f9fe9a0d8d16b9
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97796727"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107728399"
 ---
 # <a name="azure-iot-central-architecture"></a>Arquitectura de Azure IoT Central
 
-En este artículo se proporciona información general sobre la arquitectura de Microsoft Azure IoT Central.
-
-![Arquitectura de nivel superior](media/concepts-architecture/architecture.png)
+En este artículo se proporciona información general sobre los conceptos clave de la arquitectura de Azure IoT Central.
 
 ## <a name="devices"></a>Dispositivos
 
@@ -28,7 +26,7 @@ Los dispositivos intercambian datos con la aplicación Azure IoT Central. Un dis
 - Enviar las mediciones como telemetría.
 - Sincronizar la configuración con la aplicación.
 
-En Azure IoT Central, los datos que un dispositivo puede intercambiar con la aplicación se especifican en una plantilla de dispositivo. Para obtener más información acerca de las plantillas de dispositivo, consulte [Metadata management](#metadata-management) (Administración de metadatos).
+En Azure IoT Central, los datos que un dispositivo puede intercambiar con la aplicación se especifican en una plantilla de dispositivo. Para más información acerca de las plantillas de dispositivo, consulte [Plantillas de dispositivo](concepts-device-templates.md).
 
 Para obtener más información sobre cómo se conectan los dispositivos a la aplicación de Azure IoT Central, consulte [Device connectivity](concepts-get-connected.md) (Conectividad de dispositivos).
 
@@ -117,29 +115,6 @@ Azure IoT Central almacena los datos de la aplicación en la nube. Entre los dat
 
 Azure IoT Central utiliza un almacén en serie temporal para los datos de medición enviados desde los dispositivos. Los datos de serie temporal de dispositivos usados por el servicio de análisis.
 
-## <a name="analytics"></a>Análisis
-
-El servicio de análisis es responsable de generar los datos de informes personalizados que muestra la aplicación. Un operador puede [personalizar el análisis](howto-create-analytics.md) mostrado en la aplicación. El servicio de análisis se basa en [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/) y procesa los datos de medición enviados desde los dispositivos.
-
-## <a name="rules-and-actions"></a>Reglas y acciones
-
-Las [reglas y acciones](tutorial-create-telemetry-rules.md) trabajan conjuntamente para automatizar las tareas dentro de la aplicación. Un generador puede definir reglas basadas en la telemetría de dispositivo, como la temperatura que supera un umbral definido. Azure IoT Central usa un procesador de secuencias para determinar cuando se cumplen las condiciones de la regla. Si se cumple una condición de regla, desencadena una acción definida por el generador. Por ejemplo, una acción puede enviar un correo electrónico para notificar a un ingeniero que la temperatura en un dispositivo es demasiado alta.
-
-## <a name="metadata-management"></a>Administración de metadatos
-
-En una aplicación de Azure IoT Central, las plantillas de dispositivo definen el comportamiento y la capacidad de los tipos de dispositivo. Por ejemplo, una plantilla de dispositivo de un refrigerador especifica la telemetría que un refrigerador envía a la aplicación.
-
-![Arquitectura de plantillas](media/concepts-architecture/template-architecture.png)
-
-Una [plantilla de dispositivo](concepts-device-templates.md) de IoT Central contiene:
-
-- Un **modelo de dispositivo** para especificar las funcionalidades de un dispositivo, como la telemetría que envía, las propiedades que definen el estado del dispositivo y los comandos a los que responde el dispositivo. Las funcionalidades del dispositivo están organizadas en una o varias interfaces.
-- **Las propiedades de la nube** especifican las propiedades que IoT Central almacena para un dispositivo. Estas propiedades solo se almacenan en IoT Central y nunca se envían a un dispositivo.
-- Las **vistas** especifican los paneles y los formularios que crea el generador para permitir que el operador supervise y administre los dispositivos.
-- Las **personalizaciones** permiten que el generador invalide algunas de las definiciones en el modelo de dispositivo para que sean más relevantes para la aplicación de IoT Central.
-
-Una aplicación puede tener uno o varios dispositivos simulados y reales basados en cada plantilla de dispositivo.
-
 ## <a name="data-export"></a>Exportación de datos
 
 En una aplicación de Azure IoT Central, puede [exportar continuamente los datos](howto-export-data.md) a sus propias instancias de Azure Event Hubs y de Azure Service Bus. También puede exportar los datos periódicamente a la cuenta de Azure Blob Storage. IoT Central puede exportar medidas, dispositivos y plantillas de dispositivo.
@@ -160,13 +135,6 @@ Entre las características de seguridad de Azure IoT Central están las siguient
 - La autenticación se proporciona por Azure Active Directory o la cuenta de Microsoft. Se admite la autenticación de dos factores.
 - Aislamiento de inquilino completo.
 - Seguridad a nivel de dispositivo.
-
-## <a name="ui-shell"></a>Shell de IU
-
-El shell de la interfaz de usuario es una a aplicación moderna, con capacidad de respuesta y basada en un explorador HTML5.
-Un administrador puede personalizar la interfaz de usuario de la aplicación mediante la aplicación de temas personalizados y la modificación de los vínculos de ayuda para que apunten a sus propios recursos de ayuda personalizados. Para más información sobre la interfaz de usuario personalizada, consulte el artículo [Personalizar la interfaz de usuario de Azure IoT Central](howto-customize-ui.md).
-
-Un operador puede crear paneles de aplicaciones personalizados. Puede tener varios paneles que muestren datos diferentes y cambiar entre ellos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

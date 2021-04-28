@@ -2,13 +2,13 @@
 title: 'Novedades Notas de la versión: Azure Event Grid'
 description: Obtenga información acerca de las novedades de Azure Event Grid, como, por ejemplo, las notas de la versión más recientes, los problemas conocidos, las correcciones de errores, las funcionalidades en desuso y los próximos cambios.
 ms.topic: overview
-ms.date: 07/23/2020
-ms.openlocfilehash: f135b25f28002c037dd24fa0cb3bb7476a06309f
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.date: 04/27/2021
+ms.openlocfilehash: ccb8df774838a1b71ddec08394d7487bf3176039
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107389594"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108135930"
 ---
 # <a name="whats-new-in-azure-event-grid"></a>Novedades de Azure Event Grid
 
@@ -35,7 +35,7 @@ En Azure Event Grid se realizan mejoras de forma continua. Para mantenerse al d�
         - StringNotEndsWith
         - NumberInRange
         - NumberNotInRange
-        - IsNull
+        - IsNullOrUndefined
         - IsNotNull
 - [Permitir esquema de Event Grid en transformaciones de esquemas de CloudEvents 1.0 para temas y dominios personalizados](cloudevents-schema.md#configure-event-grid-for-cloudevents)
         

@@ -5,24 +5,27 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 03/25/2021
+ms.date: 04/16/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: d8c3a2d961cc5b6fd719b77dae07b6e46c3d8b65
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f5bdae17126048da153f70bf27609bcc4b92fe21
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105604845"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107599594"
 ---
 # <a name="known-issues-with-h-series-and-n-series-vms"></a>Problemas conocidos con las máquinas virtuales de las series H y N
 
 Este artículo trata de enumerar los problemas y soluciones más comunes al usar máquinas virtuales de HPC y GPU de las [series H](../../sizes-hpc.md) y [N](../../sizes-gpu.md).
 
+## <a name="qp0-access-restriction"></a>Restricción de acceso qp0
+
+Para evitar el acceso de hardware de bajo nivel que pueda provocar vulnerabilidades de seguridad, el par de cola 0 no es accesible para las VM invitadas. Esta situación solo debe afectar a las acciones normalmente asociadas con la administración de la NIC InfiniBand de ConnectX y a la ejecución de algunos diagnósticos de InfiniBand, como ibdiagnet, pero no a las aplicaciones de usuario final.
+
 ## <a name="mofed-installation-on-ubuntu"></a>Instalación de MOFED en Ubuntu
-En Ubuntu-18.04, Mellanox OFED mostró incompatibilidad con la versión de kernels `5.4.0-1039-azure #42` y más reciente, lo que provoca un aumento en el tiempo de arranque de la máquina virtual en unos 30 minutos. Esto se ha comunicado para las versiones de Mellanox OFED 5.2-1.0.4.0 y 5.2-2.2.0.0.
-La solución temporal consiste en usar la imagen de marketplace **Canonical:UbuntuServer:18_04-lts-gen2:18.04.202101290** o anteriores y no actualizar el kernel.
-Se espera que este problema se resuelva con un MOFED más reciente (TBD).
+En las imágenes de máquina virtual del marketplace basadas en Ubuntu-18.04 con la versión de kernel `5.4.0-1039-azure #42` y versiones más recientes, algunas versiones anteriores de Mellanox OFED son incompatibles, lo que provoca un aumento del tiempo de arranque de la máquina virtual de hasta 30 minutos en algunos casos. Esto se ha comunicado para las versiones de Mellanox OFED 5.2-1.0.4.0 y 5.2-2.2.0.0. El problema se resuelve con Mellanox OFED 5.3-1.0.0.1.
+Si es necesario usar el OFED incompatible, una solución es usar la imagen de máquina virtual del marketplace **Canonical:UbuntuServer:18_04-lts-gen2:18.04.202101290** o anterior y no actualizar el kernel.
 
 ## <a name="mpi-qp-creation-errors"></a>Errores de creación de QP de MPI
 Si durante la ejecución de cualquier carga de trabajo de MPI se producen errores de creación de InfiniBand QP, tal como se muestra a continuación, se recomienda reiniciar la VM y volver a intentar la carga de trabajo. Este problema se corregirá en un futuro.
@@ -72,10 +75,6 @@ Esta "dirección MAC duplicada con cloud-init en Ubuntu" es un problema conocido
       version: 2
     EOF
     ```
-
-## <a name="qp0-access-restriction"></a>Restricción de acceso qp0
-
-Para evitar el acceso de hardware de bajo nivel que pueda provocar vulnerabilidades de seguridad, el par de cola 0 no es accesible para las VM invitadas. Esto solo debería afectar a las acciones normalmente asociadas con la administración de la NIC ConnectX-5 y a la ejecución de algunos diagnósticos de InfiniBand, como ibdiagnet, pero no a las aplicaciones de usuario final.
 
 ## <a name="dram-on-hb-series-vms"></a>DRAM de máquinas virtuales de la serie HB
 

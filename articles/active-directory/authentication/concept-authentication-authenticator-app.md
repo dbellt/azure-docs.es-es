@@ -10,12 +10,12 @@ ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e33c87d53580d96363ba15bccbc889370f2479d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 3175b1292a7e69506b9193d1182e184e257ebda3
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102212916"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530501"
 ---
 # <a name="authentication-methods-in-azure-active-directory---microsoft-authenticator-app"></a>Métodos de autenticación en Azure Active Directory: aplicación Microsoft Authenticator
 
@@ -62,4 +62,4 @@ Los usuarios pueden tener una combinación de hasta cinco tokens de hardware OAT
 
 Para empezar a usar el inicio de sesión sin contraseña, consulte [Habilitar el inicio de sesión sin contraseña en Azure AD con la aplicación Microsoft Authenticator](howto-authentication-passwordless-phone.md).
 
-Más información sobre la configuración de métodos de autenticación con la [Versión beta de la API REST Microsoft Graph API](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
+Más información sobre la configuración de métodos de autenticación con la [API REST de Microsoft Graph](/graph/api/resources/authenticationmethods-overview).

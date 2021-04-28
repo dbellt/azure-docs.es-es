@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/14/2020
-ms.openlocfilehash: 26852ec77194714c8236856b7cb496170bf0d777
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4a6567f8576e2507704956233bc593b203b48239
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "81606336"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107588741"
 ---
 # <a name="sort-transformation-in-mapping-data-flow"></a>Transformación Ordenar en el flujo de datos de asignación
 
@@ -22,7 +22,7 @@ ms.locfileid: "81606336"
 La transformación Ordenar permite ordenar las filas entrantes de la secuencia de datos actual. Puede elegir columnas individuales y ordenarlas en orden ascendente o descendente.
 
 > [!NOTE]
-> Los flujos de datos de asignación se ejecutan en clústeres Spark con datos distribuidos en varios nodos y particiones. Si decide volver a particionar los datos en una transformación posterior, puede perder la ordenación porque los datos se vuelven a mezclar.
+> Los flujos de datos de asignación se ejecutan en clústeres Spark con datos distribuidos en varios nodos y particiones. Si decide volver a particionar los datos en una transformación posterior, puede perder la ordenación porque los datos se vuelven a mezclar. La mejor manera de mantener el criterio de ordenación en el flujo de datos es establecer una sola partición en la pestaña Optimizar de la transformación y mantener la transformación Ordenar lo más parecida posible al receptor.
 
 ## <a name="configuration"></a>Configuración
 

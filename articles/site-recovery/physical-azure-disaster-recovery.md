@@ -4,12 +4,12 @@ description: Aprenda a configurar la recuperación ante desastres para servidore
 ms.service: site-recovery
 ms.topic: article
 ms.date: 11/12/2019
-ms.openlocfilehash: 5775f8ed9b657502f4865f3c4f311ea0dcd269ea
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: 056c8118f2b1ab483e31771c4b8ead3fe6da4598
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106581547"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107949604"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configurar la recuperación ante desastres para servidores físicos locales en Azure
 
@@ -48,7 +48,7 @@ Antes de empezar, tenga en cuenta lo siguiente:
 Obtenga una [cuenta de Microsoft Azure](https://azure.microsoft.com/).
 
 - Puede comenzar con una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
-- Obtenga información sobre los [precios de Site Recovery](site-recovery-faq.md#pricing) y conozca los [detalles de los precios](https://azure.microsoft.com/pricing/details/site-recovery/).
+- Obtenga información sobre los [precios de Site Recovery](/azure/site-recovery/site-recovery-faq#pricing) y conozca los [detalles de los precios](https://azure.microsoft.com/pricing/details/site-recovery/).
 - Averigüe qué [regiones se admiten](https://azure.microsoft.com/pricing/details/site-recovery/) en Site Recovery.
 
 ### <a name="verify-azure-account-permissions"></a>Comprobar los permisos de cuenta de Azure

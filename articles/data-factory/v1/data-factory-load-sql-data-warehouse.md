@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 5acae7c90efbf178fad199177fa6e0886e497fdf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f6aa32cd5408c6a82716096d855203157f729f48
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100371216"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108123616"
 ---
 # <a name="load-1-tb-into-azure-synapse-analytics-under-15-minutes-with-data-factory"></a>Carga de 1 TB en Azure Synapse Analytics en 15 minutos con Data Factory
 > [!NOTE]
@@ -205,7 +205,7 @@ Estas son algunos de los procedimientos recomendados para la ejecución de la ba
 * Para conseguir una mayor velocidad de carga, considere la posibilidad de utilizar un montón para los datos transitorios.
 * Cree estadísticas después de finalizar la carga en Azure Synapse Analytics.
 
-Consulte [Procedimientos recomendadas para Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-best-practices.md) para más información.
+Consulte [Procedimientos recomendadas para Azure Synapse Analytics](../../synapse-analytics/sql/best-practices-dedicated-sql-pool.md) para más información.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Asistente para copia de Data Factory](data-factory-copy-wizard.md): este artículo proporciona detalles sobre el Asistente para copia.

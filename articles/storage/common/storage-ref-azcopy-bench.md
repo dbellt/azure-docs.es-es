@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: c1028d0a4a458746c08fd6fa4f16aa952d9962a2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1e49e787854069c2fcea30df7a43c3aacdd21b9e
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87282014"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107502035"
 ---
 # <a name="azcopy-benchmark"></a>azcopy benchmark
 
@@ -38,6 +38,12 @@ El comando de prueba comparativa ejecuta el mismo proceso que "copy", con las si
 El modo de prueba comparativa se ajustará automáticamente al número de conexiones TCP paralelas que proporcione el máximo rendimiento. Mostrará ese número al final. Para evitar el ajuste automático, establezca la variable de entorno AZCOPY_CONCURRENCY_VALUE en un número específico de conexiones. 
 
 Se admiten todos los tipos de autenticación habituales. Sin embargo, el enfoque más conveniente para las pruebas comparativas de carga suele ser crear un contenedor vacío con un token de SAS y usar la autenticación de SAS. (El modo de descarga requiere que haya un conjunto de datos de prueba en el contenedor de destino).
+
+## <a name="related-conceptual-articles"></a>Artículos conceptuales relacionados
+
+- [Introducción a AzCopy](storage-use-azcopy-v10.md)
+- [Optimización del rendimiento de AzCopy v10 con Azure Storage](storage-use-azcopy-optimize.md)
+
 
 ## <a name="examples"></a>Ejemplos
 

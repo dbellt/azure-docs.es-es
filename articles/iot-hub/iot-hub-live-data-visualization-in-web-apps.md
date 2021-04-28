@@ -12,12 +12,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
 - devx-track-azurecli
-ms.openlocfilehash: 53b5add7526b0c20487e8fe3adb0b8ebe207a2ce
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4f2f0678b421ac6965b2848cc25564b4e95c7c6b
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102200031"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567071"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>Visualización de datos del sensor en tiempo real desde Azure IoT Hub en una aplicación web
 
@@ -25,23 +25,11 @@ ms.locfileid: "102200031"
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-## <a name="what-you-learn"></a>Conocimientos que adquirirá
+En este artículo obtendrá información sobre cómo visualizar los datos del sensor en tiempo real que recibe IoT Hub con una aplicación web node.js que se ejecuta en el equipo local. Después de ejecutar la aplicación web localmente, si lo desea, puede seguir los pasos para hospedar la aplicación web en Azure App Service. Si quiere intentar visualizar los datos en su IoT Hub con Power BI, vea [Visualización de datos del sensor en tiempo real desde Azure IoT Hub mediante Power BI](iot-hub-live-data-visualization-in-power-bi.md).
 
-En este tutorial, obtendrá información sobre cómo visualizar los datos del sensor en tiempo real que recibe IoT Hub con una aplicación web node.js que se ejecuta en el equipo local. Después de ejecutar la aplicación web localmente, si lo desea, puede seguir los pasos para hospedar la aplicación web en Azure App Service. Si quiere intentar visualizar los datos en su IoT Hub con Power BI, vea [Visualización de datos del sensor en tiempo real desde Azure IoT Hub mediante Power BI](iot-hub-live-data-visualization-in-power-bi.md).
+## <a name="prerequisites"></a>Requisitos previos
 
-## <a name="what-you-do"></a>Qué debe hacer
-
-* Agregar un grupo de consumidores a la instancia de IoT Hub que la aplicación web usará para leer datos del sensor
-* Descargar el código de la aplicación web desde GitHub
-* Examen del código de la aplicación web
-* Configurar las variables de entorno para contener los artefactos de IoT Hub necesarios para la aplicación web
-* Ejecutar la aplicación web en la máquina de desarrollo
-* Abrir la aplicación web para ver los datos de temperatura y de humedad en tiempo real desde IoT Hub
-* (Opcional) Usar la CLI de Azure para hospedar la aplicación web en Azure App Service
-
-## <a name="what-you-need"></a>Lo que necesita
-
-* Completar el tutorial [Conectar el simulador en línea de Raspberry Pi a Azure IoT Hub (Node.js)](iot-hub-raspberry-pi-web-simulator-get-started.md) o uno de los tutoriales del dispositivo, por ejemplo, [Conectar Raspberry Pi a Azure IoT Hub (Node.js)](iot-hub-raspberry-pi-kit-node-get-started.md). Estos tutoriales abarcan los requisitos siguientes:
+* Realice el tutorial del [simulador en línea de Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md), o bien uno de los tutoriales del dispositivo. Por ejemplo, puede ir a [Raspberry Pi con node.js](iot-hub-raspberry-pi-kit-node-get-started.md) o a uno de los inicios rápidos de [envío de telemetría](quickstart-send-telemetry-dotnet.md). Estos artículos abarcan los requisitos siguientes:
 
   * Una suscripción de Azure activa.
   * Un IoT Hub en su suscripción.

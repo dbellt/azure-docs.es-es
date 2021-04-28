@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: quickstart
 ms.date: 03/17/2021
 ms.custom: template-quickstart
-ms.openlocfilehash: 8cecd1b57395fa51fd95c824e88885d9c3ae3f09
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7056027965bd5e0f41c07835d21b454ab772a55a
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105023306"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108132258"
 ---
 # <a name="set-up-your-azure-percept-dk-and-deploy-your-first-ai-model"></a>Instalación de Azure Percept DK e implementación del primer modelo de inteligencia artificial
 
@@ -130,7 +130,7 @@ Para comprobar si la cuenta de Azure tiene los roles de "propietario" o "colabor
     - Seleccione el plan de tarifa S1 (estándar).
 
     > [!NOTE]
-    > Si a la larga necesita un mayor [rendimiento de los mensajes](https://docs.microsoft.com/azure/iot-hub/iot-hub-scaling#message-throughput) con las aplicaciones de IA perimetrales, tiene la posibilidad de [actualizar IOT Hub a un nivel estándar superior](https://docs.microsoft.com/azure/iot-hub/iot-hub-upgrade) en Azure Portal en cualquier momento. Los niveles B y F no admiten Azure Percept.
+    > Si a la larga necesita un mayor [rendimiento de los mensajes](../iot-hub/iot-hub-scaling.md#message-throughput) con las aplicaciones de IA perimetrales, tiene la posibilidad de [actualizar IOT Hub a un nivel estándar superior](../iot-hub/iot-hub-upgrade.md) en Azure Portal en cualquier momento. Los niveles B y F no admiten Azure Percept.
 
 1. La implementación de IoT Hub puede tardar algunos minutos. Cuando finalice, haga clic en **Registrar**.
 

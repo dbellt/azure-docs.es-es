@@ -10,12 +10,12 @@ ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7229dabd690e5932fbd297992e09782eda85a002
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 841391778e0fb8c00f503aa0cc79b5562661e309
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96744149"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530353"
 ---
 # <a name="authentication-methods-in-azure-active-directory---security-questions"></a>Métodos de autenticación en Azure Active Directory: preguntas de seguridad
 
@@ -93,7 +93,7 @@ Para comenzar, consulte [Tutorial del autoservicio de restablecimiento de contra
 
 Para obtener más información sobre los conceptos del SSPR, consulte [Funcionamiento: Autoservicio de restablecimiento de contraseña de Azure AD][concept-sspr].
 
-Más información sobre la configuración de métodos de autenticación con la [Versión beta de la API REST Microsoft Graph API](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
+Más información sobre la configuración de métodos de autenticación con la [API REST de Microsoft Graph](/graph/api/resources/authenticationmethods-overview).
 
 <!-- INTERNAL LINKS -->
 [tutorial-sspr]: tutorial-enable-sspr.md

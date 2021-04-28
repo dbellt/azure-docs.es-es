@@ -4,16 +4,17 @@ description: En este artículo se ofrece información general sobre la autentica
 keywords: seguridad de automatización, automatización segura; autenticación de automatización
 services: automation
 ms.subservice: process-automation
-ms.date: 02/26/2021
+ms.date: 04/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: c559a81b17b92f48b2d51b7c2d26325d6a1b1cca
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 546407ce7286cebc04d3c86422f6242051d1dbf3
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101708907"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107830437"
 ---
-# <a name="automation-account-authentication-overview"></a>Introducción a la autenticación de cuentas de Automation
+# <a name="azure-automation-account-authentication-overview"></a>Introducción a la autenticación de cuentas de Azure Automation
 
 Azure Automation le permite automatizar tareas en recursos de Azure, locales y de otros proveedores de servicios en la nube como Amazon Web Services (AWS). Puede usar runbooks para automatizar las tareas, o bien una instancia de Hybrid Runbook Worker si tiene que administrar procesos empresariales u operativos fuera de Azure. Para trabajar en cualquiera de estos entornos, se requieren permisos para proteger el acceso a los recursos con los derechos mínimos necesarios.
 
@@ -30,6 +31,31 @@ Una cuenta de Azure Automation es diferente de su cuenta Microsoft o de las cuen
 Los recursos de Automation de cada cuenta de Automation están asociados a una sola región de Azure, pero la cuenta puede administrar todos los recursos de la suscripción de Azure. El principal motivo para crear cuentas de Automation en distintas regiones es si tiene directivas que requieren que los datos y recursos se aíslen en una región específica.
 
 Todas las tareas que se crean en los recursos con Azure Resource Manager y los cmdlets de PowerShell en Azure Automation deben autenticarse en Azure mediante la autenticación basada en credenciales de la identidad organizativa de Azure Active Directory (Azure AD).
+
+## <a name="managed-identities-preview"></a>Identidades administradas (versión preliminar)
+
+Una identidad administrada de Azure Active Directory (Azure AD) permite al runbook acceder fácilmente a otros recursos protegidos por Azure AD. La identidad está administrada por la plataforma Azure y no requiere que aprovisione o rote los secretos. Para más información acerca de las identidades administradas en Azure AD, consulte [Identidades administradas para recursos de Azure](/azure/active-directory/managed-identities-azure-resources/overview).
+
+Estas son algunas de las ventajas de usar las identidades administradas:
+
+- Puede usar las identidades administradas para autenticarse en cualquier servicio de Azure que admita la autenticación de Azure AD. Se pueden usar para la nube, así como para trabajos híbridos. Los trabajos híbridos pueden usar identidades administradas cuando se ejecutan en una instancia de Hybrid Runbook Worker que se ejecuta en una máquina virtual, que puede ser o no de Azure.
+
+- Las identidades administradas se pueden usar sin ningún costo adicional.
+
+- No es necesario renovar el certificado que usa la cuenta de ejecución de Automation.
+
+- No tiene que especificar el objeto de conexión de ejecución en el código del runbook. Puede acceder a los recursos con la identidad administrada de la cuenta de Automation desde un runbook sin crear certificados, conexiones, cuentas de ejecución, etc.
+
+A una cuenta de Automation se le pueden conceder dos tipos de identidades:
+
+- Una identidad asignada por el sistema está asociada a la aplicación y se elimina si se elimina la aplicación. Una aplicación solo puede tener una identidad asignada por el sistema.
+
+- Una identidad asignada por el usuario es un recurso de Azure independiente que puede asignarse a la aplicación. Una aplicación puede tener varias identidades asignadas por el usuario.
+
+>[!NOTE]
+> Las identidades asignadas por el usuario aún no se admiten.
+
+Para más información acerca del uso de identidades administradas, consulte [Habilitación de la identidad administrada para Azure Automation (versión preliminar)](enable-managed-identity-for-automation.md).
 
 ## <a name="run-as-accounts"></a>Cuentas de ejecución
 
@@ -120,3 +146,4 @@ Con los runbooks que utilizan instancias de Hybrid Runbook Worker en máquinas v
 * Para crear una cuenta de Automation desde Azure Portal, consulte [Creación de una cuenta independiente de Azure Automation](automation-create-standalone-account.md).
 * Si prefiere crear su cuenta mediante una plantilla, consulte [Creación de una cuenta de Automation con una plantilla de Azure Resource Manager](quickstart-create-automation-account-template.md).
 * Para la autenticación con Amazon Web Services, consulte [Autenticación de runbooks de Azure Automation con Amazon Web Services](automation-config-aws-account.md).
+* Para ver una lista de los servicios de Azure que admiten la característica Managed Identities for Azure Resources, consulte [Services that support managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities) (Servicios que admiten la característica Managed Identities for Azure Resources).

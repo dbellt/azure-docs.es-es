@@ -4,12 +4,12 @@ description: Diagnósticos de transacción de extremo a extremo de Application I
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.reviewer: sdash
-ms.openlocfilehash: 7623b7131e6344a67c468d0436884ebfef9b0058
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 60365079c295e154ff0a38277c9ccdec35157e6e
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96746104"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107481402"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Diagnósticos de transacción entre componentes unificados
 
@@ -94,3 +94,6 @@ Las escalas de tiempo se ajustan para los desfases temporales en el gráfico de 
 
 es así por diseño. Todos los elementos relacionados, en todos los componentes, están disponibles en el lado izquierdo (secciones superior e inferior). La nueva experiencia tiene dos elementos relacionados que no se tratan en el lado izquierdo: todos los datos de telemetría de los cinco minutos anteriores y posteriores a este evento y la escala de tiempo del usuario.
 
+*Veo más eventos de los esperados en la experiencia de diagnóstico de transacciones al usar el SDK para JavaScript de Application Insights. ¿Hay alguna manera de ver menos eventos por cada transacción?*
+
+La experiencia de diagnóstico de transacciones muestra todos los datos de telemetría de una [sola operación](correlation.md#data-model-for-telemetry-correlation) que comparten un [identificador de operación](data-model-context.md#operation-id). De forma predeterminada, el SDK para JavaScript de Application Insights crea una nueva operación para cada vista de página única. En una aplicación de página única (SPA), solo se generará un evento de vista de página y se usará un identificador de operación único para todos los datos de telemetría generados, lo que puede dar lugar a que muchos eventos se correlacionen con la misma operación. En estos escenarios, puede usar el seguimiento automático de rutas para crear automáticamente nuevas operaciones para la navegación en la aplicación de página única. Debe activar [enableAutoRouteTracking](javascript.md#single-page-applications) para que se genere una vista de página cada vez que se actualice la ruta URL (se produce la vista de página lógica). Si desea actualizar manualmente el identificador de operación, puede hacerlo mediante una llamada a `appInsights.properties.context.telemetryTrace.traceID = Microsoft.ApplicationInsights.Telemetry.Util.generateW3CId()`. Al desencadenar manualmente un evento PageView, también se restablecerá el identificador de la operación.

@@ -4,22 +4,21 @@ description: En este artículo se enumeran recomendaciones de seguridad de Azure
 author: memildin
 ms.service: security-center
 ms.topic: reference
-ms.date: 04/06/2021
+ms.date: 04/26/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: e994aead1840fd3ef9b57e92cf95e94837608d7a
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: 0457cba053e79907780b52aee00e25ea78987c6b
+ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107719140"
+ms.lasthandoff: 04/26/2021
+ms.locfileid: "108001897"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Guía de referencia sobre las recomendaciones de seguridad
 
 En este artículo se enumeran las recomendaciones que puede ver en Azure Security Center. Las recomendaciones que se muestran en su entorno dependen de los recursos que se van a proteger y de la configuración personalizada.
 
-Las recomendaciones de Security Center se basan en [Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction).
-Azure Security Benchmark es el conjunto de directrices específico de Azure creado por Microsoft para ofrecer los procedimientos recomendados de seguridad y cumplimiento basados en marcos de cumplimiento comunes. Esta prueba comparativa, que cuenta con un amplísimo respaldo, se basa en los controles del [Centro de seguridad de Internet (CIS)](https://www.cisecurity.org/benchmark/azure/) y del [Instituto Nacional de Normas y Tecnología (NIST)](https://www.nist.gov/), con un enfoque en seguridad centrada en la nube.
+Las recomendaciones de Security Center se basan en [Azure Security Benchmark](../security/benchmarks/introduction.md). Azure Security Benchmark es el conjunto de directrices específico de Azure creado por Microsoft para ofrecer los procedimientos recomendados de seguridad y cumplimiento basados en marcos de cumplimiento comunes. Esta prueba comparativa, que cuenta con un amplísimo respaldo, se basa en los controles del [Centro de seguridad de Internet (CIS)](https://www.cisecurity.org/benchmark/azure/) y del [Instituto Nacional de Normas y Tecnología (NIST)](https://www.nist.gov/), con un enfoque en seguridad centrada en la nube.
 
 Para obtener información acerca de cómo responder a estas recomendaciones, consulte [Recomendaciones de corrección en Azure Security Center](security-center-remediate-recommendations.md).
 

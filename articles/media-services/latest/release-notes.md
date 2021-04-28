@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 03/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: 796abf8506a832c4053b505e903bb24ef9d09004
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 40d61de140cb0b3537c56af37eb18f004a72c148
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106279041"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108138902"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de la versión de Azure Media Services v3
 
@@ -84,7 +84,7 @@ La versión 3 proporciona:
  
 - Compatibilidad ininterrumpida con eventos en directo
 - API de REST de ARM y SDK de cliente para .NET Core, Node.js, Python, Java, Go y Ruby.
-- Claves administradas por el cliente, integración de almacenamiento de confianza, compatibilidad con vínculos privados, [ etc.](https://docs.microsoft.com/azure/media-services/latest/migrate-v-2-v-3-migration-benefits)
+- Claves administradas por el cliente, integración de almacenamiento de confianza, compatibilidad con vínculos privados, [ etc.](./migrate-v-2-v-3-migration-benefits.md)
 
 #### <a name="action-required"></a>Acción requerida
 

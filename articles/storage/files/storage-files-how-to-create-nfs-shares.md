@@ -4,16 +4,16 @@ description: Obtenga información sobre cómo crear un recurso compartido de arc
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/22/2021
+ms.date: 04/05/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: b085b9991175d8cd43e2dac0db80c5af4e703c34
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b549c625f0a6ff0480eafc38f84d292e66350950
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102521244"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107717138"
 ---
 # <a name="how-to-create-an-nfs-share"></a>Procedimiento para crear un recurso compartido NFS
 Los recursos compartidos de archivos de Azure son recursos compartidos de archivos totalmente administrados en la nube. En este artículo se describe la creación de un recurso compartido de archivos que usa el protocolo NFS. Para obtener más información sobre ambos protocolos, consulte [Protocolos de recurso compartido de archivos de Azure](storage-files-compare-protocols.md).
@@ -107,25 +107,24 @@ Para crear una cuenta de almacenamiento de FileStorage, vaya a Azure Portal.
 
 1. En Azure Portal, seleccione **Cuentas de almacenamiento** en el menú de la izquierda.
 
-    ![Página principal de Azure Portal con la selección de la cuenta de almacenamiento](media/storage-how-to-create-premium-fileshare/azure-portal-storage-accounts.png)
+    ![Página principal de Azure Portal con la selección de la cuenta de almacenamiento.](media/storage-how-to-create-premium-fileshare/azure-portal-storage-accounts.png)
 
-2. En la ventana **Cuentas de almacenamiento** que aparece, elija **Agregar**.
-3. Seleccione la suscripción en la que se va a crear la cuenta de almacenamiento.
-4. Selección del grupo de recursos en el que se va a crear la cuenta de almacenamiento
+1. En la ventana **Cuentas de almacenamiento** que aparece, elija **Agregar**.
+1. Seleccione la suscripción en la que se va a crear la cuenta de almacenamiento.
+1. Selección del grupo de recursos en el que se va a crear la cuenta de almacenamiento
+1. Después, escriba un nombre para la cuenta de almacenamiento. El nombre que elija debe ser único en Azure. El nombre debe tener también una longitud de entre 3 y 24 caracteres y solo puede contener números y letras minúsculas.
+1. Seleccione una ubicación para la cuenta de almacenamiento o utilice la ubicación predeterminada.
+1. En **Rendimiento**, seleccione **Premium**.
 
-5. Después, escriba un nombre para la cuenta de almacenamiento. El nombre que elija debe ser único en Azure. El nombre debe tener también una longitud de entre 3 y 24 caracteres y solo puede contener números y letras minúsculas.
-6. Seleccione una ubicación para la cuenta de almacenamiento o utilice la ubicación predeterminada.
-7. En **Rendimiento**, seleccione **Premium**.
+    Tiene que seleccionar **Premium** para que **Recursos compartidos de archivos** sea una opción disponible en la lista desplegable **Tipo de cuenta**.
 
-    Debe seleccionar **Premium** para que **FileStorage** sea una opción disponible en la lista desplegable **Tipo de cuenta**.
+1. En **Tipo de cuenta prémium**, elija **Recursos compartidos de archivos**.
 
-8. Seleccione **Tipo de cuenta** y elija **FileStorage**.
-9. Mantenga la opción **Replicación** establecida en su valor predeterminado de **Almacenamiento con redundancia local (LRS)** .
+    :::image type="content" source="media/storage-how-to-create-file-share/files-create-smb-share-performance-premium.png" alt-text="Captura de pantalla del rendimiento prémium seleccionado.":::
 
-    ![Procedimientos para crear una cuenta de almacenamiento para un recurso compartido de archivos Premium](media/storage-how-to-create-premium-fileshare/create-filestorage-account.png)
-
-10. Seleccione **Revisar y crear** para revisar la configuración de la cuenta de almacenamiento y crear la cuenta.
-11. Seleccione **Crear**.
+1. Mantenga la opción **Replicación** establecida en su valor predeterminado de **Almacenamiento con redundancia local (LRS)** .
+1. Seleccione **Revisar y crear** para revisar la configuración de la cuenta de almacenamiento y crear la cuenta.
+1. Seleccione **Crear**.
 
 Una vez que se ha creado el recurso de la cuenta de almacenamiento, vaya hasta él.
 
@@ -180,7 +179,7 @@ Ahora que ha creado una cuenta de FileStorage y ha configurado la red, puede cre
     
 1. Seleccione **Crear**.
 
-    :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/create-nfs-file-share.png" alt-text="Captura de pantalla de la hoja de creación de recurso compartido de archivos":::
+    :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/files-nfs-create-share.png" alt-text="Captura de pantalla de la hoja de creación de recursos compartidos de archivos.":::
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

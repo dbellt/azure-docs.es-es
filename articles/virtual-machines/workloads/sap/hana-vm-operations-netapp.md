@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 01/23/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: de8af71928ad6a83d4930e4e6e0b8dd257148111
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 09fc8f9697f418533131e86c069afd3157a71c78
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101666621"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108142988"
 ---
 # <a name="nfs-v41-volumes-on-azure-netapp-files-for-sap-hana"></a>Volúmenes NFS v4.1 en Azure NetApp Files para SAP HANA
 
@@ -137,7 +137,7 @@ Esto mismo se aplica al volumen que se usa para escribir copias de seguridad com
  
 
 ## <a name="backup"></a>Copia de seguridad
-Además de las copias de seguridad de streaming y el servicio Azure Backup, que realiza copias de seguridad de bases de datos de SAP HANA, tal como se describe en el artículo [Guía de copia de seguridad de SAP HANA en Azure Virtual Machines](./sap-hana-backup-guide.md), Azure NetApp Files permite realizar copias de seguridad de instantáneas basadas en almacenamiento. 
+Además de las copias de seguridad de streaming y el servicio Azure Backup, que realiza copias de seguridad de bases de datos de SAP HANA, tal como se describe en el artículo [Guía de copia de seguridad de SAP HANA en Azure Virtual Machines](../../../backup/sap-hana-db-about.md), Azure NetApp Files permite realizar copias de seguridad de instantáneas basadas en almacenamiento. 
 
 SAP HANA admite lo siguiente:
 

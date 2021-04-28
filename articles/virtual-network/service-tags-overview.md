@@ -10,15 +10,15 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/30/2020
+ms.date: 4/14/2021
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 2d14ca2423d34926a9e297823a6515c2c5dde06a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4a18e0f257ac8d7b7d981d53249cf29f2f8f38bd
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105607123"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107790156"
 ---
 # <a name="virtual-network-service-tags"></a>Etiquetas de servicio de red virtual
 <a name="network-service-tags"></a>
@@ -135,11 +135,13 @@ Puede recuperar mediante programación la lista actual de etiquetas de servicio,
 
 - [REST](/rest/api/virtualnetwork/servicetags/list)
 - [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag)
-- [CLI de Azure](/cli/azure/network#az-network-list-service-tags)
+- [CLI de Azure](/cli/azure/network#az_network_list_service_tags)
 
 > [!NOTE]
-> Si bien se encuentra en versión preliminar pública, Discovery API podría devolver información menos actual que la información devuelta por las descargas de JSON. (Consulte la sección siguiente).
+> Los nuevos datos de la etiqueta de servicio tardan hasta 4 semanas en propagarse en los resultados de la API. Cuando esto suceda, el número de cambios en los metadatos de respuesta se incrementará. Puede que haya diferencias temporales en los resultados cuando se especifiquen valores de ubicación diferentes. Al usar los resultados para crear reglas de grupo de seguridad de red, debe establecer el parámetro de ubicación para que coincida con la región del grupo de seguridad de red. 
 
+> [!NOTE]
+> Los datos de API representarán esas etiquetas que se pueden usar con reglas de grupo de seguridad de red, un subconjunto de las etiquetas que se encuentran actualmente en el archivo JSON descargable. Durante la versión preliminar pública, no garantizamos que los datos seguirán siendo los mismos de una actualización a la siguiente. 
 
 ### <a name="discover-service-tags-by-using-downloadable-json-files"></a>Detección de etiquetas de servicio mediante archivos JSON descargables 
 Puede descargar archivos JSON que contengan la lista actual de etiquetas de servicio, junto con los detalles del intervalo de direcciones IP. Estas listas se actualizan y publican semanalmente. Las ubicaciones de cada nube son:

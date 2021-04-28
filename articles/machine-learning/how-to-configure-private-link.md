@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 02/09/2021
-ms.openlocfilehash: 92b5283e5779cc79ce0a745190b57884a6ca0f7e
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 0ea4e3ae0113608203dad63f636ae4adb4eeff9b
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106056018"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107737521"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace"></a>Configuración de Azure Private Link para un área de trabajo de Azure Machine Learning
 
@@ -27,7 +27,7 @@ Azure Private Link le permite conectarse a su área de trabajo mediante un punto
 > [!IMPORTANT]
 > Azure Private Link no afecta al plano de control de Azure (operaciones de administración), como la eliminación del área de trabajo o la administración de los recursos de proceso. Por ejemplo, crear, actualizar o eliminar un destino de proceso. Estas operaciones se realizan sobre la red pública de Internet como de costumbre. Las operaciones del plano de datos, como el uso de Azure Machine Learning Studio, las API (incluidas las canalizaciones publicadas) o el SDK usan el punto de conexión privado.
 >
-> Si usa Mozilla Firefox, puede encontrar problemas al intentar acceder al punto de conexión privado del área de trabajo. Este problema puede estar relacionado con DNS a través de HTTPS en Mozilla. Como solución alternativa, se recomienda usar Microsoft Edge de Google Chrome.
+> Si usa Mozilla Firefox, puede encontrar problemas al intentar acceder al punto de conexión privado del área de trabajo. Este problema puede estar relacionado con DNS a través de HTTPS en Mozilla. Como solución alternativa, se recomienda usar Microsoft Edge o Google Chrome.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 

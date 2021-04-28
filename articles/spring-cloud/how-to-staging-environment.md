@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 9b3a5659e91ca90d31500b10526e3e2179d4e7da
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d4c2be170ad66b12a4ea176937565755ec514832
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105046120"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108134652"
 ---
 # <a name="set-up-a-staging-environment-in-azure-spring-cloud"></a>Configuración de un entorno de ensayo en Azure Spring Cloud
 
@@ -185,4 +185,4 @@ az spring-cloud app deployment delete -n <staging-deployment-name> -g <resource-
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [CI/CD para Azure Spring Cloud](./spring-cloud-howto-cicd.md?pivots=programming-language-java)
+* [CI/CD para Azure Spring Cloud](./how-to-cicd.md?pivots=programming-language-java)

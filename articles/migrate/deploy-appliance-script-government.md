@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 03/13/2021
-ms.openlocfilehash: c4ca8d8ac24ac174158957e44b5eabe4a89a5340
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: b0bc2b69a4a1ec31cfa560d51920378fe1ab52b8
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104775211"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107714801"
 ---
 # <a name="set-up-an-appliance-in-azure-government"></a>Configuración de una aplicación en Azure Government 
 
@@ -26,7 +26,7 @@ Siga este artículo para implementar un [dispositivo Azure Migrate](./migrate-ap
 
 El script configura el dispositivo de Azure Migrate en un servidor físico o uno existente.
 
-- El servidor que hará de dispositivo debe ejecutar Windows Server 2016, con 32 GB de memoria, ocho CPU virtuales, cerca de 80 GB de almacenamiento en disco y un conmutador virtual externo. Requiere una dirección IP estática o dinámica y acceso a Internet.
+- El servidor que hará de dispositivo debe ejecutar Windows Server 2016, con 32 GB de memoria, ocho CPU virtuales, cerca de 80 GB de almacenamiento en disco y un conmutador virtual externo. Requiere una dirección IP estática o dinámica. 
 - Antes de implementar el dispositivo, consulte los requisitos detallados del dispositivo para las [servidores en VMware](migrate-appliance.md#appliance---vmware), [en Hyper-V](migrate-appliance.md#appliance---hyper-v)y [servidores físicos](migrate-appliance.md#appliance---physical).
 - No ejecute el script en un dispositivo de Azure Migrate existente.
 

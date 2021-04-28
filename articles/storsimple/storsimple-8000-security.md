@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2018
 ms.author: alkohli
-ms.openlocfilehash: 72bf252488878c8b6fabb2ea2d61658a2cd87e14
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ecfeffb490c54d24a6254961cf17b13f0b6a34bc
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94966214"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108076678"
 ---
 # <a name="storsimple-security-and-data-protection"></a>Protección de datos y seguridad de StorSimple
 
@@ -269,7 +269,7 @@ Las siguientes son algunas preguntas y respuestas acerca de la seguridad y de Mi
 
 **R:** Puede descargar el nuevo certificado desde el servicio StorSimple Device Manager y, a continuación, proporcionarlo para instalarlo en el almacén de certificados de sus clientes de acceso remoto. Para obtener instrucciones, vaya a:
 
-* [Cmdlet Import-Certificate](/powershell/module/pkiclient/import-certificate)
+* [Cmdlet Import-Certificate](/powershell/module/pki/import-certificate)
 
 **P:** ¿Mis datos están protegidos si el servicio StorSimple Device Manager se pone en peligro?
 

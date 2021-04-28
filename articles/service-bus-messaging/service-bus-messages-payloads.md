@@ -3,12 +3,12 @@ title: Mensajes, cargas y serialización de Azure Service Bus | Microsoft Docs
 description: En este artículo se proporciona información general sobre los mensajes, las cargas, el enrutamiento de mensajes y la serialización de Azure Service Bus.
 ms.topic: article
 ms.date: 04/14/2021
-ms.openlocfilehash: 2ed65054f61aee4b9fb6157fc7a36e469c7a672c
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: 732c331561a8867310d4f4f1541a1de9b8e2a75f
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107515301"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108138632"
 ---
 # <a name="messages-payloads-and-serialization"></a>Mensajes, cargas y serialización
 
@@ -18,7 +18,7 @@ El modelo de objetos de los clientes de Service Bus oficial para .NET y Java ref
  
 Un mensaje de Service Bus consta de una sección de carga binaria, que Service Bus nunca controla de ninguna forma en el servicio, y dos conjuntos de propiedades. Las *propiedades de agente* están predefinidas por el sistema. Estas propiedades predefinidas controlan la funcionalidad en el nivel de mensaje en el agente o se asignan a los elementos de metadatos comunes y estandarizados. Las *propiedades de usuario* son una colección de pares clave-valor que la aplicación puede definir y establecer.
  
-En la tabla siguiente se enumeran las propiedades de agente predefinidas. Los nombres se utilizan con todas las API de cliente oficiales y también en el objeto [BrokerProperties](https://docs.microsoft.com/rest/api/servicebus/introduction) JSON de la asignación de protocolo HTTP.
+En la tabla siguiente se enumeran las propiedades de agente predefinidas. Los nombres se utilizan con todas las API de cliente oficiales y también en el objeto [BrokerProperties](/rest/api/servicebus/introduction) JSON de la asignación de protocolo HTTP.
  
 Los nombres equivalentes usados en el nivel de protocolo AMQP aparecen entre paréntesis. Aunque los siguientes nombres usan mayúsculas y minúsculas en formato Pascal, tenga en cuenta que los clientes de JavaScript y Python usarían mayúscula en la primera letra de cada palabra excepto la primera y guiones como nexo, respectivamente.
 

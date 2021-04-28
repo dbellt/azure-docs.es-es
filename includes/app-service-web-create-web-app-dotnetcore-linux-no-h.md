@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/22/2020
 ms.author: cephalin
 ms.custom: include file, devx-track-azurecli
-ms.openlocfilehash: 727e49e9086e5800fbbcb4e42a37a8b1a0c1c4b7
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 8f18b31b7e3618d4a39923792dc743c9a6782295
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107513021"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107893283"
 ---
 Cree una [aplicación web](../articles/app-service/overview.md#app-service-on-linux) en el plan de App Service de `myAppServicePlan`. 
 

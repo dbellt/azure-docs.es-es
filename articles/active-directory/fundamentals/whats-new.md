@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81a909d946b55ee8b06d68aa8bee53bc50d2190e
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 50d8ef544029e7097d90651707da24d603bcecc9
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107532304"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108137966"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>¿Cuáles son las novedades de Azure Active Directory?
 
@@ -59,7 +59,7 @@ Los entornos afectados son:
 - Nube comercial de Azure
 - Office 365 GCC y WW
 
-Para obtener orientación adicional, consulte [Habilitar la compatibilidad con TLS 1.2 en el entorno para el desuso de TLS 1.1 y 1.0 de Azure AD](https://docs.microsoft.com/troubleshoot/azure/active-directory/enable-support-tls-environment).
+Para obtener orientación adicional, consulte [Habilitar la compatibilidad con TLS 1.2 en el entorno para el desuso de TLS 1.1 y 1.0 de Azure AD](/troubleshoot/azure/active-directory/enable-support-tls-environment).
 
 ---
 
@@ -79,7 +79,7 @@ En el caso de las organizaciones que usan SharePoint Online con múltiples geogr
 **Categoría del servicio:** Otros  
 **Funcionalidad del producto:** Experiencia para el desarrollador
  
-Los clientes ahora pueden ver, restaurar y quitar permanentemente los registros de aplicaciones eliminados de Azure Portal. Esto solo se aplica a las aplicaciones asociadas a un directorio, no a las aplicaciones de un cuenta personal de Microsoft. [Más información](../develop/quickstart-restore-app.md).
+Los clientes ahora pueden ver, restaurar y quitar permanentemente los registros de aplicaciones eliminados de Azure Portal. Esto solo se aplica a las aplicaciones asociadas a un directorio, no a las aplicaciones de un cuenta personal de Microsoft. [Más información](../develop/howto-restore-app.md).
  
 ---
 
@@ -153,7 +153,7 @@ Los clientes ahora pueden actualizar el tipo de usuario de Azure AD cuando actu
 **Categoría del servicio:** Azure AD Domain Services  
 **Funcionalidad del producto:** Azure AD Domain Services
  
-La funcionalidad de los conjuntos de réplicas en Azure AD DS ahora está disponible con carácter general. [Más información](https://docs.microsoft.com/azure/active-directory-domain-services/concepts-replica-sets).
+La funcionalidad de los conjuntos de réplicas en Azure AD DS ahora está disponible con carácter general. [Más información](../../active-directory-domain-services/concepts-replica-sets.md).
  
 ---
 
@@ -210,7 +210,7 @@ Para más información acerca de cómo proteger mejor una organización mediante
 **Categoría del servicio:** MS Graph  
 **Funcionalidad del producto:** B2B/B2C
 
-[MS Graph API para la personalización de marca de empresa](https://docs.microsoft.com/graph/api/resources/organizationalbrandingproperties) está disponible para la experiencia de inicio de sesión Azure AD o de Microsoft 365 para permitir la administración de los parámetros de personalización de marca mediante programación.
+[MS Graph API para la personalización de marca de empresa](/graph/api/resources/organizationalbrandingproperties) está disponible para la experiencia de inicio de sesión Azure AD o de Microsoft 365 para permitir la administración de los parámetros de personalización de marca mediante programación.
 
 ---
 
@@ -768,7 +768,7 @@ Los entornos afectados son:
 
 Anuncio relacionado: todas las combinaciones de cliente-servidor y explorador-servidor deben usar los conjuntos de cifrado modernos y TLS 1.2 para mantener una conexión segura con Azure Active Directory para los servicios de Azure, Office 365 y Microsoft 365. Este cambio está relacionado con la [entrada en desuso de TLS 1.0, TLS 1.1 y el conjunto de cifrado 3DES de Azure Active Directory en la nube US Gov](whats-new.md#azure-active-directory-tls-10-tls-11-and-3des-deprecation-in-us-gov-cloud).
 
-Para obtener instrucciones para quitar las dependencias de los protocolos en desuso, consulte [Habilitar la compatibilidad con TLS 1.2 en el entorno para la desuso de TLS 1.1 y 1.0 de Azure AD](https://docs.microsoft.com/troubleshoot/azure/active-directory/enable-support-tls-environment).
+Para obtener instrucciones para quitar las dependencias de los protocolos en desuso, consulte [Habilitar la compatibilidad con TLS 1.2 en el entorno para la desuso de TLS 1.1 y 1.0 de Azure AD](/troubleshoot/azure/active-directory/enable-support-tls-environment).
 
 ---
 
@@ -997,7 +997,7 @@ Los entornos afectados son:
 - Azure US Gov
 - [Office 365 GCC High y DoD](/microsoft-365/compliance/tls-1-2-in-office-365-gcc)
 
-Para obtener instrucciones para quitar las dependencias de los protocolos en desuso, consulte [Habilitar la compatibilidad con TLS 1.2 en el entorno para la desuso de TLS 1.1 y 1.0 de Azure AD](https://docs.microsoft.com/troubleshoot/azure/active-directory/enable-support-tls-environment).
+Para obtener instrucciones para quitar las dependencias de los protocolos en desuso, consulte [Habilitar la compatibilidad con TLS 1.2 en el entorno para la desuso de TLS 1.1 y 1.0 de Azure AD](/troubleshoot/azure/active-directory/enable-support-tls-environment).
  
 ---
 

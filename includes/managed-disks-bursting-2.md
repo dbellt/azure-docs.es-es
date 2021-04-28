@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/04/2021
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 3035b5d2803ff91e84bc6b47a99963185f9195d3
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4162fe12ff54f16cd5f982f6a576905227c9a107
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102623526"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107821027"
 ---
 ## <a name="disk-level-bursting"></a>Expansión en el nivel de disco
 
@@ -58,6 +58,9 @@ Configuración de disco: SSD prémium de 1 TB (P30) con la expansión de disco 
 La transacción de expansión se cuenta como el número máximo de transacciones de expansión de IOPS o de MBps. De 00:00:01 a 00:00:05, la transacción de expansión acumulada máxima es ((10 000 – 5000), (300 - 200) * 1024 / 256)) * 5 = 25 000 transacciones. De 00:00:06 a 00:00:10, la transacción de expansión acumulada máxima es ((6000 – 5000), (600 - 200) * 1024 / 256)) * 5 = 8000 transacciones. Además, se incluye la tarifa fija de habilitación de expansión para obtener el costo total de habilitar la expansión de disco a petición. 
 
 Puede consultar la [página de precios de Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/) para obtener más información sobre los precios y usar la [calculadora de precios de Azure](https://azure.microsoft.com/pricing/calculator/?service=storage) para evaluar las cargas de trabajo. 
+
+
+Para habilitar la expansión a petición, consulte [Habilitación de la expansión a petición](../articles/virtual-machines/disks-enable-bursting.md).
 
 ### <a name="credit-based-bursting"></a>Expansión basada en crédito
 

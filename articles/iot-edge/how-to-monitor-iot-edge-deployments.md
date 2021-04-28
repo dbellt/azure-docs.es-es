@@ -10,12 +10,12 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: f4f2f8522f6d3d1039673803d946323deb485db9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 39e7bb5c151d490e79ef111589f52f260c3e6c7a
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103200263"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107483170"
 ---
 # <a name="monitor-iot-edge-deployments"></a>Supervisión de las implementaciones de IoT Edge
 
@@ -69,7 +69,7 @@ Si quiere hacer cambios en la implementación, consulte [Modificación de una im
 
 ## <a name="monitor-a-deployment-with-azure-cli"></a>Supervisión de una implementación con la CLI de Azure
 
-Use el comando [az IoT Edge deployment show](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-show) para mostrar los detalles de una sola implementación:
+Use el comando [az iot edge deployment show](/cli/azure/iot/edge/deployment) para mostrar los detalles de una sola implementación:
 
 ```azurecli
 az iot edge deployment show --deployment-id [deployment id] --hub-name [hub name]
@@ -87,7 +87,7 @@ Inspeccione la implementación en la ventana de comandos.  La propiedad **metri
 * **reportedSuccessfulCount**: es una métrica de dispositivo que especifica la cantidad de dispositivos IoT Edge en el informe de implementación correcto, a partir del tiempo de ejecución del cliente de IoT Edge.
 * **reportedFailedCount**: es una métrica de dispositivo que especifica la cantidad de dispositivos IoT Edge en el informe de implementación con errores, a partir del tiempo de ejecución del cliente de IoT Edge.
 
-Puede mostrar una lista de identificadores u objetos de dispositivos para cada una de las métricas mediante el comando [az IoT Edge deployment show-metric](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-show-metric):
+Puede mostrar una lista de identificadores u objetos de dispositivos para cada una de las métricas mediante el comando [az iot edge deployment show-metric](/cli/azure/iot/edge/deployment):
 
 ```azurecli
 az iot edge deployment show-metric --deployment-id [deployment id] --metric-id [metric id] --hub-name [hub name]

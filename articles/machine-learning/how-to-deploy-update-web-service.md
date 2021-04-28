@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning
 description: Aprenda a actualizar un servicio web que ya esté implementado en Azure Machine Learning. Puede actualizar la configuración, como el modelo, el entorno y el script de entrada.
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: gopalv
 author: gvashishtha
 ms.date: 07/31/2020
 ms.custom: deploy
-ms.openlocfilehash: da018f212844e1587ad0e434902e49765f72e521
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5a586d29fd25ee7332f11737345aef8209de8824
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102520104"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107889347"
 ---
 # <a name="update-a-deployed-web-service"></a>Actualización de un servicio web implementado
 
@@ -86,7 +86,7 @@ az ml service update -n myservice --model-metadata-file modelinfo.json
 >
 > Para actualizar el servicio de modo que use un nuevo entorno o script de entrada, cree un [archivo de configuración de inferencia](./reference-azure-machine-learning-cli.md#inference-configuration-schema) y especifíquelo con el parámetro `ic`.
 
-Para más información, consulte la documentación de [az ml service update](/cli/azure/ext/azure-cli-ml/ml/service#ext-azure-cli-ml-az-ml-service-update).
+Para más información, consulte la documentación de [az ml service update](/cli/azure/ml/service#az_ml_service_update).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

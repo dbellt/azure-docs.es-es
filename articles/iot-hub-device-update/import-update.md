@@ -1,26 +1,25 @@
 ---
-title: Procedimientos para la importación de una actualización nueva | Microsoft Docs
-description: Guía de procedimientos para importar una nueva actualización en Hub Device Update para IoT Hub.
+title: Adición de una nueva actualización | Microsoft Docs
+description: Guía paso a paso para agregar una nueva actualización en Device Update for IoT Hub.
 author: andrewbrownmsft
 ms.author: andbrown
-ms.date: 2/11/2021
+ms.date: 4/19/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: ede0d279b8769f49afcdae1cb9352c1b47fb59b5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ebfeee2828b3a36f9cf47891f8aea6d889db85bd
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105932410"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763584"
 ---
-# <a name="import-new-update"></a>Importación de una nueva actualización
-Aprenda a importar una nueva actualización en Device Update para IoT Hub. Si aún no lo ha hecho, asegúrese de familiarizarse con los [conceptos de importación](import-concepts.md) básicos.
+# <a name="add-an-update-to-device-update-for-iot-hub"></a>Adición de una actualización a Device Update for IoT Hub
+Aprenda a agregar una nueva actualización en Device Update for IoT Hub.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 * [Acceso a una instancia de IoT Hub con Device Update para IoT Hub habilitado](create-device-update-account.md). 
-* Un dispositivo IoT (o simulador) aprovisionado para Device Update en IoT Hub.
-   * Si se usa un dispositivo real, necesitará un archivo de imagen de actualización para la actualización de la imagen o un [archivo de manifiesto APT](device-update-apt-manifest.md) para la actualización del paquete.
+* Un dispositivo IoT (o simulador) [aprovisionado para Device Update](device-update-agent-provisioning.md) en IoT Hub.
 * [PowerShell 5](/powershell/scripting/install/installing-powershell) o posterior (incluye las instalaciones de Linux, macOS y Windows).
 * Exploradores admitidos:
   * [Microsoft Edge](https://www.microsoft.com/edge)
@@ -29,9 +28,19 @@ Aprenda a importar una nueva actualización en Device Update para IoT Hub. Si a�
 > [!NOTE]
 > Es posible que algunos de los datos que se envíen a este servicio se procesen en una región que no es en la que se creó esta instancia.
 
-## <a name="create-device-update-import-manifest"></a>Creación de un manifiesto de importación Device Update
+## <a name="obtain-an-update-for-your-devices"></a>Obtención de una actualización para sus dispositivos
 
-1. Asegúrese de que el archivo de imagen de actualización o el archivo de manifiesto APT se encuentra en un directorio al que se pueda acceder desde PowerShell.
+Ahora que ha configurado Device Update y aprovisionado los dispositivos, necesitará los archivos de actualización que va a implementar en esos dispositivos.
+
+Si ha adquirido dispositivos de un OEM o integrador de soluciones, es muy probable que esa organización le proporcione archivos de actualización, por lo que no necesitará crear las actualizaciones. Póngase en contacto con el OEM o el integrador de soluciones para saber cómo facilitan sus actualizaciones.
+
+Si su organización ya crea software para los dispositivos que usa, ese mismo grupo será el que cree las actualizaciones de ese software. Al crear una actualización para implementarla con Device Update for IoT Hub, empiece con el [enfoque basado en imágenes o basado en paquetes](understand-device-update.md#support-for-a-wide-range-of-update-artifacts), en función de su escenario. Nota: Si desea crear sus propias actualizaciones pero no tiene experiencia, GitHub es una excelente opción para administrar el desarrollo. Puede almacenar y administrar el código fuente y realizar integración continua (CI) e implementación continua (CD) mediante [Acciones de GitHub](https://docs.github.com/en/actions/guides/about-continuous-integration).
+
+## <a name="create-a-device-update-import-manifest"></a>Creación de un manifiesto de importación de Device Update
+
+Si aún no lo ha hecho, asegúrese de familiarizarse con los [conceptos de importación](import-concepts.md) básicos.
+
+1. Asegúrese de que los archivos de actualización se encuentran en un directorio al que se pueda acceder desde PowerShell.
 
 2. Cree un archivo de texto denominado **AduUpdate.psm1** en el directorio donde se encuentra el archivo de imagen de actualización o el archivo de manifiesto APT. Después, abra el cmdlet de PowerShell [AduUpdate.psm1](https://github.com/Azure/iot-hub-device-update/tree/main/tools/AduCmdlets), copie el contenido en el archivo de texto y, a continuación, guarde el archivo de texto.
 
@@ -67,7 +76,7 @@ Aprenda a importar una nueva actualización en Device Update para IoT Hub. Si a�
     | updateFilePath(s) | Ruta de acceso a los archivos de actualización del equipo
 
 
-## <a name="review-generated-import-manifest"></a>Revisión de manifiesto de importación generado
+## <a name="review-the-generated-import-manifest"></a>Revisión del manifiesto de importación generado
 
 Ejemplo:
 ```json
@@ -110,10 +119,10 @@ Ejemplo:
 }
 ```
 
-## <a name="import-update"></a>Importación de actualización
+## <a name="import-an-update"></a>Importación de una actualización
 
-[!NOTE]
-En las siguientes instrucciones se muestra cómo importar una actualización a través de la interfaz de usuario de Azure Portal. También puede usar las [API de actualización de dispositivos para IOT Hub](https://github.com/Azure/iot-hub-device-update/tree/main/docs/publish-api-reference) para importar una actualización. 
+> [!NOTE]
+> En las siguientes instrucciones se muestra cómo importar una actualización a través de la interfaz de usuario de Azure Portal. También puede usar las [API de actualización de dispositivos para IOT Hub](https://github.com/Azure/iot-hub-device-update/tree/main/docs/publish-api-reference) para importar una actualización. 
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) y vaya a su instancia de IoT Hub con Device Update.
 

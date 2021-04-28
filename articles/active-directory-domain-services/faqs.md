@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 02/09/2021
 ms.author: justinha
-ms.openlocfilehash: 3d0f2b44f37cb318be2117b5dc5d8b42b418ff19
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 32dcf2b387231d50796de0036388b53cab83bf72
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100090996"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107749337"
 ---
 # <a name="frequently-asked-questions-faqs-about-azure-active-directory-ad-domain-services"></a>Preguntas más frecuentes (P+F) sobre Azure Active Directory (AD) Domain Services
 
@@ -36,6 +36,7 @@ Esta página responde a las preguntas más frecuentes acerca de Azure Active Dir
 * [¿Puedo agregar controladores de dominio a un dominio administrado de Servicios de dominio de Azure AD?](#can-i-add-domain-controllers-to-an-azure-ad-domain-services-managed-domain)
 * [¿Pueden los usuarios invitados a mi directorio usar Azure AD Domain Services?](#can-guest-users-be-invited-to-my-directory-use-azure-ad-domain-services)
 * [¿Puedo trasladar un dominio administrado existente de Azure AD Domain Services a otra suscripción, grupo de recursos, región o red virtual?](#can-i-move-an-existing-azure-ad-domain-services-managed-domain-to-a-different-subscription-resource-group-region-or-virtual-network)
+* [¿Puedo cambiar el nombre de un dominio de Azure AD Domain Services?](#can-i-rename-an-existing-azure-ad-domain-services-domain-name)
 * [¿Azure AD Domain Services incluye opciones de alta disponibilidad?](#does-azure-ad-domain-services-include-high-availability-options)
 
 ### <a name="can-i-create-multiple-managed-domains-for-a-single-azure-ad-directory"></a>¿Se pueden crear varios dominios administrados para un único directorio de Azure AD?
@@ -77,6 +78,9 @@ No. Los usuarios invitados a su directorio de Azure AD mediante el proceso de in
 
 ### <a name="can-i-move-an-existing-azure-ad-domain-services-managed-domain-to-a-different-subscription-resource-group-region-or-virtual-network"></a>¿Puedo trasladar un dominio administrado existente de Azure AD Domain Services a otra suscripción, grupo de recursos, región o red virtual?
 No. Después de crear un dominio administrado de Azure AD Domain Services, no puede trasladar el dominio administrado a otro grupo de recursos, red virtual, suscripción, etc. Tenga cuidado a la hora de seleccionar la suscripción, el grupo de recursos, la región y la red virtual más adecuados al implementar el dominio administrado.
+
+### <a name="can-i-rename-an-existing-azure-ad-domain-services-domain-name"></a>¿Puedo cambiar el nombre de un dominio de Azure AD Domain Services?
+No. Después de crear un dominio administrado de Azure AD Domain Services, no puede cambiar el nombre de dominio DNS. Elija concienzudamente el nombre de dominio DNS al crear el dominio administrado. Para ver las consideraciones que se deben tener al elegir el nombre de dominio DNS, consulte el [tutorial para crear y configurar un dominio administrado de Azure AD Domain Services.](tutorial-create-instance.md#create-a-managed-domain)
 
 ### <a name="does-azure-ad-domain-services-include-high-availability-options"></a>¿Azure AD Domain Services incluye opciones de alta disponibilidad?
 

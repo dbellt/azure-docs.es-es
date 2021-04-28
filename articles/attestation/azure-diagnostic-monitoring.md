@@ -7,12 +7,13 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: d2773be4bc67e125c18d5d38c951685e4f4fceaf
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 2b0cd0402348e4aa45b291f30b677fc9e4bbdb98
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106168355"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107833641"
 ---
 # <a name="set-up-diagnostics-with-a-trusted-platform-module-tpm-endpoint-of-azure-attestation"></a>Configuración de diagnósticos con el punto de conexión del Módulo de plataforma segura (TPM) de Azure Attestation
 

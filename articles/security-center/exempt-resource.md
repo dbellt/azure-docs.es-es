@@ -7,12 +7,12 @@ ms.date: 03/11/2021
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: d545610b8fa13d0c0f8b91bf92107d53b81454c3
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 13abb35d0fa9ad3ee949b6edf5205de601a02956
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107313851"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107718564"
 ---
 # <a name="exempting-resources-and-recommendations-from-your-secure-score"></a>Exención de recursos y recomendaciones de la puntuación de seguridad 
 
@@ -35,7 +35,7 @@ En tales casos, puede crear una exención para una recomendación para:
 | Estado de la versión:                  | Versión preliminar<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]                                                                                                                                                                                                                                             |
 | Precios:                        | Se trata de una funcionalidad prémium de Azure Policy que se ofrece a los clientes de Azure Defender sin costo adicional. En el caso de otros usuarios, pueden aplicarse cargos en el futuro.                                                                                                                                                                 |
 | Roles y permisos necesarios: | **Propietario** o **Colaborador de la directiva de recursos** para crear una exención<br>Para crear una regla, necesita permisos para editar directivas en Azure Policy.<br>Obtenga más información en [Permisos de Azure RBAC en Azure Policy](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy).                                            |
-| Limitaciones:                    | Solo se pueden crear exenciones para las recomendaciones incluidas en la iniciativa predeterminada de Azure Security Center, Azure Security Benchmark o cualquiera de las iniciativas normativas estándar proporcionadas. No se pueden crear exenciones para las recomendaciones que se generan a partir de iniciativas personalizadas. Obtenga más información sobre las relaciones entre [directivas, iniciativas y recomendaciones](security-policy-concept.md). |
+| Limitaciones:                    | Solo se pueden crear exenciones para las recomendaciones incluidas en la iniciativa predeterminada de Azure Security Center, [Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction) o cualquiera de las iniciativas normativas estándar proporcionadas. No se pueden crear exenciones para las recomendaciones que se generan a partir de iniciativas personalizadas. Obtenga más información sobre las relaciones entre [directivas, iniciativas y recomendaciones](security-policy-concept.md). |
 | Nubes:                         | ![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![No](./media/icons/no-icon.png) Nacionales o soberanas (US Gov, China Gov, otros gobiernos)                                                                                                                                                                                         |
 |                                 |                                                                                                                                                                                                                                                                                                                                    |
 

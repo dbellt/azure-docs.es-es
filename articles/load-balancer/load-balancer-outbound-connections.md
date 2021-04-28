@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: contperf-fy21q1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: 99f15afdab917fe28e22df8cb0e372b6c30c8526
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 3b92ef3ce195a2eee9bce53e08d977593a9f1fc2
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105027336"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107477713"
 ---
 # <a name="using-source-network-address-translation-snat-for-outbound-connections"></a>Uso de la Traducción de direcciones de red de origen (SNAT) para conexiones salientes
 
@@ -64,14 +64,16 @@ Para mantener flujos únicos, el host reescribe el puerto de origen de cada paqu
   * Máquina virtual sin dirección IP pública.
   * Máquina virtual sin dirección IP pública y sin Standard Load Balancer.
         
- ### <a name="scenario-1-virtual-machine-with-public-ip"></a><a name="scenario1"></a> Escenario 1: Máquina virtual con dirección IP pública
+ ### <a name="scenario-1-virtual-machine-with-public-ip-either-with-or-without-a-load-balancer"></a><a name="scenario1"></a> Escenario 1: Máquina virtual con dirección IP pública con o sin un equilibrador de carga.
 
  | Asociaciones | Método | Protocolos IP |
  | ---------- | ------ | ------------ |
- | Equilibrador de carga público o independiente | [SNAT (traducción de direcciones de red de origen)](#snat) </br> No se usa. | TCP (protocolo de control de transmisión) </br> UDP (protocolo de datagramas de usuario) </br> ICMP (protocolo de mensajes de control de Internet) </br> ESP (carga de seguridad encapsuladora) |
+ | Equilibrador de carga público o independiente | [SNAT (traducción de direcciones de red de origen)](#snat) </br> no se usa. | TCP (protocolo de control de transmisión) </br> UDP (protocolo de datagramas de usuario) </br> ICMP (protocolo de mensajes de control de Internet) </br> ESP (carga de seguridad encapsuladora) |
 
  #### <a name="description"></a>Descripción
 
+ Todo el tráfico volverá al cliente solicitante desde la dirección IP pública de la máquina virtual (IP de nivel de instancia).
+ 
  Azure usa la dirección IP pública asignada a la configuración IP de la NIC de la instancia para todos los flujos de salida. La instancia tiene disponibles todos los puertos efímeros. Es irrelevante si la máquina virtual es de carga equilibrada o no. Este escenario tiene prioridad sobre las demás. 
 
  Una dirección IP pública asignada a una máquina virtual es una relación 1:1 (en lugar de 1:muchos) y se implementa como NAT de 1:1 sin estado.
@@ -120,7 +122,7 @@ Otra opción consiste en agregar las instancias de back-end a un equilibrador de
 
  | Asociaciones | Método | Protocolos IP |
  | ------------ | ------ | ------------ |
- |None </br> Versión Básica de Load Balancer | [SNAT](#snat) con una dirección IP dinámica en el nivel de instancia| TCP </br> UDP | 
+ |Ninguno </br> Versión Básica de Load Balancer | [SNAT](#snat) con una dirección IP dinámica en el nivel de instancia| TCP </br> UDP | 
 
  #### <a name="description"></a>Descripción
 

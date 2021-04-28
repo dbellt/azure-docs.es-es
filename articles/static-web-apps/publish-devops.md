@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 03/23/2021
 ms.author: apedward
-ms.openlocfilehash: f82ae60ab7f57b20a727deefa6e286d698ee5b6c
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 4283bccf543dc496342d64cc0e7b898a4f279866
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107365763"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108141638"
 ---
 # <a name="tutorial-publish-azure-static-web-apps-with-azure-devops"></a>Tutorial: Publicación de aplicaciones web estáticas de Azure con Azure DevOps
 
@@ -27,7 +27,7 @@ En este tutorial, aprenderá a:
 
 - Una **cuenta activa de Azure**: en caso de no tener una, puede [crear una cuenta gratuita](https://azure.microsoft.com/free/).
 - Un **proyecto de Azure DevOps:** si no tiene uno, puede [crear un proyecto de forma gratuita](https://azure.microsoft.com/pricing/details/devops/azure-devops-services/).
-- Una **canalización de Azure DevOps:** si necesita ayuda para comenzar, consulte [Creación de la primera canalización](https://docs.microsoft.com/azure/devops/pipelines/create-first-pipeline?view=azure-devops&preserve-view=true).
+- Una **canalización de Azure DevOps:** si necesita ayuda para comenzar, consulte [Creación de la primera canalización](/azure/devops/pipelines/create-first-pipeline?preserve-view=true&view=azure-devops).
 
 ## <a name="create-a-static-web-app-in-an-azure-devops-repository"></a>Creación de una aplicación web estática en un repositorio de Azure DevOps
 

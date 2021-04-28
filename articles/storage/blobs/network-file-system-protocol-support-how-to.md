@@ -9,12 +9,12 @@ ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 2a37d206955e3372b9ecf97be8d27142bd417192
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: bf6b06ba7cc7f547f752ffa7877fca186ba4465e
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106490461"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107713793"
 ---
 # <a name="mount-blob-storage-by-using-the-network-file-system-nfs-30-protocol-preview"></a>Montaje de Blob Storage con el protocolo Network File System (NFS) 3.0 (versión preliminar)
 
@@ -68,15 +68,15 @@ La cuenta de almacenamiento debe incluirse en una red virtual. Una red virtual p
 
 ## <a name="step-4-configure-network-security"></a>Paso 4: Configuración de la seguridad de red
 
-La única manera de proteger los datos en su cuenta es mediante una red virtual y otra configuración de seguridad de red. Las demás herramientas que se usan para proteger los datos, incluidas la autorización de claves de cuenta, la seguridad de Azure Active Directory (AD) y las listas de control de acceso (ACL), no se admiten todavía en cuentas que tienen habilitada la compatibilidad con el protocolo NFS 3.0. 
+La única manera de proteger los datos en su cuenta es mediante una red virtual y otra configuración de seguridad de red. Las demás herramientas que se usan para proteger los datos, incluidas la autorización de claves de cuenta, la seguridad de Azure Active Directory (AD) y las listas de control de acceso (ACL), no se admiten todavía en cuentas que tienen habilitada la compatibilidad con el protocolo NFS 3.0.
 
 Para proteger los datos de la cuenta, consulte estas recomendaciones: [Recomendaciones de seguridad de red para Blob Storage](security-recommendations.md#networking).
 
 ## <a name="step-5-create-and-configure-a-storage-account"></a>Paso 5: Creación y configuración de una cuenta de almacenamiento
 
-Para montar un contenedor mediante NFS 3.0, debe crear una cuenta de almacenamiento **después** de registrar la característica con la suscripción. No puede habilitar cuentas que existían antes de registrar la característica. 
+Para montar un contenedor mediante NFS 3.0, debe crear una cuenta de almacenamiento **después** de registrar la característica con la suscripción. No puede habilitar cuentas que existían antes de registrar la característica.
 
-En la versión preliminar de esta característica, el protocolo NFS 3.0 solo se admite en cuentas [BlockBlobStorage](../blobs/storage-blob-create-account-block-blob.md) y [general-purpose V2](../common/storage-account-overview.md#general-purpose-v2-accounts).
+En la versión preliminar de esta característica, el protocolo NFS 3.0 es compatible con las cuentas de almacenamiento estándar de uso general v2 y las cuentas de almacenamiento de blobs en bloques Premium. Para más información sobre estos tipos de cuentas de almacenamiento, consulte [Introducción a las cuentas de almacenamiento](../common/storage-account-overview.md).
 
 A medida que configure la cuenta, elija estos valores:
 
