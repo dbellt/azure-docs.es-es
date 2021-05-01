@@ -177,6 +177,22 @@
       href: /cli/azure/dt
     - name: 'Especificación DTDL, versión 2'
       href: 'https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md'
+    - name: Referencia de lenguaje de consulta
+      items:
+        - name: Cláusulas
+          items:
+            - name: SELECT
+              href: reference-query-clause-select.md
+            - name: FROM
+              href: reference-query-clause-from.md
+            - name: JOIN
+              href: reference-query-clause-join.md
+            - name: WHERE
+              href: reference-query-clause-where.md
+        - name: Functions
+          href: reference-query-functions.md
+        - name: Operadores
+          href: reference-query-operators.md
 - name: Recursos
   items:
     - name: Límites del servicio Digital Twins
