@@ -38,7 +38,7 @@
     - name: Uso del contenedor de Face
       items:
         - name: Introducción a los contenedores
-          href: /azure/cognitive-services/cognitive-services-container-support?context=/azure/cognitive-services/face/context/context
+          href: ../cognitive-services-container-support.md?context=%2fazure%2fcognitive-services%2fface%2fcontext%2fcontext
         - name: Instalación y ejecución de contenedores
           href: face-how-to-install-containers.md
         - name: Configuración de contenedores
@@ -93,7 +93,7 @@
         - name: Cumplimiento y certificación
           href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Módulos de aprendizaje
-      href: 'https://docs.microsoft.com/learn/modules/detect-analyze-faces/'
+      href: /learn/modules/detect-analyze-faces/
     - name: Opciones de ayuda y soporte técnico
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/face/context/context
     - name: Actualizaciones de Azure

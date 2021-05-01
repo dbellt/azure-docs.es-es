@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 4/15/2021
 ms.author: cavoeg
-ms.openlocfilehash: 56e3ba46ffb43aec907d729a2e74cdf6f7a62c32
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: e012bc2bc3c9ec1ab9351ed937e2c5049eef20d5
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107530628"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108316018"
 ---
 # <a name="features"></a>Características
 
@@ -40,7 +40,7 @@ Entre las versiones anteriores también admitidas actualmente se incluye: `3.0.2
 | history                        | Sí       | Sí       | Sí       |                                                     |
 | create                         | Sí       | Sí       | Sí       | Admite POST y PUT                               |
 | create (conditional)           | Sí       | Sí       | Sí       | Problema [n.º 1382](https://github.com/microsoft/fhir-server/issues/1382) |
-| búsqueda                         | Parcial   | Parcial   | Parcial   | Consulte la sección Búsqueda a continuación.                           |
+| búsqueda                         | Parcial   | Parcial   | Parcial   | Consulte [Información general de FHIR Search.](overview-of-search.md)                           |
 | búsqueda encadenada                 | Parcial       | Sí       | Parcial   | Consulte la nota 2 a continuación.                                   |
 | búsqueda encadenada inversa         | Parcial       | Sí       | Parcial   | Consulte la nota 2 a continuación.                                   |
 | capabilities                   | Sí       | Sí       | Sí       |                                                     |
@@ -54,69 +54,9 @@ Entre las versiones anteriores también admitidas actualmente se incluye: `3.0.2
 
 
  **Nota 2**
-* Agrega compatibilidad con MVP para búsqueda FHIR encadenada e inversa en CosmosDB. 
+* Agrega compatibilidad con MVP para la búsqueda de FHIR encadenada y encadenada inversa en CosmosDB. 
 
-  En el Azure API for FHIR servidor FHIR de código abierto con el respaldo de Cosmos, la búsqueda encadenada y la búsqueda encadenada inversa es una implementación de MVP. Para realizar búsquedas encadenadas en Cosmos DB, la implementación recorre la expresión de búsqueda y emite subconsediciones para resolver los recursos coincidentes. Esto se hace para cada nivel de la expresión. Si alguna consulta devuelve más de 100 resultados, se producirá un error. De forma predeterminada, la búsqueda encadenada está detrás de una marca de característica. Para usar la búsqueda encadenada en Cosmos DB, use el encabezado `x-ms-enable-chained-search: true` . Para obtener más información, vea [PR 1695](https://github.com/microsoft/fhir-server/pull/1695).
-
-## <a name="search"></a>Search
-
-Se admiten todos los tipos de parámetro de búsqueda. 
-
-| Tipo de parámetro de búsqueda | Admitida: PaaS | Admitida: OSS (SQL) | Admitida: OSS (Cosmos DB) | Comentario |
-|-----------------------|-----------|-----------|-----------|---------|
-| Number                | Sí       | Sí       | Sí       |         |
-| Date/DateTime         | Sí       | Sí       | Sí       |         |
-| String                | Sí       | Sí       | Sí       |         |
-| Token                 | Sí       | Sí       | Sí       |         |
-| Referencia             | Sí       | Sí       | Sí       |         |
-| Compuesto             | Sí       | Sí       | Sí       |         |
-| Cantidad              | Sí       | Sí       | Sí       |         |
-| URI                   | Sí       | Sí       | Sí       |         |
-| Especial               | No        | No        | No        |         |
-
-
-| Modificadores             | Admitida: PaaS | Admitida: OSS (SQL) | Admitida: OSS (Cosmos DB) | Comentario |
-|-----------------------|-----------|-----------|-----------|---------|
-|`:missing`             | Sí       | Sí       | Sí       |         |
-|`:exact`               | Sí       | Sí       | Sí       |         |
-|`:contains`            | Sí       | Sí       | Sí       |         |
-|`:text`                | Sí       | Sí       | Sí       |         |
-|`:[type]` (referencia)  | Sí       | Sí       | Sí       |         |
-|`:not`                 | Sí       | Sí       | Sí       |         |
-|`:below` (uri)         | Sí       | Sí       | Sí       |         |
-|`:above` (uri)         | No        | No        | No        | Problema [#158](https://github.com/Microsoft/fhir-server/issues/158) |
-|`:in` (token)          | No        | No        | No        |         |
-|`:below` (token)       | No        | No        | No        |         |
-|`:above` (token)       | No        | No        | No        |         |
-|`:not-in` (token)      | No        | No        | No        |         |
-
-| Parámetro de búsqueda común | Admitida: PaaS | Admitida: OSS (SQL) | Admitida: OSS (Cosmos DB) | Comentario |
-|-------------------------| ----------| ----------| ----------|---------|
-| `_id`                   | Sí       | Sí       | Sí       |         |
-| `_lastUpdated`          | Sí       | Sí       | Sí       |         |
-| `_tag`                  | Sí       | Sí       | Sí       |         |
-| `_list`                 | Sí       | Sí       | Sí       |         |
-| `_type`                 | Sí       | Sí       | Sí       | Problema [n.º 1562](https://github.com/microsoft/fhir-server/issues/1562)        |
-| `_security`             | Sí       | Sí       | Sí       |         |
-| `_profile`              | Parcial   | Parcial   | Parcial   | Compatible con STU3. Si creó la base de datos **después** del 20 de febrero de 2021, también tendrá compatibilidad en R4. Estamos trabajando para habilitar _profile en las bases de datos creadas antes del 20 de febrero de 2021. |
-| `_text`                 | No        | No        | No        |         |
-| `_content`              | No        | No        | No        |         |
-| `_has`                  | No        | No        | No        |         |
-| `_query`                | No        | No        | No        |         |
-| `_filter`               | No        | No        | No        |         |
-
-| Parámetros de resultados de la búsqueda | Admitida: PaaS | Admitida: OSS (SQL) | Admitida: OSS (Cosmos DB) | Comentario |
-|-------------------------|-----------|-----------|-----------|---------|
-| `_elements`             | Sí       | Sí       | Sí       | Problema [n.º 1256](https://github.com/microsoft/fhir-server/issues/1256)        |
-| `_count`                | Sí       | Sí       | Sí       | `_count` tiene un límite de 1000 caracteres. Si se establece en un valor superior a 1000, solo se devolverán 1000 y una advertencia en el conjunto. |
-| `_include`              | Sí       | Sí       | Sí       |Los elementos incluidos se limitan a 100. La inclusión en PaaS y OSS de Cosmos DB no incluye compatibilidad con :iterate.|
-| `_revinclude`           | Sí       | Sí       | Sí       | Los elementos incluidos se limitan a 100. La inclusión en PaaS y OSS de Cosmos DB [no incluye compatibilidad con :iterate](https://github.com/microsoft/fhir-server/issues/1313). Problema [n.º 1319](https://github.com/microsoft/fhir-server/issues/1319)|
-| `_summary`              | Parcial   | Parcial   | Parcial   | `_summary=count` se admite |
-| `_total`                | Parcial   | Parcial   | Parcial   | `_total=none` y `_total=accurate`      |
-| `_sort`                 | Parcial   | Parcial   | Parcial   |   `_sort=_lastUpdated` se admite       |
-| `_contained`            | No        | No        | No        |         |
-| `containedType`         | No        | No        | No        |         |
-| `_score`                | No        | No        | No        |         |
+  En la Azure API for FHIR servidor de FHIR de código abierto con el respaldo de Cosmos, la búsqueda encadenada y la búsqueda encadenada inversa es una implementación de MVP. Para realizar búsquedas encadenadas en Cosmos DB, la implementación recorre la expresión de búsqueda y emite subconsediciones para resolver los recursos coincidentes. Esto se hace para cada nivel de la expresión. Si alguna consulta devuelve más de 100 resultados, se producirá un error. De forma predeterminada, la búsqueda encadenada está detrás de una marca de características. Para usar la búsqueda encadenada en Cosmos DB, use el encabezado `x-ms-enable-chained-search: true` . Para obtener más información, vea [PR 1695](https://github.com/microsoft/fhir-server/pull/1695).
 
 ## <a name="extended-operations"></a>Operaciones extendidas
 
