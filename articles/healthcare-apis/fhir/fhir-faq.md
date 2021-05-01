@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 1/21/2021
 ms.author: cavoeg
-ms.openlocfilehash: 22d9df80bce6e79f0058567f8df76935e431e598
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: f571deaa0b67e9be7b8ce3f01d87f5c955f7140d
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103020565"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108319078"
 ---
 # <a name="frequently-asked-questions-about-the-azure-api-for-fhir"></a>Preguntas más frecuentes sobre Azure API for FHIR
 
@@ -104,7 +104,7 @@ A continuación se muestran algunos ejemplos de eso:
 
 ### <a name="what-is-the-default-sort-when-searching-for-resources-in-azure-api-for-fhir"></a>¿Cuál es el orden predeterminado al buscar recursos en Azure API for FHIR?
 
-Se admite la ordenación por la fecha de la última actualización: _sort=_lastUpdated. Para más información sobre otros parámetros de búsqueda admitidos, consulte la [página de características admitidas](fhir-features-supported.md#search).
+Se admite la ordenación por la fecha de la última actualización: _sort=_lastUpdated. Para obtener más información sobre otros parámetros de búsqueda admitidos, vea [Información general de la búsqueda de FHIR.](overview-of-search.md)
 
 ### <a name="does-the-azure-api-for-fhir-support-everything"></a>¿Azure API for FHIR admite $everything? 
 
