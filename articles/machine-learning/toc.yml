@@ -320,9 +320,9 @@
             - name: Obtención de datos etiquetados
               displayName: 'data, dataset, labeling'
               href: how-to-create-labeling-projects.md
-            - name: Etiquetado de imágenes
+            - name: Etiquetado de imágenes y texto
               displayName: 'data, dataset, labeling'
-              href: how-to-label-images.md
+              href: how-to-label-data.md
             - name: Creación de conjuntos de datos con etiquetas
               displayName: 'data, labels, torchvision'
               href: how-to-use-labeled-dataset.md
