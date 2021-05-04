@@ -9,18 +9,20 @@ ms.topic: quickstart
 ms.date: 10/20/2020
 ms.author: rohink
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1929cd512d18d7fd234aff1f55814c423455e63b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 873b218c4186978225b9a8b5db5ef0c80e61bb28
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94561376"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107949963"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-cli"></a>Inicio rápido: Creación de una zona y un registro de Azure DNS mediante la CLI de Azure
 
 Este artículo lo guía por los pasos necesarios para crear su primera zona y su primer registro DNS mediante la CLI de Azure, que está disponible para Windows, Mac y Linux. También puede llevar a cabo estos pasos con [Azure Portal](dns-getstarted-portal.md) o [Azure PowerShell](dns-getstarted-powershell.md).
 
 Una zona DNS se usa para hospedar los registros DNS de un dominio concreto. Para iniciar el hospedaje de su dominio en DNS de Azure, debe crear una zona DNS para ese nombre de dominio. Cada registro DNS del dominio se crea luego en esta zona DNS. Finalmente, para publicar la zona DNS en Internet, debe configurar los servidores de nombres para el dominio. A continuación, se describen cada uno de estos pasos.
+
+:::image type="content" source="media/dns-getstarted-portal/environment-diagram.png" alt-text="Diagrama del entorno de implementación de DNS mediante el uso de Azure Portal." border="false":::
 
 Azure DNS también admite zonas DNS privadas. Para más información acerca de las zonas DNS privadas, consulte [Using Azure DNS for private domains](private-dns-overview.md) (Uso de Azure DNS para dominios privados). Para ver un ejemplo de cómo crear una zona DNS privada, consulte [Get started with Azure DNS Private Zones using CLI](./private-dns-getstarted-cli.md) (Introducción al uso de la CLI de Azure 2.0 con las zonas privadas de Azure DNS).
 

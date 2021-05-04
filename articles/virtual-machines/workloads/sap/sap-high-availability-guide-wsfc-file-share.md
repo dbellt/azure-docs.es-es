@@ -13,15 +13,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/15/2021
+ms.date: 04/27/2021
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a51f874d09aebfcb2c0b73e0b484f68042d1bb6d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9cde810bb9f612b0dc84fb4dd7593761b057e722
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103496208"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108142862"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-file-share-in-azure"></a>Agrupación de una instancia de ASCS/SCS de SAP en un clúster de conmutación por error de Windows con un recurso compartido de archivos en Azure
 
@@ -32,10 +32,24 @@ Los clústeres de conmutación por error de Windows Server son la base de una in
 
 Un clúster de conmutación por error es un grupo de 1+n servidores independientes (nodos) que colaboran para aumentar la disponibilidad de aplicaciones y servicios. Si se produce un error de nodo, los clústeres de conmutación por error de Windows Server calculan el número de errores que se pueden producir y mantiene un clúster en buen estado para proporcionar aplicaciones y servicios. Para conseguir clústeres de conmutación por error, puede elegir entre distintos modos de cuórum.
 
-## <a name="prerequisites"></a>Requisitos previos
-Antes de comenzar las tareas que se describen en este artículo, consulte este otro artículo:
+## <a name="prerequisites"></a>Prerrequisitos
+Antes de comenzar las tareas que se describen en este artículo, revise los siguientes artículos y notas de SAP:
 
 * [Escenarios y arquitectura de alta disponibilidad de Azure Virtual Machines para SAP NetWeaver][sap-high-availability-architecture-scenarios]
+* La nota de SAP [1928533][1928533], que contiene:  
+  * Una lista de los tamaños de máquina virtual de Azure que se admiten para la implementación de software de SAP
+  * Información importante sobre la capacidad para los tamaños de máquina virtual de Azure
+  * Software de SAP admitido y combinaciones de sistema operativo y base de datos
+  * Versión de kernel de SAP necesaria para Windows en Microsoft Azure
+* La nota de SAP [2015553][2015553] enumera los requisitos previos para las implementaciones de software de SAP admitidas por SAP en Azure.
+* La nota de SAP [2178632][2178632] contiene información detallada sobre todas las métricas de supervisión notificadas para SAP en Azure.
+* La nota de SAP [1999351][1999351] contiene más soluciones de problemas de la extensión de supervisión mejorada de Azure para SAP.
+* La nota de SAP [2287140](https://launchpad.support.sap.com/#/notes/2287140) enumera los requisitos previos para la característica de CA compatible con SAP del protocolo SMB 3.x.
+* La nota de SAP [2802770](https://launchpad.support.sap.com/#/notes/2802770) tiene información de solución de problemas para el AL11 de transacciones de SAP de ejecución lenta en Windows 2012 y 2016.
+* La nota de SAP [1911507](https://launchpad.support.sap.com/#/notes/1911507) tiene información sobre la característica de conmutación por error transparente para un recurso compartido de archivos en Windows Server con el protocolo SMB 3.0.
+* La nota de SAP [662452](https://launchpad.support.sap.com/#/notes/662452) tiene una recomendación (desactivación de la generación de nombres 8.3) para solucionar errores o el rendimiento del sistema de archivos deficiente durante el acceso a los datos.
+* [Instalación de alta disponibilidad de SAP NetWeaver en un clúster de conmutación por error de Windows y un recurso compartido de archivos para instancias de ASCS/SCS de SAP en Azure](./sap-high-availability-installation-wsfc-file-share.md) 
+* [Instalación de una instancia de (A) SCS en un clúster de conmutación por error](https://www.sap.com/documents/2017/07/f453332f-c97c-0010-82c7-eda71af511fa.html)
 
 > [!IMPORTANT]
 > La agrupación en clústeres de instancias de ASCS/SCS de SAP con un recurso compartido de archivos es compatible con SAP NetWeaver 7.40 (y versiones posteriores), con el kernel de SAP 7.49 (y versiones posteriores).

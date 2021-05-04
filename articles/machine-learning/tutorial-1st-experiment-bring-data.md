@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 02/11/2021
 ms.custom: tracking-python, contperf-fy21q3
-ms.openlocfilehash: 503d1d1220cd4704a6e70d0b7e575a70275e5e4d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e664b08f7ca487236e5e2780d183c19d342a915b
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105936842"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107888033"
 ---
 # <a name="tutorial-use-your-own-data-part-4-of-4"></a>Tutorial: Uso de sus propios datos (Parte 4 de 4)
 
@@ -235,7 +235,7 @@ Este código imprimirá una dirección URL en el experimento en Azure Machine Le
 
 ### <a name="inspect-the-log-file"></a><a name="inspect-log"></a> Inspección del archivo de registro
 
-En Studio, vaya a la ejecución del experimento (seleccione la salida de la dirección URL anterior) seguido de **Resultados y registros**. Seleccione el archivo `70_driver_log.txt`. Debería ver la siguiente salida:
+En Studio, vaya a la ejecución del experimento (seleccione la salida de la dirección URL anterior) seguido de **Resultados y registros**. Seleccione el archivo `70_driver_log.txt`. Desplácese hacia abajo por el archivo de registro hasta que vea la siguiente salida:
 
 ```txt
 Processing 'input'.

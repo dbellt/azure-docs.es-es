@@ -1,20 +1,20 @@
 ---
 title: Creación de suscripciones de Azure mediante programación para el Contrato de cliente de Microsoft con las API más recientes
-description: Aprenda a crear suscripciones de Azure mediante programación para el Contrato de cliente de Microsoft mediante las versiones más recientes de la API REST, la CLI de Azure y Azure PowerShell.
+description: Aprenda a crear suscripciones de Azure mediante programación para un Contrato de cliente de Microsoft con las versiones más recientes de la API REST, la CLI de Azure, Azure PowerShell y las plantillas de Azure Resource Manager.
 author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 11/17/2020
+ms.date: 03/29/2021
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 61a658cc9654a93b4c92fda6cc1f38cd2e77dafa
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 324ca849e0f9c1282dc4b47ceba4654c76c07b35
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102216095"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107870830"
 ---
 # <a name="programmatically-create-azure-subscriptions-for-a-microsoft-customer-agreement-with-the-latest-apis"></a>Creación de suscripciones de Azure mediante programación para el Contrato de cliente de Microsoft con las API más recientes
 
@@ -28,17 +28,17 @@ Al crear una suscripción a Azure mediante programación, dicha suscripción se 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Debe tener un rol de propietario, colaborador o creador de la suscripción de Azure en una sección de factura, o un rol de propietario o colaborador en un perfil de facturación o una cuenta de facturación para crear suscripciones. Para más información, consulte [Tareas y roles de la facturación de suscripción](understand-mca-roles.md#subscription-billing-roles-and-tasks).
+Debe tener un rol de propietario, colaborador o creador de la suscripción de Azure en una sección de factura, o un rol de propietario o colaborador en un perfil de facturación o una cuenta de facturación para crear suscripciones. También puede dar el mismo rol a un nombre de entidad de seguridad de servicio (SPN). Para más información sobre los roles y la asignación de permisos, consulte [Tareas y roles de la facturación de suscripción](understand-mca-roles.md#subscription-billing-roles-and-tasks).
+
+Si usa un nombre de entidad de seguridad de servicio para crear suscripciones, use el ObjectId del registro de aplicación de Azure AD como objectId de la entidad de servicio mediante [Azure Active Directory PowerShell](/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0) o la [CLI de Azure](/cli/azure/ad/sp?view=azure-cli-latest#az_ad_sp_list). 
 
 Si no sabe si tiene acceso a una cuenta de Contrato de cliente de Microsoft, consulte [Comprobación del acceso a un Contrato de cliente de Microsoft](../understand/mca-overview.md#check-access-to-a-microsoft-customer-agreement).
-
-En los ejemplos siguientes se usan las API REST. Actualmente, no están admitidos PowerShell ni la CLI de Azure.
 
 ## <a name="find-billing-accounts-that-you-have-access-to"></a>Búsqueda de cuentas de facturación a las que tiene acceso
 
 Realice la siguiente solicitud para mostrar todas las cuentas de facturación.
 
-### <a name="rest"></a>[REST](#tab/rest-getBillingAccounts)
+### <a name="rest"></a>[REST](#tab/rest)
 
 ```json
 GET https://management.azure.com/providers/Microsoft.Billing/billingaccounts/?api-version=2020-05-01
@@ -70,10 +70,10 @@ La respuesta de la API muestra las cuentas de facturación a las que tiene acces
 
 Use la propiedad `displayName` para identificar la cuenta de facturación para la que desea crear suscripciones. Asegúrese de que el valor agreementType de la cuenta sea *MicrosoftCustomerAgreement*. Copie el valor de `name` de la cuenta.  Por ejemplo, para crear una suscripción para la cuenta de facturación `Contoso`, copie `5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Pegue este valor en algún lugar para poder usarlo en el paso siguiente.
 
-### <a name="powershell"></a>[PowerShell](#tab/azure-powershell-getBillingAccounts)
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-```azurepowershell-interactive
-PS C:\WINDOWS\system32> Get-AzBillingAccount
+```azurepowershell
+Get-AzBillingAccount
 ```
 Obtendrá una lista de todas las cuentas de facturación a las que tenga acceso. 
 
@@ -88,9 +88,10 @@ HasReadAccess : True
 Use la propiedad `displayName` para identificar la cuenta de facturación para la que desea crear suscripciones. Asegúrese de que el valor agreementType de la cuenta sea *MicrosoftCustomerAgreement*. Copie el valor de `name` de la cuenta.  Por ejemplo, para crear una suscripción para la cuenta de facturación `Contoso`, copie `5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Pegue este valor en algún lugar para poder usarlo en el paso siguiente.
 
 
-### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli-getBillingAccounts)
+### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
 ```azurecli
-> az billing account list
+az billing account list
 ```
 Obtendrá una lista de todas las cuentas de facturación a las que tenga acceso. 
 
@@ -127,7 +128,8 @@ Los cargos de la suscripción aparecerán en una sección de una factura del per
 
 En primer lugar, obtenga la lista de perfiles de facturación en la cuenta de facturación a la que tiene acceso (use el valor de `name` que obtuvo en el paso anterior).
 
-### <a name="rest"></a>[REST](#tab/rest-getBillingProfiles)
+### <a name="rest"></a>[REST](#tab/rest)
+
 ```json
 GET https://management.azure.com/providers/Microsoft.Billing/billingaccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingprofiles/?api-version=2020-05-01
 ```
@@ -208,10 +210,10 @@ GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/5e9
 
 Use la propiedad `id` para identificar la sección de factura para la que desea crear suscripciones. Copie toda la cadena. Por ejemplo, `/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx`. 
 
-### <a name="powershell"></a>[PowerShell](#tab/azure-powershell-getBillingProfiles)
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-```powershell-interactive
-PS C:\WINDOWS\system32> Get-AzBillingProfile -BillingAccountName 5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx
+```azurepowershell
+Get-AzBillingProfile -BillingAccountName 5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx
 ```
 
 Obtendrá la lista de perfiles de facturación de esta cuenta como parte de la respuesta.
@@ -236,10 +238,10 @@ Country           : US
 PostalCode        : 98052
 ```
 
-Anote el valor de `name` del perfil de facturación de la respuesta anterior. A continuación se indican los pasos necesarios para obtener la sección de facturas a la que tiene acceso en este perfil de facturación. Necesitará el valor de `name` de la cuenta de facturación y el perfil de facturación.
+Anote el valor de `name` del perfil de facturación de la respuesta anterior. El siguiente paso consiste en obtener la sección de facturas a la que tiene acceso en este perfil de facturación. Necesitará el valor de `name` de la cuenta de facturación y el perfil de facturación.
 
-```powershell-interactive
-PS C:\WINDOWS\system32> Get-AzInvoiceSection -BillingAccountName 5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx -BillingProfileName AW4F-xxxx-xxx-xxx
+```azurepowershell
+Get-AzInvoiceSection -BillingAccountName 5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx -BillingProfileName AW4F-xxxx-xxx-xxx
 ```
 
 Obtendrá la sección de facturas en la respuesta.
@@ -251,11 +253,12 @@ DisplayName : Development
 
 El valor de `name` anterior es el nombre de la sección de facturas que necesita para crear una suscripción en ella. Construya el ámbito de facturación con el formato "/providers/Microsoft.Billing/billingAccounts/<BillingAccountName>/billingProfiles/<BillingProfileName>/invoiceSections/<InvoiceSectionName>". En este ejemplo, tendrá el valor `"/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx"`.
 
-### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli-getBillingProfiles)
+### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-```azurecli-interactive
-> az billing profile list --account-name "5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx" --expand "InvoiceSections"
+```azurecli
+az billing profile list --account-name "5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx" --expand "InvoiceSections"
 ```
+
 Esta API devolverá la lista de perfiles de facturación y las secciones de facturas de la cuenta de facturación proporcionada.
 
 ```json
@@ -320,7 +323,7 @@ Esta API devolverá la lista de perfiles de facturación y las secciones de fact
   }
 ]
 ```
-Use la propiedad id de la sección de facturas para identificar la sección de facturas para la que desea crear suscripciones. Copie toda la cadena. Por ejemplo, /providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx.
+Use la propiedad `id` de la sección de facturas para identificar la sección de facturas para la que desea crear suscripciones. Copie toda la cadena. Por ejemplo, /providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx.
 
 ---
 
@@ -328,7 +331,7 @@ Use la propiedad id de la sección de facturas para identificar la sección de f
 
 En el ejemplo siguiente se crea una suscripción llamada *Dev Team subscription* para la sección de factura *Development*. La suscripción se facturará al *perfil de facturación de Contoso* y aparecerá en la sección *Development* de su factura. Use el ámbito de facturación copiado del paso anterior: `/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx`. 
 
-### <a name="rest"></a>[REST](#tab/rest-MCA)
+### <a name="rest"></a>[REST](#tab/rest)
 
 ```json
 PUT  https://management.azure.com/providers/Microsoft.Subscription/aliases/sampleAlias?api-version=2020-09-01
@@ -385,19 +388,19 @@ GET https://management.azure.com/providers/Microsoft.Subscription/aliases/sample
 
 Un estado en curso se devuelve como estado `Accepted` en `provisioningState`.
 
-### <a name="powershell"></a>[PowerShell](#tab/azure-powershell-MCA)
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Para instalar la versión más reciente del módulo que contiene el cmdlet `New-AzSubscriptionAlias`, ejecute `Install-Module Az.Subscription`. Para instalar una versión reciente de PowerShellGet, consulte [Obtención del módulo PowerShellGet](/powershell/scripting/gallery/installing-psget).
 
 Ejecute el siguiente comando [New-AzSubscriptionAlias](/powershell/module/az.subscription/new-azsubscription) y el ámbito de facturación `"/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx"`. 
 
-```azurepowershell-interactive
+```azurepowershell
 New-AzSubscriptionAlias -AliasName "sampleAlias" -SubscriptionName "Dev Team Subscription" -BillingScope "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx" -Workload 'Production"
 ```
 
 Se obtiene subscriptionId como parte de la respuesta del comando.
 
-```azurepowershell
+```json
 {
   "id": "/providers/Microsoft.Subscription/aliases/sampleAlias",
   "name": "sampleAlias",
@@ -409,19 +412,19 @@ Se obtiene subscriptionId como parte de la respuesta del comando.
 }
 ```
 
-### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli-MCA)
+### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 En primer lugar, instale la extensión mediante la ejecución de `az extension add --name account` y `az extension add --name alias`.
 
-Ejecute comando [az account alias create](/cli/azure/ext/account/account/alias#ext_account_az_account_alias_create) siguiente.
+Ejecute comando [az account alias create](/cli/azure/account/alias#az_account_alias_create) siguiente.
 
-```azurecli-interactive
+```azurecli
 az account alias create --name "sampleAlias" --billing-scope "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx" --display-name "Dev Team Subscription" --workload "Production"
 ```
 
 Se obtiene subscriptionId como parte de la respuesta del comando.
 
-```azurecli
+```json
 {
   "id": "/providers/Microsoft.Subscription/aliases/sampleAlias",
   "name": "sampleAlias",
@@ -435,7 +438,115 @@ Se obtiene subscriptionId como parte de la respuesta del comando.
 
 ---
 
+## <a name="use-arm-template"></a>Uso de una plantilla de Resource Manager
+
+En la sección anterior se mostró cómo crear una suscripción con PowerShell, la CLI o la API REST. Si necesita automatizar la creación de suscripciones, considere la posibilidad de usar una plantilla de Azure Resource Manager (plantilla de ARM).
+
+El ejemplo siguiente crea una suscripción. Para `billingScope`, proporcione el identificador de la sección de la factura. Para `targetManagementGroup`, proporcione el grupo de administración donde desea crear la suscripción.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "subscriptionAliasName": {
+            "type": "string",
+            "metadata": {
+                "description": "Provide a name for the alias. This name will also be the display name of the subscription."
+            }
+        },
+        "billingScope": {
+            "type": "string",
+            "metadata": {
+                "description": "Provide the full resource ID of billing scope to use for subscription creation."
+            }
+        },
+        "targetManagementGroup": {
+            "type": "string",
+            "metadata": {
+                "description": "Provide the ID of the target management group to place the subscription."
+            }
+        }
+    },
+    "resources": [
+        {
+            "scope": "/", 
+            "name": "[parameters('subscriptionAliasName')]",
+            "type": "Microsoft.Subscription/aliases",
+            "apiVersion": "2020-09-01",
+            "properties": {
+                "workLoad": "Production",
+                "displayName": "[parameters('subscriptionAliasName')]",
+                "billingScope": "[parameters('billingScope')]",
+                "managementGroupId": "[tenantResourceId('Microsoft.Management/managementGroups/', parameters('targetManagementGroup'))]"
+            }
+        }
+    ],
+    "outputs": {}
+}
+```
+
+Implemente la plantilla en el [nivel de grupo de administración](../../azure-resource-manager/templates/deploy-to-management-group.md).
+
+### <a name="rest"></a>[REST](#tab/rest)
+
+```json
+PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/mg1/providers/Microsoft.Resources/deployments/exampledeployment?api-version=2020-06-01
+```
+
+Con un cuerpo de la solicitud:
+
+```json
+{
+  "location": "eastus",
+  "properties": {
+    "templateLink": {
+      "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json"
+    },
+    "parameters": {
+      "subscriptionAliasName": {
+        "value": "sampleAlias"
+      },
+      "billingScope": {
+        "value": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx"
+      },
+      "targetManagementGroup": {
+        "value": "mg2"
+      }
+    },
+    "mode": "Incremental"
+  }
+}
+```
+
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+New-AzManagementGroupDeployment `
+  -Name exampledeployment `
+  -Location eastus `
+  -ManagementGroupId mg1 `
+  -TemplateFile azuredeploy.json `
+  -subscriptionAliasName sampleAlias `
+  -billingScope "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx" `
+  -targetManagementGroup mg2
+```
+
+### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+```azurecli
+az deployment mg create \
+  --name exampledeployment \
+  --location eastus \
+  --management-group-id mg1 \
+  --template-file azuredeploy.json \
+  --parameters subscriptionAliasName='sampleAlias' billingScope='/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx' targetManagementGroup=mg2
+```
+
+---
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Ahora que ha creado una suscripción, puede conceder dicha capacidad a otros usuarios y entidades de servicio. Para más información, vea [Concesión de acceso para crear suscripciones de EA (versión preliminar)](grant-access-to-create-subscription.md).
 * Para más información sobre la administración de grandes cantidades de suscripciones mediante grupos de administración, consulte [Organización de los recursos con grupos de administración de Azure](../../governance/management-groups/overview.md).
+* Para cambiar el grupo de administración de una suscripción, consulte [Movimiento de suscripciones](../../governance/management-groups/manage.md#move-subscriptions).

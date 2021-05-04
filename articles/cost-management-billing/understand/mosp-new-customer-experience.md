@@ -6,14 +6,14 @@ ms.reviewer: amberbhargava
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 01/11/2021
+ms.date: 03/31/2021
 ms.author: banders
-ms.openlocfilehash: 887b7013eb3060020a39d2df0082768b8185bdde
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 4f7179a5ad35b4d3ca9a92119fb7b492e2aff779
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575473"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106122533"
 ---
 # <a name="get-started-with-your-updated-azure-billing-account"></a>Introducción a la cuenta de facturación de Azure actualizada
 
@@ -26,11 +26,11 @@ La administración de costos y facturas es uno de los componentes clave de la ex
 
 En el diagrama siguiente se comparan la cuenta de facturación antigua y la nueva:
 
-![Diagrama que muestra la comparación entre la jerarquía de facturación de la cuenta antigua y de la nueva](./media/mosp-new-customer-experience/comparison-old-new-account.png)
+:::image type="content" source="./media/mosp-new-customer-experience/comparison-old-new-account.png" alt-text="Diagrama que muestra la comparación entre la jerarquía de facturación de la cuenta antigua y de la nueva." border="false" lightbox="./media/mosp-new-customer-experience/comparison-old-new-account.png":::
 
 La nueva cuenta de facturación contiene uno o varios perfiles de facturación que permiten administrar las facturas y los métodos de pago. Cada perfil de facturación contiene una o más secciones de factura que permiten organizar los costos en la factura del perfil de facturación.
 
-![Diagrama que muestra la nueva jerarquía de facturación](./media/mosp-new-customer-experience/new-billing-account-hierarchy.png)
+:::image type="content" source="./media/mosp-new-customer-experience/new-billing-account-hierarchy.png" alt-text="Diagrama que muestra la nueva jerarquía de facturación." border="false" lightbox="./media/mosp-new-customer-experience/new-billing-account-hierarchy.png":::
 
 Los roles en la cuenta de facturación tienen el nivel más alto de permisos. Estos roles deben asignarse a los usuarios que necesitan ver las facturas y realizar el seguimiento de los costos de toda una cuenta, como los directores financieros o de TI de una organización, o al usuario que ha registrado una cuenta. Para más información, consulte [Tareas y roles de la cuenta de facturación](../manage/understand-mca-roles.md#billing-account-roles-and-tasks). Cuando se actualiza la cuenta, todo usuario que tenga un rol de administrador de cuenta en la cuenta de facturación antigua recibe un rol de propietario en la nueva cuenta.
 
@@ -60,7 +60,21 @@ La nueva experiencia incluye las siguientes funcionalidades de administración d
 
 Un **período de facturación mensual más predecible**: en la nueva cuenta, el período de facturación comienza el primer día del mes y termina el último día del mes, independientemente del momento en que se registre para usar Azure. Al principio de cada mes se generará una factura que contendrá todos los cargos del mes anterior.
 
-**Reciba una única factura mensual con varias suscripciones**: tiene la flexibilidad de obtener una factura mensual por cada suscripción, o bien una sola factura con varias suscripciones.
+Una **única factura mensual para varias suscripciones**: en su cuenta existente, obtendrá una factura para cada suscripción de Azure. Cuando se actualiza la cuenta, se mantiene el comportamiento existente, pero tiene la opción de consolidar los cargos de las suscripciones en una sola factura. Una vez actualizada la cuenta, siga estos pasos para consolidar los cargos en una sola factura:
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+2. Busque **Administración de costos + facturación**.  
+   ![Captura de pantalla que muestra la búsqueda en Azure Portal de Cost Management + Billing.](./media/mosp-new-customer-experience/billing-search-cost-management-billing.png)
+3. Seleccione **Suscripciones de Azure** en el lado izquierdo de la pantalla. 
+4. En la tabla se enumeran las suscripciones de Azure de pago. En la columna del perfil de facturación encontrará el perfil de facturación al que se factura la suscripción. Los cargos de suscripción se muestran en la factura del perfil de facturación. Para consolidar los cargos de todas las suscripciones en una sola factura, debe vincular todas las suscripciones a un único perfil de facturación.  
+    :::image type="content" source="./media/mosp-new-customer-experience/list-azure-subscriptions.png" alt-text="Captura de pantalla que muestra la lista de suscripciones de Azure." lightbox="./media/mosp-new-customer-experience/list-azure-subscriptions.png" :::
+5. Elija el perfil de facturación que quiera usar. 
+6. Seleccione una suscripción que no esté vinculada al perfil de facturación que eligió en el paso 5. Haga clic en los puntos suspensivos (tres puntos) de la suscripción. Seleccione **Cambiar sección de factura**.  
+    :::image type="content" source="./media/mosp-new-customer-experience/select-change-invoice-section.png" alt-text="Captura de pantalla que muestra la opción para cambiar la sección de factura." lightbox="./media/mosp-new-customer-experience/select-change-invoice-section-zoomed-in.png" :::
+7. Seleccione el perfil de facturación que eligió en el paso 5.  
+    :::image type="content" source="./media/mosp-new-customer-experience/change-invoice-section.png" alt-text="Captura de pantalla que muestra cómo cambiar la sección de la factura." lightbox="./media/mosp-new-customer-experience/change-invoice-section-zoomed-in.png" :::
+8. Seleccione **Cambiar**.
+9. Repita los pasos del 6 al 8 para todas las demás suscripciones. 
 
 **Reciba una sola factura mensual con las suscripciones de Azure, los planes de soporte técnico y los productos de Azure Marketplace**: obtendrá una factura mensual con todos los cargos, incluidos los cargos de uso de las suscripciones de Azure, así como los planes de soporte técnico y las compras de Azure Marketplace.
 
@@ -98,6 +112,12 @@ Siga estas recomendaciones para prepararse para su nueva experiencia:
 
 En la nueva experiencia, la factura se generará en torno al noveno día de cada mes y contendrá todos los cargos del mes anterior. Esta fecha puede diferir de la fecha en que se generó la factura en la cuenta anterior. Si comparte las facturas con otras personas, notifique el cambio de fecha.
 
+
+**Facturas del primer mes después de la migración**
+
+El día en que se actualice la cuenta, se finalizarán los cargos no facturados existentes y recibirá las facturas de estos cargos el día que normalmente reciba las facturas. Por ejemplo, John tiene dos suscripciones de Azure: Azure sub 01, con un ciclo de facturación del día 5 del mes al día 4 del mes siguiente, y Azure sub 02, con un ciclo de facturación del día 10 del mes al día 9 del mes siguiente. John obtiene facturas de ambas suscripciones de Azure normalmente el día 5 del mes. Ahora, si la cuenta de John se actualiza el 4 de abril, los cargos de Azure sub 01 del 5 de marzo al 4 de abril y los cargos de Azure sub 02 del 10 de marzo al 4 de abril se finalizarán. John recibirá dos facturas, una para cada subscripción, el 5 de abril. Una vez actualizada la cuenta, el ciclo de facturación de John se basará en el mes natural y cubrirá todos los cargos incurridos desde el principio del mes natural hasta el final de este.  La factura de los cargos del mes natural anterior está disponible el día 9 de cada mes. Por lo tanto, en el ejemplo anterior, John recibirá otra factura el 5 de mayo para el período de facturación del 5 de abril al 30 de abril. 
+
+
 **Nuevas API de administración de costos y facturación**
 
 Si usa las API de administración de costos o facturación de Azure para consultar y actualizar los datos de facturación o de costos, debe usar las nuevas API. En la tabla siguiente se enumeran las API que no funcionarán con la nueva cuenta de facturación y los cambios que debe realizar en ella.
@@ -106,6 +126,7 @@ Si usa las API de administración de costos o facturación de Azure para consult
 |---------|---------|
 |[Billing Accounts - List](/rest/api/billing/2019-10-01-preview/billingaccounts/list) | En Billing Accounts - List API, la cuenta de facturación antigua tiene el valor **MicrosoftOnlineServiceProgram** en agreementType, mientras que la nueva tiene el valor **MicrosoftCustomerAgreement**. Si tiene una dependencia de agreementType, actualícela. |
 |[Invoices - List By Billing Subscription](/rest/api/billing/2019-10-01-preview/invoices/listbybillingsubscription)     | Esta API solo devolverá las facturas que se generaron antes de que se actualizara la cuenta. Tendría que usar [Invoices - List By Billing Account](/rest/api/billing/2019-10-01-preview/invoices/listbybillingaccount) API para obtener las facturas que se generan en la nueva cuenta de facturación. |
+
 
 ## <a name="cost-management-updates-after-account-update"></a>Actualizaciones de Cost Management después de la actualización de la cuenta
 
@@ -141,7 +162,7 @@ Con la cuenta actualizada, recibirá una sola factura con todos los cargos de Az
 
 Por ejemplo, si el período de facturación era del 24 de noviembre al 23 de diciembre para la cuenta anterior, después de la actualización el período pasará a ser del 1 de noviembre al 30 de noviembre, del 1 de diciembre al 31 de diciembre y así sucesivamente.
 
-:::image type="content" source="./media/mosp-new-customer-experience/billing-periods.png" alt-text="Imagen que muestra una comparación entre los períodos de facturación antiguos y los nuevos" lightbox="./media/mosp-new-customer-experience/billing-periods.png" :::
+:::image type="content" source="./media/mosp-new-customer-experience/billing-periods.png" alt-text="Captura de pantalla que muestra una comparación entre los períodos de facturación antiguos y los nuevos." lightbox="./media/mosp-new-customer-experience/billing-periods.png" :::
 
 #### <a name="budgets"></a>Presupuestos
 
@@ -156,7 +177,7 @@ La nueva cuenta de facturación proporciona la funcionalidad de exportación mej
 
 Por ejemplo, para un período de facturación del 23 de diciembre al 22 de enero, el archivo CSV exportado incluiría los datos de costo y uso para ese período. Después de la actualización, la exportación contendrá datos los datos del mes natural. Por ejemplo, del 1 de enero al 31 de enero, etc.
 
-:::image type="content" source="./media/mosp-new-customer-experience/export-amortized-costs.png" alt-text="Imagen que muestra una comparación entre los detalles de exportación nuevos y antiguos" lightbox="./media/mosp-new-customer-experience/export-amortized-costs.png" :::
+:::image type="content" source="./media/mosp-new-customer-experience/export-amortized-costs.png" alt-text="Captura de pantalla que muestra una comparación entre los detalles de exportación nuevos y los antiguos." lightbox="./media/mosp-new-customer-experience/export-amortized-costs.png" :::
 
 ## <a name="additional-information"></a>Información adicional
 

@@ -12,22 +12,20 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: 1e99e8ff25d895ba2248ddd1ba2520e9f14871a7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4ba36b80fc6a521b22dc812bdf67c3985a455ff4
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105022813"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108071905"
 ---
-# <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow-with-pkce"></a>Inicio rápido: Inicio de sesión de los usuarios y obtención de un token de acceso en una aplicación SPA de JavaScript mediante el flujo de código de autorización con PKCE 
+# <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow-with-pkce"></a>Inicio rápido: Inicio de sesión de los usuarios y obtención de un token de acceso en una aplicación SPA de JavaScript mediante el flujo de código de autorización con PKCE
 
-En este inicio rápido descargará y ejecutará un código de ejemplo que muestra cómo una aplicación de página única de JavaScript puede iniciar la sesión de usuarios y llamar a Microsoft Graph API mediante el flujo de código de autorización con la clave de prueba para el intercambio de códigos (PKCE). En el ejemplo de código se muestra cómo obtener un token de acceso para llamar a Microsoft Graph API o a cualquier API web. 
+En este inicio rápido descargará y ejecutará un código de ejemplo que muestra cómo una aplicación de página única de JavaScript puede iniciar la sesión de usuarios y llamar a Microsoft Graph API mediante el flujo de código de autorización con la clave de prueba para el intercambio de códigos (PKCE). En el ejemplo de código se muestra cómo obtener un token de acceso para llamar a Microsoft Graph API o a cualquier API web.
 
 Para ilustrar este tema, consulte el apartado en el que se explica el [funcionamiento del ejemplo](#how-the-sample-works).
 
-En este inicio rápido se usa MSAL.js v2 con el flujo de código de autorización. Puede encontrar un inicio rápido similar que usa MSAL.js v1 con el flujo implícito en [Inicio rápido: Inicio de sesión de usuarios en aplicaciones de página única de JavaScript](./quickstart-v2-javascript.md).
-
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una suscripción a Azure: [cree una de forma gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Node.js](https://nodejs.org/en/download/)
@@ -84,10 +82,10 @@ En este inicio rápido se usa MSAL.js v2 con el flujo de código de autorizaci�
 > [!div renderon="docs"]
 > #### <a name="step-3-configure-your-javascript-app"></a>Paso 3: Configuración de la aplicación de JavaScript
 >
-> En la carpeta *app*, abra el archivo *authConfig.js* y actualice los valores `clientID`, `authority` y `redirectUri` del objeto `msalConfig`.
+> En la carpeta *app*, abra el archivo *authConfig.js* y, a continuación, actualice los valores de `clientID`, `authority` y `redirectUri` del objeto `msalConfig`.
 >
 > ```javascript
-> // Config object to be passed to Msal on creation
+> // Config object to be passed to MSAL on creation
 > const msalConfig = {
 >   auth: {
 >     clientId: "Enter_the_Application_Id_Here",
@@ -107,13 +105,13 @@ En este inicio rápido se usa MSAL.js v2 con el flujo de código de autorizaci�
 
 > [!div renderon="docs"]
 >
-> Modifique los valores de la sección `msalConfig` como se describe aquí:
+> Modifique los valores en la sección `msalConfig`:
 >
 > - `Enter_the_Application_Id_Here` es el **identificador de aplicación (cliente)** de la aplicación que registró.
 >
 >    Para buscar el valor de **Identificador de aplicación (cliente)** , vaya a la página **Información general** del registro de la aplicación en Azure Portal.
 > - `Enter_the_Cloud_Instance_Id_Here` es la instancia de la nube de Azure. En el caso de la nube principal o global de Azure, escriba `https://login.microsoftonline.com/`. Para nubes **nacionales** (por ejemplo, China), consulte [Nubes nacionales](authentication-national-cloud.md).
-> - `Enter_the_Tenant_info_here` se establece en una de las opciones siguientes:
+> - `Enter_the_Tenant_info_here` es uno de los siguientes valores:
 >   - Si la aplicación admite *cuentas de este directorio organizativo*, reemplace este valor por los valores de **Id. de inquilino** o **Nombre de inquilino**. Por ejemplo, `contoso.microsoft.com`.
 >
 >    Para encontrar el valor de **Identificador de directorio (inquilino)** , vaya a la página **Información general** del registro de la aplicación en Azure Portal.
@@ -133,11 +131,12 @@ En este inicio rápido se usa MSAL.js v2 con el flujo de código de autorizaci�
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Paso 3: La aplicación está configurada y lista para ejecutarse
+>
 > Hemos configurado el proyecto con los valores de las propiedades de su aplicación.
 
 > [!div renderon="docs"]
 >
-> Después, en la misma carpeta, edite el archivo *graphConfig.js* y actualice los valores `graphMeEndpoint` y `graphMailEndpoint` del objeto `apiConfig`.
+> A continuación, abra el archivo *graphConfig.js* para actualizar los valores de `graphMeEndpoint` y `graphMailEndpoint` en el objeto `apiConfig`.
 >
 > ```javascript
 >   // Add here the endpoints for MS Graph API services you would like to use.
@@ -154,9 +153,9 @@ En este inicio rápido se usa MSAL.js v2 con el flujo de código de autorizaci�
 >
 > [!div renderon="docs"]
 >
-> `Enter_the_Graph_Endpoint_Here` es el punto de conexión en el que se realizarán las llamadas API. Como servicio principal de Microsoft Graph API (global), escriba `https://graph.microsoft.com/` (incluya la barra diagonal final). Para más información sobre Microsoft Graph en nubes nacionales, consulte [Implementaciones de nube nacionales](/graph/deployments).
+> `Enter_the_Graph_Endpoint_Here` es el punto de conexión en el que se realizarán las llamadas de API. Como servicio principal de Microsoft Graph API (global), escriba `https://graph.microsoft.com/` (incluya la barra diagonal final). Para más información sobre Microsoft Graph en nubes nacionales, consulte [Implementaciones de nube nacionales](/graph/deployments).
 >
-> Los valores `graphMeEndpoint` y `graphMailEndpoint` del archivo *graphConfig.js* deben ser similares a los siguientes si usa el servicio principal de Microsoft Graph API (global):
+> Si usa el servicio principal de Microsoft Graph API (global), los valores de `graphMeEndpoint` y `graphMailEndpoint` del archivo *graphConfig.js* deben ser similares a los siguientes:
 >
 > ```javascript
 > graphMeEndpoint: "https://graph.microsoft.com/v1.0/me",
@@ -165,18 +164,20 @@ En este inicio rápido se usa MSAL.js v2 con el flujo de código de autorizaci�
 >
 > #### <a name="step-4-run-the-project"></a>Paso 4: Ejecución del proyecto
 
-Ejecute el proyecto con un servidor web mediante Node.js:
+Ejecute el proyecto con un servidor web mediante Node.js.
 
 1. Para iniciar el servidor, ejecute los siguientes comandos desde el directorio del proyecto:
+
     ```console
     npm install
     npm start
     ```
+
 1. Vaya a `http://localhost:3000/`.
 
 1. Seleccione **Iniciar sesión** para iniciar el proceso de inicio de sesión y, luego, llame a Microsoft Graph API.
 
-    La primera vez que inicie sesión, se le pedirá que dé su consentimiento para permitir que la aplicación acceda a su perfil e inicie sesión automáticamente. Después de que haya iniciado sesión correctamente, la información del perfil de usuario debe mostrarse en la página.
+    La primera vez que inicie sesión, se le pedirá que dé su consentimiento para permitir que la aplicación acceda a su perfil e inicie sesión automáticamente. Después de que haya iniciado sesión correctamente, se muestra en la página la información del perfil de usuario.
 
 ## <a name="more-information"></a>Más información
 
@@ -184,7 +185,7 @@ Ejecute el proyecto con un servidor web mediante Node.js:
 
 ![Diagrama que muestra el flujo de código de autorización para una aplicación de página única.](media/quickstart-v2-javascript-auth-code/diagram-01-auth-code-flow.png)
 
-### <a name="msaljs"></a>msal.js
+### <a name="msaljs"></a>MSAL.js
 
 La biblioteca MSAL.js inicia la sesión de los usuarios y solicita los tokens que se usan para acceder a una API protegida por la plataforma de identidad de Microsoft. El archivo *index.html* del ejemplo contiene una referencia a la biblioteca:
 

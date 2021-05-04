@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 11/25/2020
 ms.author: mbullwin
-ms.openlocfilehash: 9b848f6c86f2ff2e95fa5cc191b088b7175f2311
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 789f493640e9795c58fd278db6cc0b11902c1cfa
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107318777"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107925277"
 ---
 Comience a usar la biblioteca cliente multivariante de Anomaly Detector para Python. Siga estos pasos para instalar el inicio del paquete con los algoritmos que proporciona el servicio. Las nuevas API de detección de anomalías multivariante permiten a los desarrolladores integrar fácilmente inteligencia artificial avanzada para detectar anomalías de grupos de métricas, sin necesidad de tener conocimientos de aprendizaje automático ni usar datos etiquetados. Las dependencias y correlaciones entre distintas señales se consideran automáticamente como factores clave. De este modo, podrá proteger de forma proactiva los sistemas complejos frente a errores.
 
@@ -22,6 +22,8 @@ Utilice la biblioteca cliente multivariante de Anomaly Detector para Python con 
 * Detectar anomalías de nivel del sistema para un grupo de series temporales.
 * Cuando una serie temporal individual no ofrece demasiada información y se deben examinar todas las señales para detectar un problema.
 * Mantenimiento predictivo de recursos físicos costosos con decenas o cientos de tipos de sensores diferentes que miden diversos aspectos del estado del sistema.
+
+[Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/anomalydetector/azure-ai-anomalydetector) | [Paquete (PyPi)](https://pypi.org/project/azure-ai-anomalydetector/3.0.0b3/) | [Código de ejemplo](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/anomalydetector/azure-ai-anomalydetector/samples/sample_multivariate_detect.py) | [Jupyter Notebook](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/Multivariate%20API%20Demo%20Notebook.ipynb)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -124,8 +126,7 @@ def train(self, start_time, end_time, max_tryout=500):
     model_status = None
     tryout_count = 0
     while (tryout_count < max_tryout and model_status != "READY"):
-        model_status = self.ad_client.get_multivariate_model(trained_model_id).additional_properties["summary"][
-            "status"]
+        model_status = self.ad_client.get_multivariate_model(trained_model_id).model_info.status
         tryout_count += 1
         time.sleep(2)
     
@@ -234,6 +235,11 @@ if __name__ == '__main__':
 
 ```
 
+Antes de ejecutarla, puede resultar útil comprobar el proyecto con el [código de ejemplo completo](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/Multivariate%20API%20Demo%20Notebook.ipynb) del que se deriva este inicio rápido.
+
+También tenemos una instancia de [Jupyter Notebook detallada](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/Multivariate%20API%20Demo%20Notebook.ipynb) para ayudarle a empezar a trabajar.
+
 Ejecute la aplicación con el comando `python` en el nombre de archivo.
+
 
 [!INCLUDE [anomaly-detector-next-steps](../quickstart-cleanup-next-steps.md)]

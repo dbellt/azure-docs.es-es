@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 08/20/2019
 ms.author: banders
-ms.openlocfilehash: cf5772e9cf08eaa7f34acd59a9c96da6f20cd03d
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 96c37ded2750ad3e4882b203d71c75c9f4608e9d
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131418"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285916"
 ---
 # <a name="track-microsoft-customer-agreement-azure-credit-balance"></a>Seguimiento del saldo del crédito de Azure para el contrato de cliente de Microsoft
 
@@ -368,7 +368,7 @@ La respuesta de la API devuelve todas las transacciones que afectan al saldo del
 
 En una cuenta de facturación para un contrato de cliente de Microsoft, utilizará perfiles de facturación que le permiten administrar las facturas y los métodos de pago. Se crea una factura mensual para cada perfil de facturación y utilizará los métodos de pago para pagar la factura.
 
-Asigna créditos que adquiere para un perfil de facturación. Cuando se genera una factura para el perfil de facturación, los créditos se aplican automáticamente a los cargos totales para calcular la cantidad que tiene que pagar. Paga el importe restante con sus métodos de pago, como cheque, transferencia bancaria o tarjeta de crédito.
+Puede asignar los créditos que adquiere a un perfil de facturación. Cuando se genera una factura para el perfil de facturación, los créditos se aplican automáticamente a los cargos totales para calcular la cantidad que tiene que pagar. Paga el importe restante con sus métodos de pago, como cheque, transferencia bancaria o tarjeta de crédito.
 
 ## <a name="products-that-arent-covered-by-azure-credits"></a>Productos que no están cubiertos por los créditos de Azure
 

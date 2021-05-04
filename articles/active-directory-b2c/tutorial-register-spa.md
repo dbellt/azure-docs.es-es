@@ -12,12 +12,12 @@ ms.date: 08/19/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d2eaf1dce432821dcfc693dc69dcf975a3d8be8d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1f79eee17a78bd5cfc9024a333142deaaa44b3e2
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92503868"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108071143"
 ---
 # <a name="tutorial-register-a-single-page-application-spa-in-azure-active-directory-b2c"></a>Tutorial: Registro de una aplicación de página única en Azure Active Directory B2C
 
@@ -34,12 +34,12 @@ Azure AD B2C ofrece **dos** opciones para que las aplicaciones de página únic
 
 Este es el enfoque **recomendado**. Contar con tokens de actualización de duración limitada ayuda a que la aplicación se adapte a las [limitaciones de privacidad de cookies de los exploradores modernos](../active-directory/develop/reference-third-party-cookies-spas.md), como ITP de Safari.
 
-Para aprovechar este flujo, la aplicación puede usar una biblioteca de autenticación que lo admita, como [MSAL.js 2.x](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa). 
+Para aprovechar este flujo, la aplicación puede usar una biblioteca de autenticación que lo admita, como [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser). 
 
 ![Aplicaciones de página única: autorización](./media/tutorial-single-page-app/spa-app-auth.svg)
 
 ### <a name="implicit-grant-flow"></a>Flujo de concesión implícito
-- [Flujo implícito de OAuth 2.0](implicit-flow-single-page-application.md). Algunos marcos, como [MSAL.js 1.x](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp), solo admiten el flujo de concesión implícita. El flujo de concesión implícita permite a la aplicación obtener tokens de **identificador** y de **acceso**. A diferencia del flujo del código de autorización, el flujo de concesión implícita no devuelve un **token de actualización**. 
+- [Flujo implícito de OAuth 2.0](implicit-flow-single-page-application.md). Algunas bibliotecas, como [MSAL.js 1.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core), solo admiten el flujo de concesión implícita. El flujo de concesión implícita permite a la aplicación obtener tokens de **identificador** y de **acceso**. A diferencia del flujo del código de autorización, el flujo de concesión implícita no devuelve un **token de actualización**. 
 
 ![Aplicaciones de página única: implícito](./media/tutorial-single-page-app/spa-app.svg)
 

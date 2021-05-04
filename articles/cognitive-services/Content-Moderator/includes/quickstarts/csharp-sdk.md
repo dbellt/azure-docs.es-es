@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/15/2020
 ms.author: pafarley
 ms.custom: devx-track-dotnet, cog-serv-seo-aug-2020
-ms.openlocfilehash: bdf49f16b003c25da9fe8972a3fb7e3837d62819
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.openlocfilehash: 573778316802b6e445b4c9d78576a8813af514a6
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105105568"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107726145"
 ---
 Introducción a la biblioteca cliente de Azure Content Moderator para .NET. Siga estos pasos para instalar el paquete NuGet y probar el código de ejemplo para las tareas básicas. 
 

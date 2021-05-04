@@ -1,21 +1,21 @@
 ---
 title: Cambio de la información de contacto de una cuenta de facturación de Azure
 description: Describe cómo cambiar la información de contacto de su cuenta de facturación de Azure
-author: genlin
-ms.reviewer: dcscontentpm
+author: bandersmsft
+ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/26/2020
+ms.date: 04/08/2021
 ms.author: banders
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 776c207387ee55b998615131baf77e6c13655b49
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: f394b6b44b2030253f7b78ec68459819c82c3c27
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033945"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107480909"
 ---
 # <a name="change-contact-information-for-an-azure-billing-account"></a>Cambio de la información de contacto de una cuenta de facturación de Azure
 
@@ -64,6 +64,21 @@ Si desea actualizar la información del perfil de usuario de Azure Active Direct
     ![Captura de pantalla que muestra dónde actualizar la dirección](./media/change-azure-account-profile/update-bill-to-list-properties-mca.png)
 1. Escriba la dirección nueva y seleccione **Guardar**.  
     ![Captura de pantalla que muestra la actualización de la dirección](./media/change-azure-account-profile/update-bill-to-save-mca.png)
+
+## <a name="update-a-po-number"></a>Actualización de un número de pedido
+
+De forma predeterminada, la factura del perfil de facturación no tiene un número de pedido de compra asociado. Después de agregar un número de pedido para un perfil de facturación, este aparece en las facturas de dicho perfil.
+
+Para agregar o cambiar el número de pedido de un perfil de facturación, siga estos pasos.
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Busque **Cost Management + Billing** y, a continuación, seleccione **Ámbitos de facturación**.
+1. Seleccione el ámbito de facturación.
+1. En el menú de la izquierda, en **Facturación**, seleccione **Perfiles de facturación**.
+1. Seleccione el perfil de facturación adecuado.
+1. En el menú de la izquierda, en **Configuración**, seleccione **Propiedades**.
+1. Seleccione **Actualizar el número de pedido de compra**.
+1. Escriba un número de pedido de compra y, a continuación, seleccione **Actualizar**.
 
 ## <a name="service-and-marketing-emails"></a>Correos electrónicos de servicio y marketing
 

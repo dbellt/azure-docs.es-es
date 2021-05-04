@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6e595f7ff313ff85a12209e8c124b9aa376b20b6
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: d30ab051e58573daefd16f178feb4fc94f2ec83f
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107739753"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107835477"
 ---
 # <a name="tutorial-securing-azure-remote-rendering-and-model-storage"></a>Tutorial: Protección de Azure Remote Rendering y el almacenamiento de modelos
 
@@ -405,8 +405,10 @@ En el editor de Unity, cuando la autenticación de AAD esté activa, tendrá que
     Puesto que el componente **AADAuthentication** tiene un controlador de vista, se enlaza automáticamente para mostrar un aviso después del panel modal de autorización de la sesión.
 1. Siga las instrucciones que se encuentran en el panel a la derecha de **AppMenu**.
     Verá algo parecido a esto: ![Ilustración en la que se muestra el panel de instrucciones que aparece a la derecha de AppMenu.](./media/device-flow-instructions.png)
+    
     Después de escribir el código proporcionado en el dispositivo secundario (o en el explorador del mismo dispositivo) e iniciar sesión con sus credenciales, se devolverá un token de acceso a la aplicación que realiza la solicitud, en este caso, el editor de Unity.
-1. Llegados a este punto, todas las fases de la aplicación proseguirán normalmente. Si no es así, compruebe la consola de Unity para ver si hay errores.
+
+Llegados a este punto, todas las fases de la aplicación proseguirán normalmente. Si no es así, compruebe la consola de Unity para ver si hay errores.
 
 ## <a name="build-to-device"></a>Compilación en el dispositivo
 

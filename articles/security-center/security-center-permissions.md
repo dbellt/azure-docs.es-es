@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: overview
 ms.date: 01/03/2021
 ms.author: memildin
-ms.openlocfilehash: dcbb4977e1bfd17f0cbed61abf9ba335615b7799
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: fbd7b13e07a19c75c4f41ff4f3e2bdc66e585c9e
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102443767"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107903531"
 ---
 # <a name="permissions-in-azure-security-center"></a>Permisos en Azure Security Center
 
@@ -39,7 +39,7 @@ En la siguiente tabla se muestran los roles y las acciones permitidas en Securit
 | Agregar o asignar iniciativas (incluidas las normas de cumplimiento normativo)                                                                           | -                             | -              | -                                                      | -                        | ✔                 |
 | Habilitación o deshabilitación de Azure Defender                                                                                                               | -                             | ✔             | -                                                      | -                        | ✔                 |
 | Habilitar o deshabilitar el aprovisionamiento automático                                                                                                            | -                             | ✔             | -                                                      | ✔                       | ✔                  |
-| Aplicar recomendaciones de seguridad en un recurso</br> (y utilizar la [corrección rápida](security-center-remediate-recommendations.md#quick-fix-remediation)) | -                             | -              | ✔                                                     | ✔                        | ✔                 |
+| Aplicar recomendaciones de seguridad en un recurso</br> (y use [Corregir](security-center-remediate-recommendations.md#fix-button)) | -                             | -              | ✔                                                     | ✔                        | ✔                 |
 | Descartar alertas                                                                                                                                | -                             | ✔             | -                                                      | ✔                       | ✔                  |
 | Ver alertas y recomendaciones                                                                                                               | ✔                            | ✔              | ✔                                                     | ✔                        | ✔                 |
 

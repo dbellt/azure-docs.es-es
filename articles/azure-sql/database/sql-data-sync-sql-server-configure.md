@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/14/2019
-ms.openlocfilehash: 75de7b122bff75ea13e3b66bb0b79452142dc36c
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 77073d21f982e82e567e517b7d9eca061cb91859
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107500097"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107812960"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-databases-in-azure-sql-database-and-sql-server"></a>Tutorial: Configuración de SQL Data Sync entre Azure SQL Database y SQL Server
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -49,9 +49,9 @@ Para ejemplos de PowerShell sobre cómo configurar SQL Data Sync, vea [Cómo sin
 
     :::image type="content" source="./media/sql-data-sync-sql-server-configure/sync-to-other-databases.png" alt-text = "Sync to other databases, Microsoft Azure portal":::
 
-1. En la página **Sincronizar con otras bases de datos**, seleccione **Nuevo grupo de sincronización**. La página **Nuevo grupo de sincronización** se abre con el paso 1, con el paso 1,**Crear grupo de sincronización**.
+1. En la página **Sincronizar con otras bases de datos**, seleccione **Nuevo grupo de sincronización**. La página **Nuevo grupo de sincronización** se abre con **Crear grupo de sincronización**.
 
-   :::image type="content" source="./media/sql-data-sync-sql-server-configure/new-sync-group-private-link.png" alt-text = "Set up new sync group with private link":::
+   :::image type="content" source="./media/sql-data-sync-sql-server-configure/create-sync-group.png" alt-text = "Set up new sync group with private link":::
 
    En la página **Crear grupo de sincronización de datos**, cambie la siguiente configuración:
 
@@ -70,19 +70,23 @@ Para ejemplos de PowerShell sobre cómo configurar SQL Data Sync, vea [Cómo sin
    
 1. En la página **Nuevo grupo de sincronización**, si ha seleccionado **Use private link** (Usar vínculo privado), deberá aprobar la conexión del punto de conexión privado. El vínculo del mensaje de información le llevará a la experiencia de conexiones del punto de conexión privado, donde puede aprobar la conexión. 
 
-   :::image type="content" source="./media/sql-data-sync-sql-server-configure/approve-private-link.png" alt-text = "Approve private link":::
+   :::image type="content" source="./media/sql-data-sync-sql-server-configure/approve-private-link-update.png" alt-text = "Approve private link":::
+   
+   > [!NOTE]
+   > Los vínculos privados para el grupo de sincronización y los miembros de sincronización deben crearse, aprobarse y deshabilitarse por separado. 
 
 ## <a name="add-sync-members"></a>Incorporación de miembros de sincronización
 
-Una vez creado e implementado el nuevo grupo de sincronización, el paso 2, **Incorporación de miembros de sincronización**, se resalta en la página **Nuevo grupo de sincronización**.
+Una vez creado e implementado el nuevo grupo de sincronización, ábralo y acceda a la página **Bases de datos**, donde seleccionará los miembros de sincronización.
 
-En la sección **Base de datos central**, escriba las credenciales existentes del servidor en el que se encuentra la base de datos central. No escriba *nuevas* credenciales en esta sección.
-
-   :::image type="content" source="./media/sql-data-sync-sql-server-configure/steptwo.png" alt-text = "Enter existing credentials for the hub database server":::
+   :::image type="content" source="./media/sql-data-sync-sql-server-configure/add-sync-members.png" alt-text = "Select sync members":::
+   
+   > [!NOTE]
+   > Para actualizar o insertar el nombre de usuario y la contraseña en la base de datos central, vaya a la sección **Base de datos central** de la página **Seleccionar miembros de sincronización**. 
 
 ### <a name="to-add-a-database-in-azure-sql-database"></a>Adición de una base de datos en Azure SQL Database
 
-En la sección **Base de datos de miembros**, tiene la opción de agregar una base de datos de Azure SQL Database al grupo de sincronización si selecciona **Add an Azure SQL Database** (Agregar una base de datos de Azure SQL Database). Se abre la página **Configurar Azure SQL Database**.
+En la sección **Seleccionar miembros de sincronización**, tiene la opción de agregar una base de datos de Azure SQL Database al grupo de sincronización si selecciona **Agregar una base de datos de Azure**. Se abre la página **Configurar base de datos de Azure**.
   
    :::image type="content" source="./media/sql-data-sync-sql-server-configure/step-two-configure.png" alt-text = "Add a database to the sync group":::
    
@@ -163,11 +167,11 @@ En la sección **Base de datos de miembros**, tiene la opción de agregar una ba
 
 ## <a name="configure-sync-group"></a>Configuración del grupo de sincronización
 
-Una vez creados e implementados los nuevos miembros del grupo de sincronización, el paso 3, **Configuración del grupo de sincronización**, se resalta en la página **Nuevo grupo de sincronización**.
+Una vez creados e implementados los nuevos miembros del grupo de sincronización, vaya a la sección **Tablas** de la página **Grupo de sincronización de la base de datos**.
 
-![Configuración del paso 3](./media/sql-data-sync-sql-server-configure/stepthree.png)
+![Configuración del paso 3](./media/sql-data-sync-sql-server-configure/configure-sync-group.png)
 
-1. En la página **Tablas**, seleccione una base de datos de la lista de miembros del grupo de sincronización y **Actualizar esquema**.
+1. En la página **Tablas**, seleccione una base de datos de la lista de miembros del grupo de sincronización y **Actualizar esquema**. La actualización del esquema puede tardar unos minutos. Si se usa un vínculo privado, la actualización podría demorarse unos minutos más.
 
 1. En la lista, seleccione las tablas que desea sincronizar. De forma predeterminada se seleccionan todas las columnas; deshabilite la casilla de las columnas que no desee sincronizar. Asegúrese de dejar seleccionada la columna de clave principal.
 
@@ -233,7 +237,7 @@ Después de exportar una base de datos como archivo *.bacpac* y de importar dich
 
 Para ver las preguntas más frecuentes sobre el agente de cliente, consulte [Preguntas más frecuentes sobre el agente](sql-data-sync-agent-overview.md#agent-faq).
 
-**¿Es necesario aprobar manualmente el vínculo privado antes de poder empezar a usarlo?**
+**¿Es necesario aprobar manualmente el vínculo antes de poder empezar a usarlo?**
 
 Sí, debe aprobar manualmente el punto de conexión privado administrado por el servicio en la página de conexiones del punto de conexión privado de Azure Portal durante la implementación del grupo de sincronización o mediante PowerShell.
 

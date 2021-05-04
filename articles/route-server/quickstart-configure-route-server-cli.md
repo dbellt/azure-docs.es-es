@@ -7,16 +7,18 @@ ms.service: route-server
 ms.topic: quickstart
 ms.date: 03/02/2021
 ms.author: duau
-ms.openlocfilehash: e9c583db7493afc04b2c66553801f62d364b0a80
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dce3dd10843bc6abf2878600ad1aba17a4318c80
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103419615"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108017944"
 ---
 # <a name="quickstart-create-and-configure-route-server-using-azure-cli"></a>Inicio rápido: Creación y configuración de una instancia de Route Server mediante la CLI de Azure 
 
 Este artículo le ayuda a configurar Azure Route Server para su emparejamiento con aplicaciones virtuales de red (NVA) en la red virtual mediante la CLI de Azure. Azure Route Server aprenderá las rutas de la NVA y las programará para las máquinas virtuales de la red virtual. También anunciará las rutas de la red virtual a la NVA. Para más información, consulte [Azure Route Server](overview.md).
+
+:::image type="content" source="media/quickstart-configure-route-server-portal/environment-diagram.png" alt-text="Diagrama del entorno de implementación de Route Server mediante la CLI de Azure." border="false":::
 
 > [!IMPORTANT]
 > Azure Route Server (versión preliminar) está actualmente en versión preliminar pública.
@@ -94,7 +96,7 @@ Use el siguiente comando para establecer el emparejamiento desde la instancia de
 
 ```azurecli-interactive 
 
-az network routeserver peering create --routeserver-name "myRouteServer" -g "RouteServerRG" --peer-ip "nva_ip" --peer-asn "nva_asn" -n "NVA1_name" 
+az network routeserver peering create --routeserver "myRouteServer" -g "RouteServerRG" --peer-ip "nva_ip" --peer-asn "nva_asn" -n "NVA1_name" 
 
 ``` 
 
@@ -104,7 +106,7 @@ Para configurar el emparejamiento con diferentes NVA u otra instancia de la mism
 
 ```azurecli-interactive 
 
-az network routeserver peering create --routeserver-name "myRouteServer" -g "RouteServerRG" --peer-ip "nva_ip" --peer-asn "nva_asn" -n "NVA2_name" 
+az network routeserver peering create --routeserver "myRouteServer" -g "RouteServerRG" --peer-ip "nva_ip" --peer-asn "nva_asn" -n "NVA2_name" 
 ``` 
 
 ## <a name="complete-the-configuration-on-the-nva"></a>Finalización de la configuración en la NVA 
@@ -169,7 +171,7 @@ Si ya no necesita la instancia de Azure Route Server, use estos comandos para qu
 1. Elimine el emparejamiento de BGP entre Azure Route Server y una NVA con este comando:
 
 ```azurecli-interactive
-az network routeserver peering delete --routeserver-name "myRouteServer" -g "RouteServerRG" -n "NVA2_name" 
+az network routeserver peering delete --routeserver "myRouteServer" -g "RouteServerRG" -n "NVA2_name" 
 ``` 
 
 2. Elimine la instancia de Azure Route Server con este comando: 

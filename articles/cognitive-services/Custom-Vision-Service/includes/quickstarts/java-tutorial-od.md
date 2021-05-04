@@ -4,12 +4,12 @@ ms.custom: devx-track-java
 ms.author: pafarley
 ms.service: cognitive-services
 ms.date: 10/13/2020
-ms.openlocfilehash: 16112ffe7ba5fbc23335f9b60cdcbc045ea7cd2b
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 7a5a4415a581cca63719cf77c0a3a5566e8aee42
+ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107725178"
+ms.lasthandoff: 04/23/2021
+ms.locfileid: "107931682"
 ---
 Comience a usar la biblioteca cliente de Custom Vision para Java con el fin de crear un modelo de detección de objetos. Siga estos pasos para instalar el paquete y probar el código de ejemplo para realizar tareas básicas. Utilice este ejemplo como plantilla para crear su propia aplicación de reconocimiento de imágenes.
 
@@ -179,7 +179,7 @@ Este método crea la primera iteración de entrenamiento del proyecto. Se consul
 
 ## <a name="publish-the-current-iteration"></a>Publicación de la iteración actual
 
-Este método hace que la iteración actual del modelo esté disponible para realizar consultas. Puede usar el nombre del modelo como referencia para enviar solicitudes de predicción. Debe escribir su propio valor para `predictionResourceId`. Puede encontrar el identificador de recurso de predicción en la pestaña **Información general** del recurso en Azure Portal, que aparece como **Id. de suscripción**.
+Este método hace que la iteración actual del modelo esté disponible para realizar consultas. Puede usar el nombre del modelo como referencia para enviar solicitudes de predicción. Debe escribir su propio valor para `predictionResourceId`. Encontrará el identificador del recurso de predicción en la pestaña **Propiedades** del recurso en Azure Portal, que aparece como **Id. de recurso**.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?name=snippet_publishOD)]
 

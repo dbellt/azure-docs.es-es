@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 04/20/2021
+ms.date: 04/27/2021
 ms.author: memildin
-ms.openlocfilehash: 92138b0253d28c8bf2617ee7b17474f30ac5cafe
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 35873711753400132f47933f009365cc6383429b
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107751210"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108123490"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Novedades de Azure Security Center
 
@@ -31,11 +31,14 @@ Las actualizaciones de abril incluyen:
 - [Las imágenes del registro de contenedor que se han extraído recientemente ahora se vuelven a examinar semanalmente (Disponibilidad general)](#recently-pulled-container-registry-images-are-now-rescanned-weekly-general-availability)
 - [Use Azure Defender para Kubernetes para proteger implementaciones de Kubernetes híbridas y de varias nubes (versión preliminar)](#use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-preview)
 - [Recomendaciones para habilitar Azure Defender para DNS y Resource Manager (versión preliminar)](#recommendations-to-enable-azure-defender-for-dns-and-resource-manager-preview)
+- [Se han agregado tres estándares de cumplimiento normativo: Azure CIS 1.3.0, CMMC Nivel 3 e ISM restringido de Nueva Zelanda](#three-regulatory-compliance-standards-added-azure-cis-130-cmmc-level-3-and-new-zealand-ism-restricted)
 - [Cuatro nuevas recomendaciones relacionadas con la configuración de invitado (versión preliminar)](#four-new-recommendations-related-to-guest-configuration-preview)
 - [Recomendaciones de CMK trasladadas al control de seguridad de procedimientos recomendados](#cmk-recommendations-moved-to-best-practices-security-control)
 - [11 alertas de Azure Defender se han puesto en desuso](#11-azure-defender-alerts-deprecated).
 - [Dos recomendaciones del control de seguridad "Aplicar actualizaciones del sistema" entraron en desuso](#two-recommendations-from-apply-system-updates-security-control-were-deprecated).
 - [Azure Defender para SQL en el icono de la máquina se ha eliminado del panel de Azure Defender](#azure-defender-for-sql-on-machine-tile-removed-from-azure-defender-dashboard)
+- [Traslado de 21 recomendaciones entre controles de seguridad](#21-recommendations-moved-between-security-controls)
+
 
 ### <a name="recently-pulled-container-registry-images-are-now-rescanned-weekly-general-availability"></a>Las imágenes del registro de contenedor que se han extraído recientemente ahora se vuelven a examinar semanalmente (Disponibilidad general)
 
@@ -80,6 +83,24 @@ La habilitación de los planes de Azure Defender conlleva cargos. Obtenga inform
 
 > [!TIP]
 > Las recomendaciones de la versión preliminar no representan un recurso incorrecto y no se incluyen en los cálculos de una puntuación segura. Corríjalas siempre que sea posible, de tal forma que, cuando finalice el período de versión preliminar, contribuyan a la puntuación. Puede encontrar más información sobre cómo responder a estas recomendaciones en [Recomendaciones de corrección en Azure Security Center](security-center-remediate-recommendations.md).
+
+
+### <a name="three-regulatory-compliance-standards-added-azure-cis-130-cmmc-level-3-and-new-zealand-ism-restricted"></a>Se han agregado tres estándares de cumplimiento normativo: Azure CIS 1.3.0, CMMC Nivel 3 e ISM restringido de Nueva Zelanda
+
+Hemos agregado tres estándares para su uso con Azure Security Center. Con el panel de cumplimiento normativo, ahora puede realizar un seguimiento del cumplimiento con:
+
+- [CIS Microsoft Azure Foundations Benchmark 1.3.0](../governance/policy/samples/cis-azure-1-3-0.md)
+- [CMMC nivel 3](../governance/policy/samples/cmmc-l3.md)
+- [ISM restringido en Nueva Zelanda](../governance/policy/samples/new-zealand-ism.md)
+
+Puede asignarlos a las suscripciones como se describe en [Personalización del conjunto de estándares en el panel de cumplimiento normativo](update-regulatory-compliance-packages.md).
+
+:::image type="content" source="media/release-notes/additional-regulatory-compliance-standards.png" alt-text="Se han agregado tres estándares para su uso en el panel de cumplimiento normativo de Azure Security Center." lightbox="media/release-notes/additional-regulatory-compliance-standards.png":::
+
+Puede encontrar más información en:
+- [Personalización del conjunto de estándares en el panel de cumplimiento normativo](update-regulatory-compliance-packages.md)
+- [Tutorial: Mejora del cumplimiento normativo](security-center-compliance-dashboard.md)
+- [Tutorial: Mejora del cumplimiento normativo](security-center-compliance-dashboard.md#faq---regulatory-compliance-dashboard)
 
 ### <a name="four-new-recommendations-related-to-guest-configuration-preview"></a>Cuatro nuevas recomendaciones relacionadas con la configuración de invitado (versión preliminar)
 
@@ -160,6 +181,19 @@ Más información sobre estas recomendaciones en la [página de referencia de la
 ### <a name="azure-defender-for-sql-on-machine-tile-removed-from-azure-defender-dashboard"></a>Azure Defender para SQL en el icono de la máquina se ha eliminado del panel de Azure Defender
 
 El área de cobertura del panel de Azure Defender incluye iconos para los planes de Azure Defender pertinentes para su entorno. Debido a un problema con los informes de los números de recursos protegidos y no protegidos, hemos decidido quitar temporalmente el estado de cobertura de recursos para **Azure Defender para SQL en las máquinas** hasta que se resuelva el problema.
+
+
+### <a name="21-recommendations-moved-between-security-controls"></a>Traslado de 21 recomendaciones entre controles de seguridad 
+
+Las siguientes recomendaciones se han trasladado a otros controles de seguridad. Los controles de seguridad son grupos lógicos de recomendaciones de seguridad relacionadas y reflejan las superficies de ataque vulnerables. Este traslado garantiza que cada una de estas recomendaciones está en el control más adecuado para cumplir su objetivo.
+
+Obtenga información sobre qué recomendaciones se encuentran en cada control de seguridad en [Controles de seguridad y sus recomendaciones](secure-score-security-controls.md#security-controls-and-their-recommendations).
+
+|Recomendación |Cambio e impacto  |
+|---------|---------|
+|La evaluación de vulnerabilidades debe estar activada en sus servidores de SQL Server.<br>La evaluación de vulnerabilidad debe estar habilitada en las instancias administradas de SQL.<br>Las vulnerabilidades de sus bases de datos SQL deben remediarse ahora<br>Las vulnerabilidades de las bases de datos SQL en máquinas virtuales deben corregirse     |Cambia de Corregir vulnerabilidades (con un valor de 6 puntos)<br>a Corregir configuraciones de seguridad (con un valor de 4 puntos)<br>En función del entorno, estas recomendaciones tendrán menor impacto en la puntuación.|
+|Debe haber más de un propietario asignado a su suscripción<br>Las variables de cuenta de automatización deben cifrarse<br> Dispositivos IoT: el proceso auditado dejó de enviar eventos.<br> Dispositivos IoT: error de validación de línea base del sistema operativo<br> Dispositivos IoT: es preciso actualizar el conjunto de cifrado de TLS.<br>Dispositivos IoT: puertos abiertos en el dispositivo.<br>Dispositivos IoT: se encontró una directiva de firewall permisiva en una de las cadenas.<br> Dispositivos IoT: se encontró una regla de firewall permisiva en la cadena de entrada.<br> Dispositivos IoT: se encontró una regla de firewall permisiva en la cadena de salida.<br>Los registros de diagnóstico de IoT Hub deben estar habilitados<br>Dispositivos IoT: mensajes infrautilizados de envío del agente.<br>Dispositivos IoT: la directiva de filtro de IP predeterminada debe ser Denegar.<br>Dispositivos IoT: intervalo de IP amplio de la regla del filtro de IP.<br>Dispositivos IoT: se deben ajustar tanto el tamaño como los intervalos de los mensajes de los agentes<br>Dispositivos IoT: credenciales de autenticación idénticas<br>Dispositivos IoT: el proceso auditado dejó de enviar eventos.<br>Dispositivos IoT: la configuración de la línea base del sistema operativo (SO) debe corregirse|Cambia a **Implementación de procedimientos recomendados de seguridad**.<br>Cuando una recomendación pasa al control de seguridad Implementar prácticas recomendadas de seguridad, que no vale ningún punto, la recomendación deja de afectar a la puntuación segura.|
+|||
 
 
 ## <a name="march-2021"></a>Marzo de 2021
@@ -284,7 +318,7 @@ Hemos lanzado una versión mejorada de la lista de recomendaciones para presenta
 Ahora, en la página verá:
 
 1. La puntuación máxima y la puntuación actual de cada control de seguridad.
-1. Iconos que reemplazan etiquetas como **Corrección rápida** y **Versión preliminar**.
+1. Hay iconos que reemplazan etiquetas como **Corrección** y **Versión preliminar**.
 1. Una columna nueva que muestra la [iniciativa de directiva](security-policy-concept.md) relacionada con cada recomendación: se puede ver cuando "Agrupar por controles" está deshabilitado.
 
 :::image type="content" source="media/release-notes/recommendations-grid-enhancements.png" alt-text="Mejoras en la página de recomendaciones de Azure Security Center: marzo de 2021" lightbox="media/release-notes/recommendations-grid-enhancements.png":::
@@ -430,7 +464,7 @@ Las recomendaciones existentes no se ven afectadas y a medida que crezca el punt
 
 Para más información, consulte las páginas siguientes:
 
-- [Más información sobre Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction)
+- [Más información sobre Azure Security Benchmark](/security/benchmark/azure/introduction)
 - [Personalización del conjunto de estándares en el panel de cumplimiento normativo](update-regulatory-compliance-packages.md)
 
 ### <a name="vulnerability-assessment-for-on-premise-and-multi-cloud-machines-is-released-for-general-availability-ga"></a>La valoración de vulnerabilidades tanto para máquinas locales como las que están en varias nubes se ha publicado en disponibilidad general (GA)
@@ -545,7 +579,7 @@ Para más información, consulte [Solicitud de permisos para todo el inquilino c
 
 ### <a name="35-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark"></a>Se han agregado 35 recomendaciones en versión preliminar para aumentar la cobertura de Azure Security Benchmark.
 
-[Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction) es la iniciativa de directivas predeterminada de Azure Security Center. 
+[Azure Security Benchmark](/security/benchmark/azure/introduction) es la iniciativa de directivas predeterminada de Azure Security Center. 
 
 Para aumentar la cobertura del punto de referencia se han agregado a Security Center las siguientes 35 recomendaciones en versión preliminar.
 
@@ -563,7 +597,7 @@ Para aumentar la cobertura del punto de referencia se han agregado a Security Ce
 
 Vínculos relacionados:
 
-- [Más información sobre Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction)
+- [Más información sobre Azure Security Benchmark](/security/benchmark/azure/introduction)
 - [Más información sobre Azure Database for MariaDB](../mariadb/overview.md)
 - [Más información sobre Azure Database for MySQL](../mysql/overview.md)
 - [Más información sobre Azure Database for PostgreSQL](../postgresql/overview.md)
@@ -743,13 +777,13 @@ Los filtros que se han agregado este mes proporcionan opciones para refinar la l
 
 - El **entorno**: vea las recomendaciones para los recursos de AWS, GCP o Azure (o cualquier combinación).
 - La **gravedad**: vea las recomendaciones según la clasificación de gravedad establecida por Security Center.
-- Las **acciones de respuesta**: vea las recomendaciones según la disponibilidad de las opciones de respuesta de Security Center: Corrección rápida, denegación y aplicación
+- **Acciones de respuesta**: consulte las recomendaciones según la disponibilidad de las opciones de respuesta de Security Center: corrección, denegación y aplicación
 
     > [!TIP]
     > El filtro de acciones de respuesta reemplaza al filtro **Solución rápida disponible (Sí/No)** . 
     > 
     > Puede aprender más información acerca de cada una de estas opciones de respuesta:
-    > - [Solución por corrección rápida](security-center-remediate-recommendations.md#quick-fix-remediation)
+    > - [Botón Corregir](security-center-remediate-recommendations.md#fix-button)
     > - [Evitar errores de configuración con las recomendaciones Aplicar o Denegar](prevent-misconfigurations.md).
 
 :::image type="content" source="./media/release-notes/added-recommendations-filters.png" alt-text="Recomendaciones agrupadas por control de seguridad" lightbox="./media/release-notes/added-recommendations-filters.png":::
@@ -789,7 +823,7 @@ Las actualizaciones de noviembre incluyen:
 
 ### <a name="29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark"></a>Se han agregado 29 recomendaciones en versión preliminar para aumentar la cobertura de Azure Security Benchmark.
 
-Azure Security Benchmark es el conjunto de directrices específico de Azure creado por Microsoft para ofrecer los procedimientos recomendados de seguridad y cumplimiento basados en marcos de cumplimiento comunes. [Mas información sobre Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction).
+Azure Security Benchmark es el conjunto de directrices específico de Azure creado por Microsoft para ofrecer los procedimientos recomendados de seguridad y cumplimiento basados en marcos de cumplimiento comunes. [Mas información sobre Azure Security Benchmark](/security/benchmark/azure/introduction).
 
 Se han agregado a Security Center las siguientes 29 recomendaciones en versión preliminar para aumentar la cobertura de la prueba comparativa.
 
@@ -806,7 +840,7 @@ Las recomendaciones de la versión preliminar no representan un recurso incorrec
 
 Vínculos relacionados:
 
-- [Más información sobre Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction)
+- [Más información sobre Azure Security Benchmark](/security/benchmark/azure/introduction)
 - [Más información sobre las aplicaciones de API de Azure](../app-service/app-service-web-tutorial-rest-api.md)
 - [Más información sobre las aplicaciones de funciones de Azure](../azure-functions/functions-overview.md)
 - [Más información sobre las aplicaciones web de Azure](../app-service/overview.md)

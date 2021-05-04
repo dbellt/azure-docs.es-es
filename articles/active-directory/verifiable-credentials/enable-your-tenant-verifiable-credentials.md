@@ -10,12 +10,12 @@ ms.subservice: verifiable-credentials
 ms.date: 04/01/2021
 ms.author: barclayn
 ms.reviewer: ''
-ms.openlocfilehash: cd39f6c484ebe116918611bb1d543c1919a3cb0a
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: c289e69345b2fe537fd80f2cd8b59bc13ce8287b
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106222952"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108017308"
 ---
 # <a name="tutorial---configure-your-azure-active-directory-to-issue-verifiable-credentials-preview"></a>Tutorial: Configuración de Azure Active Directory para emitir credenciales verificables (versión preliminar)
 
@@ -92,7 +92,7 @@ Tome nota de las dos propiedades siguientes:
 
 ## <a name="create-a-modified-rules-and-display-file"></a>Creación de un archivo de reglas y visualización modificado
 
-En esta sección, usaremos los archivos de reglas y visualización de la aplicación del emisor de ejemplo y los modificaremos ligeramente para crear la primera credencial verificable del inquilino.
+En esta sección, usaremos las reglas y los archivos de visualización de la [aplicación del emisor de ejemplo](https://github.com/Azure-Samples/active-directory-verifiable-credentials/) y los modificaremos ligeramente para crear la primera credencial verificable del inquilino.
 
 1. Copie los archivos JSON de visualización y reglas en una carpeta temporal y cámbieles el nombre a **MyFirstVC-display.json** y **MyFirstVC-rules.json** respectivamente. Puede encontrar ambos archivos en **issuer\issuer_config**.
 
@@ -125,16 +125,16 @@ En esta sección, usaremos los archivos de reglas y visualización de la aplicac
       
     ```
 
-Ahora cambiaremos el campo "type" a "MyFirstVC". 
+   Ahora cambiaremos el campo "type" a "MyFirstVC". 
 
-  ```json
-   "type": ["MyFirstVC"]
+   ```json
+    "type": ["MyFirstVC"]
   
-  ```
+   ```
 
-Guarde este cambio.
+   Guarde este cambio.
 
- >[!NOTE]
+   >[!NOTE]
    > En este punto del tutorial no cambiaremos **"configuration"** ni **"client_id"** . Seguiremos usando el inquilino de Microsoft B2C que usamos en la [introducción](get-started-verifiable-credentials.md). Usaremos su instancia de Azure AD en el siguiente tutorial.
 
 3. Abra el archivo MyFirstVC-display.json en el editor de código.
@@ -172,17 +172,22 @@ Guarde este cambio.
       }
    ```
 
-Realizaremos algunas modificaciones para que esta credencial verificable se distinga de la versión del código de ejemplo. 
-    
-```json
-     "card": {
-        "title": "My First VC",
-        "issuedBy": "Your Issuer Name",
-        "backgroundColor": "#ffffff",
-        "textColor": "#000000",
-```
+   Haremos algunas modificaciones para que esta credencial verificable se distinga visualmente de la versión del código de ejemplo. 
 
-Guarde estos cambios.
+    ```json
+         "card": {
+            "title": "My First VC",
+            "issuedBy": "Your Issuer Name",
+            "backgroundColor": "#ffffff",
+            "textColor": "#000000",
+          }
+    ```
+ 
+   >[!NOTE]
+   > Para asegurarse de que la credencial es legible y accesible, es muy recomendable seleccionar los colores para el texto y el fondo con una [relación de contraste](https://www.w3.org/WAI/WCAG21/Techniques/general/G18) que sea al menos de 4,5:1.  
+
+   Guarde estos cambios.
+
 ## <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
 
 Antes de crear la primera credencial verificable, es necesario crear un contenedor de Blob Storage que pueda contener nuestros archivos de configuración y reglas.
@@ -296,7 +301,7 @@ Ahora realizaremos modificaciones en el código del emisor de la aplicación de 
     node app.js
     ```
 
-6. Con otro símbolo del sistema, ejecute ngrok para configurar una dirección URL en 8081.
+6. En otro símbolo del sistema, ejecute ngrok para configurar una dirección URL en 8081. Puede instalar ngrok globalmente mediante el [paquete npm ngrok](https://www.npmjs.com/package/ngrok/).
 
     ```terminal
     ngrok http 8081
@@ -335,7 +340,7 @@ Ahora realizaremos modificaciones en el código del emisor de la aplicación de 
 
 Hemos emitido una credencial verificable usando nuestro inquilino para generar la credencial verificable mientras seguimos usando nuestro inquilino de B2C para la autenticación.
 
-  ![credencial verificable emitida por Azure AD y autenticada por nuestra instancia de Azure B2C](media/enable-your-tenant-verifiable-credentials/my-vc-b2c.png)
+  ![credencial verificable emitida por Azure AD y autenticada por nuestra instancia de Azure B2C](media/enable-your-tenant-verifiable-credentials/my-vc-b2c.png)
 
 
 ## <a name="test-verifying-the-vc-using-the-sample-app"></a>Prueba de comprobación de la credencial verificable mediante la aplicación de ejemplo
@@ -363,7 +368,7 @@ Ahora que hemos emitido la credencial verificable desde nuestro propio inquilino
     control-c
     ```
 
-4. Ahora ejecute ngrok con el puerto del verificador 8082.
+4. Ahora ejecute ngrok con el puerto 8082 del verificador.
 
     ```cmd
     ngrok http 8082

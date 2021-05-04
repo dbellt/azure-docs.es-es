@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 03/25/2021
+ms.date: 04/21/2021
 ms.author: justinha
 author: justinha
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39eec4fb6e9907b36908a87c09aceabd0dd1a678
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 8c18dd231a708030e3a454ab8708e3f0f11dbecf
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106075173"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107861830"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Tutorial: Habilitación del autoservicio de restablecimiento de contraseña de Azure Active Directory para que los usuarios puedan desbloquear su cuenta o restablecer contraseñas
 
@@ -37,7 +37,7 @@ En este tutorial, aprenderá a:
 
 Para finalizar este tutorial, necesitará los siguientes recursos y privilegios:
 
-* Un inquilino de Azure AD activo con al menos una licencia de Azure AD gratis o de prueba habilitada. En el nivel Gratis, SSPR solo funciona para los usuarios de la nube en Azure AD.
+* Un inquilino de Azure AD activo con al menos una licencia de Azure AD gratis o de prueba habilitada. En el nivel Gratis, SSPR solo funciona para los usuarios de la nube en Azure AD. En el nivel Gratis es posible cambiar la contraseña, pero no restablecerla. 
     * En los tutoriales posteriores de esta serie, se necesita una licencia de Azure AD Premium P1 o de prueba para la escritura diferida de contraseñas local.
     * Si es necesario, [cree una cuenta de Azure de forma gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Una cuenta con privilegios de *Administrador global*.

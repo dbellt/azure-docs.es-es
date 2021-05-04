@@ -2,14 +2,14 @@
 title: Recuperación ante desastres en temas personalizados de Azure Event Grid
 description: Este tutorial le guía por los pasos para configurar la arquitectura de eventos para recuperación en caso de que el servicio Event Grid deje de funcionar correctamente en una región.
 ms.topic: tutorial
-ms.date: 07/07/2020
+ms.date: 04/22/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e37cb6a0679ee2e249de4ed8fa31c40d5082ea4a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f4b387a673cf49f30d40b44bb8d5e1f4dac51d0c
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96020150"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107895710"
 ---
 # <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Creación de una recuperación ante desastres propia para temas personalizados en Event Grid
 La recuperación ante desastres se ocupa de recuperarse tras una pérdida grave de funcionalidad de la aplicación. Este tutorial le guía por los pasos para configurar la arquitectura de eventos para recuperación en caso de que el servicio Event Grid deje de funcionar correctamente en una región determinada.
@@ -91,6 +91,9 @@ Ahora que tiene configurados un par de temas y suscripciones con redundancia reg
 ### <a name="basic-client-side-implementation"></a>Implementación básica en el cliente
 
 El siguiente código de ejemplo es un publicador .NET sencillo que siempre intentará publicar primero en el tema principal. Si no tiene éxito, conmutará por error al tema secundario. En cualquier caso, también comprueba la API de mantenimiento del otro tema mediante una operación GET en `https://<topic-name>.<topic-region>.eventgrid.azure.net/api/health`. Un tema correcto siempre debe responder con **200 Correcto** cuando se realiza una operación GET en el punto de conexión **/api/health**.
+
+> [!NOTE]
+> El siguiente código de ejemplo solo es una demostración, no está destinado para uso en producción. 
 
 ```csharp
 using System;

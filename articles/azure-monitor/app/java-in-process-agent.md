@@ -6,12 +6,12 @@ ms.date: 03/29/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: dc6eaaec334e7373f1a673bd1513ef05b761fee6
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: b3d73221793ec8ced4aaac9eace545ac78c31660
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106450028"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108143924"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Supervisión de aplicaciones sin código de Java con Azure Monitor Application Insights
 
@@ -130,9 +130,45 @@ Consulte las [opciones de configuración](./java-standalone-config.md) para obte
 * Micrometer (incluidas las métricas del actuador de Spring Boot)
 * Métricas JMX
 
-### <a name="azure-sdks"></a>SDK de Azure
+### <a name="azure-sdks-preview"></a>SDK de Azure (versión preliminar)
 
-* Esta característica se encuentra en versión preliminar, consulte las [opciones de configuración](./java-standalone-config.md#auto-collected-azure-sdk-telemetry) para habilitarla.
+Consulte las [opciones de configuración](./java-standalone-config.md#auto-collected-azure-sdk-telemetry-preview) para habilitar esta característica en versión preliminar y capturar la telemetría emitida por estos SDK de Azure:
+
+* [App Configuration](/java/api/overview/azure/data-appconfiguration-readme) 1.1.10+
+* [Cognitive Search](/java/api/overview/azure/search-documents-readme) 11.3.0+
+* [Communication Chat](/java/api/overview/azure/communication-chat-readme) 1.0.0+
+* [Communication Common](/java/api/overview/azure/communication-common-readme) 1.0.0+
+* [Communication Identity](/java/api/overview/azure/communication-identity-readme) 1.0.0+
+* [Communication Sms](/java/api/overview/azure/communication-sms-readme) 1.0.0+
+* [Cosmos DB](/java/api/overview/azure/cosmos-readme) 4.13.0+
+* [Event Grid](/java/api/overview/azure/messaging-eventgrid-readme) 4.0.0+
+* [Event Hubs](/java/api/overview/azure/messaging-eventhubs-readme) 5.6.0+
+* [Event Hubs: almacén de puntos de control de Azure Blob Storage](/java/api/overview/azure/messaging-eventhubs-checkpointstore-blob-readme) 1.5.1+
+* [Form Recognizer](/java/api/overview/azure/ai-formrecognizer-readme) 3.0.6+
+* [Identity](/java/api/overview/azure/identity-readme) 1.2.4+
+* [Key Vault: certificados](/java/api/overview/azure/security-keyvault-certificates-readme) 4.1.6+
+* [Key Vault: claves](/java/api/overview/azure/security-keyvault-keys-readme) 4.2.6+
+* [Key Vault: secretos](/java/api/overview/azure/security-keyvault-secrets-readme) 4.2.6+
+* [Service Bus](/java/api/overview/azure/messaging-servicebus-readme) 7.1.0+
+* [Text Analytics](/java/api/overview/azure/ai-textanalytics-readme) 5.0.4+
+
+[//]: # "los nombres y vínculos anteriores que se han extraído de https://azure.github.io/azure-sdk/releases/latest/java.html"
+[//]: # "y la versión se sincronizó manualmente con la versión más antigua del centro de Maven en función de azure-core 1.14.0"
+[//]: # ""
+[//]: # "var table = document.querySelector('#tg-sb-content > div > table')"
+[//]: # "var str = ''"
+[//]: # "for (var i = 1, row; row = table.rows[i]; i++) {"
+[//]: # "  var name = row.cells[0].getElementsByTagName('div')[0].textContent.trim()"
+[//]: # "  var stableRow = row.cells[1]"
+[//]: # "  var versionBadge = stableRow.querySelector('.badge')"
+[//]: # "  if (!versionBadge) {"
+[//]: # "    continue"
+[//]: # "  }"
+[//]: # "  var version = versionBadge.textContent.trim()"
+[//]: # "  var link = stableRow.querySelectorAll('a')[2].href"
+[//]: # "  str += '* [' + name + '](' + link + ') ' + version"
+[//]: # "}"
+[//]: # "console.log(str)"
 
 ## <a name="send-custom-telemetry-from-your-application"></a>Envío de telemetría personalizada desde la aplicación
 

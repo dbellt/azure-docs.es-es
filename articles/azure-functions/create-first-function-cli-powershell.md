@@ -6,12 +6,13 @@ ms.topic: quickstart
 ms.custom:
 - devx-track-powershell
 - devx-track-azurecli
-ms.openlocfilehash: abbe3b9ed4d9a8c9bf30c6be3e6980228d319090
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+- devx-track-azurepowershell
+ms.openlocfilehash: 441cc17099379366755a6c1e41c7f544215dc19d
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97937236"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107866186"
 ---
 # <a name="quickstart-create-a-powershell-function-in-azure-from-the-command-line"></a>Inicio rápido: Creación de una función de PowerShell en Azure desde la línea de comandos
 
@@ -37,7 +38,7 @@ Antes de empezar, debe disponer de lo siguiente:
 
     + [CLI de Azure](/cli/azure/install-azure-cli), versión 2.4 o posterior.
 
-+ [.NET Core SDK 3.1](https://www.microsoft.com/net/download)
++ [SDK de .NET Core 3.1](https://dotnet.microsoft.com/download)
 
 ### <a name="prerequisite-check"></a>Comprobación de requisitos previos
 

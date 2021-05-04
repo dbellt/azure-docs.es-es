@@ -11,18 +11,16 @@ ms.topic: overview
 ms.date: 03/29/2021
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: da4ada8b505c747d24738e175a1701b5ea73b4e4
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 9eb35c892db113807d3c401306485a836a1d970b
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107536732"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107947436"
 ---
 # <a name="what-is-optical-character-recognition"></a>¿Qué es el reconocimiento óptico de caracteres?
 
-El servicio de reconocimiento óptico de caracteres (OCR) permite extraer el texto impreso o manuscrito de imágenes, como fotos de señales de tráfico y productos, así como de documentos (facturas, informes financieros, artículos, etc.) Usa los modelos basados en aprendizaje profundo y funciona con texto en diversas superficies y fondos.
-
-Las API de OCR admiten la extracción de texto impreso en [varios idiomas](./language-support.md). Siga un [inicio rápido](./quickstarts-sdk/client-library.md) para comenzar.
+El servicio de reconocimiento óptico de caracteres (OCR) permite extraer el texto impreso o manuscrito de imágenes, como fotos de señales de tráfico y productos, así como de documentos tales como facturas, informes financieros, artículos, etc. Las tecnologías OCR de Microsoft admiten la extracción de texto impreso en [varios idiomas](./language-support.md). Siga un [inicio rápido](./quickstarts-sdk/client-library.md) para comenzar.
 
 ![Demostraciones de OCR](./Images/ocr-demo.gif)
 
@@ -32,8 +30,11 @@ Esta documentación contiene los siguientes tipos de artículos:
 <!--* The [conceptual articles](Vision-API-How-to-Topics/call-read-api.md) provide in-depth explanations of the service's functionality and features.
 * The [tutorials](./tutorials/storage-lab-tutorial.md) are longer guides that show you how to use this service as a component in broader business solutions. -->
 
-## <a name="supported-languages"></a>Idiomas compatibles
-Las instancias de la API OCR admiten hasta 73 idiomas para texto de estilo impreso. Consulte la lista completa de [idiomas admitidos por OCR](./language-support.md#optical-character-recognition-ocr). El OCR de estilo manuscrito se admite exclusivamente en inglés.
+## <a name="read-api"></a>Read API 
+
+Computer Vision [Read API](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005) es la tecnología de OCR más reciente de Azure ([información sobre las novedades](./whats-new.md)) que permite extraer texto impreso (en varios idiomas), texto manuscrito (solo en inglés), dígitos y símbolos de divisa de imágenes, y documentos PDF con varias páginas. Esta tecnología está optimizada para extraer texto de imágenes con mucho texto y de documentos PDF con varias páginas y una mezcla de idiomas. Es compatible con la detección de texto impreso y manuscrito en un mismo documento o una misma imagen.
+
+![Cómo OCR convierte imágenes y documentos en una salida estructurada con texto extraído](./Images/how-ocr-works.svg)
 
 ## <a name="input-requirements"></a>Requisitos de entrada
 
@@ -43,13 +44,10 @@ La llamada a **Read** usa las imágenes y los documentos como entrada. Tienen lo
 * En el caso de los archivos PDF y TIFF, se procesan hasta 2000 páginas (solo las primeras dos páginas en el nivel Gratis).
 * El tamaño de archivo debe ser inferior a 50 MB (4 MB para el nivel Gratis); y sus dimensiones, de al menos 50x50 píxeles y, como máximo, de 10 000x10 000 píxeles. 
 
-## <a name="read-api"></a>Read API 
+## <a name="supported-languages"></a>Idiomas compatibles
+Read API admite un total de 73 idiomas en texto de estilo impreso. Consulte la lista completa de [idiomas admitidos por OCR](./language-support.md#optical-character-recognition-ocr). El OCR de estilo manuscrito se admite exclusivamente en inglés.
 
-Computer Vision [Read API](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005) es la tecnología de OCR más reciente de Azure ([información sobre las novedades](./whats-new.md)) que permite extraer texto impreso (en varios idiomas), texto manuscrito (solo en inglés), dígitos y símbolos de divisa de imágenes, y documentos PDF con varias páginas. Esta tecnología está optimizada para extraer texto de imágenes con mucho texto y de documentos PDF con varias páginas y una mezcla de idiomas. Es compatible con la detección de texto impreso y manuscrito en un mismo documento o una misma imagen.
-
-![Cómo OCR convierte imágenes y documentos en una salida estructurada con texto extraído](./Images/how-ocr-works.svg)
-
-### <a name="key-features"></a>Características principales
+## <a name="key-features"></a>Características principales
 
 Read API incluye las características siguientes. 
 

@@ -1,52 +1,59 @@
 ---
 title: Uso de tablas externas con Synapse SQL
-description: Lectura o escritura de archivos de datos con Synapse SQL
+description: Lectura o escritura de archivos de datos con tablas externas en Synapse SQL
 services: synapse-analytics
 author: julieMSFT
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
-ms.date: 05/07/2020
+ms.date: 04/26/2021
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0986a1d6a75f0d464eb405841af821c606c68200
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: 3a02938d2c294d80b2c3f4a98aea905a4d431199
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107565328"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108070198"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Uso de tablas externas con Synapse SQL
 
-Una tabla externa apunta a datos ubicados en Hadoop, Azure Storage Blob o Azure Data Lake Storage. Las tablas externas se usan para leer datos de archivos de Azure Storage o escribir datos en ellos. Con Synapse SQL se pueden usar tablas externas para leer y escribir datos en un grupo de SQL dedicado o sin servidor.
+Una tabla externa apunta a datos ubicados en Hadoop, Azure Storage Blob o Azure Data Lake Storage. Las tablas externas se usan para leer datos de archivos de Azure Storage o escribir datos en ellos. Con Synapse SQL se pueden usar tablas externas para leer datos externos mediante un grupo de SQL dedicado o un grupo de SQL sin servidor.
+
+En función del tipo de origen de datos externo, puede usar dos tipos de tablas externas:
+- Tablas externas de Hadoop, que puede usar para leer y exportar datos en varios formatos de datos, como CSV, Parquet y ORC. Las tablas externas de Hadoop están disponibles en los grupos de Synapse SQL dedicados, pero no están disponibles en grupos de SQL sin servidor.
+- Tablas externas nativas, que puede usar para leer y exportar datos en varios formatos de datos, como CSV y Parquet. Las tablas externas nativas están disponibles en los grupos de Synapse SQL sin servidor, pero no están disponibles en grupos de Synapse SQL dedicados.
+
+Las principales diferencias entre Hadoop y las tablas externas nativas se presentan en la tabla siguiente:
+
+| Tipo de tabla externa | Hadoop | Nativa |
+| --- | --- | --- |
+| Grupo de SQL dedicado | Disponible | No disponible |
+| Grupo de SQL sin servidor | No disponible | Disponible |
+| Formatos compatibles | Delimitado/CSV, Parquet, ORC, Hive RC y RC | Delimitado/CSV y Parquet |
+| Eliminación de particiones de carpetas | No | Solo para las tablas con particiones sincronizadas desde grupos de Apache Spark en el área de trabajo de Synapse |
+| Formato personalizado para la ubicación | No | Sí, con caracteres comodín como `/year=*/month=*/day=*` |
+| Examen recursivo de carpetas | Siempre | Solo cuando se especifica `/**` en la ruta de acceso de ubicación |
+| Autenticación del almacenamiento | Clave de acceso de almacenamiento (SAK), acceso directo de AAD, identidad administrada, identidad de aplicación personalizada de Azure AD | Firma de acceso compartido (SAS), acceso directo de AAD, identidad administrada |
 
 ## <a name="external-tables-in-dedicated-sql-pool-and-serverless-sql-pool"></a>Tablas externas en un grupo de SQL dedicado y en un grupo de SQL sin servidor
 
-### <a name="dedicated-sql-pool"></a>[Grupo de SQL dedicado](#tab/sql-pool) 
-
-En un grupo de SQL dedicado se puede usar una tabla externa para:
+Puede usar tablas externas para:
 
 - Consultar Azure Blob Storage y Azure Data Lake Gen2 con instrucciones Transact-SQL.
-- Importar y almacenar datos de Azure Blob Storage y Azure Data Lake Storage en un grupo de SQL dedicado.
+- Almacenar los resultados de las consultas en archivos de Azure Blob Storage o Azure Data Lake Storage mediante [CETAS](develop-tables-cetas.md).
+- Importar datos de Azure Blob Storage y Azure Data Lake Storage y almacenarlos en un grupo de SQL dedicado (solo tablas de Hadoop en un grupo dedicado).
 
-Si se usa en combinación con la instrucción [CREATE TABLE AS SELECT](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), al realizar la selección de una tabla externa importa los datos en una tabla de un grupo de SQL. Además de para la [instrucción COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true), las tablas externas son útiles para cargar datos. 
+> [!NOTE]
+> Si se usa en combinación con la instrucción [CREATE TABLE AS SELECT](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), al realizar la selección desde una tabla externa se importan los datos en una tabla de un grupo de SQL **dedicado**. Además de para la [instrucción COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true), las tablas externas son útiles para cargar datos. 
+> 
+> Si desea ver un tutorial de carga, consulte el artículo en el que se explica el [uso de PolyBase para cargar datos de Azure Blob Storage](../sql-data-warehouse/load-data-from-azure-blob-storage-using-copy.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json).
 
-Si desea ver un tutorial de carga, consulte el artículo en el que se explica el [uso de PolyBase para cargar datos de Azure Blob Storage](../sql-data-warehouse/load-data-from-azure-blob-storage-using-copy.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json).
-
-### <a name="serverless-sql-pool"></a>[Grupo de SQL sin servidor](#tab/sql-on-demand)
-
-En un grupo de SQL sin servidor se puede usar una tabla externa para:
-
-- Consultar datos de Azure Blob Storage y Azure Data Lake Storage con instrucciones Transact-SQL.
-- Almacenar los resultados de las consultas del grupo de SQL sin servidor en archivos de Azure Blob Storage o Azure Data Lake Storage mediante [CETAS](develop-tables-cetas.md).
-
-Para crear tablas externas mediante el grupo de SQL sin servidor, siga estos pasos:
+Para crear tablas externas en grupos de Synapse SQL, siga estos pasos:
 
 1. CREATE EXTERNAL DATA SOURCE
 2. CREATE EXTERNAL FILE FORMAT
 3. CREATE EXTERNAL TABLE
-
----
 
 ### <a name="security"></a>Seguridad
 
@@ -55,16 +62,15 @@ La tabla externa accede al almacenamiento de Acceso subyacente mediante la crede
 - El origen de datos sin credenciales permite que las tablas externas accedan a archivos disponibles públicamente en Azure Storage.
 - El origen de datos puede tener credenciales que permitan a las tablas externas acceder solo a los archivos de Azure Storage mediante el token de SAS o la identidad administrada del área de trabajo. En el artículo sobre el [desarrollo del control de acceso al almacenamiento de archivos](develop-storage-files-storage-access-control.md#examples).
 
-> [!IMPORTANT]
-> En un grupo de SQL dedicado, un origen de datos creado sin credenciales permite a los usuarios de Azure AD acceder a los archivos de almacenamiento mediante su identidad de Azure AD. En el grupo de SQL sin servidor es preciso crear un origen de datos con credenciales cuyo ámbito sea la base de datos y que tenga la propiedad `IDENTITY='User Identity'` (consulte los [ejemplos aquí](develop-storage-files-storage-access-control.md#examples)).
-
 ## <a name="create-external-data-source"></a>CREATE EXTERNAL DATA SOURCE
 
 Los orígenes de datos externos se usan para conectarse a las cuentas de almacenamiento. La documentación completa se describe [aquí](/sql/t-sql/statements/create-external-data-source-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
 ### <a name="syntax-for-create-external-data-source"></a>Sintaxis de CREATE EXTERNAL DATA SOURCE
 
-#### <a name="dedicated-sql-pool"></a>[Grupo de SQL dedicado](#tab/sql-pool)
+#### <a name="hadoop"></a>[Hadoop](#tab/hadoop)
+
+Los orígenes de datos externos con `TYPE=HADOOP` solo están disponibles en los grupos de SQL dedicados.
 
 ```syntaxsql
 CREATE EXTERNAL DATA SOURCE <data_source_name>
@@ -76,7 +82,9 @@ WITH
 [;]
 ```
 
-#### <a name="serverless-sql-pool"></a>[Grupo de SQL sin servidor](#tab/sql-on-demand)
+#### <a name="native"></a>[Nativa](#tab/native)
+
+Los orígenes de datos externos sin `TYPE=HADOOP` solo están disponibles en los grupos de SQL sin servidor.
 
 ```syntaxsql
 CREATE EXTERNAL DATA SOURCE <data_source_name>
@@ -108,22 +116,25 @@ LOCATION = `'<prefix>://<path>'`: proporciona el protocolo de conectividad y la 
 El prefijo `https:` le permite usar la subcarpeta en la ruta de acceso.
 
 #### <a name="credential"></a>Credential:
-CREDENTIAL = `<database scoped credential>` es una credencial opcional que se usará para realizar la autenticación en Azure Storage. El origen de datos externo sin credenciales puede acceder a una cuenta de almacenamiento público. 
-
-Los orígenes de datos externos sin credenciales del grupo de SQL dedicado también usarán la identidad de Azure AD del autor de la llamada para acceder a los archivos almacenados. Los orígenes de datos externos del grupo de SQL sin servidor con credenciales `IDENTITY='User Identity'` usarán la identidad de Azure AD del autor de la llamada para acceder a los archivos.
+CREDENTIAL = `<database scoped credential>` es una credencial opcional que se usará para realizar la autenticación en Azure Storage. Un origen de datos externo sin credencial puede acceder a la cuenta de almacenamiento pública o usar la identidad de Azure AD del autor de llamada para acceder a los archivos del almacenamiento. 
 - En un grupo de SQL dedicado, las credenciales cuyo ámbito es la base de datos pueden especificar una identidad de aplicación personalizada, una identidad administrada de área de trabajo o una clave SAK. 
-- En un grupo de SQL sin servidor, las credenciales cuyo ámbito es la base de datos pueden especificar la identidad de Azure AD del autor de la llamada, una identidad administrada de área de trabajo o una clave SAS. 
+- En un grupo de SQL sin servidor, las credenciales cuyo ámbito es la base de datos pueden especificar una identidad administrada de área de trabajo o una clave SAS. 
 
 #### <a name="type"></a>TYPE
-TYPE = `HADOOP` es una opción obligatoria en el grupo de SQL dedicado y especifica que se usa la tecnología Polybase para acceder a los archivos subyacentes. Este parámetro no se puede usar en los grupos de SQL sin servidor que usen un lector nativo integrado.
+TYPE = `HADOOP` es la opción que especifica que se debe usar la tecnología basada en Java para acceder a los archivos subyacentes. Este parámetro no se puede usar en los grupos de SQL sin servidor que usen un lector nativo integrado.
 
 ### <a name="example-for-create-external-data-source"></a>Ejemplo de CREATE EXTERNAL DATA SOURCE
 
-#### <a name="dedicated-sql-pool"></a>[Grupo de SQL dedicado](#tab/sql-pool)
+#### <a name="hadoop"></a>[Hadoop](#tab/hadoop)
 
-En el ejemplo siguiente se crea un origen de datos externo para Azure Data Lake Gen2 que apunta al conjunto de datos de Nueva York:
+En el ejemplo siguiente se crea un origen de datos externo de Hadoop en un grupo de SQL dedicado para Azure Data Lake Gen2 que apunta al conjunto de datos de Nueva York:
 
 ```sql
+CREATE DATABASE SCOPED CREDENTIAL [ADLS_credential]
+WITH IDENTITY='SHARED ACCESS SIGNATURE',  
+SECRET = 'sv=2018-03-28&ss=bf&srt=sco&sp=rl&st=2019-10-14T12%3A10%3A25Z&se=2061-12-31T12%3A10%3A00Z&sig=KlSU2ullCscyTS0An0nozEpo4tO5JAgGBvw%2FJX2lguw%3D'
+GO
+
 CREATE EXTERNAL DATA SOURCE AzureDataLakeStore
 WITH
   -- Please note the abfss endpoint when your account has secure transfer enabled
@@ -133,9 +144,17 @@ WITH
   ) ;
 ```
 
-#### <a name="serverless-sql-pool"></a>[Grupo de SQL sin servidor](#tab/sql-on-demand)
+En el ejemplo siguiente se crea un origen de datos externo para Azure Data Lake Gen2 que apunta al conjunto de datos de Nueva York disponible públicamente:
 
-En el ejemplo siguiente se crea un origen de datos externo para Azure Data Lake Gen2 al que se puede acceder mediante las credenciales de SAS:
+```sql
+CREATE EXTERNAL DATA SOURCE YellowTaxi
+WITH ( LOCATION = 'https://azureopendatastorage.blob.core.windows.net/nyctlc/yellow/',
+       TYPE = HADOOP)
+```
+
+#### <a name="native"></a>[Nativa](#tab/native)
+
+En el ejemplo siguiente se crea un origen de datos externo en un grupo de SQL sin servidor para Azure Data Lake Gen2 al que se puede acceder mediante las credenciales de SAS:
 
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL [sqlondemand]
@@ -165,38 +184,6 @@ Al crear un formato de archivo externo, se especifica el diseño real de los dat
 
 ### <a name="syntax-for-create-external-file-format"></a>Sintaxis de CREATE EXTERNAL FILE FORMAT
 
-#### <a name="sql-pool"></a>[Grupo de SQL](#tab/sql-pool)
-
-```syntaxsql
--- Create an external file format for PARQUET files.  
-CREATE EXTERNAL FILE FORMAT file_format_name  
-WITH (  
-    FORMAT_TYPE = PARQUET  
-    [ , DATA_COMPRESSION = {  
-        'org.apache.hadoop.io.compress.SnappyCodec'  
-      | 'org.apache.hadoop.io.compress.GzipCodec'      }  
-    ]);  
-
---Create an external file format for DELIMITED TEXT files
-CREATE EXTERNAL FILE FORMAT file_format_name  
-WITH (  
-    FORMAT_TYPE = DELIMITEDTEXT  
-    [ , DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec' ]
-    [ , FORMAT_OPTIONS ( <format_options> [ ,...n  ] ) ]  
-    );  
-
-<format_options> ::=  
-{  
-    FIELD_TERMINATOR = field_terminator  
-    | STRING_DELIMITER = string_delimiter
-    | First_Row = integer
-    | USE_TYPE_DEFAULT = { TRUE | FALSE }
-    | Encoding = {'UTF8' | 'UTF16'}
-}
-```
-
-#### <a name="serverless-sql-pool"></a>[Grupo de SQL sin servidor](#tab/sql-on-demand)
-
 ```syntaxsql
 -- Create an external file format for PARQUET files.  
 CREATE EXTERNAL FILE FORMAT file_format_name  
@@ -225,9 +212,6 @@ WITH (
     | PARSER_VERSION = {'parser_version'}
 }
 ```
-
----
-
 
 ### <a name="arguments-for-create-external-file-format"></a>Argumentos para CREATE EXTERNAL FILE FORMAT
 
@@ -281,7 +265,7 @@ El tipo de formato de archivo DELIMITEDTEXT admite estos métodos de compresión
 
 - DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec'
 
-PARSER_VERSION = 'parser_version' especifica la versión del analizador que se utilizará al leer los archivos. Consulte el argumento PARSER_VERSION en los [argumentos OPENROWSET](develop-openrowset.md#arguments) para más información.
+PARSER_VERSION = 'parser_version' especifica la versión del analizador que se utilizará al leer archivos CSV. Las versiones disponibles del analizador son la `1.0` y la `2.0`. Esta opción solo está disponible en los grupos de SQL sin servidor.
 
 ### <a name="example-for-create-external-file-format"></a>Ejemplo de CREATE EXTERNAL FILE FORMAT
 
@@ -321,7 +305,7 @@ column_name <data_type>
 
 *{ database_name.schema_name.table_name | schema_name.table_name | table_name }*
 
-Nombre de entre una y tres partes de la tabla que se va a crear. Si se trata de una tabla externa, el grupo de SQL sin servidor almacena solo sus metadatos. En el grupo de SQL sin servidor, no se desplazan ni se almacenan datos reales.
+Nombre de entre una y tres partes de la tabla que se va a crear. Si se trata de una tabla externa, el grupo de Synapse SQL almacena solo los metadatos de la tabla. Ningún dato real se mueve o se almacena en la base de datos de Synapse SQL.
 
 <column_definition>, ...*n* ]
 
@@ -336,14 +320,11 @@ LOCATION = '*folder_or_filepath*'
 
 Especifica la carpeta o la ruta de acceso del archivo y el nombre de archivo de los datos reales en Azure Blob Storage. La ubicación empieza desde la carpeta raíz. La carpeta raíz es la ubicación de datos especificada en el origen de datos externo.
 
-Si especifica un valor de LOCATION de una carpeta, una consulta del grupo de SQL sin servidor seleccionará la carpeta de la tabla externa y recuperará los archivos.
-
-> [!NOTE]
-> A diferencia de Hadoop y PolyBase, el grupo de SQL sin servidor no devuelve subcarpetas a menos que especifique /** al final de la ruta de acceso. Al igual que Hadoop y PolyBase, no devuelve archivos cuyo nombre comienza por un carácter de subrayado (_) o un punto (.).
-
-En este ejemplo, si LOCATION='/webdata/', una consulta del grupo de SQL sin servidor, devolverá filas de mydata.txt. No devolverá mydata2. txt y mydata3. txt porque se encuentran en una subcarpeta.
-
 ![Datos recursivos para tablas externas](./media/develop-tables-external-tables/folder-traversal.png)
+
+A diferencia de las tablas externas de Hadoop, las tablas externas nativas no devuelven subcarpetas a menos que especifique /** al final de la ruta de acceso. En este ejemplo, si LOCATION='/webdata/', una consulta del grupo de SQL sin servidor, devolverá filas de mydata.txt. No devolverá mydata2. txt y mydata3. txt porque se encuentran en una subcarpeta. Las tablas de Hadoop devolverán todos los archivos de cualquier subcarpeta.
+ 
+Tanto Hadoop como las tablas externas nativas omitirán los archivos con nombres que comiencen por un subrayado (_) o un punto (.).
 
 DATA_SOURCE = *external_data_source_name*: especifica el nombre del origen de datos externo que contiene la ubicación de los datos externos. Para crear un origen de datos externo, use[CREATE EXTERNAL DATA SOURCE](#create-external-data-source).
 
@@ -381,13 +362,13 @@ SELECT TOP 1 * FROM census_external_table
 
 ## <a name="create-and-query-external-tables-from-a-file-in-azure-data-lake"></a>Creación y consulta de tablas externas a partir de un archivo en Azure Data Lake
 
-Mediante las funcionalidades de exploración de Data Lake ya se puede crear y consultar una tabla externa mediante un grupo de SQL dedicado o sin servidor con un solo clic con el botón derecho en el archivo. El gesto de un solo clic para crear tablas externas desde la cuenta de almacenamiento de ADLS Gen2 solo se admite para los archivos con formato Parquet. 
+Mediante las funcionalidades de exploración de Data Lake de Synapse Studio ya se puede crear y consultar una tabla externa mediante un grupo de Synapse SQL con un solo clic con el botón derecho en el archivo. El gesto de un solo clic para crear tablas externas desde la cuenta de almacenamiento de ADLS Gen2 solo se admite para los archivos con formato Parquet. 
 
 ### <a name="prerequisites"></a>Requisitos previos
 
-- Debe acceder al área de trabajo al menos con el rol de acceso basado en ARM Colaborador de datos de blobs de almacenamiento a la cuenta de ADLS Gen2
+- Debe tener acceso al área de trabajo al menos con el rol de acceso `Storage Blob Data Contributor` para la cuenta de ADLS Gen2.
 
-- Debe tener al menos [permisos para crear](/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest#permissions-2&preserve-view=true) y consultar tablas externas en el grupo de SQL o SQL a petición
+- Debe tener al menos [permisos para crear](/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest#permissions-2&preserve-view=true) y consultar tablas externas en el grupo de Synapse SQL (dedicado o sin servidor).
 
 En el panel Data (Datos), seleccione el archivo desde el que desea crear la tabla externa:
 > [!div class="mx-imgBorder"]

@@ -6,14 +6,14 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 03/25/2021
 ms.author: banders
-ms.openlocfilehash: 2c17b2f9dc12fa7bff2dae8603bcf95a3a8ddfa0
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 8bf53715b7f19c44d9114150e617f903cd05a51e
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350847"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105566322"
 ---
 # <a name="azure-software-plan-discount"></a>Descuento del plan de software de Azure
 
@@ -63,55 +63,37 @@ Las tablas siguientes muestran los planes de software para los que puede comprar
 
 ### <a name="suse-linux-enterprise-server-for-hpc-priority"></a>SUSE Linux Enterprise Server para informática de alto rendimiento Prioritaria
 
-Nombre de marketplace de Azure Portal:
-
-- SLES 12 SP3 para HPC (Prioritaria)
-
 |VM SUSE | Id. del medidor| Relación| Tamaño de VM de ejemplo|
 | -------| ------------------------| --- |--- |
-|SLES para 1-2 vCPU HPC|e275a668-ce79-44e2-a659-f43443265e98|1|D2s_v3|
-|SLES para 3-4 vCPU HPC|e531e1c0-09c9-4d83-b7d0-a2c6741faa22|2|D4s_v3|
-|SLES para más de 5 vCPU HPC|4edcd5a5-8510-49a8-a9fc-c9721f501913|2.6|D8s_v3|
+|SUSE Linux Enterprise Server para informática de alto rendimiento Prioritaria (1-2 CPU virtuales)|e275a668-ce79-44e2-a659-f43443265e98|1|D2s_v3|
+|SUSE Linux Enterprise Server para informática de alto rendimiento Prioritaria (3-4 CPU virtuales)|e531e1c0-09c9-4d83-b7d0-a2c6741faa22|2|D4s_v3|
+|SUSE Linux Enterprise Server para informática de alto rendimiento Prioritaria (5+ CPU virtuales)|4edcd5a5-8510-49a8-a9fc-c9721f501913|2.6|D8s_v3|
 
 ### <a name="suse-linux-enterprise-server-for-hpc-standard"></a>SUSE Linux Enterprise Server para informática de alto rendimiento Estándar
 
-Nombre de marketplace de Azure Portal:
-
-- SLES 12 SP3 para HPC
-
 |VM SUSE | Id. del medidor | Relación|Tamaño de VM de ejemplo|
 | ------- | --- | ------------------------| --- |
-|SLES para 1-2 vCPU HPC |8c94ad45-b93b-4772-aab1-ff92fcec6610|1|D2s_v3|
-|SLES para 3-4 vCPU HPC|4ed70d2d-e2bb-4dcd-b6fa-42da71861a1c|1,92308|D4s_v3|
-|SLES para más de 5 vCPU HPC |907a85de-024f-4dd6-969c-347d47a1bdff|2;92308|D8s_v3|
+|SUSE Linux Enterprise Server para informática de alto rendimiento Estándar (1-2 CPU virtuales) |8c94ad45-b93b-4772-aab1-ff92fcec6610|1|D2s_v3|
+|SUSE Linux Enterprise Server para informática de alto rendimiento Estándar (3-4 CPU virtuales)|4ed70d2d-e2bb-4dcd-b6fa-42da71861a1c|1,92308|D4s_v3|
+|SUSE Linux Enterprise Server para informática de alto rendimiento Estándar (5+ CPU virtuales) |907a85de-024f-4dd6-969c-347d47a1bdff|2;92308|D8s_v3|
 
-### <a name="suse-linux-enterprise-server-for-sap-priority"></a>SUSE Linux Enterprise Server for SAP Prioritaria
+### <a name="suse-linux-enterprise-server-for-sap-standard"></a>SUSE Linux Enterprise Server para SAP Estándar
 
-Nombres de marketplace de Azure Portal:
-
-- SLES for SAP 15 (Prioritaria)
-- SLES for SAP 12 SP3 (Prioritaria)
-- SLES for SAP 12 SP2 (Prioritaria)
+Anteriormente, SUSE Linux Enterprise Server para SAP Estándar se denominaba SUSE Linux Enterprise Server para SAP Prioritaria.
 
 |VM SUSE | Id. del medidor | Relación|Tamaño de VM de ejemplo|
 | ------- |------------------------| --- | --- |
-|SLES for SAP Prioritaria (1-2 vCPU)|497fe0b6-fa3c-4e3d-a66b-836097244142|1|D2s_v3|
-|SLES for SAP Prioritaria (3-4 vCPU) |847887de-68ce-4adc-8a33-7a3f4133312f|2|D4s_v3|
-|SLES for SAP Prioritaria (más de 5 vCPU) |18ae79cd-dfce-48c9-897b-ebd3053c6058|2,41176|D8s_v3|
+|SUSE Linux Enterprise Server para SAP Estándar (1-2 CPU virtuales)|497fe0b6-fa3c-4e3d-a66b-836097244142|1|D2s_v3|
+|SUSE Linux Enterprise Server para SAP Estándar (3-4 CPU virtuales) |847887de-68ce-4adc-8a33-7a3f4133312f|2|D4s_v3|
+|SUSE Linux Enterprise Server para SAP Estándar (5+ CPU virtuales) |18ae79cd-dfce-48c9-897b-ebd3053c6058|2,41176|D8s_v3|
 
 ### <a name="suse-linux-enterprise-server-standard"></a>SUSE Linux Enterprise Server Estándar
 
-Nombres de marketplace de Azure Portal:
-
-- SLES 15
-- SLES 15 (Estándar)
-- SLES 12 SP3 (Estándar)
-
 |VM SUSE | Id. del medidor | Relación|Tamaño de VM de ejemplo|
 | ------- |------------------------| --- |--- |
-|SLES 1-2 núcleos/vCPU |4b2fecfc-b110-4312-8f9d-807db1cb79ae|1|D2s_v3|
-|SLES 3-4 núcleos/vCPU |0c3ebb4c-db7d-4125-b45a-0534764d4bda|1,92308|D4s_v3|
-|SLES de más de 5 vCPU |7b349b65-d906-42e5-833f-b2af38513468|2,30769| D8s_v3|
+|SUSE Linux Enterprise Server Estándar (CPU virtuales de 1-2 núcleos) |4b2fecfc-b110-4312-8f9d-807db1cb79ae|1|D2s_v3|
+|SUSE Linux Enterprise Server Estándar (CPU virtuales de 3-4 núcleos) |0c3ebb4c-db7d-4125-b45a-0534764d4bda|1,92308|D4s_v3|
+|SUSE Linux Enterprise Server Estándar (CPU virtuales de 5+ núcleos) |7b349b65-d906-42e5-833f-b2af38513468|2,30769| D8s_v3|
 
 ## <a name="need-help-contact-us"></a>¿Necesita ayuda? Ponerse en contacto con nosotros
 

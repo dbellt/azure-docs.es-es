@@ -8,12 +8,12 @@ ms.subservice: enterprise
 ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: banders
-ms.openlocfilehash: 0f2d3c830f27eec9f521e6f79ac8dce3bce818e9
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: ce9dff017a796e420586ad191a59c149bed07190
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442571"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107726833"
 ---
 # <a name="azure-marketplace"></a>Azure Marketplace
 
@@ -74,45 +74,7 @@ Los siguientes servicios se facturan por horas en un Contrato Enterprise, en lug
 
 Si tiene un Contrato Enterprise, paga por Azure RemoteApp según el nivel de precios del Contrato Enterprise. No existen cargos adicionales. El precio estándar incluye 40 horas iniciales. El precio ilimitado cubre 80 horas iniciales. RemoteApp deja de emitir el uso por encima de las 80 horas.
 
-## <a name="azure-marketplace-faq"></a>P+F sobre Azure Marketplace
-
-En esta sección se explica cómo se puede aplicar el prepago de Azure a algunos servicios de revendedores de terceros en Azure Marketplace.
-
-### <a name="what-changed-with-azure-marketplace-services-and-azure-ea-prepayment"></a>¿Qué ha cambiado con los servicios de Azure Marketplace y el prepago de Azure de EA?
-
-A partir del 1 de marzo de 2018, algunos servicios de revendedores de terceros consumen el prepago de Azure de EA. A excepción de las instancias reservadas (RI) de máquina virtual de Azure, antes los servicios se facturaban fuera del prepago de Azure de EA y por separado.
-
-Ampliamos el uso del prepago de Azure para incluir algunos de los servicios de Azure Marketplace publicados por terceros que se compran con más frecuencia. El prepago de Azure de EA para estos servicios de Azure Marketplace simplifica las compras y la administración de los pagos.
-
-### <a name="why-did-we-make-this-change"></a>¿Por qué hemos realizado este cambio?
-
-Los clientes buscan continuamente otras formas de aprovechar el prepago de Azure. Los clientes solicitaron este cambio a menudo, y afectó a una gran parte de los clientes de Azure Marketplace.
-
-### <a name="how-do-you-benefit"></a>¿En qué se beneficia?
-
-Obtiene una experiencia de facturación más sencilla y podrá gastar mejor su prepago de Azure de EA. Dado que estos servicios se incluyen en el prepago de Azure de EA, este es más valioso.
-
-### <a name="what-azure-marketplace-services-use-azure-ea-prepayment-and-how-do-i-know"></a>¿Qué servicios de Azure Marketplace usan el prepago de Azure de EA y cómo lo averiguo?
-
-Cuando compra un servicio que usa el prepago de Azure, Azure Marketplace presenta una declinación de responsabilidades. Se admiten algunos servicios publicados por Red Hat, SUSE, Autodesk y Oracle. Actualmente, los servicios con el mismo nombre publicados por otros terceros no se deducen del prepago de Azure. Al final de esta sección de preguntas frecuentes encontrará una lista completa.
-
-### <a name="what-if-my-azure-ea-prepayment-runs-out"></a>¿Qué ocurre si se agota el prepago de Azure de EA?
-
-Si consume todo su prepago de Azure y pasa a uso por encima del límite, los cargos relacionados con estos servicios aparecerán en la próxima factura de uso por encima del límite, junto con cualquier otro servicio de consumo. Antes del cambio del 1 de marzo de 2018, estos cargos se facturaban con otros servicios de Azure Marketplace.
-
-### <a name="why-dont-all-azure-marketplaces-consume-azure-ea-prepayment"></a>¿Por qué no todos los marketplaces de Azure consumen el prepago de Azure de EA?
-
-Hacemos lo posible por ofrecer la mejor experiencia de cliente relacionada con el prepago de Azure de EA. Este cambio afectó un gran número de clientes y a una parte importante del gasto total en Azure Marketplace. Es posible que se agreguen otros servicios en el futuro.
-
-### <a name="how-does-this-impact-indirect-enrollment-and-partners"></a>¿Cómo afecta esto a la inscripción indirecta y los asociados?
-
-Nuestros asociados o clientes de inscripciones indirectas no se verán afectados. Estos servicios están sujetos a las mismas funcionalidades de marcado de asociados que otros servicios de consumo. El único cambio es que los cargos aparecen en una factura diferente, y el pago de los cargos queda fuera del prepago de Azure de EA del cliente.
-
-### <a name="is-there-a-list-of-azure-marketplace-services-that-consume-azure-ea-prepayment"></a>¿Hay una lista de servicios de Azure Marketplace que consumen prepago de Azure de EA?
-
-Algunas ofertas específicas de Azure Marketplace pueden usar fondos del prepago de Azure. Consulte los [servicios de terceros que usan prepago de Azure](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment) para obtener una lista completa de productos que participan en este programa.
-
-
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Obtenga más información acerca de los [precios](ea-pricing-overview.md).
+- En las [preguntas frecuentes sobre Azure Cost Management + Billing](../cost-management-billing-faq.yml) encontrará una lista de preguntas y respuestas sobre los servicios de Azure Marketplace y el prepago de Azure EA.

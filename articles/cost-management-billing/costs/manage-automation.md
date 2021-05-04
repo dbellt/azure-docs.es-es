@@ -3,17 +3,17 @@ title: Administración de costos de Azure con Automation
 description: En este artículo se explica cómo administrar los costos de Azure con Automation.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/08/2021
+ms.date: 03/19/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.openlocfilehash: f5cebffeaba1ce198be347758004068e8c03133b
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 2a39f77e3e7409d23ab7506b525f65e01082e99e
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102499686"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104720124"
 ---
 # <a name="manage-costs-with-automation"></a>Administración de costos con Automation
 
@@ -47,7 +47,7 @@ Considere la posibilidad de usar [Usage Details API](/rest/api/consumption/usage
 
 [Usage Details API](/rest/api/consumption/usageDetails) proporciona una manera sencilla de obtener datos de costo sin procesar y sin agregar que se correspondan con su factura de Azure. La API es útil cuando su organización necesita una solución de recuperación de datos mediante programación. Considere la posibilidad de usar la API si quiere analizar conjuntos de datos de costos más reducidos. Sin embargo, debe usar otras soluciones identificadas previamente si tiene conjuntos de datos de mayor tamaño. Los datos de los detalles de uso se proporcionan por medidor y por día. Se usan al calcular la factura mensual. La versión de disponibilidad general (GA) de estas API es `2019-10-01`. Use `2019-04-01-preview` para acceder a la versión preliminar de las compras de reservas y Azure Marketplace con las API.
 
-Si desea obtener grandes cantidades de datos exportados de forma periódica, consulte [Recuperación de conjuntos de datos de gran tamaño de forma periódica con exportaciones](ingest-azure-usage-at-scale.md).
+Si desea obtener grandes cantidades de datos exportados de forma periódica, consulte [Recuperación recurrente de conjuntos de datos de costos de gran tamaño con exportaciones](ingest-azure-usage-at-scale.md).
 
 ### <a name="usage-details-api-suggestions"></a>Sugerencias de Usage Details API
 
@@ -74,6 +74,10 @@ Comportamiento de los precios de los detalles de uso: los archivos de uso muestr
   - Cantidad incluida: por ejemplo, las 100 primeras unidades son gratuitas y, luego, cada unidad tiene un costo de 10 USD.
   - Reservations
   - Redondeo que se produce durante el cálculo: el redondeo tiene en cuenta la cantidad consumida, los precios de cantidades por niveles e incluidas, y el precio unitario ajustado.
+
+### <a name="a-single-resource-might-have-multiple-records-for-a-single-day"></a>Un único recurso puede tener varios registros durante un solo día
+
+Los proveedores de recursos de Azure envían el uso y los cargos al sistema de facturación y rellenan el campo `Additional Info` de los registros de uso. En ocasiones, podrían enviar el uso de un día determinado y marcar los registros con distintos centros de datos en el campo `Additional Info` de los registros de uso. Esto podría resultar en varios registros de un medidor o recurso en el archivo de uso durante un solo día. En ese caso, no se le sobrecargará. Los distintos registros representan el costo total del medidor para el recurso ese día.
 
 ## <a name="example-usage-details-api-requests"></a>Ejemplo de solicitudes de Usage Details API
 
@@ -182,9 +186,9 @@ Idiomas admitidos por un código de referencia cultural:
 | pl-pl | Polaco (Polonia) |
 | tr-tr | Turco (Turquía) |
 | da-dk | Danés (Dinamarca) |
-| dn-gb | Inglés (Reino Unido) |
+| en-gb | Inglés (Reino Unido) |
 | hu-HU | Húngaro (Hungría) |
-| nb-bo | Noruego Bokmal (Noruega) |
+| nb-no | Noruego Bokmal (Noruega) |
 | nl-nl | Neerlandés (Países Bajos) |
 | pt-pt | Portugués (Portugal) |
 | sv-se | Sueco (Suecia) |

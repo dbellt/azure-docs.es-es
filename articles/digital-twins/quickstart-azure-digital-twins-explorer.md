@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: 'Inicio rápido: Uso del ejemplo de Azure Digital Twins Explorer para visualizar y explorar un escenario precompilado.'
 author: baanders
 ms.author: baanders
-ms.date: 9/24/2020
+ms.date: 4/27/2021
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: adafbdb903c9ba827e8ccf56890c69ee2ce4eaf5
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: ca50c0221843b4e24a6287177f36608b86a0a1a9
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107491164"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108075777"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-azure-digital-twins-explorer"></a>Inicio rápido: Exploración de un escenario de Azure Digital Twins de ejemplo mediante Azure Digital Twins Explorer
 
@@ -89,7 +89,7 @@ Abra una ventana de la consola en la ubicación de la carpeta **digital-twins-ex
 
    Al cabo de unos segundos, se abre una ventana del explorador y aparece ahí la aplicación.
 
-   :::image type="content" source="media/quickstart-azure-digital-twins-explorer/explorer-blank.png" alt-text="Ventana del explorador que muestra una aplicación que se ejecuta en localhost:3000. La aplicación se llama Azure Digital Twins Explorer y contiene los cuadros Explorador de consultas, Vista de modelo, Vista de grafo y Explorador de propiedades. Todavía no hay datos en pantalla." lightbox="media/quickstart-azure-digital-twins-explorer/explorer-blank.png":::
+   :::image type="content" source="media/quickstart-azure-digital-twins-explorer/explorer-blank.png" alt-text="Ventana del explorador que muestra una aplicación que se ejecuta en localhost:3000. La aplicación se llama Azure Digital Twins Explorer y contiene los paneles Query Explorer (Explorador de consultas), Models (Modelos), Graph View (Vista de grafo) y Properties (Propiedades). Todavía no hay datos en pantalla." lightbox="media/quickstart-azure-digital-twins-explorer/explorer-blank.png":::
 
 1. Seleccione el botón **Iniciar sesión** en la esquina superior derecha de la ventana, como se muestra en la siguiente imagen, para configurar Azure Digital Twins Explorer para que funcione con la instancia que ha configurado.
 
@@ -132,23 +132,18 @@ En este inicio rápido, los archivos del modelo ya se han escrito y validado. Es
 
 Siga estos pasos para cargar los modelos.
 
-1. En el cuadro **MODEL VIEW** (VISTA DE MODELO), seleccione el icono **Upload a Model** (Cargar un modelo).
+1. En el panel **MODELS** (MODELOS), seleccione el icono **Upload a Model** (Cargar un modelo).
 
-   :::image type="content" source="media/quickstart-azure-digital-twins-explorer/upload-model.png" alt-text="Cuadro Vista de modelo con el icono central resaltado. Muestra una flecha que apunta a una nube." lightbox="media/quickstart-azure-digital-twins-explorer/upload-model.png":::
+   :::image type="content" source="media/quickstart-azure-digital-twins-explorer/upload-model.png" alt-text="En el panel Models (Modelos), el icono central está resaltado. Muestra una flecha que apunta a una nube." lightbox="media/quickstart-azure-digital-twins-explorer/upload-model.png":::
  
-1. En el cuadro del selector de archivos que aparece, vaya a la carpeta **digital-twins-explorer-main/client/examples** en el repositorio descargado.
+1. En la ventana del selector de archivos que aparece, vaya a la carpeta **digital-twins-explorer-main/client/examples** en el repositorio descargado.
 1. Seleccione **Room.json** y **Floor.json** y, luego, **OK** (ACEPTAR). Aunque puede cargar otros modelos si así lo desea, no se usarán en este inicio rápido.
-1. Siga el cuadro de diálogo emergente que le pide que inicie sesión en su cuenta de Azure.
 
->[!NOTE]
->Si aparece el siguiente mensaje de error: :::image type="content" source="media/quickstart-azure-digital-twins-explorer/error-models-popup.png" alt-text="Un cuadro emergente que dice &quot;Error: Error al recuperar modelos: ClientAuthError: Error al abrir la ventana emergente. Este error puede ocurrir si usa Internet Explorer o si los elementos emergentes están bloqueados en el explorador con un botón Cerrar en la parte inferior." border="false"::: 
-> Pruebe a deshabilitar el bloqueador de elementos emergentes o a usar otro explorador.
-
-Ahora, Azure Digital Twins Explorer carga estos archivos del modelo en la instancia de Azure Digital Twins. Deberían aparecer en el cuadro **MODEL VIEW** (VISTA DE MODELO), que muestra los nombres descriptivos y los identificadores del modelo completos. Puede seleccionar los iconos de información **View Model** (Ver modelo) para ver el código DTDL subyacente.
+Ahora, Azure Digital Twins Explorer carga estos archivos del modelo en la instancia de Azure Digital Twins. Deberían aparecer en el panel **MODELS** (MODELOS), que muestra los nombres descriptivos y los identificadores del modelo completos. Puede seleccionar los iconos de información **View Model** (Ver modelo) para ver el código DTDL subyacente.
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-azure-digital-twins-explorer/model-info.png" alt-text="Cuadro Model View (Vista de modelo) con dos definiciones de modelo en su interior, Floor (dtmi:example:Floor;1) y Room (dtmi:example:Room;1). El icono de información &quot;View Model&quot; (Ver modelo) muestra una letra &quot;i&quot; en un círculo resaltada para cada modelo." lightbox="media/quickstart-azure-digital-twins-explorer/model-info.png":::
+        :::image type="content" source="media/quickstart-azure-digital-twins-explorer/model-info.png" alt-text="Panel Models (Modelos) con dos definiciones de modelo en su interior, Floor (dtmi:example:Floor;1) y Room (dtmi:example:Room;1). El icono de información &quot;View Model&quot; (Ver modelo) muestra una letra &quot;i&quot; en un círculo resaltada para cada modelo." lightbox="media/quickstart-azure-digital-twins-explorer/model-info.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -173,15 +168,15 @@ En esta sección, cargará los gemelos creados previamente que están conectados
 
 Siga estos pasos para importar el grafo.
 
-1. En el cuadro **GRAPH VIEW** (VISTA DE GRAFO), seleccione el icono **Import Graph** (Importar grafo).
+1. En el panel **TWIN GRAPH** (GRAFO DE GEMELOS), seleccione el icono **Import Graph** (Importar grafo).
 
-   :::image type="content" source="media/quickstart-azure-digital-twins-explorer/import-graph.png" alt-text="Hay un icono resaltado en el cuadro de texto Vista de grafo. Muestra una flecha que apunta a una nube." lightbox="media/quickstart-azure-digital-twins-explorer/import-graph.png":::
+   :::image type="content" source="media/quickstart-azure-digital-twins-explorer/import-graph.png" alt-text="En el panel Graph View (Vista de grafo), hay un icono resaltado. Muestra una flecha que apunta a una nube." lightbox="media/quickstart-azure-digital-twins-explorer/import-graph.png":::
 
-2. En el cuadro del selector de archivos, vaya a la carpeta **digital-twins-explorer-main/client/examples** y elija el archivo de hoja de cálculo **buildingScenario.xlsx**. Este archivo contiene una descripción del grafo de ejemplo. Seleccione **Aceptar**.
+2. En la ventana del selector de archivos, vaya a la carpeta **digital-twins-explorer-main/client/examples** y elija el archivo de hoja de cálculo **buildingScenario.xlsx**. Este archivo contiene una descripción del grafo de ejemplo. Seleccione **Aceptar**.
 
    Al cabo de unos segundos, Azure Digital Twins Explorer abre una vista **Import** (Importar) que muestra una vista previa del grafo que se va a cargar.
 
-3. Para confirmar la carga del grafo, seleccione el icono **Save** (Guardar) situado en la esquina superior derecha del cuadro **GRAPH VIEW** (VISTA DE GRAFO).
+3. Para confirmar la carga del grafo, seleccione el icono **Save** (Guardar) situado en la esquina superior derecha del panel **TWIN GRAPH** (GRAFO DE GEMELOS).
 
    :::row:::
     :::column:::
@@ -199,21 +194,23 @@ Siga estos pasos para importar el grafo.
     :::column-end:::
     :::column:::
     :::column-end:::
-    :::column:::
-    :::column-end:::
    :::row-end:::
 
-5. El grafo ya se ha cargado en Azure Digital Twins Explorer. Para verlo, seleccione el botón **Ejecutar consulta** en el cuadro **PROBADOR DE GRAPH**, cerca de la parte superior de la ventana de Azure Digital Twins Explorer.
+5. El grafo ya se ha cargado en Azure Digital Twins Explorer. Vuelva al panel **TWIN GRAPH** (GRAFO DE GEMELOS).
+ 
+   :::image type="content" source="media/quickstart-azure-digital-twins-explorer/twin-graph-tab.png" alt-text="La pestaña Twin Graph (Grafo de gemelos) está resaltada." lightbox="media/quickstart-azure-digital-twins-explorer/twin-graph-tab.png":::
+
+6. Para verlo, seleccione el botón **Ejecutar consulta** en el panel **QUERY EXPLORER** (EXPLORADOR DE CONSULTAS), cerca de la parte superior de la ventana de Azure Digital Twins Explorer.
 
    :::image type="content" source="media/quickstart-azure-digital-twins-explorer/run-query.png" alt-text="Se resalta el botón Run Query (Ejecutar consulta) situado en la esquina superior derecha de la ventana." lightbox="media/quickstart-azure-digital-twins-explorer/run-query.png":::
 
-Esta acción ejecuta la consulta predeterminada para seleccionar y mostrar todos los gemelos digitales. Azure Digital Twins Explorer recupera todos los gemelos y relaciones del servicio, y dibuja el grafo definido por ellos en el cuadro **GRAPH VIEW** (VISTA DE GRAFO).
+Esta acción ejecuta la consulta predeterminada para seleccionar y mostrar todos los gemelos digitales. Azure Digital Twins Explorer recupera todos los gemelos y relaciones del servicio, y dibuja el grafo definido por ellos en el panel **TWIN GRAPH** (GRAFO DE GEMELOS).
 
 ## <a name="explore-the-graph"></a>Exploración del grafo
 
 Ahora puede ver el grafo cargado del escenario de ejemplo.
 
-:::image type="content" source="media/quickstart-azure-digital-twins-explorer/graph-view-full.png" alt-text="Vista del cuadro Graph View (Vista de grafo) con un grafo de gemelos dentro. Un círculo &quot;floor1&quot; está conectado mediante una flecha &quot;contains&quot; a un círculo &quot;room1&quot;. Un círculo &quot;floor0&quot; está conectado mediante una flecha &quot;contains&quot; a un círculo &quot;room0&quot;.":::
+:::image type="content" source="media/quickstart-azure-digital-twins-explorer/graph-view-full.png" alt-text="Vista del panel Graph View (Vista de grafo) con un grafo de gemelos dentro. Un círculo &quot;floor1&quot; está conectado mediante una flecha &quot;contains&quot; a un círculo &quot;room1&quot;. Un círculo &quot;floor0&quot; está conectado mediante una flecha &quot;contains&quot; a un círculo &quot;room0&quot;.":::
 
 Los círculos ("nodos" del grafo) representan los gemelos digitales. Las líneas representan las relaciones. El gemelo **Floor0** contiene **Room0**, y el gemelo **Floor1** contiene **Room1**.
 
@@ -221,13 +218,13 @@ Si usa un mouse, puede arrastrar trozos del grafo para moverlos.
 
 ### <a name="view-twin-properties"></a>Visualización de las propiedades de un gemelo
 
-Puede seleccionar un gemelo para ver una lista de sus propiedades y sus valores en el cuadro **PROPERTY EXPLORER** (Explorador de propiedades).
+Puede seleccionar un gemelo para ver una lista de sus propiedades y sus valores en el panel **PROPERTIES** (PROPIEDADES).
 
 Estas son las propiedades de Room0:
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-azure-digital-twins-explorer/properties-room0.png" alt-text="Resaltado del cuadro Property Explorer (Explorador de propiedades) que muestra las propiedades de Room0, incluidos (entre otros) el campo $dtId con &quot;Room0&quot;, el campo Temperature con el valor 70 y el campo Humidity con el valor 30." lightbox="media/quickstart-azure-digital-twins-explorer/properties-room0.png":::
+        :::image type="content" source="media/quickstart-azure-digital-twins-explorer/properties-room0.png" alt-text="Resaltado del panel Properties (Propiedades) que muestra las propiedades de Room0, incluidos (entre otros) el campo $dtId con &quot;Room0&quot;, el campo Temperature con el valor 70 y el campo Humidity con el valor 30." lightbox="media/quickstart-azure-digital-twins-explorer/properties-room0.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -239,7 +236,7 @@ Estas son las propiedades de Room1:
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-azure-digital-twins-explorer/properties-room1.png" alt-text="Resaltado del cuadro Property Explorer (Explorador de propiedades) que muestra las propiedades de Room1, incluidos (entre otros) el campo $dtId con &quot;Room1&quot;, el campo Temperature con el valor 80 y el campo Humidity con el valor 60." lightbox="media/quickstart-azure-digital-twins-explorer/properties-room1.png":::
+        :::image type="content" source="media/quickstart-azure-digital-twins-explorer/properties-room1.png" alt-text="Resaltado del panel Properties (Propiedades) que muestra las propiedades de Room1, incluidos (entre otros) el campo $dtId con &quot;Room1&quot;, el campo Temperature con el valor 80 y el campo Humidity con el valor 60." lightbox="media/quickstart-azure-digital-twins-explorer/properties-room1.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -255,9 +252,9 @@ Una forma de consultar los gemelos en el grafo es mediante sus **propiedades**. 
 
 En esta sección, ejecutará una consulta que responda a la pregunta de cuántos gemelos de su entorno tienen una temperatura superior a 75.
 
-Para ver la respuesta, ejecute la siguiente consulta en el cuadro **QUERY EXPLORER** (EXPLORADOR DE CONSULTAS).
+Para ver la respuesta, ejecute la siguiente consulta en el panel **QUERY EXPLORER** (EXPLORADOR DE CONSULTAS).
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="TemperatureQuery":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="TemperatureQuery":::
 
 Recuerde que, al ver las propiedades de los gemelos anteriores, Room0 tiene una temperatura de 70 y Room1 tiene una temperatura de 80. Por lo tanto, aquí solo aparece Room1 en los resultados.
     
@@ -270,13 +267,17 @@ Recuerde que, al ver las propiedades de los gemelos anteriores, Room0 tiene una 
 
 Azure Digital Twins Explorer se puede usar para editar las propiedades de los gemelos representados en el grafo. En esta sección, se va a elevar la temperatura de Room0 a 76.
 
-Para comenzar, seleccione **Room0** para mostrar su lista de propiedades en el cuadro **PROPERTY EXPLORER** (EXPLORADOR DE PROPIEDADES).
+Para empezar, vuelva a ejecutar la consulta siguiente para seleccionar todos los gemelos digitales. Esto mostrará el grafo completo una vez más en el panel **TWIN GRAPH** (GRAFO DE GEMELOS).
+
+:::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="GetAllTwins":::
+
+Seleccione **Room0** para mostrar su lista de propiedades en el panel **PROPERTIES** (PROPIEDADES).
 
 Las propiedades de esta lista son editables. Seleccione el valor de temperatura **70** para habilitar la entrada de un nuevo valor. Escriba **76** y seleccione el icono **Save** (Guardar) para actualizar la temperatura a **76**.
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-azure-digital-twins-explorer/new-properties-room0.png" alt-text="Cuadro &quot;Property Explorer&quot; (Explorador de propiedades) que muestra las propiedades de Room0. El valor de temperatura es un cuadro editable que muestra 76 y hay un resaltado alrededor del icono de guardar." lightbox="media/quickstart-azure-digital-twins-explorer/new-properties-room0.png":::
+        :::image type="content" source="media/quickstart-azure-digital-twins-explorer/new-properties-room0.png" alt-text="Panel Properties (Propiedades) que muestra las propiedades de Room0. El valor de temperatura es un cuadro editable que muestra 76 y hay un resaltado alrededor del icono de guardar." lightbox="media/quickstart-azure-digital-twins-explorer/new-properties-room0.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -288,7 +289,7 @@ Ahora verá la ventana **Patch Information** (Información de revisión) que mue
 
 Para comprobar que el grafo ha registrado correctamente la actualización de la temperatura de Room0, vuelva a ejecutar la consulta anterior para obtener todos los gemelos del entorno con una temperatura superior a 75.
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="TemperatureQuery":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="TemperatureQuery":::
 
 Ahora que se ha cambiado la temperatura de Room0 de 70 a 76, ambos gemelos deberían aparecer en el resultado.
 

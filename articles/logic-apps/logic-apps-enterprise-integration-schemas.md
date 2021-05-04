@@ -7,13 +7,13 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 02/06/2019
-ms.openlocfilehash: ade29318fdd1510d03ddd208534258a30b256e98
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/27/2021
+ms.openlocfilehash: 39fc84e9a83f7417836c895481da27a0d00cc71f
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "75979375"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108137191"
 ---
 # <a name="validate-xml-with-schemas-in-azure-logic-apps-with-enterprise-integration-pack"></a>Validación XML con esquemas en Azure Logic Apps con Enterprise Integration Pack
 
@@ -183,6 +183,14 @@ Para actualizar un esquema existente, debe cargar un nuevo archivo de esquema qu
 1. Una vez que se abre la página **Esquemas**, seleccione el esquema y elija **Eliminar**.
 
 1. Para confirmar que desea eliminar el esquema, elija **Sí**.
+
+## <a name="limitations"></a>Limitaciones
+
+Normalmente, cuando se usa una cuenta de integración con el flujo de trabajo y se quiere validar código XML, se agrega o se carga el esquema en esa cuenta. Si hace referencia a un esquema que no está en la cuenta de integración, o lo importa, es posible que reciba el siguiente error al usar el elemento `xsd:redefine`:
+
+`An error occurred while processing the XML schemas: ''SchemaLocation' must successfully resolve if <redefine> contains any child other than <annotation>.'.`
+
+Para resolver este error, debe usar el elemento `xsd:import` o `xsd:include`, en lugar de `xsd:redefine`, o bien usar un URI.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

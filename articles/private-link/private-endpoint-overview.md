@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: f18d9cb2a1bf76986a5c77477085f2f12ab728ae
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 92f9c3baaa8260bdc154f8752b56a63cf1444ebe
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107771810"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108140414"
 ---
 # <a name="what-is-azure-private-endpoint"></a>¿Qué es un punto de conexión privado de Azure?
 
@@ -134,9 +134,9 @@ En la tabla siguiente se incluye una lista de las limitaciones conocidas al usar
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-- [Creación de un punto de conexión privado para SQL Database mediante Azure Portal](create-private-endpoint-portal.md)
-- [Creación de un punto de conexión privado para SQL Database mediante PowerShell](create-private-endpoint-powershell.md)
-- [Creación de un punto de conexión privado para SQL Database mediante la CLI](create-private-endpoint-cli.md)
+- [Creación de un punto de conexión privado para Azure Web Apps mediante el portal](create-private-endpoint-portal.md)
+- [Creación de un punto de conexión privado para Azure Web Apps mediante PowerShell](create-private-endpoint-powershell.md)
+- [Creación de un punto de conexión privado para Azure Web Apps mediante la CLI](create-private-endpoint-cli.md)
 - [Creación de un punto de conexión privado para la cuenta de almacenamiento mediante el portal](./tutorial-private-endpoint-storage-portal.md)
 - [Creación de un punto de conexión privado para la cuenta de Azure Cosmos mediante el portal](../cosmos-db/how-to-configure-private-endpoints.md)
 - [Creación del propio servicio Private Link con Azure PowerShell](create-private-link-service-powershell.md)

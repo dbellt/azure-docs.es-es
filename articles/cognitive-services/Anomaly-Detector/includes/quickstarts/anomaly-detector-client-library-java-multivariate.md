@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/06/2021
 ms.author: mbullwin
-ms.openlocfilehash: eae4d00cd7b1a0ff90648086320135505a0d900a
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: f9ba38b6493ee3dcb246382407552091b97454f0
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107318783"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108121141"
 ---
 Comience a usar la biblioteca cliente multivariante de Anomaly Detector para Java. Siga estos pasos para instalar el inicio del paquete con los algoritmos que proporciona el servicio. Las nuevas API de detección de anomalías multivariante permiten a los desarrolladores integrar fácilmente inteligencia artificial avanzada para detectar anomalías de grupos de métricas, sin necesidad de tener conocimientos de aprendizaje automático ni usar datos etiquetados. Las dependencias y correlaciones entre distintas señales se consideran automáticamente como factores clave. De este modo, podrá proteger de forma proactiva los sistemas complejos frente a errores.
 
@@ -22,6 +22,8 @@ Utilice la biblioteca cliente multivariante de Anomaly Detector para Java con el
 * Detectar anomalías de nivel del sistema para un grupo de series temporales.
 * Cuando una serie temporal individual no ofrece demasiada información y se deben examinar todas las señales para detectar un problema.
 * Mantenimiento predictivo de recursos físicos costosos con decenas o cientos de tipos de sensores diferentes que miden diversos aspectos del estado del sistema.
+
+[Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/anomalydetector/azure-ai-anomalydetector) | [Paquete (Maven)](https://repo1.maven.org/maven2/com/azure/azure-ai-anomalydetector/3.0.0-beta.2/) | [Código de ejemplo](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/anomalydetector/azure-ai-anomalydetector/src/samples/java/com/azure/ai/anomalydetector/MultivariateSample.java)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -151,7 +153,7 @@ AnomalyDetectorClient anomalyDetectorClient = new AnomalyDetectorClientBuilder()
 
 En primer lugar, es necesario construir una solicitud de modelo. Asegúrese de que la hora de inicio y finalización se correspondan con su origen de datos.
 
- Para usar las API multivariante de Anomaly Detector, es necesario entrenar nuestro modelo antes de usar la detección. Los datos usados con fines de entrenamiento constituyen un lote de series temporales, y cada serie temporal debe tener formato CSV con dos columnas: marca de tiempo y valor. Todas las series temporales deben comprimirse en un archivo ZIP y cargarse a [Azure Blob Storage](../../../../storage/blobs/storage-blobs-introduction.md#blobs). De forma predeterminada, el nombre de archivo se usará para representar la variable de la serie temporal. Como alternativa, se puede incluir un archivo meta.json en el archivo ZIP si desea que el nombre de la variable sea diferente al nombre del archivo .zip. Una vez que se genera una [URL de SAS (firmas de acceso compartido) de blob](../../../../storage/common/storage-sas-overview.md), podemos usar la dirección URL para el archivo ZIP para el entrenamiento.
+Para usar las API multivariante de Anomaly Detector, es necesario entrenar nuestro modelo antes de usar la detección. Los datos usados para el entrenamiento son un lote de series temporales; cada serie temporal debe estar en un archivo CSV con solo dos columnas, **"timestamp"** y **"value"** (los nombres de columna deben ser exactamente iguales). Cada archivo CSV debe tener el nombre de cada variable para la serie temporal. Todas las series temporales deben comprimirse en un archivo ZIP y cargarse en [Azure Blob Storage](../../../../storage/blobs/storage-blobs-introduction.md#blobs). No existe ningún requisito para el nombre del archivo ZIP. Como alternativa, se puede incluir un archivo meta.json en el archivo ZIP si desea que el nombre de la variable sea diferente al nombre del archivo .zip. Una vez que se genera una [URL de SAS (firmas de acceso compartido) de blob](../../../../storage/common/storage-sas-overview.md), podemos usar la dirección URL para el archivo ZIP para el entrenamiento.
 
 ```java
 Path path = Paths.get("test-data.csv");
@@ -253,6 +255,8 @@ Puede compilar la aplicación con:
 gradle build
 ```
 ### <a name="run-the-application"></a>Ejecución de la aplicación
+
+Antes de ejecutarla, puede resultar útil comprobar el código con el [código de ejemplo completo](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/anomalydetector/azure-ai-anomalydetector/src/samples/java/com/azure/ai/anomalydetector/MultivariateSample.java).
 
 Ejecute la aplicación con el objetivo `run`:
 

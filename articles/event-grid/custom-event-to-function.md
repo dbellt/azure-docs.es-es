@@ -3,12 +3,12 @@ title: 'Inicio rápido: Envío de eventos personalizados a una instancia de Azur
 description: 'Inicio rápido: Use Azure Event Grid y la CLI de Azure o el portal para publicar un tema y suscribirse a ese evento. Para el punto de conexión se usa una instancia de Azure Functions.'
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: 4fe4753de41443a0537636933364c7b69b25cb27
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6240d9595022ee4ac5a705fd48bc9618e6782659
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98791751"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107898034"
 ---
 # <a name="quickstart-route-custom-events-to-an-azure-function-with-event-grid"></a>Inicio rápido: Enrutamiento de eventos personalizados a una instancia de Azure Functions con Event Grid
 
@@ -195,3 +195,11 @@ Ahora que sabe cómo crear suscripciones a temas y eventos, aprenda más sobre c
 - [Enrutamiento de eventos de Blob Storage a un punto de conexión web personalizado](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
 - [Supervisión de los cambios en máquinas virtuales con Azure Event Grid y Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md)
 - [Transmisión de macrodatos a un almacén de datos](event-grid-event-hubs-integration.md)
+
+Consulte los ejemplos siguientes para obtener información sobre la publicación y el consumo de eventos desde Event Grid con diferentes lenguajes de programación. 
+
+- [Ejemplos de Azure Event Grid para .NET](/samples/azure/azure-sdk-for-net/azure-event-grid-sdk-samples/)
+- [Ejemplos de Azure Event Grid para Java](/samples/azure/azure-sdk-for-java/eventgrid-samples/)
+- [Ejemplos de Azure Event Grid para Python](/samples/azure/azure-sdk-for-python/eventgrid-samples/)
+- [Ejemplos de Azure Event Grid para JavaScript](/samples/azure/azure-sdk-for-js/eventgrid-javascript/)
+- [Ejemplos de Azure Event Grid para TypeScript](/samples/azure/azure-sdk-for-js/eventgrid-typescript/)

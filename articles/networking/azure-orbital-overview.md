@@ -7,12 +7,12 @@ ms.service: vnf-manager
 ms.topic: overview
 ms.date: 09/22/2020
 ms.author: wamota
-ms.openlocfilehash: 05f3b5b461e42c29a12f126928f69069b45007d3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e0365af4ab4dd5fd6b25ac464d0cc34001701490
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97797281"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108073024"
 ---
 # <a name="what-is-azure-orbital-preview"></a>¿Qué es Azure Orbital? (versión preliminar)
 
@@ -117,4 +117,5 @@ Nos hemos asociado con [Kubos](https://www.kubos.com/) para ofrecer Major Tom, s
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información sobre nuestra versión preliminar o para manifestar su interés en participar en ella, rellene el formulario de contacto [aquí](https://aka.ms/iaminterested) o envíenos un correo electrónico a [MSAzureOrbital@microsoft.com](mailto:MSAzureOrbital@microsoft.com).
+- Para obtener más información sobre nuestra versión preliminar o para manifestar su interés en participar en ella, rellene el formulario de contacto [aquí](https://aka.ms/iaminterested) o envíenos un correo electrónico a [MSAzureOrbital@microsoft.com](mailto:MSAzureOrbital@microsoft.com).
+- [Aprenda a usar Azure Orbital para comunicarse con los satélites: vídeo](https://www.youtube.com/watch?v=MqgjSBKAxIg)

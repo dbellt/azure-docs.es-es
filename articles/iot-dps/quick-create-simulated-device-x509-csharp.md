@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 7d2a21a30cefbc6e83e48c29d81191323387b8f2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a328115c606cb4bface2d3dc7b8f0c502d063e9f
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101705550"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107987441"
 ---
 # <a name="quickstart-create-and-provision-an-x509-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Inicio rápido: Creación y aprovisionamiento de un dispositivo X.509 mediante el SDK de dispositivos para C# de IoT Hub Device Provisioning Service
 
@@ -22,7 +22,7 @@ ms.locfileid: "101705550"
 
 En estos pasos se muestra cómo usar el código de dispositivo a partir de los [ejemplos de Azure IoT para C#](https://github.com/Azure-Samples/azure-iot-samples-csharp) para aprovisionar un dispositivo X.509. En este artículo, va a ejecutar código de ejemplo de dispositivo en la máquina de desarrollo para conectarse a una instancia de IoT Hub mediante el servicio Device Provisioning.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Si no está familiarizado con el proceso de aprovisionamiento automático, revise la información general sobre [Aprovisionamiento](about-iot-dps.md#provisioning-process). Asegúrese de completar los pasos descritos en [Configuración del servicio Azure IoT Hub Device Provisioning con Azure Portal](./quick-setup-auto-provision.md) antes de continuar.
 
@@ -45,7 +45,7 @@ En este artículo se mostrarán las inscripciones individuales.
     git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
     ```
 
-1. Asegúrese de tener instalado el [SDK de .NET Core 3.0.0 o posterior](https://www.microsoft.com/net/download/windows) en la máquina. Para comprobar la versión, use el siguiente comando.
+1. Asegúrese de tener instalado el [SDK de .NET Core 3.1 o posterior](https://dotnet.microsoft.com/download) en la máquina. Para comprobar la versión, use el siguiente comando.
 
     ```bash
     dotnet --info
@@ -169,7 +169,6 @@ Usará código de ejemplo de [X509Sample](https://github.com/Azure-Samples/azure
 Si planea seguir trabajando con el ejemplo de cliente de dispositivo y explorándolo, no limpie los recursos que se crean en este inicio rápido. Si no va a continuar, use el siguiente comando para eliminar todos los recursos que se han creado en este inicio rápido.
 
 1. Cierre la ventana de salida de ejemplo del cliente del dispositivo en su máquina.
-1. Cierre la ventana del simulador de TPM en su máquina.
 1. En el menú de la izquierda de Azure Portal, seleccione **Todos los recursos** y seleccione Device Provisioning Service. En la parte superior de la hoja **Información general**, presione **Eliminar** en la parte superior del panel.  
 1. En el menú de la izquierda de Azure Portal, seleccione **Todos los recursos** y después su centro de IoT. En la parte superior de la hoja **Información general**, presione **Eliminar** en la parte superior del panel.  
 

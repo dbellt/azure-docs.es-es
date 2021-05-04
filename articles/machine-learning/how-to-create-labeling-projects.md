@@ -6,15 +6,15 @@ author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 07/27/2020
 ms.custom: data4ml
-ms.openlocfilehash: 62801d40295762b0066f0d2887d7d528ee7b7c2a
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 194836dc68ea5ddc5afbfff7e7031c6461515fe2
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101656829"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107885765"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Creación de un proyecto de etiquetado de datos y exportación de etiquetas 
 
@@ -53,11 +53,7 @@ Para crear un proyecto, seleccione **Agregar proyecto**. Asigne un nombre adecua
 * Elija un proyecto de tipo **Clasificación de imágenes con varias clases** cuando quiera aplicar una *sola etiqueta* de un conjunto de etiquetas a una imagen.
 * Elija un proyecto de tipo **Clasificación de imágenes con varias etiquetas** cuando quiera aplicar *una o varias* etiquetas de un conjunto de etiquetas a una imagen. Por ejemplo, una fotografía de un perro podría etiquetarse como *perro* y *diurno*.
 * Elija un proyecto de tipo **Identificación del objeto (rectángulo de selección)** cuando quiera asignar una etiqueta y un rectángulo de selección a cada objeto de una imagen.
-* Elija un proyecto de tipo **Segmentación de instancias (polígono) (versión preliminar)** cuando desee asignar una etiqueta y dibujar un polígono alrededor de cada objeto dentro de una imagen.
-
-> [!IMPORTANT]
-> La segmentación de instancias (polígono) está en versión preliminar pública.
-> Se ofrece la versión preliminar sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+* Elija un proyecto de tipo **Segmentación de instancias (polígono)** cuando desee asignar una etiqueta y dibujar un polígono alrededor de cada objeto dentro de una imagen.
 
 Seleccione **Siguiente** cuando esté listo para continuar.
 

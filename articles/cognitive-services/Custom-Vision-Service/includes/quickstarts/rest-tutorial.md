@@ -4,12 +4,12 @@ ms.author: pafarley
 ms.service: cognitive-services
 ms.date: 12/09/2020
 ms.topic: include
-ms.openlocfilehash: 269cae85c0f007c487f063b1f7ca7ea4dca15376
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: cc022470bf9ff799d6396f871f4a6c224d01a295
+ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105105332"
+ms.lasthandoff: 04/23/2021
+ms.locfileid: "107931773"
 ---
 Introducción a la API REST de Custom Vision Siga estos pasos para llamar a la API y crear un modelo de clasificación de imágenes. Podrá crear un proyecto, agregar etiquetas, entrenar el proyecto y utilizar la dirección URL del punto de conexión de predicción del proyecto para probarlo mediante programación. Utilice este ejemplo como plantilla para crear su propia aplicación de reconocimiento de imágenes.
 
@@ -175,7 +175,7 @@ Este método hace que la iteración actual del modelo esté disponible para real
 * Reemplace `{projectId}` por su propio identificador de proyecto.
 * Reemplace `{iterationId}` por el identificador devuelto en el paso anterior.
 * Reemplace `{publishedName}` por el nombre que le gustaría asignar al modelo de predicción.
-* Reemplace `{predictionId}` por su propio identificador de recurso de predicción. Puede encontrarlo en la pestaña **Información general** del recurso de predicción en Azure Portal, donde aparece como **Id. de suscripción**.
+* Reemplace `{predictionId}` por su propio identificador de recurso de predicción. Encontrará el identificador del recurso de predicción en la pestaña de **Propiedades** del recurso en Azure Portal, que aparece como **Id. de recurso**.
 * Opcionalmente, puede usar otros parámetros de dirección URL. Consulte la API [PublishIteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc7548b571998fdded5).
 
 ## <a name="test-the-prediction-endpoint"></a>Prueba del punto de conexión de la predicción

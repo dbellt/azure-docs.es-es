@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/15/2020
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: d142028d197f9e279b5f1e05757946dc40d2c153
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 64a721514783c0cda1d4c2a859e25ed6589653b8
+ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92109143"
+ms.lasthandoff: 04/23/2021
+ms.locfileid: "107931026"
 ---
 # <a name="tutorial-configure-route-filters-for-microsoft-peering-using-the-azure-portal"></a>Tutorial: Configuración de filtros de ruta para el emparejamiento de Microsoft: Azure Portal
 
@@ -48,7 +48,7 @@ Un filtro de ruta permite identificar los servicios que desea consumir mediante 
 Para asociar filtros de ruta con servicios de Microsoft 365, debe tener autorización para consumir tales servicios mediante ExpressRoute. Si no la tiene, la operación para asociar filtros de ruta producirá un error. Para obtener más información sobre el proceso de autorización, consulte [Azure ExpressRoute para Microsoft 365](/microsoft-365/enterprise/azure-expressroute).
 
 > [!IMPORTANT]
-> Se anunciarán todos los prefijos de servicio para el emparejamiento de Microsoft de los circuitos ExpressRoute que se configuraron antes del 1 de agosto de 2017, incluso si no se definen filtros de ruta. No se anunciará ningún prefijo para el emparejamiento de Microsoft de los circuitos ExpressRoute que se configuraron el 1 de agosto de 2017 o con posterioridad, hasta que se asocie un filtro de ruta al circuito.
+> Se anunciarán todos los prefijos de servicio de Microsoft Office para el emparejamiento de Microsoft de los circuitos ExpressRoute que se configuraron antes del 1 de agosto de 2017, incluso si no se definen filtros de ruta. No se anunciará ningún prefijo para el emparejamiento de Microsoft de los circuitos ExpressRoute que se configuraron el 1 de agosto de 2017 o con posterioridad, hasta que se asocie un filtro de ruta al circuito.
 > 
 
 ## <a name="prerequisites"></a>Requisitos previos

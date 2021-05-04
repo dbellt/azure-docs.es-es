@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 08/31/2020
-ms.openlocfilehash: ab6607175c596a0d82cf75f0ad786a76e85b6959
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 9787fd244ffe18bcaa37bcc28392d29c9e8768d4
+ms.sourcegitcommit: aaba99b8b1c545ad5d19f400bcc2d30d59c63f39
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102612157"
+ms.lasthandoff: 04/26/2021
+ms.locfileid: "108006913"
 ---
 # <a name="tutorial-create-an-faq-bot-with-azure-bot-service"></a>Tutorial: Creación de un bot de preguntas frecuentes con Azure Bot Service
 Cree un bot de preguntas frecuentes con QnA Maker y Azure [Bot Service](https://azure.microsoft.com/services/bot-service/) sin código.
@@ -81,3 +81,8 @@ Si realiza cambios en la base de conocimiento y vuelve a publicarla, no es neces
 
     :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/test-web-chat.png" alt-text="Escriba una consulta de usuario en el chat en web de prueba.":::
 1. Destacar el bot en los [canales admitidos](/azure/bot-service/bot-service-manage-channels) adicionales.
+
+   * Haga clic en **Canales** en el recurso de Bot Service.
+
+   >[!div class="mx-imgBorder"]
+   >![Captura de pantalla de la integración con Teams](../media/qnamaker-tutorial-updates/connect-with-teams.png)

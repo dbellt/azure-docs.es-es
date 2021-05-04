@@ -4,12 +4,12 @@ description: En esta guía de inicio rápido, creará una aplicación .NET para 
 ms.topic: quickstart
 ms.date: 06/26/2019
 ms.custom: mvc, devcenter, vs-azure
-ms.openlocfilehash: 15e2180e44acaa5ebefb403b2da3755396a45ba4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 665376a7616e146dbbf86caf0b4a2b62de7e5506
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96575897"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108136902"
 ---
 # <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>Inicio rápido: Implementación de una aplicación de servicios de confianza .NET en Service Fabric
 
@@ -114,7 +114,7 @@ Al votar en la aplicación, se producen los eventos siguientes:
 
 ## <a name="debug-in-visual-studio"></a>Depurar en Visual Studio
 
-La aplicación debería ejecutarse correctamente, pero puede usar el depurador para ver cómo funcionan las partes principales de ella. Al depurar la aplicación en Visual Studio se usa un clúster de desarrollo de Service Fabric local. Puede ajustar la experiencia de depuración a su escenario. En esta aplicación, los datos se almacenan en el servicio back-end mediante un diccionario de confianza. Visual Studio quita la aplicación de forma predeterminada cuando se detiene el depurador. Cuando se quita la aplicación, los datos del servicio back-end también se quitan. Para conservar los datos entre sesiones de depuración, puede cambiar el **modo de depuración de la aplicación** como una propiedad del proyecto **Voting** en Visual Studio.
+La aplicación debería ejecutarse correctamente, pero puede usar el depurador para ver cómo funcionan las partes principales de ella. Al depurar la aplicación en Visual Studio se usa un clúster de desarrollo de Service Fabric local. Puede ajustar la experiencia de depuración a su escenario. En esta aplicación, los datos se almacenan en el servicio back-end mediante un diccionario de confianza. Visual Studio quita la aplicación de forma predeterminada cuando se detiene el depurador. Cuando se quita la aplicación, los datos del servicio back-end también se quitan. Para conservar los datos entre sesiones de depuración, abra el elemento **Propiedades** del proyecto de *Votaciones* y cambie [**Modo de depuración de la aplicación**](service-fabric-manage-application-in-visual-studio.md#to-set-the-application-debug-mode-property) a *Actualizar automáticamente*.
 
 Para ver lo que ocurre en el código, siga estos pasos:
 
@@ -159,7 +159,7 @@ Para actualizar la aplicación, haga lo siguiente:
 
     ![Cuadro de diálogo para cambiar versión](./media/service-fabric-quickstart-dotnet/change-version.png)
 7. En el cuadro de diálogo **Publicación de la aplicación de Service Fabric**, active la casilla **Actualizar la aplicación**.
-8.  Cambie **Perfil objetivo** a **PublishProfiles\Local.5Node.xml** y asegúrese de que **Punto de conexión** está establecido en **Clúster local**. 
+8.  Cambie **Perfil objetivo** a **PublishProfiles\Local.5Node.xml** y asegúrese de que **Punto de conexión** está establecido en **Clúster local**.
 9. Seleccione **Actualizar la aplicación**.
 
     ![Configuración de actualización del cuadro de diálogo de publicación](./media/service-fabric-quickstart-dotnet/upgrade-app.png)

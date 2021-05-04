@@ -3,17 +3,17 @@ title: Tutorial de uso de directivas de asignación personalizadas con Azure IoT
 description: Tutorial de uso de directivas de asignación personalizadas con Azure IoT Hub Device Provisioning Service (DPS)
 author: wesmc7777
 ms.author: wesmc
-ms.date: 09/23/2020
+ms.date: 04/23/2021
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: f19f43b89cd2527a67827d7434f2e054ee40001e
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: 823c154a07fed2bc3734993c25accb37aa33a228
+ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107227388"
+ms.lasthandoff: 04/23/2021
+ms.locfileid: "107929946"
 ---
 # <a name="tutorial-use-custom-allocation-policies-with-device-provisioning-service-dps"></a>Tutorial: Uso de directivas de asignación personalizadas con Device Provisioning Service (DPS)
 
@@ -207,11 +207,30 @@ Para el ejemplo de este artículo, use los dos identificadores de registro de di
 * **contoso-toaster-007**
 * **contoso-heatpump-088**
 
-Reemplace el valor de la variable **KEY** por la **clave principal** que anotó antes de que se creara el grupo de inscripción. El valor de clave y la salida que se muestran con el código siguiente son solo un ejemplo.
 
-#### <a name="powershell"></a>[PowerShell](#tab/powershell)
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+La extensión de IoT para la CLI de Azure proporciona el comando [`compute-device-key`](/cli/azure/iot/dps?view=azure-cli-latest&preserve-view=true#az_iot_dps_compute_device_key) para generar claves de dispositivo derivadas. Este comando se puede usar en sistemas Windows o Linux, desde PowerShell o un shell de Bash.
+
+Reemplace el valor del argumento `--key` por la **clave principal** de su grupo de inscripción.
+
+```azurecli
+az iot dps compute-device-key --key oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA== --registration-id contoso-toaster-007
+
+"JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs="
+```
+
+```azurecli
+az iot dps compute-device-key --key oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA== --registration-id contoso-heatpump-088
+
+"6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg="
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Si utiliza una estación de trabajo basada en Windows, puede usar PowerShell para generar las claves de dispositivo derivadas tal y como se muestra en el ejemplo siguiente.
+
+Reemplace el valor de la variable **KEY** por la **clave principal** que anotó antes de que se creara el grupo de inscripción. El valor de clave y la salida que se muestran con el código siguiente son solo un ejemplo.
 
 ```powershell
 $KEY='oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA=='
@@ -234,9 +253,12 @@ contoso-toaster-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
 contoso-heatpump-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
 ```
 
-#### <a name="bash"></a>[Bash](#tab/bash)
+# <a name="bash"></a>[Bash](#tab/bash)
 
 Si usa una estación de trabajo de Linux, puede utilizar openssl para generar las claves de dispositivo derivadas tal y como se muestra en el ejemplo de Bash siguiente.
+
+Reemplace el valor de la variable **KEY** por la **clave principal** que anotó antes de que se creara el grupo de inscripción. El valor de clave y la salida que se muestran con el código siguiente son solo un ejemplo.
+
 
 ```bash
 KEY=oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA==

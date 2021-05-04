@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 01/19/2020
+ms.date: 04/20/2021
 ms.author: banders
-ms.openlocfilehash: 0c69e9533130d6ca70c57422c7cdd5fc75adff72
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: edc1a80687f768723a3a218ecaa1f6459cd484ed
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98683724"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763566"
 ---
 # <a name="get-enterprise-agreement-and-microsoft-customer-agreement-reservation-costs-and-usage"></a>Obtención de los costos y el uso de reservas del Contrato Enterprise y del Contrato de cliente de Microsoft
 
@@ -95,7 +95,6 @@ En Azure Portal, vaya a [Administración de costos + facturación](https://porta
 ![Ejemplo que muestra dónde debe descargar el archivo de datos de uso CSV en Azure Portal](./media/understand-reserved-instance-usage-ea/portal-download-csv.png)
 4. En **Descargar uso y cargos**, en **Usage Details Version 2** (Versión 2 de detalles del uso), seleccione **All Charges (usage and purchases)** [Todos los cargos (uso y compras)] y, a continuación, haga clic en Descargar. Repita los pasos para **Cargos amortizados (uso y compras)** .
 
-Los archivos CSV que descarga contienen los costos reales y los costos amortizados.
 
 ## <a name="common-cost-and-usage-tasks"></a>Tareas comunes de uso y costo
 
@@ -158,8 +157,7 @@ Para obtener más información acerca de Azure Reservations, consulte los siguie
 
 - [¿Qué es Azure Reservations?](save-compute-costs-reservations.md)
 - [Pago por adelantado de máquinas virtuales con Azure Reserved VM Instances](../../virtual-machines/prepay-reserved-vm-instances.md)
-- [Pago por adelantado de los recursos de proceso de SQL Database con capacidad reservada de Azure SQL Database](../../azure-sql/database/reserved-capacity-overview.md)
-- [Administración de Azure Reservations](manage-reserved-vm-instance.md)
 - [Información sobre cómo se aplica el descuento por la reserva](../manage/understand-vm-reservation-charges.md)
-- [Información sobre el uso de reservas para suscripciones de pago por uso](understand-reserved-instance-usage.md)
 - [Costos de software de Windows no incluidos con Reservations](reserved-instance-windows-software-costs.md)
+- [Uso de una entidad de servicio para obtener datos de costos](../manage/assign-roles-azure-service-principals.md)
+- [Uso de exportaciones de Cost Management](../costs/tutorial-export-acm-data.md)

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 03/03/2021
+ms.date: 04/22/2021
 ms.custom: project-no-code
 ms.author: mimart
 author: msmimart
 manager: celested
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 6325a890ea297a3aa2bdad76a1d95c10448a7b61
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: cc163f02873cf1827af515791e254261149fc4f9
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102033955"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108124444"
 ---
 # <a name="add-conditional-access-to-user-flows-in-azure-active-directory-b2c"></a>Adición del acceso condicional a los flujos de usuario en Azure AD B2C
 
@@ -161,9 +161,78 @@ Después de agregar la directiva de acceso condicional de Azure AD, habilite el
 
 Se pueden aplicar varias directivas de acceso condicional a un usuario individual en cualquier momento. En este caso, la directiva de control de acceso más estricta tiene prioridad. Por ejemplo, si una directiva requiere la autenticación multifactor (MFA), mientras que las demás bloquean el acceso, se bloqueará al usuario.
 
+## <a name="conditional-access-template-1-sign-in-risk-based-conditional-access"></a>Plantilla de acceso condicional 1: acceso condicional basado en el riesgo de inicio de sesión
+
+La mayoría de los usuarios tienen un comportamiento normal que puede seguirse, cuando se salen de esta norma, podría ser peligroso permitirles que simplemente inicien sesión. Es posible que sea conveniente bloquear a ese usuario o quizás simplemente puede pedirle que lleve a cabo la autenticación multifactor para demostrar que realmente es quien dice ser.
+
+Un riesgo de inicio de sesión representa la probabilidad de que el propietario de la identidad no haya autorizado una solicitud de autenticación determinada. Las organizaciones con licencias P2 pueden crear directivas de acceso condicional que incorporen [detecciones de riesgo de inicio de sesión de Azure AD Identity Protection](../active-directory/identity-protection/concept-identity-protection-risks.md#sign-in-risk). Tenga en cuenta las [limitaciones de las detecciones de Identity Protection para B2C](./identity-protection-investigate-risk.md?pivots=b2c-user-flow#service-limitations-and-considerations).
+
+Si se detecta un riesgo, los usuarios pueden realizar el proceso de autenticación multifactor para solucionar automáticamente el evento de inicio de sesión peligroso y cerrarlo para evitar ruidos innecesarios para los administradores.
+
+Las organizaciones deben elegir una de las siguientes opciones para habilitar una directiva de acceso condicional basada en el riesgo de inicio de sesión que requiera autenticación multifactor (MFA) cuando el riesgo de inicio de sesión sea medio o alto.
+
+### <a name="enable-with-conditional-access-policy"></a>Habilitar la directiva de acceso condicional
+
+1. Inicie sesión en **Azure Portal**.
+2. Vaya a **Azure AD B2C** > **Seguridad** > **Acceso condicional**.
+3. Seleccione **Nueva directiva**.
+4. Asigne un nombre a la directiva. Se recomienda que las organizaciones creen un estándar significativo para los nombres de sus directivas.
+5. En **Asignaciones**, seleccione **Usuarios y grupos**.
+   1. En **Incluir**, seleccione **Todos los usuarios**.
+   2. En **Excluir**, seleccione **Usuarios y grupos** y, luego, elija las cuentas de acceso de emergencia de la organización. 
+   3. Seleccione **Listo**.
+6. En **Aplicaciones en la nube o acciones** > **Incluir**, seleccione **Todas las aplicaciones en la nube**.
+7. En **Condiciones** > **Riesgo de inicio de sesión**, establezca **Configurar** en **Sí**. En **Seleccionar el nivel de riesgo de inicio de sesión, esta directiva se aplicará a** 
+   1. Seleccione **Alto** y **Medio**.
+   2. Seleccione **Listo**.
+8. En **Controles de acceso** > **Conceder**, seleccione **Conceder acceso**, **Requerir autenticación multifactor** y **Seleccionar**.
+9. Confirme la configuración y establezca **Habilitar directiva** en **Activado**.
+10. Seleccione **Crear** para crear la directiva.
+
+### <a name="enable-with-conditional-access-apis"></a>Habilitación con las API de acceso condicional
+
+Para crear una directiva de acceso condicional basada en el riesgo de inicio de sesión con las API de acceso condicional, consulte la documentación de las [API de acceso condicional](../active-directory/conditional-access/howto-conditional-access-apis.md#graph-api).
+
+La plantilla siguiente se puede usar para crear una directiva de acceso condicional con el nombre para mostrar "CA002: Requerir MFA para el riesgo medio o alto de inicio de sesión" en modo de solo informe.
+
+```json
+{
+    "displayName": "Template 1: Require MFA for medium+ sign-in risk",
+    "state": "enabledForReportingButNotEnforced",
+    "conditions": {
+        "signInRiskLevels": [ "high" ,
+            "medium"
+        ],
+        "applications": {
+            "includeApplications": [
+                "All"
+            ]
+        },
+        "users": {
+            "includeUsers": [
+                "All"
+            ],
+            "excludeUsers": [
+                "f753047e-de31-4c74-a6fb-c38589047723"
+            ]
+        }
+    },
+    "grantControls": {
+        "operator": "OR",
+        "builtInControls": [
+            "mfa"
+        ]
+    }
+}
+```
+
 ## <a name="enable-multi-factor-authentication-optional"></a>Habilitación de la autenticación multifactor (opcional)
 
-Al agregar acceso condicional a un flujo de usuario, tenga en cuenta el uso de la **autenticación multifactor (MFA)** . Los usuarios pueden usar un código de un solo uso mediante SMS o voz, o una contraseña de un solo uso por correo electrónico para la autenticación multifactor. La configuración de MFA es independiente de la configuración del acceso condicional. Puede establecer MFA en **Siempre activado** para que MFA siempre sea necesario, independientemente de la configuración del acceso condicional. O bien, puede establecer MFA en **Condicional** para que MFA solo sea necesario cuando una directiva de acceso condicional activa lo requiera.
+Al agregar acceso condicional a un flujo de usuario, tenga en cuenta el uso de la **autenticación multifactor (MFA)** . Los usuarios pueden usar un código de un solo uso mediante SMS o voz, o una contraseña de un solo uso por correo electrónico para la autenticación multifactor. La configuración de MFA es independiente de la configuración del acceso condicional. Puede elegir entre estas opciones de MFA:
+
+   - **Desactivado**: MFA nunca se aplica durante el inicio de sesión y no se pide a los usuarios que se inscriban en MFA durante el registro o el inicio de sesión.
+   - **Siempre activa**: se requiere siempre MFA, independientemente de cualquier configuración de acceso condicional. Si los usuarios aún no están inscritos en MFA, se les pedirá que se inscriban durante el inicio de sesión. Durante el registro, se pide a los usuarios que se inscriban en MFA.
+   - **Condicional (versión preliminar)** : MFA solo se aplica cuando una directiva de acceso condicional lo requiere. Si el resultado de la evaluación de acceso condicional es un desafío de MFA sin riesgo, se aplica MFA durante el inicio de sesión. Si el resultado es un desafío de MFA debido al riesgo *y* el usuario no está inscrito en MFA, el inicio de sesión se bloquea. Durante el registro, no se pide a los usuarios que se inscriban en MFA.
 
 > [!IMPORTANT]
 > Si la directiva de acceso condicional concede acceso con MFA, pero el usuario no ha inscrito un número de teléfono, es posible que se bloquee al usuario.
@@ -184,9 +253,9 @@ Para habilitar el acceso condicional para un flujo de usuario, asegúrese de que
  
    ![Configuración de MFA y el acceso condicional en las propiedades](media/conditional-access-user-flow/add-conditional-access.png)
 
-1. En la sección **Multifactor authentication** (Autenticación multifactor), seleccione el valor de **MFA method** (Método de MFA) deseado y, a continuación, en **MFA enforcement** (Aplicación de MFA), seleccione **Conditional (Recommended)** (Condicional [Recomendado]).
+1. En la sección **Autenticación multifactor**, seleccione el **Tipo de método** deseado y, a continuación, en **Aplicación de MFA**, seleccione **Condicional (versión preliminar)** .
  
-1. En la sección **Conditional Access** (Acceso condicional), seleccione la casilla **Enforce conditional access policies** (Aplicar directivas de acceso condicional).
+1. En la sección **Acceso condicional (versión preliminar)** , seleccione la casilla **Aplicar directivas de acceso condicional**.
 
 1. Seleccione **Guardar**.
 

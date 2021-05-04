@@ -3,17 +3,17 @@ title: Asignación de costos de Azure
 description: En este artículo se explica cómo crear reglas de asignación de costos para distribuir los costos de las suscripciones, grupos de recursos o etiquetas a otros usuarios.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/11/2020
+ms.date: 03/23/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: benshy
-ms.openlocfilehash: 51baa26cf78846bd0a719b8b86056e2ea8176155
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: e7afef7e0a10bb4be3c30112fc207467167e4a17
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131095"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107726527"
 ---
 # <a name="create-and-manage-azure-cost-allocation-rules-preview"></a>Creación y administración de reglas de asignación de costos de Azure (versión preliminar)
 
@@ -58,7 +58,7 @@ Al distribuir los costos por costo de proceso, costo del almacenamiento o costo 
 
 Al distribuir los costos de forma proporcional al costo total, el porcentaje proporcional se asigna por la suma o costo total de los destinos seleccionados en el mes de facturación actual.
 
-:::image type="content" source="./media/allocate-costs/cost-distribution.png" alt-text="Ejemplo que muestra la creación de un nombre de regla" lightbox="./media/allocate-costs/cost-distribution.png" :::
+:::image type="content" source="./media/allocate-costs/cost-distribution.png" alt-text="Ejemplo que muestra el porcentaje de asignación" lightbox="./media/allocate-costs/cost-distribution.png" :::
 
 Una vez que se establecen, los porcentajes rellenados previamente se quedan fijos. Se usan para todas las asignaciones en curso. Los porcentajes solo cambian cuando la regla se actualiza manualmente.
 
@@ -84,7 +84,7 @@ Cuando la regla de asignación de costos está activa, los costos de los orígen
 
 Vea el impacto de la regla de asignación en el análisis de costos. En Azure Portal, vaya a [Suscripciones](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Seleccione en la lista una suscripción que sea el destino de una regla de asignación de costos activa. Luego seleccione **Análisis de costos** en el menú. En Análisis de costos, seleccione **Agrupar por** y luego seleccione **Asignación de costos**. La vista resultante muestra un rápido desglose de costos generado por la suscripción. También se muestran los costos asignados a la suscripción, como en la siguiente imagen.
 
-:::image type="content" source="./media/allocate-costs/cost-breakdown.png" alt-text="Ejemplo que muestra la creación de un nombre de regla" lightbox="./media/allocate-costs/cost-breakdown.png" :::
+:::image type="content" source="./media/allocate-costs/cost-breakdown.png" alt-text="Ejemplo que muestra el desglose de costos" lightbox="./media/allocate-costs/cost-breakdown.png" :::
 
 ### <a name="view-cost-allocation-for-a-resource-group"></a>Visualización de la asignación de costos de un grupo de recursos
 
@@ -94,18 +94,18 @@ Use un proceso similar para ver el impacto de una regla de asignación de costos
 
 En Azure Portal, vaya a **Administración de costos + facturación** > **Administración de costos** > **Análisis de costos**. En Análisis de costos, seleccione **Agregar filtro**. Seleccione **Etiqueta**, elija la clave de la etiqueta y los valores de la etiqueta a los que se haya asignado algún costo.
 
-:::image type="content" source="./media/allocate-costs/tagged-costs.png" alt-text="Ejemplo que muestra la creación de un nombre de regla" lightbox="./media/allocate-costs/tagged-costs.png" :::
+:::image type="content" source="./media/allocate-costs/tagged-costs.png" alt-text="Ejemplo que muestra los costos de los elementos con etiqueta" lightbox="./media/allocate-costs/tagged-costs.png" :::
+
+Este es un vídeo que muestra cómo crear una regla de asignación de costos.
+
+>[!VIDEO https://www.youtube.com/embed/nYzIIs2mx9Q]
+
 
 ## <a name="edit-an-existing-cost-allocation-rule"></a>Edición de una regla de asignación existente
 
 Puede editar una regla de asignación de costos para cambiar el origen o el destino, si desea actualizar el porcentaje rellenado en las opciones de proceso, almacenamiento o red. Las reglas se editan de la misma forma que se crean. La modificación de las reglas existentes puede tardar hasta dos horas en reprocesarse.
 
-## <a name="frequently-asked-questions-faq"></a>Preguntas más frecuentes
-
-Las siguientes secciones contienen preguntas habituales acerca de la asignación de costos.
-
-### <a name="what-are-the-current-limitations-with-cost-allocation-in-public-preview"></a>¿Cuáles son las limitaciones actuales de la asignación de costos en versión preliminar pública?
-<a name="limitations"></a>
+## <a name="current-limitations"></a>Limitaciones actuales
 
 Actualmente, la asignación de costos se admite en Cost Management por análisis de costo, presupuesto y vistas de previsión. Los costos asignados también se muestran en la lista de suscripciones y en la página de información general de Suscripciones.
 
@@ -117,32 +117,9 @@ Los elementos siguientes no son compatibles actualmente con la versión prelimin
 - [Aplicación Azure Cost Management para Power BI](https://appsource.microsoft.com/product/power-bi/costmanagement.azurecostmanagementapp)
 - [Conector de Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management)
 
-### <a name="are-costs-factored-into-budgets-and-forecast-views"></a>¿Se incluyen los costos en las vistas de presupuestos y previsiones?
-<a name="budgets-forecast"></a>
-
-Sí. Los costos asignados se incluyen en los presupuestos y las previsiones, y cuentan con su respaldo. Las vistas de los presupuestos y previsiones muestran los costos que tienen asignados tal como se haya configurado en las reglas de asignación de costos.
-
-### <a name="if-a-cost-allocation-rule-is-deleted-what-happens"></a>¿Qué sucede si se elimina una regla de asignación de costos?
-<a name="delete-rule"></a>
-
-Cuando se elimina una regla de asignación de costos, se quitan del mes de facturación actual y abierto todos los costos que se han asignado a los destinos. Si la regla de asignación de costos lleva varios meses vigente, los datos de asignación del historial de los meses anteriores permanecen tal y como se establecieron originalmente con la regla de asignación.
-
-### <a name="why-is-an-enrollment-admin-or-a-billing-account-admin-needed-to-create-cost-allocation-rules"></a>¿Por qué se necesita un administrador de inscripciones o un administrador de cuentas de facturación para crear reglas de asignación de costos?
-<a name="why-admin"></a>
-
-Las reglas de asignación de costos se crean en el ámbito de las inscripciones (Contrato Enterprise) o en el ámbito de la cuenta de facturación (Contrato de cliente de Microsoft). Los permisos para realizar cambios en estos ámbitos requieren privilegios de administrador de facturación.
-
-### <a name="why-are-sources-and-targets-limited-to-25-per-rule"></a>¿Por qué se impone una limitación de 25 orígenes y destinos por regla?
-<a name="source-target-rule-limit"></a>
-
-Esta es una limitación de la versión preliminar para garantizar que tanto la asignación de costos como la escalabilidad funcionen correctamente. Es probable que los límites aumenten o desaparezcan cuando la asignación de costos pase a disponibilidad general (GA).
-
-### <a name="what-can-happen-if-cost-allocation-rules-sourcestargets-overlap"></a>¿Qué puede ocurrir si se superponen las reglas de asignación de costos (orígenes y destinos)?
-<a name="rule-overlap"></a>
-
-No se recomiendan aquellas reglas que tengan orígenes o destinos superpuestos. Las reglas de asignación de costos se aplican en orden según su fecha de creación, por lo que si se produce cualquier superposición, tendrá prioridad la que tenga la fecha anterior.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+- Lea las [preguntas frecuentes de Cost Management + Billing](../cost-management-billing-faq.yml) para más información sobre la asignación de costos.
 - Cree o actualice reglas de asignación mediante la [API REST de asignación de costos](/rest/api/cost-management/costallocationrules)
 - Obtenga más información sobre la [optimización de la inversión en la nube con Azure Cost Management](cost-mgt-best-practices.md)

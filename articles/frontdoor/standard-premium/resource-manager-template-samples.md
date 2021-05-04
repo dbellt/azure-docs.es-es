@@ -7,12 +7,12 @@ ms.author: jodowns
 ms.service: frontdoor
 ms.topic: sample
 ms.date: 04/16/2021
-ms.openlocfilehash: e939aec8f1cf5fa615904bb81bad82ea3cf22c61
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: 0da7da3748f9c1dc088d0cee615b429927a40f92
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107587483"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107890697"
 ---
 # <a name="azure-resource-manager-templates-for-azure-front-door"></a>Plantillas de Azure Resource Manager para Azure Front Door
 
@@ -27,6 +27,8 @@ En la tabla siguiente, se incluyen vínculos a plantillas de Azure Resource Mana
 | [Conjunto de reglas](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-rule-set/) | Crea un perfil de Front Door y un conjunto de reglas.  |
 | [Directiva de WAF con conjunto de reglas administradas](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-premium-waf-managed/) | Crea un perfil de Front Door y un firewall de aplicaciones web con un conjunto de reglas administradas.  |
 | [Directiva de WAF con regla personalizada](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-waf-custom/) | Crea un perfil de Front Door y un firewall de aplicaciones web con regla personalizada.  |
+| [Directiva de WAF con límite de frecuencia](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-rate-limit/) | Crea un perfil de Front Door y un firewall de aplicaciones web con una regla personalizada para limitar la frecuencia.  |
+| [Directiva de WAF con filtrado geográfico](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-geo-filtering/) | Crea un perfil de Front Door y un firewall de aplicaciones web con una regla personalizada para filtrado geográfico.  |
 |**Orígenes de App Service**| **Descripción** |
 | [App Service](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-app-service-public) | Crea una aplicación de App Service con un punto de conexión público y un perfil de Front Door.  |
 | [App Service con Private Link](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-premium-app-service-private-link) | Crea una aplicación de App Service con un punto de conexión privado y un perfil de Front Door.  |

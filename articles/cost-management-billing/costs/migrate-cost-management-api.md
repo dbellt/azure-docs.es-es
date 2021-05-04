@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
-ms.openlocfilehash: 811b2cb7fd9a4f664e7a643f5a8e192a51416888
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 46ad81f6723d160bf1d675b68a8459dd8df32c80
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88689106"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078356"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Migración desde la API de Contrato Enterprise a la API de contrato de cliente de Microsoft
 
@@ -55,7 +55,7 @@ Las API de EA usan una clave de API para la autenticación y la autorización. L
 | Uso (CSV) | [/usagedetails/download](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#csv-format)[/usagedetails/submit](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#csv-format) | [Microsoft.Consumption/usageDetails/download](/rest/api/consumption/usagedetails)<sup>1</sup> |
 | Uso de Marketplace (CSV) | [/marketplacecharges](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge)[/marketplacechargesbycustomdate](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge) | [Microsoft.Consumption/usageDetails/download](/rest/api/consumption/usagedetails)<sup>1</sup> |
 | Períodos de facturación | [/billingperiods](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) | Microsoft.Billing/billingAccounts/billingProfiles/invoices |
-| Hoja de precios | [/pricesheet](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) | Microsoft.Billing/billingAccounts/billingProfiles/pricesheet/default/download format=json|csv Microsoft.Billing/billingAccounts/…/billingProfiles/…/invoices/… /pricesheet/default/download format=json|csv Microsoft.Billing/billingAccounts/../billingProfiles/../providers/Microsoft.Consumption/pricesheets/download  |
+| Hoja de precios | [/pricesheet](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) | Microsoft.Billing/billingAccounts/billingProfiles/pricesheet/default/download format=json\|csv Microsoft.Billing/billingAccounts/…/billingProfiles/…/invoices/… /pricesheet/default/download format=json\|csv Microsoft.Billing/billingAccounts/../billingProfiles/../providers/Microsoft.Consumption/pricesheets/download  |
 | Compras de la reserva | [/reservationcharges](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-charges) | Microsoft.Billing/billingAccounts/billingProfiles/transactions |
 | Recomendaciones de reserva | [/SharedReservationRecommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-shared-reserved-instance-recommendations)[/](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-single-reserved-instance-recommendations)[SingleReservationRecommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-single-reserved-instance-recommendations) | [Microsoft.Consumption/reservationRecommendations](/rest/api/consumption/reservationrecommendations/list) |
 | Uso de las reservas | [/reservationdetails](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage#request-for-reserved-instance-usage-details)[/reservationsummaries](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) | [Microsoft.Consumption/reservationDetails](/rest/api/consumption/reservationsdetails)[Microsoft.Consumption/reservationSummaries](/rest/api/consumption/reservationssummaries) |
@@ -168,7 +168,7 @@ Cuerpo de la respuesta nuevo:
 
 El nombre de la propiedad que contiene la matriz de los registros de uso cambió de datos a _valores_. Cada registro solía tener una lista plana de propiedades detalladas. Sin embargo, ahora todos los detalles se encuentran en una propiedad anidada denominada _propiedades_, excepto las etiquetas. La estructura nueva es coherente con otras API de Azure. Se modificaron algunos nombres de propiedades. En la tabla siguiente se muestran las propiedades correspondientes.
 
-| Propiedad anterior | Propiedad nueva | Notas |
+| Propiedad antigua | Propiedad nueva | Notas |
 | --- | --- | --- |
 | AccountId | N/D | No se hace un seguimiento del creador de la suscripción. Use invoiceSectionId (igual que departmentId). |
 | AccountNameAccountOwnerId y AccountOwnerEmail | N/D | No se hace un seguimiento del creador de la suscripción. Use invoiceSectionName (igual que departmentName). |
@@ -184,14 +184,14 @@ El nombre de la propiedad que contiene la matriz de los registros de uso cambió
 | DepartmentName | invoiceSectionName | Los valores de cadena exactos pueden diferir. Si es necesario, configure las secciones de factura para que coincidan con los departamentos. |
 | ExtendedCost y Cost | costInBillingCurrency | &nbsp;  |
 | InstanceId | resourceId | &nbsp;  |
-| Is Recurring Charge | None | &nbsp;  |
-| Location | ubicación | &nbsp;  |
+| Is Recurring Charge | Ninguno | &nbsp;  |
+| Ubicación | ubicación | &nbsp;  |
 | MeterCategory | meterCategory | Los valores de cadena exactos pueden diferir. |
-| Id. del medidor | meterId | Los valores de cadena exactos difieren. |
+| MeterId | meterId | Los valores de cadena exactos difieren. |
 | MeterName | meterName | Los valores de cadena exactos pueden diferir. |
 | MeterRegion | meterRegion | Los valores de cadena exactos pueden diferir. |
 | MeterSubCategory | meterSubCategory | Los valores de cadena exactos pueden diferir. |
-| Month | None | Analiza el mes de la fecha. |
+| Mes | None | Analiza el mes de la fecha. |
 | Nombre de la oferta | None | Use publisherName y productOrderName. |
 | OfferID | None | &nbsp;  |
 | Order Number | None | &nbsp;  |
@@ -365,9 +365,9 @@ El cliente también realiza una llamada GET para `Azure-AsyncOperation`. El punt
 
 En la tabla siguiente se muestran los campos de la API Enterprise Get price sheet anterior. Incluye los campos correspondientes en la hoja de precios nueva para los contratos de cliente de Microsoft:
 
-| Propiedad anterior | Propiedad nueva | Notas |
+| Propiedad antigua | Propiedad nueva | Notas |
 | --- | --- | --- |
-| billingPeriodId  | _No aplicable_ | No aplicable. En el caso de los contratos de cliente de Microsoft, la factura y la hoja de precios asociada reemplazaron el concepto de billingPeriodId. |
+| billingPeriodId  | _No aplicable_ | No es aplicable. En el caso de los contratos de cliente de Microsoft, la factura y la hoja de precios asociada reemplazaron el concepto de billingPeriodId. |
 | meterId  | meterId | &nbsp;  |
 | unitOfMeasure  | unitOfMeasure | Los valores de cadena exactos pueden diferir. |
 | includedQuantity  | includedQuantity | No es aplicable para los servicios en los contratos de cliente de Microsoft. |
@@ -426,11 +426,11 @@ En el ámbito de la inscripción de EA, la respuesta de la API y las propiedades
 
 Las propiedades anteriores para las [Price Sheet API de Azure Resource Manager](/rest/api/consumption/pricesheet) y las mismas propiedades nuevas están en la tabla siguiente.
 
-| Anterior propiedad de Price Sheet API de Azure Resource Manager  | Nueva propiedad de Price Sheet API de contrato de cliente de Microsoft   | Descripción |
+| Anterior propiedad de Price Sheet API de Azure Resource Manager  | Nueva propiedad de Price Sheet API de contrato de cliente de Microsoft   | Description |
 | --- | --- | --- |
-| Id. de medidor | _meterId_ | Identificador único del medidor. Igual que meterID. |
+| Meter ID | _meterId_ | Identificador único del medidor. Igual que meterID. |
 | Nombre del medidor | meterName | Nombre del medidor. El medidor representa el recurso de un servicio de Azure que se puede implementar. |
-| Categoría del medidor  | service | El nombre de la categoría de clasificación del medidor. Igual que el servicio en la hoja de precios de contrato de cliente de Microsoft. Los valores de cadena exactos difieren. |
+| Meter category  | service | El nombre de la categoría de clasificación del medidor. Igual que el servicio en la hoja de precios de contrato de cliente de Microsoft. Los valores de cadena exactos difieren. |
 | Subcategoría del medidor | meterSubCategory | El nombre de la categoría de subclasificación del medidor. Basado en la clasificación de la diferenciación del conjunto de características de alto nivel del servicio. Por ejemplo, base de datos SQL básica frente a base de datos SQL estándar. |
 | Región del medidor | meterRegion | &nbsp;  |
 | Unidad | _No aplicable_ | Se puede analizar a partir de unitOfMeasure. |
@@ -455,17 +455,17 @@ La hoja de precios incluye los precios de los servicios cuyos precios se basan e
 
 Los siguientes campos no están disponibles en las Price Sheet API de contrato de cliente de Microsoft o tienen los mismos campos.
 
-|Campo retirados| Descripción|
+|Campo retirados| Description|
 |---|---|
 | billingPeriodId | No aplicable. Corresponde a InvoiceId para MCA. |
-| offerID | No aplicable. Corresponde a productOrderName en MCA. |
-| meterCategory  | No aplicable. Corresponde a Service en MCA. |
-| unit | No aplicable. Se puede analizar a partir de unitOfMeasure. |
+| offerID | No es aplicable. Corresponde a productOrderName en MCA. |
+| meterCategory  | No es aplicable. Corresponde a Service en MCA. |
+| unit | No es aplicable. Se puede analizar a partir de unitOfMeasure. |
 | currencyCode | Igual que pricingCurrency en MCA. |
 | meterLocation | Igual que meterRegion en MCA. |
 | partNumber partnumber | No se aplica, porque el número de pieza no aparece en las facturas de MCA. En lugar del número de pieza, use la combinación de meterId y productOrderName para identificar los precios de manera única. |
-| totalIncludedQuantity | No aplicable. |
-| pretaxStandardRate  | No aplicable. |
+| totalIncludedQuantity | No es aplicable. |
+| pretaxStandardRate  | No es aplicable. |
 
 ## <a name="reservation-instance-charge-api-replaced"></a>Reservation Instance Charge API reemplazada
 
@@ -479,7 +479,7 @@ Para obtener las transacciones de compras de reservas con Transactions API:
 
 ## <a name="recommendations-apis-replaced"></a>Recommendations API reemplazadas
 
-Las Reserved Instance Purchase Recommendations API ofrecen el uso de una máquina virtual durante los últimos 7, 30 o 60 días. Las API también ofrecen recomendaciones de compras de reservas. Incluyen:
+Las Reserved Instance Purchase Recommendations API ofrecen el uso de una máquina virtual durante los últimos 7, 30 o 60 días. Las API también ofrecen recomendaciones de compras de reservas. Entre ellas, las siguientes:
 
 - [Shared Reserved Instance Recommendation API](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-shared-reserved-instance-recommendations)
 - [Single Reserved Instance Recommendations API](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-single-reserved-instance-recommendations)
@@ -496,7 +496,7 @@ Para obtener recomendaciones de reservas con Reservation Recommendations API:
 
 Puede obtener el uso de reservas de una inscripción con Reserved Instance Usage API. Si hay más de una instancia reservada en una inscripción, también puede obtener el uso de todas las compras de instancias reservadas con esta API.
 
-Incluyen:
+Entre ellas, las siguientes:
 
 - [Detalles de uso de instancias reservadas](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage#request-for-reserved-instance-usage-details)
 - [Resumen de uso de instancias reservadas](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage)

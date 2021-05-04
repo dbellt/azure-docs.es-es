@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 03/18/2021
 ms.custom: devx-track-js
 ms.devlang: javascript
-ms.openlocfilehash: a49ede283899cec42898672f5a376221265dea10
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: c3f4d883dcc9b79ddab77bb8779e52e629226631
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104723572"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107950395"
 ---
 # <a name="3---deploy-the-search-enabled-website"></a>3 - Implementación del sitio web habilitado para búsquedas
 
@@ -62,17 +62,20 @@ La aplicación web estática extrae la información y los archivos para la imple
 
 1. Conserve esta clave de consulta, tendrá que utilizarla en la sección siguiente. La clave de consulta puede realizar consultas en el índice. 
 
-## <a name="add-configuration-settings-in-visual-studio-code"></a>Adición de valores de configuración en Visual Studio Code
+## <a name="add-configuration-settings-in-azure-portal"></a>Adición de valores de configuración en Azure Portal
 
 La aplicación de funciones de Azure no devolverá datos de Search hasta que los secretos de Search estén en la configuración. 
 
-1. Seleccione **Azure** en la barra de actividades y, a continuación, seleccione **Static Web Apps** en la barra lateral. 
-1. Expanda la nueva aplicación web estática hasta que aparezca **Configuración de la aplicación**.
-1. Haga clic con el botón derecho en **Configuración de la aplicación** y seleccione **Agregar nueva configuración**.
+1. Seleccione **Azure** en la barra de actividades. 
+1. Haga clic con el botón derecho en el recurso de la aplicación web estática y seleccione **Abrir en el portal**.
 
-    :::image type="content" source="media/tutorial-javascript-create-load-index/visual-studio-code-static-web-app-configure-settings.png" alt-text="Haga clic con el botón derecho en **Configuración de la aplicación** y seleccione **Agregar nueva configuración**":::.
+    :::image type="content" source="media/tutorial-javascript-static-web-app/open-static-web-app-in-azure-portal.png" alt-text="Haga clic con el botón derecho en el recurso de la aplicación web estática de JavaScript y seleccione Abrir en el portal":::.
 
-1. Agregue la configuración siguiente:
+1. Seleccione **Configuración** y, a continuación, seleccione **+ Agregar**.
+
+    :::image type="content" source="media/tutorial-javascript-static-web-app/add-new-application-setting-to-static-web-app-in-portal.png" alt-text="Seleccione Configuración y, a continuación, seleccione Agregar para la aplicación JavaScript.":::
+
+1. Agregue cada una de las siguientes opciones:
 
     |Valor|El valor del recurso de Search|
     |--|--|
@@ -80,6 +83,17 @@ La aplicación de funciones de Azure no devolverá datos de Search hasta que los
     |SearchServiceName|El nombre del recurso de Search|
     |SearchIndexName|`good-books`|
     |SearchFacets|`authors*,language_code`|
+
+    Azure Cognitive Search requiere sintaxis diferentes para filtrar colecciones y cadenas. Agregue un `*` después de un nombre de campo para indicar que el campo es de tipo `Collection(Edm.String)`. Esto permite que la función de Azure agregue filtros a las consultas correctamente.
+
+1. Haga clic en **Save** (Guardar) para guardar la configuración. 
+
+    :::image type="content" source="media/tutorial-javascript-static-web-app/save-new-application-setting-to-static-web-app-in-portal.png" alt-text="Seleccione Guardar para guardar la configuración.":::
+
+1. Vuelva a VS Code. 
+1. Actualice la aplicación web estática para ver su configuración. 
+
+    :::image type="content" source="media/tutorial-javascript-static-web-app/visual-studio-code-extension-fresh-resource.png" alt-text="Actualice la aplicación web estática para ver su configuración.":::
 
 ## <a name="use-search-in-your-static-web-app"></a>Uso de Search en la aplicación web estática
 

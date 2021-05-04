@@ -3,17 +3,17 @@ title: Solución de problemas de acceso al portal de Azure EA
 description: En este artículo se describen algunos problemas comunes que pueden producirse en una Contrato Enterprise de Azure (EA) en el portal de Azure EA.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/20/2020
+ms.date: 03/26/2021
 ms.topic: troubleshooting
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: 5402ee3283e5ae11f43884b4002486e8bdefae2c
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 852fb85607318772870a8b6826c934997b84ff6d
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89294414"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107726473"
 ---
 # <a name="troubleshoot-azure-ea-portal-access"></a>Solución de problemas de acceso al portal de Azure EA
 
@@ -65,105 +65,7 @@ También aparecería el error _Usuario no válido_ si se ha usado un tipo de cue
   - Si necesita comprobar el alias principal, vaya a [https://account.live.com](https://account.live.com). Luego, haga clic en **Your Info** (Tu información) y, después, en **Manage how to sign in to Microsoft** (Administrar el modo de iniciar sesión en Microsoft). Siga las indicaciones para comprobar otra dirección de correo electrónico y obtener un código para acceder a la información confidencial. Escriba el código de seguridad. Seleccione **Configurarlo más tarde**  si no desea configurar la autenticación en dos fases.
   - Verá la página **Manage how to sign in to Microsoft** (Administrar el modo de iniciar sesión en Microsoft), donde podrá ver los alias de cuenta que tiene. Compruebe que el alias principal es el que usa para iniciar sesión en el portal de Azure EA. Si no lo es, puede convertirlo en el alias principal. O bien, puede usar el alias principal del portal del Contrato Enterprise de Azure.
 
-## <a name="azure-ea-activation-faq"></a>Preguntas frecuentes sobre la activación de Azure EA
-
-En esta sección del artículo se describen las soluciones a problemas comunes relacionados con la activación de Azure EA.
-
-### <a name="i-didnt-receive-an-activation-email"></a>No he recibido un correo electrónico de activación
-
-Se envía un correo electrónico de activación del portal del Contrato Enterprise de Azure desde *waep@microsoft.com* . Si no ha recibido un correo electrónico de activación, búsquelo en la carpeta de correo no deseado. Se envía con el asunto _Invitation to View/Manage the Microsoft Azure service_ (Invitación para ver o administrar el servicio de Microsoft Azure). Se envía a todos los administradores de EA recién agregados.
-
-Si está seguro de que en su configuración es administrador de EA, no es preciso que espere a recibir el correo electrónico de activación para iniciar sesión en el portal del Contrato Enterprise de Azure. En su lugar, puede ir a https://ea.azure.com e iniciar sesión con su dirección de correo electrónico (cuenta profesional, educativa o de Microsoft) y su contraseña.
-
-### <a name="i-would-like-to-add-a-new-ea-administrator-to-my-enrollment"></a>Me gustaría agregar un nuevo administrador de EA a mi inscripción
-
-Los administradores de empresa existentes pueden agregar otro nuevo administrador de empresa. Si es el administrador de EA, inicie sesión en EA Portal > haga clic en **Administrar** > haga clic en **+ Agregar administrador** en la esquina superior derecha para agregar un nuevo administrador de EA. Asegúrese de que tiene su dirección de correo electrónico y un método de inicio de sesión preferido, por ejemplo, mediante la autenticación profesional/educativa o Microsoft Live ID para agregar a los usuarios.
-
-Si no es el administrador de EA, póngase en contacto con los administradores de EA de su empresa para solicitar que le agreguen a la inscripción. Una vez que le hayan agregado a la inscripción, recibirá un correo electrónico de activación.
-
-Sin embargo, si los administradores de EA no pueden ayudarlo, podremos agregarlo en su nombre si puede proporcionarnos lo siguiente:
-- El número de inscripción.
-- La dirección de correo electrónico que se debe agregar y el tipo de autenticación (cuenta profesional, educativa o de Microsoft).
-- La aprobación del correo electrónico por parte del administrador de EA.
-
-Una vez que tenga toda la información necesaria, envíe una solicitud en [https://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport).
-
-### <a name="i-would-like-to-update-the-first-ea-admin-on-the-enrollment"></a>Me gustaría actualizar el primer administrador de EA en la inscripción
-
-El primer administrador de EA puede actualizarse en el centro de servicios de licencias por volumen mediante la actualización del contacto de avisos y el administrador en línea en el portal. Se tardarán aproximadamente 24 horas en actualizar EA Portal. Una vez que se actualice, el nuevo administrador de EA recibirá el correo electrónico de activación.
-
-Si no tiene acceso al portal de VLSC o si el administrador de EA inicial ya no puede administrar la inscripción y no tiene acceso a EA Portal, envíe una solicitud en [https://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport) para solicitar una actualización y proporcione la siguiente información:
-- Número de inscripción
-- La dirección de correo electrónico que se debe agregar y el tipo de autenticación (cuenta profesional, educativa o de Microsoft)
-- El motivo para cambiar el administrador de EA inicial
-- La aprobación del correo electrónico por parte del administrador de EA inicial
-
-### <a name="my-current-ea-admin-is-no-longer-with-the-company"></a>Mi administrador de EA actual ya está en la compañía
-
-Una inscripción de EA puede tener varios administradores de EA. puede ponerse en contacto con otro para que agregue a los nuevos propietarios de cuentas y administradores de EA o administradores de departamento. Sin embargo, si no está claro quién es el administrador de EA de su empresa o no hay ningún otro disponible en la inscripción, póngase en contacto con nosotros con la siguiente información:
-- Número de inscripción
-- La dirección de correo electrónico que se debe agregar y el tipo de autenticación (cuenta profesional, educativa o de Microsoft)
-- Información sobre que el administrador de EA actual ya no está en la compañía
-
-Tenga en cuenta que, si hay otros administradores de EA en la inscripción, nos pondremos en contacto con ellos para solicitar la aprobación de los cambios administrativos en la inscripción.
-
-### <a name="my-enrollment-is-showing-in-pending-status-how-do-i-activate-my-enrollment"></a>Mi inscripción aparece en estado pendiente. ¿Cómo activo mi inscripción?
-
-Las inscripciones estarán en estado pendiente si el administrador de EA inicial no ha iniciado sesión en la inscripción antes. Si es el administrador de EA, inicie sesión en Azure EA Portal. En la página de aterrizaje con todos los números de inscripción, es posible que no vea su inscripción pendiente. Desactive la casilla "activa" en la esquina superior derecha de EA Portal; así se mostraría la inscripción pendiente. Haga clic en la inscripción para acceder a la información y, una vez que haya llegado a la página de administración de la inscripción, el estado se actualizará de pendiente a activo.
-
-### <a name="why-is-my-account-stuck-in-pending-status"></a>¿Por qué mi cuenta está bloqueada en el estado pendiente?
-
-Cuando se agregan nuevos propietarios de la cuenta a una inscripción por primera vez, su estado aparece como "pendiente". Al recibir el correo electrónico de bienvenida de activación, el propietario de la cuenta puede iniciar sesión para activarla. Al iniciar sesión, se actualizará el estado de la cuenta de "pendiente" a "activo".
-
-### <a name="i-received-an-error-when-signing-in-to-azure-ea-portal"></a>He recibido un error al iniciar sesión en Azure EA Portal
-
-Hay varias razones posibles para un mensaje de error en Azure EA Portal durante el proceso de iniciar sesión. Siga estos pasos para solucionar problemas:
-
- 1. Asegúrese de que está usando la dirección URL correcta de EA Portal en [https://ea.azure.com](https://ea.azure.com).
- 1. Determine si el acceso a Azure EA Portal se ha agregado como una cuenta profesional o educativa, o bien como Microsoft Live ID. Si usa una cuenta profesional, escriba su correo electrónico y contraseña profesionales. Si usa Microsoft Live ID, escriba su correo electrónico de Live ID y la contraseña de Microsoft Live ID. Si olvidó su contraseña de Microsoft Live ID, vuelva a establecerla en [https://account.live.com/password/reset](https://account.live.com/password/reset).
- 1. Se recomienda que use un explorador privado para iniciar sesión de modo que no se conserven cookies ni caché de sesiones anteriores o existentes. Borre la memoria caché y use el modo de exploración privado/ventana incógnito para abrir [https://ea.azure.com](https://ea.azure.com).
- 1. Si recibe un error de usuario no válido al usar un cuenta de Microsoft, puede deberse a que tiene varias cuentas de Microsoft y en la que está intentando iniciar sesión no es el alias principal. Para comprobar el alias principal, vaya a account.live.com:
-    - Vaya a "Tu información" > "Manage your sign-in email or phone number" (Administrar el correo electrónico o el número de teléfono de inicio de sesión).
-    - Siga las indicaciones de la pantalla para comprobar otra dirección de correo electrónico y obtener un código para acceder a la información confidencial.
-    - Escriba el código de seguridad.
-    - Si prefiere configurar más tarde la autenticación en dos pasos, seleccione "Configurarlo más tarde".
-    - En la página "Administrar los alias de la cuenta" verá los alias de cuenta que tiene. Compruebe que el alias principal es el que usa para iniciar sesión en Azure EA Portal. Si no es así, puede convertirlo en su alias principal o puede usar el alias principal de EA Portal en su lugar.
-
-Si se produce un error en los pasos de solución de problemas anteriores, envíe una solicitud en [https://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport) con información como la siguiente:
-- Exploradores y versión usados.
-- Captura de pantalla del mensaje de error.
-- Dirección URL de la página que muestra el error.  
-- Fecha, hora y zona horaria de cuando se ha producido el error.
-- Además, será útil obtener un archivo de registro. Estos son los pasos para capturar un seguimiento de red mediante la información siguiente:
-  1. Abra Internet Explorer.
-  1. Presione F12, lo que abrirá un cuadro en la parte inferior de IE.
-  1. Seleccione la pestaña **Red**.
-  1. Haga clic en **Iniciar la captura**.
-  1. Realice la acción que está causando el error.
-  1. Una vez que reciba el error, haga clic en **Detener la captura**.
-  1. Guarde el archivo e incluya la información en la solicitud de soporte técnico.
-  1. Asegúrese de proporcionar el número de inscripción y la dirección de correo electrónico dentro de la solicitud de soporte técnico.
-
-### <a name="what-is-the-difference-between-a-workschool-account-and-microsoft-account"></a>¿Cuál es la diferencia entre una cuenta profesional o educativa, y una cuenta de Microsoft?
-
-**Cuenta de Microsoft:** cuentas que se han asociado a Live ID en [https://signup.live.com](https://signup.live.com).
-
-**Cuenta profesional o educativa:** solo disponible para compañías que han configurado Active Directory con Federación en la nube y todas las cuentas están en un solo inquilino. Los usuarios se pueden agregar con el tipo de autorización profesional o educativa si la instancia de Active Directory interna activa de la empresa está federada en la nube.
-
-  A partir de septiembre de 2016, Microsoft ya no permite que el correo electrónico profesional o educativo se registre como cuentas de Microsoft. Para más información, consulte los siguientes materiales: [https://blogs.technet.microsoft.com/enterprisemobility/2016/09/15/cleaning-up-the-azure-ad-and-microsoft-account-overlap/](https://blogs.technet.microsoft.com/enterprisemobility/2016/09/15/cleaning-up-the-azure-ad-and-microsoft-account-overlap/).
-
-  Si su organización no está federada en la nube, no podrá usar su dirección de correo electrónico profesional o educativa. Registre o cree una nueva dirección de correo electrónico y regístrela como cuenta de Microsoft.
-
-### <a name="i-forgot-my-password-to-azure-ea-portal"></a>Olvidé mi contraseña en Azure EA Portal
-
-Si olvidó su contraseña de Microsoft Live ID, vuelva a establecerla en [https://account.live.com/password/reset](https://account.live.com/password/reset).
-
-Si olvidó su contraseña de trabajo, póngase en contacto con el administrador de TI de su empresa.
-
-### <a name="i-have-a-valid-work-or-school-account-but-i-cant-add-it-to-the-ea-portal"></a>Tengo una cuenta profesional o educativa válida, pero no puedo agregarla a EA Portal
-
-Si tiene una cuenta profesional o educativa en otro inquilino, cambie el nivel de autorización en la página Detalles de inscripción a "Work or School Account Cross Tenant" (Cuenta profesional o educativa entre inquilinos) y podrá agregar la cuenta.
-
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Los administradores del portal del Contrato Enterprise de Azure deben leer el artículo acerca de la [administración del portal del Contrato Enterprise de Azure](ea-portal-administration.md) para obtener información sobre las tareas administrativas comunes.
+- Lea las [preguntas frecuentes sobre Azure Cost Management + Billing](../cost-management-billing-faq.yml), donde encontrará respuestas a los problemas comunes que surgen al activar Azure EA.

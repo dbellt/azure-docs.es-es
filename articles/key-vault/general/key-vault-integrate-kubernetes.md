@@ -7,12 +7,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: 6cf76e980fab4e5be3f8c2c6d72baff05ab03815
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 5afa90e948a4153f2a27b97d619830586aecfa11
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106108394"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107905259"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Tutorial: Configuración y ejecución del proveedor de Azure Key Vault para el controlador Secrets Store CSI en Kubernetes
 
@@ -296,11 +296,7 @@ kubectl exec nginx-secrets-store-inline -- cat /mnt/secrets-store/secret1
 Compruebe que se muestra el contenido del secreto.
 
 ## <a name="resources"></a>Recursos
-[Acerca de Azure Key Vault](overview.md)
-[Guía del desarrollador de Azure Key Vault](developers-guide.md)
-[Controlador de secretos de CSI](https://secrets-store-csi-driver.sigs.k8s.io/introduction.html)
+- [Acerca de Azure Key Vault](overview.md)
+- [Guía del desarrollador de Azure Key Vault](developers-guide.md)
+- [Controlador de secretos de CSI](https://azure.github.io/secrets-store-csi-driver-provider-azure/)
 
-
-Para asegurarse de que el almacén de claves es recuperable, consulte:
-> [!div class="nextstepaction"]
-> [Activación de la eliminación temporal](./key-vault-recovery.md)

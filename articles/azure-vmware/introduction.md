@@ -3,12 +3,12 @@ title: Introducción
 description: Obtenga información sobre las características y las ventajas de Azure VMware Solution para implementar y administrar las cargas de trabajo basadas en VMware en Azure. El Acuerdo de Nivel de Servicio de Azure VMware Solution garantiza la disponibilidad de las herramientas de administración de Azure VMware (vCenter Server y NSX Manager) al menos el 99,9 % del tiempo.
 ms.topic: overview
 ms.date: 04/20/2021
-ms.openlocfilehash: 9471aa2e427d28e0b8211dc8b25b2e61a4bfa8c4
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 8a75038d9552e62b1bc67265ff2965fea9d8b8d6
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107752649"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107950881"
 ---
 # <a name="what-is-azure-vmware-solution"></a>¿Qué es Azure VMware Solution?
 
@@ -40,7 +40,7 @@ El cifrado de datos en reposo de vSAN está habilitado de forma predeterminada y
 
 ## <a name="host-and-software-lifecycle-maintenance"></a>Mantenimiento del ciclo de vida del host y del software
 
-Las actualizaciones periódicas del software de VMware y de la nube privada de Azure VMware Solution garantizan que las nubes privadas disfruten de la seguridad, estabilidad y los conjuntos de características más recientes. Para más información, consulte [Actualizaciones y mejoras de la nube privada](concepts-upgrades.md).
+Las actualizaciones periódicas del software de VMware y de la nube privada de Azure VMware Solution garantizan que las nubes privadas disfruten de la seguridad, estabilidad y los conjuntos de características más recientes. Para más información, consulte [Mantenimiento del host y administración del ciclo de vida](concepts-private-clouds-clusters.md#host-maintenance-and-lifecycle-management).
 
 ## <a name="monitoring-your-private-cloud"></a>Supervisión de una nube privada
 

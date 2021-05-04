@@ -4,13 +4,13 @@ description: Una entidad extrae datos de una expresión de usuario en tiempo de 
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/13/2021
-ms.openlocfilehash: 44cffecd653ec2ec748e73d01dc86a87cfcd7de9
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.date: 04/26/2021
+ms.openlocfilehash: a075a84322dc11be352470d50478979b975f0292
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107500335"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108140900"
 ---
 # <a name="entities-in-luis"></a>Entidades de LUIS
 
@@ -33,7 +33,7 @@ Las entidades son opcionales, pero muy recomendables. No es necesario que cree e
 
 Para crear una entidad, debe darle un nombre y un tipo. Existen varios tipos de entidades en LUIS. 
 
-### <a name="list-entity"></a>Entidad de lista
+## <a name="list-entity"></a>Entidad de lista
 
 Una entidad de lista representa un conjunto fijo y cerrado de palabras relacionadas y sus sinónimos. Puede usar entidades de lista para reconocer varios sinónimos o variaciones, y extraer una salida normalizada para ellas. Use la opción *Recommend* (Recomendar) para ver sugerencias de palabras nuevas en función de la lista actual. 
 
@@ -49,7 +49,7 @@ La coincidencia en las entidades de lista distingue mayúsculas de minúsculas y
 
 Consulte el [artículo de referencia de entidades de lista](reference-entity-list.md) para más información.
 
-### <a name="regex-entity"></a>Entidad de expresión regular
+## <a name="regex-entity"></a>Entidad regex
 
 Una entidad de expresión regular extrae una entidad basada en un patrón de expresión regular que se proporciona. No distingue entre mayúsculas y minúsculas e ignora la variante cultural. La expresión regular es mejor para textos estructurados o para una secuencia predefinida de valores alfanuméricos que se esperan en un determinado formato. Por ejemplo:
 
@@ -60,7 +60,7 @@ Una entidad de expresión regular extrae una entidad basada en un patrón de exp
 
 Consulte el [artículo de referencia de entidades de expresión regular](reference-entity-regular-expression.md) para más información.
 
-### <a name="prebuilt-entity"></a>Entidad pregenerada
+## <a name="prebuilt-entity"></a>Entidad creada previamente
 
 LUIS ofrece un conjunto de entidades pregeneradas para reconocer tipos comunes de datos como nombre, fecha, número y moneda.  El comportamiento de las entidades pregeneradas es fijo. La compatibilidad con entidades pregeneradas varía según la referencia cultural de la aplicación de LUIS. Por ejemplo:
 
@@ -71,11 +71,11 @@ LUIS ofrece un conjunto de entidades pregeneradas para reconocer tipos comunes d
 
 Consulte el [artículo de referencia de entidades pregeneradas](./luis-reference-prebuilt-entities.md) para más información.
 
-### <a name="patternany-entity"></a>Entidad Pattern.Any
+## <a name="patternany-entity"></a>Entidad Pattern.Any
 
 Una entidad Pattern.Any es un marcador de posición de longitud variable que solo se usa en la expresión de plantilla de un patrón para marcar dónde empieza y acaba la entidad. Sigue una regla o un patrón específicos y se usa mejor para las oraciones con estructura léxica fija. Por ejemplo:
 
-|Expresión de ejemplo|Patrón|Entidad|
+|Expresión de ejemplo|Modelo|Entidad|
 |--|--|--|
 |¿Puedo tomar una hamburguesa por favor?|¿Puedo tomar una {comida} [por favor][?]| hamburguesa
 |¿Puedo tomar una pizza?|¿Puedo tomar una {comida} [por favor][?]| pizza
@@ -83,7 +83,7 @@ Una entidad Pattern.Any es un marcador de posición de longitud variable que sol
 
 Consulte el [artículo de referencia de las entidades Pattern.Any](./reference-entity-pattern-any.md) para más información.
 
-### <a name="machine-learned-ml-entity"></a>Entidad con aprendizaje automático
+## <a name="machine-learned-ml-entity"></a>Entidad con aprendizaje automático (ML)
 
 Las entidades con aprendizaje automático usan el contexto para extraer entidades basadas en ejemplos etiquetados. Son las entidades preferidas para crear aplicaciones de LUIS. Se basan en algoritmos de aprendizaje automático y requieren que el etiquetado se adapte correctamente a la aplicación. Use una entidad con aprendizaje automático para identificar datos que no siempre tienen un formato correcto, pero que tienen el mismo significado. 
 
@@ -109,7 +109,7 @@ Una entidad con aprendizaje automático se puede componer de subentidades más p
     * País: USA
 
 
-### <a name="building-effective-ml-entities"></a>Creación eficaz de entidades con aprendizaje automático
+## <a name="building-effective-ml-entities"></a>Creación eficaz de entidades con aprendizaje automático
 
 Para crear entidades con aprendizaje automático de forma eficaz, siga estos procedimientos recomendados:
 
@@ -123,7 +123,7 @@ Para crear entidades con aprendizaje automático de forma eficaz, siga estos pro
 
 Otra función importante de las entidades es usarlas como características o rasgos distintivos para otras intenciones o entidades para que el sistema las observe y aprenda a través de ellas.
 
-### <a name="entities-as-features-for-intents"></a>Entidades como características para intenciones
+## <a name="entities-as-features-for-intents"></a>Entidades como características para intenciones
 
 Puede usar entidades como señal para una intención. Por ejemplo, la presencia de una entidad determinada en la expresión puede distinguir en qué intención se encuentra.
 
@@ -132,7 +132,7 @@ Puede usar entidades como señal para una intención. Por ejemplo, la presencia 
 |Resérveme un *vuelo a Nueva York*.|City (Ciudad)|Reservar vuelo|
 |Resérveme la *sala de conferencias principal*.|Sala|Reservar sala|
 
-### <a name="entities-as-feature-for-entities"></a>Entidades como característica para entidades
+## <a name="entities-as-feature-for-entities"></a>Entidades como característica para entidades
 
 También puede usar entidades como indicador de la presencia de otras entidades. Un ejemplo habitual es el uso de una entidad pregenerada como característica para otra entidad con aprendizaje automático.
 Si va a crear un sistema de reserva de vuelos y su expresión se parece a "Resérveme un vuelo del Cairo a Seattle", tendrá *Ciudad de origen* y *Ciudad de destino* como entidades con aprendizaje automático. Un procedimiento recomendado sería usar la entidad pregenerada `GeographyV2` como característica para ambas entidades.

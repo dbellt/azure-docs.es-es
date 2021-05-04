@@ -10,7 +10,7 @@ Los límites siguientes son comunes en todos los niveles.
 
 | Límite |  Notas | Value |
 | --- |  --- | --- |
-| Número de espacios de nombres de Event Hubs por suscripción |- |100 |
+| Número de espacios de nombres de Event Hubs por suscripción | Los espacios de nombres de Service Bus están incluidos en este límite. |100 |
 | Número de centros de eventos por espacio de nombres | Las solicitudes posteriores para la creación de un nuevo centro de eventos se rechazan. |10 |
 | Tamaño del nombre de un centro de eventos |- | 256 caracteres |
 | Tamaño del nombre de un grupo de consumidores | El protocolo de Kafka no requiere la creación de un grupo de consumidores. | <p>Kafka: 256 caracteres</p><p>AMQP: 50 caracteres |
@@ -45,7 +45,7 @@ Consulte este [documento](../articles/event-hubs/event-hubs-dedicated-cluster-cr
 | Característica | Estándar | Dedicado |
 | --- |:---|:---|
 | Ancho de banda | 20 TU (hasta 40 TU) | 20 CU |
-| Espacios de nombres |  1 | 50 por CU |
+| Espacios de nombres |  100 por suscripción | 50 por unidad de capacidad (100 por suscripción) |
 | Event Hubs |  10 por espacio de nombres | 1000 por espacio de nombres |
 | Eventos de entrada | Pago por millones de eventos | Se incluye |
 | Tamaño de los mensajes | 1 millón de bytes | 1 millón de bytes |

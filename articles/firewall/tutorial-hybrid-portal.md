@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 11/17/2020
+ms.date: 04/27/2021
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 86e27c190b269763d8dd2f562a207b3f2020da29
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2fbf0e4df1e9ee7dca7219891acc296c3493be9e
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98051078"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108074968"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>Tutorial: Implementación y configuración de Azure Firewall en una red híbrida con Azure Portal
 
@@ -32,7 +32,6 @@ En este tutorial se crearán tres redes virtuales:
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Declaración de las variables
 > * Crear la red virtual del centro de firewall
 > * Crear la red virtual de tipo hub-and-spoke
 > * Crear la red virtual local
@@ -43,17 +42,20 @@ En este tutorial, aprenderá a:
 > * Creación de las máquinas virtuales
 > * Probar el firewall
 
-Si desea usar Azure PowerShell en su lugar para completar este procedimiento, consulte [Implementación y configuración de Azure Firewall en una red híbrida con Azure PowerShell](tutorial-hybrid-ps.md).
+Si desea usar Azure PowerShell en su lugar para completar este tutorial, consulte [Implementación y configuración de Azure Firewall en una red híbrida con Azure PowerShell](tutorial-hybrid-ps.md).
+
+> [!NOTE]
+> En este tutorial se usan reglas de firewall clásicas para administrar el firewall. El método preferido es usar una [directiva de firewall](../firewall-manager/policy-overview.md). Para completar este tutorial con una directiva de firewall, consulte [Tutorial: Implementación y configuración de Azure Firewall y una directiva en una red híbrida con Azure Portal](tutorial-hybrid-portal-policy.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Una red híbrida usa el modelo de arquitectura radial para enrutar el tráfico entre redes virtuales de Azure y redes locales. La arquitectura radial tiene los siguientes requisitos:
 
-- Establezca **AllowGatewayTransit** al emparejar VNet-Hub con VNet-Spoke. En una arquitectura de red radial, el tránsito de una puerta de enlace permite que las redes virtuales de radio compartan la puerta de enlace de VPN en el centro, en lugar de implementar puertas de enlace de VPN en todas las redes virtuales de radio. 
+- Establezca **Use this virtual network's gateway or Route Server** (Usar la puerta de enlace o el servidor de rutas de esta red virtual) al emparejar el concentrador de la red virtual a un radio de la red virtual. En una arquitectura de red radial, el tránsito de una puerta de enlace permite que las redes virtuales de radio compartan la puerta de enlace de VPN en el centro, en lugar de implementar puertas de enlace de VPN en todas las redes virtuales de radio. 
 
    Además, las rutas a las redes virtuales conectadas a la puerta de enlace o a las redes locales se propagarán automáticamente a las tablas de enrutamiento de las redes virtuales emparejadas mediante el tránsito de la puerta de enlace. Para más información, consulte [Configuración del tránsito de la puerta de enlace de VPN para el emparejamiento de red virtual](../vpn-gateway/vpn-gateway-peering-gateway-transit.md).
 
-- Establezca **UseRemoteGateways** al emparejar VNet-Spoke con VNet-Hub. Si se establece **UseRemoteGateways** y también se establece **AllowGatewayTransit** en emparejamiento remoto, la red virtual de radio usa puertas de enlace de la red virtual remota para el tránsito.
+- Establezca **Use the remote virtual network's gateways or Route Server** (Usar las puertas de enlace o el servidor de rutas de la red virtual remota) al emparejar un radio de la red virtual al concentrador de la red virtual. Si se establece **Use the remote virtual network's gateways or Route Server** (Usar las puertas de enlace o el servidor de rutas de la red virtual remota) y también se establece **Use this virtual network's gateway or Route Server** (Usar la puerta de enlace o el servidor de rutas de esta red virtual) en el emparejamiento remoto, la red virtual del radio usa las puertas de enlace de la red virtual remota para el tránsito.
 - Para enrutar el tráfico de la subred de radio a través del firewall de centro, puede usar una ruta definida por el usuario (UDR) que apunte al firewall con la opción **Virtual network gateway route propagation** (Deshabilitar la propagación de rutas de la puerta de enlace de red virtual) deshabilitada. La opción **Propagación de rutas de puerta de enlace de red virtual** deshabilitada evita la distribución de rutas a las subredes de radio. Esto evita que las rutas aprendidas entren en conflicto con la UDR. Si desea mantener la opción **Virtual network gateway route propagation** (Deshabilitar la propagación de rutas de la puerta de enlace de red virtual) habilitada, asegúrese de definir rutas específicas para el firewall con el fin de invalidar las que se publican desde el entorno local mediante el protocolo de puerta de enlace de borde.
 - Configure una ruta definida por el usuario en la subred de la puerta de enlace del centro que apunte a la dirección IP del firewall como próximo salto para las redes de radio. No se requiere ninguna ruta definida por el usuario en la subred de Azure Firewall, ya que obtiene las rutas de BGP.
 
@@ -148,12 +150,13 @@ Ahora, implemente el firewall en la red virtual del concentrador de firewall.
 2. En la columna de la izquierda, seleccione **Redes** y, a continuación, busque y seleccione **Firewall**.
 4. En la página **Creación de un firewall**, utilice la tabla siguiente para configurar el firewall:
 
-   |Configuración  |Value  |
+   |Configuración  |Valor  |
    |---------|---------|
    |Subscription     |\<your subscription\>|
    |Resource group     |**FW-Hybrid-Test** |
    |Nombre     |**AzFW01**|
    |Region     |**Este de EE. UU.**|
+   |Administración del firewall|**Use reglas de firewall (clásicas) para administrar este firewall**.|
    |Elegir una red virtual     |**Usar existente**:<br> **VNet-hub**|
    |Dirección IP pública     |Agregar nueva: <br>**fw-pip**. |
 
@@ -173,27 +176,27 @@ En primer lugar, agregue una regla de red para permitir el tráfico web.
 3. Seleccione **Agregar una colección de reglas de red** .
 4. En **Nombre**, escriba **RCNet01**.
 5. En **Prioridad**, escriba **100**.
-6. En **Acción**, seleccione **Permitir**.
+6. En **Acción de recopilación de reglas**, seleccione **Denegar**.
 6. En **Reglas**, como **Nombre**, escriba **AllowWeb**.
-7. En **Protocolo**, seleccione **TCP**.
 8. Como **Tipo de origen**, seleccione **Dirección IP**.
 9. Como **Origen**, escriba **192.168.1.0/24**.
-10. En **Tipo de destino**, seleccione **Dirección IP**.
-11. Como **Dirección de destino**, escriba **10.6.0.0/16**.
-12. En **Puertos de destino**, escriba **80**.
+7. En **Protocolo**, seleccione **TCP**.
+1. En **Puertos de destino**, escriba **80**.
+1. En **Tipo de destino**, seleccione **Dirección IP**.
+1. En **Destino**, escriba **10.6.0.0/16**.
 
 Ahora, agregue una regla para permitir el tráfico RDP.
 
 En la segunda fila de la regla, escriba la siguiente información:
 
 1. En **Nombre**, escriba **AllowRDP**.
-2. En **Protocolo**, seleccione **TCP**.
 3. Como **Tipo de origen**, seleccione **Dirección IP**.
 4. Como **Origen**, escriba **192.168.1.0/24**.
-5. En **Tipo de destino**, seleccione **Dirección IP**.
-6. Como **Dirección de destino**, escriba **10.6.0.0/16**.
-7. En **Puertos de destino**, escriba **3389**.
-8. Seleccione **Agregar**.
+2. En **Protocolo**, seleccione **TCP**.
+1. En **Puertos de destino**, escriba **3389**.
+1. En **Tipo de destino**, seleccione **Dirección IP**.
+1. En **Destino**, escriba **10.6.0.0/16**.
+1. Seleccione **Agregar**.
 
 ## <a name="create-and-connect-the-vpn-gateways"></a>Creación y conexión de las puertas de enlace de VPN
 
@@ -422,6 +425,8 @@ Se trata de una máquina virtual con una dirección IP pública a la que se pued
 8. Seleccione **Siguiente: Administración**.
 10. En **Diagnósticos de arranque**, seleccione **Deshabilitado**.
 10. Seleccione **Revisar y crear**, revise la configuración en la página de resumen y, después, seleccione **Crear**.
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## <a name="test-the-firewall"></a>Probar el firewall
 

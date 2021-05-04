@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 02/23/2021
 ms.author: alkemper
-ms.openlocfilehash: e1a4fb52a5f9622758e9ed805bf9380f5f608870
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 669dd99b24d605953a5bbf99a1612a07874b642f
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106068296"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108137768"
 ---
 # <a name="push-settings-to-app-configuration-with-azure-pipelines"></a>Envío de configuraciones a App Configuration con Azure Pipelines
 
@@ -32,13 +32,11 @@ Una [conexión de servicio](/azure/devops/pipelines/library/service-endpoints) p
 1. En Azure DevOps, vaya al proyecto que contiene la canalización de destino y abra la **Configuración del proyecto** en la parte inferior izquierda.
 1. En **Canalizaciones**, seleccione **Conexiones de servicio** y seleccione **Nueva conexión de servicio** en la parte superior derecha.
 1. Seleccione **Azure Resource Manager**.
-![Captura de pantalla que muestra la selección de Azure Resource Manager en la lista desplegable de Nueva conexión de servicio.](./media/new-service-connection.png)
-1. En el cuadro de diálogo **Método de autenticación**, seleccione **Entidad de servicio (automática)** .
-    > [!NOTE]
-    > Actualmente no se admite la autenticación de **Identidad administrada** para la tarea de App Configuration.
+![Captura de pantalla que muestra la selección de Azure Resource Manager en la lista desplegable Nueva conexión de servicio.](./media/new-service-connection.png)
+1. En el cuadro de diálogo **Método de autenticación**, seleccione **Entidad de servicio (automática)** para crear una nueva entidad de servicio, o seleccione **Entidad de servicio (manual)** para [usar una entidad de servicio existente](/azure/devops/pipelines/library/connect-to-azure?view=azure-devops#use-spn).
 1. Rellene la suscripción y el recurso. Asigne un nombre a la conexión del servicio.
 
-Ahora que ha creado la conexión de servicio, busque el nombre de la entidad de servicio asignada a ella. En el paso siguiente, agregará una nueva asignación de roles a esta entidad de servicio.
+Si ha creado una nueva entidad de servicio, busque el nombre de la entidad de servicio asignada a la conexión del servicio. En el paso siguiente, agregará una nueva asignación de roles a esta entidad de servicio.
 
 1. Vaya a **Configuración del proyecto** > **Conexiones de servicio**.
 1. Seleccione la conexión de servicio que creó en la sección anterior.
@@ -65,8 +63,8 @@ En esta sección se explicará cómo usar la tarea Azure App Configuration Push 
 
 1. Vaya a la página de canalización de compilación al hacer clic en **Canalizaciones** > **Canalizaciones**. La documentación para las canalizaciones de compilación se puede encontrar [aquí](/azure/devops/pipelines/create-first-pipeline?tabs=tfs-2018-2).
       - Si va a crear una nueva canalización de compilación, en el último paso del proceso, en la pestaña **Revisar**, seleccione **Mostrar asistente** en el lado derecho de la canalización.
-      ![Captura de pantalla que muestra el botón Mostrar asistente para una nueva canalización.](./media/new-pipeline-show-assistant.png)
-      - Si utiliza una canalización de compilación existente, haga clic en el botón **Editar** en la parte superior derecha.
+      ![Captura de pantalla que muestra el botón Mostrar asistente de una nueva canalización.](./media/new-pipeline-show-assistant.png)
+      - Si usa una canalización de compilación existente, haga clic en el botón **Editar** en la parte superior derecha.
       ![Captura de pantalla que muestra el botón Editar para una canalización existente.](./media/existing-pipeline-show-assistant.png)
 1. Busque la tarea de **Insertar de Azure App Configuration**.
 ![Captura de pantalla que muestra el cuadro de diálogo Agregar tarea con Insertar de Azure App Configuration en el cuadro de búsqueda.](./media/add-azure-app-configuration-push-task.png)
@@ -81,9 +79,9 @@ En esta sección se explicará cómo usar la tarea Azure App Configuration Push 
 1. Vaya a la página de canalización de versión; para ello, seleccione **Canalizaciones** > **Versiones**. La documentación para las canalizaciones de versión se puede encontrar [aquí](/azure/devops/pipelines/release).
 1. Elija una canalización de versión existente. Si no tiene una, seleccione **+ Nueva** para crear una nueva.
 1. Seleccione el botón **Editar** en la esquina superior derecha para editar la canalización de versión.
-1. En el menú desplegable **Tareas**, elija la **Fase** a la que desea agregar la tarea. Puede encontrar más información sobre las fases [aquí](/azure/devops/pipelines/release/environments).
-![Captura de pantalla que muestra la fase seleccionada en el Menú desplegable tareas.](./media/pipeline-stage-tasks.png)
-1. Haga clic en el siguiente **+** para el trabajo al que desea agregar una nueva tarea.
+1. En el menú desplegable **Tareas**, seleccione la **Fase** en la que quiere agregar la tarea. Puede encontrar más información sobre las fases [aquí](/azure/devops/pipelines/release/environments).
+![Captura de pantalla que muestra la fase seleccionada en el menú desplegable Tareas.](./media/pipeline-stage-tasks.png)
+1. Haga clic en **+** junto al trabajo al que quiere agregar una nueva tarea.
 ![Captura de pantalla que muestra el botón de signo más junto al trabajo.](./media/add-task-to-job.png)
 1. En el cuadro de diálogo **agregar tareas**, escriba **Inserciones de Azure App Configuration** en el cuadro de búsqueda y selecciónela.
 1. Configure los parámetros necesarios dentro de la tarea para enviar los pares clave-valor del archivo de configuración al almacén de App Configuration. Las explicaciones de los parámetros están disponibles en la sección **Parámetros** siguiente y en la información sobre herramientas junto a cada parámetro.
