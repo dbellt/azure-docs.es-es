@@ -1,18 +1,18 @@
 ---
 title: Controles de Cumplimiento normativo de Azure Policy para Azure Virtual Machines
 description: En este artículo se muestran los controles de Cumplimiento normativo de Azure Policy disponibles para Azure Virtual Machines. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar el cumplimiento de los recursos de Azure.
-ms.date: 04/21/2021
+ms.date: 04/28/2021
 ms.topic: sample
 author: cynthn
 ms.author: cynthn
 ms.service: virtual-machines
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 0afe3279bbce3e47e1a87c8189f273ccb9e273f4
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 309d81ca60635430a680d0456799955c2154076f
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107865355"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108177570"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-virtual-machines"></a>Controles de Cumplimiento normativo de Azure Policy para Azure Virtual Machines 
 

@@ -1,18 +1,18 @@
 ---
 title: Controles de cumplimiento normativo de Azure Policy para Azure Automation
 description: Enumera los controles de cumplimiento normativo de Azure Policy disponibles para Azure Automation. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar el cumplimiento de los recursos de Azure.
-ms.date: 04/21/2021
+ms.date: 04/28/2021
 ms.topic: sample
 author: mgoedtel
 ms.author: magoedte
 ms.service: automation
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: e6ad6e140fe74d5b66930ce28c6a67902ed62b21
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 28e1a0f78f26a450831abb0f3eee2527c36ba844
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107871043"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108178507"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-automation"></a>Controles de cumplimiento normativo de Azure Policy para Azure Automation
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: 072377f98939d996547cb6ee9f9a535b4b32a3dc
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 6303a94cec9efc01815b6dc6c697abdfe0f84227
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98597961"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220907"
 ---
 # <a name="azure-ea-vm-reserved-instances"></a>Instancias reservadas de máquinas virtuales de Azure EA
 
@@ -96,7 +96,7 @@ En los casos en los que los clientes de Azure EA hayan usado todo su prepago de 
 
 ### <a name="reserved-instance-expiration"></a>Expiración de las instancias reservadas
 
-Recibirá notificaciones por correo electrónico 30 días antes de la reserva y en la expiración. Una vez que expire la reserva, las máquinas virtuales implementadas seguirán ejecutándose y se facturarán mediante una tasa de pago por uso. Para más información, consulte las [ofertas de instancias reservadas de máquinas virtuales](https://azure.microsoft.com/pricing/reserved-vm-instances/).
+Recibirá notificaciones por correo electrónico, la primera, 30 días antes de la expiración de la reserva y otra al expirar. Una vez que expire la reserva, las máquinas virtuales implementadas seguirán ejecutándose y se facturarán mediante una tasa de pago por uso. Para más información, consulte las [ofertas de instancias reservadas de máquinas virtuales](https://azure.microsoft.com/pricing/reserved-vm-instances/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

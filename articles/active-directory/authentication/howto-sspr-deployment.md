@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55fc4c0b5f3e2bbf57c972ad4a7fd2c9bdd3810e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f3e7792546531d7f443a44b127620d508816edcb
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104579202"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108285779"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Plan de implementación de autoservicio de restablecimiento de contraseña de Azure Active Directory
 
@@ -87,7 +87,7 @@ Para obtener más información sobre los precios, consulte [Precios de Azure Act
 |Tutoriales |[Realización de una implementación piloto del autoservicio de restablecimiento de contraseñas en Azure AD](./tutorial-enable-sspr.md) |
 | |[Habilitación de la escritura diferida de contraseñas](./tutorial-enable-sspr-writeback.md) |
 | |[Restablecimiento de la contraseña de Azure AD desde la pantalla de inicio de sesión de Windows 10](./howto-sspr-windows.md) |
-| Preguntas más frecuentes|[Preguntas más frecuentes sobre la administración de contraseñas](./active-directory-passwords-faq.md) |
+| Preguntas más frecuentes|[Preguntas más frecuentes sobre la administración de contraseñas](./active-directory-passwords-faq.yml) |
 
 
 ### <a name="solution-architecture"></a>Arquitectura de la solución
@@ -328,7 +328,7 @@ Los registros de auditoría para el registro y el restablecimiento de contraseñ
 
 * Consulte [Solución de problemas del autoservicio de restablecimiento de contraseñas](./troubleshoot-sspr.md) 
 
-* Siga [Preguntas más frecuentes sobre la administración de contraseñas](./active-directory-passwords-faq.md) 
+* Siga [Preguntas más frecuentes sobre la administración de contraseñas](./active-directory-passwords-faq.yml) 
 
 ### <a name="helpful-documentation"></a>Documentación útil
 

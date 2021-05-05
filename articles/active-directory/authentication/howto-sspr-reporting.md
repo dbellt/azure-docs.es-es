@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ad1b8318e261c7dfef7fc125716736087a84bdc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fa33a4641de1d630883a225814b2fb3d59ef9946
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104579185"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108285977"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opciones de creación de informes para la administración de contraseñas de Azure AD
 
@@ -182,6 +182,6 @@ En la lista siguiente se explica en detalle esta actividad:
 * [¿Qué es la escritura diferida de contraseñas y por qué nos interesa?](./tutorial-enable-sspr-writeback.md)
 * [¿Cuáles son todas las opciones en SSPR y qué significan?](concept-sspr-howitworks.md)
 * [Creo que algo se ha roto. ¿Cómo se solucionan problemas en SSPR?](./troubleshoot-sspr.md)
-* [Tengo una pregunta que no se ha comentado en ningún otro sitio](active-directory-passwords-faq.md)
+* [Tengo una pregunta que no se ha comentado en ningún otro sitio](active-directory-passwords-faq.yml)
 
 [Reporting]: ./media/howto-sspr-reporting/sspr-reporting.png "Ejemplo de registros de auditoría de actividad de SSPR en Azure AD"

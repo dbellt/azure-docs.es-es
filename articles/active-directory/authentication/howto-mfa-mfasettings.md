@@ -5,19 +5,19 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 03/16/2021
+ms.date: 04/13/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 9d2c42a664c8d8a591d95a312cdf1c0034c4d031
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 5a65480cbfa279614250ddeaf7d565b112333a05
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107305470"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108285563"
 ---
 # <a name="configure-azure-ad-multi-factor-authentication-settings"></a>Configuración de Azure AD Multi-Factor Authentication
 
@@ -154,7 +154,7 @@ En Estados Unidos, si no ha configurado el identificador del autor de la llamada
 * *+1 (877) 668 6536*
 
 > [!NOTE]
-> A veces, cuando las llamadas de Azure AD Multi-Factor Authentication se realizan mediante la red telefónica pública, se enrutan a través de un operador que no admite el id. del autor de la llamada. Por este motivo, el id. del autor de la llamada no se garantiza, aunque Azure AD Multi-Factor Authentication lo envíe siempre. Esto se aplica a las llamadas de teléfono y a los mensajes de texto proporcionados por Azure AD Multi-Factor Authentication. Si tiene que validar que un mensaje de texto procede de Azure AD Multi-Factor Authentication, vea [¿Qué códigos cortos de SMS se usan para enviar mensajes?](multi-factor-authentication-faq.md#what-sms-short-codes-are-used-for-sending-sms-messages-to-my-users)
+> A veces, cuando las llamadas de Azure AD Multi-Factor Authentication se realizan mediante la red telefónica pública, se enrutan a través de un operador que no admite el id. del autor de la llamada. Por este motivo, el id. del autor de la llamada no se garantiza, aunque Azure AD Multi-Factor Authentication lo envíe siempre. Esto se aplica a las llamadas de teléfono y a los mensajes de texto proporcionados por Azure AD Multi-Factor Authentication. Si tiene que validar que un mensaje de texto procede de Azure AD Multi-Factor Authentication, vea [¿Qué códigos cortos de SMS se usan para enviar mensajes?](multi-factor-authentication-faq.yml#what-sms-short-codes-are-used-for-sending-sms-messages-to-my-users-)
 
 Para configurar su propio número de identificador del autor de la llamada, complete los pasos siguientes:
 
@@ -347,7 +347,7 @@ La característica Recordar Multi-Factor Authentication establece una cookie per
 
 La opción **No preguntar de nuevo durante X días** no está disponible en las aplicaciones sin explorador, independientemente de si la aplicación admite la autenticación moderna. Estas aplicaciones usan _tokens de actualización_ que proporcionan nuevos tokens de acceso cada hora. Cuando se valida un token de actualización, Azure AD comprueba que la última autenticación multifactor estaba dentro del número de días especificado.
 
-La característica reduce el número de autenticaciones en las aplicaciones web, que normalmente se solicitan siempre. La característica puede aumentar el número de autenticaciones para los clientes de autenticación moderna, que normalmente se solicita cada 90 días, si se configura una duración inferior. También se puede aumentar el número de autenticaciones cuando se combina con las directivas de acceso condicional.
+La característica reduce el número de autenticaciones en las aplicaciones web, que normalmente se solicitan siempre. La característica puede aumentar el número de autenticaciones para los clientes de autenticación moderna, que normalmente se solicita cada 180 días, si se configura una duración inferior. También se puede aumentar el número de autenticaciones cuando se combina con las directivas de acceso condicional.
 
 > [!IMPORTANT]
 > La característica **Recordar Multi-Factor Authentication** no es compatible con la característica **Mantener la sesión iniciada** de AD FS cuando los usuarios realizan la autenticación multifactor para AD FS mediante el servidor de Azure Multi-Factor Authentication o una solución de terceros para la autenticación multifactor.

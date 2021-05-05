@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: 6859a2f8571c11e6ef93a5e5b1635cdbe39ad001
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: 203ac7252f06b342e7f553bb1900cdf9ac959e0a
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107737677"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107891397"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-notebooks-in-azure-synapse-analytics"></a>Creación, desarrollo y mantenimiento de cuadernos de Synapse Studio en Azure Synapse Analytics
 
@@ -36,10 +36,12 @@ El equipo de Synapse proporciona el nuevo componente de cuaderno en Synapse Stud
 |Característica|Cuaderno clásico|Versión preliminar del cuaderno|
 |--|--|--|
 |%run| No compatible | &#9745;|
-|%history| No compatible |&#9745;
+|%history| No compatible |&#9745;|
 |%load| No compatible |&#9745;|
 |%%html| No compatible |&#9745;|
 |Arrastrar y colocar para desplazar una celda| No compatible |&#9745;|
+|Esquema (tabla de contenido)| No compatible |&#9745;|
+|Explorador de variables| No compatible |&#9745;|
 |Formato de celdas de texto con botones de la barra de herramientas|&#9745;| No disponible |
 |Deshacer la operación de la celda| &#9745;| No disponible |
 
@@ -259,6 +261,20 @@ Seleccione los puntos suspensivos (...) para ver **más comandos** en la barra d
 
 ---
 
+### <a name="notebook-outline"></a>Esquema del cuaderno
+
+# <a name="classical-notebook"></a>[Cuaderno clásico](#tab/classical)
+
+No compatible.
+
+# <a name="preview-notebook"></a>[Versión preliminar del cuaderno](#tab/preview)
+
+En Esquema (tabla de contenido) se presenta el primer encabezado de cualquier celda de Markdown en una ventana de la barra lateral para permitir la navegación rápida. La barra lateral Esquemas es redimensionable y contraíble para ajustarse a la pantalla de la mejor manera posible. Puede seleccionar el botón **Esquema** de la barra de comandos del cuaderno para abrir u ocultar la barra lateral.
+
+<a name="azure-notebook-outline"></a>![azure-notebook-outline](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-outline.png)
+---
+
+
 ## <a name="run-notebooks"></a>Ejecución de cuadernos
 
 Puede ejecutar las celdas de código en el cuaderno individualmente o todas a la vez. El estado y el progreso de cada celda se representan en el cuaderno.
@@ -331,6 +347,22 @@ Ejemplo: ``` %run /path/notebookA ```.
 
 ---
 
+### <a name="variable-explorer"></a>Explorador de variables
+
+# <a name="classical-notebook"></a>[Cuaderno clásico](#tab/classical)
+
+No compatible.
+
+# <a name="preview-notebook"></a>[Versión preliminar del cuaderno](#tab/preview)
+
+El cuaderno de Synapse ahora incluye un explorador de variables integrado para que pueda ver la lista de nombres, tipos, longitudes y valores de las variables en la sesión de Spark actual para las celdas de PySpark (Python). Se mostrarán automáticamente más variables a medida que se definan en las celdas de código. Al hacer clic en cada encabezado de columna se ordenarán las variables de la tabla.
+
+Puede seleccionar el botón **Variables** de la barra de comandos del cuaderno para abrir u ocultar el explorador de variables.
+
+![azure-notebook-variable-explorer](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-variable-explorer.png)
+
+
+---
 
 ### <a name="cell-status-indicator"></a>Indicador de estado de la celda
 

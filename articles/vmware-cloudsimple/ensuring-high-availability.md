@@ -1,19 +1,19 @@
 ---
 title: Asegurar la alta disponibilidad de una aplicación al ejecutarse en VMware en Azure
 description: Describe las características de alta disponibilidad de CloudSimple para abordar escenarios comunes de error de aplicaciones que se ejecutan en una nube privada de CloudSimple.
-author: Ajayan1008
-ms.author: v-hborys
+author: shortpatti
+ms.author: v-patsho
 ms.date: 08/20/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 6c80b9fd65588fe6c390f44b34509168f3bfb549
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 20cd474c36749cfbe9848dd54f2a38892bd80ec0
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106077693"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108177753"
 ---
 # <a name="ensure-application-high-availability-when-running-in-vmware-on-azure"></a>Asegurar la alta disponibilidad de una aplicación al ejecutarse en VMware en Azure
 

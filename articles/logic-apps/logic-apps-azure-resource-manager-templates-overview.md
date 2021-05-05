@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 11/06/2020
-ms.openlocfilehash: 08363a1a1de8f95c4ff74fbe20f4052796c41f49
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.openlocfilehash: b1551b4d9c28a693adb74436b6490ce7af62a977
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108018518"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108279859"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Introducción: Automatización de la implementación para Azure Logic Apps mediante plantillas de Azure Resource Manager
 
@@ -39,7 +39,7 @@ Para obtener información sobre los recursos de plantilla específicos de Logic 
 Para ver muestras de las plantillas de aplicaciones lógicas, consulte estos ejemplos:
 
 * [Plantilla completa](#full-example-template) que se usa para los ejemplos de este tema
-* [Ejemplo de la plantilla de aplicación lógica de inicio rápido](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create) en GitHub
+* [Ejemplo de la plantilla de aplicación lógica de inicio rápido](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.logic/logic-app-create/azuredeploy.json) en GitHub
 
 En el caso de la API de REST de Logic Apps, comience con la [información general sobre la API de REST de Azure Logic Apps](/rest/api/logic).
 

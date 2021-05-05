@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1208d95a282ca6e236d9d6be8013f51dead90d13
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0463ccf12a254ebda1ee3d6f9cc9bfe7f43b4e80
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "94376651"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108178725"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>Adición de una charla a la base de conocimiento
 
@@ -22,7 +22,7 @@ La incorporación de charlas al bot lo hace más atractivo y conversacional. La 
 
 Este conjunto de datos tiene aproximadamente 100 escenarios de charla en la voz de varias personas, como profesional, amigable e ingenioso. Elija el rol que más se parezca a la voz del bot. Dada una consulta de usuario, QnA Maker intenta hacerla coincidir con la QnA de charla conocida más parecida.
 
-A continuación se muestran algunos ejemplos de las distintas personalidades: Puede ver todos los [conjuntos de datos](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets) de personalidades junto con los detalles de las personalidades.
+A continuación se muestran algunos ejemplos de las distintas personalidades: Puede ver todos los [conjuntos de datos](https://github.com/microsoft/botframework-cli/blob/main/packages/qnamaker/docs/chit-chat-dataset.md) de personalidades junto con los detalles de las personalidades.
 
 Para la consulta del usuario `When is your birthday?`, cada personalidad tiene una respuesta con estilo:
 

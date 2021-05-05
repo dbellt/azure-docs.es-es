@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 2/16/2021
 ms.author: gasinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a793ebb6d2b58718a6ee42c69c38b9da1b124722
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b93fdcc125075786c237ab1eb7bfac8cf2e551f6
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104589402"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108179175"
 ---
 # <a name="secure-hybrid-access-secure-legacy-apps-with-azure-active-directory"></a>Acceso híbrido seguro: Protección de aplicaciones heredadas con Azure Active Directory
 
@@ -32,7 +32,7 @@ Puede salvar la brecha y fortalecer su postura de seguridad en todas las aplicac
 
 ## <a name="secure-hybrid-access-sha-through-azure-ad-application-proxy"></a>Acceso híbrido seguro (SHA) a través de Azure AD Application Proxy
   
-Con [Application Proxy](./what-is-application-proxy.md), puede proporcionar [acceso remoto seguro](./application-proxy.md) a sus aplicaciones web locales. Los usuarios no necesitan usar una VPN. Los usuarios se benefician al conectarse fácilmente a sus aplicaciones desde cualquier dispositivo después de un [inicio de sesión único](./add-application-portal-setup-sso.md). Application Proxy proporciona acceso remoto como servicio y permite [publicar fácilmente sus aplicaciones locales](./application-proxy-add-on-premises-application.md) a usuarios ajenos a la red corporativa. Ayuda a escalar la administración del acceso a la nube sin necesidad de modificar las aplicaciones locales. [Planee una implementación de Azure AD Application Proxy](./application-proxy-deployment-plan.md) como el siguiente paso.
+Con [Application Proxy](../app-proxy/what-is-application-proxy.md), puede proporcionar [acceso remoto seguro](../app-proxy/application-proxy.md) a sus aplicaciones web locales. Los usuarios no necesitan usar una VPN. Los usuarios se benefician al conectarse fácilmente a sus aplicaciones desde cualquier dispositivo después de un [inicio de sesión único](add-application-portal-setup-sso.md). Application Proxy proporciona acceso remoto como servicio y permite [publicar fácilmente sus aplicaciones locales](../app-proxy/application-proxy-add-on-premises-application.md) a usuarios ajenos a la red corporativa. Ayuda a escalar la administración del acceso a la nube sin necesidad de modificar las aplicaciones locales. [Planee una implementación de Azure AD Application Proxy](application-proxy-deployment-plan.md) como el siguiente paso.
 
 ## <a name="azure-ad-partner-integrations"></a>Integraciones de asociados de Azure AD
 
