@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 063924dccb7d7b95b962b24ecc1af1870a855194
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4bff929346a1f452ecd574eccccd1ba8c95788db
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102617138"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108226325"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Uso del SDK de Azure WebJobs para el procesamiento en segundo plano basado en eventos
 
@@ -526,7 +526,7 @@ static async Task Main()
 }
 ```
 
-Para más información, consulte el artículo [Enlace de Service Bus](../azure-functions/functions-bindings-service-bus-output.md#hostjson-settings).
+Para más información, consulte el artículo [Enlace de Service Bus](../azure-functions/functions-bindings-service-bus.md#hostjson-settings).
 
 ### <a name="configuration-for-other-bindings"></a>Configuración de otros enlaces
 
@@ -830,7 +830,7 @@ Cada registro que creó una instancia `ILogger` tiene asociados los valores `Cat
 |------------|---|
 |Seguimiento       | 0 |
 |Depurar       | 1 |
-|Información | 2 |
+|Information | 2 |
 |Advertencia     | 3 |
 |Error       | 4 |
 |Crítico    | 5 |

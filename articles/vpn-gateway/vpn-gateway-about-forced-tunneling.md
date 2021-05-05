@@ -1,5 +1,6 @@
 ---
-title: 'Azure VPN Gateway: configuración de la tunelización forzada para conexiones de sitio a sitio: clásica'
+title: 'configuración de la tunelización forzada para conexiones de sitio a sitio: clásica'
+titleSuffix: Azure VPN Gateway
 description: Aprenda a configurar la tunelización forzada para las redes virtuales creadas mediante el modelo de implementación clásica.
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 10/15/2020
 ms.author: cherylmc
-ms.openlocfilehash: af4359efb48898c12bb8ee7ffb882448b5012d19
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 61f42ac26f5890ff8ab611e81406d3607b8d5005
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92151344"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108292169"
 ---
 # <a name="configure-forced-tunneling-using-the-classic-deployment-model"></a>Configuración de la tunelización forzada mediante el modelo de implementación clásica
 

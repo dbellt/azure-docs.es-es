@@ -4,12 +4,12 @@ description: Aprenda a crear un clúster privado de Azure Kubernetes Service (AK
 services: container-service
 ms.topic: article
 ms.date: 3/31/2021
-ms.openlocfilehash: 76785caedb9ca97d947e83f5aa8ff5b32d827914
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 20adab9a42cabc0f3fc62378427d2c7bdb669806
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107772908"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108072394"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Creación de un clúster privado de Azure Kubernetes Service
 
@@ -185,6 +185,7 @@ Tal y como se ha dicho, el emparejamiento de red virtual es un mecanismo para ac
 > Si usa [Traiga su propia tabla de rutas con kubenet](./configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet) y Traiga su propio DNS con un clúster privado, se producirá un error en la creación del clúster. Tendrá que asociar [RouteTable](./configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet) en el grupo de recursos del nodo a la subred después de que se haya producido un error en la creación del clúster, con el fin de que la creación se realice correctamente.
 
 ## <a name="limitations"></a>Limitaciones 
+* AKS-RunCommand no funciona en clústeres que tienen habilitado AAD administrado por AKS y Private Link.
 * Los intervalos autorizados de direcciones IP no se pueden aplicar al punto de conexión del servidor de API privada. Solo se aplican al servidor de API pública.
 * Las [limitaciones del servicio Azure Private Link][private-link-service] aplican a los clústeres privados.
 * No se admiten agentes hospedados por Microsoft en Azure DevOps con clústeres privados. Considere la posibilidad de usar [agentes autohospedados](/azure/devops/pipelines/agents/agents?tabs=browser). 

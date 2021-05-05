@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 04/27/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74009759bb9ca2a0516148fc1387b150b67452ab
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.openlocfilehash: 374fa4db4441dc82f9d14eef9cdd7589a9a82fad
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107387911"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108126856"
 ---
 # <a name="continuous-access-evaluation"></a>Evaluación continua de acceso
 
@@ -130,8 +130,12 @@ En el ejemplo siguiente, un administrador de acceso condicional ha configurado u
 1. Inicie sesión en **Azure Portal** como administrador de acceso condicional, administrador de seguridad o administrador global.
 1. Vaya a **Azure Active Directory** > **Seguridad** > **Evaluación continua de acceso**.
 1. Elija **Habilitar versión preliminar**.
+1. Seleccione **Guardar**.
 
 En esta página, puede limitar opcionalmente los usuarios y grupos que estarán sujetos a la versión preliminar.
+
+> [!WARNING]
+> Para deshabilitar la evaluación continua de acceso, seleccione **Habilitar versión preliminar**, **Deshabilitar versión preliminar** y **Guardar**.
 
 ![Habilitar la versión preliminar de CAE en Azure Portal](./media/concept-continuous-access-evaluation/enable-cae-preview.png)
 

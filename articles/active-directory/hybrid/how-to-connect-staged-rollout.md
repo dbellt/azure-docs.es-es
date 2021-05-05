@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 756e5e96a8040fb3d93273a5521236d46879e60d
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 8534d4dd8df1e60e1b341088cbfaaa944ec1221b
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107306388"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108073402"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout"></a>Migración a la autenticación en la nube mediante un lanzamiento almacenado preconfigurado
 
@@ -38,10 +38,12 @@ Para información general sobre la característica, vea este vídeo "Azure Acti
 -   Tiene un inquilino de Azure Active Directory (Azure AD) con dominios federados.
 
 -   Ha decidido pasar a una de estas dos opciones:
-    - **Opción A** - *sincronización de hash de contraseña (sincronización)*  + *inicio de sesión único de conexión directa (SSO)* .  Para obtener más información, consulte [¿Qué es la sincronización de hash de contraseñas?](whatis-phs.md) y [¿Qué es el inicio de sesión único de conexión directa?](how-to-connect-sso.md)
-    - **Opción B** - *autenticación de paso a través* + *inicio de sesión único de conexión directa*  Para más información, consulte [¿Qué es la autenticación de paso a través?](how-to-connect-pta.md)  
+    - **Opción A** - *sincronización de hash de contraseña (sincronización)* .  Para más información, consulte [¿Qué es la sincronización de hash de contraseña?](whatis-phs.md) 
+    - **Opción B** - *autenticación transferida*.  Para más información, consulte [¿Qué es la autenticación de paso a través?](how-to-connect-pta.md)  
     
-    Aunque el *inicio de sesión único de conexión directa* es opcional, se recomienda habilitarlo para lograr una experiencia de inicio de sesión silenciosa para los usuarios que usan máquinas unidas a un dominio desde dentro de la red corporativa.
+    Para ambas opciones, se recomienda habilitar el inicio de sesión único (SSO) para lograr una experiencia de inicio de sesión silenciosa. 
+    En el caso de los dispositivos Windows 7 u 8.1 unidos a un dominio, se recomienda usar el SSO de conexión directa. Para obtener más información, consulte [¿Qué es SSO de conexión directa?](how-to-connect-sso.md) 
+    Para Windows 10, Windows Server 2016 y versiones posteriores, se recomienda usar el SSO a través del [token de actualización principal (PRT)](../devices/concept-primary-refresh-token.md) con [dispositivos unidos a Azure AD](../devices/concept-azure-ad-join.md), [dispositivos híbridos unidos a Azure AD](../devices/concept-azure-ad-join-hybrid.md) o dispositivos personales registrados a través de Agregar cuenta profesional o educativa.
 
 -   Ha configurado todas las directivas adecuadas de acceso condicional y personalización de marca del inquilino que necesita para los usuarios que se van a migrar a la autenticación en la nube.
 

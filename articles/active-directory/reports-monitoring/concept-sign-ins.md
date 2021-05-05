@@ -1,6 +1,6 @@
 ---
-title: Informes de actividad de inicio de sesión en el portal de Azure Active Directory | Microsoft Docs
-description: Introducción a los informes de actividad de inicio de sesión en el portal de Azure Active Directory
+title: Registros de inicios de sesión en Azure Active Directory | Microsoft Docs
+description: Información general de los registros de inicios de sesión en Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,61 +13,75 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/19/2021
+ms.date: 04/26/2021
 ms.author: markvi
-ms.reviewer: dhanyahk
+ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a4cd69224daa05a3e5931fbde1c85bb8dc9e46a
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: e524430d696dab7233f4ebb3403f08b2a8030412
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107719014"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108126712"
 ---
-# <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Informes de actividad de inicio de sesión en el portal de Azure Active Directory
+# <a name="sign-ins-logs-in-azure-active-directory"></a>Registros de inicios de sesión en Azure Active Directory
 
 Como administrador de TI, quiere saber cómo funciona el entorno de TI. La información sobre el estado del sistema le permite evaluar si es necesario responder a posibles problemas y cómo hacerlo. 
 
 Para ayudarle a conseguir este objetivo, el portal de Azure Active Directory le proporciona acceso a tres registros de actividad:
 
-- **Inicios de sesión**: información sobre los inicios de sesión y cómo los usuarios emplean los recursos.
+- **[Inicios de sesión](concept-sign-ins.md)** : Información sobre los inicios de sesión y cómo los usuarios emplean los recursos.
 - **[Auditoría](concept-audit-logs.md)** : información sobre los cambios aplicados al inquilino, como la administración de usuarios y grupos o las actualizaciones aplicadas a los recursos del inquilino.
 - **[Aprovisionamiento](concept-provisioning-logs.md)** : actividades realizadas por el servicio de aprovisionamiento, como la creación de un grupo en ServiceNow o un usuario importado de Workday.
 
 En este artículo se ofrece una visión general del reporte de inicios de sesión.
 
-## <a name="prerequisites"></a>Prerrequisitos
 
-### <a name="who-can-access-the-data"></a>¿Quién puede acceder a los datos?
+## <a name="what-can-you-do-with-it"></a>¿Para qué sirve?
 
-* Usuarios de los roles Administrador de seguridad, Lector de seguridad, Lector global y Lector de informes
-* Administradores globales
-* Cualquier usuario (no administradores) puede acceder a sus propios inicios de sesión 
+Puede usar el registro de inicios de sesión para encontrar respuestas a preguntas como:
 
-### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>¿Qué licencia de Azure AD se necesita para acceder a la actividad de inicio de sesión?
+- ¿Cuál es el patrón de inicio de sesión de un usuario?
+
+- ¿Cuántos usuarios han iniciado sesión en una semana?
+
+- ¿Cuál es el estado de estos inicios de sesión?
+
+
+## <a name="who-can-access-it"></a>¿Quién puede acceder a ellos?
+
+Siempre puede acceder a su propio registro de inicios de sesión. 
+
+Para acceder al registro de inicios de sesión de otro usuario, debe ser:
+
+- Un administrador global
+
+- Un usuario con alguno de los siguientes roles:
+    - Administrador de seguridad
+
+    - Lector de seguridad
+
+    - Lector global
+
+    - Lector de informes
+
+
+
+## <a name="what-azure-ad-license-do-you-need"></a>¿Qué licencia de Azure AD necesita?
 
 El informe de actividad de inicio de sesión está disponible en [todas las ediciones de Azure AD](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data) y también se puede acceder a ella mediante Microsoft Graph API.
 
-## <a name="sign-ins-report"></a>Informe de inicios de sesión
 
-El informe de inicios de sesión de usuario proporciona respuestas a las preguntas siguientes:
+## <a name="where-can-you-find-it-in-the-azure-portal"></a>¿Dónde puede encontrarlo en Azure Portal?
 
-* ¿Cuál es el patrón de inicio de sesión de un usuario?
-* ¿Cuántos usuarios han iniciado sesión en una semana?
-* ¿Cuál es el estado de estos inicios de sesión?
+Azure Portal ofrece varias opciones para acceder al registro. Por ejemplo, en el menú Azure Active Directory, puede abrir el registro en la sección **Supervisión**.  
 
-En el menú de [Azure Portal](https://portal.azure.com), seleccione **Azure Active Directory** o busque y seleccione **Azure Active Directory** desde cualquier página.
+![Apertura de registros de inicios de sesión](./media/concept-sign-ins/sign-ins-logs-menu.png)
 
-![Seleccionar Azure Active Directory](./media/concept-sign-ins/select-azure-active-directory.png "Azure Active Directory")
+Además, puede acceder directamente a los registros de inicios de sesión mediante este vínculo: [https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)
 
-En **Supervisión**, seleccione **Inicios de sesión** para abrir el [informe de inicios de sesión](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns).
 
-![Captura de pantalla que muestra los inicios de sesión seleccionados desde el menú Supervisión.](./media/concept-sign-ins/monitoring-sign-ins-in-azure-active-directory.png "Actividad de inicio de sesión")
-
-Algunos registros de inicio de sesión pueden tardar hasta dos horas antes de aparecer en el portal.
-
-> [!IMPORTANT]
-> El informe de inicios de sesión solo muestra los inicios de sesión **interactivos**, es decir, los inicios de sesión donde un usuario inicia sesión manualmente con su nombre de usuario y contraseña. Los inicios de sesión no interactivos, como la autenticación de servicio a servicio, no se muestran en el informe de inicios de sesión. 
+## <a name="what-is-the-default-view"></a>¿Cuál es la vista predeterminada?
 
 Un registro de inicios de sesión tiene una vista de lista predeterminada que muestra:
 
@@ -92,9 +106,6 @@ Seleccione un elemento de la vista de lista para obtener información más detal
 
 ![Captura de pantalla que muestra una vista de información detallada.](./media/concept-sign-ins/basic-sign-in.png "Actividad de inicio de sesión")
 
-> [!NOTE]
-> Los clientes ahora pueden solucionar problemas de directivas de acceso condicional con todos los informes de inicios de sesión. Al hacer clic en la pestaña **Acceso condicional** de un registro de inicio de sesión, los clientes pueden revisar el estado de acceso condicional y profundizar en los detalles de las directivas que se aplican al inicio de sesión y del resultado de cada directiva.
-> Para más información, vea las [preguntas más frecuentes sobre la información de acceso condicional en todos los inicios de sesión](reports-faq.md#conditional-access).
 
 
 ## <a name="sign-in-error-code"></a>Código de error de inicio de sesión
@@ -111,7 +122,8 @@ Aunque el elemento de registro proporciona un motivo del error, hay casos en los
 
 ## <a name="filter-sign-in-activities&quot;></a>Filtrado de las actividades de inicio de sesión
 
-En primer lugar, limite los datos informados a un nivel que le resulte más adecuado. En segundo lugar, filtre los datos de inicios de sesión mediante el campo de fecha como filtro predeterminado. Azure AD proporciona una amplia variedad de filtros adicionales que puede establecer:
+
+Puede filtrar los datos de un registro para restringirlo a un nivel que funcione en su caso:
 
 ![Captura de pantalla que muestra la opción Agregar filtros.](./media/concept-sign-ins/04.png &quot;Actividad de inicio de sesión")
 
@@ -249,7 +261,7 @@ Si hace clic en un elemento, obtendrá más detalles sobre la operación de inic
 - Estado de inicio de sesión
 
 > [!NOTE]
-> Las direcciones IP se emiten de forma que no haya ninguna conexión definitiva entre una dirección IP y donde se encuentre físicamente el equipo con esa dirección. La asignación de direcciones IP se complica por el hecho de que los proveedores de dispositivos móviles y las VPN emiten direcciones IP desde grupos centrales que, a menudo, están muy lejos de donde el dispositivo cliente se usa realmente. Actualmente, la conversión de la dirección IP en una ubicación física en los informes de Azure AD es un esfuerzo notable basado en seguimientos, datos del Registro, búsquedas inversas y otra información.
+> Las direcciones IP se emiten de forma que no haya ninguna conexión definitiva entre una dirección IP y donde se encuentre físicamente el equipo con esa dirección. La asignación de direcciones IP se complica por el hecho de que los proveedores de dispositivos móviles y las VPN emiten direcciones IP desde grupos centrales que, a menudo, están muy lejos de donde el dispositivo cliente se usa realmente. Actualmente, la conversión de la dirección IP en una ubicación física es un esfuerzo notable basado en seguimientos, datos de registro, búsquedas inversas y otra información.
 
 En la página **Usuarios**, puede obtener una vista general completa de todos los inicios de sesión del usuario haciendo clic en **Inicios de sesión** en la sección **Actividad**.
 
@@ -287,6 +299,7 @@ También puede tener acceso a los registros de actividad de Microsoft 365 media
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Códigos de error de los informes de actividad de inicio de sesión](reference-sign-ins-error-codes.md)
+* [Códigos de error de los informes de actividad de inicio de sesión]()
 * [Directivas de retención de datos de Azure AD](reference-reports-data-retention.md)
 * [Latencias de informes de Azure AD](reference-reports-latencies.md)
+* [Aplicaciones de Microsoft en el informe de inicios de sesión](/troubleshoot/azure/active-directory/verify-first-party-apps-sign-in#application-ids-for-commonly-used-microsoft-applications)
