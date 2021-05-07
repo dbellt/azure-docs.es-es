@@ -13,12 +13,12 @@ ms.date: 06/05/2020
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev devx-track-js
-ms.openlocfilehash: 5168dfb531c40a3efeef978abf65473ee59d2921
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 383c9651d6552a327bc9e986d18fbc7832fc94f8
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107255603"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108072196"
 ---
 # <a name="use-the-microsoft-authentication-library-for-javascript-to-work-with-azure-ad-b2c"></a>Uso de la biblioteca de autenticación de Microsoft para JavaScript a fin de trabajar con Azure AD B2C
 
@@ -26,195 +26,20 @@ La [biblioteca de autenticación de Microsoft para JavaScript (MSAL.js)](https:/
 
 Al usar Azure AD B2C como un servicio de administración de identidades, puede personalizar y controlar la manera en que los clientes se registran, inician sesión y administran sus perfiles al usar las aplicaciones. Azure AD B2C también permite personalizar la marca y la interfaz de usuario que muestra la aplicación durante el proceso de autenticación.
 
-En las secciones siguientes se muestran los procedimientos para realizar lo siguiente:
+## <a name="supported-app-types-and-scenarios"></a>Escenarios y tipos de aplicaciones admitidos
 
-- Proteger una API web de Node.Js
-- Admitir el inicio de sesión en una aplicación de página única (SPA) y llamar a *esa* API web protegida
-- Habilitar la compatibilidad con el restablecimiento de contraseña
+MSAL.js permite que las [aplicaciones de página única](https://docs.microsoft.com/azure/active-directory-b2c/application-types#single-page-applications) inicien la sesión de los usuarios con Azure AD B2C mediante el [flujo de código de autorización con concesión de PKCE](https://docs.microsoft.com/azure/active-directory-b2c/authorization-code-flow). Con MSAL.js y Azure AD B2C:
 
-## <a name="prerequisites"></a>Requisitos previos
+- Los usuarios **pueden** autenticarse con sus identidades locales y sociales.
+- Los usuarios **pueden** tener autorización para acceder a los recursos protegidos de Azure AD B2C (pero no a los recursos protegidos de Azure AD).
+- Los usuarios **no pueden** obtener tokens para las API de Microsoft (por ejemplo, MS Graph API) mediante [permisos delegados](https://review.docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent?branch=master#permission-types).
+- Los usuarios con privilegios de administrador **pueden** obtener tokens para las API de Microsoft (por ejemplo, MS Graph API) mediante [permisos delegados](https://review.docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent?branch=master#permission-types).
 
-Si aún no ha creado su propio [inquilino de Azure AD B2C](../../active-directory-b2c/tutorial-create-tenant.md), cree uno ahora.
-
-## <a name="nodejs-web-api"></a>API web de Node.js
-
-En los pasos siguientes se muestra cómo una **API web** puede usar Azure AD B2C para protegerse y exponer ámbitos seleccionados en una aplicación cliente.
-
-MSAL.js para Node está actualmente en desarrollo. Para obtener más información, vea la [hoja de ruta](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki#roadmap) en GitHub. Actualmente se recomienda usar [passport-azure-ad](https://github.com/AzureAD/passport-azure-ad), una biblioteca de autenticación para Node.js que desarrolla y respalda Microsoft.
-
-### <a name="step-1-register-your-application"></a>Paso 1: Registrar su aplicación
-
-Para proteger la API web con Azure AD B2C, primero debe registrarla. Consulte [Registrar la aplicación](../../active-directory-b2c/add-web-api-application.md) para obtener instrucciones detalladas.
-
-### <a name="step-2-download-the-sample-application"></a>Paso 2: Descarga de la aplicación de ejemplo
-
-Descargue el ejemplo como archivo ZIP o clónelo desde GitHub:
-
-```console
-git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi.git
-```
-
-### <a name="step-3-configure-authentication"></a>Paso 3: Configurar la autenticación
-
-1. Abra el archivo *config.json* en el ejemplo.
-
-2. Configure el ejemplo con las credenciales de la aplicación que obtuvo anteriormente al registrar la aplicación. Cambie las siguientes líneas de código reemplazando los valores con el nombre del inquilino, el id. de cliente y el nombre de la directiva.
-
-    ```json
-         "credentials": {
-             "tenantName": "<your-tenant-name>",
-             "clientID": "<your-webapi-application-ID>"
-         },
-         "policies": {
-             "policyName": "B2C_1_signupsignin1"
-         },
-         "resource": {
-             "scope": ["demo.read"] 
-         },
-    ```
-
-Para más información, consulte este [ejemplo de API web B2C de Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi).
-
-## <a name="javascript-spa"></a>JavaScript SPA
-
-En los pasos siguientes se muestra cómo una **aplicación de página única** puede usar Azure AD B2C para el registro, el inicio de sesión y las llamadas a una API web protegida.
-
-### <a name="step-1-register-your-application"></a>Paso 1: Registrar su aplicación
-
-Para implementar la autenticación, primero debe registrar la aplicación. Consulte [Registrar la aplicación](../../active-directory-b2c/tutorial-register-applications.md) para obtener instrucciones detalladas.
-
-### <a name="step-2-download-the-sample-application"></a>Paso 2: Descarga de la aplicación de ejemplo
-
-Descargue el [archivo .ZIP](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) del ejemplo de código o clone el repositorio de GitHub:
-
-```console
-git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
-```
-
-### <a name="step-3-configure-authentication"></a>Paso 3: Configurar la autenticación
-
-Hay dos puntos de interés en la configuración de la aplicación:
-
-- Configuración de un punto de conexión de API y los ámbitos expuestos
-- Configuración de los parámetros de autenticación y los ámbitos de token
-
-1. Abra el archivo *apiConfig.js* en el ejemplo.
-
-2. Configure el ejemplo con los parámetros que obtuvo anteriormente al registrar la API web. Cambie las líneas de código siguiente reemplazando los valores por la dirección de la API web y los ámbitos expuestos.
-
-   ```javascript
-    // The current application coordinates were pre-registered in a B2C tenant.
-    const apiConfig = {
-        b2cScopes: ["https://fabrikamb2c.onmicrosoft.com/helloapi/demo.read"], //API scopes you exposed during api registration
-        webApi: "https://fabrikamb2chello.azurewebsites.net/hello"
-    };
-   ```
-
-1. Abra el archivo *authConfig.js* en el ejemplo.
-
-1. Configure el ejemplo con los parámetros que obtuvo anteriormente al registrar la aplicación de página única. Cambie las líneas de código siguientes reemplazando los valores por su ClientId, los metadatos de autoridad y los ámbitos de solicitud de token.
-
-   ```javascript
-    // Config object to be passed to Msal on creation.
-    const msalConfig = {
-        auth: {
-            clientId: "e760cab2-b9a1-4c0d-86fb-ff7084abd902",
-            authority: "https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/B2C_1_signupsignin1",
-            validateAuthority: false
-        },
-        cache: {
-            cacheLocation: "localStorage", // This configures where your cache will be stored
-            storeAuthStateInCookie: false // Set this to "true" to save cache in cookies
-        }
-    };
-
-    // Add here scopes for id token to be used at the MS Identity Platform endpoint
-    const loginRequest = {
-        scopes: ["openid", "profile"],
-    };
-   ```
-
-Para más información, consulte este [ejemplo de aplicación de página única de B2C de JavaScript](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp).
-
-## <a name="support-password-reset"></a>Compatibilidad con el restablecimiento de contraseña
-
-En esta sección, ampliará la aplicación de página única para usar el flujo de usuario de restablecimiento de contraseña de Azure AD B2C. Aunque MSAL.js no admite actualmente varios flujos de usuarios o directivas personalizadas de forma nativa, se puede usar la biblioteca para administrar casos de uso comunes como el restablecimiento de contraseña.
-
-En los pasos siguientes se da por hecho que ya se han seguido los pasos descritos en la sección anterior [SPA de JavaScript](#javascript-spa).
-
-### <a name="step-1-define-the-authority-string-for-password-reset-user-flow"></a>Paso 1: Definir la cadena de autoridad para el flujo de usuario de restablecimiento de contraseña
-
-1. En primer lugar, cree un objeto en el que se almacenen los URI de autoridad:
-
-    ```javascript
-        const b2cPolicies = {
-            names: {
-                signUpSignIn: "b2c_1_susi",
-                forgotPassword: "b2c_1_reset"
-            },
-            authorities: {
-                signUpSignIn: {
-                    authority: "https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_susi",
-                },
-                forgotPassword: {
-                    authority: "https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_reset",
-                },
-            },
-        }
-    ```
-
-1. Después, inicialice el objeto MSAL con la directiva `signInSignUp` como predeterminada (vea el fragmento de código anterior). Cuando un usuario intenta iniciar sesión, se le presenta la pantalla siguiente:
-
-    :::image type="content" source="media/msal-b2c-overview/user-journey-01-signin.png" alt-text="Pantalla de inicio de sesión que muestra Azure AD B2C":::
-
-### <a name="step-2-catch-and-handle-authentication-errors-in-your-login-method"></a>Paso 2: Detectar y controlar errores de autenticación en el método de inicio de sesión
-
-Cuando un usuario selecciona **Contraseña olvidada**, la aplicación produce un error que se debe detectar en el código y, después, controlar mediante la presentación del flujo de usuario adecuado. En este caso, el flujo de restablecimiento de contraseña `b2c_1_reset`.
-
-1. Amplíe el método de inicio de sesión de la siguiente manera:
-
-    ```javascript
-    function signIn() {
-      myMSALObj.loginPopup(loginRequest)
-        .then(loginResponse => {
-            console.log("id_token acquired at: " + new Date().toString());
-
-            if (myMSALObj.getAccount()) {
-              updateUI();
-            }
-
-        }).catch(function (error) {
-          console.log(error);
-
-          // error handling
-          if (error.errorMessage) {
-            // check for forgot password error
-            if (error.errorMessage.indexOf("AADB2C90118") > -1) {
-
-              //call login method again with the password reset user flow
-              myMSALObj.loginPopup(b2cPolicies.authorities.forgotPassword)
-                .then(loginResponse => {
-                  console.log(loginResponse);
-                  window.alert("Password has been reset successfully. \nPlease sign-in with your new password.");
-                })
-            }
-          }
-        });
-    }
-    ```
-
-1. En el fragmento de código anterior se muestra cómo mostrar la pantalla de restablecimiento de contraseña después de detectar el error con el código `AADB2C90118`.
-
-    Después de restablecer la contraseña, se devuelve al usuario a la aplicación para iniciar sesión de nuevo.
-
-    :::image type="content" source="media/msal-b2c-overview/user-journey-02-password-reset.png" alt-text="Pantallas de flujo de restablecimiento de contraseña que muestra Azure AD B2C" border="false":::
-
-    Para obtener más información sobre los códigos de error y el control de excepciones, vea [Códigos de excepción y de error de MSAL](msal-error-handling-js.md).
+Para obtener más información, consulte [Trabajo con Azure AD B2C](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/working-with-b2c.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtener más información sobre estos conceptos de Azure AD B2C:
+Siga el tutorial acerca de cómo:
 
-- [Flujos de usuario](../../active-directory-b2c/tutorial-create-user-flows.md?pivots=b2c-user-flow)
-- [Directivas personalizadas](../../active-directory-b2c/tutorial-create-user-flows.md?pivots=b2c-custom-policy)
-- [Personalización de la experiencia de usuario](../../active-directory-b2c/configure-user-input.md)
+- [Iniciar la sesión de los usuarios con Azure AD B2C en una aplicación de página única](../../active-directory-b2c/tutorial-single-page-app.md)
+- [Llamar a una API web protegida de Azure AD B2C](../../active-directory-b2c/tutorial-single-page-app-webapi.md)

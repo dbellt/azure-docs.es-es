@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 12/03/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 97f9d0e0037090a8c058eb6e2393451d975e79c6
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 91eaf655a3259cff31767353fb2c2b7fcd787d63
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103472259"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108122968"
 ---
 # <a name="how-to-set-up-access-control-for-your-synapse-workspace"></a>Cómo configurar el control de acceso para el área de trabajo de Synapse 
 
@@ -128,7 +128,7 @@ Para crear grupos de SQL, grupos de Apache Spark y entornos de ejecución de in
 
 - Abra Azure Portal.
 - Busque el área de trabajo `workspace1`.
-- Asigne el rol **Colaborador de Azure** de `workspace1` en `workspace1_SynapseAdministrators`. 
+- Asigne el rol **Colaborador** de Azure de `workspace1` a `workspace1_SynapseAdministrators`. 
 
 ## <a name="step-6-assign-sql-active-directory-admin-role"></a>PASO 6: Asignación del rol Administrador de SQL Active Directory
 

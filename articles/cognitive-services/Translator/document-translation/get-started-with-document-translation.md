@@ -6,12 +6,12 @@ manager: nitinme
 ms.author: lajanuar
 author: laujan
 ms.date: 03/05/2021
-ms.openlocfilehash: 780e6defe4f7d09e2d136c080525447ffd29bbb4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a9ec36483196ea6214742522f88ddffcd8a3b899
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105612388"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108292835"
 ---
 # <a name="get-started-with-document-translation-preview"></a>Introducción a la traducción de documentos (versión preliminar)
 
@@ -261,7 +261,7 @@ En cada solicitud de API de traducción de documentos se incluyen los siguientes
 
 > [!IMPORTANT]
 >
-> Para los ejemplos de código siguientes, deberá codificar de forma rígida la clave y el punto de conexión donde se indique. Recuerde quitar la clave del código cuando haya terminado y no publicarla públicamente.  Consulte [Seguridad de Azure Cognitive Services](/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp) para saber cómo almacenar y acceder a las credenciales de forma segura.
+> Para los ejemplos de código siguientes, deberá codificar de forma rígida la clave y el punto de conexión donde se indique. Recuerde quitar la clave del código cuando haya terminado y no publicarla públicamente.  Consulte [Seguridad de Azure Cognitive Services](../../cognitive-services-security.md?tabs=command-line%2ccsharp) para saber cómo almacenar y acceder a las credenciales de forma segura.
 >
 > Es posible que tenga que actualizar los campos siguientes, en función de la operación:
 >>>
