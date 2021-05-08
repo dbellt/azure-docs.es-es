@@ -1,19 +1,19 @@
 ---
 title: 'Azure VMware Solution by CloudSimple: creación de una nube privada de CloudSimple'
 description: Describe cómo crear una nube privada de CloudSimple para ampliar las cargas de trabajo de VMware a la nube con continuidad y flexibilidad de funcionamiento.
-author: Ajayan1008
-ms.author: v-hborys
+author: shortpatti
+ms.author: v-patsho
 ms.date: 08/19/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 2f4af4a36e719cbf15b3f0af77db81a32f2f2e42
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 02cab9ee72dcd13b2ed8cd255ec4bb555b3894cc
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97896284"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108177807"
 ---
 # <a name="create-a-cloudsimple-private-cloud"></a>Crear una nube privada de CloudSimple
 

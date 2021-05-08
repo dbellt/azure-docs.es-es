@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 1318aaf50d4f05b8a999e5661318dc83997a2f02
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6c302b10baad157cd70751d49fe6d50911c2ce75
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96920793"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108074797"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Cifrado en reposo de datos de Azure
 
@@ -91,7 +91,7 @@ Los clientes del software como servicio (SaaS) suelen tener el cifrado en reposo
 
 ### <a name="encryption-at-rest-for-paas-customers"></a>Cifrado en reposo para clientes PaaS
 
-Los datos del cliente de la plataforma como servicio (PaaS) residen normalmente en un servicio de almacenamiento como Blob Storage, pero también pueden estar guardados en caché o almacenados en el entorno de ejecución de la aplicación, como una máquina virtual. Para ver las opciones disponibles del cifrado en reposo, examine la tabla siguiente para las plataformas de aplicación y almacenamiento que utiliza.
+Los datos del cliente de la plataforma como servicio (PaaS) residen normalmente en un servicio de almacenamiento como Blob Storage, pero también pueden estar guardados en caché o almacenados en el entorno de ejecución de la aplicación, como una máquina virtual. Para ver las opciones disponibles del cifrado en reposo, examine la [tabla Modelos de cifrado de datos: servicios compatibles](encryption-models.md#supporting-services) para las plataformas de aplicación y almacenamiento que usa.
 
 ### <a name="encryption-at-rest-for-iaas-customers"></a>Cifrado en reposo para clientes de IaaS
 
@@ -99,7 +99,7 @@ Los clientes de la infraestructura como servicio (IaaS) pueden tener una varieda
 
 #### <a name="encrypted-storage"></a>Almacenamiento cifrado
 
-Al igual que PaaS, las soluciones IaaS pueden sacar provecho de otros servicios de Azure que almacenan los datos que se cifran en reposo. En estos casos, puede habilitar el cifrado en el soporte del cifrado en reposo como proporciona cada servicio consumido de Azure. La siguiente tabla enumera las principales plataformas de aplicación, servicios y almacenamiento y el modelo de cifrado en reposo admitido.
+Al igual que PaaS, las soluciones IaaS pueden sacar provecho de otros servicios de Azure que almacenan los datos que se cifran en reposo. En estos casos, puede habilitar el cifrado en el soporte del cifrado en reposo como proporciona cada servicio consumido de Azure. La [tabla Modelos de cifrado de datos: servicios compatibles](encryption-models.md#supporting-services) enumera las principales plataformas de aplicación, servicios y almacenamiento y el modelo de cifrado en reposo admitido.
 
 #### <a name="encrypted-compute"></a>Compute de cifrado
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/12/2021
 ms.author: rosouz
 ms.custom: seo-nov-2020
-ms.openlocfilehash: eaabc663ba243423bddf7ef6abfe41182e06b4f9
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 1ac3c25458df19ca1db7ee16e5c231512a7663b0
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107364617"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108076912"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store"></a>¿Qué es el almacén analítico de Azure Cosmos DB?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -39,7 +39,7 @@ Con Azure Synapse Link, ahora puede compilar soluciones de HTAP sin ETL mediante
 
 Cuando se habilita el almacén analítico en un contenedor de Azure Cosmos DB, se crea internamente un nuevo almacén de columnas en función de los datos operativos del contenedor. Este almacén de columnas se conserva de forma independiente del almacén transaccional orientado a filas de ese contenedor. Las inserciones, actualizaciones y eliminaciones de los datos operativos se sincronizan automáticamente con el almacén analítico. No necesita la fuente de cambios ni ETL para sincronizar los datos.
 
-### <a name="column-store-for-analytical-workloads-on-operational-data"></a>Almacén de columnas para cargas de trabajo analíticas en datos operativos
+## <a name="column-store-for-analytical-workloads-on-operational-data"></a>Almacén de columnas para cargas de trabajo analíticas en datos operativos
 
 En general, las cargas de trabajo analíticas implican agregaciones y exámenes secuenciales de los campos seleccionados. Al almacenar los datos en un orden de columna principal, el almacén analítico permite serializar en conjunto un grupo de valores para cada campo. Este formato reduce las IOPS necesarias para examinar o procesar las estadísticas de los campos específicos. Esto mejora drásticamente los tiempos de respuesta de las consultas para los exámenes en grandes conjuntos de datos. 
 
@@ -55,27 +55,34 @@ En la imagen siguiente se muestra el almacén de filas transaccional frente el a
 
 :::image type="content" source="./media/analytical-store-introduction/transactional-analytical-data-stores.png" alt-text="Almacén de filas transaccional frente al almacén de columnas analítico en Azure Cosmos DB" border="false":::
 
-### <a name="decoupled-performance-for-analytical-workloads"></a>Rendimiento desacoplado para cargas de trabajo analíticas
+## <a name="decoupled-performance-for-analytical-workloads"></a>Rendimiento desacoplado para cargas de trabajo analíticas
 
 No hay ningún impacto en el rendimiento de las cargas de trabajo transaccionales debido a las consultas analíticas, ya que el almacén analítico es independiente del almacén transaccional.  El almacén analítico no necesita que se asignen Unidades de solicitud (RU) independientes.
 
-### <a name="auto-sync"></a>Sincronización automática
+## <a name="auto-sync"></a>Sincronización automática
 
 La sincronización automática hace referencia a la funcionalidad totalmente administrada de Azure Cosmos DB donde las inserciones, las actualizaciones y las eliminaciones de datos operativos se sincronizan automáticamente entre el almacén transaccional y el almacén analítico casi en tiempo real. La latencia de sincronización automática suele ser de menos de 2 minutos. En los casos en los que una base de datos de rendimiento compartida cuente con un gran número de contenedores, la latencia de sincronización automática de contenedores individuales puede ser mayor y tardar hasta 5 minutos. Nos gustaría obtener más información sobre cómo encaja esta latencia en sus escenarios. Para ello, póngase en contacto con el [equipo de Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com).
 
-La funcionalidad de sincronización automática, junto con el almacén analítico, proporciona las siguientes ventajas clave:
+Al final de cada ejecución del proceso de sincronización automática, los datos transaccionales estarán disponibles inmediatamente para los entornos de ejecución de Azure Synapse Analytics:
 
-### <a name="scalability--elasticity"></a>Escalabilidad y elasticidad
+* Los grupos de Spark de Azure Synapse Analytics pueden leer todos los datos, incluidas las actualizaciones más recientes, mediante tablas de Spark, que se actualizan automáticamente, o mediante el comando `spark.read`, que siempre lee el último estado de los datos.
+
+*  Los grupos sin servidor SQL de Azure Synapse Analytics pueden leer todos los datos, incluidas las actualizaciones más recientes, mediante las vistas, que se actualizan automáticamente, o por medio del comando `SELECT` junto con ` OPENROWSET`, que siempre lee el estado más reciente de los datos.
+
+> [!NOTE]
+> Los datos transaccionales se sincronizarán con el almacén analítico incluso si el TTL transaccional es inferior a 2 minutos. 
+
+## <a name="scalability--elasticity"></a>Escalabilidad y elasticidad
 
 Mediante la creación de partición horizontal, el almacén transaccional de Azure Cosmos DB puede escalar elásticamente el almacenamiento y el rendimiento sin tiempo de inactividad. La creación de partición horizontal en el almacén transaccional proporciona escalabilidad y elasticidad en la sincronización automática para garantizar que los datos se sincronicen con el almacén analítico casi en tiempo real. La sincronización de datos se produce independientemente del rendimiento del tráfico transaccional, ya sean 1000 operaciones/s o 1 millón de operaciones/s, y no afecta al rendimiento aprovisionado en el almacén transaccional. 
 
-### <a name="automatically-handle-schema-updates"></a><a id="analytical-schema"></a>Control automático de las actualizaciones de esquema
+## <a name="automatically-handle-schema-updates"></a><a id="analytical-schema"></a>Control automático de las actualizaciones de esquema
 
 El almacén transaccional de Azure Cosmos DB es independiente del esquema y le permite iterar las aplicaciones transaccionales sin tener que encargarse de la administración de esquemas o índices. A diferencia de esto, el almacén analítico de Azure Cosmos DB está esquematizado para optimizar el rendimiento de las consultas analíticas. Con la funcionalidad de sincronización automática, Azure Cosmos DB administra la inferencia de esquemas en las actualizaciones más recientes del almacén transaccional.  También administra la representación del esquema en el almacén analítico de manera integrada, lo que incluye el control de los tipos de datos anidados.
 
 A medida que evoluciona el esquema, y se agregan propiedades nuevas con el tiempo, el almacén analítico presenta automáticamente un esquema unificado de todos los esquemas históricos del almacén de transacciones.
 
-#### <a name="schema-constraints"></a>Restricciones del esquema
+### <a name="schema-constraints"></a>Restricciones del esquema
 
 Las restricciones siguientes se aplican a los datos operativos de Azure Cosmos DB al habilitar el almacén analítico para que realice la inferencia automáticamente y represente el esquema correctamente:
 
@@ -110,16 +117,7 @@ Las restricciones siguientes se aplican a los datos operativos de Azure Cosmos 
 
 * Actualmente no se admiten los nombres de la columna de lectura de Azure Synapse Spark que contengan espacios en blanco.
 
-* Se espera un comportamiento diferente con respecto a los valores explícitos `null`:
-  * Los grupos de Spark en Azure Synapse leerán estos valores como `0` (cero).
-  * Los grupos sin servidor de SQL en Azure Synapse leerán estos valores como `NULL` si el primer documento de la colección tiene, para la misma propiedad, un valor con el tipo de datos `non-numeric`.
-  * Los grupos sin servidor de SQL en Azure Synapse leerán estos valores como `0` (cero) si el primer documento de la colección tiene, para la misma propiedad, un valor con el tipo de datos `numeric`.
-
-* Se espera un comportamiento diferente con respecto a las columnas que faltan:
-  * Los grupos de Spark en Azure Synapse representarán estas columnas como `undefined`.
-  * Los grupos sin servidor de SQL en Azure Synapse representarán estas columnas como `NULL`.
-
-#### <a name="schema-representation"></a>Representación del esquema
+### <a name="schema-representation"></a>Representación del esquema
 
 En el almacén analítico hay dos maneras de representar el esquema. Estos modos presentan ventajas e inconvenientes en relación con la simplicidad de la representación en columnas, el control de los esquemas polimórficos y la simplicidad de la experiencia de consulta:
 
@@ -127,7 +125,7 @@ En el almacén analítico hay dos maneras de representar el esquema. Estos modos
 * Representación de esquemas con fidelidad total
 
 > [!NOTE]
-> En el caso de las cuentas de SQL (Core) API, cuando se habilita el almacén analítico, la representación de esquemas predeterminada en él es la representación bien definida. Mientras que para las cuentas de Azure Cosmos DB API para MongoDB, la representación de esquemas predeterminada en el almacén analítico es la representación con fidelidad total. Si tiene escenarios que requieran una representación de esquemas diferente de la predeterminada para cada una de estas API, póngase en contacto con el [equipo de Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com) para habilitarla.
+> En el caso de las cuentas de SQL (Core) API, cuando se habilita el almacén analítico, la representación de esquemas predeterminada en él es la representación bien definida. Mientras que para las cuentas de Azure Cosmos DB API para MongoDB, la representación de esquemas predeterminada en el almacén analítico es la representación con fidelidad total. 
 
 **Representación de esquemas bien definida**
 
@@ -150,6 +148,14 @@ La representación de esquemas bien definida crea una representación tabular si
 * Se espera un comportamiento diferente en lo que respecta a los diferentes tipos en el esquema bien definido:
   * Los grupos de Spark en Azure Synapse representarán estos valores como `undefined`.
   * Los grupos sin servidor de SQL en Azure Synapse representarán estos valores como `NULL`.
+
+* Se espera un comportamiento diferente con respecto a los valores explícitos `null`:
+  * Los grupos de Spark en Azure Synapse leerán estos valores como `0` (cero). Y cambiará a `undefined` en cuanto la columna tenga un valor distinto de NULL.
+  * Los grupos sin servidor SQL de Azure Synapse leerán estos valores como `NULL`.
+    
+* Se espera un comportamiento diferente con respecto a las columnas que faltan:
+  * Los grupos de Spark en Azure Synapse representarán estas columnas como `undefined`.
+  * Los grupos sin servidor de SQL en Azure Synapse representarán estas columnas como `NULL`.
 
 
 **Representación de esquemas con fidelidad total**
@@ -195,28 +201,39 @@ Esta es la asignación de los tipos de datos de propiedad y sus representaciones
 |ObjectId   |".objectId"    | ObjectId("5f3f7b59330ec25c132623a2")|
 |Documento   |".object" |    {"a": "a"}|
 
-### <a name="cost-effective-archival-of-historical-data"></a>Archivado rentable de datos históricos
+* Se espera un comportamiento diferente con respecto a los valores explícitos `null`:
+  * Los grupos de Spark en Azure Synapse leerán estos valores como `0` (cero).
+  * Los grupos sin servidor SQL de Azure Synapse leerán estos valores como `NULL`.
+  
+* Se espera un comportamiento diferente con respecto a las columnas que faltan:
+  * Los grupos de Spark en Azure Synapse representarán estas columnas como `undefined`.
+  * Los grupos sin servidor de SQL en Azure Synapse representarán estas columnas como `NULL`.
+
+## <a name="cost-effective-archival-of-historical-data"></a>Archivado rentable de datos históricos
 
 La organización en capas de datos hace referencia a la separación de los datos entre las infraestructuras de almacenamiento optimizadas para los distintos escenarios. Con lo que se mejora el rendimiento general y la rentabilidad de la pila de datos de un extremo a otro. Con el almacén analítico, Azure Cosmos DB ahora admite la organización automática en capas de datos desde el almacén transaccional hacia el almacén analítico con diferentes diseños de datos. Con el almacén analítico optimizado en cuanto al costo de almacenamiento en comparación con el almacén transaccional, usted puede conservar un horizonte mucho más largo de datos operativos para el análisis histórico.
 
 Una vez que el almacén analítico esté habilitado, en función de las necesidades de retención de datos de las cargas de trabajo transaccionales, puede configurar la propiedad "Período de vida del almacén transaccional (TTL transaccional)" para que los registros se eliminen automáticamente del almacén transaccional después de un período de tiempo determinado. Del mismo modo, el "Período de vida del almacén analítico (TTL analítico)" le permite administrar el ciclo de vida de los datos retenidos en el almacén analítico de manera independiente del almacén transaccional. Al habilitar el almacén analítico y configurar las propiedades TTL, puede establecer un nivel y definir sin problemas el período de retención de los datos para los dos almacenes.
 
-### <a name="global-distribution"></a>Distribución global
+> [!NOTE]
+>Actualmente, el almacén analítico no admite copia de seguridad y restauración. No se puede planear la directiva de copia de seguridad basándose en el almacén analítico. Para más información, consulte la sección de limitaciones de [este](synapse-link.md#limitations) documento. Es importante tener en cuenta que los datos del almacén analítico tienen un esquema diferente al que existe en el almacén transaccional. Aunque puede generar instantáneas de los datos del almacén analítico, sin costos de RU, no se puede garantizar el uso de esta instantánea para volver a generar el almacén transaccional. Este proceso no se admite.
+
+## <a name="global-distribution"></a>Distribución global
 
 Si tiene una cuenta de Azure Cosmos DB distribuida globalmente, después de habilitar el almacén analítico para un contenedor, estará disponible en todas las regiones de dicha cuenta.  Los cambios en los datos operativos se replican globalmente en todas las regiones. Puede ejecutar consultas analíticas de forma eficaz en la copia regional más cercana de los datos en Azure Cosmos DB.
 
-### <a name="security"></a>Seguridad
+## <a name="security"></a>Seguridad
 
 La autenticación con el almacén analítico es igual que en un almacén transaccional para una base de datos determinada. Puede usar claves principales o de solo lectura para la autenticación. Puede aprovechar el servicio vinculado en Synapse Studio para evitar pegar las claves de Azure Cosmos DB en los cuadernos de Spark. El acceso a este servicio vinculado está disponible para todos los usuarios que tengan acceso al área de trabajo.
 
-### <a name="support-for-multiple-azure-synapse-analytics-runtimes"></a>Compatibilidad con varios runtimes de Azure Synapse Analytics
+## <a name="support-for-multiple-azure-synapse-analytics-runtimes"></a>Compatibilidad con varios runtimes de Azure Synapse Analytics
 
 El almacén analítico está optimizado para proporcionar escalabilidad, elasticidad y rendimiento para las cargas de trabajo analíticas sin depender de los runtimes de proceso. La tecnología de almacenamiento se administra automáticamente para optimizar las cargas de trabajo analíticas sin esfuerzo manual.
 
 Al desacoplar el sistema de almacenamiento analítico del sistema de proceso analítico, los datos en el almacén analítico de Azure Cosmos DB se pueden consultar simultáneamente desde los distintos runtimes analíticos admitidos por Azure Synapse Analytics. En la actualidad, Azure Synapse Analytics admite Apache Spark y el grupo de SQL sin servidor con el almacén analítico de Azure Cosmos DB.
 
 > [!NOTE]
-> Solo puede leer desde el almacén analítico mediante el tiempo de ejecución de Azure Synapse Analytics. Puede volver a escribir los datos en el almacén transaccional como capa de servicio.
+> Solo se puede leer del almacén analítico mediante los entornos de ejecución de Azure Synapse Analytics. Y al contrario, los entornos de ejecución de Azure Synapse Analytics solo pueden leer del almacén analítico. Solo el proceso de sincronización automática puede cambiar los datos en el almacén analítico. Puede volver a escribir datos en el almacén transaccional de Cosmos DB mediante el grupo de Azure Synapse Analytics, por medio del SDK de OLPT integrado de Azure Cosmos DB.
 
 ## <a name="pricing"></a><a id="analytical-store-pricing"></a> Precios
 
@@ -253,11 +270,11 @@ Algunos puntos que se deben tener en cuenta:
 *   Puede lograr una retención más prolongada de los datos operativos en el almacén analítico si establece un TTL analítico >= TTL transaccional a nivel de contenedor.
 *   Se puede hacer que el almacén analítico refleje el almacén transaccional si se establece lo siguiente: TTL analítico = TTL transaccional.
 
-Al habilitar el almacén analítico en un contenedor:
+Cómo habilitar el almacén analítico en un contenedor:
 
-* En Azure Portal, la opción de análisis de TTL se establece en el valor predeterminado de -1. Puede cambiar este valor a "n" segundos; para ello, vaya a la configuración del contenedor en el Explorador de datos. 
+* En Azure Portal, la opción de TTL analítico, cuando está activada, se establece en el valor predeterminado de -1. Puede cambiar este valor a "n" segundos; para ello, vaya a la configuración del contenedor en el Explorador de datos. 
  
-* En el SDK, PowerShell o la CLI de Azure se puede habilitar la opción de análisis de TTL; para ello, establézcala en -1 o en "n". 
+* Desde el SDK de Azure Management, los SDK de Azure Cosmos DB, PowerShell o la CLI, la opción de TTL analítico se puede habilitar estableciendo su valor en -1 o "n" segundos. 
 
 Para obtener más información, consulte [Configuración del TTL analítico en un contenedor](configure-synapse-link.md#create-analytical-ttl).
 
@@ -269,6 +286,6 @@ Para obtener más información, consulte la siguiente documentación:
 
 * [Introducción a Azure Synapse Link para Azure Cosmos DB](configure-synapse-link.md)
 
-* [Preguntas frecuentes sobre Synapse Link para Azure Cosmos DB](synapse-link-frequently-asked-questions.md)
+* [Preguntas frecuentes sobre Synapse Link para Azure Cosmos DB](synapse-link-frequently-asked-questions.yml)
 
 * [Casos de uso de Azure Synapse Link para Azure Cosmos DB](synapse-link-use-cases.md)

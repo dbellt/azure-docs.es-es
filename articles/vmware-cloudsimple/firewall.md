@@ -1,19 +1,19 @@
 ---
 title: 'Azure VMware Solution by CloudSimple: configuración de tablas de firewall y reglas'
 description: Se describe cómo configurar tablas de firewall y reglas de nube privada para restringir el tráfico en las subredes y las redes VLAN.
-author: Ajayan1008
-ms.author: v-hborys
+author: shortpatti
+ms.author: v-patsho
 ms.date: 08/15/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 32dcfb0c6cd26b5f34afad328db8f383fa1c2a6f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4ecc1010afb547d97f0a5c21ff1caa0886edbb48
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97895638"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108176871"
 ---
 # <a name="set-up-firewall-tables-and-rules-for-private-clouds"></a>Configuración de tablas de firewall y reglas para las nubes privadas
 

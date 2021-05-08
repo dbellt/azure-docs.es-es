@@ -3,12 +3,13 @@ title: Plantillas de vínculo para la implementación
 description: Describe cómo usar plantillas vinculadas en una plantilla de Azure Resource Manager (plantilla de ARM) para crear una solución de plantilla modular. Muestra cómo pasar valores de parámetros y especificar un archivo de parámetros y las direcciones URL creadas dinámicamente.
 ms.topic: conceptual
 ms.date: 03/25/2021
-ms.openlocfilehash: 981e9f10e118012911108d634fbb8bdb9524cb88
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: a014fae0825bc3bfe6e7a808582d071e1f240ade
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105543982"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108318412"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Uso de plantillas vinculadas y anidadas al implementar recursos de Azure
 

@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/16/2021
 ms.author: pepogors
-ms.openlocfilehash: 9cc2a9d189e7a781dc6ba64a65af022150392485
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 1d4c92d91a620a56afbee9a1f41c8a67aa4b8f6a
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107727769"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108072988"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Implementación de un clúster de Azure Service Fabric en Availability Zones
 Availability Zones de Azure es una oferta de alta disponibilidad que protege las aplicaciones y los datos de los errores del centro de datos. Una zona de disponibilidad es una ubicación física única equipada con alimentación independiente, refrigeración y redes dentro de una región de Azure.
@@ -377,8 +377,8 @@ Para habilitar zonas en un conjunto de escalado de máquinas virtuales, debe inc
 ```
 
 >[!NOTE]
-> * **Los clústeres de Service Fabric deben tener al menos un elemento nodeType principal. El valor de durabilityLevel de los elementos nodeType principales debe ser Silver o superior.**
-> * La zona de disponibilidad que abarca el conjunto de escalado de máquinas virtuales se debe configurar con al menos 3 zonas de disponibilidad, independientemente del valor de durabilityLevel.
+> * **Los clústeres de Service Fabric deben tener al menos un elemento nodeType principal. El valor de DurabilityLevel de los elementos nodeType principales debe ser Silver o superior.**
+> * La zona de disponibilidad que abarca el conjunto de escalado de máquinas virtuales se debe configurar con al menos 3 zonas de disponibilidad, independientemente del valor de DurabilityLevel.
 > * La zona de disponibilidad que abarca el conjunto de escalado de máquinas virtuales con durabilidad Silver (o superior) debe tener al menos 15 máquinas virtuales.
 > * La zona de disponibilidad que abarca el conjunto de escalado de máquinas virtuales con durabilidad Bronze debe tener al menos 6 máquinas virtuales.
 
@@ -433,7 +433,7 @@ El elemento nodeType de Service Fabric debe estar habilitado para admitir varias
 En todos los escenarios de migración, es necesario agregar un elemento nodeType nuevo que tendrá varias zonas de disponibilidad admitidas. No se puede migrar un elemento nodeType existente para admitir varias zonas.
 En [este artículo](./service-fabric-scale-up-primary-node-type.md) se encuentran los pasos detallados para agregar un elemento nodeType nuevo y para agregar también los otros recursos necesarios para el elemento nodeType nuevo, como los recursos de IP y LB. En el mismo artículo se describe también cómo retirar el elemento nodeType existente una vez que se agrega al clúster el elemento nodeType con varias zonas disponibles.
 
-* Migración desde un elemento nodeType que usa recursos IP y LB básicos: Esto ya se describe [aquí](#migrate-to-using-availability-zones-from-a-cluster-using-a-basic-sku-load-balancer-and-a-basic-sku-ip) para la solución con un tipo de nodo por zona de disponibilidad. 
+* Migración desde un elemento nodeType que usa la SKU básica de recursos IP y LB: Esto ya se describe [aquí](#migrate-to-using-availability-zones-from-a-cluster-using-a-basic-sku-load-balancer-and-a-basic-sku-ip) para la solución con un tipo de nodo por zona de disponibilidad. 
     Para el tipo de nodo nuevo, la única diferencia es que solo hay 1 conjunto de escalado de máquinas virtuales y 1 elemento nodeType para todas las zonas de disponibilidad, en lugar de uno de cada uno por zona de disponibilidad.
 * Migración desde un elemento nodeType que usa los recursos de IP y LB de SKU estándar con NSG:   Siga el mismo procedimiento descrito anteriormente, excepto que no es necesario agregar recursos de LB, IP y NSG nuevos, y los mismos recursos se pueden volver a usar en el elemento nodeType nuevo.
 

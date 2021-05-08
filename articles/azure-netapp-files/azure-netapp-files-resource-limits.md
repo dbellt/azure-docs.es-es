@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/20/2021
+ms.date: 04/22/2021
 ms.author: b-juche
-ms.openlocfilehash: f023bfa2b3941f7d667f4be34a8ee8dc1ed9a9c3
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: b5abb26a5a96b73f06f25661c62061f664069ee3
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107750201"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107903495"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Límites de recursos para Azure NetApp Files
 
@@ -44,15 +44,36 @@ En la tabla siguiente se describen los límites de recursos de Azure NetApp File
 |  Tamaño máximo de un único volumen     |    100 TiB    |    No    |
 |  Tamaño máximo de un archivo individual     |    16 TiB    |    No    |    
 |  Tamaño máximo de los metadatos de directorio en un solo directorio      |    320 MB    |    No    |    
+|  Número máximo de archivos en un único directorio  | *Aproximadamente* 4 millones. <br> Consulte [Determinar si un directorio está llegando al tamaño límite](#directory-limit).  |    No    |   
 |  Número máximo de archivos ([maxfiles](#maxfiles)) por volumen     |    100 millones    |    Sí    |    
 |  Número máximo de reglas de directiva de exportación por volumen     |    5  |    No    | 
 |  Rendimiento mínimo asignado para un volumen de QoS manual     |    1 MiB/s   |    No    |    
 |  Rendimiento máximo asignado para un volumen de QoS manual     |    4500 MiB/s    |    No    |    
 |  Número de volúmenes de protección de datos de replicación entre regiones (volúmenes de destino)     |    5    |    Sí    |     
 
-Para ver si un directorio está llegando al límite de tamaño máximo de los metadatos del directorio (320 MB), consulte [¿Cómo puedo determinar si un directorio está llegando al tamaño límite?](azure-netapp-files-faqs.md#how-do-i-determine-if-a-directory-is-approaching-the-limit-size).   
-
 Para más información, consulte [Preguntas más frecuentes sobre la administración de la capacidad](azure-netapp-files-faqs.md#capacity-management-faqs).
+
+## <a name="determine-if-a-directory-is-approaching-the-limit-size"></a>Determinar si un directorio está llegando al tamaño límite <a name="directory-limit"></a>  
+
+Puede usar el comando `stat` desde un cliente para ver si un directorio está llegando al límite de tamaño máximo de los metadatos del directorio (320 MB).   
+
+En un directorio de 320 MB, el número de bloques es 655 360 y el tamaño de cada bloque es de 512 bytes.  (Es decir, 320 x 1024 x 1024/512). Este número se traduce en aproximadamente 4 millones archivos como máximo para un directorio de 320 MB. Sin embargo, el número máximo real de archivos puede ser menor, en función de factores como el número de archivos que contienen caracteres que no son ASCII en el directorio. Por lo tanto, debe usar el comando `stat` como se indica a continuación para determinar si el directorio está llegando a su límite.  
+
+Ejemplos:
+
+```console
+[makam@cycrh6rtp07 ~]$ stat bin
+File: 'bin'
+Size: 4096            Blocks: 8          IO Block: 65536  directory
+
+[makam@cycrh6rtp07 ~]$ stat tmp
+File: 'tmp'
+Size: 12288           Blocks: 24         IO Block: 65536  directory
+ 
+[makam@cycrh6rtp07 ~]$ stat tmp1
+File: 'tmp1'
+Size: 4096            Blocks: 8          IO Block: 65536  directory
+```
 
 ## <a name="maxfiles-limits"></a>Límites de número máximo de archivos <a name="maxfiles"></a> 
 
