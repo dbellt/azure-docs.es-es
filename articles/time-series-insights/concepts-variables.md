@@ -6,12 +6,12 @@ ms.author: shresha
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 01/22/2021
-ms.openlocfilehash: fd08dc98fa47617bbc7c8d1fff895377837a7327
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 01184a4eb2aac81bbcabcebf89ef10afeabddbe8
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98736741"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107872972"
 ---
 # <a name="time-series-model-variables"></a>Variables del modelo de serie temporal
 
@@ -32,7 +32,7 @@ En la tabla siguiente se muestran las propiedades que son relevantes para cada t
 | Propiedad de variable | Descripción |
 | --- | ---|
 | Filtro de variables | Los filtros son cláusulas opcionales condicionales para restringir el número de filas que se tienen en cuenta para el cálculo. |
-| Valor variable | Valores de telemetría usados para el cálculo procedentes del dispositivo o los sensores, o transformados mediante expresiones de serie temporal. Las variables de tipo numérico deben ser del tipo *Double*.|
+| Valor variable | Valores de telemetría usados para el cálculo procedentes del dispositivo o los sensores, o transformados mediante expresiones de serie temporal. Las variables de tipo numérico deben ser `Double` o `Long` para que coincidan con el tipo de los datos entrantes.|
 | Interpolación de variable | La interpolación especifica cómo reconstruir una señal mediante los datos existentes. Para las variables numéricas están disponibles las opciones de interpolación *Escalonada* y *Lineal*. |
 | Agregación de la variable | Realice cálculos a través de las [funciones de agregación admitidas para los tipos de variables numéricas](/rest/api/time-series-insights/reference-time-series-expression-syntax#numeric-variable-kind). |
 
@@ -62,7 +62,7 @@ Las variables se ajustan al ejemplo JSON siguiente:
 | Propiedad de variable | Descripción |
 | --- | ---|
 | Filtro de variables | Los filtros son cláusulas opcionales condicionales para restringir el número de filas que se tienen en cuenta para el cálculo. |
-| Valor variable | Valores de telemetría que se usan para el cálculo procedentes del dispositivo o de los sensores. Las variables de tipo de categoría deben ser *Long* o *String*. |
+| Valor variable | Valores de telemetría que se usan para el cálculo procedentes del dispositivo o de los sensores. Las variables de tipo categórico deben ser `Long` o `String` para que coincidan con el tipo de los datos entrantes. |
 | Interpolación de variable | La interpolación especifica cómo reconstruir una señal mediante los datos existentes. Para las variables de categoría está disponible la opción de interpolación *Escalonada*. |
 | Categorías de variable | Las categorías crean una asignación entre los valores procedentes del dispositivo o los sensores a una etiqueta. |
 | Categoría predeterminada de variable | La categoría predeterminada es para todos los valores que no se están asignando en la propiedad "categories". |

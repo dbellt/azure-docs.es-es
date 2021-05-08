@@ -8,12 +8,12 @@ ms.date: 4/8/2021
 ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: contperf-fy21q4
-ms.openlocfilehash: 42842b00120b7e918ca5b790cce92a74ab1b99d5
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 625f69b0088ffe6931410afc6f2a825c3156fd70
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107260102"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108209956"
 ---
 # <a name="event-notifications"></a>Notificaciones de eventos
 
@@ -312,4 +312,4 @@ Este es un cuerpo del mensaje de telemetría de ejemplo:
 ## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga información sobre la entrega de eventos a distintos destinos, mediante puntos de conexión y rutas:
-* [*Conceptos: Rutas de eventos*](concepts-route-events.md)
+* [Conceptos: Rutas de eventos](concepts-route-events.md)

@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 03/18/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 338fb56c4af5c24b7b746ffd6508c2fe7d52b131
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: cd3d903aead4877fac9e5472f1ac9d579da979d2
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107830203"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108209578"
 ---
 # <a name="start-a-runbook-from-a-webhook"></a>Inicio de un runbook desde un webhook
 
@@ -138,7 +138,7 @@ El cliente no puede determinar cuando se completa el trabajo del runbook ni su e
 
 ### <a name="use-a-webhook-from-an-arm-template"></a>Uso de un webhook de una plantilla de ARM
 
-Los webhooks de Automation también se pueden invocar mediante [plantillas de Azure Resource Manager (ARM)](/azure/azure-resource-manager/templates/overview). La plantilla ARM emite una solicitud `POST` y recibe un código de retorno como cualquier otro cliente. Consulte [Uso de webhooks](#use-a-webhook).
+Los webhooks de Automation también se pueden invocar mediante [plantillas de Azure Resource Manager (ARM)](../azure-resource-manager/templates/overview.md). La plantilla ARM emite una solicitud `POST` y recibe un código de retorno como cualquier otro cliente. Consulte [Uso de webhooks](#use-a-webhook).
 
    > [!NOTE]
    > Por motivos de seguridad, el URI solo se devuelve la primera vez que se implementa una plantilla.

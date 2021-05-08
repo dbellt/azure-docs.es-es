@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 1/21/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1211cd306f10fb349bd42568697443ff103a171c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9b33658ff67c306085a36104679bcc855d0a3f58
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101703100"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108208930"
 ---
 # <a name="enable-a-managed-identity-for-routing-azure-digital-twins-events-preview-azure-portal"></a>Habilitación de una identidad administrada para el enrutamiento de eventos de Azure Digital Twins (versión preliminar): Azure portal
 
@@ -20,7 +20,7 @@ ms.locfileid: "101703100"
 
 En este artículo se describe cómo habilitar una [identidad asignada por el sistema para una instancia de Azure Digital Twins](concepts-security.md#managed-identity-for-accessing-other-resources-preview) (actualmente en versión preliminar) y usar la identidad al reenviar eventos a destinos admitidos como [centro de eventos ](../event-hubs/event-hubs-about.md), [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)  y [Azure Storage Container](../storage/blobs/storage-blobs-introduction.md).
 
-En este artículo se describe el proceso que utiliza [**Azure Portal**](https://portal.azure.com).
+En este artículo se describe el proceso que utiliza [Azure Portal](https://portal.azure.com).
 
 Estos son los pasos que se describen en este artículo: 
 
@@ -38,7 +38,7 @@ Cualquiera de estos métodos de creación proporcionará las mismas opciones de 
 
 ### <a name="add-a-system-managed-identity-during-instance-creation"></a>Adición de una identidad administrada por el sistema durante la creación de la instancia
 
-En esta sección, aprenderá a habilitar una identidad administrada por el sistema en una instancia de Azure Digital Twins que se está creando actualmente. Esta sección se centra en el paso de la identidad administrada del proceso de creación; para obtener un tutorial completo sobre la creación de una instancia de Azure Digital Twins, vea [*Procedimiento: Configuración de una instancia y autenticación*](how-to-set-up-instance-portal.md).
+En esta sección, aprenderá a habilitar una identidad administrada por el sistema en una instancia de Azure Digital Twins que se está creando actualmente. Esta sección se centra en el paso de la identidad administrada del proceso de creación; para obtener un tutorial completo sobre la creación de una instancia de Azure Digital Twins, vea [Procedimiento: Configuración de una instancia y autenticación](how-to-set-up-instance-portal.md).
 
 La opción de identidad administrada por el sistema se encuentra en la pestaña **Avanzado** de configuración de la instancia.
 
@@ -85,7 +85,7 @@ Estos son los roles mínimos que necesita una identidad para acceder a un punto 
 | Azure Service Bus | Emisor de datos de Azure Service Bus |
 | Contenedor de almacenamiento de Windows Azure | Colaborador de datos de blobs de almacenamiento |
 
-Para obtener más información sobre los puntos de conexión, las rutas y los tipos de destinos que se admiten para el enrutamiento en Azure Digital Twins, vea [*Conceptos: rutas de eventos*](concepts-route-events.md).
+Para obtener más información sobre los puntos de conexión, las rutas y los tipos de destinos que se admiten para el enrutamiento en Azure Digital Twins, vea [Conceptos: rutas de eventos](concepts-route-events.md).
 
 ### <a name="assign-the-role"></a>Asignación del rol
 
@@ -145,4 +145,4 @@ Para seguir usando un punto de conexión que se ha configurado con una identidad
 ## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga más información sobre las identidades administradas en Azure AD: 
-* [*Identidades administradas de recursos de Azure*](../active-directory/managed-identities-azure-resources/overview.md)
+* [Identidades administradas para recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md)

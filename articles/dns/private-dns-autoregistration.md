@@ -1,35 +1,34 @@
 ---
-title: Qué es la característica de registro automático de zonas privadas de Azure DNS
-description: Información general de la característica de registro automático de zonas privadas de Azure DNS
+title: ¿Qué es la característica de registro automático de zonas privadas de Azure DNS?
+description: Información general de la característica de registro automático de zonas privadas de Azure DNS.
 services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: article
-ms.date: 9/24/2019
+ms.date: 04/26/2021
 ms.author: rohink
-ms.openlocfilehash: 2e5f41c0e149c99b5524c439c59e72afe554c776
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c7eedee50e8a8bfd270640ff332d21f28108239a
+ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104783904"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108065208"
 ---
-# <a name="what-is-the-autoregistration-feature-of-azure-dns-private-zones"></a>Qué es la característica de registro automático de zonas privadas de Azure DNS
+# <a name="what-is-the-auto-registration-feature-in-azure-dns-private-zones"></a>¿Qué es la característica de registro automático de zonas privadas de Azure DNS?
 
-La característica de registro automático de zonas privadas de Azure DNS aborda el problema de la administración de registros DNS para las máquinas virtuales implementadas en una red virtual. Cuando [vincula una red virtual](./private-dns-virtual-network-links.md) con una zona DNS privada y habilita el registro automático para todas las máquinas virtuales, los registros DNS de las máquinas virtuales implementadas en la red virtual se crean automáticamente en la zona DNS privada. Además de reenviar registros búsqueda directa (registros A), también se crean automáticamente registros de búsqueda inversa (registros PTR) para las máquinas virtuales.
-Si agrega más máquinas virtuales a la red virtual, los registros DNS de estas máquinas virtuales también se crean automáticamente en la zona DNS privada vinculada.
+La característica de registro automático de zonas privadas de Azure DNS administra registros DNS para las máquinas virtuales implementadas en una red virtual. Al [vincular una red virtual con una zona DNS privada](./private-dns-virtual-network-links.md) con esta configuración habilitada. Se crea un registro DNS para cada máquina virtual implementada en la red virtual. 
 
-Al eliminar una máquina virtual, sus registros DNS se eliminan automáticamente de la zona DNS privada.
+Para cada máquina virtual, se crean un registro D y un registro PTR. Los registros DNS de las máquinas virtuales recién implementadas también se crean automáticamente en la zona DNS privada vinculada. Cuando se elimina una máquina virtual, los registros DNS asociados también se eliminan de la zona DNS privada.
 
-Puede habilitar el registro automático si selecciona la opción "Habilitar el registro automático" durante la creación de un vínculo de red virtual.
+Para habilitar el registro automático, active la casilla "Habilitar registro automático" al crear el vínculo de red virtual.
 
-![Habilitación del registro automático](./media/privatedns-concepts/enable-autoregistration.png)
+:::image type="content" source="./media/privatedns-concepts/enable-autoregistration.png" alt-text="Captura de pantalla de habilitación del registro automático en la página para agregar vínculo de red virtual.":::
 
 ## <a name="restrictions"></a>Restricciones
 
 * El registro automático solo funciona para las máquinas virtuales. En el caso de todos los demás recursos, como los equilibradores de carga internos, etc., puede crear registros DNS manualmente en la zona DNS privada vinculada a la red virtual.
 * Los registros DNS se crean automáticamente solo para la NIC de la máquina virtual principal. Si las máquinas virtuales tienen más de una NIC, puede crear manualmente los registros DNS para las demás interfaces de red.
-* Los registros DNS se crean automáticamente solo si la NIC de la máquina virtual principal usa DHCP. Si se configuran direcciones IP estáticas (por ejemplo, para usar [varias direcciones IP en Azure](../virtual-network/virtual-network-multiple-ip-addresses-portal.md#os-config)), el registro automático no crea registros para esa máquina virtual.
+* Los registros DNS se crean automáticamente solo si la NIC de la máquina virtual principal usa DHCP. Si usa direcciones IP estáticas, como una configuración con [varias direcciones IP en Azure](../virtual-network/virtual-network-multiple-ip-addresses-portal.md#os-config),el registro automático no creará registros para esa máquina virtual.
 * No se admite el registro automático para IPv6 (registros AAAA).
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -38,4 +37,4 @@ Puede habilitar el registro automático si selecciona la opción "Habilitar el r
 
 * Obtenga información sobre algunos [escenarios de zona privada](./private-dns-scenarios.md) habituales que pueden realizarse con zonas privadas en Azure DNS.
 
-* Para ver algunas preguntas y respuestas comunes sobre las zonas privadas en Azure DNS, como el comportamiento específico que se puede esperar con determinadas clases de operaciones, consulte [Preguntas frecuentes de DNS privado](./dns-faq-private.md).
+* Para ver algunas preguntas y respuestas comunes sobre las zonas privadas en Azure DNS, consulte [Preguntas frecuentes de DNS privado](./dns-faq-private.md).

@@ -6,15 +6,13 @@ ms.author: evanhi
 ms.date: 09/22/2020
 ms.topic: quickstart
 ms.devlang: azurepowershell
-ms.custom:
-- devx-track-azurepowershell
-- mode-api
-ms.openlocfilehash: 9c19eb41210b6fba1935a0d158c8240375f4f8f5
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.custom: devx-track-azurepowershell - devx-track-azurepowershell - mode-api
+ms.openlocfilehash: 41510a547c7a3a19af5e3691647352efcbf40950
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107533925"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108318214"
 ---
 # <a name="quickstart-create-an-azure-custom-resource-provider-with-azure-powershell"></a>Inicio rápido: Creación de un proveedor de recursos personalizado de Azure con Azure PowerShell
 

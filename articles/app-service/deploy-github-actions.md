@@ -7,12 +7,12 @@ ms.date: 09/14/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: devx-track-python, github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: aa4475ccedfb19ece540337f493bcc5ed64af035
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: c17b18f42a5b07252874aef812a50746e069c1a9
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107832471"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108209740"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Implementación de App Service con Acciones de GitHub
 
@@ -24,7 +24,7 @@ Comience a usar [Acciones de GitHub](https://docs.github.com/en/actions/learn-gi
 - Una cuenta de GitHub. Si no tiene ninguna, regístrese [gratis](https://github.com/join).  
 - Una aplicación de Azure App Service en funcionamiento. 
     - .NET: [Creación de una aplicación web ASP.NET Core en Azure](quickstart-dotnetcore.md)
-    - ASP.NET: [Creación de una aplicación web de ASP.NET Framework en Azure](quickstart-dotnet-framework.md)
+    - ASP.NET: [Creación de una aplicación web de ASP.NET Framework en Azure](./quickstart-dotnetcore.md?tabs=netframework48)
     - JavaScript: [Creación de una aplicación web de Node.js en Azure App Service](quickstart-nodejs.md)  
     - Java: [Creación de una aplicación de Java en Azure App Service](quickstart-java.md)
     - Python: [Creación de una aplicación de Python en Azure App Service](quickstart-python.md)

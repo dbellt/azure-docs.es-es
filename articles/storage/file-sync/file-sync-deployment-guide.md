@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 04/15/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 989bcbb7e509b9b7692f067af2989fcad94b6ad1
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 64b9ce78f05e1c8d14317f33f21758a86baeabd6
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107796279"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107869192"
 ---
 # <a name="deploy-azure-file-sync"></a>Implementación de Azure File Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -88,7 +88,7 @@ Se recomienda encarecidamente leer [Planeamiento de una implementación de Azure
 
     Siga los pasos que se muestran en el terminal para completar el proceso de autenticación.
 
-1. Instale la extensión de la CLI de Azure [az filesync](/cli/azure/ext/storagesync/storagesync).
+1. Instale la extensión de la CLI de Azure [az filesync](/cli/azure/storagesync).
 
    ```azurecli
    az extension add --name storagesync
@@ -380,7 +380,7 @@ New-AzStorageSyncCloudEndpoint `
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-Use el comando [az storagesync sync-group](/cli/azure/ext/storagesync/storagesync/sync-group#ext-storagesync-az-storagesync-sync-group-create) para crear un grupo de sincronización.  Para establecer como valor predeterminado un grupo de recursos para todos los comandos de la CLI, use [az configure](/cli/azure/reference-index#az_configure).
+Use el comando [az storagesync sync-group](/cli/azure/storagesync/sync-group#az_storagesync_sync_group_create) para crear un grupo de sincronización.  Para establecer como valor predeterminado un grupo de recursos para todos los comandos de la CLI, use [az configure](/cli/azure/reference-index#az_configure).
 
 ```azurecli
 az storagesync sync-group create --resource-group myResourceGroupName \
@@ -388,7 +388,7 @@ az storagesync sync-group create --resource-group myResourceGroupName \
                                  --storage-sync-service myStorageSyncServiceName \
 ```
 
-Use el comando [az storagesync sync-group cloud-endpoint](/cli/azure/ext/storagesync/storagesync/sync-group/cloud-endpoint#ext-storagesync-az-storagesync-sync-group-cloud-endpoint-create) para crear un punto de conexión en la nube.
+Use el comando [az storagesync sync-group cloud-endpoint](/cli/azure/storagesync/sync-group/cloud-endpoint#az_storagesync_sync_group_cloud_endpoint_create) para crear un punto de conexión en la nube.
 
 ```azurecli
 az storagesync sync-group cloud-endpoint create --resource-group myResourceGroup \
@@ -402,10 +402,12 @@ az storagesync sync-group cloud-endpoint create --resource-group myResourceGroup
 ---
 
 ## <a name="create-a-server-endpoint"></a>Creación de un punto de conexión de servidor
-Un punto de conexión de servidor representa una ubicación específica en un servidor registrado, como una carpeta en un volumen de servidor. Un punto de conexión de servidor debe ser una ruta de acceso en un servidor registrado (en lugar de un recurso compartido montado) y para usar niveles de nube, la ruta de acceso debe estar en un volumen que no sea del sistema. No se admite el almacenamiento conectado a la red (NAS).
+Un punto de conexión de servidor representa una ubicación específica en un servidor registrado, como una carpeta en un volumen de servidor. Un punto de conexión de servidor está sujeto a las condiciones siguientes:
 
-> [!NOTE]
-> No se admite el cambio de la ruta de acceso o letra de unidad después de establecer un punto de conexión de servidor en un volumen. Asegúrese de que está usando una ruta de acceso final en el servidor registrado.
+- Un punto de conexión de servidor debe ser una ruta de acceso en un servidor registrado (en lugar de un recurso compartido montado). No se admite el almacenamiento conectado a la red (NAS).
+- Aunque el punto de conexión del servidor puede estar en el volumen del sistema, es posible que los puntos de conexión de servidor del volumen del sistema no usen la nube por niveles.
+- No se admite el cambio de la ruta de acceso o letra de unidad después de establecer un punto de conexión de servidor en un volumen. Asegúrese de que está usando una ruta de acceso final en el servidor registrado.
+- Un servidor registrado puede admitir varios puntos de conexión de servidor, pero un grupo de sincronización solo puede tener un punto de conexión de servidor por servidor registrado en un momento dado. Otros puntos de conexión de servidor dentro del grupo de sincronización deben estar en servidores registrados diferentes.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 Para agregar un punto de conexión de servidor, vaya al grupo de sincronización recién creado y seleccione **Agregar punto de conexión del servidor**.
@@ -462,7 +464,7 @@ if ($cloudTieringDesired) {
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-Use el comando [az storagesync sync-group server-endpoint](/cli/azure/ext/storagesync/storagesync/sync-group/server-endpoint#ext-storagesync-az-storagesync-sync-group-server-endpoint-create) para crear un punto de conexión de servidor.
+Use el comando [az storagesync sync-group server-endpoint](/cli/azure/storagesync/sync-group/server-endpoint#az_storagesync_sync_group_server_endpoint_create) para crear un punto de conexión de servidor.
 
 ```azurecli
 # Create a new sync group server endpoint 
