@@ -4,15 +4,15 @@ description: Aprenda a habilitar la redundancia de zona para mejorar la resisten
 author: dlepow
 ms.service: api-management
 ms.topic: how-to
-ms.date: 04/13/2021
+ms.date: 04/28/2021
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: 817aebab6af8de59071b5d767b24d15cf46d59d9
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 0ec2c0a270c721d1d706b696f5b8ba5b2ccd7ece
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107558838"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108278873"
 ---
 # <a name="availability-zone-support-for-azure-api-management"></a>Compatibilidad con la zona de disponibilidad para Azure API Management 
 
@@ -30,10 +30,12 @@ La configuración de API Management para la redundancia de zona se admite actual
 * Sur de Brasil
 * Centro de Canadá
 * Centro de la India
+* Centro de EE. UU.
 * Este de EE. UU.
 * Este de EE. UU. 2
 * Centro de Francia
 * Japón Oriental
+* Norte de Europa
 * Centro-sur de EE. UU.
 * Sudeste de Asia
 * Sur de Reino Unido

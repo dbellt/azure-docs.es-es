@@ -1,19 +1,19 @@
 ---
 title: 'Azure VMware Solution by CloudSimple: elección de una solución de equilibrio de carga para nubes privadas de CloudSimple'
 description: Se describen las opciones de equilibrio de carga que implementan una aplicación en una nube privada.
-author: Ajayan1008
-ms.author: v-hborys
+author: shortpatti
+ms.author: v-patsho
 ms.date: 08/20/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 06d2305c209011e4fb1b8ee05a016d2e15a49833
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 54a8349561b6e4dda09a0a35282830c6e7346487
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97898035"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108184377"
 ---
 # <a name="choose-a-load-balancing-solution-for-cloudsimple-private-clouds"></a>Elección de una solución de equilibrio de carga para nubes privadas de CloudSimple
 

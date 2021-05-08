@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: scottnap
-ms.openlocfilehash: 7c3ae14cd409e7bfc9be77c1a593964b73a12ddc
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 36987789487e97f42a51ff509df58ee0ff2dd2ed
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107791056"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107951259"
 ---
 # <a name="about-network-virtual-appliance-in-an-azure-virtual-wan-hub-preview"></a>Acerca de una aplicación virtual de red en un centro de conectividad de Azure Virtual WAN (versión preliminar)
 
@@ -77,7 +77,7 @@ NVA en el centro de conectividad virtual está disponible en versión preliminar
 
 |Región geopolítica | Regiones de Azure|
 |---|---|
-| Norteamérica| Centro de Canadá, Este de Canadá, Centro de EE. UU., Este de EE. UU., Este de EE. UU. 2, Centro-norte de EE. UU., Centro-oeste de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2 |
+| Norteamérica| Centro de Canadá, Este de Canadá, Centro de EE. UU., Este de EE. UU., Este de EE. UU. 2, Centro-sur de EE. UU., Centro-norte de EE. UU., Centro-oeste de EE. UU., Oeste de EE. UU., Oeste de EE. UU 2 |
 | Sudamérica | Sur de Brasil, Sudeste de Brasil |
 | Europa | Centro de Francia, Sur de Francia, Norte de Alemania, Centro-oeste de Alemania, Norte de Europa, Este de Noruega, Oeste de Noruega, Norte de Suiza, Oeste de Suiza, Sur de Reino Unido, Oeste de Reino Unido, Oeste de Europa|
 |  Oriente Medio | Norte de Emiratos Árabes Unidos |

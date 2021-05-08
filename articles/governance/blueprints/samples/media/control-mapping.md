@@ -3,12 +3,12 @@ title: Controles de ejemplo de planos técnicos de Media
 description: Asignación de controles de los ejemplos de plano técnico de Media. Cada control se corresponde a una o varias definiciones de Azure Policy que ayudan en la evaluación.
 ms.date: 04/13/2021
 ms.topic: sample
-ms.openlocfilehash: 4c04c661d7dd8b2b07a05c20524258d6bb887e62
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: f2750f4733a3a815236778c846bde4e186f30512
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107376705"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108161328"
 ---
 # <a name="control-mapping-of-the-media-blueprint-sample"></a>Asignación de controles del ejemplo de plano técnico de Media
 
@@ -229,13 +229,13 @@ Las siguientes asignaciones son para los controles de **Media**. Use el panel de
 - Audite las vulnerabilidades del sistema operativo en los conjuntos de escalado de máquinas virtuales para protegerlos frente a ataques.
 
 > [!NOTE]
-> La disponibilidad de definiciones específicas de Azure Policy puede variar tanto en Azure Government como en otras nubes nacionales. 
+> La disponibilidad de definiciones específicas de Azure Policy puede variar tanto en Azure Government como en otras nubes nacionales.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Ya ha leído la asignación de controles del ejemplo de plano técnico de Media. Ahora, consulte los siguientes artículos para ver una introducción y aprender a implementar este ejemplo:
 
-> [!div class="next step action"]
+> [!div class="nextstepaction"]
 > [Plano técnico de Media Framework: asignación de controles](./control-mapping.md)
 > [Plano técnico de Media Framework: pasos de implementación](./deploy.md)
 
