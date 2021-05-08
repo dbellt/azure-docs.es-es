@@ -1,16 +1,16 @@
 ---
 title: Opciones de conversión del diseñador de vistas de Azure Monitor en libros
 description: Ejemplos de conversión para la transición desde vistas a libros en Azure Monitor.
-author: austonli
-ms.author: aul
+author: shijatsu
+ms.author: shijain
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: b8b6b8b41c729c3cbb6cf4589d679e93149e5314
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 1110a19f67c41e5cc170e056f6d337bdf8860588
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102043412"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108318070"
 ---
 # <a name="azure-monitor-view-designer-to-workbooks-conversion-options"></a>Opciones de conversión del diseñador de vistas de Azure Monitor en libros
 El [diseñador de vistas](view-designer.md) es una característica de Azure Monitor que permite crear vistas personalizadas para ayudar a visualizar datos en el área de trabajo de Log Analytics, con gráficos, listas y escalas de tiempo. Estas vistas se están retirando paulatinamente y están siendo reemplazadas por libros, que proporcionan funcionalidad adicional. En este artículo se comparan los conceptos fundamentales entre las dos y opciones para convertir vistas en libros.

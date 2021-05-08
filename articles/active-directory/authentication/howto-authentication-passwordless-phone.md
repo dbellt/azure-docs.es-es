@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 11/11/2020
+ms.date: 04/21/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51e6cd7efcd0e851c15975aba5ff9b99c615eb7d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d586294f101c271f139867d0046576dc9a32f076
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101653480"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107861794"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app"></a>Habilitación del inicio de sesión sin contraseña con la aplicación Microsoft Authenticator 
 
@@ -38,6 +38,7 @@ Para usar el inicio de sesión en el teléfono sin contraseña con la aplicació
 
 - Multi-Factor Authentication de Azure AD, con notificaciones push permitidas como método de verificación.
 - Versión más reciente de Microsoft Authenticator instalada en dispositivos que ejecutan iOS 8.0 o superior o Android 6.0 o superior.
+- El dispositivo en el que está instalada la aplicación Microsoft Authenticator debe estar registrado en el inquilino de Azure AD para un usuario individual. 
 
 > [!NOTE]
 > Si habilitó el inicio de sesión sin contraseña de Microsoft Authenticator mediante Azure AD PowerShell, se habilitó para todo el directorio. Si habilita con este nuevo método, reemplaza a la directiva de PowerShell. Se recomienda habilitarla para todos los usuarios del inquilino mediante el menú de los nuevos *métodos de autenticación*; de lo contrario, los usuarios que no estén en la nueva directiva ya no podrán iniciar sesión sin contraseña.

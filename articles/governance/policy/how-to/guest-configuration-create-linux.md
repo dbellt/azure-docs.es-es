@@ -4,17 +4,17 @@ description: Aprenda a crear una directiva de Configuración de invitado de Azur
 ms.date: 03/31/2021
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d356960987ecfe9a1e1858a28b93060dbf4aa634
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 926c6d472b3e4e3b6837a4d4136ee591a3d7e6c5
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106096570"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108165378"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Creación de directivas de Configuración de invitado para Linux
 
 Antes de crear directivas personalizadas, lea la información general en [Configuración de invitado de Azure Policy](../concepts/guest-configuration.md).
- 
+
 Para obtener información sobre cómo crear directivas de Configuración de invitado para Windows, consulte la página [Cómo crear una directiva de configuración de invitados para Windows](./guest-configuration-create.md).
 
 Al auditar Linux, Configuración de invitado usa [Chef InSpec](https://www.inspec.io/). El perfil de InSpec define la condición en la que debe encontrarse la máquina. Si se produce un error en la evaluación de la configuración, se desencadena el efecto **auditIfNotExists** de la directiva y se considera que la máquina **no es compatible**.
@@ -260,16 +260,16 @@ Publish-GuestConfigurationPolicy `
   -Path './policies'
 ```
 
- El cmdlet `Publish-GuestConfigurationPolicy` acepta la ruta de acceso de la canalización de PowerShell. Esta característica significa que puede crear los archivos de directiva y publicarlos en un único conjunto de comandos canalizados.
+El cmdlet `Publish-GuestConfigurationPolicy` acepta la ruta de acceso de la canalización de PowerShell. Esta característica significa que puede crear los archivos de directiva y publicarlos en un único conjunto de comandos canalizados.
 
- ```azurepowershell-interactive
- New-GuestConfigurationPolicy `
+```azurepowershell-interactive
+New-GuestConfigurationPolicy `
   -ContentUri 'https://storageaccountname.blob.core.windows.net/packages/AuditFilePathExists.zip?st=2019-07-01T00%3A00%3A00Z&se=2024-07-01T00%3A00%3A00Z&sp=rl&sv=2018-03-28&sr=b&sig=JdUf4nOCo8fvuflOoX%2FnGo4sXqVfP5BYXHzTl3%2BovJo%3D' `
   -DisplayName 'Audit Linux file path.' `
   -Description 'Audit that a file path exists on a Linux machine.' `
   -Path './policies' `
- | Publish-GuestConfigurationPolicy
- ```
+| Publish-GuestConfigurationPolicy
+```
 
 Con la directiva creada en Azure, el último paso es asignar la definición. Consulte cómo puede asignar la definición con el [Portal](../assign-policy-portal.md), la [CLI de Azure](../assign-policy-azurecli.md) y [Azure PowerShell](../assign-policy-powershell.md).
 

@@ -41,6 +41,12 @@
       href: concepts-query-language.md
     - name: Unidades de consulta
       href: concepts-query-units.md
+    - name: Interfaces para desarrolladores
+      items:
+        - name: Las API y los SDK
+          href: concepts-apis-sdks.md
+        - name: Conjunto de comandos de la CLI
+          href: concepts-cli.md
     - name: Integración con otros servicios
       href: concepts-integration.md
     - name: Notificaciones de eventos
@@ -55,8 +61,6 @@
   items:
     - name: Implementación
       items:
-        - name: Uso de la CLI de Azure Digital Twins
-          href: how-to-use-cli.md
         - name: Configuración de una instancia y autenticación
           items:
             - name: Versión del portal
@@ -99,8 +103,6 @@
           href: how-to-query-graph.md
     - name: Desarrollo de aplicaciones cliente
       items:
-        - name: Uso de las API y los SDK
-          href: how-to-use-apis-sdks.md
         - name: Realización de solicitudes con Postman
           href: how-to-use-postman.md
         - name: Integración con Azure SignalR Service

@@ -3,12 +3,12 @@ title: Creación de directivas para propiedades de matriz en recursos
 description: Aprenda a trabajar con parámetros de matriz y expresiones de lenguaje de matriz, evaluar el alias [*] y anexar elementos con las reglas de definición de Azure Policy.
 ms.date: 03/31/2021
 ms.topic: how-to
-ms.openlocfilehash: 18afbee0ca8b1c488e3bd3ce50dacc726bd2ef25
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 8953b67d0935ac81cffa20ee8fc48d6d9b091861
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107305198"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108165432"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Creación de directivas para propiedades de matriz en recursos de Azure
 
@@ -147,7 +147,7 @@ La condición es true solo si el recuento resultante es mayor que 0.
 
 Para que la condición anterior sea más genérica, use la referencia de parámetro en lugar de una matriz literal:
 
- ```json
+```json
 {
     "count": {
         "value": "[parameters('patterns')]",

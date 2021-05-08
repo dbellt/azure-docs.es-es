@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 03144d478be0053ac77709132b08cdf17b062fb0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ddd49f26194c52cf0218f21d915ff078aee70c6b
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101666296"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108164676"
 ---
 # <a name="synapse-sql-resource-consumption"></a>Consumo de recursos de Synapse SQL
 
@@ -72,7 +72,7 @@ Cada nivel de rendimiento usa una unidad de medida ligeramente diferente para su
 - Los almacenamientos de datos de Gen1 se miden en unidades de almacenamiento de datos (DWU).
 - Los almacenamientos de datos de Gen2 se miden en unidades de almacenamiento de datos de proceso (cDWU).
 
-Tanto las DWU como las cDWU admiten el escalado vertical y la reducción vertical del proceso, así como pausar el proceso cuando no es necesario usar el almacén de datos. Estas operaciones son a petición. El nivel Gen2 usa una memoria caché basada en disco local en los nodos de proceso para mejorar el rendimiento. Al escalar o pausar el sistema, se invalida la memoria caché y es necesario un período de calentamiento de la memoria caché para conseguir un rendimiento óptimo.  
+Tanto las DWU como las cDWU admiten el escalado vertical y la reducción vertical del proceso, así como pausar el proceso cuando no es necesario usar el almacén de datos. Estas operaciones son a petición. El nivel Gen2 usa una memoria caché basada en disco local en los nodos de proceso para mejorar el rendimiento. Al escalar o pausar el sistema, se invalida la memoria caché y es necesario un período de calentamiento de la memoria caché para conseguir un rendimiento óptimo.
 
 A medida que aumenta el número de unidades de almacenamiento de datos, también aumentan linealmente los recursos informáticos. Gen2 proporciona el mejor rendimiento de consultas y la mayor escalabilidad. Los sistemas Gen2 también aprovechan al máximo el uso de la memoria caché.
 
@@ -121,7 +121,7 @@ JOIN    sys.databases                     AS db ON ds.database_id = db.database_
 
 ### <a name="change-data-warehouse-units"></a>Cambiar unidades de almacenamiento de datos
 
-#### <a name="azure-portal"></a>Azure portal
+#### <a name="azure-portal"></a>Portal de Azure
 
 Para cambiar DWU:
 
@@ -137,7 +137,7 @@ Para cambiar DWU:
 
 Para cambiar las DWU, use el cmdlet de PowerShell [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase). En el ejemplo siguiente se establece el objetivo de nivel de servicio en DW1000 para la base de datos MySQLDW que se hospeda en el servidor MyServer.
 
-```Powershell
+```powershell
 Set-AzSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000c"
 ```
 
@@ -152,7 +152,7 @@ Para cambiar las DWU:
 1. Conéctese a la base de datos maestra asociada al servidor.
 2. Use la instrucción TSQL [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?view=azure-sqldw-latest&preserve-view=true). En el ejemplo siguiente se establece el objetivo de nivel de servicio en DW1000c para la base de datos MySQLDW.
 
-```Sql
+```sql
 ALTER DATABASE MySQLDW
 MODIFY (SERVICE_OBJECTIVE = 'DW1000c')
 ;
@@ -208,7 +208,7 @@ Esta DMV devuelve información sobre varias operaciones de administración en el
 
 ### <a name="the-scaling-workflow"></a>Flujo de trabajo de escalado
 
-Cuando se inicia una operación de escalado, el sistema elimina primero todas las sesiones abiertas y revierte todas las transacciones abiertas para garantizar un estado coherente. Para las operaciones de escalado, el escalado solo se producirá una vez completada esta reversión transaccional.  
+Cuando se inicia una operación de escalado, el sistema elimina primero todas las sesiones abiertas y revierte todas las transacciones abiertas para garantizar un estado coherente. Para las operaciones de escalado, el escalado solo se producirá una vez completada esta reversión transaccional.
 
 - Para una operación de escalado vertical, el sistema desasocia todos los nodos de proceso, aprovisiona los nodos de proceso adicionales y luego se vuelve a asociar a la capa de almacenamiento.
 - Para una operación de reducción vertical, el sistema desasocia todos los nodos de proceso y luego solo vuelve a asociar los nodos necesarios para la capa de almacenamiento.

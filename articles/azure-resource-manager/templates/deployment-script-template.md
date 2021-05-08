@@ -7,12 +7,13 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 04/15/2021
 ms.author: jgao
-ms.openlocfilehash: 77865cea4621b36d8b1de0e00f0ce8e00fdba252
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 3ac1afe3658db60297735e897d69caa463358a4c
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108124966"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108318394"
 ---
 # <a name="use-deployment-scripts-in-arm-templates"></a>Uso de scripts de implementación en plantillas de Resource Manager
 
