@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 9c896d4cccf898b8818b4c363c5bc891a8734ca5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d9171226de7c975e75139af92798ea78419428f0
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99256718"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108175431"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planeamiento de la aplicación de RR. HH. en la nube para el aprovisionamiento de usuarios de Azure Active Directory
 
@@ -204,7 +204,7 @@ Se recomienda la siguiente configuración de producción:
 
 Para la solución de aprovisionamiento de usuarios de la aplicación de RR. HH. en la nube en Active Directory es necesario implementar uno o varios agentes de aprovisionamiento de Azure AD Connect en servidores que ejecutan Windows 2012 R2 o versiones posteriores. Los servidores deben tener un mínimo de 4 GB de RAM y un entorno de ejecución .NET 4.7.1+. Asegúrese de que el servidor host tiene acceso de red al dominio de Active Directory de destino.
 
-Para preparar el entorno local, el asistente para la configuración del agente de aprovisionamiento de Azure AD Connect registra el agente en el inquilino de Azure AD, [abre los puertos](../manage-apps/application-proxy-add-on-premises-application.md#open-ports), [permite el acceso a las direcciones URL](../manage-apps/application-proxy-add-on-premises-application.md#allow-access-to-urls) y admite la [configuración de proxy HTTPS saliente](../saas-apps/workday-inbound-tutorial.md#how-do-i-configure-the-provisioning-agent-to-use-a-proxy-server-for-outbound-http-communication).
+Para preparar el entorno local, el asistente para la configuración del agente de aprovisionamiento de Azure AD Connect registra el agente en el inquilino de Azure AD, [abre los puertos](../app-proxy/application-proxy-add-on-premises-application.md#open-ports), [permite el acceso a las direcciones URL](../app-proxy/application-proxy-add-on-premises-application.md#allow-access-to-urls) y admite la [configuración de proxy HTTPS saliente](../saas-apps/workday-inbound-tutorial.md#how-do-i-configure-the-provisioning-agent-to-use-a-proxy-server-for-outbound-http-communication).
 
 El agente de aprovisionamiento usa una cuenta de servicio para comunicarse con los dominios de Active Directory. Antes de instalar el agente, cree una cuenta de servicio en Usuarios y equipos de Active Directory que cumpla los siguientes requisitos:
 

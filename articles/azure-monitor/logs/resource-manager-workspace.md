@@ -5,12 +5,13 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
-ms.openlocfilehash: 5c1ef7d8de32564e2b1d3b1578fcd72cefde0327
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: c050ae9eb67276ff873864b6ab49ed50afad210f
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102047152"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108319420"
 ---
 # <a name="resource-manager-template-samples-for-log-analytics-workspaces-in-azure-monitor"></a>Ejemplos de plantillas de Resource Manager para áreas de trabajo de Log Analytics en Azure Monitor
 Este artículo incluye [plantillas de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) de ejemplo para crear y configurar área de trabajo de Log Analytics en Azure Monitor. Cada ejemplo incluye un archivo de plantilla y un archivo de parámetros con valores de ejemplo para la plantilla.
@@ -681,7 +682,7 @@ En el ejemplo siguiente, se agrega una recopilación de [registros personalizado
                         ]
                     }
                     },
-                    "extractionType": "DateTime"
+                    "extractionType&quot;: &quot;DateTime"
                 }
                 ]
             }

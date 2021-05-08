@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: jeffpatt
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 4c87887f77d5f227fe4d4cdee220397289878d7f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e097a5642befb2e3b91423379c734cb5acdfa7d0
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99574472"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108073600"
 ---
 # <a name="troubleshoot-azure-nfs-file-shares"></a>Solución de problemas de recursos compartidos de archivos NFS de Azure
 
@@ -160,6 +160,10 @@ El uso de wc -c siempre recuperará el valor más reciente del servidor y no ten
 
 #### <a name="workaround-2-use-noac-mount-flag"></a>Alternativa 2: Use la marca de montaje "noac"
 Vuelva a montar el sistema de archivos mediante la marca "noac" con el comando mount. De esta forma, siempre obtendrá todos los valores de metadatos del servidor. Puede haber cierta sobrecarga de rendimiento secundaria para todas las operaciones de metadatos si se usa esta solución alternativa.
+
+
+## <a name="unable-to-mount-an-nfs-share-that-is-restored-back-from-soft-deleted-state"></a>No se puede montar un recurso compartido NFS que se restauró a partir del estado de eliminación temporal
+Hay un problema conocido durante la versión preliminar en el que los recursos compartidos NFS se eliminan temporalmente a pesar de que la plataforma no lo admite por completo. Estos recursos compartidos se eliminarán de manera rutinaria al expirar. También puede eliminarlas anticipadamente mediante el flujo "recuperar recurso compartido + deshabilitar la eliminación temporal + eliminar recurso compartido". Sin embargo, si intenta recuperar y usar los recursos compartidos, se le denegará el acceso o el permiso, o se producirá un error de E/S de NFS en el cliente.
 
 ## <a name="need-help-contact-support"></a>¿Necesita ayuda? Póngase en contacto con el servicio de soporte técnico.
 Si sigue necesitando ayuda, [póngase en contacto con el soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.

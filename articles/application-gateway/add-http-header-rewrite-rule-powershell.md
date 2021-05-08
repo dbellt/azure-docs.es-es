@@ -7,12 +7,13 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 04/12/2019
 ms.author: absha
-ms.openlocfilehash: b674bdf59959715b666c521c0d0631f86f71b1d3
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: c694a2151f15af52a5380b9a442c1ac27fa1e475
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106093731"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108319600"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-powershell"></a>Reescribir los encabezados HTTP de solicitud y respuesta con Azure Application Gateway mediante Azure PowerShell
 
@@ -106,4 +107,4 @@ set-AzApplicationGateway -ApplicationGateway $appgw
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre cómo configurar algunos casos de uso comunes, consulte los [escenarios de reescritura de encabezado común](./rewrite-http-headers.md).
+Para más información sobre cómo configurar algunos casos de uso comunes, consulte los [escenarios de reescritura de encabezado común](./rewrite-http-headers-url.md).

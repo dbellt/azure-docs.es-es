@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: d854b1e043509a8abddb361b17a350e7be1e628f
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: fe61c0903a558a981ed10bf2a11fba82e5ee83b6
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/28/2021
-ms.locfileid: "108148610"
+ms.locfileid: "108175089"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Uso de Azure AD Application Proxy para publicar aplicaciones locales para usuarios remotos
 
@@ -176,7 +176,7 @@ Los grupos de conectores son útiles cuando se necesita admitir los escenarios s
 * Aislamiento o segmentación de aplicaciones
 * Publicación de aplicaciones web que se ejecutan en la nube o en el entorno local
 
-Para más información sobre cómo elegir dónde instalar los conectores, consulte [Consideraciones sobre la topología de red al utilizar Azure Active Directory Application Proxy](../manage-apps/application-proxy-network-topology.md).
+Para más información sobre cómo elegir dónde instalar los conectores, consulte [Consideraciones sobre la topología de red al utilizar Azure Active Directory Application Proxy](application-proxy-network-topology.md).
 
 ## <a name="other-use-cases"></a>Otros casos de uso
 

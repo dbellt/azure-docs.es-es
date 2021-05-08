@@ -3,12 +3,13 @@ title: Errores de SKU no disponible
 description: Describe cómo solucionar problemas relacionados con el error de SKU no disponible al implementar recursos con Azure Resource Manager.
 ms.topic: troubleshooting
 ms.date: 04/14/2021
-ms.openlocfilehash: 3baedf6a5c9f2dbfd3ddf666b458fac649fce2ac
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 2ed04cd3839b8146d7e988b571113a737f38801f
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107503905"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108318736"
 ---
 # <a name="resolve-errors-for-sku-not-available"></a>Resolución de los errores de no disponibilidad de la SKU
 

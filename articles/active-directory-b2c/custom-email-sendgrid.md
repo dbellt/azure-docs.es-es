@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/19/2021
+ms.date: 04/21/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: d63e7916423038e53c375b2be4114582cf4d6152
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: a56f8339535c64c6eeac1b06c04aa7c89cd38356
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107725771"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107886397"
 ---
 # <a name="custom-email-verification-with-sendgrid"></a>Verificación de correo electrónico personalizado con SendGrid
 
@@ -304,7 +304,7 @@ En las definiciones de contenido, todavía dentro de `<BuildingBlocks>`, agregue
 El perfil técnico `GenerateOtp` genera un código para la dirección de correo electrónico. El perfil técnico `VerifyOtp` verifica el código asociado a la dirección de correo electrónico. Puede cambiar la configuración del formato y la expiración de la contraseña de un solo uso. Para más información sobre los perfiles técnicos de OTP, consulte [Definición de un perfil técnico de una contraseña de un solo uso en una directiva personalizada de Azure AD B2C](one-time-password-technical-profile.md).
 
 > [!NOTE]
-> Los códigos OTP generados por el protocolo Web.TPEngine.Providers.OneTimePasswordProtocolProvider están vinculados a la sesión del explorador. Esto significa que un usuario puede generar códigos OTP únicos en distintas sesiones del explorador que son válidos para sus sesiones correspondientes. Por el contrario, un código OTP generado por el flujo de usuario integrado es independiente de la sesión del explorador, por lo que si un usuario genera un nuevo código OTP en una nueva sesión del explorador, reemplaza el código OTP anterior.
+> Los códigos OTP generados por el protocolo Web.TPEngine.Providers.OneTimePasswordProtocolProvider están vinculados a la sesión del explorador. Esto significa que un usuario puede generar códigos OTP únicos en distintas sesiones del explorador que son válidos para sus sesiones correspondientes. Por el contrario, un código OTP que genere el proveedor de correo electrónico integrado es independiente de la sesión del explorador, por lo que si un usuario genera un nuevo código OTP en una nueva sesión del explorador, este reemplaza el código OTP anterior.
 
 Agregue los siguientes perfiles técnicos al elemento `<ClaimsProviders>`.
 

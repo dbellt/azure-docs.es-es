@@ -11,12 +11,12 @@ ms.date: 03/02/2019
 ms.author: iangithinji
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1acfff8a9152c767b61463bed0165d5ae390f649
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 9ad4cb5cdee3af68f7212b696dec10980ee89818
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107375005"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108318916"
 ---
 # <a name="centralize-application-management-with-azure-ad"></a>Centralización de la administración de aplicaciones con Azure AD
 
@@ -77,7 +77,7 @@ La identidad solo puede ser su plano de control si puede conectar todo entre las
 
 |Característica  |Descripción|Recomendación |
 |---------|---------|---------|
-|Proxy de aplicación|Hoy en día, los empleados desean ser productivos en cualquier lugar, en cualquier momento y con cualquier dispositivo. Tienen que acceder a aplicaciones SaaS en la nube y a aplicaciones corporativas locales. El proxy de aplicación de Azure AD permite este acceso sólido sin redes privadas virtuales (VPN) costosas y complejas ni zonas desmilitarizadas (DMZ).|Configure el [acceso remoto](./application-proxy.md) para las aplicaciones locales. |
+|Proxy de aplicación|Hoy en día, los empleados desean ser productivos en cualquier lugar, en cualquier momento y con cualquier dispositivo. Tienen que acceder a aplicaciones SaaS en la nube y a aplicaciones corporativas locales. El proxy de aplicación de Azure AD permite este acceso sólido sin redes privadas virtuales (VPN) costosas y complejas ni zonas desmilitarizadas (DMZ).|Configure el [acceso remoto](../app-proxy/application-proxy.md) para las aplicaciones locales. |
 |F5, Akamai, Zscaler|Con la red y el controlador de entrega existentes, puede proteger fácilmente las aplicaciones heredadas que siguen siendo críticas para los procesos empresariales pero que no se pudieron proteger antes de Azure AD. Es probable que ya tenga todo lo que necesita para empezar a proteger estas aplicaciones.| ¿Usa Akamai, Citrix, F5 o Zscaler? Consulte nuestras [soluciones pregeneradas](./secure-hybrid-access.md). | 
 
 ## <a name="related-articles"></a>Artículos relacionados
