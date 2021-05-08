@@ -7,12 +7,12 @@ ms.author: andyriv
 ms.date: 2/16/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: e2b27934f58402ecfb7dabf5560dc43e45f3f7dd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e216d42ff1f279d87e657126514fcfb50960f806
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101678856"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107811911"
 ---
 # <a name="understand-support-for-disconnected-device-updates"></a>Información sobre la compatibilidad con las actualizaciones de dispositivos desconectados
 
@@ -20,7 +20,7 @@ En un escenario de puerta de enlace transparente, uno o varios dispositivos pued
 
 ## <a name="how-does-microsoft-connected-cache-preview-for-device-update-for-azure-iot-hub-work"></a>¿Cómo funciona la versión preliminar de Caché conectada de Microsoft para Device Update para Azure IoT Hub?
 
-Caché conectada de Microsoft es una memoria caché inteligente y transparente para el contenido publicado para Device Update para Azure IoT Hub y también se puede personalizar para almacenar en caché contenido de otros orígenes, como los repositorios de paquetes. Caché conectada de Microsoft es una memoria caché de uso poco frecuente que se activa con las solicitudes de cliente para los intervalos de archivos exactos solicitados por el cliente de Optimización de distribución y no realiza una inicialización previa del contenido. En el diagrama y la descripción paso a paso que se muestran a continuación se explica cómo funciona Caché conectada de Microsoft dentro de la infraestructura de Device Update para Azure IoT Hub.
+La versión preliminar de la caché conectada de Microsoft es una memoria caché inteligente y transparente para el contenido publicado para Device Update para Azure IoT Hub y también se puede personalizar para almacenar en caché contenido de otros orígenes, como los repositorios de paquetes. Caché conectada de Microsoft es una memoria caché de uso poco frecuente que se activa con las solicitudes de cliente para los intervalos de archivos exactos solicitados por el cliente de Optimización de distribución y no realiza una inicialización previa del contenido. En el diagrama y la descripción paso a paso que se muestran a continuación se explica cómo funciona Caché conectada de Microsoft dentro de la infraestructura de Device Update para Azure IoT Hub.
 
 >[!Note]
 >En la definición de este flujo se supone que la puerta de enlace IoT Edge tiene conectividad a Internet. Para el escenario de puerta de enlace IoT Edge de bajada (perímetro anidado), la red de entrega de contenido (CDN) se puede considerar la MCC hospedada en la puerta de enlace IoT Edge primaria.

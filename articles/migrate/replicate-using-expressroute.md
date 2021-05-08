@@ -6,12 +6,12 @@ ms.author: deseelam
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 02/22/2021
-ms.openlocfilehash: 9aa9a42422f3c114490d1dbb28a146b6e76ca8cd
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: dd2a4ee0ba8ef5b64e52e7d840874a98a0e72939
+ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105558625"
+ms.lasthandoff: 04/23/2021
+ms.locfileid: "107930846"
 ---
 # <a name="replicate-data-over-expressroute-with-azure-migrate-server-migration"></a>Replicación de datos a través de ExpressRoute con Azure Migrate: Server Migration
 
@@ -32,8 +32,9 @@ En este artículo, aprenderá lo siguiente:
 
 ## <a name="replicate-data-using-an-expressroute-circuit-with-private-peering"></a>Replicación de datos mediante un circuito ExpressRoute con emparejamiento privado
 
-> [!NOTE]
-> La replicación a través de un circuito de emparejamiento privado solo se admite actualmente para la [migración sin agente de máquinas virtuales de VMware a Azure](./tutorial-migrate-vmware.md). Próximamente estará disponible la compatibilidad con puntos de conexión privados para otros [métodos de replicación](./migrate-services-overview.md#azure-migrate-server-migration-tool).
+> [!Note]
+> En este artículo se muestra cómo realizar la replicación a través de un circuito de emparejamiento privado para la [**migración sin agente de máquinas virtuales de VMware a Azure**](./tutorial-migrate-vmware.md). Para usar la compatibilidad de punto de conexión privado para [**otros métodos de replicación**](./migrate-services-overview.md#azure-migrate-server-migration-tool), revise [**este artículo**](./how-to-use-azure-migrate-with-private-endpoints.md).  
+ 
 
 En el método de migración sin agente de máquinas virtuales de VMware a Azure, el dispositivo de Azure Migrate primero carga los datos de replicación en una cuenta de almacenamiento (cuenta de almacenamiento en caché) de la suscripción. Después, el servicio Azure Migrate mueve los datos replicados de la cuenta de almacenamiento en caché a los discos administrados por la réplica de la suscripción. Si quiere usar un circuito de emparejamiento privado para la replicación, deberá crear y asociar un punto de conexión privado al uso de la cuenta de almacenamiento en caché. Los puntos de conexión privados usan una o más direcciones IP privadas de la red virtual para incorporar la cuenta de almacenamiento de manera eficaz a la red virtual de Azure. El punto de conexión privado permite que el dispositivo de Azure Migrate se conecte con la cuenta de almacenamiento en caché mediante el emparejamiento privado de ExpressRoute y transfiera datos directamente en la dirección IP privada. <br/>  
 

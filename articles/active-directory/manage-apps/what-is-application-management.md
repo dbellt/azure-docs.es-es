@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 01/22/2021
 ms.author: iangithinji
 ms.reviewer: ''
-ms.openlocfilehash: 8bdb8eb9cf176f8e190769e38c81d02ad2985196
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 4a880fadb91daa34688e3876ba665d97659db015
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107376399"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108320860"
 ---
 # <a name="what-is-application-management"></a>¿Qué es la administración de aplicaciones?
 
@@ -58,7 +58,7 @@ Puede usar Azure AD como sistema de identidades de casi todas las aplicaciones.
 
 La mayoría de las aplicaciones se pueden configurar manualmente para el inicio de sesión único si no están ya en la galería. Azure AD proporciona varias opciones de inicio de sesión único. Algunas de los más populares son SSO basado en SAML y SSO basado en OIDC. Para más información sobre la integración de aplicaciones para habilitar el inicio de sesión único, consulte las [opciones de inicio de sesión único](sso-options.md). 
 
-¿Su organización usa aplicaciones locales? Puede integrarlas mediante Proxy de aplicaciones. Para más información, consulte [Acceso remoto a aplicaciones locales mediante Azure Active Directory Application Proxy](application-proxy.md).
+¿Su organización usa aplicaciones locales? Puede integrarlas mediante Proxy de aplicaciones. Para más información, consulte [Acceso remoto a aplicaciones locales mediante Azure Active Directory Application Proxy](../app-proxy/application-proxy.md).
 
 >[!TIP]
 >Al crear sus propias aplicaciones de línea de negocio, puede integrarlas con Azure AD para admitir el inicio de sesión único. Para más información sobre el desarrollo de aplicaciones para Azure AD, consulte [Plataforma de identidad de Microsoft](..//develop/v2-overview.md).

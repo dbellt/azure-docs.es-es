@@ -3,18 +3,18 @@ title: 'Azure IoT Hub Device Provisioning Service: atestación de clave simétri
 description: En este artículo se proporciona información general y conceptual del flujo de atestación de calve simétrica usando el servicio IoT Device Provisioning Service (DPS).
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/04/2019
+ms.date: 04/23/2021
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 994c2c3124d6822f047af942268ad7a401d5a976
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0455fe634b44465b4b16d48145fcf51f733f121d
+ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90531566"
+ms.lasthandoff: 04/23/2021
+ms.locfileid: "107929370"
 ---
 # <a name="symmetric-key-attestation"></a>Atestación de clave simétrica
 
@@ -74,7 +74,73 @@ sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
 
 Este ejemplo exacto se usa en el artículo [Aprovisionamiento de dispositivos antiguos mediante claves simétricas](how-to-legacy-device-symm-key.md).
 
-Una vez que se ha definido un identificador de registro para el dispositivo, la clave simétrica para el grupo de inscripción se usa para calcular un hash [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) del identificador de registro para generar una clave de dispositivo derivada. El hash del identificador de registro se puede realizar con el siguiente código de C#:
+Una vez que se ha definido un identificador de registro para el dispositivo, la clave simétrica para el grupo de inscripción se usa para calcular un hash [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) del identificador de registro para generar una clave de dispositivo derivada. Algunos enfoques de ejemplo para calcular la clave de dispositivo derivada se indican en las pestañas siguientes.  
+
+
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+La extensión de IoT para la CLI de Azure proporciona el comando [`compute-device-key`](/cli/azure/iot/dps?view=azure-cli-latest&preserve-view=true#az_iot_dps_compute_device_key) para generar claves de dispositivo derivadas. Este comando se puede usar en sistemas Windows o Linux, en PowerShell o en un shell de Bash.
+
+Reemplace el valor del argumento `--key` por la **clave principal** de su grupo de inscripción.
+
+Reemplace el valor del argumento `--registration-id` por su identificador del registro.
+
+```azurecli
+az iot dps compute-device-key --key 8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw== --registration-id sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
+```
+
+Resultado de ejemplo:
+
+```azurecli
+"Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc="
+```
+
+# <a name="windows"></a>[Windows](#tab/windows)
+
+Si utiliza una estación de trabajo basada en Windows, puede usar PowerShell para generar las claves de dispositivo derivadas tal y como se muestra en el ejemplo siguiente.
+
+Reemplace el valor de **KEY** por la **Clave principal** de su grupo de inscripción.
+
+Reemplace el valor de **REG_ID** por el identificador del registro.
+
+```powershell
+$KEY='8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw=='
+$REG_ID='sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6'
+
+$hmacsha256 = New-Object System.Security.Cryptography.HMACSHA256
+$hmacsha256.key = [Convert]::FromBase64String($KEY)
+$sig = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID))
+$derivedkey = [Convert]::ToBase64String($sig)
+echo "`n$derivedkey`n"
+```
+
+```powershell
+Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
+```
+
+# <a name="linux"></a>[Linux](#tab/linux)
+
+Si utiliza una estación de trabajo de Linux, puede usar openssl para generar la clave de dispositivo derivada tal y como se muestra en el ejemplo siguiente.
+
+Reemplace el valor de **KEY** por la **Clave principal** de su grupo de inscripción.
+
+Reemplace el valor de **REG_ID** por el identificador del registro.
+
+```bash
+KEY=8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw==
+REG_ID=sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
+
+keybytes=$(echo $KEY | base64 --decode | xxd -p -u -c 1000)
+echo -n $REG_ID | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64
+```
+
+```bash
+Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
+```
+
+# <a name="csharp"></a>[CSharp](#tab/csharp)
+
+El hash del identificador de registro se puede realizar con el siguiente código de C#:
 
 ```csharp
 using System; 
@@ -96,6 +162,8 @@ public static class Utils
 ```csharp
 String deviceKey = Utils.ComputeDerivedSymmetricKey(Convert.FromBase64String(masterKey), registrationId);
 ```
+
+---
 
 La clave del dispositivo resultante se usa para generar un token SAS que se usará para la atestación. A cada dispositivo en un grupo de inscripción se le requiere que realice la atestación usando un token de seguridad generado a partir de una única clave derivada. No se puede usar directamente la clave simétrica del grupo de inscripción para la atestación.
 

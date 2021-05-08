@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 37ecd06c4e3e71234e8fb1b6bad0cd05482dd31b
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: f603a4b44b555382e4178d90522ae41fa2388663
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107727856"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107947724"
 ---
 # <a name="configure-device-redirections"></a>Configuración de redireccionamientos de dispositivos
 
@@ -101,7 +101,7 @@ Establezca la siguiente propiedad RDP para configurar el redireccionamiento de l
 
 También puede seleccionar unidades específicas mediante una lista delimitada por puntos y comas, como `drivestoredirect:s:C:;E:;`.
 
-Para configurar la transferencia de archivos del cliente web, establezca `drivestoredirect:s:*`.
+Para habilitar la transferencia de archivos del cliente web, establezca `drivestoredirect:s:*`. Si establece cualquier otro valor para esta propiedad RDP, se deshabilitará la transferencia de archivos de cliente web.
 
 ### <a name="printer-redirection"></a>Redirección de impresoras
 
