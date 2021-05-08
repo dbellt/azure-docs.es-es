@@ -5,13 +5,13 @@ ms.service: data-share
 author: jifems
 ms.author: jife
 ms.topic: conceptual
-ms.date: 12/16/2020
-ms.openlocfilehash: 852c44f5edc5c0b0f5f655f63ab040927bd9bc7b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/20/2021
+ms.openlocfilehash: def73d137f3cc2c79ae8417995ec6bdf6c519b7d
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97963686"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107812631"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Almacenes de datos admitidos en Azure Data Share
 
@@ -50,7 +50,7 @@ En la siguiente tabla se explican las combinaciones y opciones que los consumido
 | Data Explorer ||||||| ✓ |
 
 ## <a name="share-from-a-storage-account"></a>Uso compartido desde una cuenta de almacenamiento
-Azure Data Share admite el uso compartido de archivos, carpetas y sistemas de archivos desde Azure Data Lake Storage Gen1 y Azure Data Lake Storage Gen2. También admite el uso compartido de blobs, carpetas y contenedores desde Azure Blob Storage. Actualmente solo se admiten blobs en bloques. 
+Azure Data Share admite el uso compartido de archivos, carpetas y sistemas de archivos desde Azure Data Lake Storage Gen1 y Azure Data Lake Storage Gen2. También admite el uso compartido de blobs, carpetas y contenedores desde Azure Blob Storage. Puede compartir blobs en bloques, en anexos o en páginas, y se reciben como blobs en bloques.
 
 Cuando los sistemas de archivos, los contenedores o las carpetas se comparten en el uso compartido basado en instantáneas, los consumidores de datos pueden optar por hacer una copia completa de los datos compartidos. O bien, pueden usar la funcionalidad de instantáneas incrementales para copiar solo los archivos nuevos o actualizados. 
 

@@ -2,13 +2,13 @@
 title: Procedimientos recomendados para las plantillas
 description: En este artículo se describen los enfoques recomendados para la creación de plantillas de Azure Resource Manager (plantillas de ARM). Se ofrecen sugerencias para evitar problemas comunes al usar las plantillas.
 ms.topic: conceptual
-ms.date: 12/01/2020
-ms.openlocfilehash: ff2b9ecf0e4004aa6689294867f5ff93006211ec
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.date: 04/23/2021
+ms.openlocfilehash: a9b7530f7d9e3e86a3f2137cda5fcefa5e101c23
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106219950"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107950197"
 ---
 # <a name="arm-template-best-practices"></a>Procedimientos recomendados para plantilla de Resource Manager
 
@@ -16,7 +16,7 @@ En este artículo se explica cómo usar procedimientos recomendados al crear la 
 
 ## <a name="template-limits"></a>Límites de plantilla
 
-Limite el tamaño de la plantilla a 4 MB y cada archivo de parámetros a 64 KB. El límite de 4 MB se aplica al estado final de la plantilla una vez se ha ampliado con definiciones de recursos iterativas y los valores de variables y parámetros.
+Limite el tamaño de la plantilla a 4 MB. El límite de 4 MB se aplica al estado final de la plantilla una vez se ha ampliado con definiciones de recursos iterativas y los valores de variables y parámetros. El archivo de parámetros también está limitado a 4 MB. Es posible que reciba un error con una plantilla o un archivo de parámetros de menos de 4 MB si el tamaño total de la solicitud es demasiado grande. Para más información sobre cómo simplificar la plantilla para evitar una solicitud de gran tamaño, consulte [Resolución de errores de tamaño de trabajo superado](error-job-size-exceeded.md).
 
 También está limitado a:
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: dfc8fe0f1b4bc043feecd5c76340d48bc5421854
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: dbd4e9c6e8a58738ac0a8db6c64133301d1aebe5
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107568546"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107950593"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guía de solución de problemas del Explorador de Azure Storage
 
@@ -137,11 +137,20 @@ Para reducir la frecuencia de tener que volver a escribir las credenciales debid
 
 Si tiene directivas de acceso condicional que deben cumplirse en la cuenta, asegúrese de que usa el valor **Explorador web predeterminado** en la opción **Iniciar sesión con**. Para obtener información sobre esa opción de configuración, consulte [Cambio del lugar donde se produce el inicio de sesión](./storage-explorer-sign-in.md#changing-where-sign-in-happens).
 
+### <a name="browser-complains-about-http-redirect-during-sign-in"></a>El explorador se queja del redireccionamiento de HTTP durante el inicio de sesión
+
+Cuando el Explorador de Storage inicia sesión en el explorador web, se realiza un redireccionamiento a `localhost` al final del proceso de inicio de sesión. A veces, los exploradores generan una advertencia o un error de que el redireccionamiento se realiza con HTTP en lugar de HTTPS. Algunos exploradores también pueden intentar forzar que el redireccionamiento se realice con HTTPS. Si ocurre alguna de estas opciones, en función del explorador, tiene una variedad de opciones:
+- Ignore la advertencia.
+- Agregue una excepción para `localhost`.
+- Deshabilite la opción para forzar HTTPS, ya sea globalmente o solo para `localhost`.
+
+Si no puede realizar ninguna de esas opciones, también puede [cambiar dónde se produce el inicio de sesión](./storage-explorer-sign-in.md#changing-where-sign-in-happens).
+
 ### <a name="unable-to-acquire-token-tenant-is-filtered-out"></a>No se puede adquirir el token, el inquilino está filtrado
 
 Si ve un mensaje de error que indica que no se puede adquirir un token porque un inquilino está filtrado, significa que está intentando acceder a un recurso que se encuentra en un inquilino que ya ha filtrado. Para quitar el filtro del inquilino, vaya al **Panel de cuentas** y asegúrese de que la casilla del inquilino especificado en el error está activada. Consulte [Administración de cuentas](./storage-explorer-sign-in.md#managing-accounts) para obtener más información sobre el filtrado de inquilinos en el Explorador de Storage.
 
-## <a name="authentication-library-failed-to-start-properly"></a>No se pudo iniciar correctamente la biblioteca de autenticación
+### <a name="authentication-library-failed-to-start-properly"></a>No se pudo iniciar correctamente la biblioteca de autenticación
 
 Si en el inicio ve un mensaje de error que indica que la biblioteca de autenticación del Explorador de Storage no se pudo iniciar correctamente, asegúrese de que el entorno de instalación cumple todos los [requisitos previos](../../vs-azure-tools-storage-manage-with-storage-explorer.md#prerequisites). No cumplir los requisitos previos es la causa más probable de este mensaje de error.
 
@@ -486,12 +495,12 @@ En el caso de problemas relacionados con el inicio de sesión o la biblioteca de
 
 Por lo general, puede seguir estos pasos para recopilar los registros:
 
-1. Vaya a Settings > Sign-in (Configuración > inicio de sesión) y active Verbose Authentication Logging (Registro de autenticación detallado). Si el Explorador de Storage no se puede iniciar debido a un problema con la biblioteca de autenticación, esto se hará automáticamente.
+1. Vaya a **Configuración (icono de engranaje de la izquierda)**  > **Aplicación** > **Inicio de sesión** > active **Registro de autenticación detallada**. Si el Explorador de Storage no se puede iniciar debido a un problema con la biblioteca de autenticación, esto se hará automáticamente.
 2. Cierre el Explorador de Storage.
 1. Opcional recomendado: borre los registros existentes de la carpeta `logs`. Al hacerlo, se reducirá la cantidad de información que tiene que enviarnos.
 4. Abra el Explorador de Storage y reproduzca el problema.
 5. Cierre el Explorador de Storage.
-6. Comprima en formato ZIP el contenido de la carpeta `log`.
+6. Comprima en formato ZIP el contenido de la carpeta `logs`.
 
 ### <a name="azcopy-logs"></a>Registros de AzCopy
 

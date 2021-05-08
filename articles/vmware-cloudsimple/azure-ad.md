@@ -1,19 +1,19 @@
 ---
 title: 'Azure VMware Solution by CloudSimple: uso de Azure AD como origen de identidades en la nube privada'
 description: En este artículo se describe cómo agregar Azure AD como proveedor de identidades en la nube privada de CloudSimple para autenticar a los usuarios que acceden a CloudSimple desde Azure.
-author: Ajayan1008
-ms.author: v-hborys
+author: shortpatti
+ms.author: v-patsho
 ms.date: 08/15/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: f55a0f52f5e028f9cbf7a9fabbb3c24ad43c3800
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 20e854b38aa45e410c5f6ddae51ee4d1bf0b088e
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97898613"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108182577"
 ---
 # <a name="use-azure-ad-as-an-identity-provider-for-vcenter-on-cloudsimple-private-cloud"></a>Uso de Azure AD como proveedor de identidades para vCenter en la nube privada de CloudSimple
 

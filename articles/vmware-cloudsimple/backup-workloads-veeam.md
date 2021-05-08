@@ -1,19 +1,19 @@
 ---
 title: 'Azure VMware Solution by CloudSimple: copia de seguridad de máquinas virtuales de carga de trabajo en la nube privada con Veeam'
 description: Indica cómo puede realizar una copia de seguridad de las máquinas virtuales que se están ejecutando en una nube privada de CloudSimple basada en Azure con Veeam B&R 9.5
-author: Ajayan1008
-ms.author: v-hborys
+author: shortpatti
+ms.author: v-patsho
 ms.date: 08/16/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 7be606b3e23a594e67acf3f169d88353403d8577
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 115cb4203966bdf4cb60373d9c08994b6eb11576
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97899344"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108182613"
 ---
 # <a name="back-up-workload-vms-on-cloudsimple-private-cloud-using-veeam-br"></a>Copia de seguridad de máquinas virtuales de carga de trabajo en la nube privada de CloudSimple con Veeam B&R
 

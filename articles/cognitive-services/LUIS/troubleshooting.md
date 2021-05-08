@@ -4,13 +4,13 @@ description: Este artículo contiene respuestas a las preguntas más frecuentes 
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: troubleshooting
-ms.date: 04/13/2021
-ms.openlocfilehash: 97b7c02a418a87a0700414e19bc939bda899d073
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.date: 04/16/2021
+ms.openlocfilehash: 593e02520d3e6ae87550257381dbc47aa068a242
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107503837"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107951547"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Preguntas más frecuentes de Language Understanding
 
@@ -91,7 +91,7 @@ Recibirá los códigos de estado HTTP 403 y 429 cuando supere las transacciones 
 
 Al usar las 1000 consultas de punto de conexión gratuitas o al superar la cuota mensual de transacciones de su plan de tarifa, recibirá un código de estado de error HTTP 403.
 
-Para corregir este error, tendrá que [cambiar su plan de tarifa](luis-how-to-azure-subscription.md#change-the-pricing-tier) a un nivel superior o [crear un nuevo recurso](get-started-portal-deploy-app.md#create-the-endpoint-resource) y [asignarlo a la aplicación](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal).
+Para corregir este error, tendrá que [cambiar su plan de tarifa](luis-how-to-azure-subscription.md#change-the-pricing-tier) a un nivel superior o [crear un nuevo recurso](luis-get-started-create-app.md#sign-in-to-luis-portal) y asignarlo a la aplicación.
 
 Las soluciones para este error incluyen:
 
@@ -262,7 +262,7 @@ La clave de creación/inicio solo permite 1000 consultas de punto de conexión 
 Lo primero que hay que hacer es determinar si el problema está solo relacionado con LUIS o si sucede fuera del middleware de LUIS.
 
 #### <a name="resolve-issue-in-luis"></a>Solución del problema en LUIS
-Pase la misma expresión a LUIS desde el [punto de conexión de LUIS](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint). Si recibe un error, resuelva el problema en LUIS hasta que deje de devolverse este. Estos son algunos de los errores comunes:
+Pase la misma expresión a LUIS desde el [punto de conexión de LUIS](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint). Si recibe un error, resuelva el problema en LUIS hasta que deje de devolverse este. Estos son algunos de los errores comunes:
 
 * `Out of call volume quota. Quota will be replenished in <time>.`: este problema indica que debe cambiar de una clave de creación a una [clave de punto de conexión](luis-how-to-azure-subscription.md) o que debe cambiar de [nivel de servicio](luis-how-to-azure-subscription.md#change-the-pricing-tier).
 
