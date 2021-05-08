@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 01/25/2021
 ms.author: wellee
-ms.openlocfilehash: e8e5a5a1b9325f40fdd51133155a0daffaa55a7b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2e57d84ea76fbcfad932654c36ff51b9260ecdd7
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99396252"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107950806"
 ---
 # <a name="scenario-custom-isolation-for-virtual-networks-and-branches"></a>Escenario: Aislamiento personalizado para redes virtuales y sucursales
 
@@ -85,7 +85,7 @@ Tenga en cuenta los siguientes pasos al configurar el enrutamiento.
 3. Repita los mismos pasos para la tabla de rutas **RT_RED** para las redes virtuales rojas.
 4. Aprovisione una instancia de Azure Firewall en Virtual WAN. Para obtener más información sobre Azure Firewall en el centro de Virtual WAN, consulte [Configuración de Azure Firewall en un centro de Virtual WAN](howto-firewall.md).
 5. Agregue una ruta estática a la tabla de rutas **predeterminada** del centro virtual que dirige todo el tráfico destinado a los espacios de direcciones de redes virtuales (tanto azules como rojas) a Azure Firewall. Este paso garantiza que todos los paquetes de las sucursales se envíen a Azure Firewall para su inspección.
-    * Ejemplo: **Prefijo de destino**:  10.0.0.0/24 **Próximo salto**: Azure Firewall
+    * Ejemplo: **Prefijo de destino**:  10.0.0.0/8 **Próximo salto**: Azure Firewall
     >[!NOTE]
     > Este paso también puede realizarse mediante Firewall Manager al seleccionar la opción "Secure Private Traffic" (Tráfico privado seguro). Esto agregará una ruta para todas las direcciones IP privadas RFC1918 aplicables a redes virtuales y sucursales. Tendrá que agregar manualmente las sucursales o redes virtuales que no cumplan con RFC1918. 
 

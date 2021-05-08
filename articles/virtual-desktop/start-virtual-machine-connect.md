@@ -3,15 +3,15 @@ title: Iniciar máquina virtual al establecer la conexión - Azure
 description: Cómo configurar la característica Iniciar máquina virtual al establecer la conexión.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/13/2021
+ms.date: 04/23/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: af95cf5d3e4112c717d653062f186797d48fb515
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.openlocfilehash: 05500ded7512b54446d153e37233e4889b3107ff
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107389815"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107949195"
 ---
 # <a name="start-virtual-machine-on-connect-preview"></a>Iniciar máquina virtual al establecer la conexión (versión preliminar)
 
@@ -19,7 +19,7 @@ ms.locfileid: "107389815"
 > La característica Iniciar VM al establecer la conexión se encuentra actualmente en versión preliminar pública.
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-La característica Iniciar máquina virtual (VM) al establecer la conexión (versión preliminar) le permite ahorrar costos al permitirle desasignar las VM cuando no las está usando. Cuando necesite volver a usar una VM, lo único que tiene que hacer es volver a activarlas.
+La característica Iniciar máquina virtual (VM) al establecer conexión (versión preliminar) permite ahorrar costos al permitir que los usuarios finales activen sus máquinas virtuales solo cuando las necesiten. A continuación, puede desactivar las máquinas virtuales cuando no se necesiten.
 
 >[!NOTE]
 >Windows Virtual Desktop (clásico) no admite esta característica.
@@ -28,10 +28,12 @@ La característica Iniciar máquina virtual (VM) al establecer la conexión (ve
 
 Solo puede habilitar la característica Iniciar VM al establecer la conexión para grupos de host personales. Para obtener más información sobre los entornos de host personales, consulte [Entorno de Windows Virtual Desktop](environment-setup.md#host-pools).
 
-Los siguientes clientes de escritorio remoto admiten la característica Iniciar VM al establecer la conexión:
+Los siguientes clientes de Escritorio remoto admiten la característica Iniciar VM al establecer la conexión:
 
 - [El cliente web](connect-web.md)
 - [El cliente de Windows (versión 1.2748 o posterior)](connect-windows-7-10.md)
+- [El cliente de Android (versión 10.0.10 o posterior)](connect-android.md)
+- [El cliente de macOS (versión 10.6.4 o posterior)](connect-macos.md)
 
 Puede buscar anuncios sobre actualizaciones y asistencia al cliente en el [foro Tech Community](https://aka.ms/wvdtc).
 

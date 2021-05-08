@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/01/2021
 ms.author: chuye
-ms.openlocfilehash: ef02842d189746a1801d97f91b92f249947c832d
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: 26ce15bfe474f96aaef17f186f56e36ce42b7239
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107568665"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107950539"
 ---
 # <a name="sign-in-to-storage-explorer"></a>Inicio de sesión en el Explorador de Storage
 
@@ -48,7 +48,7 @@ Si quiere quitar toda la cuenta de Azure, haga clic en **Quitar** junto a la cue
 
 De forma predeterminada, el inicio de sesión se realizará en el **explorador web predeterminado** del sistema operativo. El inicio de sesión con el explorador web predeterminado simplifica el modo en que se accede a los recursos protegidos mediante directivas de CA, como MFA. Si, por algún motivo, el inicio de sesión con el **explorador web predeterminado** del sistema operativo no funciona, puede cambiar dónde o cómo el Explorador de Storage realiza el inicio de sesión.
 
-En **Configuración** > **Aplicación** > **Iniciar sesión**, busque la opción **Iniciar sesión con**. Hay tres opciones:
+En **Configuración (icono de engranaje de la izquierda)**  > **Aplicación** > **Inicio de sesión**, busque la configuración **Iniciar sesión con**. Hay tres opciones:
 - **Explorador web predeterminado**: el inicio de sesión se realizará en el **explorador web predeterminado** del sistema operativo. Esta opción no se recomienda.
 - **Inicio de sesión integrado**: el inicio de sesión se realizará en una ventana del Explorador de Storage. Esta opción puede ser útil si está intentando iniciar sesión con varias cuentas Microsoft (MSA) a la vez. Si elige esta opción, es posible que tenga problemas con algunas directivas de CA.
 - **Flujo de código de dispositivo**: el Explorador de Storage le dará un código para entrar en una ventana del explorador. No se recomienda esta opción. El flujo de código de dispositivo no es compatible con muchas directivas de CA.
@@ -56,3 +56,8 @@ En **Configuración** > **Aplicación** > **Iniciar sesión**, busque la opción
 ## <a name="troubleshooting-sign-in-issues"></a>Solución de problemas de inicio de sesión de usuario
 
 Si tiene problemas para iniciar sesión o experimenta problemas con una cuenta de Azure después de iniciar sesión, consulte la [sección de inicio de sesión de la guía de solución de problemas del Explorador de Storage](./storage-explorer-troubleshooting.md#sign-in-issues).
+
+## <a name="next-steps"></a>Pasos siguientes
+
+* [Administración de recursos de Azure Blob Storage con el Explorador de Storage](../../vs-azure-tools-storage-explorer-blobs.md)
+* [Solución de problemas con el inicio de sesión](./storage-explorer-troubleshooting.md#sign-in-issues)

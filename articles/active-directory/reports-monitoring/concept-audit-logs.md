@@ -1,10 +1,10 @@
 ---
-title: Informes de actividad de auditoría en el portal de Azure Active Directory | Microsoft Docs
-description: Introducción a los informes de actividad de auditoría en el portal de Azure Active Directory
+title: Registros de auditoría en Azure Active Directory | Microsoft Docs
+description: Información general de los registros de auditoría en Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: mtillman
 editor: ''
 ms.assetid: a1f93126-77d1-4345-ab7d-561066041161
 ms.service: active-directory
@@ -13,44 +13,94 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 09/17/2020
+ms.date: 04/26/2021
 ms.author: markvi
-ms.reviewer: dhanyahk
+ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5aa8f675e3fd36fbebfecf42db0f02b0f0f00115
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7da93343e7380a327b7d2586b90dd5a5df1e006f
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95995988"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108136866"
 ---
-# <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Informes de actividad de auditoría en el portal de Azure Active Directory 
+# <a name="audit-logs-in-azure-active-directory"></a>Registros de auditoría en Azure Active Directory 
 
-Con los informes de Azure Active Directory (Azure AD), puede obtener toda la información que necesita para determinar cómo funciona el entorno.
+Como administrador de TI, quiere saber cómo funciona el entorno de TI. La información sobre el estado del sistema le permite evaluar si es necesario responder a posibles problemas y cómo hacerlo. 
+
+Para ayudarle a conseguir este objetivo, el portal de Azure Active Directory le proporciona acceso a tres registros de actividad:
+
+- **[Inicios de sesión](concept-sign-ins.md)** : Información sobre los inicios de sesión y cómo los usuarios emplean los recursos.
+- **[Auditoría](concept-audit-logs.md)** : información sobre los cambios aplicados al inquilino, como la administración de usuarios y grupos o las actualizaciones aplicadas a los recursos del inquilino.
+- **[Aprovisionamiento](concept-provisioning-logs.md)** : actividades realizadas por el servicio de aprovisionamiento, como la creación de un grupo en ServiceNow o un usuario importado de Workday.
+
+En este artículo se proporciona información general de los informes de auditoría.
 
 
+## <a name="what-can-you-do-with-it"></a>¿Para qué sirven el informe?
 
-Esta arquitectura de informes consta de los siguientes componentes:
+Con los registros de auditoría de Azure AD, puede obtener registros de las actividades del sistema de cara al cumplimiento.
+Las vistas más comunes de este registro se basan en las siguientes categorías:
 
-- **Actividad** 
-    - **Inicios de sesión**: el [informe de inicios de sesión](concept-sign-ins.md) proporciona información sobre el uso de aplicaciones administradas y actividades de inicio de sesión de usuario.
-    - Los **registros de auditoría** proporcionan rastreabilidad mediante los registros de todos los cambios realizados por diversas características de Azure AD. Algunos ejemplos de registros de auditoría incluyen los cambios realizados en cualquier recurso de Azure AD como agregar o quitar usuarios, aplicaciones, grupos, roles y directivas.
-    - Los **registros de aprovisionamiento** - [Registros de aprovisionamiento](./concept-provisioning-logs.md) permiten a los clientes supervisar la actividad del servicio de aprovisionamiento, como la creación de un grupo en ServiceNow o un usuario importado desde Workday. 
-- **Seguridad** 
-    - **Inicios de sesión de riesgo**: un [inicio de sesión de riesgo](../identity-protection/overview-identity-protection.md) es un indicador de un intento de inicio de sesión que puede haber realizado alguien que no es el propietario legítimo de una cuenta de usuario. 
-    - **Usuarios marcados en riesgo**: un [usuario en riesgo](../identity-protection/overview-identity-protection.md) es un indicador de una cuenta de usuario que puede haber estado en peligro.
+- Administración de usuarios
 
-En este artículo se proporciona información general del informe de auditoría.
+- Administración de grupos
  
-## <a name="who-can-access-the-data"></a>¿Quién puede acceder a los datos?
-
-* Los usuarios con los roles **Administrador de seguridad**, **Lector de seguridad**, **Lector de informes**, **Lector global** o **Administrador global**
-
-## <a name="audit-logs"></a>Registros de auditoría
-
-Los registros de auditoría de Azure AD proporcionan registros de las actividades del sistema de cara al cumplimiento. Para acceder al informe de auditoría, seleccione **Registros de auditoría** en la sección **Supervisión** de **Azure Active Directory**. 
+- Administración de aplicaciones  
 
 
+Con una vista centrada en usuarios o grupos, puede obtener respuestas a preguntas como:
+
+- ¿Qué tipos de actualizaciones se han aplicado a los usuarios?
+
+- ¿Cuántos usuarios han cambiado?
+
+- ¿Cuántas contraseñas han cambiado?
+
+- ¿Qué ha hecho un administrador en un directorio?
+
+- ¿Cuáles son los grupos que se han agregado?
+
+- ¿Hay grupos con cambios de pertenencia?
+
+- ¿Se han cambiado los propietarios del grupo?
+
+- ¿Qué licencias se han asignado a un grupo o un usuario?
+
+
+Con una vista centrada en la aplicación, puede obtener respuestas a preguntas como:
+
+- ¿Qué aplicaciones se han agregado o actualizado?
+
+- ¿Qué aplicaciones se han quitado?
+
+- ¿Ha cambiado la entidad de servicio de una aplicación?
+
+- ¿Se han cambiado los nombres de las aplicaciones?
+
+- ¿Quién dio el consentimiento a una aplicación?
+
+ 
+## <a name="who-can-access-it"></a>¿Quién puede acceder a ellos?
+
+Para acceder a los registros de auditoría, debe tener uno de los siguientes roles: 
+
+- Administrador de seguridad
+- Lector de seguridad
+- Lector de informes
+- Lector global
+- Administrador global
+
+## <a name="where-can-you-find-it-in-the-azure-portal"></a>¿Dónde puede encontrarlo en Azure Portal?
+
+Azure Portal ofrece varias opciones para acceder al registro. Por ejemplo, en el menú Azure Active Directory, puede abrir el registro en la sección **Supervisión**.  
+
+![Apertura de los registros de aprovisionamiento](./media/concept-provisioning-logs/provisioning-logs-menu.png)
+
+Además, puede acceder directamente a los registros de auditoría mediante este vínculo: [https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/ProvisioningEvents](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/ProvisioningEvents).
+
+
+## <a name="what-is-the-default-view"></a>¿Cuál es la vista predeterminada?
 
 Un registro de auditoría tiene una vista de lista predeterminada que muestra:
 
@@ -162,54 +212,8 @@ También puede descargar los datos filtrados, hasta 250 000 registros, si selec
 
 ![Descarga de datos](./media/concept-audit-logs/download.png "Descarga de datos")
 
-## <a name="audit-logs-shortcuts"></a>Métodos abreviados de los registros de auditoría
 
-Además de **Azure Active Directory**, Azure Portal proporciona dos puntos de entrada adicionales para auditar datos:
 
-- Usuarios y grupos
-- Aplicaciones empresariales
-
-### <a name="users-and-groups-audit-logs"></a>Registros de auditoría de los usuarios y grupos
-
-Con los informes de auditoría basadas en grupos y usuarios, puede obtener respuestas a preguntas como:
-
-- ¿Qué tipos de actualizaciones se han aplicado a los usuarios?
-
-- ¿Cuántos usuarios han cambiado?
-
-- ¿Cuántas contraseñas han cambiado?
-
-- ¿Qué ha hecho un administrador en un directorio?
-
-- ¿Cuáles son los grupos que se han agregado?
-
-- ¿Hay grupos con cambios de pertenencia?
-
-- ¿Se han cambiado los propietarios del grupo?
-
-- ¿Qué licencias se han asignado a un grupo o un usuario?
-
-Si quiere revisar solo los datos de auditoría relacionados con los usuarios, puede encontrar una vista filtrada en **Registros de auditoría** en la sección **Supervisión** de la pestaña **Usuarios**. Este punto de entrada tiene **UserManagement** como categoría preseleccionada.
-
-![User](./media/concept-audit-logs/users.png "Usuario")
-
-Si quiere revisar solo los datos de auditoría relacionados con los grupos, puede encontrar una vista filtrada en **Registros de auditoría** en la sección **Supervisión** de la pestaña **Grupos**. Este punto de entrada tiene **GroupManagement** como categoría preseleccionada.
-
-![Grupos de filtro](./media/concept-audit-logs/groups.png "Grupos de filtro")
-
-### <a name="enterprise-applications-audit-logs"></a>Registros de auditoría de aplicaciones empresariales
-
-Con los informes de auditoría basadas en aplicaciones, puede obtener respuestas a preguntas tales como:
-
-* ¿Qué aplicaciones se han agregado o actualizado?
-* ¿Qué aplicaciones se han quitado?
-* ¿Ha cambiado la entidad de servicio de una aplicación?
-* ¿Se han cambiado los nombres de las aplicaciones?
-* ¿Quién dio el consentimiento a una aplicación?
-
-Si quiere revisar los datos de auditoría relacionados con las aplicaciones, puede encontrar una vista filtrada en **Registros de auditoría** en la sección **Actividad** de la hoja **Aplicaciones empresariales**. Este punto de entrada tiene la opción **Aplicaciones empresariales** preseleccionada en **Tipo de aplicación**.
-
-![Aplicaciones empresariales](./media/concept-audit-logs/enterpriseapplications.png "Aplicaciones empresariales")
 
 ## <a name="microsoft-365-activity-logs"></a>Registros de actividad de Microsoft 365
 
@@ -220,5 +224,6 @@ También puede acceder a los registros de actividad de Microsoft 365 mediante p
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Referencia sobre actividades de auditoría de Azure AD](reference-audit-activities.md)
-- [Referencia sobre la retención de informes de Azure AD](reference-reports-data-retention.md)
+- [Referencia sobre la retención de registros de Azure AD](reference-reports-data-retention.md)
 - [Referencia sobre las latencias de registro de Azure AD](reference-reports-latencies.md)
+- [Actores desconocidos en el informe de auditoría](/troubleshoot/azure/active-directory/unknown-actors-in-audit-reports)

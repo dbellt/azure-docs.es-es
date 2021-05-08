@@ -1,14 +1,14 @@
 ---
 title: Nueva asignación de directivas con el portal
 description: En este inicio rápido, se usa Azure Portal para crear una asignación de Azure Policy para identificar recursos no compatibles.
-ms.date: 01/29/2021
+ms.date: 05/01/2021
 ms.topic: quickstart
-ms.openlocfilehash: e5cbf31e897b5be404327efa254eb90ead990f5f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: abceee512fc49922b69b80f0ac292b7fa044b2c7
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99220894"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108326262"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources"></a>Creación de una asignación de directiva para identificar recursos no compatibles.
 
@@ -17,7 +17,7 @@ Esta guía de inicio rápido lo guiará por el proceso de creación de una asign
 
 Al finalizar este proceso, habrá identificado correctamente máquinas virtuales que no utilizan discos administrados. _No son compatibles_ con la asignación de directiva.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
