@@ -1,14 +1,14 @@
 ---
 title: 'Inicio rápido: Creación de un grupo de administración con la API REST'
 description: En este inicio rápido, se usa la API REST para crear un grupo de administración para organizar los recursos en una jerarquía de recursos.
-ms.date: 02/05/2021
+ms.date: 05/01/2021
 ms.topic: quickstart
-ms.openlocfilehash: 26a1c0a8025a00155bcf0498e6dfa89a8a73d983
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 8a3570c8c6e5abd117e823c0ea1dae5f58a7846f
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107259139"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108323220"
 ---
 # <a name="quickstart-create-a-management-group-with-rest-api"></a>Inicio rápido: Creación de un grupo de administración con la API REST
 

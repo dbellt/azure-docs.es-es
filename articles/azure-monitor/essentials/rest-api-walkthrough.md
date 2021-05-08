@@ -3,13 +3,13 @@ title: Tutorial sobre la API de REST de supervisión de Azure
 description: Cómo autenticar las solicitudes y usar la API de REST de Azure Monitor para recuperar las definiciones de métricas y valores de métricas disponibles.
 ms.topic: conceptual
 ms.date: 03/19/2018
-ms.custom: has-adal-ref
-ms.openlocfilehash: a7cd6ff7c0c3b5d4bee859ef288f16673ebe0835
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.custom: has-adal-ref, devx-track-azurepowershell
+ms.openlocfilehash: 8c7e40ced81ae71bd9f8688130944144314ec1ab
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102033085"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108320086"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Tutorial sobre la API de REST de supervisión de Azure
 

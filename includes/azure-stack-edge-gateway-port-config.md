@@ -2,14 +2,14 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 12/16/2019
+ms.date: 04/26/2021
 ms.author: alkohli
-ms.openlocfilehash: 417fbdea3f46dfb3e90ab4890cec5e88c5aa4e07
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a3ec82ad06b9f72af3700c72d31d402a14e840d4
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94523819"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108073183"
 ---
 | N.º de puerto| Dentro o fuera | Ámbito de puerto| Obligatorio | Notas |
 |---------|-----------|-----------|----------|-------|
@@ -18,6 +18,7 @@ ms.locfileid: "94523819"
 | UDP 123 (NTP)|Fuera|WAN|En algunos casos.<br>Vea las notas|Este puerto es necesario solo si está utilizando un servidor NTP basado en Internet.  |   
 | UDP 53 (DNS)|Fuera|WAN|En algunos casos.<br>Vea las notas|Este puerto es necesario solo si está utilizando un servidor DNS basado en Internet.<br>Se recomienda usar un servidor DNS local. |
 | TCP 5985 (WinRM)|Salida/Entrada|LAN|En algunos casos.<br>Vea las notas|Este puerto es necesario para conectarse al dispositivo a través de la instancia remota de PowerShell a través de HTTP.  |
+| TCP 5986 (WinRM)|Salida/Entrada|LAN|En algunos casos.<br>Vea las notas|Este puerto es necesario para conectarse al dispositivo a través de la instancia remota de PowerShell a través de HTTP.  |
 | UDP 67 (DHCP)|Fuera|LAN|En algunos casos.<br>Vea las notas|Este puerto solo es necesario si se usa un servidor DHCP local.  |
 | TCP 80 (HTTP)|Salida/Entrada|LAN|Sí|Este es el puerto de entrada de la interfaz de usuario local del dispositivo para la administración local. <br>Si obtiene acceso a la interfaz de usuario local mediante HTTP, se le redireccionará automáticamente a HTTPS.  |
 | TCP 443 (HTTPS)|Salida/Entrada|LAN|Sí|Este es el puerto de entrada de la interfaz de usuario local del dispositivo para la administración local. Este puerto también se usa para conectar Azure Resource Manager a las API locales del dispositivo, para conectar el almacenamiento de blobs a través de las API REST y al servicio de token de seguridad (STS) para autenticar a través de tokens de acceso y actualización.|

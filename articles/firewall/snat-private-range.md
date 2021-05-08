@@ -7,16 +7,16 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 04/14/2021
 ms.author: victorh
-ms.openlocfilehash: 91d4d631376c03b668128936f3840ce1119f9b6f
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 01707a99b1ff5d077daf3c095e1daf78ccddfeac
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107482758"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107898196"
 ---
 # <a name="azure-firewall-snat-private-ip-address-ranges"></a>Intervalos de direcciones IP privadas de SNAT de Azure Firewall
 
-Azure Firewall proporciona SNAT automática para todo el tráfico saliente a las IP públicas. De forma predeterminada, Azure Firewall no aplica SNAT con reglas de red cuando la dirección IP de destino es un intervalo de direcciones IP privadas, de acuerdo con la normativa [RFC 1918 de IANA](https://tools.ietf.org/html/rfc1918). Las reglas de aplicación se aplican siempre mediante un [proxy transparente](https://wikipedia.org/wiki/Proxy_server#Transparent_proxy), independientemente de la dirección IP de destino.
+Azure Firewall proporciona SNAT automática para todo el tráfico saliente a las IP públicas. De forma predeterminada, Azure Firewall no aplica SNAT con reglas de red cuando la dirección IP de destino es un intervalo de direcciones IP privadas, de acuerdo con la normativa [RFC 1918 de IANA](https://tools.ietf.org/html/rfc1918) o el espacio de direcciones compartidas según la normativa [RFC 6598 de IANA](https://tools.ietf.org/html/rfc6598). Las reglas de aplicación se aplican siempre mediante un [proxy transparente](https://wikipedia.org/wiki/Proxy_server#Transparent_proxy), independientemente de la dirección IP de destino.
 
 Esta lógica funciona bien cuando se enruta el tráfico directamente a Internet. Sin embargo, si ha se habilitado [tunelización forzada](forced-tunneling.md), al tráfico enlazado a Internet se le aplica SNAT a una de las direcciones IP privadas del firewall en AzureFirewallSubnet, ocultando el origen del firewall local.
 

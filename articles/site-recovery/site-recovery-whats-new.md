@@ -3,12 +3,12 @@ title: Novedades de Azure Site Recovery
 description: Proporciona un resumen de las nuevas características y las actualizaciones más recientes en el servicio Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 01/26/2021
-ms.openlocfilehash: 423fbc563878d0cc2a63a5366d2226281a204e87
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a960a62a8262128d775b0fe386a72e5ec613b7f1
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102454606"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107897638"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novedades de Site Recovery
 
@@ -22,6 +22,7 @@ En el caso de los componentes de Site Recovery, se admiten las versiones N-4, do
 
 **Actualizar** |  **Instalación unificada** | **Servidor de configuración OVA** | **Agente de Mobility Service** | **Proveedor de Site Recovery** | **Agente de Recovery Services**
 --- | --- | --- | --- | --- | ---
+[Paquete acumulativo 55](https://support.microsoft.com/topic/b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8)  | 9.42.5941.1 | 5.1.6692.0 | 9.42.5941.1 | 5.1.6692.0  | 2.0.9208.0
 [Paquete acumulativo 54](https://support.microsoft.com/topic/update-rollup-54-for-azure-site-recovery-50873c7c-272c-4a7a-b9bb-8cd59c230533)  | 9.41.5888.1 | 5.1.6620.0 | 9.41.5888.1 | 5.1.6620.0  | 2.0.9202.0
 [Paquete acumulativo 53](https://support.microsoft.com/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a)  | 9.40.5850.1 | 5.1.6537.0 | 9.40.5850.1 | 5.1.6537.0  | 2.0.9202.0
 [Paquete acumulativo 52](https://support.microsoft.com/help/4597409/)  | 9.39.5796.1 | 5.1.6458.0 | 9.39.5796.1 | 5.1.6458.0  | 2.0.9196.0
@@ -31,6 +32,20 @@ En el caso de los componentes de Site Recovery, se admiten las versiones N-4, do
 
 
 [Más información](service-updates-how-to.md) sobre la instalación y el soporte técnico de las actualizaciones.
+
+## <a name="updates-april-2021"></a>Actualizaciones (abril de 2021)
+
+### <a name="update-rollup-55"></a>Paquete acumulativo de actualizaciones 55
+
+El [paquete acumulativo de actualizaciones 55](https://support.microsoft.com/topic/b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8) proporciona las siguientes actualizaciones:
+
+**Actualizar** | **Detalles**
+--- | ---
+**Proveedores y agentes** | Actualizaciones de los proveedores y agentes de Site Recovery según se detalla en el paquete acumulativo de actualizaciones.
+**Mejoras y correcciones de problemas** | Un número de correcciones y mejoras (tal como se detalla en el paquete acumulativo). 
+**Recuperación ante desastres en VM de Azure** | Se ha agregado compatibilidad con la recuperación ante desastres intercontinental de máquinas virtuales de Azure.<br/><br/> Compatibilidad con la API REST para la protección de VMSS Flex.<br/><br/> Ahora se admite para las máquinas virtuales que ejecutan Oracle Linux 8.2 y 8.3.
+**Recuperación ante desastres de un servidor físico o de una máquina virtual de VMware en Azure** | Se ha agregado compatibilidad con el uso de Ubuntu-20.04 al configurar el servidor de destino maestro.<br/><br/> Ahora se admite para las máquinas virtuales que ejecutan Oracle Linux 8.2 y 8.3.
+
 
 ## <a name="updates-february-2021"></a>Actualizaciones (febrero de 2021)
 
@@ -72,7 +87,7 @@ El [paquete acumulativo de actualizaciones 52](https://support.microsoft.com/he
 **Proveedores y agentes** | Actualizaciones de los proveedores y agentes de Site Recovery según se detalla en el paquete acumulativo de actualizaciones.
 **Mejoras y correcciones de problemas** | Varias correcciones y mejoras que se detallan en el paquete acumulativo, incluyendo la nueva compatibilidad con Linux del servicio Mobility.
 **Recuperación ante desastres en VM de Azure** | Ahora se admite para las máquinas virtuales que ejecutan RHEL 8.3 y Oracle Linux 7.9.
-**Recuperación ante desastres de un servidor físico o de una máquina virtual de VMware en Azure** | Ahora se admite para las máquinas virtuales que ejecutan RHEL 8.3 y Oracle Linux 7.9/8.3.
+**Recuperación ante desastres de un servidor físico o de una máquina virtual de VMware en Azure** | Ahora se admite para máquinas virtuales que ejecutan RHEL 8.3 y Oracle Linux 7.9.
 
 ## <a name="updates-october-2020"></a>Actualizaciones (octubre de 2020)
 

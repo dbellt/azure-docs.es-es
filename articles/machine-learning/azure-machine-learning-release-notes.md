@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 02/18/2021
-ms.openlocfilehash: 1de495253dacac5aeab7dcff95f74aeed11782a8
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 1bdc439bc281338fc3df95f7d82784a5eebf7a4a
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107750741"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108288551"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de la versión de Azure Machine Learning
 
@@ -440,7 +440,7 @@ __Fuente RSS__: reciba notificaciones cuando esta página se actualice copiando 
 
 Ahora está disponible el tipo de proyecto de segmentación de instancias de imagen (anotaciones de polígono) en el etiquetado de datos, de modo que los usuarios pueden dibujar y anotar polígonos alrededor del contorno de los objetos de las imágenes. Los usuarios podrán asignar una clase y un polígono a cada objeto que le interese dentro de una imagen.
 
-Obtenga más información sobre el [etiquetado de segmentación de instancias de imagen](how-to-label-images.md).
+Obtenga más información sobre el [etiquetado de segmentación de instancias de imagen](how-to-label-data.md).
 
 
 
