@@ -1,18 +1,18 @@
 ---
 title: Controles de Cumplimiento normativo de Azure Policy para Azure Batch
 description: Enumera los controles de Cumplimiento normativo de Azure Policy disponibles para Azure Batch. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar el cumplimiento de los recursos de Azure.
-ms.date: 04/21/2021
+ms.date: 04/28/2021
 ms.topic: sample
 author: JnHs
 ms.author: jenhayes
 ms.service: batch
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: cddbe9bf872108d54b431696687a557a56b2fc49
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 926d7d1db89b34228e228aaedd19d7ffe60b6410
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107869028"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108184717"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-batch"></a>Controles de Cumplimiento normativo de Azure Policy para Azure Batch
 

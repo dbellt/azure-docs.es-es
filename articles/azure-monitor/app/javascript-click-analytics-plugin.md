@@ -8,12 +8,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: lagayhar
-ms.openlocfilehash: e48d669321ad8c58681e8a92e68f2089962bdc17
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a33256ae30cc26ef581128d89f43ab02dd2ec148
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102429857"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108017110"
 ---
 # <a name="click-analytics-auto-collection-plugin-for-application-insights-javascript-sdk"></a>Complemento Click Analytics Auto-collection para el SDK de JavaScript para Application Insights
 
@@ -59,7 +59,7 @@ appInsights.loadAppInsights();
 1. Los datos de telemetría que se generan en los eventos de clic se almacenan como `customEvents` en la sección Application Insights de Azure Portal.
 2. Para rellenarse el elemento `name` de customEvent se siguen estas reglas:
     1.  El elemento `id` que se proporciona en `data-*-id` se usará como nombre de customEvent. Por ejemplo, si el elemento HTML en el que se ha hecho clic tiene el atributo "data-sample-id"="button1", "button1" será el nombre de customEvent.
-    2. Si no existe ese atributo y `useDefaultContentNameOrId` está establecido en `true` en la configuración, se utilizará el atributo HTML `id` del elemento en el que se ha hecho clic o el nombre de contenido del elemento como nombre de customEvent.
+    2. Si no existe ese atributo y `useDefaultContentNameOrId` está establecido en `true` en la configuración, se utilizará el atributo HTML `id` del elemento en el que se ha hecho clic o el nombre de contenido del elemento como nombre de customEvent. Si tanto el valor de `id` como el nombre de contenido están presentes, se da prioridad a `id`.
     3. Si el valor de `useDefaultContentNameOrId` es false, el nombre de customEvent será "not_specified".
 
     > [!TIP]
@@ -77,16 +77,42 @@ appInsights.loadAppInsights();
     - El nombre no debe contener ningún signo de punto y coma (U + 003A).
     - El nombre no debe contener mayúsculas.
 
+## <a name="what-data-does-the-plugin-collect"></a>¿Qué datos recopila el complemento?
+
+Estas son algunas de las propiedades clave capturadas de forma predeterminada cuando el complemento está habilitado:
+
+### <a name="custom-event-properties"></a>Propiedades de eventos personalizados
+| Nombre                  | Descripción                            | Ejemplo          |
+| --------------------- | ---------------------------------------|-----------------|
+| name                  | El valor de `name` de customEvent. [Aquí](#how-to-effectively-use-the-plugin) se muestra más información sobre cómo se rellena.| Acerca de              |
+| itemType              | Tipo de evento.                                      | customEvent      |
+|sdkVersion             | Versión del SDK de Application Insights junto con el complemento click|javascript:2.6.2_ClickPlugin2.6.2|
+
+### <a name="custom-dimensions"></a>Dimensiones personalizadas
+| Nombre                  | Descripción                            | Ejemplo          |
+| --------------------- | ---------------------------------------|-----------------|
+| actionType            | Tipo de acción que produjo el evento de clic. Puede ser clic con el botón izquierdo o con el botón derecho. | CL              |
+| baseTypeSource        | Origen del tipo base del evento personalizado.                                      | ClickEvent      |
+| clickCoordinates      | Coordenadas donde se desencadena el evento de clic.                            | 659X47          |
+| contenido               | Marcador de posición para almacenar atributos y valores `data-*` adicionales.            | [{sample1:value1, sample2:value2}] |
+| pageName              | Título de la página donde se desencadena el evento de clic.                      | Título de ejemplo    |
+| parentId              | Identificador o nombre del elemento principal                                           | navbarContainer |
+
+### <a name="custom-measurements"></a>Medidas personalizadas
+| Nombre                  | Descripción                            | Ejemplo          |
+| --------------------- | ---------------------------------------|-----------------|
+| timeToAction          | Tiempo que el usuario ha necesitado en milisegundos para hacer clic en el elemento desde la carga inicial de la página | 87407              |
+
 ## <a name="configuration"></a>Configuración
 
 | Nombre                  | Tipo                               | Valor predeterminado | Descripción                                                                                                                              |
 | --------------------- | -----------------------------------| --------| ---------------------------------------------------------------------------------------------------------------------------------------- |
-| autoCapture           | boolean                            | true    | Configuración de captura automática.                                                                                                         |
-| devolución de llamada              | [IValueCallback](#ivaluecallback)  | null    | Configuración de las devoluciones de llamada.                                                                                                                 |
-| pageTags              | string                             | null    | Etiquetas de página.                                                                                                                               |
-| dataTags              | [ICustomDataTags](#icustomdatatags)| null    | Etiquetas de datos personalizadas que se proporcionan para invalidar las etiquetas predeterminadas que se usan para capturar datos de clic.                                                           |
-| urlCollectHash        | boolean                            | false   | Habilita el registro de todos los valores que haya después de un carácter "#" de la dirección URL.                                                                          |
-| urlCollectQuery       | boolean                            | false   | Habilita el registro de la cadena de consulta de la dirección URL.                                                                                      |
+| autoCapture           | boolean                            | true    | Configuración de captura automática.                                |
+| devolución de llamada              | [IValueCallback](#ivaluecallback)  | null    | Configuración de las devoluciones de llamada.                               |
+| pageTags              | string                             | null    | Etiquetas de página.                                             |
+| dataTags              | [ICustomDataTags](#icustomdatatags)| null    | Etiquetas de datos personalizadas que se proporcionan para invalidar las etiquetas predeterminadas que se usan para capturar datos de clic. |
+| urlCollectHash        | boolean                            | false   | Habilita el registro de todos los valores que haya después de un carácter "#" de la dirección URL.                |
+| urlCollectQuery       | boolean                            | false   | Habilita el registro de la cadena de consulta de la dirección URL.                            |
 | behaviorValidator     | Función                           | null  | Función de devolución de llamada que se va a usar para la validación del valor `data-*-bhvr`. Para más información, vaya a la [sección behaviorValidator](#behaviorvalidator).|
 | defaultRightClickBhvr | cadena (o) número                 | ''      | El valor predeterminado de Behavior cuando se ha producido un evento de clic con el botón derecho. Este valor se reemplazará si el elemento tiene el atributo `data-*-bhvr`. |
 | dropInvalidEvents     | boolean                            | false   | Marca para eliminar todos aquellos eventos que no tengan datos de clic útiles.                                                                                   |

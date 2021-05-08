@@ -1,14 +1,14 @@
 ---
 title: Planeación e implementación de servidores habilitados para Azure Arc
 description: Aprenda a habilitar un gran número de máquinas en servidores habilitados para Azure Arc para simplificar la configuración de las funcionalidades esenciales de seguridad, administración y supervisión de Azure.
-ms.date: 03/18/2021
+ms.date: 04/21/2021
 ms.topic: conceptual
-ms.openlocfilehash: 5aa7022dba943fa3de247404522408f4660e80e3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e3f8fe410da56f627ceab5f17c980f2daa1a262c
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105023289"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107831985"
 ---
 # <a name="plan-and-deploy-arc-enabled-servers"></a>Planeación e implementación de servidores habilitados para Arc
 
@@ -27,7 +27,7 @@ Para que la implementación se lleve a cabo sin problemas, el plan debe incluir 
 
 El propósito de este artículo es asegurarse de que está preparado para una implementación correcta de servidores habilitados para Azure Arc en varios servidores físicos o máquinas virtuales de producción en su entorno.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Las máquinas ejecutan un [sistema operativo compatible](agent-overview.md#supported-operating-systems) para el agente de Connected Machine.
 * Los equipos tienen conectividad desde la red local u otro entorno de nube a recursos de Azure, ya sea directamente o a través de un servidor proxy.
@@ -83,7 +83,7 @@ En la fase 3, los administradores o ingenieros de sistemas permiten la automati
 |-----|-------|---------|
 |Creación de una alerta de Resource Health |Si un servidor deja de enviar latidos a Azure durante más de 15 minutos, puede significar que está sin conexión, que la conexión de red se ha bloqueado o que el agente no se está ejecutando. Desarrolle un plan sobre cómo responderá a estos incidentes y cómo los investigará, así como sobre el uso de [alertas de Resource Health](../..//service-health/resource-health-alert-monitor-guide.md) para recibir notificaciones cuando se inicien.<br><br> Especifique lo siguiente al configurar la alerta:<br> **Tipo de recurso** = **Servidores habilitados para Azure Arc**<br> **Estado de recurso actual** = **No disponible**<br> **Estado de recurso previo** = **No disponible** | Una hora |
 |Creación de una alerta de Azure Advisor | Para obtener la mejor experiencia y las correcciones de seguridad y errores más recientes, recomendamos mantener actualizado el agente de los servidores habilitados para Azure Arc. Los agentes no actualizados se identificarán con una [alerta de Azure Advisor](../../advisor/advisor-alerts-portal.md).<br><br> Especifique lo siguiente al configurar la alerta:<br> **Tipo de recomendación** = **Actualización a la versión más reciente del agente de Azure Connected Machine** | Una hora |
-|[Asignación de las directivas de Azure](../../governance/policy/assign-policy-portal.md) al ámbito de la suscripción o del grupo de recursos |Asigne la [directiva](../../azure-monitor/vm/vminsights-enable-policy.md) **Habilitar Azure Monitor para VM** (y otras que satisfagan sus necesidades) al ámbito de suscripción o grupo de recursos. Azure Policy permite asignar definiciones de directivas que instalan los agentes necesarios para Azure Monitor para VM en el entorno.| Varía |
+|[Asignación de las directivas de Azure](../../governance/policy/assign-policy-portal.md) al ámbito de la suscripción o del grupo de recursos |Asigne la [directiva](../../azure-monitor/vm/vminsights-enable-policy.md) **Habilitar Azure Monitor para VM** (y otras que satisfagan sus necesidades) al ámbito de suscripción o grupo de recursos. Azure Policy permite asignar definiciones de directivas que instalan los agentes necesarios para Información de máquinas virtuales en el entorno.| Varía |
 |[Habilitación de Update Management para los servidores habilitados para Arc](../../automation/update-management/enable-from-automation-account.md) |Configure Update Management en Azure Automation para administrar las actualizaciones del sistema operativo de las máquinas virtuales de Windows y Linux registradas con servidores habilitados para Arc. | 15 minutos |
 
 ## <a name="next-steps"></a>Pasos siguientes

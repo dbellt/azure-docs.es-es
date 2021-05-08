@@ -2,13 +2,13 @@
 title: Identidades administradas para recursos de Azure con Service Bus
 description: En este artículo se describe cómo usar identidades administradas para obtener acceso a entidades de Azure Service Bus (colas, temas y suscripciones).
 ms.topic: article
-ms.date: 01/21/2021
-ms.openlocfilehash: 0558e00ac7e8ce67d2e5194b02d2de06f2d38ff1
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 04/23/2021
+ms.openlocfilehash: 3efe513d5e19ca13567b05e8f8d0aafb402ae879
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107785440"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108161130"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Autenticación de una identidad administrada con Azure Active Directory para acceder a recursos de Azure Service Bus
 [Identidades administradas para recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md) es una característica de Azure que permite crear una identidad segura asociada a la implementación en la que se ejecuta el código de la aplicación. A continuación, puede asociar esa identidad con los roles de control de acceso que conceden permisos personalizados para acceder a recursos específicos de Azure que la aplicación necesita.
@@ -91,13 +91,8 @@ Una vez creada la aplicación, siga estos pasos:
 
 Una vez habilitada esta configuración, se crea una identidad de servicio en Azure Active Directory (Azure AD) y se configura en el host de App Service.
 
-> [!NOTE]
-> Cuando se usa una identidad administrada, la cadena de conexión debe tener el formato: `Endpoint=sb://<NAMESPACE NAME>.servicebus.windows.net/;Authentication=ManagedIdentity`.
-
-Ahora, asigne esta identidad de servicio a un rol en el ámbito requerido en los recursos de Service Bus.
-
 ### <a name="to-assign-azure-roles-using-the-azure-portal"></a>Para asignar roles de Azure mediante Azure Portal
-Para asignar un rol a un espacio de nombres de Service Bus, vaya al espacio de nombres en Azure Portal. Acceda a la configuración Access Control (IAM) del recurso y siga estas instrucciones para administrar las asignaciones de roles:
+Ahora, asigne a la identidad de servicio un rol en el ámbito requerido de los recursos de Service Bus. Para asignar un rol a un espacio de nombres de Service Bus, vaya al espacio de nombres en Azure Portal. Acceda a la configuración Access Control (IAM) del recurso y siga estas instrucciones para administrar las asignaciones de roles:
 
 > [!NOTE]
 > En los pasos siguientes se asigna un rol de identidad de servicio a los espacios de nombres de Service Bus. Puede seguir los mismos pasos para asignar un rol en otros ámbitos admitidos (grupo de recursos y suscripción). 
@@ -127,7 +122,7 @@ Ahora, modifique la página predeterminada de la aplicación de ASP.NET que ha c
 
 La página Default.aspx es su página de destino. El código puede encontrarse en el archivo Default.aspx.cs. El resultado es una aplicación web básica con unos cuantos campos de entrada y con los botones **enviar** y **recibir** que se conectan a Service Bus para enviar o recibir mensajes.
 
-Tenga en cuenta cómo se inicializa el objeto [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory). En lugar de usar el proveedor de tokens de Token de acceso compartido (SAS), el código crea un proveedor de tokens para la identidad administrada con la llamada a `var msiTokenProvider = TokenProvider.CreateManagedIdentityTokenProvider();`. Por lo tanto, no hay ningún secreto para conservar y usar. El proveedor de tokens controla automáticamente el flujo del contexto de la identidad administrada para Service Bus y el protocolo de enlace de autorización. Es un modelo más sencillo que si se usa SAS.
+Observe cómo se inicializa el objeto [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) mediante un constructor que toma un elemento TokenCredential. DefaultAzureCredential se deriva de TokenCredential y se puede pasar aquí. Por lo tanto, no hay ningún secreto para conservar y usar. La credencial de token controla automáticamente el flujo del contexto de la identidad administrada a Service Bus y el protocolo de enlace de autorización. Es un modelo más sencillo que si se usa SAS.
 
 Una vez realizados estos cambios, publique y ejecute la aplicación. Puede obtener fácilmente los datos de publicación correctos mediante la descarga y posterior importación de un perfil de publicación en Visual Studio:
 

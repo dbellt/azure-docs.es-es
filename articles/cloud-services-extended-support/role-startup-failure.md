@@ -8,12 +8,12 @@ ms.author: surbhijain
 ms.reviewer: gachadw
 ms.date: 04/01/2021
 ms.custom: ''
-ms.openlocfilehash: f4892fe50c1832628181a11a5166c8cb705f79aa
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 9c6fdee8dbb28e86e5084c9c0cfca97f5ac5ea05
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107748964"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108287165"
 ---
 # <a name="troubleshoot-azure-cloud-services-extended-support-roles-that-fail-to-start"></a>Solución de problemas de roles de Azure Cloud Services (soporte extendido) que no se inician
 
@@ -142,4 +142,4 @@ Para implementar el servicio en la nube con IntelliTrace activado:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener más información, consulte [Cómo solucionar los problemas de los roles de los servicios en la nube mediante el uso de datos de diagnóstico de equipos de PaaS de Azure](https://docs.microsoft.com/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data).
+- Para obtener más información, consulte [Cómo solucionar los problemas de los roles de los servicios en la nube mediante el uso de datos de diagnóstico de equipos de PaaS de Azure](/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data).

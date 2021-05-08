@@ -8,12 +8,12 @@ ms.reviewer: yashesvi
 ms.topic: how-to
 ms.date: 04/21/2021
 ms.author: banders
-ms.openlocfilehash: e8a5e6d40b745efb7fcd50919cd27664b3406b7d
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 64a6b3a313f5078368563af29ab97a871b4c3ae0
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107862856"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108288695"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Administración de reservas para los recursos de Azure
 
@@ -81,8 +81,14 @@ Para que otras personas puedan administrar las reservas, tiene dos opciones:
 
 ### <a name="how-billing-administrators-view-or-manage-reservations"></a>De qué forma ven o administran las reservas los administradores de facturación
 
-1. Vaya a **Azure Cost Management + Billing** y, después, en el lado izquierdo de la página, seleccione **Transacciones de reserva**.
-2. Si tiene los permisos de facturación necesarios, puede ver y administrar las reservas. Si no ve ninguna reserva, asegúrese de que ha iniciado sesión mediante el inquilino de Azure AD en el que se crearon las reservas.
+Si es un administrador de facturación, siga estos pasos para ver y administrar todas las reservas y las transacciones de reserva.
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y vaya a **Cost Management + Billing**.
+    - Los administradores de EA pueden seleccionar **Ámbitos de facturación** en el menú de la izquierda y, después, seleccionar uno de los ámbitos de la lista.
+    - Los propietarios de un perfil de facturación de Contrato de cliente de Microsoft, deben seleccionar **Perfiles de facturación** en el menú de la izquierda. En la lista de perfiles de facturación, seleccione uno.
+2. En el menú de la izquierda, seleccione **Productos y servicios** > **Reservas**.
+3. Se muestra la lista completa de reservas de su perfil de facturación o inscripción de EA.
+4. Los administradores de facturación pueden tomar posesión de una reserva; para ello, la seleccionan y, después, seleccionan **Conceder acceso** en la ventana que aparece.
 
 ## <a name="split-a-single-reservation-into-two-reservations"></a>División de una reserva única en dos
 
@@ -182,4 +188,3 @@ Para obtener más información acerca de Azure Reservations, consulte los siguie
  - [Renovación de reservas](reservation-renew.md)
  - [Transferencias entre inquilinos](troubleshoot-reservation-transfers-between-tenants.md)
  - [Búsqueda de un comprador de reservas en los registros de Azure](find-reservation-purchaser-from-logs.md)
- - [Renovación de una reserva](reservation-renew.md)

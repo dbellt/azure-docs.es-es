@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: d1d412774dc68cba0c24709c7fc8a7999e0aeab8
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 121c22e3a25a95fa64f6f779ebc0827bb6c123c7
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106094768"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108015958"
 ---
 # <a name="public-ip-addresses"></a>Direcciones IP públicas
 
@@ -147,6 +147,8 @@ Puede asociar una dirección IP pública con una máquina virtual [Windows](../v
 
 Elija **dinámica** o **estática** para la dirección IP pública. Más información sobre [asignación de direcciones IP a interfaces de red](virtual-network-network-interface-addresses.md).
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 ## <a name="internet-facing-load-balancers"></a>Equilibradores de carga accesibles desde Internet
 
 Puede asociar una dirección IP pública de [SKU](#sku) con una instancia de [Azure Load Balancer](../load-balancer/load-balancer-overview.md) asignándola a la configuración del **front-end** del equilibrador de carga. La dirección IP pública actúa como dirección IP de carga equilibrada. 
@@ -154,6 +156,8 @@ Puede asociar una dirección IP pública de [SKU](#sku) con una instancia de [Az
 Puede asignar una dirección IP pública estática o dinámica al front-end de un equilibrador de carga. Puede asignar varias direcciones IP públicas a un front-end de equilibrador de carga. Esta configuración habilita escenarios de [varias VIP](../load-balancer/load-balancer-multivip-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), como un entorno de varios inquilinos con sitios web basados en TLS. 
 
 Para más información sobre las SKU de los equilibradores de carga de Azure, consulte [Azure load balancer standard SKU](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (SKU estándar de equilibrador de carga de Azure).
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## <a name="vpn-gateways"></a>Puertas de enlace de VPN
 
@@ -189,7 +193,7 @@ En la siguiente tabla se muestra la propiedad a través de la cual una direcció
 | --- | --- | --- | --- |
 | Máquina virtual |interfaz de red |Sí |Sí |
 | Equilibrador de carga accesible desde Internet |Configuración de front-end |Sí |Sí |
-| puerta de enlace de VPN |Configuración de dirección IP de puerta de enlace |Sí |No |
+| puerta de enlace de VPN |Configuración de dirección IP de puerta de enlace |Sí |Sí (solo VPNGwAZ) |
 | puerta de enlace de aplicaciones |Configuración de front-end |Sí (solo en V1) |Sí (solo en V2) |
 | Azure Firewall | Configuración de front-end | No | Sí|
 

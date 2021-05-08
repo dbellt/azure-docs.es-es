@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/20/2021
+ms.date: 04/21/2021
 ms.author: yelevin
-ms.openlocfilehash: f8931fedb380cf81d72b7b5280a5795498daaa57
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cc499e54ebc700f87edbc904165000155211ca1b
+ms.sourcegitcommit: aaba99b8b1c545ad5d19f400bcc2d30d59c63f39
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99251988"
+ms.lasthandoff: 04/26/2021
+ms.locfileid: "108007131"
 ---
 # <a name="connect-azure-active-directory-azure-ad-data-to-azure-sentinel"></a>Conexión de datos de Azure Active Directory (Azure AD) a Azure Sentinel
 
 Puede usar el conector integrado de Azure Sentinel para recopilar datos de [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) y transmitirlos a Azure Sentinel. El conector permite transmitir los siguientes tipos de registro:
 
-- [**Registros de inicio de sesión**](../active-directory/reports-monitoring/concept-all-sign-ins.md), que contienen información sobre [inicios de sesión de usuario interactivos](../active-directory/reports-monitoring/concept-all-sign-ins.md#user-sign-ins), donde un usuario proporciona un factor de autenticación.
+- [**Registros de inicio de sesión**](../active-directory/reports-monitoring/concept-all-sign-ins.md), que contienen información sobre inicios de sesión de usuario interactivos, donde un usuario proporciona un factor de autenticación.
 
     Ahora, el conector de Azure AD incluye las tres categorías adicionales de registros de inicio de sesión, que se encuentran actualmente en **versión preliminar**:
     
@@ -44,7 +44,7 @@ Puede usar el conector integrado de Azure Sentinel para recopilar datos de [Azu
 > Como se indicó anteriormente, algunos de los tipos de registro disponibles están actualmente en **versión preliminar**. Consulte [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Cualquier licencia de Azure AD (Gratis, O365 P1 o P2) basta para ingerir registros de inicio de sesión en Azure Sentinel. Se pueden aplicar cargos adicionales por gigabyte para Azure Monitor (Log Analytics) y Azure Sentinel.
+- Se necesita una licencia de Azure Active Directory P1 o P2 para ingerir registros de inicio de sesión en Azure Sentinel. Cualquier licencia de Azure AD (gratuita/O365/P1/P2) es suficiente para ingerir los otros tipos de registro. Se pueden aplicar cargos adicionales por gigabyte para Azure Monitor (Log Analytics) y Azure Sentinel.
 
 - El usuario debe tener asignado el rol Colaborador de Azure Sentinel en el área de trabajo.
 

@@ -5,12 +5,12 @@ ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit, devx-track-azurepowershell
-ms.openlocfilehash: 4bbd3491c45b15d43ae0e94b37b916cd8091e655
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: e5de54384d59423ac5e4b8ab851faf98070d027d
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107834217"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108278855"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatización de la implementación de recursos para una aplicación de función en Azure Functions
 
@@ -684,7 +684,7 @@ $TemplateParams = @{"appName" = "<function-app-name>"}
 New-AzResourceGroupDeployment -ResourceGroupName "MyResourceGroup" -TemplateFile template.json -TemplateParameterObject $TemplateParams -Verbose
 ```
 
-Para probar esta implementación, puede usar una [plantilla como esta](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-function-app-create-dynamic/azuredeploy.json), que crea una aplicación de funciones en Windows en un plan de consumo. Reemplace `<function-app-name>` por un nombre único para la aplicación de funciones.
+Para probar esta implementación, puede usar una [plantilla como esta](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.web/function-app-create-dynamic/azuredeploy.json), que crea una aplicación de funciones en Windows en un plan de consumo. Reemplace `<function-app-name>` por un nombre único para la aplicación de funciones.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -696,5 +696,5 @@ Aprenda a desarrollar y configurar Azure Functions.
 
 <!-- LINKS -->
 
-[Aplicación de función en el plan de consumo]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dynamic/azuredeploy.json
+[Aplicación de función en el plan de consumo]: https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.web/function-app-create-dynamic/azuredeploy.json
 [Aplicación de función en el plan Azure App Service]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dedicated/azuredeploy.json
