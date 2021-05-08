@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: 695409740348e78ae51b263b44d9ed1cbadc1054
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 660297beacb6594058a3d83fb622ddeb579c223b
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107531923"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107951727"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>¿Qué es SQL Data Sync para Azure?
 
@@ -201,7 +201,7 @@ Una vez creado y aprovisionado el grupo de sincronización, puede deshabilitar e
 
 ### <a name="how-much-does-the-sql-data-sync-service-cost"></a>¿Cuánto cuesta el servicio SQL Data Sync?
 
-No hay gastos derivados del uso del servicio SQL Data Sync. Sin embargo, sí se cobrarán cargos de transferencia de datos por la entrada y salida de datos de su instancia de SQL Database. Para más información, consulte [Precios de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
+No hay gastos derivados del uso del servicio SQL Data Sync. Sin embargo, sí se cobrarán cargos de transferencia de datos por la entrada y salida de datos de su instancia de SQL Database. Para obtener más información, vea [Cargos de transferencia de datos](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 ### <a name="what-regions-support-data-sync"></a>¿En qué regiones se admite Data Sync?
 

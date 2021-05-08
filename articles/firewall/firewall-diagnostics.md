@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 11/04/2020
 ms.author: victorh
-ms.openlocfilehash: 52c6ef9edfc42bf1ad3b3279e0fa4e19b4cf502c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a682523b9486886d5be3c96a372fe36c81582649
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98788271"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107988647"
 ---
 # <a name="monitor-azure-firewall-logs-and-metrics"></a>Supervisión de métricas y registros de Azure Firewall
 
@@ -39,13 +39,12 @@ Puede tardar algunos minutos en que los datos aparezcan en los registros despué
 
    * AzureFirewallApplicationRule
    * AzureFirewallNetworkRule
-   * AzureFirewallThreatIntelLog
    * AzureFirewallDnsProxy
 
 
 3. Seleccione **Agregar configuración de diagnóstico**. En la página **Configuración de diagnóstico**, se encuentran las opciones de configuración de los registros de diagnóstico.
 5. En este ejemplo, los registros de Azure Monitor almacenan los registros, de modo que escriba **Análisis de registros de firewall** como nombre.
-6. En **Registro**, seleccione **AzureFirewallApplicationRule**, **AzureFirewallNetworkRule**, **AzureFirewallThreatIntelLog** y **AzureFirewallDnsProxy** para recopilar los registros.
+6. En **Registro**, seleccione **AzureFirewallApplicationRule**, **AzureFirewallNetworkRule** y **AzureFirewallDnsProxy** para recopilar los registros.
 7. Seleccione **Enviar a Log Analytics** para configurar el área de trabajo.
 8. Seleccione su suscripción.
 9. Seleccione **Guardar**.

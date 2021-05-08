@@ -6,14 +6,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/20/2020
+ms.date: 03/19/2021
 ms.author: banders
-ms.openlocfilehash: 7e930ca938b2531fb001c327132f79f703b2ea74
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 15aa3acab9fe98a4c2f5103ba211dde34220c54e
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92316409"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107255691"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Configurar la cuenta de facturación para un contrato de cliente de Microsoft
 
@@ -49,31 +49,54 @@ Antes de comenzar la instalación, se recomienda que haga lo siguiente:
 
 Para completar la configuración, necesita el siguiente acceso:
 
-- Propietario del perfil de facturación que se creó en el momento en que se firmó el contrato del cliente de Microsoft. Para más información sobre los perfiles de facturación, consulte [Descripción de los perfiles de facturación](../understand/mca-overview.md#billing-profiles).
-
+- Propietario del perfil de facturación que se creó en el momento en que se firmó el contrato del cliente de Microsoft. Para más información sobre los perfiles de facturación, consulte [Descripción de los perfiles de facturación](../understand/mca-overview.md#billing-profiles).  
+&mdash; Y &mdash;
 - Administrador de Enterprise en la inscripción que se renueva.
+
+### <a name="start-migration-and-get-permission-needed-to-complete-setup"></a>Inicio de la migración y obtención del permiso necesario para completar la configuración
+
+Puede usar las siguientes opciones para iniciar la experiencia de migración de la inscripción de EA al Contrato de cliente de Microsoft.
+
+
+- Inicie sesión en Azure Portal mediante el vínculo en el correo electrónico que recibió en el momento de firmar el contrato del cliente de Microsoft.
+
+- Si no tiene el correo electrónico, inicie sesión con el siguiente vínculo. Reemplace `enrollmentNumber` por el número de inscripción de su Contrato Enterprise que se haya renovado.
+
+  `https://portal.azure.com/#blade/Microsoft_Azure_EA/EATransitionToMCA/enrollmentId/<enrollmentNumber>`
+
+Si tiene los roles de administrador de la empresa y propietario de la cuenta de facturación o el rol de perfil de facturación, verá la página siguiente en Azure Portal. Puede seguir configurando las inscripciones de EA y la cuenta de facturación del Contrato de cliente de Microsoft para la transición.
+
+:::image type="content" source="./media/mca-setup-account/setup-billing-account-page.png" alt-text="Captura de pantalla que muestra la página Configurar la cuenta de facturación" lightbox="./media/mca-setup-account/setup-billing-account-page.png" :::
+
+Si no tiene el rol de administrador de la empresa para el contrato Enterprise o el rol de propietario del perfil de facturación para el Contrato de cliente de Microsoft, use la siguiente información para obtener el acceso que necesita para completar la configuración.
 
 ### <a name="if-youre-not-an-enterprise-administrator-on-the-enrollment"></a>Si no es un administrador de Enterprise en la inscripción
 
-Puede pedirles a los administradores de Enterprise de la inscripción que completen la configuración de la cuenta de facturación.
+Verá la página siguiente en Azure Portal si tiene un rol de propietario de la cuenta de facturación o del perfil de facturación, pero no es un administrador de empresa.
 
-1. Inicie sesión en Azure Portal mediante el vínculo en el correo electrónico que recibió en el momento de firmar el contrato del cliente de Microsoft.
+:::image type="content" source="./media/mca-setup-account/setup-billing-account-page-not-ea-administrator.png" alt-text="Captura de pantalla que muestra la página Configurar la cuenta de facturación: Preparación de las inscripciones del Contrato Enterprise para la transición." lightbox="./media/mca-setup-account/setup-billing-account-page-not-ea-administrator.png" :::
 
-2. Si no tiene el correo electrónico, inicie sesión con el siguiente vínculo. Reemplace `<enrollmentNumber>` por el número de inscripción de su Contrato Enterprise que se haya renovado.
+Tiene dos opciones:
 
-   `https://portal.azure.com/#blade/Microsoft_Azure_EA/EATransitionToMCA/enrollmentId/<enrollmentNumber>`
+- Pedir al administrador de empresa de la inscripción que le dé el rol de administrador de empresa. Para más información, consulte [Creación de otro administrador de empresa](ea-portal-administration.md#create-another-enterprise-administrator).
+-  Puede proporcionar a un administrador de empresa el rol de propietario de la cuenta de facturación o del perfil de facturación. Para más información, consulte [Administración de roles de facturación en Azure Portal](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
 
-3. Seleccione los administradores de Enterprise a los que desee enviar la solicitud.
-
-   ![Captura de pantalla que muestra la invitación a los administradores de Enterprise](./media/mca-setup-account/ea-mca-invite-admins.png)
-
-4. Seleccione **Enviar solicitud** .
-
-   Los administradores recibirán un correo electrónico con instrucciones para completar la configuración.
+Si tiene el rol de administrador de empresa, copie el vínculo de la página Configurar la cuenta de facturación. Ábralo en el explorador web para seguir configurando el Contrato de cliente de Microsoft. De lo contrario, envíelo al administrador de la empresa.
 
 ### <a name="if-youre-not-an-owner-of-the-billing-profile"></a>Si no es un propietario del perfil de facturación
 
-El usuario de su organización que firmó el contrato del cliente de Microsoft se agrega como propietario en el perfil de facturación. Para poder completar la configuración, solicite al usuario que lo agregue como propietario.
+Si es administrador de empresa, pero no tiene un rol de propietario de la cuenta de facturación o del perfil de facturación del Contrato de cliente de Microsoft, verá la página siguiente en Azure Portal.
+
+Si cree que tiene acceso de propietario del perfil de facturación al Contrato de cliente de Microsoft correcto y ve el mensaje siguiente, asegúrese de que se encuentra en el inquilino correcto de la organización. Es posible que tenga que cambiar los directorios.
+
+:::image type="content" source="./media/mca-setup-account/setup-billing-account-page-not-billing-account-profile-owner.png" alt-text="Captura de pantalla que muestra la página Configurar la cuenta de facturación: Cuenta de facturación del Contrato de cliente de Microsoft." lightbox="./media/mca-setup-account/setup-billing-account-page-not-billing-account-profile-owner.png" :::
+
+Tiene dos opciones:
+
+- Pida a un propietario de la cuenta de facturación existente que le dé el rol de propietario de la cuenta de facturación o del perfil de facturación. Para más información, consulte [Administración de roles de facturación en Azure Portal](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
+- Dele el rol de administrador de empresa a un propietario de la cuenta de facturación existente. Para más información, consulte [Creación de otro administrador de empresa](ea-portal-administration.md#create-another-enterprise-administrator).
+
+Si se le asigna el rol de propietario de la cuenta de facturación o del perfil de facturación, copie el vínculo en la página Configurar la cuenta de facturación. Ábralo en el explorador web para seguir configurando el Contrato de cliente de Microsoft. De lo contrario, envíe el vínculo al propietario de la cuenta de facturación.
 
 ## <a name="understand-changes-to-your-billing-hierarchy"></a>Descripción de los cambios realizados en la jerarquía de facturación
 
@@ -166,7 +189,7 @@ La transición no se puede revertir. Una vez que se realiza la transición de la
 
 ### <a name="closing-your-browser-during-setup"></a>Cerrar el explorador durante la configuración
 
-Antes de hacer clic en **Iniciar transición** , puede cerrar el explorador. Puede volver a la configuración mediante el vínculo que recibió en el correo electrónico y comenzar la transición. Si cierra el explorador una vez iniciada la transición, la transición seguirá ejecutándose. Vuelva a la página de estado de la transición para supervisar el estado más reciente de la transición. Recibirá un correo electrónico cuando se complete la transición.
+Antes de hacer clic en **Iniciar transición**, puede cerrar el explorador. Puede volver a la configuración mediante el vínculo que recibió en el correo electrónico y comenzar la transición. Si cierra el explorador una vez iniciada la transición, la transición seguirá ejecutándose. Vuelva a la página de estado de la transición para supervisar el estado más reciente de la transición. Recibirá un correo electrónico cuando se complete la transición.
 
 ## <a name="complete-the-setup-in-the-azure-portal"></a>Completar la configuración en Azure Portal
 
@@ -184,10 +207,10 @@ Para completar la configuración, necesita acceso a la nueva cuenta de facturaci
 
     - En la nueva cuenta de facturación se crea una jerarquía de facturación que corresponde a la jerarquía del Contrato Enterprise. Para más información, consulte [Descripción de los cambios realizados en la jerarquía de facturación](#understand-changes-to-your-billing-hierarchy).
     - Los administradores de la inscripción del Contrato Enterprise obtienen acceso a la nueva cuenta de facturación para que sigan administrando la facturación de la organización.
-    - La facturación de las suscripciones de Azure se traslada a la nueva cuenta. **No habrá ningún impacto en los servicios de Azure durante esta transición. Estos siguen en ejecución sin interrupciones** .
+    - La facturación de las suscripciones de Azure se traslada a la nueva cuenta. **No habrá ningún impacto en los servicios de Azure durante esta transición. Estos siguen en ejecución sin interrupciones**.
     - Si tiene reservas de Azure, estas se mueven a la nueva cuenta de facturación sin cambios en las ventajas o el plazo.
 
-4. Puede supervisar el estado de la transición en la página **Estado de la transición** .
+4. Puede supervisar el estado de la transición en la página **Estado de la transición**.
 
    ![Captura de pantalla que muestra el estado de transición](./media/mca-setup-account/ea-mca-set-up-status.png)
 
@@ -199,11 +222,11 @@ Para completar la configuración, necesita acceso a la nueva cuenta de facturaci
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
-2. Busque **Administración de costos + facturación** .
+2. Busque **Administración de costos + facturación**.
 
    ![Captura de pantalla que muestra la búsqueda en Azure Portal](./media/mca-setup-account/search-cmb.png)
 
-3. Seleccione el nombre de la cuenta de facturación. La cuenta de facturación será del tipo **Contrato de cliente de Microsoft** .
+3. Seleccione el nombre de la cuenta de facturación. La cuenta de facturación será del tipo **Contrato de cliente de Microsoft**.
 
 4. Seleccione **Suscripciones de Azure** en el lado izquierdo.
 
@@ -219,11 +242,11 @@ Las reservas de Azure en la inscripción del Contrato Enterprise se trasladarán
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
-2. Busque **Administración de costos + facturación** .
+2. Busque **Administración de costos + facturación**.
 
    ![Captura de pantalla que muestra la búsqueda en Azure Portal](./media/mca-setup-account/search-cmb.png)
 
-3. Seleccione la cuenta de facturación para el **Contrato de cliente de Microsoft** .
+3. Seleccione la cuenta de facturación para el **Contrato de cliente de Microsoft**.
 
 4. Seleccione **Control de acceso (IAM)** en el lado izquierdo.
 
@@ -235,7 +258,7 @@ Los administradores de Enterprise se muestran como propietarios de cuentas de fa
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
-2. Busque **Administración de costos + facturación** .
+2. Busque **Administración de costos + facturación**.
 
    ![Captura de pantalla que muestra la búsqueda en Azure Portal](./media/mca-setup-account/search-cmb.png)
 
@@ -251,11 +274,11 @@ Los administradores de Enterprise se muestran como propietarios de perfiles de f
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
-2. Busque **Administración de costos + facturación** .
+2. Busque **Administración de costos + facturación**.
 
    ![Captura de pantalla que muestra la búsqueda en Azure Portal](./media/mca-setup-account/search-cmb.png).
 
-3. Seleccione una sección de factura. Las secciones de factura tienen el mismo nombre que sus respectivos departamentos en las inscripciones del Contrato Enterprise. Dependiendo de su acceso, es posible que tenga que seleccionar una cuenta de facturación. En la cuenta de facturación, seleccione **Perfiles de facturación** y elija **Secciones de factura** . En la lista de secciones de factura, seleccione una sección de factura.
+3. Seleccione una sección de factura. Las secciones de factura tienen el mismo nombre que sus respectivos departamentos en las inscripciones del Contrato Enterprise. Dependiendo de su acceso, es posible que tenga que seleccionar una cuenta de facturación. En la cuenta de facturación, seleccione **Perfiles de facturación** y elija **Secciones de factura**. En la lista de secciones de factura, seleccione una sección de factura.
 
    ![Captura de pantalla que muestra una lista de secciones de factura después de la transición](./media/mca-setup-account/mca-invoice-sections-post-transition.png)
 

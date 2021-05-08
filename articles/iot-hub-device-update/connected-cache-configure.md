@@ -7,12 +7,12 @@ ms.author: andyriv
 ms.date: 2/16/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 2903407f88b57a7be948cdeb0610e6d65df975b0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6e7b8d567034cc9557a2d9fcec4afbffa878cf75
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101660719"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107811838"
 ---
 # <a name="configure-microsoft-connected-cache-for-device-update-for-azure-iot-hub"></a>Configuración de Caché conectada de Microsoft para Device Update para Azure IoT Hub
 
@@ -26,10 +26,10 @@ Las variables de entorno del módulo Azure IoT Edge Caché conectada de Microsof
 
 | Nombre de variable                 | Formato del valor                           | Obligatorio/opcional | Funcionalidad                                    |
 | ----------------------------- | ---------------------------------------| ----------------- | ------------------------------------------------ |
-| CUSTOMER_ID                   | GUID del identificador de suscripción de Azure             | Obligatorio          | Esta es la clave del cliente, que proporciona<br>autenticación segura del nodo de caché para Optimización de distribución<br>Servicios. Se requiere para que el módulo funcione. |
-| CACHE_NODE_ID                 | GUID del identificador del nodo de caché                     | Obligatorio          | Identifica de forma única el nodo de Caché conectada de Microsoft<br>para los servicios de Optimización de distribución. Se requiere para que<br> el módulo funcione. |
+| CUSTOMER_ID                   | GUID del identificador de suscripción de Azure             | Obligatorio          | Esta es la clave del cliente, que proporciona<br>autenticación segura del nodo de caché para Optimización de distribución<br>Servicios.<br>Se requiere para que el módulo funcione. |
+| CACHE_NODE_ID                 | GUID del identificador del nodo de caché                     | Obligatorio          | Identifica de forma única el nodo de Caché conectada de Microsoft<br>para los servicios de Optimización de distribución.<br>Se requiere para que<br> el módulo funcione. |
 | CUSTOMER_KEY                  | GUID de la clave de cliente                     | Obligatorio          | Esta es la clave del cliente, que proporciona<br>autenticación segura del nodo de caché para los servicios de Optimización de distribución.<br>Se requiere para que el módulo funcione.|
-| STORAGE_ *N* _SIZE_GB           | Donde N es el número de GB necesarios   | Obligatorio          | Especifique hasta nueve unidades para almacenar en caché el contenido y especifique<br>el espacio máximo en gigabytes que se va a asignar para el contenido en cada unidad de caché. Ejemplos:<br>STORAGE_1_SIZE_GB = 150<br>STORAGE_2_SIZE_GB = 50<br>El número de la unidad debe coincidir con los valores del enlace de la unidad de caché especificados<br>en la valor de la opción de creación del contenedor MicrosoftConnectedCache *N*.|
+| STORAGE_ *N* _SIZE_GB           | Donde N es la unidad de caché   | Requerido          | Especifique hasta 9 unidades para almacenar en caché el contenido y especifique el espacio máximo en<br>gigabytes que se va a asignar para el contenido en cada unidad de caché. Ejemplos:<br>STORAGE_1_SIZE_GB = 150<br>STORAGE_2_SIZE_GB = 50<br>El número de la unidad debe coincidir con los valores del enlace de la unidad de caché especificados<br>en la valor de la opción de creación del contenedor MicrosoftConnectedCache *N*.<br>El tamaño mínimo de la caché es de 10 GB.|
 | UPSTREAM_HOST                 | FQDN/IP                                | Opcional          | Este valor puede especificar un nodo de Caché conectada de Microsoft<br>que actúa como proxy si el nodo de Caché conectada<br> está desconectado de Internet. Esta configuración se usa para admitir<br> el escenario de IoT anidado.<br>**Nota:** Caché conectada de Microsoft escucha en el puerto http predeterminado 80.|
 | UPSTREAM_PROXY                | FQDN/IP:PORT                           | Opcional          | Servidor proxy de salida de Internet.<br>También podría ser el proxy de la DMZ de OT si se trata de una red ISA 95. |
 | CACHEABLE_CUSTOM_ *N* _HOST     | HOST/IP<br>FQDN                        | Opcional          | Necesario para admitir repositorios de paquetes personalizados.<br>Los repositorios se pueden hospedar localmente o en Internet.<br>No hay ningún límite en el número de hosts personalizados que se pueden configurar.<br><br>Ejemplos:<br>Nombre = CACHEABLE_CUSTOM_1_HOST valor = packages.foo.com<br> Nombre = CACHEABLE_CUSTOM_2_HOST valor = packages.bar.com    |
@@ -52,14 +52,6 @@ Se requiere para asignar la ubicación de almacenamiento del contenedor a la ubi
 
 Esta opción especifica el puerto http de la máquina externa en el que MCC escucha las solicitudes de contenido. El valor predeterminado del puerto del host es el puerto 80 y no se admiten otros puertos en este momento, ya que actualmente el cliente de ADU realiza solicitudes en el puerto 80. El puerto TCP 8081 es el puerto interno del contenedor en el que escucha MCC y no se puede cambiar.
 
-```markdown
-8081/tcp": [
-   {
-       "HostPort": "80"
-   }
-]
-```
-
 ### <a name="container-service-tcp-port-mappings"></a>Asignaciones de puertos TCP del servicio de contenedor
 
 El módulo de Caché conectada de Microsoft tiene un servicio de .NET Core que es utilizado por el motor de almacenamiento en caché para diversas funciones.
@@ -67,12 +59,29 @@ El módulo de Caché conectada de Microsoft tiene un servicio de .NET Core que e
 >[!Note]
 >Para admitir el perímetro anidado de Azure IoT, el puerto del host no se debe establecer en 5000 porque el módulo de proxy del registro ya escucha en el puerto del host 5000.
 
-```markdown
-5000/tcp": [
-   {
-       "HostPort": "5001"
-   }
-]
+
+Opciones de creación del contenedor de ejemplo
+
+```json
+{
+    "HostConfig": {
+        "Binds": [
+            "/microsoftConnectedCache1/:/nginx/cache1/"
+        ],
+        "PortBindings": {
+            "8081/tcp": [
+                {
+                    "HostPort": "80"
+                }
+            ],
+            "5000/tcp": [
+                {
+                    "HostPort": "5100"
+                }
+            ]
+        }
+    }
+}
 ```
 
 ## <a name="microsoft-connected-cache-summary-report"></a>Informe de resumen de Caché conectada de Microsoft
@@ -84,4 +93,5 @@ El informe de resumen es actualmente la única manera de que un cliente vea los 
 * **eggressBytes**: es la suma de hitBytes y missBytes, y es el total de bytes entregados a los clientes.
 * **hitRatioBytes**: es la relación entre hitBytes y egressBytes.  Por ejemplo, si el 100 % de eggressBytes entregado en un período fuese igual a hitBytes, esto sería 1.
 
-El informe de resumen está disponible en `http://<FQDN/IP of Azure IoT Edge Gateway hosting MCC>:5001/summary` (consulte los detalles de la variable de entorno a continuación para obtener información sobre la visibilidad de este informe).
+
+El informe de resumen está disponible en `http://<FQDN/IP of Azure IoT Edge Gateway hosting MCC>:5001/summary`. Reemplace \<Azure IoT Edge Gateway IP\> por la dirección IP o el nombre de host de su puerta de enlace IoT Edge. (consulte los detalles de la variable de entorno para obtener información sobre la visibilidad de este informe).

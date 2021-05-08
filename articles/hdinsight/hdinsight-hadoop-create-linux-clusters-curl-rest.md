@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 12/10/2019
-ms.openlocfilehash: fa5675104d9614e1bd917585ea537c92dddd88cc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0571a1a36def0ca3fa60c7a98695681609ebdf1f
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98945792"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108278495"
 ---
 # <a name="create-apache-hadoop-clusters-using-the-azure-rest-api"></a>Creación de clústeres de Apache Hadoop mediante la API de REST de Azure
 
@@ -27,7 +27,7 @@ La API de REST de Azure permite realizar operaciones de administración en servi
 
 Las plantillas de Azure Resource Manager son documentos JSON que describen un **grupo de recursos** y todos los recursos incluidos (por ejemplo, HDInsight). Este enfoque basado en la plantilla le permite definir todos los recursos que necesita para HDInsight en una plantilla.
 
-El siguiente documento JSON es una combinación de los archivos de plantilla y de parámetros de [https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password) creados por un clúster basado en Linux con una contraseña para proteger la cuenta de usuario de SSH.
+El siguiente documento JSON es una combinación de los archivos de plantilla y de parámetros de [https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.hdinsight/hdinsight-linux-ssh-password/azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.hdinsight/hdinsight-linux-ssh-password/azuredeploy.json) creados por un clúster basado en Linux con una contraseña para proteger la cuenta de usuario de SSH.
 
    ```json
    {

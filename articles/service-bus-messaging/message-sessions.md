@@ -3,12 +3,12 @@ title: Sesiones de mensajes de Azure Service Bus | Microsoft Docs
 description: En este artículo se explica cómo usar sesiones de para habilitar la administración ordenada y conjunta de secuencias sin enlace de mensajes relacionados.
 ms.topic: article
 ms.date: 04/19/2021
-ms.openlocfilehash: e22dfb2aa7372a227f70fd2bfa8f72d2161cda17
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: f3b6eae7b7f4d609df5067187595230aa6b86dba
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107750759"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107987171"
 ---
 # <a name="message-sessions"></a>Sesiones de mensajes
 Las sesiones de Microsoft Azure Service Bus permiten la administración ordenada y conjunta de secuencias sin enlace de mensajes relacionados. Se pueden usar sesiones en patrones **FIFO (primero en entrar, primero en salir)** y de **solicitud-respuesta**. En este artículo se muestra cómo usar sesiones para implementar estos patrones al utilizar Service Bus. 
@@ -85,15 +85,15 @@ Puede habilitar sesiones de mensajes mientras crea una cola mediante Azure Porta
 
 Pruebe los ejemplos en el lenguaje que prefiera para explorar las características de Azure Service Bus. 
 
-- [Ejemplos de la biblioteca cliente de Azure Service Bus para Java](/samples/azure/azure-sdk-for-java/servicebus-samples/)
+- [Ejemplos de la biblioteca cliente de Azure Service Bus para .NET (versión más reciente)](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/)
+- [Ejemplos de la biblioteca cliente de Azure Service Bus para Java (versión más reciente)](/samples/azure/azure-sdk-for-java/servicebus-samples/)
 - [Ejemplos de la biblioteca cliente de Azure Service Bus para Python](/samples/azure/azure-sdk-for-python/servicebus-samples/)
 - [Ejemplos de la biblioteca cliente de Azure Service Bus para JavaScript](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
 - [Ejemplos de la biblioteca cliente de Azure Service Bus para TypeScript](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
-- [Ejemplos de Azure.Messaging.ServiceBus para .NET](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/)
 
 A continuación, encontrará ejemplos de las bibliotecas cliente de .NET y Java anteriores:
-- [Ejemplos de Microsoft.Azure.ServiceBus para .NET](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/)
-- [Ejemplos de azure-servicebus para Java](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/MessageBrowse)
+- [Ejemplos de la biblioteca cliente de Azure Service Bus para .NET (versión heredada)](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/)
+- [Ejemplos de la biblioteca cliente de Azure Service Bus para Java (versión heredada)](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/MessageBrowse)
 
 [1]: ./media/message-sessions/sessions.png
 

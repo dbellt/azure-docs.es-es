@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 02/11/2021
-ms.openlocfilehash: db65a4bb5137da23f125d67920a2ff9a1a801141
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 33e074da8c9e028916552e45be0dfb9634a1d173
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105606730"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108277829"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-postgresql---single-server"></a>Inicio rápido: Uso de una plantilla de Resource Manager para crear una instancia de Azure Database for PostgreSQL: un solo servidor
 
@@ -22,7 +22,7 @@ Azure Database for PostgreSQL es un servicio administrado que usa para ejecutar,
 
 Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
 
-[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Implementación en Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-postgresql-with-vnet%2fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Implementación en Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.dbforpostgresql%2Fmanaged-postgresql-with-vnet%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -48,7 +48,7 @@ Cree un servidor de Azure Database for PostgreSQL con un conjunto configurado de
 
 La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-managed-postgresql-with-vnet/).
 
-:::code language="json" source="~/quickstart-templates/101-managed-postgresql-with-vnet/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.dbforpostgresql/managed-postgresql-with-vnet/azuredeploy.json":::
 
 La plantilla define cinco recursos de Azure:
 
@@ -66,7 +66,7 @@ Puede encontrar más ejemplos de plantillas de Azure Database for PostgreSQL en 
 
 Seleccione el siguiente vínculo para implementar la plantilla de servidor de Azure Database for PostgreSQL en Azure Portal:
 
-[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Implementación en Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-postgresql-with-vnet%2fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Implementación en Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.dbforpostgresql%2Fmanaged-postgresql-with-vnet%2Fazuredeploy.json)
 
 En la página **Implementación de Azure Database for PostgreSQL con red virtual**:
 
@@ -114,7 +114,7 @@ $adminPassword = Read-Host -Prompt "Enter the administrator password" -AsSecureS
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location # Use this command when you need to create a new resource group for your deployment
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
-    -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-managed-postgresql-with-vnet/azuredeploy.json `
+    -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.dbforpostgresql/managed-postgresql-with-vnet/azuredeploy.json `
     -serverName $serverName `
     -administratorLogin $adminUser `
     -administratorLoginPassword $adminPassword
@@ -136,7 +136,7 @@ read -p "Enter the Azure Database for PostgreSQL server's administrator account 
 read -p "Enter the administrator password:" adminPassword &&
 params='serverName='$serverName' administratorLogin='$adminUser' administratorLoginPassword='$adminPassword &&
 az group create --name $resourceGroupName --location $location &&
-az deployment group create --resource-group $resourceGroupName --parameters $params --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-managed-postgresql-with-vnet/azuredeploy.json &&
+az deployment group create --resource-group $resourceGroupName --parameters $params --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.dbforpostgresql/managed-postgresql-with-vnet/azuredeploy.json &&
 read -p "Press [ENTER] to continue: "
 ```
 

@@ -4,12 +4,12 @@ description: En este inicio rápido se usa una plantilla de Azure Resource Manag
 ms.date: 04/22/2021
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: debe8e1f93148ab46a06eafd1b2671b560aa94db
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: c25107bf5701b4e730924417e01c5e2486317c8e
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107947922"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108330951"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-an-arm-template"></a>Creación de una asignación de directiva para identificar recursos no compatibles mediante una plantilla de Resource Manager
 
@@ -30,7 +30,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 
 En este inicio rápido, creará una asignación de directiva y asignará una definición de directiva integrada denominada _Auditoría de máquinas virtuales que no usan discos administrados_. Para una lista parcial de las directivas integradas disponibles, consulte los [ejemplos de Azure Policy](./samples/index.md).
 
-La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/quickstarts/microsoft.authorization/azurepolicy-assign-builtinpolicy-resourcegroup/).
+La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/azurepolicy-assign-builtinpolicy-resourcegroup/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.authorization/azurepolicy-assign-builtinpolicy-resourcegroup/azuredeploy.json":::
 
@@ -49,9 +49,9 @@ El recurso definido en la plantilla es el siguiente:
 
 1. Seleccione o escriba los siguientes valores:
 
-   | Nombre | Valor |
+   | Nombre | Value |
    |------|-------|
-   | Subscription | Seleccione su suscripción a Azure. |
+   | Suscripción | Seleccione su suscripción a Azure. |
    | Resource group | Seleccione **Crear**, especifique un nombre y seleccione **Aceptar**. En la captura de pantalla, el nombre del grupo de recursos es _mypolicyquickstart\<Date in MMDD\>rg_. |
    | Location | Seleccione una región. Por ejemplo, **Centro de EE. UU**. |
    | Nombre de la asignación de directiva | Especifique un nombre para la asignación de directiva. Si lo desea, puede usar la definición de directiva en pantalla. Por ejemplo, _Auditoría de máquinas virtuales que no usan discos administrados_. |

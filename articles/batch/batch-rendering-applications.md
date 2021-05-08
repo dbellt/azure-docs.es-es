@@ -3,12 +3,12 @@ title: Aplicaciones de representación
 description: Todas las aplicaciones de representación se pueden usar con Azure Batch. Sin embargo, las imágenes de máquina virtual de Azure Marketplace están disponibles con aplicaciones comunes preinstaladas.
 ms.date: 03/12/2021
 ms.topic: how-to
-ms.openlocfilehash: c98e2e0a81051dad47c201de9eda9f89cc311cf2
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7dee2806aafe34edee8dcb3dc3577def9c4c01da
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103496650"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107987513"
 ---
 # <a name="pre-installed-applications-on-batch-rendering-vm-images"></a>Aplicaciones preinstaladas en imágenes de máquina virtual de representación de Batch
 

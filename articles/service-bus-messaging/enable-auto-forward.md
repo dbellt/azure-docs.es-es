@@ -3,12 +3,12 @@ title: Habilitación del reenvío automático para las colas y las suscripciones
 description: En este artículo se explica cómo habilitar el reenvío automático para las colas y las suscripciones mediante Azure Portal, PowerShell, la CLI y los lenguajes de programación (C#, Java, Python y JavaScript).
 ms.topic: how-to
 ms.date: 04/19/2021
-ms.openlocfilehash: ef22ae08485dc896c94858db4e422cf89a00ec1f
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 0271ac825c192fcfe9db4a4b6378a47c62dc9903
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107755164"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107988125"
 ---
 # <a name="enable-auto-forwarding-for-azure-service-bus-queues-and-subscriptions"></a>Habilitación del reenvío automático para las colas y las suscripciones de Azure Service Bus
 La característica de reenvío automático de Service Bus permite encadenar una cola o suscripción a otra cola u otro tema que formen parte del mismo espacio de nombres. Cuando el reenvío automático está habilitado, Service Bus elimina automáticamente los mensajes que se colocan en la primera cola o suscripción (origen) y los coloca en la segunda cola o en el segundo tema (destino). Todavía se puede enviar un mensaje a la entidad de destino directamente. Para obtener más información, consulte [Encadenamiento de entidades de Service Bus con reenvío automático](service-bus-auto-forwarding.md). En este artículo se muestran las distintas formas de habilitar el reenvío automático para las colas y las suscripciones de Service Bus. 
@@ -17,13 +17,23 @@ La característica de reenvío automático de Service Bus permite encadenar una 
 > El nivel básico de Service Bus no admite la característica de reenvío automático. Los niveles Estándar y Prémium admiten la característica. Para conocer las diferencias entre estos niveles, consulte [Precios de Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
 
 ## <a name="using-azure-portal"></a>Uso de Azure Portal
-Al crear una **cola** o una **suscripción** para un tema en Azure Portal, seleccione la opción para **reenviar mensajes a la cola o el tema**, como se muestra en los ejemplos siguientes. A continuación, especifique si desea que los mensajes se reenvíen a una cola o a un tema. En este ejemplo, se elige la opción **Cola** y se selecciona una cola (**myqueue**) del mismo espacio de nombres.
+Al crear una **cola** o una **suscripción** para un tema en Azure Portal, seleccione la opción para **reenviar mensajes a la cola o el tema**, como se muestra en los ejemplos siguientes. A continuación, especifique si desea que los mensajes se reenvíen a una cola o a un tema. En este ejemplo, se elige la opción **Cola** y se selecciona una cola del mismo espacio de nombres.
 
 ### <a name="create-a-queue-with-auto-forwarding-enabled"></a>Creación de una cola con el reenvío automático habilitado
 :::image type="content" source="./media/enable-auto-forward/create-queue.png" alt-text="Habilitación del reenvío automático en el momento de creación de la cola":::
 
 ### <a name="create-a-subscription-for-a-topic-with-auto-forwarding-enabled"></a>Creación de una suscripción para un tema con el reenvío automático habilitado
 :::image type="content" source="./media/enable-auto-forward/create-subscription.png" alt-text="Habilitación del reenvío automático en el momento de creación de la suscripción":::
+
+### <a name="update-the-auto-forward-setting-for-an-existing-queue"></a>Actualización de la configuración de reenvío automático para una cola existente
+En la página **Información general** de la cola de Service Bus, seleccione el valor actual de la opción **Reenviar mensajes a**. En el ejemplo siguiente, el valor actual es **Deshabilitado**. En la ventana **Reenviar mensajes a cola o tema**, puede seleccionar la cola o el tema en el que desea que se reenvíen los mensajes. 
+
+:::image type="content" source="./media/enable-auto-forward/queue-auto-forward.png" alt-text="Habilitación del reenvío automático para una cola existente":::
+
+### <a name="update-the-auto-forward-setting-for-an-existing-subscription"></a>Actualización de la configuración de reenvío automático para una suscripción existente
+En la página **Información general** de la suscripción de Service Bus, seleccione el valor actual de la opción **Reenviar mensajes a**. En el ejemplo siguiente, el valor actual es **Deshabilitado**. En la ventana **Reenviar mensajes a cola o tema**, puede seleccionar la cola o el tema en el que desea que se reenvíen los mensajes. 
+
+:::image type="content" source="./media/enable-auto-forward/subscription-auto-forward.png" alt-text="Habilitación del reenvío automático para una suscripción existente":::
 
 ## <a name="using-azure-cli"></a>Uso de la CLI de Azure
 Para **crear una cola con el reenvío automático habilitado**, use el comando [`az servicebus queue create`](/cli/azure/servicebus/queue#az_servicebus_queue_create) con `--forward-to` establecido en el nombre de la cola o el tema al que desea reenviar los mensajes. 
@@ -36,7 +46,29 @@ az servicebus queue create \
     --forward-to myqueue2
 ```
 
+Para **actualizar la configuración de reenvío automático para una cola existente**, use el comando [`az servicebus queue update`](/cli/azure/servicebus/queue#az_servicebus_queue_update) con `--forward-to` establecido en el nombre de la cola o tema al que desea reenviar los mensajes. 
+
+```azurecli-interactive
+az servicebus queue update \
+    --resource-group myresourcegroup \
+    --namespace-name mynamespace \
+    --name myqueue \
+    --forward-to myqueue2
+```
+
+
 Para **crear una suscripción para un tema con el reenvío automático habilitado**, use el comando [`az servicebus topic subscription create`](/cli/azure/servicebus/topic/subscription#az_servicebus_topic_subscription_create) con `--forward-to` establecido en el nombre de la cola o el tema al que desea reenviar los mensajes.
+
+```azurecli-interactive
+az servicebus topic subscription create \
+    --resource-group myresourcegroup \
+    --namespace-name mynamespace \
+    --topic-name mytopic \
+    --name mysubscription \
+    --forward-to myqueue2
+```
+
+Para **actualizar la configuración de reenvío automático para una suscripción para un tema**, use el comando [`az servicebus topic subscription update`](/cli/azure/servicebus/topic/subscription#az_servicebus_topic_subscription_update) con `--forward-to` establecido en el nombre de la cola o tema al que desea reenviar los mensajes.
 
 ```azurecli-interactive
 az servicebus topic subscription create \
@@ -57,6 +89,21 @@ New-AzServiceBusQueue -ResourceGroup myresourcegroup `
     -ForwardTo myqueue2
 ```
 
+Para **actualizar la configuración de reenvío automático para una cola existente**, use el comando [`Set-AzServiceBusQueue`](/powershell/module/az.servicebus/set-azservicebusqueue) como se muestra en el ejemplo siguiente.
+
+```azurepowershell-interactive
+$queue=Get-AzServiceBusQueue -ResourceGroup myresourcegroup `
+    -NamespaceName mynamespace `
+    -QueueName myqueue 
+
+$queue.ForwardTo='myqueue2'
+
+Set-AzServiceBusQueue -ResourceGroup myresourcegroup `
+    -NamespaceName mynamespace `
+    -QueueName myqueue `
+    -QueueObj $queue
+``` 
+
 Para **crear una suscripción para un tema con el reenvío automático habilitado**, use el comando [`New-AzServiceBusSubscription`](/powershell/module/az.servicebus/new-azservicebussubscription) con `-ForwardTo` establecido en el nombre de la cola o el tema al que desea reenviar los mensajes.
 
 ```azurepowershell-interactive
@@ -65,6 +112,23 @@ New-AzServiceBusSubscription -ResourceGroup myresourcegroup `
     -TopicName mytopic `
     -SubscriptionName mysubscription `
     -ForwardTo myqueue2
+```
+
+Para **actualizar la configuración de reenvío automático para una suscripción existente**, vea el ejemplo siguiente.
+
+```azurepowershell-interactive
+$subscription=Get-AzServiceBusSubscription -ResourceGroup myresourcegroup `
+    -NamespaceName mynamespace `
+    -TopicName mytopic `
+    -SubscriptionName mysub
+
+$subscription.ForwardTo='mytopic2'
+
+Set-AzServiceBusSubscription -ResourceGroup myresourcegroup `
+    -NamespaceName mynamespace `
+    -Name mytopic `
+    -SubscriptionName mysub `
+    -SubscriptionObj $subscription 
 ```
 
 ## <a name="using-azure-resource-manager-template"></a>Uso de la plantilla de Azure Resource Manager
@@ -198,16 +262,38 @@ Para **crear una suscripción para un tema con el reenvío automático habilitad
 }
 ```
 
+## <a name="net"></a>.NET 
+
+### <a name="azuremessagingservicebus-latest"></a>Azure.Messaging.ServiceBus (más reciente)
+Para habilitar la característica de reenvío automático, puede establecer [CreateQueueOptions.ForwardTo](/dotnet/api/azure.messaging.servicebus.administration.createqueueoptions.forwardto) o [CreateSubscriptionOptions.ForwardTo](/dotnet/api/azure.messaging.servicebus.administration.createsubscriptionoptions.forwardto) y, a continuación, usar los métodos [CreateQueueAsync](/dotnet/api/azure.messaging.servicebus.administration.servicebusadministrationclient.createqueueasync#Azure_Messaging_ServiceBus_Administration_ServiceBusAdministrationClient_CreateQueueAsync_Azure_Messaging_ServiceBus_Administration_CreateQueueOptions_System_Threading_CancellationToken_) o [CreateSubscriptionAsync](/dotnet/api/azure.messaging.servicebus.administration.servicebusadministrationclient.createsubscriptionasync#Azure_Messaging_ServiceBus_Administration_ServiceBusAdministrationClient_CreateSubscriptionAsync_Azure_Messaging_ServiceBus_Administration_CreateSubscriptionOptions_System_Threading_CancellationToken_) que toman parámetros `CreateQueueOptions` o `CreateSubscriptionOptions`. 
+
+### <a name="microsoftazureservicebus-legacy"></a>Microsoft.Azure.ServiceBus (heredado)
+Para habilitar el reenvío automático, establezca las propiedades [QueueDescription.ForwardTo](/dotnet/api/microsoft.servicebus.messaging.queuedescription) o [SubscriptionDescription.ForwardTo](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) para el origen, como en este ejemplo:
+
+```csharp
+SubscriptionDescription srcSubscription = new SubscriptionDescription (srcTopic, srcSubscriptionName);
+srcSubscription.ForwardTo = destTopic;
+namespaceManager.CreateSubscription(srcSubscription));
+```
+
+## <a name="java"></a>Java
+
+### <a name="azure-messaging-servicebus-latest"></a>azure-messaging-servicebus (más reciente)
+Puede habilitar la característica de reenvío automático mediante el método [CreateQueueOptions.setForwardTo(String forwardTo)](/java/api/com.azure.messaging.servicebus.administration.models.createqueueoptions.setforwardto) o [CreateSubscriptionOptions.setForwardTo(String forwardTo)](/java/api/com.azure.messaging.servicebus.administration.models.createsubscriptionoptions.setforwardto) y, a continuación, mediante el método [createQueue](/java/api/com.azure.messaging.servicebus.administration.servicebusadministrationclient.createqueue#com_azure_messaging_servicebus_administration_ServiceBusAdministrationClient_createQueue_java_lang_String_com_azure_messaging_servicebus_administration_models_CreateQueueOptions_) o el método [createSubscription](/java/api/com.azure.messaging.servicebus.administration.servicebusadministrationclient.createsubscription#com_azure_messaging_servicebus_administration_ServiceBusAdministrationClient_createSubscription_java_lang_String_java_lang_String_com_azure_messaging_servicebus_administration_models_CreateSubscriptionOptions_) que toman los parámetros `CreateQueueOptions` o `CreateSubscriptionOptions`. 
+
+### <a name="azure-servicebus-legacy"></a>azure-servicebus (heredado)
+Puede habilitar el reenvío automático mediante [QueueDescription.setForwardTo(String forwardTo)](/java/api/com.microsoft.azure.servicebus.management.queuedescription.setforwardto#com_microsoft_azure_servicebus_management_QueueDescription_setForwardTo_java_lang_String_) o [SubscriptionDescription.setForwardTo(String forwardTo)](/java/api/com.microsoft.azure.servicebus.management.subscriptiondescription.setforwardto) para el origen. 
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 Pruebe los ejemplos en el lenguaje que prefiera para explorar las características de Azure Service Bus. 
 
-- [Ejemplos de la biblioteca cliente de Azure Service Bus para Java](/samples/azure/azure-sdk-for-java/servicebus-samples/)
+- [Ejemplos de la biblioteca cliente de Azure Service Bus para .NET (versión más reciente)](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/) 
+- [Ejemplos de la biblioteca cliente de Azure Service Bus para Java (versión más reciente)](/samples/azure/azure-sdk-for-java/servicebus-samples/)
 - [Ejemplos de la biblioteca cliente de Azure Service Bus para Python](/samples/azure/azure-sdk-for-python/servicebus-samples/)
 - [Ejemplos de la biblioteca cliente de Azure Service Bus para JavaScript](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
 - [Ejemplos de la biblioteca cliente de Azure Service Bus para TypeScript](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
-- [Ejemplos de Azure.Messaging.ServiceBus para .NET](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/)
 
 A continuación, encontrará ejemplos de las bibliotecas cliente de .NET y Java anteriores:
-- [Ejemplos de Microsoft.Azure.ServiceBus para .NET](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/)
-- [Ejemplos de azure-servicebus para Java](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/MessageBrowse)
+- [Ejemplos de la biblioteca cliente de Azure Service Bus para .NET (versión heredada)](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/)
+- [Ejemplos de la biblioteca cliente de Azure Service Bus para Java (versión heredada)](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus)

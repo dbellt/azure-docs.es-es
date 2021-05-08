@@ -6,22 +6,23 @@ ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 12/10/2020
+ms.date: 04/05/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 1ceed171b0516e293ffe58bca0225d3d3dfdb414
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 7331f9a894d36ee15702a8fe53804efd53049762
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101094657"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107284126"
 ---
 # <a name="managing-azure-enterprise-agreement-roles"></a>Administración de los roles del Contrato Enterprise de Azure
 
-Para ayudar a administrar el uso y el gasto de su organización, los clientes de Azure con un Contrato Enterprise pueden asignar cinco roles de administrador diferentes:
+Para ayudar a administrar el uso y gasto de su organización, los clientes de Azure con un Contrato Enterprise pueden asignar seis roles de administrador diferentes:
 
 - Administrador de empresa
 - Administrador de empresa (solo lectura)<sup>1</sup>
+- Comprador de EA
 - Administrador de departamentos
 - Administrador de departamento (solo lectura)
 - Propietario de la cuenta <sup>2</sup>
@@ -61,6 +62,7 @@ En el siguiente diagrama se ilustran las jerarquías simples de Azure EA.
 Los siguientes roles de usuario administrativo forman parte de la inscripción empresarial:
 
 - Administrador de empresa
+- Comprador de EA
 - Administrador de departamentos
 - Propietario de cuenta
 - Administrador de servicios
@@ -80,12 +82,24 @@ Los usuarios con este rol tienen el nivel de acceso más alto. Pueden realizar l
 - Administrar otros administradores de empresa.
 - Administrar administradores de departamento.
 - Administrar contactos de notificación.
+- Comprar servicios de Azure, incluidas reservas.
 - Ver el uso en todas las cuentas.
 - Ver los cargos no facturados en todas las cuentas.
 - Ver y administrar no solo todos los pedidos de reserva, sino también las propias reservas que se aplican al Contrato Enterprise.
   - El administrador de empresa (solo lectura) puede ver tanto los pedidos de reserva como las propias reservas, pero no pueden administrarlos.
 
 Puede tener varios administradores de empresa en una inscripción empresarial. Puede conceder acceso de solo lectura a los administradores de empresa. Estos heredan el rol de administrador de departamento.
+
+### <a name="ea-purchaser"></a>Comprador de EA
+
+Los usuarios con este rol tienen permisos para comprar servicios de Azure, pero no se les permite administrar cuentas. Pueden realizar las acciones siguientes:
+
+- Comprar servicios de Azure, incluidas reservas.
+- Ver el uso en todas las cuentas.
+- Ver los cargos no facturados en todas las cuentas.
+- Ver y administrar no solo todos los pedidos de reserva, sino también las propias reservas que se aplican al Contrato Enterprise.
+
+Actualmente, el rol de comprador de EA solo está habilitado para el acceso basado en SPN. Para aprender a asignar el rol a un nombre de entidad de seguridad de servicio, consulte [Asignación de roles a los nombres de entidad de seguridad de servicio del Contrato Enterprise de Azure](assign-roles-azure-service-principals.md).
 
 ### <a name="department-administrator"></a>Administrador de departamentos
 
@@ -126,6 +140,7 @@ En las secciones siguientes se describen las limitaciones y funcionalidades de c
 |---|---|
 |Administrador de empresa|Sin límite|
 |Administrador de empresa (solo lectura)|Sin límite|
+| Comprador de EA asignado a un nombre de entidad de seguridad de servicio | Sin límite |
 |Administrador de departamentos|Sin límite|
 |Administrador de departamento (solo lectura)|Sin límite|
 |Propietario de cuenta|1 por cuenta <sup>3</sup>|
@@ -134,18 +149,19 @@ En las secciones siguientes se describen las limitaciones y funcionalidades de c
 
 ## <a name="organization-structure-and-permissions-by-role"></a>Estructura de organización y permisos por rol
 
-|Tareas| Administrador de empresa|Administrador de empresa (solo lectura)|Administrador de departamentos|Administrador de departamento (solo lectura)|Propietario de cuenta| Asociado|
-|---|---|---|---|---|---|---|
-|Ver administradores de empresa|✔|✔|✘|✘|✘|✔|
-|Agregar o quitar administradores de empresa|✔|✘|✘|✘|✘|✘|
-|Ver contactos de notificación<sup>4</sup> |✔|✔|✘|✘|✘|✔|
-|Agregar o quitar contactos de notificación<sup>4</sup> |✔|✘|✘|✘|✘|✘|
-|Crear y administrar departamentos |✔|✘|✘|✘|✘|✘|
-|Ver administradores de departamento|✔|✔|✔|✔|✘|✔|
-|Agregar o quitar administradores de departamento|✔|✘|✔|✘|✘|✘|
-|Ver cuentas en la inscripción |✔|✔|✔<sup>5</sup>|✔<sup>5</sup>|✘|✔|
-|Agregar cuentas a la inscripción y cambiar el propietario de la cuenta|✔|✘|✔<sup>5</sup>|✘|✘|✘|
-|Crear y administrar suscripciones y permisos de suscripción|✘|✘|✘|✘|✔|✘|
+|Tareas| Administrador de empresa|Administrador de empresa (solo lectura)| Comprador de EA | Administrador de departamentos|Administrador de departamento (solo lectura)|Propietario de cuenta| Asociado|
+|---|---|---|---|---|---|---|---|
+|Ver administradores de empresa|✔|✔| ✔|✘|✘|✘|✔|
+|Agregar o quitar administradores de empresa|✔|✘|✘|✘|✘|✘|✘|
+|Ver contactos de notificación<sup>4</sup> |✔|✔|✔|✘|✘|✘|✔|
+|Agregar o quitar contactos de notificación<sup>4</sup> |✔|✘|✘|✘|✘|✘|✘|
+|Crear y administrar departamentos |✔|✘|✘|✘|✘|✘|✘|
+|Ver administradores de departamento|✔|✔|✔|✔|✔|✘|✔|
+|Agregar o quitar administradores de departamento|✔|✘|✘|✔|✘|✘|✘|
+|Ver cuentas en la inscripción |✔|✔|✔|✔<sup>5</sup>|✔<sup>5</sup>|✘|✔|
+|Agregar cuentas a la inscripción y cambiar el propietario de la cuenta|✔|✘|✘|✔<sup>5</sup>|✘|✘|✘|
+|Compra de reservas|✔|✘|✔|✘|✘|✘|✘|
+|Crear y administrar suscripciones y permisos de suscripción|✘|✘|✘|✘|✘|✔|✘|
 
 - <sup>4</sup> A los contactos de notificación se les envían comunicaciones por correo electrónico sobre el Contrato Enterprise de Azure.
 - <sup>5</sup> La tarea se limita a las cuentas de su departamento.
@@ -166,14 +182,14 @@ Para más información sobre cómo agregar un administrador de departamento, con
 
 ## <a name="usage-and-costs-access-by-role"></a>Acceso de uso y costos por rol
 
-|Tareas| Administrador de empresa|Administrador de empresa (solo lectura)|Administrador de departamentos|Administrador de departamento (solo lectura) |Propietario de cuenta| Asociado|
-|---|---|---|---|---|---|---|
-|Ver saldo de crédito, incluido el prepago de Azure|✔|✔|✘|✘|✘|✔|
-|Ver cuotas de gastos de departamento|✔|✔|✘|✘|✘|✔|
-|Establecer cuotas de gasto de departamento|✔|✘|✘|✘|✘|✘|
-|Ver la hoja de precios de EA de la organización|✔|✔|✘|✘|✘|✔|
-|Ver los detalles de uso y costo|✔|✔|✔<sup>6</sup>|✔<sup>6</sup>|✔<sup>7</sup>|✔|
-|Administrar recursos en Azure Portal|✘|✘|✘|✘|✔|✘|
+|Tareas| Administrador de empresa|Administrador de empresa (solo lectura)|Comprador de EA|Administrador de departamentos|Administrador de departamento (solo lectura) |Propietario de cuenta| Asociado|
+|---|---|---|---|---|---|---|---|
+|Ver saldo de crédito, incluido el prepago de Azure|✔|✔|✔|✘|✘|✘|✔|
+|Ver cuotas de gastos de departamento|✔|✔|✔|✘|✘|✘|✔|
+|Establecer cuotas de gasto de departamento|✔|✘|✘|✘|✘|✘|✘|
+|Ver la hoja de precios de EA de la organización|✔|✔|✔|✘|✘|✘|✔|
+|Ver los detalles de uso y costo|✔|✔|✔|✔<sup>6</sup>|✔<sup>6</sup>|✔<sup>7</sup>|✔|
+|Administrar recursos en Azure Portal|✘|✘|✘|✘|✘|✔|✘|
 
 - <sup>6</sup> Requiere que el administrador de empresa habilite la directiva de **visualización de cargos del administrador de departamento** en Enterprise Portal. El administrador de departamento puede entonces ver los detalles de costo del departamento.
 - <sup>7</sup> Requiere que el administrador de empresa habilite la directiva de **visualización de cargos del propietario de la cuenta** en Enterprise Portal. El propietario de la cuenta puede ver entonces los detalles del costo de la cuenta.
@@ -198,8 +214,6 @@ En la tabla siguiente se muestra la relación entre los roles de administrador d
 |None|No aplicable |Propietario|Precio de venta|
 
 El rol de administrador de Enterprise y las directivas de visualización de cargos se establecen en Enterprise Portal. El rol de Azure puede actualizarse en Azure Portal. Para más información, consulte [Asignación de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
-
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 
