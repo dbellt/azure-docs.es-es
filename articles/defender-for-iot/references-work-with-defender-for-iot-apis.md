@@ -3,12 +3,12 @@ title: Trabajo con las API de Defender para IoT
 description: Use una API REST externa para acceder a los datos que han detectado los sensores y las consolas de administración y realizar acciones con esos datos.
 ms.date: 12/14/2020
 ms.topic: reference
-ms.openlocfilehash: e7833a20d4f708ecb5b80394fae2c56fc07c9489
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 0e3659d8d5e6829651012dae02ca74c5ecacaf0c
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107752739"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107829969"
 ---
 # <a name="defender-for-iot-sensor-and-management-console-apis"></a>API del sensor y la consola de administración de Defender para IoT
 
@@ -622,8 +622,8 @@ Matriz de objetos JSON que representan alertas.
 | **engine** | String | No | Infracción del protocolo, infracción de la directiva, malware, anomalía u operativa |
 | **sourceDevice** | Numeric | Sí | Id. de dispositivo |
 | **destinationDevice** | Numeric | Sí | Id. de dispositivo |
-| **sourceDeviceAddress** | Numeric | Sí | IP, MAC, Null |
-| **destinationDeviceAddress** | Numeric | Sí | IP, MAC, Null |
+| **sourceDeviceAddress** | Numeric | Sí | IP, MAC |
+| **destinationDeviceAddress** | Numeric | Sí | IP, MAC |
 | **remediationSteps** | String | Sí | Pasos para la corrección descritos en la alerta |
 | **additionalInformation** | Objeto Additional information | Sí | - |
 
@@ -2056,12 +2056,12 @@ Use esta API para recuperar todas las alertas o las alertas filtradas de una con
 | **engine** | String | No | Infracción del protocolo, infracción de la directiva, malware, anomalía u operativa |
 | **sourceDevice** | Numeric | Sí | Id. de dispositivo |
 | **destinationDevice** | Numeric | Sí | Id. de dispositivo |
-| **sourceDeviceAddress** | Numeric | Sí | IP, MAC, Null |
-| **destinationDeviceAddress** | Numeric | Sí | IP, MAC, Null |
+| **sourceDeviceAddress** | Numeric | Sí | IP, MAC |
+| **destinationDeviceAddress** | Numeric | Sí | IP, MAC |
 | **remediationSteps** | String | Sí | Pasos para la corrección que se muestran en la alerta|
-| **sensorName** | String | Sí | Nombre del sensor que el usuario define en la consola|
-|**zoneName** | String | Sí | Nombre de la zona asociada al sensor en la consola|
-| **siteName** | String | Sí | Nombre del sitio asociado al sensor en la consola |
+| **sensorName** | String | Sí | Nombre del sensor definido por el usuario |
+|**zoneName** | String | Sí | Nombre de la zona asociada al sensor|
+| **siteName** | String | Sí | Nombre del sitio asociado al sensor |
 | **additionalInformation** | Objeto Additional information | Sí | - |
 
 Tenga en cuenta que se requiere /api/v2/ para la información siguiente:

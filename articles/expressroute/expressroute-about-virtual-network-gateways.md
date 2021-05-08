@@ -5,14 +5,14 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 04/05/2021
+ms.date: 04/23/2021
 ms.author: duau
-ms.openlocfilehash: 796e35be12939920f9392e6f3ce4cae660415f80
-ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
+ms.openlocfilehash: 62f51922399a300b9ed803c3ee2d380dcab615b8
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106504719"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107987531"
 ---
 # <a name="about-expressroute-virtual-network-gateways"></a>Acerca de las puertas de enlace de red virtual de ExpressRoute
 
@@ -36,12 +36,18 @@ Si desea actualizar la puerta de enlace a una SKU de puerta de enlace más efica
 ### <a name="estimated-performances-by-gateway-sku"></a><a name="aggthroughput"></a>Rendimientos estimados por SKU de puerta de enlace
 En la tabla siguiente se muestran los tipos de puerta de enlace y los rendimientos estimados. Esta tabla se aplica a los modelos de implementación del Administrador de recursos y clásico.
 
+> [!IMPORTANT]
+> El rendimiento de la aplicación depende de varios factores, como la latencia de extremo a extremo y el número de flujos de tráfico que abre la aplicación. Los números de la tabla representan el límite superior que teóricamente la aplicación puede alcanzar en un entorno ideal.
+>
+>
+
+> [!NOTE]
+> El número máximo de circuitos ExpressRoute desde la misma ubicación de emparejamiento que se puede conectar a la misma red virtual es 4 para todas las puertas de enlace.
+>
+>
+
 [!INCLUDE [expressroute-table-aggthroughput](../../includes/expressroute-table-aggtput-include.md)]
 
-> [!IMPORTANT]
-> * El número de máquinas virtuales de la red virtual también incluye las máquinas virtuales de las redes virtuales emparejadas que usan la puerta de enlace remota de ExpressRoute.
-> * El rendimiento de la aplicación depende de varios factores, como la latencia de extremo a extremo y el número de flujos de tráfico que abre la aplicación. Los números de la tabla representan el límite superior que teóricamente la aplicación puede alcanzar en un entorno ideal.
->
 
 ## <a name="gateway-subnet"></a><a name="gwsub"></a>Subred de puerta de enlace
 

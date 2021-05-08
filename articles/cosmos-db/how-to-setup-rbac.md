@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 04/19/2021
 ms.author: thweiss
-ms.openlocfilehash: 209d18dfbadea89f14fd90da9a1bc57b3ccf0dfe
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 9de41835e33d50a670a44089cb10d44cc57e92a7
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107728082"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107818717"
 ---
 # <a name="configure-role-based-access-control-with-azure-active-directory-for-your-azure-cosmos-db-account-preview"></a>Configuración del control de acceso basado en roles con Azure Active Directory para la cuenta de Azure Cosmos DB (versión preliminar).
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -333,6 +333,7 @@ La forma de crear una instancia de `TokenCredential` queda fuera del ámbito de 
 - [En .NET](/dotnet/api/overview/azure/identity-readme#credential-classes)
 - [En Java](/java/api/overview/azure/identity-readme#credential-classes)
 - [En JavaScript](/javascript/api/overview/azure/identity-readme#credential-classes)
+- En la API de REST
 
 En los ejemplos siguientes se usa una entidad de servicio con una instancia de `ClientSecretCredential`.
 
@@ -379,6 +380,12 @@ const client = new CosmosClient({
     aadCredentials: servicePrincipal
 });
 ```
+
+### <a name="in-rest-api"></a>En la API de REST
+
+El rol RBAC de Azure Cosmos DB actualmente es compatible con la versión 2021-03-15 de la API de REST. Al construir el [encabezado de autorización](/rest/api/cosmos-db/access-control-on-cosmosdb-resources), establezca el parámetro **type** en **aad** y la firma de hash **(sig)** en el **token de Oauth** como se muestra en el ejemplo siguiente:
+
+`type=aad&ver=1.0&sig=<token-from-oauth>`
 
 ## <a name="auditing-data-requests"></a>Auditoría de solicitudes de datos
 

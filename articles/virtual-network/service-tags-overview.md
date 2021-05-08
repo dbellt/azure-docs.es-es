@@ -10,15 +10,15 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 4/14/2021
+ms.date: 4/23/2021
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 4a18e0f257ac8d7b7d981d53249cf29f2f8f38bd
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 1b068fd00402fc281001e8572f9e03662c8ffd55
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107790156"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107951799"
 ---
 # <a name="virtual-network-service-tags"></a>Etiquetas de servicio de red virtual
 <a name="network-service-tags"></a>
@@ -92,6 +92,7 @@ De forma predeterminada, las etiquetas de servicio reflejan los intervalos de to
 | **DataFactory**  | Azure Data Factory | Ambos | No | No |
 | **DataFactoryManagement** | Tráfico de administración para Azure Data Factory. | Salida | No | No |
 | **Dynamics365ForMarketingEmail** | Los intervalos de direcciones del servicio de correo electrónico de marketing de Dynamics 365. | Salida | Sí | No |
+| **EOPExternalPublishedIPs** | Esta etiqueta representa las direcciones IP usadas para Powershell del Centro de seguridad y cumplimiento. Consulte el módulo [Conectarse a PowerShell del Centro de seguridad y cumplimiento mediante el módulo EXO V2 para obtener más detalles](https://docs.microsoft.com/powershell/exchange/connect-to-scc-powershell). <br/><br/> *Nota: Esta etiqueta no se puede configurar actualmente desde Azure Portal.* | Ambos | No | Sí |
 | **EventHub** | Azure Event Hubs. | Salida | Sí | Sí |
 | **GatewayManager** | Tráfico de administración para implementaciones dedicadas a Azure VPN Gateway y Application Gateway. | Entrada | No | No |
 | **GuestAndHybridManagement** | Azure Automation y Configuración de invitado | Salida | No | Sí |

@@ -5,13 +5,13 @@ author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/03/2021
-ms.openlocfilehash: 5fda7ebb5a72dd9bbfab0ba72511540cf141563f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/22/2021
+ms.openlocfilehash: 8c3406bfa7c02c40cc1f10f52bdffa2b3d56a585
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105608857"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107988791"
 ---
 # <a name="supported-postgresql-major-versions-in-azure-database-for-postgresql---flexible-server"></a>Versiones principales de PostgreSQL admitidas en Azure Database for PostgreSQL: Servidor flexible
 
@@ -22,11 +22,11 @@ Azure Database for PostgreSQL: Servidor flexible actualmente admite las versione
 
 ## <a name="postgresql-version-12"></a>PostgreSQL, versión 12
 
-La versión secundaria actual es la 12.5. Consulte la [documentación de PostgreSQL](https://www.postgresql.org/docs/12/static/release-12-4.html) para obtener más información sobre las mejoras y correcciones de esta versión secundaria.
+La versión secundaria actual es la **12.6**. Consulte la [documentación de PostgreSQL](https://www.postgresql.org/docs/12/static/release-12-4.html) para obtener más información sobre las mejoras y correcciones de esta versión secundaria. Con esta versión secundaria, se crearán nuevos servidores. Los servidores existentes se actualizarán automáticamente a la versión secundaria admitida más reciente en la futura ventana de mantenimiento programado.
 
 ## <a name="postgresql-version-11"></a>PostgreSQL, versión 11
 
-La versión secundaria actual es la 11.10. Consulte la [documentación de PostgreSQL](https://www.postgresql.org/docs/11/static/release-11-9.html) para obtener más información sobre las mejoras y correcciones de esta versión secundaria.
+La versión secundaria actual es la **11.11**. Consulte la [documentación de PostgreSQL](https://www.postgresql.org/docs/11/static/release-11-9.html) para obtener más información sobre las mejoras y correcciones de esta versión secundaria. Con esta versión secundaria, se crearán nuevos servidores. Los servidores existentes se actualizarán automáticamente a la versión secundaria admitida más reciente en la futura ventana de mantenimiento programado.
 
 ## <a name="postgresql-version-10-and-older"></a>PostgreSQL, versión 10 y anteriores
 

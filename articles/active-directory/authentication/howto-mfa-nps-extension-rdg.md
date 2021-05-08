@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 20b0150c18f2c007ed104d34daacd49ab03131a7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6f50792ec45570f7e90893a97150ea26b63ebf9c
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96743384"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107829843"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integración de la infraestructura de la puerta de enlace de Escritorio remoto utilizando la extensión Servidor de directivas de redes (NPS) y Azure AD
 
@@ -114,7 +114,9 @@ Siga los pasos de [¿Qué significa Azure AD Multi-Factor Authentication para m
 > [!IMPORTANT]
 > El comportamiento de inicio de sesión de la puerta de enlace de Escritorio remoto no ofrece la opción de escribir un código de verificación con Azure AD Multi-Factor Authentication. Se debe configurar una cuenta de usuario para la comprobación telefónica o la aplicación Microsoft Authenticator con notificaciones push.
 >
-> Si uno de estos dos métodos de autenticación no se ha configurado para un usuario, no podrá completar el desafío de Azure AD Multi-Factor Authentication ni iniciar sesión en la puerta de enlace de Escritorio remoto.
+> Si no se configura la comprobación telefónica ni la aplicación Microsoft Authenticator con notificaciones de inserción para un usuario, el usuario no podrá completar el desafío de Azure AD Multi-Factor Authentication ni iniciar sesión en la puerta de enlace de Escritorio remoto.
+>
+> El método de mensaje de texto SMS no funciona con la puerta de enlace de Escritorio remoto porque no proporciona la opción de escribir un código de verificación.
 
 ## <a name="install-and-configure-nps-extension"></a>Instalación y configuración de la extensión NPS
 

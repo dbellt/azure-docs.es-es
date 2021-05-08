@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 02/23/2021
-ms.openlocfilehash: 4db523624922d8ddcb8c1868b84927926d9ed3d5
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.date: 04/20/2021
+ms.openlocfilehash: 59c1ca67c9e93b62890512cda647ffcdf7712f9a
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107103817"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107819275"
 ---
 # <a name="share-and-receive-data-from-azure-blob-storage-and-azure-data-lake-storage"></a>Uso compartido y recepción de datos de Azure Blob Storage y Azure Data Lake Storage
 
@@ -19,7 +19,7 @@ ms.locfileid: "107103817"
 
 Azure Data Share admite el uso compartido basado en instantáneas desde una cuenta de almacenamiento. En este artículo se explica cómo compartir y recibir datos de Azure Blob Storage, Azure Data Lake Storage Gen1 y Azure Data Lake Storage Gen2.
 
-Azure Data Share admite el uso compartido de archivos, carpetas y sistemas de archivos desde Azure Data Lake Gen1 y Azure Data Lake Gen2. También admite el uso compartido de blobs, carpetas y contenedores desde Azure Blob Storage. Actualmente solo se admiten blobs en bloques. Los datos compartidos de estos orígenes pueden recibirse en Azure Data Lake Gen2 o Azure Blob Storage.
+Azure Data Share admite el uso compartido de archivos, carpetas y sistemas de archivos desde Azure Data Lake Gen1 y Azure Data Lake Gen2. También admite el uso compartido de blobs, carpetas y contenedores desde Azure Blob Storage. Puede compartir blobs en bloques, en anexos o en páginas, y se reciben como blobs en bloques. Los datos compartidos de estos orígenes pueden recibirse en Azure Data Lake Gen2 o Azure Blob Storage.
 
 Cuando el uso compartido de sistemas de archivos, contenedores o carpetas se basa en instantáneas, los consumidores de datos pueden optar por hacer una copia completa de los datos de recursos compartidos. O bien, pueden usar la funcionalidad de instantáneas incrementales para copiar solo los archivos nuevos o actualizados. La funcionalidad de instantánea incremental se basa en la hora de la última modificación de los archivos. 
 
@@ -58,7 +58,7 @@ Cree un recurso de Azure Data Share en un grupo de recursos de Azure.
 
      **Configuración** | **Valor sugerido** | **Descripción del campo**
     |---|---|---|
-    | Suscripción | Su suscripción | Seleccione una suscripción de Azure para la cuenta de recursos compartidos de datos.|
+    | Subscription | Su suscripción | Seleccione una suscripción de Azure para la cuenta de recursos compartidos de datos.|
     | Grupo de recursos | *test-resource-group* | Use un grupo de recursos existente o cree uno. |
     | Location | *Este de EE. UU. 2* | Seleccione una región para la cuenta de Azure Data Share.
     | Nombre | *datashareaccount* | Asigne un nombre a la cuenta del recurso compartido de datos. |
