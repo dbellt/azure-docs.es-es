@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 2/12/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 3393856b25040cff603ea2ef51e8adbcba78dc26
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b7bed0f3b10dd057073203bb9c2e336299c50662
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102034700"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108207994"
 ---
 # <a name="what-is-an-ontology"></a>¿Qué es una ontología? 
 
@@ -42,16 +42,16 @@ Hay tres posibles estrategias para la integración de ontologías estándar del 
 
 | Estrategia | Descripción | Recursos |
 | --- | --- | --- |
-| **Adoptar** | puede iniciar la solución con una ontología de DTDL de código abierto que se ha creado a partir de estándares del sector profusamente adoptados. Puede usar estos conjuntos de modelos directamente o extenderlos con sus propias adiciones para una solución personalizada. | [*Conceptos:&nbsp;Adopción de&nbsp;ontologías&nbsp;estándar del sector*](concepts-ontologies-adopt.md)<br><br>[*Conceptos:&nbsp;Extensión de&nbsp;ontologías*](concepts-ontologies-extend.md) |
-| **Convertir** | Si ya tiene modelos existentes representados en otro formato estándar, puede convertirlos en DTDL para usarlos con Azure Digital Twins. | [*Conceptos:&nbsp;Conversión de&nbsp;ontologías*](concepts-ontologies-convert.md)<br><br>[*Conceptos:&nbsp;Extensión de&nbsp;ontologías*](concepts-ontologies-extend.md) |
-| **Autor** | Siempre puede desarrollar sus propios modelos de DTDL personalizados desde cero, mediante cualquier estándar del sector aplicable como inspiración. | [*Conceptos: Modelos de DTDL*](concepts-models.md) |
+| **Adoptar** | puede iniciar la solución con una ontología de DTDL de código abierto que se ha creado a partir de estándares del sector profusamente adoptados. Puede usar estos conjuntos de modelos directamente o extenderlos con sus propias adiciones para una solución personalizada. | [Conceptos:&nbsp;Adopción de&nbsp;ontologías&nbsp;estándar del sector](concepts-ontologies-adopt.md)<br><br>[Conceptos:&nbsp;Extensión de&nbsp;ontologías](concepts-ontologies-extend.md) |
+| **Convertir** | Si ya tiene modelos existentes representados en otro formato estándar, puede convertirlos en DTDL para usarlos con Azure Digital Twins. | [Conceptos:&nbsp;Conversión de&nbsp;ontologías](concepts-ontologies-convert.md)<br><br>[Conceptos:&nbsp;Extensión de&nbsp;ontologías](concepts-ontologies-extend.md) |
+| **Autor** | Siempre puede desarrollar sus propios modelos de DTDL personalizados desde cero, mediante cualquier estándar del sector aplicable como inspiración. | [Conceptos: Modelos de DTDL](concepts-models.md) |
 
 ### <a name="using-ontology-strategies-in-a-model-development-path"></a>Uso de estrategias de ontología en un procedimiento de desarrollo de modelos
 
 Independientemente de la estrategia que elija para integrar una ontología en Azure Digital Twins, puede seguir el procedimiento completo que se muestra a continuación para que le oriente en la creación y carga de ontologías como modelos de DTDL.
 
 1. Empiece por revisar y comprender el [modelado de DTDL en Azure Digital Twins](concepts-models.md).
-1. Continúe con la estrategia de integración de ontologías elegida anteriormente: [**Adopte**](concepts-ontologies-adopt.md), [**convierta**](concepts-ontologies-convert.md) o [**cree**](concepts-models.md) los modelos según su ontología.
+1. Continúe con la estrategia de integración de ontologías elegida anteriormente: [Adopte](concepts-ontologies-adopt.md), [convierta](concepts-ontologies-convert.md) o [cree](concepts-models.md) los modelos según su ontología.
     1. Si es necesario, [extienda](concepts-ontologies-extend.md) su ontología para personalizarla según sus necesidades.
 1. [Valide](how-to-parse-models.md) los modelos para comprobar que son documentos DTDL operativos.
 1. Cargue los modelos terminados en Azure Digital Twins, mediante las [API](how-to-manage-model.md#upload-models) o un ejemplo como el del [cargador de modelos de Azure Digital Twins](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/ModelUploader).
@@ -63,8 +63,8 @@ Puede visualizarlos con ejemplos como el de [Azure Digital Twins Explorer](/samp
 ## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga más información sobre las estrategias de adopción, conversión y creación de ontologías:
-* [*Conceptos: Adopción de ontologías estándar del sector*](concepts-ontologies-adopt.md)
-* [*Conceptos: Conversión de ontologías*](concepts-ontologies-convert.md)
-* [*Procedimientos: Administración de modelos DTDL*](how-to-manage-model.md)
+* [Conceptos: Adopción de ontologías estándar del sector](concepts-ontologies-adopt.md)
+* [Conceptos: Conversión de ontologías](concepts-ontologies-convert.md)
+* [Procedimientos: Administración de modelos DTDL](how-to-manage-model.md)
 
-O bien, obtenga información sobre cómo se usan los modelos para crear gemelos digitales: [*Conceptos: Gemelos digitales y grafo de gemelos*](concepts-twins-graph.md).
+O bien, obtenga información sobre cómo se usan los modelos para crear gemelos digitales: [Conceptos: Gemelos digitales y grafo de gemelos](concepts-twins-graph.md).

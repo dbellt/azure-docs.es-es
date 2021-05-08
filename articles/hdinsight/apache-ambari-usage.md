@@ -4,16 +4,16 @@ description: Explicación de cómo se usa Apache Ambari en Azure HDInsight.
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/12/2021
-ms.openlocfilehash: 6233c42d7fbf8dc7821d26f77171c44485fb8d34
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 35338cad4364abbf233e3da81b05ba912959ed65
+ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98946942"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108064497"
 ---
 # <a name="apache-ambari-usage-in-azure-hdinsight"></a>Uso de Apache Ambari en Azure HDInsight
 
-HDInsight usa Apache Ambari para la implementación y administración de clústeres. En cada nodo (nodo principal, nodo de trabajo, zookeeper y nodo perimetral, si existe) se ejecutan agentes de Ambari. El servidor de Ambari solo se ejecuta en el nodo principal (hn0 o hn1). Solo se debe ejecutar una instancia del servidor de Ambari al mismo tiempo. El controlador de conmutación por error de HDInsight se encarga de controlar esto. Cuando uno de los nodos principales está inactivo porque se va a reiniciar o necesita mantenimiento, el otro nodo principal se volverá activo y se iniciará el servidor de Ambari en el segundo nodo principal.
+HDInsight usa Apache Ambari para la implementación y administración de clústeres. En cada nodo (nodo principal, nodo de trabajo, zookeeper y nodo perimetral, si existe) se ejecutan agentes de Ambari. El servidor de Ambari solo se ejecuta en el nodo principal. Solo se debe ejecutar una instancia del servidor de Ambari al mismo tiempo. El controlador de conmutación por error de HDInsight se encarga de controlar esto. Cuando uno de los nodos principales está inactivo porque se va a reiniciar o necesita mantenimiento, el otro nodo principal se volverá activo y se iniciará el servidor de Ambari en el segundo nodo principal.
 
 Toda la configuración del clúster debe realizarse mediante la [interfaz de usuario de Ambari](./hdinsight-hadoop-manage-ambari.md); los cambios locales se sobrescribirán cuando se reinicie el nodo.
 
