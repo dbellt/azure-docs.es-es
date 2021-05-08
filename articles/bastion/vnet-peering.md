@@ -7,14 +7,14 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 12/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: f72a3739fac1e7d6afdafd2676ea6fcefe847b2a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 60ad4ece6de40b61b1d25e61963b30c084639eba
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101710590"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108072970"
 ---
-# <a name="vnet-peering-and-azure-bastion-preview"></a>Emparejamiento de VNet y Azure Bastion (versión preliminar)
+# <a name="vnet-peering-and-azure-bastion"></a>Emparejamiento de VNet y Azure Bastion
 
 Azure Bastion y el emparejamiento de VNet se pueden usar juntos. Cuando se configura el emparejamiento de VNet, no es necesario implementar Azure Bastion en cada red virtual emparejada. Esto significa que si tiene un host de Azure Bastion configurado en una red virtual (VNet), se puede usar para conectarse a las máquinas virtuales implementadas en una red virtual emparejada sin necesidad de implementar un host de Bastion adicional. Para más información sobre el emparejamiento de redes virtuales, consulte [Acerca del emparejamiento de redes virtuales](../virtual-network/virtual-network-peering-overview.md).
 

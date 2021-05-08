@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb,
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84e0801daa5bf83889be87987d440e377287b5ea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c792888b65f331332c320deecbcd2b5f8d7e2ee3
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92366197"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108175773"
 ---
 # <a name="conditional-access-block-access"></a>Acceso condicional: Bloquear acceso
 
@@ -79,6 +79,9 @@ A continuación se crea una segunda directiva para requerir la autenticación mu
    1. Elija **Seleccionar**.
 1. Confirme la configuración y establezca **Habilitar directiva** en **Solo informe**.
 1. Seleccione **Crear** para crear la directiva.
+
+> [!NOTE]
+> Las directivas de acceso condicional se aplican una vez que se completa la autenticación en una fase. El acceso condicional no pretende ser una primera línea de defensa de una organización en escenarios como los ataques por denegación de servicio (DoS), pero puede usar señales de estos eventos para determinar el acceso.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

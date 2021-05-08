@@ -2,18 +2,22 @@
 title: 'Azure Event Grid: Habilitación de los registros de diagnóstico de temas o dominios'
 description: En este artículo se proporcionan instrucciones paso a paso sobre cómo habilitar los registros de diagnóstico para un tema de Azure Event Grid.
 ms.topic: how-to
-ms.date: 12/03/2020
-ms.openlocfilehash: ff00c1438c49cbc9f9e67eba0cf0acef7991a5a4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/22/2021
+ms.openlocfilehash: 78dfeed0cedfe96d9a0d70411aecc7c7f2c51a72
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96576458"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107897782"
 ---
 #  <a name="enable-diagnostic-logs-for-azure-event-grid-topics-or-domains"></a>Habilitación de registros de diagnóstico para los temas o dominios de Azure Event Grid
 En este artículo, se proporcionan instrucciones paso a paso acerca de cómo habilitar los registros de diagnóstico en un dominio o tema de Event Grid.  Esta configuración permite capturar y ver los registros de **errores de publicación y entrega**. 
 
-## <a name="prerequisites"></a>Requisitos previos
+> [!IMPORTANT]
+> Para el esquema de los registros de diagnóstico, vea [Registros de diagnóstico](diagnostic-logs.md). 
+
+
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Un tema de Event Grid aprovisionado.
 - Un destino aprovisionado para capturar registros de diagnóstico. Puede ser uno de los siguientes destinos que se encuentran en la misma ubicación que el tema de Event Grid:

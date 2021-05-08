@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 9863ed24da9e427f885a4794bda7e103b0c1cc8e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ed8f5b8567e5808ebccfdc2a6d2d3b5d530da5cc
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96455460"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107884019"
 ---
 # <a name="partner-center-submission-api-to-onboard-azure-apps-in-partner-center"></a>API de envío del Centro de partners para incorporar aplicaciones de Azure en el centro de Partners
 
@@ -73,5 +73,5 @@ https://apidocs.microsoft.com/services/partneringestion/
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga información sobre la [Creación de un activo técnico de VM de Azure](../create-azure-container-technical-assets.md).
-* Aprenda a crear una [oferta de Azure Container](../create-azure-container-offer.md).
+* [Creación de un recurso técnico de contenedor de Azure](../azure-container-technical-assets.md)
+* [Creación de una oferta de contenedor de Azure](../azure-container-offer-setup.md)

@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5134c0eeaf3ebd1467b35cf825aa64bd1b445bd5
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: 0b947d9169347c00b693f27a3683a76173188070
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107010586"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108175071"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Planeación e implementación de la protección con contraseña de Azure Active Directory local
 
@@ -128,14 +128,14 @@ Los siguientes requisitos se aplican al servicio de proxy de protección con con
 * Todas las máquinas que hospedan el servicio de proxy de protección con contraseña de Azure AD deben estar configuradas para conceder a los controladores de dominio la posibilidad de iniciar sesión en el servicio de proxy. Esta capacidad se controla a través de la asignación del privilegio "Tener acceso a este equipo desde la red".
 * Todas las máquinas que hospedan el servicio de proxy de protección con contraseña de Azure AD deben estar configuradas para permitir el tráfico TLS 1.2 HTTP de salida.
 * Una cuenta de *administrador global* o *administrador de seguridad* para registrar el servicio de proxy de protección de contraseñas de Azure AD y el bosque con Azure AD.
-* El acceso a la red debe estar habilitado para el conjunto de puertos y direcciones URL especificados en los [procedimientos de configuración del entorno de proxy de aplicación](../manage-apps/application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
+* El acceso a la red debe estar habilitado para el conjunto de puertos y direcciones URL especificados en los [procedimientos de configuración del entorno de proxy de aplicación](../app-proxy/application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
 
 ### <a name="microsoft-azure-ad-connect-agent-updater-prerequisites"></a>Requisitos previos de Agent Updater de Microsoft Azure AD Connect
 
 El servicio de actualización de Agent Updater de Microsoft Azure AD Connect se instala junto con el servicio Proxy de protección de contraseña de Azure AD. Se requiere una configuración adicional para que el servicio de Agent Updater de Microsoft Azure AD Connect pueda funcionar:
 
 * Si su entorno utiliza un servidor proxy HTTP, debe seguir las pautas especificadas en [Trabajo con servidores proxy locales existentes](../manage-apps/application-proxy-configure-connectors-with-proxy-servers.md).
-* El servicio Agent Updater de Microsoft Azure AD Connect también requiere los pasos de TLS 1.2 especificados en [Requisitos de TLS](../manage-apps/application-proxy-add-on-premises-application.md#tls-requirements).
+* El servicio Agent Updater de Microsoft Azure AD Connect también requiere los pasos de TLS 1.2 especificados en [Requisitos de TLS](../app-proxy/application-proxy-add-on-premises-application.md#tls-requirements).
 
 > [!WARNING]
 > El proxy de protección con contraseña de Azure AD y Azure AD Application Proxy instalan diferentes versiones del servicio de Agent Updater de Microsoft Azure AD Connect, por lo que las instrucciones se refieren al contenido de Application Proxy. Estas versiones diferentes son incompatibles cuando se instalan en paralelo y, si lo hace, impedirá que el servicio de actualización del agente se ponga en contacto con Azure para las actualizaciones de software, por lo que nunca debe instalar el servicio proxy de protección de contraseña de Azure AD y Application Proxy en el mismo equipo.
