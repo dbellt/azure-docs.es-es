@@ -12,20 +12,24 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 04/19/2021
+ms.date: 04/21/2021
 ms.author: b-juche
-ms.openlocfilehash: 3c6da2137f2db43284ce7a533ff763e9ef157f35
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: fa028d8fffd2a4097b5bf7d7326d355ae56aebd7
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107726653"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107862820"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Novedades de Azure NetApp Files
 
 Azure NetApp Files se actualiza periódicamente. En este artículo se proporciona un resumen de las nuevas características y mejoras más recientes. 
 
 ## <a name="april-2021"></a>Abril de 2021
+
+* [Compatibilidad con recursos compartidos de disponibilidad continua (CA) de SMB para contenedores de perfiles de usuario de FSLogix](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) (versión preliminar)  
+
+    [FSLogix](/fslogix/overview) es un conjunto de soluciones que mejoran, habilitan y simplifican los entornos informáticos de Windows no persistentes. Las soluciones FSLogix son adecuadas para entornos virtuales en nubes tanto públicas como privadas. Las soluciones de FSLogix también se pueden usar para crear sesiones informáticas más portables al usar dispositivos físicos. FSLogix se puede usar para proporcionar acceso dinámico a contenedores de perfiles de usuario persistentes almacenados en un almacenamiento en red compartido SMB, incluido Azure NetApp Files. Para mejorar aún más la resistencia de FSLogix a los eventos de mantenimiento del servicio de almacenamiento, Azure NetApp Files ha ampliado la compatibilidad con la conmutación por error transparente de SMB mediante [recursos compartidos de disponibilidad continua (CA) de SMB en Azure NetApp Files](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) para contenedores de perfiles de usuario. Consulte [Soluciones de infraestructura de escritorio virtual](azure-netapp-files-solution-architectures.md#windows-virtual-desktop) de Azure NetApp Files para obtener información adicional.  
 
 * [Cifrado del protocolo SMB3](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) (versión preliminar) 
 

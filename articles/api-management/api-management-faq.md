@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1b6a138317d0cc2e10e893d1969f9d5452064d8f
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 8b0c977a2dd754c12e476c724afa591695b7f822
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107813747"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108330681"
 ---
 # <a name="azure-api-management-faqs"></a>P+F de Azure API Management
 Obtenga respuestas a preguntas comunes, patrones y procedimientos recomendados para Azure API Management.
@@ -93,7 +93,7 @@ Para más información sobre cómo configurar un servidor de autorización de OA
 API Management usa el [método de enrutamiento de tráfico de rendimiento](../traffic-manager/traffic-manager-routing-methods.md#performance) en las implementaciones en varias ubicaciones geográficas. El tráfico entrante se enrutará a la puerta de enlace de API más cercana. Si una región se queda sin conexión, el tráfico entrante se enruta automáticamente a la siguiente puerta de enlace más cercana. Aprenda más acerca de los métodos de enrutamiento en [Métodos de enrutamiento de tráfico de Traffic Manager](../traffic-manager/traffic-manager-routing-methods.md).
 
 ### <a name="can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance"></a>¿Se puede usar una plantilla de Azure Resource Manager para crear una instancia del servicio API Management?
-Sí. Consulte las plantillas de inicio rápido del [servicio Azure API Management](https://aka.ms/apimtemplate).
+Sí. Consulte las plantillas de inicio rápido del [servicio Azure API Management](https://azure.microsoft.com/resources/templates/101-azure-api-management-create/).
 
 ### <a name="can-i-use-a-self-signed-tlsssl-certificate-for-a-back-end"></a>¿Se puede usar un certificado TLS/SSL autofirmado para un back-end?
 Sí. Puede hacerse a través de PowerShell o enviando el certificado directamente a la API. Esta operación deshabilitará la validación de la cadena de certificados y le permitirá usar certificados autofirmados o firmados de forma privada cuando se comunique con los servicios back-end desde API Management.

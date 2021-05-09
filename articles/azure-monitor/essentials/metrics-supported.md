@@ -6,12 +6,12 @@ services: azure-monitor
 ms.topic: reference
 ms.date: 04/15/2021
 ms.author: robb
-ms.openlocfilehash: 1091d103428315a065dd1ff9800ce2ad16632df0
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: f8e54fbc275a230140cab445d58c59454f0c546c
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107600019"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108330645"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas compatibles con Azure Monitor
 
@@ -2709,24 +2709,6 @@ Para más información, consulte [Información general sobre los agentes de Azur
 |ThrottledRequests|No|Solicitudes limitadas.|Count|Total|Solicitudes limitadas para Microsoft.ServiceBus.|EntityName, OperationResult|
 |UserErrors|No|Errores de usuario.|Count|Total|Errores de usuario para Microsoft.ServiceBus.|EntityName, OperationResult|
 |WSXNS|No|Memory Usage (Deprecated) [Uso de memoria (en desuso)]|Percent|Máxima|Métrica de uso de memoria de espacio de nombres prémium de Service Bus. Esta métrica está en desuso. Utilice la métrica de uso de memoria (NamespaceMemoryUsage) en su lugar.|Réplica|
-
-
-## <a name="microsoftservicefabricmeshapplications"></a>Microsoft.ServiceFabricMesh/applications
-
-|Métrica|¿Se puede exportar con la configuración de diagnóstico?|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Descripción|Dimensions|
-|---|---|---|---|---|---|---|
-|ActualCpu|No|ActualCpu|Count|Average|Uso de CPU real en millares de núcleos|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
-|ActualMemory|No|ActualMemory|Bytes|Average|Uso de memoria real en MB|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
-|AllocatedCpu|No|AllocatedCpu|Count|Average|CPU asignada a este contenedor en millares de núcleos|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
-|AllocatedMemory|No|AllocatedMemory|Bytes|Average|Memoria asignada a este contenedor en MB|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
-|ApplicationStatus|No|ApplicationStatus|Count|Average|Estado de una aplicación Service Fabric Mesh|ApplicationName, Status|
-|ContainerStatus|No|ContainerStatus|Count|Average|Estado del contenedor en una aplicación Service Fabric Mesh|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName, Status|
-|CpuUtilization|No|CpuUtilization|Percent|Average|Utilización de la CPU para este contenedor como porcentaje de AllocatedCpu|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
-|MemoryUtilization|No|MemoryUtilization|Percent|Average|Utilización de la CPU para este contenedor como porcentaje de AllocatedCpu|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
-|RestartCount|No|RestartCount|Count|Average|Número de reinicios de un contenedor en una aplicación Service Fabric Mesh|ApplicationName, Status, ServiceName, ServiceReplicaName, CodePackageName|
-|ServiceReplicaStatus|No|ServiceReplicaStatus|Count|Average|Estado de mantenimiento de una réplica de servicio en una aplicación Service Fabric Mesh|ApplicationName, Status, ServiceName, ServiceReplicaName|
-|ServiceStatus|No|ServiceStatus|Count|Average|Estado de mantenimiento de un servicio en una aplicación Service Fabric Mesh|ApplicationName, Status, ServiceName|
-
 
 ## <a name="microsoftsignalrservicesignalr"></a>Microsoft.SignalRService/SignalR
 

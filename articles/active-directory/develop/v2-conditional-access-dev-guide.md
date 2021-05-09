@@ -14,12 +14,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
-ms.openlocfilehash: ed8007c81479c73e4503d74af4c4043e503baf2b
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: 9e74f35a99bb57fff6d7134fb1fb4b596306a21b
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106120153"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108072430"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Instrucciones para desarrolladores para el acceso condicional de Azure Active Directory
 
@@ -152,15 +152,14 @@ Si la aplicación usa la biblioteca MSAL, la adquisición de un token siempre se
 
 ## <a name="scenario-single-page-app-spa-using-msaljs"></a>Escenario: Aplicación de una sola página (SPA) que usa MSAL.js
 
-En este escenario, se describe un caso en el que se tiene una aplicación de una sola página (SPA) que usa MSAL.js para llamar a una API web protegida por acceso condicional. Se trata de una arquitectura simple, pero tiene algunos matices que se deben considerar cuando se desarrollen aplicaciones alrededor del acceso condicional.
+En este escenario, se describe un caso en el que se tiene una aplicación de página única (SPA) que llama a una API web protegida por acceso condicional mediante MSAL.js. Se trata de una arquitectura simple, pero tiene algunos matices que se deben considerar cuando se desarrollen aplicaciones alrededor del acceso condicional.
 
-En MSAL.js, existen algunas funciones que obtienen tokens: `loginPopup()`, `acquireTokenSilent(...)`, `acquireTokenPopup(…)` y `acquireTokenRedirect(…)`.
+En MSAL.js, existen algunas funciones que obtienen tokens: `acquireTokenSilent()`, `acquireTokenPopup()` y`acquireTokenRedirect()`.
 
-* `loginPopup()` obtiene un token de identificador mediante una solicitud de inicio de sesión interactiva, pero no obtiene tokens de acceso para ningún servicio (incluida una API web protegida por acceso condicional).
-* `acquireTokenSilent(…)` se puede usar para obtener silenciosamente un token de acceso, lo que significa que no muestra UI en ninguna circunstancia.
-* Tanto `acquireTokenPopup(…)` como `acquireTokenRedirect(…)` se usan para solicitar de manera interactiva un token para un recurso, lo que significa que siempre muestra la UI de inicio de sesión.
+* A continuación, `acquireTokenSilent()` se puede usar para obtener silenciosamente un token de acceso, lo que significa que no muestra la interfaz de usuario en ninguna circunstancia.
+* Tanto `acquireTokenPopup()` como `acquireTokenRedirect()` se usan para solicitar de manera interactiva un token para un recurso, lo que significa que siempre muestra la UI de inicio de sesión.
 
-Cuando una aplicación necesita un token de acceso para llamar a una API web, intenta un `acquireTokenSilent(…)`. Si la sesión de token expira o es necesario cumplir con una directiva de acceso condicional, la función *acquireToken* genera un error y la aplicación usa `acquireTokenPopup()` o `acquireTokenRedirect()`.
+Cuando una aplicación necesita un token de acceso para llamar a una API web, intenta un `acquireTokenSilent()`. Si el token expira o es necesario cumplir con una directiva de acceso condicional, la función *acquireToken* genera un error y la aplicación usa `acquireTokenPopup()` o `acquireTokenRedirect()`.
 
 ![Diagrama de flujo de la aplicación de una sola página que usa MSAL](./media/v2-conditional-access-dev-guide/spa-using-msal-scenario.png)
 
@@ -176,7 +175,7 @@ error_description=AADSTS50076: Due to a configuration change made by your admini
 
 La aplicación debe capturar `error=interaction_required`. Luego, la aplicación puede usar `acquireTokenPopup()` o `acquireTokenRedirect()` en el mismo recurso. Se obliga al usuario a realizar la autenticación multifactor. Una vez que el usuario completa la autenticación multifactor, la aplicación recibe un token de acceso nuevo para el recurso solicitado.
 
-Para probar el escenario, consulte el [ejemplo de código "en nombre de" de SPA de JS](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/a2b257381b410c765ee01ecb611aa6f98c099eb1/2.%20Web%20API%20now%20calls%20Microsoft%20Graph/README.md). Este ejemplo de código usa la directiva de acceso condicional y la API web que registró anteriormente con un SPA de JS para mostrar el escenario. Muestra cómo controlar de forma adecuada el desafío de notificaciones y obtener un token de acceso que se puede usar para la API web. De manera alternativa, revise el [ejemplo de código Angular.js](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2) general para información sobre un SPA de Angular
+Para probar este escenario, consulte nuestro código de ejemplo [aplicación de página única de JavaScript que llama a la API web de Node.js API mediante el flujo con derechos delegados](https://github.com/Azure-Samples/ms-identity-javascript-tutorial/tree/main/4-AdvancedGrants/2-call-api-api-ca). Este ejemplo de código usa la directiva de acceso condicional y la API web que registró anteriormente con una SPA de JavaScript para mostrar el escenario. Muestra cómo controlar de forma adecuada el desafío de notificaciones y obtener un token de acceso que se puede usar para la API web.
 
 ## <a name="see-also"></a>Consulte también
 

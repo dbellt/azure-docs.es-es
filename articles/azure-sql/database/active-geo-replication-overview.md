@@ -10,18 +10,22 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
-ms.date: 08/27/2020
-ms.openlocfilehash: 3a678f6280b5f2d0fd372e75bfbeb6eb2e9b1577
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/28/2021
+ms.openlocfilehash: 04831c7cb56082854097a2091b3c8099e4d488a6
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100634301"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108124804"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Creación y uso de la replicación geográfica activa: Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 La replicación geográfica activa es una característica de Azure SQL Database que permite crear bases de datos secundarias legibles de bases de datos individuales en un servidor en el mismo centro de datos (región) u otro diferente.
+
+> [!NOTE]
+> La replicación geográfica activa para hiperescala de Azure SQL [ahora se encuentra en versión preliminar pública](https://aka.ms/hsgeodr). Entre las limitaciones actuales se incluyen: solo se admite una base de datos de replicación geográfica secundaria en la misma región o en otra diferente, solo se admite la conmutación por error forzada, no se admite la restauración de la base de datos a partir de una base de datos de replicación geográfica secundaria y tampoco se admite el uso de una base de datos de replicación geográfica secundaria como base de datos de origen para la copia de base de datos ni como base de datos de replicación geográfica principal para otra secundaria.
+
 
 > [!NOTE]
 > La replicación geográfica activa no es compatible con Instancia administrada de Azure SQL. Para la conmutación por error geográfica de Instancia administrada de SQL, use [Grupos de conmutación por error automática](auto-failover-group-overview.md).

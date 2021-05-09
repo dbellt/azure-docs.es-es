@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 03/15/2021
 ms.author: sajaya
-ms.openlocfilehash: a8c007d7f4419ddbe1555b50ceb6fb92ea0a6f98
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: e5c855675990d6fd3ec97b839539acd843016a7d
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107783906"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107864710"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Preguntas más frecuentes sobre Azure Container Registry
 
@@ -274,6 +274,7 @@ Puede deshabilitar el acceso de extracción anónimo en cualquier momento si est
 > * Antes de intentar una operación de extracción anónima, ejecute `docker logout` para que se borren todas las credenciales de Docker existentes.
 > * Solo las operaciones de plano de datos están disponibles para los clientes no autenticados.
 > * El registro puede limitar una alta tasa de solicitudes no autenticadas.
+> * Actualmente, el acceso de extracción anónimo no se admite en las regiones del registro con [replicación geográfica](container-registry-geo-replication.md).
 
 > [!WARNING]
 > El acceso de extracción anónimo se aplica actualmente a todos los repositorios del registro. Si administra el acceso al repositorio mediante [el uso de tokens de ámbito de repositorio](container-registry-repository-scoped-permissions.md), tenga en cuenta que todos los usuarios pueden extraer de estos repositorios en un registro habilitado para extracción anónima. Se recomienda eliminar los tokens cuando está habilitado el acceso de extracción anónimo.
@@ -497,7 +498,7 @@ Para obtener las reglas de nomenclatura de repositorios completas, vea la [Espec
 
 ### <a name="how-do-i-collect-http-traces-on-windows"></a>¿Cómo se pueden recopilar los seguimientos http en Windows?
 
-#### <a name="prerequisites"></a>Requisitos previos
+#### <a name="prerequisites"></a>Prerrequisitos
 
 - Habilite el descifrado de https en Fiddler: <https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS>
 - Habilite Docker para que use un proxy mediante la interfaz de usuario de Docker: <https://docs.docker.com/docker-for-windows/#proxies>

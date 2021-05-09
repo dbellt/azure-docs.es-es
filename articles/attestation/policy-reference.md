@@ -1,18 +1,18 @@
 ---
 title: Definiciones de directivas integradas para Azure Attestation
 description: Aquí se enumeran las definiciones de directivas integradas de Azure Policy para Azure Attestation. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar los recursos de Azure.
-ms.date: 04/21/2021
+ms.date: 04/28/2021
 ms.topic: reference
 ms.service: attestation
 author: msmbaldwin
 ms.author: mbaldwin
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 6d1c2b07871fa436dcde12a77663babd573cf720
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: e0ca416aaf3bb74fe1d0587a0656dc7db8405650
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107863105"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108178251"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-attestation"></a>Definiciones integradas de Azure Policy para Azure Attestation
 
