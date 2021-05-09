@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 8b46ca16fc32a7b96c071a745f49bf5d5557f34b
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: c17814b51f1ebd6640bc6f500fbedbd7874cdd94
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107530234"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107947796"
 ---
 # <a name="using-the-location-condition-in-a-conditional-access-policy"></a>Uso la condición de ubicación en una directiva de acceso condicional 
 
@@ -46,7 +46,7 @@ Las ubicaciones con nombre definidas por los intervalos de direcciones IPv4/IPv6
 - Configurar hasta 195 ubicaciones con nombre.
 - Se pueden configurar hasta 2000 intervalos IP por ubicación con nombre.
 - Se admiten tanto IPv4 como IPv6.
-- No se pueden configurar intervalos de IP privados.
+- No se pueden configurar intervalos IP privados.
 - El número de direcciones IP que se pueden incluir en un intervalo es limitado. Solo se permiten las máscaras CIDR mayores que /8 al definir un intervalo de direcciones IP. 
 
 ### <a name="trusted-locations"></a>Ubicaciones de confianza

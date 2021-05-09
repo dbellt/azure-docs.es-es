@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: d1ca4a843c6731cde7ed70d65fc230a21ef6e7c4
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.openlocfilehash: 43a8cb00804927784982999db13ee193c34f55ca
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107389441"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107835387"
 ---
 # <a name="create-powershell-scripts-for-msix-app-attach"></a>Creación de scripts de PowerShell para la asociación de aplicaciones en formato MSIX (versión preliminar)
 
@@ -24,7 +24,7 @@ Debe instalar certificados en todos los hosts de sesión del grupo de hosts que 
 Si la aplicación usa un certificado que no es de confianza pública o que fue autofirmado, puede instalarlo de esta manera:
 
 1. Haga clic con el botón derecho en el paquete y seleccione **Propiedades**.
-2. En la ventana que aparece, seleccione la pestaña **Firmas digitales**. Solo habrá un elemento en la lista en la pestaña, tal como se muestra en la imagen siguiente. Seleccione ese elemento para resaltar el elemento y, luego, seleccione **Detalles**.
+2. En la ventana que aparece, seleccione la pestaña **Firmas digitales**. Solo habrá un elemento en la lista en la pestaña. Seleccione ese elemento para resaltarlo y, luego, elija **Detalles**.
 3. Cuando aparezca la ventana de detalles de firma digital, seleccione la pestaña **General**, luego, **Ver certificado** y, por último, **Instalar certificado**.
 4. Cuando se abra el instalador, seleccione **máquina local** como su ubicación de almacenamiento y, luego, seleccione **Siguiente**.
 5. Si el instalador le pregunta si quiere permitir que la aplicación haga cambios en el dispositivo, seleccione **Sí**.

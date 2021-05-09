@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/19/2021
+ms.date: 04/21/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 462d69a8bde0dec2689ac30620276b5bcd335410
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: ec61610f6304071299a05e248e8cb6a600ed1af0
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107717700"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107947202"
 ---
 # <a name="secure-your-restful-services"></a>Protección de los servicios RESTful 
 
@@ -111,7 +111,7 @@ La autenticación con certificados de cliente es una autenticación mutua basada
 
 ### <a name="prepare-a-self-signed-certificate-optional"></a>Preparación de un certificado autofirmado (opcional)
 
-Para los entornos que no sean de producción, si aún no tiene ningún certificado, puede usar un certificado autofirmado. En Windows, puede usar el cmdlet [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) de PowerShell para generar un certificado.
+Para los entornos que no sean de producción, si aún no tiene ningún certificado, puede usar un certificado autofirmado. En Windows, puede usar el cmdlet [New-SelfSignedCertificate](/powershell/module/pki/new-selfsignedcertificate) de PowerShell para generar un certificado.
 
 1. Ejecute este comando de PowerShell para generar un certificado autofirmado. Modifique el argumento `-Subject` según corresponda para su aplicación y el nombre del inquilino de Azure AD B2C. También puede ajustar la fecha de `-NotAfter` para especificar una expiración diferente para el certificado.
     ```powershell
@@ -236,10 +236,10 @@ Puede obtener un token de acceso de varias maneras: obteniéndolo de un [proveed
 
 En el ejemplo siguiente se usa un perfil técnico de API REST para realizar una solicitud al punto de conexión del token de Azure AD con las credenciales de cliente pasadas como autenticación HTTP básica. Para obtener más información, consulte [La Plataforma de identidad de Microsoft y el flujo de credenciales de cliente de OAuth 2.0](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). 
 
-Para adquirir un token de acceso de Azure AD, cree una aplicación en el inquilino de Azure AD:
+Para que el perfil técnico pueda interactuar con Azure AD para obtener un token de acceso, debe registrar una aplicación. Azure AD B2C se basa en la plataforma de Azure AD. Puede crear la aplicación en el inquilino de Azure AD B2C o en cualquier inquilino de Azure AD que administre. Para registrar una aplicación:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. Seleccione el filtro **Directorio y suscripción** en el menú superior y, luego, elija el directorio que contiene el inquilino de Azure AD.
+1. Seleccione el filtro **Directorio y suscripción** en el menú superior y, luego, elija el directorio que contiene el inquilino de Azure AD o Azure AD B2C.
 1. Seleccione **Azure Active Directory** en el menú izquierdo. O bien seleccione **Todos los servicios** y busque y seleccione **Azure Active Directory**.
 1. Seleccione **Registros de aplicaciones** y luego **Nuevo registro**.
 1. Escriba un **Nombre** para la aplicación. Por ejemplo, *App_Aut_Credenciales_Clientes*.
@@ -250,7 +250,7 @@ Para adquirir un token de acceso de Azure AD, cree una aplicación en el inquil
 
 Para un flujo de credenciales de cliente, tiene que crear un secreto de aplicación. El secreto de cliente también se conoce como contraseña de la aplicación. La aplicación usará el secreto para adquirir un token de acceso.
 
-1. En la página **Azure AD B2C: Registros de aplicaciones**, seleccione la aplicación que ha creado, por ejemplo, *App_Aut_Credenciales_Clientes*.
+1. En la página **Azure AD: Registros de aplicaciones**, seleccione la aplicación que ha creado, por ejemplo, *App_Aut_Credenciales_Clientes*.
 1. En el menú de la izquierda, en **Administrar**, seleccione **Certificados y secretos**.
 1. Seleccione **Nuevo secreto de cliente**.
 1. Escriba una descripción para el secreto de cliente en el cuadro **Descripción**. Por ejemplo, *clientsecret1*.
@@ -270,7 +270,7 @@ Tiene que almacenar el identificador de cliente y el secreto de cliente que haya
 7. Escriba un **Nombre** para la clave de directiva, `SecureRESTClientId`. Se agregará el prefijo `B2C_1A_` automáticamente al nombre de la clave.
 8. En **Secreto**, escriba el identificador de cliente que haya registrado previamente.
 9. En **Uso de claves**, seleccione `Signature`.
-10. Haga clic en **Crear**.
+10. Seleccione **Crear**.
 11. Cree otra clave de directiva con la siguiente configuración:
     -   **Nombre**: `SecureRESTClientSecret`.
     -   **Secreto**: escriba el secreto de cliente que haya registrado previamente.
@@ -278,7 +278,7 @@ Tiene que almacenar el identificador de cliente y el secreto de cliente que haya
 Para ServiceUrl, reemplace el nombre del inquilino con el nombre del inquilino de Azure AD. Consulte las opciones disponibles en la referencia del [perfil técnico de RESTful](restful-technical-profile.md).
 
 ```xml
-<TechnicalProfile Id="SecureREST-AccessToken">
+<TechnicalProfile Id="REST-AcquireAccessToken">
   <DisplayName></DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
   <Metadata>
@@ -312,7 +312,7 @@ Para admitir la autenticación de tokens de portador en la directiva personaliza
     ```xml
     <Item Key="AuthenticationType">Bearer</Item>
     ```
-1. Cambie o agregue *UseClaimAsBearerToken* a *bearerToken* como se indica a continuación. *bearerToken* es el nombre de la notificación de la que se recuperará el token de portador (notificación de salida de `SecureREST-AccessToken`).
+1. Cambie o agregue *UseClaimAsBearerToken* a *bearerToken* como se indica a continuación. *bearerToken* es el nombre de la notificación de la que se recuperará el token de portador (notificación de salida de `REST-AcquireAccessToken`).
 
     ```xml
     <Item Key="UseClaimAsBearerToken">bearerToken</Item>

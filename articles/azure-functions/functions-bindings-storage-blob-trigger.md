@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 1d83a828829d27d85749b3fa7b283cad9683bffc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4624a33b12afc5eff033fe2d57bf25f812c9e667
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102455931"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107891309"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Desencadenador de Azure Blob Storage para Azure Functions
 
@@ -35,6 +35,9 @@ El sondeo funciona como un híbrido entre la inspección de registros y la ejecu
 
 ### <a name="event-grid-trigger"></a>Desencadenador de Event Grid
 
+> [!NOTE]
+> Cuando se usa la extensión de Storage 5.x y superior, el desencadenador de blobs tiene compatibilidad integrada para un desencadenador de blobs basado en Event Grid. Para obtener más información, consulte la sección [Extensión de Storage 5.x y superior](#storage-extension-5x-and-higher) a continuación.
+
 El [desencadenador de Event Grid](functions-bindings-event-grid.md) también tiene compatibilidad integrada con [eventos de blob](../storage/blobs/storage-blob-event-overview.md). Utilice Event Grid en lugar del desencadenador de Blob Storage en los escenarios siguientes:
 
 - **Cuentas de almacenamiento solo para blobs**: [Las cuentas de almacenamiento solo para blobs](../storage/common/storage-account-overview.md#types-of-storage-accounts) se admiten para enlaces de entrada y salida de blobs pero no para desencadenadores de blobs.
@@ -44,6 +47,12 @@ El [desencadenador de Event Grid](functions-bindings-event-grid.md) también tie
 - **Minimización de latencia**: Si la aplicación de función está en un plan de consumo, puede haber un retraso de hasta 10 minutos en el procesamiento de nuevos blobs si una aplicación de función ha quedado inactiva. Para evitar esta latencia, puede cambiar a un plan de App Service con Always On habilitado. También puede usar un [desencadenador de Event Grid](functions-bindings-event-grid.md) con su cuenta de almacenamiento de blobs. Para ver un ejemplo, consulte el [tutorial de Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json).
 
 Consulte el tutorial [Cambio de tamaño de una imagen con Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md) para ver un ejemplo de Event Grid.
+
+#### <a name="storage-extension-5x-and-higher"></a>Extensión de Storage 5.x y superior
+
+Al usar la extensión de Storage en versión preliminar, hay compatibilidad integrada con Event Grid en el desencadenador de blobs, que requiere establecer el parámetro `source` en Event Grid en el desencadenador de blobs existente. 
+
+Para más información sobre cómo usar el desencadenador de blobs basado en Event Grid, consulte la [guía del desencadenador de blobs de Event Grid](./functions-event-grid-blob-trigger.md).
 
 ### <a name="queue-storage-trigger"></a>Desencadenador de Queue Storage
 

@@ -2,14 +2,14 @@
 title: Matriz de compatibilidad para copias de seguridad de máquinas virtuales de Azure
 description: Proporciona un resumen de opciones de compatibilidad y limitaciones para realizar copias de seguridad de máquinas virtuales de Azure con el servicio Azure Backup.
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 04/21/2021
 ms.custom: references_regions
-ms.openlocfilehash: 1f63d0c3ad448a8ab9b91764d4c369fefddea25d
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: c96c80721cd66f895c9c0dade590fc11d25de346
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107516729"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107890769"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de compatibilidad para copias de seguridad de máquinas virtuales de Azure
 
@@ -146,12 +146,12 @@ Copia de seguridad de máquinas virtuales implementadas desde [Azure Marketplace
 Copia de seguridad de máquinas virtuales implementadas desde una imagen personalizada (terceros) |Compatible.<br/><br/> La máquina virtual debe ejecutar un sistema operativo compatible.<br/><br/> Al recuperar archivos en la máquina virtual, puede restaurar solo en un sistema operativo compatible (no en un sistema operativo anterior ni posterior).
 Copia de seguridad de máquinas virtuales migradas a Azure| Compatible.<br/><br/> Para realizar copias de seguridad de la máquina virtual, el agente de máquina virtual debe estar instalado en la máquina migrada.
 Copia de seguridad con coherencia con múltiples máquinas virtuales | Azure Backup no proporciona coherencia de datos y aplicaciones entre varias máquinas virtuales.
-Copia de seguridad con [Configuración de diagnóstico](../azure-monitor/essentials/platform-logs-overview.md)  | No compatible. <br/><br/> Si la restauración de la máquina virtual de Azure con la configuración de diagnóstico se desencadena mediante la opción [Crear nueva](backup-azure-arm-restore-vms.md#create-a-vm), se produce un error en la restauración.
+Copia de seguridad con [Configuración de diagnóstico](../azure-monitor/essentials/platform-logs-overview.md)  | No compatible. <br/><br/> Si la restauración de la máquina virtual de Azure con la configuración de diagnóstico se desencadena mediante la opción [Crear nuevo](backup-azure-arm-restore-vms.md#create-a-vm), se produce un error en la restauración.
 Restauración de máquinas virtuales ancladas por zona | Compatible (para máquinas virtuales cuya copia de seguridad se ha realizado después de enero de 2019 y en las que hay [zonas de disponibilidad](https://azure.microsoft.com/global-infrastructure/availability-zones/) disponibles).<br/><br/>Actualmente se admite la restauración en la misma zona que está anclada en las máquinas virtuales. Sin embargo, si la zona no está disponible debido a una interrupción, se producirá un error en la restauración.
 Máquinas virtuales de Gen2 | Compatible <br> Azure Backup admite la copia de seguridad y la restauración de [máquinas virtuales de Gen2](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/). Cuando estas máquinas virtuales se restauran a partir del punto de recuperación, se restauran como [máquinas virtuales de Gen2](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/).
 Copia de seguridad de máquinas virtuales de Azure con bloqueos | No se admite para máquinas virtuales no administradas. <br><br> Se admite para máquinas virtuales administradas.
 [Máquinas virtuales de Spot](../virtual-machines/spot-vms.md) | No compatible. Azure Backup restaura las máquinas virtuales de Spot como máquinas virtuales de Azure convencionales.
-[Azure Dedicated Host](../virtual-machines/dedicated-hosts.md) | Compatible
+[Azure Dedicated Host](../virtual-machines/dedicated-hosts.md) | Compatible<br></br>Al restaurar una máquina virtual de Azure mediante la opción [Crear nuevo](backup-azure-arm-restore-vms.md#create-a-vm), aunque la restauración se realiza correctamente, la máquina virtual de Azure no se puede restaurar en el host dedicado. Para ello, se recomienda restaurar como discos. Al [restaurar como discos](backup-azure-arm-restore-vms.md#restore-disks) con la plantilla, cree una máquina virtual en un host dedicado y luego asocie los discos.<br></br>Esto también es aplicable en la región secundaria, mientras se realiza la [restauración entre regiones.](backup-azure-arm-restore-vms.md#cross-region-restore)
 Configuración de Espacios de almacenamiento de Windows de máquinas virtuales de Azure independientes | Compatible
 [Azure VM Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration) | Compatible con los modelos de orquestación uniforme y flexible para realizar copias de seguridad de máquinas virtuales de Azure únicas y restaurarlas.
 
