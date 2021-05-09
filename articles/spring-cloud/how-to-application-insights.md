@@ -7,16 +7,16 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 12/04/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: c7083cb6669d7bc779a8e69babfef38988819f8c
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: e9c0a2a6a6b40325e4bf87dc8cf52bc419b77621
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107483780"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108129070"
 ---
 # <a name="application-insights-java-in-process-agent-in-azure-spring-cloud-preview"></a>Agente In-Process de Java de Application Insights en Azure Spring Cloud (versión preliminar)
 
-En este documento se explica cómo supervisar aplicaciones y microservicios mediante el agente In-Process de Java de Application Insights en Azure Spring Cloud. 
+En este documento se explica cómo supervisar las aplicaciones y los microservicios mediante el agente Java de Application Insights en Azure Spring Cloud. 
 
 Con esta característica, puede hacer lo siguiente:
 
@@ -88,6 +88,7 @@ En el panel de navegación izquierdo, haga clic en **Application Insights** para
   [ ![IPA 9](media/spring-cloud-application-insights/petclinic-microservices-availability.jpg)](media/spring-cloud-application-insights/petclinic-microservices-availability.jpg)
 
 ## <a name="arm-template"></a>Plantilla de ARM
+
 Para usar la plantilla de Azure Resource Manager, copie el siguiente contenido en `azuredeploy.json`.
 
 ```json
@@ -121,6 +122,7 @@ Para usar la plantilla de Azure Resource Manager, copie el siguiente contenido e
 ```
 
 ## <a name="cli"></a>CLI
+
 Aplique la plantilla de ARM con el comando de la CLI:
 
 * Para una instancia existente de Azure Spring Cloud:
@@ -141,6 +143,6 @@ az spring-cloud app-insights update --disable â€“name "assignedName" â€�
 ```
 
 ## <a name="see-also"></a>Consulte también
-* [Uso del seguimiento distribuido con Azure Spring Cloud](spring-cloud-howto-distributed-tracing.md)
+* [Uso del seguimiento distribuido con Azure Spring Cloud](./how-to-distributed-tracing.md)
 * [Análisis de registros y métricas](diagnostic-services.md)
-* [Streaming de registros en tiempo real](spring-cloud-howto-log-streaming.md)
+* [Streaming de registros en tiempo real](./how-to-log-streaming.md)

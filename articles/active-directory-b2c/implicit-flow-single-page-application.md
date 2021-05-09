@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/19/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fe31e1bf095d15cfdd7945288486cb866ace8246
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d2a4e58201557d64602cc0740b83373ce53c8f69
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94840617"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108070684"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>Inicio de sesión de página única mediante el flujo implícito de OAuth 2.0 con Azure Active Directory B2C
 
@@ -245,12 +245,4 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-### <a name="code-sample-azure-ad-b2c-with-microsoft-authentication-library-for-javascript"></a>Ejemplo de código: Azure AD B2C con la biblioteca de autenticación de Microsoft para JavaScript
-
-[Aplicación de página única creada con msal.js para Azure AD B2C][github-msal-js-example] (GitHub)
-
-Este ejemplo de GitHub está pensado para ayudarle a empezar a trabajar en Azure AD B2C en una aplicación web simple creada con [msal.js][github-msal-js] y con autenticación de estilo emergente.
-
-<!-- Links - EXTERNAL -->
-[github-msal-js-example]: https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp
-[github-msal-js]: https://github.com/AzureAD/microsoft-authentication-library-for-js
+Consulte el ejemplo de código: [Inicio de sesión con Azure AD B2C en una aplicación de página única de JavaScript](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-core-samples/VanillaJSTestApp/app/b2c).

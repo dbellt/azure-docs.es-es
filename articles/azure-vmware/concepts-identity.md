@@ -3,18 +3,16 @@ title: Conceptos sobre identidad y acceso
 description: Obtenga información sobre los conceptos de identidad y acceso de Azure VMware Solution
 ms.topic: conceptual
 ms.date: 03/22/2021
-ms.openlocfilehash: 1d49ce27ee74621874281a555651c09a73048928
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 352daaec87c2df7a0bc062abd38a96ad0285180a
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106109822"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108069838"
 ---
 # <a name="azure-vmware-solution-identity-concepts"></a>Conceptos de identidad en Azure VMware Solution
 
 Las nubes privadas de Azure VMware Solution se aprovisionan con vCenter Server y NSX-T Manager. Puede usar vCenter para administrar cargas de trabajo de máquinas virtuales (VM), y NSX-T Manager para administrar y ampliar la nube privada. En la administración de identidades y acceso se usa el rol CloudAdmin para vCenter y derechos de administrador restringidos para NSX-T Manager. 
-
-Para obtener más información, vea el [artículo sobre conceptos de actualización de nube privada][concepts-upgrades].
 
 ## <a name="vcenter-access-and-identity"></a>Acceso e identidad de vCenter
 
@@ -39,7 +37,7 @@ Puede ver los privilegios concedidos al rol CloudAdmin de Azure VMware Solution 
 
    :::image type="content" source="media/role-based-access-control-cloudadmin-privileges.png" alt-text="Cómo ver los privilegios de rol de CloudAdmin en el cliente de vSphere":::
 
-El rol CloudAdmin de Azure VMware Solution tiene los siguientes privilegios en vCenter. Para obtener más información, consulte la [documentación de producto de VMware](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html).
+El rol CloudAdmin de Azure VMware Solution tiene los siguientes privilegios en vCenter. Para más información, consulte la [documentación del producto de VMware](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html).
 
 | Privilegio | Descripción |
 | --------- | ----------- |
@@ -95,19 +93,21 @@ Para evitar la creación de roles que no se pueden asignar o eliminar, Azure VMw
 ## <a name="nsx-t-manager-access-and-identity"></a>Acceso e identidad de NSX-T Manager
 
 >[!NOTE]
->NSX-T 2.5 se admite actualmente.
+>NSX-T 2.5 se admite actualmente en todas las nuevas nubes privadas.
 
-Use la cuenta *administrador* para acceder a NSX-T Manager. Tiene privilegios completos y le permite crear y administrar puertas de enlace, segmentos (conmutadores lógicos) y todos los servicios de nivel 1 (T1). Los privilegios proporcionan acceso a la puerta de enlace de nivel 0 (T0) de NSX-T. Un cambio en la puerta de enlace T0 podría provocar una disminución en el rendimiento de la red o una pérdida de acceso a la nube privada. Abra una solicitud de soporte técnico en Azure Portal para solicitar cambios en la puerta de enlace NSX-T T0.
+Use la cuenta de *administrador* para acceder a NSX-T Manager. Tiene privilegios completos y le permite crear y administrar puertas de enlace, segmentos (conmutadores lógicos) y todos los servicios de nivel 1 (T1). Los privilegios proporcionan acceso a la puerta de enlace de nivel 0 (T0) de NSX-T. Un cambio en la puerta de enlace T0 podría provocar una disminución en el rendimiento de la red o una pérdida de acceso a la nube privada. Abra una solicitud de soporte técnico en Azure Portal para solicitar cambios en la puerta de enlace NSX-T T0.
+
+>[!TIP]
+>Como alternativa al uso de NSX-T Manager, puede usar la [característica NSX simplificada de Azure Portal](configure-nsx-network-components-azure-portal.md).
 
  
 ## <a name="next-steps"></a>Pasos siguientes
 
 Ahora que ha visto los conceptos de identidad y acceso de Azure VMware Solution, puede que quiera obtener información sobre:
 
-- [Conceptos de actualización de nube privada](concepts-upgrades.md)
 - [Habilitación del recurso de Azure VMware Solution](enable-azure-vmware-solution.md)
 - [Detalles de cada privilegio](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html)
-- [Supervisión y reparación de nubes privadas de Azure VMware Solution](concepts-monitor-repair-private-cloud.md)
+- [Supervisión y reparación de nubes privadas de Azure VMware Solution](/azure/azure-vmware/concepts-private-clouds-clusters#host-monitoring-and-remediation)
 - [Habilitación del recurso de Azure VMware Solution](enable-azure-vmware-solution.md)
 
 
@@ -115,4 +115,4 @@ Ahora que ha visto los conceptos de identidad y acceso de Azure VMware Solution,
 [VMware product documentation]: https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html
 
 <!-- LINKS - internal -->
-[concepts-upgrades]: ./concepts-upgrades.md
+[concepts-upgrades]: ./concepts-private-clouds-clusters#host-maintenance-and-lifecycle-management

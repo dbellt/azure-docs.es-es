@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 1/13/2021
-ms.openlocfilehash: e0982b4a43a931552574e447d5639d3fa92402d8
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 3/31/2021
+ms.openlocfilehash: a32c839479b71f09663cc80f5b1a1b2af260ba0a
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107773779"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108124768"
 ---
 # <a name="hyperscale-service-tier"></a>Nivel de servicio Hiperescala
 
@@ -229,8 +229,8 @@ Estas son las limitaciones actuales para el nivel de servicio Hiperescala en dis
 | Grupos elásticos |  Los grupos elásticos no son compatibles actualmente con Hiperescala.|
 | La migración a Hiperescala actualmente es una operación unidireccional. | Una vez que una base de datos se migra a Hiperescala, no puede migrarse directamente a un nivel de servicio que no sea Hiperescala. En la actualidad, la única manera de migrar una base de datos de Hiperescala a un recursos que no sea de Hiperescala es exportar o importar mediante un archivo bacpac u otras tecnologías de movimiento de datos (copia masiva, Azure Data Factory, Azure Databricks, SSIS, etc.) No se admite la exportación o importación de bacpac desde Azure Portal, desde PowerShell mediante [New-AzSqlDatabaseExport](/powershell/module/az.sql/new-azsqldatabaseexport) o [New-AzSqlDatabaseImport](/powershell/module/az.sql/new-azsqldatabaseimport), desde la CLI de Azure con [az sql db export](/cli/azure/sql/db#az_sql_db_export) y [az sql db import](/cli/azure/sql/db#az_sql_db_import) ni desde la [API REST](/rest/api/sql/). Se admite la importación y exportación de bases de datos de Hiperescala (200 GB como máximo) mediante SSMS y [SqlPackage](/sql/tools/sqlpackage) versión 18.4 y posteriores. En el caso de las bases de datos de mayor tamaño, la importación y exportación de bacpac puede tardar mucho tiempo y producir errores por diversos motivos.|
 | Migración de bases de datos con objetos OLTP en memoria | Hiperescala admite un subconjunto de objetos OLTP en memoria, incluidos los tipos de tablas optimizadas para memoria, las variables de tablas y los módulos compilados de forma nativa. Sin embargo, cuando hay presente cualquier tipo de objeto OLTP en memoria en la base de datos que se está migrando, no se admite la migración desde los niveles de servicio Premium y Crítico para la empresa a Hiperescala. Para migrar este tipo de base de datos a Hiperescala, se deben quitar todos los objetos OLTP en memoria y sus dependencias. Después de migrar la base de datos, estos objetos se pueden volver a crear. En este momento no se admiten tablas optimizadas para memoria, duraderas y no duraderas, en Hiperescala, y deben cambiarse a tablas de disco.|
-| Replicación geográfica  | Todavía no se puede configurar la replicación geográfica activa para Azure SQL Database Hiperescala. |
-| Copia de base de datos | La copia de la base de datos en Hiperescala está ahora en versión preliminar pública. |
+| Replicación geográfica  | La [replicación geográfica](active-geo-replication-overview.md) en Hiperescala está ahora en versión preliminar pública. |
+| Copia de base de datos | La [copia de la base de datos](database-copy.md) en Hiperescala está ahora en versión preliminar pública. |
 | Características de bases de datos inteligentes | Con la excepción de la opción "Forzar plan", todas las demás opciones de ajuste automático no se admiten aún en Hiperescala: puede parecer que las opciones están habilitadas, pero no se realizarán recomendaciones ni acciones. |
 | Información del rendimiento de las consultas | La información de rendimiento de consultas no se admite actualmente para las bases de datos de Hiperescala. |
 | Reducir base de datos | DBCC SHRINKDATABASE o DBCC SHRINKFILE no se admite actualmente con las bases de datos de Hiperescala. |
@@ -238,7 +238,7 @@ Estas son las limitaciones actuales para el nivel de servicio Hiperescala en dis
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para consultar preguntas frecuentes sobre Hiperescala, consulte [Preguntas más frecuentes acerca de Hiperescala](service-tier-hyperscale-frequently-asked-questions-faq.md).
+- Para consultar preguntas frecuentes sobre Hiperescala, consulte [Preguntas más frecuentes acerca de Hiperescala](service-tier-hyperscale-frequently-asked-questions-faq.yml).
 - Para más información sobre los niveles de servicio, consulte [Niveles de servicio](purchasing-models.md).
 - Consulte [Introducción a los límites de recursos de un servidor](resource-limits-logical-server.md) para obtener información acerca de los límites en los niveles de servidor y suscripción.
 - Para conocer los límites del modelo de compras para una base de datos única, consulte [Límites del modelo de compra basado en núcleo virtual de Azure SQL Database para una base de datos única](resource-limits-vcore-single-databases.md).

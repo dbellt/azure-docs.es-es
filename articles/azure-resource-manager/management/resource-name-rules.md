@@ -3,12 +3,12 @@ title: Restricciones de nomenclatura de recursos
 description: Muestra las reglas y las restricciones de nomenclatura de recursos de Azure.
 ms.topic: conceptual
 ms.date: 04/08/2021
-ms.openlocfilehash: a1dbe409eb5479c4027834cd33e095d12c31e238
-ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
+ms.openlocfilehash: 6402917e280ff1a1789cda0fb9bdb3537d338a9b
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107210200"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108130024"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Reglas y restricciones de nomenclatura para los recursos de Azure
 
@@ -17,6 +17,9 @@ En este artículo se resumen las reglas y las restricciones de nomenclatura de l
 En este artículo se enumeran los recursos por espacio de nombres del proveedor de recursos. Para obtener una lista de cómo se asocian los proveedores de recursos a los servicios de Azure, consulte [Proveedores de recursos para servicios de Azure](azure-services-resource-providers.md).
 
 Los nombres de los recursos no distinguen mayúsculas de minúsculas, a menos que se indique en la columna de caracteres válidos.
+
+> [!NOTE]
+> Al recuperar los nombres de los recursos mediante varias API, los valores devueltos pueden mostrar valores de mayúsculas y minúsculas diferentes a los que aparecen en la tabla de caracteres válidos. 
 
 En las tablas siguientes, el término carácter alfanumérico se refiere a:
 
@@ -169,7 +172,7 @@ En las tablas siguientes, el término carácter alfanumérico se refiere a:
 > | --- | --- | --- | --- |
 > | availabilitySets | resource group | 1-80 | Caracteres alfanuméricos, de subrayado, puntos y guiones.<br><br>Comience con un carácter alfanumérico. Termine con un carácter alfanumérico o de subrayado. |
 > | diskEncryptionSets | resource group | 1-80 | Caracteres alfanuméricos y de subrayado. |
-> | disks | resource group | 1-80 | Caracteres alfanuméricos y de subrayado. |
+> | disks | resource group | 1-80 | Caracteres alfanuméricos, de subrayado y guiones. |
 > | galleries | resource group | 1-80 | Caracteres alfanuméricos y puntos.<br><br>Comience y termine con un carácter alfanumérico. |
 > | galleries/applications | galería | 1-80 | Caracteres alfanuméricos, guiones y puntos.<br><br>Comience y termine con un carácter alfanumérico. |
 > | galleries/applications/versions | application | Entero de 32 bits | Números y puntos. |

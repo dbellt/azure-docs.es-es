@@ -12,15 +12,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/03/2021
+ms.date: 04/27/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0c0fbb1280fc2a7eaca1d97e7e016cf480873c8b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4350f60029673af04ad263c9e9f25d7a74bc532b
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101666578"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108131032"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configuraciones de almacenamiento de máquinas virtuales de Azure en SAP HANA
 
@@ -62,6 +62,7 @@ Estos son algunos principios de la selección de la configuración de almacenami
 - Decida el tipo de almacenamiento según [Tipos de Azure Storage para la carga de trabajo de SAP](./planning-guide-storage.md) y [Seleccionar un tipo de disco](../../disks-types.md).
 - El rendimiento global de E/S de la VM y los límites de IOPS al elegir una VM o determinar su tamaño. El rendimiento general del almacenamiento de VM está documentado en el artículo [Tamaños de máquina virtual optimizada para memoria](../../sizes-memory.md).
 - A la hora de decidirse por la configuración del almacenamiento, intente permanecer por debajo del rendimiento general de la VM con la configuración del volumen **/hana/data**. En cuanto a los puntos de retorno, SAP HANA puede presentar cierta agresividad al emitir E/S. Es fácil alcanzar los límites de rendimiento del volumen **/hana/data** al escribir un punto de retorno. Si los discos que compilan el volumen **/hana/data** tienen un rendimiento superior al que permite la VM, puede que se produzcan situaciones en que el rendimiento usado por la escritura del punto de retorno interfiera con las demandas de rendimiento de las escrituras de registros de fase de puesta al día. Esta situación puede afectar al rendimiento de la aplicación.
+- Si está pensando en usar la replicación del sistema HANA, debe usar exactamente el mismo tipo de almacenamiento de Azure para **/hana/data** y **/hana/log** para todas las VM que participan en la configuración de replicación del sistema HANA. Por ejemplo, no se admite el uso de Azure Premium Storage para **/hana/data** con una VM y un disco Ultra de Azure para **/hana/log** en otra VM dentro de la misma configuración de replicación del sistema HANA.
 
 
 > [!IMPORTANT]
@@ -69,7 +70,7 @@ Estos son algunos principios de la selección de la configuración de almacenami
 
 
 ## <a name="stripe-sets-versus-sap-hana-data-volume-partitioning"></a>Conjuntos de franjas frente a creación de particiones de volumen de datos de SAP HANA
-Con Azure Premium Storage, puede conseguir la mejor relación precio/rendimiento al seccionar el volumen **/hana/data** o **/hana/log** en varios discos de Azure, en lugar de implementar volúmenes de disco mayores que proporcionan más información sobre IOPS o el rendimiento necesario. Hasta ahora esto se lograba con los administradores de volúmenes LVM y MDADM que forman parte de Linux. El método de seccionamiento de discos tiene décadas de antigüedad y es perfectamente conocido. Por muy beneficiosos que sean esos volúmenes seccionados para conseguir las IOPS o las capacidades de rendimiento que pueda necesitar, este método agrega complejidades en torno a la administración de dichos volúmenes, especialmente en los casos en los que es necesario ampliar la capacidad de los volúmenes. Al menos para **/hana/data**, SAP presentó un método alternativo que logra el mismo objetivo que el seccionamiento en varios discos de Azure. Desde SAP HANA 2.0 SPS03, el servidor de indexación de HANA puede seccionar su actividad de E/S entre varios archivos de datos de HANA que se encuentran en diferentes discos de Azure. La ventaja es que no tiene que encargarse de crear y administrar un volumen seccionado en varios discos de Azure. La funcionalidad SAP HANA de la creación de particiones de volúmenes de datos se describe en detalle en:
+Con Azure Premium Storage, puede conseguir la mejor relación precio/rendimiento al seccionar el volumen **/hana/data** o **/hana/log** en varios discos de Azure, en lugar de implementar volúmenes de disco mayores que proporcionan más información sobre IOPS o el rendimiento necesario. Hasta ahora esto se lograba con los administradores de volúmenes LVM y MDADM que forman parte de Linux. El método de seccionamiento de discos tiene décadas de antigüedad y es perfectamente conocido. Por muy beneficiosos que sean esos volúmenes seccionados para conseguir las IOPS o las capacidades de rendimiento que pueda necesitar, este método agrega complejidades en torno a la administración de dichos volúmenes, especialmente en los casos en los que es necesario ampliar la capacidad de los volúmenes. Al menos para **/hana/data**, SAP presentó un método alternativo que logra el mismo objetivo que el seccionamiento en varios discos de Azure. A partir de SAP HANA 2.0 SPS03, el servidor de indexación de HANA puede seccionar su actividad de E/S en varios archivos de datos de HANA que se encuentran en diferentes discos de Azure. La ventaja es que no tiene que encargarse de crear y administrar un volumen seccionado en varios discos de Azure. La funcionalidad SAP HANA de la creación de particiones de volúmenes de datos se describe en detalle en:
 
 - [Guía para administradores de HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.05/en-US/40b2b2a880ec4df7bac16eae3daef756.html?q=hana%20data%20volume%20partitioning)
 - [Blog sobre SAP HANA: creación de particiones de volúmenes de datos](https://blogs.sap.com/2020/10/07/sap-hana-partitioning-data-volumes/)
@@ -153,6 +154,9 @@ Especialmente en sistemas DBMS más pequeños en los que la carga de trabajo con
 > [!NOTE]
 > En escenarios que implican Azure Premium Storage, estamos implementando funcionalidades de ráfaga en la configuración. A medida que use herramientas de prueba de almacenamiento de cualquier forma, tenga en cuenta el [funcionamiento de la expansión de discos Premium de Azure](../../disk-bursting.md). Al ejecutar las pruebas de almacenamiento que proporciona la herramienta HWCCT o HCMT de SAP, no se espera que todas las pruebas cumplan los criterios, ya que algunas pruebas superarán los créditos de expansión que se pueden acumular. Especialmente, cuando todas las pruebas se ejecutan secuencialmente sin interrupción.
 
+> [!NOTE]
+> Con las VM M32ts y M32ls, puede ocurrir que el rendimiento del disco sea menor de lo esperado mediante las pruebas de disco HCMT/HWCCT. Esto puede ocurrir incluso con la expansión de disco o con un rendimiento de E/S suficientemente aprovisionado de los discos subyacentes. La causa principal del comportamiento observado era que los archivos de prueba de almacenamiento HCMT/HWCCT estaban completamente almacenados en la caché de lectura de los discos de datos de almacenamiento prémium. Esta caché se encuentra en el host de proceso que hospeda la máquina virtual y que puede almacenar por completo en caché los archivos de prueba de HCMT/HWCCT. En tal caso, las cuotas enumeradas en la columna **Rendimiento máximo de almacenamiento temporal y en caché: IOPS/MBps (tamaño de caché en GiB)** del artículo [Serie M](../../m-series.md) son relevantes. Específicamente para M32ts y M32ls, la cuota de rendimiento en función de la caché de lectura es de solo 400 MB/seg. Como resultado, los archivos de prueba están completamente almacenados en la caché, y es posible que, a pesar de la expansión del disco o de obtener un mayor rendimiento de E/S aprovisionado, las pruebas sean ligeramente inferiores a 400 MB/seg del rendimiento máximo. Como alternativa, puede realizar pruebas sin la caché de lectura habilitada en los discos de datos de Azure Premium Storage.
+
 
 > [!NOTE]
 > Para escenarios de producción, compruebe si un determinado tipo de máquina virtual es compatible con SAP HANA de SAP en la [documentación de SAP para IaaS](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html).
@@ -166,10 +170,13 @@ Configuración para el volumen **/hana/data** de SAP:
 | M32ts | 192 GiB | 500 MBps | 4 x P6 | 200 MBps | 680 Mbps | 960 | 14 000 |
 | M32ls | 256 GiB | 500 MBps | 4 x P6 | 200 MBps | 680 Mbps | 960 | 14 000 |
 | M64ls | 512 GB | 1000 MBps | 4 x P10 | 400 MBps | 680 Mbps | 2\.000 | 14 000 |
-| M64s | 1000 GiB | 1000 MBps | 4 x P15 | 500 MBps | 680 Mbps | 4400 | 14 000 |
-| M64ms | 1750 GiB | 1000 MBps | 4 x P20 | 600 MBps | 680 Mbps | 9200 | 14 000 |  
-| M128s | 2000 GiB | 2000 Mbps | 4 x P20 | 600 MBps | 680 Mbps | 9200| 14 000 | 
-| M128ms | 3800 GiB | 2000 Mbps | 4 x P30 | 800 MBps | sin expansión | 20.000 | sin expansión | 
+| M32dms_v2, M32ms_v2 | 875 GiB  | 500 MBps | 4 x P15 | 500 MBps | 680 Mbps | 4400 | 14 000 |
+| M64s, M64ds_v2, M64s_v2 | 1024 GiB | 1000 MBps | 4 x P15 | 500 MBps | 680 Mbps | 4400 | 14 000 |
+| M64ms, M64dms_v2, M64ms_v2 | 1792 GiB | 1000 MBps | 4 x P20 | 600 MBps | 680 Mbps | 9200 | 14 000 |  
+| M128s, M128ds_v2, M128s_v2 | 2048 GiB | 2000 Mbps | 4 x P20 | 600 MBps | 680 Mbps | 9200| 14 000 | 
+| M192ds_v2, M192s_v2 | 2048 GiB | 2000 Mbps | 4 x P20 | 600 MBps | 680 Mbps | 9200| 14 000 | 
+| M128ms, M128dms_v2, M128ms_v2 | 3892 GiB | 2000 Mbps | 4 x P30 | 800 MBps | sin expansión | 20.000 | sin expansión | 
+| M192ms, M192dms_v2, M128ms_v2 | 4096 GiB | 2000 Mbps | 4 x P30 | 800 MBps | sin expansión | 20.000 | sin expansión | 
 | M208s_v2 | 2850 GiB | 1000 MBps | 4 x P30 | 800 MBps | sin expansión | 20.000| sin expansión | 
 | M208ms_v2 | 5700 GiB | 1000 MBps | 4 x P40 | 1000 MBps | sin expansión | 30,000 | sin expansión |
 | M416s_v2 | 5700 GiB | 2000 Mbps | 4 x P40 | 1000 MBps | sin expansión | 30,000 | sin expansión |
@@ -183,10 +190,13 @@ Para el volumen **/hana/log**. La configuración sería similar a la siguiente:
 | M32ts | 192 GiB | 500 MBps | 3 x P10 | 300 MBps | 510 Mbps | 1500 | 10 500 | 
 | M32ls | 256 GiB | 500 MBps | 3 x P10 | 300 MBps | 510 Mbps | 1500 | 10 500 | 
 | M64ls | 512 GB | 1000 MBps | 3 x P10 | 300 MBps | 510 Mbps | 1500 | 10 500 | 
-| M64s | 1000 GiB | 1000 MBps | 3 x P15 | 375 MBps | 510 Mbps | 3300 | 10 500 | 
-| M64ms | 1750 GiB | 1000 MBps | 3 x P15 | 375 MBps | 510 Mbps | 3300 | 10 500 |  
-| M128s | 2000 GiB | 2000 Mbps | 3 x P15 | 375 MBps | 510 Mbps | 3300 | 10 500|  
-| M128ms | 3800 GiB | 2000 Mbps | 3 x P15 | 375 MBps | 510 Mbps | 3300 | 10 500 | 
+| M32dms_v2, M32ms_v2 | 875 GiB | 500 MBps | 3 x P15 | 375 MBps | 510 Mbps | 3300 | 10 500 | 
+| M64s, M64ds_v2, M64s_v2 | 1024 GiB | 1000 MBps | 3 x P15 | 375 MBps | 510 Mbps | 3300 | 10 500 | 
+| M64ms, M64dms_v2, M64ms_v2 | 1792 GiB | 1000 MBps | 3 x P15 | 375 MBps | 510 Mbps | 3300 | 10 500 |  
+| M128s, M128ds_v2, M128s_v2 | 2048 GiB | 2000 Mbps | 3 x P15 | 375 MBps | 510 Mbps | 3300 | 10 500| 
+| M192ds_v2, M192s_v2 | 2048 GiB | 2000 Mbps | 3 x P15 | 375 MBps | 510 Mbps | 3300 | 10 500| 
+| M128ms, M128dms_v2, M128ms_v2 | 3892 GiB | 2000 Mbps | 3 x P15 | 375 MBps | 510 Mbps | 3300 | 10 500 |
+| M192dms_v2, M192ms_v2 | 4096 GiB | 2000 Mbps | 3 x P15 | 375 MBps | 510 Mbps | 3300 | 10 500 | 
 | M208s_v2 | 2850 GiB | 1000 MBps | 3 x P15 | 375 MBps | 510 Mbps | 3300 | 10 500 |  
 | M208ms_v2 | 5700 GiB | 1000 MBps | 3 x P15 | 375 MBps | 510 Mbps | 3300 | 10 500 |  
 | M416s_v2 | 5700 GiB | 2000 Mbps | 3 x P15 | 375 MBps | 510 Mbps | 3300 | 10 500 |  
@@ -200,10 +210,13 @@ For the other volumes, the configuration would look like:
 | M32ts | 192 GiB | 500 MBps | 1 x P15 | 1 x P6 | 1 x P6 |
 | M32ls | 256 GiB | 500 MBps |  1 x P15 | 1 x P6 | 1 x P6 |
 | M64ls | 512 GB | 1000 MBps | 1 x P20 | 1 x P6 | 1 x P6 |
-| M64s | 1000 GiB | 1000 MBps | 1 x P30 | 1 x P6 | 1 x P6 |
-| M64ms | 1750 GiB | 1000 MBps | 1 x P30 | 1 x P6 | 1 x P6 | 
-| M128s | 2000 GiB | 2000 Mbps | 1 x P30 | 1 x P10 | 1 x P6 | 
-| M128ms | 3800 GiB | 2000 Mbps | 1 x P30 | 1 x P10 | 1 x P6 |
+| M32dms_v2, M32ms_v2 | 875 GiB | 500 MBps | 1 x P30 | 1 x P6 | 1 x P6 |
+| M64s, M64ds_v2, M64s_v2 | 1024 GiB | 1000 MBps | 1 x P30 | 1 x P6 | 1 x P6 |
+| M64ms, M64dms_v2, M64ms_v2 | 1792 GiB | 1000 MBps | 1 x P30 | 1 x P6 | 1 x P6 | 
+| M128s, M128ds_v2, M128s_v2 | 2048 GiB | 2000 Mbps | 1 x P30 | 1 x P10 | 1 x P6 | 
+| M192ds_v2, M192s_v2  | 2048 GiB | 2000 Mbps | 1 x P30 | 1 x P10 | 1 x P6 | 
+| M128ms, M128dms_v2, M128ms_v2 | 3892 GiB | 2000 Mbps | 1 x P30 | 1 x P10 | 1 x P6 |
+| M192dms_v2, M192ms_v2  | 4096 GiB | 2000 Mbps | 1 x P30 | 1 x P10 | 1 x P6 |
 | M208s_v2 | 2850 GiB | 1000 MBps |  1 x P30 | 1 x P10 | 1 x P6 |
 | M208ms_v2 | 5700 GiB | 1000 MBps | 1 x P30 | 1 x P10 | 1 x P6 | 
 | M416s_v2 | 5700 GiB | 2000 Mbps |  1 x P30 | 1 x P10 | 1 x P6 | 
@@ -212,7 +225,7 @@ For the other volumes, the configuration would look like:
 
 Compruebe si el rendimiento del almacenamiento para los diferentes volúmenes sugeridos se adapta a la carga de trabajo que se va a ejecutar. Si la carga de trabajo requiere volúmenes mayores para **/hana/data** y **/hana/log**, debe aumentar el número de VHD de Azure Premium Storage. Ajustar el tamaño de un volumen con más discos duros virtuales de los que se enumeran, aumenta el IOPS y el rendimiento de E/S dentro de los límites del tipo de máquina virtual de Azure.
 
-El Acelerador de escritura de Azure solo funciona en conjunto con [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/). Así pues, al menos los discos de Azure Premium Storage que forman el volumen **/hana/log** deben implementarse como discos administrados. Puede encontrar instrucciones y restricciones del Acelerador de escritura de Azure en el artículo [Acelerador de escritura](../../how-to-enable-write-accelerator.md).
+El Acelerador de escritura de Azure solo funciona con [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/). Así pues, al menos los discos de Azure Premium Storage que forman el volumen **/hana/log** deben implementarse como discos administrados. Puede encontrar instrucciones y restricciones del Acelerador de escritura de Azure en el artículo [Acelerador de escritura](../../how-to-enable-write-accelerator.md).
 
 En el caso de las VM certificadas para HANA de la familia de [Esv3](../../ev3-esv3-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#esv3-series) y [Edsv4](../../edv4-edsv4-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#edsv4-series), debe aplicar ANF para los volúmenes **/hana/data** y **/hana/log**. O bien debe aprovechar el almacenamiento en disco Ultra de Azure en lugar de Azure Premium Storage solo para el volumen **/hana/log**. Como resultado, las configuraciones del volumen **/hana/data** en Azure Premium Storage podrían tener este aspecto:
 
@@ -268,10 +281,13 @@ A menudo, las recomendaciones superan los requisitos mínimos de SAP como se ind
 | M32ts | 192 GiB | 500 MB/s | 250 GB | 400 MBps | 2,500 | 96 GB | 250 MBps  | 1800 |
 | M32ls | 256 GiB | 500 MB/s | 300 GB | 400 MBps | 2,500 | 256 GB | 250 MBps  | 1800 |
 | M64ls | 512 GB | 1000 MB/s | 620 GB | 400 MBps | 3500 | 256 GB | 250 MBps  | 1800 |
-| M64s | 1000 GiB | 1000 MB/s |  1200 GB | 600 MBps | 5\.000 | 512 GB | 250 MBps  | 2,500 |
-| M64ms | 1750 GiB | 1000 MB/s | 2100 GB | 600 MBps | 5\.000 | 512 GB | 250 MBps  | 2,500 |
-| M128s | 2000 GiB | 2000 MB/s |2400 GB | 750 Mbps | 7000 | 512 GB | 250 MBps  | 2,500 | 
-| M128ms | 3800 GiB | 2000 MB/s | 4800 GB | 750 Mbps |9 600 | 512 GB | 250 MBps  | 2,500 | 
+| M32dms_v2, M32ms_v2 | 875 GiB | 500 MB/s |  1200 GB | 600 MBps | 5\.000 | 512 GB | 250 MBps  | 2,500 |
+| M64s, M64ds_v2, M64s_v2 | 1024 GiB | 1000 MB/s |  1200 GB | 600 MBps | 5\.000 | 512 GB | 250 MBps  | 2,500 |
+| M64ms, M64dms_v2, M64ms_v2 | 1792 GiB | 1000 MB/s | 2100 GB | 600 MBps | 5\.000 | 512 GB | 250 MBps  | 2,500 |
+| M128s, M128ds_v2, M128s_v2 | 2048 GiB | 2000 MB/s |2400 GB | 750 Mbps | 7000 | 512 GB | 250 MBps  | 2,500 |
+| M192ds_v2, M192s_v2 | 2048 GiB | 2000 MB/s |2400 GB | 750 Mbps | 7000 | 512 GB | 250 MBps  | 2,500 | 
+| M128ms, M128dms_v2, M128ms_v2 | 3892 GiB | 2000 MB/s | 4800 GB | 750 Mbps |9 600 | 512 GB | 250 MBps  | 2,500 | 
+| M192dms_v2, M192ms_v2 | 4096 GiB | 2000 MB/s | 4800 GB | 750 Mbps |9 600 | 512 GB | 250 MBps  | 2,500 | 
 | M208s_v2 | 2850 GiB | 1000 MB/s | 3500 GB | 750 Mbps | 7000 | 512 GB | 250 MBps  | 2,500 | 
 | M208ms_v2 | 5700 GiB | 1000 MB/s | 7200 GB | 750 Mbps | 14 400 | 512 GB | 250 MBps  | 2,500 | 
 | M416s_v2 | 5700 GiB | 2000 MB/s | 7200 GB | 1000 MBps | 14 400 | 512 GB | 400 MBps  | 4\.000 | 
@@ -308,11 +324,14 @@ Una alternativa menos costosa para estas configuraciones podría ser similar a l
 | E64v3 | 432 GiB | 1200 MB/s | 6 x P10 | 1 x E20 | 1 x E6 | 1 x E6 | No obtendrá una latencia de almacenamiento inferior a 1 ms<sup>1</sup>. |
 | E64ds_v4 | 504 GiB | 1200 MB/s |  7 x P10 | 1 x E20 | 1 x E6 | 1 x E6 | No obtendrá una latencia de almacenamiento inferior a 1 ms<sup>1</sup>. |
 | M64ls | 512 GB | 1000 MB/s | 7 x P10 | 1 x E20 | 1 x E6 | 1 x E6 | El uso de Acelerador de escritura para los datos combinados y el volumen de registro limitará la tasa de IOPS a 10 000<sup>2</sup>. |
-| M64s | 1000 GiB | 1000 MB/s | 7 x P15 | 1 x E30 | 1 x E6 | 1 x E6 | El uso de Acelerador de escritura para los datos combinados y el volumen de registro limitará la tasa de IOPS a 10 000<sup>2</sup>. |
-| M64ms | 1750 GiB | 1000 MB/s | 6 x P20 | 1 x E30 | 1 x E6 | 1 x E6 | El uso de Acelerador de escritura para los datos combinados y el volumen de registro limitará la tasa de IOPS a 10 000<sup>2</sup>. |
-| M128s | 2000 GiB | 2000 MB/s |6 x P20 | 1 x E30 | 1 x E10 | 1 x E6 | El uso de Acelerador de escritura para los datos combinados y el volumen de registro limitará la tasa de IOPS a 20 000<sup>2</sup>. |
+| M32dms_v2, M32ms_v2 | 875 GiB | 500 MB/s | 6 x P15 | 1 x E30 | 1 x E6 | 1 x E6 | El uso de Acelerador de escritura para los datos combinados y el volumen de registro limitará la tasa de IOPS a 5 000<sup>2</sup>. |
+| M64s, M64ds_v2, M64s_v2 | 1024 GiB | 1000 MB/s | 7 x P15 | 1 x E30 | 1 x E6 | 1 x E6 | El uso de Acelerador de escritura para los datos combinados y el volumen de registro limitará la tasa de IOPS a 10 000<sup>2</sup>. |
+| M64ms, M64dms_v2, M64ms_v2| 1792 GiB | 1000 MB/s | 6 x P20 | 1 x E30 | 1 x E6 | 1 x E6 | El uso de Acelerador de escritura para los datos combinados y el volumen de registro limitará la tasa de IOPS a 10 000<sup>2</sup>. |
+| M128s, M128ds_v2, M128s_v2 | 2048 GiB | 2000 MB/s |6 x P20 | 1 x E30 | 1 x E10 | 1 x E6 | El uso de Acelerador de escritura para los datos combinados y el volumen de registro limitará la tasa de IOPS a 20 000<sup>2</sup>. |
+| M192ds_v2, M192s_v2 | 2048 GiB | 2000 MB/s |6 x P20 | 1 x E30 | 1 x E10 | 1 x E6 | El uso de Acelerador de escritura para los datos combinados y el volumen de registro limitará la tasa de IOPS a 20 000<sup>2</sup>. |
+| M128ms, M128dms_v2, M128ms_v2  | 3800 GiB | 2000 MB/s | 5 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | El uso de Acelerador de escritura para los datos combinados y el volumen de registro limitará la tasa de IOPS a 20 000<sup>2</sup>. |
+| M192dms_v2, M192ms_v2  | 4096 GiB | 2000 MB/s | 5 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | El uso de Acelerador de escritura para los datos combinados y el volumen de registro limitará la tasa de IOPS a 20 000<sup>2</sup>. |
 | M208s_v2 | 2850 GiB | 1000 MB/s | 4 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | El uso de Acelerador de escritura para los datos combinados y el volumen de registro limitará la tasa de IOPS a 10 000<sup>2</sup>. |
-| M128ms | 3800 GiB | 2000 MB/s | 5 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | El uso de Acelerador de escritura para los datos combinados y el volumen de registro limitará la tasa de IOPS a 20 000<sup>2</sup>. |
 | M208ms_v2 | 5700 GiB | 1000 MB/s | 4 x P40 | 1 x E30 | 1 x E10 | 1 x E6 | El uso de Acelerador de escritura para los datos combinados y el volumen de registro limitará la tasa de IOPS a 10 000<sup>2</sup>. |
 | M416s_v2 | 5700 GiB | 2000 MB/s | 4 x P40 | 1 x E30 | 1 x E10 | 1 x E6 | El uso de Acelerador de escritura para los datos combinados y el volumen de registro limitará la tasa de IOPS a 20 000<sup>2</sup>. |
 | M416ms_v2 | 11400 GiB | 2000 MB/s | 7 x P40 | 1 x E30 | 1 x E10 | 1 x E6 | El uso de Acelerador de escritura para los datos combinados y el volumen de registro limitará la tasa de IOPS a 20 000<sup>2</sup>. |

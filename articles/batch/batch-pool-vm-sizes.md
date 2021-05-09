@@ -4,12 +4,12 @@ description: Cómo elegir uno de los tamaños de máquina virtual y una de las v
 ms.topic: conceptual
 ms.date: 03/18/2021
 ms.custom: seodec18
-ms.openlocfilehash: 2c3b90d6188dc6660233ae659fb4280dc1d4f2a5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 6de7decbf40eede74dd7b92f9f1139e1b31450c8
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105027387"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108126262"
 ---
 # <a name="choose-a-vm-size-and-image-for-compute-nodes-in-an-azure-batch-pool"></a>Selección de un tamaño y una imagen de máquina virtual para nodos de proceso en un grupo de Azure Batch
 
@@ -66,7 +66,10 @@ Los grupos de Batch en la configuración de máquina virtual son compatibles con
 
 Algunas series de máquina virtual, como [Mv2](../virtual-machines/mv2-series.md), solo se pueden usar con [imágenes de máquina virtual de segunda generación](../virtual-machines/generation-2.md). Las imágenes de máquina virtual de segunda generación se especifican como cualquier imagen de máquina virtual, con la propiedad "sku" de la configuración de ["imageReference"](/rest/api/batchservice/pool/add#imagereference); las cadenas "sku" tienen un sufijo del tipo "-g2" o "-gen2". Para obtener una lista de imágenes de máquina virtual admitidas por Batch, incluidas las imágenes de segunda generación, use la API ["list supported images"](/rest/api/batchservice/account/listsupportedimages), [PowerShell](/powershell/module/az.batch/get-azbatchsupportedimage) o la [CLI de Azure](/cli/azure/batch/pool/supported-images).
 
-### <a name="pools-in-cloud-service-configuration"></a>Grupos en la configuración de Cloud Service
+### <a name="pools-in-cloud-services-configuration"></a>Grupos de la configuración de Cloud Services
+
+> [!WARNING]
+> Los grupos de configuración de Cloud Services están [en desuso](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/). En su lugar, utilice los grupos de configuración de máquina virtual.
 
 Los grupos de Batch en la configuración de Cloud Services son compatibles con todos los [tamaños de máquina virtual para Cloud Services](../cloud-services/cloud-services-sizes-specs.md)**excepto** en los siguientes casos:
 
@@ -87,7 +90,7 @@ Los grupos de Batch en la configuración de Cloud Services son compatibles con t
 
 - **Cuotas**: la [cuota de núcleos](batch-quota-limit.md#resource-quotas) en su cuenta de Batch puede limitar el número de nodos de un tamaño específico que se puede agregar a un grupo de Batch. Cuando sea necesario, puede [solicitar un aumento de la cuota](batch-quota-limit.md#increase-a-quota).
 
-- **Configuración de grupo**: por lo general, tiene más opciones de tamaño de máquina virtual cuando crea un grupo en la configuración de máquina virtual, en comparación con la configuración de Cloud Service.
+- **Configuración de grupo**: por lo general, tiene más opciones de tamaño de máquina virtual cuando crea un grupo en la configuración de máquina virtual, en comparación con la configuración de Cloud Services.
 
 ## <a name="supported-vm-images"></a>Imágenes de máquina virtual admitidas
 
@@ -97,7 +100,7 @@ Use una de las siguientes API para devolver una lista de imágenes de máquina v
 - PowerShell: [Get-AzBatchSupportedImage](/powershell/module/az.batch/get-azbatchsupportedimage)
 - CLI de Azure: [az batch pool supported-images](/cli/azure/batch/pool/supported-images)
 
-Se recomienda evitar las imágenes con fechas de final del ciclo de vida (EOL) inminentes para el soporte técnico de Batch. Estas fechas se pueden detectar con la [`ListSupportedImages` API](https://docs.microsoft.com/rest/api/batchservice/account/listsupportedimages), [PowerShell](https://docs.microsoft.com/powershell/module/az.batch/get-azbatchsupportedimage) o la [CLI de Azure](https://docs.microsoft.com/cli/azure/batch/pool/supported-images). Consulte [Guía de procedimientos recomendados de Batch](best-practices.md) para más información sobre la selección de imágenes de máquina virtual del grupo de Batch.
+Se recomienda evitar las imágenes con fechas de final del ciclo de vida (EOL) inminentes para el soporte técnico de Batch. Estas fechas se pueden detectar con la [`ListSupportedImages` API](/rest/api/batchservice/account/listsupportedimages), [PowerShell](/powershell/module/az.batch/get-azbatchsupportedimage) o la [CLI de Azure](/cli/azure/batch/pool/supported-images). Consulte [Guía de procedimientos recomendados de Batch](best-practices.md) para más información sobre la selección de imágenes de máquina virtual del grupo de Batch.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

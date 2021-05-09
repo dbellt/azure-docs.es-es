@@ -3,12 +3,12 @@ title: Protección de máquinas virtuales de Azure VMware Solution con la integr
 description: Aprenda a proteger las máquinas virtuales de Azure VMware Solution con las herramientas de seguridad nativas de Azure desde el panel de Azure Security Center.
 ms.topic: how-to
 ms.date: 02/12/2021
-ms.openlocfilehash: 7292ea4486a61f5b0cfd8f656d2763a3ce655e79
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d04f0ac3e3934442ce5b6d5fbf4b53e18b3dff18
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100578262"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107877523"
 ---
 # <a name="protect-your-azure-vmware-solution-vms-with-azure-security-center-integration"></a>Protección de máquinas virtuales de Azure VMware Solution con la integración de Azure Security Center
 
@@ -242,6 +242,6 @@ Puede crear consultas o usar la consulta predefinida disponible en Azure Sentine
 
 Ahora que se ha explicado cómo proteger las máquinas virtuales de Azure VMware Solution, puede que quiera obtener información sobre:
 
-- El uso del [panel de Azure Defender](../security-center/azure-defender-dashboard.md).
-- La [detección avanzada de ataques de varias fases en Azure Sentinel](../azure-monitor/logs/quick-create-workspace.md).
-- La [administración del ciclo de vida de las máquinas virtuales de Azure VMware Solution](lifecycle-management-of-azure-vmware-solution-vms.md).
+- Uso del [panel de Azure Defender](../security-center/azure-defender-dashboard.md)
+- [Detección avanzada de ataques de varias fases en Azure Sentinel](../azure-monitor/logs/quick-create-workspace.md)
+- [Administración del ciclo de vida de las máquinas virtuales de Azure VMware Solution](lifecycle-management-of-azure-vmware-solution-vms.md)

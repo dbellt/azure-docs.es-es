@@ -1,14 +1,15 @@
 ---
 title: Información general del agente Connected Machine
 description: En este artículo se proporciona una descripción detallada del agente de servidores habilitados para Azure Arc disponible, que admite la supervisión de máquinas virtuales hospedadas en entornos híbridos.
-ms.date: 03/25/2021
+ms.date: 04/27/2021
 ms.topic: conceptual
-ms.openlocfilehash: 2db1758240dca448409af9f4ec00c01d684c920a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 31dfb9ac38b1a6d808b5ab060600297987ab4236
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105609243"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108071638"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Información general del agente de servidores habilitados para Azure Arc
 
@@ -41,6 +42,7 @@ La información de los metadatos sobre la máquina conectada se recopila despué
 
 * Nombre, tipo y versión del sistema operativo
 * Nombre del equipo
+* Modelo y el fabricante del equipo
 * Nombre de dominio completo (FQDN) del equipo
 * Versión del agente Connected Machine
 * Active Directory y nombre de dominio completo (FQDN) de DNS
@@ -49,6 +51,8 @@ La información de los metadatos sobre la máquina conectada se recopila despué
 * Versión del agente Connected Machine
 * Clave pública para la identidad administrada
 * Estado y detalles de cumplimiento de las directivas (si usa directivas de configuración de invitado de Azure Policy)
+* SQL Server está instalado (valor booleano)
+* Identificador de recurso de clúster (para nodos de Azure Stack HCI) 
 
 El agente de Azure solicita la siguiente información de metadatos:
 
@@ -81,9 +85,9 @@ Las siguientes versiones de los sistemas operativos Windows y Linux son compatib
 
 - Windows Server 2008 R2, Windows Server 2012 R2 y versiones posteriores (incluido Server Core)
 - Ubuntu 16.04 y 18.04 LTS (x64)
-- CentOS Linux 7 (x64)
+- CentOS Linux 7 y 8 (x64)
 - SUSE Linux Enterprise Server (SLES) 15 (x64)
-- Red Hat Enterprise Linux (RHEL) 7 (x64)
+- Red Hat Enterprise Linux (RHEL) 7 y 8 (x64)
 - Amazon Linux 2 (x64)
 - Oracle Linux 7
 

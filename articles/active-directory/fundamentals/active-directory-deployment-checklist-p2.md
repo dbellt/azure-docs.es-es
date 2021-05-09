@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92d1e5b8ac6492b0b1d819431e4616d32a092cc8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a43388c2750c7f82d407d59b6923258046fa00c7
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94836927"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108175881"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Guía de implementación de la característica Azure Active Directory
 
@@ -83,7 +83,7 @@ Siguiendo con la compilación de las fases anteriores, identificaremos aplicacio
 | ---- | ------ | ---------------- |
 | Identificación de las aplicaciones | Identifique las aplicaciones que se usan en la organización: locales, SaaS en la nube y otras de línea de negocio. Determinar si estas aplicaciones pueden y deben administrarse con Azure AD. | Sin necesidad de licencia |
 | [Integración de aplicaciones SaaS compatibles en la galería](../manage-apps/add-application-portal.md) | Azure AD incluye una galería que contiene miles de aplicaciones previamente integradas. Algunas de las aplicaciones que su organización usa probablemente estén en la galería y se pueda acceder a ellas desde Azure Portal. | Azure AD Free |
-| [Uso de un proxy de aplicación para integrar las aplicaciones locales](../manage-apps/application-proxy-add-on-premises-application.md) | Un proxy de aplicación permite a los usuarios acceder a aplicaciones locales mediante el sesión con su cuenta de Azure AD. | |
+| [Uso de un proxy de aplicación para integrar las aplicaciones locales](../app-proxy/application-proxy-add-on-premises-application.md) | Un proxy de aplicación permite a los usuarios acceder a aplicaciones locales mediante el sesión con su cuenta de Azure AD. | |
 
 ## <a name="phase-4-audit-privileged-identities-complete-an-access-review-and-manage-user-lifecycle"></a>Fase 4: Auditoría de las identidades con permisos, revisión del acceso y administración del ciclo de vida de los usuarios
 

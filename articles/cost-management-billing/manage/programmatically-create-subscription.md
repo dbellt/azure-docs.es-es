@@ -5,16 +5,16 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 01/13/2021
+ms.date: 03/11/2021
 ms.reviewer: andalmia
 ms.author: banders
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 546ed24b5f9e7892f40c9d425b668f60ad705f8f
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: ce08ebf473b11eecae327c7de050c791f5bc1b1a
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493895"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107379016"
 ---
 # <a name="create-azure-subscriptions-programmatically"></a>Creación de suscripciones de Azure mediante programación
 
@@ -26,7 +26,7 @@ Mediante el uso de varias API REST, puede crear una suscripción para los siguie
 - Contrato de cliente de Microsoft (MCA).
 - Microsoft Partner Agreement (MPA)
 
-No es posible crear suscripciones mediante programación para otros tipos de contratos con las API REST.
+No es posible crear suscripciones adicionales mediante programación para otros tipos de contratos con las API REST.
 
 Los requisitos y los detalles para crear suscripciones varían según el tipo de contrato y la versión de API. Consulte los siguientes artículos que hacen referencia a su situación:
 
@@ -36,9 +36,9 @@ API más recientes:
 - [Creación de suscripciones de MCA](programmatically-create-subscription-microsoft-customer-agreement.md)
 - [Creación de suscripciones de MPA](programmatically-create-subscription-microsoft-partner-agreement.md)
 
-Si todavía usa las [API de versión preliminar](programmatically-create-subscription-preview.md), puede seguir creando suscripciones con ellas. 
+En estos artículos también se muestra cómo crear suscripciones con una plantilla de Azure Resource Manager. Las plantillas de ARM permiten automatizar el proceso de creación de suscripciones.
 
-Además, puede [crear suscripciones con una plantilla de ARM](create-subscription-template.md). La plantilla de ARM permite automatizar el proceso de creación de suscripciones mediante las API REST. 
+Si aún usa las [versiones preliminares de las API](programmatically-create-subscription-preview.md), puede seguir creando suscripciones con ellas. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

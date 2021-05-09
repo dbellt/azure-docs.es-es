@@ -3,12 +3,12 @@ title: Habilitación de la creación de particiones en las colas y los temas de 
 description: En este artículo se explica cómo habilitar la creación de particiones en las colas y los temas de Azure Service Bus mediante Azure Portal, PowerShell, la CLI y los lenguajes de programación (C#, Java, Python y JavaScript).
 ms.topic: how-to
 ms.date: 04/19/2021
-ms.openlocfilehash: fb704f784d490cb73c14fc73b1a6c4368d16acbc
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: ac77dfc2e72d1d83c4424c05da40c5adba1e8e9d
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107755146"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108076696"
 ---
 # <a name="enable-partitioning-for-an-azure-service-bus-queue-or-a-topic"></a>Habilitación de la creación de particiones para una cola o un tema de Azure Service Bus
 Las particiones de Service Bus permiten que las colas y temas, o entidades de mensajería, se dividan entre varios agentes de mensajes y almacenes de mensajería. Las particiones significan que el rendimiento general de una entidad particionada ya no está limitado por el rendimiento de un solo agente o almacén de mensajería. Además, una interrupción temporal de un almacén de mensajería no hace que una cola o tema con particiones deje de estar disponible. Las colas y los temas con particiones pueden contener todas las características avanzadas de Service Bus, como la compatibilidad con transacciones y sesiones. Para obtener más información, consulte [Temas y colas con particiones](service-bus-partitioning.md). En este artículo se muestran las distintas formas de habilitar la detección de mensajes duplicados para una cola o un tema de Service Bus. 
@@ -16,6 +16,9 @@ Las particiones de Service Bus permiten que las colas y temas, o entidades de me
 > [!IMPORTANT]
 > - La creación de particiones está disponible en la creación de la entidad para todas las colas y temas de las SKU básicas o estándar. No está disponible para la SKU de mensajería Premium, pero las entidades con particiones ya existentes en espacios de nombres Premium funcionarán según lo esperado.
 > - No se puede cambiar la opción de creación de particiones en ninguna de las colas o temas existentes. La opción solo puede establecerse al crear una cola o un tema. 
+> - En un espacio de nombres de nivel **Estándar**, puede crear colas y temas de Service Bus en tamaños de 1, 2, 3, 4 o 5 GB (el valor predeterminado es 1 GB). Con las particiones habilitadas, Service Bus crea 16 copias (16 particiones) de la entidad, cada una del mismo tamaño especificado. Por lo tanto, si crea una cola con un tamaño de 5 GB, con 16 particiones, el tamaño de cola máximo se convierte en (5 \* 16) = 80 GB. 
+> - En un espacio de nombres de nivel **Premium** no se admiten entidades de creación de particiones. Aunque puede crear colas y temas de Service Bus en tamaños de 1, 2, 3, 4, 5, 10, 20, 40 u 80 GB (el valor predeterminado es 1 GB). Puede ver el tamaño máximo de la cola o el tema con particiones en la página de **información general** de [Azure Portal](https://portal.azure.com).
+
 
 ## <a name="using-azure-portal"></a>Uso de Azure Portal
 Al crear una **cola** en Azure Portal, seleccione **Habilitar la creación de particiones**, como se muestra en la imagen siguiente. 
@@ -179,15 +182,16 @@ Para **crear un tema con la detección de duplicados habilitada**, establezca `e
 ```
 
 
+
 ## <a name="next-steps"></a>Pasos siguientes
 Pruebe los ejemplos en el lenguaje que prefiera para explorar las características de Azure Service Bus. 
 
-- [Ejemplos de la biblioteca cliente de Azure Service Bus para Java](/samples/azure/azure-sdk-for-java/servicebus-samples/)
+- [Ejemplos de la biblioteca cliente de Azure Service Bus para .NET (versión más reciente)](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/) 
+- [Ejemplos de la biblioteca cliente de Azure Service Bus para Java (versión más reciente)](/samples/azure/azure-sdk-for-java/servicebus-samples/)
 - [Ejemplos de la biblioteca cliente de Azure Service Bus para Python](/samples/azure/azure-sdk-for-python/servicebus-samples/)
 - [Ejemplos de la biblioteca cliente de Azure Service Bus para JavaScript](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
 - [Ejemplos de la biblioteca cliente de Azure Service Bus para TypeScript](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
-- [Ejemplos de Azure.Messaging.ServiceBus para .NET](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/)
 
 A continuación, encontrará ejemplos de las bibliotecas cliente de .NET y Java anteriores:
-- [Ejemplos de Microsoft.Azure.ServiceBus para .NET](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/)
-- [Ejemplos de azure-servicebus para Java](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/MessageBrowse)
+- [Ejemplos de la biblioteca cliente de Azure Service Bus para .NET (versión heredada)](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/)
+- [Ejemplos de la biblioteca cliente de Azure Service Bus para Java (versión heredada)](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus)
