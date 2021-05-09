@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Administración de consultas en Azure Portal'
 description: En este tutorial, creará una consulta de Resource Graph y la compartirá con otras personas en Azure Portal.
-ms.date: 01/27/2021
+ms.date: 05/01/2021
 ms.topic: tutorial
-ms.openlocfilehash: 7240a843cfa041137b28284e396c8a4b62a81926
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a7c2e5917abc89aded225bc7a62746399bec050b
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98916685"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108324840"
 ---
 # <a name="tutorial-create-and-share-an-azure-resource-graph-query-in-the-azure-portal"></a>Tutorial: Creación y uso compartido de una consulta de Azure Resource Graph en Azure Portal
 

@@ -9,12 +9,12 @@ ms.author: joseys
 ms.date: 04/14/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 493a35a627f458fe649931d9fabc175b0affc3a6
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 486dbc4e3bafe34fad9f6eeb00460ee6b9bf5613
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107730367"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108292817"
 ---
 # <a name="record-and-download-calls-with-event-grid"></a>Grabación y descarga de llamadas con Event Grid
 
@@ -64,7 +64,7 @@ public async Task<ActionResult> PostAsync([FromBody] object request)
 ```
 
 
-El código anterior depende del paquete NuGet `Microsoft.Azure.EventGrid`. Para más información sobre la validación de puntos de conexión de Event Grid, visite la [documentación de validación de puntos de conexión](https://docs.microsoft.com/azure/event-grid/receive-events#endpoint-validation).
+El código anterior depende del paquete NuGet `Microsoft.Azure.EventGrid`. Para más información sobre la validación de puntos de conexión de Event Grid, visite la [documentación de validación de puntos de conexión](../../../event-grid/receive-events.md#endpoint-validation).
 
 A continuación, se suscribirá este webhook al evento `recording`:
 
@@ -218,6 +218,6 @@ Si quiere limpiar y quitar una suscripción a Communication Services, puede elim
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información, consulte los siguientes artículos.
 
-- Consulte [Introducción al ejemplo de llamada web](https://docs.microsoft.com/azure/communication-services/samples/web-calling-sample).
-- Más información sobre las [Funcionalidades del SDK de llamadas](https://docs.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/calling-client-samples?pivots=platform-web)
-- Más información sobre [cómo funciona la llamada](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/about-call-types)
+- Consulte [Introducción al ejemplo de llamada web](../../samples/web-calling-sample.md).
+- Más información sobre las [Funcionalidades del SDK de llamadas](./calling-client-samples.md?pivots=platform-web)
+- Más información sobre [cómo funciona la llamada](../../concepts/voice-video-calling/about-call-types.md)

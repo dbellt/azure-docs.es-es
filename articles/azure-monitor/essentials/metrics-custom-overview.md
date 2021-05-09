@@ -6,12 +6,12 @@ ms.author: ancav
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/13/2021
-ms.openlocfilehash: f4ba3763dd781053349417fe3fed3a2848a06fc7
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: e6db49d34c39df2e1863dfa51914e30e9f1e1636
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107515845"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107897098"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Métricas personalizadas en Azure Monitor (versión preliminar)
 
@@ -224,15 +224,15 @@ Si tiene 100 regiones, 200 departamentos y 2000 clientes, tendrá 100 x 200 x
 
 De nuevo, este límite no corresponde a una métrica individual. Corresponde a la suma de todas estas métricas en una suscripción y región.  
 
-## <a name="design-limitations"></a>Limitaciones del diseño
+## <a name="design-limitations-and-considerations"></a>Limitaciones y consideraciones de diseño
 
-**No use Application Insights con fines de auditoría**: la canalización de Application Insights usa la API de métricas personalizadas en segundo plano. La canalización está optimizada para un gran volumen de telemetría con un impacto mínimo en la aplicación. Por lo tanto, limita o realiza muestreos (toma solo un porcentaje de la telemetría y omite el resto) si el flujo de datos entrante se vuelve demasiado grande. Debido a este comportamiento, no se puede usar con fines de auditoría, ya que es probable que algunos registros se descarten. 
+**No use Application Insights con fines de auditoría**: la canalización de telemetría de Application Insights está optimizada para minimizar el impacto en el rendimiento y limitar la supervisión del tráfico de red por parte de la aplicación. Por lo tanto, aplica limitaciones o realiza muestreos (toma solo un porcentaje de la telemetría e ignora el resto) si el conjunto de datos inicial se vuelve demasiado grande. Debido a este comportamiento, no se puede usar con fines de auditoría, ya que es probable que algunos registros se descarten. 
 
-**Métricas con una variable en el nombre**: no use una variable como parte del nombre de la métrica; por ejemplo, un GUID o una marca de tiempo. Esto hará que se alcance rápidamente la limitación de 50 000 series temporales. 
- 
-**Dimensiones de métricas con cardinalidad alta**: es mucho más probable que las métricas con demasiados valores válidos en una dimensión (una "cardinalidad alta") alcancen el límite de 50 000. En general, nunca debe usar un valor que cambie constantemente en un nombre de dimensión o métrica. Por ejemplo, la marca de tiempo NUNCA debe ser una dimensión. Se podría usar servidor, cliente o id. de producto, pero solo si tiene un número menor de cada uno de esos tipos. Como prueba, pregúntese si alguna vez crearía un gráfico de estos datos.  Si tiene 10 o quizá incluso 100 servidores, puede resultar útil verlos todos en un gráfico para compararlos. Pero si tiene 1000, probablemente el gráfico resultante sería difícil o imposible de leer. Se recomienda mantenerlo en menos de 100 valores válidos. Hasta 300 valores es un área indefinida.  Si necesita superar esta cantidad, use los registros personalizados de Azure Monitor en su lugar.   
+**Métricas con una variable en el nombre**: no use una variable como parte del nombre de la métrica; use una constante en su lugar. Cada vez que la variable cambie de valor, Azure Monitor generará una nueva métrica, y se alcanzarán rápidamente los límites en el número de métricas. Por lo general, cuando los desarrolladores quieren incluir una variable en el nombre de la métrica, realmente quieren realizar un seguimiento de varias series temporales en una métrica y deben usar dimensiones en lugar de nombres de métricas de variables. 
 
-Si tiene una variable en el nombre o una dimensión de cardinalidad alta, puede ocurrir lo siguiente. 
+**Dimensiones de métricas con cardinalidad alta**: es mucho más probable que las métricas con demasiados valores válidos en una dimensión (una "cardinalidad alta") alcancen el límite de 50 000. En general, nunca debe usar un valor que cambie constantemente en una dimensión. Por ejemplo, la marca de tiempo NUNCA debe ser una dimensión. Se podría usar servidor, cliente o id. de producto, pero solo si tiene un número menor de cada uno de esos tipos. Como prueba, pregúntese si alguna vez crearía un gráfico de estos datos.  Si tiene 10 o quizá incluso 100 servidores, puede resultar útil verlos todos en un gráfico para compararlos. Pero si tiene 1000, probablemente el gráfico resultante sería difícil o imposible de leer. Se recomienda mantenerlo en menos de 100 valores válidos. Hasta 300 valores es un área indefinida.  Si necesita superar esta cantidad, use los registros personalizados de Azure Monitor en su lugar.   
+
+Si tiene una variable en el nombre o una dimensión de cardinalidad alta, puede ocurrir lo siguiente:
 - Las métricas se vuelven poco confiables debido a la limitación
 - El explorador de métricas deja de funcionar
 - Las alertas y las notificaciones se vuelven impredecibles

@@ -1,14 +1,14 @@
 ---
 title: Descripción del funcionamiento de los efectos
 description: Las definiciones de Azure Policy tienen diversos efectos que determinan cómo se administra y notifica el cumplimiento.
-ms.date: 02/17/2021
+ms.date: 04/19/2021
 ms.topic: conceptual
-ms.openlocfilehash: 67445b3d0d63b3827f82822de00412bdab67c5ab
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5d819c20c27a2c2f4a316e60da1c0fdb7c8bb859
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101741827"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107896899"
 ---
 # <a name="understand-azure-policy-effects"></a>Comprender los efectos de Azure Policy
 
@@ -64,7 +64,8 @@ Un efecto append solo tiene una matriz **details**, que es necesaria. Como **det
 
 ### <a name="append-examples"></a>Ejemplos de append
 
-Ejemplo 1: Un único par **campo-valor** que usa un valor distinto de **\[\*\]** como [alias](definition-structure.md#aliases) con un **valor** de matriz para establecer reglas en una cuenta de almacenamiento. Cuando el alias distinto de **\[\*\]** es una matriz, el efecto anexa el **valor** como toda la matriz. Si la matriz ya existe, el conflicto ocasiona un evento de rechazo.
+Ejemplo 1: Un único par **campo-valor** que usa un [alias](definition-structure.md#aliases) distinto de **\[\*\]** 
+ con un **valor** de matriz para establecer reglas de IP en una cuenta de almacenamiento. Cuando el alias distinto de **\[\*\]** es una matriz, el efecto anexa el **valor** como toda la matriz. Si la matriz ya existe, el conflicto ocasiona un evento de rechazo.
 
 ```json
 "then": {
@@ -100,7 +101,7 @@ Audit se utiliza para crear un evento de advertencia en el registro de actividad
 
 ### <a name="audit-evaluation"></a>Evaluación de audit
 
-Audit es el último efecto que Azure Policy comprueba durante la creación o actualización de un recurso. Para un modo de Administrador de recursos, Azure Policy envía el recurso al proveedor de recursos. Audit funciona igual para una solicitud de recurso y un ciclo de evaluación. En el caso de los recursos nuevos y actualizados, Azure Policy agrega una operación `Microsoft.Authorization/policies/audit/action` al registro de actividad y marca el recurso como no compatible.
+Audit es el último efecto que Azure Policy comprueba durante la creación o actualización de un recurso. Para un modo de Administrador de recursos, Azure Policy envía el recurso al proveedor de recursos. Al evaluar una solicitud de creación o actualización para un recurso, Azure Policy agrega una operación `Microsoft.Authorization/policies/audit/action` al registro de actividad y marca el recurso como no compatible. Durante un ciclo de evaluación de cumplimiento estándar, solo se actualiza el estado de cumplimiento en el recurso.
 
 ### <a name="audit-properties"></a>Propiedades de audit
 
@@ -518,7 +519,7 @@ La propiedad **details** del efecto Modify tiene todas las subpropiedades que de
   - Esta propiedad debe incluir una matriz de cadenas que coinciden con el identificador de rol de control de acceso basado en rol accesible por la suscripción. Para obtener más información, vea [remediation - configure policy definition](../how-to/remediate-resources.md#configure-policy-definition) (corrección: configurar la definición de directiva).
   - El rol definido debe incluir todas las operaciones concedidas al rol [Colaborador](../../../role-based-access-control/built-in-roles.md#contributor).
 - **conflictEffect** (opcional)
-  - Determina qué definición de directiva "gana" en caso de que más de una modifique la misma propiedad o cuando la operación Modify no funciona en el alias especificado.
+  - Determina qué definición de directiva "gana" si más de una modifica la misma propiedad o cuando la operación Modify no funciona en el alias especificado.
     - En el caso de los recursos nuevos o actualizados, la definición de la directiva con _deny_ tiene prioridad. Las definiciones de directivas con _Audit_ omiten todas las **operaciones**. Si más de una definición de directiva tiene _deny_, la solicitud se deniega como conflicto. Si todas las definiciones de directiva tienen _audit_, no se procesa ninguna de las **operaciones** de las definiciones de directiva en conflicto.
     - En el caso de los recursos existentes, si hay más de una definición de directiva tenga _deny_, el estado de cumplimiento es _Conflict_. Si una o varias definiciones de directivas tienen _deny_, cada asignación devuelve un estado de cumplimiento de _Non-compliant_.
   - Valores disponibles: _audit_, _deny_, _disabled_.

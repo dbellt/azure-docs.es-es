@@ -8,12 +8,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 04/08/2021
-ms.openlocfilehash: 7f9a8cb54458999d8f20a258bc36241dfdbd0de8
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 9873b3626b77a898b7bd682446e11a77b270b297
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107376042"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107897314"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>Novedades de Azure Sentinel
 
@@ -32,7 +32,16 @@ Actualmente, las características indicadas están en VERSIÓN PRELIMINAR. En la
 
 ## <a name="april-2021"></a>Abril de 2021
 
+- [Conectores de datos basados en Azure Policy](#azure-policy-based-data-connectors)
 - [Escala de tiempo del incidente (versión preliminar pública)](#incident-timeline-public-preview)
+
+### <a name="azure-policy-based-data-connectors"></a>Conectores de datos basados en Azure Policy
+
+Azure Policy permite aplicar un conjunto común de configuraciones de registros de diagnóstico a todos los recursos (actuales y futuros) de un tipo determinado cuyos registros quiera ingerir en Azure Sentinel.
+
+Para continuar con nuestros esfuerzos para llevar la eficacia de [Azure Policy](../governance/policy/overview.md) a la tarea de configuración de recopilación de datos, ahora ofrecemos otro recopilador de datos mejorado por Azure Policy para los recursos de la [cuenta de Azure Storage](connect-azure-storage-account.md), publicado en versión preliminar pública.
+
+Además, dos de nuestros conectores en versión preliminar, para [Azure Key Vault](connect-azure-key-vault.md) y [Azure Kubernetes Service](connect-azure-kubernetes-service.md), ahora se han publicado para disponibilidad general (GA) y se han unido al conector de [Azure SQL Database](connect-azure-sql-logs.md).
 
 ### <a name="incident-timeline-public-preview"></a>Escala de tiempo del incidente (versión preliminar pública)
 
@@ -52,8 +61,8 @@ Para más información, consulte el [Tutorial: Investigación de incidentes con 
 
 - [Configurar los libros para que se actualicen automáticamente en modo de vista](#set-workbooks-to-automatically-refresh-while-in-view-mode)
 - [Nuevas detecciones para Azure Firewall](#new-detections-for-azure-firewall)
-- [Reglas de automatización y cuadernos de estrategias desencadenados por incidentes](#automation-rules-and-incident-triggered-playbooks) (incluye documentación de los nuevos cuadernos de estrategias)
-- [Nuevos enriquecimientos de alertas: asignación de entidades mejorada y detalles personalizados](#new-alert-enrichments-enhanced-entity-mapping-and-custom-details)
+- [Reglas de automatización y cuadernos de estrategias desencadenados por incidentes (versión preliminar pública)](#automation-rules-and-incident-triggered-playbooks-public-preview), que incluye documentación de los nuevos cuadernos de estrategias.
+- [Nuevos enriquecimientos de alertas: asignación de entidades mejorada y detalles personalizados (versión preliminar pública)](#new-alert-enrichments-enhanced-entity-mapping-and-custom-details-public-preview)
 - [Imprimir los libros de Azure Sentinel o guardarlos como PDF](#print-your-azure-sentinel-workbooks-or-save-as-pdf)
 - [Los filtros de incidentes y las preferencias de ordenación ahora se guardan en la sesión (versión preliminar pública)](#incident-filters-and-sort-preferences-now-saved-in-your-session-public-preview)
 - [Integración de incidentes de Microsoft 365 Defender (versión preliminar pública)](#microsoft-365-defender-incident-integration-public-preview)
@@ -95,7 +104,7 @@ Las detecciones de Azure Firewall se agregan continuamente a la galería de plan
 
 Para obtener más información, consulte [Nuevas detecciones para Azure Firewall en Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-network-security/new-detections-for-azure-firewall-in-azure-sentinel/ba-p/2244958).
 
-### <a name="automation-rules-and-incident-triggered-playbooks"></a>Reglas de automatización y cuadernos de estrategias desencadenados por incidentes
+### <a name="automation-rules-and-incident-triggered-playbooks-public-preview"></a>Reglas de automatización y cuadernos de estrategias desencadenados por incidentes (versión preliminar pública)
 
 Las reglas de automatización son un nuevo concepto de Azure Sentinel que permite administrar de forma centralizada la automatización del control de incidentes. Además de permitirle asignar cuadernos de estrategias a incidentes (no solo a las alertas, como hasta ahora), las reglas de automatización también permiten automatizar las respuestas de varias reglas de análisis a la vez, etiquetar, asignar o cerrar incidentes automáticamente sin necesidad de cuadernos de estrategias y controlar el orden de las acciones que se ejecutan. Las reglas de automatización agilizarán el uso de la automatización en Azure Sentinel y le permitirán simplificar flujos de trabajo complejos de los procesos de orquestación de incidentes.
 
@@ -105,7 +114,7 @@ Como hemos mencionado anteriormente, los cuadernos de estrategias ahora se puede
 
 Obtenga más información sobre las [funcionalidades mejoradas de los cuadernos de estrategias](automate-responses-with-playbooks.md) y descubra cómo [diseñar un flujo de trabajo de respuesta](tutorial-respond-threats-playbook.md) al combinar los cuadernos de estrategias y las reglas de automatización.
 
-### <a name="new-alert-enrichments-enhanced-entity-mapping-and-custom-details"></a>Nuevos enriquecimientos de alertas: asignación de entidades mejorada y detalles personalizados
+### <a name="new-alert-enrichments-enhanced-entity-mapping-and-custom-details-public-preview"></a>Nuevos enriquecimientos de alertas: asignación de entidades mejorada y detalles personalizados (versión preliminar pública)
 
 Puede enriquecer las alertas de dos formas nuevas para que sean más informativas y más fáciles de usar.
 
@@ -152,7 +161,7 @@ Entre las propiedades de los recursos que se pueden controlar con directivas est
 Los conectores basados en Azure Policy ahora están disponibles para los siguientes servicios de Azure:
 - [Azure Key Vault](connect-azure-key-vault.md) (versión preliminar pública)
 - [Azure Kubernetes Service](connect-azure-kubernetes-service.md) (versión preliminar pública)
-- Servidores y bases de datos de Azure SQL (disponibilidad general)
+- [Servidores e instancias de Azure SQL Database](connect-azure-sql-logs.md) (disponibilidad general)
 
 Los clientes podrán seguir enviando manualmente los registros de instancias específicas y no tendrán que usar el motor de directivas.
 

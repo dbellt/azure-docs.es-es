@@ -7,13 +7,13 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 03/24/2021
-ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 647cf6f0b1af6a5858bbf1147cc03ecc4637ed25
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.custom: devx-track-java
+ms.openlocfilehash: 2fce1e619435a8f637619f0fa3ec3a619163c60b
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107227813"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108135156"
 ---
 # <a name="enable-end-to-end-tls-for-an-application"></a>Habilitación de TLS de un extremo a otro para una aplicación
 
@@ -23,7 +23,7 @@ En este tema se muestra cómo habilitar SSL/TLS de un extremo a otro para proteg
 
 ## <a name="prerequisites"></a>Requisitos previos 
 
-- Una instancia de Azure Spring Cloud implementada. Para comenzar, siga nuestro [inicio rápido sobre la implementación mediante la CLI de Azure](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli).
+- Una instancia de Azure Spring Cloud implementada. Para comenzar, siga nuestro [inicio rápido sobre la implementación mediante la CLI de Azure](./quickstart.md).
 - Si no está familiarizado con TLS de un extremo a otro, consulte el [ejemplo de TLS de un extremo a otro](https://github.com/Azure-Samples/spring-boot-secure-communications-using-end-to-end-tls-ssl).
 - Para cargar de forma segura los certificados necesarios en aplicaciones de Spring Boot, puede usar el [programa de inicio de Spring Boot de Key Vault](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-starter-keyvault-certificates).
 
@@ -45,6 +45,17 @@ Use el comando `az spring-cloud app custom-domain update --enable-end-to-end-tls
 az spring-cloud app custom-domain update --enable-end-to-end-tls -n app_name -s service_name -g resource_group_name
 az spring-cloud app custom-domain bind --enable-end-to-end-tls -n app_name -s service_name -g resource_group_name
 ```
+
+## <a name="enable-end-to-end-tls-using-azure-portal"></a>Habilitación de TLS de un extremo a otro mediante Azure Portal
+Para habilitar TLS de un extremo a otro en [Azure Portal](https://portal.azure.com/), primero cree una aplicación y luego habilite la característica.
+
+1. Cree una aplicación en el portal como lo haría normalmente. Navegue hasta el portal.
+2. Desplácese hacia abajo hasta el grupo **Configuración** en el panel de navegación izquierdo.
+3. Seleccione **End-to-end TLS**(TLS de un extremo a otro).
+4. Cambie **End-to-end TLS** (TLS de un extremo a otro) a *Sí*.
+
+ ![Habilitación de TLS de un extremo a otro en el portal](./media/enable-end-to-end-tls/enable-tls.png)
+
 
 ## <a name="verify-end-to-end-tls-status"></a>Comprobación del estado de TLS de un extremo a otro
 

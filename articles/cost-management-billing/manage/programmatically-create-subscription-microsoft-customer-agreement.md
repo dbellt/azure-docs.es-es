@@ -9,12 +9,12 @@ ms.date: 03/29/2021
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 324ca849e0f9c1282dc4b47ceba4654c76c07b35
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: fef8859e01b019cb174faee160bdfda135a23c4b
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107870830"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108293339"
 ---
 # <a name="programmatically-create-azure-subscriptions-for-a-microsoft-customer-agreement-with-the-latest-apis"></a>Creación de suscripciones de Azure mediante programación para el Contrato de cliente de Microsoft con las API más recientes
 
@@ -30,7 +30,7 @@ Al crear una suscripción a Azure mediante programación, dicha suscripción se 
 
 Debe tener un rol de propietario, colaborador o creador de la suscripción de Azure en una sección de factura, o un rol de propietario o colaborador en un perfil de facturación o una cuenta de facturación para crear suscripciones. También puede dar el mismo rol a un nombre de entidad de seguridad de servicio (SPN). Para más información sobre los roles y la asignación de permisos, consulte [Tareas y roles de la facturación de suscripción](understand-mca-roles.md#subscription-billing-roles-and-tasks).
 
-Si usa un nombre de entidad de seguridad de servicio para crear suscripciones, use el ObjectId del registro de aplicación de Azure AD como objectId de la entidad de servicio mediante [Azure Active Directory PowerShell](/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0) o la [CLI de Azure](/cli/azure/ad/sp?view=azure-cli-latest#az_ad_sp_list). 
+Si usa un nombre de entidad de seguridad de servicio para crear suscripciones, use el ObjectId del registro de aplicación de Azure AD como objectId de la entidad de servicio mediante [Azure Active Directory PowerShell](/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0&preserve-view=true) o la [CLI de Azure](/cli/azure/ad/sp?view=azure-cli-latest&preserve-view=true#az_ad_sp_list). 
 
 Si no sabe si tiene acceso a una cuenta de Contrato de cliente de Microsoft, consulte [Comprobación del acceso a un Contrato de cliente de Microsoft](../understand/mca-overview.md#check-access-to-a-microsoft-customer-agreement).
 

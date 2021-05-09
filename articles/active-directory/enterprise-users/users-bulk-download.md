@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57e3a059a5dd846250ba162513ef118e084c4b87
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d27c95b0b16c36ca24709ec72c741dec633c5c81
+ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97861590"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108063970"
 ---
 # <a name="download-a-list-of-users-in-azure-active-directory-portal"></a>Descarga de una lista de usuarios en el portal de Azure Active Directory
 
@@ -75,7 +75,7 @@ Puede ver el estado de las solicitudes masivas pendientes en la página **Result
 
 ## <a name="bulk-download-service-limits"></a>Límites del servicio de descarga de forma masiva
 
-La ejecución de cada actividad en bloque para crear una lista de usuarios puede durar hasta una hora. Esto permite la creación y descarga de una lista de al menos 500 000 usuarios.
+La ejecución de cada actividad en bloque para crear una lista de usuarios puede durar hasta una hora. Esto permite la creación y descarga de una lista de hasta 500 000 usuarios.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

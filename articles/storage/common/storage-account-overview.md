@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/19/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: d4874ad6688fa85f0c511632498938817bb218f7
-ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
+ms.openlocfilehash: dedb8faf74ffba7b5846512b4c52eb5a58822f7e
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107714207"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107895962"
 ---
 # <a name="storage-account-overview"></a>Introducción a las cuentas de almacenamiento
 
@@ -35,7 +35,7 @@ En la tabla siguiente se describen los tipos de cuentas de almacenamiento recome
 | Recursos compartido de archivos prémium<sup>4</sup> | Recursos compartidos de archivos únicamente | LRS<br /><br />ZRS<sup>2</sup> | Resource Manager<sup>3</sup> | Cuentas de almacenamiento solo para archivos con características de rendimiento superiores. Se recomienda para empresas y aplicaciones de escalado de alto rendimiento.<br />[Más información...](../files/storage-files-planning.md#management-concepts) |
 | Blobs en páginas prémium<sup>4</sup> | Solo blobs en páginas | LRS | Resource Manager<sup>3</sup> | Tipo de cuenta de almacenamiento prémium solo para blobs en páginas.<br />[Más información...](../blobs/storage-blob-pageblob-overview.md) |
 
-<sup>1</sup> Azure Data Lake Storage es un conjunto de funcionalidades dedicadas al análisis de macrodatos basado en Azure Blob Storage. Data Lake Storage solo se admite en las cuentas de almacenamiento de uso general v2 con un espacio de nombres jerárquico habilitado. Para obtener más información sobre Data Lake Storage Gen2, consulte [Introducción a Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md).
+<sup>1</sup> Data Lake Storage es un conjunto de funcionalidades dedicadas al análisis de macrodatos que se basa en Azure Blob Storage. Para más información, consulte [Introducción a Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md).
 
 <sup>2</sup> El almacenamiento con redundancia de zona (ZRS) y el almacenamiento con redundancia de zona geográfica (GZRS/RA-GZRS) solo están disponibles en cuentas de uso general estándar v2, de blobs en bloques prémium y de recursos compartido de archivos prémium en determinadas regiones. Para más información sobre las opciones de redundancia de Azure Storage, consulte [Redundancia de Azure Storage](storage-redundancy.md).
 

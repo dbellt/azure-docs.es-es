@@ -8,12 +8,12 @@ ms.reviwer: mimckitt
 ms.topic: how-to
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 4ff7d9aa2075b675a7ecd979c08d5621bbdd831a
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 4898c0ec17766d0bcbd89176194aec9dee7157ea
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106286790"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108293051"
 ---
 # <a name="technical-details-of-migrating-to-azure-cloud-services-extended-support"></a>Detalles técnicos de la migración a Azure Cloud Services (soporte extendido)   
 
@@ -36,7 +36,7 @@ En este artículo se describen los detalles técnicos relacionados con la herram
 ### <a name="service-configuration-and-service-definition-files"></a>Archivos de configuración del servicio y de definición de servicio
 - Los archivos .cscfg y .csdef deben actualizarse para Cloud Services (soporte extendido) con cambios menores. 
 - Los nombres de recursos, como las SKU de redes virtuales y de VM, son diferentes. Consulte [Traducción de recursos y convención de nomenclatura después de la migración](#translation-of-resources-and-naming-convention-post-migration).
-- Los clientes pueden recuperar sus nuevas implementaciones a través de [PowerShell](https://docs.microsoft.com/powershell/module/az.cloudservice/?view=azps-5.4.0#cloudservice&preserve-view=true) y la [API REST](https://docs.microsoft.com/rest/api/compute/cloudservices/get). 
+- Los clientes pueden recuperar sus nuevas implementaciones a través de [PowerShell](/powershell/module/az.cloudservice/?preserve-view=true&view=azps-5.4.0#cloudservice) y la [API REST](/rest/api/compute/cloudservices/get). 
 
 ### <a name="cloud-service-and-deployments"></a>Cloud Services e implementaciones
 - Cada implementación de Cloud Services (soporte extendido) es un Cloud Service independiente. Las implementaciones ya no se agrupan en un servicio en la nube mediante espacios.
@@ -100,4 +100,4 @@ Como parte de la migración, se cambian los nombres de los recursos, y pocas car
 - Los clientes pueden usar PowerShell o la API REST para anular o confirmar. 
 
 ### <a name="how-much-time-can-the-operations-takebr"></a>¿Cuánto tiempo pueden tardar las operaciones?<br>
-La validación está diseñada para ser rápida. La preparación es la operación de más larga duración y tarda algún tiempo en función del número total de instancias de rol que se van a migrar. La anulación y confirmación también pueden llevar tiempo, pero tardarán menos tiempo en comparación con la preparación. Se agotará el tiempo de espera de todas las operaciones después de 24 horas. 
+La validación está diseñada para ser rápida. La preparación es la operación de más larga duración y tarda algún tiempo en función del número total de instancias de rol que se van a migrar. La anulación y confirmación también pueden llevar tiempo, pero tardarán menos tiempo en comparación con la preparación. Se agotará el tiempo de espera de todas las operaciones después de 24 horas.

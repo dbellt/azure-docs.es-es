@@ -1,19 +1,19 @@
 ---
-ms.openlocfilehash: cc628b1f1fcae5e837f7f61db584c8747100f353
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 340635f273c20c9d8b42fde0c07a7aa97d9f348a
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105644743"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108293258"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/dotnet/).
-- Instale el [módulo Azure Az PowerShell](https://docs.microsoft.com/powershell/azure/).
+- Instale el [módulo Azure Az PowerShell](/powershell/azure/).
 
 ## <a name="create-azure-communication-resource"></a>Creación de un recurso de Azure Communication Services
 
-Para crear un recurso de Azure Communication Services, inicie sesión en [inicie sesión en la CLI de Azure](/cli/azure/authenticate-azure-cli). Esto puede hacerlo mediante el terminal con el comando ```Connect-AzAccount``` y proporcionando sus credenciales. Ejecute el siguiente comando para crear el recurso:
+Para crear un recurso de Azure Communication Services, [inicie sesión en la CLI de Azure](/cli/azure/authenticate-azure-cli). Esto puede hacerlo mediante el terminal con el comando ```Connect-AzAccount``` y proporcionando sus credenciales. Ejecute el siguiente comando para crear el recurso:
 
 ```PowerShell
 PS C:\> New-AzCommunicationService -ResourceGroupName ContosoResourceProvider1 -Name ContosoAcsResource1 -DataLocation UnitedStates -Location Global
@@ -34,7 +34,7 @@ En el paso siguiente, puede asignar etiquetas al recurso. Las etiquetas se puede
 
 ## <a name="manage-your-communication-services-resource"></a>Administración del recurso de Communication Services
 
-Para agregar etiquetas al recurso de Communication Services, ejecute los siguientes comandos. También puede usar una suscripción específica como destino.
+Para agregar etiquetas al recurso de Communication Services, ejecute los siguientes comandos: También puede usar una suscripción específica como destino.
 
 ```PowerShell
 PS C:\> Update-AzCommunicationService -Name ContosoAcsResource1 -ResourceGroupName ContosoResourceProvider1 -Tag @{ExampleKey1="ExampleValue1"}
