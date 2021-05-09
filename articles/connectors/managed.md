@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
 ms.date: 04/20/2021
-ms.openlocfilehash: d50cf1009fb674f2d3d5914715dcbd9699565489
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 857c0e41f52c99d83142b3db7471b51b55316b5e
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107796331"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108316180"
 ---
 # <a name="managed-connectors-for-logic-apps"></a>Conectores administrados para Logic Apps
 
@@ -514,7 +514,7 @@ Para más información, consulte los temas siguientes:
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Creación de API personalizadas que se pueden llamar desde Logic Apps](/logic-apps/logic-apps-create-api-app)
+> [Creación de API personalizadas que se pueden llamar desde Logic Apps](../logic-apps/logic-apps-create-api-app.md)
 
 <!--Managed connector icons-->
 [appfigures-icon]: ./media/apis-list/appfigures.png

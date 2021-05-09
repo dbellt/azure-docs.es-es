@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 5a65480cbfa279614250ddeaf7d565b112333a05
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: c067dba3a8af87e354019154fad8304fe9edfbbc
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108285563"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107829663"
 ---
 # <a name="configure-azure-ad-multi-factor-authentication-settings"></a>Configuración de Azure AD Multi-Factor Authentication
 
@@ -154,7 +154,7 @@ En Estados Unidos, si no ha configurado el identificador del autor de la llamada
 * *+1 (877) 668 6536*
 
 > [!NOTE]
-> A veces, cuando las llamadas de Azure AD Multi-Factor Authentication se realizan mediante la red telefónica pública, se enrutan a través de un operador que no admite el id. del autor de la llamada. Por este motivo, el id. del autor de la llamada no se garantiza, aunque Azure AD Multi-Factor Authentication lo envíe siempre. Esto se aplica a las llamadas de teléfono y a los mensajes de texto proporcionados por Azure AD Multi-Factor Authentication. Si tiene que validar que un mensaje de texto procede de Azure AD Multi-Factor Authentication, vea [¿Qué códigos cortos de SMS se usan para enviar mensajes?](multi-factor-authentication-faq.yml#what-sms-short-codes-are-used-for-sending-sms-messages-to-my-users-)
+> A veces, cuando las llamadas de Azure AD Multi-Factor Authentication se realizan mediante la red telefónica pública, se enrutan a través de un operador que no admite el id. del autor de la llamada. Por este motivo, el id. del autor de la llamada no se garantiza, aunque Azure AD Multi-Factor Authentication lo envíe siempre. Esto se aplica a las llamadas de teléfono y a los mensajes de texto proporcionados por Azure AD Multi-Factor Authentication. Si tiene que validar que un mensaje de texto procede de Azure AD Multi-Factor Authentication, vea [¿Qué códigos cortos de SMS se usan para enviar mensajes?](multi-factor-authentication-faq.md#what-sms-short-codes-are-used-for-sending-sms-messages-to-my-users)
 
 Para configurar su propio número de identificador del autor de la llamada, complete los pasos siguientes:
 

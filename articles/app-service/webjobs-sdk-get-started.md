@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 4a22602dd9638b981cfe3d8bae9b5cdaacbf90dc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7df6eabbecca9538de3c45bf1c9fc7ca6e4334bd
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91652047"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108205384"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Introducción al SDK de Azure WebJobs para el procesamiento en segundo plano basado en eventos
 
@@ -311,7 +311,7 @@ En esta sección, realiza las tareas siguientes para configurar el registro de A
 
 ### <a name="create-app-service-app-and-application-insights-instance"></a>Creación de la aplicación de App Service y la instancia de Application Insights
 
-1. Si aún no tiene una aplicación de App Service que pueda usar, [cree una](quickstart-dotnet-framework.md). Cuando se crea la aplicación, también puede crear un recurso de Application Insights conectado. Al hacerlo, `APPINSIGHTS_INSTRUMENTATIONKEY` se establece automáticamente en la aplicación.
+1. Si aún no tiene una aplicación de App Service que pueda usar, [cree una](./quickstart-dotnetcore.md?tabs=netframework48). Cuando se crea la aplicación, también puede crear un recurso de Application Insights conectado. Al hacerlo, `APPINSIGHTS_INSTRUMENTATIONKEY` se establece automáticamente en la aplicación.
 
 1. Si aún no tiene un recurso de Application Insights que pueda utilizar, [cree uno](../azure-monitor/app/create-new-resource.md ). Establezca **Tipo de aplicación** en **General** y omita las secciones que siguen a **Copy the instrumentation key** (Copiar la clave de instrumentación).
 
@@ -514,7 +514,7 @@ Los enlaces de entrada simplifican el código que lee los datos. En este ejemplo
    Executed 'Functions.ProcessQueueMessage' (Succeeded, Id=5a2ac479-de13-4f41-aae9-1361f291ff88)
    ```
 
-## <a name="add-an-output-binding"></a>Adición de un enlace de salida
+## <a name="add-an-output-binding&quot;></a>Adición de un enlace de salida
 
 Los enlaces de salida simplifican el código que escribe los datos. Este ejemplo modifica el ejemplo anterior al escribir una copia del blob en lugar de registrar su tamaño. Los enlaces de Blob Storage se incluyen en el paquete de extensiones de Azure Storage que se instaló anteriormente.
 
@@ -522,7 +522,7 @@ Los enlaces de salida simplifican el código que escribe los datos. Este ejemplo
 
    ```cs
    public static void ProcessQueueMessage(
-       [QueueTrigger("queue")] string message,
+       [QueueTrigger(&quot;queue")] string message,
        [Blob("container/{queueTrigger}", FileAccess.Read)] Stream myBlob,
        [Blob("container/copy-{queueTrigger}", FileAccess.Write)] Stream outputBlob,
        ILogger logger)

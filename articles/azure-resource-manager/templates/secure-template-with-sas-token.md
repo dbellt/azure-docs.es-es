@@ -3,12 +3,13 @@ title: Implementación de forma segura de una plantilla con el token de SAS
 description: Implemente recursos en Azure con una plantilla de Azure Resource Manager que está protegida con el token de SAS. Se muestra Azure PowerShell y la CLI de Azure.
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 8b35e82da8ebca98ec9fe1fb7441612bf61fb142
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 69462759eca08b409b1333b856fb9cd7c48a8914
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88855655"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108316108"
 ---
 # <a name="deploy-private-arm-template-with-sas-token"></a>Implementación de una plantilla de Resource Manager privada con el token de SAS
 

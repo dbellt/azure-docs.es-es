@@ -3,12 +3,13 @@ title: Conversión de plantillas entre JSON y Bicep
 description: Describe los comandos que se pueden usar para convertir plantillas de Azure Resource Manager de Bicep a JSON, y viceversa.
 ms.topic: conceptual
 ms.date: 03/12/2021
-ms.openlocfilehash: 6d242f5846996cd0f5b9510a1a2b9f2bf063a0c7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 81cad004ef106bc3d9e5732dac9fbb7b4f0a60e1
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103422125"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108316504"
 ---
 # <a name="converting-arm-templates-between-json-and-bicep"></a>Conversión de plantillas de Resource Manager entre JSON y Bicep
 

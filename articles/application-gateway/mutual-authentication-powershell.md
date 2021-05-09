@@ -7,12 +7,13 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 04/02/2021
 ms.author: caya
-ms.openlocfilehash: 95534760c09ca9e1f7f09d6079886216127c7eb0
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: fdebc0cf22b317fa33b5d65383ef3bcc9b57e905
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106230937"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108315982"
 ---
 # <a name="configure-mutual-authentication-with-application-gateway-through-powershell-preview"></a>Configuración de la autenticación mutua con Application Gateway mediante PowerShell (versión preliminar)
 En este artículo se describe cómo usar PowerShell para configurar la autenticación mutua en Application Gateway. La autenticación mutua significa que Application Gateway autentica al cliente que envía la solicitud mediante el certificado de cliente que se carga en Application Gateway. 

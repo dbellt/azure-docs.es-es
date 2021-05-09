@@ -3,13 +3,13 @@ title: Supervisar el rendimiento de Azure App Services | Microsoft Docs
 description: Supervisión del rendimiento de aplicaciones de Azure App Services. Carga y tiempo de respuesta de gráfico, información de dependencia y establecer alertas en el rendimiento.
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: 9471e4b18fba17fe564536ee8d6bd450a0c383ef
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.custom: devx-track-js, devx-track-dotnet, devx-track-azurepowershell
+ms.openlocfilehash: e8c794e056dca42a06bdf6b7deb274e7f5f5bfd4
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108142700"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108315928"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Supervisar el rendimiento de Azure App Service
 

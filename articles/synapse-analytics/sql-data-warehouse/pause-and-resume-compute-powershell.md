@@ -15,12 +15,12 @@ ms.custom:
 - azure-synapse
 - devx-track-azurepowershell
 - mode-api
-ms.openlocfilehash: be82b6dcc17c2850b9a35085316cd0905a5b6b75
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: 3b7fdd7e496e6736772b220e59d627e96ffd4a10
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107566807"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108163704"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-dedicated-sql-pool-formerly-sql-dw-with-azure-powershell"></a>Inicio rápido: Pausa y reanudación del proceso en un grupo de SQL dedicado (anteriormente SQL DW) con Azure PowerShell
 
@@ -72,19 +72,19 @@ Siga estos pasos para encontrar información de ubicación de un grupo de SQL de
 
 Para ahorrar costos, puede pausar y reanudar recursos de proceso a petición. Por ejemplo, si no va a usar la base de datos durante la noche y los fines de semana, puede pausarla durante esas horas y reanudarla durante el día.
 
->[!NOTE]
->No se le cobrará por recursos de proceso mientras la base de datos se encuentre en pausa. Sin embargo, se le seguirá cobrando por el almacenamiento.
+> [!NOTE]
+> No se le cobrará por recursos de proceso mientras la base de datos se encuentre en pausa. Sin embargo, se le seguirá cobrando por el almacenamiento.
 
 Para pausar una base de datos, use el cmdlet [Suspend-AzSqlDatabase](/powershell/module/az.sql/suspend-azsqldatabase?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). En el ejemplo siguiente, se pausa un grupo de SQL denominado **mySampleDataWarehouse** hospedado en un servidor denominado **sqlpoolservername**. El servidor está en un grupo de recursos de Azure denominado **myResourceGroup**.
 
-```Powershell
+```powershell
 Suspend-AzSqlDatabase –ResourceGroupName "myResourceGroup" `
 –ServerName "sqlpoolservername" –DatabaseName "mySampleDataWarehouse"
 ```
 
 En el ejemplo siguiente se recupera la base de datos en el objeto $database. A continuación, canaliza el objeto a [Suspend-AzSqlDatabase](/powershell/module/az.sql/suspend-azsqldatabase?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Los resultados se almacenan en el objeto resultDatabase. El comando final muestra los resultados.
 
-```Powershell
+```powershell
 $database = Get-AzSqlDatabase –ResourceGroupName "myResourceGroup" `
 –ServerName "sqlpoolservername" –DatabaseName "mySampleDataWarehouse"
 $resultDatabase = $database | Suspend-AzSqlDatabase
@@ -95,14 +95,14 @@ $resultDatabase
 
 Para iniciar una base de datos, use el cmdlet [Resume-AzSqlDatabase](/powershell/module/az.sql/resume-azsqldatabase?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). En el ejemplo siguiente se inicia una base de datos denominada **mySampleDataWarehouse** que está hospedada en un servidor denominado **sqlpoolservername**. El servidor está en un grupo de recursos de Azure denominado **myResourceGroup**.
 
-```Powershell
+```powershell
 Resume-AzSqlDatabase –ResourceGroupName "myResourceGroup" `
 –ServerName "sqlpoolservername" -DatabaseName "mySampleDataWarehouse"
 ```
 
 En el ejemplo siguiente se recupera la base de datos en el objeto $database. A continuación, canaliza el objeto a [Resume-AzSqlDatabase](/powershell/module/az.sql/resume-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) y almacena los resultados en $resultDatabase. El comando final muestra los resultados.
 
-```Powershell
+```powershell
 $database = Get-AzSqlDatabase –ResourceGroupName "myResourceGroup" `
 –ServerName "sqlpoolservername" –DatabaseName "mySampleDataWarehouse"
 $resultDatabase = $database | Resume-AzSqlDatabase
@@ -113,7 +113,7 @@ $resultDatabase
 
 Para comprobar el estado del grupo de SQL dedicado (anteriormente SQL DW), utilice el cmdlet [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/Get-AzSqlDatabaseActivity?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
-```Powershell
+```powershell
 Get-AzSqlDatabaseActivity -ResourceGroupName "myResourceGroup" -ServerName "sqlpoolservername" -DatabaseName "mySampleDataWarehouse"
 ```
 
