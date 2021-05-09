@@ -8,15 +8,14 @@ ms.author: osomorog
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to
+ms.topic: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: 953b987e908736df703c354067ee27fc27d56073
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 0a95d95842d0b361a1a276566b01b7ea735c4670
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106220715"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107952087"
 ---
 # <a name="run-jupyter-notebooks-in-your-workspace"></a>Ejecución de cuadernos de Jupyter Notebook en el área de trabajo
 
@@ -27,7 +26,7 @@ Para obtener información sobre cómo crear y administrar archivos, incluidos lo
 > [!IMPORTANT]
 > Las características marcadas como (versión preliminar) se ofrecen sin Acuerdo de nivel de servicio y no se recomiendan para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://aka.ms/AMLFree) antes de empezar.
 * Un área de trabajo de Machine Learning. Consulte [Creación de un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
@@ -288,8 +287,10 @@ Con los siguientes métodos abreviados de teclado, puede navegar y ejecutar cód
 ## <a name="troubleshooting"></a>Solucionar problemas
 
 * Si no puede conectarse a un cuaderno, asegúrese de que la comunicación de socket web **no** está deshabilitada. Para que la funcionalidad de Jupyter de instancia de proceso haga su trabajo, debe habilitarse la comunicación de socket web. Asegúrese de que la red permite conexiones de websocket a *.instances.azureml.net y *.instances.azureml.ms. 
+
 * Cuando la instancia de proceso se implementa en un área de trabajo de Private Link, solo se puede [acceder a ella desde la red virtual](./how-to-secure-training-vnet.md#compute-instance). Si usa un archivo de hosts o DNS personalizado, agregue una entrada para <nombre-de-instancia>.<región>.instances.azureml.ms con la dirección IP privada del punto de conexión privado del área de trabajo. Para obtener más información, consulte el artículo [DNS personalizado](./how-to-custom-dns.md?tabs=azure-cli).
 
+* Si el kernel se bloquea y se reinicia, puede ejecutar el siguiente comando para ver el registro de Jupyter y obtener más detalles. `sudo journalctl -u jupyter`. Si los problemas del kernel persisten, considere la posibilidad de usar una instancia de proceso con más memoria.
     
 ## <a name="next-steps"></a>Pasos siguientes
 
