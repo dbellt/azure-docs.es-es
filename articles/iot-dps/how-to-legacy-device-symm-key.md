@@ -3,17 +3,17 @@ title: Aprovisionamiento de dispositivos con claves simétricas en Azure IoT Hub
 description: Uso de claves simétricas para aprovisionar dispositivos con su instancia de Device Provisioning Service (DPS)
 author: wesmc7777
 ms.author: wesmc
-ms.date: 01/28/2021
+ms.date: 04/23/2021
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: lizross
-ms.openlocfilehash: 5d193d30428d24ccf65c3f70885192acad2fdc9f
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: 754db21fa8e14045696f1af2bcfe375fb1161d94
+ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107228338"
+ms.lasthandoff: 04/23/2021
+ms.locfileid: "107930576"
 ---
 # <a name="how-to-provision-devices-using-symmetric-key-enrollment-groups"></a>Aprovisionamiento de dispositivos mediante grupos de inscripción de clave simétrica
 
@@ -150,7 +150,23 @@ Para generar claves de dispositivo, use la clave maestra del grupo de inscripci�
 > [!WARNING]
 > El código de dispositivo de cada dispositivo solo debe incluir la clave de dispositivo derivada correspondiente de ese dispositivo. No incluya la clave maestra del grupo en el código del dispositivo. Una clave maestra vulnerada puede poner en peligro la seguridad de todos los dispositivos que se autentican con ella.
 
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
+La extensión de IoT para la CLI de Azure proporciona el comando [`compute-device-key`](/cli/azure/iot/dps?view=azure-cli-latest&preserve-view=true#az_iot_dps_compute_device_key) para generar claves de dispositivo derivadas. Este comando se puede usar en sistemas Windows o Linux, en PowerShell o en un shell de Bash.
+
+Reemplace el valor del argumento `--key` por la **clave principal** de su grupo de inscripción.
+
+Reemplace el valor del argumento `--registration-id` por su identificador del registro.
+
+```azurecli
+az iot dps compute-device-key --key 8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw== --registration-id sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
+```
+
+Resultado de ejemplo:
+
+```azurecli
+"Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc="
+```
 # <a name="windows"></a>[Windows](#tab/windows)
 
 Si utiliza una estación de trabajo basada en Windows, puede usar PowerShell para generar las claves de dispositivo derivadas tal y como se muestra en el ejemplo siguiente.

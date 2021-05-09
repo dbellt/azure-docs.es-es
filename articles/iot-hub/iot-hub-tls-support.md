@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 03/31/2021
 ms.author: jlian
-ms.openlocfilehash: 6a02b97957cc0599e2960cba551b536e83d1a902
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 3fed568d1e5b85fcfaf5c88eb736e876e9748088
+ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106222562"
+ms.lasthandoff: 04/23/2021
+ms.locfileid: "107930720"
 ---
 # <a name="transport-layer-security-tls-support-in-iot-hub"></a>Compatibilidad de la Seguridad de la capa de transporte (TLS) con IoT Hub
 
@@ -30,7 +30,7 @@ Durante la renovación de los certificados del lado servidor de IoT Hub, se real
 
 ### <a name="elliptic-curve-cryptography-ecc-server-tls-certificate-preview"></a>Certificado TLS del servidor de criptografía de curva elíptica (ECC) (versión preliminar)
 
-El certificado TLS del servidor de ECC de IoT Hub está disponible para la versión preliminar pública. Aunque ofrece una seguridad similar a los certificados RSA, la validación de certificados ECC (con conjuntos de cifrado solo mediante ECC) usa hasta un 40 % menos de proceso, memoria y ancho de banda. Estos ahorros son importantes para los dispositivos IoT debido a sus perfiles y memoria más pequeños, así como para admitir casos de uso en entornos con un ancho de banda de red limitado. 
+El certificado TLS del servidor de ECC de IoT Hub está disponible para la versión preliminar pública. Aunque ofrece una seguridad similar a los certificados RSA, la validación de certificados ECC (con conjuntos de cifrado solo mediante ECC) usa hasta un 40 % menos de proceso, memoria y ancho de banda. Estos ahorros son importantes para los dispositivos IoT debido a sus perfiles y memoria más pequeños, así como para admitir casos de uso en entornos con un ancho de banda de red limitado. La raíz del certificado de servidor ECC es DigiCert Global Root G3.
 
 Para obtener una vista previa del certificado de servidor de ECC de IoT Hub:
 

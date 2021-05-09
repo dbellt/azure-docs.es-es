@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: jpalma
 ms.date: 01/12/2021
 author: palma21
-ms.openlocfilehash: 39c0877b96a3e8c6c716c1ab9ae7ba11575990a0
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 4c14d77ba87ab4bd3f4465d915b911a1d44aefab
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107765600"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108166459"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Control del tráfico de salida de los nodos de clúster en Azure Kubernetes Service (AKS)
 
@@ -23,7 +23,7 @@ Los clústeres de AKS se implementan en una red virtual. Esta red puede ser admi
 
 Para fines operativos y de administración, los nodos de un clúster de AKS deben tener acceso a determinados puertos y nombres de dominio completo (FQDN). Estos puntos de conexión son obligatorios para que los nodos se comuniquen con el servidor de API, o bien para descargar e instalar actualizaciones de seguridad de nodos y componentes principales de clúster de Kubernetes. Por ejemplo, el clúster debe extraer imágenes de contenedor del sistema base desde el Registro de contenedor de Microsoft (MCR).
 
-Las dependencias de salida de AKS se definen casi por completo mediante FQDN, que no tienen direcciones estáticas tras ellos. La falta de direcciones estáticas significa que no se pueden usar grupos de seguridad de red para bloquear el tráfico saliente desde un clúster de AKS. 
+Las dependencias de salida de AKS se definen casi por completo mediante FQDN, que no tienen direcciones estáticas tras ellos. La falta de direcciones estáticas significa que no se pueden usar grupos de seguridad de red para bloquear el tráfico saliente desde un clúster de AKS.
 
 De forma predeterminada, los clústeres de AKS tienen acceso de salida a Internet ilimitado. Este nivel de acceso a la red permite que los nodos y servicios que ejecuta accedan a recursos externos según sea necesario. Si desea restringir el tráfico de salida, es necesario el acceso a un número limitado de puertos y direcciones para mantener las tareas de mantenimiento del clúster en buen estado. La solución más sencilla para proteger las direcciones de salida consiste en usar un dispositivo de firewall que pueda controlar el tráfico saliente en función de los nombres de dominio. Azure Firewall, por ejemplo, puede restringir el tráfico saliente HTTP y HTTPS en función del FQDN de destino. También puede configurar las reglas de seguridad y de firewall que prefiera para permitir estos puertos y direcciones necesarios.
 
@@ -37,10 +37,9 @@ Las siguientes reglas de red y FQDN o aplicación son obligatorias para un clús
 * Las dependencias de dirección IP son para tráfico que no sea HTTP/HTTPS (tráfico TCP y UDP).
 * Los puntos de conexión HTTP/HTTPS de FQDN se pueden colocar en el dispositivo de firewall.
 * Los puntos de conexión HTTP/HTTPS de carácter comodín son dependencias que pueden variar con el clúster de AKS en función de una serie de calificadores.
-* AKS usa un controlador de admisión para insertar el FQDN como una variable de entorno en todas las implementaciones en kube-system y gatekeeper-system, lo que garantiza que toda la comunicación del sistema entre los nodos y el servidor de API usa el FQDN del servidor de API y no su dirección IP. 
+* AKS usa un controlador de admisión para insertar el FQDN como una variable de entorno en todas las implementaciones en kube-system y gatekeeper-system, lo que garantiza que toda la comunicación del sistema entre los nodos y el servidor de API usa el FQDN del servidor de API y no su dirección IP.
 * Si tiene una aplicación o solución que necesita comunicarse con el servidor de API, debe agregar una regla de red **adicional** para permitir la *comunicación TCP con el puerto 443 de la dirección IP del servidor de API*.
 * En raras ocasiones, si hay una operación de mantenimiento, es posible que cambie la dirección IP del servidor de API. Las operaciones de mantenimiento planeado que pueden cambiar la dirección IP del servidor de API siempre se comunican con antelación.
-
 
 ### <a name="azure-global-required-network-rules"></a>Reglas de red obligatorias globales de Azure
 
@@ -54,7 +53,7 @@ Las reglas de red obligatorias y las dependencias de dirección IP son las sigui
 | **`CustomDNSIP:53`** `(if using custom DNS servers)`                             | UDP      | 53      | Si usa servidores DNS personalizados, debe asegurarse de que sean accesibles para los nodos de clúster. |
 | **`APIServerPublicIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | Obligatorio si se ejecutan pods o implementaciones que acceden al servidor de API, en cuyo caso usarían la dirección IP de la API. Esto no es necesario para los [clústeres privados](private-clusters.md).  |
 
-### <a name="azure-global-required-fqdn--application-rules"></a>Reglas de aplicación o FQDN obligatorias globales de Azure 
+### <a name="azure-global-required-fqdn--application-rules"></a>Reglas de aplicación o FQDN obligatorias globales de Azure
 
 Se requieren las siguientes reglas de aplicación / FQDN:
 
@@ -108,7 +107,7 @@ Las reglas de red obligatorias y las dependencias de dirección IP son las sigui
 | **`CustomDNSIP:53`** `(if using custom DNS servers)`                             | UDP      | 53      | Si usa servidores DNS personalizados, debe asegurarse de que sean accesibles para los nodos de clúster. |
 | **`APIServerPublicIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | Obligatorio si se ejecutan pods o implementaciones que acceden al servidor de API, en cuyo caso usarían la dirección IP de la API.  |
 
-### <a name="azure-us-government-required-fqdn--application-rules"></a>Reglas de aplicación o FQDN obligatorias para Azure Gobierno de EE. UU. 
+### <a name="azure-us-government-required-fqdn--application-rules"></a>Reglas de aplicación o FQDN obligatorias para Azure Gobierno de EE. UU.
 
 Se requieren las siguientes reglas de aplicación / FQDN:
 
@@ -144,7 +143,7 @@ Los clústeres de AKS que tienen GPU habilitado necesitan las reglas de aplicaci
 | **`us.download.nvidia.com`**            | **`HTTPS:443`** | Esta dirección se utiliza para la instalación y el funcionamiento correctos del controlador en nodos basados en GPU. |
 | **`apt.dockerproject.org`**             | **`HTTPS:443`** | Esta dirección se utiliza para la instalación y el funcionamiento correctos del controlador en nodos basados en GPU. |
 
-## <a name="windows-server-based-node-pools"></a>Grupos de nodos basados en Windows Server 
+## <a name="windows-server-based-node-pools"></a>Grupos de nodos basados en Windows Server
 
 ### <a name="required-fqdn--application-rules"></a>Reglas de aplicación o FQDN obligatorias
 
@@ -190,7 +189,7 @@ Actualice el firewall o la configuración de seguridad para permitir el tráfico
 |----------------------------------------------------------------------------------|----------|---------|------|
 | [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) -  **`AzureDevSpaces`**  | TCP           | 443      | Este punto de conexión se usa para enviar datos de métricas y registros a Azure Monitor y Log Analytics. |
 
-#### <a name="required-fqdn--application-rules"></a>Reglas de aplicación o FQDN obligatorias 
+#### <a name="required-fqdn--application-rules"></a>Reglas de aplicación o FQDN obligatorias
 
 Los clústeres de AKS que tienen habilitado Azure Dev Spaces necesitan las reglas de aplicación/FQDN siguientes:
 
@@ -200,10 +199,9 @@ Los clústeres de AKS que tienen habilitado Azure Dev Spaces necesitan las regla
 | `gcr.io` | **`HTTPS:443`** | Esta dirección se usa para extraer imágenes de Helm/Tiller |
 | `storage.googleapis.com` | **`HTTPS:443`** | Esta dirección se usa para extraer imágenes de Helm/Tiller |
 
-
 ### <a name="azure-policy"></a>Azure Policy
 
-#### <a name="required-fqdn--application-rules"></a>Reglas de aplicación o FQDN obligatorias 
+#### <a name="required-fqdn--application-rules"></a>Reglas de aplicación o FQDN obligatorias
 
 Los clústeres de AKS que tienen habilitado Azure Policy necesitan las reglas de aplicación / FQDN siguientes.
 
@@ -215,7 +213,7 @@ Los clústeres de AKS que tienen habilitado Azure Policy necesitan las reglas de
 | **`raw.githubusercontent.com`**               | **`HTTPS:443`** | Esta dirección se usa para extraer las directivas integradas de GitHub para garantizar el funcionamiento correcto de Azure Policy. |
 | **`dc.services.visualstudio.com`**            | **`HTTPS:443`** | Complemento de Azure Policy que envía datos de telemetría al punto de conexión de Application Insights. |
 
-#### <a name="azure-china-21vianet-required-fqdn--application-rules"></a>Reglas de aplicación o FQDN obligatorios para Azure China 21Vianet 
+#### <a name="azure-china-21vianet-required-fqdn--application-rules"></a>Reglas de aplicación o FQDN obligatorios para Azure China 21Vianet
 
 Los clústeres de AKS que tienen habilitado Azure Policy necesitan las reglas de aplicación / FQDN siguientes.
 
@@ -235,7 +233,7 @@ Los clústeres de AKS que tienen habilitado Azure Policy necesitan las reglas de
 
 ## <a name="restrict-egress-traffic-using-azure-firewall"></a>Restricción del tráfico de salida mediante el firewall de Azure
 
-Azure Firewall proporciona una etiqueta FQDN de Azure Kubernetes Service (`AzureKubernetesService`) para simplificar esta configuración. 
+Azure Firewall proporciona una etiqueta FQDN de Azure Kubernetes Service (`AzureKubernetesService`) para simplificar esta configuración.
 
 > [!NOTE]
 > La etiqueta FQDN contiene todos los FQDN enumerados anteriormente y se mantiene actualizada de forma automática.
@@ -258,9 +256,7 @@ A continuación se muestra un ejemplo de arquitectura de la implementación:
 * Tráfico interno
   * Opcionalmente, en lugar o además de un [equilibrador de carga público](load-balancer-standard.md), puede usar un [equilibrador de carga interno](internal-lb.md) para el tráfico interno, que también se podría aislar en una subred propia.
 
-
 En los pasos siguientes se usa la etiqueta de FQDN `AzureKubernetesService` de Azure Firewall para restringir el tráfico de salida desde el clúster de AKS y se proporciona un ejemplo de cómo configurar el tráfico de entrada público a través del firewall.
-
 
 ### <a name="set-configuration-via-environment-variables"></a>Configuración mediante variables de entorno
 
@@ -326,7 +322,6 @@ Deben configurarse las reglas de entrada y salida del firewall de Azure. El prop
 
 ![Firewall y UDR](media/limit-egress-traffic/firewall-udr.png)
 
-
 > [!IMPORTANT]
 > Si el clúster o la aplicación crea un gran número de conexiones de salida dirigidas al mismo subconjunto de destinos (o a uno más reducido), es posible que necesite más direcciones IP de front-end de firewall para evitar que se agoten los puertos por IP de front-end.
 > Para obtener más información sobre cómo crear un firewall de Azure con varias direcciones IP, vea [**esto**](../firewall/quick-create-multiple-ip-template.md).
@@ -338,6 +333,7 @@ az network public-ip create -g $RG -n $FWPUBLICIP_NAME -l $LOC --sku "Standard"
 ```
 
 Registre la extensión de la CLI en versión preliminar para crear un firewall de Azure.
+
 ```azurecli
 # Install Azure Firewall preview CLI extension
 
@@ -347,6 +343,7 @@ az extension add --name azure-firewall
 
 az network firewall create -g $RG -n $FWNAME -l $LOC --enable-dns-proxy true
 ```
+
 La dirección IP creada anteriormente puede asignarse ahora al front-end del firewall.
 
 > [!NOTE]
@@ -448,7 +445,7 @@ az role assignment create --assignee $APPID --scope $VNETID --role "Network Cont
 [Aquí](kubernetes-service-principal.md#delegate-access-to-other-azure-resources) puede comprobar los permisos detallados necesarios.
 
 > [!NOTE]
-> Si usa el complemento de red kubenet, tendrá que conceder a la entidad de servicio de AKS o a la identidad administrada permisos en la tabla de rutas creada previamente, ya que kubenet requiere una tabla de rutas para agregar las reglas de enrutamiento necesarias. 
+> Si usa el complemento de red kubenet, tendrá que conceder a la entidad de servicio de AKS o a la identidad administrada permisos en la tabla de rutas creada previamente, ya que kubenet requiere una tabla de rutas para agregar las reglas de enrutamiento necesarias.
 > ```azurecli-interactive
 > RTID=$(az network route-table show -g $RG -n $FWROUTE_TABLE_NAME --query id -o tsv)
 > az role assignment create --assignee $APPID --scope $RTID --role "Network Contributor"
@@ -466,7 +463,6 @@ Definirá el tipo de salida para usar el UDR que ya existe en la subred. Esta co
 
 > [!IMPORTANT]
 > Para obtener más información sobre el tipo de salida UDR, incluidas las limitaciones, vea [**UDR de tipo de salida**](egress-outboundtype.md#limitations).
-
 
 > [!TIP]
 > Se pueden agregar otras características a la implementación del clúster, como [**Clúster privado**](private-clusters.md). 
@@ -499,16 +495,16 @@ CURRENT_IP=$(dig @resolver1.opendns.com ANY myip.opendns.com +short)
 
 # Add to AKS approved list
 az aks update -g $RG -n $AKSNAME --api-server-authorized-ip-ranges $CURRENT_IP/32
-
 ```
 
- Use el comando [az aks get-credentials][az-aks-get-credentials] para configurar `kubectl` a fin de conectarse al clúster de Kubernetes recién creado. 
+Use el comando [az aks get-credentials][az-aks-get-credentials] para configurar `kubectl` a fin de conectarse al clúster de Kubernetes recién creado.
 
- ```azurecli
- az aks get-credentials -g $RG -n $AKSNAME
- ```
+```azurecli
+az aks get-credentials -g $RG -n $AKSNAME
+```
 
 ### <a name="deploy-a-public-service"></a>Implementación de un servicio público
+
 Ahora puede empezar a exponer servicios e implementar aplicaciones en este clúster. En este ejemplo, se expondrá un servicio público, pero también puede optar por exponer un servicio interno a través de un [equilibrador de carga interno](internal-lb.md).
 
 ![DNAT de servicio público](media/limit-egress-traffic/aks-create-svc.png)
@@ -740,7 +736,6 @@ kubectl apply -f example.yaml
 > [!IMPORTANT]
 > Cuando use Azure Firewall para restringir el tráfico de salida y cree una ruta definida por el usuario (UDR) para forzar todo el tráfico de salida, asegúrese de crear una regla DNAT adecuada en el firewall para permitir correctamente el tráfico de entrada. El uso de Azure Firewall con una UDR interrumpe la configuración de entrada debido al enrutamiento asimétrico. (El problema se produce si la subred de AKS tiene una ruta predeterminada que va a la dirección IP privada del firewall, pero está usando un equilibrador de carga público, de entrada o de servicio de Kubernetes del tipo: LoadBalancer). En este caso, el tráfico entrante del equilibrador de carga se recibe a través de su dirección IP pública, pero la ruta de vuelta pasa a través de la dirección IP privada del firewall. Dado que el firewall es con estado, quita el paquete de vuelta porque el firewall no tiene conocimiento de una sesión establecida. Para aprender a integrar Azure Firewall con el equilibrador de carga de entrada o de servicio, consulte [Integración de Azure Firewall con Azure Standard Load Balancer](../firewall/integrate-lb.md).
 
-
 Para configurar la conectividad de entrada, se debe escribir una regla de DNAT en el firewall de Azure. Para probar la conectividad con el clúster, se define una regla para la dirección IP pública de front-end del firewall que se va a enrutar a la dirección IP interna expuesta por el servicio interno.
 
 La dirección de destino se puede personalizar porque es el puerto del firewall al que se va a acceder. La dirección traducida debe ser la dirección IP del equilibrador de carga interno. El puerto traducido debe ser el puerto expuesto para el servicio Kubernetes.
@@ -762,11 +757,13 @@ voting-storage     ClusterIP      10.41.221.201   <none>        3306/TCP       9
 ```
 
 Para obtener la IP del servicio, ejecute lo siguiente:
+
 ```bash
 SERVICE_IP=$(kubectl get svc voting-app -o jsonpath='{.status.loadBalancer.ingress[*].ip}')
 ```
 
 Para agregar la regla de NAT, ejecute lo siguiente:
+
 ```azurecli
 az network firewall nat-rule create --collection-name exampleset --destination-addresses $FWPUBLIC_IP --destination-ports 80 --firewall-name $FWNAME --name inboundrule --protocols Any --resource-group $RG --source-addresses '*' --translated-port 80 --action Dnat --priority 100 --translated-address $SERVICE_IP
 ```
@@ -777,9 +774,7 @@ Vaya a la dirección IP de front-end del firewall de Azure en un explorador para
 
 Debería ver la aplicación de votación de AKS. En este ejemplo, la dirección IP pública del firewall es `52.253.228.132`.
 
-
 ![Captura de pantalla que muestra la aplicación de votación de AKS con botones para Cats (Gatos), Dogs (Perros), Reset (Restablecer) y totales.](media/limit-egress-traffic/aks-vote.png)
-
 
 ### <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -791,7 +786,7 @@ az group delete -g $RG
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, ha aprendido qué puertos y direcciones se deben permitir si se quiere restringir el tráfico de salida para el clúster. También ha visto cómo proteger el tráfico de salida mediante Azure Firewall. 
+En este artículo, ha aprendido qué puertos y direcciones se deben permitir si se quiere restringir el tráfico de salida para el clúster. También ha visto cómo proteger el tráfico de salida mediante Azure Firewall.
 
 Si es necesario, puede generalizar los pasos anteriores para reenviar el tráfico a la solución de salida preferida, si sigue la [documentación del tipo de salida `userDefinedRoute`](egress-outboundtype.md).
 

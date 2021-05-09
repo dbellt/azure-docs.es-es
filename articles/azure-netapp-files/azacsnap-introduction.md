@@ -12,16 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/14/2020
+ms.date: 04/21/2021
 ms.author: phjensen
-ms.openlocfilehash: 4ba679459686340396e0e4d65344295c0fa9c4be
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 1cd22ad59da4961644c4e4d05150ba8565bf47a0
+ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104869963"
+ms.lasthandoff: 04/23/2021
+ms.locfileid: "107929766"
 ---
-# <a name="what-is-azure-application-consistent-snapshot-tool-preview"></a>Qué es la herramienta Azure Application Consistent Snapshot (versión preliminar)
+# <a name="what-is-azure-application-consistent-snapshot-tool"></a>¿Qué es la herramienta Azure Application Consistent Snapshot?
 
 Azure Application Consistent Snapshot (AzAcSnap) es una herramienta de línea de comandos que permite proteger los datos de bases de datos de terceros mediante el control de la orquestación necesaria para ponerlos en un estado coherente con la aplicación antes de tomar una instantánea del almacenamiento. Después de esto se devuelven a un estado operativo.
 
@@ -80,7 +80,7 @@ Las opciones de comando son las siguientes, con los comandos en las viñetas pri
   - Consulte la [referencia del comando de detalles](azacsnap-cmd-ref-details.md).
 - **`-c delete`** Este comando elimina una instantánea de almacenamiento o un conjunto de instantáneas. Puede usar el identificador de copia de seguridad de SAP HANA que se encuentra en HANA Studio o el nombre de la instantánea de almacenamiento. El identificador de copia de seguridad solo está asociado a las instantáneas de `hana`, creadas para los volúmenes de datos y compartidos. En otros casos, si se escribe el nombre de la instantánea, se buscan todas las instantáneas que coincidan con él.
   - Consulte el comando de [eliminación](azacsnap-cmd-ref-delete.md).
-- **`-c restore`** Proporciona dos métodos para restaurar una instantánea en un volumen, ya sea mediante la creación de un volumen basado en la instantánea o la reversión de un volumen a un estado de versión preliminar.
+- **`-c restore`** proporciona dos métodos para restaurar una instantánea en un volumen, ya sea mediante la creación de un volumen basado en la instantánea o la reversión de un volumen a un estado anterior.
   - **`--restore snaptovol`** Crea un volumen basado en la última instantánea del volumen de destino.
   - **`-c restore --restore revertvolume`** Revierte el volumen de destino a un estado anterior en función de la instantánea más reciente.
   - Consulte la [referencia del comando de restauración](azacsnap-cmd-ref-restore.md).

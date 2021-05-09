@@ -6,21 +6,21 @@ ms.author: valls
 ms.date: 2/16/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 812de4850c6c3577346915a0072ea11c60f7ba73
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 03338033d62d857c5286dc80ed6614aeb8a65ab7
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107365457"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108133716"
 ---
 # <a name="device-update-agent-provisioning"></a>Aprovisionamiento del agente de actualización de dispositivos
 
-El agente del módulo de actualización de dispositivos se puede ejecutar junto con otros procesos del sistema y [módulos IoT Edge](https://docs.microsoft.com/azure/iot-edge/iot-edge-modules) que se conectan a la IoT Hub como parte del mismo dispositivo lógico. En esta sección se describe cómo aprovisionar el agente de actualización de dispositivos como una identidad de módulo. 
+El agente del módulo de actualización de dispositivos se puede ejecutar junto con otros procesos del sistema y [módulos IoT Edge](../iot-edge/iot-edge-modules.md) que se conectan a la IoT Hub como parte del mismo dispositivo lógico. En esta sección se describe cómo aprovisionar el agente de actualización de dispositivos como una identidad de módulo. 
 
 
 ## <a name="module-identity-vs-device-identity"></a>Identidad de módulo e identidad de dispositivo
 
-En IoT Hub, en cada identidad de dispositivo, puede crear hasta 50 identidades de módulos. Cada identidad de módulo genera implícitamente un módulo gemelo. En el lado del dispositivo, los SDK de dispositivo de IoT Hub le permiten crear módulos, donde cada uno abre una conexión independiente a IoT Hub. La identidad del módulo y el módulo gemelo proporcionan funcionalidades similares que la identidad del dispositivo y el dispositivo gemelo, pero con una mayor granularidad. [Más información sobre identidades de módulo en IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins)
+En IoT Hub, en cada identidad de dispositivo, puede crear hasta 50 identidades de módulos. Cada identidad de módulo genera implícitamente un módulo gemelo. En el lado del dispositivo, los SDK de dispositivo de IoT Hub le permiten crear módulos, donde cada uno abre una conexión independiente a IoT Hub. La identidad del módulo y el módulo gemelo proporcionan funcionalidades similares que la identidad del dispositivo y el dispositivo gemelo, pero con una mayor granularidad. [Más información sobre identidades de módulo en IoT Hub](../iot-hub/iot-hub-devguide-module-twins.md)
 
 
 ## <a name="support-for-device-update"></a>Compatibilidad con Device Update
@@ -45,7 +45,7 @@ Actualmente se admiten los siguientes tipos de dispositivos de IoT con Device Up
 
 ## <a name="prerequisites"></a>Requisitos previos  
 
-Si está configurando el dispositivo de IoT Edge y dispositivo de IoT para [las actualizaciones basadas en paquetes](https://docs.microsoft.com/azure/iot-hub-device-update/understand-device-update#support-for-a-wide-range-of-update-artifacts), agregue packages.microsoft.com a los repositorios de la máquina siguiendo estos pasos:
+Si está configurando el dispositivo de IoT Edge y dispositivo de IoT para [las actualizaciones basadas en paquetes](./understand-device-update.md#support-for-a-wide-range-of-update-artifacts), agregue packages.microsoft.com a los repositorios de la máquina siguiendo estos pasos:
 
 1. Inicie sesión en el equipo o el dispositivo de IoT en el que desea instalar el agente de actualización de dispositivos.
 
@@ -77,27 +77,27 @@ En esta sección se describe cómo aprovisionar el agente de actualización de d
 
 ### <a name="on-iot-edge-enabled-devices"></a>En dispositivos habilitados para IoT Edge
 
-Siga estas instrucciones para aprovisionar el agente de actualización de dispositivos en los [dispositivos habilitados para IoT Edge](https://docs.microsoft.com/azure/iot-edge).
+Siga estas instrucciones para aprovisionar el agente de actualización de dispositivos en los [dispositivos habilitados para IoT Edge](../iot-edge/index.yml).
 
-1. Siga las instrucciones que se indican en [Instalación y aprovisionamiento del entorno de ejecución de Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge?view=iotedge-2020-11&preserve-view=true).
+1. Siga las instrucciones que se indican en [Instalación y aprovisionamiento del entorno de ejecución de Azure IoT Edge](../iot-edge/how-to-install-iot-edge.md?preserve-view=true&view=iotedge-2020-11).
 
 1. Instale el agente de actualización de imágenes de Device Update
-    - Se proporcionan imágenes de ejemplo en [Artefactos](https://github.com/Azure/iot-hub-device-update/releases) para probar los lanzamientos de actualizaciones de imágenes en diferentes versiones con una imagen base (adu-base-image) y una imagen de actualización (adu-update-image). Vea un ejemplo de [cómo instalar la imagen en el dispositivo IoT Hub](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-raspberry-pi#flash-sd-card-with-image).  
+    - Proporcionamos imágenes de muestra en [Artefactos](https://github.com/Azure/iot-hub-device-update/releases); el archivo swUpdate es la imagen base que puede grabar en la memoria flash de una placa Raspberry Pi B3+ y el archivo .gz es la actualización que se importará mediante Device Update for IoT Hub. Vea un ejemplo de [cómo instalar la imagen en el dispositivo IoT Hub](/azure/iot-hub-device-update/device-update-raspberry-pi#flash-sd-card-with-image).  
 
 1. Instale el agente de actualización de paquetes de Device Update  
     - Para obtener las últimas versiones del agente de packages.microsoft.com: actualice las listas de paquetes en el dispositivo e instale el paquete del agente de Device Update y sus dependencias mediante:   
-    ```shell
-    sudo apt-get update
-    ```
+        ```shell
+        sudo apt-get update
+        ```
     
-    ```shell
-    sudo apt-get install deviceupdate-agent deliveryoptimization-plugin-apt
-    ```
+        ```shell
+        sudo apt-get install deviceupdate-agent deliveryoptimization-plugin-apt
+        ```
     
     - Para obtener las próximas versiones candidatas para lanzamiento de [Artefactos](https://github.com/Azure/iot-hub-device-update/releases): descargue el archivo .dep en la máquina en la que quiera instalar el agente de Device Update y aplique lo siguiente:
-     ```shell
-    Sudo apt-get install -y ./"<PATH TO FILE>"/"<.DEP FILE NAME>"
-     ```
+        ```shell
+        sudo apt-get install -y ./"<PATH TO FILE>"/"<.DEP FILE NAME>"
+        ```
     
 1. Ahora ya puede iniciar el agente de Device Update en el dispositivo de IoT Edge. 
 
@@ -115,7 +115,7 @@ Siga estas instrucciones para aprovisionar el agente de actualización de dispos
         ```
         
 1. Aprovisionamiento del servicio de identidad de IoT para obtener la información del dispositivo IoT.
-    * Cree una copia personalizada de la plantilla de configuración para poder agregar la información de aprovisionamiento. En un terminal, introduzca los siguientes comandos.
+    1. Cree una copia personalizada de la plantilla de configuración para poder agregar la información de aprovisionamiento. En un terminal, introduzca los siguientes comandos.
       
         ```shell
         sudo cp /etc/aziot/config.toml.template /etc/aziot/config.toml 
@@ -147,7 +147,7 @@ Siga estas instrucciones para aprovisionar el agente de actualización de dispos
     sudo aziotctl config apply
     ```
     
-1.  Por último, instale el agente de Device Update. Se proporcionan imágenes de ejemplo en [Artefactos](https://github.com/Azure/iot-hub-device-update/releases) para probar los lanzamientos de actualizaciones de imágenes en diferentes versiones con una imagen base (adu-base-image) y una imagen de actualización (adu-update-image). Vea un ejemplo de [cómo instalar la imagen en el dispositivo IoT Hub](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-raspberry-pi#flash-sd-card-with-image).
+1.  Por último, instale el agente de Device Update. Proporcionamos imágenes de muestra en [Artefactos](https://github.com/Azure/iot-hub-device-update/releases); el archivo swUpdate es la imagen base que puede grabar en la memoria flash de una placa Raspberry Pi B3+ y el archivo .gz es la actualización que se importará mediante Device Update for IoT Hub. Vea un ejemplo de [cómo instalar la imagen en el dispositivo IoT Hub](/azure/iot-hub-device-update/device-update-raspberry-pi#flash-sd-card-with-image).
 
 1.  Ahora ya puede iniciar el agente de Device Update en el dispositivo IoT. 
 
@@ -155,7 +155,7 @@ Siga estas instrucciones para aprovisionar el agente de actualización de dispos
 
 El agente de actualización de dispositivos también puede configurarse sin el servicio de identidad de IoT para probar o en dispositivos restringidos. Siga los pasos que se indican a continuación para aprovisionar el agente de actualización de dispositivos mediante una cadena de conexión (desde el módulo o el dispositivo).
 
-1.  Se proporcionan imágenes de ejemplo en [Artefactos](https://github.com/Azure/iot-hub-device-update/releases) para probar los lanzamientos de actualizaciones de imágenes en diferentes versiones con una imagen base (adu-base-image) y una imagen de actualización (adu-update-image). Vea un ejemplo de [cómo instalar la imagen en el dispositivo IoT Hub](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-raspberry-pi#flash-sd-card-with-image).
+1.  Proporcionamos imágenes de muestra en [Artefactos](https://github.com/Azure/iot-hub-device-update/releases); el archivo swUpdate es la imagen base que puede grabar en la memoria flash de una placa Raspberry Pi B3+ y el archivo .gz es la actualización que se importará mediante Device Update for IoT Hub. Vea un ejemplo de [cómo instalar la imagen en el dispositivo IoT Hub](/azure/iot-hub-device-update/device-update-raspberry-pi#flash-sd-card-with-image).
 
 1.  Inicie sesión en el equipo o en un dispositivo IoT Edge o de IoT.
     
@@ -163,8 +163,8 @@ El agente de actualización de dispositivos también puede configurarse sin el s
 
 1.  Agregue la cadena de conexión en el [archivo de configuración de Device Update](device-update-configuration-file.md):
     1. Escriba lo siguiente en la ventana del terminal:
-        - Uso de [actualizaciones de paquete](device-update-ubuntu-agent.md): sudo nano/etc/adu/adu-conf.txt
-        - Uso de [actualizaciones de imagen](device-update-raspberry-pi.md): sudo nano/adu/adu-conf.txt
+        - Para usar las [actualizaciones de paquete](device-update-ubuntu-agent.md): sudo nano /etc/adu/adu-conf.txt.
+        - Para usar las [actualizaciones de imagen](device-update-raspberry-pi.md): sudo nano /adu/adu-conf.txt.
        
     1. Debería ver una ventana abierta con texto. Elimine la cadena completa después de 'connection_String=' la primera vez que aprovisione el agente de actualización de dispositivos en el dispositivo IoT. Solo se coloca el texto de marcador.
     
@@ -231,4 +231,3 @@ Puede usar los siguientes archivos binarios e imágenes pregeneradas para obtene
 - [Actualización basada en paquete: Introducción al agente de paquetes de Ubuntu Server 18.04 x64](device-update-ubuntu-agent.md)
 
 - [Tutorial de actualización de dispositivos para Azure IoT Hub para sistemas operativos en tiempo real de Azure](device-update-azure-real-time-operating-system.md)
-
