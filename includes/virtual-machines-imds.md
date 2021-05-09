@@ -8,12 +8,12 @@ ms.date: 01/04/2021
 ms.author: chhenk
 ms.reviewer: azmetadatadev
 ms.custom: references_regions
-ms.openlocfilehash: 98866a4f06df0380d52d1aee3eede8aa2f70aaed
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: 49704de9eb4a392b552429180da98568cafa210f
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107588143"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108157697"
 ---
 Azure Instance Metadata Service (IMDS) le proporciona información sobre las instancias de máquina virtual que se ejecutan actualmente. Puede usarlo para administrar y configurar las máquinas virtuales.
 Esta información incluye las SKU, almacenamiento, configuraciones de red y próximos eventos de mantenimiento. Para ver una lista completa de los datos disponibles, consulte el [resumen de categorías de los puntos de conexión](#endpoint-categories).
@@ -1177,7 +1177,7 @@ Si no se encuentra un elemento de datos o hay una solicitud con formato incorrec
   - Si creó la VM después de septiembre del 2016, agregue una [etiqueta](../articles/azure-resource-manager/management/tag-resources.md) para empezar a ver los metadatos del proceso. Si creó la VM antes de septiembre de 2016, agregue extensiones o discos de datos en la instancia de VM (o quítelos) para actualizar los metadatos.
 
 - ¿Los datos de usuario son los mismos que los datos personalizados?
-  - Los datos de usuario ofrecen una funcionalidad similar a la de los datos personalizados, lo que le permite pasar sus propios metadatos a la instancia de máquina virtual. La diferencia es que los datos de usuario se recuperan a través de IMDS y son persistentes en toda la duración de la instancia de máquina virtual. La característica de datos personalizados existente seguirá funcionando como se describe en [este artículo](https://docs.microsoft.com/azure/virtual-machines/custom-data). Sin embargo, solo puede obtener datos personalizados a través de la carpeta del sistema local, no a través de IMDS.
+  - Los datos de usuario ofrecen una funcionalidad similar a la de los datos personalizados, lo que le permite pasar sus propios metadatos a la instancia de máquina virtual. La diferencia es que los datos de usuario se recuperan a través de IMDS y son persistentes en toda la duración de la instancia de máquina virtual. La característica de datos personalizados existente seguirá funcionando como se describe en [este artículo](../articles/virtual-machines/custom-data.md). Sin embargo, solo puede obtener datos personalizados a través de la carpeta del sistema local, no a través de IMDS.
 
 - ¿Por qué no veo todos los datos rellenados para una nueva versión?
   - Si creó la VM después de septiembre del 2016, agregue una [etiqueta](../articles/azure-resource-manager/management/tag-resources.md) para empezar a ver los metadatos del proceso. Si creó la VM antes de septiembre de 2016, agregue extensiones o discos de datos en la instancia de VM (o quítelos) para actualizar los metadatos.

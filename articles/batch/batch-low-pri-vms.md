@@ -5,12 +5,12 @@ author: mscurrell
 ms.topic: how-to
 ms.date: 03/03/2021
 ms.custom: seodec18
-ms.openlocfilehash: cafc7216e8112640f823ecee1aea055ab78b3fc6
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: d6e6277292d12de10ad55c5f7d912f41e92b5b18
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102098475"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107989313"
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Uso de máquinas virtuales de prioridad baja con Batch
 
@@ -27,7 +27,7 @@ Las máquinas virtuales de prioridad baja se ofrecen a un precio considerablemen
 >
 >Los grupos de Azure Batch comenzarán a admitir VM de Spot en el futuro, con nuevas versiones de las [API y las herramientas de Batch](./batch-apis-tools.md). Una vez que las VM de Spot estén disponibles, las VM de baja prioridad quedarán en desuso, si bien seguirán siendo compatibles durante al menos 12 meses si se usan las versiones actuales de la API y las herramientas. Así habrá tiempo suficiente para realizar la migración a las VM de Spot.
 >
-> Solo se admitirán VM de Spot para los grupos de configuración de máquina virtual. Para usar las VM de Spot, los grupos de configuración del servicio en la nube tendrán que [migrarse a grupos de configuración de máquina virtual](batch-pool-cloud-service-to-virtual-machine-configuration.md).
+> Solo se admitirán VM de Spot para los grupos de configuración de máquina virtual. Para usar las VM de Spot, los grupos de configuración de Cloud Services tendrán que [migrarse a grupos de configuración de máquina virtual](batch-pool-cloud-service-to-virtual-machine-configuration.md).
 
 ## <a name="batch-support-for-low-priority-vms"></a>Compatibilidad de Batch con máquinas virtuales de prioridad baja
 
@@ -154,4 +154,4 @@ Para ver estas métricas en Azure Portal
 
 - Conozca el [flujo de trabajo y los recursos principales del servicio Batch](batch-service-workflow-features.md), como grupos, nodos, trabajos y tareas.
 - Obtenga información acerca de las [API y herramientas de Batch](batch-apis-tools.md) disponibles para la creación de soluciones de Batch.
-- Comience a planear la migración de máquinas virtuales de prioridad baja a máquinas virtuales de Spot. Si usa máquinas virtuales de prioridad baja con grupos de **configuración de servicio en la nube**, planee migrar a [grupos de **Configuración de máquina virtual**](nodes-and-pools.md#configurations) en su lugar.
+- Comience a planear la migración de máquinas virtuales de prioridad baja a máquinas virtuales de Spot. Si usa máquinas virtuales de prioridad baja con grupos de **configuración de Cloud Services** (que están [en desuso](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/)), planee migrar a [grupos de **Configuración de máquina virtual**](nodes-and-pools.md#configurations) en su lugar.

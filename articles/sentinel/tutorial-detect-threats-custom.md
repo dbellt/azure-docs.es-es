@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2021
+ms.date: 04/21/2021
 ms.author: yelevin
-ms.openlocfilehash: 70b56e70ec0e6f511142c48cc89720c054807a5c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 180a5edd00b6085ffd91568471ca763f5e4e9711
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105042805"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107814863"
 ---
 # <a name="tutorial-create-custom-analytics-rules-to-detect-threats"></a>Tutorial: Creación de reglas de análisis personalizadas para detectar amenazas
 
@@ -75,7 +75,7 @@ En la pestaña **Establecer la lógica de la regla**, puede escribir una consult
 
     > [!NOTE]
     > #### <a name="rule-query-best-practices"></a>Procedimientos recomendados de consulta de regla
-    > - La longitud de la consulta debe ser de entre 1 y 10 000 caracteres y no puede contener "`search *`" ni "`union *`".
+    > - La longitud de la consulta debe ser de entre 1 y 10 000 caracteres y no puede contener "`search *`" ni "`union *`". Puede usar [funciones definidas por el usuario](/azure/data-explorer/kusto/query/functions/user-defined-functions) para superar la limitación de longitud de consulta.
     >
     > - **No se admite** el uso de funciones ADX para crear consultas de Azure Data Explorer en la ventana de consulta de Log Analytics.
     >

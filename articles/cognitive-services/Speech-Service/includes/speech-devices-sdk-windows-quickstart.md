@@ -5,12 +5,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
-ms.openlocfilehash: 7ff53a700ab1b158d94af84907940f56afa74eb5
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: bf99f6bb41405df497b22dd220093815f4194f4d
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99215175"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108157602"
 ---
 En este inicio rápido, aprenderá a usar Speech Devices SDK para Windows para crear un producto habilitado para voz o para utilizarlo como un dispositivo de [transcripción de conversaciones](../conversation-transcription.md). Para la transcripción de conversaciones, solo se admite el [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/). En el caso de otros tipos de voz, se admiten matrices de micrófonos lineales que proporcionen una geometría de matriz de micrófonos.
 
@@ -33,8 +33,6 @@ Esta guía de inicio rápido requiere:
 * Descargue la versión más reciente de [Speech Devices SDK](https://aka.ms/sdsdk-download-JRE) para Java y extraiga el archivo .zip en el directorio de trabajo.
    > [!NOTE]
    > En esta guía de inicio rápido se supone que la aplicación se extrae en C:\SDSDK\JRE-Sample-Release
-
-Actualmente, la característica de transcripción de conversaciones solo está disponible en "en-US" y "zh-CN", en las regiones de "centralus" y "eastasia". Debe tener una clave de voz en una de esas regiones para usar Transcripción de conversaciones.
 
 Si tiene previsto usar intenciones necesitará una suscripción a [Language Understanding Service (LUIS)](../../luis/luis-how-to-azure-subscription.md). Para más información acerca de LUIS y el reconocimiento de intenciones, consulte [Reconocimiento de las intenciones de voz con LUIS, C#](../how-to-recognize-intents-from-speech-csharp.md). Hay un [modelo de ejemplo de LUIS](https://aka.ms/sdsdk-luis) disponible para esta aplicación.
 

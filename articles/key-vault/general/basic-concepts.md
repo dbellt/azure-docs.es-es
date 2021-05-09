@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 6fafacda322a974d04a04bb5e79d1ee086eaf7a5
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 863f98e643a7978856c03f5efe95736e6787f977
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107753405"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107814413"
 ---
 # <a name="azure-key-vault-basic-concepts"></a>Conceptos básicos de Azure Key Vault
 
@@ -80,7 +80,7 @@ Los desarrolladores también pueden administrar las claves directamente mediante
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Aprenda a [proteger su almacén](security-overview.md).
+- Obtenga información sobre las [características de seguridad de Azure Key Vault](security-features.md).
 - Aprenda a [proteger los grupos HSM administrados](../managed-hsm/access-control.md).
 
 <!--Image references-->

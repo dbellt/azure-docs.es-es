@@ -3,12 +3,12 @@ title: Exploración de mensajes de Azure Service Bus
 description: Explorar e inspeccionar los mensajes de Service Bus permite a un cliente de Azure Service Bus enumerar todos los mensajes de una cola o suscripción.
 ms.topic: article
 ms.date: 03/29/2021
-ms.openlocfilehash: deafe9e6ddeeebf233922aade36823ddaaede864
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: 23ec2187ae58b1b4f83addb80573bdb130ff99bd
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107520129"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107989403"
 ---
 # <a name="message-browsing"></a>Exploración de mensajes
 La exploración de mensajes, o la inspección, permite a un cliente de Service Bus enumerar todos los mensajes de una cola o una suscripción con fines de diagnóstico o depuración.
@@ -17,9 +17,9 @@ La operación de inspección de una cola o una suscripción devuelve como máxim
 
 | Tipo de mensajes | ¿Se incluye? | 
 | ---------------- | ----- | 
-| Mensajes activos | Sí |
+| Mensajes activos | Yes |
 | Mensajes fallidos | No | 
-| Mensajes bloqueados | Sí |
+| Mensajes bloqueados | Yes |
 | Mensajes expirados |  Puede ser (antes de que se les haya enviado un mensaje fallido). |
 | Mensajes programados | Sí, para las colas. No, para suscripciones. |
 
@@ -42,14 +42,15 @@ Cuando se llama repetidamente a la operación de inspección, se enumeran todos 
 También se puede pasar un valor de SequenceNumber a una operación de inspección. Este valor se usará para determinar por dónde empezar la operación de inspección. Posteriormente, puede llamar a la operación de inspección sin especificar el parámetro para que la enumeración sea más amplia.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Pruebe los ejemplos en el idioma de su elección para explorar la característica de inspección o exploración de mensajes:
+Pruebe los ejemplos en el lenguaje que prefiera para explorar las características de Azure Service Bus. 
 
-- [Ejemplos de la biblioteca cliente de Azure Service Bus para Java](/samples/azure/azure-sdk-for-java/servicebus-samples/) - Ejemplo de **Peak at a message**
-- [Ejemplos de la biblioteca cliente de Azure Service Bus para Python](/samples/azure/azure-sdk-for-python/servicebus-samples/) - Ejemplo de **receive_peek.py**
-- [Ejemplos de la biblioteca cliente de Azure Service Bus para JavaScript](/samples/azure/azure-sdk-for-js/service-bus-javascript/) - Ejemplo de **browseMessages.js**
+- [Ejemplos de la biblioteca cliente de Azure Service Bus para .NET (versión más reciente)](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/): ejemplo de **envío y recepción de mensajes**.
+- [Ejemplos de la biblioteca cliente de Azure Service Bus para Java (versión más reciente)](/samples/azure/azure-sdk-for-java/servicebus-samples/) - ejemplo de **Pico en un mensaje**
+- [Ejemplos de la biblioteca cliente de Azure Service Bus para Python](/samples/azure/azure-sdk-for-python/servicebus-samples/)  - Ejemplo de **receive_peek.py**
+- [Ejemplos de la biblioteca cliente de Azure Service Bus para JavaScript](/samples/azure/azure-sdk-for-js/service-bus-javascript/)  - Ejemplo de **browseMessages.js**
 - [Ejemplos de la biblioteca cliente de Azure Service Bus para TypeScript](/samples/azure/azure-sdk-for-js/service-bus-typescript/) - Ejemplo de **browseMessages.js**
-- [Ejemplos de Azure.Messaging.ServiceBus para .NET](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/). Vea los métodos de inspección de clases receptoras en la [documentación de referencia](/dotnet/api/azure.messaging.servicebus).
 
-Encontrará ejemplos de las bibliotecas cliente de .NET y Java a continuación:
-- [Ejemplos de Microsoft.Azure.ServiceBus para .NET](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/) - Ejemplo de **Message Browsing (Peek)** 
-- [Ejemplos de azure-servicebus para Java](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/MessageBrowse) -  Ejemplo de **Message Browse** 
+A continuación, encontrará ejemplos de las bibliotecas cliente de .NET y Java anteriores:
+- [Ejemplos de biblioteca cliente de Azure Service Bus para .NET (heredado)](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/) - ejemplo de **exploración de mensajes (ver el código sin salir)**
+- [Ejemplos de biblioteca cliente de Azure Service Bus para Java (heredado)](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus) - ejemplo de **exploración de mensajes**. 
+

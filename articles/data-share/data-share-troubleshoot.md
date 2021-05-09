@@ -6,13 +6,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: troubleshooting
-ms.date: 12/16/2020
-ms.openlocfilehash: 3aa1c0b8579bd37d2bb51cbde70997131c696813
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/22/2021
+ms.openlocfilehash: 57b5e5f483ce8076622e4705a3a5b566e2e3aa1f
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97964514"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107987891"
 ---
 # <a name="troubleshoot-common-problems-in-azure-data-share"></a>Solucionar problemas comunes de Azure Data Share 
 
@@ -20,11 +20,7 @@ En este artículo se explica cómo solucionar problemas comunes de Azure Data Sh
 
 ## <a name="azure-data-share-invitations"></a>Invitaciones de Azure Data Share 
 
-En algunos casos, cuando un usuario nuevo selecciona **Accept Invitation** (Aceptar invitación) en una invitación de correo electrónico, es posible que vea una lista de invitaciones vacía. 
-
-:::image type="content" source="media/no-invites.png" alt-text="Captura de pantalla que muestra una lista de invitaciones vacía.":::
-
-Este problema puede deberse a uno de los siguientes motivos:
+En algunos casos, cuando un usuario nuevo selecciona **Accept Invitation** (Aceptar invitación) en una invitación de correo electrónico, es posible que vea una lista de invitaciones vacía. Este problema puede deberse a uno de los siguientes motivos:
 
 * **El servicio Azure Data Share no está registrado como proveedor de recursos de ninguna suscripción de Azure en el inquilino de Azure.** Este problema se produce si no hay ningún recurso compartido de datos en su inquilino de Azure. 
 
@@ -73,15 +69,35 @@ En el caso de las cuentas de almacenamiento, se puede producir un error en una i
 
 En el caso de los orígenes SQL, se puede producir un error en una instantánea por uno de estos motivos:
 
-* El script SQL de origen o destino que concede permiso para Data Share no se ha ejecutado. O para Azure SQL Database o Azure Synapse Analytics (anteriormente Azure SQL Data Warehouse), el script se ejecuta mediante la autenticación de SQL en lugar de la autenticación de Azure Active Directory.  
+* El script SQL de origen o destino que concede permiso para Data Share no se ha ejecutado. O para Azure SQL Database o Azure Synapse Analytics (anteriormente Azure SQL Data Warehouse), el script se ejecuta mediante la autenticación de SQL en lugar de la autenticación de Azure Active Directory. Puede ejecutar la consulta siguiente para comprobar si la cuenta de Data Share tiene el permiso adecuado para la base de datos SQL. Para la base de datos SQL de origen, el resultado de la consulta debe mostrar que la cuenta de Data Share tiene el rol *db_datareader*. Para la base de datos SQL de destino, el resultado de la consulta debe mostrar que la cuenta de Data Share tiene los roles *db_datareader*, *db_datawriter* y *db_dlladmin*.
+
+    ```sql
+        SELECT DP1.name AS DatabaseRoleName,
+        isnull (DP2.name, 'No members') AS DatabaseUserName
+        FROM sys.database_role_members AS DRM
+        RIGHT OUTER JOIN sys.database_principals AS DP1
+        ON DRM.role_principal_id = DP1.principal_id
+        LEFT OUTER JOIN sys.database_principals AS DP2
+        ON DRM.member_principal_id = DP2.principal_id
+        WHERE DP1.type = 'R'
+        ORDER BY DP1.name; 
+     ``` 
+
 * El almacén de datos de origen o los datos de destino SQL están en pausa.
 * El proceso de hacer la instantánea o el almacén de datos de destino son incompatibles con los tipos de datos SQL. Para obtener más información, consulte [Compartir desde orígenes de SQL](how-to-share-from-sql.md#supported-data-types).
 * El almacén de datos de origen o los datos de destino SQL están bloqueados por otros procesos. Azure Data Share no bloquea estos almacenes de datos. Los bloqueos existentes en estos almacenes de datos pueden hacer que la instantánea falle.
 * Una restricción de clave externa hace referencia a la tabla SQL de destino. Durante una instantánea, si una tabla de destino tiene el mismo nombre que una tabla en los datos de origen, Azure Data Share descarta la tabla y crea una nueva tabla. Si una restricción de clave externa hace referencia a la tabla SQL de destino, la tabla no se puede descartar.
 * Se genera un archivo CSV de destino, pero los datos no se pueden leer en Excel. Esto puede ocurrir cuando la tabla SQL de origen contiene datos con caracteres no ingleses. En Excel, seleccione la pestaña **Obtener datos** y elija el archivo CSV. Seleccione el origen del archivo como **65001: Unicode (UTF-8)** , y después cargue los datos.
 
-## <a name="updated-snapshot-schedules"></a>Programación actualizada de instantáneas
-Una vez que el proveedor de datos actualiza la programación de la instantánea para el recurso compartido enviado, el consumidor de datos debe deshabilitar la anterior programación de la instantánea. A continuación, ha de habilitar la programación actualizada de instantáneas para el recurso compartido recibido. 
+## <a name="update-snapshot-schedule"></a>Actualización de la programación de instantáneas
+Una vez que el proveedor de datos actualiza la programación de instantáneas para el recurso compartido enviado, el consumidor de datos debe deshabilitar la programación de instantáneas anterior y habilitar la programación de instantáneas actualizada para el recurso compartido recibido. La programación de instantáneas se almacena en UTC y se muestra en la interfaz de usuario como la hora local del equipo. No se ajusta automáticamente para el horario de verano.  
+
+## <a name="in-place-sharing"></a>Uso compartido en contexto
+La asignación de conjuntos de datos puede producir un error para los clústeres de Azure Data Explorer debido a los siguientes motivos:
+
+* El usuario no tiene permiso de *escritura* para el clúster de Azure Data Explorer. Por lo general, este permiso existe en el rol Colaborador. 
+* El clúster de origen o destino de Azure Data Explorer está en pausa.
+* El clúster de Azure Data Explorer es EngineV2 y el de destino es EngineV3, o viceversa. No se admite el uso compartido entre clústeres de Azure Data Explorer de diferentes versiones del motor.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

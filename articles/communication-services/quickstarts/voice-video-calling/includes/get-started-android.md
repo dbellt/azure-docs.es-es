@@ -6,19 +6,14 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 38194ed7290d6cd9c4889d27ff458f950603c5be
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: 84abd3d617c059c1bbc9565d0b8a23840f81f60d
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "106073684"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108313605"
 ---
 En este inicio rápido aprenderá a iniciar una llamadas con Calling SDK de Azure Communication Services para Android.
-
-[!INCLUDE [Public Preview Notice](../../../includes/public-preview-include-android-ios.md)]
-
-> [!NOTE]
-> En este documento se usa la versión 1.0.0-beta.8 de Calling SDK.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -268,7 +263,7 @@ Las siguientes clases e interfaces controlan algunas de las características pri
 | ------------------------------------- | ------------------------------------------------------------ |
 | CallClient| CallClient es el punto de entrada principal al SDK de llamadas.|
 | CallAgent | CallAgent se usa para iniciar y administrar llamadas. |
-| CommunicationUserCredential | CommunicationUserCredential se usa como la credencial de token para crear una instancia de CallAgent.|
+| CommunicationTokenCredential | CommunicationTokenCredential se usa como la credencial de token para crear una instancia de CallAgent.|
 | CommunicationIdentifier | CommunicationIdentifier se usa como un tipo de participante diferente que podría formar parte de una llamada.|
 
 ## <a name="create-an-agent-from-the-user-access-token"></a>Creación de un agente a partir del token de acceso de usuario

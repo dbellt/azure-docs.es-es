@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.date: 4/17/2020
 ms.author: jencook
-ms.openlocfilehash: 05c98102109d1925eb78d4558faf62b366801e77
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: aa78d6495eeffd0ea733451e029f07413602ce0d
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107538977"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107812739"
 ---
 # <a name="frequently-asked-questions-for-azure-confidential-computing"></a>Preguntas frecuentes de computación confidencial de Azure
 
@@ -32,7 +32,7 @@ Estas son algunas formas de implementar una máquina virtual DCsv2:
 
 **¿Funcionarán todas las imágenes de sistema operativo con la computación confidencial de Azure?**
 
-No. Las máquinas virtuales solo se pueden implementar en máquinas operativas de generación 2 con Ubuntu Server 18.04, Ubuntu Server 16.04, Windows Server 2019 Datacenter y Windows Server 2016 Datacenter. Obtenga más información sobre las máquinas virtuales de generación 2 en [Linux](../virtual-machines/generation-2.md) y [Windows](../virtual-machines/generation-2.md)
+No. Las máquinas virtuales solo se pueden implementar en máquinas operativas de segunda generación con Ubuntu Server 18.04, Ubuntu Server 20.04, Windows Server 2019 Datacenter y Windows Server 2016 Datacenter. Obtenga más información sobre las máquinas virtuales de generación 2 en [Linux](../virtual-machines/generation-2.md) y [Windows](../virtual-machines/generation-2.md)
 
 **Las máquinas virtuales de DCsv2 aparecen atenuadas en el portal y no puedo seleccionar ninguna**.
 

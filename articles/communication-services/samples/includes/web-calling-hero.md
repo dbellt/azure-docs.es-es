@@ -10,12 +10,12 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 0504467e387c0875a8e00bd1cf638ec437232092
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: a015ba06be6a10985a4771e842a6d910dd4cd9ab
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106554673"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108157666"
 ---
 En el **ejemplo de elementos principales de llamada grupal** de Azure Communication Services se muestra cómo se puede usar el SDK web de llamadas de Communication Services para crear una experiencia de llamada grupal.
 
@@ -48,7 +48,7 @@ Componentes de la pantalla principal de llamada:
 - **Barra lateral**: aquí es donde se muestran los participantes y la información de configuración cuando se ajustan con los controles del encabezado. El componente se puede descartar con la "X" de la esquina superior derecha. En la barra lateral de participantes se mostrará una lista de participantes y un vínculo para invitar a más usuarios a conversar. La barra lateral de configuración permite configurar las opciones del micrófono y la cámara.
 
 > [!NOTE]
-> En función de las limitaciones del SDK de llamadas web, solo se representa una secuencia de vídeo remota. Para más información, consulte [Compatibilidad con secuencias del SDK de llamadas](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/calling-sdk-features#calling-sdk-streaming-support).
+> En función de las limitaciones del SDK de llamadas web, solo se representa una secuencia de vídeo remota. Para más información, consulte [Compatibilidad con secuencias del SDK de llamadas](../../concepts/voice-video-calling/calling-sdk-features.md#calling-sdk-streaming-support).
 
 A continuación encontrará más información sobre los requisitos previos y los pasos para configurar el ejemplo.
 

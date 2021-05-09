@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/12/2019
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: a9146099951aba223a7b201c1613e1ec0ba617d4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 95e4474924d32eca848d4dcb0e7028f328cb59c1
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96509222"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108157548"
 ---
 **Última actualización del documento**: 12 de noviembre de 2019, 10:00 PST.
 
@@ -108,7 +108,7 @@ Si el resultado muestra `MDS mitigation is enabled: False`, [póngase en contact
 **Paso 3**: para habilitar la compatibilidad del sistema operativo con la sesión concurrente de direcciones virtuales del kernel (KVAS) y la inserción de destino de rama (BTI), siga las instrucciones descritas en [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) para habilitar las protecciones con las claves del Registro de `Session Manager`. Es necesario reiniciar.
 
 
-**Paso 4**: para las implementaciones que usan la [virtualización anidada](../articles/virtual-machines/windows/nested-virtualization.md) (D3 y E3 solo), estas instrucciones se aplican en la máquina virtual que se usa como host de Hyper-V.
+**Paso 4**: para las implementaciones que usan la [virtualización anidada](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) (D3 y E3 solo), estas instrucciones se aplican en la máquina virtual que se usa como host de Hyper-V.
 
 1.  Siga las instrucciones descritas en el artículo [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) para habilitar las protecciones mediante las claves del Registro `MinVmVersionForCpuBasedMitigations`.
 2.  Establezca el tipo de programador del hipervisor en `Core` mediante las instrucciones descritas [aquí](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types).

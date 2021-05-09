@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 3/16/2021
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 227b573d3771efd3fd36e6d3d6222696647849f7
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f744b718919a6da75b2064efdc163ef4618b5a7c
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105644907"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107815907"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Diferencias de T-SQL entre SQL Server y una Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -354,9 +354,9 @@ La Instancia administrada de SQL no admite instrucciones DBCC no documentadas qu
 
 ### <a name="distributed-transactions"></a>Distributed transactions
 
-La compatibilidad parcial con las [transacciones distribuidas](../database/elastic-transactions-overview.md) está actualmente en versión preliminar pública. Los escenarios admitidos son:
-* Transacciones en las que los participantes son solo instancias de Azure SQL Managed Instance que forman parte de un [grupo de confianza de servidor](./server-trust-group-overview.md).
-* Transacciones iniciadas desde .NET (clase TransactionScope) y Transact-SQL.
+La compatibilidad parcial con las [transacciones distribuidas](../database/elastic-transactions-overview.md) está actualmente en versión preliminar pública. Las transacciones distribuidas se admiten en las siguientes condiciones (se deben cumplir todas):
+* todos los participantes son instancias de Azure SQL Managed Instance que forman parte del [grupo de confianza de servidor](./server-trust-group-overview.md).
+* las transacciones se inician desde .NET (clase TransactionScope) o Transact-SQL.
 
 Actualmente, Azure SQL Managed Instance no admite otros escenarios que se admiten con regularidad en el Coordinador de transacciones distribuidas local o en Azure Virtual Machines.
 

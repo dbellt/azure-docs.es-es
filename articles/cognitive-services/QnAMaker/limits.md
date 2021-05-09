@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/09/2020
-ms.openlocfilehash: 1e57ae537c271e61f0b2d37f5320cb177b04802b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ad498575b029f918538909a9b5b2d52c71c1389c
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98164879"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107816375"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Límites de la base de conocimiento de QnA Maker
 
@@ -108,6 +108,26 @@ Representan los límites para cada acción de actualización; es decir, al hacer
 * Número máximo de campos de metadatos agregados o eliminados: 10
 * Número máximo de direcciones URL que se pueden actualizar: 5
 * Número máximo de preguntas y respuestas permitidas por llamada: 1000
+
+## <a name="add-unstructured-file-limits"></a>Adición de límites de archivo no estructurados
+
+> [!NOTE]
+> * Si necesita usar archivos con un tamaño superior al límite permitido, puede dividir el archivo en fragmentos más pequeños antes de enviarlos a la API. 
+
+Estos representan los límites cuando se usan archivos no estructurados para *crear KB* o llamar a la API CreateKnowledgeBase:
+* Longitud del archivo: extraeremos los primeros 32 000 caracteres.
+* 3 respuestas como máximo por archivo.
+
+## <a name="prebuilt-question-answering-limits"></a>Límites de respuesta a preguntas precompilados
+
+> [!NOTE]
+> * Si necesita usar documentos con un tamaño superior al límite permitido, puede dividir el texto en fragmentos más pequeños antes de enviarlos a la API. 
+> * Un documento es una sola cadena de caracteres de texto.  
+
+Estos representan los límites cuando se usa la API precompilada para *generar respuesta* o llamar a la API GenerateAnswer:
+* Número de documentos: 5
+* Tamaño máximo de un solo documento: 5120 caracteres.
+* 3 respuestas como máximo por documento.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -5,12 +5,12 @@ author: pkshultz
 ms.topic: how-to
 ms.date: 02/11/2021
 ms.author: peshultz
-ms.openlocfilehash: d3f10436b95aaeb5eb35a873c2a3862c1492bd47
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 36883489e1a9a50406ad1b1bde78d2f25ee227b7
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100385071"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107989331"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-batch-account-with-azure-key-vault-and-managed-identity"></a>Configuración de claves administradas por el cliente para la cuenta de Azure Batch con Azure Key Vault e Identidad administrada
 
@@ -196,7 +196,7 @@ az batch account set \
 - **¿Cómo puedo girar mis claves?** Las claves administradas por el cliente no se giran automáticamente. Para girar la clave, actualice el identificador de clave con el que está asociada la cuenta.
 - **Después de restaurar el acceso, ¿cuánto tiempo tardará la cuenta de Batch en volver a funcionar?** La cuenta puede tardar hasta 10 minutos en ser accesible después de restaurar el acceso.
 - **Mientras la cuenta de Batch no está disponible ¿qué sucede con mis recursos?** Los grupos que se estén ejecutando al perder el acceso de Batch a las claves administradas por el cliente seguirán ejecutándose. Sin embargo, los nodos pasarán a un estado no disponible y las tareas dejarán de ejecutarse (y se volverán a poner en cola). Una vez restaurado el acceso, los nodos volverán a estar disponibles y se reiniciarán las tareas.
-- **¿Este mecanismo de cifrado se aplica a los discos de VM de un grupo de Batch?** No. En el caso de los grupos de configuración de servicio en la nube, no se aplica ningún cifrado para el sistema operativo y el disco temporal. En el caso de los grupos de configuración de máquina virtual, el sistema operativo y los discos de datos especificados se cifrarán con una clave administrada de la plataforma Microsoft de forma predeterminada. Actualmente, no puede especificar su propia clave para estos discos. Para cifrar el disco temporal de las VM de un grupo de Batch con una clave administrada de la plataforma Microsoft, debe habilitar la propiedad [diskEncryptionConfiguration](/rest/api/batchservice/pool/add#diskencryptionconfiguration) en el grupo de [configuración de máquina virtual](/rest/api/batchservice/pool/add#virtualmachineconfiguration). En entornos altamente confidenciales, se recomienda habilitar el cifrado de disco temporal y evitar el almacenamiento de datos confidenciales en discos de datos y del sistema operativo. Para más información, consulte [Creación de un grupo con el cifrado de disco habilitado](./disk-encryption.md).
+- **¿Este mecanismo de cifrado se aplica a los discos de VM de un grupo de Batch?** No. En el caso de los grupos de configuración de Cloud Services (que están [en desuso](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/)), no se aplica ningún cifrado para el sistema operativo y el disco temporal. En el caso de los grupos de configuración de máquina virtual, el sistema operativo y los discos de datos especificados se cifrarán con una clave administrada de la plataforma Microsoft de forma predeterminada. Actualmente, no puede especificar su propia clave para estos discos. Para cifrar el disco temporal de las VM de un grupo de Batch con una clave administrada de la plataforma Microsoft, debe habilitar la propiedad [diskEncryptionConfiguration](/rest/api/batchservice/pool/add#diskencryptionconfiguration) en el grupo de [configuración de máquina virtual](/rest/api/batchservice/pool/add#virtualmachineconfiguration). En entornos altamente confidenciales, se recomienda habilitar el cifrado de disco temporal y evitar el almacenamiento de datos confidenciales en discos de datos y del sistema operativo. Para más información, consulte [Creación de un grupo con el cifrado de disco habilitado](./disk-encryption.md).
 - **¿Está disponible en los nodos de proceso la identidad administrada asignada por el sistema de la cuenta de Batch?** No. La identidad administrada asignada por el sistema se usa actualmente solo para acceder a la clave administrada por el cliente en Azure Key Vault. Para usar una identidad administrada asignada por el usuario en nodos de proceso, consulte [Configuración de identidades administradas en grupos de Batch](managed-identity-pools.md).
 
 ## <a name="next-steps"></a>Pasos siguientes

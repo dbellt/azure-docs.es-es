@@ -9,12 +9,12 @@ ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: 1213d5f7421cc71255f29d013fa47878559110ee
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 34211feb34b3e2ec21b9bc0e6a180df0febd8c76
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107481589"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107987945"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Red virtual administrada de Azure Data Factory (versión preliminar)
 
@@ -136,32 +136,36 @@ Los orígenes de datos siguientes pueden establecer una conexión a través de u
 - Azure Database for MariaDB
 
 ### <a name="azure-data-factory-managed-virtual-network-is-available-in-the-following-azure-regions"></a>La característica Managed Virtual Network de Azure Data Factory está disponible en las siguientes regiones de Azure:
-- Este de EE. UU.
-- Este de EE. UU. 2
-- Centro-Oeste de EE. UU.
-- Oeste de EE. UU.
-- Oeste de EE. UU. 2
-- Centro-sur de EE. UU.
-- Centro de EE. UU.
-- Norte de Europa
-- Oeste de Europa
-- Sur de Reino Unido 2
-- Sudeste de Asia
 - Este de Australia
 - Sudeste de Australia
-- Este de Noruega
+- Sur de Brasil
+- Centro de Canadá
+- Este de Canadá
+- Centro de la India
+- Centro de EE. UU.
+- Este de EE. UU.
+- Este de EE. UU. 2
+- Centro de Francia
 - Japón Oriental
 - Japón Occidental
 - Centro de Corea del Sur
-- Sur de Brasil
-- Centro de Francia
+- Norte de Europa
+- Este de Noruega
+- Norte de Sudáfrica
+- Centro-sur de EE. UU.
+- Sudeste de Asia
 - Norte de Suiza
+- Norte de Emiratos Árabes Unidos
+- Sur de Reino Unido
 - Oeste de Reino Unido
-- Este de Canadá
-- Centro de Canadá
+- Centro-Oeste de EE. UU.
+- Oeste de Europa
+- Oeste de EE. UU.
+- Oeste de EE. UU. 2
+
 
 ### <a name="outbound-communications-through-public-endpoint-from-adf-managed-virtual-network"></a>Comunicaciones salientes a través del punto de conexión público desde la red virtual administrada de ADF
-- Solo se abre el puerto 443 para las comunicaciones salientes.
+- Se abren todos los puertos para las comunicaciones salientes.
 - Azure Storage y Azure Data Lake Gen2 no pueden establecer una conexión a través del punto de conexión público desde la red virtual administrada de ADF.
 
 ### <a name="linked-service-creation-of-azure-key-vault"></a>Creación de un servicio vinculado para Azure Key Vault 

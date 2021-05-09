@@ -6,17 +6,17 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: e7db817e2fb355e3a69f7b90a4fc6eaa4adec515
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 6c766925fc82fd9d8ea37e3aeb30db7e48e0fde3
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106444231"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108160734"
 ---
 # <a name="windows-virtual-desktop-classic-powershell"></a>PowerShell de Windows Virtual Desktop (clásico)
 
->[!IMPORTANT]
->Este contenido se aplica a Windows Virtual Desktop (clásico), que no admite objetos de Windows Virtual Desktop para Azure Resource Manager. Si está tratando de administrar objetos de Windows Virtual Desktop para Azure Resource Manager, consulte [este artículo](../troubleshoot-powershell.md).
+> [!IMPORTANT]
+> Este contenido se aplica a Windows Virtual Desktop (clásico), que no admite objetos de Windows Virtual Desktop para Azure Resource Manager. Si está tratando de administrar objetos de Windows Virtual Desktop para Azure Resource Manager, consulte [este artículo](../troubleshoot-powershell.md).
 
 Use este artículo para resolver los problemas y errores al usar PowerShell con Windows Virtual Desktop. Para más información sobre PowerShell para Servicios de Escritorio remoto, consulte [PowerShell para Windows Virtual Desktop](/powershell/windows-virtual-desktop/overview).
 
@@ -30,7 +30,7 @@ En esta sección se enumeran los comandos de PowerShell que se usan normalmente 
 
 ### <a name="error-add-rdsappgroupuser-command----the-specified-userprincipalname-is-already-assigned-to-a-remoteapp-app-group-in-the-specified-host-pool"></a>Error: Comando Add-RdsAppGroupUser: The specified UserPrincipalName is already assigned to a RemoteApp app group in the specified Host Pool (El UserPrincipalName especificado ya está asignado a un grupo de aplicaciones de RemoteApp en el grupo host especificado)
 
-```Powershell
+```powershell
 Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGroupName 'Desktop Application Group' -UserPrincipalName <UserName>
 ```
 
@@ -40,7 +40,7 @@ Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGr
 
 ### <a name="error-add-rdsappgroupuser-command----the-specified-userprincipalname-doesnt-exist-in-the-azure-active-directory-associated-with-the-remote-desktop-tenant"></a>Error: Comando Add-RdsAppGroupUser: The specified UserPrincipalName doesn't exist in the Azure Active Directory associated with the Remote Desktop tenant (El UserPrincipalName especificado no existe en la instancia de Azure Active Directory asociada con el inquilino de Escritorio remoto)
 
-```PowerShell
+```powershell
 Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGroupName "Desktop Application Group" -UserPrincipalName <UserPrincipalName>
 ```
 
@@ -54,7 +54,7 @@ Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGr
 
 ### <a name="error-get-rdsdiagnosticactivities----user-isnt-authorized-to-query-the-management-service"></a>Error: Get-RdsDiagnosticActivities: User isn't authorized to query the management service (El usuario no está autorizado para consultar el servicio de administración)
 
-```PowerShell
+```powershell
 Get-RdsDiagnosticActivities -ActivityId <ActivityId>
 ```
 
@@ -64,7 +64,7 @@ Get-RdsDiagnosticActivities -ActivityId <ActivityId>
 
 ### <a name="error-get-rdsdiagnosticactivities----the-user-isnt-authorized-to-query-the-management-service"></a>Error: Get-RdsDiagnosticActivities: User isn't authorized to query the management service (El usuario no está autorizado para consultar el servicio de administración)
 
-```PowerShell
+```powershell
 Get-RdsDiagnosticActivities -Deployment -username <username>
 ```
 
@@ -82,8 +82,8 @@ Get-RdsDiagnosticActivities -Deployment -username <username>
 
 **Corrección 2:** Un usuario con permisos de Active Directory debe ejecutar la asignación de roles.
 
->[!Note]
->New-RdsRoleAssignment no puede conceder permisos a un usuario que no existe en Azure Active Directory (AD).
+> [!NOTE]
+> New-RdsRoleAssignment no puede conceder permisos a un usuario que no existe en Azure Active Directory (AD).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

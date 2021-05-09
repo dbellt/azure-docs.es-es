@@ -1,6 +1,6 @@
 ---
 title: Integración de Microsoft 365 Defender en Azure Sentinel | Microsoft Docs
-description: Obtenga información sobre cómo la integración de Microsoft 365 Defender en Azure Sentinel le ofrece la capacidad de usar Azure Sentinel como la cola de incidentes universales, a la vez que conserva las fortalezas de M365D para ayudar a investigar los incidentes de seguridad de M365. Además, aprenda sobre la ingesta de datos de búsqueda avanzada de componentes de Defender en Azure Sentinel.
+description: Obtenga información sobre cómo el uso de Microsoft 365 Defender junto con Azure Sentinel le permite usar Azure Sentinel como cola de incidentes universales y aplicar sin problemas los puntos fuertes de Microsoft 365 Defender para ayudar a investigar los incidentes de seguridad de Microsoft 365. Además, aprenda a ingerir datos avanzados de búsqueda de componentes de Defender en Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/02/2021
+ms.date: 04/21/2021
 ms.author: yelevin
-ms.openlocfilehash: abace18db51a7a571ecc66d50253277fbd2296d3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 164bb6ca0c84120dbef2ab8307e723ed5723cf2f
+ms.sourcegitcommit: 18cd3c1c8cc47258c6a1a04e0e03d6248c52ef24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101743963"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107992006"
 ---
 # <a name="microsoft-365-defender-integration-with-azure-sentinel"></a>Integración de Microsoft 365 Defender en Azure Sentinel
 
@@ -36,60 +36,60 @@ ms.locfileid: "101743963"
 
 ## <a name="incident-integration"></a>Integración de incidentes
 
-La integración de incidentes de [Microsoft 365 Defender (M365D)](/microsoft-365/security/mtp/microsoft-threat-protection) de Azure Sentinel le permite transmitir todos los incidentes de M365D a Azure Sentinel y mantenerlos sincronizados entre ambos portales. Los incidentes de M365D (anteriormente conocidos como Protección contra amenazas de Microsoft o MTP) incluyen todas las alertas, entidades e información pertinente asociadas, lo que le proporciona un contexto suficiente para realizar la evaluación de errores y una investigación preliminar en Azure Sentinel. Una vez en Sentinel, los incidentes permanecerán sincronizados de manera bidireccional con M365D, lo que le permite aprovechar las ventajas de ambos portales en su investigación de los incidentes.
+La integración de incidentes de [Microsoft 365 Defender](/microsoft-365/security/mtp/microsoft-threat-protection) de Azure Sentinel le permite transmitir todos los incidentes de Microsoft 365 Defender a Azure Sentinel y mantenerlos sincronizados entre ambos portales. Los incidentes de Microsoft 365 Defender (anteriormente conocido como Protección contra amenazas de Microsoft o MTP) incluyen todas las alertas, entidades e información pertinente asociadas, lo que le proporciona un contexto suficiente para realizar la evaluación de errores y una investigación preliminar en Azure Sentinel. Una vez en Sentinel, los incidentes permanecerán sincronizados de manera bidireccional con Microsoft 365 Defender, lo que le permite aprovechar las ventajas de ambos portales en su investigación de los incidentes.
 
-Esta integración da a los incidentes de seguridad de Microsoft 365 visibilidad para que puedan administrarse desde Azure Sentinel, como parte de la cola de incidentes principales en toda la organización, por lo que puede ver y correlacionar los incidentes de M365 con los de todos los demás sistemas en la nube y locales. Al mismo tiempo, permite aprovechar las ventajas y las funcionalidades únicas de M365D para las investigaciones detalladas y brinda una experiencia específica de M365 en el ecosistema de M365. M365 Defender enriquece y agrupa las alertas de varios productos M365, lo que reduce el tamaño de la cola de incidentes de SOC y reduce el tiempo de resolución. Los servicios de componentes que forman parte de la pila de M365 Defender son:
+Esta integración da a los incidentes de seguridad de Microsoft 365 visibilidad para que puedan administrarse desde Azure Sentinel, como parte de la cola de incidentes principales en toda la organización, por lo que puede ver y correlacionar los incidentes de Microsoft 365 con los de todos los demás sistemas en la nube y locales. Al mismo tiempo, permite aprovechar las ventajas y las funcionalidades únicas de Microsoft 365 Defender para las investigaciones detalladas y brinda una experiencia específica de Microsoft 365 en el ecosistema de Microsoft 365. Microsoft 365 Defender enriquece y agrupa las alertas de varios productos de Microsoft 365, lo que reduce el tamaño de la cola de incidentes de SOC y reduce el tiempo de resolución. Los servicios de componentes que forman parte de la pila de Microsoft 365 Defender son:
 
-- **Microsoft Defender para punto de conexión** (MDE, anteriormente MDATP)
-- **Microsoft Defender for Identity** (MDI, anteriormente AATP)
-- **Microsoft Defender para Office 365** (MDO, anteriormente O365ATP)
-- **Microsoft Cloud App Security** (MCAS)
+- **Microsoft Defender para punto de conexión** (anteriormente Microsoft Defender ATP)
+- **Microsoft Defender for Identity** (anteriormente Azure ATP)
+- **Microsoft Defender para Office 365** (anteriormente ATP de Office 365)
+- **Microsoft Cloud App Security**
 
-Además de recopilar alertas de estos componentes, M365 Defender genera alertas propias. Crea incidentes a partir de todas estas alertas y los envía a Azure Sentinel.
+Además de recopilar alertas de estos componentes, Microsoft 365 Defender genera alertas propias. Crea incidentes a partir de todas estas alertas y los envía a Azure Sentinel.
 
 ### <a name="common-use-cases-and-scenarios"></a>Casos de uso y escenarios comunes
 
-- Conexión de un solo clic de incidentes de M365 Defender, incluidas todas las alertas y entidades de los componentes de M365 Defender, en Azure Sentinel.
+- Conexión de un solo clic de incidentes de Microsoft 365 Defender, incluidas todas las alertas y entidades de los componentes de Microsoft 365 Defender, en Azure Sentinel.
 
-- Sincronización bidireccional entre incidentes de Sentinel y M365D en el estado, el propietario y el motivo de cierre.
+- Sincronización bidireccional entre incidentes de Sentinel y Microsoft 365 Defender en el estado, el propietario y el motivo de cierre.
 
-- Aprovechamiento de las funcionalidades de agrupación y enriquecimiento de alertas de M365 Defender en Azure Sentinel, lo que reduce el tiempo de resolución.
+- Aplicación de las funcionalidades de agrupación y enriquecimiento de alertas de Microsoft 365 Defender en Azure Sentinel, lo que reduce el tiempo de resolución.
 
-- Vínculo profundo en contexto entre un incidente de Azure Sentinel y su incidente paralelo de M365 Defender, para facilitar las investigaciones en ambos portales.
+- Vínculo profundo en contexto entre un incidente de Azure Sentinel y su incidente paralelo de Microsoft 365 Defender, para facilitar las investigaciones en ambos portales.
 
 ### <a name="connecting-to-microsoft-365-defender"></a>Conexión a Microsoft 365 Defender
 
-Una vez que haya habilitado el conector de datos de Microsoft 365 defender para [recopilar incidentes y alertas](connect-microsoft-365-defender.md), los incidentes de M365D aparecerán en la cola de incidentes de Azure Sentinel, con **Microsoft 365 Defender** en el campo **Nombre de producto**, poco después de que se generen en M365 Defender.
-- Pueden pasar hasta 10 minutos entre el momento en que se genere un incidente en M365 Defender y el momento en que aparezca en Azure Sentinel.
+Una vez que haya habilitado el conector de datos de Microsoft 365 Defender para [recopilar incidentes y alertas](connect-microsoft-365-defender.md), los incidentes de Microsoft 365 Defender aparecerán en la cola de incidentes de Azure Sentinel, con **Microsoft 365 Defender** en el campo **Nombre de producto**, poco después de que se generen en Microsoft 365 Defender.
+- Pueden pasar hasta 10 minutos entre el momento en que se genere un incidente en Microsoft 365 Defender y el momento en que aparezca en Azure Sentinel.
 
 - Los incidentes se ingerirán y se sincronizarán sin costo adicional.
 
-Una vez que la integración de M365 Defender esté conectada, todos los conectores de alertas de los componentes (MDE, MDI, MDO, MCAS) se conectarán automáticamente en segundo plano si no lo estaban aún. Si se adquirieron licencias de componentes después de la conexión a M365 Defender, las alertas y los incidentes del nuevo producto seguirán fluyendo hacia Azure Sentinel sin ningún cargo ni configuración adicionales.
+Una vez conectada la integración de Microsoft 365 Defender, todos los conectores de alertas de componentes (Defender para punto de conexión, Defender for Identity, Defender para Office 365, Cloud App Security) se conectarán automáticamente en segundo plano si no lo estaban ya. Si se adquirieron licencias de componentes después de la conexión a Microsoft 365 Defender, las alertas y los incidentes del nuevo producto seguirán fluyendo hacia Azure Sentinel sin ningún cargo ni configuración adicionales.
 
-### <a name="m365-defender-incidents-and-microsoft-incident-creation-rules"></a>Incidentes de M365 Defender y reglas de creación de incidentes de Microsoft
+### <a name="microsoft-365-defender-incidents-and-microsoft-incident-creation-rules"></a>Incidentes de Microsoft 365 Defender y reglas de creación de incidentes de Microsoft
 
-- Los incidentes generados por M365 Defender, en función de las alertas procedentes de los productos de seguridad de M365, se crean mediante una lógica de M365 personalizada.
+- Los incidentes generados por Microsoft 365 Defender, basados en alertas procedentes de productos de seguridad de Microsoft 365, se crean mediante la lógica personalizada de Microsoft 365 Defender.
 
 - Las reglas de creación de incidentes de Microsoft en Azure Sentinel también crean incidentes a partir de las mismas alertas, mediante (una diferente) lógica de Azure Sentinel personalizada.
 
-- El uso conjunto de ambos mecanismos es totalmente compatible, y esta configuración se puede usar para facilitar la transición a la nueva lógica de creación de incidentes de M365 Defender. Sin embargo, esto creará **incidentes duplicados** para las mismas alertas.
+- El uso conjunto de ambos mecanismos es totalmente compatible y se puede usar para facilitar la transición a la nueva lógica de creación de incidentes de Microsoft 365 Defender. Sin embargo, esto creará **incidentes duplicados** para las mismas alertas.
 
-- Para evitar la creación de incidentes duplicados para las mismas alertas, se recomienda que los clientes desactiven todas las **reglas de creación de incidentes de Microsoft** para los productos de M365 (MDE, MDI y MDO; consulte MCAS a continuación) al conectar M365 Defender. Para ello, marque la casilla correspondiente en la página de conectores. Tenga en cuenta que, si lo hace, los filtros aplicados por las reglas de creación de incidentes no se aplicarán a la integración de incidentes de M365 Defender.
+- Para evitar la creación de incidentes duplicados para las mismas alertas, se recomienda que los clientes desactiven todas las **reglas de creación de incidentes de Microsoft** para productos de Microsoft 365 (Defender para punto de conexión, Defender for Identity y Defender para Office 365; consulte Cloud App Security a continuación) al conectar Microsoft 365 Defender. Para ello, puede deshabilitar la creación de incidentes en la página del conector. Tenga en cuenta que, si lo hace, los filtros aplicados por las reglas de creación de incidentes no se aplicarán a la integración de incidentes de Microsoft 365 Defender.
 
-- En el caso de las alertas de Microsoft Cloud App Security (MCAS), no todos los tipos de alerta están incorporados actualmente en M365 Defender. Para asegurarse de seguir recibiendo incidentes para todas las alertas de MCAS, debe conservar o crear **reglas de creación de incidentes de Microsoft** para los tipos de alerta *no incorporados* en M365D.
+- En el caso de las alertas de Microsoft Cloud App Security, no todos los tipos de alerta están incorporados actualmente en Microsoft 365 Defender. Para asegurarse de seguir recibiendo incidentes para todas las alertas de Cloud App Security, debe conservar o crear **reglas de creación de incidentes de Microsoft** para los [tipos de alerta *no incorporados* en Microsoft 365 Defender](microsoft-cloud-app-security-alerts-not-imported-microsoft-365-defender.md).
 
-### <a name="working-with-m365-defender-incidents-in-azure-sentinel-and-bi-directional-sync"></a>Trabajo con incidentes de M365 Defender en Azure Sentinel y sincronización bidireccional
+### <a name="working-with-microsoft-365-defender-incidents-in-azure-sentinel-and-bi-directional-sync"></a>Trabajo con incidentes de Microsoft 365 Defender en Azure Sentinel y sincronización bidireccional
 
-Los incidentes de M365 Defender aparecerán en la cola de incidentes de Azure Sentinel con el nombre de producto **Microsoft 365 Defender**, y con detalles y funcionalidades similares a cualquier otro incidente de Sentinel. Cada incidente contiene un vínculo al incidente paralelo en el portal de M365 Defender.
+Los incidentes de Microsoft 365 Defender aparecerán en la cola de incidentes de Azure Sentinel con el nombre de producto **Microsoft 365 Defender** y con detalles y funcionalidades similares a cualquier otro incidente de Sentinel. Cada incidente contiene un vínculo al incidente paralelo en el portal de Microsoft 365 Defender.
 
-A medida que el incidente evolucione en M365 Defender y se agreguen más alertas o entidades, el incidente de Azure Sentinel se actualizará en consecuencia.
+A medida que el incidente evolucione en Microsoft 365 Defender y se agreguen más alertas o entidades, el incidente de Azure Sentinel se actualizará en consecuencia.
 
-Los cambios realizados en el estado, el motivo de cierre o la asignación de un incidente de M365, ya sea en M365D o en Azure Sentinel, también se actualizarán en consecuencia en la cola de incidentes del otro. La sincronización se llevará a cabo en ambos portales inmediatamente después de que se aplique el cambio en el incidente, sin ningún retraso. Podría ser necesaria una actualización para ver los cambios más recientes.
+Los cambios realizados en el estado, el motivo de cierre o la asignación de un incidente de Microsoft 365, ya sea en Microsoft 365 Defender o en Azure Sentinel, también se actualizarán en consecuencia en la cola de incidentes del otro. La sincronización se llevará a cabo en ambos portales inmediatamente después de que se aplique el cambio en el incidente, sin ningún retraso. Podría ser necesaria una actualización para ver los cambios más recientes.
 
-En M365 Defender, todas las alertas de un incidente se pueden transferir a otro, lo que da lugar a la combinación de los incidentes. Cuando esto sucede, los incidentes de Azure Sentinel reflejarán los cambios. Un incidente contendrá todas las alertas de ambos incidentes originales, y el otro incidente se cerrará automáticamente y se le agregará la etiqueta "redirigido".
+En Microsoft 365 Defender, todas las alertas de un incidente se pueden transferir a otro, lo que da lugar a la combinación de los incidentes. Cuando esta combinación sucede, los incidentes de Azure Sentinel reflejarán los cambios. Un incidente contendrá todas las alertas de ambos incidentes originales, y el otro incidente se cerrará automáticamente y se le agregará la etiqueta "redirigido".
 
 > [!NOTE]
-> Los incidentes de Azure Sentinel pueden contener un máximo de 150 alertas. Los incidentes de M365D pueden tener más. Si un incidente de M365D con más de 150 alertas se sincroniza con Azure Sentinel, el incidente de Sentinel se mostrará con "150+" alertas y proporcionará un vínculo al incidente paralelo en M365D, donde podrá ver el conjunto completo de alertas.
+> Los incidentes de Azure Sentinel pueden contener un máximo de 150 alertas. Los incidentes de Microsoft 365 Defender pueden tener más. Si un incidente de Microsoft 365 Defender con más de 150 alertas se sincroniza con Azure Sentinel, el incidente de Sentinel se mostrará con "150+" alertas y proporcionará un vínculo al incidente paralelo en Microsoft 365 Defender, donde podrá ver el conjunto completo de alertas.
 
 ## <a name="advanced-hunting-event-collection"></a>Colección de eventos de búsqueda avanzada
 
@@ -97,7 +97,7 @@ El nuevo conector Microsoft 365 Defender le permite transmitir eventos de **bú
 
 - Copiar fácilmente las consultas existentes de búsqueda avanzada de Microsoft Defender para punto de conexión en Azure Sentinel.
 
-- Usar los registros de eventos sin procesar para proporcionar información detallada adicional sobre las alertas, la búsqueda y la investigación, y correlacionar estos eventos con otros orígenes de datos adicionales en Azure Sentinel.
+- Usar los registros de eventos sin procesar con el fin de proporcionar más información para las alertas, la búsqueda y la investigación, y poner en correlación estos eventos con los eventos de otros orígenes de datos en Azure Sentinel.
 
 - Almacenar los registros con mayor periodo de retención, por encima de la retención predeterminada de 30 días de Microsoft Defender para punto de conexión o de Microsoft 365 Defender. Para ello, configure la retención del área de trabajo o configure la retención por tabla en Log Analytics.
 

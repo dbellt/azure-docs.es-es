@@ -4,12 +4,12 @@ description: Aquí se describen las colas de mensajes fallidos de Azure Service 
 ms.topic: article
 ms.date: 04/08/2021
 ms.custom: fasttrack-edit, devx-track-csharp
-ms.openlocfilehash: cb791982b50d7afff7b74d70adfd285bb5e0a11c
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 6293a3a9a760ece137644578d8ee7dccebc63d95
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107773232"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107812379"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Información general de colas de mensajes fallidos de Service Bus
 
@@ -75,8 +75,4 @@ Puede tener acceso a la cola de mensajes fallidos mediante la sintaxis siguiente
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-
-Para más información sobre colas de Service Bus, consulte los siguientes artículos:
-
-* [Introducción a las colas de Service Bus](service-bus-dotnet-get-started-with-queues.md)
-* [Comparación de colas de Azure y colas de Service Bus](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+Consulte el artículo sobre la [habilitación de mensajes fallidos para una cola o suscripción](enable-dead-letter.md) para obtener información sobre las distintas formas de establecer la configuración de los **mensajes fallidos cuando expire un mensaje**.
