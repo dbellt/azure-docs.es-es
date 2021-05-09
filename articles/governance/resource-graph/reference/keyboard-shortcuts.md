@@ -1,15 +1,15 @@
 ---
 title: Métodos abreviados de teclado en Azure Portal para Azure Resource Graph Explorer
 description: Azure Resource Graph Explorer de Azure Portal admite métodos abreviados de teclado para ayudarle a realizar acciones y a desplazarse por el portal.
-ms.date: 01/27/2021
+ms.date: 05/01/2021
 ms.topic: reference
 ms.custom: accessibility
-ms.openlocfilehash: 70777db630a654dc61aad697561583a02c0ccc25
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b34f92bb51175d14937611f358e638a2a1a1591f
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98919098"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108326028"
 ---
 # <a name="keyboard-shortcuts-for-azure-resource-graph-explorer"></a>Métodos abreviados de teclado para Azure Resource Graph Explorer
 

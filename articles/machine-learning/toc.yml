@@ -12,30 +12,31 @@
     - name: Arquitectura y términos
       displayName: 'architecture, concepts, definitions, glossary'
       href: concept-azure-machine-learning-architecture.md
+- name: Inicio rápido
+  expanded: true
+  items:
+    - name: Creación de recursos de Azure Machine Learning para empezar
+      href: quickstart-create-resources.md
 - name: Tutoriales
   expanded: true
   items:
     - name: Introducción a Python (día 1)
       expanded: true
       items:
-        - name: 1. Configuración del equipo local
-          href: tutorial-1st-experiment-sdk-setup-local.md
-        - name: 2. "Hello world"
+        - name: 1. "Hello world"
           href: tutorial-1st-experiment-hello-world.md
-        - name: 3. Entrenamiento de un modelo
+        - name: 2. Entrenamiento de un modelo
           href: tutorial-1st-experiment-sdk-train.md
-        - name: 4. Traiga sus propios datos
+        - name: 3. Traiga sus propios datos
           href: tutorial-1st-experiment-bring-data.md
     - name: Cuadernos de Jupyter Notebook
       items:
         - name: Clasificación de imágenes (datos MNIST)
           items:
-            - name: 1. Configuración de instancias de proceso
-              href: tutorial-1st-experiment-sdk-setup.md
-            - name: 2. Entrenamiento de un modelo
+            - name: 1. Entrenamiento de un modelo
               displayName: build modeling
               href: tutorial-train-models-with-aml.md
-            - name: 3. Implementar un modelo
+            - name: 2. Implementar un modelo
               href: tutorial-deploy-models-with-aml.md
         - name: Regresión con aprendizaje automático automatizado (datos de taxis de Nueva York)
           items:
@@ -234,8 +235,8 @@
               href: how-to-access-azureml-behind-firewall.md
         - name: Protección de los datos
           items:
-            - name: Aumento de resistencia
-              displayName: 'high availability, disaster recovery'
+            - name: Conmutación por error y recuperación ante desastres
+              displayName: high availability
               href: how-to-high-availability-machine-learning.md
             - name: Nueva generación de las claves de acceso de almacenamiento
               href: how-to-change-storage-access-key.md

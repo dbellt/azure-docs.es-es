@@ -5,22 +5,22 @@ services: container-service
 ms.topic: conceptual
 ms.date: 01/08/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 846446b4c19c066afe789bf636d68ad37b20709e
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 288e1b9e361bd8c0cf41e4bb86fcfce15dda8ac9
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107779568"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108166404"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>Acuerdo de nivel de servicio de tiempo de actividad de Azure Kubernetes Service (AKS)
 
 El acuerdo de nivel de servicio (SLA) de tiempo de actividad es una característica opcional para habilitar un mejor acuerdo de nivel de servicio con respaldo financiero para un clúster. El acuerdo de nivel de servicio de tiempo de actividad garantiza una disponibilidad del 99,95 % del punto de conexión del servidor de API de Kubernetes para los clústeres que usan [zonas de disponibilidad][availability-zones], y una disponibilidad del 99,9 % de los clústeres que no utilizan zonas de disponibilidad. AKS usa réplicas de nodo maestro en los dominios de actualización y de error para garantizar que se cumplan los requisitos del acuerdo de nivel de servicio.
 
-Los clientes que necesiten un acuerdo de nivel de servicio para alcanzar los requisitos de cumplimiento o que requieren extender un acuerdo de nivel de servicio a sus usuarios finales deben habilitar esta característica. Los clientes con cargas de trabajo críticas que se beneficien de un mayor acuerdo de nivel de servicio de tiempo de actividad también pueden beneficiarse. El uso de la característica de acuerdo de nivel de servicio de tiempo de actividad con zonas de disponibilidad permite una mayor disponibilidad para el tiempo de actividad del servidor de API de Kubernetes.  
+Los clientes que necesiten un acuerdo de nivel de servicio para alcanzar los requisitos de cumplimiento o que requieren extender un acuerdo de nivel de servicio a sus usuarios finales deben habilitar esta característica. Los clientes con cargas de trabajo críticas que se beneficien de un mayor acuerdo de nivel de servicio de tiempo de actividad también pueden beneficiarse. El uso de la característica de acuerdo de nivel de servicio de tiempo de actividad con zonas de disponibilidad permite una mayor disponibilidad para el tiempo de actividad del servidor de API de Kubernetes.
 
 Los clientes todavía pueden crear un número ilimitado de clústeres gratuitos con un objetivo de nivel de servicio (SLO) del 99,5 %, y optar por el tiempo de actividad preferido del SLO o SLA según sea necesario.
 
-> [!Important]
+> [!IMPORTANT]
 > En el caso de los clústeres con bloqueo de salida, consulte la [limitación del tráfico de salida](limit-egress-traffic.md) para abrir los puertos adecuados.
 
 ## <a name="region-availability"></a>Disponibilidad en regiones
@@ -46,12 +46,14 @@ En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGrou
 # Create a resource group
 az group create --name myResourceGroup --location eastus
 ```
+
 Use el comando [`az aks create`][az-aks-create] para crear un clúster de AKS. En el siguiente ejemplo se crea un clúster denominado *myAKSCluster* con un nodo. La operación tarda varios minutos en completarse:
 
 ```azurecli-interactive
 # Create an AKS cluster with uptime SLA
 az aks create --resource-group myResourceGroup --name myAKSCluster --uptime-sla --node-count 1
 ```
+
 Transcurridos unos minutos, el comando se completa y devuelve información en formato JSON sobre el clúster. El siguiente fragmento JSON muestra el nivel de pago de la SKU, que indica que el clúster tiene habilitado el Acuerdo de Nivel de Servicio de tiempo de actividad.
 
 ```output
@@ -91,18 +93,18 @@ Use el comando [`az aks update`][az-aks-update] para actualizar el clúster exis
 
 ```azurecli-interactive
 # Update an existing cluster to use Uptime SLA
- az aks update --resource-group myResourceGroup --name myAKSCluster --uptime-sla
- ```
+az aks update --resource-group myResourceGroup --name myAKSCluster --uptime-sla
+```
 
- El siguiente fragmento JSON muestra el nivel de pago de la SKU, que indica que el clúster tiene habilitado el Acuerdo de Nivel de Servicio de tiempo de actividad.
+El siguiente fragmento JSON muestra el nivel de pago de la SKU, que indica que el clúster tiene habilitado el Acuerdo de Nivel de Servicio de tiempo de actividad.
 
- ```output
+```output
   },
   "sku": {
     "name": "Basic",
     "tier": "Paid"
   },
-  ```
+```
 
 ## <a name="opt-out-of-uptime-sla"></a>Exclusión del Acuerdo de Nivel de Servicio de tiempo de actividad
 
@@ -111,7 +113,7 @@ Puede actualizar el clúster para cambiar al nivel gratis y excluirse del Acuerd
 ```azurecli-interactive
 # Update an existing cluster to opt out of Uptime SLA
  az aks update --resource-group myResourceGroup --name myAKSCluster --no-uptime-sla
- ```
+```
 
 ## <a name="clean-up"></a>Limpieza
 
@@ -120,7 +122,6 @@ Para evitar cargos, limpie los recursos que haya creado. Para eliminar el clúst
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
 ```
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

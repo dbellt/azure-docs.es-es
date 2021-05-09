@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo las características de cifrado de
 ms.topic: conceptual
 ms.date: 08/04/2020
 ms.custom: references_regions
-ms.openlocfilehash: 28d165ccc8a966091a96fc433660899d8eef1595
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: 3163962bb1c7435c96bc46c2d7514561ca0bb37a
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107518480"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108325488"
 ---
 # <a name="encryption-in-azure-backup"></a>Cifrado en Azure Backup
 
@@ -32,4 +32,4 @@ Azure Backup incluye el cifrado en dos niveles:
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Cifrado de Azure Storage para datos en reposo](../storage/common/storage-service-encryption.md)
-- [Preguntas más frecuentes de Azure Backup](/backup-azure-backup-faq.yml#encryption) para cualquier pregunta que pueda tener sobre el cifrado
+- [Preguntas más frecuentes de Azure Backup](/azure/backup/backup-azure-backup-faq#encryption) para cualquier pregunta que pueda tener sobre el cifrado

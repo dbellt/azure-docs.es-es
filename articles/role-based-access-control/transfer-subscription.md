@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 04/06/2021
 ms.author: rolyon
-ms.openlocfilehash: 72dc92ae211034e2a49bc77f60880f17ab15dec7
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 366692113872856852fd933ca32ab51ca608de14
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107868184"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108291287"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Transferencia de una suscripción de Azure a otro directorio de Azure AD
 
@@ -82,7 +82,7 @@ Varios recursos de Azure tienen una dependencia de una suscripción o un directo
 | Azure Managed Disks | Sí | Sí |  |  Si usa conjuntos de cifrado de disco para cifrar instancias de Managed Disks con claves administradas por el cliente, debe deshabilitar y volver a habilitar las identidades asignadas por el sistema asociadas a los conjuntos de cifrado de disco. Además, debe volver a crear las asignaciones de roles, es decir, volver a conceder los permisos necesarios a los conjuntos de cifrado de disco en las instancias de Key Vault. |
 | Azure Kubernetes Service | Sí | No |  | No puede transferir el clúster de AKS y sus recursos asociados a otro directorio. Para obtener más información, consulte [Preguntas más frecuentes sobre Azure Kubernetes Service (AKS)](../aks/faq.md) |
 | Azure Policy | Sí | No | Todos los objetos de Azure Policy, incluidas las definiciones personalizadas, las asignaciones, las exenciones y los datos de cumplimiento. | Tendrá que [exportar](../governance/policy/how-to/export-resources.md), importar y volver a asignar las definiciones. Después, cree asignaciones de directiva y las [exenciones de directiva](../governance/policy/concepts/exemption-structure.md) necesarias. |
-| Azure Active Directory Domain Services | Sí | No |  | No puede transferir un dominio administrado de Azure AD Domain Services a otro directorio. Para obtener más información, consulte [Preguntas más frecuentes (P+F) sobre Azure Active Directory (AD) Domain Services](../active-directory-domain-services/faqs.md) |
+| Azure Active Directory Domain Services | Sí | No |  | No puede transferir un dominio administrado de Azure AD Domain Services a otro directorio. Para obtener más información, consulte [Preguntas más frecuentes (P+F) sobre Azure Active Directory (AD) Domain Services](../active-directory-domain-services/faqs.yml) |
 | Registros de aplicaciones | Sí | Sí |  |  |
 
 > [!WARNING]

@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 10/06/2020
 ms.author: nichola
 ms.reviewer: ''
-ms.openlocfilehash: f6ce792b3db0100d7356884bbc6ee2696580df10
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5b00cca584958f3e7d741a2a4f9e6669ff0d241e
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97652065"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107904323"
 ---
 # <a name="how-to-use-continuous-access-evaluation-enabled-apis-in-your-applications"></a>Uso de las API habilitadas para la evaluación continua de acceso en las aplicaciones
 
-La [evaluación continua de acceso](../conditional-access/concept-continuous-access-evaluation.md) (CAE) es un estándar de la industria emergente que permite revocar los tokens de acceso en función de [eventos críticos](../conditional-access/concept-continuous-access-evaluation.md#critical-event-evaluation) y [la evaluación de directivas](../conditional-access/concept-continuous-access-evaluation.md#conditional-access-policy-evaluation-preview) en lugar de depender de la expiración del token en función de la duración. En el caso de algunas API de recursos, ya que el riesgo y la directiva se evalúan en tiempo real, esto puede aumentar considerablemente la duración del token hasta 28 horas. Estos tokens de larga duración se actualizarán de manera proactiva mediante la biblioteca de autenticación de Microsoft (MSAL), lo que aumenta la resistencia de las aplicaciones.
+La [evaluación continua de acceso](../conditional-access/concept-continuous-access-evaluation.md) (CAE) es una característica de Azure AD que permite revocar los tokens de acceso en función de [eventos críticos](../conditional-access/concept-continuous-access-evaluation.md#critical-event-evaluation) y la [evaluación de directivas](../conditional-access/concept-continuous-access-evaluation.md#conditional-access-policy-evaluation-preview) en lugar de depender de la expiración del token en función de la duración. En el caso de algunas API de recursos, ya que el riesgo y la directiva se evalúan en tiempo real, esto puede aumentar considerablemente la duración del token hasta 28 horas. Estos tokens de larga duración se actualizarán de manera proactiva mediante la biblioteca de autenticación de Microsoft (MSAL), lo que aumenta la resistencia de las aplicaciones.
 
 En este artículo se muestra cómo usar las API habilitadas para CAE en sus aplicaciones.
 
