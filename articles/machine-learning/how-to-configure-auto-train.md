@@ -9,21 +9,21 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 09/29/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python,contperf-fy21q1, automl
-ms.openlocfilehash: 755386bfa36b18796eccec0020efe9136e0215cd
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.topic: how-to
+ms.custom: devx-track-python,contperf-fy21q1, automl
+ms.openlocfilehash: a198e49e540d728a65021cf5b45436fc1654cb25
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106068156"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107905223"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configuración de experimentos de ML automatizado en Python
 
 
 En esta guía, aprenderá a definir diversos valores de configuración de los experimentos de aprendizaje automático automatizado con el [SDK de Azure Machine Learning](/python/api/overview/azure/ml/intro). El aprendizaje automático automatizado elige un algoritmo e hiperparámetros, y genera un modelo listo para la implementación. Se pueden usar varias opciones para configurar experimentos de aprendizaje automático automatizado.
 
-Para ver ejemplos de experimentos de aprendizaje automático automatizado, consulte [Tutorial: Train a classification model with automated machine learning](tutorial-auto-train-models.md) (Tutorial: Entrenamiento de un modelo de clasificación con aprendizaje automático automatizado) o [Entrenamiento de modelos con aprendizaje automático automatizado en la nube mediante Azure Machine Learning](how-to-auto-train-remote.md).
+Para un ejemplo completo de un experimento de aprendizaje automático automatizado, consulte [Tutorial: Entrenamiento de un modelo de clasificación con aprendizaje automático](tutorial-auto-train-models.md).
 
 Opciones de configuración disponibles en el aprendizaje automático automatizado:
 
@@ -188,21 +188,23 @@ En la tabla siguiente se resumen los modelos admitidos por tipo de tarea.
 
 clasificación | Regresión | Previsión de series temporales
 |-- |-- |--
-[Regresión logística](https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression)* | [Red elástica](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)* | [Red elástica](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)
-[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)* |[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)*|[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)
-[Potenciación del gradiente](https://scikit-learn.org/stable/modules/ensemble.html#classification)* |[Potenciación del gradiente](https://scikit-learn.org/stable/modules/ensemble.html#regression)* |[Potenciación del gradiente](https://scikit-learn.org/stable/modules/ensemble.html#regression)
-[Árbol de decisión](https://scikit-learn.org/stable/modules/tree.html#decision-trees)* |[Árbol de decisión](https://scikit-learn.org/stable/modules/tree.html#regression)* |[Árbol de decisión](https://scikit-learn.org/stable/modules/tree.html#regression)
-[K Vecinos más próximos](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)* |[K Vecinos más próximos](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)* |[K Vecinos más próximos](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)
-[SVC lineal](https://scikit-learn.org/stable/modules/svm.html#classification)* |[Lazo LARS](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)* |[Lazo LARS](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)
-[Clasificación de vectores de soporte (SVC)](https://scikit-learn.org/stable/modules/svm.html#classification)* |[Descenso de gradiente estocástico (SGD)](https://scikit-learn.org/stable/modules/sgd.html#regression)* |[Descenso de gradiente estocástico (SGD)](https://scikit-learn.org/stable/modules/sgd.html#regression)
-[Bosque aleatorio](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)* |[Bosque aleatorio](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)* |[Bosque aleatorio](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)
-[Árboles extremadamente aleatorios](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)* |[Árboles extremadamente aleatorios](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)* |[Árboles extremadamente aleatorios](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)
-[Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)* |[Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)* | [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)
-[Clasificador de perceptrón promedio](/python/api/nimbusml/nimbusml.linear_model.averagedperceptronbinaryclassifier?preserve-view=true&view=nimbusml-py-latest)|[Regresor descendente de gradiente en línea](/python/api/nimbusml/nimbusml.linear_model.onlinegradientdescentregressor?preserve-view=true&view=nimbusml-py-latest) |[Auto-ARIMA](https://www.alkaline-ml.com/pmdarima/modules/generated/pmdarima.arima.auto_arima.html#pmdarima.arima.auto_arima)
-[Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)* |[Regresor lineal rápida](/python/api/nimbusml/nimbusml.linear_model.fastlinearregressor?preserve-view=true&view=nimbusml-py-latest)|[Prophet](https://facebook.github.io/prophet/docs/quick_start.html)
-[Descenso de gradiente estocástico (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)* ||ForecastTCN
-|[Clasificador SVM lineal](/python/api/nimbusml/nimbusml.linear_model.linearsvmbinaryclassifier?preserve-view=true&view=nimbusml-py-latest)*||
-
+[Regresión logística](https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression)* | [Red elástica](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)* | [AutoARIMA](https://www.alkaline-ml.com/pmdarima/modules/generated/pmdarima.arima.auto_arima.html#pmdarima.arima.auto_arima)
+[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)* | [Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)* | [Prophet](https://facebook.github.io/prophet/docs/quick_start.html)
+[Potenciación del gradiente](https://scikit-learn.org/stable/modules/ensemble.html#classification)* | [Potenciación del gradiente](https://scikit-learn.org/stable/modules/ensemble.html#regression)* | [Red elástica](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)
+[Árbol de decisión](https://scikit-learn.org/stable/modules/tree.html#decision-trees)* |[Árbol de decisión](https://scikit-learn.org/stable/modules/tree.html#regression)* |[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)
+[K Vecinos más próximos](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)* |[K Vecinos más próximos](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)* | [Potenciación del gradiente](https://scikit-learn.org/stable/modules/ensemble.html#regression)
+[SVC lineal](https://scikit-learn.org/stable/modules/svm.html#classification)* |[Lazo LARS](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)* | [Árbol de decisión](https://scikit-learn.org/stable/modules/tree.html#regression)
+[Clasificación de vectores de soporte (SVC)](https://scikit-learn.org/stable/modules/svm.html#classification)* |[Descenso de gradiente estocástico (SGD)](https://scikit-learn.org/stable/modules/sgd.html#regression)* | [Árbol de decisión](https://scikit-learn.org/stable/modules/tree.html#regression)
+[Bosque aleatorio](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)* | [Bosque aleatorio](https://scikit-learn.org/stable/modules/ensemble.html#random-forests) | [Lazo LARS](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)
+[Árboles extremadamente aleatorios](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)* | [Árboles extremadamente aleatorios](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)* | [Descenso de gradiente estocástico (SGD)](https://scikit-learn.org/stable/modules/sgd.html#regression)
+[Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)* |[Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)* | [Bosque aleatorio](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)
+[Clasificador de perceptrón promedio](/python/api/nimbusml/nimbusml.linear_model.averagedperceptronbinaryclassifier?preserve-view=true&view=nimbusml-py-latest)| [Regresor descendente de gradiente en línea](/python/api/nimbusml/nimbusml.linear_model.onlinegradientdescentregressor?preserve-view=true&view=nimbusml-py-latest) | [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)
+[Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)* |[Regresor lineal rápida](/python/api/nimbusml/nimbusml.linear_model.fastlinearregressor?preserve-view=true&view=nimbusml-py-latest)| ForecastTCN
+[Descenso de gradiente estocástico (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)* || Naive
+[Clasificador SVM lineal](/python/api/nimbusml/nimbusml.linear_model.linearsvmbinaryclassifier?preserve-view=true&view=nimbusml-py-latest)* || SeasonalNaive
+||| Average
+||| SeasonalAverage
+||| [ExponentialSmoothing](https://www.statsmodels.org/v0.10.2/generated/statsmodels.tsa.holtwinters.ExponentialSmoothing.html)
 ### <a name="primary-metric"></a>Métrica principal
 El parámetro `primary metric` determina la métrica que se utilizará durante el entrenamiento del modelo para la optimización. Las métricas disponibles que puede seleccionar vienen determinadas por el tipo de tarea que elige y en la siguiente tabla se muestran métricas principales válidas para cada tipo de tarea.
 
@@ -391,7 +393,7 @@ Configure `max_concurrent_iterations` en el objeto `AutoMLConfig`. Si no se conf
 
 El aprendizaje automático automatizado ofrece opciones para supervisar y evaluar los resultados del entrenamiento. 
 
-* Puede ver los resultados del entrenamiento en un widget o en línea si se encuentra en un bloc de notas. Vea [Supervisar las ejecuciones automatizadas de aprendizaje automático](how-to-monitor-view-training-logs.md#monitor-automated-machine-learning-runs) para obtener más detalles.
+* Puede ver los resultados del entrenamiento en un widget o en línea si se encuentra en un bloc de notas. Consulte [Supervisión de ejecuciones de aprendizaje automático automatizado](#monitor) para obtener más detalles.
 
 * Para obtener definiciones y ejemplos de los gráficos de rendimiento y las métricas proporcionadas en cada ejecución, vea [Evaluación de los resultados del experimento de aprendizaje automático automatizado](how-to-understand-automated-ml.md). 
 
@@ -494,6 +496,22 @@ print_model(model_from_aml)
 > [!NOTE]
 > Los algoritmos que el aprendizaje automático automatizado emplea llevan inherente la aleatoriedad, que puede provocar una ligera variación en la puntuación de las métricas finales del modelo recomendado, como la precisión. El aprendizaje automático automatizado también realiza operaciones en datos, como la división de la prueba de entrenamiento, la división de la validación de entrenamiento o la validación cruzada cuando es necesario. Por lo tanto, si ejecuta un experimento con las mismas opciones de configuración y métricas principales varias veces, es probable que vea una variación en las puntuaciones de las métricas finales de los experimentos debido a estos factores. 
 
+## <a name="monitor-automated-machine-learning-runs"></a><a name="monitor"></a> Supervisión de ejecuciones de aprendizaje automático automatizado
+
+En el caso de las ejecuciones automatizadas de aprendizaje automático, para acceder a los gráficos de una ejecución anterior, sustituya `<<experiment_name>>` con el nombre del experimento correspondiente.
+
+```python
+from azureml.widgets import RunDetails
+from azureml.core.run import Run
+
+experiment = Experiment (workspace, <<experiment_name>>)
+run_id = 'autoML_my_runID' #replace with run_ID
+run = Run(experiment, run_id)
+RunDetails(run).show()
+```
+
+![Widget de cuaderno de Jupyter Notebooks para aprendizaje automático automatizado](./media/how-to-configure-auto-train/azure-machine-learning-auto-ml-widget.png)
+
 ## <a name="register-and-deploy-models"></a>Registro e implementación de modelos
 
 Puede registrar un modelo, y así volver a él para usarlo más tarde. 
@@ -536,7 +554,7 @@ Para información general sobre cómo se pueden habilitar las explicaciones del 
 
 + Obtenga más información sobre [cómo y dónde implementar un modelo](how-to-deploy-and-where.md).
 
-+ Obtenga más información sobre [cómo entrenar un modelo de regresión con aprendizaje automático automatizado](tutorial-auto-train-models.md) o [cómo entrenar con aprendizaje automático automatizado en un recurso remoto](how-to-auto-train-remote.md).
++ Obtenga más información sobre [cómo entrenar un modelo de regresión con el aprendizaje automático automatizado](tutorial-auto-train-models.md).
 
 + Obtenga información sobre cómo entrenar varios modelos con AutoML en [Acelerador de soluciones de muchos modelos](https://aka.ms/many-models).
 

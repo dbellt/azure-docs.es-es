@@ -5,12 +5,13 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: 79bcca688146b2c2382876b6a61bc0eee34382a1
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 82e34bff573b746f7d9c4185fe6c24fa92de0394
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102040964"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108321058"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Administración del acceso a los datos de registro y las áreas de trabajo en Azure Monitor
 
@@ -28,7 +29,7 @@ Para comprender los conceptos de registros relacionados con las estrategias de a
 
 Puede ver el [modo de control de acceso](../logs/design-logs-deployment.md) configurado en un área de trabajo desde Azure Portal o con Azure PowerShell.  Puede cambiar esta configuración con uno de estos métodos compatibles:
 
-* Azure portal
+* Portal de Azure
 
 * Azure PowerShell
 

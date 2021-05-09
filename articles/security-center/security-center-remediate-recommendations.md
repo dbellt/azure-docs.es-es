@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/04/2021
 ms.author: memildin
-ms.openlocfilehash: f382646c889d004738064cae2d09fd66d897b110
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: dc279ea48472ac86dd9502e37788e8b2aad4f37c
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102438274"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107906825"
 ---
 # <a name="remediate-recommendations-in-azure-security-center"></a>Recomendaciones de corrección en Azure Security Center
 
@@ -30,22 +30,22 @@ Después de revisar todas las recomendaciones, decida cuál se corrige primero. 
 
 1. Una vez completado, aparece una notificación que le informa de si el problema se ha resuelto.
 
-## <a name="quick-fix-remediation"></a>Solución por corrección rápida
+## <a name="fix-button"></a>Botón Corregir
 
-Para simplificar la corrección y mejorar la seguridad del entorno (y aumentar la puntuación segura), muchas recomendaciones incluyen una opción de corrección rápida.
+Para simplificar la corrección y mejorar la seguridad del entorno (así como aumentar la puntuación segura), muchas recomendaciones incluyen una opción **Corregir**.
 
-La corrección rápida le ayuda a solucionar rápidamente una recomendación en varios recursos.
+La opción **Corregir** le ayuda a solucionar rápidamente una recomendación en varios recursos.
 
 > [!TIP]
-> Las soluciones de corrección rápida solo están disponibles para recomendaciones específicas. Para encontrar las recomendaciones que tienen una corrección rápida disponible, use el filtro **Acciones de respuesta** para ver la lista de recomendaciones:
+> La característica **Corregir** solo está disponible para recomendaciones específicas. Para encontrar las recomendaciones que tengan una corrección rápida disponible, use el filtro **Acciones de respuesta** para ver la lista de recomendaciones:
 > 
-> :::image type="content" source="media/security-center-remediate-recommendations/quick-fix-filter.png" alt-text="Uso de los filtros sobre la lista de recomendaciones para buscar las recomendaciones que tengan la opción de corrección rápida":::
+> :::image type="content" source="media/security-center-remediate-recommendations/quick-fix-filter.png" alt-text="Uso de los filtros sobre la lista de recomendaciones para buscar las recomendaciones que tengan la opción Corregir":::
 
-Para implementar una solución de corrección rápida:
+Para implementar una opción **Corregir**:
 
-1. En la lista de recomendaciones que tienen la etiqueta **Corrección rápida**, , seleccione una recomendación.
+1. En la lista de recomendaciones que tienen el icono de acción **Corregir**, :::image type="icon" source="media/security-center-remediate-recommendations/fix-icon.png" border="false":::, seleccione una recomendación.
 
-    [![Seleccione Corrección rápida](media/security-center-remediate-recommendations/security-center-quick-fix-select.png)](media/security-center-remediate-recommendations/security-center-quick-fix-select.png#lightbox)
+    :::image type="content" source="./media/security-center-remediate-recommendations/security-center-recommendations-fix-action.png" alt-text="Lista de recomendaciones en la que se resaltan las recomendaciones con la acción Corregir" lightbox="./media/security-center-remediate-recommendations/security-center-recommendations-fix-action.png#lightbox":::
 
 1. En la pestaña **Recursos con estado incorrecto**, seleccione los recursos en los que desea implementar la recomendación y seleccione **Corregir**.
 
@@ -57,7 +57,7 @@ Para implementar una solución de corrección rápida:
     ![Corrección rápida](./media/security-center-remediate-recommendations/security-center-quick-fix-view.png)
 
     > [!NOTE]
-    > Las implicaciones se muestran en el cuadro gris de la ventana **Corregir recursos** que se abre después de hacer clic en **Corregir**. Estas enumeran los cambios que se producen al continuar con la solución por corrección rápida.
+    > Las implicaciones se muestran en el cuadro gris de la ventana **Corregir recursos** que se abre después de hacer clic en **Corregir**. Estas enumeran los cambios que se producen al continuar al ejecutar **Corregir**.
 
 1. Inserte los parámetros pertinentes si es necesario y apruebe la corrección.
 
@@ -66,7 +66,7 @@ Para implementar una solución de corrección rápida:
 
 1. Una vez completada, aparece una notificación que le informa si la corrección se ha realizado correctamente.
 
-## <a name="quick-fix-remediation-logging-in-the-activity-log"></a>Registro de la corrección rápida en el registro de actividad <a name="activity-log"></a>
+## <a name="fix-actions-logged-to-the-activity-log"></a>Corrección de las acciones registradas en el registro de actividad <a name="activity-log"></a>
 
 La operación de corrección usa una implementación de plantilla o una llamada API REST PATCH para aplicar la configuración en el recurso. Estas operaciones se registran en el [registro de actividad de Azure](../azure-resource-manager/management/view-activity-logs.md).
 

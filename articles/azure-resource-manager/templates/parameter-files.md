@@ -3,12 +3,13 @@ title: Creación de archivo de parámetros
 description: Creación de un archivo de parámetros para pasar valores durante la implementación de una plantilla de Azure Resource Manager
 ms.topic: conceptual
 ms.date: 04/15/2021
-ms.openlocfilehash: ddeaed94396aa662b795ae5701aa367ba13d869b
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 50404df278da22352344bbd12e139cc86f0a0615
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107531206"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108321652"
 ---
 # <a name="create-resource-manager-parameter-file"></a>Creación de un archivo de parámetros de Resource Manager
 
