@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/14/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 41edef58910fe2b772831ef083e5aca8bb52a321
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: ee2bd4ab66b7a67be04c1a710caa12c57c705d19
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107482275"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108209974"
 ---
 # <a name="azure-digital-twins-high-availability-and-disaster-recovery"></a>Alta disponibilidad y recuperación ante desastres de Azure Digital Twins
 
@@ -24,7 +24,7 @@ Azure Digital Twins admite estas opciones de características:
 * *Alta disponibilidad dentro de una región*: redundancia integrada para cumplir con el tiempo de actividad del servicio.
 * *Recuperación ante desastres entre regiones*: conmutación por error en una región de Azure emparejada geográficamente en caso de un error inesperado en el centro de datos.
 
-También puede consultar la sección [*Procedimientos recomendados*](#best-practices) para ver instrucciones generales de Azure sobre el diseño de alta disponibilidad y recuperación ante desastres.
+También puede consultar la sección [Procedimientos recomendados](#best-practices) para ver instrucciones generales de Azure sobre el diseño de alta disponibilidad y recuperación ante desastres.
 
 ## <a name="intra-region-ha"></a>Alta disponibilidad dentro de una región
  
@@ -65,12 +65,12 @@ Tenga en cuenta que la información que se muestra en esta herramienta no es esp
 ## <a name="best-practices"></a>Procedimientos recomendados
 
 Para conocer los procedimientos recomendados de alta disponibilidad y recuperación ante desastres, consulte estas instrucciones de Azure sobre el tema: 
-* En el artículo de [*orientación técnica de la continuidad empresarial de Azure*](/azure/architecture/framework/resiliency/overview) se describe un marco general que ayuda a reflexionar sobre la continuidad empresarial y recuperación ante desastres. 
-* El documento [*Recuperación ante desastres y alta disponibilidad para aplicaciones de Azure*](/azure/architecture/framework/resiliency/backup-and-recovery) proporciona una guía de arquitectura enfocada a estrategias para que las aplicaciones de Azure logren alta disponibilidad y recuperación ante desastres.
+* En el artículo de [orientación técnica de la continuidad empresarial de Azure](/azure/architecture/framework/resiliency/overview) se describe un marco general que ayuda a reflexionar sobre la continuidad empresarial y recuperación ante desastres. 
+* El documento [Recuperación ante desastres y alta disponibilidad para aplicaciones de Azure](/azure/architecture/framework/resiliency/backup-and-recovery) proporciona una guía de arquitectura enfocada a estrategias para que las aplicaciones de Azure logren alta disponibilidad y recuperación ante desastres.
 
 ## <a name="next-steps"></a>Pasos siguientes 
 
 Obtenga más información sobre cómo empezar a utilizar las soluciones de Azure Digital Twins:
  
-* [*¿Qué es Azure Digital Twins?*](overview.md)
-* [*Guía de inicio rápido: Exploración de un escenario de ejemplo*](quickstart-azure-digital-twins-explorer.md)
+* [¿Qué es Azure Digital Twins?](overview.md)
+* [Guía de inicio rápido: Exploración de un escenario de ejemplo](quickstart-azure-digital-twins-explorer.md)

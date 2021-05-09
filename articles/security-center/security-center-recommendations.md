@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 01/24/2021
 ms.author: memildin
-ms.openlocfilehash: 57760443746e111750e74ef55fc18729f6ba32c4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: da0826a349131d9d5716932abfc603be8103b788
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102100345"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107903549"
 ---
 # <a name="review-your-security-recommendations"></a>Examen de las recomendaciones de seguridad
 
@@ -43,7 +43,7 @@ Security Center analiza el estado de seguridad de los recursos para identificar 
     1. **Intervalo de actualización** (si procede).
     1. **Recuento de recursos exentos** si existen exenciones para esta recomendación; se muestra el número de recursos exentos.
     1. **Descripción**: una breve descripción del problema
-    1. **Pasos de corrección**: una descripción de los pasos manuales necesarios para corregir el problema de seguridad en los recursos afectados Para obtener recomendaciones con "corrección rápida", puede seleccionar **Ver lógica de corrección** antes de aplicar la corrección sugerida a los recursos. 
+    1. **Pasos de corrección**: una descripción de los pasos manuales necesarios para corregir el problema de seguridad en los recursos afectados Para encontrar recomendaciones con la opción **Corregir**, puede seleccionar **Ver lógica de corrección** antes de aplicar la corrección sugerida a los recursos.
     1. **Recursos afectados**: los recursos se agrupan en pestañas:
         - **Recursos con estado correcto**: recursos relevantes que no se ven afectados o en los que ya se ha corregido el problema.
         - **Recursos con estado incorrecto**: recursos que todavía se ven afectados por el problema identificado.

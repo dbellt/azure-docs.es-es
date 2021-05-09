@@ -13,12 +13,12 @@ ms.date: 01/04/2021
 ms.author: damendo
 ms.reviewer: vinigam
 ms.custom: references_regions
-ms.openlocfilehash: 8d877f666e03bbbe2b9d4f01bc9059b95f9a1f6b
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: fab2adb932d9c74b30b1775d8fa7ab257a4f00b0
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106385282"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107887925"
 ---
 # <a name="traffic-analytics"></a>Análisis de tráfico
 
@@ -70,10 +70,11 @@ Puede usar Análisis de tráfico para los NSG en cualquiera de las siguientes re
       Centro de la India  
       Centro de EE. UU.  
       Este de China 2  
-      Norte de China 2  
-      Este de Asia       
+      Norte de China   
+      Norte de China 2       
    :::column-end:::
    :::column span="":::
+      Este de Asia  
       Este de EE. UU.  
       Este de EE. UU. 2  
       EUAP de Este de EE. UU. 2  
@@ -83,10 +84,10 @@ Puede usar Análisis de tráfico para los NSG en cualquiera de las siguientes re
       Japón Occidental  
       Centro de Corea del Sur  
       Corea del Sur  
-      Centro-Norte de EE. UU  
-      Norte de Europa    
+      Centro-Norte de EE. UU    
    :::column-end:::
    :::column span="":::
+      Norte de Europa  
       Norte de Sudáfrica  
       Centro-sur de EE. UU.  
       Sur de la India  
@@ -95,11 +96,11 @@ Puede usar Análisis de tráfico para los NSG en cualquiera de las siguientes re
       Oeste de Suiza  
       Norte de Emiratos Árabes Unidos  
       Sur de Reino Unido  
-      Oeste de Reino Unido   
-      USGov: Arizona  
-      USGov Texas
+      Oeste de Reino Unido     
+      USGov: Arizona
    :::column-end:::
    :::column span="":::
+      USGov Texas  
       USGov Virginia  
       USNat East  
       USNat West  
@@ -121,36 +122,41 @@ El área de trabajo de Log Analytics debe existir en las siguientes regiones:
       Este de Australia  
       Sudeste de Australia  
       Sur de Brasil  
+      Sur de Brasil  
       Centro de Canadá  
       Centro de la India  
       Centro de EE. UU.  
-      Este de China 2  
+      Este de China 2      
       Este de Asia  
-      Este de EE. UU.  
    :::column-end:::
    :::column span="":::
+      Este de EE. UU.  
       Este de EE. UU. 2  
       EUAP de Este de EE. UU. 2  
-      Centro de Francia Este de Japón  
+      Centro de Francia  
+      Centro-oeste de Alemania  
+      Japón Oriental  
+      Japón Occidental  
       Centro de Corea del Sur  
       Centro-Norte de EE. UU  
       Norte de Europa  
-      Norte de Sudáfrica  
-      Centro-sur de EE. UU.  
    :::column-end:::
    :::column span="":::
+      Este de Noruega  
+      Norte de Sudáfrica  
+      Centro-sur de EE. UU.  
       Sudeste de Asia  
       Norte de Suiza  
       Oeste de Suiza  
       Centro de Emiratos Árabes Unidos  
       Norte de Emiratos Árabes Unidos  
       Sur de Reino Unido  
-      Oeste de Reino Unido   
-      USGov: Arizona  
-      USGov Virginia  
-      USNat East   
+      Oeste de Reino Unido      
    :::column-end:::
    :::column span="":::
+      USGov: Arizona  
+      USGov Virginia  
+      USNat East  
       USNat West   
       USSec oriental  
       USSec occidental  
@@ -160,6 +166,9 @@ El área de trabajo de Log Analytics debe existir en las siguientes regiones:
       Oeste de EE. UU. 2  
    :::column-end:::
 :::row-end:::
+
+> [!NOTE]
+> Si los NSG admiten una región, pero el área de trabajo de Log Analytics no admite esa región para el análisis de tráfico según las listas anteriores, puede usar el área de trabajo de Log Analytics de cualquier otra región admitida como solución alternativa.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 

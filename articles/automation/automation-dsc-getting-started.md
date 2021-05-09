@@ -5,12 +5,12 @@ services: automation
 ms.subservice: dsc
 ms.date: 04/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 95072970004ae53663f130a78af36a84a6fab685
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ce6a33b569a86cd539de99264dd8e7f583559a6f
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99051505"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108018338"
 ---
 # <a name="get-started-with-azure-automation-state-configuration"></a>Introducción a Azure Automation State Configuration
 
@@ -216,16 +216,7 @@ Puede asignar un nodo para que use una configuración de nodo diferente a la que
 
 ## <a name="unregister-a-node"></a>Anular el registro de un nodo
 
-Si ya no desea que State Configuration administre un nodo, puede anular su registro.
-
-1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. A la izquierda, haga clic en **Todos los recursos** y, luego, en el nombre de la cuenta de Automation.
-1. En la página Cuenta de Automation, haga clic en **State configuration (DSC)** en **Administración de configuración**.
-1. En la página State configuration (DSC), haga clic en la pestaña **Nodos**.
-1. En la pestaña **Nodos**, haga clic en el nombre del nodo cuyo registro desea anular.
-1. En el panel de dicho nodo, haga clic en **Anular registro**.
-
-    ![Captura de pantalla de la página de detalles del nodo donde se resalta el botón Anular registro](./media/automation-dsc-getting-started/UnregisterNode.png)
+Si ya no desea que State Configuration administre un nodo, puede anular su registro. Consulte [Cómo quitar una configuración y un nodo de Automation State Configuration](./how-to/remove-desired-state-configuration-package.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

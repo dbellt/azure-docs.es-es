@@ -12,12 +12,12 @@ ms.date: 7/10/2020
 ms.author: iangithinji
 ms.reviewer: luleonpla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bcd137030e4e1f3e88f47ec5ba78b3bde08fe068
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 7e8cf0459ecdf93251d1d59a9396b6ee11b7701c
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107373986"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108160824"
 ---
 # <a name="take-action-on-overprivileged-or-suspicious-applications-in-azure-active-directory"></a>Adopción de medidas ante una aplicación con privilegios excesivos o sospechosa en Azure Active Directory
 
@@ -32,14 +32,13 @@ Para realizar las siguientes acciones, debe iniciar sesión como administrador g
 Para restringir el acceso a las aplicaciones, debe requerir la asignación de usuarios y, luego, asignar usuarios o grupos a la aplicación.  Para más información, consulte [Métodos para asignar usuarios y grupos](./assign-user-or-group-access-portal.md).
 
 Puede acceder al portal de Azure AD para obtener scripts de PowerShell contextuales para realizar las acciones.
- 
+
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador global, administrador de una aplicación o administrador de una aplicación en la nube.
 2. Seleccione **Azure Active Directory** > **Aplicaciones empresariales**.
 3. Seleccione la aplicación a la que desea restringir el acceso.
 4. Seleccione **Permisos**. En la barra de comandos, seleccione **Revisar permisos**.
 
 ![Captura de pantalla de la ventana de revisión de permisos.](./media/manage-application-permissions/review-permissions.png)
-
 
 ## <a name="control-access-to-an-application"></a>Control del acceso a una aplicación
 
@@ -86,8 +85,7 @@ Opcionalmente, mediante PowerShell, puede:
 
 O bien, puede deshabilitar la aplicación para bloquear el acceso de los usuarios y detener el acceso de las aplicaciones a los datos.
 
-
-## <a name="disable-a-malicious-application"></a>Deshabilitar una aplicación malintencionada 
+## <a name="disable-a-malicious-application"></a>Deshabilitar una aplicación malintencionada
 
 Se recomienda deshabilitar la aplicación para impedir que los usuarios accedan a la aplicación y que la aplicación tenga acceso a los datos. Si, en su lugar, elimina la aplicación, los usuarios pueden volver a dar su consentimiento a la aplicación y conceder acceso a los datos.
 
@@ -98,7 +96,6 @@ Se recomienda deshabilitar la aplicación para impedir que los usuarios accedan 
 
 ### <a name="powershell-commands"></a>Comandos de PowerShell
 
-
 Recupere el identificador de objeto de la entidad de servicio.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador global, administrador de una aplicación o administrador de una aplicación en la nube.
@@ -106,12 +103,14 @@ Recupere el identificador de objeto de la entidad de servicio.
 3. Seleccione la aplicación a la que desea restringir el acceso.
 4. Seleccione **Propiedades** y después copie el identificador del objeto.
 
-```powershell
-$sp = Get-AzureADServicePrincipal -Filter "displayName eq '$app_name'"
-$sp.ObjectId
-```
+   ```powershell
+   $sp = Get-AzureADServicePrincipal -Filter "displayName eq '$app_name'"
+   $sp.ObjectId
+   ```
+
 Quite todos los usuarios asignados a la aplicación.
- ```powershell
+
+```powershell
 Connect-AzureAD
 
 # Get Service Principal using objectId
@@ -128,7 +127,7 @@ $assignments | ForEach-Object {
         Remove-AzureADGroupAppRoleAssignment -ObjectId $_.PrincipalId -AppRoleAssignmentId $_.ObjectId
     }
 }
- ```
+```
 
 Revoque los permisos concedidos a la aplicación.
 
@@ -154,7 +153,9 @@ $spApplicationPermissions | ForEach-Object {
     Remove-AzureADServiceAppRoleAssignment -ObjectId $_.PrincipalId -AppRoleAssignmentId $_.objectId
 }
 ```
+
 Invalide los tokens de actualización.
+
 ```powershell
 Connect-AzureAD
 
@@ -169,7 +170,9 @@ $assignments | ForEach-Object {
     Revoke-AzureADUserAllRefreshToken -ObjectId $_.PrincipalId
 }
 ```
+
 ## <a name="next-steps"></a>Pasos siguientes
+
 - [Administración del consentimiento a las aplicaciones y evaluación de las solicitudes de consentimiento](manage-consent-requests.md)
 - [Configuración del consentimiento del usuario](configure-user-consent.md)
 - [Configuración del flujo de trabajo de consentimiento del administrador](configure-admin-consent-workflow.md)

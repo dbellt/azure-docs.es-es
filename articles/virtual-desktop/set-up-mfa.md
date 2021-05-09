@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/10/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 7ebf38226ff725865104707a3f28e7ce51a86c31
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 719b4579d97992cdfc3563ccb72b31809569182c
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106445659"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107898268"
 ---
 # <a name="enable-azure-multifactor-authentication-for-windows-virtual-desktop"></a>Habilitación de la autenticación multifactor de Azure para Windows Virtual Desktop
 
@@ -24,7 +24,7 @@ Al iniciar sesión por primera vez, el cliente solicita el nombre de usuario, la
 
 Aunque recordar credenciales resulta práctico, también puede hacer que las implementaciones en escenarios empresariales o dispositivos personales sean menos seguras. Para proteger a los usuarios, debe asegurarse de que el cliente sigue solicitando las credenciales de autenticación multifactor de Azure con más frecuencia. En este artículo se muestra cómo configurar la directiva de acceso condicional de Windows Virtual Desktop para habilitar esta opción de configuración.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Requisitos para poder comenzar:
 
@@ -67,7 +67,7 @@ Aquí se muestra cómo crear una directiva de acceso condicional que exija auten
    > 
    > Si usa Windows Virtual Desktop (clásico), si la directiva de acceso condicional bloquea todo el acceso y solo excluye los identificadores de aplicaciones de Windows Virtual Desktop, puede solucionarlo agregando el identificador de la aplicación 9cdead84-a844-4324-93f2-b2e6bb768d07 a la directiva. Si no se agrega este identificador de aplicación, se bloqueará la detección de fuentes de los recursos de Windows Virtual Desktop (clásico).
 
-10. Vaya a **Condiciones** > **Aplicaciones cliente** y, después, seleccione la ubicación en la que quiere aplicar la directiva:
+10. Vaya a **Condiciones**  >  **Aplicaciones cliente**. En **Configurar**, seleccione **Sí** y luego seleccione dónde aplicar la directiva:
     
     - Seleccione **Explorador** si quiere que la directiva se aplique al cliente web.
     - Seleccione **Aplicaciones móviles y aplicaciones de escritorio** si quiere aplicar la directiva a otros clientes.

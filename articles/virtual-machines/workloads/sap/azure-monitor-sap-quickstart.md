@@ -6,12 +6,12 @@ ms.author: sakhare
 ms.topic: how-to
 ms.service: virtual-machines-sap
 ms.date: 08/17/2020
-ms.openlocfilehash: 908de54ee66772f3eb648895529c843675c3bf15
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: a9208101777cd88f0237e661a414550759a069b0
+ms.sourcegitcommit: aaba99b8b1c545ad5d19f400bcc2d30d59c63f39
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107538646"
+ms.lasthandoff: 04/26/2021
+ms.locfileid: "108007388"
 ---
 # <a name="deploy-azure-monitor-for-sap-solutions-with-azure-portal"></a>Implementación de Azure Monitor para soluciones de SAP con Azure Portal
 
@@ -147,7 +147,7 @@ El "servicio de inicio de SAP" proporciona una serie de servicios, incluida la s
 1. Selección del SO (Linux) en la lista desplegable 
 
    >[!IMPORTANT]
-   > Para configurar el proveedor de sistema operativo (Linux), asegúrese de que la versión más reciente de Node_Exporter esté instalada en cada host (BareMetal o VM) que desee supervisar. Use este [vínculo](https://prometheus.io/download/#node_exporter) para consultar la versión más reciente. Para obtener más información, consulte  [Node_Exporter](https://github.com/prometheus/node_exporter)
+   > Para configurar el proveedor de sistema operativo (Linux), asegúrese de que la versión más reciente de Node_Exporter esté instalada en cada host (BareMetal o VM) que desee supervisar. Instale la [versión más reciente de Node Exporter.](https://prometheus.io/download/#node_exporter) Haga clic aquí para [obtener más información](https://github.com/prometheus/node_exporter).
 
 2. Escriba un nombre, que será el identificador de la instancia de BareMetal.
 3. Escriba el punto de conexión Node_Exporter con el formato http://IP:9100/metrics.

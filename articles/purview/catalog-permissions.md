@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 10/20/2020
-ms.openlocfilehash: b351be1e7212dc9923f701599dd951a73254afe0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9c27287f661c133641f7b3da45784478c8fc597e
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98610376"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108016018"
 ---
 # <a name="role-based-access-control-in-azure-purviews-data-plane"></a>Control de acceso basado en rol en el plano de datos de Azure Purview
 
@@ -23,7 +23,7 @@ En este artículo se describe cómo se implementa el control de acceso basado en
 
 ## <a name="azure-purviews-pre-defined-data-plane-roles"></a>Roles predefinidos del plano de datos de Azure Purview
 
-Azure Purview define un conjunto de roles del plano de datos predefinidos que se pueden usar para controlar quién puede acceder a qué en Azure Purview. Estos roles son:
+Azure Purview define un conjunto de roles predefinidos del plano de datos que se pueden usar para controlar quién puede acceder a qué en Azure Purview. Estos roles son:
 
 * **Rol Lector de datos de Purview**: tiene acceso al portal de Purview y puede leer todo el contenido de Azure Purview, excepto los enlaces de examen.
 * **Rol Conservador de datos de Purview**: tiene acceso al portal de Purview y puede leer todo el contenido de Azure Purview, excepto los enlaces de examen, puede editar información sobre los recursos, editar definiciones de clasificación y términos del glosario, y puede aplicar clasificaciones y términos del glosario a los recursos.

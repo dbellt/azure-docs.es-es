@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70222f493e73c1b46dcb7dfdaedfa3ad2c30714a
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: c07e9604d0b95562f6c32b149b74d58fd4bf0932
+ms.sourcegitcommit: aaba99b8b1c545ad5d19f400bcc2d30d59c63f39
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106060266"
+ms.lasthandoff: 04/26/2021
+ms.locfileid: "108007329"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Roles de administrador por tarea de administrador en Azure Active Directory
 
@@ -57,7 +57,7 @@ Leer toda la configuración | Lector global |
 Leer registros de auditoría de B2C | Lector global ([consulte la documentación](../../active-directory-b2c/faq.md)) | 
 
 > [!NOTE]
-> Los lectores globales de Azure AD B2C no tienen los mismos permisos que los administradores globales de Azure AD. Si tiene privilegios de administrador global de Azure AD B2C, asegúrese de que se encuentra en un directorio de Azure AD B2C, no de Azure AD.
+> Los administradores globales de Azure AD B2C no tienen los mismos permisos que los administradores globales de Azure AD. Si tiene privilegios de administrador global de Azure AD B2C, asegúrese de que se encuentra en un directorio de Azure AD B2C, no de Azure AD.
 
 ## <a name="company-branding"></a>Personalización de marca de empresa
 
