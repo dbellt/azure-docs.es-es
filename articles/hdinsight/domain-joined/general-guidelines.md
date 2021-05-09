@@ -4,12 +4,12 @@ description: Presentamos algunos procedimientos recomendados que facilitan la im
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: 92ad8362f75cdf0613d4ee95f39c23aa6d4819bb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 57bf6d1773857b7627b8cea5b69d18e337e41427
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98933571"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108292853"
 ---
 # <a name="enterprise-security-general-information-and-guidelines-in-azure-hdinsight"></a>Directrices generales e información de seguridad de la empresa en Azure HDInsight
 
@@ -112,7 +112,7 @@ Use un nuevo grupo de recursos para cada clúster para poder distinguir entre lo
 [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md) (Azure AD DS) proporciona servicios de dominio administrados como, por ejemplo, unión a un dominio, directiva de grupo, protocolo ligero de acceso a directorios (LDAP) y autenticación Kerberos/NTLM, que son totalmente compatibles con Windows Server Active Directory.
 
 Azure AD DS es necesario para que los clústeres seguros se unan a un dominio.
-HDInsight no puede depender de controladores de dominio locales ni personalizados, ya que presenta demasiados puntos de error, uso compartido de credenciales, permisos de DNS, etc. Para más información, consulte [Preguntas más frecuentes de Azure AD DS](../../active-directory-domain-services/faqs.md).
+HDInsight no puede depender de controladores de dominio locales ni personalizados, ya que presenta demasiados puntos de error, uso compartido de credenciales, permisos de DNS, etc. Para más información, consulte [Preguntas más frecuentes de Azure AD DS](../../active-directory-domain-services/faqs.yml).
 
 ### <a name="azure-ad-ds-instance"></a>Instancia de Azure AD DS
 

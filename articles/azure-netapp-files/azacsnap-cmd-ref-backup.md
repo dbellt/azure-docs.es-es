@@ -12,16 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 12/14/2020
+ms.date: 04/21/2021
 ms.author: phjensen
-ms.openlocfilehash: 17c29fdf88495f6ecc40963eda08858887173fd1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4e0091d1d94a173df07f956959580f7f862ec08f
+ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98730945"
+ms.lasthandoff: 04/23/2021
+ms.locfileid: "107930036"
 ---
-# <a name="back-up-using-azure-application-consistent-snapshot-tool-preview"></a>Copias de seguridad con la herramienta Azure Application Consistent Snapshot (versión preliminar)
+# <a name="back-up-using-azure-application-consistent-snapshot-tool"></a>Copias de seguridad con la herramienta Azure Application Consistent Snapshot
 
 En este artículo se ofrece una guía para ejecutar el comando de copia de seguridad de la herramienta Azure Application Consistent Snapshot que puede usar con Azure NetApp Files.
 
