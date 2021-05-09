@@ -3,12 +3,12 @@ title: 'Introducción a los centros de eventos dedicados: Azure Event Hubs | Mic
 description: En este artículo, se proporciona información general sobre Azure Event Hubs dedicado, que permite realizar implementaciones de centros de eventos con un único inquilino.
 ms.topic: article
 ms.date: 10/23/2020
-ms.openlocfilehash: fe63b074bfdd01191d81dfb7024af5532a87a12f
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 7f4693857f2c963623cb7ab7c132781d1061f5d7
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107310774"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108017470"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Introducción a Event Hubs dedicado
 
@@ -31,10 +31,12 @@ Event Hubs dedicado brinda tres atractivas ventajas para los clientes que necesi
 
 Un clúster dedicado garantiza la capacidad con el máximo nivel de escalado. Puede admitir hasta gigabytes de datos de streaming de entrada con un almacenamiento de máxima duración y una latencia inferior a un segundo para admitir ráfagas de tráfico de todo tipo. 
 
-#### <a name="inclusive-and-exclusive-access-to-features"></a>Acceso incluido y exclusivo a características 
-La oferta Dedicado incluye algunas características como Capture sin ningún costo adicional y proporciona acceso exclusivo a otras características que se publicarán próximamente, como Bring Your Own Key (BYOK). El servicio también administra el equilibrio de carga, las actualizaciones del sistema operativo, las revisiones de seguridad y la creación de particiones. Por lo tanto, puede dedicar menos tiempo al mantenimiento de la infraestructura y más tiempo a la creación de características del lado cliente.  
+#### <a name="inclusive-and-exclusive-access-to-features"></a>Acceso incluido y exclusivo a características
+
+La oferta dedicada incluye características, como Capture, sin ningún costo adicional y proporciona acceso exclusivo a características como Bring Your Own Key (BYOK). El servicio también administra el equilibrio de carga, las actualizaciones del sistema operativo, las revisiones de seguridad y la creación de particiones. Por lo tanto, puede dedicar menos tiempo al mantenimiento de la infraestructura y más tiempo a la creación de características del lado cliente.  
 
 #### <a name="cost-savings"></a>Ahorro de costos
+
 Cuando los volúmenes de entrada son altos (> 100 unidades de procesamiento), el costo por hora de un clúster es significativamente inferior a la cantidad equivalente de unidades de procesamiento de la oferta Estándar.
 
 

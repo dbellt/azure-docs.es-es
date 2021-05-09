@@ -7,12 +7,13 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
-ms.openlocfilehash: 15f68e8cbca65e7b970944f7ca5ef1952140cc6b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 0a88acaf29187c648b24f74877a260a8772f6008
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93397650"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108319690"
 ---
 # <a name="application-gateway-listener-configuration"></a>Configuración del cliente de escucha de Application Gateway
 

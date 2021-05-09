@@ -5,14 +5,14 @@ author: yashesvi
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 02/10/2021
+ms.date: 03/10/2021
 ms.author: banders
-ms.openlocfilehash: 4fb15a7e677d566454d5d487c1cf69767d7f3a30
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 4059318e6b8052f3b0221c87e8a357cfc8679e44
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100368751"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107532758"
 ---
 # <a name="charge-back-azure-reservation-costs"></a>Contracargo de costos de Reserva de Azure
 
@@ -33,7 +33,7 @@ Los usuarios con una suscripción individual pueden obtener los datos de costos 
 
 [![Ejemplo que muestra los costos de recursos de reserva que se pueden usar para el contracargo](./media/charge-back-usage/amortized-reservation-costs.png)](./media/charge-back-usage/amortized-reservation-costs.png#lightbox)
 
-En este vídeo se muestra cómo ver los costos de uso de la reserva en Azure Portal.
+Este es un vídeo en el que se muestra cómo ver los costos de uso de reservas en los niveles de suscripción, grupo de recursos y recurso en Azure Portal.
 
  > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4sQOw] 
 

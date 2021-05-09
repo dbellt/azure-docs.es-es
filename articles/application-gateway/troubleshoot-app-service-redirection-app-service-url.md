@@ -8,12 +8,13 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 04/15/2021
 ms.author: jaysoni
-ms.openlocfilehash: 6aad1cf1269a7c3dc082482c39fdc4a079fc3240
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: d2291bc88a90a703239764a2d5fda9b2889a7af7
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107514893"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108319672"
 ---
 # <a name="troubleshoot-app-service-issues-in-application-gateway"></a>Solución de problemas de App Service en Application Gateway
 
@@ -80,7 +81,7 @@ En el ejemplo anterior, observe que el encabezado de respuesta tiene un código 
 
 ## <a name="solution-rewrite-the-location-header"></a>Solución: reescribir el encabezado de ubicación
 
-Establezca el nombre de host del encabezado de ubicación en el nombre de dominio de la puerta de enlace de aplicaciones. Para ello, cree una [regla de reescritura](./rewrite-http-headers.md) con una condición que evalúe si el encabezado de ubicación en la respuesta contiene azurewebsites.net. También debe realizar una acción para volver a escribir el encabezado de ubicación de modo que tenga el nombre de host de la puerta de enlace de aplicaciones. Para obtener más información, vea las instrucciones para [volver a escribir el encabezado de ubicación](./rewrite-http-headers.md#modify-a-redirection-url).
+Establezca el nombre de host del encabezado de ubicación en el nombre de dominio de la puerta de enlace de aplicaciones. Para ello, cree una [regla de reescritura](./rewrite-http-headers-url.md) con una condición que evalúe si el encabezado de ubicación en la respuesta contiene azurewebsites.net. También debe realizar una acción para volver a escribir el encabezado de ubicación de modo que tenga el nombre de host de la puerta de enlace de aplicaciones. Para obtener más información, vea las instrucciones para [volver a escribir el encabezado de ubicación](./rewrite-http-headers-url.md#modify-a-redirection-url).
 
 > [!NOTE]
 > La compatibilidad con la reescritura de encabezados HTTP solo está disponible para [Standard_v2 y WAF_v2 SKU](./application-gateway-autoscaling-zone-redundant.md) de Application Gateway. Se recomienda [migrar a v2](./migrate-v1-v2.md) para la reescritura de encabezados y otras [funcionalidades avanzadas](./application-gateway-autoscaling-zone-redundant.md#feature-comparison-between-v1-sku-and-v2-sku) que están disponibles con la versión v2 de la SKU.

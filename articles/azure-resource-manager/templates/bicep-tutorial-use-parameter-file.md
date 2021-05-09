@@ -5,12 +5,13 @@ author: mumian
 ms.date: 04/27/2021
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 73af451292462d9963720924df7718116a78baaa
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 73fabbc92d1e1476619cc73e0e1f13e5d9b164b8
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108071494"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108319294"
 ---
 # <a name="tutorial-use-parameter-files-to-deploy-azure-resource-manager-bicep-file"></a>Tutorial: Uso de un archivo de parámetros para implementar un archivo de Bicep de Azure Resource Manager
 
