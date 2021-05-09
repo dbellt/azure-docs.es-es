@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: tutorial
 ms.date: 02/24/2021
 ms.author: ambapat
-ms.openlocfilehash: 9c3b3e07b2cf9c209f05a78d22e53fc3e11459db
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.openlocfilehash: f2faabd92a1ebdf9734119d12aea49042b03497a
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108015886"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108162444"
 ---
 # <a name="import-hsm-protected-keys-for-key-vault-ncipher"></a>Importación de claves protegidas con HSM para Key Vault (nCipher)
 
@@ -26,13 +26,12 @@ ms.locfileid: "108015886"
 
 Para obtener una mayor seguridad, cuando utilice Azure Key Vault, puede importar o generar claves en módulos de seguridad de hardware (HSM) que no se salen nunca del límite de los HSM. Con frecuencia este escenario se conoce también como *Aportar tu propia clave*, o BYOK. En Azure Key Vault se usa la familia nCipher nShield de HSM (validado con FIPS 140-2 de nivel 2) para proteger las claves.
 
-
-La información de este tema le ayudará a planear, generar y transferir sus propias claves protegidas con HSM para utilizarlas en Azure Key Vault. 
+La información de este tema le ayudará a planear, generar y transferir sus propias claves protegidas con HSM para utilizarlas en Azure Key Vault.
 
 Esta funcionalidad no está disponible para Azure China 21Vianet.
 
 > [!NOTE]
-> Para obtener más información sobre Azure Key Vault, consulte [¿Qué es Azure Key Vault?](../general/overview.md)  
+> Para obtener más información sobre Azure Key Vault, consulte [¿Qué es Azure Key Vault?](../general/overview.md)
 > Para ver un tutorial introductorio que incluya la creación de un almacén de claves para claves protegidas con HSM, consulte [¿Qué es Azure Key Vault?](../general/overview.md).
 
 Obtenga más información acerca de cómo generar y transferir una clave protegida con HSM a través de Internet:
@@ -87,14 +86,16 @@ Desde la estación de trabajo conectada a Internet, descargue e instale el módu
 
 Inicie una sesión de Azure PowerShell e inicie sesión en su cuenta de Azure con el siguiente comando:
 
-```Powershell
+```powershell
    Connect-AzAccount
 ```
+
 En la ventana emergente del explorador, escriba el nombre de usuario y la contraseña de su cuenta de Azure. A continuación, use el comando [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription):
 
 ```powershell
    Get-AzSubscription
 ```
+
 En la salida, busque el identificador de la suscripción que va a utilizar para Azure Key Vault. Lo necesitará más adelante.
 
 No cierre la ventana de Azure PowerShell.
@@ -231,7 +232,6 @@ KeyVault-BYOK-Tools-Switzerland.zip
 
 ---
 
-
 Para validar la integridad del conjunto de herramientas BYOK que descargó, use el cmdlet [Get-FileHash](/powershell/module/microsoft.powershell.utility/get-filehash) en la sesión de Azure PowerShell.
 
    ```powershell
@@ -274,7 +274,7 @@ Copie el paquete del conjunto de herramientas BYOK de la unidad USB, u otro disp
 
 ## <a name="step-3-generate-your-key"></a>Paso 3: Generación de la clave
 
-En el tercer paso, realice los siguientes procedimientos en la estación de trabajo desconectada. Para completar este paso, HSM debe estar en modo de inicialización. 
+En el tercer paso, realice los siguientes procedimientos en la estación de trabajo desconectada. Para completar este paso, HSM debe estar en modo de inicialización.
 
 ### <a name="step-31-change-the-hsm-mode-to-i"></a>Paso 3.1: Cambio del modo HSM a "I"
 
@@ -292,7 +292,7 @@ Este programa crea un archivo de **espacio de seguridad** en %NFAST_KMDATA%\loca
 
 > [!NOTE]
 > Si su dispositivo HSM no admite el conjunto de cifrado más reciente DLf3072s256mRijndael, puede reemplazar --cipher-suite= DLf3072s256mRijndael por --cipher-suite=DLf1024s160mRijndael.
-> 
+>
 > El espacio de seguridad creado con new-world.exe, que se incluye con la versión 12.50 de nCipher, no es compatible con este procedimiento de BYOK. Hay dos opciones disponibles:
 > 1) Cambiar a la versión 12.40.2 de nCipher anterior para crear un nuevo espacio de seguridad.
 > 2) Ponerse en contacto con el soporte técnico de nCipher y solicitarles que proporcionen una revisión para la versión 12.50 que permita usar la versión 12.40.2 de new-world.exe, que es compatible con este procedimiento de BYOK.
@@ -325,86 +325,103 @@ Para validar el paquete descargado:
       ```azurepowershell
       "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-NA-1 -w BYOK-SecurityWorld-pkg-NA-1
       ```
+
    * Europa:
 
       ```azurepowershell
       "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-EU-1 -w BYOK-SecurityWorld-pkg-EU-1
       ```
+
    * Asia:
 
         ```azurepowershell
         "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-AP-1 -w BYOK-SecurityWorld-pkg-AP-1
         ```
+
    * América Latina:
 
         ```azurepowershell
         "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-LATAM-1 -w BYOK-SecurityWorld-pkg-LATAM-1
         ```
+
    * Japón:
 
         ```azurepowershell
         "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-JPN-1 -w BYOK-SecurityWorld-pkg-JPN-1
         ```
+
    * Para Corea:
 
         ```azurepowershell
         "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-KOREA-1 -w BYOK-SecurityWorld-pkg-KOREA-1
         ```
+
    * Para Sudáfrica:
 
         ```azurepowershell
         "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-SA-1 -w BYOK-SecurityWorld-pkg-SA-1
         ```
+
    * Para Emiratos Árabes Unidos:
 
         ```azurepowershell
         "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-UAE-1 -w BYOK-SecurityWorld-pkg-UAE-1
         ```
+
    * Para Australia:
 
         ```azurepowershell
         "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-AUS-1 -w BYOK-SecurityWorld-pkg-AUS-1
         ```
+
    * Para [Azure Government](https://azure.microsoft.com/features/gov/), que usa la instancia del gobierno de Estados Unidos de Azure:
 
         ```azurepowershell
         "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-USGOV-1 -w BYOK-SecurityWorld-pkg-USGOV-1
         ```
+
    * Para DoD del US Gov:
 
         ```azurepowershell
         "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-USDOD-1 -w BYOK-SecurityWorld-pkg-USDOD-1
         ```
+
    * Para Canadá:
 
         ```azurepowershell
         "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-CANADA-1 -w BYOK-SecurityWorld-pkg-CANADA-1
         ```
+
    * Para Alemania:
 
         ```azurepowershell
         "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-GERMANY-1 -w BYOK-SecurityWorld-pkg-GERMANY-1
         ```
+
    * Para pública de Alemania:
 
         ```azurepowershell
         "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-GERMANY-1 -w BYOK-SecurityWorld-pkg-GERMANY-1
         ```
+
    * Para India:
 
       ```azurepowershell
       "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-INDIA-1 -w BYOK-SecurityWorld-pkg-INDIA-1
       ```
+
    * Para Francia:
 
         ```azurepowershell
         "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-FRANCE-1 -w BYOK-SecurityWorld-pkg-FRANCE-1
         ```
+
    * Para Reino Unido:
 
         ```azurepowershell
         "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-UK-1 -w BYOK-SecurityWorld-pkg-UK-1
         ```
+
    * Para Suiza:
 
         ```azurepowershell
@@ -445,7 +462,6 @@ Realice una copia del archivo tokenizado en una ubicación segura.
 > Cuando posteriormente transfiera la clave a Azure Key Vault, Microsoft no podrá exportar esta clave, por lo que resulta extremadamente importante que realice una copia de seguridad de la misma y del espacio de seguridad. Póngase en contacto con [nCipher](https://www.ncipher.com/about-us/contact-us) para obtener instrucciones y procedimientos recomendados para realizar copias de seguridad de la clave.
 >
 
-
 Ya está listo para transferir la clave a Azure Key Vault.
 
 ## <a name="step-4-prepare-your-key-for-transfer"></a>Paso 4: Preparación de la clave para la transferencia
@@ -461,86 +477,103 @@ Abra un nuevo símbolo del sistema y cambie el directorio actual a la ubicación
    ```azurepowershell
    KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-NA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-NA-
    ```
+
 * Europa:
 
    ```azurepowershell
    KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-EU-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-EU-1
    ```
+
 * Asia:
 
    ```azurepowershell
    KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-AP-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-AP-1
    ```
+
 * América Latina:
 
    ```azurepowershell
    KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-LATAM-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-LATAM-1
    ```
+
 * Japón:
 
    ```azurepowershell
    KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-JPN-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-JPN-1
    ```
+
 * Para Corea:
 
    ```azurepowershell
    KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-KOREA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-KOREA-1
    ```
+
 * Para Sudáfrica:
 
    ```azurepowershell
    KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-SA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-SA-1
    ```
+
 * Para Emiratos Árabes Unidos:
 
    ```azurepowershell
    KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-UAE-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-UAE-1
    ```
+
 * Para Australia:
 
    ```azurepowershell
    KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-AUS-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-AUS-1
    ```
+
 * Para [Azure Government](https://azure.microsoft.com/features/gov/), que usa la instancia del gobierno de Estados Unidos de Azure:
 
    ```azurepowershell
    KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-USGOV-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-USGOV-1
    ```
+
 * Para DoD del US Gov:
 
    ```azurepowershell
    KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-USDOD-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-USDOD-1
    ```
+
 * Para Canadá:
 
    ```azurepowershell
    KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-CANADA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-CANADA-1
    ```
+
 * Para Alemania:
 
    ```azurepowershell
    KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-GERMANY-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-GERMANY-1
    ```
+
 * Para pública de Alemania:
 
    ```azurepowershell
    KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-GERMANY-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-GERMANY-1
    ```
+
 * Para India:
 
    ```azurepowershell
    KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-INDIA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-INDIA-1
    ```
+
 * Para Francia:
 
    ```azurepowershell
    KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-FRANCE-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-FRANCE-1
    ```
+
 * Para Reino Unido:
 
    ```azurepowershell
    KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-UK-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-UK-1
    ```
+
 * Para Suiza:
 
    ```azurepowershell
@@ -560,11 +593,13 @@ Puede inspeccionar las ACL mediante los comandos siguientes con las utilidades n
    ```cmd
    "%nfast_home%\bin\preload.exe" -m 1 -A xferacld -K contosokey "%nfast_home%\python\bin\python" "%nfast_home%\python\examples\aclprint.py"
    ```
+
 * kmfile-dump.exe:
 
    ```cmd
    "%nfast_home%\bin\kmfile-dump.exe" "%NFAST_KMDATA%\local\key_xferacld_contosokey"
    ```
+
   Cuando ejecute estos comandos, reemplace contosokey por el mismo valor que especificó en el **Paso 3.5: Creación de una nueva clave** del paso [Generación de la clave](#step-3-generate-your-key).
 
 ### <a name="step-42-encrypt-your-key-by-using-microsofts-key-exchange-key"></a>Paso 4.2: Cifrado de la clave mediante la clave de intercambio de claves de Microsoft
@@ -576,92 +611,108 @@ Ejecute uno de los comandos siguientes, dependiendo de su región geográfica o 
    ```azurepowershell
    KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-NA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-NA-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
    ```
+
 * Europa:
 
    ```azurepowershell
    KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-EU-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-EU-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
    ```
+
 * Asia:
 
    ```azurepowershell
    KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-AP-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-AP-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
    ```
+
 * América Latina:
 
    ```azurepowershell
    KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-LATAM-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-LATAM-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
    ```
+
 * Japón:
 
    ```azurepowershell
    KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-JPN-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-JPN-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
    ```
+
 * Para Corea:
 
    ```azurepowershell
    KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-KOREA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-KOREA-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
    ```
+
 * Para Sudáfrica:
 
    ```azurepowershell
    KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-SA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-SA-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
    ```
+
 * Para Emiratos Árabes Unidos:
 
    ```azurepowershell
    KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-UAE-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-UAE-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
    ```
+
 * Para Australia:
 
    ```azurepowershell
    KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-AUS-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-AUS-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
    ```
+
 * Para [Azure Government](https://azure.microsoft.com/features/gov/), que usa la instancia del gobierno de Estados Unidos de Azure:
 
    ```azurepowershell
    KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-USGOV-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-USGOV-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
    ```
+
 * Para DoD del US Gov:
 
    ```azurepowershell
    KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-USDOD-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-USDOD-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
    ```
+
 * Para Canadá:
 
    ```azurepowershell
    KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-CANADA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-CANADA-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
    ```
+
 * Para Alemania:
 
    ```azurepowershell
    KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-GERMANY-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-GERMANY-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
    ```
+
 * Para pública de Alemania:
 
    ```azurepowershell
    KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-GERMANY-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-GERMANY-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
    ```
+
 * Para India:
 
    ```azurepowershell
    KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-INDIA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-INDIA-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
    ```
+
 * Para Francia:
 
    ```azurepowershell
    KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-France-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-France-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
    ```
+
 * Para Reino Unido:
 
    ```azurepowershell
    KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-UK-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-UK-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
    ```
+
 * Para Suiza:
 
   ```azurepowershell
   KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-SUI-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-SUI-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
   ```
-
 
 Cuando ejecute este comando, siga estas instrucciones:
 

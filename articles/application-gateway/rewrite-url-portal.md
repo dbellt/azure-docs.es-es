@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 4/05/2021
 ms.author: azhussai
-ms.openlocfilehash: b8ddc5e57b9ce56d6bce7e220bc840ba0fa43ae2
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: c0a99d2c2885de59ccc903b9f505b8049d922b43
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106384764"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108205204"
 ---
 # <a name="rewrite-url-with-azure-application-gateway---azure-portal"></a>Reescritura de la dirección URL con Azure Application Gateway: Azure Portal
 
@@ -120,4 +120,4 @@ Para más información sobre todos los campos de los registros de acceso, consul
 
 ##  <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre cómo configurar las reescrituras para algunos casos de uso comunes, consulte los [escenarios de reescritura comunes](rewrite-http-headers.md).
+Para más información sobre cómo configurar las reescrituras para algunos casos de uso comunes, consulte los [escenarios de reescritura comunes](./rewrite-http-headers-url.md).

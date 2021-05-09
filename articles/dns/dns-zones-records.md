@@ -7,18 +7,18 @@ ms.service: dns
 ms.topic: conceptual
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 12/18/2017
+ms.date: 04/20/2021
 ms.author: rohink
-ms.openlocfilehash: 41eb15a38c97532951723f12d1ac74c90c838eb1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 26eefe5cbcef417dee1a400b492ee847394ca6a9
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94968203"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107816970"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Información general sobre zonas y registros de DNS
 
-En esta página se explican los conceptos básicos sobre dominios, zonas DNS y registros y conjuntos de registros DNS, y cómo se admiten en DNS de Azure.
+En este artículo se explican los conceptos clave de los dominios, las zonas DNS, los registros DNS y los conjuntos de registros. Aprenderá cómo se admite en Azure DNS.
 
 ## <a name="domain-names"></a>Nombres de dominio
 
@@ -26,9 +26,9 @@ El sistema de nombres de dominio es una jerarquía de dominios. La jerarquía em
 
 Un registrador de nombres de dominio es una organización que le permite adquirir un nombre de dominio, como `contoso.com`.  Comprar un nombre de dominio le concede el derecho a controlar la jerarquía DNS bajo ese nombre, por ejemplo, permitiéndole dirigir el nombre `www.contoso.com` al sitio web de empresa. El propio registrador puede hospedar el dominio del usuario en los servidores de nombres de este último, o bien el usuario puede especificar servidores de nombres alternativos.
 
-DNS de Azure proporciona una infraestructura de servidores de nombre de alta disponibilidad distribuida globalmente, que se puede utilizar para hospedar el dominio. Al hospedar los dominios en DNS de Azure, puede administrar los registros DNS con las mismas credenciales, interfaces API, herramientas, facturación y soporte técnico que con los demás servicios de Azure.
+Azure DNS proporciona una infraestructura de servidores de nombre de alta disponibilidad distribuida globalmente, que se puede utilizar para hospedar el dominio. Al hospedar los dominios en DNS de Azure, puede administrar los registros DNS con las mismas credenciales, interfaces API, herramientas, facturación y soporte técnico que con los demás servicios de Azure.
 
-DNS de Azure actualmente no admite la adquisición de nombres de dominio. Si desea adquirir un dominio, debe usar un registrador de nombres de dominio de un tercero. El registrador suele cobrar una tarifa anual reducida. Los dominios se pueden hospedar en DNS de Azure para la administración de registros de DNS. Consulte [Delegación de un dominio en DNS de Azure](dns-domain-delegation.md) para más información.
+Azure DNS actualmente no admite la adquisición de nombres de dominio. Si desea adquirir un dominio, debe usar un registrador de nombres de dominio de un tercero. El registrador suele cobrar una tarifa anual reducida. Los dominios se pueden hospedar en DNS de Azure para la administración de registros de DNS. Consulte [Delegación de un dominio en DNS de Azure](dns-domain-delegation.md) para más información.
 
 ## <a name="dns-zones"></a>Zonas DNS
 
@@ -42,21 +42,21 @@ DNS de Azure actualmente no admite la adquisición de nombres de dominio. Si des
 
 El período de vida, o TTL, especifica durante cuánto tiempo los clientes almacenan cada registro en caché antes de volver a consultarlo. En el ejemplo anterior, el TTL es 3600 segundos o 1 hora.
 
-En DNS de Azure, el TTL se especifica para el conjunto de registros, no para cada registro, por lo que se usa el mismo valor para todos los registros del conjunto de registros.  Se puede especificar cualquier valor TTL entre 1 y 2 147 483 647 segundos.
+En Azure DNS, el TTL se especifica para el conjunto de registros, no para cada registro, por lo que se usa el mismo valor para todos los registros del conjunto de registros.  Se puede especificar cualquier valor TTL entre 1 y 2 147 483 647 segundos.
 
 ### <a name="wildcard-records"></a>Registros de carácter comodín
 
-DNS de Azure admite [registros de carácter comodín](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Estos se devuelven como respuesta a cualquier consulta con un nombre coincidente (a menos que haya una coincidencia más próxima de un conjunto de registros que no sean de caracteres comodín). Azure DNS admite los conjuntos de registros de carácter comodín para todos los tipos de registros, excepto NS y SOA.
+DNS de Azure admite [registros de carácter comodín](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Estos se devuelven como respuesta a cualquier consulta con un nombre coincidente, a menos que haya una coincidencia más próxima de un conjunto de registros que no sean de caracteres comodín. Azure DNS admite los conjuntos de registros de carácter comodín para todos los tipos de registros, excepto NS y SOA.
 
-Para crear un conjunto de registros comodín, utilice el nombre de conjunto de registros "\*". Como alternativa, también puede utilizar un nombre con "\*" como su etiqueta a la izquierda, por ejemplo,"\*.foo".
+Para crear un conjunto de registros comodín, utilice el nombre de conjunto de registros "\*". También puede utilizar un nombre con "\*" como su etiqueta a la izquierda, por ejemplo,"\*.foo".
 
 ### <a name="caa-records"></a>Registros CAA
 
-Los registros CAA permiten a los propietarios especificar qué entidades de certificación (CA) están autorizadas para emitir certificados para su dominio. Esto permite a las entidades de certificación evitar certificados no emitidos en algunas circunstancias. Los registros CAA tienen tres propiedades:
-* **Marcas**: se trata de un número entero entre 0 y 255, que se utiliza para representar la marca crítica que tiene un significado especial según el [RFC](https://tools.ietf.org/html/rfc6844#section-3)
+Los registros CAA permiten a los propietarios especificar qué entidades de certificación (CA) están autorizadas para emitir certificados para su dominio. Este registro permite a las entidades de certificación evitar certificados no emitidos en algunas circunstancias. Los registros CAA tienen tres propiedades:
+* **Marcas**: este campo es un número entero entre 0 y 255, que se utiliza para representar la marca crítica que tiene un significado especial según el [RFC](https://tools.ietf.org/html/rfc6844#section-3)
 * **Etiqueta**: una cadena ASCII que puede ser una de las siguientes:
-    * **issue**: utilice esta etiqueta si desea especificar entidades de certificación a las que se les permite emitir certificados (todos los tipos).
-    * **issuewild**: utilice esta etiqueta si desea especificar entidades de certificación a las que se les permite emitir certificados (solo certificados comodín)
+    * **issue**: si desea especificar entidades de certificación a las que se les permite emitir certificados (todos los tipos)
+    * **issuewild**: si desea especificar entidades de certificación a las que se les permite emitir certificados (solo certificados comodín)
     * **iodef**: utilice esta etiqueta para especificar una dirección de correo electrónico o nombre de host a la que las entidades de certificación pueden notificar solicitudes de problemas de certificados no autorizados.
 * **Valor**: el valor de la etiqueta específica elegida.
 
@@ -64,23 +64,23 @@ Los registros CAA permiten a los propietarios especificar qué entidades de cert
 
 Los conjuntos de registros CNAME no pueden coexistir con otros conjuntos de registros que tienen el mismo nombre. Por ejemplo, no se puede crear un conjunto de registros CNAME con el nombre relativo "www" y un registro A con el nombre relativo "www" al mismo tiempo.
 
-Dado que el vértice de la zona (nombre = "\@") siempre contiene los conjuntos de registros NS y SOA creados cuando se genera la zona, no puede crear un conjunto de registros CNAME en el vértice de la zona.
+Dado que el vértice de la zona (nombre = "\@") siempre contiene los conjuntos de registros NS y SOA durante la creación de la zona, no puede crear un conjunto de registros CNAME en el vértice de la zona.
 
 Estas restricciones surgen de los estándares DNS; no son limitaciones de DNS de Azure.
 
 ### <a name="ns-records"></a>Registros NS
 
-El registro NS establecido en el vértice de la zona (nombre "\@") se crea automáticamente con cada zona DNS y se elimina de forma automática cuando se elimina la zona (no se puede eliminar por separado).
+El registro NS establecido en el vértice de la zona (nombre "\@") se crea automáticamente con cada zona DNS y se elimina de forma automática cuando se elimina la zona. No se puede eliminar por separado.
 
-Este conjunto de registros contiene los nombres de los servidores de nombres Azure DNS asignados a la zona. Puede agregar más servidores de nombres a este conjunto de registros NS, para admitir dominios de hospedaje conjunto con más de un proveedor DNS. También puede modificar el TTL y los metadatos de este conjunto de registros. Sin embargo, no puede quitar ni modificar los servidores de nombres de Azure DNS rellenados previamente. 
+Este conjunto de registros contiene los nombres de los servidores de nombres Azure DNS asignados a la zona. Puede agregar más servidores de nombres a este conjunto de registros NS, para admitir dominios de hospedaje conjunto con más de un proveedor DNS. También puede modificar el TTL y los metadatos de este conjunto de registros. Sin embargo, no se permite quitar o modificar los servidores de nombres de Azure DNS rellenados previamente. 
 
-Esto solo se aplica al conjunto de registros NS en el vértice de zona. Otros conjuntos de registros NS de su zona (como los que se usan para delegar zonas secundarias) se pueden crear, modificar y eliminar sin restricciones.
+Esta restricción solo se aplica al conjunto de registros NS en el vértice de zona. Otros conjuntos de registros NS de su zona (como los que se usan para delegar zonas secundarias) se pueden crear, modificar y eliminar sin restricciones.
 
 ### <a name="soa-records"></a>Registros SOA
 
 Un conjunto de registros SOA se crea automáticamente en el vértice de cada zona (nombre = "\@") y se elimina automáticamente cuando se elimina la zona.  Los registros SOA no pueden crearse ni eliminarse por separado.
 
-Puede modificar todas las propiedades del registro SOA excepto la propiedad 'host', que está preconfigurada para hacer referencia al nombre del servidor de nombres principal proporcionado por DNS de Azure.
+Puede modificar todas las propiedades del registro SOA, excepto la propiedad "host". Esta propiedad se configura previamente para hacer referencia al nombre del servidor principal proporcionado por Azure DNS.
 
 El número de serie de la zona en el registro SOA no se actualiza automáticamente cuando se realizan cambios en los registros de la zona. Se puede actualizar manualmente editando el registro SOA, si es necesario.
 
@@ -109,13 +109,13 @@ Las distintas cadenas de un registro DNS no deben confundirse con los diferentes
 
 ### <a name="tags"></a>Etiquetas
 
-Las etiquetas son una lista de pares nombre-valor que Azure Resource Manager usa para etiquetar los recursos.  Azure Resource Manager utiliza etiquetas para habilitar vistas filtradas de la factura de Azure y también permite establecer una directiva en la que se requieran etiquetas. Para obtener más información sobre las etiquetas, consulte [Uso de etiquetas para organizar los recursos de Azure](../azure-resource-manager/management/tag-resources.md).
+Las etiquetas son una lista de pares nombre-valor que Azure Resource Manager usa para etiquetar los recursos. Azure Resource Manager utiliza etiquetas para habilitar vistas filtradas de la factura de Azure y también permite establecer una directiva para determinadas etiquetas. Para obtener más información sobre las etiquetas, consulte [Uso de etiquetas para organizar los recursos de Azure](../azure-resource-manager/management/tag-resources.md).
 
 DNS de Azure admite el uso de etiquetas de Azure Resource Manager en recursos de zona DNS.  No admite etiquetas en conjuntos de registros de DNS, aunque, como alternativa, se admiten "metadatos" en estos tipos de conjuntos, como se explica a continuación.
 
 ### <a name="metadata"></a>Metadatos
 
-Como alternativa a las etiquetas de conjunto de registros, DNS de Azure admite la anotación de conjuntos de registros mediante "metadatos".  De forma similar a las etiquetas, los metadatos permiten asociar pares nombre-valor a cada conjunto de registros.  Esto puede ser útil, por ejemplo, para registrar el propósito de cada conjunto de registros.  A diferencia de las etiquetas, los metadatos no se pueden usar para proporcionar una vista filtrada de la factura de Azure ni se pueden especificar en una directiva de Azure Resource Manager.
+Como alternativa a las etiquetas de conjunto de registros, DNS de Azure admite la anotación de conjuntos de registros mediante "metadatos".  De forma similar a las etiquetas, los metadatos permiten asociar pares nombre-valor a cada conjunto de registros.  Esta característica puede ser útil, por ejemplo, para registrar el propósito de cada conjunto de registros.  A diferencia de las etiquetas, los metadatos no se pueden usar para proporcionar una vista filtrada de la factura de Azure ni se pueden especificar en una directiva de Azure Resource Manager.
 
 ## <a name="etags"></a>Etag
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 276dd7aa1925fefaaa94dfdd5d7a5baba5164f56
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: bdcee6b8ced45dba34309724e5a634cbb60a6d37
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107790264"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107818825"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Objetivos de escalabilidad y rendimiento de Azure Files
 [Azure Files](storage-files-introduction.md) ofrece recursos compartidos de archivos en la nube totalmente administrados a los que se puede acceder mediante los protocolos SMB y del sistema de archivos NFS. En este artículo se explican los objetivos de escalabilidad y rendimiento de Azure Files y Azure File Sync.
@@ -35,8 +35,8 @@ Azure admite varios tipos de cuentas de almacenamiento para los distintos escena
 | Capacidad máxima de la cuenta de almacenamiento | 5 PiB<sup>1</sup> | 100 TiB (aprovisionados) |
 | Número máximo de recursos compartidos de archivos | Sin límite | Sin límite, el tamaño total aprovisionado de todos los recursos compartidos debe ser inferior al máximo que la capacidad máxima de la cuenta de almacenamiento. |
 | Velocidad máxima de solicitudes simultáneas | 20 000 IOPS<sup>1</sup> | 100 000 IOPS |
-| Entrada máxima | <ul><li>EE. UU./Europa: 10 Gbp/s<sup>1</sup></li><li>Otras regiones (LRS/ZRS): 10 Gbp/s<sup>1</sup></li><li>Otras regiones (GRS): 5 Gbp/s<sup>1</sup></li></ul> | 4136 MiB/s |
-| Salida máxima | 50 Gbp/s<sup>1</sup> | 6204 MiB/s |
+| Entrada máxima | <ul><li>EE. UU./Europa: 9536 MiB/s<sup>1</sup></li><li>Otras regiones (LRS/ZRS): 9536 MiB/s<sup>1</sup></li><li>Otras regiones (GRS): 4768 GiB/s<sup>1</sup></li></ul> | 4136 MiB/s |
+| Salida máxima | 47 683 MiB/s<sup>1</sup> | 6204 MiB/s |
 | Número máximo de reglas de red virtual | 200 | 200 |
 | Número máximo de reglas de dirección IP | 200 | 200 |
 | Operaciones de lectura de administración | 800 por cada 5 minutos | 800 por cada 5 minutos |

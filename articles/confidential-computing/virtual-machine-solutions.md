@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: 8621dc8cfc10ab44ecb358a40fdae1a1b2081734
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 580c53f311bc8ee70e974df2bc4111e6361d06f6
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102566590"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107818969"
 ---
 # <a name="solutions-on-azure-virtual-machines"></a>Soluciones en máquinas virtuales de Azure
 
@@ -66,7 +66,7 @@ Siga un tutorial de inicio rápido para implementar una máquina virtual de la s
   
 - **Cambio de tamaño**: debido a su hardware especializado, solo se puede cambiar el tamaño de las instancias de computación confidencial dentro de la misma familia de tamaño. Por ejemplo, una máquina virtual de la serie DCsv2 solo se puede cambiar de un tamaño de serie DCsv2 a otro. No se admite el cambio de un tamaño de computación no confidencial a un tamaño de computación confidencial.  
 
-- **Imagen**: para proporcionar compatibilidad con Intel Software Guard Extension (Intel SGX) en instancias de proceso confidenciales, todas las implementaciones deben ejecutarse en imágenes de generación 2. La computación confidencial de Azure admite cargas de trabajo que se ejecutan en Ubuntu 18.04 Gen 2, Ubuntu 16.04 Gen 2, Windows Server 2019 gen2 y Windows Server 2016 Gen 2. Lea acerca de la [compatibilidad de con las máquinas virtuales de generación 2 en Azure](../virtual-machines/generation-2.md) para obtener más información sobre los escenarios admitidos y no admitidos. 
+- **Imagen**: para proporcionar compatibilidad con Intel Software Guard Extension (Intel SGX) en instancias de proceso confidenciales, todas las implementaciones deben ejecutarse en imágenes de generación 2. La computación confidencial de Azure admite cargas de trabajo que se ejecutan en Ubuntu 18.04 Gen 2, Ubuntu 20.04 Gen 2, Windows Server 2019 gen2 y Windows Server 2016 Gen 2. Lea acerca de la [compatibilidad de con las máquinas virtuales de generación 2 en Azure](../virtual-machines/generation-2.md) para obtener más información sobre los escenarios admitidos y no admitidos. 
 
 - **Almacenamiento**: los discos de datos de la máquina virtual de computación confidencial de Azure y nuestros discos del sistema operativo efímeros se encuentran en discos de NVMe. Las instancias solo admiten discos SSD Premium y SSD estándar, no SSD Ultra ni HDD estándar. El tamaño de máquina virtual **DC8_v2** no es compatible con Premium Storage. 
 
@@ -122,10 +122,10 @@ En **Propiedades**, también tendrá que hacer referencia a una imagen en **stor
         "sku": "18_04-lts-gen2",
         "version": "latest"
       },
-      "16_04-lts-gen2": {
+      "20_04-lts-gen2": {
         "offer": "UbuntuServer",
         "publisher": "Canonical",
-        "sku": "16_04-lts-gen2",
+        "sku": "20_04-lts-gen2",
         "version": "latest"
       }
 ```

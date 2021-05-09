@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: victorh
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: fad6e27c4ee7e8c10237cb3face5cfab9329b2ed
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a487cba5026da827276f2e7681c0d362127a4e27
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98059728"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108204844"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Escalabilidad automática y Application Gateway con redundancia de zona v2 
 
@@ -26,7 +26,7 @@ La nueva SKU v2 incluye las siguientes mejoras:
 
   La redundancia de zona están disponibles solo donde estén disponibles las zonas de Azure. En otras regiones, se admiten todas las demás características. Para obtener más información, consulte [Regiones y zonas de disponibilidad en Azure](../availability-zones/az-overview.md)
 - **VIP estática**: la SKU v2 de Application Gateway admite ahora exclusivamente el tipo de IP virtual estática. Con esto se garantiza que la IP virtual asociada a la puerta de enlace de aplicaciones no cambia durante la vigencia de la implementación, ni siquiera tras un reinicio.  No hay una IP virtual estática en la v1, por lo que debe usar la URL de la puerta de enlace de aplicaciones en lugar de la dirección IP para el enrutamiento del nombre de dominio a App Services a través de la puerta de enlace de aplicaciones.
-- **Reescritura de encabezados**: Application Gateway permite agregar, quitar o actualizar los encabezados de solicitud y respuesta HTTP con la SKU v2. Para más información, consulte [Rescritura de encabezados HTTP con Application Gateway](rewrite-http-headers.md).
+- **Reescritura de encabezados**: Application Gateway permite agregar, quitar o actualizar los encabezados de solicitud y respuesta HTTP con la SKU v2. Para más información, consulte [Rescritura de encabezados HTTP con Application Gateway](./rewrite-http-headers-url.md).
 - **Integración de Key Vault**: Application Gateway v2 admite la integración con Key Vault para certificados de servidor adjuntos a clientes de escucha con HTTPS habilitado. Para obtener más información, consulte [Terminación TLS con certificados de Key Vault](key-vault-certs.md).
 - **Controlador de entrada de Azure Kubernetes Service (AKS)** : El controlador de entrada de Application Gateway v2 permite que Azure Application Gateway se utilice como entrada para una instancia de Azure Kubernetes Service (AKS) llamada clúster AKS. Para más información, consulte [¿Qué es el controlador de entrada de Application Gateway?](ingress-controller-overview.md)
 - **Mejoras de rendimiento**: la SKU v2 ofrece un rendimiento cinco veces superior en la descarga de TLS en comparación con la SKU Standard/WAF.

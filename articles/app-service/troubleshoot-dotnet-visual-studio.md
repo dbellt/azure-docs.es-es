@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 65eb4e8fefb74219c927fe507baceca7c55462be
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f44d3eb84715233e6d9aa4a1d06d626d162973ee
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101095723"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108205276"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Solución de problemas de una aplicación en Azure App Service con Visual Studio
 ## <a name="overview"></a>Información general
@@ -29,7 +29,7 @@ Aprenderá a realizar los siguientes procedimientos:
 Si tiene Visual Studio Ultimate, también puede usar [IntelliTrace](/visualstudio/debugger/intellitrace) para la depuración. IntelliTrace no se trata en este tutorial.
 
 ## <a name="prerequisites"></a><a name="prerequisites"></a>Requisitos previos
-Este tutorial funciona con el entorno de desarrollo, proyecto web y aplicación App Service que configuró en [Creación de una aplicación web de ASP.NET Framework en Azure](quickstart-dotnet-framework.md). Para las secciones de WebJobs, necesitará la aplicación que creó en [Introducción al SDK de Azure WebJobs][GetStartedWJ].
+Este tutorial funciona con el entorno de desarrollo, proyecto web y aplicación App Service que configuró en [Creación de una aplicación web de ASP.NET Framework en Azure](./quickstart-dotnetcore.md?tabs=netframework48). Para las secciones de WebJobs, necesitará la aplicación que creó en [Introducción al SDK de Azure WebJobs][GetStartedWJ].
 
 Los ejemplos de código que aparecen en este tutorial son para una aplicación web C# MVC, pero los procedimientos de solución de problemas son los mismos para las aplicaciones de Web Forms y Visual Basic.
 
@@ -51,7 +51,7 @@ Visual Studio proporciona acceso a un subconjunto de las funciones de administra
 
     Para más información sobre cómo conectarse a recursos de Azure desde Visual Studio, consulte [Asignación de roles de Azure mediante Azure Portal](../role-based-access-control/role-assignments-portal.md).
 2. En el **Explorador de servidores**, expanda **Azure** y, a continuación, **App Service**.
-3. Expanda el grupo de recursos que incluye la aplicación que creó en [Creación de una aplicación web de ASP.NET Framework en Azure](quickstart-dotnet-framework.md) y luego haga clic con el botón derecho en el nodo de la aplicación y haga clic en **Ver configuración**.
+3. Expanda el grupo de recursos que incluye la aplicación que creó en [Creación de una aplicación web de ASP.NET Framework en Azure](./quickstart-dotnetcore.md?tabs=netframework48) y luego haga clic con el botón derecho en el nodo de la aplicación y haga clic en **Ver configuración**.
 
     ![Ver configuración en el Explorador de servidores](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewsettings.png)
 
@@ -108,9 +108,9 @@ Si el mensaje de error detallado no proporciona información suficiente y no es 
 
 La depuración remota no funciona en ediciones Express de Visual Studio.
 
-En esta sección se muestra cómo realizar una depuración remota mediante el proyecto creado en [Creación de una aplicación web de ASP.NET Framework en Azure](quickstart-dotnet-framework.md).
+En esta sección se muestra cómo realizar una depuración remota mediante el proyecto creado en [Creación de una aplicación web de ASP.NET Framework en Azure](./quickstart-dotnetcore.md?tabs=netframework48).
 
-1. Abra el proyecto web que creó en [Creación de una aplicación web de ASP.NET Framework en Azure](quickstart-dotnet-framework.md).
+1. Abra el proyecto web que creó en [Creación de una aplicación web de ASP.NET Framework en Azure](./quickstart-dotnetcore.md?tabs=netframework48).
 
 1. Abra *Controllers\HomeController.cs*.
 
@@ -129,7 +129,7 @@ En esta sección se muestra cómo realizar una depuración remota mediante el pr
 
 1. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto y, luego, haga clic en **Publicar**.
 
-1. En la lista desplegable **Perfil**, seleccione el mismo perfil que usó en [Creación de una aplicación web de ASP.NET Framework en Azure](quickstart-dotnet-framework.md). A continuación, haga clic en Configuración.
+1. En la lista desplegable **Perfil**, seleccione el mismo perfil que usó en [Creación de una aplicación web de ASP.NET Framework en Azure](./quickstart-dotnetcore.md?tabs=netframework48). A continuación, haga clic en Configuración.
 
 1. En el cuadro de diálogo **Publicar**, haga clic en la pestaña **Configuración** y, a continuación, cambie la **Configuración** a **Depurar** y, luego, haga clic en **Guardar**.
 
@@ -264,7 +264,7 @@ Los registros se escriben en archivos en una carpeta *LogFiles* en el sistema de
 ## <a name="create-and-view-application-trace-logs"></a><a name="apptracelogs"></a>Creación y visualización de registros de seguimiento de aplicación
 En esta sección, realizará las siguientes tareas:
 
-* Agregue instrucciones de seguimiento para el proyecto web que creó en [Creación de una aplicación web de ASP.NET Framework en Azure](quickstart-dotnet-framework.md).
+* Agregue instrucciones de seguimiento para el proyecto web que creó en [Creación de una aplicación web de ASP.NET Framework en Azure](./quickstart-dotnetcore.md?tabs=netframework48).
 * Ver los registros cuando ejecute localmente el proyecto.
 * Ver los registros a medida que los genera la aplicación que se ejecuta en Azure.
 

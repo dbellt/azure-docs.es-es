@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 21ca30b24c4824a2d303d02f3df712328885e199
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 05877c9a77eb45e4c02d750becae63c0d1fdab7b
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102435212"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108163254"
 ---
 # <a name="azure-cosmos-db-input-binding-for-azure-functions-2x-and-higher"></a>Enlace de entrada de Azure Cosmos DB para Azure Functions 2.x y versiones superiores
 
@@ -45,10 +45,10 @@ namespace CosmosDBSamplesV2
     {
         [JsonProperty("id")]
         public string Id { get; set; }
-        
+
         [JsonProperty("partitionKey")]
         public string PartitionKey { get; set; }
-        
+
         public string Description { get; set; }
     }
 }
@@ -56,7 +56,7 @@ namespace CosmosDBSamplesV2
 
 <a id="queue-trigger-look-up-id-from-json-c"></a>
 
-### <a name="queue-trigger-look-up-id-from-json"></a>Desencadenador de cola, buscar identificador a partir de un JSON 
+### <a name="queue-trigger-look-up-id-from-json"></a>Desencadenador de cola, buscar identificador a partir de un JSON
 
 En el ejemplo siguiente se muestra una [función de C#](functions-dotnet-class-library.md) que recupera un documento individual. La función la desencadena un mensaje de la cola que contiene un objeto JSON. El desencadenador de la cola analiza el JSON en un objeto del tipo `ToDoItemLookup`, que contiene el identificador y el valor de la clave de partición que se van a buscar. El identificador y el valor de la clave de partición se utilizan para recuperar un documento `ToDoItem` de la base de datos y colección especificadas.
 
@@ -113,8 +113,8 @@ namespace CosmosDBSamplesV2
 
 En el ejemplo siguiente se muestra una [función de C#](functions-dotnet-class-library.md) que recupera un documento individual. La función la desencadena una solicitud HTTP que utiliza una cadena de consulta para especificar el identificador y el valor de la clave de partición que se van a buscar. El identificador y el valor de la clave de partición se utilizan para recuperar un documento `ToDoItem` de la base de datos y colección especificadas.
 
->[!NOTE]
->El parámetro de la cadena de consulta HTTP distingue mayúsculas de minúsculas.
+> [!NOTE]
+> El parámetro de la cadena de consulta HTTP distingue mayúsculas de minúsculas.
 >
 
 ```cs
@@ -290,7 +290,6 @@ namespace CosmosDBSamplesV2
         }
     }
 }
-
 ```
 
 <a id="http-trigger-get-multiple-docs-using-documentclient-c"></a>
@@ -402,6 +401,7 @@ Estos son los datos de enlace del archivo *function.json*:
     "direction": "in"
 }
 ```
+
 En la sección de [configuración](#configuration) se explican estas propiedades.
 
 Este es el código de script de C#:
@@ -798,7 +798,7 @@ public class DocByIdFromQueryString {
         }
     }
 }
- ```
+```
 
 En la [biblioteca en tiempo de ejecución de funciones de Java](/java/api/overview/azure/functions/runtime), utilice la anotación `@CosmosDBInput` en los parámetros de la función cuyo valor provendría de Cosmos DB.  Esta anotación se puede usar con tipos nativos de Java, POJO o valores que aceptan valores NULL mediante `Optional<T>`.
 
@@ -806,7 +806,7 @@ En la [biblioteca en tiempo de ejecución de funciones de Java](/java/api/overvi
 
 ### <a name="http-trigger-look-up-id-from-query-string---pojo-parameter"></a>Desencadenador HTTP, buscar identificador en la cadena de consulta: parámetro POJO
 
-En el ejemplo siguiente se muestra una función de Java que recupera un documento individual. La función la desencadena una solicitud HTTP que utiliza una cadena de consulta para especificar el identificador y el valor de la clave de partición que se van a buscar. El identificador y el valor de la clave de partición se utilizan para recuperar un documento de la base de datos y colección especificadas. A continuación, el documento se convierte en una instancia de la anotación ```ToDoItem``` POJO creada previamente y se pasa como argumento a la función.
+En el ejemplo siguiente se muestra una función de Java que recupera un documento individual. La función la desencadena una solicitud HTTP que utiliza una cadena de consulta para especificar el identificador y el valor de la clave de partición que se van a buscar. El identificador y el valor de la clave de partición se utilizan para recuperar un documento de la base de datos y colección especificadas. A continuación, el documento se convierte en una instancia de la anotación `ToDoItem` POJO creada previamente y se pasa como argumento a la función.
 
 ```java
 public class DocByIdFromQueryStringPojo {
@@ -844,13 +844,13 @@ public class DocByIdFromQueryStringPojo {
         }
     }
 }
- ```
+```
 
 <a id="http-trigger-look-up-id-from-route-data-java"></a>
 
 ### <a name="http-trigger-look-up-id-from-route-data"></a>Desencadenador de HTTP, buscar identificador a partir de datos de ruta
 
-En el ejemplo siguiente se muestra una función de Java que recupera un documento individual. La función la desencadena una solicitud HTTP que utiliza un parámetro de ruta para especificar el identificador y el valor de la clave de partición que se van a buscar. El identificador y el valor de la clave de partición se utilizan para recuperar un documento de la base de datos y colección especificadas, que se devuelve como un objeto ```Optional<String>```.
+En el ejemplo siguiente se muestra una función de Java que recupera un documento individual. La función la desencadena una solicitud HTTP que utiliza un parámetro de ruta para especificar el identificador y el valor de la clave de partición que se van a buscar. El identificador y el valor de la clave de partición se utilizan para recuperar un documento de la base de datos y colección especificadas, que se devuelve como un objeto `Optional<String>`.
 
 ```java
 public class DocByIdFromRoute {
@@ -891,13 +891,13 @@ public class DocByIdFromRoute {
         }
     }
 }
- ```
+```
 
  <a id="http-trigger-look-up-id-from-route-data-using-sqlquery-java"></a>
 
 ### <a name="http-trigger-look-up-id-from-route-data-using-sqlquery"></a>Desencadenador de HTTP, buscar identificador a partir de datos de ruta mediante SqlQuery
 
-En el ejemplo siguiente se muestra una función de Java que recupera un documento individual. La función la desencadena una solicitud HTTP que utiliza un parámetro de ruta para especificar el identificador que se va a buscar. Ese identificador se usa para recuperar un documento de la base de datos y la colección especificadas, convirtiendo el conjunto de resultados en una anotación ```ToDoItem[]```, ya que pueden devolverse muchos documentos, en función de los criterios de consulta.
+En el ejemplo siguiente se muestra una función de Java que recupera un documento individual. La función la desencadena una solicitud HTTP que utiliza un parámetro de ruta para especificar el identificador que se va a buscar. Ese identificador se usa para recuperar un documento de la base de datos y la colección especificadas, convirtiendo el conjunto de resultados en una anotación `ToDoItem[]`, ya que pueden devolverse muchos documentos, en función de los criterios de consulta.
 
 > [!NOTE]
 > Si tiene que realizar una consulta solo con el identificador, se recomienda utilizar una búsqueda, como en los [ ejemplos anteriores](#http-trigger-look-up-id-from-query-string---pojo-parameter-java), ya que consumirá menos [unidades de solicitud](../cosmos-db/request-units.md). Las operaciones de lectura de punto (GET) son [más eficaces](../cosmos-db/optimize-cost-reads-writes.md) que las consultas por identificador.
@@ -939,13 +939,13 @@ public class DocByIdFromRouteSqlQuery {
         }
     }
 }
- ```
+```
 
  <a id="http-trigger-get-multiple-docs-from-route-data-using-sqlquery-java"></a>
 
 ### <a name="http-trigger-get-multiple-docs-from-route-data-using-sqlquery"></a>Desencadenador HTTP, obtener varios documentos de los datos de ruta, mediante SqlQuery
 
-En el ejemplo siguiente se muestra una función de Java que recupera varios documentos. La función la desencadena una solicitud HTTP que utiliza un parámetro de ruta ```desc``` para especificar la cadena que se va a buscar en el campo ```description```. El término de búsqueda se usa para recuperar una colección de documentos de la base de datos y de la colección especificadas, lo que convierte el conjunto de resultados en una anotación ```ToDoItem[]``` y la pasa como un argumento a la función.
+En el ejemplo siguiente se muestra una función de Java que recupera varios documentos. La función la desencadena una solicitud HTTP que utiliza un parámetro de ruta `desc` para especificar la cadena que se va a buscar en el campo `description`. El término de búsqueda se usa para recuperar una colección de documentos de la base de datos y de la colección especificadas, lo que convierte el conjunto de resultados en una anotación `ToDoItem[]` y la pasa como un argumento a la función.
 
 ```java
 public class DocsFromRouteSqlQuery {
@@ -983,7 +983,7 @@ public class DocsFromRouteSqlQuery {
         }
     }
 }
- ```
+```
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -1235,12 +1235,12 @@ El enlace de entrada de Cosmos DB se muestra en primer lugar en la lista de enl
 El archivo _run.ps1_ tiene el código de PowerShell que lee el documento entrante y genera los cambios.
 
 ```powershell
-param($QueueItem, $InputDocumentIn, $TriggerMetadata) 
+param($QueueItem, $InputDocumentIn, $TriggerMetadata)
 
-$Document = $InputDocumentIn 
-$Document.text = 'This was updated!' 
+$Document = $InputDocumentIn 
+$Document.text = 'This was updated!'
 
-Push-OutputBinding -Name InputDocumentOut -Value $Document  
+Push-OutputBinding -Name InputDocumentOut -Value $Document  
 ```
 
 <a name="http-trigger-id-query-string-ps"></a>
@@ -1253,62 +1253,62 @@ El enlace de entrada de Cosmos DB se muestra en primer lugar en la lista de enl
 
 ```json
 { 
-  "bindings": [ 
-    { 
-      "type": "cosmosDB", 
-      "name": "ToDoItem", 
-      "databaseName": "ToDoItems", 
-      "collectionName": "Items", 
-      "connectionStringSetting": "CosmosDBConnection", 
-      "direction": "in", 
-      "Id": "{Query.id}", 
-      "PartitionKey": "{Query.partitionKeyValue}" 
-    },
-    { 
-      "authLevel": "anonymous", 
-      "name": "Request", 
-      "type": "httpTrigger", 
-      "direction": "in", 
-      "methods": [ 
-        "get", 
-        "post" 
-      ] 
-    }, 
-    { 
-      "name": "Response", 
-      "type": "http", 
-      "direction": "out" 
-    },
-  ], 
-  "disabled": false 
+  "bindings": [ 
+    { 
+      "type": "cosmosDB", 
+      "name": "ToDoItem", 
+      "databaseName": "ToDoItems", 
+      "collectionName": "Items", 
+      "connectionStringSetting": "CosmosDBConnection", 
+      "direction": "in", 
+      "Id": "{Query.id}", 
+      "PartitionKey": "{Query.partitionKeyValue}" 
+    },
+    { 
+      "authLevel": "anonymous", 
+      "name": "Request", 
+      "type": "httpTrigger", 
+      "direction": "in", 
+      "methods": [ 
+        "get", 
+        "post" 
+      ] 
+    }, 
+    { 
+      "name": "Response", 
+      "type": "http", 
+      "direction": "out" 
+    },
+  ], 
+  "disabled": false 
 } 
 ```
-  
+
 El archivo _Run. PS1_ tiene el código de PowerShell que lee el documento entrante y genera los cambios.
 
 ```powershell
-using namespace System.Net 
+using namespace System.Net
 
-param($Request, $ToDoItem, $TriggerMetadata) 
+param($Request, $ToDoItem, $TriggerMetadata)
 
-Write-Host 'PowerShell HTTP trigger function processed a request' 
+Write-Host 'PowerShell HTTP trigger function processed a request'
 
-if (-not $ToDoItem) { 
-    Write-Host 'ToDo item not found' 
+if (-not $ToDoItem) { 
+    Write-Host 'ToDo item not found'
 
-    Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{ 
-        StatusCode = [HttpStatusCode]::NotFound 
-        Body = $ToDoItem.Description 
-    }) 
+    Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{ 
+        StatusCode = [HttpStatusCode]::NotFound 
+        Body = $ToDoItem.Description 
+    })
 
-} else { 
+} else {
 
-    Write-Host "Found ToDo item, Description=$($ToDoItem.Description)" 
- 
-    Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{ 
-        StatusCode = [HttpStatusCode]::OK 
-        Body = $ToDoItem.Description 
-    }) 
+    Write-Host "Found ToDo item, Description=$($ToDoItem.Description)"
+
+    Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{ 
+        StatusCode = [HttpStatusCode]::OK 
+        Body = $ToDoItem.Description 
+    }) 
 }
 ```
 
@@ -1322,62 +1322,62 @@ El enlace de entrada de Cosmos DB se muestra en primer lugar en la lista de enl
 
 ```json
 { 
-  "bindings": [ 
-    { 
-      "type": "cosmosDB", 
-      "name": "ToDoItem", 
-      "databaseName": "ToDoItems", 
-      "collectionName": "Items", 
-      "connectionStringSetting": "CosmosDBConnection", 
-      "direction": "in", 
-      "Id": "{id}", 
-      "PartitionKey": "{partitionKeyValue}" 
-    },
-    { 
-      "authLevel": "anonymous", 
-      "name": "Request", 
-      "type": "httpTrigger", 
-      "direction": "in", 
-      "methods": [ 
-        "get", 
-        "post" 
-      ], 
-      "route": "todoitems/{partitionKeyValue}/{id}" 
-    }, 
-    { 
-      "name": "Response", 
-      "type": "http", 
-      "direction": "out" 
-    }
-  ], 
-  "disabled": false 
+  "bindings": [ 
+    { 
+      "type": "cosmosDB", 
+      "name": "ToDoItem", 
+      "databaseName": "ToDoItems", 
+      "collectionName": "Items", 
+      "connectionStringSetting": "CosmosDBConnection", 
+      "direction": "in", 
+      "Id": "{id}", 
+      "PartitionKey": "{partitionKeyValue}" 
+    },
+    { 
+      "authLevel": "anonymous", 
+      "name": "Request", 
+      "type": "httpTrigger", 
+      "direction": "in", 
+      "methods": [ 
+        "get", 
+        "post" 
+      ], 
+      "route": "todoitems/{partitionKeyValue}/{id}" 
+    }, 
+    { 
+      "name": "Response", 
+      "type": "http", 
+      "direction": "out" 
+    }
+  ], 
+  "disabled": false 
 } 
 ```
 
 El archivo _Run. PS1_ tiene el código de PowerShell que lee el documento entrante y genera los cambios.
 
 ```powershell
-using namespace System.Net 
+using namespace System.Net
 
-param($Request, $ToDoItem, $TriggerMetadata) 
+param($Request, $ToDoItem, $TriggerMetadata)
 
-Write-Host 'PowerShell HTTP trigger function processed a request' 
+Write-Host 'PowerShell HTTP trigger function processed a request'
 
-if (-not $ToDoItem) { 
-    Write-Host 'ToDo item not found' 
+if (-not $ToDoItem) { 
+    Write-Host 'ToDo item not found'
 
-    Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{ 
-        StatusCode = [HttpStatusCode]::NotFound 
-        Body = $ToDoItem.Description 
-    }) 
+    Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{ 
+        StatusCode = [HttpStatusCode]::NotFound 
+        Body = $ToDoItem.Description 
+    })
 
-} else { 
-    Write-Host "Found ToDo item, Description=$($ToDoItem.Description)" 
-  
-    Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{ 
-        StatusCode = [HttpStatusCode]::OK 
-        Body = $ToDoItem.Description 
-    }) 
+} else { 
+    Write-Host "Found ToDo item, Description=$($ToDoItem.Description)"
+
+    Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{ 
+        StatusCode = [HttpStatusCode]::OK 
+        Body = $ToDoItem.Description 
+    }) 
 } 
 ```
 
@@ -1389,23 +1389,23 @@ En el ejemplo siguiente se muestra cómo leer varios documentos de Cosmos DB. E
 
 ```json
 { 
-  "name": "Documents", 
-  "type": "cosmosDB", 
-  "direction": "in", 
-  "databaseName": "MyDb", 
-  "collectionName": "MyCollection", 
-  "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}", 
-  "connectionStringSetting": "CosmosDBConnection" 
+  "name": "Documents", 
+  "type": "cosmosDB", 
+  "direction": "in", 
+  "databaseName": "MyDb", 
+  "collectionName": "MyCollection", 
+  "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}", 
+  "connectionStringSetting": "CosmosDBConnection" 
 } 
 ```
 
 El archivo _run1.ps_ tiene el código de PowerShell que lee los documentos entrantes.
 
 ```powershell
-param($QueueItem, $Documents, $TriggerMetadata) 
+param($QueueItem, $Documents, $TriggerMetadata)
 
-foreach ($Document in $Documents) { 
-    # operate on each document 
+foreach ($Document in $Documents) { 
+    # operate on each document 
 } 
 ```
 
@@ -1455,7 +1455,6 @@ Este es el código de Python:
 
 ```python
 import azure.functions as func
-
 
 def main(queuemsg: func.QueueMessage, documents: func.DocumentList) -> func.Document:
     if documents:
@@ -1510,7 +1509,6 @@ Este es el código de Python:
 ```python
 import logging
 import azure.functions as func
-
 
 def main(req: func.HttpRequest, todoitems: func.DocumentList) -> str:
     if not todoitems:
@@ -1570,7 +1568,6 @@ Este es el código de Python:
 ```python
 import logging
 import azure.functions as func
-
 
 def main(req: func.HttpRequest, todoitems: func.DocumentList) -> str:
     if not todoitems:

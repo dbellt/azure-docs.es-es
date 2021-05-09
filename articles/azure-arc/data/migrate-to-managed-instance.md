@@ -9,12 +9,12 @@ ms.author: vinsonyu
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: e0fbd0e49b1ac80161d0447d2f75a9cc03844abb
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 011eb74158d9e004aca04c595e5cfe4b76d3cb51
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/28/2021
-ms.locfileid: "108130132"
+ms.locfileid: "108163362"
 ---
 # <a name="migrate-sql-server-to-azure-arc-enabled-sql-managed-instance"></a>Migración: de SQL Server a SQL Managed Instance habilitado para Azure Arc
 
@@ -22,7 +22,7 @@ En este escenario se le guía por los pasos necesarios para migrar una base de d
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="use-azure-blob-storage"></a>Uso de Azure Blob Storage 
+## <a name="use-azure-blob-storage"></a>Uso de Azure Blob Storage
 
 Use Azure Blob Storage para migrar a SQL Managed Instance habilitado para Azure Arc.
 
@@ -133,10 +133,10 @@ Mediante este método se toma un archivo de copia de seguridad creado a través 
 
 Haga una copia de seguridad de la base de datos de SQL Server en la ruta de acceso de archivos locales, como una copia de seguridad de SQL Server típica en el disco:
 
- ```sql
+```sql
 BACKUP DATABASE Test
 TO DISK = 'c:\tmp\test.bak'
-WITH FORMAT, MEDIANAME = 'Test’ ;
+WITH FORMAT, MEDIANAME = 'Test' ;
 GO
 ```
 
@@ -146,7 +146,7 @@ Busque el nombre del pod donde se implementa la instancia de SQL. El aspecto ser
 
 Para obtener la lista de todos los pods, ejecute:
 
- ```console
+```console
 kubectl get pods -n <namespace of data controller>
 ```
 
@@ -154,7 +154,7 @@ Ejemplo:
 
 Copie el archivo de copia de seguridad del almacenamiento local en el pod de SQL del clúster.
 
- ```console
+```console
 kubectl cp <source file location> <pod name>:var/opt/mssql/data/<file name> -n <namespace name>
 
 #Example:
@@ -186,7 +186,6 @@ WITH MOVE 'test' to '/var/opt/mssql/data/test.mdf'
 ,STATS = 5;  
 GO
 ```
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

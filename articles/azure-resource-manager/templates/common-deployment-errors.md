@@ -4,12 +4,13 @@ description: Describe cómo solucionar errores comunes al implementar recursos e
 tags: top-support-issue
 ms.topic: troubleshooting
 ms.date: 01/20/2021
-ms.openlocfilehash: 07c197f1b54522b96a3bfa2d6a5ce7b368be3b35
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 1b26af22423f7af64d3dbcffd7d7ed20c1069a60
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107789184"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108314974"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Solución de errores comunes de implementación de Azure con Azure Resource Manager
 

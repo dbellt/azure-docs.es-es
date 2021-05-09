@@ -3,12 +3,12 @@ title: Aceleración de los flujos de trabajo de alertas
 description: Mejore los flujos de trabajo de alertas e incidentes.
 ms.date: 12/02/2020
 ms.topic: how-to
-ms.openlocfilehash: c12d1135b7a7bc87a38a609aeeb6ada8caa9a25e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8ff6f1fec17a190a8af8bf7fdf6f2e13b078dd5d
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104779127"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108204556"
 ---
 # <a name="accelerate-alert-workflows"></a>Aceleración de los flujos de trabajo de alertas
 
@@ -105,7 +105,7 @@ Los grupos de alertas están predefinidos. Para más información acerca de las 
 
 ## <a name="customize-alert-rules"></a>Personalización de reglas de alertas
 
-Use reglas de alerta personalizadas para identificar más específicamente la actividad de identificación que le interese. 
+Use reglas de alerta personalizadas para identificar más específicamente la actividad de identificación que le interese.
 
 Puede agregar reglas de alertas personalizadas basadas en lo siguiente:
 
@@ -129,7 +129,7 @@ El mensaje de alerta indica que una regla definida por el usuario ha desencadena
 
 :::image type="content" source="media/how-to-work-with-alerts-sensor/customized-alerts-screen.png" alt-text="Captura de pantalla que muestra alertas personalizadas.":::
 
-Para crear una regla de alertas personalizada:
+**Para crear una regla de alertas personalizada:**
 
 1. Seleccione **Alertas personalizadas** en el menú lateral de un sensor.
 1. Seleccione el signo más ( **+** ) para crear una regla.

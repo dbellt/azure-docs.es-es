@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: 995f4670b17d55fe04d5c30a834ea4be576a8348
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: 11bfe1fbb9b0ba7c38eb946918b04d1568d2d1da
+ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106489985"
+ms.lasthandoff: 04/26/2021
+ms.locfileid: "108001005"
 ---
 # <a name="telemetry-property-and-command-payloads"></a>Cargas de telemetría, propiedades y comandos
 
@@ -1042,11 +1042,20 @@ Cuando el dispositivo termina de procesar la solicitud, debe enviar una propieda
 
 ### <a name="offline-commands"></a>Comandos sin conexión
 
-En la interfaz de usuario web de IoT Central, puede seleccionar la opción **Queue if offline** (Poner en cola si no está conectado) para un comando. Los comandos sin conexión son notificaciones unidireccionales al dispositivo desde la solución que se entregan en cuanto el dispositivo se conecta. Los comandos sin conexión pueden tener parámetros de solicitud, pero no devuelven una respuesta.
+En la interfaz de usuario web de IoT Central, puede seleccionar la opción **Queue if offline** (Poner en cola si no está conectado) para un comando. Los comandos sin conexión son notificaciones unidireccionales al dispositivo desde la solución que se entregan en cuanto el dispositivo se conecta. Los comandos sin conexión pueden tener un parámetro de solicitud, pero no devuelven una respuesta.
 
 La configuración **Poner en cola si no hay conexión** no se incluye si exporta un modelo o una interfaz desde la plantilla de dispositivo. Al examinar un modelo exportado o JSON de interfaz, no es posible saber si se trata de un comando sin conexión.
 
 Los comandos sin conexión usan [mensajes de la nube al dispositivo de IoT Hub](../../iot-hub/iot-hub-devguide-messages-c2d.md) para enviar el comando y la carga útil al dispositivo.
+
+La carga del mensaje que recibe el dispositivo es el valor sin procesar del parámetro. Una propiedad personalizada denominada `method-name` almacena el nombre del comando de IoT Central. En la tabla siguiente se muestran algunas cargas de ejemplo:
+
+| Esquema de solicitud de IoT Central | Carga de ejemplo que recibió el dispositivo |
+| -------------------------- | ---------------------------------- |
+| Sin parámetro de solicitud       | `@`                                |
+| Double                     | `1.23`                             |
+| String                     | `sample string`                    |
+| Object                     | `{"StartTime":"2021-01-05T08:00:00.000Z","Bank":2}` |
 
 El siguiente fragmento de código de un modelo de dispositivo muestra la definición de un comando. El comando tiene un parámetro object con un campo datetime y una enumeración:
 
