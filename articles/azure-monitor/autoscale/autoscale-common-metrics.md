@@ -4,12 +4,13 @@ description: Aprenda qué métricas se utilizan normalmente para el escalado aut
 ms.topic: conceptual
 ms.date: 12/6/2016
 ms.subservice: autoscale
-ms.openlocfilehash: 4b763f39d3b88a7884e89dddbc2c483c1bb84d31
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 8a3c8b06862c4a429d0e8974c8e3e00113ac5915
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101717781"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108316864"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Métricas comunes de escalado automático de Azure Monitor
 
@@ -20,6 +21,7 @@ El escalado automático de Azure Monitor le permite escalar verticalmente y redu
 La escalabilidad automática de Azure Monitor solo se aplica a [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) y los [servicios de API Management](../../api-management/api-management-key-concepts.md). Otros servicios de Azure usan distintos métodos de escalado.
 
 ## <a name="compute-metrics-for-resource-manager-based-vms"></a>Cálculo de métricas de máquinas virtuales basadas en Resource Manager
+
 De forma predeterminada, las máquinas virtuales basadas en Resource Manager y los conjuntos de escalado de máquinas virtuales emiten métricas básicas (de nivel de host). Además, al configurar la recopilación de datos de diagnóstico para máquinas virtuales y conjuntos de escalado de máquinas virtuales de Azure, la extensión de diagnóstico de Azure también emite contadores de rendimiento de SO invitado (lo que normalmente se conoce como "métricas de SO invitado").  Todas estas métricas se usan en reglas de escalado automático.
 
 Puede usar la CLI, API o PoSH `Get MetricDefinitions` para ver las métricas disponibles para el recurso VMSS.
@@ -31,12 +33,14 @@ Si una métrica concreta no se muestrea o se transfiere a la frecuencia que dese
 Si se cumple cualquiera de los casos anteriores, revise [Uso de PowerShell para habilitar Diagnósticos de Azure en una máquina virtual con Windows](../../virtual-machines/extensions/diagnostics-windows.md) sobre PowerShell para configurar y actualizar la extensión Diagnostics de máquina virtual de Azure a fin de habilitar la métrica. Ese artículo también incluye un archivo de configuración de diagnósticos de ejemplo.
 
 ### <a name="host-metrics-for-resource-manager-based-windows-and-linux-vms"></a>Métricas de host para máquinas virtuales Windows y Linux basadas en Resource Manager
+
 Las siguientes métricas de nivel de host se emiten de forma predeterminada para máquinas virtuales y conjuntos de escalado de máquinas virtuales de Azure en instancias de Windows y Linux. Estas métricas describen la máquina virtual de Azure, pero se recopilan desde el host de dicha máquina en lugar de hacerlo a través de agente instalado en la máquina virtual invitada. Puede usar estas métricas en reglas de escalado automático.
 
 - [Métricas de host para máquinas virtuales Windows y Linux basadas en Resource Manager](../essentials/metrics-supported.md#microsoftcomputevirtualmachines)
 - [Métricas de host para conjuntos de escalado de máquinas virtuales Windows y Linux basadas en Resource Manager](../essentials/metrics-supported.md#microsoftcomputevirtualmachinescalesets)
 
 ### <a name="guest-os-metrics-for-resource-manager-based-windows-vms"></a>Métricas de SO invitado para máquinas virtuales Windows basadas en Resource Manager
+
 Cuando crea una nueva máquina virtual en Azure, los diagnósticos se habilitan mediante la extensión Diagnósticos. La extensión de diagnósticos emite un conjunto de métricas realizadas desde dentro de la máquina virtual. Esto significa que puede escalar automáticamente fuera de las métricas que no se emiten de forma predeterminada.
 
 Puede generar una lista de las métricas mediante el siguiente comando en PowerShell.
@@ -78,6 +82,7 @@ Puede crear una alerta para las siguientes métricas:
 | \Disco lógico(_Total)\Megabytes disponibles |Count |
 
 ### <a name="guest-os-metrics-linux-vms"></a>Métricas de SO invitado para máquinas virtuales Linux
+
 Cuando crea una máquina virtual en Azure, los diagnósticos se habilitan de forma predeterminada mediante la extensión Diagnósticos.
 
 Puede generar una lista de las métricas mediante el siguiente comando en PowerShell.
@@ -130,9 +135,11 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 | \NetworkInterface\TotalCollisions |Count |
 
 ## <a name="commonly-used-app-service-server-farm-metrics"></a>Métricas de App Service comúnmente usadas (granja de servidores)
+
 También puede realizar el escalado automático basándose en métricas de servidor web comunes, como la longitud de cola Http. El nombre de la métrica es **HttpQueueLength**.  En la siguiente sección se muestran las métricas de granja de servidores disponibles (App Service).
 
 ### <a name="web-apps-metrics"></a>Métricas de Web Apps
+
 Puede generar una lista de las métricas de Web Apps mediante el siguiente comando en PowerShell.
 
 ```
@@ -151,6 +158,7 @@ Puede alertar sobre estas métricas o escalar por las mismas.
 | BytesSent |Bytes |
 
 ## <a name="commonly-used-storage-metrics"></a>Métricas de almacenamiento utilizadas comúnmente
+
 Puede escalar por la longitud de la cola de almacenamiento, que es el número de mensajes de dicha cola. La longitud de cola de almacenamiento es una métrica especial y el umbral es el número de mensajes por instancia. Por ejemplo, si hay dos instancias y el umbral está establecido en 100, el escalado se produce cuando el número total de mensajes de la cola es 200. Esto puede ser 100 mensajes por instancia, 120 y 80, o cualquier combinación que sume hasta 200 o más.
 
 Esta configuración la puede realizar en Azure Portal, en la hoja **Configuración**. Para los conjuntos de escalado de máquinas virtuales, puede actualizar la configuración de escalado automático en la plantilla de Resource Manager para usar *metricName* como *ApproximateMessageCount* y pasar el identificador de la cola de almacenamiento como *metricResourceUri*.
@@ -161,7 +169,7 @@ Por ejemplo, con una cuenta de almacenamiento clásico el parámetro de escalado
 "metricName": "ApproximateMessageCount",
 "metricNamespace": "",
 "metricResourceUri": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RES_GROUP_NAME/providers/Microsoft.ClassicStorage/storageAccounts/STORAGE_ACCOUNT_NAME/services/queue/queues/QUEUE_NAME"
- ```
+```
 
 En el caso de una cuenta de almacenamiento (no clásica) el metricTrigger incluiría lo siguiente:
 
@@ -172,6 +180,7 @@ En el caso de una cuenta de almacenamiento (no clásica) el metricTrigger inclui
 ```
 
 ## <a name="commonly-used-service-bus-metrics"></a>Métricas más usadas de Service Bus
+
 Puede escalar por la longitud de la cola de Service Bus, que es el número de mensajes de dicha cola. La longitud de cola de Service Bus es una métrica especial y el umbral es el número de mensajes por instancia. Por ejemplo, si hay dos instancias y el umbral está establecido en 100, el escalado se produce cuando el número total de mensajes de la cola es 200. Esto puede ser 100 mensajes por instancia, 120 y 80, o cualquier combinación que sume hasta 200 o más.
 
 Para los conjuntos de escalado de máquinas virtuales, puede actualizar la configuración de escalado automático en la plantilla de Resource Manager para usar *metricName* como *ApproximateMessageCount* y pasar el identificador de la cola de almacenamiento como *metricResourceUri*.
@@ -184,5 +193,4 @@ Para los conjuntos de escalado de máquinas virtuales, puede actualizar la confi
 
 > [!NOTE]
 > Para Service Bus, el concepto de grupo de recursos no existe pero Azure Resource Manager crea un grupo de recursos predeterminado por región. El grupo de recursos suele tener el formato 'Default-ServiceBus-[región]'. Por ejemplo, 'Default-ServiceBus-EastUS', 'Default-ServiceBus-WestUS', 'Default-ServiceBus-AustraliaEast', etc.
->
->
+

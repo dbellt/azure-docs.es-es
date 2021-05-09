@@ -6,13 +6,13 @@ ms.author: hemin
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 11/25/2019
-ms.openlocfilehash: d40675faeec8975cc78e39818477495139ebbf0d
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.date: 04/28/2021
+ms.openlocfilehash: 275c77107faf8fd639d714b92828ab8efe623f26
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107906375"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108164910"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Expresiones y funciones de Azure Data Factory
 
@@ -179,7 +179,7 @@ Corporation
 
 ### <a name="escaping-single-quote-character"></a>Escape de un carácter de comilla simple
 
-Las funciones de expresión usan comillas simples para los parámetros de valor de cadena. Use dos comillas simples para escapar un carácter ' en las funciones de cadena. Por ejemplo, la expresión `@concat('Baba', ''' ', 'book store')` devolverá el siguiente resultado.
+Las funciones de expresión usan comillas simples para los parámetros de valor de cadena. Use dos comillas simples para escapar un carácter ' en las funciones de cadena. Por ejemplo, la expresión `@concat('Baba', '''s ', 'book store')` devolverá el siguiente resultado.
 
 ```
 Baba's book store

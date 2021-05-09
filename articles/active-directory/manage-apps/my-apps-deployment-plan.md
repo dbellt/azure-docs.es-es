@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 02/29/2020
 ms.author: baselden
-ms.openlocfilehash: 9f05e14de9d6ebe76f722d1e4b21bc2085a74888
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 8cf1a671eeb4861919a389b02f45fee998d880e3
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108125143"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108317224"
 ---
 # <a name="plan-azure-active-directory-my-apps-configuration"></a>Planeamiento de la configuración de Aplicaciones de Azure Active Directory
 
@@ -138,7 +138,7 @@ Esta extensión permite a los usuarios iniciar cualquier aplicación desde su ba
 
 #### <a name="plan-for-mobile-access"></a>Planeación del acceso móvil
 
-En el caso de las aplicaciones que usan el inicio de sesión único mediante contraseña o a las que se accede mediante [Microsoft Azure AD Application Proxy](../manage-apps/application-proxy.md), debe usar Microsoft Edge para dispositivos móviles. Para otras aplicaciones, se puede usar cualquier explorador para dispositivos móviles. 
+En el caso de las aplicaciones que usan el inicio de sesión único mediante contraseña o a las que se accede mediante [Microsoft Azure AD Application Proxy](../app-proxy/application-proxy.md), debe usar Microsoft Edge para dispositivos móviles. Para otras aplicaciones, se puede usar cualquier explorador para dispositivos móviles. 
 
 ### <a name="linked-sso"></a>Inicio de sesión único vinculado
 
@@ -256,4 +256,4 @@ Puede usar [Privileged Identity Management](../privileged-identity-management/pi
 
 [Planeamiento de una implementación de Azure AD Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
 
-[Planeación de la implementación de un proxy de aplicación](application-proxy-deployment-plan.md)
+[Planeación de la implementación de un proxy de aplicación](../app-proxy/application-proxy-deployment-plan.md)

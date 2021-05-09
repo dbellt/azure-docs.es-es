@@ -9,12 +9,12 @@ ms.subservice: verifiable-credentials
 ms.topic: how-to
 ms.date: 04/01/2021
 ms.author: barclayn
-ms.openlocfilehash: a50c8b083c1cd453dbe3c51c63ec9cf53859c3bd
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: 5d6386d7ed97868f73d994f272c8069f922a1f04
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107587273"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108207274"
 ---
 # <a name="how-to-create-a-free-azure-active-directory-developer-tenant"></a>Procedimiento para crear un inquilino de desarrollador de Azure Active Directory gratuito
 
@@ -28,7 +28,7 @@ ms.locfileid: "107587273"
 Hay dos formas sencillas de crear una instancia de Azure Active Directory gratuita con una licencia de prueba P2 para poder instalar el servicio de emisor de credenciales verificables y probar la creación y validación de las credenciales verificables:
 
 - [Únase](https://aka.ms/o365devprogram) al programa para desarrolladores de Microsoft 365 gratuito y obtenga un espacio aislado gratuito, herramientas y otros recursos, como una instancia de Azure Active Directory con licencias P2, usuarios, grupos, buzones de correo, etc. configurados.
-- Cree un nuevo [inquilino](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) y active una [evaluación gratuita](https://azure.microsoft.com/trial/get-started-active-directory/) de Azure AD Premium P1 o P2 en el nuevo inquilino.
+- Cree un nuevo [inquilino](../develop/quickstart-create-new-tenant.md) y active una [evaluación gratuita](https://azure.microsoft.com/trial/get-started-active-directory/) de Azure AD Premium P1 o P2 en el nuevo inquilino.
 
 Si decide registrarse en el programa para desarrolladores de Microsoft 365 gratuito, debe seguir unos pocos pasos sencillos:
 
@@ -45,7 +45,7 @@ Si decide registrarse en el programa para desarrolladores de Microsoft 365 grat
 
 En este punto, ha creado un inquilino con 25 licencias de usuario E5. Las licencias E5 incluyen licencias de Azure AD P2. Opcionalmente, puede agregar paquetes de datos de ejemplo con usuarios, grupos, correo y SharePoint para ayudarle a probar en su entorno de desarrollo. En el caso del servicio de emisión de credenciales verificables, no son necesarios.
 
-Para su comodidad, puede agregar su propia cuenta profesional como [invitado](/azure/active-directory/external-identities/b2b-quickstart-add-guest-users-portal) en el inquilino recién creado y usar esa cuenta para administrar el inquilino. Si quiere que la cuenta de invitado pueda administrar el servicio de credenciales verificables, debe asignar el rol "Administrador global" a ese usuario.
+Para su comodidad, puede agregar su propia cuenta profesional como [invitado](../external-identities/b2b-quickstart-add-guest-users-portal.md) en el inquilino recién creado y usar esa cuenta para administrar el inquilino. Si quiere que la cuenta de invitado pueda administrar el servicio de credenciales verificables, debe asignar el rol "Administrador global" a ese usuario.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

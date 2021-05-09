@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: tutorial
 ms.date: 02/24/2021
 ms.author: ambapat
-ms.openlocfilehash: 171e0c03dc6f246d0f56d11f793ca711b0082f49
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: 5f2ae71162d0fff99459f492f9a56a2e38c4fb06
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107588299"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108015814"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault"></a>Importación de claves protegidas con HSM en Key Vault
 
@@ -33,18 +33,19 @@ La transferencia de claves protegidas con HSM a Key Vault se admite a través de
 
 |Nombre del proveedor|Tipo de proveedor|Modelos de HSM compatibles|Método de transferencia de clave HSM compatible|
 |---|---|---|---|
-|[nCipher](https://www.ncipher.com/products/key-management/cloud-microsoft-azure)|Fabricante,<br/>HSM como servicio|<ul><li>Familia nShield de HSM</li><li>nShield como servicio</ul>|**Método 1:** [nCipher BYOK](hsm-protected-keys-ncipher.md) (en desuso). Este método dejará de tener soporte técnico el <strong>30 de junio de 2021</strong><br/>**Método 2:** [usar el nuevo método BYOK](hsm-protected-keys-byok.md) (se recomienda)|
-|Thales|Fabricante|<ul><li>Familia Luna HSM 7 con la versión del firmware 7.3 o posterior</li></ul>| [Usar el nuevo método BYOK](hsm-protected-keys-byok.md)|
-|Fortanix|Fabricante,<br/>HSM como servicio|<ul><li>Self-Defending Key Management Service (SDKMS)</li><li>Equinix SmartKey</li></ul>|[Usar el nuevo método BYOK](hsm-protected-keys-byok.md)|
-|Marvell|Fabricante|Todos los HSM de LiquidSecurity con<ul><li>versión de firmware 2.0.4 o posterior</li><li>versión de firmware 3.2 o posterior</li></ul>|[Usar el nuevo método BYOK](hsm-protected-keys-byok.md)|
 |Cryptomathic|ISV (sistema de administración de claves empresariales)|Varias marcas y modelos de HSM, como<ul><li>nCipher</li><li>Thales</li><li>Utimaco</li></ul>Consulte el [sitio de Cryptomathic para obtener más información](https://www.cryptomathic.com/azurebyok).|[Usar el nuevo método BYOK](hsm-protected-keys-byok.md)|
+|Entrust|Fabricante,<br/>HSM como servicio|<ul><li>Familia nShield de HSM</li><li>nShield como servicio</ul>|[Usar el nuevo método BYOK](hsm-protected-keys-byok.md)|
+|Fortanix|Fabricante,<br/>HSM como servicio|<ul><li>Self-Defending Key Management Service (SDKMS)</li><li>Equinix SmartKey</li></ul>|[Usar el nuevo método BYOK](hsm-protected-keys-byok.md)|
+|IBM|Fabricante|IBM 476x, CryptoExpress|[Usar el nuevo método BYOK](hsm-protected-keys-byok.md)|
+|Marvell|Fabricante|Todos los HSM de LiquidSecurity con<ul><li>versión de firmware 2.0.4 o posterior</li><li>versión de firmware 3.2 o posterior</li></ul>|[Usar el nuevo método BYOK](hsm-protected-keys-byok.md)|
+|[nCipher](https://www.ncipher.com/products/key-management/cloud-microsoft-azure)|Fabricante,<br/>HSM como servicio|<ul><li>Familia nShield de HSM</li><li>nShield como servicio</ul>|**Método 1:** [nCipher BYOK](hsm-protected-keys-ncipher.md) (en desuso). Este método dejará de tener soporte técnico el <strong>30 de junio de 2021</strong><br/>**Método 2:** [usar el nuevo método BYOK](hsm-protected-keys-byok.md) (se recomienda)<br/>Consulte la fila Entrust anterior|
 |Securosys SA|Fabricante,<br/>HSM como servicio|Familia Primus HSM, Securosys Clouds HSM|[Usar el nuevo método BYOK](hsm-protected-keys-byok.md)|
 |StorMagic|ISV (sistema de administración de claves empresariales)|Varias marcas y modelos de HSM, como<ul><li>Utimaco</li><li>Thales</li><li>nCipher</li></ul>Consulte el [sitio web de StorMagic para más información](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm).|[Usar el nuevo método BYOK](hsm-protected-keys-byok.md)|
-|IBM|Fabricante|IBM 476x, CryptoExpress|[Usar el nuevo método BYOK](hsm-protected-keys-byok.md)|
+|Thales|Fabricante|<ul><li>Familia Luna HSM 7 con la versión del firmware 7.3 o posterior</li></ul>| [Usar el nuevo método BYOK](hsm-protected-keys-byok.md)|
 |Utimaco|Fabricante,<br/>HSM como servicio|u.trust Anchor, CryptoServer|[Usar el nuevo método BYOK](hsm-protected-keys-byok.md)|
 |||||
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Consulte [Introducción a la seguridad de Azure Key Vault](../general/security-overview.md) para garantizar la seguridad, la durabilidad y la supervisión de las claves.
+* Consulte [Introducción a la seguridad de Azure Key Vault](../general/security-features.md) para garantizar la seguridad, la durabilidad y la supervisión de las claves.
 * Consulte la [especificación de BYOK](./byok-specification.md) para obtener una descripción completa del nuevo método BYOK.

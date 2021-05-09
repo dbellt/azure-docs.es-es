@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/31/2021
+ms.date: 04/26/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: inbarckms
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8774df6a2eee15f8b5a0c37362e5b20f14b07549
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 0f0473a266cffb083a82ffc9afb333da7eecf59c
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106167369"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108015706"
 ---
 # <a name="configure-temporary-access-pass-in-azure-ad-to-register-passwordless-authentication-methods-preview"></a>Configuración de un Pase de acceso temporal en Azure AD para registrar métodos de autenticación sin contraseña (versión preliminar)
 
@@ -152,6 +152,7 @@ Tenga en cuenta las limitaciones siguientes:
 
 - Cuando se usa un Pase de acceso temporal de un solo uso para registrar un método sin contraseña, como FIDO2 o el inicio de sesión telefónico, el usuario debe completar el registro en un plazo de 10 minutos a partir del inicio de sesión con el Pase de acceso temporal de un solo uso. Esta limitación no se aplica a un Pase de acceso temporal que se pueda usar más de una vez.
 - Tenga en cuenta que los usuarios invitados no pueden iniciar sesión con un Pase de acceso temporal.
+- Pase de acceso temporal está en versión preliminar pública y actualmente no está disponible en Azure para la Administración Pública de Estados Unidos.
 - Los usuarios en el ámbito de la directiva de registro de autoservicio de restablecimiento de contraseña (SSPR) *o* la [directiva de registro de autenticación multifactor de protección de identidades](../identity-protection/howto-identity-protection-configure-mfa-policy.md) tienen que registrar los métodos de autenticación una vez que han iniciado sesión con un Pase de acceso temporal. Los usuarios en el ámbito de estas directivas se redirigen al [modo de interrupción del registro combinado](concept-registration-mfa-sspr-combined.md#combined-registration-modes). Esta experiencia no admite actualmente el registro con FIDO2 e inicio de sesión telefónico. 
 - Un Pase de acceso temporal no se puede usar con la extensión del servidor de directivas de redes (NPS) ni el adaptador de los Servicios de federación de Active Directory (AD FS), ni durante el programa de instalación de Windows/experiencia de serie (OOBE) y AutoPilot. 
 - Cuando el inicio de sesión único de conexión directa está habilitado en el inquilino, se pide a los usuarios que escriban una contraseña. El vínculo **Use el Pase de acceso temporal en su lugar** estará disponible para que el usuario inicie sesión con un Pase de acceso temporal.

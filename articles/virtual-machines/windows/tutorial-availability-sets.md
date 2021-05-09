@@ -9,12 +9,12 @@ ms.date: 3/8/2021
 ms.author: mimckitt
 ms.reviewer: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 178a29ea37195ddd2013ca5220663a75132beb24
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9b6ca281733a68b02c4fcfa6429da58e36661923
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102555914"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108164604"
 ---
 # <a name="create-and-deploy-virtual-machines-in-an-availability-set-using-azure-powershell"></a>Creación e implementación de máquinas virtuales en un conjunto de disponibilidad mediante Azure PowerShell
 
@@ -96,6 +96,12 @@ Se tarda unos minutos en crear y configurar ambas VM. Al terminar, tendrá dos m
 Si observa el conjunto de disponibilidad en el portal en **Grupos de recursos** > **myResourceGroupAvailability** > **myAvailabilitySet**, debería ver cómo se distribuyen las máquinas virtuales en ambos dominios, el de error y el de actualización.
 
 ![Conjunto de disponibilidad en el portal](./media/tutorial-availability-sets/fd-ud.png)
+
+> [!NOTE]
+> En determinadas circunstancias, dos máquinas virtuales en el mismo conjunto de disponibilidad podrían compartir el mismo dominio de error. Para confirmarlo, vaya al conjunto de disponibilidad y compruebe la columna Dominio de error. Esto puede deberse a la siguiente secuencia mientras se implementan las máquinas virtuales:
+> 1. Implementar la primera máquina virtual
+> 1. Detener o desasignar la primera máquina virtual
+> 1. Implementar la segunda máquina virtual en estas circunstancias, el disco del sistema operativo de la segunda máquina virtual puede crearse en el mismo dominio de error que la primera máquina virtual, por lo que la segunda máquina virtual también aterrizará en el mismo FaultDomain. Para evitar este problema, se recomienda no detener ni desasignar las máquinas virtuales entre implementaciones.
 
 ## <a name="check-for-available-vm-sizes"></a>Comprobación de los tamaños de VM disponibles 
 
