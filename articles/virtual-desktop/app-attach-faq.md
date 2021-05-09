@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: a1a2464735ff8039bb31c43d6956cbf03e694c63
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 1277e053e9a9eb6e54eb11a9ede42ca28d99d073
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106448413"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108141314"
 ---
 # <a name="msix-app-attach-faq"></a>Preguntas frecuentes sobre la asociación de aplicaciones en formato MSIX
 
@@ -59,6 +59,10 @@ Sí. La conexión de aplicaciones en formato MSIX no admite la actualización au
 
 Todas las máquinas virtuales (VM) de un grupo de hosts que usa la conexión de aplicaciones en formato MSIX deben tener permisos de lectura en el recurso compartido de archivos en el que se almacenan las imágenes de MSIX. Si también usa Azure Files, deberán tener permisos de control de acceso basado en rol (RBAC) y de New Technology File System (NTFS).
 
+## <a name="can-i-use-azure-active-directory-domain-services-azure-ad-ds-with-msix-app-attach"></a>¿Puedo usar Azure Active Directory Domain Services (Azure AD DS) con la asociación de aplicaciones en formato MSIX?
+
+La asociación de aplicaciones en formato MSIX no admite actualmente Azure AD DS. Dado que los objetos de equipo de Azure AD DS no se sincronizan con Azure Active Directory (Azure AD), el administrador no puede proporcionar los permisos de control de acceso basado en roles (RBAC) necesarios para Azure Files.
+
 ## <a name="can-i-use-msix-app-attach-for-http-or-https"></a>¿Puedo usar la conexión de aplicaciones en formato MSIX para HTTP o HTTPS?
 
 Actualmente, no se admite la conexión de aplicaciones en formato MSIX a través de HTTP o HTTPS.
@@ -71,6 +75,16 @@ Sí. Puede realizar una copia intermedia de las aplicaciones para las que ya la 
 
 Sí. Debe instalar el certificado autofirmado en todas las máquinas virtuales de host de sesión donde se usa la asociación de aplicaciones en formato MSIX para hospedar la aplicación autofirmada.
 
+## <a name="what-applications-can-i-repackage-to-msix"></a>¿Qué aplicaciones puedo volver a empaquetar en MSIX?
+
+Cada aplicación usa características diferentes del sistema operativo, de los lenguajes de programación y de los marcos. Para volver a empaquetar la aplicación, siga las instrucciones de [Traslado de los instaladores existentes a MSIX](/windows/msix/packaging-tool/create-an-msix-overview#how-to-move-your-existing-installers-to-msix). Puede encontrar una lista de las cosas que necesita para volver a empaquetar una aplicación en [Preparación del empaquetado de una aplicación de escritorio](/windows/msix/desktop/desktop-to-uwp-prepare). 
+
+Algunas aplicaciones no pueden dividirse en capas de aplicación, lo que significa que no se pueden volver a empaquetar en un archivo MSIX. Esta es una lista de las aplicaciones que no se pueden volver a empaquetar:
+
+- Controladores 
+- Active-X o Silverlight
+- Clientes VPN
+- Programas antivirus
 
 ## <a name="next-steps"></a>Pasos siguientes
 

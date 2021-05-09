@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/21/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 51b5714f9009cbe48aa49c6a04a1434cec12396e
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 295aeb47499b61556b37d87f0e3c05bc9aea3d6e
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107790696"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108208462"
 ---
 # <a name="auto-manage-devices-in-azure-digital-twins-using-device-provisioning-service-dps"></a>Administración automática de dispositivos en Azure Digital Twins mediante Device Provisioning Service (DPS)
 
@@ -20,14 +20,14 @@ En este artículo, aprenderá a integrar Azure Digital Twins con [Device Provisi
 
 La solución que se describe en este artículo le permitirá automatizar el proceso de **_aprovisionar_** y **_retirar_** dispositivos IoT Hub de Azure Digital Twins mediante Device Provisioning Service. 
 
-Para más información sobre las etapas de _aprovisionamiento_ y _retirada_ y para comprender mejor el conjunto de etapas generales de administración de dispositivos que son comunes a todos los proyectos de IoT empresarial, consulte la sección [*Ciclo de vida de dispositivo*](../iot-hub/iot-hub-device-management-overview.md#device-lifecycle) de la documentación de administración de dispositivos IoT Hub.
+Para más información sobre las etapas de _aprovisionamiento_ y _retirada_ y para comprender mejor el conjunto de etapas generales de administración de dispositivos que son comunes a todos los proyectos de IoT empresarial, consulte la sección [Ciclo de vida de dispositivo](../iot-hub/iot-hub-device-management-overview.md#device-lifecycle) de la documentación de administración de dispositivos IoT Hub.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Antes de que pueda configurar el aprovisionamiento, debe configurar lo que se indica a continuación:
-* una **instancia de Azure Digital Twins**. Siga las instrucciones que se indican en [*Procedimiento de configuración de una instancia y de autenticación*](how-to-set-up-instance-portal.md) para crear una instancia de gemelos digitales de Azure. Recopile el nombre de **_host_** de la instancia en el Azure portal ([instrucciones](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
+* una **instancia de Azure Digital Twins**. Siga las instrucciones que se indican en [Procedimiento de configuración de una instancia y de autenticación](how-to-set-up-instance-portal.md) para crear una instancia de gemelos digitales de Azure. Recopile el nombre de **_host_** de la instancia en el Azure portal ([instrucciones](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
 * un **centro de IoT**. Para instrucciones, consulte la sección *Creación de una instancia de IoT Hub* de [este inicio rápido de IoT Hub](../iot-hub/quickstart-send-telemetry-cli.md).
-* una [**función de Azure**](../azure-functions/functions-overview.md) que actualiza la información de doble digital basada en datos de IOT Hub. Siga las instrucciones que [*se indican en cómo: ingesta de datos de IOT Hub*](how-to-ingest-iot-hub-data.md) para crear esta función de Azure. Recopile el **_nombre_** de la función para usarlo en este artículo.
+* una [función de Azure](../azure-functions/functions-overview.md) que actualiza la información de doble digital basada en datos de IOT Hub. Siga las instrucciones que [se indican en cómo: ingesta de datos de IOT Hub](how-to-ingest-iot-hub-data.md) para crear esta función de Azure. Recopile el **_nombre_** de la función para usarlo en este artículo.
 
 En este ejemplo también se usa un **simulador de dispositivos** que incluye el aprovisionamiento mediante Device Provisioning Service. El simulador de dispositivos se encuentra aquí: [Ejemplo de integración de Azure Digital Twins e IoT Hub](/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/). Para obtener el proyecto de ejemplo en la máquina, vaya al vínculo del ejemplo y seleccione el botón **Examinar código** situado debajo del título. Esto le llevará al repositorio de GitHub de los ejemplos, que puede descargar como un archivo *.ZIP* al seleccionar el botón **Código** y **Descargar archivo ZIP**. 
 
@@ -35,7 +35,7 @@ En este ejemplo también se usa un **simulador de dispositivos** que incluye el 
 
 Descomprima la carpeta descargada.
 
-Asegúrese de tener [**Node.js**](https://nodejs.org/download) instalado en la máquina. El simulador de dispositivos se basa en **Node.js**, versión 10.0.x u otra posterior.
+Asegúrese de tener [Node.js](https://nodejs.org/download) instalado en la máquina. El simulador de dispositivos se basa en **Node.js**, versión 10.0.x u otra posterior.
 
 ## <a name="solution-architecture"></a>Arquitectura de la solución
 
@@ -44,8 +44,8 @@ En la imagen siguiente se muestra la arquitectura de esta solución mediante Azu
 :::image type="content" source="media/how-to-provision-using-device-provisioning-service/flows.png" alt-text="Diagrama de un dispositivo y varios servicios de Azure en un escenario completo. Los datos fluyen en ambos sentidos entre un dispositivo termostato y DPS. Los datos también fluyen desde DPS a IoT Hub y a Azure Digital Twins a través de una función de Azure con la etiqueta &quot;Asignación&quot;. Los datos de una acción manual de &quot;Eliminar dispositivo&quot; fluyen a través de IoT Hub > Event Hubs > Azure Functions > Azure Digital Twins." lightbox="media/how-to-provision-using-device-provisioning-service/flows.png":::
 
 Este artículo se divide en dos secciones:
-* [*Aprovisionamiento automático de un dispositivo mediante Device Provisioning Service*](#auto-provision-device-using-device-provisioning-service)
-* [*Retirada automática del dispositivo mediante eventos de ciclo de vida de IoT Hub*](#auto-retire-device-using-iot-hub-lifecycle-events)
+* [Aprovisionamiento automático de un dispositivo mediante Device Provisioning Service](#auto-provision-device-using-device-provisioning-service)
+* [Retirada automática del dispositivo mediante eventos de ciclo de vida de IoT Hub](#auto-retire-device-using-iot-hub-lifecycle-events)
 
 Para obtener una explicación más detallada de cada paso de la arquitectura, consulte sus secciones individuales más adelante en el artículo.
 
@@ -68,9 +68,9 @@ En las siguientes secciones se describen los pasos necesarios para configurar es
 
 Cuando se aprovisiona un nuevo dispositivo mediante el servicio de aprovisionamiento de dispositivos, se puede crear un nuevo dispositivo gemelo para ese dispositivo en Azure Digital Twins con el mismo nombre como id. de registro.
 
-Cree una instancia de Device Provisioning Service que se usará para aprovisionar dispositivos IoT. Puede usar las instrucciones de la CLI de Azure que aparecen a continuación o usar Azure Portal: [*Guía de inicio rápido: Configuración de Azure IoT Hub Device Provisioning Service con Azure Portal*](../iot-dps/quick-setup-auto-provision.md)
+Cree una instancia de Device Provisioning Service que se usará para aprovisionar dispositivos IoT. Puede usar las instrucciones de la CLI de Azure que aparecen a continuación o usar Azure Portal: [Guía de inicio rápido: Configuración de Azure IoT Hub Device Provisioning Service con Azure Portal](../iot-dps/quick-setup-auto-provision.md)
 
-El siguiente comando de la CLI de Azure creará una instancia de Device Provisioning Service. Deberá especificar un nombre de servicio de aprovisionamiento de dispositivos, un grupo de recursos y una región. Para ver qué regiones admiten el Servicio de aprovisionamiento de dispositivos, visite [*Productos de Azure disponibles por región*](https://azure.microsoft.com/global-infrastructure/services/?products=iot-hub).
+El siguiente comando de la CLI de Azure creará una instancia de Device Provisioning Service. Deberá especificar un nombre de servicio de aprovisionamiento de dispositivos, un grupo de recursos y una región. Para ver qué regiones admiten el Servicio de aprovisionamiento de dispositivos, visite [Productos de Azure disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=iot-hub).
 El comando se puede ejecutar en [Cloud Shell](https://shell.azure.com), o localmente si tiene la [CLI de Azure instalada en la máquina](/cli/azure/install-azure-cli).
 
 ```azurecli-interactive
@@ -105,7 +105,7 @@ Publique el proyecto con la función *DpsAdtAllocationFunc.cs* en la aplicación
 
 ### <a name="create-device-provisioning-enrollment"></a>Creación de una inscripción de Device Provisioning Service
 
-A continuación, deberá crear una inscripción en Device Provisioning Service mediante una **función de asignación personalizada**. Siga las instrucciones para hacerlo en la sección [*creación de la inscripción*](../iot-dps/how-to-use-custom-allocation-policies.md#create-the-enrollment) del artículo directivas de asignación personalizadas en la documentación del servicio aprovisionamiento de dispositivos.
+A continuación, deberá crear una inscripción en Device Provisioning Service mediante una **función de asignación personalizada**. Siga las instrucciones para hacerlo en la sección [creación de la inscripción](../iot-dps/how-to-use-custom-allocation-policies.md#create-the-enrollment) del artículo directivas de asignación personalizadas en la documentación del servicio aprovisionamiento de dispositivos.
 
 Al pasar por ese flujo, asegúrese de seleccionar las opciones siguientes para vincular la inscripción a la función que acaba de crear.
 
@@ -134,7 +134,7 @@ El simulador de dispositivos es un dispositivo de tipo termostato que usa el mod
 
 [!INCLUDE [digital-twins-thermostat-model-upload.md](../../includes/digital-twins-thermostat-model-upload.md)]
 
-Para obtener más información sobre los modelos, consulte [*Cómo: administrar modelos*](how-to-manage-model.md#upload-models).
+Para obtener más información sobre los modelos, consulte [Cómo: administrar modelos](how-to-manage-model.md#upload-models).
 
 #### <a name="configure-and-run-the-simulator"></a>Configuración y ejecución del simulador
 
@@ -207,7 +207,7 @@ En las siguientes secciones se describen los pasos necesarios para configurar es
 
 A continuación, crearás un [centro de eventos](../event-hubs/event-hubs-about.md) de Azure para recibir los eventos del ciclo de vida de IoT Hub. 
 
-Siga los pasos descritos en el inicio rápido para [*crear un centro de eventos*](../event-hubs/event-hubs-create.md). Asigne un nombre *lifecycleevents* al centro de eventos. Usará este nombre de centro de eventos al configurar la ruta IoT Hub y una función de Azure en las secciones siguientes.
+Siga los pasos descritos en el inicio rápido para [crear un centro de eventos](../event-hubs/event-hubs-create.md). Asigne un nombre *lifecycleevents* al centro de eventos. Usará este nombre de centro de eventos al configurar la ruta IoT Hub y una función de Azure en las secciones siguientes.
 
 En la captura de pantalla siguiente se muestra la creación del centro de eventos.
 :::image type="content" source="media/how-to-provision-using-device-provisioning-service/create-event-hub-lifecycle-events.png" alt-text="Captura de pantalla de la ventana de Azure Portal para crear un centro de eventos con el nombre lifecycleevents." lightbox="media/how-to-provision-using-device-provisioning-service/create-event-hub-lifecycle-events.png":::
@@ -240,7 +240,7 @@ Después, configure la aplicación de funciones de Azure que configuró en la se
 
 Dentro del proyecto de aplicación de función que creó en la sección de [requisitos previos](#prerequisites) , creará una nueva función para retirar un dispositivo existente usando IOT Hub eventos de ciclo de vida.
 
-Para más información sobre los eventos de ciclo de vida, consulte [*Eventos que no son de telemetría de IoT Hub*](../iot-hub/iot-hub-devguide-messages-d2c.md#non-telemetry-events). Para más información sobre cómo usar Event Hubs con funciones de Azure, consulte [*Desencadenador de Azure Event Hubs para Azure Functions*](../azure-functions/functions-bindings-event-hubs-trigger.md).
+Para más información sobre los eventos de ciclo de vida, consulte [Eventos que no son de telemetría de IoT Hub](../iot-hub/iot-hub-devguide-messages-d2c.md#non-telemetry-events). Para más información sobre cómo usar Event Hubs con funciones de Azure, consulte [Desencadenador de Azure Event Hubs para Azure Functions](../azure-functions/functions-bindings-event-hubs-trigger.md).
 
 Para empezar, abra el proyecto de aplicación de función en Visual Studio en el equipo y siga estos pasos.
 
@@ -345,13 +345,13 @@ Por último, elimine la carpeta de ejemplo del proyecto que descargó de la máq
 
 Los gemelos digitales que se han creado para los dispositivos se almacenan como una jerarquía plana en Azure Digital Twins, pero se pueden enriquecer con la información del modelo y una jerarquía de varios niveles para la organización. Para más información sobre este concepto, consulte:
 
-* [*Conceptos: Gemelos digitales y grafo de gemelos*](concepts-twins-graph.md)
+* [Conceptos: Gemelos digitales y grafo de gemelos](concepts-twins-graph.md)
 
 Para más información sobre cómo usar solicitudes HTTP con funciones de Azure, consulte:
 
-* [  *Desencadenador de solicitud HTTP de Azure para Azure Functions*](../azure-functions/functions-bindings-http-webhook-trigger.md)
+* [Desencadenador de solicitud HTTP de Azure para Azure Functions](../azure-functions/functions-bindings-http-webhook-trigger.md)
 
 Puede escribir la lógica personalizada para proporcionar automáticamente esta información con los datos del modelo y del gráfico ya almacenados en Azure Digital Twins. Para más información sobre cómo administrar, actualizar y recuperar información del grafo de gemelos, consulte lo siguiente:
 
-* [*Procedimiento: Administración de un gemelo digital*](how-to-manage-twin.md)
-* [*Procedimiento: Consulta del grafo gemelo*](how-to-query-graph.md)
+* [Procedimiento: Administración de un gemelo digital](how-to-manage-twin.md)
+* [Procedimiento: Consulta del grafo de gemelos](how-to-query-graph.md)

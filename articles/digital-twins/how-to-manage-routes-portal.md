@@ -7,27 +7,27 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 8a8cc6563d8e3cae942c4dfb43afa3d05f6f2b75
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 4aef4f3a0da17abc497225bcd0a27b98e4eaea95
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107257316"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108208516"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Administración de puntos de conexión y rutas en Azure Digital Twins (portal)
 
 [!INCLUDE [digital-twins-route-selector.md](../../includes/digital-twins-route-selector.md)]
 
-En Azure Digital Twins, se pueden enrutar [notificaciones de eventos](concepts-event-notifications.md) a los servicios de bajada o recursos de proceso conectados. Para ello, primero se configuran los **puntos de conexión** que pueden recibir los eventos. Después, puede crear [**rutas de eventos**](concepts-route-events.md) que especifiquen los eventos generados por Azure Digital Twins que se entregan a los puntos de conexión.
+En Azure Digital Twins, se pueden enrutar [notificaciones de eventos](concepts-event-notifications.md) a los servicios de bajada o recursos de proceso conectados. Para ello, primero se configuran los **puntos de conexión** que pueden recibir los eventos. Después, puede crear [rutas de eventos](concepts-route-events.md) que especifican qué eventos generados por Azure Digital Twins se entregan a cada punto de conexión.
 
 Este artículo le guía por el proceso de creación de puntos de conexión y rutas mediante [Azure Portal](https://portal.azure.com).
 
-También puede administrar los puntos de conexión y las rutas con las [API de Event Routes](/rest/api/digital-twins/dataplane/eventroutes), los [SDK](how-to-use-apis-sdks.md#overview-data-plane-apis) o la [CLI de Azure Digital Twins](how-to-use-cli.md). Se puede encontrar una versión de este artículo donde se usan estos mecanismos en lugar del portal en [*Procedimiento: Administración de puntos de conexión y rutas (API y CLI)*](how-to-manage-routes-apis-cli.md).
+También puede administrar los puntos de conexión y las rutas con las [API de Event Routes](/rest/api/digital-twins/dataplane/eventroutes), los [SDK](how-to-use-apis-sdks.md#overview-data-plane-apis) o la [CLI de Azure Digital Twins](how-to-use-cli.md). Se puede encontrar una versión de este artículo donde se usan estos mecanismos en lugar del portal en [Procedimiento: Administración de puntos de conexión y rutas (API y CLI)](how-to-manage-routes-apis-cli.md) .
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Necesitará una **cuenta de Azure** (puede configurar una de forma gratuita [aquí](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)).
-* Necesitará una **instancia de Azure Digital Twins** en su suscripción de Azure. Si no dispone de una instancia, puede crear una con los pasos de [*Procedimiento: Configuración de una instancia y autenticación*](how-to-set-up-instance-portal.md). Tenga a mano los siguientes valores de configuración para usarlos más adelante en este artículo:
+* Necesitará una **instancia de Azure Digital Twins** en su suscripción de Azure. Si no dispone de una instancia, puede crear una con los pasos de [Procedimiento: Configuración de una instancia y autenticación](how-to-set-up-instance-portal.md). Tenga a mano los siguientes valores de configuración para usarlos más adelante en este artículo:
     - Nombre de instancia
     - Grupo de recursos
 
@@ -46,7 +46,7 @@ Estos son los tipos de puntos de conexión admitidos que puede crear para la ins
 * [Event Hubs](../event-hubs/event-hubs-about.md)
 * [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
 
-Para obtener más información sobre los distintos tipos de puntos de conexión, vea [*Elección entre los distintos servicios de mensajería de Azure*](../event-grid/compare-messaging-services.md).
+Para obtener más información sobre los distintos tipos de puntos de conexión, vea [Elección entre los distintos servicios de mensajería de Azure](../event-grid/compare-messaging-services.md).
 
 En esta sección se explica cómo crear uno de estos puntos de conexión en [Azure Portal](https://portal.azure.com).
 
@@ -76,7 +76,7 @@ Una vez que haya creado los recursos de punto de conexión, puede usarlos para u
 1. Seleccione _Guardar_ para terminar de crear el punto de conexión.
 
 >[!IMPORTANT]
-> Para usar correctamente la autenticación basada en identidades para el punto de conexión, tendrá que crear una identidad administrada para la instancia mediante los pasos descritos en [*Procedimiento para habilitar una identidad administrada para el enrutamiento de eventos (versión preliminar)*](./how-to-enable-managed-identities-portal.md).
+> Para usar correctamente la autenticación basada en identidades para el punto de conexión, tendrá que crear una identidad administrada para la instancia mediante los pasos descritos en [Procedimiento para habilitar una identidad administrada para el enrutamiento de eventos (versión preliminar)](./how-to-enable-managed-identities-portal.md) .
 
 Después de crear el punto de conexión, puede comprobar que se ha creado correctamente si examina el icono de notificación de la barra superior de Azure Portal: 
 
@@ -100,11 +100,11 @@ Cuando un punto de conexión no puede entregar un evento en un período de tiemp
 
 Para crear un punto de conexión con las colas de mensajes fallidos habilitadas, debe usar los [comandos de la CLI](how-to-use-cli.md) o las [API del plano de control](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) en lugar de Azure Portal para crear el punto de conexión.
 
-Para obtener instrucciones sobre cómo hacerlo con estas herramientas, vea la versión para [*API y CLI*](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering) de este artículo.
+Para obtener instrucciones sobre cómo hacerlo con estas herramientas, vea la versión para [API y CLI](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering) de este artículo.
 
 ## <a name="create-an-event-route"></a>Crear una ruta de eventos
 
-Para enviar datos de Azure Digital Twins a un punto de conexión, debe definir una **ruta de eventos**. Estas rutas permiten a los desarrolladores conectar el flujo de eventos a lo largo del sistema y a los servicios de nivel inferior. Obtenga más información sobre las rutas de eventos en [*Conceptos: Enrutamiento de eventos de Azure Digital Twins*](concepts-route-events.md).
+Para enviar datos de Azure Digital Twins a un punto de conexión, debe definir una **ruta de eventos**. Estas rutas permiten a los desarrolladores conectar el flujo de eventos a lo largo del sistema y a los servicios de nivel inferior. Obtenga más información sobre las rutas de eventos en [Conceptos: Enrutamiento de eventos de Azure Digital Twins](concepts-route-events.md).
 
 **Requisito previo**: Debe crear puntos de conexión como se describió anteriormente en este artículo para poder continuar con la creación de una ruta. Puede continuar con la creación de una ruta de evento una vez finalizada la configuración de los puntos de conexión.
 
@@ -119,7 +119,7 @@ Una definición de ruta de eventos contiene estos elementos:
 * Filtro que define los eventos que se envían al punto de conexión.
     - Para deshabilitar la ruta de modo que no se envíe ningún evento, use un valor de filtro de `false`.
     - Para habilitar una ruta que no tenga filtrado específico, use un valor de filtro de `true`.
-    - Para más información sobre cualquier otro tipo de filtro, consulte la sección [*Eventos de filtro*](#filter-events) a continuación.
+    - Para más información sobre cualquier otro tipo de filtro, consulte la sección [Eventos de filtro](#filter-events) a continuación.
 
 Una ruta puede permitir que se seleccionen varias notificaciones y tipos de eventos.
 
@@ -202,4 +202,4 @@ Estos son los filtros de ruta admitidos. Los detalles de la columna *Filter Text
 ## <a name="next-steps"></a>Pasos siguientes
 
 Lea acerca de los diferentes tipos de mensajes de evento que se pueden recibir:
-* [*Conceptos: notificaciones de eventos*](concepts-event-notifications.md)
+* [Conceptos: notificaciones de eventos](concepts-event-notifications.md)

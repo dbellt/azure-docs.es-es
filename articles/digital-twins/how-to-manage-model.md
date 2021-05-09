@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 4/07/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 3c896e2aad7dae8d03b26e2a16ecb96224ab547b
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: ac794fda92e2ad005b30fc1aa153cc0546430fbe
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107303787"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108208570"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Administración de modelos de Azure Digital Twins
 
-Puede administrar los [modelos](concepts-models.md) de la instancia de Azure Digital Twins mediante las [**API DigitalTwinModels**](/rest/api/digital-twins/dataplane/models), el [SDK para .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client) o la [CLI de Azure Digital Twins](how-to-use-cli.md). 
+Puede administrar los [modelos](concepts-models.md) de la instancia de Azure Digital Twins mediante las [API DigitalTwinModels](/rest/api/digital-twins/dataplane/models), el [SDK para .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client) o la [CLI de Azure Digital Twins](how-to-use-cli.md). 
 
 Las operaciones de administración incluyen la carga, validación, recuperación y eliminación de modelos. 
 
@@ -120,7 +120,7 @@ Cuando se crea un gemelo, dado que la nueva versión del modelo y la versión de
 
 Esto también significa que la carga de una nueva versión de un modelo no afecta automáticamente a los gemelos que ya existan. Los gemelos existentes simplemente conservarán las instancias de la versión antigua del modelo.
 
-Puede actualizar estos gemelos a la nueva versión del modelo aplicándole revisiones, tal como se describe en la sección [*Actualización de un modelo de gemelo digital*](how-to-manage-twin.md#update-a-digital-twins-model) de *Procedimientos: Administración de Digital Twins*. Dentro de la misma revisión, debe actualizar los **identificadores de modelo** (a la nueva versión) y los **campos que deben modificarse para que se ajusten al nuevo modelo**.
+Puede actualizar estos gemelos a la nueva versión del modelo aplicándole revisiones, tal como se describe en la sección [Actualización de un modelo de gemelo digital](how-to-manage-twin.md#update-a-digital-twins-model) de *Procedimientos: Administración de Digital Twins*. Dentro de la misma revisión, debe actualizar los **identificadores de modelo** (a la nueva versión) y los **campos que deben modificarse para que se ajusten al nuevo modelo**.
 
 ## <a name="remove-models"></a>Eliminación de modelos
 
@@ -142,7 +142,7 @@ El estado de retirada de un modelo se incluye en los registros `ModelData` devue
 
 Puede eliminar todos los modelos de la instancia a la vez o de manera individual.
 
-Para un ejemplo de cómo eliminar todos los modelos, descargue la aplicación de ejemplo que se usa en el [*Tutorial: Exploración de los conceptos básicos con una aplicación cliente de ejemplo*](tutorial-command-line-app.md). El archivo *CommandLoop.cs* realiza esta acción en una función `CommandDeleteAllModels`.
+Para obtener un ejemplo de cómo eliminar todos los modelos, descargue la aplicación de ejemplo que se usa en el [Tutorial: Exploración de los conceptos básicos con una aplicación cliente de ejemplo](tutorial-command-line-app.md). El archivo *CommandLoop.cs* realiza esta acción en una función `CommandDeleteAllModels`.
 
 En el resto de esta sección se desglosa la eliminación del modelo para obtener más detalles, y se explica el proceso de eliminación individual.
 
@@ -198,4 +198,4 @@ Azure Digital Twins no impide este estado, por lo que debe asegurarse de revisar
 ## <a name="next-steps"></a>Pasos siguientes
 
 Vea cómo crear y administrar instancias de Digital Twins basadas en los modelos:
-* [*Procedimiento: Administración de Digital Twins*](how-to-manage-twin.md)
+* [Procedimiento: Administración de Digital Twins](how-to-manage-twin.md)

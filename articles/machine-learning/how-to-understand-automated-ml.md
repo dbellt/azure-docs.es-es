@@ -9,14 +9,14 @@ ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 12/09/2020
-ms.topic: conceptual
-ms.custom: how-to, contperf-fy21q2, automl
-ms.openlocfilehash: 2bed95385823a167c7a31eed11d752894984ea38
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.topic: how-to
+ms.custom: contperf-fy21q2, automl
+ms.openlocfilehash: d104ad879919b11152d56a2c9b6b6fd8652c3ddc
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107791884"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107903801"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>Evaluación de los resultados del experimento de aprendizaje automático automatizado
 
@@ -240,7 +240,15 @@ Si bien las métricas y los gráficos de evaluación del modelo son buenos para 
 Para obtener una primera experiencia de código, consulte la manera de configurar explicaciones del [modelo para experimentos de ML automatizado con el SDK de Python de Azure Machine Learning](how-to-machine-learning-interpretability-automl.md).
 
 > [!NOTE]
-> El modelo ForecastTCN no se admite actualmente en las explicaciones de ML automatizado y otros modelos de previsión pueden tener acceso limitado a las herramientas de interpretación.
+> La interpretabilidad, la mejor explicación del modelo, no está disponible para los experimentos de previsión de ML automatizados que recomiendan los algoritmos siguientes como el mejor modelo: 
+> * TCNForecaster
+> * AutoArima
+> * ExponentialSmoothing
+> * Prophet
+> * Media 
+> * Naive
+> * Media estacional 
+> * Naive estacional
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Pruebe los [cuadernos de ejemplo de la explicación del modelo de aprendizaje automático automatizado](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model).

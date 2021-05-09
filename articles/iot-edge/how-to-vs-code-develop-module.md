@@ -9,12 +9,12 @@ ms.date: 08/07/2019
 ms.topic: conceptual
 ms.service: iot-edge
 ms.custom: devx-track-js
-ms.openlocfilehash: eae6f1ec8cb6917d0d51deca8c9e88725c9b01a7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 496a1225d5e9554fc661e0c93ce82a13f6aa11d5
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103200631"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107904035"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Uso de Visual Studio Code para desarrollar y depurar módulos para Azure IoT Edge
 
@@ -47,7 +47,7 @@ Instale [Visual Studio Code](https://code.visualstudio.com/) y después agregue 
 
 También deberá instalar algunas herramientas específicas del lenguaje adicionales para desarrollar el módulo:
 
-- C#, incluido Azure Functions: [SDK de .NET Core 2.1](https://www.microsoft.com/net/download)
+- C#, incluido Azure Functions: [SDK de .NET Core 2.1](https://dotnet.microsoft.com/download/dotnet/2.1)
 
 - Python: [Python](https://www.python.org/downloads/) y [Pip](https://pip.pypa.io/en/stable/installing/#installation) para instalar paquetes de Python (normalmente, se incluye con la instalación de Python).
 
@@ -143,7 +143,7 @@ Si está desarrollando en C#, Node.js o Java, el módulo requiere el uso de un o
 
 En el equipo de desarrollo, puede iniciar un simulador de IoT Edge en lugar de instalar el demonio de seguridad de IoT Edge de forma que pueda ejecutar la solución de IoT Edge.
 
-1. En el explorador de dispositivos del lado izquierdo, haga clic con el botón derecho en el identificador de dispositivo IoT Edge y después seleccione **Setup IoT Edge Simulator** (Configurar el simulador de IoT Edge) para iniciar el simulador con la cadena de conexión del dispositivo.
+1. En la pestaña **Explorador** del lado izquierdo, expanda la sección **Azure IoT Hub**. Haga clic con el botón derecho en el identificador del dispositivo IoT Edge y después seleccione **Setup IoT Edge Simulator** (Configurar el simulador de IoT Edge) para iniciar el simulador con la cadena de conexión del dispositivo.
 1. Puede ver que el simulador de IoT Edge se ha configurado correctamente leyendo la información de progreso en el terminal integrado.
 
 ### <a name="set-up-iot-edge-simulator-for-single-module-app"></a>Configuración del simulador de IoT Edge para la aplicación de módulo único
@@ -224,7 +224,7 @@ Actualmente, la depuración en modo de agregación solo es compatible como sigue
 
 En el equipo de desarrollo, puede iniciar un simulador de IoT Edge en lugar de instalar el demonio de seguridad de IoT Edge de forma que pueda ejecutar la solución de IoT Edge.
 
-1. En el explorador de dispositivos del lado izquierdo, haga clic con el botón derecho en el identificador de dispositivo IoT Edge y después seleccione **Setup IoT Edge Simulator** (Configurar el simulador de IoT Edge) para iniciar el simulador con la cadena de conexión del dispositivo.
+1. En la pestaña **Explorador** del lado izquierdo, expanda la sección **Azure IoT Hub**. Haga clic con el botón derecho en el identificador del dispositivo IoT Edge y después seleccione **Setup IoT Edge Simulator** (Configurar el simulador de IoT Edge) para iniciar el simulador con la cadena de conexión del dispositivo.
 
 1. Puede ver que el simulador de IoT Edge se ha configurado correctamente leyendo la información de progreso en el terminal integrado.
 
