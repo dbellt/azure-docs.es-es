@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: f3c783c57b49b45943882703aec6d735d12bf830
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 180226741d77defb0a9f0d00165cf858cb65ecbb
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107481963"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107906519"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-x509-certificates"></a>Creación y aprovisionamiento de un dispositivo IoT Edge mediante certificados X.509
 
@@ -31,7 +31,7 @@ En este artículo se muestra cómo crear una inscripción de Device Provisioning
 
 El uso de certificados X.509 como un mecanismo de atestación es una manera excelente para escalar la producción y simplificar el aprovisionamiento de dispositivos. Normalmente, los certificados X.509 están organizados en una cadena de certificados de confianza. Comenzando por un certificado raíz de confianza o autofirmado, cada certificado de la cadena firma al certificado inmediatamente inferior. Este patrón crea una cadena delegada de confianza desde el certificado raíz a través de todos los certificados intermedios hasta el certificado "hoja" final que está instalado en un dispositivo.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Una instancia de IoT Hub activa.
 * Un dispositivo físico o virtual para que sea el dispositivo IoT Edge.
@@ -229,7 +229,6 @@ Tenga lista la siguiente información:
 * El valor de **Ámbito de id.** del DPS. Puede recuperar este valor de la página Información general de la instancia de DPS en Azure Portal.
 * El archivo de cadena de certificados de identidad del dispositivo en el dispositivo.
 * El archivo de clave de identidad del dispositivo en el dispositivo.
-* Un identificador de registro opcional. Si no se proporciona, el identificador se extrae del nombre común del certificado de identidad del dispositivo.
 
 ### <a name="linux-device"></a>Dispositivo Linux
 
@@ -268,7 +267,7 @@ Tenga lista la siguiente información:
    `file:///<path>/identity_certificate_chain.pem`
    `file:///<path>/identity_key.pem`
 
-1. Opcionalmente, proporcione un elemento `registration_id` para el dispositivo. De lo contrario, deje esta línea como comentada para registrar el dispositivo con el nombre común del certificado de identidad.
+1. De manera opcional, proporcione el `registration_id` del dispositivo, que debe coincidir con el nombre común (CN) del certificado de identidad. Si deja esa línea comentada, se aplicará automáticamente el CN.
 
 1. También puede usar las líneas `always_reprovision_on_startup` o `dynamic_reprovisioning` para configurar el comportamiento de reaprovisionamiento del dispositivo. Si un dispositivo se establece para que se vuelva a aprovisionar en el inicio, siempre intentará aprovisionar con DPS primero y, a continuación, revertir a la copia de seguridad de aprovisionamiento si se produce un error. Si un dispositivo se establece para que se vuelva a aprovisionar dinámicamente, IoT Edge se reiniciará y volverá a aprovisionar si se detecta un evento de reaprovisionamiento. Para más información, consulte [Conceptos sobre el reaprovisionamiento de dispositivos de IoT Hub](../iot-dps/concepts-device-reprovision.md).
 
@@ -309,22 +308,24 @@ Tenga lista la siguiente información:
    
    [provisioning.attestation]
    method = "x509"
-   # registration_id = "<OPTIONAL REGISTRATION ID. LEAVE COMMENTED OUT TO REGISTER WITH CN OF identity_cert>"
+   registration_id = "<REGISTRATION ID>"
 
-   identity_cert = "<REQUIRED URI TO DEVICE IDENTITY CERTIFICATE>"
+   identity_cert = "<DEVICE IDENTITY CERTIFICATE>"
 
-   identity_pk = "<REQUIRED URI TO DEVICE IDENTITY PRIVATE KEY>"
+   identity_pk = "<DEVICE IDENTITY PRIVATE KEY>"
    ```
 
-1. Actualice los valores de `id_scope`, `identity_cert` y `identity_pk` con la información de DPS y del dispositivo.
+1. Actualice el valor de `id_scope` con el identificador de ámbito que copió de la instancia de DPS.
+
+1. Proporcione un `registration_id` para el dispositivo, que es el identificador que el dispositivo tendrá en IoT Hub. El identificador de registro debe coincidir con el nombre común (CN) del certificado de identidad.
+
+1. Actualice los valores de `identity_cert` y `identity_pk` con la información del certificado y el dispositivo.
 
    El valor del certificado de identidad se puede proporcionar como un URI de archivo o se puede emitir dinámicamente mediante EST o una entidad de certificación local. Quite la marca de comentario de una sola línea, en función del formato que decida usar.
 
    El valor de clave privada de identidad se puede proporcionar como un URI de archivo o como un URI de PKCS#11. Quite la marca de comentario de una sola línea, en función del formato que decida usar.
 
    Si usa cualquier URI de PKCS#11, busque la sección **PKCS#11** en el archivo de configuración y proporcione información sobre la configuración de PKCS#11.
-
-1. Opcionalmente, proporcione un elemento `registration_id` para el dispositivo. De lo contrario, deje esta línea como comentada para registrar el dispositivo con el nombre común del certificado de identidad.
 
 1. Guarde y cierre el archivo.
 

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 03/24/2021
-ms.openlocfilehash: c9f2a21a1183637ec4648868cccd6f343b003f0c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9d728160413d470383f3eee78fc430aed0125ed7
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105026630"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107905241"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Cómo conectar Azure Data Factory y Azure Purview
 
@@ -34,7 +34,7 @@ Es posible conectar varias instancias de Azure Data Factory a una sola de Data C
     - **Desconectado**: la factoría de datos tiene acceso al catálogo, pero está conectada a otro catálogo. Como resultado, el linaje de datos no se comunica al catálogo automáticamente.
     - **CannotAccess**: el usuario actual no tiene acceso a la factoría de datos, por lo que se desconoce el estado de la conexión.
  >[!Note]
- >Para ver las conexiones de Data Factory, debe tener asignado alguno de los roles de Purview:
+ >Para ver las conexiones de Data Factory, debe tener asignado alguno de los roles de Purview. La herencia de roles del grupo de administración **no se admite**:
  >- Colaborador
  >- Propietario
  >- Lector
@@ -43,7 +43,7 @@ Es posible conectar varias instancias de Azure Data Factory a una sola de Data C
 ## <a name="create-new-data-factory-connection"></a>Creación de una nueva conexión de Data Factory
 
 >[!Note]
->Para agregar o quitar conexiones de Data Factory, debe tener asignado alguno de los roles de Purview:
+>Para agregar o quitar las conexiones de Data Factory, debe tener asignado cualquiera de los roles de Purview: La herencia de roles del grupo de administración **no se admite**:
 >- Propietario
 >- Administrador de acceso de usuario
 >

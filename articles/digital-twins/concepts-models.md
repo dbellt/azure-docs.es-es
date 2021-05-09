@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: b3f0dd599f982e19fee7febc3b85d46f91a55b35
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: 713a829ee8c7a3d036bc82f6f509e5c79dfb71aa
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107589302"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108205780"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Descripción de los modelos gemelos de Azure Digital Twins
 
 Una característica clave de Azure Digital Twins es la capacidad de definir su propio vocabulario y crear el grafo de gemelos en los términos de la empresa definidos de manera automática. Esta funcionalidad la ofrecen los **modelos** proporcionados por el usuario. Puede considerar los modelos como los nombres de una descripción de su mundo. 
 
-Un modelo es similar a una **clase** en un lenguaje de programación orientado a objetos, el que define una forma de datos para un concepto determinado en el entorno de trabajo real. Los modelos tienen nombres (como *Sala* o *SensorDeTemperatura*) y contienen elementos como propiedades, telemetría/eventos y comandos que describen lo que puede hacer este tipo de entidad en el entorno. Más adelante usará estos modelos para crear [**gemelos digitales**](concepts-twins-graph.md) que representen entidades específicas que cumplan con esta descripción de tipo.
+Un modelo es similar a una **clase** en un lenguaje de programación orientado a objetos, el que define una forma de datos para un concepto determinado en el entorno de trabajo real. Los modelos tienen nombres (como *Sala* o *SensorDeTemperatura*) y contienen elementos como propiedades, telemetría/eventos y comandos que describen lo que puede hacer este tipo de entidad en el entorno. Más adelante usará estos modelos para crear [gemelos digitales](concepts-twins-graph.md) que representen entidades específicas que cumplan con esta descripción de tipo.
 
 Los modelos de Azure Digital Twins se representan mediante el **lenguaje de definición de gemelos digitales (DTDL)** , que se basa en JSON-LD.  
 
@@ -26,7 +26,7 @@ Los modelos de Azure Digital Twins se representan mediante el **lenguaje de defi
 
 Los modelos de Azure Digital Twins se definen con el lenguaje de definición de gemelos digitales (DTDL). 
 
-Puede ver las especificaciones del lenguaje completas de DTDL en GitHub: [**Lenguaje de definición de gemelos digitales (DTDL), versión 2**](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
+Puede ver las especificaciones del lenguaje completas de DTDL en GitHub: [Lenguaje de definición de gemelos digitales (DTDL), versión 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
 
 DTDL se basa en JSON-LD y es independiente del lenguaje de programación. DTDL no es exclusivo de Azure Digital Twins, sino que también se usa para presentar datos de dispositivo en otros servicios de IoT, como [IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md). Azure Digital Twins usa la **versión 2** de DTDL (el uso de DTDL versión 1 con Azure Digital Twins ahora está en desuso). 
 
@@ -51,7 +51,7 @@ Dentro de una definición de modelo, el elemento de código de nivel superior es
 
 Una interfaz de modelo de DTDL puede contener cero, uno o varios de los campos siguientes:
 * **Propiedad**: las propiedades son campos de datos que representan el estado de una entidad (como las propiedades de muchos lenguajes de programación orientados a objetos). Las propiedades tienen almacenamiento de seguridad y se pueden leer en cualquier momento.
-* **Telemetría**: los campos de telemetría representan medidas o eventos y a menudo se usan para describir las lecturas de los sensores del dispositivo. A diferencia de las propiedades, la telemetría no se almacena en un gemelo digital; es una serie de eventos de datos con límites temporales, que deben administrarse a medida que se producen. Para obtener más información sobre las diferencias entre propiedades y telemetría, consulte la sección [*Propiedades frente a telemetría*](#properties-vs-telemetry) a continuación.
+* **Telemetría**: los campos de telemetría representan medidas o eventos y a menudo se usan para describir las lecturas de los sensores del dispositivo. A diferencia de las propiedades, la telemetría no se almacena en un gemelo digital; es una serie de eventos de datos con límites temporales, que deben administrarse a medida que se producen. Para obtener más información sobre las diferencias entre propiedades y telemetría, consulte la sección [Propiedades frente a telemetría](#properties-vs-telemetry) a continuación.
 * **Componente**: los componentes permiten compilar la interfaz de modelo como un ensamblado de otras interfaces, si lo desea. Un ejemplo de componente es una interfaz *cámaraFrontal* (y otra interfaz de componente *cámaraPosterior*) que se usa para definir un modelo para un *teléfono*. Primero debe definir una interfaz para *cámaraFrontal* como si fuera su propio modelo y, luego, puede hacer referencia a ella al definir el *Teléfono*.
 
     Use un componente para describir algo que es una parte integral de la solución, pero no necesita una identidad independiente y no es necesario crearla, eliminarla ni reorganizarla en el grafo de gemelos de forma independiente. Si quiere que las entidades tengan existencias independientes en el grafo de gemelos, represéntelas como gemelos digitales independientes de distintos modelos, conectadas por *relaciones* (consulte la viñeta siguiente).
@@ -153,21 +153,21 @@ En esta sección se describe con más detalle el conjunto de ejemplos actual.
 
 _**Para cargar modelos en Azure Digital Twins**_
 
-Una vez que haya terminado de crear, extender o seleccionar los modelos, puede cargarlos en la instancia de Azure Digital Twins para que estén disponibles para su uso en la solución. Esto se realiza mediante las [API de Azure Digital Twins](how-to-use-apis-sdks.md), tal y como se describe en [*Procedimiento: Administración de modelos DTDL*](how-to-manage-model.md#upload-models).
+Una vez que haya terminado de crear, extender o seleccionar los modelos, puede cargarlos en la instancia de Azure Digital Twins para que estén disponibles para su uso en la solución. Esto se realiza mediante las [API de Azure Digital Twins](how-to-use-apis-sdks.md), tal y como se describe en [Procedimiento: Administración de modelos DTDL](how-to-manage-model.md#upload-models).
 
-Sin embargo, si tiene muchos modelos para cargar, o si estos tienen muchas interdependencias que harían que la ordenación de las cargas individuales fuera complicada, puede usar este ejemplo para cargar muchos modelos a la vez: [**Usuario de carga de modelos de Azure Digital Twins**](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/ModelUploader). Siga las instrucciones que se proporcionan con el ejemplo para configurar y usar este proyecto para cargar modelos en su propia instancia.
+Sin embargo, si tiene muchos modelos para cargar, o si estos tienen muchas interdependencias que harían que la ordenación de las cargas individuales fuera complicada, puede usar este ejemplo para cargar muchos modelos a la vez: [Usuario de carga de modelos de Azure Digital Twins](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/ModelUploader). Siga las instrucciones que se proporcionan con el ejemplo para configurar y usar este proyecto para cargar modelos en su propia instancia.
 
 ### <a name="model-visualizer"></a>Visualizador de modelos 
 
 _**Para visualizar modelos**_
 
-Una vez que cargue los modelos en la instancia de Azure Digital Twins, podrá verlos en dicha instancia, incluidas todas las relaciones de herencia y modelo, mediante el [**visualizador de modelos de Azure Digital Twins**](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer). Este ejemplo se encuentra actualmente en un estado de borrador. Se recomienda que la comunidad de desarrollo de gemelos digitales extienda y contribuya con este ejemplo. 
+Una vez que cargue los modelos en la instancia de Azure Digital Twins, podrá verlos en dicha instancia, incluidas todas las relaciones de herencia y modelo, mediante el [visualizador de modelos de Azure Digital Twins](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer). Este ejemplo se encuentra actualmente en un estado de borrador. Se recomienda que la comunidad de desarrollo de gemelos digitales extienda y contribuya con este ejemplo. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga información sobre cómo crear modelos basados en ontologías estándar del sector: [*Conceptos: ¿Qué es una ontología?*](concepts-ontologies.md)
+* Obtenga información sobre cómo crear modelos basados en ontologías estándar del sector: [Conceptos: ¿Qué es una ontología?](concepts-ontologies.md) 
 
-* Analice en profundidad la administración de modelos con operaciones de API: [*Procedimiento: Administración de modelos DTDL*](how-to-manage-model.md)
+* Analice en profundidad la administración de modelos con operaciones de API: [Procedimiento: Administración de modelos DTDL](how-to-manage-model.md)
 
-* Obtenga información sobre cómo se usan los modelos para crear gemelos digitales: [*Conceptos: Gemelos digitales y grafo de gemelos*](concepts-twins-graph.md)
+* Obtenga información sobre cómo se usan los modelos para crear gemelos digitales: [Conceptos: Gemelos digitales y grafo de gemelos](concepts-twins-graph.md)
 

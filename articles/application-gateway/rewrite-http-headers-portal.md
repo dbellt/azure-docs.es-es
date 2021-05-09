@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: absha
 ms.custom: mvc
-ms.openlocfilehash: a77476086d6100cbaf49d54791972940cca0644f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3427dfafe1918590f215793acbae3d5fd290e604
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101708941"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108205240"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-portal"></a>Reescribir los encabezados HTTP de solicitud y respuesta con Azure Application Gateway mediante Azure Portal
 
@@ -131,4 +131,4 @@ En este ejemplo, se modificará una dirección URL de redireccionamiento al rees
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre cómo configurar algunos casos de uso comunes, consulte los [escenarios de reescritura de encabezado común](./rewrite-http-headers.md).
+Para más información sobre cómo configurar algunos casos de uso comunes, consulte los [escenarios de reescritura de encabezado común](./rewrite-http-headers-url.md).

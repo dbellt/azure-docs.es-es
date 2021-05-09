@@ -3,12 +3,12 @@ title: Traslado de recursos de red de Azure a una suscripción o un grupo de rec
 description: Use Azure Resource Manager para trasladar redes virtuales y otros recursos de red a un nuevo grupo de recursos o a una nueva suscripción.
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: b7aaf01b696b13136a0f4077f315b137c8917906
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: 0ac503a778b3de8945b074628242233f9bcd6a3b
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106120136"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108129970"
 ---
 # <a name="move-guidance-for-networking-resources"></a>Directrices para el traslado de recursos de red
 
@@ -17,7 +17,7 @@ En este artículo, se explica cómo trasladar las redes virtuales y otros recurs
 ## <a name="dependent-resources"></a>Recursos dependientes
 
 > [!NOTE]
-> Tenga en cuenta que las puertas de enlace de VPN asociadas con direcciones IP públicas no pueden moverse entre grupos de recursos o suscripciones.
+> Tenga en cuenta que las puertas de enlace de VPN asociadas con direcciones de SKU estándar de IP públicas no pueden moverse entre grupos de recursos o suscripciones.
 
 Al mover un recurso, también debe mover sus recursos dependientes (por ejemplo, direcciones IP públicas, puertas de enlace de red virtual, todos los recursos de conexión asociados). Las puertas de enlace de red local pueden estar en otro grupo de recursos.
 

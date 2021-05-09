@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/29/2021
 ms.author: b-juche
-ms.openlocfilehash: 5e7f71f91e5778b4f096bb760bfe5a0a89b5cbcb
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: a0080687d65c7165b0c2a463229a9a817fb045e0
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107764286"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108288186"
 ---
 # <a name="what-changing-to-volume-hard-quota-means-for-your-azure-netapp-files-service"></a>Implicaciones de cambiar a la cuota máxima de volumen para el servicio de Azure NetApp Files
 
@@ -160,7 +160,7 @@ Puede usar el portal o la CLI para aumentar manualmente el tamaño del volumen o
 
 ##### <a name="portal"></a>Portal 
 
-Puede [cambiar el tamaño de un volumen](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-volume) según sea necesario. El consumo de la capacidad de un volumen se descuenta de la capacidad aprovisionada de su grupo.
+Puede [cambiar el tamaño de un volumen](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-volume-using-the-azure-portal) según sea necesario. El consumo de la capacidad de un volumen se descuenta de la capacidad aprovisionada de su grupo.
 
 1. En la hoja de administración de cuenta de NetApp, haga clic en **Volúmenes**.  
 2. Haga clic con el botón derecho en el nombre del volumen cuyo tamaño quiere cambiar o haga clic en el icono `…` al final de la fila del volumen para mostrar el menú contextual. 
@@ -170,7 +170,7 @@ Puede [cambiar el tamaño de un volumen](azure-netapp-files-resize-capacity-pool
 
    ![Captura de pantalla que muestra la ventada Actualizar cuota de volumen.](../media/azure-netapp-files/hard-quota-update-volume-quota.png) 
 
-En algunos casos, el grupo de capacidad de hospedaje no tiene suficiente capacidad para cambiar el tamaño de los volúmenes. No obstante, puede [cambiar el tamaño del grupo de capacidad](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-the-capacity-pool) en incrementos o decrementos de 1 TiB. El tamaño del grupo de capacidad no puede ser inferior a 4 TiB. *Al cambiar el tamaño del grupo de capacidad, cambia la capacidad adquirida de Azure NetApp Files.*
+En algunos casos, el grupo de capacidad de hospedaje no tiene suficiente capacidad para cambiar el tamaño de los volúmenes. No obstante, puede [cambiar el tamaño del grupo de capacidad](azure-netapp-files-resize-capacity-pools-or-volumes.md#resizing-the-capacity-pool-or-a-volume-using-azure-cli) en incrementos o decrementos de 1 TiB. El tamaño del grupo de capacidad no puede ser inferior a 4 TiB. *Al cambiar el tamaño del grupo de capacidad, cambia la capacidad adquirida de Azure NetApp Files.*
 
 1. En la hoja de administración de cuenta de NetApp, haga clic en el grupo de capacidad cuyo tamaño desee cambiar.
 2. Haga clic con el botón derecho en el nombre del grupo de capacidad o haga clic en el icono `…` al final de la fila del grupo de capacidad para mostrar el menú contextual.

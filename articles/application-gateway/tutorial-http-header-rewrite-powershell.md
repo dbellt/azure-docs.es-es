@@ -7,16 +7,17 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: absha
-ms.openlocfilehash: 4a1a122eb7b5b0abcc47cd321c74267a1a4aecda
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 07e12272eeb8d35620baafef5414060dff2e9ee2
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93396862"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108319636"
 ---
 # <a name="create-an-application-gateway-and-rewrite-http-headers"></a>Crear una instancia de Application Gateway y reescribir los encabezados HTTP
 
-Puede usar Azure PowerShell para configurar las [reglas de reescritura de encabezados HTTP de solicitud y respuesta](rewrite-http-headers.md) al crear una [SKU de Application Gateway de escalado automático y con redundancia de zona](./application-gateway-autoscaling-zone-redundant.md) existente.
+Puede usar Azure PowerShell para configurar las [reglas de reescritura de encabezados HTTP de solicitud y respuesta](./rewrite-http-headers-url.md) al crear una [SKU de Application Gateway de escalado automático y con redundancia de zona](./application-gateway-autoscaling-zone-redundant.md) existente.
 
 En este artículo aprenderá a:
 
@@ -30,7 +31,7 @@ En este artículo aprenderá a:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 En este artículo es necesario ejecutar Azure PowerShell en local. Necesita tener instalado el módulo de Azure versión 1.0.0 o posterior. Ejecute `Import-Module Az` y, después, `Get-Module Az` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps). Después de verificar la versión de PowerShell, ejecute `Login-AzAccount` para crear una conexión con Azure.
 

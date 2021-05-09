@@ -1,15 +1,15 @@
 ---
 title: 'Inicio rápido: Creación de un grupo de administración con .NET Core'
 description: En este inicio rápido, se usa .NET Core para crear un grupo de administración para organizar los recursos en una jerarquía de recursos.
-ms.date: 02/05/2021
+ms.date: 05/01/2021
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a74cea9b142785c093b8ed235fc40049746f11a0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 82382160465684b0da40094012c6cb6561bf5036
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99592592"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108323292"
 ---
 # <a name="quickstart-create-a-management-group-with-net-core"></a>Inicio rápido: Creación de un grupo de administración con .NET Core
 
@@ -17,7 +17,7 @@ Los grupos de administración son contenedores que ayudan a administran el acces
 
 El primer grupo de administración creado en el directorio puede tardar hasta 15 minutos en completarse. Hay procesos que se ejecutan la primera vez para configurar el servicio de grupos de administración dentro de Azure para su directorio. Recibirá una notificación cuando finalice el proceso. Para obtener más información, vea [Instalación inicial de los grupos de administración](./overview.md#initial-setup-of-management-groups).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 

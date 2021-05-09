@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/05/2021
 ms.author: jeedes
-ms.openlocfilehash: e83274c404980549063b9a94a9118540f1ec3bb3
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: a5ebd28df08129b54a0ec74915fe442ffbaacdd8
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107508837"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108203728"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sds--chemical-information-management"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con SDS & Chemical Information Management
 
@@ -26,7 +26,7 @@ En este tutorial aprenderá a integrar SDS & Chemical Information Management con
 * Permitir que los usuarios inicien sesión automáticamente en SDS & Chemical Information Management con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -131,11 +131,9 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Vaya directamente a la URL de inicio de sesión de SDS & Chemical Information Management y comience el flujo de inicio de sesión desde allí.
 
-* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de SDS & Chemical Information Management en Aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de SDS & Chemical Information Management. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de SDS & Chemical Information Management en Aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de SDS & Chemical Information Management. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que configurada SDS & Chemical Information Management, podrá aplicar el control de sesión, que protege la información confidencial de la organización de la filtración y la infiltración en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Una vez que configurada SDS & Chemical Information Management, podrá aplicar el control de sesión, que protege la información confidencial de la organización de la filtración y la infiltración en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
