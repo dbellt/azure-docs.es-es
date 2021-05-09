@@ -7,15 +7,24 @@ ms.topic: how-to
 ms.date: 01/27/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 11d22fd83106bb1802514d0c7d5f67724664464d
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: efcfabb931b45b8b30e755cf1a9c16d15308f9d4
+ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107788392"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108064960"
 ---
 # <a name="understand-azure-files-billing"></a>Descripción de la facturación de Azure Files
 Azure Files proporciona dos modelos de facturación distintos: aprovisionado y pago por uso. El modelo aprovisionado solo está disponible para los recursos compartidos de archivos prémium, que son recursos compartidos de archivos implementados en el tipo de cuenta de almacenamiento **FileStorage**. El modelo de pago por uso solo está disponible para los recursos compartidos de archivos estándar, que son recursos compartidos de archivos implementados en el tipo de cuenta de almacenamiento de **uso general, versión 2 (GPv2)** . En este artículo se explica cómo funcionan ambos modelos con el fin de ayudarle a entender la factura mensual de Azure Files.
+
+:::row:::
+    :::column:::
+        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/m5_-GsKv4-o" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    :::column-end:::
+    :::column:::
+        En la entrevista de este vídeo se analizan los aspectos básicos del modelo de facturación de Azure Files, incluida la optimización de los recursos compartidos de archivos de Azure para lograr los costos más bajos posibles y la comparación de Azure Files con otras ofertas de almacenamiento de archivos locales y en la nube.
+   :::column-end:::
+:::row-end:::
 
 Para obtener información sobre los precios de Azure Files, vea la [página de precios de Azure Files](https://azure.microsoft.com/pricing/details/storage/files/).
 
@@ -23,23 +32,33 @@ Para obtener información sobre los precios de Azure Files, vea la [página de p
 Azure Files usa unidades de medida de base 2 para representar la capacidad de almacenamiento: KiB, MiB, GiB y TiB. El sistema operativo puede o no usar la misma unidad de medida o sistema de recuento.
 
 ### <a name="windows"></a>Windows
-
 Tanto el sistema operativo Windows como Azure Files miden la capacidad de almacenamiento mediante el sistema de recuento de base 2, pero hay una diferencia al etiquetar las unidades. Azure Files etiqueta su capacidad de almacenamiento con unidades de medida de base 2, mientras que Windows etiqueta su capacidad de almacenamiento en unidades de medida de base 10. Al notificar la capacidad de almacenamiento, Windows no convierte su capacidad de almacenamiento de base 2 a base 10.
 
-|Acrónimo  |Definición  |Unidad  |Windows se muestra como  |
-|---------|---------|---------|---------|
-|KiB     |1024 bytes         |kibibyte         |KB (kilobyte)         |
-|MiB     |1024 KiB (1 048 576 bytes)         |mebibyte         |MB (megabyte)         |
-|GiB     |1024 MiB (1 073 741 824 bytes)         |gibibyte         |GB (gigabyte)         |
-|TiB     |1024 GiB (1 099 511 627 776 bytes)         |tebibyte         |TB (terabyte)         |
+| Acrónimo | Definición                         | Unidad     | Windows se muestra como |
+|---------|------------------------------------|----------|---------------------|
+| KiB     | 1024 bytes                        | kibibyte | KB (kilobyte)       |
+| MiB     | 1024 KiB (1 048 576 bytes)        | mebibyte | MB (megabyte)       |
+| GiB     | 1024 MiB (1 073 741 824 bytes)     | gibibyte | GB (gigabyte)       |
+| TiB     | 1024 GiB (1 099 511 627 776 bytes) | tebibyte | TB (terabyte)       |
 
 ### <a name="macos"></a>macOS
-
 Vea [Cómo se indica la capacidad de almacenamiento en iOS y macOS](https://support.apple.com/HT201402) en el sitio web de Apple para determinar qué sistema de recuento se usa.
 
 ### <a name="linux"></a>Linux
-
 Cada sistema operativo o cada parte individual del software podrían usar un sistema de recuento diferente. Consulte su documentación para determinar cómo informan de la capacidad de almacenamiento.
+
+## <a name="reserve-capacity"></a>Capacidad de reserva
+Azure Files admite reservas de la capacidad de almacenamiento, lo que le permite lograr un descuento en el almacenamiento mediante la confirmación previa del uso del almacenamiento. Debe considerar la posibilidad de comprar instancias reservadas para cualquier carga de trabajo de producción o cargas de trabajo de desarrollo y pruebas con superficies coherentes. Al comprar capacidad reservada, la reserva debe especificar las dimensiones siguientes:
+
+- **Tamaño de capacidad:** las reservas de capacidad pueden ser de 10 TiB o 100 TiB, con descuentos más significativos para comprar una reserva de capacidad mayor. Puede comprar varias reservas, incluso reservas de diferentes tamaños de capacidad para satisfacer los requisitos de la carga de trabajo. Por ejemplo, si la implementación de producción tiene 120 TiB de recursos compartidos de archivos, podría comprar una reserva de 100 TiB y dos reservas de 10 TiB para satisfacer los requisitos de capacidad total.
+- **Período**: las reservas se pueden comprar durante un período de un año o tres años, con descuentos más significativos por comprar un período de reserva más largo. 
+- **Nivel**: el nivel de Azure Files para la reserva de capacidad. Las reservas de Azure Files están disponibles actualmente para los niveles de acceso frecuente y esporádico.
+- **Ubicación**: la región de Azure para la reserva de capacidad. Las reservas de capacidad están disponibles en un subconjunto de regiones de Azure.
+- **Redundancia**: la redundancia de almacenamiento para la reserva de capacidad. Las reservas se admiten para todas los redundancias que admite Azure Files, como LRS, ZRS, GRS y GZRS.
+
+Una vez que compre una reserva de capacidad, el uso de almacenamiento existente la consumirá automáticamente. Si utiliza más espacio de almacenamiento del que ha reservado, pagará el precio de venta del saldo que no esté cubierto por la reserva de capacidad. Los cargos por transferencia de datos, ancho de banda y transacciones no se incluyen en la reserva.
+
+Para obtener más información sobre cómo comprar reservas de almacenamiento, consulte [Optimización de costos para Azure Files con capacidad reservada](files-reserve-capacity.md).
 
 ## <a name="provisioned-model"></a>Modelo aprovisionado
 Azure Files usa un modelo aprovisionado para los recursos compartidos de archivos prémium. En un modelo de negocio aprovisionado, debe especificar de forma proactiva cuáles son los requisitos de almacenamiento del servicio Azure Files, en lugar de que se le aplique una factura basada en lo que usa. Esto es similar a la compra de hardware local, ya que cuando se aprovisiona un recurso compartido de archivos de Azure con una determinada cantidad de almacenamiento, se paga por ese almacenamiento independientemente de si se usa o no, de la misma manera que no se empiezan a pagar los costos de los soportes físicos locales al empezar a usar el espacio. A diferencia de la compra de soportes físicos locales, los recursos compartidos de archivos aprovisionados se pueden escalar o reducir verticalmente de forma dinámica en función de las características de rendimiento de almacenamiento y de E/S.
@@ -113,6 +132,21 @@ Hay cinco categorías de transacción básicas: escritura, lista, lectura, otras
 
 > [!Note]  
 > NFS 4.1 solo está disponible para los recursos compartidos de archivos prémium, que usan el modelo de facturación aprovisionado. Las transacciones no afectan a la facturación de los recursos compartidos de archivos prémium.
+
+## <a name="file-storage-comparison-checklist"></a>Lista de comprobación para la comparación del almacenamiento de archivos
+Para evaluar correctamente el costo de Azure Files en comparación con otras opciones de almacenamiento de archivos, tenga en cuenta las siguientes preguntas:
+
+- **¿Cómo se paga por el almacenamiento, IOPS y el ancho de banda?**  
+    Con Azure Files, el modelo de facturación que use depende de si va a implementar recursos compartidos de archivos [prémium](#provisioned-model) o [estándar](#pay-as-you-go-model). La mayoría de las soluciones en la nube tienen modelos en consonancia con los principios del almacenamiento aprovisionado (determinismo de precios, simplicidad) o el almacenamiento de pago por uso (pagar solo por el uso real). En el caso de los modelos provisionados, son de especial interés el tamaño mínimo de la cuota aprovisionada, la unidad de aprovisionamiento y la posibilidad de aumentar y disminuir el aprovisionamiento. 
+
+- **¿Cómo se consigue la resistencia y la redundancia del almacenamiento?**  
+    Con Azure Files, la resistencia y la redundancia del almacenamiento están integradas en la oferta del producto. Todos los niveles y opciones de redundancia garantizan una alta disponibilidad de los datos y el acceso a al menos tres copias de estos. Al considerar otras opciones de almacenamiento de archivos, tenga en cuenta si la resistencia y la redundancia del almacenamiento están integradas o es algo que debe ensamblar personalmente. 
+
+- **¿Qué tiene que administrar?**  
+    Con Azure Files, la unidad básica de administración es una cuenta de almacenamiento. Otras soluciones pueden requerir administración adicional, como actualizaciones del sistema operativo o administración de recursos virtuales (máquinas virtuales, discos, direcciones IP de red, etc.).
+
+- **¿Cuáles son los costos de copia de seguridad?**  
+    Con Azure Files, la integración de Azure Backup se habilita fácilmente y el almacenamiento de copia de seguridad se factura como parte de la cuota de costos (las copias de seguridad se almacenan como instantáneas diferenciales). Otras soluciones pueden requerir licencias de software de copia de seguridad e implicar costos adicionales de almacenamiento de copia de seguridad.
 
 ## <a name="see-also"></a>Consulte también
 - [Página de precios de Azure Files](https://azure.microsoft.com/pricing/details/storage/files/)

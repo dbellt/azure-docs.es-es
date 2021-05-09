@@ -2,15 +2,18 @@
 title: Cambios de punto de conexión para predicciones en la versión 3 de la API
 description: Se cambiaron las API v3 del punto de conexión para la predicción de consultas. Use esta guía para aprender a migrar a la versión 3 de las API de punto de conexión.
 ms.service: cognitive-services
+author: aahill
+ms.manager: nitinme
+ms.author: aahi
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 06/30/2020
-ms.openlocfilehash: 59dfa439f6428f2db972a8f848887e1a74bc2622
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/21/2021
+ms.openlocfilehash: 957da9d5d26e5e7eaf27433807f700f4d3243765
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98624310"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107897692"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Cambios de punto de conexión para predicciones para la versión 3
 
@@ -55,14 +58,12 @@ Si usa Bot Framework, Bing Spell Check V7 o solo quiere migrar la creación de 
 
 Si sabe que ninguna de las aplicaciones cliente o integraciones (Bot Framework y Bing Spell Check V7) se ven afectadas y está familiarizado con la migración de la creación de aplicaciones de LUIS y el punto de conexión para predicciones al mismo tiempo, empiece a usar la versión 3 del punto de conexión para predicciones. La versión 2 del punto de conexión para predicciones seguirá disponible y es una buena estrategia de retroceso.
 
+Para obtener información sobre el uso de Bing Spell Check API, consulte [Corrección de palabras mal escritas.](luis-tutorial-bing-spellcheck.md)
+
 
 ## <a name="not-supported"></a>No compatible
 
-### <a name="bing-spell-check"></a>Bing Spell Check
-
-Esta API no es compatible en la versión 3 del punto de conexión para predicciones. Siga usando la versión 2 de la API del punto de conexión para predicciones para las correcciones ortográficas. Si necesita una corrección ortográfica mientras usa la versión 3 de la API, haga que la aplicación cliente llame a la API [Bing Spell Check](../bing-spell-check/overview.md) y cambie el texto para que tenga la ortografía correcta antes de enviarlo a API LUIS.
-
-## <a name="bot-framework-and-azure-bot-service-client-applications"></a>Aplicaciones cliente de Azure Bot Service y Bot Framework
+### <a name="bot-framework-and-azure-bot-service-client-applications"></a>Aplicaciones cliente de Azure Bot Service y Bot Framework
 
 Siga usando la versión 2 de la API del punto de conexión para predicciones hasta que aparezca la versión 4.7 de Bot Framework.
 

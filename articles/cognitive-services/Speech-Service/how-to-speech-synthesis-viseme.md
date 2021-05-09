@@ -1,7 +1,7 @@
 ---
 title: Cómo obtener eventos de postura facial para la sincronización de labios
 titleSuffix: Azure Cognitive Services
-description: El SDK de voz admite el evento de visema en síntesis de voz, que se usa para representar los planteamientos clave en la voz observada, como la posición de los labios, mandíbula y lengua al generar un fonema determinado.
+description: El SDK de Voz admite eventos de visema durante la síntesis de voz, que se usa para representar los planteamientos clave en la voz observada, como la posición de los labios, mandíbula y lengua al generar un fonema determinado.
 services: cognitive-services
 author: yulin-li
 manager: nitinme
@@ -12,19 +12,19 @@ ms.date: 03/03/2021
 ms.author: yulili
 ms.custom: references_regions
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
-ms.openlocfilehash: e97c48d4e42627d0fc2caaa4f66e81b9a0cafa86
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a7808b3b5db9d01d6a1a2cd352a912d44a4e7908
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105643893"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107904503"
 ---
 # <a name="get-facial-pose-events"></a>Obtención de eventos de postura facial
 
 > [!NOTE]
-> El viseña solo funciona por voz `en-US-AriaNeural` en este momento.
+> Por ahora, los eventos de visema solo están disponibles para la voz `en-US-AriaNeural`.
 
-Un visema es la descripción visual de un fonema en lenguaje hablado.
+Un _visema_ es la descripción visual de un fonema en lenguaje hablado.
 Define la posición de la esfera y la boca al hablar de una palabra.
 Cada visema describe las principales supuestos faciales para un conjunto específico de fonemas.
 No hay una correspondencia uno a uno entre visemas y fonemas.

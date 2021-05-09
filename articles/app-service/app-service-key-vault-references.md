@@ -3,15 +3,15 @@ title: Uso de referencias de Key Vault
 description: Aprenda a configurar Azure App Service y Azure Functions para que usen referencias de Azure Key Vault. Haga que los secretos de Key Vault estén disponibles para el código de aplicación.
 author: mattchenderson
 ms.topic: article
-ms.date: 02/05/2021
+ms.date: 04/23/2021
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: b87001f9b283c774096fe669d58a9b487174625d
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 0ca620d50706f10081e955cf206fcf8c06ae5fd4
+ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107750777"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108064942"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>Uso de referencias de Key Vault para App Service y Azure Functions
 
@@ -28,7 +28,7 @@ Para leer secretos desde Key Vault, debe tener creado un almacén y proporcionar
    > [!NOTE] 
    > Las referencias de Key Vault solo admiten actualmente identidades administradas asignadas por el sistema. No se pueden usar identidades asignadas por el usuario.
 
-1. Cree una [directiva de acceso en Key Vault](../key-vault/general/security-overview.md#privileged-access) para la identidad de aplicación que creó anteriormente. Habilite el permiso secreto "Get" en esta directiva. No configure la "aplicación autorizada" o la configuración `applicationId`, ya que no es compatible con una identidad administrada.
+1. Cree una [directiva de acceso en Key Vault](../key-vault/general/security-features.md#privileged-access) para la identidad de aplicación que creó anteriormente. Habilite el permiso secreto "Get" en esta directiva. No configure la "aplicación autorizada" o la configuración `applicationId`, ya que no es compatible con una identidad administrada.
 
 ### <a name="access-network-restricted-vaults"></a>Acceso a almacenes restringidos de red
 
@@ -81,6 +81,17 @@ Para usar una referencia de Key Vault para la configuración de la aplicación, 
 
 > [!TIP]
 > La mayoría de los valores de configuración de la aplicación que usan referencias de Key Vault se deben marcar como configuración de ranuras, así que debe tener distintos almacenes para cada entorno.
+
+### <a name="considerations-for-azure-files-mounting"></a>Consideraciones para el montaje de Azure Files
+
+Las aplicaciones pueden usar la configuración de la aplicación `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` para montar Azure Files como el sistema de archivos. Esta configuración tiene comprobaciones de validación adicionales para garantizar que la aplicación se puede iniciar correctamente. La plataforma se basa en tener un recurso compartido de contenido dentro de Azure Files y supone un nombre predeterminado a menos que se especifique uno a través de la configuración `WEBSITE_CONTENTSHARE`. Para las solicitudes que modifican esta configuración, la plataforma intentará validar si existe este recurso compartido de contenido, e intentará crearlo si no existe. Si no se puede buscar o crear el recurso compartido de contenido, la solicitud se bloqueará.
+
+Cuando se usen referencias de Key Vault para esta configuración, esta comprobación de validación producirá un error de manera predeterminada, ya que el secreto no se puede resolver al procesar la solicitud entrante. Para evitar este problema, puede omitir la validación al establecer el valor de `WEBSITE_SKIP_CONTENTSHARE_VALIDATION` en "1". Esto omitirá todas las comprobaciones y el recurso compartido de contenido no se creará automáticamente. Debe asegurarse de crearlo de antemano. 
+
+> [!CAUTION]
+> Si omite la validación y, además, la cadena de conexión o el recurso compartido de contenido no son válidos, la aplicación no podrá iniciarse correctamente y solo generará errores HTTP 500.
+
+Como parte de la creación del sitio, también es posible que se pueda generar un error al intentar montar el recurso compartido de contenido debido a que no se hayan propagado los permisos de identidad administrada, o a que no se haya configurado la integración de red virtual. Puede aplazar la configuración de Azure Files hasta más adelante en la plantilla de implementación para realizar esto. Para más información, consulte [Implementación de Azure Resource Manager](#azure-resource-manager-deployment). App Service usará sistema de archivos predeterminado hasta que Azure Files esté configurado y los archivos no se hayan copiado, por lo que deberá asegurarse de que no se produzca ningún intento de implementación durante el período transitorio antes de montar Azure Files.
 
 ### <a name="azure-resource-manager-deployment"></a>Implementación de Azure Resource Manager
 

@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2bbc1c555824d4c632c5bf85a9cd0aa83087fc8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5b34194c0b9afa622d6ae751752092ed3f750f0b
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101648732"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108285761"
 ---
 # <a name="troubleshoot-on-premises-azure-ad-password-protection"></a>Solución de problemas: Protección con contraseña de Azure AD local
 
@@ -402,6 +402,6 @@ VerifyAzureConnectivityViaSpecificProxy Passed
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Preguntas más frecuentes de la protección con contraseña de Azure AD](howto-password-ban-bad-on-premises-faq.md)
+[Preguntas más frecuentes de la protección con contraseña de Azure AD](howto-password-ban-bad-on-premises-faq.yml)
 
 Para más información sobre las listas de contraseñas prohibidas globales y personalizadas, consulte el artículo [Ban bad passwords](concept-password-ban-bad.md) (Prohibición de contraseñas incorrectas).
