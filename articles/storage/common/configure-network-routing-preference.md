@@ -10,12 +10,12 @@ ms.date: 03/17/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: ed248480803370a75b40c18ee7d0e2641254d84a
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: e9d1f7f520a7613abde520c35fbacc7355973021
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107790462"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108208228"
 ---
 # <a name="configure-network-routing-preference-for-azure-storage"></a>Configuración de las preferencias de enrutamiento de red para Azure Storage
 
@@ -146,7 +146,7 @@ Esta preferencia solo afecta al punto de conexión específico de la ruta. Esta 
 
 ### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-1. Para configurar un punto de conexión específico de la ruta, use el comando [az storage account update](/azure/storage/account#az_storage_account_update). 
+1. Para configurar un punto de conexión específico de la ruta, use el comando [az storage account update](/cli/azure/storage/account#az_storage_account_update). 
 
    - Para crear un punto de conexión específico de la ruta que use la preferencia de enrutamiento de red de Microsoft, establezca el parámetro `--publish-microsoft-endpoints` en `true`. 
 

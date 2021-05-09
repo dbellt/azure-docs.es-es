@@ -5,24 +5,25 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/23/2020
+ms.date: 04/26/2021
 ms.author: cherylmc
-ms.openlocfilehash: b55fe0bf404ecb8a81e3fe1975dfa9f5ba5dfb06
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 0b0a4c712333516dcdd20dcde9ef4b9c74b5f228
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107103358"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108018662"
 ---
 # <a name="point-to-site-vpn-session-management"></a>Administración de sesiones de VPN de punto a sitio
 
-Las puertas de enlace de red virtual de Azure proporcionan una manera fácil de ver y desconectar las sesiones actuales de VPN de punto a sitio. Este artículo le ayuda a ver y desconectar las sesiones actuales.
+Las puertas de enlace de red virtual de Azure proporcionan una manera fácil de ver y desconectar las sesiones actuales de VPN de punto a sitio. Este artículo le ayuda a ver y desconectar las sesiones actuales. El estado de la sesión se actualiza cada cinco minutos. No lo hace inmediatamente. 
 
->[!NOTE]
->El estado de la sesión se actualiza cada cinco minutos. No lo hace inmediatamente.
->
 
 ## <a name="portal"></a>Portal
+
+>[!NOTE]
+> La información del origen de conexión se proporciona solo para conexiones IKEv2 y OpenVPN.
+> 
 
 Para ver y desconectar una sesión en el portal:
 
