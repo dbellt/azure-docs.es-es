@@ -3,13 +3,13 @@ title: Ubicación del recurso de plantilla
 description: En este artículo se describe cómo establecer la ubicación de los recursos de una plantilla de Azure Resource Manager (plantilla de ARM).
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.custom: ''
-ms.openlocfilehash: 84a818109e6681b8d0e18de4d2d7969310582818
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: b2eba8e48a9b5ccc1ddb731690e99dcbbaa8f6fb
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96922394"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108321634"
 ---
 # <a name="set-resource-location-in-arm-template"></a>Establecimiento de la ubicación del recurso en la plantilla de Resource Manager
 

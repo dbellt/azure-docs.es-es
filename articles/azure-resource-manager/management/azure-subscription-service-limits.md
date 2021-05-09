@@ -3,12 +3,12 @@ title: Límites y cuotas de suscripción de Azure
 description: Se proporciona una lista de límites, cuotas y restricciones de suscripción y servicio comunes de Azure. Este artículo incluye información acerca de cómo aumentar los límites junto con los valores máximos.
 ms.topic: conceptual
 ms.date: 04/07/2021
-ms.openlocfilehash: 3ef3e6f3b67e8c92e0137f36e19c62cba79e1c14
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 8aad2f885c39d6f5ecd237a6167363b0efe8cef4
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107030834"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108290420"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure
 
@@ -366,7 +366,7 @@ Para los límites de SQL Database, consulte [Límites de recursos de SQL Datab
 
 ## <a name="azure-synapse-analytics-limits"></a>Límites de Azure Synapse Analytics
 
-Para conocer los límites de Azure Synapse Analytics, consulte [Límites de recursos de Azure Synapse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
+[!INCLUDE [synapse-analytics-limits](../../../includes/synapse-analytics-limits.md)]
 
 ## <a name="azure-files-and-azure-file-sync"></a>Azure Files y Azure File Sync
 Para más información sobre los límites de Azure Files y File Sync, vea [Objetivos de escalabilidad y rendimiento de Azure Files](../../storage/files/storage-files-scale-targets.md).

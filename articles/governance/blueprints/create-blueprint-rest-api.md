@@ -1,14 +1,14 @@
 ---
 title: 'Inicio rápido: Creación de un plano técnico con la API de REST'
 description: En este inicio rápido se usa Azure Blueprints para crear, definir e implementar artefactos mediante la API REST.
-ms.date: 01/27/2021
+ms.date: 05/01/2021
 ms.topic: quickstart
-ms.openlocfilehash: ceea54957e52f3b33d2c3fb2af190f15e6c94ec3
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 37f67e6db753969344b8c442de78b867dd41ecd6
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105558982"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108323832"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Inicio rápido: Definición y asignación de un plano técnico de Azure Blueprint con API REST
 

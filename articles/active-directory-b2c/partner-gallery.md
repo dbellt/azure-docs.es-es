@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 01/11/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0629606f602b975b399855a681570ecdac9ec832
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 9703ef0caa5df967033001cbeb241d1649eb2a11
+ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107256827"
+ms.lasthandoff: 04/23/2021
+ms.locfileid: "107930286"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>Asociados ISV de Azure Active Directory B2C
 
@@ -61,17 +61,34 @@ Para el control de acceso basado en rol, Microsoft se asocia con los siguientes 
 | ![Captura de pantalla de un logotipo de N8identity.](./media/partner-gallery/n8identity-logo.png) | [N8Identity Identity](./partner-n8identity.md) es una plataforma de gobernanza de identidad como servicio que proporciona una solución para abordar la migración de cuentas de clientes y la administración de solicitudes de servicio al cliente (CSR) que se ejecutan en Microsoft Azure. |
 | ![Captura de pantalla de un logotipo de Saviynt](./media/partner-gallery/saviynt-logo.png) | La plataforma nativa de nube [Saviynt](./partner-Saviynt.md) promueve la mejora de la seguridad, el cumplimiento y la gobernanza gracias al análisis inteligente y la integración entre aplicaciones de cara agilizar la modernización de la TI. |
 
-## <a name="security"></a>Seguridad
+## <a name="secure-hybrid-access-to-on-premises-application"></a>Protección del acceso híbrido a la aplicación local
 
-Para la seguridad, Microsoft se asocia con los siguientes ISV.
+Microsoft se asocia con los siguientes ISV para proporcionar acceso híbrido seguro a la aplicación local. 
+
+| Asociado ISV | Descripción y tutoriales de integración |
+|:-------------------------|:--------------|
+| ![Captura de pantalla de un logotipo de Ping](./media/partner-gallery/ping-logo.png) | [Ping Identity](./partner-ping-identity.md) habilita el acceso híbrido seguro a las aplicaciones heredadas locales en varias nubes. |
+| ![Captura de pantalla de un logotipo de Strata](./media/partner-gallery/strata-logo.png) | [Strata](./partner-strata.md) proporciona acceso híbrido seguro a las aplicaciones locales al exigir directivas de acceso coherentes, mantener las identidades sincronizadas y simplificar la transición de aplicaciones de los sistemas de identidades heredados a la autenticación basada en estándares y el control de acceso que proporciona Azure AD B2C. |
+| ![Captura de pantalla de un logotipo de Zscaler](./media/partner-gallery/zscaler-logo.png) | [Zscaler](./partner-zscaler.md) ofrece acceso seguro basado en directivas a aplicaciones y recursos privados sin el costo, los inconvenientes o los riesgos de seguridad de una VPN. |
+
+## <a name="fraud-protection"></a>Protección contra el fraude
+
+Microsoft se asocia con los siguientes ISV para la detección y prevención de fraudes. 
 
 | Asociado ISV | Descripción y tutoriales de integración |
 |:-------------------------|:--------------|
 | ![Captura de pantalla de un logotipo de Arkose Labs](./media/partner-gallery/arkose-logo.png) | [Arkose Labs](./partner-arkose-labs.md) es un proveedor de soluciones de prevención de fraudes que ayuda a las organizaciones a protegerse contra ataques de bots, ataques de adquisición de cuentas y aperturas de cuentas fraudulentas. |
+| ![Captura de pantalla de un logotipo de BioCatch](./media/partner-gallery/biocatch-logo.png) | [BioCatch](./partner-biocatch.md) es un proveedor de solución de prevención de fraudes que analiza los comportamientos digitales físicos y cognitivos de un usuario para generar información que distinga entre clientes legítimos y ciberdelincuentes. |
 | ![Captura de pantalla de un logotipo de Microsoft Dynamics 365](./media/partner-gallery/microsoft-dynamics365-logo.png) | [Microsoft Dynamics 365 Fraude Protection](./partner-dynamics-365-fraud-protection.md) es una solución que ayuda a las organizaciones a ofrecer protección contra las aperturas de cuentas fraudulentas a través de la creación de huellas digitales de dispositivos. |
-| ![Captura de pantalla de un logotipo de Ping](./media/partner-gallery/ping-logo.png) | [Ping Identity](./partner-ping-identity.md) habilita el acceso híbrido seguro a las aplicaciones heredadas locales en varias nubes. |
-| ![Captura de pantalla de un logotipo de Strata](./media/partner-gallery/strata-logo.png) | [Strata](./partner-strata.md) proporciona acceso híbrido seguro a las aplicaciones locales al exigir directivas de acceso coherentes, mantener las identidades sincronizadas y simplificar la transición de aplicaciones de los sistemas de identidades heredados a la autenticación basada en estándares y el control de acceso que proporciona Azure AD B2C. |
-| ![Captura de pantalla de un logotipo de Zscaler](./media/partner-gallery/zscaler-logo.png) | [Zscaler](./partner-zscaler.md) ofrece acceso seguro basado en directivas a aplicaciones y recursos privados sin el costo, los inconvenientes o los riesgos de seguridad de una VPN. |
+
+## <a name="web-application-firewall"></a>Firewall de aplicaciones web 
+
+Microsoft se asocia con los siguientes ISV para Web Application Firewall (WAF). 
+
+| Asociado ISV | Descripción y tutoriales de integración |
+|:-------------------------|:--------------|
+| ![Captura de pantalla del logotipo de Cloudflare](./media/partner-gallery/cloudflare-logo.png) | [Cloudflare](./partner-cloudflare.md) es un proveedor de WAF que ayuda a su organización a protegerse contra ataques malintencionados que tienen como objetivo explotar vulnerabilidades como SQL y XSS. |
+
 
 ## <a name="additional-information"></a>Información adicional
 

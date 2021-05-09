@@ -1,20 +1,20 @@
 ---
 title: Información general de la compatibilidad de cloud-init con máquinas virtuales Linux en Azure
 description: Información general de las funcionalidades cloud-init para configurar una máquina virtual en tiempo de aprovisionamiento en Azure.
-author: danielsollondon
+author: srijang
 ms.service: virtual-machines
 ms.subservice: extensions
 ms.collection: linux
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 02/14/2021
-ms.author: danis
-ms.openlocfilehash: ac907c2ea2ae53bd192c01232c66e0467025daae
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/27/2021
+ms.author: srijangupta
+ms.openlocfilehash: 406793d1e28f48a007cdf92ef87042e6f79bcbde
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102563241"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108208156"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Compatibilidad con cloud-init para máquinas virtuales en Azure
 En este artículo se explica la compatibilidad que existe para [cloud-init](https://cloudinit.readthedocs.io) para configurar una máquina virtual (VM) o conjuntos de escalado de máquinas virtuales en el momento del aprovisionamiento en Azure. Estas configuraciones de cloud-init se ejecutan durante el primer arranque una vez que Azure ha aprovisionado los recursos.  

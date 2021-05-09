@@ -11,12 +11,13 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 03/08/2021
 ms.author: justinha
-ms.openlocfilehash: 5fa19e23767af0e121d07872970199a2a1705ea8
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: ea087513cf628c42362a295c51913b0a31c6db3f
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104951947"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108285707"
 ---
 # <a name="disable-weak-ciphers-and-password-hash-synchronization-to-secure-an-azure-active-directory-domain-services-managed-domain"></a>Deshabilitación de los cifrados poco seguros y de la sincronización de hash de contraseñas para proteger un dominio administrado de Azure Active Directory Domain Services
 

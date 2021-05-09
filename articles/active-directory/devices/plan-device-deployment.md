@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: faa18b619c785ad23e1da037621597684b1c5c63
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: a7158a42a61ccba736e94f22714cc3b30f7f1cc5
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106551788"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108286949"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Planeación de la implementación de dispositivos de Azure Active Directory
 
@@ -54,7 +54,7 @@ Principales ventajas de ofrecer a los dispositivos una identidad de Azure AD:
 
 Vídeo:  [Acceso condicional con controles de dispositivos](https://youtu.be/NcONUf-jeS4)
 
-Preguntas más frecuentes: [Preguntas más frecuentes sobre la administración de dispositivos de Azure Active Directory](faq.yml) y [Preguntas más frecuentes sobre itinerancia de datos y configuración](enterprise-state-roaming-faqs.md) 
+Preguntas más frecuentes: [Preguntas más frecuentes sobre la administración de dispositivos de Azure Active Directory](faq.yml) y [Preguntas más frecuentes sobre itinerancia de datos y configuración](enterprise-state-roaming-faqs.yml) 
 
 ## <a name="plan-the-deployment-project"></a>Planeamiento del proyecto de implementación
 

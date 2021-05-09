@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: a83d2222862db6bc3e3ff86ba4074114c1a872e5
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 2595dc95e4e7f489553548b7cfbf4f64bb9c82af
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107776166"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108166134"
 ---
 # <a name="use-azure-files-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>Uso de los controladores de interfaz de almacenamiento de contenedores (CSI) de Azure Files en Azure Kubernetes Service (AKS) (versión preliminar)
 
@@ -20,7 +20,7 @@ CSI es un estándar para exponer sistemas de almacenamiento de archivos y bloque
 
 Para crear un clúster de AKS con compatibilidad con controladores CSI, vea [Habilitación de controladores de almacenamiento CSI para discos de Azure y Azure Files en AKS](csi-storage-drivers.md).
 
->[!NOTE]
+> [!NOTE]
 > Los *controladores en árbol* hacen referencia a los controladores de almacenamiento actuales que forman parte del código principal de Kubernetes frente a los nuevos controladores CSI, que son complementos.
 
 ## <a name="use-a-persistent-volume-with-azure-files"></a>Uso de un volumen persistente con Azure Files
@@ -121,10 +121,8 @@ volumesnapshotclass.snapshot.storage.k8s.io/csi-azurefile-vsc created
 
 Cree una [instantánea de volumen](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/snapshot/volumesnapshot-azurefile.yaml) de la PVC [creada dinámicamente al principio de este tutorial](#dynamically-create-azure-files-pvs-by-using-the-built-in-storage-classes), `pvc-azurefile`.
 
-
 ```bash
 $ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-csi-driver/master/deploy/example/snapshot/volumesnapshot-azurefile.yaml
-
 
 volumesnapshot.snapshot.storage.k8s.io/azurefile-volume-snapshot created
 ```
@@ -167,7 +165,7 @@ Puede solicitar un volumen mayor para una PVC. Edite el objeto PVC y especifique
 
 En AKS, la clase de almacenamiento `azurefile-csi` integrada ya permite la expansión, así que use la [PVC creada anteriormente con esta clase de almacenamiento](#dynamically-create-azure-files-pvs-by-using-the-built-in-storage-classes). La PVC solicitó un recurso compartido de archivos 100Gi. Eso se puede confirmar mediante la ejecución de:
 
-```console 
+```console
 $ kubectl exec -it nginx-azurefile -- df -h /mnt/azurefile
 
 Filesystem                                                                                Size  Used Avail Use% Mounted on
@@ -194,8 +192,8 @@ Filesystem                                                                      
 //f149b5a219bd34caeb07de9.file.core.windows.net/pvc-5e5d9980-da38-492b-8581-17e3cad01770  200G  128K  200G   1% /mnt/azurefile
 ```
 
-
 ## <a name="nfs-file-shares"></a>Recursos compartidos de archivos NFS
+
 [Azure Files ahora es compatible con el protocolo NFS v. 4.1](../storage/files/storage-files-how-to-create-nfs-shares.md). La compatibilidad con NFS 4.1 de Azure Files proporciona un sistema de archivos NFS totalmente administrado como un servicio basado en una plataforma de almacenamiento resistente distribuida de alta disponibilidad y alta durabilidad.
 
  Esta opción está optimizada para cargas de trabajo de acceso aleatorio con actualizaciones de datos en contexto y proporciona compatibilidad completa con el sistema de archivos POSIX. En esta sección se muestra cómo usar recursos compartidos de archivos NFS con el controlador CSI de Azure Files en un clúster de AKS.
@@ -256,9 +254,10 @@ storageclass.storage.k8s.io/azurefile-csi created
 ```
 
 ### <a name="create-a-deployment-with-an-nfs-backed-file-share"></a>Creación de una implementación con un recurso compartido de archivos con copia de seguridad NFS
+
 Puede implementar un [conjunto con estado](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/statefulset.yaml) de ejemplo que guarde marcas de tiempo en el archivo `data.txt` mediante la implementación del comando siguiente con el comando [kubectl apply][kubectl-apply]:
 
- ```console
+```console
 $ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-csi-driver/master/deploy/example/statefulset.yaml
 
 statefulset.apps/statefulset-azurefile created
@@ -276,9 +275,8 @@ accountname.file.core.windows.net:/accountname/pvc-fa72ec43-ae64-42e4-a8a2-55660
 ...
 ```
 
->[!NOTE]
+> [!NOTE]
 > Tenga en cuenta que, como el recurso compartido de archivos NFS está en una cuenta Premium, el tamaño mínimo del recurso compartido de archivos es 100 GB. Si crea un PVC con un tamaño de almacenamiento pequeño, puede que reciba un error de tipo "No se pudo crear el recurso compartido de archivos… tamaño (5)…".
-
 
 ## <a name="windows-containers"></a>Contenedores de Windows
 
@@ -286,7 +284,7 @@ El controlador de CSI para Azure Files también admite nodos y contenedores de W
 
 Una vez que tenga un grupo de nodos de Windows, puede usar las clases de almacenamiento integradas como `azurefile-csi` o crear otras personalizadas. Puede implementar un [conjunto con estado basado en Windows](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/windows/statefulset.yaml) de ejemplo que guarde marcas de tiempo en el archivo `data.txt` mediante la implementación del comando siguiente con el comando [kubectl apply][kubectl-apply]:
 
- ```console
+```console
 $ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-csi-driver/master/deploy/example/windows/statefulset.yaml
 
 statefulset.apps/busybox-azurefile created
@@ -309,7 +307,6 @@ $ kubectl exec -it busybox-azurefile-0 -- cat c:\mnt\azurefile\data.txt # on Win
 - Para obtener información sobre cómo usar controladores CSI para discos de Azure, vea [Uso de discos de Azure con controladores CSI](azure-disk-csi.md).
 - Para más información sobre los procedimientos recomendados, consulte [Procedimientos recomendados para el almacenamiento y las copias de seguridad en Azure Kubernetes Service][operator-best-practices-storage].
 
-
 <!-- LINKS - external -->
 [access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
@@ -318,7 +315,6 @@ $ kubectl exec -it busybox-azurefile-0 -- cat c:\mnt\azurefile\data.txt # on Win
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
 [managed-disk-pricing-performance]: https://azure.microsoft.com/pricing/details/managed-disks/
 [smb-overview]: /windows/desktop/FileIO/microsoft-smb-protocol-and-cifs-protocol-overview
-
 
 <!-- LINKS - internal -->
 [azure-disk-volume]: azure-disk-volume.md

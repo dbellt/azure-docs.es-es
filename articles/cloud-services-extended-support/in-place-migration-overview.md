@@ -9,25 +9,25 @@ ms.author: tagore
 ms.reviewer: mimckitt
 ms.date: 2/08/2021
 ms.custom: ''
-ms.openlocfilehash: 96315899f80d0bd02ac3d2108b7cd76876025218
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: f3b41bed481ff36ec1f2fef8e699e57f6138474c
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106286791"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108285941"
 ---
 # <a name="migrate-azure-cloud-services-classic-to-azure-cloud-services-extended-support"></a>Migración de Azure Cloud Services (clásico) a Azure Cloud Services (soporte extendido)
 
 En este artículo se proporciona información general sobre la herramienta de migración compatible con la plataforma y cómo usarla para migrar de [Azure Cloud Services (clásico)](../cloud-services/cloud-services-choose-me.md) a [Azure Cloud Services (soporte extendido)](overview.md).
 
-La herramienta de migración emplea las mismas API y tiene la misma experiencia que la [migración de Virtual Machines (clásico)](https://docs.microsoft.com/azure/virtual-machines/migration-classic-resource-manager-overview). 
+La herramienta de migración emplea las mismas API y tiene la misma experiencia que la [migración de Virtual Machines (clásico)](../virtual-machines/migration-classic-resource-manager-overview.md). 
 
 > [!IMPORTANT]
 > La migración de Cloud Services (clásico) a Cloud Services (soporte extendido) mediante la herramienta de migración se encuentra actualmente en versión preliminar pública. Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Si necesita ayuda con la migración, consulte los siguientes recursos: 
 
-- [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-cloud-services-extended-support.html): Soporte técnico de Microsoft y de la comunidad para la migración
+- [Microsoft Q&A](/answers/topics/azure-cloud-services-extended-support.html): Soporte técnico de Microsoft y de la comunidad para la migración
 - [Soporte técnico para la migración de Azure](https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/%7B%22pesId%22:%22e79dcabe-5f77-3326-2112-74487e1e5f78%22,%22supportTopicId%22:%22fca528d2-48bd-7c9f-5806-ce5d5b1d226f%22%7D): equipo de soporte técnico dedicado para brindar asistencia técnica durante la migración. Los clientes sin soporte técnico pueden usar la [funcionalidad de soporte técnico gratuita](https://aka.ms/cs-migration-errors) que se proporciona específicamente para esta migración.
 - Si su empresa u organización se ha asociado con Microsoft o trabaja con un representante de Microsoft, como un arquitecto de soluciones en la nube o administradores técnicos de cuentas, comuníquese con ellos para obtener más recursos para la migración.
 - Responda [esta encuesta](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR--AgudUMwJKgRGMO84rHQtUQzZYNklWUk4xOTFXVFBPOFdGOE85RUIwVC4u) para proporcionar comentarios o enviar incidencias al equipo de producto de Cloud Services (soporte extendido). 
@@ -68,7 +68,7 @@ Para realizar esta migración, deben haberlo agregado como coadministrador de la
     ```
 
 ## <a name="how-is-migration-for-cloud-services-classic-different-from-virtual-machines-classic"></a>¿En qué se diferencia la migración de Cloud Services (clásico) de Virtual Machines (clásico)?
-Azure Service Manager admite dos productos de proceso diferentes, [Azure Virtual Machines (clásico)](https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/classic/tutorial-classic) y [Azure Cloud Services (clásico)](../cloud-services/cloud-services-choose-me.md) o roles web o de trabajo. Los dos productos difieren en función del tipo de implementación que se encuentra dentro del servicio en la nube. Azure Cloud Services (clásico) usa el servicio en la nube que contiene implementaciones con roles web y de trabajo. Azure Virtual Machines (clásico) usa un servicio en la nube que contiene implementaciones con VM IaaS.
+Azure Service Manager admite dos productos de proceso diferentes, [Azure Virtual Machines (clásico)](/previous-versions/azure/virtual-machines/windows/classic/tutorial-classic) y [Azure Cloud Services (clásico)](../cloud-services/cloud-services-choose-me.md) o roles web o de trabajo. Los dos productos difieren en función del tipo de implementación que se encuentra dentro del servicio en la nube. Azure Cloud Services (clásico) usa el servicio en la nube que contiene implementaciones con roles web y de trabajo. Azure Virtual Machines (clásico) usa un servicio en la nube que contiene implementaciones con VM IaaS.
 
 La lista de escenarios admitidos difiere entre Cloud Services (clásico) y Virtual Machines (clásico) debido a las diferencias en los tipos de implementación.
 
@@ -113,7 +113,7 @@ Estos son los principales escenarios que implican combinaciones de recursos, car
 
 | Servicio | Configuración | Comentarios | 
 |---|---|---|
-| [Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/migrate-from-classic-vnet) | Redes virtuales que contienen Azure Active Directory Domain Services | Se admite la red virtual que contiene la implementación de Cloud Services y Azure AD Domain Services. El cliente primero debe migrar por separado Azure AD servicios de dominio y, a continuación, migrar la red virtual a la izquierda solo con la implementación del servicio en la nube. |
+| [Azure AD Domain Services](../active-directory-domain-services/migrate-from-classic-vnet.md) | Redes virtuales que contienen Azure Active Directory Domain Services | Se admite la red virtual que contiene la implementación de Cloud Services y Azure AD Domain Services. El cliente primero debe migrar por separado Azure AD servicios de dominio y, a continuación, migrar la red virtual a la izquierda solo con la implementación del servicio en la nube. |
 | Servicio en la nube | Servicio en la nube con una implementación en un solo espacio. | Se pueden migrar servicios en la nube que contienen una implementación de espacio de producción o de ensayo. |
 | Servicio en la nube | Implementación no en una red virtual visible públicamente (implementación de red virtual predeterminada) | Un servicio en la nube puede estar en una red virtual visible públicamente, en una red virtual oculta o no en una red virtual.  Se admiten para la migración los servicios en la nube en una red virtual oculta y las redes virtuales visibles públicamente. El cliente puede usar la API de validación para saber si una implementación se encuentra dentro de una red virtual predeterminada o no y, por tanto, decidir si se puede migrar. |
 |Servicio en la nube | Extensiones XML (BGInfo, depurador de Visual Studio, Web Deploy y depuración remota). | Se admiten todas las extensiones XML para la migración 
@@ -127,13 +127,13 @@ Estos son los principales escenarios que implican combinaciones de recursos, car
 
 | Recurso | Pasos siguientes/solución alternativa | 
 |---|---|
-| Reglas de escalabilidad automática | La migración se completa, pero las reglas se anulan. [Vuelva a crear las reglas](https://docs.microsoft.com/azure/cloud-services-extended-support/configure-scaling) después de la migración en Cloud Services (soporte extendido). | 
-| Alertas | La migración se completa, pero las alertas se anulan. [Vuelva a crear las reglas](https://docs.microsoft.com/azure/cloud-services-extended-support/enable-alerts) después de la migración en Cloud Services (soporte extendido). | 
+| Reglas de escalabilidad automática | La migración se completa, pero las reglas se anulan. [Vuelva a crear las reglas](./configure-scaling.md) después de la migración en Cloud Services (soporte extendido). | 
+| Alertas | La migración se completa, pero las alertas se anulan. [Vuelva a crear las reglas](./enable-alerts.md) después de la migración en Cloud Services (soporte extendido). | 
 | VPN Gateway | Quite VPN Gateway antes de comenzar la migración y, después, vuelva a crearlo una vez que la migración se complete. | 
 | Puertas de enlace de ExpressRoute (en la misma suscripción que solo la red virtual) | Quite la puerta de enlace de ExpressRoute antes de comenzar la migración y, después, vuelva a crearla una vez que la migración se complete. | 
-| Quota  | La cuota no se migra. [Solicite una nueva cuota](https://docs.microsoft.com/azure/azure-resource-manager/templates/error-resource-quota#solution) en Azure Resource Manager antes de la migración para que la validación sea correcta. | 
+| Quota  | La cuota no se migra. [Solicite una nueva cuota](../azure-resource-manager/templates/error-resource-quota.md#solution) en Azure Resource Manager antes de la migración para que la validación sea correcta. | 
 | Grupos de afinidad | No compatible. Quite todos los grupos de afinidad antes de la migración.  | 
-| Redes virtuales con el [emparejamiento de red virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)| Antes de migrar una red virtual que está emparejada a otra red virtual, elimine el emparejamiento, migre la red virtual a Resource Manager y vuelva a crear el emparejamiento. Esto puede provocar un tiempo de inactividad en función de la arquitectura. | 
+| Redes virtuales con el [emparejamiento de red virtual](../virtual-network/virtual-network-peering-overview.md)| Antes de migrar una red virtual que está emparejada a otra red virtual, elimine el emparejamiento, migre la red virtual a Resource Manager y vuelva a crear el emparejamiento. Esto puede provocar un tiempo de inactividad en función de la arquitectura. | 
 | Redes virtuales que contienen entornos de App Service | No compatible | 
 | Redes virtuales que contienen servicios de HDInsight | No compatible. 
 | Redes virtuales que contienen implementaciones de Azure API Management | No compatible. <br><br> Para migrar la red virtual, cambie la red virtual de la implementación de API Management. Se trata de una operación sin tiempo de inactividad. | 
@@ -150,7 +150,7 @@ Estos son los principales escenarios que implican combinaciones de recursos, car
 | Migración de implementaciones que contienen implementaciones de espacio de producción y de ensayo mediante direcciones IP reservadas | No compatible. | 
 | Migración de la implementación de producción y de ensayo en una red virtual diferente|La migración de un servicio en la nube de dos espacios requiere la eliminación del espacio de ensayo. Una vez eliminado el espacio de ensayo, migre el espacio de producción como instancia independiente de Cloud Services (soporte extendido) en Azure Resource Manager. A continuación, se puede vincular una nueva implementación de Cloud Services (soporte extendido) a la implementación migrada con la propiedad intercambiable habilitada. Los archivos de implementaciones de la antigua implementación del espacio de ensayo se pueden volver a usar para crear esta nueva implementación intercambiable. | 
 | Migración de Cloud Services vacío (Cloud Services sin implementación) | No compatible. | 
-| Migración de una implementación que contiene el complemento de Escritorio remoto y las extensiones de Escritorio remoto | Opción 1: quite el complemento de Escritorio remoto antes de la migración. Esto requiere cambios en los archivos de implementación. A continuación, la migración se completará. <br><br> Opción 2: quite la extensión de Escritorio remoto y migre la implementación. Después de la migración, quite el complemento e instale la extensión. Esto requiere cambios en los archivos de implementación. <br><br> Quite el complemento y la extensión antes de la migración. [No se recomienda el uso de complementos](https://docs.microsoft.com/azure/cloud-services-extended-support/deploy-prerequisite#required-service-definition-file-csdef-updates) en Cloud Services (soporte extendido).| 
+| Migración de una implementación que contiene el complemento de Escritorio remoto y las extensiones de Escritorio remoto | Opción 1: quite el complemento de Escritorio remoto antes de la migración. Esto requiere cambios en los archivos de implementación. A continuación, la migración se completará. <br><br> Opción 2: quite la extensión de Escritorio remoto y migre la implementación. Después de la migración, quite el complemento e instale la extensión. Esto requiere cambios en los archivos de implementación. <br><br> Quite el complemento y la extensión antes de la migración. [No se recomienda el uso de complementos](./deploy-prerequisite.md#required-service-definition-file-csdef-updates) en Cloud Services (soporte extendido).| 
 | Redes virtuales con implementaciones PaaS e IaaS |No compatible <br><br> Mueva las implementaciones PaaS o IaaS a una red virtual diferente. Esto provocará un tiempo de inactividad. | 
 Implementaciones de Cloud Serivces que usan tamaños de rol heredados (como Small o ExtraLarge). | La migración se completará, pero los tamaños de rol se actualizarán para usar los tamaños de rol modernos. No hay ningún cambio en las propiedades de costo o SKU, y la máquina virtual no se reiniciará para este cambio. Actualice todos los artefactos de implementación para que hagan referencia a estos nuevos tamaños de rol modernos. Para obtener más información, consulte [Tamaños de VM disponibles](available-sizes.md).|
 | Migración de Cloud Services a una red virtual diferente | No compatible <br><br> 1. Mueva la implementación a una red virtual clásica diferente antes de la migración. Esto provocará un tiempo de inactividad. <br> 2. Migre la nueva red virtual a Azure Resource Manager. <br><br> Or <br><br> 1. Migre la red virtual a Azure Resource Manager. <br>2. Mueva Cloud Services a una nueva red virtual. Esto provocará un tiempo de inactividad. | 
@@ -169,9 +169,9 @@ Se realizan cambios menores en los archivos .csdef y .cscfg del cliente para que
 - Los tamaños clásicos, como Small, Large y ExtraLarge, se sustituyen por los nuevos nombres de tamaño, Standard_A*. Los nombres de tamaño deben cambiarse a sus nuevos nombres en el archivo .csdef. Para obtener más información, consulte [Requisitos previos para implementar Cloud Services (soporte extendido)](deploy-prerequisite.md#required-service-definition-file-csdef-updates).
 
 - Use la API Get para obtener la copia más reciente de los archivos de implementación. 
-    - Obtenga la plantilla mediante el [portal](https://docs.microsoft.com/azure/azure-resource-manager/templates/export-template-portal), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-powershell#export-resource-groups-to-templates), la [CLI](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-cli#export-resource-groups-to-templates) y la [API REST](https://docs.microsoft.com/rest/api/resources/resourcegroups/exporttemplate). 
-    - Obtenga el archivo .csdef mediante [PowerShell](https://docs.microsoft.com/powershell/module/az.cloudservice/?view=azps-5.4.0#cloudservice&preserve-view=true) o la [API REST](https://docs.microsoft.com/rest/api/compute/cloudservices/rest-get-package). 
-    - Obtenga el archivo .cscfg mediante [PowerShell](https://docs.microsoft.com/powershell/module/az.cloudservice/?view=azps-5.4.0#cloudservice&preserve-view=true) o la [API REST](https://docs.microsoft.com/rest/api/compute/cloudservices/rest-get-package). 
+    - Obtenga la plantilla mediante el [portal](../azure-resource-manager/templates/export-template-portal.md), [PowerShell](../azure-resource-manager/management/manage-resource-groups-powershell.md#export-resource-groups-to-templates), la [CLI](../azure-resource-manager/management/manage-resource-groups-cli.md#export-resource-groups-to-templates) y la [API REST](/rest/api/resources/resourcegroups/exporttemplate). 
+    - Obtenga el archivo .csdef mediante [PowerShell](/powershell/module/az.cloudservice/?preserve-view=true&view=azps-5.4.0#cloudservice) o la [API REST](/rest/api/compute/cloudservices/rest-get-package). 
+    - Obtenga el archivo .cscfg mediante [PowerShell](/powershell/module/az.cloudservice/?preserve-view=true&view=azps-5.4.0#cloudservice) o la [API REST](/rest/api/compute/cloudservices/rest-get-package). 
     
  
 

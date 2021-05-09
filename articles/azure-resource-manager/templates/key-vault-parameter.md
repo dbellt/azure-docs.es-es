@@ -3,13 +3,12 @@ title: Secreto de Key Vault con plantilla
 description: Muestra cómo pasar un secreto de un almacén de claves como un parámetro durante la implementación.
 ms.topic: conceptual
 ms.date: 04/23/2021
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 584d48fb91173adb4c1c08665c6a05e373fc79d0
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 232c73f1058ad3c5a931d02fa1a2184cf004263f
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108316432"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107946086"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Uso de Azure Key Vault para pasar el valor de parámetro seguro durante la implementación
 

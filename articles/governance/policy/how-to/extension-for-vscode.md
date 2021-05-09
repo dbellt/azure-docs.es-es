@@ -1,24 +1,24 @@
 ---
 title: Extensión de Azure Policy para Visual Studio Code
 description: Obtenga información acerca de cómo usar la extensión de Azure Policy para Visual Studio Code para buscar alias de Azure Resource Manager.
-ms.date: 01/11/2021
+ms.date: 04/25/2021
 ms.topic: how-to
-ms.openlocfilehash: 4c4ba0eeb0506179ff92ead0ee86f048600d157e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8fe0d22aeb307f82034d697e8564f8fccab61a81
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98107946"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108133842"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Use la extensión de Azure Policy para Visual Studio Code
 
-> Se aplica a la versión de extensión de Azure Policy **0.1.1** y versiones más recientes.
+> Se aplica a la versión de extensión de Azure Policy **0.1.2** y a versiones más recientes.
 
-Aprenda a usar la extensión de Azure Policy para Visual Studio Code y así poder buscar [alias](../concepts/definition-structure.md#aliases), revisar recursos y directivas, exportar objetos y evaluar definiciones de directivas. Primero, describiremos cómo instalar la extensión de Azure Policy en Visual Studio Code. Después, veremos cómo buscar alias.
+Aprenda a usar la extensión de Azure Policy para Visual Studio Code y así poder buscar [alias](../concepts/definition-structure.md#aliases), revisar recursos y definiciones de directivas, exportar objetos y evaluar definiciones de directivas. Primero, describiremos cómo instalar la extensión de Azure Policy en Visual Studio Code. Después, veremos cómo buscar alias.
 
-La extensión de Azure Policy para Visual Studio Code se puede instalar en Windows.
+La extensión de Azure Policy para Visual Studio Code se puede instalar en Linux, Mac y Windows.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Los elementos siguientes son necesarios para completar los pasos indicados en este artículo:
 
@@ -46,7 +46,7 @@ Para usuarios de la nube nacional, siga estos pasos para configurar el entorno d
 ## <a name="using-the-policy-extension"></a>Uso de la extensión de Policy
 
 > [!NOTE]
-> Los cambios realizados localmente en las directivas que se ven en la extensión de Azure Policy para Visual Studio Code no se sincronizan con Azure.
+> Los cambios realizados localmente en las definiciones de directivas que se ven en la extensión de Azure Policy para Visual Studio Code no se sincronizan con Azure.
 
 ### <a name="connect-to-an-azure-account"></a>Conexión a la cuenta de Azure
 
@@ -70,7 +70,7 @@ Para evaluar los recursos y los alias de búsqueda, debe conectarse a su cuenta 
 
 ### <a name="select-subscriptions"></a>Selección de suscripciones
 
-La primera vez que inicia sesión, la extensión de Azure Policy carga los recursos y las directivas predeterminados de la suscripción. Para agregar o quitar suscripciones de los recursos y directivas que se muestran, siga estos pasos:
+La primera vez que inicia sesión, la extensión de Azure Policy carga los recursos y las definiciones de directivas predeterminados de la suscripción. Para agregar o quitar suscripciones de los recursos y definiciones de directivas que se muestran, siga estos pasos:
 
 1. Inicie el comando de suscripción desde la paleta de comandos o el pie de página de la ventana.
 
@@ -105,7 +105,7 @@ Los clientes con cientos o miles de recursos en una sola suscripción pueden pre
 
    - Paleta de comandos:
 
-     En la barra de menús, vaya a **Vista** > **Paleta de comandos** y escriba **Recursos: Búsqueda de recursos**.
+     En la barra de menús, vaya a **Vista** > **Paleta de comandos** y escriba **Azure Policy: Búsqueda de recursos**.
 
 1. Si se selecciona más de una suscripción para mostrarla, use el filtro para elegir la suscripción que se va a buscar.
 
@@ -124,9 +124,9 @@ Una vez que se abre un recurso, al mantener el mouse sobre el nombre o valor de 
 > [!NOTE]
 > La extensión de VS Code solo admite la evaluación de propiedades del modo de Resource Manager. Para más información sobre los modos, consulte las [definiciones de modo](../concepts/definition-structure.md#mode).
 
-### <a name="search-for-and-view-policies-and-assignments"></a>Búsqueda y visualización de directivas y asignaciones
+### <a name="search-for-and-view-policy-definitions-and-assignments"></a>Búsqueda y visualización de definiciones y asignaciones de directivas
 
-La extensión de Azure Policy enumera los tipos de directivas y las asignaciones de directivas como una vista de árbol para las suscripciones seleccionadas que se mostrarán en el panel **Directivas**. Los clientes con cientos o miles de directivas o asignaciones una sola suscripción pueden preferir una forma de búsqueda para localizar sus directivas o asignaciones. La extensión de Azure Policy permite buscar una directiva o asignación específica con los pasos siguientes:
+La extensión de Azure Policy enumera los tipos de directivas y las asignaciones de directivas como una vista de árbol para las suscripciones seleccionadas que se mostrarán en el panel **Directivas**. Los clientes con cientos o miles de definiciones de directivas o asignaciones a una sola suscripción pueden preferir una forma de búsqueda para localizar sus direcciones de directivas o asignaciones. La extensión de Azure Policy permite buscar una directiva o asignación específica con los pasos siguientes:
 
 1. Empiece la interfaz de búsqueda desde la extensión de Azure Policy o la paleta de comandos.
 
@@ -136,7 +136,7 @@ La extensión de Azure Policy enumera los tipos de directivas y las asignaciones
 
    - Paleta de comandos:
 
-     En la barra de menús, vaya a **Vista** > **Paleta de comandos** y escriba **Directivas: Buscar directivas**.
+     En la barra de menús, vaya a **Vista** > **Paleta de comandos** y escriba **Azure Policy: Búsqueda de directivas**.
 
 1. Si se selecciona más de una suscripción para mostrarla, use el filtro para elegir la suscripción que se va a buscar.
 
@@ -170,7 +170,7 @@ Un examen de evaluación se puede iniciar con la extensión de Azure Policy para
 1. En la parte superior del panel **Evaluación**, seleccione el icono "Run evaluation" (Ejecutar evaluación). Se abrirá un nuevo panel en Visual Studio Code con los detalles de evaluación resultantes en formato JSON.
 
 > [!NOTE]
-> Con las definiciones de directiva [AuditIfNotExists](../concepts/effects.md#auditifnotexists) o [DeployIfNotExists](../concepts/effects.md#deployifnotexists), use el icono con el signo de más del panel **Evaluación** para seleccionar un recurso _relacionado_ para la comprobación de la existencia.
+> En el caso de las definiciones de directivas [AuditIfNotExists](../concepts/effects.md#auditifnotexists) o [DeployIfNotExists](../concepts/effects.md#deployifnotexists), use el icono con el signo "más" en el panel **Evaluación** o en **Azure Policy: Seleccionar un recurso para la comprobación de la existencia (solo se usa para directivas de tipo "if-not-exists")** de la Paleta de comandos para seleccionar un recurso _relacionado_ con la comprobación de la existencia.
 
 Los resultados de la evaluación proporcionan información sobre la definición y asignación de directivas junto con la propiedad **policyEvaluations.evaluationResult**. El resultado es similar al ejemplo siguiente:
 
@@ -205,6 +205,6 @@ En la barra de menús, vaya a **Vista** > **Paleta de comandos** y escriba **Azu
 - Puede consultar ejemplos en [Ejemplos de Azure Policy](../samples/index.md).
 - Revise la [estructura de definición de Azure Policy](../concepts/definition-structure.md).
 - Vea la [Descripción de los efectos de directivas](../concepts/effects.md).
-- Obtenga información acerca de cómo se pueden [crear directivas mediante programación](programmatically-create.md).
+- Obtenga información acerca de [cómo se pueden crear definiciones de directivas mediante programación](programmatically-create.md).
 - Obtenga información sobre cómo [corregir recursos no compatibles](remediate-resources.md).
 - En [Organización de los recursos con grupos de administración de Azure](../../management-groups/overview.md), obtendrá información sobre lo que es un grupo de administración.

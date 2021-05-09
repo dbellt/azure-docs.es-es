@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 0a1878268beb135151a23b87d03839f3a51f4a96
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 82e21f57a22da43f904ac9a12afb016c257e5055
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102432594"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108289703"
 ---
 # <a name="sample-explore-an-image-processing-app-with-c"></a>Sample: Exploración de una aplicación de procesamiento de imágenes con C#
 
@@ -313,4 +313,4 @@ Cuando ya no necesite la carpeta en que ha clonado el repositorio `Microsoft/Cog
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Introducción al servicio Face](../../Face/Tutorials/FaceAPIinCSharpTutorial.md)
+> [Introducción al servicio Face](../../face/quickstarts/client-libraries.md?pivots=programming-language-csharp)
