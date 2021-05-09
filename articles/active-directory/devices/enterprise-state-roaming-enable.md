@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: na
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34b554fbef63f23b3540fe49e5c45976122add25
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a80a357b58ec7b17cc0da3e8247a668faf7ee413
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89268611"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108286481"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Habilitación de Enterprise State Roaming en Azure Active Directory
 
@@ -93,7 +93,7 @@ La directiva de retención de datos no es configurable. Una vez que los datos se
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Información general de Enterprise State Roaming](enterprise-state-roaming-overview.md)
-* [Preguntas más frecuentes sobre itinerancia de datos y configuración](enterprise-state-roaming-faqs.md)
+* [Preguntas más frecuentes sobre itinerancia de datos y configuración](enterprise-state-roaming-faqs.yml)
 * [Configuración de MDM y directivas de grupo](enterprise-state-roaming-group-policy-settings.md)
 * [Referencia de la configuración de movilidad de Windows 10](enterprise-state-roaming-windows-settings-reference.md)
 * [Solución de problemas](enterprise-state-roaming-troubleshooting.md)

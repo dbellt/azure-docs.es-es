@@ -6,12 +6,12 @@ author: MS-jgol
 ms.author: jgol
 ms.date: 05/31/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 9ead123338a410daf53569ff577dfc8c728a8ddf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: df6271f8c036d708b93d7312076f3eee585cfcba
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101708499"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108287291"
 ---
 # <a name="what-is-auto-instrumentation-or-codeless-attach---azure-monitor-application-insights"></a>¿Qué es la instrumentación automática o la conexión sin código de Azure Monitor Application Insights?
 
@@ -27,7 +27,6 @@ A medida que agregamos integraciones adicionales, la matriz de funcionalidades d
 |---------------------------------------|-----------------|-----------------|-----------------|-----------------|-----------------|
 |Azure App Service en Windows           | Disponibilidad general, OnBD*       | Disponibilidad general, opcional      | En curso     | En curso     | No compatible   |
 |Azure App Service en Linux             | N/D             | No compatible   | En curso     | Vista previa pública  | No compatible   |
-|Azure App Service en AKS               | N/D             | En diseño       | En diseño       | En diseño       | No compatible   |
 |Azure Functions: básico                | Disponibilidad general, OnBD*       | Disponibilidad general, OnBD*       | Disponibilidad general, OnBD*       | Disponibilidad general, OnBD*       | Disponibilidad general, OnBD*       |
 |Azure Functions en Windows: dependencias | No compatible   | No compatible   | Vista previa pública  | No compatible   | No compatible   |
 |Azure Kubernetes Service               | N/D             | En diseño       | Mediante el agente   | En diseño       | No compatible   |

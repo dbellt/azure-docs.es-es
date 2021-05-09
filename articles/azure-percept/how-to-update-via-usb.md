@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 03/18/2021
 ms.custom: template-how-to
-ms.openlocfilehash: cd6e4e62123b4d4b927cf385aaf64a066eecc1e0
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: e8ab657ec7b4ef9a413993c064c931b4fc1523c5
+ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104887757"
+ms.lasthandoff: 04/23/2021
+ms.locfileid: "107929460"
 ---
 # <a name="how-to-update-azure-percept-dk-over-a-usb-connection"></a>Actualización de Azure Percept DK a través de una conexión USB
 
@@ -41,7 +41,7 @@ En esta guía se muestra cómo actualizar correctamente el firmware y el sistema
 
 1. [7-Zip](https://www.7-zip.org/). Este software se utilizará para extraer el archivo de imagen sin procesar de su archivo comprimido XZ. Descargue e instale el archivo .exe adecuado.
 
-1. [Descargue los archivos de actualización](https://go.microsoft.com/fwlink/?linkid=2155734).
+1. [Descargue los archivos de actualización](https://go.microsoft.com/fwlink/?linkid=2155734). Todos están incluidos en un archivo ZIP que se extraerá en la sección siguiente.
 
 1. Asegúrese de que los tres artefactos de compilación están presentes:
     - Azure-Percept-DK- *&lt;número de versión&gt;* .raw.xz
@@ -54,9 +54,7 @@ En esta guía se muestra cómo actualizar correctamente el firmware y el sistema
 
 1. Copie la herramienta UUU (**uuu.exe** o **uuu**) en la nueva carpeta.
 
-1. Extraiga el archivo **Azure-Percept-DK- *&lt; número de versión&gt;* .raw** del archivo comprimido haciendo clic con el botón derecho en **Azure-Percept-DK- *&lt;número de versión&gt;* . Raw. XZ** y seleccionando **7-zip** &gt; **Extraer aquí**.
-
-1. Mueva el archivo extraído **Azure-Percept-DK- *&lt;número de versión&gt;* .raw**, **fast-hab-fw.raw** y **emmc_full.txt** a la carpeta que contiene la herramienta UUU.
+1. Extraiga los archivos de actualización descargados anteriormente en la nueva carpeta que contiene la herramienta UUU.
 
 ## <a name="update-your-device"></a>Actualizar su dispositivo
 

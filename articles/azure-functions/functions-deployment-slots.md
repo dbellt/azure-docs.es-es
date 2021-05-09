@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: cshoe
-ms.openlocfilehash: 5f003b68283217f7877dc650ae4f07ddc5a31012
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 4678b6d329e79ef7c4ea6aae27fd5f3a693f25b6
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107789346"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108290801"
 ---
 # <a name="azure-functions-deployment-slots"></a>Ranuras de implementación de Azure Functions
 
@@ -212,7 +212,6 @@ Las ranuras de implementación de Azure Functions presentan las siguientes limit
 
 - El número de ranuras disponibles para una aplicación depende del plan. El plan de consumo solo se permite en una ranura de implementación. Hay más ranuras disponibles para las aplicaciones que se ejecutan en el plan de App Service.
 - Al intercambiar una ranura, se restablecen las claves de las aplicaciones que tienen una configuración de aplicación `AzureWebJobsSecretStorageType` igual a `files`.
-- No hay ranuras disponibles para el plan Consumo para Linux.
 
 ## <a name="support-levels"></a>Niveles de compatibilidad
 

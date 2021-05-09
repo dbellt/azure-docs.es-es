@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 75650d7ff0ac647aeb6dace76c270680b1b89347
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ae9b749f62dc74a6cb0dfea3701fd4ebac11c188
+ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98954973"
+ms.lasthandoff: 04/23/2021
+ms.locfileid: "107931580"
 ---
 ## <a name="enable-logging"></a>Habilitar registro
 
@@ -48,3 +48,7 @@ Estas son algunas sugerencias para la recopilación de datos:
 ## <a name="validate-your-integration"></a>Validación de la integración
 
 Pruebe la integración siguiendo la [lista de comprobación de integración de la Plataforma de identidad de Microsoft](../articles/active-directory/develop/identity-platform-integration-checklist.md).
+
+## <a name="build-for-resilience"></a>Compilación para resistencia
+
+Obtenga información sobre cómo aumentar la resistencia en la aplicación. Para obtener más información, consulte [Aumento de la resistencia de las aplicaciones de autenticación y autorización desarrolladas](../articles/active-directory/fundamentals/resilience-app-development-overview.md).

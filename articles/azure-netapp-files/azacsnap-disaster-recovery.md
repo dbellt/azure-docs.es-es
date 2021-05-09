@@ -12,16 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 04/21/2021
 ms.author: phjensen
-ms.openlocfilehash: 554fa394179e7cfc5b86a2b50eb754547d137a44
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ad91260eac0f638d339baf64071cad6475ac19a7
+ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104870402"
+ms.lasthandoff: 04/23/2021
+ms.locfileid: "107929820"
 ---
-# <a name="disaster-recovery-using-azure-application-consistent-snapshot-tool-preview"></a>Recuperación ante desastres con la herramienta Azure Application Consistent Snapshot (versión preliminar)
+# <a name="disaster-recovery-using-azure-application-consistent-snapshot-tool"></a>Recuperación ante desastres con la herramienta Azure Application Consistent Snapshot
 
 En este artículo se explica cómo realizar la recuperación ante desastres con la herramienta Azure Application Consistent Snapshot, la cual se puede usar con Azure NetApp Files.
 

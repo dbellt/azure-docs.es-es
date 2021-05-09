@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 02/12/2020
-  ms.openlocfilehash: 33448df1c225d3593601fd1a1d3a7205628cbd77
-  ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+  ms.openlocfilehash: 72bff0ff2974dda93c7d25027efa82b9d8d1d629
+  ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 04/28/2021
-  ms.locfileid: "108139028"
+  ms.lasthandoff: 05/06/2021
+  ms.locfileid: "108772664"
 landingContent:
 - title: Acerca de Azure Digital Twins
   linkLists:
@@ -53,10 +53,10 @@ landingContent:
       url: tutorial-end-to-end.md
 - title: Desarrollar
   linkLists:
-  - linkListType: how-to-guide
+  - linkListType: concept
     links:
-    - text: Uso de la CLI de Azure Digital Twins
-      url: how-to-use-cli.md
+    - text: Conjunto de comandos de la CLI de Azure Digital Twins
+      url: concepts-cli.md
   - linkListType: how-to-guide
     links:
     - text: Configuración de una instancia y autenticación
@@ -71,18 +71,14 @@ landingContent:
     links:
     - text: API de REST
       url: /rest/api/azure-digitaltwins/
-  - linkListType: how-to-guide
+  - linkListType: concept
     links:
-    - text: Uso de las API y los SDK de Azure Digital Twins
-      url: how-to-use-apis-sdks.md
+    - text: API y SDK de Azure Digital Twins
+      url: concepts-apis-sdks.md
   - linkListType: how-to-guide
     links:
     - text: Realización de solicitudes con Postman
       url: how-to-use-postman.md
-  - linkListType: how-to-guide
-    links:
-    - text: Creación de SDK personalizados con AutoRest
-      url: ./how-to-use-apis-sdks.md
 - title: Exploración de ejemplos de código
   linkLists:
   - linkListType: sample

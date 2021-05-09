@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 04/16/2021
 ms.author: nitinme
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 108c716708936aa5e0e5a563bdb8787466ad06ef
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: c6b83a25816c29f1642625618e66624aa3e0a6de
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108076858"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108289811"
 ---
 # <a name="what-are-azure-cognitive-services"></a>¿Qué es Azure Cognitive Services?
 
@@ -43,7 +43,7 @@ Las siguientes secciones de este artículo ofrecen una lista de los servicios qu
 |[Custom Vision Service](./custom-vision-service/index.yml "Custom Vision Service")|El servicio Custom Vision le permite crear, implementar y mejorar los clasificadores de imágenes propios. Un clasificador de imágenes es un servicio de inteligencia artificial que aplica etiquetas a las imágenes, en función de sus características visuales. |
 |[Face](./face/index.yml "Caras")| El servicio Face proporciona acceso a algoritmos faciales avanzados, lo que permite la detección y el reconocimiento de atributos faciales. Consulte [Inicio rápido de Face](./face/quickstarts/client-libraries.md) para empezar a trabajar con el servicio.|
 |[Form Recognizer](./form-recognizer/index.yml "Form Recognizer")|Form Recognizer identifica y extrae pares clave-valor y datos de tabla de documentos de formulario; luego, genera datos estructurados, incluidas las relaciones en el archivo original. Consulte [Inicio rápido de Form Recognizer](./form-recognizer/quickstarts/client-library.md) para comenzar.|
-|[Video Indexer](../media-services/video-indexer/video-indexer-overview.md "Video Indexer")|Video Indexer permite extraer información de un vídeo. Consulte [Inicio rápido de Video Indexer](/azure/media-services/video-indexer/video-indexer-get-started) para comenzar.|
+|[Video Indexer](../media-services/video-indexer/video-indexer-overview.md "Video Indexer")|Video Indexer permite extraer información de un vídeo. Consulte [Inicio rápido de Video Indexer](../media-services/video-indexer/video-indexer-get-started.md) para comenzar.|
 
 ## <a name="speech-apis"></a>API de voz
 

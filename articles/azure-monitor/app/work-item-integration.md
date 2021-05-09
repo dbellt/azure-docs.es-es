@@ -1,23 +1,18 @@
 ---
-title: 'Integración de elementos de trabajo (versión preliminar): Application Insights'
+title: 'Integración de elementos de trabajo: Application Insights'
 description: Aprenda a crear elementos de trabajo en GitHub o Azure DevOps con los datos de Application Insights insertados en ellos.
 ms.topic: conceptual
-ms.date: 02/9/2021
-ms.openlocfilehash: ba0a67bad3ba47191414d6b406ab6cb4e6b7da78
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 04/22/2021
+ms.openlocfilehash: 57eae6b0cda7a0f77a83ecbe453aca56eaf2504b
+ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101731925"
+ms.lasthandoff: 04/23/2021
+ms.locfileid: "107930439"
 ---
-# <a name="work-item-integration-preview"></a>Integración de elementos de trabajo (versión preliminar)
+# <a name="work-item-integration"></a>Integración de elementos de trabajo 
 
 La funcionalidad de integración de elementos de trabajo le permite crear fácilmente en GitHub o Azure DevOps elementos de trabajo que tienen datos de Application Insights pertinentes insertados en ellos.
-
-> [!IMPORTANT]
-> La integración de elementos de trabajo se encuentra actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="create-and-configure-a-work-item-template"></a>Creación y configuración de una plantilla de elemento de trabajo
 
@@ -32,6 +27,8 @@ La funcionalidad de integración de elementos de trabajo le permite crear fácil
 2. Después de seleccionar **Create a new template** (Crear nueva plantilla), puede elegir los sistemas de seguimiento, asignar un nombre al libro, crear un vínculo al sistema de seguimiento seleccionado y elegir una región para almacenar la plantilla (el valor predeterminado es la región en la que se encuentra el recurso de Application Insights). Los parámetros de dirección URL son la dirección URL predeterminada del repositorio, por ejemplo, `https://github.com/myusername/reponame` o `https://mydevops.visualstudio.com/myproject`.
 
     :::image type="content" source="./media/work-item-integration/create-workbook.png" alt-text=" Captura de pantalla de Create a new work item workbook template (Crear una plantilla de libro de elemento de trabajo).":::
+
+    Puede establecer propiedades específicas de los elementos de trabajo directamente desde la propia plantilla. Esto incluye la persona asignada, la ruta de acceso de iteración, los proyectos, etc. en función del proveedor de control de versiones.
 
 ## <a name="create-a-work-item"></a>Crear un elemento de trabajo
 

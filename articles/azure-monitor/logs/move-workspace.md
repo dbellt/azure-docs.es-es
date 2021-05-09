@@ -5,12 +5,13 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/12/2020
-ms.openlocfilehash: 8f48ed1aa7422d6925c3a7b0ad30b59a479e4614
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 3628669890d23dd504e7900afa8910a5586db938
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102034955"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108322228"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Trasladar un área de trabajo de Log Analytics a otro grupo de recursos o suscripción
 
@@ -97,7 +98,7 @@ Use el siguiente procedimiento para desvincular la cuenta de Automation del áre
 
 ## <a name="move-your-workspace"></a>Trasladar su área de trabajo
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Portal de Azure
 Use el siguiente procedimiento para trasladar su área de trabajo con Azure Portal:
 
 1. Abra el menú **Áreas de trabajo de Log Analytics** y luego seleccione su área de trabajo.

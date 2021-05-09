@@ -1,14 +1,14 @@
 ---
 title: 'Inicio rápido: Creación de un plano técnico con la CLI de Azure'
 description: En este inicio rápido se usa Azure Blueprints para crear, definir e implementar artefactos mediante la CLI de Azure.
-ms.date: 01/27/2021
+ms.date: 05/01/2021
 ms.topic: quickstart
-ms.openlocfilehash: 506877eddd78ce54681bd4870e1d9040b4738c27
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: df21354f1ce60c23a5a6e232422fc03c105b9715
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107877415"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108323454"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-azure-cli"></a>Inicio rápido: Definición y asignación de un plano técnico de Azure Blueprint con la CLI de Azure
 

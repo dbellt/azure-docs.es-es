@@ -3,12 +3,12 @@ title: Controles del ejemplo de plano técnico PCI-DSS v3.2.1
 description: Asignación de controles de la muestra de plano técnico Estándar de seguridad de los datos del sector de las tarjetas de pago v3.2.1 a Azure Policy y Azure RBAC.
 ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: 028981e7c6fc6e3886781d33079dcdfa0aebcc39
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 7011f0b55e73f193fb85881ed18812de97876fda
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106386099"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108166674"
 ---
 # <a name="control-mapping-of-the-pci-dss-v321-blueprint-sample"></a>Asignación a los controles de la muestra de plano técnico PCI-DSS v3.2.1
 
@@ -65,7 +65,7 @@ Tener solo un propietario de la suscripción de Azure no permite la redundancia 
 
 Este plano técnico ayuda a restringir y controlar los derechos de acceso con privilegios mediante la asignación de definiciones de [Azure Policy](../../../policy/overview.md) para auditar las cuentas externas con permisos de propietario, de escritura y/o de lectura y cuentas de empleados con permisos de propietario y/o de escritura que no tienen habilitada la autenticación multifactor. El control de acceso basado en roles de Azure (Azure RBAC) ayuda a administrar quién tiene acceso a los recursos de Azure. Comprender dónde se implementan las reglas personalizadas de Azure RBAC puede ayudarle a determinar su necesidad y correcta implementación, ya que estas reglas suelen producir errores. Este plano técnico también asigna definiciones de [Azure Policy](../../../policy/overview.md) para auditar el uso de la autenticación de Azure Active Directory para los servidores SQL Server. El uso de la autenticación de Azure Active Directory simplifica la administración de permisos y centraliza la administración de identidades de usuarios de base de datos y otros servicios  
 de Microsoft.
- 
+
 - Las cuentas externas con permisos de propietario deben quitarse de la suscripción
 - Las cuentas externas con permisos de escritura deben quitarse de la suscripción
 - Las cuentas externas con permisos de lectura deben quitarse de la suscripción

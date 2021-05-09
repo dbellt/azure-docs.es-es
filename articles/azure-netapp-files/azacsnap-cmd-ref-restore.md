@@ -12,16 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 12/14/2020
+ms.date: 04/21/2021
 ms.author: phjensen
-ms.openlocfilehash: 793b4da8fcf46ba4d5618f8ada86f9c3c8026ffd
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: df292fc59d46d59c94f43dae0b1827c068b3e057
+ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104865271"
+ms.lasthandoff: 04/23/2021
+ms.locfileid: "107929874"
 ---
-# <a name="restore-using-azure-application-consistent-snapshot-tool-preview"></a>Restauración con la herramienta Azure Application Consistent Snapshot (versión preliminar)
+# <a name="restore-using-azure-application-consistent-snapshot-tool"></a>Restauración con la herramienta Azure Application Consistent Snapshot
 
 En este artículo se ofrece una guía para ejecutar el comando de restauración de la herramienta Azure Application Consistent Snapshot que puede usar con Azure NetApp Files.
 

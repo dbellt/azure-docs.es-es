@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 33bafac9247f007978fef568469d643f1a1098df
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 8707578eef3467cc24cfeb3cd1c5156d7f5b3b1d
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106383593"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108288767"
 ---
 # <a name="frequently-asked-questions-for-azure-cloud-services-extended-support"></a>Preguntas más frecuentes sobre Azure Cloud Services (soporte extendido)
 En este artículo se tratan las preguntas frecuentes relacionadas con Azure Cloud Services (soporte extendido).
@@ -59,7 +59,7 @@ La implementación de Cloud Services (soporte extendido) solo admite el estado d
 Las implementaciones de Cloud Services (soporte extendido) no se pueden escalar entre varios clústeres, zonas de disponibilidad y regiones. 
 
 ### <a name="how-can-i-get-the-deployment-id-for-my-cloud-service-extended-support"></a>¿Cómo se puede obtener el identificador de implementación para Cloud Services (soporte extendido)?
-Se puede acceder al identificador de implementación, conocido como identificador privado, mediante la API [CloudServiceInstanceView](https://docs.microsoft.com/rest/api/compute/cloudservices/getinstanceview#cloudserviceinstanceview). También está disponible en Azure Portal en la hoja Rol e instancias de Cloud Services (soporte extendido).
+Se puede acceder al identificador de implementación, conocido como identificador privado, mediante la API [CloudServiceInstanceView](/rest/api/compute/cloudservices/getinstanceview#cloudserviceinstanceview). También está disponible en Azure Portal en la hoja Rol e instancias de Cloud Services (soporte extendido).
 
 ### <a name="are-there-any-pricing-differences-between-cloud-services-classic-and-cloud-services-extended-support"></a>¿Existen diferencias de precio entre Cloud Services (clásico) y Cloud Services (soporte extendido)?
 Cloud Services (soporte extendido) utiliza direcciones IP públicas de Azure Key Vault y básicas (ARM). Los clientes que necesiten certificados deben usar Azure Key Vault para la administración de certificados ([más información](https://azure.microsoft.com/pricing/details/key-vault/) sobre los precios de Azure Key Vault).  Cada dirección IP pública de Cloud Services (soporte extendido) se cobra por separado ([más información](https://azure.microsoft.com/pricing/details/ip-addresses/) sobre los precios de las direcciones IP públicas). 

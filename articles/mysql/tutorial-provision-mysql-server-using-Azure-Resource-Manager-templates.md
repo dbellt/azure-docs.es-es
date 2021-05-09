@@ -8,12 +8,12 @@ ms.devlang: json
 ms.topic: tutorial
 ms.date: 12/02/2019
 ms.custom: mvc
-ms.openlocfilehash: ea8d6b860e242eaa6b281c92552ed93926b92802
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 6fd070417cfa20c1a8f50c79915f4fcb2ec361f3
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108070738"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108279863"
 ---
 # <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>Tutorial: Aprovisionamiento de un servidor de Azure Database for MySQL mediante las plantillas de Azure Resource Manager
 
@@ -94,10 +94,10 @@ En esta solicitud, los valores que deben personalizarse son los siguientes:
 +   `resources/properties/virtualNetworkSubnetId`: especifique el identificador de Azure de la subred en la red virtual donde se debe colocar el servidor MySQL de Azure. 
 +   `tags(optional)`: especifique las etiquetas opcionales; los pares clave-valor que usaría para clasificar los recursos para fines de facturación, etc.
 
-Si desea crear una plantilla de Azure Resource Manager con el fin de automatizar las implementaciones de Azure Database for MySQL para su organización, la recomendación sería empezar desde el ejemplo [Plantilla de Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-managed-mysql-with-vnet) de la galería de GitHub de inicio rápido de Azure y crearlas a partir de esta. 
+Si desea crear una plantilla de Azure Resource Manager con el fin de automatizar las implementaciones de Azure Database for MySQL para su organización, la recomendación sería empezar desde el ejemplo [Plantilla de Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.dbformysql/managed-mysql-with-vnet/azuredeploy.json) de la galería de GitHub de inicio rápido de Azure y crearlas a partir de esta. 
 
 Si no está familiarizado con las plantillas de Azure Resource Manager y le gustaría probarlas, puede empezar siguiendo estos pasos:
-+   Clone o descargue la [plantilla de Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-managed-mysql-with-vnet) de ejemplo de la galería de inicio rápido de Azure.  
++   Clone o descargue la [plantilla de Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.dbformysql/managed-mysql-with-vnet/azuredeploy.json) de ejemplo de la galería de inicio rápido de Azure.  
 +   Modifique azuredeploy.parameters.json para actualizar los valores de parámetro según sus preferencias y guarde el archivo. 
 +   Use la CLI de Azure para crear el servidor MySQL de Azure mediante los siguientes comandos:
 

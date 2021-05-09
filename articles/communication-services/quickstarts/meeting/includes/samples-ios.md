@@ -6,12 +6,12 @@ ms.author: palatter
 ms.date: 24/02/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 0a1dd8f69cb79e42e56ab44981820e31abf204e1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b6b3a2b45c3013170e8341228dd7b78b46881015
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104803121"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107925379"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -27,7 +27,7 @@ Agregue `MeetingUIClientDelegate` a la clase.
 ```swift
 class ViewController: UIViewController, MeetingUIClientDelegate {
 
-    private var meetingClient: MeetingUIClient?
+    private var meetingUIClient: MeetingUIClient?
 ```
 
 Establecer `meetingUIClientDelegate` en `self`.
@@ -36,14 +36,14 @@ Establecer `meetingUIClientDelegate` en `self`.
 override func viewDidLoad() {
     super.viewDidLoad()
     
-    meetingClient?.meetingUIClientDelegate = self
+    meetingUIClient?.meetingUIClientDelegate = self
 }
 ```
 
 Implemente las funciones `didUpdateCallState` y `didUpdateRemoteParticipantCount`.
 
 ```swift
-    func meetingUIClient(didUpdateCallState callState: CallState) {
+    func meetingUIClient(didUpdateCallState callState: MeetingUIClientCallState) {
         switch callState {
         case .connecting:
             print("Call state has changed to 'Connecting'")
@@ -68,17 +68,17 @@ Agregue `MeetingUIClientIdentityProviderDelegate` a la clase.
 ```swift
 class ViewController: UIViewController, MeetingUIClientIdentityProviderDelegate {
 
-    private var meetingClient: MeetingUIClient?
+    private var meetingUIClient: MeetingUIClient?
 ```
 
 Establezca `MeetingUIClientIdentityProviderDelegate` en `self` antes de unirse a la reunión.
 
 ```swift
 private func joinMeeting() {
-    meetingClient?.meetingUIClientIdentityProviderDelegate = self
-    let meetingJoinOptions = MeetingJoinOptions(displayName: "John Smith")
-
-    meetingClient?.join(meetingUrl: "<MEETING_URL>", meetingJoinOptions: meetingJoinOptions, completionHandler: { (error: Error?) in
+    meetingUIClient?.meetingUIClientIdentityProviderDelegate = self
+    let meetingJoinOptions = MeetingUIClientMeetingJoinOptions(displayName: "John Smith", enablePhotoSharing: true, enableNamePlateOptionsClickDelegate: true)
+    let meetingLocator = MeetingUIClientTeamsMeetingLinkLocator(meetingLink: <MEETING_URL>)
+    meetingUIClient?.join(meetingLocator: meetingLocator, joinCallOptions: meetingJoinOptions, completionHandler: { (error: Error?) in
         if (error != nil) {
             print("Join meeting failed: \(error!)")
         }
@@ -86,7 +86,7 @@ private func joinMeeting() {
 }
 ```
 
-Asigne cada `userMri` al avatar correspondiente.
+Agregue e implemente `avatarFor` y asigne cada `userMri` con el avatar correspondiente.
 
 ```swift
     func avatarFor(userIdentifier: String, completionHandler: @escaping (UIImage?) -> Void) {
@@ -109,4 +109,14 @@ Asigne cada `userMri` al avatar correspondiente.
             completionHandler(nil)
         }
 }
+
+```
+
+Agregue otros métodos de protocolo MeetingUIClientIdentityProviderDelegate obligatorios a la clase y es posible que se queden con una implementación vacía.
+```swift
+    func displayNameFor(userIdentifier: String, completionHandler: @escaping (String?) -> Void) {
+    }
+    
+    func subTitleFor(userIdentifier: String, completionHandler: @escaping (String?) -> Void) {
+    }
 ```

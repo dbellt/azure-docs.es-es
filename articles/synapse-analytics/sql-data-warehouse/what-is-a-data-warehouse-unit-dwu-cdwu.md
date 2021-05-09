@@ -11,12 +11,12 @@ ms.date: 11/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 5b33f10a0cb969d5fc0118eee0be371929f918a9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3adefe2f7a92291d0c37efc4416b82193ec67317
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98117649"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108165990"
 ---
 # <a name="data-warehouse-units-dwus-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Unidades de almacenamiento de datos (DWU) para el grupo de SQL dedicado (anteriormente SQL DW) en Azure Synapse Analytics
 
@@ -70,7 +70,7 @@ Cada nivel de rendimiento usa una unidad de medida ligeramente diferente para su
 - Los almacenamientos de datos de Gen1 se miden en unidades de almacenamiento de datos (DWU).
 - Los almacenamientos de datos de Gen2 se miden en unidades de almacenamiento de datos de proceso (cDWU).
 
-Tanto las DWU como las cDWU admiten el escalado vertical y la reducción vertical del proceso, así como pausar el proceso cuando no es necesario usar el almacén de datos. Estas operaciones son a petición. El nivel Gen2 usa una memoria caché basada en disco local en los nodos de proceso para mejorar el rendimiento. Al escalar o pausar el sistema, se invalida la memoria caché y es necesario un período de calentamiento de la memoria caché para conseguir un rendimiento óptimo.  
+Tanto las DWU como las cDWU admiten el escalado vertical y la reducción vertical del proceso, así como pausar el proceso cuando no es necesario usar el almacén de datos. Estas operaciones son a petición. El nivel Gen2 usa una memoria caché basada en disco local en los nodos de proceso para mejorar el rendimiento. Al escalar o pausar el sistema, se invalida la memoria caché y es necesario un período de calentamiento de la memoria caché para conseguir un rendimiento óptimo.
 
 Cada servidor SQL Server (por ejemplo, myserver.database.windows.net) tiene una cuota de [unidad de transacción de base de datos (DTU)](../../azure-sql/database/service-tiers-dtu.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) que permite un número específico de unidades de almacenamiento de datos. Para más información, consulte los [límites de capacidad de administración de cargas de trabajo](sql-data-warehouse-service-capacity-limits.md#workload-management).
 
@@ -121,7 +121,7 @@ JOIN    sys.databases                     AS db ON ds.database_id = db.database_
 
 ## <a name="change-data-warehouse-units"></a>Cambiar unidades de almacenamiento de datos
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Portal de Azure
 
 Para cambiar DWU:
 
@@ -137,7 +137,7 @@ Para cambiar DWU:
 
 Para cambiar las DWU, use el cmdlet de PowerShell [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase). En el ejemplo siguiente se establece el objetivo de nivel de servicio en DW1000 para la base de datos MySQLDW que se hospeda en el servidor MyServer.
 
-```Powershell
+```powershell
 Set-AzSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000c"
 ```
 
@@ -152,7 +152,7 @@ Para cambiar las DWU:
 1. Conéctese a la base de datos maestra asociada al servidor.
 2. Use la instrucción TSQL [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). En el ejemplo siguiente se establece el objetivo de nivel de servicio en DW1000c para la base de datos MySQLDW.
 
-```Sql
+```sql
 ALTER DATABASE MySQLDW
 MODIFY (SERVICE_OBJECTIVE = 'DW1000c')
 ;
@@ -208,7 +208,7 @@ Esta DMV devuelve información sobre varias operaciones de administración en el
 
 ## <a name="the-scaling-workflow"></a>Flujo de trabajo de escalado
 
-Cuando se inicia una operación de escalado, el sistema elimina primero todas las sesiones abiertas y revierte todas las transacciones abiertas para garantizar un estado coherente. Para las operaciones de escalado, el escalado solo se producirá una vez completada esta reversión transaccional.  
+Cuando se inicia una operación de escalado, el sistema elimina primero todas las sesiones abiertas y revierte todas las transacciones abiertas para garantizar un estado coherente. Para las operaciones de escalado, el escalado solo se producirá una vez completada esta reversión transaccional.
 
 - Para una operación de escalado vertical, el sistema desasocia todos los nodos de proceso, aprovisiona los nodos de proceso adicionales y luego se vuelve a asociar a la capa de almacenamiento.
 - Para una operación de reducción vertical, el sistema desasocia todos los nodos de proceso y luego solo vuelve a asociar los nodos necesarios para la capa de almacenamiento.

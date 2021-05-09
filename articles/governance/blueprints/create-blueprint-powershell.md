@@ -1,16 +1,16 @@
 ---
 title: 'Inicio rápido: Creación de un plano técnico con PowerShell'
 description: En este inicio rápido se usa Azure Blueprints para crear, definir e implementar artefactos mediante PowerShell.
-ms.date: 01/27/2021
+ms.date: 05/01/2021
 ms.topic: quickstart
 ms.custom:
 - mode-api
-ms.openlocfilehash: 29c43da0c1467c74ddc85a447a0cf9addb574c7e
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 8c568e223e12a6315e7fa5e63431f8102211f71a
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107538897"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108323418"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>Inicio rápido: Definición y asignación de un plano técnico de Azure Blueprint con PowerShell
 

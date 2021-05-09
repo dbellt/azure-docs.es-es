@@ -1,21 +1,21 @@
 ---
 title: Trabajo con grandes conjuntos de datos
 description: Aprenda a obtener, paginar, omitir y aplicar formato a registros de grandes conjuntos de datos mientras trabaja con Azure Resource Graph.
-ms.date: 01/27/2021
+ms.date: 05/01/2021
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1eaabfdd78712966f3b21d869259a312db31b7bc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 822539b595e5a2d5e19b08a8131c25b45810de4d
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98917697"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108324300"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Trabajo con grandes conjuntos de datos de recursos de Azure
 
 Azure Resource Graph está diseñado para trabajar con el entorno de Azure y obtener información sobre los recursos que contiene. Resource Graph permite obtener estos datos de manera más rápida, incluso cuando se consultan miles de registros. Resource Graph presenta varias opciones de funcionamiento con estos grandes conjuntos de datos.
 
-Para obtener una guía sobre cómo trabajar con consultas con mucha frecuencia, vea [Guía para solicitudes limitadas](./guidance-for-throttled-requests.md).
+Para instrucciones sobre cómo trabajar con consultas con mucha frecuencia, consulte [Guía para solicitudes limitadas](./guidance-for-throttled-requests.md).
 
 ## <a name="data-set-result-size"></a>Tamaño de resultados del conjunto de datos
 
@@ -67,7 +67,7 @@ En la [API REST](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resource
 Cuando sea necesario dividir un conjunto de resultados en conjuntos de registros más pequeños para su procesamiento, o porque un conjunto de resultados superaría el valor máximo permitido de _1000_ registros devueltos, use la paginación. La [API REST](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources)
 **QueryResponse** proporciona valores para indicar que un conjunto de resultados se ha dividido: **resultTruncated** y **$skipToken**. **resultTruncated** es un valor booleano que avisa al consumidor si existen más registros no devueltos en la respuesta. Esta condición también se puede identificar cuando la propiedad **count** es menor que la propiedad **totalRecords**. **totalRecords** define cuántos registros coinciden con la consulta.
 
- **resultTruncated** es **true** cuando la paginación está deshabilitada o no es posible debido a que no hay columna `id` o cuando hay menos recursos disponibles de los que una consulta está solicitando. Cuando **resultTruncated** es **true**, la propiedad **$skipToken** no se establece.
+**resultTruncated** es **true** cuando la paginación está deshabilitada o no es posible debido a que no hay columna `id` o cuando hay menos recursos disponibles de los que una consulta está solicitando. Cuando **resultTruncated** es **true**, la propiedad **$skipToken** no se establece.
 
 En los ejemplos siguientes se muestra cómo **omitir** los primeros 3000 registros y cómo devolver los **primeros** 1000 registros después de los registros omitidos con la CLI de Azure y Azure PowerShell:
 

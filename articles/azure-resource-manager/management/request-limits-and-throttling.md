@@ -3,13 +3,13 @@ title: Límites y limitación de solicitudes
 description: En este artículo se describe cómo usar la limitación con las solicitudes de Azure Resource Manager cuando se han alcanzado los límites de suscripción.
 ms.topic: conceptual
 ms.date: 12/15/2020
-ms.custom: seodec18
-ms.openlocfilehash: c1fd707bf9f13ed88bf9acb5d2ad70d56c453a90
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: seodec18, devx-track-azurepowershell
+ms.openlocfilehash: cb562d6f6489ff30c6b940963a20974eb987b031
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105024632"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108322192"
 ---
 # <a name="throttling-resource-manager-requests"></a>Limitación de solicitudes de Resource Manager
 
@@ -55,6 +55,10 @@ El proveedor de recursos Microsoft.Network aplica los siguientes límites de reg
 | --------- | ----- |
 | Escritura/eliminación (PUT) | 1000 por cada 5 minutos |
 | Lectura (GET) | 10000 por cada 5 minutos |
+
+> [!NOTE]
+> **DNS privado de Azure** tiene un límite de 500 operaciones de lectura (GET) cada 5 minutos.
+>
 
 ### <a name="compute-throttling"></a>Regulación de proceso
 
