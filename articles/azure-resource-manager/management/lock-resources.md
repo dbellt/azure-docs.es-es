@@ -2,14 +2,14 @@
 title: Bloqueo de recursos para impedir cambios
 description: Impida que los usuarios actualicen o eliminen recursos de Azure aplicando un bloqueo para todos los usuarios y roles.
 ms.topic: conceptual
-ms.date: 04/07/2021
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 71637318a60e66bf5000de2f564d740cc101cc60
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 04/28/2021
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 52e61dd1c84e0f5fa6267e687ab55ce386d5767b
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107768730"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108314812"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Bloqueo de recursos para impedir cambios inesperados
 
@@ -47,6 +47,8 @@ Aplicar bloqueos puede provocar resultados inesperados, ya que algunas operacion
 * Un bloqueo que no se puede eliminar en un **grupo de recursos** impide que Azure Resource Manager [elimine de forma automática las implementaciones](../templates/deployment-history-deletions.md) en el historial. Si alcanza 800 implementaciones en el historial, se producirá un error en las implementaciones.
 
 * Un bloqueo de no se puede eliminar en el **grupo de recursos** creado por el **Servicio Azure Backup** genera un error en las copias de seguridad. El servicio admite un máximo de 18 puntos de restauración. Cuando está bloqueado, el servicio de copia de seguridad no puede limpiar los puntos de restauración. Para más información, consulte [Preguntas más frecuentes sobre la copia de seguridad de máquinas virtuales de Azure](../../backup/backup-azure-vm-backup-faq.yml).
+
+* Un bloqueo de "no se puede eliminar" en un **grupo de recursos** impide que **Azure Machine Learning** escale automáticamente los [clústeres de proceso de Azure Machine Learning](../../machine-learning/concept-compute-target.md#azure-machine-learning-compute-managed) para quitar nodos no usados.
 
 * Un bloqueo de solo lectura en una **suscripción** impide que **Azure Advisor** funcione correctamente. Advisor no puede almacenar los resultados de sus consultas.
 

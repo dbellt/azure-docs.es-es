@@ -7,12 +7,12 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.date: 04/20/2021
-ms.openlocfilehash: 3936492d7e7c00ed9dad0d4cac5a2d7f7626b2c5
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: b79c4e2763715102688214708fec4481fdfe3a00
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107820309"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108314866"
 ---
 # <a name="configure-dynamics-365-for-customer-engagement--power-apps-offer-availability"></a>Configuración de la disponibilidad de una oferta de Dynamics 365 for Customer Engagement y Power Apps
 
@@ -22,7 +22,7 @@ Esta página le permite definir dónde y cómo hacer que la oferta esté disponi
 
 Para especificar los mercados en los que la oferta debe estar disponible, seleccione **Editar mercados**.
 
-En la ventana emergente **Selección de mercado**, seleccione al menos un mercado. Elija **Seleccionar todo** para que su oferta esté disponible en cada mercado posible, o seleccione los mercados específicos que quiera agregar. Cuando haya terminado, seleccione **Guardar**.
+En la ventana emergente **Selección de mercado**, seleccione al menos un mercado. Elija **Seleccionar todo** para que su oferta esté disponible en todos los mercados posibles, o bien seleccione los mercados específicos que quiera agregar. Cuando haya terminado, seleccione **Guardar**.
 
 Las selecciones aquí solo se aplican a las nuevas adquisiciones. Si algún usuario ya tiene su aplicación en un determinado mercado y posteriormente lo quita, las personas que ya tienen la oferta en dicho mercado podrán seguir utilizándola, pero ningún cliente nuevo en ese mercado podrá obtener su oferta.
 
@@ -35,8 +35,11 @@ Antes de publicar su oferta en la oferta de Marketplace más amplia, primero deb
 
 Después, cuando esté listo para que la oferta esté disponible y quite la restricción de versión preliminar, deberá quitar la **tecla de ocultación** y volver a publicarla.
 
-Seleccione **Guardar borrador** antes de pasar a la pestaña siguiente del menú de navegación de la izquierda, **Configuración técnica**.
+Seleccione **Guardar borrador** antes de pasar a la siguiente pestaña del menú de navegación izquierdo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Establecimiento de la configuración técnica de la oferta](dynamics-365-customer-engage-technical-configuration.md)
+Realice una de las siguientes acciones:
+
+- Si eligió habilitar la administración de licencias de aplicaciones a través de Microsoft, vaya a [Creación de planes de Dynamics 365 for Customer Engagement y Power Apps](dynamics-365-customer-engage-plans.md).
+- De lo contrario, vaya a [Configuración técnica de la oferta](dynamics-365-customer-engage-technical-configuration.md).
