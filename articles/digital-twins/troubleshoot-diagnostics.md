@@ -4,25 +4,25 @@ titleSuffix: Azure Digital Twins
 description: Vea cómo habilitar el registro con la configuración de diagnóstico y cómo consultar los registros para verlos de forma inmediata.
 author: baanders
 ms.author: baanders
-ms.date: 11/9/2020
+ms.date: 2/24/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 797de242b4b4464c0bfb5ae18af05710ab36bce6
-ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
+ms.openlocfilehash: 4ca6989a6c446c543c35d8e35e5e27aefef118c2
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107285486"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108205690"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Solución de problemas de Azure Digital Twins: Registro de diagnóstico
 
 Azure Digital Twins puede recopilar los registros de una instancia de servicio para supervisar su rendimiento, acceso y otros datos. Estos registros se pueden usar para hacerse una idea de lo que ocurre en una instancia de Azure Digital Twins y realizar un análisis de la causa principal de los problemas sin necesidad de ponerse en contacto con el soporte técnico de Azure.
 
-En este artículo se muestra cómo [**configurar los valores de diagnóstico**](#turn-on-diagnostic-settings) en [Azure Portal](https://portal.azure.com) para empezar a recopilar registros de una instancia de Azure Digital Twins. También se puede especificar la ubicación en que se deben almacenar los registros (como Log Analytics o la cuenta de almacenamiento que se prefiera).
+En este artículo se muestra cómo [configurar los valores de diagnóstico](#turn-on-diagnostic-settings) en [Azure Portal](https://portal.azure.com) para empezar a recopilar registros de una instancia de Azure Digital Twins. También se puede especificar la ubicación en que se deben almacenar los registros (como Log Analytics o la cuenta de almacenamiento que se prefiera).
 
 Este artículo también contiene una lista de todas las [categorías de registro](#log-categories) y los [esquemas de registro](#log-schemas) que recopila Azure Digital Twins.
 
-Después de configurar los registros, también puede [**consultar los registros**](#view-and-query-logs) para recopilar rápidamente información personalizada.
+Después de configurar los registros, también puede [consultar los registros](#view-and-query-logs) para recopilar rápidamente información personalizada.
 
 ## <a name="turn-on-diagnostic-settings"></a>Activación de la configuración de diagnóstico 
 
@@ -43,7 +43,7 @@ Active la configuración de diagnóstico para empezar a recopilar registros en u
         - QueryOperation
         - AllMetrics
         
-        Para más información sobre estas categorías y la información que contienen, consulte la sección [*Categorías de registro*](#log-categories), que encontrará a continuación.
+        Para más información sobre estas categorías y la información que contienen, consulte la sección [Categorías de registro](#log-categories), que encontrará a continuación.
      * **Detalles de destino**: Elija dónde desea enviar los registros. También puede seleccionar cualquier combinación de las tres opciones:
         - Enviar a Log Analytics
         - Archivar en una cuenta de almacenamiento
@@ -57,7 +57,7 @@ Active la configuración de diagnóstico para empezar a recopilar registros en u
 
 La nueva configuración surte efecto en unos 10 minutos. Después, los registros aparecen en el destino configurado en la página **Configuración de diagnóstico** de la instancia. 
 
-Para obtener información más detallada sobre la configuración de diagnóstico y sus opciones, puede visitar [*Creación de una configuración de diagnóstico para enviar los registros y las métricas de la plataforma a diferentes destinos*](../azure-monitor/essentials/diagnostic-settings.md).
+Para obtener información más detallada sobre la configuración de diagnóstico y sus opciones, puede visitar [Creación de una configuración de diagnóstico para enviar los registros y las métricas de la plataforma a diferentes destinos](../azure-monitor/essentials/diagnostic-settings.md).
 
 ## <a name="log-categories"></a>Categorías de registro
 
@@ -68,7 +68,7 @@ Aquí encontrará más detalles sobre las categorías de registros que recopila 
 | ADTModelsOperation | Registra todas las llamadas API relativas a modelos. |
 | ADTQueryOperation | Registra todas las llamadas API relativas a consultas. |
 | ADTEventRoutesOperation | Registra todas las llamadas API relativas a rutas de eventos, así como la salida de eventos de Azure Digital Twins a un servicio de punto de conexión como Event Grid, Event Hubs y Service Bus. |
-| ADTDigitalTwinsOperation | Registra todas las llamadas API relativas a Azure Digital Twins. |
+| ADTDigitalTwinsOperation | Registra todas las llamadas API que pertenecen a gemelos individuales. |
 
 Cada categoría de registro consta de operaciones de escritura, lectura, eliminación y acción.  Estas se asignan a las llamadas API REST de la siguiente manera:
 
@@ -104,11 +104,13 @@ Esta es una lista completa de las operaciones y las [llamadas API REST de Azure 
 
 Cada categoría de registro tiene un esquema que define cómo se notifican los eventos de la categoría de que se trate. Cada entrada de registro individual se almacena como texto y se le da formato como un blob JSON. Los campos del registro y los cuerpos JSON de ejemplo se proporcionan para cada tipo de registro siguiente. 
 
-`ADTDigitalTwinsOperation`, `ADTModelsOperation` y `ADTQueryOperation` usan un esquema de registro de API coherente; `ADTEventRoutesOperation` tiene su propio esquema independiente.
+`ADTDigitalTwinsOperation`, `ADTModelsOperation` y `ADTQueryOperation` usan un esquema de registro de API coherente. `ADTEventRoutesOperation` extiende el esquema para que contenga un campo `endpointName` en las propiedades.
 
 ### <a name="api-log-schemas"></a>Esquemas de registro de API
 
-Este esquema de registro es coherente para `ADTDigitalTwinsOperation`, `ADTModelsOperation` y `ADTQueryOperation`. Contiene información pertinente para las llamadas a API para una instancia de Azure Digital Twins.
+Este esquema de registro es coherente para `ADTDigitalTwinsOperation`, `ADTModelsOperation` y `ADTQueryOperation`. También se usa el mismo esquema para `ADTEventRoutesOperation`, con la **excepción** del nombre de operación `Microsoft.DigitalTwins/eventroutes/action` (para obtener más información sobre el esquema, consulte la sección siguiente, [Esquemas de registro de salida](#egress-log-schemas)).
+
+El esquema contiene información pertinente para las llamadas a API para una instancia de Azure Digital Twins.
 
 Estas son las descripciones de campo y propiedad de los registros de API.
 
@@ -125,9 +127,15 @@ Estas son las descripciones de campo y propiedad de los registros de API.
 | `DurationMs` | String | Cuánto tiempo se tardó en realizar el evento en milisegundos |
 | `CallerIpAddress` | String | Una dirección IP de origen enmascarada para el evento |
 | `CorrelationId` | Guid | Identificador único proporcionado por el cliente para el evento |
-| `Level` | String | La gravedad del registro del evento |
+| `ApplicationId` | Guid | Identificador de aplicación usado en la autorización del portador |
+| `Level` | Int | La gravedad del registro del evento |
 | `Location` | String | La región en la que tuvo lugar el evento |
 | `RequestUri` | Identificador URI | El punto de conexión utilizado durante el evento |
+| `TraceId` | String | `TraceId`, como parte del [contexto de seguimiento de W3C](https://www.w3.org/TR/trace-context/). Identificador del seguimiento completo usado para identificar de forma única un seguimiento distribuido entre los sistemas. |
+| `SpanId` | String | `SpanId`, como parte del [contexto de seguimiento de W3C](https://www.w3.org/TR/trace-context/). Identificador de esta solicitud en el seguimiento. |
+| `ParentId` | String | `ParentId`, como parte del [contexto de seguimiento de W3C](https://www.w3.org/TR/trace-context/). Una solicitud sin un identificador primario es la raíz del seguimiento. |
+| `TraceFlags` | String | `TraceFlags`, como parte del [contexto de seguimiento de W3C](https://www.w3.org/TR/trace-context/). Controla las marcas de seguimiento, como el muestreo, el nivel de seguimiento, etc. |
+| `TraceState` | String | `TraceState`, como parte del [contexto de seguimiento de W3C](https://www.w3.org/TR/trace-context/). Información adicional de identificación de seguimiento específica del proveedor que abarca varios sistemas diferentes de seguimiento distribuido. |
 
 A continuación se muestran ejemplos de cuerpos JSON para estos tipos de registros.
 
@@ -143,12 +151,25 @@ A continuación se muestran ejemplos de cuerpos JSON para estos tipos de registr
   "resultType": "Success",
   "resultSignature": "200",
   "resultDescription": "",
-  "durationMs": "314",
+  "durationMs": 8,
   "callerIpAddress": "13.68.244.*",
   "correlationId": "2f6a8e64-94aa-492a-bc31-16b9f0b16ab3",
+  "identity": {
+    "claims": {
+      "appId": "872cd9fa-d31f-45e0-9eab-6e460a02d1f1"
+    }
+  },
   "level": "4",
   "location": "southcentralus",
-  "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/digitaltwins/factory-58d81613-2e54-4faa-a930-d980e6e2a884?api-version=2020-10-31"
+  "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/digitaltwins/factory-58d81613-2e54-4faa-a930-d980e6e2a884?api-version=2020-10-31",
+  "properties": {},
+  "traceContext": {
+    "traceId": "95ff77cfb300b04f80d83e64d13831e7",
+    "spanId": "b630da57026dd046",
+    "parentId": "9f0de6dadae85945",
+    "traceFlags": "01",
+    "tracestate": "k1=v1,k2=v2"
+  }
 }
 ```
 
@@ -164,12 +185,25 @@ A continuación se muestran ejemplos de cuerpos JSON para estos tipos de registr
   "resultType": "Success",
   "resultSignature": "201",
   "resultDescription": "",
-  "durationMs": "935",
+  "durationMs": "80",
   "callerIpAddress": "13.68.244.*",
   "correlationId": "9dcb71ea-bb6f-46f2-ab70-78b80db76882",
+  "identity": {
+    "claims": {
+      "appId": "872cd9fa-d31f-45e0-9eab-6e460a02d1f1"
+    }
+  },
   "level": "4",
   "location": "southcentralus",
   "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/Models?api-version=2020-10-31",
+  "properties": {},
+  "traceContext": {
+    "traceId": "95ff77cfb300b04f80d83e64d13831e7",
+    "spanId": "b630da57026dd046",
+    "parentId": "9f0de6dadae85945",
+    "traceFlags": "01",
+    "tracestate": "k1=v1,k2=v2"
+  }
 }
 ```
 
@@ -185,18 +219,67 @@ A continuación se muestran ejemplos de cuerpos JSON para estos tipos de registr
   "resultType": "Success",
   "resultSignature": "200",
   "resultDescription": "",
-  "durationMs": "255",
+  "durationMs": "314",
   "callerIpAddress": "13.68.244.*",
   "correlationId": "1ee2b6e9-3af4-4873-8c7c-1a698b9ac334",
+  "identity": {
+    "claims": {
+      "appId": "872cd9fa-d31f-45e0-9eab-6e460a02d1f1"
+    }
+  },
   "level": "4",
   "location": "southcentralus",
   "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/query?api-version=2020-10-31",
+  "properties": {},
+  "traceContext": {
+    "traceId": "95ff77cfb300b04f80d83e64d13831e7",
+    "spanId": "b630da57026dd046",
+    "parentId": "9f0de6dadae85945",
+    "traceFlags": "01",
+    "tracestate": "k1=v1,k2=v2"
+  }
 }
+```
+
+#### <a name="adteventroutesoperation"></a>ADTEventRoutesOperation
+
+Este es un ejemplo de cuerpo JSON de un objeto `ADTEventRoutesOperation` que **no** es de tipo `Microsoft.DigitalTwins/eventroutes/action` (para obtener más información sobre el esquema, consulte la sección siguiente, [Esquemas de registro de salida](#egress-log-schemas)).
+
+```json
+  {
+    "time": "2020-10-30T22:18:38.0708705Z",
+    "resourceId": "/SUBSCRIPTIONS/BBED119E-28B8-454D-B25E-C990C9430C8F/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
+    "operationName": "Microsoft.DigitalTwins/eventroutes/write",
+    "operationVersion": "2020-10-31",
+    "category": "EventRoutesOperation",
+    "resultType": "Success",
+    "resultSignature": "204",
+    "resultDescription": "",
+    "durationMs": 42,
+    "callerIpAddress": "212.100.32.*",
+    "correlationId": "7f73ab45-14c0-491f-a834-0827dbbf7f8e",
+    "identity": {
+      "claims": {
+        "appId": "872cd9fa-d31f-45e0-9eab-6e460a02d1f1"
+      }
+    },
+    "level": "4",
+    "location": "southcentralus",
+    "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/EventRoutes/egressRouteForEventHub?api-version=2020-10-31",
+    "properties": {},
+    "traceContext": {
+      "traceId": "95ff77cfb300b04f80d83e64d13831e7",
+      "spanId": "b630da57026dd046",
+      "parentId": "9f0de6dadae85945",
+      "traceFlags": "01",
+      "tracestate": "k1=v1,k2=v2"
+    }
+  },
 ```
 
 ### <a name="egress-log-schemas"></a>Esquemas de registro de salida
 
-Este es el esquema para los registros `ADTEventRoutesOperation`. Contienen detalles relativos a las excepciones y las operaciones de API en torno a los puntos de conexión de salida conectados a una instancia de Azure Digital Twins.
+Este es el esquema para los registros `ADTEventRoutesOperation` específicos del nombre de operación `Microsoft.DigitalTwins/eventroutes/action`. Contienen detalles relativos a las excepciones y las operaciones de API en torno a los puntos de conexión de salida conectados a una instancia de Azure Digital Twins.
 
 |Nombre del campo | Tipo de datos | Descripción |
 |-----|------|-------------|
@@ -205,28 +288,55 @@ Este es el esquema para los registros `ADTEventRoutesOperation`. Contienen detal
 | `OperationName` | String  | El tipo de acción que se realiza durante el evento |
 | `Category` | String | El tipo de recurso que se está emitiendo |
 | `ResultDescription` | String | Detalles adicionales acerca del evento |
-| `Level` | String | La gravedad del registro del evento |
+| `CorrelationId` | Guid | Identificador único proporcionado por el cliente para el evento |
+| `ApplicationId` | Guid | Identificador de aplicación usado en la autorización del portador |
+| `Level` | Int | La gravedad del registro del evento |
 | `Location` | String | La región en la que tuvo lugar el evento |
+| `TraceId` | String | `TraceId`, como parte del [contexto de seguimiento de W3C](https://www.w3.org/TR/trace-context/). Identificador del seguimiento completo usado para identificar de forma única un seguimiento distribuido entre los sistemas. |
+| `SpanId` | String | `SpanId`, como parte del [contexto de seguimiento de W3C](https://www.w3.org/TR/trace-context/). Identificador de esta solicitud en el seguimiento. |
+| `ParentId` | String | `ParentId`, como parte del [contexto de seguimiento de W3C](https://www.w3.org/TR/trace-context/). Una solicitud sin un identificador primario es la raíz del seguimiento. |
+| `TraceFlags` | String | `TraceFlags`, como parte del [contexto de seguimiento de W3C](https://www.w3.org/TR/trace-context/). Controla las marcas de seguimiento, como el muestreo, el nivel de seguimiento, etc. |
+| `TraceState` | String | `TraceState`, como parte del [contexto de seguimiento de W3C](https://www.w3.org/TR/trace-context/). Información adicional de identificación de seguimiento específica del proveedor que abarca varios sistemas diferentes de seguimiento distribuido. |
 | `EndpointName` | String | El nombre del punto de conexión de salida creado en Azure Digital Twins |
 
 A continuación se muestran ejemplos de cuerpos JSON para estos tipos de registros.
 
-#### <a name="adteventroutesoperation"></a>ADTEventRoutesOperation
+#### <a name="adteventroutesoperation-for-microsoftdigitaltwinseventroutesaction"></a>ADTEventRoutesOperation para Microsoft.DigitalTwins/eventroutes/action
+
+Este es un ejemplo de cuerpo JSON para un `ADTEventRoutesOperation` de tipo `Microsoft.DigitalTwins/eventroutes/action`.
 
 ```json
 {
   "time": "2020-11-05T22:18:38.0708705Z",
   "resourceId": "/SUBSCRIPTIONS/BBED119E-28B8-454D-B25E-C990C9430C8F/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
   "operationName": "Microsoft.DigitalTwins/eventroutes/action",
+  "operationVersion": "",
   "category": "EventRoutesOperation",
-  "resultDescription": "Unable to send EventGrid message to [my-event-grid.westus-1.eventgrid.azure.net] for event Id [f6f45831-55d0-408b-8366-058e81ca6089].",
+  "resultType": "",
+  "resultSignature": "",
+  "resultDescription": "Unable to send EventHub message to [myPath] for event Id [f6f45831-55d0-408b-8366-058e81ca6089].",
+  "durationMs": -1,
+  "callerIpAddress": "",
   "correlationId": "7f73ab45-14c0-491f-a834-0827dbbf7f8e",
-  "level": "3",
+  "identity": {
+    "claims": {
+      "appId": "872cd9fa-d31f-45e0-9eab-6e460a02d1f1"
+    }
+  },
+  "level": "4",
   "location": "southcentralus",
+  "uri": "",
   "properties": {
-    "endpointName": "endpointEventGridInvalidKey"
+    "endpointName": "myEventHub"
+  },
+  "traceContext": {
+    "traceId": "95ff77cfb300b04f80d83e64d13831e7",
+    "spanId": "b630da57026dd046",
+    "parentId": "9f0de6dadae85945",
+    "traceFlags": "01",
+    "tracestate": "k1=v1,k2=v2"
   }
-}
+},
 ```
 
 ## <a name="view-and-query-logs"></a>Visualización y consulta de registro
@@ -255,10 +365,10 @@ Así es como se realizan consultas en los registros de una instancia.
     - La pestaña *Queries* (Consultas) contiene las consultas de ejemplo que se pueden cargar en el editor.
     - La pestaña *Filter* (Filtro) permite personalizar una vista filtrada de los datos que devuelve la consulta.
 
-Para más información sobre consultas del registro y cómo escribirlas, puede visitar [*Introducción a las consultas de registro en Azure Monitor*](../azure-monitor/logs/log-query-overview.md).
+Para más información sobre consultas del registro y cómo escribirlas, puede visitar [Introducción a las consultas de registro en Azure Monitor](../azure-monitor/logs/log-query-overview.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para más información sobre la configuración de diagnóstico, consulte el artículo [*Recopilación y consumo de los datos de registro provenientes de los recursos de Azure*](../azure-monitor/essentials/platform-logs-overview.md).
-* Para información sobre las métricas de Azure Digital Twins, consulte el artículo [*Solución de problemas: visualización de las métricas con Azure Monitor*](troubleshoot-metrics.md).
-* Para ver cómo habilitar las alertas de las métricas, consulte [*Solución de problemas: Configuración de alertas*](troubleshoot-alerts.md).
+* Para más información sobre la configuración de diagnósticos, consulte [Recopilación y uso de los datos de registro provenientes de los recursos de Azure](../azure-monitor/essentials/platform-logs-overview.md).
+* Para información sobre las métricas de Azure Digital Twins, consulte el artículo [Solución de problemas: visualización de las métricas con Azure Monitor](troubleshoot-metrics.md).
+* Para ver cómo habilitar las alertas de las métricas, consulte [Solución de problemas: Configuración de alertas](troubleshoot-alerts.md).

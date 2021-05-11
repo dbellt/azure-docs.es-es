@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 06/20/2020
 ms.custom: devx-track-csharp, mvc, cli-validate, seodec18, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 52a5b127312ef979791d17b27ca67b21a779e310
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: de37965ad092423b067d7f3e310a5a07e563c9d4
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107765768"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108204988"
 ---
 # <a name="tutorial-build-an-aspnet-core-and-azure-sql-database-app-in-azure-app-service"></a>Tutorial: Compilación de una aplicación de ASP.NET Core y Azure SQL Database en Azure App Service
 
@@ -150,7 +150,7 @@ Cree una base de datos con un [nivel de rendimiento S0](../azure-sql/database/se
 az sql db create --resource-group myResourceGroup --server <server-name> --name coreDB --service-objective S0
 ```
 
-### <a name="create-connection-string"></a>Creación de la cadena de conexión
+### <a name="retrieve-connection-string"></a>Recuperación de la cadena de conexión
 
 Obtenga la cadena de conexión mediante el comando [`az sql db show-connection-string`](/cli/azure/sql/db#az_sql_db_show_connection_string).
 

@@ -3,12 +3,12 @@ title: Solución de problemas del sensor y de la consola de administración loca
 description: Solucione los problemas de su sensor y la consola de administración local para eliminar los problemas que pueda tener.
 ms.date: 03/14/2021
 ms.topic: article
-ms.openlocfilehash: 83ffec959a5b38e9f4fd4d7d0dcfd3b1b9faa096
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e20c11e869ebeea0b4fc7f917dd8cebba7a69c5c
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104785451"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108209056"
 ---
 # <a name="troubleshoot-the-sensor-and-on-premises-management-console"></a>Solución de problemas del sensor y de la consola de administración local
 
@@ -127,7 +127,7 @@ Cuando los dispositivos mostrados en el mapa no aparecen conectados entre sí, e
 
 :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/broadcasting-devices.png" alt-text="Vea los dispositivos de difusión.":::
 
-En tal caso, debe comprobar que solo puede ver el tráfico de difusión. A continuación, pida al ingeniero de red que corrija la configuración de los puertos de intervalo para que pueda ver el tráfico de unidifusión.
+En tal caso, debe comprobar que solo puede ver el tráfico de difusión. A continuación, pida al ingeniero de red que corrija la configuración del puerto de intervalo para que también pueda ver el tráfico de unidifusión.
 
 Para comprobar que solo está viendo el tráfico de difusión:
 

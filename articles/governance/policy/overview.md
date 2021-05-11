@@ -1,14 +1,14 @@
 ---
 title: Introducción a Azure Policy
 description: Azure Policy es un servicio de Azure que se usa para crear, asignar y administrar las definiciones de directivas en el entorno de Azure.
-ms.date: 01/14/2021
+ms.date: 05/01/2021
 ms.topic: overview
-ms.openlocfilehash: df430586af2e701ec2881f6ea760095fd2ca79d0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8d261cc958a104b4a11a6f82a8f86352159c0275
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98220735"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108323706"
 ---
 # <a name="what-is-azure-policy"></a>¿Qué es Azure Policy?
 

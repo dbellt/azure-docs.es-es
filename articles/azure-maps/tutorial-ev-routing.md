@@ -3,18 +3,18 @@ title: 'Tutorial: Enrutamiento de vehículos eléctricos mediante Azure Notebook
 description: Tutorial sobre el enrutamiento de vehículos eléctricos mediante las API de enrutamiento de Microsoft Azure Maps y Azure Notebooks.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/07/2020
+ms.date: 04/26/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 7341d1f07e8814edcad7b84f6b3b46c7bece3159
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ce6cb60754ed0afae27c5b5d316a7158961b55a3
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98680338"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108323382"
 ---
 # <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>Tutorial: Enrutamiento de vehículos eléctricos mediante Azure Notebooks (Python)
 
@@ -34,16 +34,13 @@ En este tutorial, aprenderá lo siguiente:
 > * Representación del límite del intervalo accesible y de las estaciones de carga en un mapa
 > * Búsqueda y visualización de la ruta a la estación de carga de vehículos eléctricos más cercana en función del tiempo de conducción.
 
+## <a name="prerequisites"></a>Prerrequisitos
 
-## <a name="prerequisites"></a>Prerrequisitos 
+1. [Cree una cuenta de Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account) y [elija el plan de tarifa Gen 2 o S1](choose-pricing-tier.md).
+2. [Obtenga una clave de suscripción principal](quick-demo-map-app.md#get-the-primary-key-for-your-account), también conocida como clave principal o clave de suscripción.
 
-Para realizar este tutorial, primero debe crear una cuenta de Azure Maps y obtener la clave principal (clave de suscripción). 
+Para más información sobre la autenticación en Azure Maps, consulte [Administración de la autenticación en Azure Maps](how-to-manage-authentication.md).
 
-Para crear una suscripción a una cuenta de Azure Maps, siga las instrucciones de [Crear una cuenta](quick-demo-map-app.md#create-an-azure-maps-account). Necesita una suscripción a una cuenta de Azure Maps con el nivel de precios S1. 
-
-Para obtener la clave de suscripción principal de la cuenta, siga las instrucciones de [Obtención de la clave principal](quick-demo-map-app.md#get-the-primary-key-for-your-account).
-
-Para más información sobre la autenticación en Azure Maps, consulte [Administración de la autenticación en Azure Maps](./how-to-manage-authentication.md).
 
 ## <a name="create-an-azure-notebooks-project"></a>Creación de un proyecto de Azure Notebooks
 

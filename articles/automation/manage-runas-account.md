@@ -1,17 +1,17 @@
 ---
 title: Administración de una cuenta de ejecución de Azure Automation
-description: En este artículo se describe cómo administrar la cuenta de ejecución con PowerShell o desde Azure Portal.
+description: En este artículo se describe cómo administrar una cuenta de ejecución de Azure Automation con PowerShell o desde Azure Portal.
 services: automation
 ms.subservice: ''
-ms.date: 01/19/2021
+ms.date: 04/29/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e440a27c8f7778c800148feb5bec76ca5a48f4f5
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 9ba7ae8218b730408361b6787517b72f2fb5c33b
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107833929"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108278639"
 ---
 # <a name="manage-an-azure-automation-run-as-account"></a>Administración de una cuenta de ejecución de Azure Automation
 
@@ -29,7 +29,7 @@ Cuando se renueva el certificado autofirmado, el certificado válido actual se c
 >Si cree que se ha puesto en peligro la cuenta de ejecución, puede eliminarla y volver a crearla.
 
 >[!NOTE]
->Si ha configurado la cuenta de ejecución para usar un certificado emitido por la entidad de certificación de la empresa y usa esta opción para renovar un certificado autofirmado, el certificado de empresa se reemplaza por uno autofirmado.
+>Si ha configurado la cuenta de ejecución para usar un certificado emitido por la entidad de certificación (CA) de la empresa o de terceros y usa esta opción para renovar un certificado autofirmado, el certificado de empresa se reemplaza por uno autofirmado.
 
 Realice los pasos siguientes para renovar el certificado autofirmado.
 

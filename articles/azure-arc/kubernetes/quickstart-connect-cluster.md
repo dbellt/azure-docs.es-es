@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 03/03/2021
 ms.custom: template-quickstart, references_regions, devx-track-azurecli
 keywords: Kubernetes, Arc, Azure, cluster
-ms.openlocfilehash: 8da5ba5c4408cb96008c3d9802ce3a5ccdc25f1f
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: de701e79677f7e862d953eb5f03534b4eaefb367
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108140198"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108290783"
 ---
 # <a name="quickstart-connect-an-existing-kubernetes-cluster-to-azure-arc"></a>Inicio rápido: conexión de un clúster de Kubernetes existente a Azure Arc 
 
@@ -27,7 +27,7 @@ En este inicio rápido, se descubrirán las ventajas de Kubernetes habilitado pa
     * [Kubernetes en Docker (KIND)](https://kind.sigs.k8s.io/)
     * Creación de un clúster de Kubernetes con Docker para [Mac](https://docs.docker.com/docker-for-mac/#kubernetes) o [Windows](https://docs.docker.com/docker-for-windows/#kubernetes)
     * Clúster de Kubernetes autoadministrado mediante la [API de clúster](https://cluster-api.sigs.k8s.io/user/quick-start.html)
-    * Si desea conectar un clúster de OpenShift a Azure Arc, debe ejecutar el siguiente comando una sola vez en el clúster antes de ejecutar `az connectedk8s connect`:
+    * Si desea conectar un clúster de OpenShift a Azure Arc, es preciso que ejecute el siguiente comando una sola vez en el clúster antes de ejecutar `az connectedk8s connect`:
         
         ```console
         oc adm policy add-scc-to-user privileged system:serviceaccount:azure-arc:azure-arc-kube-aad-proxy-sa
@@ -48,11 +48,8 @@ En este inicio rápido, se descubrirán las ventajas de Kubernetes habilitado pa
   az extension add --name connectedk8s
   ```
 
-
-
 >[!TIP]
 > Si la extensión `connectedk8s` ya está instalada, actualícela a su versión más reciente con el siguiente comando: `az extension update --name connectedk8s`
-
 
 >[!NOTE]
 >La lista de regiones admitidas por Kubernetes habilitado para Azure Arc se puede consultar [aquí](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc).
@@ -148,6 +145,9 @@ eastus      AzureArcTest
 
 > [!TIP]
 > El comando anterior sin el parámetro location especificado crea el recurso de Kubernetes habilitado para Azure Arc en la misma ubicación que el grupo de recursos. Para crear el recurso de Kubernetes habilitado para Azure Arc en una ubicación diferente, especifique `--location <region>` o `-l <region>` al ejecutar el comando `az connectedk8s connect`.
+
+> [!NOTE]
+> Si ha iniciado sesión en la CLI de Azure mediante una entidad de servicio, se requieren [permisos adicionales](troubleshooting.md#enable-custom-locations-using-service-principal) en la entidad de servicio para habilitar la característica de ubicación personalizada al conectar el clúster a Azure Arc.
 
 ## <a name="verify-cluster-connection"></a>Comprobación de la conexión del clúster
 

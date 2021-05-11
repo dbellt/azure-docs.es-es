@@ -3,17 +3,17 @@ title: Administración de Creator de Microsoft Azure Maps (versión preliminar)
 description: En este artículo, aprenderá a administrar Creator de Microsoft Azure Maps (versión preliminar).
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 02/16/2021
+ms.date: 04/26/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: d26df4287032bc59cc58dd1d832d9d5a9c40afcd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 24a462fdb2c68bcccd539c9d18252822e2730bd6
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100559162"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108326892"
 ---
 # <a name="manage-azure-maps-creator-preview"></a>Administración de Creator de Azure Maps (versión preliminar) 
 
@@ -21,7 +21,7 @@ ms.locfileid: "100559162"
 > Los servicios de Creator de Azure Maps se encuentran actualmente en versión preliminar pública.
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Azure Maps Creator le permite crear datos de planos interiores privados. Mediante el uso de la API de Azure Maps y el módulo Indoor Maps, puede desarrollar aplicaciones web interactivas y dinámicas de planos interiores. Actualmente, Creator solo está disponible en Estados Unidos con el plan de tarifa S1.
+Azure Maps Creator le permite crear datos de planos interiores privados. Mediante el uso de la API de Azure Maps y el módulo Indoor Maps, puede desarrollar aplicaciones web interactivas y dinámicas de planos interiores. Actualmente, Creator solo está disponible en Estados Unidos con el plan de tarifa Gen 2 o Gen 1 (S1).
 
 En este artículo le guiaremos por los pasos necesarios para crear y eliminar un recurso de Creator en una cuenta de Azure Maps.
 

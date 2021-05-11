@@ -1,21 +1,21 @@
 ---
-title: 'Tutorial: Implementación y configuración de Azure Firewall mediante Azure Portal'
-description: En este tutorial, aprenderá a implementar y configurar Azure Firewall mediante Azure Portal.
+title: Implementación y configuración de Azure Firewall mediante Azure Portal
+description: En este artículo, aprenderá a implementar y configurar Azure Firewall mediante Azure Portal.
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.topic: tutorial
-ms.date: 02/19/2021
+ms.topic: how-to
+ms.date: 04/29/2021
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 54900b7b9089d4a4c6cbc742ecf09aa19ff2a550
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 951e2406a387ed2aaedc4cec875c62a14cf5bb2e
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101741963"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108291953"
 ---
-# <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutorial: Implementación y configuración de Azure Firewall mediante Azure Portal
+# <a name="deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Implementación y configuración de Azure Firewall mediante Azure Portal
 
 El control del acceso de red saliente es una parte importante de un plan de seguridad de red de ámbito general. Por ejemplo, es posible que desee limitar el acceso a sitios web. O bien, que desee limitar las direcciones IP de salida y los puertos a los que se puede acceder.
 
@@ -26,16 +26,16 @@ Una manera de controlar el acceso de red saliente desde una subred de Azure es c
 
 El tráfico está sujeto a las reglas de firewall configuradas cuando enruta el tráfico al firewall como puerta de enlace predeterminada de la subred.
 
-En este tutorial, creará una red virtual única simplificada con dos subredes para facilitar la implementación.
+En este artículo, creará una red virtual única simplificada con dos subredes para facilitar la implementación.
 
 Para las implementaciones de producción, se recomienda un [modelo de concentrador y radio](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke), en el que el firewall está en su propia red virtual. Los servidores de las cargas de trabajo están en redes virtuales emparejadas en la misma región con una o varias subredes.
 
 * **AzureFirewallSubnet**: el firewall está en esta subred.
 * **Workload-SN**: el servidor de carga de trabajo está en esta subred. El tráfico de red de esta subred va a través del firewall.
 
-![Infraestructura de red del tutorial](media/tutorial-firewall-deploy-portal/tutorial-network.png)
+![Infraestructura de red](media/tutorial-firewall-deploy-portal/tutorial-network.png)
 
-En este tutorial, aprenderá a:
+En este artículo aprenderá a:
 
 > [!div class="checklist"]
 > * Configurar un entorno de red de prueba
@@ -46,7 +46,10 @@ En este tutorial, aprenderá a:
 > * Configurar una regla NAT para permitir un escritorio remoto en el servidor de prueba
 > * Probar el firewall
 
-Si lo prefiere, puede seguir los pasos de este tutorial mediante [Azure PowerShell](deploy-ps.md).
+> [!NOTE]
+> En este artículo se usan reglas de firewall clásicas para administrar el firewall. El método preferido es usar una [directiva de firewall](../firewall-manager/policy-overview.md). Para completar este procedimiento con una directiva de firewall, consulte [Tutorial: Implementación y configuración de Azure Firewall y una directiva con Azure Portal](tutorial-firewall-deploy-portal-policy.md).
+
+Si lo prefiere, puede realizar los pasos de este procedimiento mediante [Azure PowerShell](deploy-ps.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -58,7 +61,7 @@ En primer lugar, cree un grupo de recursos para que contenga los recursos necesa
 
 ### <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-El grupo de recursos contiene todos los recursos necesarios para el tutorial.
+El grupo de recursos contiene todos los recursos que se utilizan en este procedimiento.
 
 1. Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
 2. En el menú de Azure Portal, seleccione **Grupos de recursos** o busque y seleccione *Grupos de recursos* desde cualquier página. A continuación, seleccione **Agregar**.
@@ -111,7 +114,7 @@ Ahora cree la máquina virtual de la carga de trabajo y colóquela en la subred 
    |Resource group     |**Test-FW-RG**|
    |Nombre de la máquina virtual     |**Srv-Work**|
    |Region     |Igual que la anterior|
-   |Imagen|Windows Server 2019 Datacenter|
+   |Imagen|Windows Server 2016 Datacenter|
    |Nombre de usuario del administrador     |Escriba un nombre de usuario.|
    |Contraseña     |Escriba una contraseña.|
 
@@ -124,6 +127,8 @@ Ahora cree la máquina virtual de la carga de trabajo y colóquela en la subred 
 12. Seleccione **Deshabilitar** para deshabilitar los diagnósticos de arranque. Acepte los restantes valores predeterminados y seleccione **Revisar y crear**.
 13. Revise la configuración en la página de resumen y seleccione **Crear**.
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 ## <a name="deploy-the-firewall"></a>Implementación del firewall
 
 Implemente el firewall en la red virtual.
@@ -135,7 +140,7 @@ Implemente el firewall en la red virtual.
 
    |Configuración  |Value  |
    |---------|---------|
-   |Subscription     |\<your subscription\>|
+   |Suscripción     |\<your subscription\>|
    |Resource group     |**Test-FW-RG** |
    |Nombre     |**Test-FW01**|
    |Region     |Seleccione la misma ubicación que usó anteriormente.|
@@ -241,7 +246,7 @@ Esta regla le permite conectar un escritorio remoto a la máquina virtual Srv-Wo
 
 ### <a name="change-the-primary-and-secondary-dns-address-for-the-srv-work-network-interface"></a>Cambio de la dirección DNS principal y secundaria para la interfaz de red **Srv-Work**
 
-Con fines de prueba para este tutorial, configure las direcciones DNS principal y secundaria del servidor. Esto no es un requisito general de Azure Firewall.
+Con fines de prueba, configure las direcciones DNS principal y secundaria del servidor. Esto no es un requisito general de Azure Firewall.
 
 1. En el menú de Azure Portal, seleccione **Grupos de recursos** o busque y seleccione *Grupos de recursos* desde cualquier página. Seleccione el grupo de recursos **Test-FW-RG**.
 2. Seleccione la interfaz de red de la máquina virtual **Srv-Work**.
@@ -272,9 +277,8 @@ Con ello, ha comprobado que las reglas de firewall funcionan:
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Puede conservar los recursos relacionados con el firewall para el siguiente tutorial o, si ya no los necesita, eliminar el grupo de recursos **Test-FW-RG** para eliminarlos todos.
+Puede conservar los recursos del firewall para continuar con las pruebas o, si ya no los necesita, eliminar el grupo de recursos **Test-FW-RG** para eliminarlos todos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-> [!div class="nextstepaction"]
-> [Tutorial: Supervisión de los registros de Azure Firewall](./firewall-diagnostics.md)
+[Tutorial: Supervisión de los registros de Azure Firewall](./firewall-diagnostics.md)

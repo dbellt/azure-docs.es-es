@@ -3,66 +3,32 @@ title: Elección del plan de tarifa adecuado para Microsoft Azure Maps
 description: Obtenga información sobre los planes de tarifa de Azure Maps. Vea qué características se ofrecen en qué niveles y consulte las consideraciones clave para elegir un plan de tarifa.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/07/2020
+ms.date: 04/27/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: b5157716058833e2cd9ae8c9ce7b1eb36bb0f82f
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 282a1aed4ff678ebe2d7ec507d95f899cf21793f
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107256061"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108326820"
 ---
 # <a name="choose-the-right-pricing-tier-in-azure-maps"></a>Elección del plan de tarifa adecuado de Azure Maps
 
-Azure Maps ofrece dos planes de tarifa: S0 y S1. El propósito de este artículo es ayudarle a elegir el plan de tarifa adecuado para satisfacer sus necesidades. Para elegir el plan de tarifa adecuado, plantéese las dos preguntas siguientes.
+Azure Maps ahora ofrece dos planes de tarifa: Gen 1 y Gen 2. El nuevo plan de tarifa Gen 2 contiene todas las funcionalidades de Azure Maps sin ninguna restricción de consultas por segundo y le permite ahorrar costos a medida que aumentan las transacciones de Azure Maps. El propósito de este artículo es ayudarle a elegir el plan de tarifa adecuado para satisfacer sus necesidades.
 
-## <a name="how-many-concurrent-users-do-i-plan-to-support"></a>¿Cuántos usuarios simultáneos tiene previsto admitir?
+## <a name="pricing-tier-targeted-customers"></a>Clientes objetivo de los planes de tarifa
 
-Los planes de tarifa S0 y S1 manipulan diferentes volúmenes de rendimiento de datos. El plan de tarifa S0 manipula hasta **50 consultas por segundo**. Por el contrario, el plan de tarifa S1 administra **más de 50 consultas por segundo**.
+Consulte la **tabla de clientes objetivo de los planes de tarifa** a continuación para obtener una mejor comprensión de los planes de tarifa de Gen 1 y Gen 2.  Para más información, consulte [Precios de Azure Maps](https://azure.microsoft.com/pricing/details/azure-maps/). Si ya es cliente de Azure Maps, puede aprender a cambiar los precios de Gen 1 a Gen 2 [aquí](how-to-manage-pricing-tier.md).
 
-## <a name="what-geospatial-capabilities-do-i-plan-to-use"></a>¿Qué funcionalidades geoespaciales tiene previsto usar?
-
-Si las API geoespaciales básicas satisfacen los requisitos del servicio, elija el plan de tarifa S0. Si desea funcionalidades más avanzadas para su aplicación, considere la posibilidad de optar por el plan de tarifa S1. Las funcionalidades avanzadas son: imágenes aéreas e híbridas, obtención del alcance de la ruta y geocodificación por lotes. Para seleccionar el plan de tarifa más apropiado para la aplicación, consulte la tabla con las **funcionalidades del plan de tarifa**  a continuación:
-
-### <a name="pricing-tier-capabilities"></a>Funcionalidades de los planes de tarifa
-
-| Capacidad                              |        S0           |  S1      |
-|-----------------------------------------|:-------------------:|:--------:|
-| Representación de mapas                              | ✓                   | ✓       |
-| Imágenes de satélite                       |                     | ✓        |
-| Search                                  | ✓                    | ✓        |
-| Búsqueda por lotes                            |                     | ✓        |
-| Enrutar                                   | ✓                    |✓        |
-| Enrutamiento por lotes                            |                    | ✓        |
-| Enrutamiento de matriz                          |                     | ✓        |
-| Alcance de ruta (isocronas)                |                     | ✓        |
-| Tráfico                                |✓                    |✓        |
-| Zona horaria                               |✓                    |✓        |
-| Geolocalización (versión preliminar)                    |✓                   |✓        |
-| Spatial Operations                        |                    |✓        |
-| Geovalla                                |                    |✓        |
-| Datos de Azure Maps (versión preliminar)                |                     | ✓        |
-| Movilidad (versión preliminar)                       |                     | ✓        |
-| Tiempo                       |✓                    |✓        |
-|  Creator (versión preliminar)                         |                   |✓        |
-|  Elevation (versión preliminar)                        |                   |✓        |
-
-Tenga en cuenta también estos otros aspectos:
-
-* ¿Qué tipo de empresa tiene?
-* ¿Es crítica la aplicación?
-
-### <a name="pricing-tier-targeted-customers"></a>Clientes objetivo de los planes de tarifa
-
-Consulte la tabla **Clientes objetivo de los planes de tarifa** para obtener una visión general de los planes de tarifa S0 y S1. Para más información, consulte [Precios de Azure Maps](https://azure.microsoft.com/pricing/details/azure-maps/). 
-
-| Plan de tarifa  |     Clientes objetivo                                                                |
-|-----------------|:-----------------------------------------------------------------------------------------|
-| S0            |    El plan de tarifa S0 funciona para las aplicaciones en todas las fases de producción, desde el desarrollo de la prueba de concepto y la primera fase de pruebas hasta la puesta en producción e implementación de la aplicación. Sin embargo, este nivel está diseñado para el desarrollo a pequeña escala, para clientes con pocos usuarios simultáneos o ambos. 
-| S1            |    El plan de tarifa S1 está orientado a clientes con aplicaciones empresariales a gran escala, aplicaciones críticas para la empresa o grandes volúmenes de usuarios simultáneos. También es para aquellos clientes que requieren servicios geoespaciales avanzados.
+| Plan de tarifa  | SKU | Clientes objetivo|
+|-----------------|----| -----------------|
+| **Gen 1** | S0          |    El plan de tarifa S0 funciona para las aplicaciones en todas las fases de producción, desde el desarrollo de la prueba de concepto y la primera fase de pruebas hasta la puesta en producción e implementación de la aplicación. Sin embargo, este nivel está diseñado para el desarrollo a pequeña escala, para clientes con pocos usuarios simultáneos o ambos.
+|        |S1           |    El plan de tarifa S1 está orientado a clientes con aplicaciones empresariales a gran escala, aplicaciones críticas para la empresa o grandes volúmenes de usuarios simultáneos. También es para aquellos clientes que requieren servicios geoespaciales avanzados.
+| **Gen 2** | Maps/Location Insights | Los precios de Gen 2 son para clientes nuevos y actuales de Azure Maps. Gen 2 incluye un nivel mensual gratuito de transacciones que se usará para probar y compilar en Azure Maps. Las SKU de Maps y Location Insights contienen todas las funcionalidades de Azure Maps. Además, no hay restricciones de consultas por segundo, lo que para la mayoría de los servicios supone un ahorro de costos a medida que aumentan las transacciones de Azure Maps.  
+|     |  |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

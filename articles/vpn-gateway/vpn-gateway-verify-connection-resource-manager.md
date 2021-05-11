@@ -1,18 +1,19 @@
 ---
-title: 'VPN Gateway de Azure: comprobar una conexión de puerta de enlace'
-description: En este artículo se explica cómo verificar una conexión de VPN Gateway de red virtual.
+title: Comprobación de una conexión de puerta de enlace
+titleSuffix: Azure VPN Gateway
+description: Aprenda cómo comprobar una conexión de VPN Gateway de red virtual.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 10/19/2020
+ms.date: 04/28/2021
 ms.author: cherylmc
-ms.openlocfilehash: 2e70ef045101571a7a3652b610d06d788173b13e
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 3616c425f191c9ff7788cb5f4333fa69d65e5728
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108072610"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108204610"
 ---
 # <a name="verify-a-vpn-gateway-connection"></a>Verificación de una conexión de VPN Gateway
 

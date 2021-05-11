@@ -7,12 +7,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 03/30/2021
 ms.author: banders
-ms.openlocfilehash: 15c97640ab1f4e862aab0aff4b3965822daafb2b
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 553483a1d7005f73bf62e2afb5cc427d96b2e211
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106219831"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108331203"
 ---
 # <a name="create-services-included-with-azure-free-account"></a>Creación de servicios incluidos con la cuenta gratuita de Azure
 

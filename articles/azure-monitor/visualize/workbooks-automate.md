@@ -6,12 +6,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 9d4aac17ca823f4eaa0f52ab260b1daca3f52f94
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: e1d96dd885fafcd95af1ae9d4757fb5c6ee4a3ef
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106109754"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108315316"
 ---
 # <a name="programmatically-manage-workbooks"></a>Administración de libros mediante programación
 
@@ -205,6 +205,102 @@ Tipos de libros especifica el tipo de galería de libros en el que se mostrará 
 | `workbook` | El valor predeterminado que se usa en la mayoría de los informes, incluida la galería de libros de Application Insights, Azure Monitor, etc.  |
 | `tsg` | La galería de guías de solución de problemas en Application Insights |
 | `usage` | La galería _Más_ en _Uso_ en Application Insights |
+
+### <a name="working-with-json-formatted-workbook-data-in-the-serializeddata-template-parameter"></a>Trabajo con datos de libro con formato JSON en el parámetro de plantilla serializedData
+
+Al exportar una plantilla de Azure Resource Manager para un libro de Azure, a menudo hay vínculos de recursos fijos insertados dentro del parámetro de plantilla `serializedData` exportado. Estos incluyen valores potencialmente confidenciales, como el identificador de suscripción y el nombre del grupo de recursos, y otros tipos de identificadores de recursos.
+
+En el ejemplo siguiente se muestra la personalización de una plantilla de Azure Resource Manager de libro exportada, sin recurrir a la manipulación de cadenas. El patrón que se muestra en este ejemplo está pensado para trabajar con los datos sin modificar tal como se exportan desde Azure Portal. También es un procedimiento recomendado para enmascarar los valores confidenciales insertados al administrar libros mediante programación; por ello, el identificador de suscripción y el grupo de recursos se han enmascarado aquí. No se realizaron otras modificaciones en el valor `serializedData` entrante sin procesar.
+
+```json
+{
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "workbookDisplayName": {
+      "type": "string"
+    },
+    "workbookSourceId": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().id]"
+    },
+    "workbookId": {
+      "type": "string",
+      "defaultValue": "[newGuid()]"
+    }
+  },
+  "variables": {
+    // serializedData from original exported Azure Resource Manager template
+    "serializedData": "{\"version\":\"Notebook/1.0\",\"items\":[{\"type\":1,\"content\":{\"json\":\"Replace with Title\"},\"name\":\"text - 0\"},{\"type\":3,\"content\":{\"version\":\"KqlItem/1.0\",\"query\":\"{\\\"version\\\":\\\"ARMEndpoint/1.0\\\",\\\"data\\\":null,\\\"headers\\\":[],\\\"method\\\":\\\"GET\\\",\\\"path\\\":\\\"/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups\\\",\\\"urlParams\\\":[{\\\"key\\\":\\\"api-version\\\",\\\"value\\\":\\\"2019-06-01\\\"}],\\\"batchDisabled\\\":false,\\\"transformers\\\":[{\\\"type\\\":\\\"jsonpath\\\",\\\"settings\\\":{\\\"tablePath\\\":\\\"$..*\\\",\\\"columns\\\":[]}}]}\",\"size\":0,\"queryType\":12,\"visualization\":\"map\",\"tileSettings\":{\"showBorder\":false},\"graphSettings\":{\"type\":0},\"mapSettings\":{\"locInfo\":\"AzureLoc\",\"locInfoColumn\":\"location\",\"sizeSettings\":\"location\",\"sizeAggregation\":\"Count\",\"opacity\":0.5,\"legendAggregation\":\"Count\",\"itemColorSettings\":null}},\"name\":\"query - 1\"}],\"isLocked\":false,\"fallbackResourceIds\":[\"/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/XXXXXXX\"]}",
+
+    // parse the original into a JSON object, so that it can be manipulated
+    "parsedData": "[json(variables('serializedData'))]",
+
+    // create new JSON objects that represent only the items/properties to be modified
+    "updatedTitle": {
+      "content":{
+        "json": "[concat('Resource Group Regions in subscription \"', subscription().displayName, '\"')]"
+      }
+    },
+    "updatedMap": {
+      "content": {
+        "path": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups')]"
+      }
+    },
+
+    // the union function applies the updates to the original data
+    "updatedItems": [
+      "[union(variables('parsedData')['items'][0], variables('updatedTitle'))]",
+      "[union(variables('parsedData')['items'][1], variables('updatedMap'))]"
+    ],
+
+    // copy to a new workbook object, with the updated items
+    "updatedWorkbookData": {
+      "version": "[variables('parsedData')['version']]",
+      "items": "[variables('updatedItems')]",
+      "isLocked": "[variables('parsedData')['isLocked']]",
+      "fallbackResourceIds": ["[parameters('workbookSourceId')]"]
+    },
+
+    // convert back to an encoded string
+    "reserializedData": "[string(variables('updatedWorkbookData'))]"
+  },
+  "resources": [
+    {
+      "name": "[parameters('workbookId')]",
+      "type": "microsoft.insights/workbooks",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2018-06-17-preview",
+      "dependsOn": [],
+      "kind": "shared",
+      "properties": {
+        "displayName": "[parameters('workbookDisplayName')]",
+        "serializedData": "[variables('reserializedData')]",
+        "version": "1.0",
+        "sourceId": "[parameters('workbookSourceId')]",
+        "category": "workbook"
+      }
+    }
+  ],
+  "outputs": {
+    "workbookId": {
+      "type": "string",
+      "value": "[resourceId( 'microsoft.insights/workbooks', parameters('workbookId'))]"
+    }
+  },
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#"
+}
+```
+
+En este ejemplo, los pasos siguientes facilitaron la personalización de una plantilla de Azure Resource Manager exportada:
+1. Exporte el libro como plantilla de Azure Resource Manager como se explica en la sección anterior.
+2. En la sección `variables` de la plantilla:
+    1. Analice el valor `serializedData` en una variable de objeto JSON, que crea una estructura JSON que incluye una matriz de elementos que representan el contenido del libro.
+    2. Cree nuevos objetos JSON que representen solo los elementos o propiedades que se modificarán.
+    3. Proyecte un nuevo conjunto de elementos de contenido JSON (`updatedItems`), mediante la función `union()` para aplicar las modificaciones a los elementos JSON originales.
+    4. Cree un nuevo objeto de libro, `updatedWorkbookData`, que contenga `updatedItems` y los datos `version`/`isLocked` de los datos analizados originales, así como un conjunto corregido de `fallbackResourceIds`.
+    5. Vuelva a serializar el nuevo contenido JSON en una nueva variable de cadena, `reserializedData`.
+3. Use la nueva variable `reserializedData` en lugar de la propiedad `serializedData` original.
+4. Implemente el nuevo recurso de libro con la plantilla de Azure Resource Manager actualizada.
 
 ### <a name="limitations"></a>Limitaciones
 Por motivos técnicos, este mecanismo no se puede usar para crear instancias de libro en la galería de _Libros_ de Application Insights. Estamos trabajando actualmente para poder resolver este incidente. Mientras tanto, se recomienda usar la galería de la guía de solución de problemas (workbookType: `tsg`) para implementar libros relacionados de Application Insights.

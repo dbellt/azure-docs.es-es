@@ -1,18 +1,19 @@
 ---
-title: 'Configuración de BGP en instancias de Azure VPN Gateway: CLI'
-description: Este artículo le guiará a la hora de configurar BGP con Azure VPN Gateway con Azure Resource Manager y la CLI.
+title: Configuración de BGP para VPN Gateway mediante la CLI
+titleSuffix: Azure VPN Gateway
+description: Aprenda a configurar BGP para VPN Gateway mediante la CLI.
 services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
-ms.openlocfilehash: a69ce0592b79be0868dd7c15ac054910eee75fc7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 1b7d1c1928425dca7e1924bca09f2cd21e0ea06a
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "89393605"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108290279"
 ---
 # <a name="how-to-configure-bgp-on-an-azure-vpn-gateway-by-using-cli"></a>Configuración de BGP en Azure VPN Gateway con la CLI
 

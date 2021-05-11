@@ -3,12 +3,12 @@ title: Direcciones IP en Azure Functions
 description: Aprenda a buscar las direcciones IP entrantes y salientes de aplicaciones de función y descubra qué es lo que hace que cambien.
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: 2c248756899459e17082bcab863a4e857b594909
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 30b45394ea620d05a89c3b2fd747573f1ea8017d
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104608238"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108205006"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Direcciones IP en Azure Functions
 
@@ -50,7 +50,7 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 ```
 
 > [!NOTE]
-> Cuando se escala una aplicación de función que se ejecuta en el [plan de consumo](consumption-plan.md) o el [plan premium](functions-premium-plan.md), puede asignarse un nuevo intervalo de direcciones IP de salida. Cuando se ejecuta en uno de estos planes, es posible que deba incluir en la lista de permitidos el centro de datos completo.
+> Cuando se escala una aplicación de función que se ejecuta en el [plan de consumo](consumption-plan.md) o el [plan premium](functions-premium-plan.md), puede asignarse un nuevo intervalo de direcciones IP de salida. Cuando se ejecuta en uno de estos planes, es posible que deba agregar el centro de datos completo a la lista de permitidos.
 
 ## <a name="data-center-outbound-ip-addresses"></a>Direcciones IP de salida del centro de datos
 
@@ -92,14 +92,24 @@ Si la aplicación de funciones se ejecuta en un [plan de consumo](consumption-pl
 
 ## <a name="outbound-ip-address-changes"></a>Cambios en la dirección IP de salida
 
-El conjunto de direcciones IP de salida disponibles para una aplicación de función puede cambiar cuando se:
+La estabilidad relativa de la dirección IP de salida depende del plan de hospedaje.  
+
+### <a name="consumption-and-premium-plans"></a>Planes de consumo y prémium
+
+Debido a los comportamientos de escalado automático, la dirección IP de salida puede cambiar en cualquier momento cuando se ejecute en un [Plan de consumo](consumption-plan.md) o en un [Plan prémium](functions-premium-plan.md). 
+
+Si necesita controlar la dirección IP de salida de la aplicación de funciones, por ejemplo, cuando necesite agregarla a una lista de permitidos, puede implementar una [puerta de enlace NAT de red virtual](#virtual-network-nat-gateway-for-outbound-static-ip) en el plan prémium.
+
+### <a name="dedicated-plans"></a>Planes dedicados
+
+Cuando se ejecuta en planes dedicados (App Service), el conjunto de direcciones IP de salida disponibles para una aplicación de funciones puede cambiar si:
 
 * Realiza alguna acción que puede cambiar la dirección IP de entrada.
-* Cambia el plan de tarifa del plan de App Service. La lista de todas las posibles direcciones IP de salida que puede utilizar una aplicación, para todos los planes de tarifa, está en la propiedad `possibleOutboundIPAddresses`. Consulte [Búsqueda de las direcciones IP de salida](#find-outbound-ip-addresses).
+* Cambia el plan de tarifa del plan dedicado (App Service). La lista de todas las posibles direcciones IP de salida que puede utilizar una aplicación, para todos los planes de tarifa, está en la propiedad `possibleOutboundIPAddresses`. Consulte [Búsqueda de las direcciones IP de salida](#find-outbound-ip-addresses).
 
-Si la aplicación de funciones se ejecuta en un [plan de consumo](consumption-plan.md) o un [plan premium](functions-premium-plan.md), la dirección IP de salida también podría cambiar, aunque no se haya realizado ninguna acción como las que [se indicaron anteriormente](#inbound-ip-address-changes).
+#### <a name="forcing-an-outbound-ip-address-change"></a>Forzar el cambio de la dirección IP de salida
 
-Use el procedimiento siguiente para forzar un cambio de dirección IP de salida:
+Use el procedimiento siguiente para forzar deliberadamente un cambio de dirección IP de salida en un plan dedicado (App Service):
 
 1. Escale el plan de App Service o redúzcalo verticalmente entre los planes de tarifa Estándar y Premium v2.
 

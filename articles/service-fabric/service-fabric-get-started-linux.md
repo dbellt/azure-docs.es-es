@@ -4,12 +4,12 @@ description: Instale el SDK y el motor en tiempo de ejecución, y cree un clúst
 ms.topic: conceptual
 ms.date: 10/16/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: fcf0aeec27415d03c528e42ad5341a92bd299d88
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: a06e649fbbe3e7ea1036d9511a87169a5b0a655a
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107869408"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108288263"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparación del entorno de desarrollo en Linux
 > [!div class="op_single_selector"]
@@ -24,19 +24,15 @@ En los pasos descritos en este artículo se supone que va a instalar de forma na
 Puede administrar las entidades de Service Fabric hospedadas en la nube o en el entorno local mediante la interfaz de la línea de comandos (CLI) de Azure Service Fabric. Para más información acerca de cómo instalar la CLI, consulte [Configuración de la CLI de Service Fabric](./service-fabric-cli.md).
 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
-Se admiten estas versiones de sistemas operativos para desarrollo.
+- Asegúrese de que usa una [versión de Linux](service-fabric-versions.md#supported-linux-versions-and-support-end-date) compatible.
 
-* Ubuntu 16.04 (`Xenial Xerus`), 18.04 (`Bionic Beaver`)
-
-    Asegúrese de que el paquete `apt-transport-https` está instalado.
+- Instale el paquete `apt-transport-https`:
          
     ```bash
     sudo apt-get install apt-transport-https
     ```
-* Red Hat Enterprise Linux 7.4 (compatibilidad con la versión preliminar de Service Fabric)
-
 
 ## <a name="installation-methods"></a>Métodos de instalación
 

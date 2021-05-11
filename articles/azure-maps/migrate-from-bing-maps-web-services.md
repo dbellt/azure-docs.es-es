@@ -3,18 +3,18 @@ title: 'Tutorial: Migración de servicios web desde Mapas de Bing | Microsoft Az
 description: Tutorial sobre cómo migrar servicios web desde Mapas de Bing a Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 12/07/2020
+ms.date: 04/26/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 6024aae68183fbe02125ef4207e9fbce8abd6a2b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f108062c04292c322d07980155fea9c8808beb0a
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97679068"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108326748"
 ---
 # <a name="tutorial-migrate-web-service-from-bing-maps"></a>Tutorial: Migración de servicios web desde Mapas de Bing
 
@@ -615,9 +615,9 @@ La geocodificación por lotes es el proceso de tomar un gran número de direccio
 
 Mapas de Bing permite pasar hasta 200 000 direcciones en una única solicitud de geocodificación por lotes. Esta solicitud entra en una cola y se procesa normalmente durante un período que va de unos minutos a unas horas, según el tamaño del conjunto de datos y la carga en el servicio. Cada dirección de la solicitud genera una transacción.
 
-Azure Maps dispone de un servicio de geocodificación por lotes, pero permite pasar hasta 10 000 direcciones en una única solicitud, que se procesa en un intervalo de unos segundos a varios minutos, según el tamaño del conjunto de datos y la carga en el servicio. Cada dirección de la solicitud genera una transacción. En Azure Maps, el servicio de geocodificación por lotes solo está disponible en el nivel S1.
+Azure Maps dispone de un servicio de geocodificación por lotes, pero permite pasar hasta 10 000 direcciones en una única solicitud, que se procesa en un intervalo de unos segundos a varios minutos, según el tamaño del conjunto de datos y la carga en el servicio. Cada dirección de la solicitud genera una transacción. En Azure Maps, el servicio de geocodificación por lotes solo está disponible en los planes de tarifa Gen 2 o S1. Para más información sobre los planes de tarifa, consulte [Elección del plan de tarifa adecuado de Azure Maps](choose-pricing-tier.md).
 
-Otra opción para geocodificar una gran cantidad de direcciones con Azure Maps es realizar solicitudes paralelas a las API de búsqueda estándar. Estos servicios solo aceptan una dirección por solicitud, pero se pueden usar con el nivel S0 que también proporciona límites de uso gratis. El nivel S0 permite hasta 50 solicitudes por segundo a la plataforma de Azure Maps desde una sola cuenta. Por lo tanto, si el límite de procesamiento permanece dentro de ese valor, es posible geocodificar en sentido ascendente 180 000 direcciones por hora. El nivel S1 no tiene un límite documentado sobre el número de consultas por segundo que se pueden realizar desde una cuenta, por lo que se pueden procesar muchos más datos más rápido cuando se usa ese plan de tarifa; sin embargo, el uso del servicio de geocodificación por lotes ayudará a disminuir la cantidad total de datos transferidos y reducirá drásticamente el tráfico de red.
+Otra opción para geocodificar una gran cantidad de direcciones con Azure Maps es realizar solicitudes paralelas a las API de búsqueda estándar. Estos servicios solo aceptan una dirección por solicitud, pero se pueden usar con el nivel S0 que también proporciona límites de uso gratis. El nivel S0 permite hasta 50 solicitudes por segundo a la plataforma de Azure Maps desde una sola cuenta. Por lo tanto, si el límite de procesamiento permanece dentro de ese valor, es posible geocodificar en sentido ascendente 180 000 direcciones por hora. Los planes de tarifa Gen 2 o S1 no tienen un límite documentado sobre el número de consultas por segundo que se pueden realizar desde una cuenta, por lo que se pueden procesar muchos más datos más rápido cuando se usan esos planes de tarifa; sin embargo, el uso del servicio de geocodificación por lotes ayudará a disminuir la cantidad total de datos transferidos y reducirá drásticamente el tráfico de red.
 
 -   [Geocodificación de direcciones en formato libre](/rest/api/maps/search/getsearchaddress): especifique una única cadena de dirección (como `"1 Microsoft way, Redmond, WA"`) y procese la solicitud inmediatamente. Este es el servicio recomendado si hay que geocodificar direcciones de forma individual rápidamente.
 -   [Geocodificación de direcciones estructurada](/rest/api/maps/search/getsearchaddressstructured): especifique las partes de una dirección (como el nombre de la calle, la ciudad, el país y el código postal) y procese la solicitud inmediatamente. Este es el servicio recomendado si hay que geocodificar direcciones de forma individual rápidamente y los datos ya se han separado en sus partes individuales.

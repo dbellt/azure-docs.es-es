@@ -16,19 +16,19 @@ ms.date: 01/25/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a014bd5c8f1edbfb00019b8541cef552271d65b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 85f5322d43a26e35d86fd92f6d85a49815db0491
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98762840"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108165738"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Solución de problemas de autenticación de paso a través de Azure Active Directory
 
 Este artículo sirve de ayuda para encontrar información acerca de cómo solucionar los problemas comunes relativos a la autenticación de paso a través de Azure AD.
 
->[!IMPORTANT]
->Si se enfrenta a problemas de inicio de sesión de los usuarios con la autenticación de paso a través, no deshabilite la característica ni desinstale los agentes de autenticación de paso a través sin tener una cuenta de administrador global solo en la nube a la que retroceder. Información acerca de la [incorporación de una cuenta de administrador global que está solo en la nube](../fundamentals/add-users-azure-active-directory.md). Este paso es esencial y se asegura de no quedar bloqueado fuera de su inquilino.
+> [!IMPORTANT]
+> Si se enfrenta a problemas de inicio de sesión de los usuarios con la autenticación de paso a través, no deshabilite la característica ni desinstale los agentes de autenticación de paso a través sin tener una cuenta de administrador global solo en la nube a la que retroceder. Información acerca de la [incorporación de una cuenta de administrador global que está solo en la nube](../fundamentals/add-users-azure-active-directory.md). Este paso es esencial y se asegura de no quedar bloqueado fuera de su inquilino.
 
 ## <a name="general-issues"></a>Problemas generales
 
@@ -42,34 +42,36 @@ Asegúrese de que la característica de autenticación de paso a través sigue *
 
 ### <a name="user-facing-sign-in-error-messages"></a>Mensajes de error de inicio de sesión para el usuario
 
-Si el usuario no ha podido iniciar sesión con la autenticación de paso a través, puede ver uno de los siguientes errores para el usuario en la pantalla de inicio de sesión de Azure AD: 
+Si el usuario no ha podido iniciar sesión con la autenticación de paso a través, puede ver uno de los siguientes errores para el usuario en la pantalla de inicio de sesión de Azure AD:
 
 |Error|Descripción|Resolución
 | --- | --- | ---
-|AADSTS80001|No es posible conectarse a Active Directory.|Asegúrese de que los servidores del agente sean miembros del mismo bosque de AD que los usuarios cuyas contraseñas haya que validar y que pueden conectarse a Active Directory.  
+|AADSTS80001|No es posible conectarse a Active Directory.|Asegúrese de que los servidores del agente sean miembros del mismo bosque de AD que los usuarios cuyas contraseñas haya que validar y que pueden conectarse a Active Directory.
 |AADSTS8002|Se ha agotado el tiempo de espera al conectarse a Active Directory.|Asegúrese de que Active Directory está disponible y responde a las solicitudes de los agentes.
 |AADSTS80004|El nombre de usuario transferido al agente no era válido.|Asegúrese de que el usuario esté intentando iniciar sesión con el nombre de usuario correcto.
 |AADSTS80005|La validación encontró una excepción WebException impredecible|Se trata de un error transitorio. Vuelva a intentarlo. Si el error no desaparece, póngase en contacto con el soporte técnico de Microsoft.
 |AADSTS80007|Error al establecer comunicación con Active Directory.|Compruebe los registros del agente para más información y verifique que Active Directory está funcionando según lo previsto.
 
-### <a name="users-get-invalid-usernamepassword-error"></a>Los usuarios obtienen un error de nombre de usuario y contraseña no válidos 
+### <a name="users-get-invalid-usernamepassword-error"></a>Los usuarios obtienen un error de nombre de usuario y contraseña no válidos
 
 Esto puede ocurrir cuando el UserPrincipalName (UPN) local de un usuario es diferente del UPN de nube del usuario.
 
 Para confirmar que este es el problema, primero compruebe que el agente de autenticación de paso a través funciona correctamente:
 
+1. Cree una cuenta de prueba.
 
-1. Cree una cuenta de prueba.  
 2. Importe el módulo de PowerShell en el equipo del agente:
 
- ```powershell
- Import-Module "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\PassthroughAuthPSModule\PassthroughAuthPSModule.psd1"
- ```
-3. Ejecute el comando Invoke de PowerShell: 
+   ```powershell
+   Import-Module "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\PassthroughAuthPSModule\PassthroughAuthPSModule.psd1"
+   ```
 
- ```powershell
- Invoke-PassthroughAuthOnPremLogonTroubleshooter 
- ``` 
+3. Ejecute el comando Invoke de PowerShell:
+
+   ```powershell
+   Invoke-PassthroughAuthOnPremLogonTroubleshooter 
+   ```
+
 4. Cuando se le pida que escriba las credenciales, escriba el mismo nombre de usuario y contraseña que usa para iniciar sesión (https://login.microsoftonline.com).
 
 Si recibe el mismo error de nombre de usuario y contraseña, significa que el agente de autenticación de paso a través funciona correctamente y el problema puede ser que el UPN local no sea enrutable. Para saber más, consulte [Configuración del identificador de inicio de sesión alternativo](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id).
@@ -94,12 +96,12 @@ Vaya a **Azure Active Directory** -> **Inicios de sesión** en el [centro de adm
 | 80004 | Se usó un nombre principal de usuario (UPN) incorrecto en una solicitud de inicio de sesión. | Pida al usuario que inicie sesión con el nombre de usuario correcto.
 | 80005 | Agente de autenticación: Se ha producido un error. | Se trata de un error transitorio. Vuelva a intentarlo más tarde.
 | 80007 | El agente de autenticación no puede conectarse a Active Directory. | Compruebe si Active Directory es accesible desde el agente de autenticación.
-| 80010 | El agente de autenticación no puede descifrar la contraseña. | Si el problema se puede reproducir habitualmente, instale y registre un nuevo agente de autenticación. Después, desinstale el actual. 
+| 80010 | El agente de autenticación no puede descifrar la contraseña. | Si el problema se puede reproducir habitualmente, instale y registre un nuevo agente de autenticación. Después, desinstale el actual.
 | 80011 | El agente de autenticación no puede recuperar la clave de descifrado. | Si el problema se puede reproducir habitualmente, instale y registre un nuevo agente de autenticación. Después, desinstale el actual.
 | 80014 | Solicitud de validación respondida después de que se supere el tiempo máximo transcurrido. | El agente de autenticación agotó el tiempo de espera. Abra una incidencia de soporte técnico con el código de error, el identificador de correlación y la marca de tiempo para conocer más detalles sobre este error.
 
->[!IMPORTANT]
->Para autenticar a los usuarios de Azure AD, los agentes de autenticación de paso a través validan sus nombres de usuario y contraseñas en Active Directory mediante la llamada a la [API LogonUser de Win32](/windows/win32/api/winbase/nf-winbase-logonusera). Como resultado, si ha establecido la configuración de inicio de sesión en Active Directory para limitar el acceso de inicio de sesión de la estación de trabajo, tendrá que agregar también los servidores que hospedan los agentes de autenticación de paso a través a la lista de servidores de inicio de sesión. Si no lo hace, los usuarios no podrán iniciar sesión en Azure AD.
+> [!IMPORTANT]
+> Para autenticar a los usuarios de Azure AD, los agentes de autenticación de paso a través validan sus nombres de usuario y contraseñas en Active Directory mediante la llamada a la [API LogonUser de Win32](/windows/win32/api/winbase/nf-winbase-logonusera). Como resultado, si ha establecido la configuración de inicio de sesión en Active Directory para limitar el acceso de inicio de sesión de la estación de trabajo, tendrá que agregar también los servidores que hospedan los agentes de autenticación de paso a través a la lista de servidores de inicio de sesión. Si no lo hace, los usuarios no podrán iniciar sesión en Azure AD.
 
 ## <a name="authentication-agent-installation-issues"></a>Problemas de instalación del agente de autenticación
 
@@ -157,8 +159,6 @@ Para ver los errores relacionados con el agente de autenticación , abra la apli
 
 Para obtener un análisis detallado, habilite el registro "Sesión" (haga clic con el botón derecho en la aplicación Visor de eventos para encontrar esta opción). No ejecute el agente de autenticación con este registro habilitado durante las operaciones normales; úselo solo para solucionar problemas. Tenga en cuenta que el contenido del registro solo se ve cuando el registro se vuelve a deshabilitar.
 
-
-
 ### <a name="detailed-trace-logs"></a>Registros de seguimiento detallados
 
 Para solucionar errores de inicio de sesión de losusuarios, busque los registros de seguimiento en **%ProgramData%\Microsoft\Azure AD Connect Authentication Agent\Trace\\** . Estos registros incluyen los motivos por los que un usuario concreto no pudo iniciar sesión mediante la característica Autenticación de paso a través. Estos errores también pueden hacerse corresponder con los motivos de errores de inicio de sesión mostrados en la tabla anterior. La siguiente es una entrada del registro de ejemplo:
@@ -193,5 +193,5 @@ Otra forma de supervisar a los agentes de autenticación consiste en realizar un
 
 ![Contadores de Performance Monitor de la Autenticación de paso a través](./media/tshoot-connect-pass-through-authentication/pta12.png)
 
->[!IMPORTANT]
->La Autenticación de paso a través ofrece alta disponibilidad mediante la utilización de varios agentes de autenticación, pero _no_ usa el equilibrio de carga. Según la configuración, _no_ todos los agentes de autenticación reciben aproximadamente el _mismo_ número de solicitudes. Es posible que un agente de autenticación específico no reciba ningún tráfico.
+> [!IMPORTANT]
+> La Autenticación de paso a través ofrece alta disponibilidad mediante la utilización de varios agentes de autenticación, pero _no_ usa el equilibrio de carga. Según la configuración, _no_ todos los agentes de autenticación reciben aproximadamente el _mismo_ número de solicitudes. Es posible que un agente de autenticación específico no reciba ningún tráfico.

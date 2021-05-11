@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: troubleshooting
 ms.date: 08/17/2020
-ms.openlocfilehash: 5487e51ad73ab903e7b61de266e2c28d282a56c1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5b17df9e074375b8cdbe769c840aaf030eaff8af
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105568666"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108317440"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>Solución de problemas de replicación en la migración de máquinas virtuales VMware sin agente
 
@@ -240,7 +240,7 @@ Este error se puede resolver de las dos maneras siguientes:
 - Si ha optado por reparar la replicación automáticamente al seleccionar "Yes" (Sí) cuando desencadenó la replicación de la máquina virtual, la herramienta intentará repararlo. Haga clic con el botón derecho en la máquina virtual y seleccione "Repair Replication" (Reparar la replicación).
 - Si no ha optado por reparar automáticamente la replicación o el paso anterior no ha funcionado, detenga la replicación de la máquina virtual, [restablezca el seguimiento de bloques cambiados](https://go.microsoft.com/fwlink/?linkid=2139203) en la máquina virtual y, a continuación, vuelva a configurar la replicación.
 
-Un problema conocido que puede provocar un restablecimiento de CBT de la máquina virtual en VMware vSphere 5.5 se describe en el artículo [VMware KB 2048201: Se restablece el seguimiento de bloques cambiados](https://go.microsoft.com/fwlink/?linkid=2138888) tras una operación de almacenamiento de vMotion en vSphere 5.x. Si se encuentra en VMware vSphere 5.5 asegúrese de que aplica las actualizaciones descritas en este artículo de KB.
+Un problema conocido que puede provocar un restablecimiento de CBT de la máquina virtual en VMware vSphere 5.5 se describe en el artículo [VMware KB 1020128: Se restablece el seguimiento de bloques cambiados](https://kb.vmware.com/s/article/1020128) tras una operación de almacenamiento de vMotion en vSphere 5.x. Si se encuentra en VMware vSphere 5.5 asegúrese de que aplica las actualizaciones descritas en este artículo de KB.
 
 O bien, puede restablecer el seguimiento de bloques cambiados de VMware en una máquina virtual con PowerCLI de VMware.
 

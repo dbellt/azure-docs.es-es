@@ -4,14 +4,14 @@ description: Cómo usar Azure HPC Cache para mejorar el acceso a los datos almac
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 10/30/2019
+ms.date: 04/26/2021
 ms.author: v-erkel
-ms.openlocfilehash: e955ddc14bb2b0a7abc0dc815c6955247568876b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1358f3cfebcd5cdc6d9e402e9c487f80f1aa8bcd
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86497019"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108322031"
 ---
 # <a name="use-azure-hpc-cache-with-azure-netapp-files"></a>Uso de Azure HPC Cache con Azure NetApp Files
 
@@ -50,13 +50,13 @@ Use el tamaño mínimo para la subred delegada al crear un sistema Azure NetApp 
 
 El tamaño mínimo, que se especifica con la máscara de red /28, proporciona 16 direcciones IP. En la práctica, Azure NetApp Files usa solo tres de las direcciones IP disponibles para el acceso al volumen. Esto significa que solo tiene que crear tres destinos de almacenamiento en Azure HPC Cache para cubrir todos los volúmenes.
 
-Si la subred delegada es demasiado grande, es posible que los volúmenes de Azure NetApp Files usen más direcciones IP de las que una única instancia de Azure HPC Cache puede controlar. Una sola memoria caché puede tener diez destinos de almacenamiento como máximo.
+Si la subred delegada es demasiado grande, es posible que los volúmenes de Azure NetApp Files usen más direcciones IP de las que una única instancia de Azure HPC Cache puede controlar. Una sola caché tiene un límite de 10 destinos de almacenamiento para la mayoría de los tamaños de rendimiento de caché, o 20 destinos de almacenamiento para las configuraciones más grandes.
 
 En el ejemplo de inicio rápido de la documentación de Azure NetApp Files se usa 10.7.0.0/16 para la subred delegada, que proporciona una subred que es demasiado grande.
 
 ### <a name="capacity-pool-service-level"></a>Nivel de servicio del grupo de capacidad
 
-Al elegir el nivel de servicio para el grupo de capacidad, tenga en cuenta el flujo de trabajo. Si vuelve a escribe datos con frecuencia en el volumen de Azure NetApp Files, el rendimiento de la memoria caché se puede restringir si el tiempo de escritura diferida es lento. Elija un nivel de servicio alto para los volúmenes que tendrán escrituras frecuentes.
+Al elegir el [nivel de servicio](../azure-netapp-files/azure-netapp-files-service-levels.md) para el grupo de capacidad, tenga en cuenta el flujo de trabajo. Si vuelve a escribe datos con frecuencia en el volumen de Azure NetApp Files, el rendimiento de la memoria caché se puede restringir si el tiempo de escritura diferida es lento. Elija un nivel de servicio alto para los volúmenes que tendrán escrituras frecuentes.
 
 Los volúmenes con niveles de servicio bajos también pueden mostrar algún retraso al inicio de una tarea mientras la memoria caché rellena previamente el contenido. Después de que la memoria caché esté en funcionamiento con un buen espacio de trabajo de archivos, el retraso debería pasar a ser inapreciable.
 

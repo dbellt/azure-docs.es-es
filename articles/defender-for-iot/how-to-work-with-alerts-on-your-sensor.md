@@ -3,12 +3,12 @@ title: Descripción de alertas de sensor
 description: Use alertas para mejorar la seguridad y el funcionamiento de la red.
 ms.date: 3/29/2021
 ms.topic: how-to
-ms.openlocfilehash: a34871342e9a868ba593ae894fdd91b5e99c5a44
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 353f7fb0da85a0ffa737dc5c4afa70763b2fb185
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105729429"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108208948"
 ---
 # <a name="about-sensor-alerts"></a>Acerca de las alertas del sensor
 
@@ -56,7 +56,7 @@ Hay herramientas disponibles para habilitar y deshabilitar los motores de los se
 
 ## <a name="alerts-and-sensor-reporting"></a>Alertas y notificaciones de los sensores
 
-La actividad que se refleja en las alertas se puede calcular al generar informes de minería de datos, evaluación de riesgos y vectores de ataque. Cuando se administran estos eventos, el sensor actualiza los informes en consecuencia.
+La actividad que se refleja en las alertas se calcula al generar informes de minería de datos, evaluación de riesgos y vectores de ataque. Cuando se administran estos eventos, el sensor actualiza los informes en consecuencia.
 
 Por ejemplo:
 

@@ -4,12 +4,12 @@ description: En este artículo, aprenderá a solucionar problemas relacionados c
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/22/2019
-ms.openlocfilehash: 07e101fe87fb3f5db0bb716f0bc9ea6f8773aa3e
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: 54425496428c3534c4c7ae47d10bc3a68256a656
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107518565"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108163974"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Solución de problemas en la copia de seguridad del estado del sistema
 
@@ -42,15 +42,15 @@ Antes de empezar a solucionar problemas de copia de seguridad del estado del sis
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-Antes de solucionar problemas de copia de seguridad del estado del sistema con Azure Backup, realice la comprobación de los requisitos previos a continuación.  
+Antes de solucionar problemas de copia de seguridad del estado del sistema con Azure Backup, realice la comprobación de los requisitos previos a continuación.
 
 ### <a name="verify-windows-server-backup-is-installed"></a>Comprobación de que Copias de seguridad de Windows Server está instalado
 
 Asegúrese de que Copias de seguridad de Windows Server está instalado y habilitado en el servidor. Para comprobar el estado de la instalación, ejecute este comando de PowerShell:
 
- ```powershell
+```powershell
 Get-WindowsFeature Windows-Server-Backup
- ```
+```
 
 Si en la salida se muestra **Instalar estado** como **disponible**, significa que la característica de copia de seguridad de Windows Server está disponible para la instalación pero no está instalada en el servidor. Pero si Copias de seguridad de Windows Server no está instalado, use uno de los métodos siguientes para instalarlo.
 
@@ -118,7 +118,7 @@ Para validar el estado de Copias de seguridad de Windows Server, siga estos paso
       `wbadmin start systemstatebackup -backuptarget:X: -quiet`
 
       > [!NOTE]
-      >Reemplace X por la letra de unidad del volumen donde quiera almacenar la imagen de copia de seguridad del estado del sistema.
+      > Reemplace X por la letra de unidad del volumen donde quiera almacenar la imagen de copia de seguridad del estado del sistema.
 
     - Compruebe periódicamente el estado del trabajo mediante la ejecución del comando `Get-WBJob` desde PowerShell con privilegios elevados.
     - Cuando finalice el trabajo de copia de seguridad, compruebe el estado final del trabajo mediante la ejecución del comando `Get-WBJob -Previous 1`.
@@ -131,7 +131,7 @@ Si se produce un error en el trabajo, indica un problema de WSB, lo que daría l
 
 | Síntoma | Causa | Solución
 | -- | -- | --
-| - Se produce un error en el agente de MARS con el mensaje de error: "No se pudo realizar el trabajo de WSB porque se produjeron errores de VSS. Compruebe los registros de eventos de VSS para resolver estos errores"<br/><br/> - El registro de errores siguiente está presente en los registros de eventos de aplicación de VSS: "Un VSS Writer rechazó un evento con el error 0x800423f2, se agotó el tiempo de espera del escritor entre los eventos Freeze y Thaw".| VSS Writer no se puede completar a tiempo debido a la falta de recursos de CPU y memoria en el equipo <br/><br/> Otro software de copia de seguridad ya usa VSS Writer, y como resultado no se pudo completar la operación de instantánea para esta copia de seguridad | Espere a que se libere la CPU o la memoria en el sistema, o bien, anule los procesos que consuman demasiada memoria y CPU, y vuelva a intentarlo. <br/><br/>  Espere a que se complete la copia de seguridad en curso e intente la operación en un momento posterior, cuando no se estén ejecutando copias de seguridad en la máquina.
+| - Se produce un error en el agente de MARS con el mensaje de error: "No se pudo realizar el trabajo de WSB porque se produjeron errores de VSS. Compruebe los registros de eventos de VSS para resolver estos errores".<br/><br/> - El registro de errores siguiente está presente en los registros de eventos de aplicación de VSS: "Un VSS Writer rechazó un evento con el error 0x800423f2, se agotó el tiempo de espera del escritor entre los eventos Freeze y Thaw".| VSS Writer no se puede completar a tiempo debido a la falta de recursos de CPU y memoria en el equipo <br/><br/> Otro software de copia de seguridad ya usa VSS Writer, y como resultado no se pudo completar la operación de instantánea para esta copia de seguridad | Espere a que se libere la CPU o la memoria en el sistema, o bien, anule los procesos que consuman demasiada memoria y CPU, y vuelva a intentarlo. <br/><br/>  Espere a que se complete la copia de seguridad en curso e intente la operación en un momento posterior, cuando no se estén ejecutando copias de seguridad en la máquina.
 
 ### <a name="insufficient-disk-space-to-grow-shadow-copies"></a>Espacio en disco insuficiente para crear instantáneas
 
@@ -143,7 +143,7 @@ Si se produce un error en el trabajo, indica un problema de WSB, lo que daría l
 
 | Síntoma | Solución
 | -- | --
-| Se produce un error en el agente de MARS con el mensaje de error: "Error de copia de seguridad del estado del sistema porque la partición de sistema EFI está bloqueada. Esto se puede deber al acceso a la partición del sistema por parte de software de seguridad o copia de seguridad de terceros" | - Si el problema se debe a software de seguridad de terceros, tendrá que ponerse en contacto con el proveedor de antivirus para que permita el agente de MARS <br/><br/> - Si se está ejecutando un software de copia de seguridad de terceros, espere que termine y vuelva a intentar la copia de seguridad
+| Se produce un error en el agente de MARS con el mensaje de error: "Error de copia de seguridad del estado del sistema porque la partición de sistema EFI está bloqueada. Esto se puede deber al acceso a la partición del sistema por parte de software de seguridad o copia de seguridad de terceros". | - Si el problema se debe a software de seguridad de terceros, tendrá que ponerse en contacto con el proveedor de antivirus para que permita el agente de MARS <br/><br/> - Si se está ejecutando un software de copia de seguridad de terceros, espere que termine y vuelva a intentar la copia de seguridad
 
 ## <a name="next-steps"></a>Pasos siguientes
 

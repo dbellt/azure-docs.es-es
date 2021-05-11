@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 01/21/2021
 ms.custom: seodec18
-ms.openlocfilehash: cd26df1de86ee4bdb33050d0bc4769663707733e
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 70a0ecb6e9ff2707401517e185964edf512a94c9
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107725033"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108204268"
 ---
 # <a name="data-storage"></a>Almacenamiento de datos
 
@@ -72,7 +72,7 @@ Azure Time Series Insights Gen2 conserva un máximo de dos copias de cada evento
 Todos los datos se almacenan de forma indefinida en su cuenta de Azure Storage.
 
 > [!WARNING]
-> No restrinja el acceso a través de una red de Internet pública a un centro u origen de eventos usado por Time Series Insights o, de lo contrario, se interrumpirá la conexión necesaria.
+> No restrinja el acceso a través de una red de Internet pública a la cuenta de almacenamiento usada por Time Series Insights o, de lo contrario, se interrumpirá la conexión necesaria.
 
 #### <a name="writing-and-editing-blobs"></a>Escritura y edición de blobs
 

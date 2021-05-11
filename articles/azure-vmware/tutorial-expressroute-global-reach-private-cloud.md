@@ -4,18 +4,16 @@ description: Aprenda a emparejar ExpressRoute Global Reach con una nube privada 
 ms.topic: tutorial
 ms.custom: contperf-fy21q4
 ms.date: 04/27/2021
-ms.openlocfilehash: 52248eea866712782a5e04ee797c15d8c098bc9a
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: fb0d8bc8391c96449cdf260c543cfed1af1125f5
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108074659"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108176115"
 ---
 # <a name="peer-on-premises-environments-to-azure-vmware-solution"></a>Emparejamiento de entornos locales con Azure VMware Solution
 
-En este paso del inicio rápido, usará la [información obtenida en la fase de planeamiento](production-ready-deployment-steps.md) para conectar Azure VMware Solution al entorno local.
-
-Global Reach de ExpressRoute conecta su entorno local y la nubes privada de Azure VMware Solution. La conexión de Global Reach de ExpressRoute se establece entre el circuito ExpressRoute de la nube privada y una conexión existente de ExpressRoute con los entornos locales. 
+En este paso del inicio rápido, conectará Azure VMware Solution a un entorno local. Global Reach de ExpressRoute conecta su entorno local y la nubes privada de Azure VMware Solution. La conexión de Global Reach de ExpressRoute se establece entre el circuito ExpressRoute de la nube privada y una conexión existente de ExpressRoute con los entornos locales. 
 
 
 >[!NOTE]

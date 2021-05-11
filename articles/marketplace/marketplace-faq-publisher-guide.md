@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 09/11/2020
-ms.openlocfilehash: 15816d58105841ee53f3724158ebcbfa65df4877
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 5579aa764eaa9f367364dce6ca5db09184e04fa2
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108133140"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108330177"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Preguntas habituales sobre el marketplace comercial de Microsoft
 
@@ -68,6 +68,12 @@ Las formas en que los clientes pueden usar su oferta del marketplace comercial d
 Después de registrarse y aceptar el contrato del editor, tendrá acceso a la página Marketplace comercial en el Centro de partners. Aquí es donde puede crear y administrar las ofertas y dónde se ven los informes de análisis. En el caso de las aplicaciones de Microsoft 365, también debe activar el programa Tienda Office en el Centro de partners.
 
 Para más información, consulte [Bienvenido a marketplace comercial](index.yml) y [Rentabilizar el complemento de Microsoft 365 a través del marketplace comercial de Microsoft](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace).
+
+### <a name="how-can-my-own-employees-use-our-offers-from-the-marketplace-without-being-charged"></a>¿Cómo pueden mis propios empleados usar nuestras ofertas del marketplace sin que se les cobre?
+
+Para evitar que Microsoft cobre a sus empleados y evalúe la tasa de servicio de la tienda por la venta de su oferta, primero debe crear un [plan privado](/azure/marketplace/private-offers) para la oferta con un precio de 0 USD y enviar esta oferta a los usuarios internos que quieran comprarla.
+
+También puede usar nuestra funcionalidad de [Marketplace privado](/marketplace/create-manage-private-azure-marketplace) para asegurarse de que los usuarios internos solo compran ofertas específicas aprobadas por el administrador.
 
 ### <a name="how-do-i-get-support-assistance-for-the-commercial-marketplace"></a>¿Cómo puedo obtener asistencia de soporte técnico para el marketplace comercial?
 

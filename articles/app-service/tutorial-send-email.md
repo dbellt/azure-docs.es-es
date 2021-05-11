@@ -4,12 +4,12 @@ description: Aprenda a invocar procesos empresariales desde una aplicación de A
 ms.topic: tutorial
 ms.date: 04/08/2020
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 6b15c09162146de7aef8abfcdba40627eb77621c
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 04bdab82c9d1efed6da3f533617f19b82cf0781e
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107830941"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108290711"
 ---
 # <a name="tutorial-send-email-and-invoke-other-business-processes-from-app-service"></a>Tutorial: Envío de correo electrónico e invocación de otros procesos empresariales desde App Service
 
@@ -54,13 +54,13 @@ Implemente una aplicación con el marco de lenguaje que prefiera para App Servic
 
 ## <a name="create-the-logic-app"></a>Creación de la aplicación lógica
 
-1. En [Azure Portal](https://portal.azure.com), cree una aplicación lógica vacía siguiendo las instrucciones de [Creación de una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md#create-your-logic-app). Cuando aparezca el **diseñador de Logic Apps**, vuelva a este tutorial.
+1. En [Azure Portal](https://portal.azure.com), cree una aplicación lógica vacía siguiendo las instrucciones que se indican en [Creación de la primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Cuando aparezca el **diseñador de Logic Apps**, vuelva a este tutorial.
 1. En la página de inicio del diseñador de Logic Apps, seleccione **Cuando se recibe una solicitud HTTP** en **Empezar con un desencadenador común**.
 
     ![Captura de pantalla que muestra la página inicial del diseñador de Logic Apps con la opción Cuando se recibe una solicitud HTTP resaltada.](./media/tutorial-send-email/receive-http-request.png)
 1. En el cuadro de diálogo **Cuando se recibe una solicitud HTTP**, seleccione **Usar una carga de ejemplo para generar el esquema**.
 
-    ![Captura de pantalla que muestra el cuadro de diálogo de la opción Cuando se recibe una solicitud HTTP y la opción Usar una carga de ejemplo para generar el esquema seleccionada. ](./media/tutorial-send-email/generate-schema-with-payload.png)
+    ![Instantánea en la que se muestra el cuadro de diálogo "Cuando se recibe una solicitud H T T P" con la opción "Usar una carga de ejemplo para generar el esquema" seleccionada. ](./media/tutorial-send-email/generate-schema-with-payload.png)
 
 1. Copie el siguiente código JSON de ejemplo en el cuadro de texto y seleccione **Listo**.
 
@@ -81,7 +81,7 @@ Implemente una aplicación con el marco de lenguaje que prefiera para App Servic
 
     Esta definición de la solicitud HTTP le permitirá desencadenar lo que quiera en esta aplicación lógica, ya sea Gmail u otra aplicación. Más adelante, invocará esta dirección URL en la aplicación de App Service. Para más información sobre el desencadenador de la solicitud, consulte la [referencia sobre las solicitudes HTTP y su respuesta](../connectors/connectors-native-reqres.md).
 
-1. En la parte inferior del diseñador, haga clic en **Nuevo paso** y, en el cuadro de búsqueda de acciones, escriba **Gmail**. Después, busque y seleccione **Enviar correo electrónico (V2)** .
+1. En la parte inferior del diseñador, haga clic en **Nuevo paso** y escriba **Gmail** en el cuadro de búsqueda de acciones. Busque y seleccione **Enviar correo electrónico (V2)** .
     
     > [!TIP]
     > Puede buscar otros tipos de integraciones, como SendGrid, MailChimp, Microsoft 365 y SalesForce. Para más información, consulte [Documentación de Azure Logic Apps](../logic-apps/index.yml).

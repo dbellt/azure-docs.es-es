@@ -1,18 +1,18 @@
 ---
 title: 'Tutorial: Uso de Azure Virtual WAN para crear una conexión de punto a sitio a Azure'
-description: En este tutorial, aprenda a usar Azure Virtual WAN para crear una conexión VPN de punto a sitio a Azure.
+description: En este tutorial, aprenderá a usar Azure Virtual WAN para crear una conexión VPN de usuario (de punto a sitio) a Azure.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 03/05/2021
+ms.date: 04/27/2021
 ms.author: cherylmc
-ms.openlocfilehash: db7345906605ce117f0d57deb80f9d26ebf84179
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a2943d83bd29251551bdf82e906e068717595e33
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102430537"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108164244"
 ---
 # <a name="tutorial-create-a-user-vpn-connection-using-azure-virtual-wan"></a>Tutorial: Creación de una conexión VPN de usuario mediante Azure Virtual WAN
 

@@ -7,26 +7,19 @@ ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: jushiman
-ms.openlocfilehash: d85623184ad52fb0d4acd4c49d08badfaf886b30
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 696125f75e41d39b4f9aaa1ff852b03eff589fb0
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107728237"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108204250"
 ---
 # <a name="msv2-and-mdsv2-series-medium-memory"></a>Serie de memoria media Msv2 y Mdsv2
 
 La serie de máquinas virtuales Msv2 y Mdsv2 de memoria media incluye el procesador Intel® Xeon® Platinum 8280 (Cascade Lake) con una frecuencia de base en todos los núcleos de 2,7 GHz y una frecuencia turbo en un único núcleo de 4,0 GHz. Con estas máquinas virtuales, los clientes consiguen una mayor flexibilidad con las opciones de disco local y sin disco. Los clientes también tienen acceso a un conjunto de nuevos tamaños de máquina virtual aislada con más CPU y memoria: hasta 192 vCPU con 4 TiB de memoria. 
 
-
-Las máquinas virtuales de la serie Msv2 y Mdsv2 solo son de segunda generación y admiten un subconjunto de imágenes compatibles de segunda generación. A continuación, puede encontrar la lista completa de imágenes compatibles de la serie Msv2 y Mdsv2.  
-
-- Windows Server 2019 o posterior
-- SUSE Linux Enterprise Server 12 SP4 y las versiones posteriores o SUSE Linux Enterprise Server 15 SP1 y las versiones posteriores.
-- Red Hat Enterprise Linux 7.6, 7.7, 8.1 o posterior 
-- Oracle Enterprise Linux 7.7 o posterior
-
-Para más información sobre las máquinas virtuales de segunda generación, consulte [Compatibilidad con máquinas virtuales de segunda generación en Azure](./generation-2.md).
+> [!NOTE]
+> Las máquinas virtuales de memoria media Msv2 y Mdsv2 son solo de generación 2. Para obtener más información sobre las máquinas virtuales de segunda generación, consulte [Compatibilidad para máquinas virtuales de generación 2 en Azure](./generation-2.md).
 
 
 

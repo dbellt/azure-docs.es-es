@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 09/14/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: a6d98f827c39f973714441e308dcc4f2bd061c9b
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 7e5c94cad817f398ae56fb1aa9cbbd1c43cd47a4
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107835585"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108291827"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>¿Qué es Windows Virtual Desktop?
 
@@ -121,10 +121,10 @@ Para más información sobre las direcciones URL que debe desbloquear para usar 
 
 ## <a name="supported-virtual-machine-os-images"></a>Imágenes de SO de máquinas virtuales admitidas
 
-Windows Virtual Desktop admite las imágenes de SO x64 siguientes:
+Windows Virtual Desktop sigue la [directiva de ciclo de vida de Microsoft](https://docs.microsoft.com/lifecycle/) y admite las siguientes imágenes de sistema operativo x64:
 
-* Sesión múltiple de Windows 10 Enterprise, versión 1809 o superior
-* Windows 10 Enterprise, versión 1809 o posterior (solo Rama actual para empresas)
+* Sesión múltiple de Windows 10 Enterprise
+* Windows 10 Enterprise
 * Windows 7 Enterprise
 * Windows Server 2019
 * Windows Server 2016
@@ -136,10 +136,8 @@ Las opciones de automatización y de implementación disponibles dependen del si
 
 |Sistema operativo|Galería de imágenes de Azure|Implementación manual de la máquina virtual|Integración de la plantilla de Azure Resource Manager|Aprovisionamiento de grupos host en Azure Marketplace|
 |--------------------------------------|:------:|:------:|:------:|:------:|
-|Windows 10 Enterprise (multisesión), versión 2004|Sí|Sí|Sí|Sí|
-|Windows 10 Enterprise (multisesión), versión 1909|Sí|Sí|Sí|Sí|
-|Windows 10 Enterprise (multisesión), versión 1903|Sí|Sí|No|No|
-|Windows 10 Enterprise (multisesión), versión 1809|Sí|Sí|No|No|
+|Sesión múltiple de Windows 10 Enterprise, versión 1909 o superior|Sí|Sí|Sí|Sí|
+|Windows 10 Enterprise, versión 1909 o superior|Sí|Sí|Sí|Sí|
 |Windows 7 Enterprise|Sí|Sí|No|No|
 |Windows Server 2019|Sí|Sí|No|No|
 |Windows Server 2016|Sí|Sí|Sí|Sí|

@@ -4,19 +4,19 @@ description: Aprenda a usar la información recopilada en la fase de planeación
 ms.topic: tutorial
 ms.custom: contperf-fy21q4
 ms.date: 04/23/2021
-ms.openlocfilehash: 9a9f01788ccfaa7f304d71897efa3bcb0511d8fd
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: fe5e34ecb0ed3d8984432d44bbed5678c4592553
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/28/2021
-ms.locfileid: "108126406"
+ms.locfileid: "108175863"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Implementación y configuración de Azure VMware Solution
 
 En este artículo, usará la información de la [sección de planeación](production-ready-deployment-steps.md) para implementar y configurar Azure VMware Solution. 
 
 >[!IMPORTANT]
->Si aún no ha definido la información, vuelva a la [sección de planeamiento](production-ready-deployment-steps.md) antes de continuar.
+>Es información que ha usado en la [sección de planeamiento](production-ready-deployment-steps.md) antes de continuar.
 
 ## <a name="step-1-register-the-microsoftavs-resource-provider"></a>Paso 1. Registre el proveedor de recursos **Microsoft.AVS**.
 
@@ -72,5 +72,6 @@ Debe tener conectividad entre la instancia de Azure Virtual Network donde finali
 ## <a name="next-steps"></a>Pasos siguientes
 
 En la siguiente sección, conectará Azure VMware Solution a la red local a través de ExpressRoute.
+
 > [!div class="nextstepaction"]
 > [Tutorial: Emparejamiento de entornos locales con una nube privada](tutorial-expressroute-global-reach-private-cloud.md)

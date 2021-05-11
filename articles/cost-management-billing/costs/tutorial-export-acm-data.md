@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 37804be38918713cdfa7aea59763054e444daa7e
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.openlocfilehash: 100f4252768f6a141253d4df03a73da9f4f6b4bc
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108015724"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108290241"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Tutorial: Creación y administración de datos exportados
 
@@ -34,16 +34,16 @@ En este tutorial, aprenderá a:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-La exportación de datos está disponible para varios tipos de cuenta de Azure, entre las que se incluyen las de los clientes con [Contrato Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/) y [Contrato de cliente de Microsoft](get-started-partners.md). Para ver la lista completa de tipos de cuenta compatibles, consulte [Understand Cost Management data](understand-cost-mgt-data.md) (Información sobre los datos de Cost Management). Para la exportación de datos por usuario y grupo, se admiten los siguientes permisos o ámbitos de Azure por suscripción. Para más información sobre los ámbitos, consulte [Descripción y uso de ámbitos](understand-work-scopes.md).
+La exportación de datos está disponible para varios tipos de cuenta de Azure, entre las que se incluyen [Contrato Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) y [Contrato de cliente de Microsoft](get-started-partners.md). Para ver la lista completa de tipos de cuenta compatibles, consulte [Understand Cost Management data](understand-cost-mgt-data.md) (Información sobre los datos de Cost Management). Para la exportación de datos por usuario y grupo, se admiten los siguientes permisos o ámbitos de Azure por suscripción. Para más información sobre los ámbitos, consulte [Descripción y uso de ámbitos](understand-work-scopes.md).
 
 - Propietario: puede crear, modificar o eliminar exportaciones programadas para una suscripción.
 - Colaborador: puede crear, modificar o eliminar sus propias exportaciones programadas. Puede modificar el nombre de las exportaciones programadas creadas por otros usuarios.
 - Lector: puede programar las exportaciones para las que tenga permiso.
 
-Para más información sobre los ámbitos, incluido el acceso necesario para configurar las exportaciones de Contrato Enterprise y los ámbitos del contrato de cliente de Microsoft, consulte [Descripción y uso de ámbitos](understand-work-scopes.md).
+**Para más información sobre los ámbitos, incluido el acceso necesario para configurar las exportaciones de Contrato Enterprise y los ámbitos del Contrato de cliente de Microsoft, consulte [Descripción y uso de ámbitos](understand-work-scopes.md)** .
 
 Para las cuentas de Azure Storage:
-- Se necesitan permisos de escritura para cambiar la cuenta de Storage configurada, independientemente de los permisos en la exportación.
+- Se necesitan permisos de escritura para cambiar la cuenta de Storage configurada, independientemente de los permisos sobre la exportación.
 - La cuenta de Azure Storage debe configurarse para el almacenamiento de blobs o archivos.
 
 Si su suscripción es nueva, no podrá usar inmediatamente las características de Cost Management. Para poder hacerlo deberán transcurrir un máximo de 48 horas.
@@ -55,21 +55,21 @@ Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azur
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Para crear o ver una exportación de datos o programar una exportación, abra el ámbito deseado en Azure Portal y seleccione **Análisis de costos** en el menú. Por ejemplo, vaya a **Suscripciones**, seleccione una suscripción de la lista y **Análisis de costos**, en el menú. En la parte superior de la página Análisis de costos, seleccione **Configuración** y, después, **Exportaciones**.
+Para crear o ver una exportación de datos o programar una exportación, elija un ámbito en Azure Portal y seleccione **Análisis de costos** en el menú. Por ejemplo, vaya a **Suscripciones**, seleccione una suscripción de la lista y **Análisis de costos**, en el menú. En la parte superior de la página Análisis de costos, seleccione **Configuración** y, después, **Exportaciones**.
 
 > [!NOTE]
 > - Además de las suscripciones, puede crear exportaciones en grupo de recursos, grupos de administración, departamentos e inscripciones. Para más información sobre los ámbitos, consulte [Descripción y uso de ámbitos](understand-work-scopes.md).
->- Cuando haya iniciado sesión como asociado en el ámbito de la cuenta de facturación o en el inquilino de un cliente, podrá exportar los datos a una cuenta de Azure Storage vinculada a su cuenta de almacenamiento de asociado. Sin embargo, debe tener una suscripción activa en el inquilino de CSP.
+> - Cuando haya iniciado sesión como asociado en el ámbito de la cuenta de facturación o en el inquilino de un cliente, podrá exportar los datos a una cuenta de Azure Storage vinculada a su cuenta de almacenamiento de asociado. Sin embargo, debe tener una suscripción activa en el inquilino de CSP.
 
 1. Seleccione **Agregar** y escriba el nombre de la exportación.
 1. En **Métrica**, seleccione una de estas opciones:
     - **Actual cost (Usage and Purchases)** (Costo real [uso y compras]): seleccione esta opción para exportar el uso y las compras estándar.
     - **Amortized cost (Usage and Purchases)** (Costo amortizado [uso y compras]): seleccione esta opción para exportar los costos amortizados para compras como las reservas de Azure.
 1. En **Tipo de exportación**, seleccione una de estas opciones:
-    - **Exportación diaria de costos desde ese mes hasta la fecha actual**: genera un archivo de exportación diariamente de los costos desde un mes hasta la fecha. Se agregan los datos más recientes de las exportaciones diarias anteriores.
-    - **Exportación semanal de los costos para los últimos siete días**: crea una exportación semanal de los costos de los últimos siete días, a partir de la fecha de inicio seleccionada.
-    - **Monthly export of last month's costs** (Exportación mensual de los costos del mes pasado): proporciona una exportación de los costos del último mes, en comparación con el mes actual en el que crea la exportación. En el futuro, la programación ejecuta una exportación el quinto día de cada mes con los costos de los meses anteriores.
-    - **One-time export** (Exportación una sola vez): permite elegir un intervalo de fechas para la exportación del historial de datos a Azure Blob Storage. Puede exportar un máximo de 90 días del historial de costos a partir del día que elija. Esta exportación se ejecuta de inmediato y está disponible en la cuenta de almacenamiento en un plazo de dos horas.
+    - **Exportación diaria de costos desde ese mes hasta la fecha actual**: proporciona un nuevo archivo de exportación diaria de los costos desde un mes hasta la fecha. Se agregan los datos más recientes de las exportaciones diarias anteriores.
+    - **Weekly export of cost for the last seven days** (Exportación semanal de los costos en los últimos siete días): crea una exportación semanal de los costos de los últimos siete días, a partir de la fecha de inicio seleccionada.
+    - **Monthly export of last month's costs** (Exportación mensual de los costos del mes pasado): proporciona una exportación de los costos del último mes, en comparación con el mes actual en el que se crea la exportación. Luego, la programación ejecuta una exportación el quinto día de cada mes con los costos de los meses anteriores.
+    - **One-time export** (Exportación una sola vez): permite elegir un intervalo de fechas para la exportación de los datos históricos a Azure Blob Storage. Puede exportar un máximo de 90 días del historial de costos a partir del día que elija. Esta exportación se ejecuta de inmediato y está disponible en la cuenta de almacenamiento en un plazo de dos horas.
         En función del tipo de exportación, elija una fecha de inicio o elija una fecha en los campos **Desde** y **Hasta**.
 1. Especifique la suscripción de su cuenta de almacenamiento de Azure y, luego, seleccione un grupo de recursos o créelo.
 1. Seleccione el nombre de la cuenta de almacenamiento o cree una.
@@ -255,9 +255,45 @@ No se admiten las exportaciones de grupos de administración de otros tipos de s
 1. En análisis de costos, establezca el ámbito en el grupo de administración y seleccione **Select this management group** (Seleccionar este grupo de administración).
     :::image type="content" source="./media/tutorial-export-acm-data/management-group-scope.png" alt-text="Ejemplo en el que se muestra la opción Select this management group (Seleccionar este grupo de administración)" lightbox="./media/tutorial-export-acm-data/management-group-scope.png":::
 1. Cree una exportación en el ámbito para obtener datos de administración de costos para las suscripciones en el grupo de administración.
-    :::image type="content" source="./media/tutorial-export-acm-data/new-export-management-group-scope.png" alt-text="Ejemplo en el que se muestra la opción de crear una exportación con un ámbito de grupo de administración":::
+    :::image type="content" source="./media/tutorial-export-acm-data/new-export-management-group-scope.png" alt-text="Ejemplo que muestra la opción Crear nueva exportación con un ámbito de grupo de administración.":::
 
-## <a name="verify-that-data-is-collected"></a>Comprobación de que se han recopilado los datos
+### <a name="file-partitioning-for-large-datasets"></a>Creación de particiones de archivos para grandes conjuntos de datos
+
+Si tiene un Contrato de cliente de Microsoft o un contrato Microsoft Partner Agreement, puede habilitar Exportaciones para fragmentar el archivo en varias particiones de archivo más pequeñas a fin de ayudar con la ingesta de datos. Al configurar inicialmente la exportación, establezca la opción **File Partitioning** (Creación de particiones de archivos) en **Activado**. El valor es **Desactivado** de forma predeterminada.
+
+:::image type="content" source="./media/tutorial-export-acm-data/file-partition.png" alt-text="Captura de pantalla que muestra la opción File Partitioning (Creación de particiones de archivos)." lightbox="./media/tutorial-export-acm-data/file-partition.png" :::
+
+#### <a name="update-existing-exports-to-use-file-partitioning"></a>Actualización de las exportaciones existentes para usar la creación de particiones de archivos
+
+Si tiene exportaciones existentes y quiere configurar la creación de particiones de archivos, cree una exportación. La creación de particiones de archivos solo está disponible con la versión más reciente de Exportaciones. Puede haber cambios menores en algunos de los campos de los archivos de uso que se crean.
+
+Si habilita la creación de particiones de archivos en una exportación existente, es posible que vea cambios menores en los campos en la salida del archivo. Los cambios se deben a las actualizaciones realizadas en Exportaciones después de configurar inicialmente las suyas.
+
+#### <a name="partitioning-output"></a>Salida de creación de particiones
+
+Cuando se habilita la creación de particiones de archivos, se obtiene un archivo para cada partición de datos de la exportación junto con un archivo _manifest.json. El manifiesto contiene un resumen del conjunto de datos completo e información de cada partición de archivo que contiene. Cada partición de archivo tiene encabezados y solo contiene un subconjunto del conjunto de datos completo. Para controlar el conjunto de datos completo, debe ingerir cada partición de la exportación.
+
+Este es un ejemplo del archivo de manifiesto _manifest.json.
+
+```json
+{
+  "manifestVersion": "2021-01-01",
+  "dataFormat": "csv",
+  "blobCount": 1,
+  "byteCount": 160769,
+  "dataRowCount": 136,
+  "blobs": [
+    {
+      "blobName": "blobName.csv",
+      "byteCount": 160769,
+      "dataRowCount": 136,
+      "headerRowCount": 1,
+      "contentMD5": "md5Hash"
+    }
+  ]
+}
+```
+## <a name="verify-that-data-is-collected"></a>Verificación de la recopilación de los datos
 
 Puede comprobar fácilmente que los datos de Cost Management se están recopilando y consultar el archivo CSV exportado mediante el Explorador de Azure Storage.
 

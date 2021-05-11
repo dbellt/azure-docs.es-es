@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/30/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: ef9efe389894af7c792e980922ca422e9d05929b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b5124a9bfcc0d98f32ae42457c79e9f74308a1e8
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96026185"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108212320"
 ---
 En la tabla siguiente se describen los límites predeterminados para las cuentas de blob en bloques, Blob Storage y de uso general v1 y v2 de Azure. El límite de *entrada* hace referencia a todos los datos que se envían a una cuenta de almacenamiento. El límite de *salida* hace referencia a todos los datos que se reciben de una cuenta de almacenamiento.
 
@@ -31,8 +31,10 @@ En la tabla siguiente se describen los límites predeterminados para las cuentas
 | Salida máxima para las cuentas de uso general v2 y de Blob Storage (todas las regiones) | 50 Gbps |
 | Salida máxima para cuentas de almacenamiento de uso general v1 (regiones de EE. UU.) | 20 Gbps si RA-GRS o GRS están habilitado, 30 Gbps en el caso de LRS o ZRS<sup>2</sup> |
 | Salida máxima para cuentas de almacenamiento de uso general v1 (regiones no de EE. UU.) | 10 Gbps si RA-GRS o GRS está habilitado, 15 Gbps en el caso de LRS o ZRS<sup>2</sup> |
-| Número máximo de reglas de red virtual por cuenta de almacenamiento | 200 |
 | Número máximo de reglas de dirección IP por cuenta de almacenamiento | 200 |
+| Número máximo de reglas de red virtual por cuenta de almacenamiento | 200 |
+| Número máximo de reglas de instancias de recurso por cuenta de almacenamiento | 200 |
+| Número máximo de puntos de conexión privados por cuenta de almacenamiento | 200 |
 
 <sup>1</sup>Las cuentas estándar de Azure Storage admiten límites de capacidad y límites de entrada por solicitud superiores. Para solicitar un aumento en los límites de cuenta, póngase en contacto con el [soporte técnico de Azure](https://azure.microsoft.com/support/faq/).
 

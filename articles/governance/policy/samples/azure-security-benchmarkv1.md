@@ -1,15 +1,15 @@
 ---
 title: Detalles del cumplimiento normativo de Azure Security Benchmark v1
 description: Detalles de la iniciativa integrada de cumplimiento normativo de Azure Security Benchmark v1. Cada control se corresponde a una o varias definiciones de Azure Policy que ayudan en la evaluación.
-ms.date: 04/21/2021
+ms.date: 04/28/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 879cb67fadd59d6c5ae11b46d2ff8d10f8220cfd
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 274461ef2a620ebd6a5c1a2c96d2cb624ad1a5d6
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107865880"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108182361"
 ---
 # <a name="details-of-the-azure-security-benchmark-v1-regulatory-compliance-built-in-initiative"></a>Detalles de la iniciativa integrada de cumplimiento normativo de Azure Security Benchmark v1
 
@@ -356,10 +356,10 @@ La iniciativa integrada se implementa con el [ejemplo de plano técnico de Azure
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
+|[Las bases de datos SQL deben tener resueltos los hallazgos de vulnerabilidades.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffeedbf84-6b99-488c-acc2-71c829aa5ffc) |Permite supervisar los resultados del examen de evaluación de puntos vulnerables y las recomendaciones para solucionar los de las bases de datos. |AuditIfNotExists, Disabled |[4.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_SQLDbVulnerabilities_Audit.json) |
 |[Las vulnerabilidades en las configuraciones de seguridad de contenedor deben corregirse](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe8cbc669-f12d-49eb-93e7-9273119e9933) |Audite las vulnerabilidades en la configuración de seguridad de las máquinas con Docker instalado y muéstrelas como recomendaciones en Azure Security Center. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_ContainerBenchmark_Audit.json) |
 |[Se deben corregir las vulnerabilidades en la configuración de seguridad en las máquinas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe1e5fd5d-3e4c-4ce1-8661-7d1873ae6b15) |Azure Security Center supervisará los servidores que no cumplan la línea de base configurada como recomendaciones. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_OSVulnerabilities_Audit.json) |
 |[Se deben corregir las vulnerabilidades en la configuración de seguridad de los conjuntos de escalado de máquinas virtuales](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3c735d8a-a4ba-4a3a-b7cf-db7754cf57f4) |Audite las vulnerabilidades del sistema operativo en los conjuntos de escalado de máquinas virtuales para protegerlos frente a ataques. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_VmssOSVulnerabilities_Audit.json) |
-|[Se deben corregir las vulnerabilidades de las bases de datos SQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffeedbf84-6b99-488c-acc2-71c829aa5ffc) |Supervise los resultados del análisis de evaluación de puntos vulnerables y las recomendaciones para solucionar los de las bases de datos. |AuditIfNotExists, Disabled |[4.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_SQLDbVulnerabilities_Audit.json) |
 
 ## <a name="inventory-and-asset-management"></a>Administración de recursos y del inventario
 

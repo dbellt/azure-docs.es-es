@@ -3,12 +3,12 @@ title: Actualización de datos de inteligencia sobre amenazas
 description: El paquete de datos de inteligencia sobre amenazas se proporciona con cada nueva versión de Defender para IoT o, si es necesario, entre versiones.
 ms.date: 04/17/2021
 ms.topic: how-to
-ms.openlocfilehash: bb38d0a2486bda336d6881ec6f4c5d680906c973
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: f5282002f406c62341f5d104c14aa1cbe9ad32dd
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107750471"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108208894"
 ---
 # <a name="threat-intelligence-research-and-packages"></a>Investigación y paquetes de inteligencia sobre amenazas #
 ## <a name="overview"></a>Información general ##
@@ -32,7 +32,9 @@ Esta inteligencia proporciona información contextual para enriquecer el anális
 
 ## <a name="when-are-packages-delivered"></a>Cuándo se entregan los paquetes ##
 
-Los paquetes de inteligencia sobre amenazas se proporcionan aproximadamente una vez al mes o incluso con más frecuencia, si es necesario. Los anuncios sobre los nuevos paquetes están disponibles en https://techcommunity.microsoft.com/t5/azure-defender-for-iot/bd-p/AzureDefenderIoT. 
+Los paquetes de inteligencia sobre amenazas se proporcionan aproximadamente una vez al mes o incluso con más frecuencia, si es necesario. Los anuncios sobre los nuevos paquetes están disponibles en https://techcommunity.microsoft.com/t5/azure-defender-for-iot/bd-p/AzureDefenderIoT.
+
+También puede ver el último paquete entregado desde la sección de **actualización de inteligencia sobre amenazas** de la página **Actualizaciones** en el portal de Defender para IoT.  
 
 ## <a name="update-threat-intelligence-packages-to-your-sensors"></a>Actualización de paquetes de inteligencia sobre amenazas en los sensores ##
 

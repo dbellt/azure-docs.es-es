@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/12/2021
+ms.date: 04/28/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 3d53c96c4b0306911b0c8a0b8576f35a73419db0
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 9a39a1b0df364aeed970f3ed0e0d99d4d31585b2
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107498159"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108175485"
 ---
 # <a name="tutorial-develop-and-plan-provisioning-for-a-scim-endpoint"></a>Tutorial: Desarrollo y planeación del aprovisionamiento de un punto de conexión de SCIM
 
@@ -213,10 +213,11 @@ Al implementar un punto de conexión de SCIM para garantizar la compatibilidad c
 * No se admite el atributo de derechos.
 * Compatibilidad con HTTPS en el punto de conexión de SCIM.
 * [Detección de esquemas](#schema-discovery)
-  * La detección de esquemas no se admite actualmente en la aplicación personalizada, pero se usa en determinadas aplicaciones de la galería. En el futuro, la detección de esquemas se usará como método principal para agregar atributos adicionales a un conector. 
+  * La detección de esquemas no se admite actualmente en la aplicación personalizada, pero se usa en determinadas aplicaciones de la galería. En el futuro, la detección de esquemas se usará como el único método para agregar atributos adicionales a un conector existente. 
   * Si un valor no está presente, no envíe valores NULL.
   * Los valores de propiedad deben tener mayúsculas y minúsculas (por ejemplo, readWrite).
   * Debe devolver una respuesta de lista.
+  * El cliente de SCIM de Azure AD realizará la solicitud /schemas cada vez que alguien guarde la configuración de aprovisionamiento en Azure Portal o cada vez que un usuario llegue a la página de edición de aprovisionamiento de este portal. Los atributos adicionales detectados se mostrarán a los clientes en las asignaciones de atributos en la lista de atributos de destino. La detección de esquemas solo conduce a la incorporación de atributos de destino adicionales. No dará lugar a la eliminación de atributos. 
   
 ### <a name="user-provisioning-and-deprovisioning"></a>Aprovisionamiento y desaprovisionamiento de usuarios
 

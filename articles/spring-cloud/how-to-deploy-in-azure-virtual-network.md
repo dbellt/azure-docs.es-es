@@ -6,13 +6,13 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 07/21/2020
-ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 5a27fdc91f376127f26ba9f207ca72d8ada8a7b9
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.custom: devx-track-java, devx-track-azurecli, subject-rbac-steps
+ms.openlocfilehash: 2ff56857eca112ebd808a96f3aaa097ab4be5c18
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107891759"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108291539"
 ---
 # <a name="deploy-azure-spring-cloud-in-a-virtual-network"></a>Implementación de Azure Spring Cloud en una red virtual
 
@@ -62,9 +62,9 @@ Si ya tiene una red virtual para hospedar la instancia de Azure Spring Cloud, om
 
 1. En el cuadro de diálogo **Crear red virtual**, escriba o seleccione la siguiente información:
 
-    |Configuración          |Valor                                             |
+    |Configuración          |Value                                             |
     |-----------------|--------------------------------------------------|
-    |Subscription     |Seleccione su suscripción.                         |
+    |Suscripción     |Seleccione su suscripción.                         |
     |Resource group   |Seleccione el grupo de recursos o cree uno nuevo.  |
     |Nombre             |Escriba **azure-spring-cloud-vnet**.                 |
     |Location         |Seleccione **Este de EE. UU**.                               |
@@ -88,16 +88,9 @@ Seleccione la red virtual **azure-spring-cloud-vnet** que creó anteriormente.
 
     ![Captura de pantalla que muestra la pantalla Access control (Control de acceso).](./media/spring-cloud-v-net-injection/access-control.png)
 
-1. En el cuadro de diálogo **Agregar asignación de roles**, escriba o seleccione la siguiente información:
+1. Asigne el rol [azure-spring-cloud-data-reader](../role-based-access-control/built-in-roles.md#azure-spring-cloud-data-reader) a [usuario | grupo | entidad de servicio | identidad administrada] en el ámbito [grupo de administración | suscripción | grupo de recursos | recurso].
 
-    |Configuración  |Valor                                             |
-    |---------|--------------------------------------------------|
-    |Role     |Seleccione **Propietario**.                                 |
-    |Seleccionar   |Escriba **Azure Spring Cloud Resource Provider**.   |
-
-    Luego, seleccione **Azure Spring Cloud Resource Provider** y **Guardar**.
-
-    ![Captura de pantalla en la que se muestra que Azure Spring Cloud Resource Provider está seleccionado.](./media/spring-cloud-v-net-injection/grant-azure-spring-cloud-resource-provider-to-vnet.png)
+    Para acceder a los pasos detallados, vea [Asignación de roles de Azure mediante Azure Portal](../role-based-access-control/role-assignments-portal.md).
 
 Para realizar este paso también puede ejecutar el siguiente comando de la CLI de Azure:
 

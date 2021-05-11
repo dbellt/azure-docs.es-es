@@ -3,18 +3,18 @@ title: Solicitud de datos de elevación mediante el servicio Elevation de Azure 
 description: Sepa cómo solicitar datos de elevación mediante el servicio Elevation de Azure Maps (versión preliminar).
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/07/2020
+ms.date: 04/26/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: d14eda84144105bf2e04f1238284bc58a91c4c03
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: efdaf8d2d64a3865027f5211e4382458e1323b10
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98684062"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108325128"
 ---
 # <a name="request-elevation-data-using-the-azure-maps-elevation-service-preview"></a>Solicitud de datos de elevación mediante el servicio Elevation de Azure Maps (versión preliminar)
 
@@ -26,7 +26,7 @@ El [servicio Elevation](/rest/api/maps/elevation) de Azure Maps proporciona unas
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-1. [Creación de una cuenta de Azure Maps en el plan de tarifa S1](quick-demo-map-app.md#create-an-azure-maps-account)
+1. [Cree una cuenta de Azure Maps en el plan de tarifa Gen 1 (S1) o Gen 2](quick-demo-map-app.md#create-an-azure-maps-account).
 2. [Obtenga una clave de suscripción principal](quick-demo-map-app.md#get-the-primary-key-for-your-account), también conocida como clave principal o clave de suscripción.
 
 Para más información sobre la autenticación en Azure Maps, consulte [Administración de la autenticación en Azure Maps](how-to-manage-authentication.md).

@@ -2,14 +2,14 @@
 title: Registro de esquema de Azure en Event Hubs (versión preliminar)
 description: En este artículo se proporciona información general sobre la compatibilidad del registro de esquema de Azure Event Hubs (versión preliminar).
 ms.topic: overview
-ms.date: 09/22/2020
+ms.date: 04/28/2021
 ms.custom: references_regions
-ms.openlocfilehash: a876651b76aa259754623854b8fc4a7c6c8a939e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 578bb082cf439d48b186461742ed51c39ce85e80
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92330502"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108226451"
 ---
 # <a name="azure-schema-registry-in-event-hubs-preview"></a>Registro de esquema de Azure en Event Hubs (versión preliminar)
 En muchos escenarios de transmisión de eventos y de mensajería, la carga de eventos o mensajes contiene datos estructurados que se serializan o deserializan con un formato controlado por esquemas, como Apache Avro. Tal vez los remitentes y receptores quieran validar la integridad de los datos con un documento de esquema, como con el esquema JSON. En el caso de los formatos controlados por esquema, que el esquema esté disponible para el consumidor de mensajes es un requisito previo para que el consumidor pueda deserializar los datos. 
@@ -48,7 +48,7 @@ La siguiente imagen muestra el flujo de información del registro de esquema con
 :::image type="content" source="./media/schema-registry-overview/flow-diagram.png" alt-text="Diagrama de flujo":::
 
 ## <a name="standard-vs-dedicated-limits"></a>Límites de estándar frente a dedicado
-Para los límites (por ejemplo: el número de grupos de esquema en un espacio de nombres) que son iguales y distintos en los niveles estándar y dedicado de Event Hubs, consulte [Límites del registro de esquema](../azure-resource-manager/management/azure-subscription-service-limits.md#schema-registry-limitations)
+Para los límites (por ejemplo: el número de grupos de esquema en un espacio de nombres) que son iguales y distintos en los niveles estándar y dedicado de Event Hubs, consulte [Cuotas y límites de Event Hubs](event-hubs-quotas.md)
 
 ## <a name="azure-role-based-access-control"></a>Control de acceso basado en roles de Azure
 Al acceder al registro de esquema mediante programación, debe registrar una aplicación en Azure Active Directory (Azure AD) y agregar la entidad de seguridad de la aplicación a uno de los roles de control de acceso basado en rol de Azure (Azure RBAC):

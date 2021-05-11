@@ -5,26 +5,49 @@ services: active-directory-b2c
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: how-to
-ms.date: 03/24/2021
+ms.date: 04/28/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
-ms.openlocfilehash: 86e9b13ce56e1924b0e24a7f4971da18620617de
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+zone_pivot_groups: b2c-policy-type
+ms.openlocfilehash: 62de5eff098c467f048ae33cd38e7c730af863bc
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105043638"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108174621"
 ---
-# <a name="add-an-api-connector-to-a-sign-up-user-flow-preview"></a>Adición de un conector de API a un flujo de usuario de registro (versión preliminar)
+# <a name="add-an-api-connector-to-a-sign-up-user-flow"></a>Adición de un conector de API a un flujo de usuario de registro
+
+Como desarrollador o administrador de TI, puede usar conectores de API para integrar los flujos de usuario de registro con las API REST a fin de personalizar la experiencia de registro e integrarla con los sistemas externos. Al final de este tutorial podrá crear un flujo de trabajo del usuario de Azure AD B2C que interactúe con [servicios API REST](api-connectors-overview.md). 
+
+::: zone pivot="b2c-user-flow"
+
+En este escenario, la API REST valida si el dominio de la dirección de correo electrónico es fabrikam.com o fabricam.com. El puesto proporcionado por el usuario supera los cinco caracteres. 
 
 > [!IMPORTANT]
 > Los conectores de API para el registro son una característica en versión preliminar pública de Azure AD B2C. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Para usar un [conector de API](api-connectors-overview.md), primero debe crear el conector de API y, después, habilitarlo en un flujo de usuario.
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
+
+En este escenario, se agregará la posibilidad de que los usuarios escriban un número de fidelidad en la página de inicio de sesión de Azure AD B2C. La API REST valida si la combinación de correo electrónico y número de fidelidad está asignada a un código promocional. Si la API REST encuentra un código promocional para este usuario, se devolverá a Azure AD B2C. Por último, el código promocional se insertará en las notificaciones del token para que la aplicación lo consuma.
+
+La interacción también se puede diseñar como un paso de orquestación. Esto es adecuado cuando la API REST no va a validar datos en pantalla y siempre devuelve notificaciones. Para más información, consulte [Tutorial: Integración de intercambios de notificaciones de API REST en los recorridos de usuario de Azure AD B2C como un paso de orquestación](custom-policy-rest-api-claims-exchange.md).
+
+::: zone-end
+
+## <a name="prerequisites"></a>Prerrequisitos
+
+[!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
+
+::: zone pivot="b2c-user-flow"
 
 ## <a name="create-an-api-connector"></a>Creación de un conector de API
+
+Para usar un [conector de API](api-connectors-overview.md), primero debe crear el conector de API y, después, habilitarlo en un flujo de usuario.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 2. En **Servicios de Azure**, seleccione **Azure AD B2C**.
@@ -51,7 +74,7 @@ La autenticación HTTP básica se define en [RFC 2617](https://tools.ietf.org/ht
 > [!IMPORTANT]
 > Esta funcionalidad está en versión preliminar y se proporciona sin ningún contrato de nivel de servicio. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-La autenticación de certificados de cliente es un método de autenticación basado en certificados mutuo en el que el cliente proporciona un certificado de cliente al servidor para demostrar su identidad. En este caso, Azure AD B2C usará el certificado que se carga como parte de la configuración del conector de la API. Esto sucede como parte del protocolo de enlace SSL. Después, el servicio de API puede limitar el acceso a los servicios que tienen certificados apropiados. El certificado de cliente es un certificado digital de la X.509 de PKCS12 (PFX). En entornos de producción, debe estar firmado por una autoridad de certificación. 
+La autenticación de certificados de cliente es un método de autenticación basado en certificados mutuo en el que el cliente proporciona un certificado de cliente al servidor para demostrar su identidad. En este caso, Azure AD B2C usará el certificado que se carga como parte de la configuración del conector de la API. Esto sucede como parte del protocolo de enlace TLS/SSL. Después, el servicio de API puede limitar el acceso a los servicios que tienen certificados apropiados. El certificado de cliente es un certificado digital X.509 de PKCS12 (PFX). En entornos de producción, debe estar firmado por una autoridad de certificación. 
 
 Para crear un certificado, puede usar [Azure Key Vault](../key-vault/certificates/create-certificate.md), que tiene opciones para certificados autofirmados e integraciones con proveedores de emisores de certificados para certificados firmados. La configuración recomendada incluye:
 - **Asunto**: `CN=<yourapiname>.<tenantname>.onmicrosoft.com`
@@ -68,9 +91,10 @@ Después de tener un certificado, puede cargarlo como parte de la configuración
 La API debe implementar la autorización basada en certificados de cliente enviados con el fin de proteger los puntos de conexión de la API. Para obtener Azure App Service y Azure Functions, consulte [Configuración de la autenticación mutua de TLS](../app-service/app-service-web-configure-tls-mutual-auth.md) para obtener información sobre cómo habilitar y *validar el certificado desde el código de la API*.  También puede usar Azure API Management para [comprobar las propiedades](
 ../api-management/api-management-howto-mutual-certificates-for-clients.md) de los certificados de cliente con los valores deseados mediante expresiones de directiva.
 
-Le recomendamos que establezca alertas de aviso para cuando expire el certificado. Tendrá que generar un nuevo certificado y repetir los pasos anteriores. El servicio de API puede seguir aceptando temporalmente los certificados antiguos y nuevos mientras se implementa el nuevo certificado. Para cargar un nuevo certificado en un conector de API existente, seleccione el conector de API en **Conectores de API** y haga clic en **Cargar certificado nuevo**. Azure Active Directory usará automáticamente el certificado cargado más recientemente que no haya caducado y haya pasado la fecha de inicio.
+Le recomendamos que establezca alertas de aviso para cuando expire el certificado. Tendrá que generar un nuevo certificado y repetir los pasos anteriores. El servicio de API puede seguir aceptando temporalmente los certificados antiguos y nuevos mientras se implementa el nuevo certificado. Para cargar un nuevo certificado en un conector de API existente, seleccione el conector de API en **Conectores de API** y haga clic en **Cargar certificado nuevo**. Azure Active Directory usará automáticamente el certificado cargado más recientemente que no haya caducado y haya pasado la fecha de inicio.
 
 ### <a name="api-key"></a>Clave de API
+
 Algunos servicios utilizan un mecanismo de "clave de API" para ofuscar el acceso a los puntos de conexión HTTP durante el desarrollo. En el caso de [Azure Functions](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys), para ello, incluya `code` como parámetro de consulta en la **dirección URL del punto de conexión**. Por ejemplo, `https://contoso.azurewebsites.net/api/endpoint`<b>`?code=0123456789`</b>. 
 
 No se trata de un mecanismo que se debe usar por sí solo en el entorno producción. Por lo tanto, siempre se requiere la configuración de autenticación básica o de certificado. Si no quiere implementar ningún método de autenticación (opción no recomendada) para fines de desarrollo, puede elegir la autenticación básica y usar valores temporales para `username` y `password` que la API pueda omitir mientras implementa la autorización en la API.
@@ -218,7 +242,8 @@ Content-type: application/json
  "ui_locales":"en-US"
 }
 ```
-Las notificaciones exactas enviadas a la API dependen de la información recopilada por el usuario o proporcionada por el proveedor de identidades.
+
+Las notificaciones enviadas a la API dependen de la información recopilada por el usuario o proporcionada por el proveedor de identidades.
 
 ### <a name="expected-response-types-from-the-web-api-at-this-step"></a>Tipos de respuesta esperados de la API web en este paso
 
@@ -323,10 +348,250 @@ Content-type: application/json
 ![Página de validación de ejemplo](./media/add-api-connector/validation-error-postal-code.png)
 
 
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
+
+
+## <a name="prepare-a-rest-api-endpoint"></a>Preparación del punto de conexión de API REST
+
+Para este tutorial, debe tener una API REST que valide si una dirección de correo electrónico está registrada en el sistema de back-end con un identificador de fidelidad. Si lo está, la API REST debe devolver un código de promoción de registro, que el cliente puede usar para comprar mercancías desde la aplicación. De lo contrario, la API REST debería devolver un mensaje de error HTTP 409 similar al siguiente: "El id. de fidelidad "{id. fidelidad}" no está asociado con la dirección de correo "{correo}"".
+
+El siguiente código JSON muestra los datos que Azure AD B2C enviará al punto de conexión de la API REST. 
+
+```json
+{
+    "email": "User email address",
+    "language": "Current UI language",
+    "loyaltyId": "User loyalty ID"
+}
+```
+
+Una vez que la API REST valide los datos, debe devolver un código HTTP 200 (correcto), con los siguientes datos JSON:
+
+```json
+{
+    "promoCode": "24534"
+}
+```
+
+Si se produce un error en la validación, la API REST debe devolver un código HTTP 409 (conflicto), con el elemento JSON `userMessage`. IEF espera la notificación `userMessage` que devuelve la API REST. Esta notificación se presentará como una cadena para el usuario si se produce un error en la validación.
+
+```json
+{
+    "version": "1.0.1",
+    "status": 409,
+    "userMessage": "LoyaltyId ID '1234' is not associated with 'david@contoso.com' email address."
+}
+```
+
+La configuración del punto de conexión de API REST está fuera del ámbito de este artículo. Hemos creado una muestra de [Azure Functions](../azure-functions/functions-reference.md). Puede acceder al código completo de la función de Azure en [GitHub](https://github.com/azure-ad-b2c/rest-api/tree/master/source-code/azure-function).
+
+## <a name="define-claims"></a>Definición de notificaciones
+
+Una notificación proporciona un almacenamiento temporal de datos durante la ejecución de una directiva de Azure AD B2C. Puede declarar notificaciones dentro de la sección del [esquema de notificaciones](claimsschema.md). 
+
+1. Abra el archivo de extensiones de la directiva. Por ejemplo, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
+1. Busque el elemento [BuildingBlocks](buildingblocks.md). Si el elemento no existe, agréguelo.
+1. Busque el elemento [ClaimsSchema](claimsschema.md). Si el elemento no existe, agréguelo.
+1. Agregue las notificaciones siguientes al elemento **ClaimsSchema**.  
+
+```xml
+<ClaimType Id="loyaltyId">
+  <DisplayName>Your loyalty ID</DisplayName>
+  <DataType>string</DataType>
+  <UserInputType>TextBox</UserInputType>
+</ClaimType>
+<ClaimType Id="promoCode">
+  <DisplayName>Your promo code</DisplayName>
+  <DataType>string</DataType>
+  <UserInputType>Paragraph</UserInputType>
+</ClaimType>
+  <ClaimType Id="userLanguage">
+  <DisplayName>User UI language (used by REST API to return localized error messages)</DisplayName>
+  <DataType>string</DataType>
+</ClaimType>
+```
+
+## <a name="add-the-restful-api-technical-profile"></a>Incorporación del perfil técnico de la API RESTful 
+
+Un [perfil técnico de RESTful](restful-technical-profile.md) proporciona compatibilidad para interactuar con su propio servicio RESTful. Azure AD B2C envía datos al servicio RESTful en una colección `InputClaims` y recibe los datos en una colección `OutputClaims`. Busque el elemento **ClaimsProviders** y agregue un nuevo proveedor de notificaciones como se indica a continuación:
+
+```xml
+<ClaimsProvider>
+  <DisplayName>REST APIs</DisplayName>
+  <TechnicalProfiles>
+    <TechnicalProfile Id="REST-ValidateProfile">
+      <DisplayName>Check loyaltyId Azure Function web hook</DisplayName>
+      <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+      <Metadata>
+        <!-- Set the ServiceUrl with your own REST API endpoint -->
+        <Item Key="ServiceUrl">https://your-account.azurewebsites.net/api/ValidateProfile?code=your-code</Item>
+        <Item Key="SendClaimsIn">Body</Item>
+        <!-- Set AuthenticationType to Basic or ClientCertificate in production environments -->
+        <Item Key="AuthenticationType">None</Item>
+        <!-- REMOVE the following line in production environments -->
+        <Item Key="AllowInsecureAuthInProduction">true</Item>
+      </Metadata>
+      <InputClaims>
+        <!-- Claims sent to your REST API -->
+        <InputClaim ClaimTypeReferenceId="loyaltyId" />
+        <InputClaim ClaimTypeReferenceId="email" />
+        <InputClaim ClaimTypeReferenceId="userLanguage" PartnerClaimType="lang" DefaultValue="{Culture:LCID}" AlwaysUseDefaultValue="true" />
+      </InputClaims>
+      <OutputClaims>
+        <!-- Claims parsed from your REST API -->
+        <OutputClaim ClaimTypeReferenceId="promoCode" />
+      </OutputClaims>
+      <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
+    </TechnicalProfile>
+  </TechnicalProfiles>
+</ClaimsProvider>
+```
+
+En este ejemplo, `userLanguage` se enviará al servicio REST como `lang` desde la carga de JSON. El valor de la notificación `userLanguage` contiene el identificador de idioma del usuario actual. Para obtener más información, consulte el [solucionador de notificaciones](claim-resolver-overview.md).
+
+### <a name="configure-the-restful-api-technical-profile"></a>Configuración del perfil técnico de la API RESTful 
+
+Después de implementar la API REST, configure los metadatos del perfil técnico `REST-ValidateProfile` para que reflejen su propia API REST, incluidos:
+
+- **ServiceUrl**. Establezca la dirección URL del punto de conexión de la API REST.
+- **SendClaimsIn**. Especifique cómo se envían las notificaciones de entrada al proveedor de notificaciones RESTful.
+- **AuthenticationType**. Establezca el tipo de autenticación realizada por el proveedor de notificaciones RESTful. 
+- **AllowInsecureAuthInProduction**. En un entorno de producción, asegúrese de establecer estos metadatos en `true`.
+    
+Consulte los [metadatos del perfil técnico de RESTful](restful-technical-profile.md#metadata) para obtener más configuraciones.
+
+Los comentarios anteriores `AuthenticationType` y `AllowInsecureAuthInProduction` especifican los cambios que se deben realizar al pasar a un entorno de producción. Para aprender a proteger las API RESTful para la producción, consulte [Proteger la API RESTful](secure-rest-api.md).
+
+## <a name="validate-the-user-input"></a>Validación de la entrada del usuario
+
+Para obtener el número de fidelidad del usuario durante el registro, debe permitir que el usuario escriba estos datos en la pantalla. Agregue la notificación de salida **loyaltyId** a la página de registro. Para hacerlo, agréguela al elemento `OutputClaims` de la sección del perfil técnico de registro existente. Especifique la lista completa de notificaciones de salida para controlar el orden en que se presentan las notificaciones en la pantalla.  
+
+Agregue la referencia del perfil técnico de validación al perfil técnico de registro, que llama a `REST-ValidateProfile`. El nuevo perfil técnico de validación se agregará al principio de la colección `<ValidationTechnicalProfiles>` definida en la directiva base. Este comportamiento significa que, solo después de la validación correcta, Azure AD B2C pasa a crear la cuenta en el directorio.   
+
+1. Busque el elemento **ClaimsProviders**. Agregue un nuevo proveedor de notificaciones como se muestra a continuación:
+
+    ```xml
+    <ClaimsProvider>
+      <DisplayName>Local Account</DisplayName>
+      <TechnicalProfiles>
+        <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
+          <OutputClaims>
+            <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="Verified.Email" Required="true"/>
+            <OutputClaim ClaimTypeReferenceId="newPassword" Required="true"/>
+            <OutputClaim ClaimTypeReferenceId="reenterPassword" Required="true"/>
+            <OutputClaim ClaimTypeReferenceId="displayName"/>
+            <OutputClaim ClaimTypeReferenceId="givenName"/>
+            <OutputClaim ClaimTypeReferenceId="surName"/>
+            <!-- Required to present the text box to collect the data from the user -->
+            <OutputClaim ClaimTypeReferenceId="loyaltyId"/>
+            <!-- Required to pass the promoCode returned from "REST-ValidateProfile" 
+            to subsequent orchestration steps and token issuance-->
+            <OutputClaim ClaimTypeReferenceId="promoCode" />
+          </OutputClaims>
+          <ValidationTechnicalProfiles>
+            <ValidationTechnicalProfile ReferenceId="REST-ValidateProfile" />
+          </ValidationTechnicalProfiles>
+        </TechnicalProfile>
+      </TechnicalProfiles>
+    </ClaimsProvider>
+    <ClaimsProvider>
+      <DisplayName>Self Asserted</DisplayName>
+      <TechnicalProfiles>
+        <TechnicalProfile Id="SelfAsserted-Social">
+          <InputClaims>
+            <InputClaim ClaimTypeReferenceId="email" />
+          </InputClaims>
+            <OutputClaims>
+            <OutputClaim ClaimTypeReferenceId="email" />
+            <OutputClaim ClaimTypeReferenceId="displayName"/>
+            <OutputClaim ClaimTypeReferenceId="givenName"/>
+            <OutputClaim ClaimTypeReferenceId="surname"/>
+            <!-- Required to present the text box to collect the data from the user -->
+            <OutputClaim ClaimTypeReferenceId="loyaltyId"/>
+            <!-- Required to pass the promoCode returned from "REST-ValidateProfile" 
+            to subsequent orchestration steps and token issuance-->
+            <OutputClaim ClaimTypeReferenceId="promoCode" />
+          </OutputClaims>
+          <ValidationTechnicalProfiles>
+            <ValidationTechnicalProfile ReferenceId="REST-ValidateProfile"/>
+          </ValidationTechnicalProfiles>
+        </TechnicalProfile>
+      </TechnicalProfiles>
+    </ClaimsProvider>
+    ```
+
+## <a name="include-a-claim-in-the-token"></a>Incorporación de una notificación en el token 
+
+Para devolver la notificación del código de promoción a la aplicación de usuario de confianza, agregue una notificación de salida al archivo <em>`SocialAndLocalAccounts/`**`SignUpOrSignIn.xml`**</em>. La notificación de salida permitirá agregar la notificación al token después de un recorrido del usuario correcto y se enviará a la aplicación. Modifique el elemento de perfil técnico en la sección de usuario de confianza para agregar `promoCode` como una notificación de salida.
+ 
+```xml
+<RelyingParty>
+  <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+  <TechnicalProfile Id="PolicyProfile">
+    <DisplayName>PolicyProfile</DisplayName>
+    <Protocol Name="OpenIdConnect" />
+    <OutputClaims>
+      <OutputClaim ClaimTypeReferenceId="displayName" />
+      <OutputClaim ClaimTypeReferenceId="givenName" />
+      <OutputClaim ClaimTypeReferenceId="surname" />
+      <OutputClaim ClaimTypeReferenceId="email" />
+      <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+      <OutputClaim ClaimTypeReferenceId="identityProvider" />
+      <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" />
+      <OutputClaim ClaimTypeReferenceId="promoCode" DefaultValue="" />
+    </OutputClaims>
+    <SubjectNamingInfo ClaimType="sub" />
+  </TechnicalProfile>
+</RelyingParty>
+```
+
+## <a name="test-the-custom-policy"></a>Prueba de la directiva personalizada
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD. Para ello, seleccione el filtro **Directorio y suscripción** que se encuentra en el menú superior y elija el directorio que contiene el inquilino de Azure AD.
+1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Registros de aplicaciones**.
+1. Seleccione **Marco de experiencia de identidad**.
+1. Seleccione **Cargar directiva personalizada** y cargue los archivos de directiva modificados: *TrustFrameworkExtensions.xml* y *SignUpOrSignin.xml*. 
+1. Seleccione la directiva de registro o inicio de sesión que cargó y haga clic en el botón **Ejecutar ahora**.
+1. Debe poder registrarse con una dirección de correo electrónico.
+1. Haga clic en el vínculo **Registrarse ahora**.
+1. En **Your loyalty ID** (Id. de fidelidad), escriba 1234 y haga clic en **Continuar**. Llegados a este punto, debería obtener un mensaje de error de validación.
+1. Cambie a otro valor y haga clic en **Continuar**.
+1. El token enviado de vuelta a la aplicación contiene la notificación `promoCode`.
+
+```json
+{
+  "typ": "JWT",
+  "alg": "RS256",
+  "kid": "X5eXk4xyojNFum1kl2Ytv8dlNP4-c57dO6QGTVBwaNk"
+}.{
+  "exp": 1584295703,
+  "nbf": 1584292103,
+  "ver": "1.0",
+  "iss": "https://contoso.b2clogin.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
+  "aud": "e1d2612f-c2bc-4599-8e7b-d874eaca1ee1",
+  "acr": "b2c_1a_signup_signin",
+  "nonce": "defaultNonce",
+  "iat": 1584292103,
+  "auth_time": 1584292103,
+  "name": "Emily Smith",
+  "email": "emily@outlook.com",
+  "given_name": "Emily",
+  "family_name": "Smith",
+  "promoCode": "84362"
+  ...
+}
+```
+
+::: zone-end
+
 ## <a name="best-practices-and-how-to-troubleshoot"></a>Procedimientos recomendados y solución de problemas
 
 ### <a name="using-serverless-cloud-functions"></a>Uso de funciones de nube sin servidor
-Las funciones sin servidor, como los desencadenadores HTTP en Azure Functions, proporcionan una manera sencilla de crear puntos de conexión de API para usarlos con el conector de API. Puede usar la función de nube sin servidor para, [por ejemplo](code-samples.md#api-connectors), crear la lógica de validación y limitar los registros a dominios específicos. La función de nube sin servidor también puede llamar e invocar otras API web, almacenes de usuarios y otros servicios en la nube para escenarios más complejos.
+
+Las funciones sin servidor, como los desencadenadores HTTP en Azure Functions, proporcionan una manera de crear puntos de conexión de API para usarlos con el conector de API. Puede usar la función de nube sin servidor para, [por ejemplo](code-samples.md#api-connectors), crear la lógica de validación y limitar los registros a dominios específicos. La función de nube sin servidor también puede llamar e invocar otras API web, almacenes de usuarios y otros servicios en la nube para escenarios más complejos.
 
 ### <a name="best-practices"></a>Procedimientos recomendados
 Asegúrese de que:
@@ -336,8 +601,8 @@ Asegúrese de que:
 * La API responde lo más rápido posible para garantizar una experiencia de usuario fluida.
     * Si usa una función sin servidor o un servicio web escalable, use un plan de hospedaje que mantenga la API "activa" o "caliente" en producción. Para Azure Functions, se recomienda usar el [plan Premium](../azure-functions/functions-scale.md).
  
-
 ### <a name="use-logging"></a>Uso del registro
+
 En general, resulta útil usar las herramientas de registro que habilita el servicio de API web, como [Application Insights](../azure-functions/functions-monitoring.md), para supervisar la API en busca de códigos de error inesperados, excepciones y rendimiento deficiente.
 * Supervise los códigos de estado HTTP que no sean HTTP 200 ni 400.
 * Un código de estado HTTP 401 o 403 suele indicar que hay un problema con la autenticación. Compruebe la capa de autenticación de la API y la configuración correspondiente en el conector de API.
@@ -345,4 +610,18 @@ En general, resulta útil usar las herramientas de registro que habilita el serv
 * Supervise la API en busca de tiempos de respuesta prolongados.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
+::: zone pivot="b2c-user-flow"
+
 - Comience a trabajar con nuestros [ejemplos](code-samples.md#api-connectors).
+- [Protección de un conector de API](secure-rest-api.md)
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
+
+- [Tutorial: Integración de intercambios de notificaciones de API REST en los recorridos de usuario de Azure AD B2C como un paso de orquestación](custom-policy-rest-api-claims-exchange.md)
+- [Protección de un conector de API](secure-rest-api.md)
+- [Referencia: Perfil técnico de RESTful](restful-technical-profile.md)
+
+::: zone-end

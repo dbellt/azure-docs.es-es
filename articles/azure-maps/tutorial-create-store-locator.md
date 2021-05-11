@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 801c2fe1710952a12584bf10dd8e5c77de3b839c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bc7e58dcf2ed9c8897ec5a425415451e1083ed44
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98625104"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108326586"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Tutorial: Creación de un localizador de almacén mediante Azure Maps
 
@@ -35,7 +35,7 @@ Avance al [ejemplo de localizador de almacén activo](https://azuremapscodesampl
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-1. [Crear una cuenta de Azure Maps con el plan de tarifa S1](quick-demo-map-app.md#create-an-azure-maps-account)
+1. [Cree una cuenta de Azure Maps en el plan de tarifa Gen 1 (S1) o Gen 2](quick-demo-map-app.md#create-an-azure-maps-account).
 2. [Obtenga una clave de suscripción principal](quick-demo-map-app.md#get-the-primary-key-for-your-account), también conocida como clave principal o clave de suscripción.
 
 Para más información sobre la autenticación en Azure Maps, consulte [Administración de la autenticación en Azure Maps](how-to-manage-authentication.md).

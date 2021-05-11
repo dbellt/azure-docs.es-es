@@ -6,12 +6,12 @@ ms.date: 03/29/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: b3d73221793ec8ced4aaac9eace545ac78c31660
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: b32b1fb3e0e21374fab2068d337440003005b1e7
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108143924"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108291323"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Supervisión de aplicaciones sin código de Java con Azure Monitor Application Insights
 
@@ -92,9 +92,7 @@ En el archivo `applicationinsights.json`, también puede configurar lo siguiente
 
 Consulte las [opciones de configuración](./java-standalone-config.md) para obtener todos los detalles.
 
-## <a name="auto-collected-requests-dependencies-logs-and-metrics"></a>Solicitudes, dependencias, registros y métricas recopilados automáticamente
-
-### <a name="requests"></a>Requests
+## <a name="auto-collected-requests"></a>Solicitudes recopiladas automáticamente
 
 * Consumidores de JMS
 * Consumidores de Kafka
@@ -102,7 +100,9 @@ Consulte las [opciones de configuración](./java-standalone-config.md) para obte
 * Servlets
 * Programación de Spring
 
-### <a name="dependencies-with-distributed-trace-propagation"></a>Dependencias con propagación de seguimiento distribuido
+## <a name="auto-collected-dependencies"></a>Dependencias recopiladas automáticamente
+
+Dependencias recopiladas automáticamente más la propagación de seguimiento distribuido de bajada:
 
 * Apache HttpClient y HttpAsyncClient
 * gRPC
@@ -112,27 +112,27 @@ Consulte las [opciones de configuración](./java-standalone-config.md) para obte
 * Cliente Netty
 * OkHttp
 
-### <a name="other-dependencies"></a>Otras dependencias
+Dependencias recopiladas automáticamente (sin propagación de seguimiento distribuido de bajada):
 
 * Cassandra
 * JDBC
 * MongoDB (asincrónico y sincrónico)
 * Redis (Lettuce y Jedis)
 
-### <a name="logs"></a>Registros
+## <a name="auto-collected-logs"></a>Registros recopilados automáticamente
 
 * java.util.logging
 * Log4j (incluidas las propiedades de MDC)
 * SLF4J/Logback (incluidas las propiedades de MDC)
 
-### <a name="metrics"></a>Métricas
+## <a name="auto-collected-metrics"></a>Métricas recopiladas automáticamente
 
 * Micrometer (incluidas las métricas del actuador de Spring Boot)
 * Métricas JMX
 
-### <a name="azure-sdks-preview"></a>SDK de Azure (versión preliminar)
+## <a name="azure-sdks-preview"></a>SDK de Azure (versión preliminar)
 
-Consulte las [opciones de configuración](./java-standalone-config.md#auto-collected-azure-sdk-telemetry-preview) para habilitar esta característica en versión preliminar y capturar la telemetría emitida por estos SDK de Azure:
+Consulte las [opciones de configuración](./java-standalone-config.md#auto-collected-azure-sdk-telemetry-preview) para habilitar esta característica en versión preliminar y recopilar automáticamente la telemetría emitida por estos SDK de Azure:
 
 * [App Configuration](/java/api/overview/azure/data-appconfiguration-readme) 1.1.10+
 * [Cognitive Search](/java/api/overview/azure/search-documents-readme) 11.3.0+

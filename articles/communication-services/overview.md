@@ -8,12 +8,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 8c2559315e3bfffc41c138be6826adae95dd7b07
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: 6dae6e7ef5a442392972a39f75bbea8046b4beff
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107588112"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108324732"
 ---
 # <a name="what-is-azure-communication-services"></a>¿Qué es Azure Communication Services?
 
@@ -42,6 +42,7 @@ Después de crear un recurso de Communication Services, puede empezar a crear es
 |---                                    |---                                   |
 |**[Creación del primer token de acceso de usuario](./quickstarts/access-tokens.md)**|Los tokens de acceso de usuario se usan para autenticar los clientes en el recurso de Azure Communication Services. Estos tokens se aprovisionan y se vuelven a emitir mediante el SDK de Communication Services.|
 |**[Introducción a las llamadas de voz y vídeo](./quickstarts/voice-video-calling/getting-started-with-calling.md)**| Azure Communication Services permite agregar llamadas de voz y vídeo a las aplicaciones nativas o del explorador mediante Calling SDK. |
+|**[Adición de llamadas telefónicas a una aplicación](./quickstarts/voice-video-calling/pstn-call.md)**|Con Azure Communication Services puede agregar funcionalidades de llamadas telefónicas a la aplicación.|
 |**[Incorporación de una aplicación de llamadas a una reunión de Teams](./quickstarts/voice-video-calling/get-started-teams-interop.md)**|Azure Communication Services se puede usar para crear experiencias de reunión personalizadas con interacción con Microsoft Teams. Los usuarios de sus soluciones de Communication Services pueden interactuar con los participantes de Teams mediante la voz, el vídeo, el chat y el uso compartido de la pantalla.|
 |**[Introducción al chat](./quickstarts/chat/get-started.md)**|Chat SDK de Azure Communication Services se usa para agregar chats de texto enriquecido en tiempo real a las aplicaciones.|
 
@@ -54,6 +55,7 @@ En los siguientes ejemplos se muestra el uso completo de Azure Communication Ser
 |---                                    |---                                   |
 |**[Muestra de elementos principales de una llamada grupal](./samples/calling-hero-sample.md)**| Descargue un ejemplo de aplicación diseñado para llamadas grupales para exploradores, dispositivos iOS y Android. |
 |**[Muestra de elementos principales de un chat grupal](./samples/chat-hero-sample.md)**| Descargue un ejemplo de aplicación diseñado para un chat de texto grupal para exploradores. |
+|**[Ejemplo de llamada web](./samples/web-calling-sample.md)**| Descargue un ejemplo de aplicación web diseñado para llamadas de audio, vídeo y RTC. |
 
 
 ## <a name="platforms-and-sdk-libraries"></a>Plataformas y bibliotecas del SDK

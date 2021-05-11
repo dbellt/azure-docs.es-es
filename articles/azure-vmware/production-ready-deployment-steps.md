@@ -4,12 +4,12 @@ description: En este artículo se describe el flujo de trabajo de implementació
 ms.topic: tutorial
 ms.custom: contperf-fy21q4
 ms.date: 04/27/2021
-ms.openlocfilehash: c9fba2009ec20a613ebf37adc2493145d7471711
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: bc78830180f12c947b195b8525ea9b100b123836
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/28/2021
-ms.locfileid: "108145400"
+ms.locfileid: "108179550"
 ---
 # <a name="plan-the-azure-vmware-solution-deployment"></a>Planificación de la implementación de Azure VMware Solution
 
@@ -122,5 +122,4 @@ Si extiende segmentos de red, identifique las redes ahora siguiendo estas pautas
 Ahora que ha recopilado y documentado la información necesaria, continúe con la siguiente sección para crear la nube privada de Azure VMware Solution.
 
 > [!div class="nextstepaction"]
-> [Implementación de Azure VMware Solution](deploy-azure-vmware-solution.md)
-> 
+> [Implementación de Azure VMware Solution](deploy-azure-vmware-solution.md)> 

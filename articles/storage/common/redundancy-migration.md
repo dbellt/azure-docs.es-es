@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/30/2021
+ms.date: 04/29/2021
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: eb8bbf852803df53c43cef90bd2229bfcddd60d4
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 222518f21cb9940efd4fbf266b9248e4b0414f43
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107766194"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108316339"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Cambio en la forma en que se replican las cuentas de almacenamiento
 
@@ -62,10 +62,10 @@ El cambio de la forma en que se replica la cuenta de almacenamiento no provoca u
 Para cambiar la opción de redundancia de la cuenta de almacenamiento en Azure Portal, siga estos pasos:
 
 1. Vaya a la cuenta de almacenamiento en Azure Portal.
-1. Seleccione el valor de **Configuración**.
+1. En **Configuración**, seleccione **Configuración**.
 1. Actualice el valor de **Replicación**.
 
-![Captura de pantalla que muestra cómo cambiar la opción de replicación en el portal](media/redundancy-migration/change-replication-option.png)
+    :::image type="content" source="media/redundancy-migration/change-replication-option.png" alt-text="Captura de pantalla que muestra cómo cambiar la opción de replicación en el portal." lightbox="media/redundancy-migration/change-replication-option.png":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 

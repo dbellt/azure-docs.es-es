@@ -7,12 +7,12 @@ ms.date: 11/16/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: a7d26eebb24662a448d8ccb44d037e7706fe776b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0cc9c0825761099f7f5f665cd3a7f27c88f9cdbc
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99832851"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108325326"
 ---
 # <a name="tutorial-use-device-groups-to-analyze-device-telemetry"></a>Tutorial: Uso de grupos de dispositivos para analizar la telemetría de dispositivo
 
@@ -37,15 +37,13 @@ Antes de crear un grupo de dispositivos, agregue al menos cinco dispositivos sim
 
 :::image type="content" source="media/tutorial-use-device-groups/simulated-devices.png" alt-text="Captura de pantalla que muestra cinco dispositivos simulados de Sensor Controller.":::
 
-En cuatro de los dispositivos de sensor simulados, use la vista **Administrar dispositivo** para establecer el nombre del cliente en *Contoso*:
+En cuatro de los dispositivos de sensor simulados, use la vista **Administrar dispositivo** para establecer el nombre del cliente en *Contoso* y seleccione **Guardar**.
 
 :::image type="content" source="media/tutorial-use-device-groups/customer-name.png" alt-text="Captura de pantalla que muestra cómo establecer la propiedad en la nube nombre del cliente":::
 
 ## <a name="create-a-device-group"></a>Creación de un grupo de dispositivos
 
-Para crear un grupo de dispositivos:
-
-1. Elija **Grupos de dispositivos** en el panel izquierdo.
+1. Seleccione **Grupos de dispositivos** en el panel izquierdo para ir a la página Grupos de dispositivos.
 
 1. Seleccione **+ Nuevo**.
 

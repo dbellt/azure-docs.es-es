@@ -2,23 +2,22 @@
 title: 'Tutorial: Configuración del enrutamiento de mensajes para Azure IoT Hub mediante la CLI de Azure'
 description: 'Tutorial: Configuración del enrutamiento de mensajes para Azure IoT Hub mediante la CLI de Azure y Azure Portal'
 author: robinsh
-manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 03/12/2019
+ms.date: 04/04/2021
 ms.author: robinsh
 ms.custom:
 - mvc
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
 - devx-track-azurecli
-ms.openlocfilehash: d7a10aac82286616273f7283bc3fba74f2c58f35
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 965738a735052947940ec3763c664e5e90909ee1
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98625221"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108278301"
 ---
 # <a name="tutorial-use-the-azure-cli-and-azure-portal-to-configure-iot-hub-message-routing"></a>Tutorial: Uso de la CLI de Azure y Azure Portal para configurar el enrutamiento de mensajes de IoT Hub
 
@@ -159,7 +158,7 @@ Ahora, configure el enrutamiento de la cuenta de almacenamiento. Vaya al panel d
    >
    > Por ejemplo, con el formato de nombre de archivo del blob predeterminado, si el nombre del centro es ContosoTestHub y la fecha y hora es el 30 de octubre de 2018 a las 10:56 a.m., el nombre del blob tendrá este aspecto: `ContosoTestHub/0/2018/10/30/10/56`.
    > 
-   > Los blobs se escriben en el formato Avro.
+   > De manera predeterminada, los blobs se escriben en el formato AVRO.
    >
 
 8. Seleccione **Crear** para crear el punto de conexión de almacenamiento y agregarlo a la ruta. Volverá al panel **Agregar una ruta**.

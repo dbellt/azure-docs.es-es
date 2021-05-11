@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 11/13/2020
-ms.openlocfilehash: 69d27c102ca059974da87224e44f0ad7aa103fff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b55cafcb45cd2004702dc0f10ddf6c7b2d7f0c47
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "94592641"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108317782"
 ---
 # <a name="import-data-module"></a>Módulo Importación de datos
 
@@ -98,6 +98,10 @@ Después de importar los datos, es posible que tenga que realizar algunos prepar
 - Use [Seleccionar columnas de conjunto de datos](./select-columns-in-dataset.md) para seleccionar un subconjunto de columnas para transformar o usar en el modelado. Puede volver a unir fácilmente las columnas transformadas o quitadas al conjunto de datos original mediante el módulo [Agregar columnas](./add-columns.md).  
 
 - Use [Partición y muestra](./partition-and-sample.md) para dividir el conjunto de datos, realizar un muestreo u obtener las primeras n filas.
+
+## <a name="limitations"></a>Limitaciones
+
+Debido a la limitación del acceso al almacén de datos, si la canalización de inferencia contiene el módulo **Importar datos**, se quitará automáticamente cuando se implemente en el punto de conexión en tiempo real.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

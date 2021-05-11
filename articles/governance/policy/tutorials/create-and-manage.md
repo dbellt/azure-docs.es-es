@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Creación de directivas para aplicar el cumplimiento'
 description: En este tutorial, utilizará directivas para aplicar estándares, controlar los costos, mantener la seguridad e imponer principios de diseño para toda la empresa.
-ms.date: 01/29/2021
+ms.date: 05/01/2021
 ms.topic: tutorial
-ms.openlocfilehash: a643e7ccede4966719972694ea29eeb77789595e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 68621ee5a4cdfcb3bdbdddb2baa423d443eba36a
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99221200"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108325218"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Tutorial: Creación y administración de directivas para aplicar el cumplimiento
 
@@ -393,7 +393,7 @@ Con una definición de iniciativa, puede agrupar varias definiciones de directiv
 
 1. Seleccione **Siguiente** en la parte inferior de la página o la pestaña **parámetros de la directiva** en la parte superior del asistente.
 
-1. La definición de directiva agregada a la iniciativa que tiene parámetros se muestra en una cuadrícula. En _Tipo de valor_ puede aparecer "Valor predeterminado", "Establecer valor" o "Utilice el parámetro de iniciativa". Si se selecciona "Establecer valor", el valor relacionado se especifica en _Valores_. Si el parámetro de la definición de directiva tiene una lista de valores permitidos, el cuadro de entrada es un selector desplegable. Si se selecciona la opción "Utilice el parámetro de iniciativa", se proporciona una selección desplegable con los nombres de los parámetros de iniciativa creados en la pestaña **Parámetros de iniciativa**.
+1. Las definiciones de directiva agregadas a la iniciativa que tiene parámetros se muestran en una cuadrícula. En _Tipo de valor_ puede aparecer "Valor predeterminado", "Establecer valor" o "Utilice el parámetro de iniciativa". Si se selecciona "Establecer valor", el valor relacionado se especifica en _Valores_. Si el parámetro de la definición de directiva tiene una lista de valores permitidos, el cuadro de entrada es un selector desplegable. Si se selecciona la opción "Utilice el parámetro de iniciativa", se proporciona una selección desplegable con los nombres de los parámetros de iniciativa creados en la pestaña **Parámetros de iniciativa**.
 
    :::image type="content" source="../media/create-and-manage/initiative-definition-3.png" alt-text="Captura de pantalla con los valores permitidos para el parámetro Ubicaciones permitidas de la definición en la pestaña Parámetros de la directiva de la página Definición de iniciativa.":::
 
@@ -496,10 +496,10 @@ New-AzPolicySetDefinition -Name 'VMPolicySetDefinition' -Metadata '{"category":"
 
 ## <a name="remove-a-non-compliant-or-denied-resource-from-the-scope-with-an-exclusion"></a>Quitar un recurso no conforme o denegado del ámbito con una exclusión
 
-Después de asignar una iniciativa de directiva para exigir una ubicación específica, cualquier otro recurso creado en una ubicación diferente se deniega. En esta sección se va a examinar cómo resolver una solicitud denegada para crear un recurso mediante la creación de una exclusión de un único grupo de recursos. La exclusión impide el cumplimiento de la directiva (o iniciativa) en ese grupo de recursos. En el ejemplo siguiente, se permite cualquier ubicación en el grupo de recursos excluido. Una exclusión se puede aplicar a una suscripción, a un grupo de recursos o a recursos individuales.
+Después de asignar una iniciativa de directiva para exigir una ubicación específica, cualquier otro recurso creado en una ubicación diferente se deniega. En esta sección se va a examinar cómo resolver una solicitud denegada para crear un recurso mediante la creación de una exclusión de un único grupo de recursos. La exclusión impide el cumplimiento de la directiva (o iniciativa) en ese grupo de recursos. En el ejemplo siguiente, se permite cualquier ubicación en el grupo de recursos excluido. Una exclusión se puede aplicar a una suscripción, a un grupo de recursos o a un recurso individual.
 
 > [!NOTE]
-> También se puede usar una [exención de la directiva](../concepts/exemption-structure.md) para omitir la evaluación de un recurso. Para más información, consulte [Descripción del ámbito en Azure Policy](../concepts/scope.md).
+> También se puede usar una [exención de la directiva](../concepts/exemption-structure.md) para omitir la evaluación de un recurso. Para más información, consulte [Ámbito de Azure Policy](../concepts/scope.md).
 
 Las implementaciones que ha impedido una directiva o iniciativa asignada se pueden ver en el grupo de recursos de destino de la implementación: seleccione **Implementaciones** en el lado izquierdo de la página y luego seleccione el valor de **Nombre de la implementación** de la implementación con errores. El recurso denegado se muestra con el estado _Prohibido_. Para determinar la directiva o iniciativa y la asignación que denegaron el recurso, seleccione **Failed. Click here for details ->** (Error. Haga clic aquí para ver los detalles ->) en la página de información general de la implementación. Una ventana se abre en el lado derecho de la página con la información sobre el error. En **Detalles del error** se muestran los identificadores únicos globales de los objetos de directiva relacionados.
 

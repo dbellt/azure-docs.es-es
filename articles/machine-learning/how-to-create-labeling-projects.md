@@ -1,44 +1,51 @@
 ---
-title: Creación de un proyecto de etiquetado de datos
+title: Etiquetado de imágenes y de texto
 titleSuffix: Azure Machine Learning
-description: Aprenda a crear y ejecutar proyectos para etiquetar los datos del aprendizaje automático. Para ayudar con la tarea, use el etiquetado asistido por ML o el etiquetado con intervención humana.
+description: Aprenda a crear y ejecutar proyectos para etiquetar imágenes o texto. Para ayudar con la tarea, use el etiquetado asistido por ML o el etiquetado con intervención humana.
 author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.date: 07/27/2020
+ms.date: 04/29/2021
 ms.custom: data4ml
-ms.openlocfilehash: 194836dc68ea5ddc5afbfff7e7031c6461515fe2
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: c4edd4317bf125b4aa8dd8ebf404613c7fab3ba8
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107885765"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108290499"
 ---
-# <a name="create-a-data-labeling-project-and-export-labels"></a>Creación de un proyecto de etiquetado de datos y exportación de etiquetas 
+# <a name="create-a-data-labeling-project-and-export-labels"></a>Creación de un proyecto de etiquetado de datos y exportación de etiquetas
 
-Aprenda a crear y ejecutar proyectos de etiquetado de datos para etiquetar los datos en Azure Machine Learning.  Para ayudar con la tarea, use el etiquetado asistido por aprendizaje automático o el etiquetado con intervención humana.
+Aprenda a crear y ejecutar proyectos para etiquetar imágenes o datos de texto en Azure Machine Learning.  Para ayudar con la tarea, use el etiquetado asistido por aprendizaje automático o el etiquetado con intervención humana.
 
 
 ## <a name="data-labeling-capabilities"></a>Funcionalidades del etiquetado de datos
 
 > [!Important]
-> Las imágenes de datos deben estar disponibles en un almacén de datos de blobs de Azure. (Si no tiene un almacén de datos existente, puede cargar las imágenes durante la creación del proyecto).
+> Las imágenes de datos o texto deben estar disponibles en un almacén de datos de blobs de Azure. (Si no tiene un almacén de datos existente, puede cargar los archivos durante la creación del proyecto).
+
+Los datos de imagen pueden ser archivos de cualquiera de estos tipos: ".jpg", ".jpeg", ".png", ".jpe", ".jfif", ".bmp", ".tif", ".tiff". Cada archivo es un elemento que se va a etiquetar.
+Los datos de texto pueden ser archivos ".txt" o ".csv".
+
+* En el caso de los archivos ".txt", cada archivo representa un elemento que se va a etiquetar.
+* En el de los archivos ".csv", cada fila del archivo es un elemento que se va a etiquetar.
 
 El etiquetado de datos de Azure Machine Learning es una ubicación central para crear, administrar y supervisar proyectos de etiquetado:
- - Coordine los datos, las etiquetas y los miembros del equipo para administrar de forma eficaz las tareas de etiquetado. 
- - Realiza un seguimiento del progreso y mantiene la cola de tareas de etiquetado incompletas.
- - Inicie y detenga el proyecto y controle el progreso de etiquetado.
- - Examine los datos etiquetados y expórtelos en formato COCO o como un conjunto de datos de Azure Machine Learning.
+
+- Coordine los datos, las etiquetas y los miembros del equipo para administrar de forma eficaz las tareas de etiquetado. 
+- Realiza un seguimiento del progreso y mantiene la cola de tareas de etiquetado incompletas.
+- Inicie y detenga el proyecto y controle el progreso de etiquetado.
+- Examine los datos etiquetados y expórtelos en formato COCO o como un conjunto de datos de Azure Machine Learning.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Los datos que quiere etiquetar, ya sea en archivos locales o en el almacenamiento de blobs de Azure.
-* Conjunto de etiquetas que quiere aplicar.
-* Instrucciones para el etiquetado.
-* Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://aka.ms/AMLFree) antes de empezar.
-* Un área de trabajo de Machine Learning. Consulte [Creación de un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
+- Los datos que quiere etiquetar, ya sea en archivos locales o en el almacenamiento de blobs de Azure.
+- Conjunto de etiquetas que quiere aplicar.
+- Instrucciones para el etiquetado.
+- Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://aka.ms/AMLFree) antes de empezar.
+- Un área de trabajo de Machine Learning. Consulte [Creación de un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
 
 ## <a name="create-a-data-labeling-project"></a>Creación de un proyecto de etiquetado de datos
 
@@ -48,21 +55,42 @@ Si los datos ya están en el almacenamiento de blobs de Azure, debe hacer que es
 
 Para crear un proyecto, seleccione **Agregar proyecto**. Asigne un nombre adecuado al proyecto y seleccione **Tipo de tarea de etiquetado**. El nombre del proyecto no se puede reutilizar, ni siquiera si el proyecto se elimina en el futuro.
 
-:::image type="content" source="media/how-to-create-labeling-projects/labeling-creation-wizard.png" alt-text="Asistente para la creación de proyectos de etiquetado":::
+### <a name="image-labeling-project"></a>Proyecto de etiquetado de imágenes
 
-* Elija un proyecto de tipo **Clasificación de imágenes con varias clases** cuando quiera aplicar una *sola etiqueta* de un conjunto de etiquetas a una imagen.
-* Elija un proyecto de tipo **Clasificación de imágenes con varias etiquetas** cuando quiera aplicar *una o varias* etiquetas de un conjunto de etiquetas a una imagen. Por ejemplo, una fotografía de un perro podría etiquetarse como *perro* y *diurno*.
-* Elija un proyecto de tipo **Identificación del objeto (rectángulo de selección)** cuando quiera asignar una etiqueta y un rectángulo de selección a cada objeto de una imagen.
-* Elija un proyecto de tipo **Segmentación de instancias (polígono)** cuando desee asignar una etiqueta y dibujar un polígono alrededor de cada objeto dentro de una imagen.
+* Seleccione **Imagen** para crear un proyecto de etiquetado de imágenes.
 
-Seleccione **Siguiente** cuando esté listo para continuar.
+    :::image type="content" source="media/how-to-create-labeling-projects/labeling-creation-wizard.png" alt-text="Creación de un proyecto de etiquetado para el etiquetado de imágenes":::
+
+  * Elija un proyecto de tipo **Clasificación de imágenes con varias clases** cuando quiera aplicar una *sola etiqueta* de un conjunto de etiquetas a una imagen.
+  * Elija un proyecto de tipo **Clasificación de imágenes con varias etiquetas** cuando quiera aplicar *una o varias* etiquetas de un conjunto de etiquetas a una imagen. Por ejemplo, una fotografía de un perro podría etiquetarse como *perro* y *diurno*.
+  * Elija un proyecto de tipo **Identificación del objeto (rectángulo de selección)** cuando quiera asignar una etiqueta y un rectángulo de selección a cada objeto de una imagen.
+  * Elija un proyecto de tipo **Segmentación de instancias (polígono)** cuando desee asignar una etiqueta y dibujar un polígono alrededor de cada objeto dentro de una imagen.
+
+    
+* Seleccione **Siguiente** cuando esté listo para continuar.
+
+### <a name="text-labeling-project-preview"></a>Proyecto de etiquetado de texto (versión preliminar)
+
+> [!IMPORTANT]
+> El etiquetado de texto se encuentra actualmente en versión preliminar pública.
+> Se ofrece la versión preliminar sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
+> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+* Seleccione **Texto** para crear un proyecto de etiquetado de texto.
+
+    :::image type="content" source="media/how-to-create-labeling-projects/text-labeling-creation-wizard.png" alt-text="Creación de un proyecto de etiquetado para el etiquetado de texto":::
+
+    * Elija **Clasificación de texto con varias clases (versión preliminar)** cuando quiera aplicar una *sola etiqueta* de un conjunto de etiquetas a cada fragmento de texto.
+    * Elija **Clasificación de texto con varias etiquetas (versión preliminar)** cuando quiera aplicar *una o varias* etiquetas de un conjunto de etiquetas a un fragmento de texto.
+
+* Seleccione **Siguiente** cuando esté listo para continuar.
 
 ## <a name="specify-the-data-to-label"></a>Especificación de los datos que se van a etiquetar
 
 Si ya ha creado un conjunto de datos que contiene los datos, selecciónelo en la lista desplegable **Seleccione un conjunto de datos existente**. O bien, seleccione **Crear un conjunto de datos** para usar un almacén de información de Azure existente o cargar archivos locales.
 
 > [!NOTE]
-> Un proyecto no puede contener más de 500 000 imágenes.  Si el conjunto de datos las tiene, solo se cargarán las primeras 500 000.  
+> Un proyecto no puede contener más de 500 000 archivos.  Si el conjunto de datos supera ese número, solo se cargarán los primeros 500 000 archivos.  
 
 ### <a name="create-a-dataset-from-an-azure-datastore"></a>Creación de un conjunto de datos a partir de un almacén de datos de Azure
 
@@ -72,7 +100,7 @@ Para crear un conjunto de datos a partir de los datos que ya ha almacenado en el
 
 1. Seleccione **Crear un conjunto de datos** > **De almacén de datos**.
 1. En **Nombre**, asigne un nombre al conjunto de datos.
-1. Elija **Archivo** como **Tipo de conjunto de datos**.  Solo se admiten tipos de conjunto de datos de archivo.
+1. Elija el **tipo de conjunto de datos**.  Solo se admiten tipos de conjunto de datos de archivo para imágenes. Los tipos archivo y tabular están disponibles para el etiquetado de texto.
 1. Seleccione el almacén de datos.
 1. Si los datos están en una subcarpeta del almacenamiento de blobs, elija **Examinar** para seleccionar la ruta de acceso.
     * Anexe "/**" a la ruta de acceso para incluir todos los archivos que haya en las subcarpetas de la ruta de acceso seleccionada.
@@ -81,14 +109,13 @@ Para crear un conjunto de datos a partir de los datos que ya ha almacenado en el
 1. Seleccione **Next** (Siguiente).
 1. Confirme los detalles. Seleccione **Atrás** para modificar la configuración o **Crear** para crear el conjunto de datos.
 
-
 ### <a name="create-a-dataset-from-uploaded-data"></a>Creación de un conjunto de datos a partir de los datos cargados
 
 Para cargar los datos directamente:
 
 1. Seleccione **Crear un conjunto de datos** > **De archivos locales**.
 1. En **Nombre**, asigne un nombre al conjunto de datos.
-1. Elija "Archivo" como **Tipo de conjunto de datos**.
+1. Elija el **tipo de conjunto de datos**.  Solo se admiten tipos de conjunto de datos de archivo para imágenes. Los tipos archivo y tabular están disponibles para el etiquetado de texto.
 1. *Opcional:* Seleccione **Configuración avanzada** para personalizar el almacén de datos, el contenedor y la ruta de acceso a los datos.
 1. Seleccione **Examinar** para seleccionar los archivos locales que se van a cargar.
 1. Proporcione una descripción para el conjunto de datos.
@@ -99,13 +126,13 @@ Los datos se cargan en el almacén de blobs predeterminado ("workspaceblobstore"
 
 ## <a name="configure-incremental-refresh"></a><a name="incremental-refresh"> </a>Configuración de la actualización incremental
 
-Si planea agregar nuevas imágenes al conjunto de datos, utilice la actualización incremental para agregar estas imágenes al proyecto.   Cuando la opción de **actualización incremental**  está habilitada, se comprueba periódicamente si hay nuevas imágenes el conjunto de datos que puedan agregarse a un proyecto en función de la tasa de finalización de la etiqueta.   La comprobación de los nuevos datos se detiene cuando el proyecto alcanza el número máximo de 500 000 imágenes.
+Si planea agregar nuevos archivos al conjunto de datos, utilice la actualización incremental para agregar estos archivos al proyecto.   Cuando la opción de **actualización incremental**  está habilitada, se comprueba periódicamente si hay nuevas imágenes el conjunto de datos que puedan agregarse a un proyecto en función de la tasa de finalización de la etiqueta.   La comprobación de los nuevos datos se detiene cuando el proyecto alcanza el número máximo de 500 000 archivos.
 
-Para agregar más imágenes al proyecto, use el [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/) para cargarlas en la carpeta adecuada del almacenamiento de blobs. 
+Para agregar más archivos al proyecto, use el [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/) para cargarlas en la carpeta adecuada del almacenamiento de blobs. 
 
 Active la casilla **Habilitar la actualización incremental** cuando desee que el proyecto supervise continuamente los nuevos datos en el almacén de datos. Estos datos se extraerán en el proyecto una vez día, cuando se habilita, por lo que tras agregar nuevos datos al almacén de datos tendrá que esperar un tiempo para que se muestren en el proyecto.  Puede ver una marca de tiempo de la última vez que se actualizaron los datos vez en la sección **Actualización incremental** de la pestaña **Detalles** del proyecto.
 
-Anule la selección de esta casilla si no desea que las imágenes nuevas que aparecen en el almacén de datos se agreguen a su proyecto.
+Anule la selección de esta casilla si no desea que los archivos nuevos que aparecen en el almacén de datos se agreguen a su proyecto.
 
 ## <a name="specify-label-classes"></a>Especificación de clases de etiquetas
 
@@ -137,14 +164,16 @@ En el caso de los rectángulos de selección, estas son algunas preguntas import
 
 ## <a name="use-ml-assisted-data-labeling"></a>Uso del etiquetado de datos asistido por Machine Learning
 
-La página **Etiquetado asistido por ML** permite desencadenar modelos de Machine Learning automáticos para acelerar la tarea de etiquetado. Al principio del proyecto de etiquetado, las imágenes se presentan en orden aleatorio para reducir el posible sesgo. Sin embargo, los sesgos presentes en el conjunto de datos se reflejarán en el modelo entrenado. Por ejemplo, si el 80 % de las imágenes son de una sola clase, aproximadamente el 80 % de los datos usados para entrenar el modelo serán de esa clase. Este entrenamiento no incluye el aprendizaje activo.
+La página **Etiquetado asistido por ML** permite desencadenar modelos de Machine Learning automáticos para acelerar la tarea de etiquetado. Solo está disponible para el etiquetado de imágenes.
 
+Al principio del proyecto de etiquetado, los elementos se presentan en orden aleatorio para reducir el posible sesgo. Sin embargo, los sesgos presentes en el conjunto de datos se reflejarán en el modelo entrenado. Por ejemplo, si el 80 % de los elementos son de una sola clase, aproximadamente el 80 % de los datos usados para entrenar el modelo serán de esa clase. Este entrenamiento no incluye el aprendizaje activo.
 
 Seleccione *Habilitar el etiquetado con asistencia de ML* y especifique una GPU para habilitar el etiquetado con asistencia, que consta de dos fases:
-* Agrupación en clústeres
-* Etiquetado previo
 
-El número exacto de imágenes con etiqueta necesarias para iniciar el etiquetado con asistencia no es un número fijo.  Puede variar significativamente de un proyecto de etiquetado a otro. En algunos proyectos, a veces es posible ver tareas de etiquetado previo o de agrupación en clústeres después de que se hayan etiquetado manualmente 300 imágenes. El etiquetado con asistencia de ML usa una técnica llamada *transferencia de aprendizaje*, que usa un modelo entrenado previamente para iniciar el proceso de entrenamiento. Si las clases del conjunto de datos son similares a las del modelo entrenado previamente, puede haber etiquetas previas disponibles después de unos pocos cientos de imágenes etiquetadas manualmente. Si el conjunto de datos es significativamente diferente de los datos utilizados para entrenar previamente el modelo, puede tardar mucho más.
+* Agrupación en clústeres (para el etiquetado de imágenes)
+* Etiquetado previo 
+
+El número exacto de datos con etiqueta necesarios para iniciar el etiquetado con asistencia no es un número fijo.  Puede variar significativamente de un proyecto de etiquetado a otro. En algunos proyectos, a veces es posible ver tareas previas de etiquetado o de agrupación en clústeres después de que se hayan etiquetado manualmente 300 elementos. El etiquetado con asistencia de ML usa una técnica llamada *transferencia de aprendizaje*, que usa un modelo entrenado previamente para iniciar el proceso de entrenamiento. Si las clases del conjunto de datos son similares a las del modelo entrenado previamente, puede haber etiquetas previas disponibles después de unos pocos cientos de elementos etiquetados manualmente. Si el conjunto de datos es significativamente diferente de los datos utilizados para entrenar previamente el modelo, puede tardar mucho más.
 
 Como las etiquetas finales se siguen basando en la entrada del etiquetador, a veces esta tecnología se denomina etiquetado *con intervención humana*.
 
@@ -153,17 +182,17 @@ Como las etiquetas finales se siguen basando en la entrada del etiquetador, a ve
 
 ### <a name="clustering"></a>Agrupación en clústeres
 
-Después de que haber enviado un determinado número de etiquetas, el modelo de Machine Learning empezará a agrupar imágenes similares.  Estas imágenes similares se presentan a los etiquetadores en la misma pantalla, para acelerar el etiquetado manual. La agrupación en clústeres es especialmente útil cuando el etiquetador está viendo una cuadrícula de 4, 6 o 9 imágenes. 
+Después de haber enviado un determinado número de etiquetas, el modelo de clasificación de Machine Learning empezará a agrupar elementos similares.  Estas imágenes similares se presentan a los etiquetadores en la misma pantalla, para acelerar el etiquetado manual. La agrupación en clústeres es especialmente útil cuando el etiquetador está viendo una cuadrícula de 4, 6 o 9 imágenes.
 
 Una vez que se ha entrenado un modelo de Machine Learning con los datos etiquetados manualmente, el modelo se trunca a su última capa totalmente conectada. A continuación, las imágenes sin etiquetar pasan a través del modelo truncado en un proceso comúnmente conocido como "incrustación" o "caracterización". El proceso incrusta cada imagen en un espacio de alta dimensión definido por esta capa de modelo. Las imágenes más próximas en el espacio se usan para las tareas de agrupación en clústeres. 
 
-La fase de agrupación en clústeres no aparece para los modelos de detección de objetos.
+La fase de agrupación en clústeres no aparece para los modelos de detección de objetos o clasificación de texto.
 
 ### <a name="prelabeling"></a>Etiquetado previo
 
-Después de haber enviado un número suficiente de etiquetas de imagen, se usará un modelo de clasificación para predecir las etiquetas de imagen. O bien, se utilizará un modelo de detección de objetos para predecir los rectángulos de selección. Ahora el etiquetador ve las páginas que contienen etiquetas previstas ya presentes en cada imagen. También se muestran cuadros de predicción para la detección de objetos. La tarea siguiente consiste en revisar estas predicciones y corregir cualquier imagen que se haya etiquetado incorrectamente antes de enviar la página.  
+Después de haber enviado un número suficiente de etiquetas, se usará un modelo de clasificación para predecir las etiquetas. O bien, se utilizará un modelo de detección de objetos para predecir los rectángulos de selección. Ahora el etiquetador ve las páginas que contienen las etiquetas predichas ya presentes en cada elemento. También se muestran cuadros de predicción para la detección de objetos. La tarea siguiente consiste en revisar estas predicciones y corregir cualquier imagen que se haya etiquetado incorrectamente antes de enviar la página.  
 
-Una vez que se ha entrenado un modelo de Machine Learning en los datos etiquetados manualmente, el modelo se evalúa en un conjunto de pruebas de imágenes etiquetadas manualmente para determinar su precisión en distintos umbrales de confianza. Este proceso de evaluación se usa para determinar un umbral de confianza por encima del cual el modelo es lo suficientemente preciso como para mostrar las etiquetas previas. A continuación, el modelo se evalúa con datos sin etiquetar. Las imágenes con predicciones más confiables que este umbral se usan para la etiquetado previo.
+Una vez que se ha entrenado un modelo de Machine Learning en los datos etiquetados manualmente, el modelo se evalúa en un conjunto de prueba de elementos etiquetados manualmente para determinar su precisión en distintos umbrales de confianza. Este proceso de evaluación se usa para determinar un umbral de confianza por encima del cual el modelo es lo suficientemente preciso como para mostrar las etiquetas previas. A continuación, el modelo se evalúa con datos sin etiquetar. Los elementos con predicciones más confiables que este umbral se usan para la etiquetado previo.
 
 ## <a name="initialize-the-data-labeling-project"></a>Inicialización del proyecto de etiquetado de datos
 
@@ -233,7 +262,7 @@ Siga estos pasos para agregar una o varias etiquetas a un proyecto:
 1. Seleccione la pestaña **Details** (Detalles).
 1. En la lista de la izquierda, seleccione **Label classes** (Clases de etiquetas).
 1. En la parte superior de la lista, seleccione **+ Add Labels** (+ Agregar etiquetas) ![Add a label](media/how-to-create-labeling-projects/add-label.png) (Agregar una etiqueta).
-1. En el formulario, agregue la nueva etiqueta y elija cómo continuar.  Como ha cambiado las etiquetas disponibles para una imagen, elija cómo tratar los datos ya etiquetados:
+1. En el formulario, agregue la nueva etiqueta y elija cómo continuar.  Como ha cambiado las etiquetas disponibles, elija cómo tratar los datos ya etiquetados:
     * Vuelva a empezar y quite todas las etiquetas existentes.  Elija esta opción si desea empezar a etiquetar desde el principio con el nuevo conjunto de etiquetas completo. 
     * Vuelva a empezar y conserve todas las etiquetas existentes.  Elija esta opción para marcar todos los datos como sin etiquetar, pero mantener las etiquetas existentes como predeterminadas para las imágenes etiquetadas previamente.
     * Continúe y conserve todas las etiquetas existentes. Elija esta opción para mantener todos los datos ya etiquetados como están y empezar a usar la nueva etiqueta para los datos que aún no se hayan etiquetado.
@@ -241,10 +270,18 @@ Siga estos pasos para agregar una o varias etiquetas a un proyecto:
 1. Una vez que haya agregado todas las etiquetas nuevas, en la parte superior derecha de la página, cambie **En pausa** a **En ejecución** para reiniciar el proyecto.  
 
 ## <a name="export-the-labels"></a>Exportar las etiquetas
+ 
+Use el botón **Exportar** en la página **Detalles del proyecto** del proyecto de etiquetado. En cualquier momento, puede exportar los datos de etiquetas para realizar experimentos de Machine Learning. 
 
-En cualquier momento, puede exportar los datos de etiquetas para realizar experimentos de Machine Learning. Las etiquetas de imagen se pueden exportar en [formato COCO](http://cocodataset.org/#format-data) o como un [conjunto de datos de Azure Machine Learning con etiquetas](how-to-use-labeled-dataset.md). Use el botón **Exportar** en la página **Detalles del proyecto** del proyecto de etiquetado.
+* Las etiquetas de texto se pueden exportar como:
+    * Un archivo CSV. El archivo CSV se crea en el almacén de blobs predeterminado del área de trabajo de Azure Machine Learning, en una carpeta dentro de *Labeling/export/csv*. 
+    * Un [conjunto de datos de Azure Machine Learning con etiquetas](how-to-use-labeled-dataset.md). 
 
-El archivo COCO se crea en el almacén de blobs predeterminado del área de trabajo de Azure Machine Learning, en una carpeta dentro de *export/coco*. Puede acceder al conjunto de datos exportado de Azure Machine Learning en la sección **Conjuntos de datos** de Machine Learning. La página de detalles del conjunto de datos también proporciona código de ejemplo para acceder a las etiquetas desde Python.
+* Las etiquetas de imagen se pueden exportar como:
+    * [Formato COCO](http://cocodataset.org/#format-data). El archivo COCO se crea en el almacén de blobs predeterminado del área de trabajo de Azure Machine Learning, en una carpeta dentro de *Labeling/export/coco*. 
+    * Un [conjunto de datos de Azure Machine Learning con etiquetas](how-to-use-labeled-dataset.md). 
+
+Acceda al conjunto de datos exportado de Azure Machine Learning en la sección **Conjuntos de datos** de Machine Learning. La página de detalles del conjunto de datos también proporciona código de ejemplo para acceder a las etiquetas desde Python.
 
 ![Conjunto de datos exportado](./media/how-to-create-labeling-projects/exported-dataset.png)
 
@@ -263,5 +300,5 @@ Si observa alguno de estos problemas, use estas sugerencias.
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Tutorial: Creación de un proyecto de etiquetado para la clasificación de imágenes](tutorial-labeling.md).
-* Etiquetado de imágenes para la [clasificación de imágenes o la detección de objetos](how-to-label-images.md)
+* Etiquetado de imágenes para la [clasificación de imágenes o la detección de objetos](how-to-label-data.md)
 * Obtenga más información sobre [Azure Machine Learning y Machine Learning Studio (clásico)](./overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)

@@ -1,17 +1,17 @@
 ---
-title: Creación de su cuenta de Azure Maps mediante una plantilla de ARM | Microsoft Azure Maps
-description: Obtenga información sobre cómo crear una cuenta de Azure Maps mediante una plantilla de Azure Resource Manager (ARM).
+title: Creación de su cuenta de Azure Maps mediante una plantilla de Azure Resource Manager (ARM) en Azure Maps
+description: Obtenga información sobre cómo crear una cuenta de Azure Maps mediante una plantilla de Azure Resource Manager.
 author: philmea
 ms.author: philmea
-ms.date: 10/20/2020
+ms.date: 04/27/2021
 ms.topic: how-to
 ms.service: azure-maps
-ms.openlocfilehash: c715c0639e962f76f669515c1d2c826c8cf6cc9e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a2434494a769fb9a4695e698b3d9215dffc18974
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92525010"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108326874"
 ---
 # <a name="create-your-azure-maps-account-using-an-arm-template"></a>Creación de su cuenta de Azure Maps mediante una plantilla de ARM
 

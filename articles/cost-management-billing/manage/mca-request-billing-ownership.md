@@ -6,30 +6,25 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 04/08/2021
+ms.date: 04/29/2021
 ms.author: banders
-ms.openlocfilehash: 4cfb5c0b746ab8cf4ebb26ee0f755b34b6289982
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: c3294c09012339cb19f04327f1933688b05ae077
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107481436"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108321472"
 ---
 # <a name="transfer-azure-subscription-billing-ownership-for-a-microsoft-customer-agreement"></a>Transferencia de la propiedad de facturación de la suscripción de Azure en un Contrato de cliente de Microsoft
 
-Es posible que desee tomar posesión de las suscripciones a Azure si el propietario de la facturación existente abandona la organización, o cuando desee pagar las suscripciones mediante su cuenta de facturación. La toma de posesión transfiere las responsabilidades de facturación de las suscripciones a su cuenta.
-
-Este artículo se aplica a una cuenta de facturación para un contrato de cliente de Microsoft. [Compruebe si tiene acceso a un contrato de cliente de Microsoft](#check-for-access).
-
-Para solicitar la propiedad de la facturación, debe ser **propietario de la sección de factura** o **colaborador de la sección de factura**. Para más información, consulte [Tareas y roles de la sección de factura](understand-mca-roles.md#invoice-section-roles-and-tasks).
+Deberá transferir la propiedad de facturación de las suscripciones de Azure cuando:
+- Quiera trasladar las responsabilidades de facturación de las suscripciones a un propietario de facturación diferente.
+- Va a transferir las suscripciones de Azure de un contrato de licencia a otro. Por ejemplo, de un Contrato Enterprise o un Contrato Microsoft Online Subscription (MOSA) a un Contrato de cliente de Microsoft. [Compruebe si tiene acceso a un contrato de cliente de Microsoft](#check-for-access).
 
 La persona a la que solicite la propiedad de facturación debe tener uno de los roles siguientes:
-
-- En el caso de un Contrato de cliente de Microsoft Enterprise, el usuario debe tener el rol Propietario de facturación.
-- En el caso de un Contrato Enterprise, el usuario debe tener el rol Propietario de la cuenta.
-- En el caso de una cuenta de facturación de Microsoft Online Service Program, el usuario debe tener el rol Administrador de cuenta.
-
-Para más información, consulte [Visualización de las cuentas de facturación en Azure Portal](view-all-accounts.md).
+- Para un Contrato de cliente de Microsoft, la persona debe tener un rol de propietario o colaborador para la cuenta de facturación o para el perfil de facturación o la sección de factura correspondiente. Para más información, consulte [Tareas y roles de facturación](understand-mca-roles.md#invoice-section-roles-and-tasks).
+- En el caso de un Contrato Enterprise, el usuario debe tener un rol Propietario de la cuenta.
+- En el caso de un Contrato Microsoft Online Subscription, el usuario debe ser un administrador de cuenta.
 
 ## <a name="request-billing-ownership"></a>Solicitud de propiedad de la facturación
 
@@ -137,7 +132,36 @@ Puede solicitar la propiedad de facturación de los tipos de suscripción que se
 
 ## <a name="additional-information"></a>Información adicional
 
-En la sección siguiente se proporciona información adicional acerca de las suscripciones de transferencia.
+En las siguientes secciones se proporciona información adicional acerca de la transferencia de suscripciones.
+
+### <a name="cancel-a-prior-support-plan"></a>Cancelación de un plan de soporte técnico anterior
+
+Si tiene un plan de soporte técnico de Azure y transfiere todas las suscripciones de Azure a un nuevo contrato, debe cancelar el plan de soporte técnico porque no se transfiere con las suscripciones. Por ejemplo, al transferir un Contrato Microsoft Online Subscription (una suscripción de Azure comprada en la web) al Contrato de cliente de Microsoft. Para cancelar el plan de soporte técnico:
+
+Debe usar sus credenciales de administrador de cuenta de la cuenta anterior si las credenciales difieren de las usadas para acceder a la nueva cuenta del Contrato de cliente de Microsoft.
+
+1.  Inicie sesión en Azure Portal en https://portal.azure.com.
+1.  Vaya a **Administración de costos + facturación**.
+1.  Seleccione **Ámbitos de facturación** en el panel izquierdo.
+1.  Seleccione la cuenta de facturación asociada al plan de soporte técnico de Microsoft.
+    - Para el Contrato de cliente de Microsoft:
+        - Seleccione **Cargos periódicos** en el panel izquierdo.
+        - En el panel derecho, a la derecha del elemento de la línea del plan de soporte técnico, seleccione los puntos suspensivos ( **...** ) y, después, seleccione **Desactivar renovación automática**.
+    - Para un Contrato Microsoft Online Subscription:
+        - Seleccione **Suscripciones** en el panel izquierdo.
+        - Seleccione la suscripción del plan de soporte técnico en el panel derecho y, a continuación, seleccione **Cancelar**.
+
+### <a name="access-your-historical-invoices"></a>Acceso a las facturas históricas
+
+Es posible que quiera acceder a las facturas de su cuenta antigua del Contrato Microsoft Online Subscription (una suscripción de Azure comprada en la web) después de transferir la propiedad de facturación a la nueva cuenta del Contrato de cliente de Microsoft. Para ello, siga estos pasos:
+
+Debe usar sus credenciales de administrador de cuenta de la cuenta anterior si las credenciales difieren de las usadas para acceder a la nueva cuenta del Contrato de cliente de Microsoft.
+
+1.  Inicie sesión en Azure Portal en https://azure.portal.com.
+1.  Vaya a **Administración de costos + facturación**.
+1.  Seleccione **Ámbitos de facturación** en el panel izquierdo.
+1.  Seleccione la cuenta de facturación asociada a la cuenta del Contrato Microsoft Online Subscription.
+1.  Seleccione **Facturas** en el panel izquierdo para acceder a las facturas históricas.
 
 ### <a name="no-service-downtime"></a>No hay ningún tiempo de inactividad del servicio
 
@@ -162,10 +186,6 @@ Si se transfieren suscripciones a Contrato Enterprise (EA) o contratos de client
 ### <a name="access-to-azure-services"></a>Acceso a servicios de Azure
 
 El acceso de los usuarios, grupos o entidades de servicio existentes que se asignó mediante el [control de acceso basado en rol (Azure RBAC)](../../role-based-access-control/overview.md) no se ve afectado durante la transición.
-
-### <a name="azure-support-plan"></a>Plan de soporte técnico de Azure
-
-El soporte técnico de Azure no se transfiere con las suscripciones. Si el usuario transfiere todas las suscripciones de Azure, pídale que cancele su plan de soporte técnico.
 
 ### <a name="charges-for-transferred-subscription"></a>Cargos por la suscripción transferida
 

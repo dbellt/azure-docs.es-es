@@ -8,12 +8,12 @@ ms.author: nmurav
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 526e3a1e4eeb6ef6a31a33498241d9a7443cca35
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f25f7504c8962643176785f62e0d5d33928726bb
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103490643"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108325452"
 ---
 # <a name="call-flow-topologies"></a>Topologías de flujos de llamadas
 En este artículo se describen las topologías de flujo de llamadas de Azure Communication Services. Este artículo es excelente si es un cliente de empresa que va a integrar Communication Services en una red de las que administra. Para una introducción a los flujos de llamadas de Communication Services, visite la [documentación conceptual sobre los flujos de llamadas](./call-flows.md).
@@ -74,7 +74,7 @@ Para más información sobre la ruta de acceso a los elementos multimedia elegid
 
 ### <a name="communication-services-internet"></a>Communication Services (Internet)
 
-Esta topología la usan los clientes que emplean Communication Services desde la nube sin implementación local, como la interfaz SIP. En esta topología, el tráfico hacia Communication Services y desde aquí fluye a través de Internet.
+Esta topología la usan los clientes que emplean Communication Services desde la nube sin implementación local, como enrutamiento directo de Azure. En esta topología, el tráfico hacia Communication Services y desde aquí fluye a través de Internet.
 
 :::image type="content" source="./media/call-flows/detailed-flow-general.png" alt-text="Topología de Azure Communication Services.":::
 
@@ -172,7 +172,7 @@ Esta transmisión multimedia es bidireccional. La dirección del flujo 6 a un us
 
 ### <a name="use-case-communication-services-client-to-pstn-through-communication-services-trunk"></a>Caso de uso: Cliente de Communication Services a RTC mediante el tronco de Communication Services
 
-Communication Services permite realizar llamadas desde la red telefónica conmutada (RTC) y recibirlas aquí. Si el tronco de RTC está conectado mediante números de teléfono proporcionados por Communication Services, no hay requisitos de conectividad especiales para este caso de uso. Si desea conectar su propio tronco de RTC local a Azure Communication Services, puede usar la interfaz SIP (disponible en CY2021).
+Communication Services permite realizar llamadas desde la red telefónica conmutada (RTC) y recibirlas aquí. Si el tronco de RTC está conectado mediante números de teléfono proporcionados por Communication Services, no hay requisitos de conectividad especiales para este caso de uso. Si quiere conectar su propio tronco de RTC local a Azure Communication Services, puede usar el enrutamiento directo de Azure (disponible en CY2021).
 
 :::image type="content" source="./media/call-flows/acs-to-pstn.png" alt-text="Llamada entre dos personas con un participante de RTC":::
 

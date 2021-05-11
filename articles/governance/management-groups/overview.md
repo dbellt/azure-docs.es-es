@@ -1,15 +1,15 @@
 ---
 title: 'Organización de los recursos con grupos de administración: Servicios de gobernanza de Azure'
 description: Más información sobre los grupos de administración, el funcionamiento de sus permisos y cómo utilizarlos.
-ms.date: 01/22/2021
+ms.date: 04/28/2021
 ms.topic: overview
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 9843b824c62e0f9919d7a71a717d9aad03dcbd9c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 777f052cfb726a1370a84b76a643fdaf539ce7b3
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100590842"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108176295"
 ---
 # <a name="what-are-azure-management-groups"></a>¿Qué son los grupos de administración de Azure?
 
@@ -85,8 +85,7 @@ Si tiene preguntas acerca de este proceso de reposición, póngase en contacto c
   
 ## <a name="management-group-access"></a>Acceso al grupo de administración
 
-Los grupos de administración de Azure admiten el [control de acceso basado en roles de Azure (Azure RBAC)](../../role-based-access-control/overview.md) en los accesos a todos los recursos y definiciones de roles.
-Estos permisos se heredan en los recursos secundarios que existen en la jerarquía. Cualquier rol de Azure puede asignarse a un grupo de administración que heredará la jerarquía para los recursos. Por ejemplo, el rol de Azure Colaborador de máquina virtual se puede asignar a un grupo de administración. Este rol no tiene ninguna acción en el grupo de administración, pero se heredará en todas las máquinas virtuales de ese grupo de administración.
+Los grupos de administración de Azure admiten el [control de acceso basado en roles de Azure (Azure RBAC)](../../role-based-access-control/overview.md) en los accesos a todos los recursos y definiciones de roles. Estos permisos se heredan en los recursos secundarios que existen en la jerarquía. Cualquier rol de Azure puede asignarse a un grupo de administración que heredará la jerarquía para los recursos. Por ejemplo, el rol de Azure Colaborador de máquina virtual se puede asignar a un grupo de administración. Este rol no tiene ninguna acción en el grupo de administración, pero se heredará en todas las máquinas virtuales de ese grupo de administración.
 
 El gráfico siguiente muestra la lista de roles y las acciones admitidas en los grupos de administración.
 
@@ -166,12 +165,12 @@ Para corregir este escenario hay varias opciones:
 
 ### <a name="limitations"></a>Limitaciones  
 
-Existen limitaciones al usar roles personalizados en grupos de administración. 
+Existen limitaciones al usar roles personalizados en grupos de administración.
 
- - En los ámbitos asignables de un nuevo rol no se puede definir más de un grupo de administración. Esta limitación se ha establecido para reducir el número de situaciones en las que las definiciones de roles y las asignaciones de roles están desconectadas. Esta situación se produce cuando una suscripción o un grupo de administración con una asignación de roles se mueven a un elemento primario diferente que no tiene la definición de roles.  
- - Las acciones del plano de datos del proveedor de recursos no se pueden definir acciones en los roles personalizados del grupo de administración. Esta restricción se ha establecido porque hay un problema de latencia al actualizar los proveedores de recursos del plano de datos. Se está trabajando en dicho problema y estas acciones se deshabilitarán de la definición de roles para reducir los riesgos.
- - Azure Resource Manager no valida la existencia del grupo de administración en el ámbito asignable de la definición de roles. La definición de roles se crea aunque haya algún error de escritura o un identificador de grupo de administración incorrecto en la lista.
- - No se admite la asignación de roles para un rol con _dataActions_. En su lugar, cree la asignación de roles en el ámbito de la suscripción.
+- En los ámbitos asignables de un nuevo rol no se puede definir más de un grupo de administración. Esta limitación se ha establecido para reducir el número de situaciones en las que las definiciones de roles y las asignaciones de roles están desconectadas. Esta situación se produce cuando una suscripción o un grupo de administración con una asignación de roles se mueven a un elemento primario diferente que no tiene la definición de roles.  
+- Las acciones del plano de datos del proveedor de recursos no se pueden definir acciones en los roles personalizados del grupo de administración. Esta restricción se ha establecido porque hay un problema de latencia al actualizar los proveedores de recursos del plano de datos. Se está trabajando en dicho problema y estas acciones se deshabilitarán de la definición de roles para reducir los riesgos.
+- Azure Resource Manager no valida la existencia del grupo de administración en el ámbito asignable de la definición de roles. La definición de roles se crea aunque haya algún error de escritura o un identificador de grupo de administración incorrecto en la lista.
+- No se admite la asignación de roles de un rol con _dataActions_. En su lugar, cree la asignación de roles en el ámbito de la suscripción.
 
 > [!IMPORTANT]
 > La adición de un grupo de administración a `AssignableScopes` está actualmente en versión preliminar. Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción.

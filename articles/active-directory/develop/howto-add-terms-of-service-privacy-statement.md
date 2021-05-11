@@ -12,26 +12,26 @@ ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: 311dfd976610c392909a0ec3d91fecaa4d733539
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8ca10c54cff14bd9301e06a891bcb1f7013959f9
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100104202"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108176475"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Procedimientos: Configuración de las condiciones del servicio y a la declaración de privacidad para una aplicación
 
-Los desarrolladores que crean y administran las aplicaciones que se integran con Azure Active Directory (Azure AD) y cuentas Microsoft deben incluir vínculos a las declaraciones del servicio y la declaración de privacidad de la aplicación. Las condiciones del servicio y la declaración de privacidad se exponen a los usuarios mediante la experiencia de consentimiento del usuario. Ayudan a los usuarios a saber que pueden confiar en la aplicación. Las condiciones del servicio y la declaración de privacidad son especialmente importantes para las aplicaciones multiinquilino orientadas al usuario: aplicaciones utilizadas por varios directorios o que están disponibles para cualquier cuenta Microsoft.
+Los desarrolladores que crean y administran las aplicaciones multiinquilino que se integran con Azure Active Directory (Azure AD) y cuentas Microsoft deben incluir vínculos a los términos del servicio y la declaración de privacidad de la aplicación. Las condiciones del servicio y la declaración de privacidad se exponen a los usuarios mediante la experiencia de consentimiento del usuario. Ayudan a los usuarios a saber que pueden confiar en la aplicación. Las condiciones del servicio y la declaración de privacidad son especialmente importantes para las aplicaciones multiinquilino orientadas al usuario: aplicaciones utilizadas por varios directorios o que están disponibles para cualquier cuenta Microsoft.
 
 Es responsable de crear los documentos de las condiciones del servicio y de la declaración de privacidad para la aplicación, así como de proporcionar URL para estos documentos. Para las aplicaciones multiinquilino que no proporcionan estos vínculos, la experiencia de consentimiento del usuario para la aplicación mostrará una alerta que puede desaconsejar a los usuarios dar su consentimiento a la aplicación.
 
 > [!NOTE]
-> * Las aplicaciones de inquilino único no mostrarán ninguna alerta.
+> * Los vínculos de los términos del servicio y la declaración de privacidad no corresponden a las aplicaciones de un solo inquilino.
 > * Si faltan uno o los dos vínculos, la aplicación mostrará una alerta.
 
 ## <a name="user-consent-experience"></a>Experiencia de consentimiento de usuario
 
-Los ejemplos siguientes muestran la experiencia de consentimiento del usuario cuando se configuran las condiciones del servicio y la declaración de privacidad, y cuando estos vínculos no están configurados.
+En el ejemplo siguiente se muestra la experiencia de consentimiento del usuario para una aplicación multiinquilino cuando se configuran los términos del servicio y la declaración de privacidad, y cuando estos vínculos no están configurados.
 
 ![Capturas de pantalla con y sin declaración de privacidad y condiciones del servicio proporcionados](./media/howto-add-terms-of-service-privacy-statement/user-consent-exp-privacy-statement-terms-service.png)
 

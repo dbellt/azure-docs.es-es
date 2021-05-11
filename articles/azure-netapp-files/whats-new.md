@@ -12,20 +12,32 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 04/21/2021
+ms.date: 04/30/2021
 ms.author: b-juche
-ms.openlocfilehash: fa028d8fffd2a4097b5bf7d7326d355ae56aebd7
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 46e84814e27562097a4c5dc4e3daa1e5b36669f7
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107862820"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108287844"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Novedades de Azure NetApp Files
 
 Azure NetApp Files se actualiza periódicamente. En este artículo se proporciona un resumen de las nuevas características y mejoras más recientes. 
 
 ## <a name="april-2021"></a>Abril de 2021
+
+* [Administración manual del volumen y el grupo de capacidad](volume-quota-introduction.md) (cuota máxima) 
+
+    El comportamiento del aprovisionamiento del volumen y el grupo de capacidad de Azure NetApp Files ha cambiado a un mecanismo manual y controlable. La capacidad de almacenamiento de un volumen está limitada al tamaño establecido (cuota) del volumen. Cuando el consumo de volumen alcanza el máximo, ni el volumen ni el grupo de capacidad subyacente crecen automáticamente. En su lugar, el volumen recibirá una condición de "fuera de espacio". Sin embargo, puede [cambiar el tamaño del grupo de capacidad o un volumen](azure-netapp-files-resize-capacity-pools-or-volumes.md) según sea necesario. Debe [supervisar activamente la capacidad de un volumen](monitor-volume-capacity.md) y del grupo de capacidad subyacente.
+
+    Este cambio de comportamiento es el resultado de las siguientes solicitudes clave indicadas por muchos usuarios:
+
+    * Antes, los clientes de máquina virtual veían la capacidad de aprovisionamiento fino (100 TiB) de cualquier volumen al usar las herramientas de supervisión del espacio o la capacidad del sistema operativo.  Esta situación podría dar lugar a una visión inadecuada de la capacidad del cliente o la aplicación. Este comportamiento se ha corregido ya.  
+    * El comportamiento anterior de crecimiento automático de los grupos de capacidad no daba a los propietarios de aplicaciones ningún control sobre el espacio del grupo de capacidad aprovisionado (y el costo asociado). Este comportamiento resultaba especialmente molesto en entornos en los que los "procesos descontrolados" podían saturarse y aumentar rápidamente la capacidad aprovisionada. Este comportamiento se ha corregido.  
+    * Los usuarios quieren ver y mantener una correlación directa entre el tamaño del volumen (cuota) y el rendimiento. El comportamiento anterior permitía el crecimiento automático (implícito) de una suscripción en exceso de un volumen (capacidad) y un grupo de capacidad. Por ello, los usuarios no podían realizar una correlación directa hasta que se establecía, o restablecía, activamente la cuota del volumen. Este comportamiento se ha corregido ya.
+
+    Los usuarios han solicitado control directo sobre la capacidad aprovisionada. Quieren controlar y equilibrar la capacidad de almacenamiento y la utilización. También quieren controlar el costo y obtener visibilidad tanto para las aplicaciones como para el cliente de la capacidad y rendimiento disponibles, utilizados y aprovisionados de los volúmenes de sus aplicaciones. Con este nuevo comportamiento, se ha habilitado toda esta funcionalidad.
 
 * [Compatibilidad con recursos compartidos de disponibilidad continua (CA) de SMB para contenedores de perfiles de usuario de FSLogix](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) (versión preliminar)  
 

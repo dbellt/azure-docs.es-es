@@ -1,21 +1,18 @@
 ---
-title: Protección adicional contra amenazas en Azure Security Center
+title: Otras protecciones contra amenazas de Azure Security Center
 description: Más información sobre la protección contra amenazas disponible en Azure Security Center además de Azure Defender
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 33c45447-3181-4b75-aa8e-c517e76cd50d
 ms.service: security-center
 ms.topic: overview
-ms.date: 09/15/2020
+ms.date: 04/29/2021
 ms.author: memildin
-ms.openlocfilehash: 5b9e9f5cc5184a083f45999eaeb031eb83b17c58
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 656f38bb25a97a0a55b1d968e205907ca228a474
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96754341"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108278369"
 ---
 # <a name="additional-threat-protections-in-azure-security-center"></a>Protecciones adicionales contra amenazas en Azure Security Center
 Además de las [protecciones de Azure Defender](azure-defender.md) integradas, Azure Security Center también ofrece las siguientes funcionalidades de protección contra amenazas.
@@ -36,16 +33,8 @@ Algunas configuraciones de red pueden impedir a Security Center generar alertas 
 Para obtener una lista de las alertas de nivel de red de Azure, consulte la [tabla de referencia de alertas](alerts-reference.md#alerts-azurenetlayer).
 
 
-## <a name="threat-protection-for-azure-resource-manager-preview"></a>Protección contra amenazas para Azure Resource Manager (versión preliminar)<a name ="management-layer"></a>
-La capa de protección de Security Center basada en Azure Resource Manager está actualmente en versión preliminar.
-
-Security Center ofrece una capa adicional de protección al usar eventos de Azure Resource Manager, lo que se considera el plano de control de Azure. Al analizar los registros de Azure Resource Manager, Security Center detecta operaciones inusuales o potencialmente peligrosas en el entorno de suscripción de Azure.
-
-Para obtener una lista de las alertas de Azure Defender para Resource Manager, consulte la [Tabla de referencia de alertas](alerts-reference.md#alerts-resourcemanager).
-
-
 >[!NOTE]
-> Varios de los análisis anteriores se realizan mediante Microsoft Cloud App Security. Para beneficiarse de estos análisis, debe activar una licencia de Cloud App Security. Si tiene una licencia de Cloud App Security, estas alertas están habilitadas de forma predeterminada. Para deshabilitar las alertas:
+> Varios de estos análisis se realizan mediante Microsoft Cloud App Security. Para beneficiarse de estos análisis, debe activar una licencia de Cloud App Security. Si tiene una licencia de Cloud App Security, estas alertas están habilitadas de forma predeterminada. Para deshabilitar las alertas:
 >
 > 1. En el menú de Security Center, seleccione **Precios y configuración**.
 > 1. Seleccione la suscripción que desea cambiar.
@@ -54,7 +43,7 @@ Para obtener una lista de las alertas de Azure Defender para Resource Manager, c
 
 
 >[!NOTE]
->Security Center almacena datos de clientes relacionados con la seguridad en la misma zona geográfica que su recurso. Si Microsoft aún no ha implementado Security Center en la zona geográfica del recurso, almacenará los datos en Estados Unidos. Cuando Cloud App Security esté habilitado, esta información se almacenará con arreglo a las reglas de ubicación geográfica de Cloud App Security. Para obtener más información, consulte [Almacenamiento de datos para servicios no regionales](https://azuredatacentermap.azurewebsites.net/).
+> Security Center almacena datos de clientes relacionados con la seguridad en la misma zona geográfica que su recurso. Si Microsoft aún no ha implementado Security Center en la zona geográfica del recurso, almacenará los datos en Estados Unidos. Cuando Cloud App Security esté habilitado, esta información se almacenará con arreglo a las reglas de ubicación geográfica de Cloud App Security. Para obtener más información, consulte [Almacenamiento de datos para servicios no regionales](https://azuredatacentermap.azurewebsites.net/).
 
 1. Establezca el área de trabajo en la que va a instalar el agente. Asegúrese de que el área de trabajo está en la misma suscripción que se usa en Security Center y que tiene permisos de lectura/escritura en el área de trabajo.
 

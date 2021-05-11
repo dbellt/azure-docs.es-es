@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 02ea87bba8c28f0217479ffc65ccc65903fc0442
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: 68127a7603db2d408ed1bbdb244f49de4eb21031
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107903045"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108208498"
 ---
 # <a name="manage-digital-twins"></a>Administración de Digital Twins
 
-Las entidades de su entorno se representan mediante [gemelos digitales](concepts-twins-graph.md). La administración de los gemelos digitales puede incluir las operaciones de creación, modificación y eliminación. Para realizar estas operaciones, puede usar las [**API de DigitalTwins**](/rest/api/digital-twins/dataplane/twins), el [SDK de .NET ( C# )](/dotnet/api/overview/azure/digitaltwins/client) o la [CLI de Azure Digital Twins](how-to-use-cli.md).
+Las entidades de su entorno se representan mediante [gemelos digitales](concepts-twins-graph.md). La administración de los gemelos digitales puede incluir las operaciones de creación, modificación y eliminación. Para realizar estas operaciones, puede usar las [API de DigitalTwins](/rest/api/digital-twins/dataplane/twins), el [SDK de .NET ( C# )](/dotnet/api/overview/azure/digitaltwins/client) o la [CLI de Azure Digital Twins](how-to-use-cli.md).
 
-Este artículo se centra en la administración de gemelos digitales; para trabajar con relaciones y con el [grafo de gemelos](concepts-twins-graph.md) en conjunto, consulte [*Procedimiento: Administración del grafo de gemelos con relaciones*](how-to-manage-graph.md).
+Este artículo se centra en la administración de gemelos digitales; para trabajar con relaciones y con el [grafo de gemelos](concepts-twins-graph.md) en conjunto, consulte [Procedimiento: Administración del grafo de gemelos con relaciones](how-to-manage-graph.md).
 
 > [!TIP]
 > Todas las funciones del SDK cuentan con versiones sincrónicas y asincrónicas.
@@ -55,7 +55,7 @@ El modelo y los valores iniciales de las propiedades se proporcionan mediante el
 
 Puede inicializar las propiedades de un gemelo en el momento en que este se crea. 
 
-La API de creación de gemelos acepta un objeto serializado en una descripción JSON válida de las propiedades gemelas. Consulte [*Conceptos: Gemelos digitales y el grafo de gemelos*](concepts-twins-graph.md) para obtener una descripción del formato JSON de un gemelo. 
+La API de creación de gemelos acepta un objeto serializado en una descripción JSON válida de las propiedades gemelas. Consulte [Conceptos: Gemelos digitales y el grafo de gemelos](concepts-twins-graph.md) para obtener una descripción del formato JSON de un gemelo. 
 
 En primer lugar, puede crear un objeto de datos para representar el gemelo y los datos de sus propiedades. Puede crear un objeto de parámetro manualmente o mediante una clase auxiliar proporcionada. A continuación se muestra un ejemplo de cada opción.
 
@@ -93,7 +93,7 @@ Solo se devuelven las propiedades que se han establecido al menos una vez cuando
 >[!TIP]
 >El `displayName` para un gemelo es parte de sus metadatos del modelo, por lo que no se mostrará al obtener los datos de la instancia gemela. Para ver este valor, puede [recuperarlo del modelo](how-to-manage-model.md#retrieve-models).
 
-Para recuperar varios gemelos mediante una única llamada API, consulte los ejemplos de la API de consulta en [*Procedimiento: Consulta del grafo de gemelos*](how-to-query-graph.md).
+Para recuperar varios gemelos mediante una única llamada API, consulte los ejemplos de la API de consulta en [Procedimiento: consultar el grafo de gemelos](how-to-query-graph.md).
 
 Tenga en cuenta el siguiente modelo, escrito en el [lenguaje de definición de gemelos digitales (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL), que define un objeto *Moon*:
 
@@ -135,7 +135,7 @@ Las propiedades definidas del gemelo digital se devuelven como propiedades de ni
   - Estado de sincronización de cada propiedad grabable. Esto es útil principalmente para los dispositivos, donde es posible que el servicio y el dispositivo tengan estados divergentes (por ejemplo, cuando un dispositivo está sin conexión). Actualmente, esta propiedad solo se aplica a dispositivos físicos conectados a IoT Hub. Los datos de la sección de metadatos permiten comprender el estado completo de una propiedad, así como las últimas marcas de tiempo modificadas. Para obtener más información sobre el estado de sincronización, consulte [este tutorial de IoT Hub](../iot-hub/tutorial-device-twins.md) sobre la sincronización del estado del dispositivo.
   - Metadatos específicos del servicio, como de IoT Hub o Azure Digital Twins. 
 
-Para más información sobre las clases auxiliares de serialización como `BasicDigitalTwin`, consulte [*Procedimiento: Uso de las API y los SDK de Azure Digital Twins*](how-to-use-apis-sdks.md).
+Para más información sobre las clases auxiliares de serialización como `BasicDigitalTwin`, consulte [Procedimiento: Uso de las API y los SDK de Azure Digital Twins](how-to-use-apis-sdks.md).
 
 ## <a name="view-all-digital-twins"></a>Visualización de todos los gemelos digitales
 
@@ -214,7 +214,7 @@ Este es un ejemplo de código para eliminar gemelos y sus relaciones. La llamada
 
 ### <a name="delete-all-digital-twins"></a>Eliminación de todos los gemelos digitales
 
-Para obtener un ejemplo de cómo eliminar todos los gemelos a la vez, descargue la aplicación de ejemplo que se usa en el [*Tutorial: Exploración de los conceptos básicos con una aplicación cliente de ejemplo*](tutorial-command-line-app.md). El archivo *CommandLoop.cs* realiza esta acción en una función `CommandDeleteAllTwins()`.
+Para obtener un ejemplo de cómo eliminar todos los gemelos a la vez, descargue la aplicación de ejemplo que se usa en el [Tutorial: Exploración de los conceptos básicos con una aplicación cliente de ejemplo](tutorial-command-line-app.md). El archivo *CommandLoop.cs* realiza esta acción en una función `CommandDeleteAllTwins()`.
 
 ## <a name="runnable-digital-twin-code-sample"></a>Ejemplo de código de gemelo digital ejecutable
 
@@ -222,7 +222,7 @@ Puede usar el ejemplo de código ejecutable siguiente para crear un gemelo, actu
 
 ### <a name="set-up-the-runnable-sample"></a>Configuración del ejemplo ejecutable
 
-En el fragmento de código se usa la definición de modelo [Room.json](https://github.com/Azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Room.json) de [*Tutorial: Exploración de Azure Digital Twins con una aplicación cliente de ejemplo*](tutorial-command-line-app.md). Puede usar este vínculo para ir directamente al archivo o descargarlo como parte del proyecto de ejemplo completo de un extremo a otro [aquí](/samples/azure-samples/digital-twins-samples/digital-twins-samples/).
+En el fragmento de código se usa la definición de modelo [Room.json](https://github.com/Azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Room.json) de [Tutorial: Exploración de Azure Digital Twins con una aplicación cliente de ejemplo](tutorial-command-line-app.md). Puede usar este vínculo para ir directamente al archivo o descargarlo como parte del [proyecto de ejemplo completo de un extremo a otro](/samples/azure-samples/digital-twins-samples/digital-twins-samples/).
 
 Antes de ejecutar el ejemplo, haga lo siguiente:
 1. Descargue el archivo del modelo, colóquelo en el proyecto y reemplace el marcador de posición `<path-to>` en el código siguiente para indicar al programa dónde encontrarlos.
@@ -250,4 +250,4 @@ Esta es la salida de consola del programa anterior:
 ## <a name="next-steps"></a>Pasos siguientes
 
 Consulte cómo crear y administrar relaciones entre los gemelos digitales:
-* [*Procedimiento: Administración del grafo de gemelos con relaciones*](how-to-manage-graph.md)
+* [Procedimiento: Administración del grafo de gemelos con relaciones](how-to-manage-graph.md)

@@ -1,6 +1,6 @@
 ---
 title: 'Conexión de redes virtuales clásicas a redes virtuales de Azure Resource Manager: PowerShell'
-description: Cree una conexión VPN entre redes virtuales clásicas y redes de Resource Manager mediante VPN Gateway y PowerShell.
+description: Aprenda a conectar redes virtuales clásicas a redes virtuales de Resource Manager mediante PowerShell.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: cherylmc
@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/10/2021
 ms.author: cherylmc
-ms.openlocfilehash: 7012a696684a4e7bc1d3b52943b11ba413c43037
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9ef4d848eebb820ecb8b74a480503fa313246ac8
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100376495"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108229025"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>Conexión de redes virtuales a partir de diferentes modelos de implementación con PowerShell
 

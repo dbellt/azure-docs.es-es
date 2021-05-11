@@ -1,35 +1,35 @@
 ---
-title: 'Tutorial: Implementación y configuración de Azure Firewall en una red híbrida con Azure Portal'
-description: En este tutorial, aprenderá a implementar y configurar Azure Firewall mediante Azure Portal.
+title: Implementación y configuración de Azure Firewall en una red híbrida con Azure Portal
+description: En este artículo, aprenderá a implementar y configurar Azure Firewall mediante Azure Portal.
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.topic: tutorial
-ms.date: 04/27/2021
+ms.topic: how-to
+ms.date: 04/29/2021
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 2fbf0e4df1e9ee7dca7219891acc296c3493be9e
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 36605d6bf17c7652e7f21b89a83af08972765a30
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108074968"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108287610"
 ---
-# <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>Tutorial: Implementación y configuración de Azure Firewall en una red híbrida con Azure Portal
+# <a name="deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>Implementación y configuración de Azure Firewall en una red híbrida con Azure Portal
 
 Cuando conecta la red local a una red virtual de Azure para crear una red híbrida, la capacidad de controlar el acceso a los recursos de la red de Azure es parte importante de un plan de seguridad global.
 
 Puede usar Azure Firewall para controlar el acceso de red en una red híbrida con reglas que definen el tráfico de red que se permite o que se rechaza.
 
-En este tutorial se crearán tres redes virtuales:
+En este artículo se crearán tres redes virtuales:
 
 - **VNet-Hub**: el firewall está en esta red virtual.
 - **VNet-Spoke**: la red virtual Spoke representa la carga de trabajo ubicada en Azure.
-- **VNet-Onprem**: la red virtual local representa una red local. En una implementación real, se puede conectar mediante una conexión VPN o ExpressRoute. Para simplificar, este tutorial usa una conexión de puerta de enlace de VPN y una red virtual ubicada en Azure para representar una red local.
+- **VNet-Onprem**: la red virtual local representa una red local. En una implementación real, se puede conectar mediante una conexión VPN o ExpressRoute. Para simplificar, este procedimiento usa una conexión de puerta de enlace de VPN y una red virtual ubicada en Azure para representar una red local.
 
 ![Firewall en una red híbrida](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
 
-En este tutorial, aprenderá a:
+En este artículo aprenderá a:
 
 > [!div class="checklist"]
 > * Crear la red virtual del centro de firewall
@@ -42,10 +42,10 @@ En este tutorial, aprenderá a:
 > * Creación de las máquinas virtuales
 > * Probar el firewall
 
-Si desea usar Azure PowerShell en su lugar para completar este tutorial, consulte [Implementación y configuración de Azure Firewall en una red híbrida con Azure PowerShell](tutorial-hybrid-ps.md).
+Si desea usar Azure PowerShell en su lugar para completar este procedimiento, consulte [Implementación y configuración de Azure Firewall en una red híbrida con Azure PowerShell](tutorial-hybrid-ps.md).
 
 > [!NOTE]
-> En este tutorial se usan reglas de firewall clásicas para administrar el firewall. El método preferido es usar una [directiva de firewall](../firewall-manager/policy-overview.md). Para completar este tutorial con una directiva de firewall, consulte [Tutorial: Implementación y configuración de Azure Firewall y una directiva en una red híbrida con Azure Portal](tutorial-hybrid-portal-policy.md).
+> En este artículo se usan reglas de firewall clásicas para administrar el firewall. El método preferido es usar una [directiva de firewall](../firewall-manager/policy-overview.md). Para completar este procedimiento con una directiva de firewall, consulte [Tutorial: Implementación y configuración de Azure Firewall y una directiva en una red híbrida con Azure Portal](tutorial-hybrid-portal-policy.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -59,7 +59,7 @@ Una red híbrida usa el modelo de arquitectura radial para enrutar el tráfico e
 - Para enrutar el tráfico de la subred de radio a través del firewall de centro, puede usar una ruta definida por el usuario (UDR) que apunte al firewall con la opción **Virtual network gateway route propagation** (Deshabilitar la propagación de rutas de la puerta de enlace de red virtual) deshabilitada. La opción **Propagación de rutas de puerta de enlace de red virtual** deshabilitada evita la distribución de rutas a las subredes de radio. Esto evita que las rutas aprendidas entren en conflicto con la UDR. Si desea mantener la opción **Virtual network gateway route propagation** (Deshabilitar la propagación de rutas de la puerta de enlace de red virtual) habilitada, asegúrese de definir rutas específicas para el firewall con el fin de invalidar las que se publican desde el entorno local mediante el protocolo de puerta de enlace de borde.
 - Configure una ruta definida por el usuario en la subred de la puerta de enlace del centro que apunte a la dirección IP del firewall como próximo salto para las redes de radio. No se requiere ninguna ruta definida por el usuario en la subred de Azure Firewall, ya que obtiene las rutas de BGP.
 
-Consulte la sección [Creación de rutas](#create-the-routes) en este tutorial para ver cómo se crean estas rutas.
+Consulte la sección [Creación de rutas](#create-the-routes) en este artículo para ver cómo se crean estas rutas.
 
 >[!NOTE]
 >Azure Firewall debe tener conectividad directa a Internet. Si AzureFirewallSubnet aprende una ruta predeterminada a la red local mediante BGP, debe reemplazarla por una UDR 0.0.0.0/0 con el valor **NextHopType** establecido como **Internet** para mantener la conectividad directa a Internet.
@@ -73,7 +73,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="create-the-firewall-hub-virtual-network"></a>Crear la red virtual del centro de firewall
 
-En primer lugar, cree el grupo de recursos en el que se incluirán los recursos de este tutorial:
+En primer lugar, cree el grupo de recursos en el que se incluirán los recursos:
 
 1. Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
 2. En la página principal de Azure Portal, seleccione **Grupos de recursos** > **Agregar**.
@@ -150,9 +150,9 @@ Ahora, implemente el firewall en la red virtual del concentrador de firewall.
 2. En la columna de la izquierda, seleccione **Redes** y, a continuación, busque y seleccione **Firewall**.
 4. En la página **Creación de un firewall**, utilice la tabla siguiente para configurar el firewall:
 
-   |Configuración  |Valor  |
+   |Configuración  |Value  |
    |---------|---------|
-   |Subscription     |\<your subscription\>|
+   |Suscripción     |\<your subscription\>|
    |Resource group     |**FW-Hybrid-Test** |
    |Nombre     |**AzFW01**|
    |Region     |**Este de EE. UU.**|
@@ -462,11 +462,10 @@ Cierre los escritorios remotos existentes antes de probar las reglas modificadas
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Puede conservar los recursos relacionados con el firewall para el siguiente tutorial o, si ya no los necesita, eliminar el grupo de recursos **FW-Hybrid-Test** para eliminarlos todos.
+Puede conservar los recursos de firewall para probarlos más a fondo o, si ya no los necesita, eliminar el grupo de recursos **FW-Hybrid-Test** para eliminarlos todos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 A continuación, puede supervisar los registros de Azure Firewall.
 
-> [!div class="nextstepaction"]
-> [Tutorial: Supervisión de los registros de Azure Firewall](./firewall-diagnostics.md)
+[Tutorial: Supervisión de los registros de Azure Firewall](./firewall-diagnostics.md)

@@ -3,15 +3,15 @@ title: Inicio de un runbook en Azure Automation
 description: En este artículo se explica cómo iniciar un runbook en Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 03/16/2018
+ms.date: 04/28/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 01b6e060fcab9c7dab4934aad3d1ab6047ec5236
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 4b178ff8b667c5c1db508d8062b4cd5b53955047
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107829861"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108277235"
 ---
 # <a name="start-a-runbook-in-azure-automation"></a>Inicio de un runbook en Azure Automation
 
@@ -27,7 +27,7 @@ La tabla siguiente le ayuda a determinar el método para iniciar un runbook en A
 | [Programación](./shared-resources/schedules.md) |<li>Permite iniciar automáticamente el runbook en una programación según la hora, diaria, semanal o mensual.<br> <li>Permite manipular la programación a través de Azure Portal, los cmdlets de PowerShell o la API de Azure.<br> <li>Permite proporcionar valores de parámetro que se usarán con la programación. |
 | [Desde otro Runbook](automation-child-runbooks.md) |<li>Permite usar un runbook como una actividad en otro runbook.<br> <li>Es útil para la funcionalidad utilizada por varios runbooks.<br> <li>Permite proporcionar valores de parámetro a un runbook secundario y usar la salida de un runbook principal. |
 
-La siguiente imagen ilustra el proceso paso a paso detallado en el ciclo de vida de un runbook. En ella figuran las distintas formas de iniciar un runbook en Azure Automation, los componentes requeridos para que Hybrid Runbook Worker ejecute runbooks de Azure Automation y las interacciones entre los distintos componentes. Para obtener información sobre cómo ejecutar runbooks de Automation en su centro de datos, consulte [Trabajos híbridos de runbook](automation-hybrid-runbook-worker.md)
+La siguiente imagen ilustra el proceso paso a paso detallado en el ciclo de vida de un runbook. Incluye las distintas formas de iniciar un runbook en Azure Automation, los componentes requeridos para que Hybrid Runbook Worker ejecute runbooks de Azure Automation y las interacciones entre los distintos componentes. Para obtener información sobre cómo ejecutar runbooks de Automation en su centro de datos, consulte [Trabajos híbridos de runbook](automation-hybrid-runbook-worker.md)
 
 ![Arquitectura de runbook](media/automation-starting-runbook/runbooks-architecture.png)
 
@@ -35,7 +35,7 @@ La siguiente imagen ilustra el proceso paso a paso detallado en el ciclo de vida
 
 Cuando se inicia un runbook desde Azure Portal o Windows PowerShell, la instrucción se envía a través del servicio web Azure Automation. Este servicio no admite parámetros con tipos de datos complejos. Si necesita proporcionar un valor para un parámetro complejo, se debe llamar en línea desde otro runbook, tal como se describe en [Runbooks secundarios en Azure Automation](automation-child-runbooks.md).
 
-El servicio web de Azure Automation proporciona una funcionalidad especial para parámetros que usan ciertos tipos de datos, tal como se describe en las secciones siguientes:
+El servicio web de Azure Automation proporciona una funcionalidad especial para parámetros que usan ciertos tipos de datos, como se describe en las secciones siguientes.
 
 ### <a name="named-values"></a>Valores con nombre
 
@@ -138,11 +138,11 @@ jsmith
 
 ## <a name="start-a-runbook-with-the-azure-portal"></a>Inicio de un runbook con Azure Portal
 
-1. En Azure Portal, seleccione **Automation** y, a continuación, haga clic en el nombre de una cuenta de Automation.
-2. En el menú central, seleccione **Runbooks**.
-3. En la página Runbooks, seleccione un runbook y, a continuación, haga clic en **Iniciar**.
+1. En Azure Portal, seleccione **Automation** y después elija el nombre de una cuenta de Automation.
+2. En el panel izquierdo, seleccione **Runbooks**.
+3. En la página **Runbooks**, seleccione un runbook y haga clic en **Iniciar**.
 4. Si el runbook tiene parámetros, se le pide que proporcione los valores de cada parámetro con un cuadro de texto. Para más información sobre los parámetros, consulte [Parámetros de runbook](#work-with-runbook-parameters).
-5. En el panel Trabajo, puede ver el estado del trabajo de runbook.
+5. En el panel **Trabajo**, puede ver el estado del trabajo de runbook.
 
 ## <a name="start-a-runbook-with-powershell"></a>Inicio de un runbook con PowerShell
 

@@ -6,15 +6,15 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 04/06/2021
+ms.date: 04/29/2021
 ms.author: banders
 ms.reviewer: baolcsva
-ms.openlocfilehash: f32c43b08b8259467fb00a75ca2e7089d7ec87e8
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 60d42598da2e0b7f29bfea832d27dc5156761556
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107485625"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108322066"
 ---
 # <a name="key-next-steps-after-accepting-your-microsoft-customer-agreement"></a>Pasos clave siguientes después de aceptar el Contrato de cliente de Microsoft
 
@@ -45,7 +45,7 @@ Si es un nuevo cliente, Azure crea automáticamente una suscripción predetermin
 
 Una vez que se trasladan las suscripciones, el acceso a estas no cambia para los usuarios. Todo el consumo de las suscripciones enruta las facturas al nuevo contrato.
 
-Cuando empiece a consumir servicios de Azure, la nueva factura del Contrato de cliente de Microsoft se genera el quinto día de cada mes: asegúrese de que [actualiza el número del pedido de compra en el perfil de facturación](../manage/change-azure-account-profile.md). El método de pago predeterminado es la transferencia bancaria. Para aprender a configurar el método de pago para evitar retrasos, consulte [Pago de la suscripción](../understand/pay-bill.md#wire-bank-details). En el artículo se explica cómo obtener la información de pago bancaria necesaria.
+Cuando empieza a consumir servicios de Azure, la nueva factura del Contrato de cliente de Microsoft se genera el quinto día de cada mes. El método de pago predeterminado es la transferencia bancaria. Para aprender a configurar el método de pago para evitar retrasos, consulte [Pago de la suscripción](../understand/pay-bill.md#wire-bank-details). En el artículo se explica cómo obtener la información de pago bancaria necesaria.
 
 ## <a name="confirm-payment-details"></a>Confirmación de los detalles del pago
 
@@ -67,6 +67,22 @@ Al pasar de un pago por uso o un contrato Enterprise a un Contrato de cliente de
 ## <a name="complete-outstanding-payments"></a>Completar pagos pendientes
 
 Asegúrese de que efectúa el pago de todas las facturas anteriores de [pago por uso](../understand/download-azure-invoice.md) de la suscripción o del [Contrato Enterprise](../manage/ea-portal-enrollment-invoices.md) pendientes. Para más información, consulte [Descripción de una factura para el Contrato de cliente de Microsoft en Azure](../understand/mca-understand-your-invoice.md#billing-period).
+
+## <a name="update-a-po-number"></a>Actualización de un número de pedido
+
+De forma predeterminada, la factura del perfil de facturación no tiene un número de pedido de compra asociado. Después de agregar un número de pedido para un perfil de facturación, este aparece en las facturas de dicho perfil.
+
+Para agregar o cambiar el número de pedido de un perfil de facturación, siga estos pasos.
+
+1.  Inicie sesión en Azure Portal.
+1.  Busque **Cost Management + Billing** y, a continuación, seleccione **Ámbitos de facturación**.
+1.  Seleccione el ámbito de facturación.
+1.  En el menú de la izquierda, en **Facturación**, seleccione **Perfiles de facturación**.
+1.  Seleccione el perfil de facturación adecuado.
+1.  En el menú de la izquierda, en **Configuración**, seleccione **Propiedades**.
+1.  Seleccione **Actualizar el número de pedido de compra**.
+1.  Escriba un número de pedido de compra y, a continuación, seleccione **Actualizar**.
+
 
 ## <a name="update-your-tax-id"></a>Actualización del identificador fiscal
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 1d21691af4d52892f507695a56331816b14bf517
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: 423e08511003c8ba1f810bd024d0e253df612473
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107588384"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108293285"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Mejora de la síntesis con el Lenguaje de marcado de síntesis de voz (SSML)
 
@@ -45,7 +45,7 @@ Al usar SSML, recuerde que los caracteres especiales, como comillas, apóstrofos
 Cada documento SSML se crea con los elementos SSML (o etiquetas). Estos elementos se utilizan para ajustar el tono, la prosodia, el volumen y mucho más. En las siguientes secciones se detallan cómo se utiliza cada elemento y cuándo es necesario u opcional.
 
 > [!IMPORTANT]
-> No se olvide de utilizar comillas dobles alrededor de los valores de atributo. Las normas para un XML válido y bien formado requieren que los valores de los atributos estén rodeados de comillas dobles. Por ejemplo, `<prosody volume="90">` es un elemento válido y bien formado, pero `<prosody volume=90>` no. Es posible que SSML no reconozca valores de atributos que no estén entre comillas.
+> No se olvide de utilizar comillas dobles alrededor de los valores de atributo. Las normas para un XML válido y bien formado requieren que los valores de los atributos estén rodeados de comillas dobles. Por ejemplo, `<prosody volume="90">` es un elemento válido y bien formado, pero `<prosody volume=90>` no. Puede que SSML no reconozca valores de atributos que no estén entre comillas.
 
 ## <a name="create-an-ssml-document"></a>Creación de un documento SSML
 
@@ -208,6 +208,9 @@ Actualmente, los ajustes del estilo de habla son compatibles con las siguientes 
 * `zh-CN-XiaoxuanNeural` (versión preliminar)
 * `zh-CN-XiaoruiNeural` (versión preliminar)
 
+> [!NOTE]
+> Las voces en versión preliminar solo están disponibles en estas tres regiones: Este de EE. UU., Oeste de Europa y Sudeste de Asia.
+
 La intensidad del estilo de habla se puede cambiar aún más para ajustarse mejor a su caso de uso. Puede especificar un estilo más seguro o más suave con `styledegree` para que la voz sea más expresiva o moderada. Actualmente, se admiten ajustes del estilo de habla de las voces neuronales en chino (mandarín y simplificado).
 
 Además de ajustar los estilos de habla y el grado de estilo, también puede ajustar el parámetro `role` para que la voz parezca que es de alguien de otra edad y género. Por ejemplo, una voz masculina puede subir el tono y cambiar la entonación para que parezca femenina, pero el nombre de la voz no cambiará. Actualmente, se admiten ajustes del rol de estas voces neuronales en chino (mandarín y simplificado):
@@ -228,7 +231,7 @@ Los cambios anteriores se aplican en el nivel de la oración y tanto los estilos
 <mstts:express-as role="string" style="string"></mstts:express-as>
 ```
 > [!NOTE]
-> En este momento, `styledegree` solo admite voces neuronales en chino (mandarín y simplificado). `role` solo admite zh-CN-XiaomoNeural y zh-CN-XiaoxuanNeural.
+> En este momento, `styledegree` solo admite voces neuronales en chino (mandarín y simplificado). `role` solo admite zh-CN-XiaomoNeural y zh-CN-XiaoxuanNeural. 
 
 **Atributos**
 
@@ -277,7 +280,8 @@ Utilice esta tabla para determinar qué estilos de habla son compatibles para ca
 |                         | `style="fearful"`         | Expresa un tono asustado y nervioso, agudo, con energía vocal alta y más velocidad. El hablante está en un estado de tensión y ansiedad.                          |
 |                         | `style="disgruntled"`     | Expresa desdén y un tono de queja. La voz de esta emoción muestra desagrado y desprecio.              |
 |                         | `style="serious"`         | Expresa un tono estricto e imponente. A menudo, el hablante suena rígido y mucho menos relajado, con una cadencia firme.          |
-| `zh-CN-YunxiNeural`     | `style="cheerful"`        | Expresa un tono animado y entusiasta, agudo y enérgico.                         |
+|   `zh-CN-YunxiNeural`   | `style="assistant"`       | Expresa un tono cálido y relajado para asistentes digitales    |
+|                         | `style="cheerful"`        | Expresa un tono animado y entusiasta, agudo y enérgico.                         |
 |                         | `style="sad"`             | Expresa un tono afligido, agudo, con menos intensidad y poco enérgico. Los indicadores comunes de esta emoción serían lloriqueos o gimoteos al hablar.            |
 |                         | `style="angry"`           | Expresa un tono enfadado y molesto, grave, con mayor intensidad y energía vocal más alta. El hablante está en un estado de ira, disgustado y ofendido.       |
 |                         | `style="fearful"`         | Expresa un tono asustado y nervioso, agudo, con energía vocal alta y más velocidad. El hablante está en un estado de tensión y ansiedad.                          |
@@ -294,23 +298,25 @@ Utilice esta tabla para determinar qué estilos de habla son compatibles para ca
 |                         | `style="embarrassed"`     | Expresa un tono vacilante e inseguro cuando quien habla se siente incómodo   |
 |                         | `style="affectionate"`    | Expresa un tono cálido y afectuoso, agudo y con una energía vocal alta. El hablante está en un estado que atrae la atención de su interlocutor. La "personalidad" del hablante suele ser simpática por naturaleza.          |
 |                         | `style="gentle"`          | Expresa un tono dulce, educado y agradable, con un tono más grave y energía vocal.         |
-| `zh-CN-XiaomoNeural`    | `style="cheerful"`        | Expresa un tono animado y entusiasta, agudo y enérgico.                         |
+| `zh-CN-XiaomoNeural`    | `style="calm"`            | Expresa una actitud interesante, recolectada y compuesta al hablar. El tono, la intensidad y la prosodia son mucho más uniformes en comparación con otros tipos de voz.                         |
+|                         | `style="cheerful"`        | Expresa un tono animado y entusiasta, agudo y enérgico.                 |
 |                         | `style="angry"`           | Expresa un tono enfadado y molesto, grave, con mayor intensidad y energía vocal más alta. El hablante está en un estado de ira, disgustado y ofendido.       |
-|                         | `style="fearful"`         | Expresa un tono asustado y nervioso, agudo, con energía vocal alta y más velocidad. El hablante está en un estado de tensión y ansiedad.                          |
-|                         | `style="disgruntled"`     | Expresa desdén y un tono de queja. La voz de esta emoción muestra desagrado y desprecio.              |
-|                         | `style="serious"`         | Expresa un tono estricto e imponente. A menudo, el hablante suena rígido y mucho menos relajado, con una cadencia firme.    |
+|                         | `style="fearful"`         | Expresa un tono asustado y nervioso, agudo, con energía vocal alta y más velocidad. El hablante está en un estado de tensión y ansiedad.                       |
+|                         | `style="disgruntled"`     | Expresa desdén y un tono de queja. La voz de esta emoción muestra desagrado y desprecio.         |
+|                         | `style="serious"`         | Expresa un tono estricto e imponente. A menudo, el hablante suena rígido y mucho menos relajado, con una cadencia firme.  |
 |                         | `style="depressed"`       | Expresa un tono melancólico y pesimista, con un timbre bajo y poca energía    |
 |                         | `style="gentle"`          | Expresa un tono dulce, educado y agradable, con un tono más grave y energía vocal.         |
-| `zh-CN-XiaoxuanNeural`  | `style="cheerful"`        | Expresa un tono animado y entusiasta, agudo y enérgico.                         |
+| `zh-CN-XiaoxuanNeural`  | `style="calm"`            | Expresa una actitud interesante, recolectada y compuesta al hablar. El tono, la intensidad y la prosodia son mucho más uniformes en comparación con otros tipos de voz.                         |
+|                         | `style="cheerful"`        | Expresa un tono animado y entusiasta, agudo y enérgico.                              |
 |                         | `style="angry"`           | Expresa un tono enfadado y molesto, grave, con mayor intensidad y energía vocal más alta. El hablante está en un estado de ira, disgustado y ofendido.       |
-|                         | `style="fearful"`         | Expresa un tono asustado y nervioso, agudo, con energía vocal alta y más velocidad. El hablante está en un estado de tensión y ansiedad.                          |
-|                         | `style="disgruntled"`     | Expresa desdén y un tono de queja. La voz de esta emoción muestra desagrado y desprecio.              |
-|                         | `style="serious"`         | Expresa un tono estricto e imponente. A menudo, el hablante suena rígido y mucho menos relajado, con una cadencia firme.    |
+|                         | `style="fearful"`         | Expresa un tono asustado y nervioso, agudo, con energía vocal alta y más velocidad. El hablante está en un estado de tensión y ansiedad.                       |
+|                         | `style="disgruntled"`     | Expresa desdén y un tono de queja. La voz de esta emoción muestra desagrado y desprecio.         |
+|                         | `style="serious"`         | Expresa un tono estricto e imponente. A menudo, el hablante suena rígido y mucho menos relajado, con una cadencia firme.  |
 |                         | `style="depressed"`       | Expresa un tono melancólico y pesimista, con un timbre bajo y poca energía    |
 |                         | `style="gentle"`          | Expresa un tono dulce, educado y agradable, con un tono más grave y energía vocal.         |
-| `zh-CN-XiaoruiNeural`    | `style="sad"`             | Expresa un tono afligido, agudo, con menos intensidad y poco enérgico. Los indicadores comunes de esta emoción serían lloriqueos o gimoteos al hablar.            |
+| `zh-CN-XiaoruiNeural`   | `style="sad"`             | Expresa un tono afligido, agudo, con menos intensidad y poco enérgico. Los indicadores comunes de esta emoción serían lloriqueos o gimoteos al hablar.         |
 |                         | `style="angry"`           | Expresa un tono enfadado y molesto, grave, con mayor intensidad y energía vocal más alta. El hablante está en un estado de ira, disgustado y ofendido.       |
-|                         | `style="fearful"`         | Expresa un tono asustado y nervioso, agudo, con energía vocal alta y más velocidad. El hablante está en un estado de tensión y ansiedad.                          |
+|                         | `style="fearful"`         | Expresa un tono asustado y nervioso, agudo, con energía vocal alta y más velocidad. El hablante está en un estado de tensión y ansiedad.                       |
 
 Use esta tabla para comprobar los roles admitidos y sus definiciones.
 
@@ -770,7 +776,7 @@ A continuación se muestran los tipos de contenido admitidos para los atributos 
 
 **Uso**
 
-El elemento `say-as` puede contener solo texto.
+El elemento `say-as` solo puede contener texto.
 
 **Ejemplo**
 
@@ -909,7 +915,7 @@ Los eventos `BookmarkReached` se generan cuando los datos de audio de salida est
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-Para más información, consulte <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesizer.bookmarkreached" target="_blank"> `BookmarkReached` </a>.
+Para más información, consulte <a href="/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesizer.bookmarkreached" target="_blank"> `BookmarkReached` </a>.
 
 ```csharp
 synthesizer.BookmarkReached += (s, e) =>
@@ -928,7 +934,7 @@ Bookmark reached. Audio offset: 1462.5ms, bookmark text: flower_2.
 
 # <a name="c"></a>[C++](#tab/cpp)
 
-Para más información, consulte <a href="https://docs.microsoft.com/cpp/cognitive-services/speech/speechsynthesizer#bookmarkreached" target="_blank"> `BookmarkReached` </a>.
+Para más información, consulte <a href="/cpp/cognitive-services/speech/speechsynthesizer#bookmarkreached" target="_blank"> `BookmarkReached` </a>.
 
 ```cpp
 synthesizer->BookmarkReached += [](const SpeechSynthesisBookmarkEventArgs& e)
@@ -948,7 +954,7 @@ Bookmark reached. Audio offset: 1462.5ms, bookmark text: flower_2.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Para más información, consulte <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechsynthesizer.bookmarkReached#com_microsoft_cognitiveservices_speech_SpeechSynthesizer_BookmarkReached" target="_blank"> `BookmarkReached` </a>.
+Para más información, consulte <a href="/java/api/com.microsoft.cognitiveservices.speech.speechsynthesizer.bookmarkReached#com_microsoft_cognitiveservices_speech_SpeechSynthesizer_BookmarkReached" target="_blank"> `BookmarkReached` </a>.
 
 ```java
 synthesizer.BookmarkReached.addEventListener((o, e) -> {
@@ -966,7 +972,7 @@ Bookmark reached. Audio offset: 1462.5ms, bookmark text: flower_2.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Para más información, consulte <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesizer#bookmark-reached" target="_blank"> `bookmark_reached` </a>.
+Para más información, consulte <a href="/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesizer#bookmark-reached" target="_blank"> `bookmark_reached` </a>.
 
 ```python
 # The unit of evt.audio_offset is tick (1 tick = 100 nanoseconds), divide it by 10,000 to convert to milliseconds.
@@ -982,7 +988,7 @@ Bookmark reached, audio offset: 1462.5ms, bookmark text: flower_2.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Para más información, consulte <a href="https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesizer#bookmarkReached" target="_blank"> `bookmarkReached`</a>.
+Para más información, consulte <a href="/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesizer#bookmarkReached" target="_blank"> `bookmarkReached`</a>.
 
 ```javascript
 synthesizer.bookmarkReached = function (s, e) {
@@ -998,7 +1004,7 @@ En el ejemplo de SSML anterior, el evento `bookmarkReached` se desencadenará do
 
 # <a name="objective-c"></a>[Objective-C](#tab/objectivec)
 
-Para más información, consulte <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechsynthesizer#addbookmarkreachedeventhandler" target="_blank"> `addBookmarkReachedEventHandler` </a>.
+Para más información, consulte <a href="/objectivec/cognitive-services/speech/spxspeechsynthesizer#addbookmarkreachedeventhandler" target="_blank"> `addBookmarkReachedEventHandler` </a>.
 
 ```objectivec
 [synthesizer addBookmarkReachedEventHandler: ^ (SPXSpeechSynthesizer *synthesizer, SPXSpeechSynthesisBookmarkEventArgs *eventArgs) {

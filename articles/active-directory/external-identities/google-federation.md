@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 04/06/2021
+ms.date: 04/30/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0cb3b3fd2010bf4ad1288b767d62d3d76f7b37e3
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 7e9c7d246c1cfb10c43979365c090a3a70775767
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106550972"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108315550"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Incorporación de Google como proveedor de identidades para los usuarios invitados de B2B
 
@@ -31,7 +31,7 @@ Cuando haya agregado Google como una de las opciones de inicio de sesión en la 
 > La federación de Google está diseñada específicamente para los usuarios de Gmail. Para realizar la federación con los dominios de G Suite, use la [federación directa](direct-federation.md).
 
 > [!IMPORTANT]
-> **A partir del 4 de enero de 2021**, Google [retira la compatibilidad con el inicio de sesión en WebView](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). Si usa la federación de Google o el registro de autoservicio con Gmail, debería [comprobar la compatibilidad de las aplicaciones nativas de línea de negocio](google-federation.md#deprecation-of-webview-sign-in-support).
+> **A partir del segundo semestre de 2021,** Google empezará a [retirar la compatibilidad con el inicio de sesión en vista web](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). Si usa la federación de Google para las invitaciones de B2B o [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md), o si usa el registro de autoservicio con Gmail, los usuarios de Google Gmail no podrán iniciar sesión si las aplicaciones autentican a los usuarios con una vista web insertada. [Más información](#deprecation-of-web-view-sign-in-support).
 
 ## <a name="what-is-the-experience-for-the-google-user"></a>¿Cuál es la experiencia del usuario de Google?
 
@@ -56,34 +56,41 @@ Los usuarios invitados de Google también pueden usar puntos de conexión de la 
 
 También puede proporcionar a los usuarios invitados de Google un vínculo directo a una aplicación o recurso que incluya la información del inquilino; por ejemplo, `https://myapps.microsoft.com/signin/Twitter/<application ID?tenantId=<your tenant ID>`.
 
-## <a name="deprecation-of-webview-sign-in-support"></a>Desuso de la compatibilidad con el inicio de sesión en WebView
+## <a name="deprecation-of-web-view-sign-in-support"></a>Desuso de la compatibilidad con el inicio de sesión en vista web
 
-A partir del 4 de enero de 2021, Google [retira la compatibilidad con el inicio de sesión en WebView](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). Si usa la federación de Google o el [registro de autoservicio con Gmail](identity-providers.md), debería comprobar la compatibilidad de las aplicaciones nativas de línea de negocio. Si las aplicaciones incluyen contenido de WebView que requiere autenticación, los usuarios de Gmail de Google no podrán autenticarse. Estos son escenarios conocidos que afectarán a los usuarios de Gmail:
+A partir del segundo semestre de 2021,Google empezará a [retirar la compatibilidad con el inicio de sesión en vista web insertado](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). Si usa la federación de Google para B2B o [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md), si usa el [registro de autoservicio con Gmail](identity-providers.md) o si las aplicaciones autentican a los usuarios con una vista web insertada, los usuarios de Google Gmail no podrán autenticarse.
 
-- Aplicaciones de Windows que usan WebView insertado o WebAccountManager (WAM) en versiones anteriores de Windows.
-- Otras aplicaciones nativas que haya desarrollado que usen un marco de explorador insertado para la autenticación.
+Estos son escenarios conocidos que afectarán a los usuarios de Gmail:
+- Aplicaciones de Windows que usan el control [WebView](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/webview), [WebView2](https://docs.microsoft.com/microsoft-edge/webview2/) o el control WebBrowser anterior, para la autenticación. Estas aplicaciones deben migrarse para usar el flujo Administrador de cuentas web (WAM).
+- Aplicaciones Android que usan el elemento de interfaz de usuario WebView 
+- Aplicaciones iOS con UIWebView/WKWebview 
+- Aplicaciones que usan ADAL
 
 Este cambio no afecta a:
 
-- Aplicaciones de Windows que usan WebView insertado o WebAccountManager (WAM) en las versiones más recientes de Windows
-- Aplicaciones de Microsoft iOS
+- Aplicaciones de Microsoft en Windows
+- Aplicaciones web
+- Aplicaciones móviles que usan vistas web del sistema para la autenticación ([SFSafariViewController](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) en iOS, [Pestañas personalizadas](https://developer.chrome.com/docs/android/custom-tabs/overview/) en Android).  
 - Identidades de G Suite; por ejemplo, cuando se usa la [federación directa](direct-federation.md) basada en SAML con G Suite
 
+Estamos confirmando con Google si este cambio afecta a lo siguiente:
+- Aplicaciones de Windows que usan el Administrador de cuentas web (WAM) o el Agente de autenticación web (WAB).  
+
 Seguimos probando varias plataformas y escenarios y actualizaremos este artículo en consecuencia.
-### <a name="to-test-your-apps-for-compatibility"></a>Para probar la compatibilidad de las aplicaciones:
+### <a name="action-needed-for-embedded-web-views"></a>Acción necesaria para las vistas web insertadas
+Modifique sus aplicaciones para que usen el explorador del sistema para el inicio de sesión. Para más información, consulte [Interfaz de usuario web del sistema frente a insertada](https://docs.microsoft.com/azure/active-directory/develop/msal-net-web-browsers#embedded-vs-system-web-ui) en la documentación de MSAL.NET. Todos los SDK de MSAL usan la vista web del sistema de forma predeterminada.
+### <a name="what-to-expect"></a>Qué esperar
+Antes de que Google ponga en marcha estos cambios en el segundo semestre de 2021, Microsoft implementará una solución alternativa para las aplicaciones que aún usan vistas web insertadas para asegurarse de que la autenticación no se bloquee.
 
-1. Siga la [guía de Google](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html) para determinar si sus aplicaciones se verán afectadas por este cambio.
-2. Con Fiddler u otra herramienta de prueba, inserte un encabezado durante el inicio de sesión y use una identidad externa de Google para probar el inicio de sesión:
+Las aplicaciones que se migran a una vista web permitida para la autenticación no se verán afectadas, y los usuarios podrán autenticarse a través de Google como de costumbre.
 
-   1. Agregue Google-Accounts-Check-OAuth-Login:true a sus encabezados de solicitud HTTP cuando se envíen las solicitudes a accounts.google.com.
-   1. Intente iniciar sesión en la aplicación escribiendo una dirección de Gmail en la página de inicio de sesión de accounts.google.com.
-   1. Si se produce un error de inicio de sesión y ve un error que dice que es posible que el explorador o la aplicación no sean seguros, se bloqueará el inicio de sesión para las identidades externas de Google.
+Actualizaremos este documento a medida que Google comparta fechas y más detalles.
 
-3. Para resolver este problema, haga lo siguiente:
+### <a name="distinguishing-between-cefelectron-and-embedded-web-views"></a>Distinción entre CEF/Electron y vistas web insertadas
+Además del [desuso de la vista web insertada y la compatibilidad con el inicio de sesión en el marco](#deprecation-of-web-view-sign-in-support), Google también va a [dejar de usar la autenticación de Gmail basada en Chromium Embedded Framework (CEF)](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). En el caso de las aplicaciones basadas en CEF, como las aplicaciones de Electron, Google deshabilitará la autenticación el 30 de junio de 2021. Las aplicaciones afectadas han recibido un aviso de Google directamente y no se tratan en esta documentación.  Este documento pertenece a las vistas web insertadas descritas anteriormente, que Google restringirá en una fecha diferente más adelante en 2021.
 
-   - Si la aplicación de Windows usa WebView insertado o WebAccountManager (WAM) en una versión anterior de Windows, actualice a la versión más reciente de esta plataforma.
-   - Modifique sus aplicaciones para que usen el explorador del sistema para el inicio de sesión. Para más información, consulte [Interfaz de usuario web del sistema frente a insertada](../develop/msal-net-web-browsers.md#embedded-vs-system-web-ui) en la documentación de MSAL.NET.  
-
+### <a name="action-needed-for-embedded-frameworks"></a>Acción necesaria para marcos insertados
+Siga la [guía de Google](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html) para determinar si sus aplicaciones se verán afectadas por este cambio.
 
 ## <a name="step-1-configure-a-google-developer-project"></a>Paso 1: configuración de un proyecto de desarrollador de Google
 En primer lugar, cree un proyecto en la consola de desarrolladores de Google para obtener un identificador y un secreto de cliente que pueda agregar después a Azure Active Directory (Azure AD). 

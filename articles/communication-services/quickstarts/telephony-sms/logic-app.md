@@ -9,16 +9,16 @@ ms.author: chpalm
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 11cce223a0802c20c5fc144eed681327f989a949
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: cabf4ba9ea17c1ad2d8af9fd17e7d6f09838e745
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103488387"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108293159"
 ---
 # <a name="quickstart-send-sms-messages-in-azure-logic-apps-with-azure-communication-services"></a>Inicio rápido: Envío de mensajes SMS en Azure Logic Apps mediante Azure Communication Services
 
-Con el conector [SMS de Azure Communication Services](../../overview.md) y [Azure Logic Apps](../../../logic-apps/logic-apps-overview.md), puede crear flujos de trabajo automatizados, o *aplicaciones lógicas*, que pueden enviar mensajes SMS. En esta guía de inicio rápido se muestra cómo enviar mensajes de texto automáticamente en respuesta a un evento desencadenador, que es el primer paso de un flujo de trabajo de aplicación lógica. Un evento desencadenador puede ser un mensaje de correo electrónico entrante, una programación periódica, un evento de un recurso de [Azure Event Grid](../../../event-grid/overview.md) o cualquier otro desencadenador [admitido por Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors).
+Con el conector [SMS de Azure Communication Services](../../overview.md) y [Azure Logic Apps](../../../logic-apps/logic-apps-overview.md), puede crear flujos de trabajo automatizados que pueden enviar mensajes SMS. En esta guía de inicio rápido se muestra cómo enviar mensajes de texto automáticamente en respuesta a un evento desencadenador, que es el primer paso de un flujo de trabajo de aplicación lógica. Un evento desencadenador puede ser un mensaje de correo electrónico entrante, una programación periódica, un evento de un recurso de [Azure Event Grid](../../../event-grid/overview.md) o cualquier otro desencadenador [admitido por Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
 :::image type="content" source="./media/logic-app/azure-communication-services-connector.png" alt-text="Captura de pantalla que muestra Azure Portal, con el diseñador de aplicaciones lógicas abierto, con una aplicación lógica de ejemplo que usa la acción Enviar SMS del conector de Azure Communication Services.":::
 
@@ -73,11 +73,11 @@ Para agregar la acción **Enviar SMS** como un nuevo paso en el flujo de trabajo
 
 1. Cuando esté listo, seleccione **Guardar** en la barra de herramientas del diseñador.
 
-A continuación, ejecute la aplicación lógica para realizar pruebas.
+A continuación, ejecute el flujo de trabajo de la aplicación lógica para las pruebas.
 
 ## <a name="test-your-logic-app"></a>Comprobación de la aplicación lógica
 
-Para iniciar manualmente la aplicación lógica, seleccione **Ejecutar** en la barra de herramientas del diseñador. O bien, puede esperar a que se desencadene la aplicación lógica. En ambos casos, la aplicación lógica debe enviar un mensaje SMS al número de teléfono de destino especificado. Para más información sobre la ejecución de la aplicación lógica, consulte [Ejecución de la aplicación lógica](../../../logic-apps/quickstart-create-first-logic-app-workflow.md#run-your-logic-app).
+Para iniciar manualmente el flujo de trabajo, seleccione **Ejecutar** en la barra de herramientas del diseñador. O bien, puede esperar a que se active el desencadenador. En ambos casos, el flujo de trabajo debe enviar un mensaje SMS al número de teléfono de destino especificado. Para más información, revise [cómo ejecutar el flujo de trabajo](../../../logic-apps/quickstart-create-first-logic-app-workflow.md#run-workflow).
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

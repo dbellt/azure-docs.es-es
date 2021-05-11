@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/30/2021
+ms.date: 04/29/2021
 ms.author: tamram
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 786eb981acd61d952f95f89a7d90e4f732f3cda4
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 7c4e0fed78eb85e0e5326cbee6c6823466811c16
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107887655"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108321883"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Actualización a una cuenta de almacenamiento de uso general v2
 
@@ -39,11 +39,11 @@ Para actualizar una cuenta de uso general v1 o una cuenta de almacenamiento de b
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Vaya a la cuenta de almacenamiento.
 3. En la sección **Configuración**, haga clic en **Configuración**.
-4. En **Tipo de cuenta**, haga clic en **Actualizar**.
+4. En **Tipo de cuenta**, seleccione **Actualizar**.
 5. En **Confirmar actualización**, escriba el nombre de la cuenta.
-6. Haga clic en **Actualizar** en la parte inferior de la hoja.
+6. Seleccione **Actualizar** en la parte inferior de la hoja.
 
-    ![Actualización del tipo de cuenta](../blobs/media/storage-blob-account-upgrade/upgrade-to-gpv2-account.png)
+    :::image type="content" source="../blobs/media/storage-blob-account-upgrade/upgrade-to-gpv2-account.png" alt-text="Captura de pantalla de la hoja de configuración, opción de actualización del tipo de cuenta resaltada." lightbox="../blobs/media/storage-blob-account-upgrade/upgrade-to-gpv2-account.png":::
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

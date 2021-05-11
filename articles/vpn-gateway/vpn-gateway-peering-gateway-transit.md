@@ -1,19 +1,19 @@
 ---
 title: Configuración del tránsito de la puerta de enlace de VPN para el emparejamiento de red virtual
-description: Configure el tránsito de puerta de enlace para el emparejamiento de red virtual, a fin de conectar de forma sencilla dos redes virtuales de Azure a una con fines de conectividad.
+description: Aprenda cómo configurar el tránsito de puerta de enlace para el emparejamiento de red virtual a fin de conectar de forma sencilla dos redes virtuales de Azure a una con fines de conectividad.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 11/30/2020
+ms.date: 04/28/2021
 ms.author: cherylmc
-ms.openlocfilehash: 73a7d76de34d29b2d51c54569b234cd8221b08f8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7573f33082e1915bdf75ffe015afedfedbfda469
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98872186"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108205294"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>Configuración del tránsito de la puerta de enlace de VPN para el emparejamiento de red virtual
 

@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 60b7cfa744de244015f99a2e42070eb3430878c7
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.openlocfilehash: 757de37fdc3f55170d8c620a69adf104b8884b14
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108015670"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108204286"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutorial: Creación y administración de presupuestos de Azure
 
@@ -71,7 +71,7 @@ Se admiten los siguientes permisos o ámbitos de Azure por suscripción para los
 - Colaborador y Colaborador de Cost Management: puede crear, modificar o eliminar sus propios presupuestos. Puede modificar el importe presupuestario para los presupuestos creados por otros usuarios.
 - Lector y Lector de Cost Management: puede ver los presupuestos para los que tiene permiso.
 
-Para más información sobre los ámbitos, consulte [Descripción y uso de ámbitos](understand-work-scopes.md). Para más información sobre cómo asignar permisos a los datos de Cost Management, consulte [Asignación del acceso a los datos de Cost Management](./assign-access-acm-data.md).
+**Para más información sobre los ámbitos, incluido el acceso necesario para configurar las exportaciones de Contrato Enterprise y los ámbitos del contrato de cliente de Microsoft, consulte [Descripción y uso de ámbitos](understand-work-scopes.md)** . Para más información sobre cómo asignar permisos a los datos de Cost Management, consulte [Asignación del acceso a los datos de Cost Management](./assign-access-acm-data.md).
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 

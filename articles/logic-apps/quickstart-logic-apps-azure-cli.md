@@ -6,13 +6,13 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli, contperf-fy21q2
-ms.date: 11/23/2020
-ms.openlocfilehash: afc39673a30f5c99455696c7a075cb1a6a33ecd1
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.date: 04/23/2021
+ms.openlocfilehash: 48d71d3736737e88825bbae19e0a5274bacd21a1
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107875510"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108161094"
 ---
 # <a name="quickstart-create-and-manage-logic-apps-using-the-azure-cli"></a>Inicio rápido: Creación y administración de aplicaciones lógicas mediante la CLI de Azure
 
@@ -43,22 +43,18 @@ Valide el entorno antes de empezar:
 Si aún no tiene un grupo de recursos para la aplicación lógica, créelo con el comando `az group create`. Por ejemplo, el siguiente comando crea un grupo de recursos denominado `testResourceGroup` en la ubicación `westus`.
 
 ```azurecli-interactive
-
 az group create --name testResourceGroup --location westus
-
 ```
 
 La salida muestra `provisioningState` como `Succeeded` cuando el grupo de recursos se crea correctamente:
 
 ```output
-
 <...>
   "name": "testResourceGroup",
   "properties": {
     "provisioningState": "Succeeded"
   },
 <...>
-
 ```
 
 ## <a name="workflow-definition"></a>Definición del flujo de trabajo
@@ -72,7 +68,6 @@ Cuando se ejecutan los comandos para crear o actualizar una aplicación lógica,
 Para crear un flujo de trabajo de aplicaciones lógicas desde la CLI de Azure, use el comando [`az logic workflow create`](/cli/azure/logic/workflow#az_logic_workflow_create) con un archivo JSON para la definición.
 
 ```azurecli
-
 az logic workflow create --definition
                          --location
                          --name
@@ -83,17 +78,17 @@ az logic workflow create --definition
                          [--integration-service-environment]
                          [--state {Completed, Deleted, Disabled, Enabled, NotSpecified, Suspended}]
                          [--tags]
-
 ```
 
 El comando debe incluir los siguientes [parámetros requeridos](/cli/azure/logic/workflow#az_logic_workflow_create-required-parameters):
 
-| Parámetro | Valor | Descripción |
+| Parámetro | Value | Descripción |
 | --------- | ----- | ----------- |
 | Definición del flujo de trabajo | `--definition` | Archivo JSON con la [definición del flujo de trabajo](#workflow-definition) de la aplicación lógica. |
 | Ubicación | `--location -l` | La región de Azure en la que se encuentra la aplicación lógica. |
 | Nombre | `--name -n` | Nombre de la aplicación lógica. El nombre puede contener solo letras, números, guiones (`-`), caracteres de subrayado (`_`), paréntesis (`()`) y puntos (`.`). El nombre también debe ser único entre las regiones. |
 | Definición de un nombre de grupo de recursos | `--resource-group -g` | [Grupo de recursos de Azure](../azure-resource-manager/management/overview.md) en el que desea crear la aplicación lógica. Si no tiene un grupo de recursos para su aplicación lógica, [créelo](#example---create-resource-group) antes de empezar. |
+||||
 
 También puede incluir [parámetros opcionales](/cli/azure/logic/workflow#az_logic_workflow_create-optional-parameters) adicionales para configurar los controles de acceso, los puntos de conexión, la cuenta de integración, el entorno del servicio de integración, el estado y las etiquetas de recursos de la aplicación lógica.
 
@@ -102,9 +97,7 @@ También puede incluir [parámetros opcionales](/cli/azure/logic/workflow#az_log
 En este ejemplo, se crea un flujo de trabajo denominado `testLogicApp` en el grupo de recursos `testResourceGroup` de la ubicación `westus`. El archivo JSON `testDefinition.json` contiene la definición del flujo de trabajo.
 
 ```azurecli-interactive
-
 az logic workflow create --resource-group "testResourceGroup" --location "westus" --name "testLogicApp" --definition "testDefinition.json"
-
 ```
 
 Cuando el flujo de trabajo se crea correctamente, la CLI muestra el código JSON de la definición del nuevo flujo de trabajo. Si se produce algún error en la creación del flujo de trabajo, consulte la [lista de posibles errores](#errors).
@@ -116,7 +109,6 @@ Desde la CLI de Azure también se puede actualizar el flujo de trabajo de una ap
 Este comando debe incluir los mismos [parámetros requeridos](/cli/azure/logic/workflow#az_logic_workflow_create-required-parameters) que cuando se [crea una aplicación lógica](#create-logic-apps-from-cli). También se pueden agregar los mismos [parámetros opcionales](/cli/azure/logic/workflow#az_logic_workflow_create-optional-parameters) que cuando se crea una aplicación lógica.
 
 ```azurecli
-
 az logic workflow create --definition
                          --location
                          --name
@@ -127,7 +119,6 @@ az logic workflow create --definition
                          [--integration-service-environment]
                          [--state {Completed, Deleted, Disabled, Enabled, NotSpecified, Suspended}]
                          [--tags]
-
 ```
 
 ### <a name="example---update-logic-app"></a>Ejemplo: actualización de una aplicación lógica
@@ -135,9 +126,7 @@ az logic workflow create --definition
 En este ejemplo, el [flujo de trabajo creado en la sección anterior](#example---create-logic-app) se actualiza para que use otro archivo de definición de JSON, `newTestDefinition.json`, y se agregan dos etiquetas de recursos, `testTag1` y `testTag2`, con valores de descripción.
 
 ```azurecli-interactive
-
 az logic workflow create --resource-group "testResourceGroup" --location "westus" --name "testLogicApp" --definition "newTestDefinition.json" --tags "testTag1=testTagValue1" "testTag2=testTagValue"
-
 ```
 
 Cuando el flujo de trabajo se actualiza correctamente, la CLI muestra la definición del flujo de trabajo actualizada de la aplicación lógica. Si se produce algún error en la actualización, consulte la [lista de posibles errores](#errors).
@@ -148,27 +137,24 @@ Desde la CLI de Azure se puede eliminar el flujo de trabajo de una aplicación l
 
 El comando debe incluir los siguientes [parámetros requeridos](/cli/azure/logic/workflow#az_logic_workflow_delete-required-parameters):
 
-| Parámetro | Valor | Descripción |
+| Parámetro | Value | Descripción |
 | --------- | ----- | ----------- |
 | Nombre | `--name -n` | Nombre de la aplicación lógica. |
 | Definición de un nombre de grupo de recursos | `-resource-group -g` | El grupo de recursos en que se encuentra la aplicación lógica. |
+||||
 
 También puede incluir un [parámetro opcional](/cli/azure/logic/workflow#az_logic_workflow_delete-optional-parameters) para omitir los mensajes de confirmación, `--yes -y`.
 
 ```azurecli
-
 az logic workflow delete --name
                          --resource-group
                          [--yes]
-
 ```
 
 La CLI le pide que confirme la eliminación de la aplicación lógica. Para omitir el mensaje de confirmación, use el parámetro opcional `--yes -y` con el comando.
 
-```azurecli
-
+```output
 Are you sure you want to perform this operation? (y/n):
-
 ```
 
 Para confirmar la eliminación de una aplicación lógica [enumere las aplicaciones lógicas de la CLI](#list-logic-apps-in-cli) o vea las aplicaciones lógicas en Azure Portal.
@@ -178,39 +164,46 @@ Para confirmar la eliminación de una aplicación lógica [enumere las aplicacio
 En este ejemplo, se elimina el [flujo de trabajo creado en una sección anterior](#example---create-logic-app).
 
 ```azurecli-interactive
-
 az logic workflow delete --resource-group "testResourceGroup" --name "testLogicApp"
-
 ```
 
 Después de responder al aviso de confirmación con `y`, se elimina la aplicación lógica.
+
+### <a name="considerations---delete-logic-app"></a>Aspectos a tener en cuenta: eliminación de una aplicación lógica
+
+La eliminación de una aplicación lógica afecta a las instancias de flujo de trabajo de las maneras siguientes:
+
+* El servicio Logic Apps hace todo lo posible por cancelar todas las ejecuciones en curso y pendientes.
+
+  Incluso con un gran volumen o trabajo pendiente, la mayoría de las ejecuciones se cancelan antes de que finalicen o se inicien. Sin embargo, el proceso de cancelación puede tardar en completarse. Mientras tanto, pueden seleccionarse algunas ejecuciones para su ejecución mientras el entorno en tiempo de ejecución se encarga del proceso de cancelación.
+
+* El servicio Logic Apps no crea ni ejecuta nuevas instancias de flujo de trabajo.
+
+* Si elimina un flujo de trabajo y, luego, vuelve a crearlo, este no tendrá los mismos metadatos que el eliminado. Tiene que volver a guardar cualquier flujo de trabajo que haya llamado al eliminado. De este modo, el autor de la llamada obtiene la información correcta sobre el flujo de trabajo que se ha vuelto a crear. De lo contrario, las llamadas a este flujo de trabajo generarán el error `Unauthorized`. Este comportamiento también se aplica a los flujos de trabajo que usan artefactos en cuentas de integración y a flujos de trabajo que llaman a funciones de Azure.
 
 ## <a name="show-logic-apps-in-cli"></a>Visualización de aplicaciones lógicas en la CLI
 
 Puede obtener un flujo de trabajo de aplicación lógica específico mediante el comando [`az logic workflow show`](/cli/azure/logic/workflow#az_logic_workflow_show).
 
 ```azurecli
-
 az logic workflow show --name
                        --resource-group
-
 ```
 
 Este comando debe incluir los siguientes [parámetros requeridos](/cli/azure/logic/workflow#az_logic_workflow_show-required-parameters)
 
-| Parámetro | Valor | Descripción |
+| Parámetro | Value | Descripción |
 | --------- | ----- | ----------- |
 | Nombre | `--name -n` | Nombre de la aplicación lógica. |
 | Nombre de grupo de recursos | `--resource-group -g` | Nombre del grupo de recursos en que se encuentra la aplicación lógica. |
+||||
 
 ### <a name="example---get-logic-app"></a>Ejemplo: obtener una aplicación lógica
 
 En este ejemplo, la aplicación lógica `testLogicApp` del grupo de recursos `testResourceGroup` se devuelve con registros completos para la depuración.
 
 ```azurecli-interactive
-
 az logic workflow show --resource-group "testResourceGroup" --name "testLogicApp" --debug
-
 ```
 
 ## <a name="list-logic-apps-in-cli"></a>Enumeración de aplicaciones lógicas en la CLI
@@ -219,18 +212,17 @@ Mediante el comando [`az logic workflow list`](/cli/azure/logic/workflow#az_logi
 
 Puede filtrar los resultados por los siguientes [parámetros opcionales](/cli/azure/logic/workflow#az_logic_workflow_list-optional-parameters):
 
-| Parámetro | Valor | Descripción |
+| Parámetro | Value | Descripción |
 | --------- | ----- | ----------- |
 | Nombre de grupo de recursos | `--resource-group -g` | Nombre del grupo de recursos por el que desea filtrar los resultados. |
 | Número de elementos | `--top` | Número de elementos que se incluyen en los resultados. |
 | Filtro | `--filter` | Tipo de filtro que se usa en la lista. Puede filtrar por estado (`State`), desencadenador (`Trigger`) y el identificador del recurso al que se hace referencia (`ReferencedResourceId`). |
+||||
 
 ```azurecli
-
 az logic workflow list [--filter]
                        [--resource-group]
                        [--top]
-
 ```
 
 ### <a name="example---list-logic-apps"></a>Ejemplo: enumeración de aplicaciones lógicas
@@ -238,9 +230,7 @@ az logic workflow list [--filter]
 En este ejemplo, todos los flujos de trabajo habilitados del grupo de recursos `testResourceGroup` se devuelven en formato de tabla ASCII.
 
 ```azurecli-interactive
-
 az logic workflow list --resource-group "testResourceGroup" --filter "(State eq 'Enabled')" --output "table"
-
 ```
 
 ## <a name="errors"></a>Errors
@@ -248,24 +238,20 @@ az logic workflow list --resource-group "testResourceGroup" --filter "(State eq 
 El siguiente error indica que la extensión de la CLI de Azure Logic Apps no está instalada. Siga los pasos de los requisitos previos para [instalar la extensión de Logic Apps](#prerequisites) en el equipo.
 
 ```output
-
 az: 'logic' is not in the 'az' command group. See 'az --help'. If the command is from an extension, please make sure the corresponding extension is installed. To learn more about extensions, please visit https://docs.microsoft.com/cli/azure/azure-cli-extensions-overview
-
 ```
 
 El siguiente error puede indicar que la ruta de acceso del archivo para cargar la definición del flujo de trabajo no es correcta.
 
 ```output
-
 Expecting value: line 1 column 1 (char 0)
-
 ```
 
 ## <a name="global-parameters"></a>Parámetros globales
 
 Puede usar los siguientes parámetros globales opcionales de la CLI de Azure con sus comandos de `az logic`:
 
-| Parámetro | Valor | Descripción |
+| Parámetro | Value | Descripción |
 | --------- | ----- | ----------- |
 | Formato de salida | `--output -o` | Cambia el [formato de salida](/cli/azure/format-output-azure-cli) para que no sea el JSON predeterminado. |
 | Mostrar solo errores | `--only-show-errors` | Suprime las advertencias y muestra solo los errores. |
@@ -273,6 +259,7 @@ Puede usar los siguientes parámetros globales opcionales de la CLI de Azure con
 | Depurar | `--debug` | Muestra todos los registros de depuración. |
 | Mensaje de ayuda | `--help -h` | Muestra el cuadro de diálogo de ayuda. |
 | Consultar | `--query` | Establece una cadena de consulta de JMESPath para la salida JSON. |
+||||
 
 ## <a name="next-steps"></a>Pasos siguientes
 

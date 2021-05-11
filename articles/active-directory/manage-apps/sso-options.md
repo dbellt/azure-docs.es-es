@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: iangithinji
 ms.reviewer: arvindh, japere
-ms.openlocfilehash: 202ccf6f540ec78c2bb30e0f0a0173609bba578c
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 820f27e770e3168277e12b85e7766cd16975ef7f
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107751461"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108315010"
 ---
 # <a name="single-sign-on-options-in-azure-ad"></a>Opciones de inicio de sesión único en Azure AD
 
@@ -76,7 +76,7 @@ Para configurar una aplicación SaaS para el inicio de sesión único basado en 
 
 Para configurar una aplicación para WS-Federation, siga las mismas instrucciones que para configurar la aplicación para el inicio de sesión único basado en SAML. En el paso para configurar la aplicación para usar Azure AD, tendrá que reemplazar la dirección URL de inicio de sesión de Azure AD para el punto de conexión de WS-Federation `https://login.microsoftonline.com/<tenant-ID>/wsfed`.
 
-Para configurar una aplicación local para el inicio de sesión único basado en SAML, consulte [Inicio de sesión único en SAML para aplicaciones locales con Application Proxy](application-proxy-configure-single-sign-on-on-premises-apps.md).
+Para configurar una aplicación local para el inicio de sesión único basado en SAML, consulte [Inicio de sesión único en SAML para aplicaciones locales con Application Proxy](../app-proxy/application-proxy-configure-single-sign-on-on-premises-apps.md).
 
 Para más información acerca del protocolo SAML, consulte [Protocolo SAML de inicio de sesión único](../develop/single-sign-on-saml-protocol.md).
 
@@ -107,7 +107,7 @@ Se admite el inicio de sesión único basado en contraseñas para cualquier apli
 
 Para configurar una aplicación en la nube para el inicio de sesión único basado en contraseñas, consulte [Configuración del inicio de sesión único con contraseña](configure-password-single-sign-on-non-gallery-applications.md).
 
-Para configurar una aplicación local para el inicio de sesión único a través del proxy de aplicación, consulte [Almacén de contraseñas para el inicio de sesión único con el proxy de aplicación](application-proxy-configure-single-sign-on-password-vaulting.md)
+Para configurar una aplicación local para el inicio de sesión único a través del proxy de aplicación, consulte [Almacén de contraseñas para el inicio de sesión único con el proxy de aplicación](../app-proxy/application-proxy-configure-single-sign-on-password-vaulting.md)
 
 ### <a name="how-authentication-works-for-password-based-sso"></a>Funcionamiento de la autenticación en el inicio de sesión único mediante contraseña
 
@@ -157,16 +157,16 @@ Tenga en cuenta que si ha configurado la aplicación para el inicio de sesión �
 
 ## <a name="integrated-windows-authentication-iwa-sso"></a>Inicio de sesión único con autenticación integrada de Windows (IWA)
 
-El [proxy de la aplicación](/aspnet/web-api/overview/security/integrated-windows-authentication) proporciona el inicio de sesión único (SSO) a las aplicaciones que usan la [autenticación integrada de Windows (IWA)](application-proxy.md), o bien a las aplicaciones compatibles con notificaciones. Si la aplicación utiliza IWA, el proxy de la aplicación se autentica en la aplicación mediante la delegación restringida de Kerberos (KCD). Para una aplicación compatible con notificaciones que confía en Azure Active Directory, el inicio de sesión único funciona porque el usuario ya se ha autenticado con Azure AD.
+El [proxy de la aplicación](/aspnet/web-api/overview/security/integrated-windows-authentication) proporciona el inicio de sesión único (SSO) a las aplicaciones que usan la [autenticación integrada de Windows (IWA)](../app-proxy/application-proxy.md), o bien a las aplicaciones compatibles con notificaciones. Si la aplicación utiliza IWA, el proxy de la aplicación se autentica en la aplicación mediante la delegación restringida de Kerberos (KCD). Para una aplicación compatible con notificaciones que confía en Azure Active Directory, el inicio de sesión único funciona porque el usuario ya se ha autenticado con Azure AD.
 
 Elija el modo de inicio de sesión único de autenticación integrada para proporcionar inicio de sesión único a una aplicación local que se autentica con IWA.
 
-Para configurar una aplicación local para IWA, consulte [Delegación restringida de Kerberos para el inicio de sesión único para las aplicaciones con Proxy de aplicación](application-proxy-configure-single-sign-on-with-kcd.md).
+Para configurar una aplicación local para IWA, consulte [Delegación restringida de Kerberos para el inicio de sesión único para las aplicaciones con Proxy de aplicación](../app-proxy/application-proxy-configure-single-sign-on-with-kcd.md).
 
 ### <a name="how-single-sign-on-with-kcd-works"></a>Cómo funciona el inicio de sesión único con KCD
 En este diagrama se explica el flujo cuando un usuario accede a una aplicación local que usa IWA.
 
-![Diagrama de flujos de autenticación de Microsoft Azure AD](./media/application-proxy-configure-single-sign-on-with-kcd/AuthDiagram.png)
+![Diagrama de flujos de autenticación de Microsoft Azure AD](../app-proxy/media/application-proxy-configure-single-sign-on-with-kcd/AuthDiagram.png)
 
 1. El usuario escribe la dirección URL para tener acceso a la aplicación local mediante Application Proxy.
 1. Proxy de aplicación redirige la solicitud a los servicios de autenticación de Azure AD para realizar la autenticación previa. En este momento, Azure AD aplica cualquier autenticación correspondiente, así como directivas de autorización, como la autenticación multifactor. Si se valida el usuario, Azure AD crea un token y lo envía al usuario.
@@ -183,10 +183,10 @@ El inicio de sesión único basado en encabezados funciona con aquellas aplicaci
 
 Elija el inicio de sesión único basado en encabezados cuando Application Proxy y PingAccess estén configurados para la aplicación local.
 
-Para más información acerca de la autenticación basada en encabezados, consulte [Inicio de sesión único basado en encabezados](application-proxy-configure-single-sign-on-with-headers.md).
+Para más información acerca de la autenticación basada en encabezados, consulte [Inicio de sesión único basado en encabezados](../app-proxy/application-proxy-configure-single-sign-on-with-headers.md).
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Serie de guías de inicio rápido sobre la administración de aplicaciones](view-applications-portal.md)
 * [Planeación de una implementación de inicio de sesión único](plan-sso-deployment.md)
-* [Inicio de sesión único con aplicaciones locales](application-proxy-config-sso-how-to.md)
+* [Inicio de sesión único con aplicaciones locales](../app-proxy/application-proxy-config-sso-how-to.md)

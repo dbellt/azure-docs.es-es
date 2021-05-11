@@ -1,18 +1,18 @@
 ---
 title: Preguntas frecuentes sobre VPN Gateway
-description: Preguntas más frecuentes sobre VPN Gateway Preguntas más frecuentes sobre las conexiones entre locales, las conexiones de configuración híbrida y VPN Gateway.
+description: Obtenga información acerca de las preguntas más frecuentes sobre las conexiones entre locales de VPN Gateway, conexiones de configuración híbrida y puertas de enlace de red virtual. Este documento de preguntas frecuentes contiene información exhaustiva sobre las opciones de configuración de punto a sitio, de sitio a sitio y de red virtual a red virtual.
 services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 03/29/2021
 ms.author: yushwang
-ms.openlocfilehash: 3d29e99f3b539fdbea2a19df7ffc25d4e41a5376
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0fee7a7a58a6aabc7d545981b1f8b56033bf9857
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105731265"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108203764"
 ---
 # <a name="vpn-gateway-faq"></a>Preguntas más frecuentes sobre VPN Gateway
 
@@ -258,7 +258,7 @@ No. Únicamente el tráfico que tiene como destino una IP que se encuentra en lo
 
 ## <a name="virtual-network-faq"></a><a name="faq"></a>Preguntas más frecuentes sobre Virtual Network
 
-Consulte información adicional de redes virtuales adicionales en las [Preguntas frecuentes sobre redes virtuales](../virtual-network/virtual-networks-faq.md).
+Puede ver más información de redes virtuales adicionales el documento de [preguntas más frecuentes (P+F) acerca de Virtual Network](../virtual-network/virtual-networks-faq.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

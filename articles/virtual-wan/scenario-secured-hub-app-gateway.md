@@ -1,19 +1,19 @@
 ---
 title: Protección del tráfico entre Application Gateway y los grupos de back-end
 titleSuffix: Azure Virtual WAN
-description: 'Escenarios de enrutamiento: tráfico seguro que viaja a través de una puerta de enlace de aplicaciones implementada en una red virtual radial conectada a un centro de Virtual WAN protegido.'
+description: Obtenga información sobre los escenarios de enrutamiento de Virtual WAN para el tráfico seguro que viaja a través de una puerta de enlace de aplicación. La puerta de enlace de aplicación se implementa en una red virtual radial que se conecta a un centro de conectividad protegido de Virtual WAN.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 04/12/2021
+ms.date: 04/27/2021
 ms.author: cherylmc
-ms.openlocfilehash: d9cb1251b90cf1c928f8286072bcd91e5ddf767e
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 9bb3343bc9c3dffa8f84280cd0799c7e92f4f50c
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107315340"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108165810"
 ---
 # <a name="scenario-secure-traffic-between-application-gateway-and-backend-pools"></a>Escenario: protección del tráfico entre Application Gateway y los grupos de back-end.
 

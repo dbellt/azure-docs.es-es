@@ -8,12 +8,12 @@ ms.topic: reference
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 31e06777a2f2e26f6ef546e60fd0bf4428d272c2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2c55797355b2442fe0100144e5229b318b525631
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102503817"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108278081"
 ---
 # <a name="microsoft-sdks-for-iot-plug-and-play"></a>SDK de Microsoft para IoT Plug and Play
 
@@ -28,7 +28,7 @@ Los SDK y las bibliotecas de IoT Plug and Play permiten a los desarrolladores cr
 | Java: dispositivo | [Maven 1.26.0](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot/iot-device-client) | [GitHub](https://github.com/Azure/azure-iot-sdk-java/tree/master/) | [Muestras](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples/pnp-device-sample) | [Conexión a IoT Hub](quickstart-connect-device.md) | [Referencia](/java/api/com.microsoft.azure.sdk.iot.device) |
 | Python: dispositivo | [pip 2.3.0](https://pypi.org/project/azure-iot-device/) | [GitHub](https://github.com/Azure/azure-iot-sdk-python/tree/master/) | [Muestras](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/pnp) | [Conexión a IoT Hub](quickstart-connect-device.md) | [Referencia](/python/api/azure-iot-device/azure.iot.device) |
 | Node: dispositivo | [npm 1.17.2](https://www.npmjs.com/package/azure-iot-device)  | [GitHub](https://github.com/Azure/azure-iot-sdk-node/tree/master/) | [Muestras](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples/pnp) | [Conexión a IoT Hub](quickstart-connect-device.md) | [Referencia](/javascript/api/azure-iot-device/) |
-| C insertado: dispositivo | N/D | [GitHub](https://github.com/Azure/azure-sdk-for-c/)| [Muestras](howto-use-embedded-c.md#samples) | [Uso de C insertado](howto-use-embedded-c.md) | N/D
+| C insertado: dispositivo | N/D | [GitHub](https://github.com/Azure/azure-sdk-for-c/)| [Muestras](quickstart-connect-device.md?pivots=programming-language-embedded-c#samples) | [Uso de C insertado](quickstart-connect-device.md?pivots=programming-language-embedded-c) | N/D
 
 ## <a name="service-sdks"></a>SDK de servicio
 

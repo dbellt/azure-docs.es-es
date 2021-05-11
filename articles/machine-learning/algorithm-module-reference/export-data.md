@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 03/19/2021
-ms.openlocfilehash: 90755aef66fa51084d83d036722187b61449a6fc
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 82821b29669139f378d4dd24e4a96ab66f3d56e1
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104656913"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108321940"
 ---
 # <a name="export-data-module"></a>Módulo Exportación de datos
 
@@ -60,6 +60,10 @@ Antes de exportar los datos, debe registrar un almacén de datos en el área de 
 1. Para **Formato de archivo**, seleccione el formato en el que se deben almacenar los datos.
  
 1. Envíe la canalización.
+
+## <a name="limitations"></a>Limitaciones
+
+Debido a la limitación del acceso al almacén de datos, si la canalización de inferencia contiene el módulo **Exportar datos**, se quitará automáticamente cuando se implemente en el punto de conexión en tiempo real.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

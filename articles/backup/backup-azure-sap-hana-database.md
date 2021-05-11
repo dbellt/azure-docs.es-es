@@ -3,12 +3,12 @@ title: Copia de seguridad de una base de datos de SAP HANA a Azure con Azure Bac
 description: En este artículo, aprenderá a realizar copias de seguridad de una base de datos de SAP HANA en máquinas virtuales de Azure con el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: e7735c4240529cc6fc9bb6470934dd335d22aa77
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ab4b192c63697b398314f78518eaf8f90f17c452
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101719617"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108277613"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Copia de seguridad de bases de datos de SAP HANA en máquinas virtuales de Azure
 
@@ -199,7 +199,7 @@ Las copias de seguridad se ejecutan según la programación de la directiva. Pue
 
 1. En el menú del almacén, seleccione **Elementos de copia de seguridad**.
 2. En **Elementos de copia de seguridad**, seleccione la VM que ejecuta la base de datos de SAP HANA y, a continuación, seleccione **Hacer copia de seguridad ahora**.
-3. En **Hacer copia de seguridad ahora**, elija el tipo de copia de seguridad que desea realizar. Después, seleccione **Aceptar**. Esta copia de seguridad se conservará de acuerdo con la directiva asociada a este elemento de copia de seguridad.
+3. En **Hacer copia de seguridad ahora**, elija el tipo de copia de seguridad que desea realizar. Después, seleccione **Aceptar**. Estas copias de seguridad se conservarán durante 45 días.
 4. Supervise las notificaciones del portal. Puede supervisar el progreso del trabajo en el panel del almacén > **Trabajos de copia de seguridad** > **En curso**. Según el tamaño de la base de datos, la creación de la copia de seguridad inicial puede tardar un tiempo.
 
 De forma predeterminada, la retención de copias de seguridad a petición es de 45 días.

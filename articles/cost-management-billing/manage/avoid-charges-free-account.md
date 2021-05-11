@@ -8,16 +8,16 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 03/30/2021
 ms.author: banders
-ms.openlocfilehash: 426d7f5ee117b346280a712cc9f71ab0e617d64f
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: cac3126706b5c2c7e890890013a506d04f104bb2
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106220745"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108331005"
 ---
 # <a name="avoid-charges-with-your-azure-free-account"></a>Evitar cargos en su cuenta gratuita de Azure
 
-Con la [cuenta gratuita de Azure](https://azure.microsoft.com/free/), los nuevos usuarios aptos obtienen 200 dólares de crédito de Azure en su moneda de facturación para los 30 primeros días y una cantidad limitada de servicios gratuitos durante 12 meses. Para información sobre los límites de los servicios gratuitos, consulte [Preguntas más frecuentes sobre la cuenta gratuita de Azure](https://azure.microsoft.com/free/free-account-faq/). Siempre que tenga crédito que no haya expirado o que use solo servicios gratuitos dentro de los límites, no se le cobrará.
+Con la [cuenta gratuita de Azure](https://azure.microsoft.com/free/), los nuevos usuarios aptos obtienen 200 USD de crédito de Azure en su moneda de facturación para los 30 primeros días y una cantidad limitada de servicios gratuitos durante 12 meses. Para información sobre los límites de los servicios gratuitos, consulte [Preguntas más frecuentes sobre la cuenta gratuita de Azure](https://azure.microsoft.com/free/free-account-faq/). Siempre que tenga crédito que no haya expirado o que use solo servicios gratuitos dentro de los límites, no se le cobrará.
 
 Veamos algunas de las razones por las que se le puede cobrar en su cuenta gratuita de Azure.
 
