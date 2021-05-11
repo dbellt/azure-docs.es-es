@@ -48,7 +48,7 @@
       href: ./how-to/protect-resource-hierarchy.md
 - name: Referencia
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/account/management-group
     - name: Azure PowerShell
       href: /powershell/module/az.resources/#resources
@@ -61,7 +61,7 @@
     - name: SDK de Azure para Python
       href: /python/api/azure-mgmt-managementgroups/azure.mgmt.managementgroups
     - name: REST
-      href: /rest/api/resources/managementgroups
+      href: /rest/api/managementgroups
     - name: Plantillas de Resource Manager
       href: /azure/templates/microsoft.management/managementgroups
 - name: Recursos

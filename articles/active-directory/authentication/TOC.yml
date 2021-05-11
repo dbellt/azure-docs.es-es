@@ -57,7 +57,7 @@
         - name: Multi-Factor Authentication para Office 365
           href: /office365/admin/security-and-compliance/set-up-multi-factor-authentication
         - name: Preguntas más frecuentes
-          href: multi-factor-authentication-faq.md
+          href: multi-factor-authentication-faq.yml
     - name: Protección con contraseña
       items:
         - name: Eliminación de contraseñas no seguras en la nube
@@ -151,7 +151,7 @@
         - name: Solución de problemas
           href: howto-password-ban-bad-on-premises-troubleshoot.md
         - name: Preguntas más frecuentes
-          href: howto-password-ban-bad-on-premises-faq.md
+          href: howto-password-ban-bad-on-premises-faq.yml
         - name: Historial de versiones del agente
           href: howto-password-ban-bad-on-premises-agent-versions.md
     - name: Uso de un pase de acceso temporal (versión preliminar)
@@ -232,9 +232,9 @@
         - name: Escritura diferida de SSPR
           href: troubleshoot-sspr-writeback.md
         - name: Preguntas frecuentes sobre SSPR
-          href: active-directory-passwords-faq.md
+          href: active-directory-passwords-faq.yml
         - name: Preguntas frecuentes sobre Multi-Factor Authentication
-          href: multi-factor-authentication-faq.md
+          href: multi-factor-authentication-faq.yml
         - name: Extensión NPS
           href: howto-mfa-nps-extension-errors.md
 - name: Referencia

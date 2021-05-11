@@ -30,7 +30,7 @@
         - name: Introducción a la seguridad
           href: security.md
         - name: Línea de base de seguridad
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/data-share-security-baseline?toc=/azure/data-share/TOC.json
     - name: Terminología de Azure Data Share
       href: terminology.md
     - name: Roles y requisitos

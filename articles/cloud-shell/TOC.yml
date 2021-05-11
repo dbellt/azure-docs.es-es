@@ -25,7 +25,7 @@
     - name: Seguridad
       items:
         - name: Línea de base de seguridad
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/cloud-shell-security-baseline?toc=/azure/cloud-shell/TOC.json
 - name: Guías paso a paso
   items:
     - name: PowerShell Cloud Shell para usuarios de Windows

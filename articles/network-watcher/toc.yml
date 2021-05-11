@@ -51,7 +51,7 @@
     - name: Seguridad
       items:
         - name: Línea de base de seguridad
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/network-watcher-security-baseline?toc=/azure/network-watcher/toc.json
     - name: Residencia de datos
       href: data-residency.md
 - name: Guías paso a paso
