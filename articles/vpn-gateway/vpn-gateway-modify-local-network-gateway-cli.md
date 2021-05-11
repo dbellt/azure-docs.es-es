@@ -1,18 +1,19 @@
 ---
-title: 'VPN Gateway: modificación de la configuración de la dirección IP: CLI de Azure'
-description: En este artículo se explica paso a paso cómo cambiar los prefijos de direcciones IP de la puerta de enlace de red local con la CLI de Azure.
+title: 'Modificación de la configuración de la dirección IP de puerta de enlace: CLI de Azure'
+titleSuffix: Azure VPN Gateway
+description: Aprenda a cambiar los prefijos de dirección IP de la puerta de enlace de red local mediante la CLI de Azure.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: aadb2107cd009ac58cf8edb12853b10a5a0e3677
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5e03da37a727c87995496878b191cbf48cfe0347
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94660005"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108229619"
 ---
 # <a name="modify-local-network-gateway-settings-using-the-azure-cli"></a>Modificación de la configuración de la puerta de enlace de red local mediante la CLI de Azure
 

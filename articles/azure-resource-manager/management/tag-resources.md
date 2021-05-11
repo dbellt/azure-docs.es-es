@@ -3,13 +3,13 @@ title: Etiquetado de recursos, grupos de recursos y suscripciones para una organ
 description: Muestra cómo aplicar etiquetas para organizar los recursos de Azure para la facturación y administración.
 ms.topic: conceptual
 ms.date: 01/04/2021
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1e755a378fd71ea2763cc3e43477876fa3e8c5d5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 0ee2274dcd13af0bcbfe342039681ecc7b949a7b
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105934196"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108330970"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Uso de etiquetas para organizar los recursos de Azure y la jerarquía de administración
 
@@ -684,10 +684,10 @@ La plantilla siguiente agrega las etiquetas de un objeto a un grupo de recursos 
 
 Para trabajar con etiquetas a través de la API REST de Azure, use:
 
-* [Etiquetas: crear o actualizar en el ámbito](/rest/api/resources/resources/tags/createorupdateatscope) (operación PUT)
-* [Etiquetas: actualizar en el ámbito](/rest/api/resources/resources/tags/updateatscope) (operación PATCH)
-* [Etiquetas: obtener en el ámbito](/rest/api/resources/resources/tags/getatscope) (operación GET)
-* [Etiquetas: eliminar en el ámbito](/rest/api/resources/resources/tags/deleteatscope) (operación DELETE)
+* [Etiquetas: crear o actualizar en el ámbito](/rest/api/resources/tags/createorupdateatscope) (operación PUT)
+* [Etiquetas: actualizar en el ámbito](/rest/api/resources/tags/updateatscope) (operación PATCH)
+* [Etiquetas: obtener en el ámbito](/rest/api/resources/tags/getatscope) (operación GET)
+* [Etiquetas: eliminar en el ámbito](/rest/api/resources/tags/deleteatscope) (operación DELETE)
 
 ## <a name="inherit-tags"></a>Herencia de etiquetas
 
@@ -712,11 +712,11 @@ Se aplican las siguientes limitaciones a las etiquetas:
 * Los nombres de etiqueta no pueden contener estos caracteres: `<`, `>`, `%`, `&`, `\`, `?`, `/`
 
    > [!NOTE]
-   > Actualmente, las zonas de Azure DNS y los servicios de Traffic Manager tampoco permiten el uso de espacios en la etiqueta.
+   > * Las zonas Azure DNS y Traffic Manager no admiten el uso de espacios en la etiqueta o una etiqueta que empieza por un número.
    >
-   > Azure Front Door no admite el uso de `#` en el nombre de la etiqueta.
+   > * Azure Front Door no admite el uso de `#` en el nombre de la etiqueta.
    >
-   > Azure Automation y Azure CDN solo admiten 15 etiquetas en los recursos.
+   > * Azure Automation y Azure CDN solo admiten 15 etiquetas en los recursos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

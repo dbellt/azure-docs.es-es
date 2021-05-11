@@ -1,14 +1,14 @@
 ---
 title: Solución de errores comunes
 description: Obtenga información acerca de cómo solucionar problemas al crear, asignar y eliminar planos técnicos, como infracciones de directivas y funciones de parámetros del plano técnico.
-ms.date: 01/27/2021
+ms.date: 05/01/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 65cf8ef9a5dcba0165aad8522f91ff1eb2c963a8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 183d27235ce738d884a02b53a498f77ebed41e66
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98918851"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108326424"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Solución de problemas de errores con instancias de Azure Blueprint
 
@@ -38,7 +38,7 @@ Se produjo un error en la implementación de la plantilla debido a la infracció
 
 #### <a name="cause"></a>Causa
 
-Una directiva puede entrar en conflicto con la implementación por una serie de motivos:
+Una directiva puede entrar en conflicto con la implementación por los motivos siguientes:
 
 - El recurso que se crea está restringido por la directiva (normalmente restricciones de SKU o ubicación)
 - La implementación establece campos que están configurados por la directiva (normalmente con etiquetas)

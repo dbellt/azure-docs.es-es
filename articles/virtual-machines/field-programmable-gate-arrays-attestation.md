@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 04/01/2021
 ms.author: vikancha
-ms.openlocfilehash: c16e324809fd688adf4a970f105cb364e73d7004
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: a0c0c04d33c994279fe15a8fe7f677b2c25a55de
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/28/2021
-ms.locfileid: "108128800"
+ms.locfileid: "108166044"
 ---
 # <a name="fpga-attestation-for-azure-np-series-vms-preview"></a>Atestación de FPGA para las máquinas virtuales de Azure de la serie NP (versión preliminar)
 
@@ -24,15 +24,11 @@ Necesitará una suscripción de Azure y una cuenta de Azure Storage. La suscripc
 
 Se proporcionan scripts de PowerShell y Bash para enviar solicitudes de atestación.   Los scripts usan la CLI de Azure, que se puede ejecutar en Windows y Linux. PowerShell se puede ejecutar en Windows, Linux y macOS.  
 
-Descargar la CLI de Azure (obligatorio):  
+[Descarga de la CLI de Azure (obligatorio)](/cli/azure/install-azure-cli)
 
-https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest  
+[Descarga de PowerShell para Windows, Linux y macOS (solo para scripts de PowerShell)](/powershell/scripting/install/installing-powershell)
 
-Descargar PowerShell para Windows, Linux y macOS (solo para scripts de PowerShell):  
-
-https://docs.microsoft.com/powershell/scripting/install/installing-powershell?view=powershell-7  
-
-Deberá tener autorizado el identificador de inquilino y de suscripción para los envíos al servicio de atestación. Visite https://aka.ms/AzureFPGAAttestationPreview para solicitar acceso. 
+Deberá tener autorizado el identificador de inquilino y de suscripción para los envíos al servicio de atestación. Visite [https://aka.ms/AzureFPGAAttestationPreview](https://aka.ms/AzureFPGAAttestationPreview) para solicitar acceso. 
 
 ## <a name="building-your-design-for-attestation"></a>Creación del diseño para la atestación  
 
@@ -40,13 +36,11 @@ El conjunto de herramientas de Xilinx preferido para la creación de diseños es
 
 Debe incluir el siguiente argumento en Vitis (línea de comandos v++) para compilar un archivo xclbin que contenga un archivo netlist en lugar de un archivo bitstream.   
 
-```--advanced.param compiler.acceleratorBinaryContent=dcp  ```
+`--advanced.param compiler.acceleratorBinaryContent=dcp`
 
 ## <a name="logging-into-azure"></a>Inicio de sesión en Azure  
 
-Antes de realizar cualquier operación con Azure, debe iniciar sesión en Azure y establecer la suscripción que está autorizada para llamar al servicio. Use los comandos ```az login``` y ```az account set –s <Sub ID or Name>``` para este fin. Aquí se documenta información adicional sobre este proceso:  
-
-https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest. Use la opción "Iniciar sesión de forma interactiva" o "Iniciar sesión con credenciales" en la línea de comandos.  
+Antes de realizar cualquier operación con Azure, debe iniciar sesión en Azure y establecer la suscripción que está autorizada para llamar al servicio. Use los comandos `az login` y `az account set –s <Sub ID or Name>` para este fin. Aquí se documenta información adicional sobre este proceso: [Inicio de sesión con la CLI de Azure](/cli/azure/authenticate-azure-cli). Use la opción **Iniciar sesión de forma interactiva** o **Iniciar sesión con credenciales** en la línea de comandos.  
 
 ## <a name="creating-a-storage-account-and-blob-container"></a>Creación de una cuenta de almacenamiento y un contenedor de blobs  
 
@@ -66,7 +60,7 @@ Hay varias maneras de copiar el archivo: a continuación se muestra un ejemplo d
 
 Los scripts de validación se pueden descargar desde el siguiente contenedor de blobs de Azure Storage:  
 
-https://fpgaattestation.blob.core.windows.net/validationscripts/validate.zip  
+[https://fpgaattestation.blob.core.windows.net/validationscripts/validate.zip](https://fpgaattestation.blob.core.windows.net/validationscripts/validate.zip)
 
 El archivo zip tiene dos scripts de PowerShell, uno para enviar y otro para supervisar, mientras que el tercer archivo es un script de Bash que realiza ambas funciones.  
 
@@ -82,15 +76,19 @@ Si desea usar directorios virtuales, debe incluir la jerarquía de directorios c
 
 ### <a name="powershell"></a>PowerShell   
 
-```$sas=$(az storage container generate-sas --account-name <storage acct name> --name <blob container name> --https-only --permissions rwc --expiry <e.g., 2021-01-07T17:00Z> --output tsv)  ```
+```powershell
+$sas=$(az storage container generate-sas --account-name <storage acct name> --name <blob container name> --https-only --permissions rwc --expiry <e.g., 2021-01-07T17:00Z> --output tsv)
 
-```.\Validate-FPGAImage.ps1 -StorageAccountName <storage acct name> -Container <blob container name> -BlobContainerSAS $sas -NetlistName <netlist blob filename>  ```
+.\Validate-FPGAImage.ps1 -StorageAccountName <storage acct name> -Container <blob container name> -BlobContainerSAS $sas -NetlistName <netlist blob filename>
+```
 
 ### <a name="bash"></a>Bash  
 
-``` sas=az storage container generate-sas --account-name <storage acct name> --name <blob container name> --https-only --permissions rwc --expiry <2021-01-07T17:00Z> --output tsv  ```
+```bash
+sas=az storage container generate-sas --account-name <storage acct name> --name <blob container name> --https-only --permissions rwc --expiry <2021-01-07T17:00Z> --output tsv  
 
-```validate-fpgaimage.sh --storage-account <storage acct name> --container <blob container name> --netlist-name <netlist blob filename> --blob-container-sas $sas ``` 
+validate-fpgaimage.sh --storage-account <storage acct name> --container <blob container name> --netlist-name <netlist blob filename> --blob-container-sas $sas
+``` 
 
 ## <a name="checking-on-the-status-of-your-submission"></a>Comprobación del estado del envío  
 
@@ -98,23 +96,19 @@ El servicio de atestación devolverá el identificador de orquestación del env�
 
 Puede llamar al script Monitor-Validation.ps1 en cualquier momento para obtener el estado y los resultados de la atestación; para ello, proporcione el identificador de orquestación como argumento:  
 
-```.\Monitor-Validation.ps1 -OrchestrationId < Orchestration ID>  ```
+`.\Monitor-Validation.ps1 -OrchestrationId <orchestration ID>`
 
 Como alternativa, puede enviar una solicitud HTTP POST al punto de conexión del servicio de atestación:  
 
-https://fpga-attestation.azurewebsites.net/api/ComputeFPGA_HttpGetStatus  
+`https://fpga-attestation.azurewebsites.net/api/ComputeFPGA_HttpGetStatus`
 
 El cuerpo de la solicitud debe contener el identificador de la suscripción, el identificador de inquilino y el identificador de orquestación de la solicitud de atestación:  
 
-```
+```json
 {  
-
-  "OrchestrationId": ”< orchestration ID>”,  
-
-  "ClientSubscriptionId": “<your subscription ID>”,  
-
-  "ClientTenantId": “<your tenant ID>”  
-
+  "OrchestrationId": "<orchestration ID>",  
+  "ClientSubscriptionId": "<your subscription ID>",  
+  "ClientTenantId": "<your tenant ID>"
 }
 ```
 

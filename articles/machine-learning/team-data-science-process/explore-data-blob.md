@@ -8,15 +8,15 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 04/30/2021
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 855998b887f1d446ee8d196ff4628e066cb5d675
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 97990cb38ae34e0f035f7b5c4e9c897a4973320f
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98805669"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108330501"
 ---
 # <a name="explore-data-in-azure-blob-storage-with-pandas"></a>Exploración de datos en Azure Blob Storage con Pandas
 
@@ -36,11 +36,10 @@ Para explorar y manipular un conjunto de datos, primero se debe descargar desde 
 1. Descargue los datos del blob de Azure con el siguiente código de ejemplo Python mediante Blob service. Reemplace la variable en el código siguiente por sus valores específicos:
 
     ```python
-    from azure.storage.blob import BlockBlobService
+    from azure.storage.blob import BlobServiceClient
     import pandas as pd
-    import tables
 
-    STORAGEACCOUNTNAME= <storage_account_name>
+    STORAGEACCOUNTURL= <storage_account_url>
     STORAGEACCOUNTKEY= <storage_account_key>
     LOCALFILENAME= <local_file_name>
     CONTAINERNAME= <container_name>
@@ -48,8 +47,11 @@ Para explorar y manipular un conjunto de datos, primero se debe descargar desde 
 
     #download from blob
     t1=time.time()
-    blob_service=BlockBlobService(account_name=STORAGEACCOUNTNAME,account_key=STORAGEACCOUNTKEY)
-    blob_service.get_blob_to_path(CONTAINERNAME,BLOBNAME,LOCALFILENAME)
+    blob_service_client_instance = BlobServiceClient(account_url=STORAGEACCOUNTURL, credential=STORAGEACCOUNTKEY)
+    blob_client_instance = blob_service_client.get_blob_client(CONTAINERNAME, BLOBNAME, snapshot=None)
+    with open(LOCALFILENAME, "wb") as my_blob:
+        blob_data = blob_client_instance.download_blob()
+        blob_data.readinto(my_blob)
     t2=time.time()
     print(("It takes %s seconds to download "+BLOBNAME) % (t2 - t1))
     ```
@@ -61,7 +63,9 @@ Para explorar y manipular un conjunto de datos, primero se debe descargar desde 
     dataframe_blobdata = pd.read_csv(LOCALFILENAME)
     ```
 
-Ya puede explorar los datos y generar características en este conjunto de datos.
+Si necesita información más general sobre la lectura de una instancia de Azure Storage Blob, consulte nuestra documentación [Biblioteca cliente de Azure Storage Blob para Python](https://docs.microsoft.com/python/api/overview/azure/storage-blob-readme?view=azure-python).  
+
+Ya puede explorar los datos y generar características en este conjunto de datos.  
 
 ## <a name="examples-of-data-exploration-using-pandas"></a><a name="blob-dataexploration"></a>Ejemplos de exploración de datos con Pandas
 A continuación, se muestran algunos ejemplos de formas de explorar datos mediante Pandas:

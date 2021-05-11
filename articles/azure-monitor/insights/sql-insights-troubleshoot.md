@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/04/2021
-ms.openlocfilehash: 9228faade46c2bfec3ed5170be5e256ead7d5220
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.openlocfilehash: 35aa53def1a72f98309e7616ce64194dd77c5a4d
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108017913"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108331293"
 ---
 # <a name="troubleshooting-sql-insights-preview"></a>Solución de problemas de SQL Insights (versión preliminar)
 Para solucionar los problemas de recopilación de datos en SQL insights, compruebe el estado de la máquina de supervisión en la pestaña **Administrar perfil**. Contendrá uno de los siguientes estados:
@@ -25,6 +25,9 @@ Haga clic en **Estado** para explorar en profundidad y ver registros y más deta
 
 ## <a name="not-collecting-state"></a>Estado "No se está recopilando" 
 La máquina de supervisión muestra un estado *No se está recopilando* si no hay ningún dato en *InsightsMetrics* para SQL en los últimos 10 minutos. 
+
+> [!NOTE]
+> Compruebe que está intentando recopilar datos de una [versión compatible de SQL](sql-insights-overview.md#supported-versions). Por ejemplo, si intenta recopilar datos con un perfil y una cadena de conexión válidos, pero desde una versión no admitida de Azure SQL Database dará como resultado un estado de no recopilación.
 
 SQL Insights usa la siguiente consulta para recuperar esta información:
 

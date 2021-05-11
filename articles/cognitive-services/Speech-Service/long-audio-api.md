@@ -10,28 +10,28 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: trbye
-ms.openlocfilehash: 65c0d80394317c2b2bfbf621d3cc2ad0c2e3448a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c7b695455ab571d97be06f8b0f5293e3007083be
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102618413"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108331221"
 ---
 # <a name="long-audio-api"></a>Long Audio API
 
-Long Audio API está diseñada para la síntesis asincrónica de texto de formato largo a voz (por ejemplo: audiolibros, artículos de noticias y documentos). Esta API no devuelve audio sintetizado en tiempo real, sino que, en su lugar, se espera que se sondeen las respuestas y se consuman las salidas a medida que estén disponibles desde el servicio. A diferencia de Text-To-Speech API, que usa el SDK de voz, Long Audio API puede crear audio sintetizado de más de diez minutos, lo que resulta idóneo para los editores y las plataformas de contenido de audio para crear contenido de audio de larga duración, como audiolibros por lotes.
+Long Audio API proporciona síntesis asincrónica de texto de formato largo a voz (por ejemplo: audiolibros, artículos de noticias y documentos). Esta API no devuelve audio sintetizado en tiempo real. En su lugar, sondea las respuestas y consume las salidas a medida que el servicio las pone a disposición. A diferencia de Text To Speech API que usa el SDK de Voz, Long Audio API puede crear audio sintetizado de más de 10 minutos. Esto hace que sea resulte idóneo para los editores y las plataformas de contenido de audio para crear contenido de audio largo, como audiolibros en un lote.
 
 Ventajas adicionales de Long Audio API:
 
 * La voz sintetizada devuelta por el servicio usa las mejores voces neuronales.
-* No es necesario implementar un punto de conexión de voz ya que no sintetiza las voces en ningún modo por lotes en tiempo real.
+* No es necesario implementar un punto de conexión de voz.
 
 > [!NOTE]
-> Long Audio API admite ahora [voces neuronales públicas](./language-support.md#neural-voices) y [voces neuronales personalizadas](./how-to-custom-voice.md#custom-neural-voices).
+> Long Audio API admite [voces neuronales públicas](./language-support.md#neural-voices) y [voces neuronales personalizadas](./how-to-custom-voice.md#custom-neural-voices).
 
 ## <a name="workflow"></a>Flujo de trabajo
 
-Normalmente, cuando use Long Audio API, enviará un archivo de texto o archivos que se sintetizarán, sondeará el estado y, a continuación, si el estado es correcto, podrá descargar la salida de audio.
+Cuando use Long Audio API, normalmente enviará un archivo de texto o archivos que se sintetizarán, sondeará el estado y descargará la salida de audio cuando el estado indique que es correcto.
 
 El diagrama a continuación proporciona una introducción general del flujo de trabajo.
 
@@ -44,12 +44,13 @@ Cuando prepare el archivo de texto, asegúrese de lo siguiente:
 * Se trata de texto sin formato (.txt) o texto SSML (.txt).
 * Está codificado como [UTF-8 con marca BOM](https://www.w3.org/International/questions/qa-utf8-bom.en#bom).
 * Es un solo archivo, no un archivo ZIP.
-* Contiene más de 400 caracteres para texto sin formato o 400 [caracteres facturables](./text-to-speech.md#pricing-note) para texto SSML y menos de 10 000 párrafos
-  * En el caso de texto sin formato, cada párrafo se separa al presionar **Entrar**: consulte un [ejemplo de entrada de texto sin formato](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/en-US.txt).
-  * En el caso de texto SSML, cada fragmento de SSML se considera un párrafo. Los fragmentos de SSML se deben separar con párrafos distintos: consulte un [ejemplo de entrada de texto SSML](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/SSMLTextInputSample.txt).
+* Contiene más de 400 caracteres para texto sin formato o 400 [caracteres facturables](./text-to-speech.md#pricing-note) para texto SSML y menos de 10 000 párrafos.
+  * En el caso de texto sin formato, cada párrafo se separa al presionar **ENTRAR o RETORNO**. Consulte un [ejemplo de entrada de texto sin formato](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/en-US.txt).
+  * En el caso de texto SSML, cada fragmento de SSML se considera un párrafo. Separe las partes de SSML en párrafos diferentes. Vea el [ejemplo de entrada de texto SSML](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/SSMLTextInputSample.txt).
 
 ## <a name="sample-code"></a>Código de ejemplo
-El resto de esta página se centrará en Python, pero el código de ejemplo de Long Audio API está disponible en GitHub para los siguientes lenguajes de programación:
+
+El resto de esta página se centra en Python, pero el código de ejemplo de Long Audio API está disponible en GitHub para los siguientes lenguajes de programación:
 
 * [Código de ejemplo: Python](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice-API-Samples/Python)
 * [Código de ejemplo: C#](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice-API-Samples/CSharp)
@@ -71,8 +72,8 @@ Estas bibliotecas se usan para construir la solicitud HTTP y llamar a la API RES
 
 Para obtener una lista de las voces compatibles, envíe una solicitud GET a `https://<endpoint>/api/texttospeech/v3.0/longaudiosynthesis/voices`.
 
+Este código obtiene una lista completa de las voces que puede usar en una región o punto de conexión específicos.
 
-Este código le permite obtener una lista completa de las voces de una región o punto de conexión en concreto que puede usar.
 ```python
 def get_voices():
     region = '<region>'
@@ -95,7 +96,7 @@ Reemplace los siguientes valores:
 
 Verá una salida similar a la siguiente:
 
-```console
+```json
 {
   "values": [
     {
@@ -130,8 +131,8 @@ Si **properties.publicAvailable** es **true**, la voz es una voz neuronal públi
 Prepare un archivo de texto de entrada en texto sin formato o texto SSML y, a continuación, agregue el código a `long_audio_synthesis_client.py`:
 
 > [!NOTE]
-> `concatenateResult` es un parámetro opcional. Si este parámetro no se establece, las salidas de audio se generarán por párrafo. También puede concatenar los audios en una salida si establece el parámetro. 
-> `outputFormat` también es opcional. De forma predeterminada, la salida de audio se establece en riff-16khz-16bit-mono-pcm. Para más información sobre los formatos de salida de audio admitidos, consulte [Formatos de salida de audio](#audio-output-formats).
+> `concatenateResult` es un parámetro opcional. Si este parámetro no se establece, las salidas de audio se generarán por párrafo. También puede concatenar los audios en una salida si incluye el parámetro. 
+> `outputFormat` también es opcional. De manera predeterminada, la salida de audio se establece en `riff-16khz-16bit-mono-pcm`. Para más información sobre los formatos de salida de audio admitidos, consulte [Formatos de salida de audio](#audio-output-formats).
 
 ```python
 def submit_synthesis():
@@ -198,15 +199,16 @@ https://<endpoint>/api/texttospeech/v3.0/longaudiosynthesis/<guid>
 ```
 
 > [!NOTE]
-> Si tiene más de un archivo de entrada, tendrá que enviar varias solicitudes. Existen algunas limitaciones que tener en cuenta.
-> * El cliente puede enviar hasta **5** solicitudes al servidor por segundo para cada cuenta de suscripción de Azure. Si supera la limitación, el cliente obtendrá un código de error 429 (demasiadas solicitudes). Reduzca la cantidad de solicitudes por segundo.
-> * El servidor puede ejecutar y poner en cola hasta **120** solicitudes para cada cuenta de suscripción de Azure. Si supera la limitación, el servidor devolverá un código de error 429 (demasiadas solicitudes). Espere y evite enviar una nueva solicitud hasta que se completen otras.
+> Si tiene más de un archivo de entrada, tendrá que enviar varias solicitudes y hay limitaciones que se deben tener en cuenta.
+> * El cliente puede enviar hasta **5** solicitudes al servidor por segundo para cada cuenta de suscripción de Azure. Si supera la limitación, se devolverá un **código de error 429 (demasiadas solicitudes)** . Reduzca la tasa de envíos para evitar este límite.
+> * El servidor puede poner en cola hasta **120** solicitudes para cada cuenta de suscripción de Azure. Si la cola supera la limitación, el servidor devolverá un **código de error 429 (demasiadas solicitudes)** . Espere a que se completen las solicitudes antes de enviar solicitudes adicionales.
 
-La dirección URL de la salida se puede usar para obtener el estado de la solicitud.
+Puede usar la dirección URL en la salida para obtener el estado de la solicitud.
 
-### <a name="get-information-of-a-submitted-request"></a>Obtención de información de una solicitud enviada
+### <a name="get-details-about-a-submitted-request"></a>Obtención de los detalles de una solicitud enviada
 
-Para obtener el estado de una solicitud de síntesis enviada, basta con enviar una solicitud GET a la dirección URL devuelta por el paso anterior.
+Para obtener el estado de una solicitud de síntesis enviada, envíe una solicitud GET a la dirección URL devuelta por el paso anterior.
+
 ```Python
 
 def get_synthesis():
@@ -220,8 +222,10 @@ def get_synthesis():
 
 get_synthesis()
 ```
+
 La salida será similar a la siguiente:
-```console
+
+```json
 response.status_code: 200
 {
   "models": [
@@ -245,7 +249,7 @@ response.status_code: 200
 }
 ```
 
-En la propiedad `status`, puede leer el estado de esta solicitud. La solicitud comenzará en el estado `NotStarted`, luego cambiará a `Running` y, por último, pasará a `Succeeded` o `Failed`. Puede usar un bucle para sondear esta API hasta que el estado pase a ser `Succeeded`.
+La propiedad `status` cambia de estado `NotStarted` a `Running` y, por último, a `Succeeded` o `Failed`. Puede sondear esta API en un bucle hasta que el estado pase a ser `Succeeded`o `Failed`.
 
 ### <a name="download-audio-result"></a>Descarga del resultado de audio
 
@@ -267,10 +271,12 @@ def get_files():
 
 get_files()
 ```
+
 Reemplace `<request_id>` por el identificador de la solicitud en la que quiere descargar el resultado. Se puede encontrar en la respuesta del paso anterior.
 
 La salida será similar a la siguiente:
-```console
+
+```json
 response.status_code: 200
 {
   "values": [
@@ -299,14 +305,15 @@ response.status_code: 200
   ]
 }
 ```
-La salida contiene información de dos archivos. El que tiene `"kind": "LongAudioSynthesisScript"` es el script de entrada enviado. El otro con `"kind": "LongAudioSynthesisResult"` es el resultado de esta solicitud.
+Esta salida de ejemplo contiene información para dos archivos. El que tiene `"kind": "LongAudioSynthesisScript"` es el script de entrada enviado. El otro con `"kind": "LongAudioSynthesisResult"` es el resultado de esta solicitud.
+
 El resultado es un ZIP que contiene los archivos de salida de audio generados, junto con una copia del texto de entrada.
 
 Ambos archivos se pueden descargar desde la dirección URL de su propiedad `links.contentUrl`.
 
 ### <a name="get-all-synthesis-requests"></a>Obtención de todas las solicitudes de síntesis
 
-Puede obtener una lista de todas las solicitudes enviadas con el código siguiente:
+En el código siguiente se enumeran todas las solicitudes enviadas:
 
 ```python
 def get_synthesis():
@@ -325,7 +332,8 @@ get_synthesis()
 ```
 
 La salida será similar a la siguiente:
-```console
+
+```json
 response.status_code: 200
 {
   "values": [
@@ -374,7 +382,7 @@ response.status_code: 200
 }
 ```
 
-La propiedad `values` contiene una lista de solicitudes de síntesis. La lista está paginada, con un tamaño de página máximo de 100. Si hay más de 100 solicitudes, se proporcionará una propiedad `"@nextLink"` para obtener la página siguiente de la lista paginada.
+En la propiedad `values` se enumeran las solicitudes de síntesis. La lista está paginada, con un tamaño de página máximo de 100. Si hay más de 100 solicitudes, se proporcionará una propiedad `"@nextLink"` para obtener la página siguiente de la lista paginada.
 
 ```console
   "@nextLink": "https://<endpoint>/api/texttospeech/v3.0/longaudiosynthesis/?top=100&skip=100"
@@ -384,9 +392,10 @@ También puede personalizar el tamaño de página y omitir el número proporcion
 
 ### <a name="remove-previous-requests"></a>Eliminación de solicitudes anteriores
 
-El servicio mantendrá hasta **20 000** solicitudes para cada cuenta de suscripción de Azure. Si la cantidad de solicitudes supera esta limitación, elimine las solicitudes anteriores antes de realizar otras nuevas. Si no quita las solicitudes existentes, recibirá una notificación de error.
+El servicio mantendrá hasta **20 000** solicitudes para cada cuenta de suscripción de Azure. Si la cantidad de solicitudes supera esta limitación, quite las solicitudes anteriores antes de realizar otras nuevas. Si no quita las solicitudes existentes, recibirá una notificación de error.
 
 En el código siguiente se muestra cómo quitar una solicitud de síntesis específica.
+
 ```python
 def delete_synthesis():
     id = '<request_id>'
@@ -448,7 +457,7 @@ Long Audio API está disponible en varias regiones con puntos de conexión únic
 
 ## <a name="audio-output-formats"></a>Formatos de salida de audio
 
-Se admiten formatos de salida de audio flexibles. Puede generar salidas de audio por párrafo o concatenar las salidas de audio en una sola salida estableciendo el parámetro "concatenateResult". Long Audio API admite los siguientes formatos de salida de audio:
+Se admiten formatos de salida de audio flexibles. Puede generar salidas de audio por párrafo o concatenar las salidas de audio en una sola salida estableciendo el parámetro `concatenateResult`. Long Audio API admite los siguientes formatos de salida de audio:
 
 > [!NOTE]
 > El formato de audio predeterminado es riff-16khz-16bit-mono-pcm.

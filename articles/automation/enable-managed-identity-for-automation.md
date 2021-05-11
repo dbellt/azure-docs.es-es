@@ -3,14 +3,15 @@ title: Habilitación de una identidad administrada para la cuenta de Azure Autom
 description: En este artículo se describe cómo configurar la identidad administrada para las cuentas de Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/14/2021
+ms.date: 04/28/2021
 ms.topic: conceptual
-ms.openlocfilehash: 93c55c21bf740f2851cac1926bc673cebcd914b0
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 1bdba095c18943be5b367bd605d1a22d6eb6499f
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107514808"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108323686"
 ---
 # <a name="enable-a-managed-identity-for-your-azure-automation-account-preview"></a>Habilitación de una identidad administrada para la cuenta de Azure Automation (versión preliminar)
 
@@ -20,7 +21,7 @@ En este tema se muestra cómo crear una identidad administrada para una cuenta d
 
 - Una cuenta y una suscripción de Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar. Tanto la identidad administrada como los recursos de Azure de destino que administra el runbook con ella deben estar en la misma suscripción de Azure.
 
-- La versión más reciente de los módulos de cuenta de Azure Automation. Actualmente, es la versión 1.6.0. (Consulte [Az.Automation 1.6.0](https://www.powershellgallery.com/packages/Az.Automation/1.6.0) para más información sobre esta versión).
+- La versión más reciente de los módulos de cuenta de Azure. Actualmente, es la versión 2.2.8. (Consulte [Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts/) para obtener más información sobre esta versión).
 
 - Un recurso de Azure al que desea acceder desde el runbook de Automation. Este recurso debe tener un rol definido para la identidad administrada, lo que ayuda al runbook de Automation a autenticar el acceso al recurso. Para agregar roles, debe ser propietario del recurso en el inquilino de Azure AD correspondiente.
 
@@ -32,7 +33,7 @@ En este tema se muestra cómo crear una identidad administrada para una cuenta d
 ## <a name="enable-system-assigned-identity"></a>Activar una identidad asignada por el sistema
 
 >[!IMPORTANT]
->La nueva identidad de nivel de cuenta de Automation invalidará las identidades asignadas por el sistema de nivel de máquina virtual anteriores (que se describen en [Uso de la autenticación de runbook con identidades administradas](/automation-hrw-run-runbooks#runbook-auth-managed-identities)). Si ejecuta trabajos híbridos en máquinas virtuales de Azure que usan la identidad asignada por el sistema de la máquina virtual para acceder a los recursos del runbook, la identidad de la cuenta de Automation se usará para los trabajos híbridos. Esto significa que la ejecución del trabajo existente puede verse afectada si ha estado usando la característica Claves administradas de cliente (CMK) de la cuenta de Automation.<br/><br/>Si desea seguir usando la identidad administrada de la máquina virtual, no debe habilitar la identidad de nivel de cuenta de Automation. Si ya la ha habilitado, puede deshabilitar la identidad administrada de la cuenta de Automation. Consulte [Deshabilitación de la identidad administrada de la cuenta de Azure Automation.](https://docs.microsoft.com/azure/automation/disable-managed-identity-for-automation)
+>La nueva identidad de nivel de cuenta de Automation invalidará las identidades asignadas por el sistema de nivel de máquina virtual anteriores que se describen en [Uso de la autenticación de runbook con identidades administradas](./automation-hrw-run-runbooks.md#runbook-auth-managed-identities). Si ejecuta trabajos híbridos en máquinas virtuales de Azure que usan la identidad asignada por el sistema de la máquina virtual para acceder a los recursos del runbook, la identidad de la cuenta de Automation se usará para los trabajos híbridos. Esto significa que la ejecución del trabajo existente puede verse afectada si ha estado usando la característica Claves administradas de cliente (CMK) de la cuenta de Automation.<br/><br/>Si desea seguir usando la identidad administrada de la máquina virtual, no debe habilitar la identidad de nivel de cuenta de Automation. Si ya la ha habilitado, puede deshabilitar la identidad administrada de la cuenta de Automation. Consulte [Deshabilitación de la identidad administrada de la cuenta de Azure Automation.](./disable-managed-identity-for-automation.md)
 
 La configuración de identidades asignadas por el sistema para Azure Automation se puede realizar de dos maneras. Puede usar Azure Portal o la API REST de Azure.
 
@@ -150,6 +151,10 @@ Write-Output $accessToken.access_token
 
 ### <a name="sample-runbook-to-access-a-sql-database-without-using-azure-cmdlets"></a>Runbook de ejemplo para acceder a una base de datos SQL sin usar cmdlets de Azure
 
+Asegúrese de haber habilitado una identidad antes de probar este script. Consulte [Activar una identidad asignada por el sistema](#enable-system-assigned-identity).
+
+Para obtener más información sobre el aprovisionamiento del acceso a una base de datos de Azure SQL, consulte [Aprovisionamiento del administrador de Azure AD (SQL Database)](../azure-sql/database/authentication-aad-configure.md#provision-azure-ad-admin-sql-database).
+
 ```powershell
 $queryParameter = "?resource=https://database.windows.net/" 
 $url = $env:IDENTITY_ENDPOINT + $queryParameter
@@ -179,6 +184,10 @@ $conn.Close()
 
 ### <a name="sample-runbook-to-access-a-key-vault-using-azure-cmdlets"></a>Runbook de ejemplo para acceder a un almacén de claves mediante cmdlets de Azure
 
+Asegúrese de haber habilitado una identidad antes de probar este script. Consulte [Activar una identidad asignada por el sistema](#enable-system-assigned-identity).
+
+Para obtener más información, consulte [Get-AzKeyVaultSecret](/powershell/module/az.keyvault/get-azkeyvaultsecret).
+
 ```powershell
 Write-Output "Connecting to azure via  Connect-AzAccount -Identity" 
 Connect-AzAccount -Identity 
@@ -196,7 +205,9 @@ try {
 ```
 
 ### <a name="sample-python-runbook-to-get-a-token"></a>Runbook de Python de ejemplo para obtener un token
- 
+
+Asegúrese de haber habilitado una identidad antes de probar este runbook. Consulte [Activar una identidad asignada por el sistema](#enable-system-assigned-identity).
+
 ```python
 #!/usr/bin/env python3 
 import os 
@@ -214,6 +225,8 @@ print(response.text)
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
+
+- Si los runbooks no se completan correctamente, revise [Solución de problemas de identidad administrada de Azure Automation (versión preliminar)](troubleshoot/managed-identity.md).
 
 - Si necesita deshabilitar una identidad administrada, consulte [Deshabilitación de la identidad administrada de la identidad administrada de la cuenta de Azure Automation (versión preliminar)](disable-managed-identity-for-automation.md).
 

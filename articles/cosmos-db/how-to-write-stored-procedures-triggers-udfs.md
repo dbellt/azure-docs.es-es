@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: 7600d8aa2f78e06ea4046273635fdbba18042010
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 30c20974513d5e52661fed16f671ca672950c054
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98028869"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108331815"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Escritura de procedimientos almacenados, desencadenadores y funciones definidas por el usuario (UDF) en Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -351,6 +351,7 @@ function updateMetadataCallback(err, items, responseOptions) {
         if(!accept) throw "Unable to update metadata, abort";
         return;
 }
+}
 ```
 
 Es importante tener en cuenta la ejecución transaccional de los desencadenadores en Azure Cosmos DB. El desencadenador posterior se ejecuta como parte de la misma transacción para el propio elemento subyacente. Una excepción durante la ejecución del desencadenador posterior producirá un error de toda la transacción. Todo lo que esté confirmado se revertirá y se devolverá una excepción.
@@ -388,16 +389,29 @@ function tax(income) {
 
 Para obtener ejemplos de cómo registrar y utilizar una función definida por el usuario, consulte el artículo [How to use user-defined functions in Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md#udfs) (Trabajo con funciones definidas por el usuario en Azure Cosmos DB).
 
-## <a name="logging"></a>Registro 
+## <a name="logging"></a>Registro
 
-Al utilizar procedimientos almacenados, desencadenadores o funciones que haya definido el usuario, puede registrar los pasos con el comando `console.log()`. Este comando concentrará una cadena para la depuración cuando `EnableScriptLogging` esté establecido en "true" tal como se muestra en el ejemplo siguiente:
+Al utilizar procedimientos almacenados, desencadenadores o funciones que haya definido el usuario, puede registrar los pasos mediante la habilitación del registro de scripts. Se genera una cadena para la depuración cuando `EnableScriptLogging` se establece en true, como se muestra en los ejemplos siguientes:
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
+let requestOptions = { enableScriptLogging: true };
+const { resource: result, headers: responseHeaders} await container.scripts
+      .storedProcedure(Sproc.id)
+      .execute(undefined, [], requestOptions);
+console.log(responseHeaders[Constants.HttpHeaders.ScriptLogResults]);
+```
+
+# <a name="c"></a>[C#](#tab/csharp)
+
+```csharp
 var response = await client.ExecuteStoredProcedureAsync(
 document.SelfLink,
 new RequestOptions { EnableScriptLogging = true } );
 Console.WriteLine(response.ScriptLog);
 ```
+---
 
 ## <a name="next-steps"></a>Pasos siguientes
 

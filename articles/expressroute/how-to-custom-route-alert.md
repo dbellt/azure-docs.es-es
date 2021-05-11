@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: duau
-ms.openlocfilehash: 2291d1fa7f890296c59661060f5a823d8eb194ba
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f9dcea1c9f25772d45e6d01e1a6b17635df9cf48
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104654397"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108287525"
 ---
 # <a name="configure-custom-alerts-to-monitor-advertised-routes"></a>Configuración de alertas personalizadas para supervisar rutas anunciadas
 
@@ -271,25 +271,25 @@ Azure Logic Apps es el orquestador de todos los procesos de recopilación y acci
 
 ### <a name="workflow"></a>Flujo de trabajo
 
-En este flujo de trabajo, se crea una aplicación lógica que supervisa con regularidad las puertas de enlace de ExpressRoute. Si existe algún elemento nuevo, la aplicación lógica envía un correo electrónico por cada elemento. Cuando haya terminado, la aplicación lógica se parecerá a este flujo de trabajo, en un alto nivel:
+Para esta aplicación lógica, crea un flujo de trabajo que supervisa periódicamente las puertas de enlace de ExpressRoute. Si existe algún elemento nuevo, el flujo de trabajo envía un correo electrónico por cada elemento. Cuando haya terminado, el flujo de trabajo se parecerá al de este ejemplo con carácter general:
 
 :::image type="content" source="./media/custom-route-alert-portal/logic-apps-workflow.png" alt-text="Flujo de trabajo de Logic Apps":::
 
 ### <a name="1-create-a-logic-app"></a>1. Creación de una aplicación lógica
 
-En **Diseñador de aplicación lógica**, cree una aplicación lógica mediante la plantilla de **aplicación lógica en blanco**. Para conocer los pasos, consulte [Creación de aplicaciones lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md#create-your-logic-app).
+En **Diseñador de aplicación lógica**, cree una aplicación lógica mediante la plantilla **Aplicación lógica en blanco**. Para conocer los pasos, consulte [Creación de la primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 :::image type="content" source="./media/custom-route-alert-portal/blank-template.png" alt-text="Plantilla vacía":::
 
 ### <a name="2-add-a-trigger"></a>2. Incorporación de un desencadenador
 
-Cada una de las aplicaciones lógicas se inicia mediante un desencadenador. Un desencadenador se activa cuando sucede un evento específico o se cumple una condición determinada. Cada vez que el desencadenador se activa, el motor de Azure Logic Apps crea una instancia de aplicación lógica que inicia y ejecuta el flujo de trabajo.
+Cada flujo de trabajo comienza con un desencadenador. Un desencadenador se activa cuando sucede un evento específico o se cumple una condición determinada. Cada vez que el desencadenador se activa, Azure Logic Apps crea una instancia del flujo de trabajo y la ejecuta.
 
-Para ejecutar con regularidad una aplicación lógica que se basa en una programación de tiempo predefinida, agregue la **programación de periodicidad** integrada al flujo de trabajo. Escriba **programación** en el cuadro de búsqueda. Seleccione **Desencadenadores**. En la lista de desencadenadores, seleccione **Programación de periodicidad**.
+Para ejecutar periódicamente un flujo de trabajo que se basa en una programación de tiempo predefinida, agregue el desencadenador **Periodicidad** al flujo de trabajo. Escriba **programación** en el cuadro de búsqueda. Seleccione el icono **Programación**. En la lista Desencadenadores, seleccione **Periodicidad**.
 
 :::image type="content" source="./media/custom-route-alert-portal/schedule.png" alt-text="Programación de periodicidad":::
 
-En el desencadenador Programación de periodicidad, puede establecer la zona horaria y la periodicidad para la repetición de ese flujo de trabajo. Juntos, el intervalo y la frecuencia definen la programación para el desencadenador de la aplicación lógica. Para establecer una frecuencia de periodicidad mínima razonable, tenga en cuenta los siguientes factores:
+En el desencadenador Periodicidad, puede establecer la zona horaria y la periodicidad para la repetición de ese flujo de trabajo. Juntos, el intervalo y la frecuencia definen la programación para el desencadenador del flujo de trabajo. Para establecer una frecuencia de periodicidad mínima razonable, tenga en cuenta los siguientes factores:
 
 * El script de PowerShell en el runbook de Automation tarda un tiempo en completarse. El tiempo de ejecución depende del número de puertas de enlace de ExpressRoute que se van a supervisar. Una frecuencia de periodicidad demasiado corta producirá la puesta en cola de los trabajos.
 
@@ -303,7 +303,7 @@ Al final de la configuración del flujo de trabajo, puede comprobar la coherenci
 
 ### <a name="3-create-a-job"></a><a name="job"></a>3. Creación de un trabajo
 
-Una aplicación lógica accede a otras aplicaciones, servicios y a la plataforma mediante conectores. El siguiente paso de este flujo de trabajo es seleccionar un conector para acceder a la cuenta de Azure Automation que se definió anteriormente.
+Un flujo de trabajo de la aplicación lógica accede a otras aplicaciones, servicios y a la plataforma mediante conectores. El siguiente paso es seleccionar un conector para acceder a la cuenta de Azure Automation que se definió anteriormente.
 
 1. En el **diseñador de Logic Apps**, debajo de **Periodicidad**, seleccione **Nuevo paso**. En **Elegir una acción** y en el cuadro de búsqueda, seleccione **Todas**.
 2. En el cuadro de búsqueda, escriba **Azure Automation** y busque. Seleccione **Crear trabajo**. **Crear trabajo** se usará para activar el runbook de Automation que se creó anteriormente.
@@ -334,7 +334,7 @@ Una aplicación lógica accede a otras aplicaciones, servicios y a la plataforma
 
 ### <a name="5-parse-the-json"></a><a name="parse"></a>5. Análisis del archivo JSON
 
-La información contenida en la salida de la "acción Crear trabajo de Azure Automation" (pasos anteriores) genera un objeto JSON. **Análisis de JSON** de Logic Apps es una acción integrada para crear tokens descriptivos a partir de las propiedades y valores del contenido JSON. Después, puede usar esas propiedades en el flujo de trabajo.
+La información contenida en la salida de la "acción Crear trabajo de Azure Automation" (pasos anteriores) genera un objeto JSON. La acción **Análisis de JSON** integrada crea tokens descriptivos a partir de las propiedades y valores del contenido JSON. Después, puede usar esas propiedades en el flujo de trabajo.
 
 1. Agregue una acción. En la acción **Obtener resultado del trabajo**, seleccione **Nuevo paso**.
 2. En el cuadro de búsqueda **Elegir una acción** escriba "analizar json" para buscar los conectores que ofrezcan esta acción. En la lista **Acciones**, seleccione la acción **Análisis del archivo JSON** para las operaciones de datos que desee usar.

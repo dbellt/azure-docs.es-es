@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 03/15/2021
+ms.date: 04/30/2021
 ms.author: lajanuar
-ms.openlocfilehash: 8248b3ed21561340e963c848dee4430c48829ab1
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 96625959c089c46b04b13216bbb9ea4b74ef4feb
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106285304"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108331869"
 ---
 # <a name="form-recognizer-prebuilt-receipt-model"></a>Modelo de recibo creado previamente de Form Recognizer
 
@@ -23,14 +23,14 @@ Azure Form Recognizer puede analizar y extraer información de recibos de ventas
 
 ## <a name="understanding-receipts"></a>Descripción de los recibos
 
-Muchas empresas y usuarios siguen confiando en los datos extraídos manualmente de los recibos de compra. La extracción automática de datos de dichos recibos puede resultar complicada. Los recibos pueden estar arrugados, ser difíciles de leer, tener partes manuscritas y contener imágenes de smartphone de baja calidad. Además, las plantillas y los campos de los recibos pueden variar considerablemente según el mercado, la región y el comerciante. Estos desafíos en la extracción de datos y la detección de campos hacen que el procesamiento de recibos sea un problema único.  
+Muchas empresas y usuarios siguen confiando en los datos extraídos manualmente de los recibos de compra. La extracción automática de datos de dichos recibos puede resultar complicada. Los recibos pueden estar arrugados, ser difíciles de leer, tener partes manuscritas y contener imágenes de smartphone de baja calidad. Además, las plantillas y los campos de los recibos pueden variar considerablemente según el mercado, la región y el comerciante. Estos desafíos en la extracción de datos y la detección de campos hacen que el procesamiento de recibos sea un problema único.
 
 La API Receipt usa el reconocimiento óptico de caracteres (OCR) y nuestro modelo creado previamente para habilitar escenarios de procesamiento de recibos amplios. Con la API Receipt no es necesario entrenar un modelo. Tan solo hay que enviar la imagen del recibo a la API de análisis de recibos para extraer los datos.
 
 ![recibo de ejemplo](./media/receipts-example.jpg)
 
 
-## <a name="what-does-the-receipt-service-do"></a>¿Qué hace el servicio de recibos? 
+## <a name="what-does-the-receipt-service-do"></a>¿Qué hace el servicio de recibos?
 
 El servicio de recibos pregenerado extrae el contenido de los recibos de venta: el tipo de recibo que se obtendría normalmente en un restaurante, una tienda minorista o una tienda de comestibles.
 
@@ -73,17 +73,18 @@ Para probar el servicio de recibos de Form Recognizer, vaya a la herramienta de 
 
 [!INCLUDE [input requirements](./includes/input-requirements-receipts.md)]
 
-## <a name="supported-locales"></a>Configuraciones regionales admitidas 
+## <a name="supported-locales"></a>Configuraciones regionales admitidas
 
-* **Pre-built Receipt v2.0** (GA) admite recibos de ventas en la configuración regional EN-US.
-* **Pre-built Receipt v2.1-preview.3** (versión preliminar pública) agrega compatibilidad adicional para las siguientes configuraciones locales en inglés de los recibos: 
-  * EN-AU 
-  * EN-CA 
-  * EN-GB 
-  * EN-IN 
+* **Pre-built receipt v2.0** (GA) admite recibos de ventas en la configuración regional **en-us**.
+* **Pre-built receipt v2.1-preview.3** (versión preliminar pública) agrega compatibilidad adicional para las siguientes configuraciones locales en inglés de los recibos:
+
+* **en-au**
+* **en-ca**
+* **en-gb**
+* **en-in**
 
   > [!NOTE]
-  > Entrada de idioma 
+  > Entrada de idioma
   >
   > La versión precompilada de Receipt v2.1-preview.3 tiene un parámetro de solicitud opcional para especificar una configuración regional de recibos en mercados en inglés adicionales. En el caso de los recibos de ventas en inglés de Australia (EN-AU), Canadá (EN-CA), Gran Bretaña (EN-GB) e India (EN-IN), puede especificar la configuración regional para obtener resultados mejorados. Si no se especifica ninguna configuración regional en v2.1-preview.3, el modelo se establecerá de forma predeterminada en EN-US.
 
@@ -117,28 +118,28 @@ Cuando el campo **status** tenga el valor **succeeded**, la respuesta JSON inclu
 La respuesta a la operación Get Analyze Receipt Result será la representación estructurada del recibo con toda la información extraída.  Aquí encontrará un [archivo con un recibo de ejemplo](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/contoso-allinone.jpg) y su salida estructurada, una [salida de un recibo de ejemplo](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/receipt-result.json).
 
 Consulte el siguiente ejemplo de una respuesta JSON correcta:
-* El nodo `"readResults"` contiene todo el texto reconocido. El texto se organiza por página, después, por líneas y, finalmente, por palabras individuales. 
+* El nodo `"readResults"` contiene todo el texto reconocido. El texto se organiza por página, después, por líneas y, finalmente, por palabras individuales.
 * El nodo `"documentResults"` contiene los valores específicos de la tarjeta de presentción que el modelo haya descubierto. Aquí encontrará pares clave-valor útiles, como el nombre, el apellido, el nombre de la empresa y más.
 
 ```json
-{ 
+{
   "status":"succeeded",
   "createdDateTime":"2019-12-17T04:11:24Z",
   "lastUpdatedDateTime":"2019-12-17T04:11:32Z",
-  "analyzeResult":{ 
+  "analyzeResult":{
     "version":"2.0.0",
-    "readResults":[ 
-      { 
+    "readResults":[
+      {
         "page":1,
         "angle":0.6893,
         "width":1688,
         "height":3000,
         "unit":"pixel",
         "language":"en",
-        "lines":[ 
-          { 
+        "lines":[
+          {
             "text":"Contoso",
-            "boundingBox":[ 
+            "boundingBox":[
               635,
               510,
               1086,
@@ -148,10 +149,10 @@ Consulte el siguiente ejemplo de una respuesta JSON correcta:
               643,
               604
             ],
-            "words":[ 
-              { 
+            "words":[
+              {
                 "text":"Contoso",
-                "boundingBox":[ 
+                "boundingBox":[
                   639,
                   510,
                   1087,
@@ -169,24 +170,24 @@ Consulte el siguiente ejemplo de una respuesta JSON correcta:
         ]
       }
     ],
-    "documentResults":[ 
-      { 
+    "documentResults":[
+      {
         "docType":"prebuilt:receipt",
-        "pageRange":[ 
+        "pageRange":[
           1,
           1
         ],
-        "fields":{ 
-          "ReceiptType":{ 
+        "fields":{
+          "ReceiptType":{
             "type":"string",
             "valueString":"Itemized",
             "confidence":0.692
           },
-          "MerchantName":{ 
+          "MerchantName":{
             "type":"string",
             "valueString":"Contoso Contoso",
             "text":"Contoso Contoso",
-            "boundingBox":[ 
+            "boundingBox":[
               378.2,
               292.4,
               1117.7,
@@ -198,16 +199,16 @@ Consulte el siguiente ejemplo de una respuesta JSON correcta:
             ],
             "page":1,
             "confidence":0.613,
-            "elements":[ 
+            "elements":[
               "#/readResults/0/lines/0/words/0",
               "#/readResults/0/lines/1/words/0"
             ]
           },
-          "MerchantAddress":{ 
+          "MerchantAddress":{
             "type":"string",
             "valueString":"123 Main Street Redmond, WA 98052",
             "text":"123 Main Street Redmond, WA 98052",
-            "boundingBox":[ 
+            "boundingBox":[
               302,
               675.8,
               848.1,
@@ -219,7 +220,7 @@ Consulte el siguiente ejemplo de una respuesta JSON correcta:
             ],
             "page":1,
             "confidence":0.99,
-            "elements":[ 
+            "elements":[
               "#/readResults/0/lines/2/words/0",
               "#/readResults/0/lines/2/words/1",
               "#/readResults/0/lines/2/words/2",
@@ -228,11 +229,11 @@ Consulte el siguiente ejemplo de una respuesta JSON correcta:
               "#/readResults/0/lines/3/words/2"
             ]
           },
-          "MerchantPhoneNumber":{ 
+          "MerchantPhoneNumber":{
             "type":"phoneNumber",
             "valuePhoneNumber":"+19876543210",
             "text":"987-654-3210",
-            "boundingBox":[ 
+            "boundingBox":[
               278,
               1004,
               656.3,
@@ -244,15 +245,15 @@ Consulte el siguiente ejemplo de una respuesta JSON correcta:
             ],
             "page":1,
             "confidence":0.99,
-            "elements":[ 
+            "elements":[
               "#/readResults/0/lines/4/words/0"
             ]
           },
-          "TransactionDate":{ 
+          "TransactionDate":{
             "type":"date",
             "valueDate":"2019-06-10",
             "text":"6/10/2019",
-            "boundingBox":[ 
+            "boundingBox":[
               265.1,
               1228.4,
               525,
@@ -264,15 +265,15 @@ Consulte el siguiente ejemplo de una respuesta JSON correcta:
             ],
             "page":1,
             "confidence":0.99,
-            "elements":[ 
+            "elements":[
               "#/readResults/0/lines/5/words/0"
             ]
           },
-          "TransactionTime":{ 
+          "TransactionTime":{
             "type":"time",
             "valueTime":"13:59:00",
             "text":"13:59",
-            "boundingBox":[ 
+            "boundingBox":[
               541,
               1248,
               677.3,
@@ -284,20 +285,20 @@ Consulte el siguiente ejemplo de una respuesta JSON correcta:
             ],
             "page":1,
             "confidence":0.977,
-            "elements":[ 
+            "elements":[
               "#/readResults/0/lines/5/words/1"
             ]
           },
-          "Items":{ 
+          "Items":{
             "type":"array",
-            "valueArray":[ 
-              { 
+            "valueArray":[
+              {
                 "type":"object",
-                "valueObject":{ 
-                  "Quantity":{ 
+                "valueObject":{
+                  "Quantity":{
                     "type":"number",
                     "text":"1",
-                    "boundingBox":[ 
+                    "boundingBox":[
                       245.1,
                       1581.5,
                       300.9,
@@ -309,15 +310,15 @@ Consulte el siguiente ejemplo de una respuesta JSON correcta:
                     ],
                     "page":1,
                     "confidence":0.92,
-                    "elements":[ 
+                    "elements":[
                       "#/readResults/0/lines/7/words/0"
                     ]
                   },
-                  "Name":{ 
+                  "Name":{
                     "type":"string",
                     "valueString":"Cappuccino",
                     "text":"Cappuccino",
-                    "boundingBox":[ 
+                    "boundingBox":[
                       322,
                       1586,
                       654.2,
@@ -329,15 +330,15 @@ Consulte el siguiente ejemplo de una respuesta JSON correcta:
                     ],
                     "page":1,
                     "confidence":0.923,
-                    "elements":[ 
+                    "elements":[
                       "#/readResults/0/lines/7/words/1"
                     ]
                   },
-                  "TotalPrice":{ 
+                  "TotalPrice":{
                     "type":"number",
                     "valueNumber":2.2,
                     "text":"$2.20",
-                    "boundingBox":[ 
+                    "boundingBox":[
                       1107.7,
                       1584,
                       1263,
@@ -349,7 +350,7 @@ Consulte el siguiente ejemplo de una respuesta JSON correcta:
                     ],
                     "page":1,
                     "confidence":0.918,
-                    "elements":[ 
+                    "elements":[
                       "#/readResults/0/lines/8/words/0"
                     ]
                   }
@@ -358,11 +359,11 @@ Consulte el siguiente ejemplo de una respuesta JSON correcta:
               ...
             ]
           },
-          "Subtotal":{ 
+          "Subtotal":{
             "type":"number",
             "valueNumber":11.7,
             "text":"11.70",
-            "boundingBox":[ 
+            "boundingBox":[
               1146,
               2221,
               1297.3,
@@ -374,15 +375,15 @@ Consulte el siguiente ejemplo de una respuesta JSON correcta:
             ],
             "page":1,
             "confidence":0.955,
-            "elements":[ 
+            "elements":[
               "#/readResults/0/lines/13/words/1"
             ]
           },
-          "Tax":{ 
+          "Tax":{
             "type":"number",
             "valueNumber":1.17,
             "text":"1.17",
-            "boundingBox":[ 
+            "boundingBox":[
               1190,
               2359,
               1304,
@@ -394,15 +395,15 @@ Consulte el siguiente ejemplo de una respuesta JSON correcta:
             ],
             "page":1,
             "confidence":0.979,
-            "elements":[ 
+            "elements":[
               "#/readResults/0/lines/15/words/1"
             ]
           },
-          "Tip":{ 
+          "Tip":{
             "type":"number",
             "valueNumber":1.63,
             "text":"1.63",
-            "boundingBox":[ 
+            "boundingBox":[
               1094,
               2479,
               1267.7,
@@ -414,15 +415,15 @@ Consulte el siguiente ejemplo de una respuesta JSON correcta:
             ],
             "page":1,
             "confidence":0.941,
-            "elements":[ 
+            "elements":[
               "#/readResults/0/lines/17/words/1"
             ]
           },
-          "Total":{ 
+          "Total":{
             "type":"number",
             "valueNumber":14.5,
             "text":"$14.50",
-            "boundingBox":[ 
+            "boundingBox":[
               1034.2,
               2617,
               1387.5,
@@ -434,7 +435,7 @@ Consulte el siguiente ejemplo de una respuesta JSON correcta:
             ],
             "page":1,
             "confidence":0.985,
-            "elements":[ 
+            "elements":[
               "#/readResults/0/lines/19/words/0"
             ]
           }
@@ -445,23 +446,23 @@ Consulte el siguiente ejemplo de una respuesta JSON correcta:
 }
 ```
 
-## <a name="customer-scenarios"></a>Escenarios de cliente  
+## <a name="customer-scenarios"></a>Escenarios de cliente
 
 Los datos extraídos con Receipt API se pueden usar para realizar varias tareas. A continuación se muestran algunos ejemplos de lo que nuestros clientes han realizado con la API Receipt.
 
-### <a name="business-expense-reporting"></a>Informe de gastos empresariales  
+### <a name="business-expense-reporting"></a>Informe de gastos empresariales
 
-A menudo, la tramitación de gastos empresariales implica dedicar tiempo a introducir datos de las imágenes de los recibos de forma manual. Con Receipt API, puede usar los campos extraídos para automatizar parcialmente este proceso y analizar sus recibos rápidamente.  
+A menudo, la tramitación de gastos empresariales implica dedicar tiempo a introducir datos de las imágenes de los recibos de forma manual. Con Receipt API, puede usar los campos extraídos para automatizar parcialmente este proceso y analizar sus recibos rápidamente.
 
-Dado que la API Receipt tiene una salida JSON sencilla, puede usar los valores de campo extraídos de varias maneras. Intégrelos con las aplicaciones de gastos internas para rellenar previamente los informes de gastos. Para obtener más información sobre este escenario, consulte cómo Acumatica usa Receipt API para [facilitar el proceso de los informes de gastos](https://customers.microsoft.com/story/762684-acumatica-partner-professional-services-azure).  
+Dado que la API Receipt tiene una salida JSON sencilla, puede usar los valores de campo extraídos de varias maneras. Intégrelos con las aplicaciones de gastos internas para rellenar previamente los informes de gastos. Para obtener más información sobre este escenario, consulte cómo Acumatica usa Receipt API para [facilitar el proceso de los informes de gastos](https://customers.microsoft.com/story/762684-acumatica-partner-professional-services-azure).
 
 ### <a name="auditing-and-accounting"></a>Auditoría y contabilidad
 
-El resultado de Receipt API también se puede usar para realizar el análisis de un gran número de gastos en distintos puntos del proceso de informes y reembolso de los gastos. Puede procesar los recibos para evaluarlos para auditorías manuales o aprobaciones rápidas.  
+El resultado de Receipt API también se puede usar para realizar el análisis de un gran número de gastos en distintos puntos del proceso de informes y reembolso de los gastos. Puede procesar los recibos para evaluarlos para auditorías manuales o aprobaciones rápidas.
 
 El resultado de Receipt también es útil para el registro contable general para su uso en la empresa o a nivel personal. Use Receipt API para transformar cualquier dato de PDF o de imágenes de recibos sin formato en una salida digital que se pueda procesar.
 
-### <a name="consumer-behavior"></a>Comportamiento del consumidor 
+### <a name="consumer-behavior"></a>Comportamiento del consumidor
 
 Los recibos contienen datos útiles que puede utilizar para analizar el comportamiento del consumidor y las tendencias de compra.
 

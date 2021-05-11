@@ -8,18 +8,18 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: troubleshooting
 ms.service: azure-communication-services
-ms.openlocfilehash: b9ed71a8fc9346ecd454eba98dcbb3b13186eba2
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 5fe3760d5baeae4b532e0af7e28b090d170e0945
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106276049"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108331311"
 ---
 # <a name="known-issues-azure-communication-services-calling-sdks"></a>Problemas conocidos: instancias de Calling SDK de Azure Communication Services
 En este artículo se proporciona información sobre las limitaciones y los problemas conocidos relativos a las instancias de Calling SDK de Azure Communication Services.
 
 > [!IMPORTANT]
-> Hay varios factores que pueden afectar a la calidad de la experiencia de llamada. Consulte la documentación sobre los **[requisitos de red](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/network-requirements)** para más información sobre los procedimientos recomendados de configuración y prueba de la red de Communication Services.
+> Hay varios factores que pueden afectar a la calidad de la experiencia de llamada. Consulte la documentación sobre los **[requisitos de red](./voice-video-calling/network-requirements.md)** para más información sobre los procedimientos recomendados de configuración y prueba de la red de Communication Services.
 
 
 ## <a name="javascript-sdk"></a>SDK de JavaScript
@@ -38,7 +38,7 @@ Si antes de actualizar la página, el usuario estaba enviando vídeo, la colecci
 
 
 ### <a name="its-not-possible-to-render-multiple-previews-from-multiple-devices-on-web"></a>No es posible representar varias vistas previas de varios dispositivos en Web
-Esta es una limitación conocida. Para más información, consulte la [introducción a Calling SDK](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/calling-sdk-features).
+Esta es una limitación conocida. Para más información, consulte la [introducción a Calling SDK](./voice-video-calling/calling-sdk-features.md).
 
 ### <a name="enumerating-devices-isnt-possible-in-safari-when-the-application-runs-on-ios-or-ipados"></a>No es posible enumerar dispositivos en Safari cuando la aplicación se ejecuta en iOS o iPadOS.
 
@@ -110,4 +110,16 @@ Si se concede acceso a los dispositivos después de un tiempo, se restablecen lo
 <br/>Sistema operativo: iOS
 
 ###  <a name="sometimes-it-takes-a-long-time-to-render-remote-participant-videos"></a>A veces se tarda mucho tiempo en presentar los vídeos de participantes remotos
-Durante una llamada de grupo en curso, el _usuario A_ envía el vídeo y, luego, el _usuario B_ se une a la llamada. A veces, el usuario B no ve el vídeo del usuario A, o el vídeo del usuario A comienza a representarse después de un retraso largo. Este problema puede deberse a que el entorno de red requiere una configuración adicional. Consulte la documentación sobre los [requisitos de red](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/network-requirements) para obtener instrucciones sobre la configuración de red.
+Durante una llamada de grupo en curso, el _usuario A_ envía el vídeo y, luego, el _usuario B_ se une a la llamada. A veces, el usuario B no ve el vídeo del usuario A, o el vídeo del usuario A comienza a representarse después de un retraso largo. Este problema puede deberse a que el entorno de red requiere una configuración adicional. Consulte la documentación sobre los [requisitos de red](./voice-video-calling/network-requirements.md) para obtener instrucciones sobre la configuración de red.
+
+### <a name="using-3rd-party-libraries-to-access-gum-during-the-call-may-result-in-audio-loss"></a>El uso de bibliotecas de terceros para acceder a GUM durante la llamada puede provocar una pérdida de audio
+El uso de getUserMedia por separado dentro de la aplicación provocará la pérdida de secuencias de audio, ya que una biblioteca de terceros se hace cargo del acceso al dispositivo desde la biblioteca de ACS.
+Se recomienda a los desarrolladores que hagan lo siguiente:
+1. No use bibliotecas de terceros que usen internamente GetUserMedia API durante la llamada.
+2. Si todavía necesita usar la biblioteca de terceros, la única manera de recuperarla es cambiar el dispositivo seleccionado (si el usuario tiene más de uno) o reiniciar la llamada.
+
+<br/>Exploradores: Safari
+<br/>Sistema operativo: iOS
+
+#### <a name="possible-causes"></a>Causas posibles
+En algunos exploradores (Safari, por ejemplo), la adquisición de su propia secuencia desde el mismo dispositivo tendrá un efecto secundario de ejecutarse en condiciones de carrera. La adquisición de flujos de otros dispositivos puede provocar que el usuario tenga un ancho de banda de USB o E/S insuficiente y que la tasa de sourceUnavailableError se dispare.  

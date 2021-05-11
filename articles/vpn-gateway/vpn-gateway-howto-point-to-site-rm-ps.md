@@ -1,6 +1,6 @@
 ---
 title: 'Conexión a una red virtual desde un equipo: autenticación de certificados de Azure nativo y VPN de punto a sitio: PowerShell'
-description: Conexión segura de los clientes de Windows y macOS a la red virtual de Azure mediante P2S y certificados autofirmados o emitidos por una entidad de certificación. En este artículo se usa PowerShell.
+description: Obtenga información sobre cómo conectar de manera segura los clientes de Windows y macOS a la red virtual de Azure mediante P2S y certificados autofirmados o emitidos por una entidad de certificación.
 titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: ed0a60c88c33af70b7d780d6c4735c5f8e65b35b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cf1cd8eb2d9723d435f277b9c029b15c843b9afd
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94660413"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108226397"
 ---
 # <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Configure una conexión VPN de punto a sitio a una red virtual mediante la autenticación nativa de los certificados de Azure: PowerShell
 

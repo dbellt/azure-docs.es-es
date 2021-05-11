@@ -6,12 +6,12 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
-ms.openlocfilehash: 66f26cfa14d51a985e2bb420bec294f7ef3a6cd1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4b2bb3659d68ec5c4a4ed7d21f39542d1329452b
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102048155"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108331635"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Asociados de desarrollo de aplicaciones y migración NoSQL de Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -34,7 +34,7 @@ Desde la migración NoSQL hasta el desarrollo de aplicaciones, puede elegir entr
 | [Lambda3 Informatics](https://www.lambda3.com.br/) | Personalización en tiempo real, inventario de comercio minorista, desarrollo de aplicaciones | Brasil|
 |[Neal Analytics](https://www.nealanalytics.com/)    |     Personalización, comercio minorista (inventario), análisis operativo (Spark), desarrollo de aplicaciones  |    EE. UU.     |  
 |[Pragmatic Works Software Inc](https://www.pragmaticworks.com/)    |   Migración NoSQL      |   EE. UU.      |
-| [Ricoh Digital Services](https://www.ricoh.com/) | IoT, personalización en tiempo real, inventario de comercio minorista, migración NoSQL | Reino Unido  |
+| [Ricoh Digital Experience](https://www.ricoh-europe.com/contact-us) | IoT, personalización en tiempo real, inventario de comercio minorista, migración NoSQL | Reino Unido, Europa  |
 |[SNP Technologies](https://www.snp.com/) | Migración NoSQL| EE. UU. |
 | [Solidsoft Reply](https://www.reply.com/solidsoft-reply/) | Migración NoSQL | Croacia, Suecia, Dinamarca, Irlanda, Bulgaria, Eslovenia, Chipre, Malta, Lituania, República Checa, Islandia, Suiza y Liechtenstein|
 | [Spanish Point Technologies](https://www.spanishpoint.ie/) | Migración NoSQL| Irlanda|

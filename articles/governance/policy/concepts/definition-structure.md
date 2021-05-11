@@ -1,14 +1,14 @@
 ---
 title: Detalles de la estructura de definición de directivas
 description: Describe cómo se usan las definiciones de directiva para establecer convenciones para los recursos de Azure de su organización.
-ms.date: 02/17/2021
+ms.date: 05/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: cebba214671cfab75a3f44720578b51febacdfcd
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 594dbfe3dda919e4d8dcbf3047fac78bad600127
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102215075"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108326208"
 ---
 # <a name="azure-policy-definition-structure"></a>Estructura de definición de Azure Policy
 
@@ -799,30 +799,32 @@ Las siguientes funciones solo están disponibles en las reglas de directiva:
 - `addDays(dateTime, numberOfDaysToAdd)`
   - **dateTime** (fecha y hora): [Obligatorio] cadena: cadena con el formato de fecha y hora universal ISO 8601 "yyyy-MM-ddTHH:mm:ss.FFFFFFFZ"
   - **numberOfDaysToAdd** (número de días para agregar): [Obligatorio] entero: número de días que se desea agregar
+
 - `field(fieldName)`
   - **fieldName**: [obligatorio] cadena. Es el nombre del [campo](#fields) que se va a recuperar.
   - Devuelve el valor de ese campo del recurso que se va a evaluar con la condición If.
   - `field` se usa principalmente con **AuditIfNotExists** y **DeployIfNotExists** para hacer referencia a los campos del recurso que se van a evaluar. Este uso se puede observar en el [ejemplo de DeployIfNotExists](effects.md#deployifnotexists-example).
+
 - `requestContext().apiVersion`
   - Devuelve la versión de la API de la solicitud que desencadenó la evaluación de la directiva (por ejemplo: `2019-09-01`).
     Este valor es la versión de API que se usó en la solicitud PUT/PATCH para las evaluaciones de la creación o actualización de recursos. La versión más reciente de la API siempre se usa durante la evaluación del cumplimiento de los recursos existentes.
+
 - `policy()`
   - Devuelve la siguiente información acerca de la directiva que se está evaluando. Es posible acceder a las propiedades desde el objeto devuelto (ejemplo: `[policy().assignmentId]`).
   
-  ```json
-  {
-    "assignmentId": "/subscriptions/ad404ddd-36a5-4ea8-b3e3-681e77487a63/providers/Microsoft.Authorization/policyAssignments/myAssignment",
-    "definitionId": "/providers/Microsoft.Authorization/policyDefinitions/34c877ad-507e-4c82-993e-3452a6e0ad3c",
-    "setDefinitionId": "/providers/Microsoft.Authorization/policySetDefinitions/42a694ed-f65e-42b2-aa9e-8052e9740a92",
-    "definitionReferenceId": "StorageAccountNetworkACLs"
-  }
-  ```
+    ```json
+    {
+      "assignmentId": "/subscriptions/ad404ddd-36a5-4ea8-b3e3-681e77487a63/providers/Microsoft.Authorization/policyAssignments/myAssignment",
+      "definitionId": "/providers/Microsoft.Authorization/policyDefinitions/34c877ad-507e-4c82-993e-3452a6e0ad3c",
+      "setDefinitionId": "/providers/Microsoft.Authorization/policySetDefinitions/42a694ed-f65e-42b2-aa9e-8052e9740a92",
+      "definitionReferenceId": "StorageAccountNetworkACLs"
+    }
+    ```
 
 - `ipRangeContains(range, targetRange)`
-  - **range**: cadena [obligatoria]. Cadena que especifica un intervalo de direcciones IP.
-  - **targetRange**: cadena [obligatoria]. Cadena que especifica un intervalo de direcciones IP.
-
-  Devuelve si el intervalo de direcciones IP especificado contiene el intervalo de direcciones IP de destino. No se permiten rangos vacíos ni mezclas entre familias de direcciones IP, lo que genera un error en la evaluación.
+  - **range**: [requerido] cadena: cadena que especifica un intervalo de direcciones IP para comprobar si _targetRange_ está dentro.
+  - **targetRange**: [requerido] cadena: cadena que especifica un intervalo de direcciones IP que se van a validar como incluidas dentro del _intervalo_.
+  - Devuelve un _valor booleano_ para determinar si el intervalo de direcciones IP del _intervalo_ contiene el intervalo de direcciones IP _targetRange_. No se permiten rangos vacíos ni mezclas entre familias de direcciones IP, lo que genera un error en la evaluación.
 
   Formatos compatibles:
   - Dirección IP única (ejemplos: `10.0.0.0`, `2001:0DB8::3:FFFE`)

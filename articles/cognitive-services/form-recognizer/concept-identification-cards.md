@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 04/14/2021
+ms.date: 04/30/2021
 ms.author: lajanuar
-ms.openlocfilehash: 42b6cb96cdcfbf4e9c2e927265954776093bb330
-ms.sourcegitcommit: 18cd3c1c8cc47258c6a1a04e0e03d6248c52ef24
+ms.openlocfilehash: d59df677fda920be5ed9547bee3855d4c9511187
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107992330"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108330843"
 ---
 # <a name="form-recognizer-prebuilt-identification-id-document-model"></a>Modelo de documento de identificación (ID) precompilado de Form Recognizer
 
@@ -35,7 +35,7 @@ El servicio de identificaciones precompiladas extrae los principales valores de 
 
 ### <a name="fields-extracted"></a>Campos extraídos
 
-|Nombre| Tipo | Descripción | Valor |
+|Nombre| Tipo | Descripción | Value |
 |:-----|:----|:----|:----|
 |  País | country | Código de país conforme con la norma ISO 3166 estándar. | "USA" |
 |  DateOfBirth | date | Fecha de nacimiento en formato AAAA-MM-DD. | "1980-01-01" |
@@ -45,10 +45,10 @@ El servicio de identificaciones precompiladas extrae los principales valores de 
 |  LastName | string | Apellido extraído | "BROOKS" |
 |  Nacionalidad | country | Código de país conforme con la norma ISO 3166 estándar. | "USA" |
 |  Sex | gender | Los valores extraídos posibles son "M", "F" y "X". | "F" |
-|  MachineReadableZone | objeto | Zona de lectura automática del pasaporte extraída, incluidas dos líneas de 44 caracteres cada una. | "P<USABROOKS<<JENNIFER<<<<<<<<<<<<<<<<<<<<<<< 3400200135USA8001014F1905054710000307<715816" |
+|  MachineReadableZone | object | Zona de lectura automática del pasaporte extraída, incluidas dos líneas de 44 caracteres cada una. | "P<USABROOKS<<JENNIFER<<<<<<<<<<<<<<<<<<<<<<< 3400200135USA8001014F1905054710000307<715816" |
 |  DocumentType | string | Tipo de documento, por ejemplo, pasaporte o permiso de conducir. | "passport" |
 |  Dirección | string | Dirección extraída (solo permiso de conducir) | "123 STREET ADDRESS YOUR CITY WA 99999-1234"|
-|  Region | string | Valor extraído de región, estado, provincia, etc. (solo permiso de conducir) | "Washington" |
+|  Region (Región) | string | Valor extraído de región, estado, provincia, etc. (solo permiso de conducir) | "Washington" |
 
 ### <a name="additional-features"></a>Características adicionales
 
@@ -75,7 +75,11 @@ Para probar el servicio de ID de Form Recognizer, vaya a la herramienta de inter
 
 [!INCLUDE [input requirements](./includes/input-requirements-receipts.md)]
 
-## <a name="supported-id-types"></a>Tipos de identificador admitidos
+## <a name="supported-locales"></a>Configuraciones regionales admitidas
+
+ **Identificador precompilado v2.1-preview.3** (versión preliminar) admite documentos de identidad en la configuración regional **en-us**.
+
+## <a name="supported-identity-document-types"></a>Tipos de documentos de identidad admitidos
 
 * **Identificaciones precompiladas, v2.1-preview.3** Extrae valores clave de pasaportes de todo el mundo y de permisos de conducir de EE. UU.
 
@@ -84,7 +88,7 @@ Para probar el servicio de ID de Form Recognizer, vaya a la herramienta de inter
   >
   > Los tipos de ID admitidos actualmente son los pasaportes de todo el mundo y los permisos de conducir de EE. UU. Estamos tratando de ampliar nuestra compatibilidad con identificaciones a otros documentos de identidad de todo el mundo.
 
-## <a name="post-analyze-id-document"></a>Aplicación de POST a documento de Analyze Id
+## <a name="post-analyze-id-document"></a>Aplicación de POST a documento de Analyze ID
 
 La operación [Analyze ID](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/5f74a7daad1f2612c46f5822) toma una imagen o un archivo PDF de una ID como entrada y extrae los valores de interés. La llamada devuelve un campo de encabezado de respuesta denominado `Operation-Location`. El valor `Operation-Location` es una dirección URL que contiene el id. de resultado que se va a usar en el paso siguiente.
 

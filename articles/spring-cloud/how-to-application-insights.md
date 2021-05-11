@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 12/04/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: e9c0a2a6a6b40325e4bf87dc8cf52bc419b77621
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 457b21a0d84202cc712d5b1b719f5239de0e3391
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108129070"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108324678"
 ---
 # <a name="application-insights-java-in-process-agent-in-azure-spring-cloud-preview"></a>Agente In-Process de Java de Application Insights en Azure Spring Cloud (versión preliminar)
 
@@ -141,6 +141,28 @@ az spring-cloud create/update [--app-insights]/[--app-insights-key] "assignedNam
 az spring-cloud app-insights update --disable â€“name "assignedName" â€“resource-group "resourceGroupName"
 
 ```
+
+## <a name="java-agent-updateupgrade"></a>Actualización del agente de Java
+
+El agente de Java se actualizará periódicamente con el JDK, lo que puede afectar a los escenarios siguientes.
+
+> [!Note]
+> La versión de JDK se actualizará trimestralmente al año.
+
+* Las aplicaciones existentes que usan el agente de Java antes de actualizar no se verán afectadas.
+* Las aplicaciones creadas después de la actualización aprovecharán la nueva versión del agente de Java.
+* Las aplicaciones existentes que no usaron previamente el agente de Java requerirán un reinicio o una nueva implementación para aprovechar la nueva versión del agente de Java.
+
+## <a name="java-agent-configuration-hot-loading"></a>Carga activa de la configuración del agente de Java
+
+Azure Spring Cloud ha habilitado un mecanismo de carga activa para ajustar la configuración del agente sin reiniciar las aplicaciones.
+
+> [!Note]
+> El mecanismo de carga activa tiene un retraso en minutos.
+
+* Cuando el agente de Java se ha habilitado previamente, los cambios en la instancia de Application Insights o SamplingRate NO requieren que se reinicien las aplicaciones.
+* Si habilita el agente de Java, debe reiniciar las aplicaciones.
+* Al deshabilitar el agente de Java, las aplicaciones dejarán de enviar todos los datos de supervisión después de un retraso en minutos. Puede reiniciar las aplicaciones para quitar el agente del entorno en tiempo de ejecución de Java.
 
 ## <a name="see-also"></a>Consulte también
 * [Uso del seguimiento distribuido con Azure Spring Cloud](./how-to-distributed-tracing.md)
