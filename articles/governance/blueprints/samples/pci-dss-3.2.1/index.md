@@ -1,14 +1,14 @@
 ---
 title: Ejemplo de plano técnico de la norma PCI-DSS v3.2.1, introducción
 description: Introducción a un ejemplo de plano técnico para el cumplimiento con el Estándar de Seguridad de Datos para la Industria de Tarjeta de Pago (PCI-DSS) v3.2.1. Este ejemplo de plano técnico ayuda a los clientes a evaluar determinados controles concretos.
-ms.date: 01/08/2021
+ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: 409be63f367c1077b3f35ec62c86a36d26aaaab1
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 19e25afe5eb8543936de75321ea9689a08dfb43d
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98045009"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108756816"
 ---
 # <a name="overview-of-the-pci-dss-v321-blueprint-sample"></a>Introducción al ejemplo de plano técnico para el cumplimiento con PCI-DSS v3.2.1
 

@@ -59,7 +59,7 @@
     - name: Seguridad
       items:
         - name: Línea de base de seguridad
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/container-instances-security-baseline?toc=/azure/container-instances/TOC.json
         - name: Consideraciones sobre la seguridad
           href: container-instances-image-security.md
     - name: Redes virtuales
@@ -156,6 +156,9 @@
       href: container-instances-reference-yaml.md
     - name: Conector
       href: /connectors/aci
+    - name: Elementos integrados de Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Recursos
   items:
     - name: Desarrollo de aptitudes con Microsoft Learn
