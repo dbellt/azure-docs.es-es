@@ -13,12 +13,12 @@ ms.reviewer: krbain
 ms.date: 03/29/2021
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75547b50289f9fa73b6fc2a28fe7ec53b5c5367a
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 08f6e636be885fa2e647a61a6ca1a3d35281a9eb
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108137984"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108226595"
 ---
 # <a name="revoke-user-access-in-azure-active-directory"></a>Revocación del acceso de usuario en Azure Active Directory
 
@@ -54,7 +54,7 @@ La mayoría de las aplicaciones basadas en explorador usan tokens de sesión en 
 
 ## <a name="revoke-access-for-a-user-in-the-hybrid-environment"></a>Revocar el acceso de un usuario en el entorno híbrido
 
-Para un entorno híbrido con Active Directory local sincronizado con Azure Active Directory, Microsoft recomienda a los administradores de TI que realicen las siguientes acciones.  
+Para un entorno híbrido con Active Directory local sincronizado con Azure Active Directory, Microsoft recomienda a los administradores de TI que realicen las siguientes acciones. Si tiene un **entorno solo de Azure AD**, puede omitir la sección [Entorno de Active Directory local](https://docs.microsoft.com/azure/active-directory/enterprise-users/users-revoke-access#on-premises-active-directory-environment).
 
 ### <a name="on-premises-active-directory-environment"></a>Entorno de Active Directory local
 
@@ -130,3 +130,4 @@ Una vez que los administradores han realizado los pasos anteriores, el usuario n
 
 - [Procedimientos de acceso seguro para administradores de Azure AD](../roles/security-planning.md)
 - [Agregar o actualizar la información del perfil de usuario](../fundamentals/active-directory-users-profile-azure-portal.md)
+- [Eliminación de un ex empleado](https://docs.microsoft.com/microsoft-365/admin/add-users/remove-former-employee?view=o365-worldwide)

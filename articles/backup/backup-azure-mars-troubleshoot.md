@@ -3,12 +3,12 @@ title: Solución de problemas del agente de Azure Backup
 description: En este artículo se explica cómo solucionar problemas de instalación y registro del agente de Azure Backup.
 ms.topic: troubleshooting
 ms.date: 07/15/2019
-ms.openlocfilehash: c662bf8c8d9490691f45254bef01618f17bd6e2a
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: 8320edbe2f9f5ae495246eb26276023b1b902764
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107518191"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108324786"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Solución de problemas del agente de Microsoft Azure Recovery Services (MARS)
 
@@ -21,7 +21,7 @@ Se recomienda confirmar lo siguiente antes de empezar a solucionar problemas del
 - [Asegúrese de que el agente de MARS está actualizado](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409).
 - [Asegúrese de que hay conectividad de red entre el agente de MARS y Azure](#the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup).
 - Asegúrese de que MARS se está ejecutando (en la consola de servicio). Si lo precisa, reinicie y vuelva a intentar la operación.
-- [Asegúrese de que hay disponible entre un 5 % y un 10 % de espacio de volumen en la ubicación de la carpeta temporal](./backup-azure-file-folder-backup-faq.yml#what-s-the-minimum-size-requirement-for-the-cache-folder-).
+- [Asegúrese de que hay disponible entre un 5 % y un 10 % de espacio de volumen en la ubicación de la carpeta temporal](/azure/backup/backup-azure-file-folder-backup-faq#what-s-the-minimum-size-requirement-for-the-cache-folder-).
 - [Compruebe si otro proceso o software antivirus interfiere con Azure Backup](./backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-another-process-or-antivirus-software-interfering-with-azure-backup).
 - Si el trabajo de copia de seguridad se completó con advertencias, vea [Trabajos de copia de seguridad completados con advertencias](#backup-jobs-completed-with-warning).
 - Si la copia de seguridad programada genera errores, pero no la copia de seguridad manual, vea [Las copias de seguridad no se ejecutan según la programación](#backups-dont-run-according-to-schedule).
@@ -79,7 +79,7 @@ Se recomienda confirmar lo siguiente antes de empezar a solucionar problemas del
 
 | Error  | Causa posible | Acciones recomendadas |
 | ---     | ---     | ---    |
-| El archivo de credenciales del almacén especificado no se puede usar, ya que no se descargó desde el almacén asociado a este servidor. (Id.: 100110) Use las credenciales del almacén adecuado. | El archivo de credenciales del almacén es de un almacén diferente del que ya está registrado en este servidor. | Asegúrese de que tanto la máquina de destino como la máquina de origen están registradas en el mismo almacén de Recovery Services. Si el servidor de destino ya se ha registrado en otro almacén, use la opción **Registrar servidor** para registrarlo en el almacén correcto.  
+| El archivo de credenciales del almacén especificado no se puede usar, ya que no se descargó desde el almacén asociado a este servidor. (Id.: 100110) Use las credenciales del almacén adecuado. | El archivo de credenciales del almacén es de un almacén diferente del que ya está registrado en este servidor. | Asegúrese de que tanto la máquina de destino como la máquina de origen están registradas en el mismo almacén de Recovery Services. Si el servidor de destino ya se ha registrado en otro almacén, use la opción **Registrar servidor** para registrarlo en el almacén correcto.
 
 ## <a name="backup-jobs-completed-with-warning"></a>Trabajos de copia de seguridad completados con advertencias
 
@@ -91,7 +91,7 @@ Se recomienda confirmar lo siguiente antes de empezar a solucionar problemas del
   - Atributos de archivo no admitidos (por ejemplo: en una carpeta de OneDrive, un flujo comprimido, puntos de análisis, etc.). Para ver la lista completa, consulte la [matriz de compatibilidad](./backup-support-matrix-mars-agent.md#supported-file-types-for-backup).
   - Un problema del sistema de archivos.
   - Otro proceso interfiere (por ejemplo: el software antivirus que contiene identificadores en archivos puede impedir que el agente de MARS tenga acceso a los archivos).
-  - Archivos bloqueados por una aplicación.  
+  - Archivos bloqueados por una aplicación.
 
 - El servicio de copia de seguridad marcará estos archivos como erróneos en el archivo de registro, con la siguiente convención de nomenclatura: *LastBackupFailedFilesxxxx.txt* en la carpeta *C:\Archivos de programa\Microsoft Azure Recovery Service Agent\temp*.
 - Para resolver el problema, revise el archivo de registro para comprender la naturaleza del problema:
@@ -99,7 +99,7 @@ Se recomienda confirmar lo siguiente antes de empezar a solucionar problemas del
   | Código de error             | Motivos                                             | Recomendaciones                                              |
   | ---------------------- | --------------------------------------------------- | ------------------------------------------------------------ |
   | 0x80070570             | El archivo o directorio está dañado o es ilegible. | Ejecute **chkdsk** en el volumen de origen.                             |
-  | 0x80070002, 0x80070003 | El sistema no encuentra el archivo especificado.         | [Asegúrese de que la carpeta temporal no está llena.](/backup-azure-file-folder-backup-faq.yml#manage-the-backup-cache-folder)  <br><br>  Compruebe si existe el volumen donde se ha configurado el espacio de desecho (no se ha eliminado).  <br><br>   [Asegúrese de que el agente de MARS se ha excluido del antivirus instalado en la máquina.](./backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-another-process-or-antivirus-software-interfering-with-azure-backup)  |
+  | 0x80070002, 0x80070003 | El sistema no encuentra el archivo especificado.         | [Asegúrese de que la carpeta temporal no está llena.](/azure/backup/backup-azure-file-folder-backup-faq#manage-the-backup-cache-folder)  <br><br>  Compruebe si existe el volumen donde se ha configurado el espacio de desecho (no se ha eliminado).  <br><br>   [Asegúrese de que el agente de MARS se ha excluido del antivirus instalado en la máquina.](./backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-another-process-or-antivirus-software-interfering-with-azure-backup)  |
   | 0x80070005             | Acceso denegado                                    | [Compruebe si el antivirus u otro software de terceros está bloqueando el acceso](./backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-another-process-or-antivirus-software-interfering-with-azure-backup).     |
   | 0x8007018b             | Se ha denegado el acceso al archivo de nube.                | Archivos de OneDrive, archivos Git o cualquier otro archivo que puede tener el estado sin conexión en la máquina |
 
@@ -117,13 +117,13 @@ Se recomienda confirmar lo siguiente antes de empezar a solucionar problemas del
 
 | Error  | Causas posibles | Acciones recomendadas |
 |---------|---------|---------|
-|<br />La activación no se completó correctamente. No se pudo realizar la operación actual debido a un error de servicio interno [0x1FC07]. Vuelva a intentar la operación más tarde. Si el problema persiste, póngase en contacto con el servicio de soporte técnico de Microsoft.     | <li> La carpeta temporal se encuentra en un volumen sin espacio suficiente. <li> La carpeta temporal se ha trasladado incorrectamente. <li> Falta el archivo OnlineBackup.KEK.         | <li>Actualice a la [versión más reciente](https://aka.ms/azurebackup_agent) del agente de MARS.<li>Mueva la carpeta temporal o la ubicación de caché a un volumen con espacio libre entre el 5 % y el 10 % del tamaño total de los datos de copia de seguridad. Para mover correctamente la ubicación de caché, vea los pasos de [Preguntas comunes acerca de la realización de copias de seguridad de archivos y carpetas](/backup-azure-file-folder-backup-faq.yml#manage-the-backup-cache-folder).<li> Asegúrese de que exista el archivo OnlineBackup.KEK. <br>*La ubicación predeterminada de la carpeta temporal o la ruta de acceso a la memoria caché es C:\Archivos de programa\Microsoft Azure Recovery Services Agent\Scratch*.        |
+|<br />La activación no se completó correctamente. No se pudo realizar la operación actual debido a un error de servicio interno [0x1FC07]. Vuelva a intentar la operación más tarde. Si el problema persiste, póngase en contacto con el servicio de soporte técnico de Microsoft.     | <li> La carpeta temporal se encuentra en un volumen sin espacio suficiente. <li> La carpeta temporal se ha trasladado incorrectamente. <li> Falta el archivo OnlineBackup.KEK.         | <li>Actualice a la [versión más reciente](https://aka.ms/azurebackup_agent) del agente de MARS.<li>Mueva la carpeta temporal o la ubicación de caché a un volumen con espacio libre entre el 5 % y el 10 % del tamaño total de los datos de copia de seguridad. Para mover correctamente la ubicación de caché, vea los pasos de [Preguntas comunes acerca de la realización de copias de seguridad de archivos y carpetas](/azure/backup/backup-azure-file-folder-backup-faq#manage-the-backup-cache-folder).<li> Asegúrese de que exista el archivo OnlineBackup.KEK. <br>*La ubicación predeterminada de la carpeta temporal o la ruta de acceso a la memoria caché es C:\Archivos de programa\Microsoft Azure Recovery Services Agent\Scratch*.        |
 
 ## <a name="encryption-passphrase-not-correctly-configured"></a>La frase de contraseña de cifrado no está configurada correctamente.
 
 | Error  | Causas posibles | Acciones recomendadas |
 |---------|---------|---------|
-| <br />Error 34506. La frase de contraseña de cifrado almacenada en este equipo no está configurada correctamente.    | <li> La carpeta temporal se encuentra en un volumen sin espacio suficiente. <li> La carpeta temporal se ha trasladado incorrectamente. <li> Falta el archivo OnlineBackup.KEK.        | <li>Actualice a la [versión más reciente](https://aka.ms/azurebackup_agent) del agente de MARS.<li>Mueva la carpeta temporal o la ubicación de caché a un volumen con espacio libre entre el 5 % y el 10 % del tamaño total de los datos de copia de seguridad. Para mover correctamente la ubicación de caché, vea los pasos de [Preguntas comunes acerca de la realización de copias de seguridad de archivos y carpetas](/backup-azure-file-folder-backup-faq.yml#manage-the-backup-cache-folder).<li> Asegúrese de que exista el archivo OnlineBackup.KEK. <br>*La ubicación predeterminada de la carpeta temporal o la ruta de acceso a la memoria caché es C:\Archivos de programa\Microsoft Azure Recovery Services Agent\Scratch*.         |
+| <br />Error 34506. La frase de contraseña de cifrado almacenada en este equipo no está configurada correctamente.    | <li> La carpeta temporal se encuentra en un volumen sin espacio suficiente. <li> La carpeta temporal se ha trasladado incorrectamente. <li> Falta el archivo OnlineBackup.KEK.        | <li>Actualice a la [versión más reciente](https://aka.ms/azurebackup_agent) del agente de MARS.<li>Mueva la carpeta temporal o la ubicación de caché a un volumen con espacio libre entre el 5 % y el 10 % del tamaño total de los datos de copia de seguridad. Para mover correctamente la ubicación de caché, vea los pasos de [Preguntas comunes acerca de la realización de copias de seguridad de archivos y carpetas](/azure/backup/backup-azure-file-folder-backup-faq#manage-the-backup-cache-folder).<li> Asegúrese de que exista el archivo OnlineBackup.KEK. <br>*La ubicación predeterminada de la carpeta temporal o la ruta de acceso a la memoria caché es C:\Archivos de programa\Microsoft Azure Recovery Services Agent\Scratch*.         |
 
 ## <a name="backups-dont-run-according-to-schedule"></a>Las copias de seguridad no se ejecutan según la programación
 
@@ -149,18 +149,18 @@ Si las copias de seguridad programadas no se desencadenan automáticamente, pero
 
 - Si la directiva de ejecución de PowerShell para `LocalMachine` está establecida en `restricted`, el cmdlet de PowerShell que desencadena la tarea de copia de seguridad puede producir errores. Ejecute estos comandos con permisos elevados para comprobar y establecer la directiva de ejecución en `Unrestricted` o `RemoteSigned`:
 
- ```PowerShell
- Get-ExecutionPolicy -List
+```powershell
+Get-ExecutionPolicy -List
 
 Set-ExecutionPolicy Unrestricted
- ```
+```
 
 - Asegúrese de que no falta ningún archivo de MSOnlineBackup del módulo de PowerShell ni está dañado. Haga lo siguiente si falta algún archivo o está dañado:
 
   1. Desde cualquier máquina que tenga un agente de MARS que funcione correctamente, copie la carpeta MSOnlineBackup de C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules.
   1. En la máquina con el error, pegue los archivos copiados en la misma ubicación de carpeta (C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules).
 
-     Si ya hay una carpeta MSOnlineBackup en la máquina, pegue los archivos en ella o reemplace los archivos existentes.
+    Si ya hay una carpeta MSOnlineBackup en la máquina, pegue los archivos en ella o reemplace los archivos existentes.
 
 > [!TIP]
 > Para garantizar que los cambios realizados se aplican de forma coherente, reinicie el servidor después de realizar los pasos anteriores.
@@ -173,7 +173,7 @@ Error en la operación actual debido a un error interno del servicio de tipo "Re
 
 ## <a name="job-could-not-be-started-as-another-job-was-in-progress"></a>No se pudo iniciar el trabajo porque había otro trabajo en curso
 
-Si aparece un mensaje de advertencia en la **consola de MARS** > **Historial de trabajos**, que dice: "El trabajo no puede iniciarse mientras otro trabajo está en curso", podría deberse a una duplicación del trabajo desencadenada por el Programador de tareas.
+Si aparece un mensaje de advertencia en la **consola de MARS** > **Historial de trabajos**, que dice: "No se pudo iniciar el trabajo, había otro trabajo en curso", podría deberse a una duplicación del trabajo desencadenada por el Programador de tareas.
 
 ![No se pudo iniciar el trabajo porque había otro trabajo en curso](./media/backup-azure-mars-troubleshoot/job-could-not-be-started.png)
 
@@ -243,7 +243,7 @@ Se podrían producir errores en las operaciones de copia de seguridad si no hay 
 
 ### <a name="another-process-or-antivirus-software-blocking-access-to-cache-folder"></a>Otro proceso o software antivirus bloquea el acceso a la carpeta de caché
 
-Si tiene un software antivirus instalado en el servidor, agregue al examen antivirus las reglas de exclusión necesarias correspondientes a los siguientes archivos y carpetas:  
+Si tiene un software antivirus instalado en el servidor, agregue al examen antivirus las reglas de exclusión necesarias correspondientes a los siguientes archivos y carpetas:
 
 - La carpeta temporal. Su ubicación predeterminada es `C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch`.
 - La carpeta Bin se encuentra en `C:\Program Files\Microsoft Azure Recovery Services Agent\Bin`.

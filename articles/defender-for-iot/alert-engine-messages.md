@@ -1,22 +1,25 @@
 ---
 title: Tipos y descripciones de alertas
 description: Revise las descripciones de alertas de Defender para IoT.
-ms.date: 4/8/2021
+ms.date: 04/28/2021
 ms.topic: how-to
-ms.openlocfilehash: 483563b53a5849b0354986269568bc42b9124cc2
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: bc2adabe4183420f79972d8fd58b132b38864efe
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107478002"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108226487"
 ---
 # <a name="alert-types-and-descriptions"></a>Tipos y descripciones de alertas
 
-En este artículo se describen todos los tipos de alerta que pueden generarse a partir de los motores de Defender para IoT. Las alertas aparecen en la ventana Alertas, donde puede administrar el evento de alerta. 
+En este artículo encontrará información sobre los tipos, las descripciones y la gravedad de las alertas que pueden generarse a partir de los motores de Defender para IoT. Esta información se puede usar para ayudar a asignar alertas a cuadernos, definir reglas de reenvío, reglas de exclusión y alertas personalizadas, así como para definir las reglas adecuadas dentro de una SIEM. Las alertas aparecen en la ventana Alertas, donde puede administrar el evento de alerta. 
 
 ## <a name="policy-engine-alerts"></a>Alertas del motor de directivas
 
 Las alertas del motor de directivas describen las desviaciones detectadas del comportamiento de línea base aprendido.
+
+>[!NOTE]
+> Este artículo contiene referencias al término *esclavo*, un término que Microsoft ya no usa. Cuando se quite el término del software, se quitará también del artículo.
 
 | Título  | Descripción | severity |
 |--|--|--|

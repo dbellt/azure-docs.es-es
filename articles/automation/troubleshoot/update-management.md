@@ -3,15 +3,15 @@ title: Resolución de problemas de Update Management de Azure Automation
 description: En este artículo se describe cómo solucionar y resolver problemas con Update Management de Azure Automation.
 services: automation
 ms.subservice: update-management
-ms.date: 04/16/2021
+ms.date: 04/18/2021
 ms.topic: troubleshooting
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 36bfd2185cb7a192ce0113ee0722395c8a4ee928
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 5d73f7232afc9dcd6f7e069297efac763c242f7b
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107830311"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108164262"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Solución de problemas de Update Management
 
@@ -394,10 +394,10 @@ Revise las claves del Registro enumeradas en [Configuración de actualizaciones 
 
 ### <a name="issue"></a>Problema
 
-Una máquina muestra un estado `Failed to start`. Al ver los detalles específicos de la máquina, ve el siguiente error:
+Una máquina muestra un estado `Failed to start` o `Failed`. Al ver los detalles específicos de la máquina, ve el siguiente error:
 
 ```error
-Failed to start the runbook. Check the parameters passed. RunbookName Patch-MicrosoftOMSComputer. Exception You have requested to create a runbook job on a hybrid worker group that does not exist.
+For one or more machines in schedule, UM job run resulted in either Failed or Failed to start state. Guide available at https://aka.ms/UMSucrFailed.
 ```
 
 ### <a name="cause"></a>Causa
@@ -411,6 +411,8 @@ Este problema puede ocurrir debido a uno de los siguientes motivos:
 * La ejecución de actualizaciones se ha regulado si se ha alcanzado el límite de 200 trabajos simultáneos en una cuenta de Automation. Cada implementación se considera un trabajo y cada máquina de una implementación de actualizaciones se cuenta como un trabajo. Cualquier otro trabajo de automatización o implementación de actualizaciones actualmente en ejecución en la cuenta de Automation cuenta para el límite de trabajos simultáneos.
 
 ### <a name="resolution"></a>Solución
+
+Puede recuperar más detalles mediante programación con las API REST. Consulte [Ejecuciones de la máquina de configuración de actualizaciones de software](/rest/api/automation/softwareupdateconfigurationmachineruns) para obtener información sobre cómo recuperar una lista de ejecuciones de máquina de configuración de actualizaciones, o una única ejecución de máquina de configuración de actualizaciones de software por identificador.
 
 Cuando proceda, use [grupos dinámicos](../update-management/configure-groups.md) para las implementaciones de actualizaciones. Además, puede llevar a cabo los pasos siguientes.
 
@@ -506,11 +508,13 @@ Verifique que la cuenta del sistema tiene acceso de lectura a la carpeta **C:\Pr
 
 ### <a name="issue"></a>Problema
 
-La ventana de mantenimiento predeterminada para las actualizaciones es de 120 minutos. Puede aumentar la ventana de mantenimiento a un máximo de seis 6 horas o 360 minutos.
+La ventana de mantenimiento predeterminada para las actualizaciones es de 120 minutos. Puede aumentar la ventana de mantenimiento a un máximo de seis 6 horas o 360 minutos. Es posible que reciba el mensaje de error `For one or more machines in schedule, UM job run resulted in Maintenance Window Exceeded state. Guide available at https://aka.ms/UMSucrMwExceeded.`
 
 ### <a name="resolution"></a>Resolución
 
 Para comprender el motivo de esta incidencia durante la ejecución de una actualización después de haberse iniciado correctamente, [compruebe la salida del trabajo](../update-management/deploy-updates.md#view-results-of-a-completed-update-deployment) desde la máquina afectada en la ejecución. Puede encontrar mensajes de error específicos procedentes de las máquinas que puede investigar e intentar solucionar.  
+
+Puede recuperar más detalles mediante programación con las API REST. Consulte [Ejecuciones de la máquina de configuración de actualizaciones de software](https://docs.microsoft.com/rest/api/automation/softwareupdateconfigurationmachineruns) para obtener información sobre cómo recuperar una lista de ejecuciones de máquina de configuración de actualizaciones, o una única ejecución de máquina de configuración de actualizaciones de software por identificador.
 
 Edite las implementaciones de actualizaciones programadas con errores y aumente la ventana de mantenimiento.
 

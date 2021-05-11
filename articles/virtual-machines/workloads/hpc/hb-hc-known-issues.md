@@ -5,22 +5,24 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 04/16/2021
+ms.date: 04/28/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: f5bdae17126048da153f70bf27609bcc4b92fe21
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: 7f9a10aca24203b69ff38ff5fab7960681145af5
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107599594"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108227837"
 ---
 # <a name="known-issues-with-h-series-and-n-series-vms"></a>Problemas conocidos con las máquinas virtuales de las series H y N
 
 Este artículo trata de enumerar los problemas y soluciones más comunes al usar máquinas virtuales de HPC y GPU de las [series H](../../sizes-hpc.md) y [N](../../sizes-gpu.md).
 
-## <a name="qp0-access-restriction"></a>Restricción de acceso qp0
+## <a name="cache-topology-on-standard_hb120rs_v3"></a>Topología de caché en Standard_HB120rs_v3
+`lstopo` muestra una topología de caché incorrecta en el tamaño de VM Standard_HB120rs_v3. Puede que muestre que solo hay 32 MB L3 por NUMA. Sin embargo, en la práctica hay realmente 120 MB L3 por NUMA, según lo previsto, ya que los mismos 480 MB de L3 para toda la VM están disponibles, como con los otros tamaños de VM HBv3 de núcleos restringidos. Se trata de un error cosmético al mostrar el valor correcto, lo que no debería afectar a las cargas de trabajo.
 
+## <a name="qp0-access-restriction"></a>Restricción de acceso qp0
 Para evitar el acceso de hardware de bajo nivel que pueda provocar vulnerabilidades de seguridad, el par de cola 0 no es accesible para las VM invitadas. Esta situación solo debe afectar a las acciones normalmente asociadas con la administración de la NIC InfiniBand de ConnectX y a la ejecución de algunos diagnósticos de InfiniBand, como ibdiagnet, pero no a las aplicaciones de usuario final.
 
 ## <a name="mofed-installation-on-ubuntu"></a>Instalación de MOFED en Ubuntu

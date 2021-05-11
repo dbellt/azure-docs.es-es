@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 01/04/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1c1cd4e7d65897634b5a8a8fa8be46275bbd4b88
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 364953de1c56bcf41efb1a3ac9481b17603f3dec
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101676867"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108227801"
 ---
 #  <a name="what-is-sap-hana-on-azure-large-instances"></a>¿Qué es SAP HANA en Azure (instancias grandes)?
 
@@ -57,7 +57,7 @@ Los distintos documentos de orientación de la instancia grande de HANA abarcan 
 - [Alta disponibilidad y recuperación ante desastres de SAP HANA en Azure (instancias grandes)](hana-overview-high-availability-disaster-recovery.md)
 - [Solución de problemas y supervisión de SAP HANA en Azure (instancias grandes)](troubleshooting-monitoring.md)
 - [Configuración de alta disponibilidad en SUSE mediante STONITH](./ha-setup-with-stonith.md)
-- [Copia de seguridad y restauración del sistema operativo para SKU de tipo II de los sellos de revisión 3](./os-backup-type-ii-skus.md)
+- [Copia de seguridad del sistema operativo](./large-instance-os-backup.md)
 - [Ahorre en SAP HANA (instancias grandes) con una reserva de Azure](../../../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md)
 
 **Pasos siguientes**

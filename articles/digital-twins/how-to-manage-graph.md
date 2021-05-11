@@ -7,20 +7,20 @@ ms.author: baanders
 ms.date: 11/03/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: fde473453aa79e0078765df394acdeb54b3c7fe9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f662c825dba99ec7513a523ab511cb75ebb1f0f9
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102433325"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108208624"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Administración de un grafo de gemelos digitales con relaciones
 
 El corazón de Azure Digital Twins es el [grafo de gemelos](concepts-twins-graph.md) que representa todo el entorno. El grafo de gemelos se compone de gemelos digitales individuales conectados mediante **relaciones**. 
 
-Una vez que tenga una [instancia de Azure Digital Twins](how-to-set-up-instance-portal.md) en funcionamiento y que haya configurado el código de [autenticación](how-to-authenticate-client.md) para la aplicación cliente, puede usar las [**API DigitalTwins**](/rest/api/digital-twins/dataplane/twins) para crear, modificar y eliminar gemelos digitales y sus relaciones en una instancia de Azure Digital Twins. También puede usar el [SDK de .NET ( C# )](/dotnet/api/overview/azure/digitaltwins/client) o la [CLI de Azure Digital Twins](how-to-use-cli.md).
+Una vez que tenga una [instancia de Azure Digital Twins](how-to-set-up-instance-portal.md) en funcionamiento y que haya configurado el código de [autenticación](how-to-authenticate-client.md) para la aplicación cliente, puede usar las [API DigitalTwins](/rest/api/digital-twins/dataplane/twins) para crear, modificar y eliminar gemelos digitales y sus relaciones en una instancia de Azure Digital Twins. También puede usar el [SDK de .NET ( C# )](/dotnet/api/overview/azure/digitaltwins/client) o la [CLI de Azure Digital Twins](how-to-use-cli.md).
 
-Este artículo está centrado en la administración de las relaciones y el grafo en conjunto; para trabajar con gemelos digitales individuales, consulte [*Procedimiento: Administración de Digital Twins*](how-to-manage-twin.md).
+Este artículo está centrado en la administración de las relaciones y el grafo en conjunto; para trabajar con gemelos digitales individuales, consulte [Procedimiento: Administración de Digital Twins](how-to-manage-twin.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -59,7 +59,7 @@ Ahora se puede llamar a esta función personalizada para crear una relación _co
 
 Si desea crear varias relaciones, puede repetir las llamadas al mismo método, con tipos de relación diferentes en el argumento. 
 
-Para obtener más información sobre la clase auxiliar `BasicRelationship`, consulte [*Procedimiento: Uso de las API y los SDK de Azure Digital Twins*](how-to-use-apis-sdks.md#serialization-helpers).
+Para obtener más información sobre la clase auxiliar `BasicRelationship`, vea [Procedimiento: Uso de las API y los SDK de Azure Digital Twins](how-to-use-apis-sdks.md#serialization-helpers).
 
 ### <a name="create-multiple-relationships-between-twins"></a>Creación de varias relaciones entre gemelos
 
@@ -152,7 +152,7 @@ En el siguiente fragmento de código ejecutable se usan las operaciones de relac
 
 ### <a name="set-up-the-runnable-sample"></a>Configuración del ejemplo ejecutable
 
-En el fragmento de código se usan las definiciones de modelo [*Room.json*](https://github.com/Azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Room.json) y [*Floor.json*](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json) de [*Tutorial: Exploración de Azure Digital Twins con una aplicación cliente de ejemplo*](tutorial-command-line-app.md). Puede usar estos vínculos para ir directamente a los archivos o descargarlos como parte del proyecto de ejemplo completo de un extremo a otro [aquí](/samples/azure-samples/digital-twins-samples/digital-twins-samples/). 
+En el fragmento de código se usan las definiciones de modelo [Room.json](https://github.com/Azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Room.json) y [Floor.json](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json) de [Tutorial: Exploración de Azure Digital Twins con una aplicación cliente de ejemplo](tutorial-command-line-app.md). Puede usar estos vínculos para ir directamente a los archivos o descargarlos como parte del [proyecto de ejemplo completo de un extremo a otro](/samples/azure-samples/digital-twins-samples/digital-twins-samples/). 
 
 Antes de ejecutar el ejemplo, haga lo siguiente:
 1. Descargue los archivos del modelo, colóquelos en el proyecto y reemplace los marcadores de posición `<path-to>` en el código siguiente para indicar al programa dónde encontrarlos.
@@ -178,7 +178,7 @@ Esta es la salida de consola del programa anterior:
 :::image type="content" source="./media/how-to-manage-graph/console-output-twin-graph.png" alt-text="Salida de consola que muestra los detalles de los gemelos y las relaciones entrantes y salientes de los gemelos." lightbox="./media/how-to-manage-graph/console-output-twin-graph.png":::
 
 > [!TIP]
-> El grafo de gemelos es un concepto de creación de relaciones entre gemelos. Si desea ver la representación visual del grafo de gemelos, consulte la sección [*Visualización*](how-to-manage-graph.md#visualization) de este artículo. 
+> El grafo de gemelos es un concepto de creación de relaciones entre gemelos. Si desea ver la representación visual del grafo de gemelos, consulte la sección [Visualización](how-to-manage-graph.md#visualization) de este artículo. 
 
 ## <a name="create-graph-from-a-csv-file"></a>Creación de un grafo a partir de un archivo .csv
 
@@ -202,5 +202,5 @@ En el código siguiente, el archivo .csv se llama *data.csv* y hay un marcador d
 ## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga información sobre cómo consultar un grafo de gemelos de Azure Digital Twins:
-* [*Conceptos: Lenguaje de consulta*](concepts-query-language.md)
-* [*Procedimiento: Consulta del grafo gemelo*](how-to-query-graph.md)
+* [Conceptos: Lenguaje de consulta](concepts-query-language.md)
+* [Procedimiento: Consulta del grafo de gemelos](how-to-query-graph.md)

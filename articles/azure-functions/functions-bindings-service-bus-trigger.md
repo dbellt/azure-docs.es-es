@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 4b95c25400317b2baac694f4ba2b1b1dc1eae098
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 3ecc0e84541a9566b3f9e39d40f90a378ea87db5
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102435161"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108226271"
 ---
 # <a name="azure-service-bus-trigger-for-azure-functions"></a>Desencadenador de Azure Service Bus para Azure Functions
 
@@ -331,7 +331,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |**queueName**|**QueueName**|Nombre de la cola que se debe supervisar.  Se establece únicamente si se supervisa una cola, no un tema.
 |**topicName**|**TopicName**|Nombre del tema que se debe supervisar. Se establece únicamente si se supervisa un tema, no una cola.|
 |**subscriptionName**|**SubscriptionName**|Nombre de la suscripción que se debe supervisar. Se establece únicamente si se supervisa un tema, no una cola.|
-|**connection**|**Connection**|Nombre de una configuración de aplicación que contiene la cadena de conexión de Service Bus que se usará para este enlace. Si el nombre de la configuración de aplicación comienza con "AzureWebJobs", puede especificar solo el resto del nombre. Por ejemplo, si establece `connection` en "MyServiceBus", el entorno de ejecución de Functions busca una configuración de aplicación llamada "AzureWebJobsMyServiceBus". Si deja el valor de `connection` vacío, el entorno de ejecución de Functions usa la cadena de conexión de Service Bus predeterminada en la configuración de aplicación que se denomina "AzureWebJobsServiceBus".<br><br>Para obtener la cadena de conexión, siga los pasos mostrados en [Obtención de las credenciales de administración](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string). La cadena de conexión debe ser para un espacio de nombres de Service Bus y no estar limitada a una cola o un tema concretos. |
+|**connection**|**Connection**|Nombre de una configuración de aplicación que contiene la cadena de conexión de Service Bus que se usará para este enlace. Si el nombre de la configuración de aplicación comienza con "AzureWebJobs", puede especificar solo el resto del nombre. Por ejemplo, si establece `connection` en "MyServiceBus", el entorno de ejecución de Functions busca una configuración de aplicación llamada "AzureWebJobsMyServiceBus". Si deja el valor de `connection` vacío, el entorno de ejecución de Functions usa la cadena de conexión de Service Bus predeterminada en la configuración de aplicación que se denomina "AzureWebJobsServiceBus".<br><br>Para obtener la cadena de conexión, siga los pasos mostrados en [Obtención de las credenciales de administración](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string). La cadena de conexión debe ser para un espacio de nombres de Service Bus y no estar limitada a una cola o un tema concretos. <br><br>Si usa [la versión 5.x o superior de la extensión](./functions-bindings-service-bus.md#service-bus-extension-5x-and-higher), en lugar de una cadena de conexión puede proporcionar una referencia a una sección de configuración que defina la conexión. Consulte [Conexiones](./functions-reference.md#connections).|
 |**accessRights**|**Acceder**|Derechos de acceso para la cadena de conexión. Los valores disponibles son `manage` y `listen`. El valor predeterminado es `manage`, lo que indica que `connection` tiene el permiso **Administrar**. Si usa una cadena de conexión que no tiene el permiso **Administrar**, establezca `accessRights` en "listen". De lo contrario, el runtime de Functions puede intentar realizar operaciones que requieran derechos de administración y no conseguirlo. En la versión 2.x y posteriores de Azure Functions, esta propiedad no está disponible porque la versión más reciente del SDK de Service Bus no admite operaciones de administración.|
 |**isSessionsEnabled**|**IsSessionsEnabled**|`true` si se conecta a una cola o suscripción [compatible con sesiones](../service-bus-messaging/message-sessions.md). En caso contrario, `false`, que es el valor predeterminado.|
 
@@ -347,9 +347,14 @@ Los siguientes tipos de parámetro están disponibles para el mensaje de cola o 
 * `byte[]`: útil para datos binarios.
 * Un tipo personalizado: si el mensaje contiene el archivo JSON, Azure Functions intenta deserializar los datos JSON.
 * `BrokeredMessage`: proporciona el mensaje deserializado con el método [BrokeredMessage.GetBody\<T>()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1).
-* [`MessageReceiver`](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver): se usa para recibir y confirmar mensajes del contenedor de mensajes (necesario cuando [`autoComplete`](functions-bindings-service-bus-output.md#hostjson-settings) está establecido en `false`).
+* [`MessageReceiver`](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver): se usa para recibir y confirmar mensajes del contenedor de mensajes (necesario cuando [`autoComplete`](functions-bindings-service-bus.md#hostjson-settings) está establecido en `false`).
 
 Estos tipos de parámetro son para la versión 1.x de Azure Functions; para la versión 2.x y versiones posteriores, use [`Message`](/dotnet/api/microsoft.azure.servicebus.message) en lugar de `BrokeredMessage`.
+
+### <a name="additional-types"></a>Tipos adicionales 
+Las aplicaciones que usan la versión 5.0.0 o posterior de la extensión de Service Bus usan el tipo `ServiceBusReceivedMessage` en [Azure.Messaging.ServiceBus](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage), en lugar del que está en el espacio de nombres [Microsoft.Azure.ServiceBus](/dotnet/api/microsoft.azure.servicebus.message). En esta versión se elimina la compatibilidad con el tipo `Message` heredado en favor de los siguientes tipos:
+
+- [ServiceBusReceivedMessage](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage)
 
 # <a name="c-script"></a>[Script de C#](#tab/csharp-script)
 
@@ -361,6 +366,16 @@ Los siguientes tipos de parámetro están disponibles para el mensaje de cola o 
 * `BrokeredMessage`: proporciona el mensaje deserializado con el método [BrokeredMessage.GetBody\<T>()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1).
 
 Estos parámetros son para la versión de Azure Functions 1.x; para 2.x y versiones posteriores, use [`Message`](/dotnet/api/microsoft.azure.servicebus.message) en lugar de `BrokeredMessage`.
+
+### <a name="additional-types"></a>Tipos adicionales 
+Las aplicaciones que usan la versión 5.0.0 o posterior de la extensión de Service Bus usan el tipo `ServiceBusReceivedMessage` en [Azure.Messaging.ServiceBus](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage), en lugar del que está en el espacio de nombres [Microsoft.Azure.ServiceBus](/dotnet/api/microsoft.azure.servicebus.message). En esta versión se elimina la compatibilidad con el tipo `Message` heredado en favor de los siguientes tipos:
+
+- [ServiceBusReceivedMessage](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage)
+
+### <a name="additional-types"></a>Tipos adicionales 
+Las aplicaciones que usan la versión 5.0.0 o posterior de la extensión de Service Bus usan el tipo `ServiceBusReceivedMessage` en [Azure.Messaging.ServiceBus](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage), en lugar del que está en el espacio de nombres [Microsoft.Azure.ServiceBus](/dotnet/api/microsoft.azure.servicebus.message). En esta versión se elimina la compatibilidad con el tipo `Message` heredado en favor de los siguientes tipos:
+
+- [ServiceBusReceivedMessage](/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody)
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -411,9 +426,20 @@ El desencadenador de Service Bus proporciona varias [propiedades de metadatos](.
 |`ReplyTo`|`string`|La respuesta a la dirección de cola.|
 |`SequenceNumber`|`long`|El número único que Service Bus asigna a un mensaje.|
 |`To`|`string`|Dirección de envío.|
-|`UserProperties`|`IDictionary<string, object>`|Propiedades establecidas por el remitente.|
+|`UserProperties`|`IDictionary<string, object>`|Propiedades establecidas por el remitente. (Para la versión 5.x+ de la extensión, esto no se admite, use `ApplicationProperties`).|
 
 Consulte los [ejemplos de código](#example) que utilizan estas propiedades más arriba en este artículo.
+
+### <a name="additional-message-metadata"></a>Metadatos de mensajes adicionales
+
+Las siguientes propiedades de metadatos son compatibles con las aplicaciones que usan la versión 5.0.0 o superior de la extensión. Estas propiedades forman parte de la clase [ServiceBusReceivedMessage](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage).
+
+|Propiedad|Tipo|Descripción|
+|--------|----|-----------|
+|`ApplicationProperties`|`ApplicationProperties`|Propiedades establecidas por el remitente. Úsela en lugar de la propiedad de metadatos `UserProperties`.|
+|`Subject`|`string`|Etiqueta específica de la aplicación, que se puede usar en lugar de la propiedad de metadatos `Label`.|
+|`MessageActions`|`ServiceBusMessageActions`|Conjunto de acciones que se pueden realizar en una clase `ServiceBusReceivedMessage`. Se puede usar en lugar de la propiedad de metadatos `MessageReceiver`.
+|`SessionActions`|`ServiceBusSessionMessageActions`|Conjunto de acciones que se pueden realizar en una sesión y una clase `ServiceBusReceivedMessage`. Se puede usar en lugar de la propiedad de metadatos `MessageSession`.|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

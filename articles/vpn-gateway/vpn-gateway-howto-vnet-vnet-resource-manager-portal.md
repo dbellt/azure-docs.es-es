@@ -1,18 +1,19 @@
 ---
-title: 'Configuración de una conexión de VPN Gateway entre redes virtuales: Portal de Azure'
-description: Crear una conexión de VPN Gateway entre redes virtuales mediante Resource Manager y Azure Portal.
+title: 'Configuración de una conexión de VPN Gateway de red virtual a red virtual: Azure Portal'
+titleSuffix: Azure VPN Gateway
+description: Aprenda a crear una conexión de VPN Gateway entre redes virtuales.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 10/19/2020
+ms.date: 04/28/2021
 ms.author: cherylmc
-ms.openlocfilehash: 465d877da48e0d7027dbba6615302af32c6bb154
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2bf603d29b5e949ef83c872017bae49e71b2fcb0
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98872407"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108204880"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Configuración de una conexión de VPN Gateway de red virtual a red virtual mediante Azure Portal
 
@@ -65,7 +66,7 @@ Puede que desee conectar redes virtuales con una conexión entre redes virtuales
 
 Se puede combinar la comunicación entre redes virtuales con configuraciones de varios sitios. Estas configuraciones permiten establecer topologías de red que combinan la conectividad entre entornos locales con la conectividad entre redes virtuales, como se muestra en el diagrama siguiente:
 
-:::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connections-diagram.png" alt-text="Diagrama de conexiones de red virtual":::
+:::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connections-diagram.png" alt-text="Diagrama de conexiones de red virtual":::.
 
 En este artículo se muestra cómo conectar redes virtuales mediante el tipo de conexión de red virtual a red virtual. Cuando sigue estos pasos como ejercicio, puede usar estos valores de configuración de ejemplo. En el ejemplo, las redes virtuales se encuentran en la misma suscripción, pero en distintos grupos de recursos. Si las redes virtuales se encuentran en distintas suscripciones, no se puede crear la conexión en el portal. En su lugar, use [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) o la [CLI](vpn-gateway-howto-vnet-vnet-cli.md). Para más información sobre las conexiones de red virtual a red virtual, consulte las [preguntas más frecuentes sobre red virtual a red virtual](#vnet-to-vnet-faq).
 

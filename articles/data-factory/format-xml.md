@@ -4,14 +4,14 @@ description: En este tema se describe cómo tratar el formato XML en Azure Data 
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 10/29/2020
+ms.date: 04/29/2021
 ms.author: jingwang
-ms.openlocfilehash: a4082e1e00ecb1d3b0157fcc35616704eaab0aae
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4a7e56040a58d87cab34fdba4ebbac77757b2226
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100386363"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108289577"
 ---
 # <a name="xml-format-in-azure-data-factory"></a>Formato XML en Azure Data Factory
 
@@ -91,7 +91,7 @@ En la sección ***\*source\**** de la actividad de copia se admiten las siguient
 
 ## <a name="mapping-data-flow-properties"></a>Propiedades de Asignación de instancias de Data Flow
 
-En los flujos de datos de asignación, puede leer y escribir en formato XML en los siguientes almacenes de datos: [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) y [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties). Puede apuntar a archivos de XML mediante un conjunto de datos de XML o mediante un [conjunto de datos alineado](data-flow-source.md#inline-datasets).
+En los flujos de datos de asignación, puede leer en formato XML en los siguientes almacenes de datos: [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) y [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties). Puede apuntar a archivos de XML mediante un conjunto de datos de XML o mediante un [conjunto de datos alineado](data-flow-source.md#inline-datasets).
 
 ### <a name="source-properties"></a>Propiedades de origen
 

@@ -1,18 +1,19 @@
 ---
-title: 'VPN Gateway: inquilino de Azure AD para distintos grupos de usuarios: Autenticación de Azure AD'
-description: Puede usar la P2S VPN para conectarse a la red virtual con la autenticación de Azure AD
+title: 'Creación de un inquilino de Azure AD para conexiones de protocolo OpenVPN de P2S: autenticación de Azure AD'
+titleSuffix: Azure VPN Gateway
+description: Obtenga información sobre cómo configurar un inquilino de Azure AD para la autenticación de OpenVPN de P2S, y cómo registrar varias aplicaciones en Azure AD a fin de permitir un acceso diferente a los distintos usuarios y grupos.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 1305ca603aef63dafcc7b055d55e3f0fe281f4fc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1cfb89358cf733cb17fe4a496f1799dc0952fc4f
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91819683"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108286445"
 ---
 # <a name="create-an-active-directory-ad-tenant-for-p2s-openvpn-protocol-connections"></a>Creación de un inquilino de Active Directory (AD) para conexiones del protocolo P2S OpenVPN
 

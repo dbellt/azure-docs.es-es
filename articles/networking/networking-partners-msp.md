@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: sukishen
-ms.openlocfilehash: 6aac6e67d62a71537517e727c65a2a42d4ca3216
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 2ce2d84a52a03dc08d73c7538a462a2b010f3c6e
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107303005"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108228035"
 ---
 # <a name="about-azure-networking-msp-partners"></a>Acerca de los asociados de MSP de redes de Azure
 
@@ -62,8 +62,9 @@ Use los vínculos de esta sección para obtener más información acerca los ser
 |[Tech Mahindra](https://www.techmahindra.com/en-in/network-services/)|[Servicios de red administrados de un extremo a otro de Tech Mahindra](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/techm.techm-network-transformstrategy?tab=Overview)|||[Azure Private LTE MSP](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/techm.techm-networking-azureprivate5g?tab=Overview)|
 |[Vigilant IT](https://vigilant.it/manage-cloud-service/)|[Azure Health Check: valoración de 5 días](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/vigilant-it.ahc01)|[ExpressRoute: implementación de 5 días](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/vigilant-it.erd01)|||
 |[Vandis](https://www.vandis.com/microsoft-azure-practice/)|[NAC administrado con el administrador de directivas de Aruba ClearPass](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_aruba_clearpass?tab=Overview)|[ExpressRoute administrado con Vandis](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_expressroute?tab=Overview)|[VWAN administrada por Vandis con tecnología de Fortinet](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_vwan_powered_by_fortinet?tab=Overview); [VWAN administrada por Vandis con tecnología de Palo Alto Networks](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_vwan_powered_by_palo_alto_networks?tab=Overview); [VWAN administrada por Vandis con tecnología de Barracuda CloudGen WAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_barracuda_vwan?tab=Overview)|
+|[Zertia](https://zertia.es/)||[ExpressRoute: conectividad entre nubes](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/zertiatelecomunicacionessl1615311863650.zertia-inter-conect-of103?tab=Overview)|[Conjunto de conectividad empresarial: Virtual WAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/zertiatelecomunicacionessl1615311863650.zertia-vw-suite-of101?tab=Overview); [Virtual WAN administrado: SD-WAN Fortinet](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/zertiatelecomunicacionessl1615311863650.zertia-mvw-fortinet-of101?tab=Overview); [Virtual WAN administrado: SD-WAN Cisco Meraki](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/zertiatelecomunicacionessl1615311863650.zertia-mvw-cisco-of101?tab=Overview); [Virtual WAN administrado: SD-WAN Citrix](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/zertiatelecomunicacionessl1615311863650.zertia-mvw-citrix-of101?tab=Overview)|||
 
-Las ofertas de Azure Marketplace para las opciones administradas de ExpressRoute, Virtual WAN, servicios de seguridad y servicios privados de Edge Zone de los siguientes asociados de Azure Networking MSP están incluidos en nuestra hoja de ruta: [Amdocs](https://www.amdocs.com/); [Cirrus Core Networks](https://cirruscorenetworks.com/); [Cognizant](https://www.cognizant.com/cognizant-digital-systems-technology/cloud-enablement-services); [Deutsche Telekom](https://www.telekom.com/en/media/media-information/archive/deutsche-telekom-offers-managed-network-services-for-microsoft-azure-598406);   [InterCloud](https://intercloud.com/partners/microsoft-azure/);  [KINX](https://www.kinx.net/service/cloud/?lang=en); [OmniClouds](https://omniclouds.com/); [Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms); [SES](https://www.ses.com/networks/cloud/ses-and-azure-expressroute); [Zertia](https://zertia.es/)
+Las ofertas de Azure Marketplace para ExpressRoute, Virtual WAN, servicios de seguridad y servicios privados de Edge Zone administrados de los siguientes asociados de Azure Networking MSP están incluidos en nuestra hoja de ruta: [Amdocs](https://www.amdocs.com/); [Cirrus Core Networks](https://cirruscorenetworks.com/); [Cognizant](https://www.cognizant.com/cognizant-digital-systems-technology/cloud-enablement-services); [Deutsche Telekom](https://www.telekom.com/en/media/media-information/archive/deutsche-telekom-offers-managed-network-services-for-microsoft-azure-598406); [InterCloud](https://intercloud.com/partners/microsoft-azure/); [KINX](https://www.kinx.net/service/cloud/?lang=en); [OmniClouds](https://omniclouds.com/); [Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms); [SES](https://www.ses.com/networks/cloud/ses-and-azure-expressroute) 
 
 ## <a name="expressroute-partners"></a><a name="expressroute"></a>Asociados de ExpressRoute
 

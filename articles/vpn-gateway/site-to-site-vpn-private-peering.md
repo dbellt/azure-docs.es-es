@@ -1,18 +1,19 @@
 ---
 title: Conexiones VPN de sitio a sitio a través del emparejamiento privado de ExpressRoute
-description: La información de este artículo le ayuda a habilitar VPN de sitio a sitio a través del emparejamiento privado de ExpressRoute con el objetivo de cifrar el tráfico.
+titleSuffix: Azure VPN Gateway
+description: Aprenda a configurar conexiones VPN de sitio a sitio a través del emparejamiento privado de ExpressRoute para cifrar el tráfico.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 11/16/2020
+ms.date: 04/28/2021
 ms.author: cherylmc
-ms.openlocfilehash: 01d87bcb5697326fa87b25b20354897049900d9d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4c84b46fe3265b5ada792cbe47d92768e602fa20
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98880532"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108229043"
 ---
 # <a name="configure-a-site-to-site-vpn-connection-over-expressroute-private-peering"></a>Configuración de una conexión VPN de sitio a sitio a través del emparejamiento privado de ExpressRoute
 

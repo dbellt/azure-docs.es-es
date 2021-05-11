@@ -1,20 +1,20 @@
 ---
 title: 'Escenario: Enrutamiento del tráfico a través de una aplicación virtual de red (NVA)'
 titleSuffix: Azure Virtual WAN
-description: Enrutamiento del tráfico a través de una aplicación virtual de red
+description: Obtenga información sobre escenarios de enrutamiento de Virtual WAN para enrutar tráfico a través de una aplicación virtual de red (NVA).
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 04/27/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 24671a34214864e253d96c356dc8b2853bf6d560
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 90b1df8af4cf9f65cb04cc9418d7e8f97f9c3e49
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100519803"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108162840"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>Escenario: Enrutamiento del tráfico a través de una aplicación virtual de red
 

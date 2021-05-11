@@ -3,12 +3,12 @@ title: Restauración de bases de datos de SAP HANA en máquinas virtuales de Azu
 description: En este artículo se describe cómo restaurar bases de datos de SAP HANA que se ejecutan en máquinas virtuales de Azure. También puede usar la restauración entre regiones para restaurar las bases de datos en una región secundaria.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: c502b7741acd343baefe5e2bf8b95cfc02e46688
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d0b1af610ffa19f2a7708ee6f96de335a1886f78
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96021680"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108279989"
 ---
 # <a name="restore-sap-hana-databases-on-azure-vms"></a>Restauración de bases de datos de SAP HANA en máquinas virtuales de Azure
 
@@ -152,7 +152,7 @@ Para restaurar datos de copia de seguridad como archivos en lugar de una base de
     ![Seleccionar punto de restauración](media/sap-hana-db-restore/select-restore-point.png)
 
 1. Todos los archivos de copia de seguridad asociados con el punto de restauración seleccionado se vuelcan en la ruta de acceso de destino.
-1. En función del tipo de punto de restauración elegido (**Momento dado** o **Completa y diferencial**), se crearán una o varias carpetas en la ruta de acceso de destino. Una de las carpetas, denominada `Data_<date and time of restore>`, contiene las copias de seguridad completas y diferenciales y, la otra, llamada `Log`, contiene las copias de seguridad de registros.
+1. En función del tipo de punto de restauración elegido (**Momento dado** o **Completa y diferencial**), se crearán una o varias carpetas en la ruta de acceso de destino. Una de las carpetas, denominada `Data_<date and time of restore>`, contiene las copias de seguridad completas y, la otra, llamada `Log`, contiene las copias de seguridad de registros y otras copias de seguridad (como diferenciales e incrementales).
 1. Mueva estos archivos restaurados al servidor de SAP HANA en el que quiere restaurarlos como base de datos.
 1. A continuación, siga estos pasos:
     1. Establezca permisos en la carpeta o el directorio en que se almacenan los archivos de copia de seguridad mediante el comando siguiente:
@@ -176,7 +176,7 @@ Para restaurar datos de copia de seguridad como archivos en lugar de una base de
         En el comando anterior:
 
         * `<DataFileDir>`: carpeta que contiene las copias de seguridad completas
-        * `<LogFilesDir>`: carpeta que contiene las copias de seguridad de registros
+        * `<LogFilesDir>`: la carpeta que contiene las copias de seguridad de registros, copias de seguridad diferenciales e incrementales (si las hay)
         * `<PathToPlaceCatalogFile>`: carpeta donde se debe colocar el archivo de catálogo generado
 
     1. Realice la restauración con el archivo de catálogo recién generado mediante HANA Studio o ejecute la consulta de restauración HDBSQL con este catálogo recién generado. Las consultas HDBSQL se enumeran a continuación:
@@ -196,7 +196,7 @@ Para restaurar datos de copia de seguridad como archivos en lugar de una base de
         * `<DatabaseName@HostName>`: nombre de la base de datos cuya copia de seguridad se usa para la restauración y nombre del servidor de SAP HANA o **host** en que reside esta base de datos. La opción `USING SOURCE <DatabaseName@HostName>` especifica que la copia de seguridad de datos (usada para la restauración) es de una base de datos con un SID o nombre diferente al de la máquina de SAP HANA de destino. Por lo tanto, no es necesario especificarla para las restauraciones realizadas en el mismo servidor de HANA del que se toma la copia de seguridad.
         * `<PathToGeneratedCatalogInStep3>`: ruta de acceso al archivo de catálogo generado en el **paso C**
         * `<DataFileDir>`: carpeta que contiene las copias de seguridad completas
-        * `<LogFilesDir>`: carpeta que contiene las copias de seguridad de registros
+        * `<LogFilesDir>`: la carpeta que contiene las copias de seguridad de registros, copias de seguridad diferenciales e incrementales (si las hay)
         * `<BackupIdFromJsonFile>`: **BackupId** extraído en el **paso C**
 
     * Para restaurar una copia de seguridad completa o diferencial determinada:
@@ -212,7 +212,7 @@ Para restaurar datos de copia de seguridad como archivos en lugar de una base de
         * `<DatabaseName@HostName>`: nombre de la base de datos cuya copia de seguridad se usa para la restauración y nombre del servidor de SAP HANA o **host** en que reside esta base de datos. La opción `USING SOURCE <DatabaseName@HostName>` especifica que la copia de seguridad de datos (usada para la restauración) es de una base de datos con un SID o nombre diferente al de la máquina de SAP HANA de destino. Por lo tanto, no es necesario especificarla para las restauraciones realizadas en el mismo servidor de HANA del que se toma la copia de seguridad.
         * `<PathToGeneratedCatalogInStep3>`: ruta de acceso al archivo de catálogo generado en el **paso C**
         * `<DataFileDir>`: carpeta que contiene las copias de seguridad completas
-        * `<LogFilesDir>`: carpeta que contiene las copias de seguridad de registros
+        * `<LogFilesDir>`: la carpeta que contiene las copias de seguridad de registros, copias de seguridad diferenciales e incrementales (si las hay)
         * `<BackupIdFromJsonFile>`: **BackupId** extraído en el **paso C**
 
 ### <a name="restore-to-a-specific-point-in-time"></a>Restauración a un momento dado

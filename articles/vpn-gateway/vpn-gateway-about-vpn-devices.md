@@ -1,18 +1,19 @@
 ---
-title: 'Azure VPN Gateway: Acerca de los dispositivos VPN para conexiones'
-description: En este artículo se describen los dispositivos VPN y los parámetros de IPsec de las conexiones entre locales de VPN Gateway S2S. Se proporcionan vínculos a ejemplos e instrucciones de configuración.
+title: Acerca de los dispositivos VPN para conexiones
+titleSuffix: Azure VPN Gateway
+description: Obtenga información sobre los dispositivos VPN y los parámetros de IPsec para las conexiones entre locales de sitio a sitio. Se proporcionan vínculos a ejemplos e instrucciones de configuración.
 services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 12/02/2020
+ms.date: 04/28/2021
 ms.author: yushwang
-ms.openlocfilehash: 4c6bd62e96d85305036626a8672c39ff1b9f6b26
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1a86e4dc6703d9a3c25c4c38a1a3f50bbbe80a6b
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98201100"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108202396"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>Acerca de los dispositivos VPN y los parámetros de IPsec/IKE para conexiones de VPN Gateway de sitio a sitio
 

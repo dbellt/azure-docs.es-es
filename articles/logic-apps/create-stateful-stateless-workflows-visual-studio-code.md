@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 03/30/2021
-ms.openlocfilehash: 4010f7e2d0d20216107a45109056478694c940ca
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 04/23/2021
+ms.openlocfilehash: 0099e039c87ccf29848ecb602bc5eeff8b82f689
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107772512"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108163632"
 ---
 # <a name="create-stateful-and-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Creación de flujos de trabajo con o sin estado en Visual Studio Code con la extensión Azure Logic Apps (versión preliminar)
 
@@ -1028,7 +1028,10 @@ En Visual Studio Code, puede ver todas las aplicaciones lógicas implementadas e
 
 1. Abra la aplicación lógica que desea administrar. En el menú contextual de la aplicación lógica, seleccione la tarea que desea realizar.
 
-   Por ejemplo, puede seleccionar tareas como detener, iniciar, reiniciar o eliminar la aplicación lógica implementada.
+   Por ejemplo, puede seleccionar tareas como detener, iniciar, reiniciar o eliminar la aplicación lógica implementada. Puede [deshabilitar o habilitar un flujo de trabajo mediante Azure Portal](create-stateful-stateless-workflows-azure-portal.md#disable-enable-workflows).
+
+   > [!NOTE]
+   > Las operaciones detener la aplicación lógica y de eliminar la aplicación lógica afectan a las instancias de flujo de trabajo de maneras diferentes. Para obtener más información, consulte [Consideraciones para detener aplicaciones lógicas](#considerations-stop-logic-apps) y [Consideraciones para eliminar aplicaciones lógicas](#considerations-delete-logic-apps).
 
    ![Captura de pantalla que muestra Visual Studio Code con el panel de la extensión "Azure Logic Apps (versión preliminar)" abierto y el flujo de trabajo implementado.](./media/create-stateful-stateless-workflows-visual-studio-code/find-deployed-workflow-visual-studio-code.png)
 
@@ -1052,11 +1055,45 @@ En Visual Studio Code, puede ver todas las aplicaciones lógicas implementadas e
 
    ![Captura de pantalla que muestra Azure Portal y la barra de búsqueda con los resultados de la búsqueda para la aplicación lógica implementada, que aparece seleccionada.](./media/create-stateful-stateless-workflows-visual-studio-code/find-deployed-workflow-azure-portal.png)
 
+<a name="considerations-stop-logic-apps"></a>
+
+### <a name="considerations-for-stopping-logic-apps"></a>Consideraciones para detener aplicaciones lógicas
+
+Detener una aplicación lógica afecta a las instancias de flujo de trabajo de las maneras siguientes:
+
+* El servicio Logic Apps cancela todas las ejecuciones en curso y pendientes de inmediato.
+
+* El servicio Logic Apps no crea ni ejecuta nuevas instancias de flujo de trabajo.
+
+* Los desencadenadores no se activarán la próxima vez que se cumplan las condiciones. Sin embargo, los estados de los desencadenadores recuerdan los puntos donde se detuvo la aplicación lógica. Por lo tanto, si reinicia la aplicación lógica, los desencadenadores se activan para todos los elementos no procesados desde la última ejecución.
+
+  Para evitar que un desencadenador se active para los elementos no procesados desde la última ejecución, borre el estado del desencadenador antes de reiniciar la aplicación lógica:
+
+  1. En Visual Studio Code, en la barra de herramientas de la izquierda, seleccione el icono Azure. 
+  1. En el área **Azure: Logic Apps (versión preliminar)** , expanda su suscripción, que muestra todas las aplicaciones lógicas implementadas para esa suscripción.
+  1. Expanda la aplicación lógica y, luego, expanda el nodo **Flujos de trabajo**.
+  1. Abra un flujo de trabajo y edite cualquier parte del desencadenador de ese flujo de trabajo.
+  1. Guarde los cambios. Este paso restablece el estado actual del desencadenador.
+  1. Repita el procedimiento para cada flujo de trabajo.
+  1. Cuando haya terminado, reinicie la aplicación lógica.
+
+<a name="considerations-delete-logic-apps"></a>
+
+### <a name="considerations-for-deleting-logic-apps"></a>Consideraciones para eliminar aplicaciones lógicas
+
+Eliminar una aplicación lógica afecta a las instancias de flujo de trabajo de las maneras siguientes:
+
+* El servicio Logic Apps cancela las ejecuciones en curso y pendientes de inmediato, pero no ejecuta tareas de limpieza en el almacenamiento usado por la aplicación.
+
+* El servicio Logic Apps no crea ni ejecuta nuevas instancias de flujo de trabajo.
+
+* Si elimina un flujo de trabajo y, luego, vuelve a crear el mismo flujo de trabajo, el flujo de trabajo recreado no tendrá los mismos metadatos que el flujo de trabajo eliminado. Tiene que volver a guardar todo flujo de trabajo que haya llamado al flujo de trabajo eliminado. De este modo, el autor de la llamada obtiene la información correcta para el flujo de trabajo recreado. De lo contrario, las llamadas al flujo de trabajo recreado producirán un error `Unauthorized`. Este comportamiento también se aplica a los flujos de trabajo que usan artefactos en cuentas de integración y a flujos de trabajo que llaman a Azure Functions.
+
 <a name="manage-deployed-apps-portal"></a>
 
 ## <a name="manage-deployed-logic-apps-in-the-portal"></a>Administración de aplicaciones lógicas implementadas en el portal
 
-En Azure Portal, puede ver todas las aplicaciones lógicas implementadas en la suscripción a Azure, independientemente de si son del tipo de recurso **Logic Apps** original o del tipo de recurso **Logic Apps (versión preliminar)** . Actualmente, cada tipo de recurso se organiza y administra como categoría independiente en Azure. Para buscar aplicaciones lógicas que tengan el tipo de recurso **Logic Apps (versión preliminar)** , siga estos pasos:
+Después de implementar una aplicación lógica en Azure Portal desde Visual Studio Code, puede ver todas las aplicaciones lógicas implementadas en la suscripción a Azure, independientemente de si son del tipo de recurso **Logic Apps** original o del tipo de recurso **Logic Apps (versión preliminar)** . Actualmente, cada tipo de recurso se organiza y administra como categoría independiente en Azure. Para buscar aplicaciones lógicas que tengan el tipo de recurso **Logic Apps (versión preliminar)** , siga estos pasos:
 
 1. En el cuadro de búsqueda de Azure Portal, escriba `logic app preview`. Cuando aparezca la lista de resultados, en **Servicios**, seleccione **Logic Apps (versión preliminar)** .
 

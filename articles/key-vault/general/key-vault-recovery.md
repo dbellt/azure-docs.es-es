@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.author: mbaldwin
 author: msmbaldwin
 ms.date: 09/30/2020
-ms.openlocfilehash: b9c249bedd0432458b3e6f5c010cdc5ff39dff44
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 270f9d4637d5e16ff88991a4a9e5f1eb0a3f9e0e
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107815673"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108285365"
 ---
 # <a name="azure-key-vault-recovery-management-with-soft-delete-and-purge-protection"></a>Administración de la recuperación de Azure Key Vault con eliminación temporal y protección contra purga
 
@@ -34,6 +34,8 @@ Para más información sobre Key Vault, consulte
   |---|---|
   |Microsoft.KeyVault/locations/deletedVaults/read|Ve las propiedades de un almacén de claves eliminado temporalmente|
   |Microsoft.KeyVault/locations/deletedVaults/purge/action|Purga un almacén de claves eliminado temporalmente|
+  |Microsoft.KeyVault/locations/operationResults/read| Para comprobar el estado de purga del almacén|
+  |[Colaborador de almacén de claves](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-contributor)|Para recuperar el almacén eliminado temporalmente|
 
 
 ## <a name="what-are-soft-delete-and-purge-protection"></a>Qué es la eliminación temporal y la protección de purga

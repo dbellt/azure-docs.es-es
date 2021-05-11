@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.service: digital-twins
-ms.openlocfilehash: 62db56ac9791cea7d6f1a40f794241ed68fa90fa
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: b21915b6cf0cd018ccbf7b79fc9a5ab8dc222925
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107483588"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108076132"
 ---
 # <a name="move-an-azure-digital-twins-instance-to-a-different-azure-region"></a>Migración de una instancia de Azure Digital Twins a otra región de Azure
 
@@ -95,9 +95,9 @@ A continuación, instale y configure los permisos para Azure Digital Twins Explo
 
 Ahora tendrá en ejecución la aplicación de ejemplo de Azure Digital Twins Explorer en un explorador en la máquina. El ejemplo debe estar conectado a la instancia original de Azure Digital Twins.
 
-:::image type="content" source="media/how-to-move-regions/explorer-blank.png" alt-text="Ventana del explorador que muestra una aplicación que se ejecuta en localhost:3000. La aplicación se llama Azure Digital Twins Explorer y contiene los cuadros Explorador de consultas, Vista de modelo, Vista de grafo y Explorador de propiedades. Todavía no hay datos en pantalla." lightbox="media/how-to-move-regions/explorer-blank.png":::
+:::image type="content" source="media/how-to-move-regions/explorer-blank.png" alt-text="Ventana del explorador que muestra una aplicación que se ejecuta en localhost:3000. La aplicación se llama Azure Digital Twins Explorer y contiene los cuadros para Query Explorer (Explorador de consultas), Models (Modelos), Twin Graph (Grafo gemelo) y Properties (Propiedades). Todavía no hay datos en pantalla." lightbox="media/how-to-move-regions/explorer-blank.png":::
 
-Para comprobar la conexión, seleccione el botón **Run Query** (Ejecutar consulta) para ejecutar la consulta predeterminada que muestra todos los gemelos y relaciones del grafo en el cuadro **GRAPH EXPLORER** (PROBADOR DE GRAPH).
+Para comprobar la conexión, seleccione el botón **Run Query** (Ejecutar consulta) para ejecutar la consulta predeterminada que muestra todos los gemelos y relaciones del grafo en el cuadro **TWIN GRAPH** (GRAFO GEMELO).
 
 :::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Se resalta el botón Run Query (Ejecutar consulta) de la esquina superior derecha de la ventana." lightbox="media/how-to-move-regions/run-query.png":::
 
@@ -107,13 +107,13 @@ Puede dejar Azure Digital Twins Explorer en ejecución, ya que lo volverá a usa
 
 A continuación, descargue los modelos, los gemelos y el grafo de la solución en la máquina.
 
-Para descargar todos estos elementos a la vez, asegúrese en primer lugar de que el grafo completo aparece en el cuadro **GRAPH VIEW** (VISTA DE GRAFO). Si no aparece el grafo completo, vuelva a ejecutar la consulta predeterminada de `SELECT * FROM digitaltwins` en el cuadro **QUERY EXPLORER** (EXPLORADOR DE CONSULTAS).
+Para descargar todos estos elementos a la vez, asegúrese en primer lugar de que el grafo completo aparece en el cuadro **TWIN GRAPH VIEW** (GRAFO GEMELO). Si no aparece el grafo completo, vuelva a ejecutar la consulta predeterminada de `SELECT * FROM digitaltwins` en el cuadro **QUERY EXPLORER** (EXPLORADOR DE CONSULTAS).
  
-Luego, seleccione el icono **Export graph** (Exportar grafo) en el cuadro **GRAPH VIEW** (VISTA DE GRAFO).
+Luego, seleccione el icono **Export graph** (Exportar grafo) en el cuadro **TWIN GRAPH** (GRAFO GEMELO).
 
-:::image type="content" source="media/how-to-move-regions/export-graph.png" alt-text="Hay un icono resaltado en el cuadro de texto Vista de grafo. Se muestra una flecha que apunta hacia fuera de una nube." lightbox="media/how-to-move-regions/export-graph.png":::
+:::image type="content" source="media/how-to-move-regions/export-graph.png" alt-text="Hay un icono resaltado en el cuadro Twin Graph (Grafo gemelo). Se muestra una flecha que apunta hacia fuera de una nube." lightbox="media/how-to-move-regions/export-graph.png":::
 
-Esta acción habilita un vínculo **Download** (Descargar) en el cuadro **GRAPH VIEW** (VISTA DE GRAFO). Selecciónelo para descargar una representación basada en JSON del resultado de la consulta, que incluye los modelos, los gemelos y las relaciones. Esta acción debería descargar un archivo .json en la máquina.
+Esta acción habilita un vínculo **Descargar** en el cuadro **TWIN GRAPH** (GRAFO GEMELO). Selecciónelo para descargar una representación basada en JSON del resultado de la consulta, que incluye los modelos, los gemelos y las relaciones. Esta acción debería descargar un archivo .json en la máquina.
 
 >[!NOTE]
 >Si el archivo descargado parece tener una extensión de archivo diferente, pruebe a editar la extensión directamente y cámbiela por .json.
@@ -155,15 +155,15 @@ Seleccione **Conectar**. Es posible que se le pida que vuelva a iniciar sesión 
 
 A continuación, cargue los componentes de la solución que descargó anteriormente en la nueva instancia.
 
-Para cargar los modelos, los gemelos y el grafo, seleccione el icono **Import Graph** (Importar grafo) en el cuadro **GRAPH VIEW** (VISTA DE GRAFO). Esta opción carga los tres componentes a la vez. Incluso carga los modelos que no se están usando actualmente en el grafo.
+Para cargar los modelos, los gemelos y el grafo, seleccione el icono **Import Graph** (Importar grafo) en el cuadro **TWIN GRAPH** (GRAFO GEMELO). Esta opción carga los tres componentes a la vez. Incluso carga los modelos que no se están usando actualmente en el grafo.
 
-:::image type="content" source="media/how-to-move-regions/import-graph.png" alt-text="Hay un icono resaltado en el cuadro de texto Vista de grafo. Muestra una flecha que apunta a una nube." lightbox="media/how-to-move-regions/import-graph.png":::
+:::image type="content" source="media/how-to-move-regions/import-graph.png" alt-text="Hay un icono resaltado en el cuadro Twin Graph. Muestra una flecha que apunta a una nube." lightbox="media/how-to-move-regions/import-graph.png":::
 
 En el cuadro se selección de archivos, vaya al grafo descargado. Seleccione el archivo **.json** del grafo y seleccione **Abrir**.
 
 Al cabo de unos segundos, Azure Digital Twins Explorer abre una vista **Import** (Importar) que muestra una vista previa del grafo que se va a cargar.
 
-Para confirmar la carga del grafo, seleccione el icono **Save** (Guardar) situado en la esquina superior derecha del cuadro **GRAPH VIEW** (VISTA DE GRAFO).
+Para confirmar la carga del grafo, seleccione el icono **Save** (Guardar) situado en la esquina superior derecha del cuadro **TWIN GRAPH** (GRAFO DE GEMELOS).
 
 :::row:::
     :::column:::
@@ -181,17 +181,15 @@ Ahora, Azure Digital Twins Explorer carga los modelos y el grafo (incluidos los 
     :::column-end:::
     :::column:::
     :::column-end:::
-    :::column:::
-    :::column-end:::
 :::row-end:::
 
-Para comprobar que todo se ha cargado correctamente, seleccione el botón **Run Query** (Ejecutar consulta) en el cuadro **GRAPH EXPLORER** (PROBADOR DE GRAPH) para ejecutar la consulta predeterminada que muestra todos los gemelos y las relaciones del grafo. Esta acción también actualiza la lista de modelos en el cuadro **MODEL VIEW** (VISTA DE MODELO).
+Para comprobar que todo se ha cargado correctamente, vuelva a la pestaña **TWIN GRAPH** (Grafo gemelo) y seleccione el botón **Run Query** (Ejecutar consulta) en el cuadro **QUERY EXPLORER** (EXPLORADOR DE CONSULTAS) para ejecutar la consulta predeterminada que muestra todos los gemelos y las relaciones en el grafo. Esta acción también actualiza la lista de modelos en el cuadro **MODELS** (MODELOS).
 
 :::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Se resalta el botón Run Query (Ejecutar consulta) en la esquina superior derecha de la ventana." lightbox="media/how-to-move-regions/run-query.png":::
 
-Verá el grafo con todos sus gemelos y relaciones mostrados en el cuadro **PROBADOR DE GRAPH**. También verá los modelos enumerados en el cuadro **MODELO DE VISTA**.
+Debería ver el grafo con todos sus gemelos y relaciones en el cuadro **TWIN GRAPH** (GRAFO GEMELO). También verá los modelos enumerados en el cuadro **MODELS** (MODELOS).
 
-:::image type="content" source="media/how-to-move-regions/post-upload.png" alt-text="Una vista de Azure Digital Twins Explorer que muestra dos modelos resaltados en el cuadro Model View (Vista de modelo) y un grafo resaltado en el cuadro Graph Explorer" lightbox="media/how-to-move-regions/post-upload.png"::: (Probador de Graph).
+:::image type="content" source="media/how-to-move-regions/post-upload.png" alt-text="Una vista de Azure Digital Twins Explorer que muestra dos modelos resaltados en el cuadro Models (Modelos) y un grafo resaltado en el cuadro Twin Graph (Grafo gemelo)." lightbox="media/how-to-move-regions/post-upload.png":::
 
 Estas vistas confirman que los modelos, los gemelos y el grafo se han vuelto a cargar en la nueva instancia de la región de destino.
 

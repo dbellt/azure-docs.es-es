@@ -8,21 +8,23 @@ ms.date: 11/19/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 6979f44600d29c0bcc18ebf7fc7e444e9b6bcf73
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: 52adba94650c09f731cfb6142852b28a0e3f3906
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107902955"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108288657"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Consulta del grafo gemelo de Azure Digital Twins
 
-En este artículo se ofrecen ejemplos de consultas e instrucciones más detalladas sobre el uso del **lenguaje de consultas de Azure Digital Twins** para consultar un [grafo de gemelos](concepts-twins-graph.md) para obtener información. (Para obtener una introducción al lenguaje de consulta y una lista completa de sus características, vea [*Conceptos: lenguaje de consulta*](concepts-query-language.md)).
+En este artículo se ofrecen ejemplos de consultas e instrucciones sobre el uso del **lenguaje de consultas de Azure Digital Twins** para consultar un [grafo de gemelos](concepts-twins-graph.md) para obtener información. (Para obtener una introducción al lenguaje de consulta, consulte [Conceptos: lenguaje de consulta](concepts-query-language.md)).
 
-Este artículo comienza con algunas consultas de ejemplo que muestran la estructura del lenguaje de consulta y las operaciones de consulta habituales para los gemelos digitales. Luego, se describe cómo ejecutar las consultas una vez escritas, mediante [Query API](/rest/api/digital-twins/dataplane/query) de Azure Digital Twins o un [SDK](how-to-use-apis-sdks.md#overview-data-plane-apis).
+Contiene consultas de ejemplo que muestran la estructura del lenguaje de consulta y las operaciones de consulta habituales para los gemelos digitales. También describe cómo ejecutar las consultas una vez escritas, mediante [Query API](/rest/api/digital-twins/dataplane/query) de Azure Digital Twins o un [SDK](how-to-use-apis-sdks.md#overview-data-plane-apis).
 
 > [!NOTE]
 > Si ejecuta las consultas de ejemplo siguientes con la llamada a una API o un SDK, deberá condensar el texto de la consulta en una sola línea.
+
+[!INCLUDE [digital-twins-query-reference.md](../../includes/digital-twins-query-reference.md)]
 
 ## <a name="show-all-digital-twins"></a>Mostrar todos los gemelos digitales
 
@@ -59,7 +61,7 @@ También puede obtener instancias de Digital Twins en función del **tipo de una
 
 ## <a name="query-by-model"></a>Consulta por modelo
 
-El operador `IS_OF_MODEL` se puede usar para filtrar en función del [**modelo**](concepts-models.md) de la instancia de Digital Twins.
+El operador `IS_OF_MODEL` se puede utilizar para filtrar en función del [modelo](concepts-models.md) del gemelo.
 
 Tiene en cuenta la [herencia](concepts-models.md#model-inheritance) y el [control de versiones](how-to-manage-model.md#update-models) del modelo, y se evalúa como **true** para un gemelo dado si este cumple cualquiera de estas condiciones:
 
@@ -149,7 +151,7 @@ Puede contar el número de elementos de un conjunto de resultados mediante la cl
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="SelectCount1":::
 
-Agregue una cláusula `WHERE` para contar el número de elementos que cumplen determinados criterios. Estos son algunos ejemplos de recuento con un filtro aplicado basado en el tipo de modelo gemelo (para obtener más información sobre esta sintaxis, vea [*Consulta por modelo*](#query-by-model) a continuación):
+Agregue una cláusula `WHERE` para contar el número de elementos que cumplen determinados criterios. Estos son algunos ejemplos de recuento con un filtro aplicado basado en el tipo de modelo gemelo (para obtener más información sobre esta sintaxis, vea [Consulta por modelo](#query-by-model) a continuación):
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="SelectCount2":::
 
@@ -227,7 +229,7 @@ Puede **combinar** cualquiera de los tipos de consulta anteriores mediante opera
 
 ## <a name="run-queries-with-the-api"></a>Ejecución de consultas con la API
 
-Una vez que haya decidido una cadena de consulta, puede ejecutarla realizando una llamada a [**Query API**](/rest/api/digital-twins/dataplane/query).
+Una vez que haya decidido una cadena de consulta, puede ejecutarla realizando una llamada a la [API de consulta](/rest/api/digital-twins/dataplane/query).
 
 Puede llamar a la API directamente, o bien usar uno de los [SDK](how-to-use-apis-sdks.md#overview-data-plane-apis) disponibles para Azure Digital Twins.
 

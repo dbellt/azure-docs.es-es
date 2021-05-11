@@ -6,15 +6,15 @@ ms.suite: integration
 author: lauradolan
 ms.author: ladolan
 ms.reviewer: estfan, jonfan, logicappspm
-ms.topic: article
+ms.topic: conceptual
 ms.custom: mvc
-ms.date: 07/20/2020
-ms.openlocfilehash: d50f577a7170982be004cc8957114f79675fbc6e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/23/2021
+ms.openlocfilehash: 4c4a3b1e5d165681e921d2fadeadc5dea9633d41
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96006105"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108162912"
 ---
 # <a name="manage-logic-apps-in-the-azure-portal"></a>Administración de aplicaciones lógicas en Azure Portal
 
@@ -28,23 +28,15 @@ Puede administrar aplicaciones lógicas mediante [Azure Portal](https://portal.a
 
 <a name="find-logic-app"></a>
 
-## <a name="find-your-logic-apps"></a>Búsqueda de las aplicaciones lógicas
-
-Para buscar y abrir la aplicación lógica, siga estos pasos:
+## <a name="find-and-open-a-logic-app"></a>Búsqueda y apertura de una aplicación lógica
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con su cuenta de Azure.
 
-1. En la barra de búsqueda de Azure, escriba `logic apps` y seleccione **Logic Apps**.
+1. En el cuadro de búsqueda del portal, escriba `logic apps` y seleccione **Logic Apps**.
 
-   ![Captura de pantalla del menú de Azure Portal, donde se ha buscado y seleccionado Logic Apps en la barra de búsqueda.](./media/manage-logic-apps-with-azure-portal/find-select-logic-apps.png)
+1. En la lista de aplicaciones lógicas, busque la aplicación lógica mediante la exploración o el filtrado de la lista.
 
-1. En la página **Logic Apps**, busque y seleccione la aplicación lógica que desea administrar.
-
-   Una vez que se abra el panel **Información general**, puede filtrar la lista que aparece en la página **Logic Apps** de las siguientes maneras:
-
-   * Buscar aplicaciones lógicas por nombre
-   * Filtrar las aplicaciones lógicas por suscripción, grupo de recursos, ubicación y etiquetas
-   * Agrupar las aplicaciones lógicas por grupo de recursos, tipo, suscripción y ubicación
+1. Para abrir la aplicación lógica, seleccione la aplicación que quiere administrar.
 
 ## <a name="view-logic-app-properties"></a>Visualización de las propiedades de la aplicación lógica
 
@@ -66,121 +58,80 @@ Para buscar y abrir la aplicación lógica, siga estos pasos:
    * **Direcciones IP de puntos de conexión de acceso**
    * **Direcciones IP salientes del conector**
 
+<a name="disable-enable-logic-apps"></a>
+
 ## <a name="disable-or-enable-logic-apps"></a>Deshabilitación o habilitación de la aplicaciones lógicas
 
-Puede habilitar o deshabilitar una [sola aplicación lógica](#disable-enable-single-logic-app) o [varias aplicaciones lógicas a la vez](#disable-or-enable-multiple-logic-apps) en el Azure Portal. También puede [habilitar o deshabilitar aplicaciones lógicas en Visual Studio](manage-logic-apps-with-visual-studio.md#disable-or-enable-logic-app).
+Para evitar que el desencadenador se active la próxima vez que se cumpla una condición desencadenadora, deshabilite la aplicación lógica. En Azure Portal, puede habilitar o deshabilitar una [sola aplicación lógica](#disable-enable-single-logic-app) o [varias aplicaciones lógicas a la vez](#disable-or-enable-multiple-logic-apps). La deshabilitación de una aplicación lógica tiene los siguientes efectos en las instancias de flujo de trabajo:
 
-La deshabilitación de la aplicación lógica afecta a las instancias de flujo de trabajo y se ejecuta de estas maneras:
+* El servicio Logic Apps continúa todas las ejecuciones en curso y pendientes hasta que finalizan. Según el volumen o el trabajo pendiente, este proceso puede tardar en completarse.
 
-* Todas las ejecuciones en curso y pendientes continuarán hasta que finalicen. En función del número de ejecuciones, este proceso puede tardar algún tiempo.
+* El servicio Logic Apps no crea ni ejecuta nuevas instancias de flujo de trabajo.
 
-* El motor de Logic Apps no creará ni ejecutará nuevas instancias de flujo de trabajo.
+* El desencadenador no se activará la próxima vez que se cumplan sus condiciones. Sin embargo, el estado del desencadenador recuerda el punto en el que se detuvo la aplicación lógica. Por lo tanto, si reactiva la aplicación lógica, el desencadenador se activará para todos los elementos no procesados desde la última ejecución.
 
-* El desencadenador no se activará la próxima vez que se cumplan sus condiciones.
+  Para evitar que el desencadenador se active para los elementos no procesados desde la última ejecución, borre el estado del desencadenador antes de reactivar la aplicación lógica:
 
-* El estado del desencadenador recuerda el punto en el que se detuvo la aplicación lógica. Por lo tanto, si vuelve a habilitar la aplicación lógica, el desencadenador se activará para todos los elementos no procesados desde la última ejecución.
-
-  Para que la aplicación lógica no se active para los elementos no procesados desde la última ejecución, borre el estado del desencadenador antes de volver a habilitar la aplicación lógica:
-
-  1. En Azure Portal, [busque y abra la aplicación lógica](#find-logic-app).
-
-  1. Edite cualquier parte del desencadenador de la aplicación lógica.
-
+  1. En la aplicación lógica, edite cualquier parte del desencadenador del flujo de trabajo.
   1. Guarde los cambios. Este paso restablece el estado actual del desencadenador.
-
-  1. [Vuelva a habilitar la aplicación lógica](#disable-enable-single-logic-app).
+  1. [Reactive la aplicación lógica](#disable-enable-single-logic-app).
 
 <a name="disable-enable-single-logic-app"></a>
 
-### <a name="disable-or-enable-single-logic-app"></a>Deshabilitación o habilitación de una sola aplicación lógica
+### <a name="disable-or-enable-a-single-logic-app"></a>Deshabilitación o habilitación de una sola aplicación lógica
 
 1. En Azure Portal, [busque y abra la aplicación lógica](#find-logic-app).
 
-1. En el menú de la aplicación lógica, seleccione **Información general**. Elija una de estas opciones:
+1. En el menú de la aplicación lógica, seleccione **Información general**.
 
-   * En la barra de herramientas, seleccione **Deshabilitar**.
+   * Para deshabilitar la aplicación lógica, en la barra de herramientas del panel Información general, seleccione **Deshabilitar**.
+   * Para habilitar la aplicación lógica, en la barra de herramientas del panel Información general, seleccione **habilitar**.
 
-     ![Captura de pantalla de la barra de herramientas de la aplicación lógica, que muestra el botón Deshabilitar seleccionado.](./media/manage-logic-apps-with-azure-portal/disable-single-logic-app.png)
+     > [!NOTE]
+     > Si la aplicación lógica ya está deshabilitada, solo verá la opción **Habilitar**.
+     > Si la aplicación lógica ya está habilitada, solo verá la opción **Deshabilitar**.
 
-     Si la aplicación lógica ya está deshabilitada, solo verá la opción **Habilitar**.
-
-   * En la barra de herramientas, seleccione **Enable** (Habilitar).
-
-     ![Captura de pantalla de la barra de herramientas de la aplicación lógica, que muestra el botón Habilitar seleccionado.](./media/manage-logic-apps-with-azure-portal/enable-single-logic-app.png)
-
-     Si la aplicación lógica ya está habilitada, solo verá la opción **Deshabilitar**. 
-
-   En Azure Portal se muestra una notificación en la barra de herramientas principal de Azure que confirma si la operación se realizó correctamente o no.
-
-   ![Captura de pantalla de Azure Portal, que muestra la notificación para confirmar el estado de la operación.](./media/manage-logic-apps-with-azure-portal/operation-confirmation-notification.png)
+1. Para confirmar si la operación se ha completado correctamente o no, abra la lista **Notificaciones** (icono de campana) en la barra de herramientas principal de Azure.
 
 <a name="disable-or-enable-multiple-logic-apps"></a>
 
 ### <a name="disable-or-enable-multiple-logic-apps"></a>Deshabilitación o habilitación de varias aplicaciones lógicas
 
-1. En el Azure Portal, [busque las aplicaciones lógicas](#find-logic-app) que desea deshabilitar o habilitar.
+1. En el cuadro de búsqueda principal de Azure Portal, escriba `logic apps` y seleccione **Logic Apps**.
 
-1. Para comprobar si una aplicación lógica está habilitada o deshabilitada actualmente, en la página **Logic Apps**, consulte la columna **Estado** de esa aplicación lógica. 
+1. En la página **Aplicaciones lógicas,** revise la columna **Estado** de la aplicación lógica.
 
-   ![Captura de pantalla de la página de Logic Apps de Azure Portal, que muestra la lista de aplicaciones lógicas ordenadas por la columna de estado.](./media/manage-logic-apps-with-azure-portal/view-logic-app-status.png)
+1. En la columna de casillas, seleccione las aplicaciones lógicas que quiera detener o iniciar.
 
-   Si la columna **Estado** no está visible, en la barra de herramientas de **Logic Apps**, seleccione **Probar la versión preliminar**.
+   * Para detener las aplicaciones lógicas en ejecución seleccionadas, haga clic en **Deshabilitar/Detener** en la barra de herramientas del panel Información general. Confirme la selección.
+   * Para iniciar las aplicaciones lógicas detenidas seleccionadas, haga clic en **Habilitar/Iniciar** en la barra de herramientas del panel Información general.
 
-   ![Captura de pantalla de la página de Logic Apps de Azure Portal, que muestra el botón Try preview (Probar la versión preliminar) seleccionado.](./media/manage-logic-apps-with-azure-portal/select-try-preview.png)
+1. Para confirmar si la operación se ha completado correctamente o no, abra la lista **Notificaciones** (icono de campana) en la barra de herramientas principal de Azure.
 
-1. En la columna de casillas, seleccione las aplicaciones lógicas que quiere deshabilitar o habilitar. En la barra de herramientas, seleccione **Deshabilitar** o **Habilitar**.
+   > [!TIP]
+   > Si no aparece el estado correcto, actualice la página.
 
-   ![Captura de pantalla de la página de Logic Apps de Azure Portal, que muestra los botones Habilitar y Deshabilitar de varias aplicaciones lógicas.](./media/manage-logic-apps-with-azure-portal/enable-disable-multiple-logic-apps.png)
-
-1. Cuando aparezca el cuadro de confirmación, seleccione **Sí** para continuar.
-
-   En Azure Portal se muestra una notificación en la barra de herramientas principal de Azure que confirma si la operación se realizó correctamente o no.
+<a name="delete-logic-apps"></a>
 
 ## <a name="delete-logic-apps"></a>Eliminación de aplicaciones lógicas
 
-Puede [eliminar una sola aplicación lógica](#delete-single-logic-app) o [eliminar varias aplicaciones lógicas a la vez](#delete-multiple-logic-apps) en el Azure Portal. También puede [eliminar la aplicación lógica en Visual Studio](manage-logic-apps-with-visual-studio.md#delete-your-logic-app).
+Puede eliminar una sola aplicación lógica o varias a la vez. Eliminar una aplicación lógica afecta a las instancias de flujo de trabajo de las maneras siguientes:
 
-La eliminación de la aplicación lógica afecta a las instancias de flujo de trabajo de estas maneras:
+* El servicio Logic Apps hace todo lo posible por cancelar las ejecuciones en curso y pendientes.
 
-* Todas las ejecuciones en curso y pendientes continuarán hasta que finalicen. En función del número de ejecuciones, este proceso puede tardar algún tiempo.
+  Incluso con un gran volumen o trabajo pendiente, la mayoría de las ejecuciones se cancelan antes de que finalicen o se inicien. Sin embargo, el proceso de cancelación puede tardar en completarse. Mientras tanto, pueden seleccionarse algunas ejecuciones para su ejecución mientras el servicio se encarga del proceso de cancelación.
 
-* El motor de Logic Apps no creará ni ejecutará nuevas instancias de flujo de trabajo.
+* El servicio Logic Apps no crea ni ejecuta nuevas instancias de flujo de trabajo.
 
-> [!NOTE]
-> Si elimina una aplicación lógica secundaria y vuelve a crearla, debe guardar de nuevo la aplicación lógica principal. La aplicación secundaria que ha vuelto a crear tendrá metadatos diferentes.
-> Si no se reguarda la aplicación lógica principal después de volver a crear su elemento secundario, las llamadas a la aplicación lógica secundaria producirán un error de que no hay autorización. Este comportamiento se aplica a las aplicaciones lógicas de elementos primarios y secundarios, por ejemplo, las que usan artefactos en las cuentas de integración o llaman a funciones de Azure.
+* Si elimina un flujo de trabajo y, luego, vuelve a crear el mismo flujo de trabajo, el flujo de trabajo recreado no tendrá los mismos metadatos que el flujo de trabajo eliminado. Tiene que volver a guardar todo flujo de trabajo que haya llamado al flujo de trabajo eliminado. De este modo, el autor de la llamada obtiene la información correcta para el flujo de trabajo recreado. De lo contrario, las llamadas al flujo de trabajo recreado producirán un error `Unauthorized`. Este comportamiento también se aplica a los flujos de trabajo que usan artefactos en cuentas de integración y a flujos de trabajo que llaman a Azure Functions.
 
-<a name="delete-single-logic-app"></a>
+1. En el cuadro de búsqueda principal de Azure Portal, escriba `logic apps` y seleccione **Logic Apps**.
 
-### <a name="delete-single-logic-app"></a>Eliminación de una sola aplicación lógica
-
-1. En Azure Portal, [busque y abra la aplicación lógica](#find-logic-app).
-
-1. En el menú de la aplicación lógica, seleccione **Información general**. En la barra de herramientas de la aplicación lógica, seleccione **Eliminar**.
-
-   ![Captura de pantalla de la barra de herramientas de la aplicación lógica, que muestra el botón Eliminar seleccionado.](./media/manage-logic-apps-with-azure-portal/delete-single-logic-app.png)
-
-1. Cuando aparezca el cuadro de confirmación, escriba el nombre de la aplicación lógica y seleccione **Eliminar**.
-
-   ![Captura de pantalla del aviso de Logic Apps para confirmar la eliminación de una sola aplicación lógica.](./media/manage-logic-apps-with-azure-portal/delete-confirmation-single-logic-app.png)
-
-   En Azure Portal se muestra una notificación en la barra de herramientas principal de Azure que confirma si la operación se realizó correctamente o no.
-
-<a name="delete-multiple-logic-apps"></a>
-
-### <a name="delete-multiple-logic-apps"></a>Eliminación de varias aplicaciones lógicas
-
-1. En el Azure Portal, [busque las aplicaciones lógicas que desea eliminar](#find-logic-app).
-
-1. En la columna de casillas, seleccione las aplicaciones lógicas que quiere eliminar. En la barra de herramientas, seleccione **Eliminar**.
-
-   ![Captura de pantalla de la página de Logic Apps, que muestra varias aplicaciones lógicas en una lista seleccionada para su eliminación.](./media/manage-logic-apps-with-azure-portal/delete-multiple-logic-apps.png)
+1. En la lista **Aplicaciones lógicas**, en la columna de casillas, seleccione una o varias aplicaciones lógicas que quiera eliminar. En la barra de herramientas, seleccione **Eliminar**.
 
 1. Cuando aparezca el cuadro de confirmación, escriba `yes` y seleccione **Eliminar**.
 
-   ![Captura de pantalla del aviso de Logic Apps para confirmar la eliminación de varias aplicaciones lógicas.](./media/manage-logic-apps-with-azure-portal/delete-confirmation-multiple-logic-apps.png)
-
-   En Azure Portal se muestra una notificación en la barra de herramientas principal de Azure que confirma si la operación se realizó correctamente o no.
+1. Para confirmar si la operación se ha completado correctamente o no, abra la lista **Notificaciones** (icono de campana) en la barra de herramientas principal de Azure.
 
 <a name="manage-logic-app-versions"></a>
 
@@ -192,7 +143,7 @@ Puede usar Azure Portal para el control de versiones de las aplicaciones lógica
 
 ### <a name="find-and-view-previous-versions"></a>Búsqueda y visualización de versiones anteriores
 
-1. En Azure Portal, [busque la aplicación lógica que desea administrar](#find-logic-app).
+1. En Azure Portal, [busque y abra la aplicación lógica](#find-logic-app).
 
 1. En el menú de la aplicación lógica, en **Herramientas de desarrollo**, seleccione **Versiones**.
 

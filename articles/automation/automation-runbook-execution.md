@@ -3,15 +3,15 @@ title: Ejecución de un runbook en Azure Automation
 description: En este artículo se proporciona información general del procesamiento de runbooks en Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 03/23/2021
+ms.date: 04/28/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0807b11adfc46b9c32a8f7bd36a2f7d4db519975
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: a0c734d7717f157ba062b1c9369be5dd95be03af
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107830527"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108278477"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Ejecución de un runbook en Azure Automation
 
@@ -102,7 +102,7 @@ El agente de [Log Analytics para Linux](../azure-monitor/agents/agent-linux.md) 
 
 La cuenta **nxautomation** con los permisos sudo correspondientes debe estar presente durante la [instalación de la instancia de Hybrid Runbook Worker en Linux](automation-linux-hrw-install.md). Si intenta instalar el rol de trabajo y la cuenta no está presente o no tiene los permisos adecuados, no se realizará la instalación.
 
-No debe cambiar los permisos de la carpeta `sudoers.d` ni su propiedad. Se requiere permiso sudo para la cuenta **nxautomation** y no se deben quitar los permisos. Su restricción a determinadas carpetas o comandos puede dar lugar a un cambio importante.
+No cambie los permisos de la carpeta `sudoers.d` ni su propiedad. Se requiere permiso sudo para la cuenta **nxautomation** y no se deben quitar los permisos. Su restricción a determinadas carpetas o comandos puede dar lugar a un cambio importante.
 
 Los registros disponibles para el agente de Log Analytics y la cuenta **nxautomation** son:
 
@@ -118,7 +118,13 @@ Un runbook necesita permisos para la autenticación en Azure a través de creden
 
 ## <a name="modules"></a>Módulos
 
-Azure Automation admite varios módulos predeterminados, como algunos módulos AzureRM (AzureRM.Automation) y un módulo que contiene varios cmdlets internos. También se admiten módulos instalables, incluidos los módulos Az (Az.Automation), que actualmente se usan actualmente en lugar de los módulos AzureRM. Para más información sobre los módulos que están disponibles para sus runbooks y configuraciones de DSC, consulte [Administración de módulos en Azure Automation](shared-resources/modules.md).
+Azure Automation incluye los siguientes módulos de PowerShell:
+
+* Orchestrator.AssetManagement.Cmdlets: Contiene varios cmdlets internos que solo están disponibles cuando se ejecutan runbooks en el entorno de espacio aislado de Azure o en una instancia de Hybrid Runbook Worker de Windows. Estos cmdlets están diseñados para usarse en lugar de los cmdlets de Azure PowerShell para interactuar con los recursos de la cuenta de Automation.
+* Az.Automation: El módulo de PowerShell recomendado para interactuar con Azure Automation que reemplaza al módulo AzureRM Automation. El módulo Az.Automation no se incluye automáticamente al crear una cuenta de Automation y es necesario importarlo manualmente. 
+* AzureRM.Automation: Se instala de manera predeterminada al crear una cuenta de Automation. 
+
+También se admiten módulos instalables, en función de los cmdlets que requieren los runbooks y las configuraciones de DSC. Para más información sobre los módulos que están disponibles para sus runbooks y configuraciones de DSC, consulte [Administración de módulos en Azure Automation](shared-resources/modules.md).
 
 ## <a name="certificates"></a>Certificados
 

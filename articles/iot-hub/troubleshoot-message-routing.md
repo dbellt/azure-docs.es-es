@@ -1,18 +1,18 @@
 ---
 title: Solución de problemas de enrutamiento de mensajes de Azure IoT
-description: Cómo solucionar problemas de enrutamiento de mensajes de Azure IoT
+description: Cómo solucionar problemas de enrutamiento de mensajes de Azure IoT Hub
 author: ash2017
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: asrastog
-ms.openlocfilehash: 3abff5645775d724042acba3ee2461c7cad771a7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: daa0b1dd47884b104cc353a7483d71ff7eded2c7
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103149671"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108287867"
 ---
 # <a name="troubleshooting-message-routing"></a>Solución de problemas de enrutamiento de mensajes
 
@@ -59,11 +59,13 @@ Una vez que se crea una ruta, los datos dejan de fluir al punto de conexión int
 
 La ruta de reserva envía todos los mensajes que no cumplen las condiciones de la consulta en cualquiera de las rutas existentes al punto de conexión de [Event Hubs integrado](iot-hub-devguide-messages-read-builtin.md) (mensajes y eventos), que es compatible con [Event Hubs](../event-hubs/index.yml). Si el enrutamiento de mensajes está activado, puede habilitar la funcionalidad de ruta de reserva. Si no hay ninguna ruta al punto de conexión integrado y está habilitada una ruta de reserva, solo se enviarán al punto de conexión integrado los mensajes que no coinciden con las condiciones de la consulta sobre rutas. Además, si se eliminan todas las rutas existentes, se debe habilitar la ruta de reserva para recibir todos los datos en el punto de conexión integrado.
 
-Puede habilitar o deshabilitar la ruta de reserva en Azure Portal -> hoja Enrutamiento de mensajes. También puede usar Azure Resource Manager para [FallbackRouteProperties](/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) para usar un punto de conexión personalizado para la ruta de reserva.
+La ruta de reserva envía todos los mensajes que no cumplen ninguna de las condiciones de la consulta en cualquiera de las rutas existentes al punto de conexión de [Event Hubs integrado](iot-hub-devguide-messages-read-builtin.md) (mensajes y eventos), que es compatible con [Event Hubs](../event-hubs/index.yml). Si el enrutamiento de mensajes está activado, puede habilitar la funcionalidad de ruta de reserva. Si no hay ninguna ruta al punto de conexión integrado y está habilitada una ruta de reserva, solo se enviarán al punto de conexión integrado los mensajes que no coinciden con las condiciones de la consulta sobre rutas. Además, si se eliminan todas las rutas existentes, se debe habilitar la ruta de reserva para recibir todos los datos en el punto de conexión integrado.
+
+Puede habilitar o deshabilitar la ruta de reserva en Azure Portal mediante la hoja Enrutamiento de mensajes de IoT Hub. También puede usar Azure Resource Manager para [FallbackRouteProperties](/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) para usar un punto de conexión personalizado para una ruta de reserva.
 
 ## <a name="last-known-errors-for-iot-hub-routing-endpoints"></a>Últimos errores conocidos de los puntos de conexión de enrutamiento de IoT Hub
 
-<a id="last-known-errors"></a>
+<a id="last-known-errors"></a>  <!-- why are we using anchors? robin -->
 [!INCLUDE [iot-hub-include-last-known-errors](../../includes/iot-hub-include-last-known-errors.md)]
 
 ## <a name="routes-resource-logs"></a>Registros de recursos de rutas

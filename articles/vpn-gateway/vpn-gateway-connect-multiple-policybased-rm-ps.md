@@ -1,18 +1,19 @@
 ---
-title: 'Azure VPN Gateway: Conexión de puertas de enlace a varios dispositivos VPN locales basados en directivas'
-description: Configure una puerta de enlace VPN basada en rutas de Azure para varios dispositivos VPN basados en directivas con Azure Resource Manager y PowerShell.
+title: Conexión de puertas de enlace de VPN a varios dispositivos VPN locales basados en directivas
+titleSuffix: Azure VPN Gateway
+description: Aprenda a configurar una puerta de enlace de VPN basada en rutas de Azure para varios dispositivos VPN basados en directivas con PowerShell.
 services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
-ms.openlocfilehash: 2a85204fef026940394a19934bef1c631a8e2d21
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5a0d42dbeb3713202ef0b2c5c05f08d51bd8a6db
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89418890"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108291179"
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>Conexión de puertas de enlace Azure VPN Gateway a varios dispositivos VPN locales basados en directivas con PowerShell
 

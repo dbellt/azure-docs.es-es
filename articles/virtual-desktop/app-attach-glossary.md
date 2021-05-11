@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: c5c596735ad91f38d5ba4217135a9373d2856182
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: cd038a0632823e4833e75596378f9b25c386d9d0
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107538454"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108330537"
 ---
 # <a name="msix-app-attach-glossary"></a>Glosario sobre la conexión de aplicaciones en formato MSIX
 
@@ -110,7 +110,7 @@ El desalmacenamiento notifica al sistema operativo que un paquete MSIX o una apl
 
 .CIM es una nueva extensión de archivo asociada con el sistema de archivos de imagen compuesta (CimFS). El montaje y desmontaje de archivos CIM es más rápido que los archivos VHD. CIM también consume menos CPU y memoria que VHD.
 
-Un archivo CIM es un archivo con la extensión .CIM que contiene metadatos y al menos seis archivos adicionales que contienen datos reales. Los archivos del archivo CIM no tienen extensiones. En la tabla siguiente se muestra una lista de archivos de ejemplo que se encuentran en un archivo CIM:
+Un archivo CIM es un archivo con la extensión .CIM que contiene metadatos y al menos dos archivos adicionales que contienen datos reales. Los archivos del archivo CIM no tienen extensiones. En la tabla siguiente se muestra una lista de archivos de ejemplo que se encuentran en un archivo CIM:
 
 | Nombre de archivo | Extensión | Size |
 |-----------|-----------|------|

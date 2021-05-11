@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 07/01/2019
+ms.date: 04/27/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b3d7c47ff0a2c533bf12a67958a913b22915f75
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fc66dec0ff66e61038503b752f6bd1f2760e9859
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87907734"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108163002"
 ---
 # <a name="example-direct-federation-with-active-directory-federation-services-ad-fs-preview"></a>Ejemplo: Federación directa con Servicios de federación de Active Directory (AD FS) (versión preliminar)
 
@@ -153,4 +153,4 @@ Antes de iniciar este procedimiento, se debe configurar y poner en funcionamient
 1.  Haga clic en **OK**. El servidor de AD FS ahora está configurado para la federación directa mediante WS-Fed.
 
 ## <a name="next-steps"></a>Pasos siguientes
-A continuación, va a [configurar la federación directa en Azure AD](direct-federation.md#step-2-configure-direct-federation-in-azure-ad) bien en el portal de Azure AD o con PowerShell. 
+A continuación, va a [configurar la federación directa en Azure AD](direct-federation.md#step-3-configure-direct-federation-in-azure-ad) bien en el portal de Azure AD o con PowerShell. 

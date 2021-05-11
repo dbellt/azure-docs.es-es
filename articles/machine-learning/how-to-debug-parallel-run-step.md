@@ -11,12 +11,12 @@ ms.reviewer: larryfr, vaidyas, laobri, tracych
 ms.author: pansav
 author: psavdekar
 ms.date: 09/23/2020
-ms.openlocfilehash: 619123cc2723fcf8e4bd80410c6b098b113d61c6
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 6c486b5085ee5e3152367229944b7782f04dc854
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106286324"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108204466"
 ---
 # <a name="troubleshooting-the-parallelrunstep"></a>Solución de problemas de ParallelRunStep
 
@@ -152,11 +152,11 @@ Dada la naturaleza distribuida de los trabajos de ParallelRunStep, hay registros
 
 Los registros generados a partir del script de entrada mediante el asistente EntryScript y las instrucciones print se encuentran en los siguientes archivos:
 
-- `~/logs/user/entry_script_log/<ip_address>/<process_name>.log.txt`: estos archivos son los registros escritos desde entry_script con el asistente EntryScript.
+- `~/logs/user/entry_script_log/<node_id>/<process_name>.log.txt`: estos archivos son los registros escritos desde entry_script con el asistente EntryScript.
 
-- `~/logs/user/stdout/<ip_address>/<process_name>.stdout.txt`: estos archivos son los registros de stdout (por ejemplo, la instrucción print) de entry_script.
+- `~/logs/user/stdout/<node_id>/<process_name>.stdout.txt`: estos archivos son los registros de stdout (por ejemplo, la instrucción print) de entry_script.
 
-- `~/logs/user/stderr/<ip_address>/<process_name>.stderr.txt`: estos archivos son los registros de stderr de entry_script.
+- `~/logs/user/stderr/<node_id>/<process_name>.stderr.txt`: estos archivos son los registros de stderr de entry_script.
 
 Para obtener una descripción concisa de los errores del script, hay lo siguiente:
 
@@ -168,7 +168,7 @@ Para obtener más información sobre los errores del script, hay lo siguiente:
 
 Cuando necesite comprender en detalle cómo ejecuta cada nodo el script de puntuación, examine los registros de proceso individuales para cada nodo. Los registros de proceso se pueden encontrar en la carpeta `sys/node`, agrupados por nodos de trabajo:
 
-- `~/logs/sys/node/<ip_address>/<process_name>.txt`: este archivo proporciona información detallada sobre cada uno de los minilotes a medida que un trabajo lo elige o lo completa. Para cada minilote, este archivo incluye:
+- `~/logs/sys/node/<node_id>/<process_name>.txt`: este archivo proporciona información detallada sobre cada uno de los minilotes a medida que un trabajo lo elige o lo completa. Para cada minilote, este archivo incluye:
 
     - La dirección IP y el PID del proceso de trabajo. 
     - El número total de elementos, el número de elementos procesados correctamente y el número de elementos con errores.
@@ -176,7 +176,7 @@ Cuando necesite comprender en detalle cómo ejecuta cada nodo el script de puntu
 
 También puede ver los resultados de las comprobaciones periódicas del uso de recursos de cada nodo. Los archivos de registro y los archivos de configuración se encuentran en esta carpeta:
 
-- `~/logs/perf`: establezca `--resource_monitor_interval` para cambiar el intervalo de comprobación en segundos. El intervalo predeterminado es `600`, que son aproximadamente 10 minutos. Para detener la supervisión, establezca el valor en `0`. Cada carpeta `<ip_address>` incluye:
+- `~/logs/perf`: establezca `--resource_monitor_interval` para cambiar el intervalo de comprobación en segundos. El intervalo predeterminado es `600`, que son aproximadamente 10 minutos. Para detener la supervisión, establezca el valor en `0`. Cada carpeta `<node_id>` incluye:
 
     - `os/`: información acerca de todos los procesos en ejecución en el nodo. Una comprobación ejecuta un comando del sistema operativo y guarda el resultado en un archivo. En Linux, el comando es `ps`. Para Windows, use `tasklist`.
         - `%Y%m%d%H`: el nombre de la subcarpeta es la fecha y hora.
@@ -194,14 +194,14 @@ ParallelRunStep puede ejecutar varios procesos en un nodo basado en process_coun
 from azureml_user.parallel_run import EntryScript
 
 def init():
-    """ Initialize the node."""
+    """Init once in a worker process."""
     entry_script = EntryScript()
     logger = entry_script.logger
     logger.debug("This will show up in files under logs/user on the Azure portal.")
 
 
 def run(mini_batch):
-    """ Accept and return the list back."""
+    """Call once for a mini batch. Accept and return the list back."""
     # This class is in singleton pattern and will return same instance as the one in init()
     entry_script = EntryScript()
     logger = entry_script.logger
@@ -209,6 +209,29 @@ def run(mini_batch):
     ...
 
     return mini_batch
+```
+
+### <a name="where-does-the-message-from-python-logging-sink-to"></a>¿Dónde se recibe el mensaje `logging` de Python?
+ParallelRunStep establece un controlador en el registrador raíz, que recibe el mensaje en `logs/user/stdout/<node_id>/processNNN.stdout.txt`.
+
+El valor predeterminado de `logging` es el nivel `WARNING`. De manera predeterminada, los niveles por debajo de `WARNING` no se mostrarán, como `INFO` o `DEBUG`.
+
+### <a name="where-is-the-message-from-subprocess-created-with-popen"></a>¿Dónde se crea el mensaje del subproceso con Popen()?
+Si no se especifica `stdout` ni `stderr`, un subproceso heredará la configuración del proceso de trabajo.
+
+`stdout` escribirá en `logs/sys/node/<node_id>/processNNN.stdout.txt`; y `stderr`, en `logs/sys/node/<node_id>/processNNN.stderr.txt`.
+
+### <a name="how-could-i-write-to-a-file-to-show-up-in-the-portal"></a>¿Cómo puedo escribir en un archivo para que aparezca en el portal?
+Los archivos de la carpeta `logs` se cargarán y se mostrarán en el portal.
+Puede obtener la carpeta `logs/user/entry_script_log/<node_id>` como se muestra a continuación y crear la ruta de acceso del archivo para escribir:
+```python
+from pathlib import Path
+def init():
+    """Init once in a worker process."""
+    entry_script = EntryScript()
+    folder = entry_script.log_dir
+
+    fil_path = Path(folder) / "<file_name>"
 ```
 
 ### <a name="how-could-i-pass-a-side-input-such-as-a-file-or-files-containing-a-lookup-table-to-all-my-workers"></a>¿Cómo puedo pasar una entrada lateral, como un archivo o archivos que contienen una tabla de búsqueda, a todos los trabajadores?

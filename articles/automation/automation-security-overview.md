@@ -4,15 +4,15 @@ description: En este artículo se ofrece información general sobre la autentica
 keywords: seguridad de automatización, automatización segura; autenticación de automatización
 services: automation
 ms.subservice: process-automation
-ms.date: 04/14/2021
+ms.date: 04/29/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 546407ce7286cebc04d3c86422f6242051d1dbf3
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 33402eb41ed9c22cf38890229d833cd2ab00d65d
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107830437"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108279521"
 ---
 # <a name="azure-automation-account-authentication-overview"></a>Introducción a la autenticación de cuentas de Azure Automation
 
@@ -34,7 +34,7 @@ Todas las tareas que se crean en los recursos con Azure Resource Manager y los c
 
 ## <a name="managed-identities-preview"></a>Identidades administradas (versión preliminar)
 
-Una identidad administrada de Azure Active Directory (Azure AD) permite al runbook acceder fácilmente a otros recursos protegidos por Azure AD. La identidad está administrada por la plataforma Azure y no requiere que aprovisione o rote los secretos. Para más información acerca de las identidades administradas en Azure AD, consulte [Identidades administradas para recursos de Azure](/azure/active-directory/managed-identities-azure-resources/overview).
+Una identidad administrada de Azure Active Directory (Azure AD) permite al runbook acceder fácilmente a otros recursos protegidos por Azure AD. La identidad está administrada por la plataforma Azure y no requiere que aprovisione o rote los secretos. Para más información acerca de las identidades administradas en Azure AD, consulte [Identidades administradas para recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 Estas son algunas de las ventajas de usar las identidades administradas:
 
@@ -69,7 +69,10 @@ Para obtener más información sobre los modelos de implementación clásico y d
 >[!NOTE]
 >Las suscripciones del Proveedor de soluciones en la nube (CSP) de Azure solo admiten el modelo de Azure Resource Manager. Los servicios que no son de Azure Resource Manager no están disponibles en el programa. Cuando se usa una suscripción al programa CSP, no se crea la cuenta de ejecución de Azure clásico, sino la cuenta de ejecución de Azure. Para más información acerca de las suscripciones de CSP, consulte [Servicios disponibles en las suscripciones de CSP](/azure/cloud-solution-provider/overview/azure-csp-available-services).
 
-Al crear una cuenta de Automation, la cuenta de ejecución se crea de manera predeterminada a la misma vez. Si decidió no crearla junto con la cuenta de Automation, se puede crear individualmente en otro momento. Una cuenta de ejecución de Azure clásico es opcional y se crea por separado si necesita administrar los recursos clásicos.
+Al crear una cuenta de Automation, la cuenta de ejecución se crea de manera predeterminada a la misma vez con un certificado autofirmado. Si decidió no crearla junto con la cuenta de Automation, se puede crear individualmente en otro momento. Una cuenta de ejecución de Azure clásico es opcional y se crea por separado si necesita administrar los recursos clásicos.
+
+Si quiere usar un certificado emitido por la entidad de certificación (CA) empresarial o de terceros en lugar del certificado autofirmado predeterminado, puede usar la opción [Script de PowerShell para crear una cuenta de ejecución](create-run-as-account.md#powershell-script-to-create-a-run-as-account) para las cuentas de ejecución y de ejecución clásicas.
+
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RWwtF3]
 
@@ -146,4 +149,4 @@ Con los runbooks que utilizan instancias de Hybrid Runbook Worker en máquinas v
 * Para crear una cuenta de Automation desde Azure Portal, consulte [Creación de una cuenta independiente de Azure Automation](automation-create-standalone-account.md).
 * Si prefiere crear su cuenta mediante una plantilla, consulte [Creación de una cuenta de Automation con una plantilla de Azure Resource Manager](quickstart-create-automation-account-template.md).
 * Para la autenticación con Amazon Web Services, consulte [Autenticación de runbooks de Azure Automation con Amazon Web Services](automation-config-aws-account.md).
-* Para ver una lista de los servicios de Azure que admiten la característica Managed Identities for Azure Resources, consulte [Services that support managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities) (Servicios que admiten la característica Managed Identities for Azure Resources).
+* Para ver una lista de los servicios de Azure que admiten la característica Managed Identities for Azure Resources, consulte [Services that support managed identities for Azure resources](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) (Servicios que admiten la característica Managed Identities for Azure Resources).

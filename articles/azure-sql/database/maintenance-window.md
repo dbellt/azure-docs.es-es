@@ -9,13 +9,13 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
 ms.custom: references_regions
-ms.date: 03/23/2021
-ms.openlocfilehash: 9d7ab0498673ad7006087b66575eea9371b96d11
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/28/2021
+ms.openlocfilehash: a02735c20b7286df4aafef998066b9edfc519ef4
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105565912"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108228287"
 ---
 # <a name="maintenance-window-preview"></a>Ventana de mantenimiento (versión preliminar)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -23,7 +23,7 @@ ms.locfileid: "105565912"
 La característica de ventana de mantenimiento le permite configurar la programación de mantenimiento para los recursos de [Azure SQL Database](sql-database-paas-overview.md) y [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) que hacen que los eventos de mantenimiento impactantes sean predecibles y menos disruptivos para la carga de trabajo. 
 
 > [!Note]
-> La característica de ventana de mantenimiento no protege de los eventos no planeados, como los errores de hardware, que pueden provocar interrupciones de conexión breves.
+> La característica de ventana de mantenimiento solo protege contra el impacto planeado de las actualizaciones o el mantenimiento programado. No protege frente a todas las causas de conmutación por error; las excepciones que pueden provocar interrupciones breves de conexión fuera de una ventana de mantenimiento incluyen errores de hardware, equilibrio de carga de clústeres y reconfiguraciones de bases de datos debido a eventos como un cambio en el objetivo de nivel de servicio de una base de datos. 
 
 ## <a name="overview"></a>Información general
 
