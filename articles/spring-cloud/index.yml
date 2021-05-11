@@ -11,71 +11,71 @@ metadata:
   author: bmitchell287
   ms.author: brendm
   ms.date: 09/26/2019
-  ms.openlocfilehash: 7598345ca1d687b8148b41454077ab5fca91e8f1
-  ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+  ms.openlocfilehash: ce74f1020a064b558c647bad488ba0efa8be7620
+  ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 12/09/2020
-  ms.locfileid: "96903954"
+  ms.lasthandoff: 03/23/2021
+  ms.locfileid: "104869079"
 landingContent:
 - title: Acerca de Azure Spring Cloud
   linkLists:
   - linkListType: overview
     links:
     - text: ¿Qué es Azure Spring Cloud?
-      url: spring-cloud-overview.md
+      url: overview.md
     - text: Descripción de los límites y las cuotas de Azure Spring Cloud
-      url: spring-cloud-quotas.md
+      url: quotas.md
 - title: Primeros pasos
   linkLists:
   - linkListType: quickstart
     links:
     - text: 'Inicio rápido: implementación de la primera aplicación de Azure Spring Cloud'
-      url: spring-cloud-quickstart.md
+      url: quickstart.md
     - text: Introducción a la aplicación de ejemplo PiggyMetrics
-      url: spring-cloud-quickstart-sample-app-introduction.md
+      url: quickstart-sample-app-introduction.md
   - linkListType: tutorial
     links:
     - text: Preparación de una aplicación de o Steeltoe Spring para la implementación
-      url: spring-cloud-tutorial-prepare-app-deployment.md
+      url: how-to-prepare-app-deployment.md
 - title: Configuración de un servicio
   linkLists:
   - linkListType: tutorial
     links:
     - text: Uso del servidor de configuración para mantener la configuración de la aplicación
-      url: spring-cloud-tutorial-config-server.md
+      url: how-to-config-server.md
     - text: Escalado manual de una aplicación
-      url: spring-cloud-tutorial-scale-manual.md
+      url: how-to-scale-manual.md
   - linkListType: how-to-guide
     links:
     - text: Automatización de la canalización de CI/CD en Azure Spring Cloud
-      url: spring-cloud-howto-cicd.md
+      url: how-to-cicd.md
     - text: Habilitación de implementaciones azules y verdes mediante Azure Spring Cloud
-      url: spring-cloud-howto-staging-environment.md
+      url: how-to-staging-environment.md
     - text: Uso del almacenamiento persistente en Azure Spring Cloud
-      url: spring-cloud-howto-persistent-storage.md
+      url: how-to-persistent-storage.md
 - title: Supervisión de una aplicación
   linkLists:
   - linkListType: tutorial
     links:
     - text: Supervisión de una aplicación mediante el uso del seguimiento distribuido y de App Insights
-      url: spring-cloud-tutorial-distributed-tracing.md
+      url: how-to-distributed-tracing.md
     - text: Habilitación de los servicios de diagnóstico en una aplicación de Java Spring
       url: diagnostic-services.md
   - linkListType: concept
     links:
     - text: Descripción de las métricas de Azure Monitor para Spring Cloud
-      url: spring-cloud-concept-metrics.md
+      url: concept-metrics.md
 - title: Enlace con otros servicios
   linkLists:
   - linkListType: tutorial
     links:
     - text: Enlace de una aplicación con Azure Cache for Redis
-      url: spring-cloud-tutorial-bind-redis.md
+      url: how-to-bind-redis.md
     - text: Enlace de una aplicación a una base de datos de Azure MySQL
-      url: spring-cloud-tutorial-bind-mysql.md
+      url: how-to-bind-mysql.md
     - text: Enlace de una aplicación a Azure CosmosDB
-      url: spring-cloud-tutorial-bind-cosmos.md
+      url: how-to-bind-cosmos.md
 - title: Referencia de API
   linkLists:
   - linkListType: reference
