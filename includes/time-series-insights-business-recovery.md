@@ -5,12 +5,12 @@ author: deepakpalled
 ms.author: dpalled
 manager: diviso
 ms.date: 04/01/2021
-ms.openlocfilehash: 6529aa49d06e64947deb5ae54db0c39ad2575569
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 547242c70986c3216a4052ca3763701264dd4282
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106288578"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108211057"
 ---
 ## <a name="business-disaster-recovery"></a>Recuperación ante desastres de la empresa
 
@@ -64,6 +64,7 @@ Si se produce un evento:
 
 1. Si la región primaria resulta afectada durante un incidente de desastre, vuelva a enrutar las operaciones al entorno de copia de Azure Time Series Insights de respaldo.
 1. Dado que los números de secuencia de centro se reinician a partir de 0 después de la conmutación por error, vuelva a crear el origen de eventos en ambas regiones o entornos con grupos de consumidores diferentes para evitar la creación de lo que parecerían eventos duplicados.
+1. Elimine el origen de eventos principal, que ahora está inactivo, para liberar un origen de eventos disponible para su entorno. (Hay un límite de dos orígenes de eventos activos por entorno).
 1. Use la segunda región para realizar copias de seguridad y recuperar todos los datos de telemetría y consulta de Azure Time Series Insights.
 
 > [!IMPORTANT]

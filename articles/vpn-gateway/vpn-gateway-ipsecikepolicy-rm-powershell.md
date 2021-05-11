@@ -1,23 +1,23 @@
 ---
-title: Directiva IPsec o IKE para conexiones de VPN de sitio a sitio o entre redes virtuales
+title: 'Directiva IPsec o IKE para conexiones VPN de sitio a sitio o de red virtual a red virtual: PowerShell'
 titleSuffix: Azure VPN Gateway
-description: Configurar una directiva de IPsec o IKE para conexiones de sitio a sitio o de red virtual a red virtual con instancias de Azure VPN Gateway mediante Azure Resource Manager y PowerShell.
+description: Aprenda a configurar una directiva IPsec o IKE para conexiones de sitio a sitio o de red virtual a red virtual con instancias de Azure VPN Gateway mediante PowerShell.
 services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
-ms.openlocfilehash: 96931d2dd94a8a31021ebe62caaefc54f643b007
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 14c26c7e1f5751fee3ad53db2e1f72ee975aeaa3
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94649269"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108229637"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Configurar una directiva de IPsec o IKE para conexiones VPN de sitio a sitio o de red virtual a red virtual
 
-Este artículo le guiará por los pasos para configurar una directiva de IPsec o IKE para conexiones VPN de sitio a sitio o de red virtual a red virtual mediante el modelo de implementación de Resource Manager y PowerShell.
+Este artículo le guía por los pasos necesarios para configurar una directiva IPsec o IKE para conexiones VPN de sitio a sitio o de red virtual a red virtual con PowerShell.
 
 
 

@@ -7,13 +7,13 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.reviewer: stmummer
-ms.date: 3/17/2021
-ms.openlocfilehash: 3fc50ef5a50c2c499b1c886bcf5aa73b11ba7c45
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.date: 04/16/2021
+ms.openlocfilehash: 7a5e4375ebe289bb5ae012f94ba9dd050563bbbb
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/28/2021
-ms.locfileid: "108133356"
+ms.locfileid: "108209866"
 ---
 # <a name="co-sell-requirements"></a>Requisitos de venta conjunta
 
@@ -30,6 +30,9 @@ En esta tabla se muestran todos los posibles estados de la venta conjunta:
 |||
 
 ## <a name="requirements-for-co-sell-ready-status"></a>Requisitos del estado Listo para la venta conjunta
+
+> [!NOTE]
+> Cualquier oferta publicada mediante el programa para desarrolladores del marketplace comercial del Centro de partners es válida para alcanzar el estado preparado para la venta cruzada, siempre que se cumplan los requisitos. Las aplicaciones y complementos de Office no son aptos (por ejemplo, Teams, soluciones de SharePoint, Outlook, Excel)
 
 Para que una oferta obtenga el estado Listo para la venta conjunta, debe cumplir los siguientes requisitos:
 

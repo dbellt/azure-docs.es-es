@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: c4f003fc9e418501af76281c10277fce3606e24c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7b8730d9a3e50eb1373cdc2f8f2984c6cc5bbccf
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102124234"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108208012"
 ---
 # <a name="adopting-an-industry-ontology"></a>Adopción de una ontología del sector
 
@@ -24,7 +24,7 @@ En este momento, Microsoft está trabajando con asociados para desarrollar una o
 
 ## <a name="realestatecore-smart-building-ontology"></a>Ontología RealEstateCore para edificios inteligentes
 
-*Aquí puede encontrar la ontología: [**Ontología de RealEstateCore basada en el lenguaje de definición de Digital Twins para edificios inteligentes**](https://github.com/Azure/opendigitaltwins-building)* .
+*Aquí puede encontrar la ontología:* [Ontología de RealEstateCore basada en el lenguaje de definición de Digital Twins para edificios inteligentes](https://github.com/Azure/opendigitaltwins-building).
 
 Microsoft se ha asociado con [RealEstateCore](https://www.realestatecore.io/), un consorcio sueco de propietarios de bienes inmuebles, proveedores de software e instituciones de investigación, para ofrecer una ontología basada en el lenguaje de definición de Digital Twins y de código abierto para el sector inmobiliario.
 
@@ -36,7 +36,7 @@ También puede leer más sobre la asociación con RealEstateCore y los objetivos
 
 ## <a name="smart-cities-ontology"></a>Ontology para las ciudades inteligentes
 
-*Aquí puede encontrar la ontología: [**Ontología basada en el lenguaje de definición de Digital Twins para ciudades inteligentes**](https://github.com/Azure/opendigitaltwins-smartcities)* .
+*Aquí puede encontrar la ontología:* [Ontología basada en el lenguaje de definición de Digital Twins para ciudades inteligentes](https://github.com/Azure/opendigitaltwins-smartcities).
 
 Microsoft ha colaborado con [Open Agile Smart Cities (OASC)](https://oascities.org/) y [Sirus](https://sirus.be/) para proporcionar una ontología basada en el lenguaje de definición de Digital Twins para ciudades inteligentes que empieza por [ETSI CIM NGSI-LD](https://www.etsi.org/committee/cim). Además de ETSI NGSI-LD, también hemos evaluado Saref4City, CityGML, ISO y otras.
 
@@ -48,6 +48,6 @@ Para más información sobre las asociaciones y el enfoque para ciudades intelig
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga más información sobre cómo extender las ontologías estándar del sector para que satisfagan sus especificaciones: [*Conceptos: Extensión de las ontologías del sector*](concepts-ontologies-extend.md).
+* Obtenga más información sobre cómo extender las ontologías estándar del sector para que satisfagan sus especificaciones: [Conceptos: Extensión de las ontologías del sector](concepts-ontologies-extend.md).
 
-* O bien, continúe el proceso de aprendizaje para desarrollar modelos basados en ontologías: [*Uso de estrategias de ontología en un procedimiento de desarrollo de modelos*](concepts-ontologies.md#using-ontology-strategies-in-a-model-development-path).
+* O bien, continúe el proceso de aprendizaje para desarrollar modelos basados en ontologías: [Uso de estrategias de ontología en un procedimiento de desarrollo de modelos](concepts-ontologies.md#using-ontology-strategies-in-a-model-development-path).

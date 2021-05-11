@@ -1,43 +1,161 @@
 ---
-title: Notas del desarrollador para las directivas personalizadas
+title: Notas para desarrolladores sobre flujos de usuario y directivas personalizadas
 titleSuffix: Azure AD B2C
-description: Notas para desarrolladores sobre la configuración y el mantenimiento de Azure AD B2C con directivas personalizadas.
+description: Notas para desarrolladores sobre la configuración y el mantenimiento de Azure AD B2C con flujos de usuario y directivas personalizadas.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/26/2021
+ms.date: 04/30/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fdf6398daf2c0206f5239a90667448d9ea789f65
-ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
+ms.openlocfilehash: e6261699166e0157750fc691bc0c1726d8cefd50
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/26/2021
-ms.locfileid: "108001095"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108324066"
 ---
-# <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Notas para desarrolladores sobre directivas personalizadas en Azure Active Directory B2C
+# <a name="developer-notes-for-azure-active-directory-b2c"></a>Notas para desarrolladores sobre Azure Active Directory B2C
 
-La configuración de directivas personalizadas en Azure Active Directory B2C ya está disponible con carácter general. Este método de configuración está destinado a desarrolladores de identidades avanzados que crean soluciones de identidad complejas. Las directivas personalizadas permiten aprovechar la capacidad de Identity Experience Framework en los inquilinos de Azure AD B2C.
-Los desarrolladores de identidades avanzados que usan directivas personalizadas deben planificar un tiempo para realizar tutoriales y leer documentos de referencia.
+Los [flujos de usuario y las directivas personalizadas](user-flow-overview.md) de Azure Active Directory B2C están disponibles con carácter general. Las funcionalidades de Azure AD B2C están en desarrollo continuo, por lo que aunque la mayoría de las características están disponibles con carácter general, algunas de ellas se encuentran en distintas fases del ciclo de lanzamiento de software. En este artículo se examinan las mejoras acumulativas de Azure AD B2C y se especifica la disponibilidad de características.
 
-Aunque la mayoría de las opciones de directivas personalizadas ya se encuentran disponibles con carácter general, existen funcionalidades subyacentes, como tipos de perfiles técnicos y API de definición de contenido, que se encuentran en fases distintas del ciclo de vida del software. Próximamente se ofrecerán muchas más. En la tabla siguiente se especifica el nivel de disponibilidad a un nivel más pormenorizado.
+## <a name="terms-for-features-in-public-preview"></a>Términos de características en versión preliminar pública
 
-## <a name="features-that-are-generally-available"></a>Características disponibles con carácter general
+- Se aconseja usar las características en versión preliminar pública solo con fines de evaluación.
+- Los Acuerdos de Nivel de Servicio (SLA) no se aplican a las características en versión preliminar pública.
+- Las solicitudes de soporte técnico referentes a las características en versión preliminar pública pueden enviarse a través de los canales de soporte técnico habituales.
 
-- Crear y cargar recorridos del usuario de autenticación personalizada mediante directivas personalizadas.
-    - Describir los recorridos del usuario paso a paso como intercambios entre proveedores de notificaciones.
-    - Definir la creación de ramas condicional en recorridos del usuario.
-- Interoperar con servicios con la API REST habilitada en los recorridos del usuario de autenticación personalizada.
-- Federarse con proveedores de identidades que cumplen con el protocolo OpenIDConnect.
-- Federarse con proveedores de identidades que cumplen el protocolo SAML 2.0.
+## <a name="user-flows"></a>Flujos de usuario
+
+|Característica  |Flujo de usuario  |Directiva personalizada  |Notas  |
+|---------|:---------:|:---------:|---------|
+| [Registro e inicio de sesión](add-sign-up-and-sign-in-policy.md) con correo electrónico y contraseña. | GA | GA| |
+| [Registro e inicio de sesión](add-sign-up-and-sign-in-policy.md) con nombre de usuario y contraseña.| GA | GA | |
+| [Flujo de edición de perfiles](add-profile-editing-policy.md) | GA | GA | |
+| [Autoservicio de restablecimiento de contraseña](add-password-reset-policy.md) | GA| GA| |
+| [Forzar el restablecimiento de contraseñas](force-password-reset.md) | Vista previa | N/D | |
+| [Registro e inicio de sesión por teléfono](phone-authentication-user-flows.md) | GA | GA | |
+
+## <a name="user-experience-customization"></a>Personalización de la experiencia del usuario
+
+|Característica  |Flujo de usuario  |Directiva personalizada  |Notas  |
+|---------|:---------:|:---------:|---------|
+| [Compatibilidad con varios lenguajes](localization.md)| GA | GA | |
+| [Verificación de correo electrónico personalizado](custom-email-mailjet.md) | N/D | GA| |
+| [Personalización de la interfaz de usuario con plantillas integradas](customize-ui.md) | GA| GA| |
+| [Personalización de la interfaz de usuario con plantillas personalizadas](customize-ui-with-html.md) | GA| GA| Mediante plantillas HTML. |
+| [JavaScript](javascript-and-page-layout.md) | GA | GA | |
+| [Experiencia de inicio de sesión insertada](embedded-login.md) | N/D |  Vista previa| Mediante el elemento de marco en línea `<iframe>`. |
+| [Complejidad de la contraseña](password-complexity.md) | GA | GA | |
+| [Deshabilitación de la comprobación de correo electrónico](disable-email-verification.md) | GA|  GA| No se recomienda para entornos de producción. Deshabilitar la comprobación de correos electrónicos en el proceso de registro puede provocar que se reciban correos no deseados. |
+
+
+## <a name="protocols-and-authorization-flows"></a>Protocolos y flujos de autorización
+
+|Característica  |Flujo de usuario  |Directiva personalizada  |Notas  |
+|---------|:---------:|:---------:|---------|
+|[Código de autorización OAuth2](authorization-code-flow.md) | GA | GA |
+|[Código de autorización OAuth2 con PKCE](authorization-code-flow.md)| GA | GA | Clientes públicos y aplicaciones de página única. |
+|[Flujo implícito de OAuth2](implicit-flow-single-page-application.md) | GA | GA | |
+|[Credenciales de contraseña del propietario del recurso OAuth2](add-ropc-policy.md) | Vista previa | Vista previa | |
+|OAuth1 | N/D | N/D | No compatible. |
+|[OpenId Connect](openid-connect.md) | GA | GA | |
+|[SAML2](saml-service-provider.md) | N/D | GA | Enlaces POST y de redirección. |
+| WSFED | N/D | N/D | No compatible. |
+
+## <a name="identity-providers"></a>Proveedores de identidades
+
+|Característica  |Flujo de usuario  |Directiva personalizada  |Notas  |
+|---------|:---------:|:---------:|---------|
+|[AD FS](identity-provider-adfs.md) | N/D | GA | |
+|[Amazon](identity-provider-amazon.md) | GA | GA | |
+|[Apple](identity-provider-apple-id.md) | Vista previa | Vista previa | |
+|[Azure AD (inquilino único)](identity-provider-azure-ad-single-tenant.md) | GA | GA | |
+|[Azure AD (multiinquilino)](identity-provider-azure-ad-multi-tenant.md) | N/D  | GA | |
+|[Azure AD B2C](identity-provider-azure-ad-b2c.md) | GA | GA | |
+|[eBay](identity-provider-ebay.md) | N/D | Vista previa | |
+|[Facebook](identity-provider-facebook.md) | GA | GA | |
+|[GitHub](identity-provider-github.md) | GA | GA | |
+|[Google](identity-provider-google.md) | GA | GA | |
+|[ID.me](identity-provider-id-me.md) | GA | GA | |
+|[LinkedIn](identity-provider-linkedin.md) | GA | GA | |
+|[Cuenta Microsoft](identity-provider-microsoft-account.md) | GA | GA | |
+|[QQ](identity-provider-qq.md) | Vista previa | GA | |
+|[Salesforce](identity-provider-salesforce.md) | GA | GA | |
+|[Salesforce (protocolo SAML)](identity-provider-salesforce-saml.md) | N/D | GA | |
+|[Twitter](identity-provider-twitter.md) | GA | GA | |
+|[WeChat](identity-provider-wechat.md) | Vista previa | GA | |
+|[Weibo](identity-provider-weibo.md) | Vista previa | GA | |
+
+## <a name="generic-identity-providers"></a>Proveedores de identidades genéricos
+
+|Característica  |Flujo de usuario  |Directiva personalizada  |Notas  |
+|---------|:---------:|:---------:|---------|
+|[OAuth2](oauth2-technical-profile.md) | N/D | GA | Por ejemplo, [Google](identity-provider-google.md), [GitHub](identity-provider-github.md) y [Facebook](identity-provider-facebook.md).|
+|[OAuth1](oauth1-technical-profile.md) | N/D | GA | Por ejemplo, [Twitter](identity-provider-twitter.md). |
+|[OpenID Connect](openid-connect-technical-profile.md) | GA | GA | Por ejemplo, [Azure AD](identity-provider-azure-ad-single-tenant.md).  |
+|[SAML2](identity-provider-generic-saml.md) | N/D | GA | Por ejemplo, [Salesforce](identity-provider-salesforce-saml.md) y [AD-FS].(identity-provider-adfs.md) |
+| WSFED | N/D | N/D | |
+
+### <a name="api-connectors"></a>Conectores de API
+
+|Característica  |Flujo de usuario  |Directiva personalizada  |Notas  |
+|---------|:---------:|:---------:|---------|
+|[Conectores de API](api-connectors-overview.md) | Vista previa | GA | |
+|[Protección con autenticación básica](secure-rest-api.md#http-basic-authentication) | Vista previa | GA | |
+|[Protección con autenticación de certificados de cliente](secure-rest-api.md#https-client-certificate-authentication) | Vista previa | GA | |
+|[Protección con la autenticación de portador de OAuth2](secure-rest-api.md#oauth2-bearer-authentication) | N/D | GA | |
+|[Protección con autenticación de clave de API](secure-rest-api.md#api-key-authentication) | N/D | GA | |
+
+### <a name="application-and-azure-ad-b2c-integration"></a>Integración de aplicaciones y Azure AD B2C
+
+|Característica  |Flujo de usuario  |Directiva personalizada  |Notas  |
+|---------|:---------:|:---------:|---------|
+| [Redirección del inicio de sesión a un proveedor social](direct-signin.md#redirect-sign-in-to-a-social-provider) | GA | GA | Parámetro de cadena de consulta `domain_hint`. |
+| [Rellenar previamente el nombre de inicio de sesión](direct-signin.md#prepopulate-the-sign-in-name) | GA | GA | Parámetro de cadena de consulta `login_hint`. |
+| Inserción de JSON en el recorrido del usuario a través de `client_assertion`| N/D| Obsoleto |  |
+| Inserción de JSON en el recorrido del usuario como [id_token_hint](id-token-hint.md) | N/D | GA | |
+| [Paso del token del proveedor de identidades a la aplicación](idp-pass-through-user-flow.md)| Vista previa| Vista previa| Por ejemplo, de Facebook a la aplicación. |
+
+
+## <a name="custom-policy-features"></a>Características de la directiva personalizada
+
+### <a name="session-management"></a>Administración de sesiones
+
+| Característica |  Directiva personalizada | Notas |
+| ------- | :--: | ----- |
+| [Proveedor predeterminado de sesión de SSO](custom-policy-reference-sso.md#defaultssosessionprovider) | GA |  |
+| [Proveedor externo de sesión de inicio de sesión](custom-policy-reference-sso.md#externalloginssosessionprovider) | GA |  |
+| [Proveedor de sesión de SSO de SAML](custom-policy-reference-sso.md#samlssosessionprovider) | GA |  |
+| [Proveedor de sesión de SSO de OAuth](custom-policy-reference-sso.md#oauthssosessionprovider)  | GA|  |
+| [Cierre de sesión único](session-behavior.md#sign-out)  |  Vista previa |  |
+
+### <a name="components"></a>Componentes
+
+| Característica | Directiva personalizada | Notas |
+| ------- | :--: | ----- |
+| [Autenticación de factor de teléfono](phone-factor-technical-profile.md) | GA |  |
+| [Autenticación de MFA de Azure AD](multi-factor-auth-technical-profile.md) | Vista previa |  |
+| [Contraseña de un solo uso](one-time-password-technical-profile.md) | GA |  |
+| [Azure Active Directory](active-directory-technical-profile.md) como directorio local | GA |  |
+| [Validaciones de predicado](predicates.md) | GA | Por ejemplo, la complejidad de la contraseña. |
+| [Controles de presentación](display-controls.md) | GA |  |
+
+### <a name="developer-interface"></a>Interfaz del desarrollador
+
+| Característica | Directiva personalizada | Notas |
+| ------- | :--: | ----- |
+| Portal de Azure | GA |   |
+| [Registros de recorridos del usuario de Application Insights](troubleshoot-with-application-insights.md) | Vista previa | Se usa para solucionar problemas durante el desarrollo.  |
+| [Registros de eventos de Application Insights](analytics-with-application-insights.md) | Vista previa | Se usa para supervisar flujos de usuario en producción. |
 
 ## <a name="responsibilities-of-custom-policy-feature-set-developers"></a>Responsabilidades de los desarrolladores de conjunto de características de directivas personalizadas
 
-La configuración manual de directivas concede un acceso de nivel inferior a la plataforma subyacente de Azure AD B2C y da como resultado la creación de un marco de confianza único. Las múltiples combinaciones posibles de proveedores de identidades personalizadas, relaciones de confianza, integraciones con servicios externos y flujos de trabajo paso a paso requieren un enfoque de diseño y configuración más metódico.
+La configuración manual de directivas concede un acceso de nivel inferior a la plataforma subyacente de Azure AD B2C y da como resultado la creación de un marco de confianza único. Las múltiples permutaciones de proveedores de identidades personalizados, las relaciones de confianza, las integraciones con servicios externos y los flujos de trabajo paso a paso exigen un enfoque de diseño y configuración más metódico.
 
 Los desarrolladores que utilizan el conjunto de características de directivas personalizadas deben cumplir las siguientes directrices:
 
@@ -49,103 +167,6 @@ Los desarrolladores que utilizan el conjunto de características de directivas p
 - Configurar la supervisión activa y supervisar la capacidad de respuesta de los entornos de producción. Para más información sobre la integración con Application Insights, vea [Azure Active Directory B2C: Recopilación de registros](analytics-with-application-insights.md).
 - Mantenga actualizadas las direcciones de correo electrónico de contacto y responda a los correos mensajes de correo electrónico del equipo de Microsoft.
 - Realizar las acciones pertinentes cuando se lo indique el equipo del sitio activo de Microsoft.
-
-## <a name="terms-for-features-in-public-preview"></a>Términos de características en versión preliminar pública
-
-- Se aconseja usar las características en versión preliminar pública solo con fines de evaluación.
-- Los Acuerdos de Nivel de Servicio (SLA) no se aplican a las características en versión preliminar pública.
-- Las solicitudes de soporte técnico para características en versión preliminar pública pueden enviarse a través de los canales de soporte técnico habituales.
-
-## <a name="features-by-stage-and-known-issues"></a>Características por fase y problemas conocidos
-
-Las funcionalidades de las directivas personalizadas se encuentran en constante desarrollo. La siguiente tabla es un índice de disponibilidad de características y componentes.
-
-
-### <a name="protocols-and-authorization-flows"></a>Protocolos y flujos de autorización
-
-| Característica | Desarrollo | Vista previa | GA | Notas |
-|-------- | :-----------: | :-------: | :--: | ----- |
-| [Código de autorización OAuth2](authorization-code-flow.md) |  |  | X |  |
-| Código de autorización OAuth2 con PKCE |  |  | X | [Clientes públicos y aplicaciones de una sola página](authorization-code-flow.md)  |
-| [Flujo implícito de OAuth2](implicit-flow-single-page-application.md) |  |  | X |  |
-| [Credenciales de contraseña del propietario del recurso OAuth2](add-ropc-policy.md) |  | X |  |  |
-| [Conexión OIDC](openid-connect.md) |  |  | X |  |
-| [SAML2](saml-service-provider.md)  |  |  |X  | Enlaces POST y de redirección. |
-| OAuth1 |  |  |  | No compatible. |
-| WSFED | X |  |  |  |
-
-### <a name="identify-providers-federation"></a>Identificación de la federación de proveedores 
-
-| Característica | Desarrollo | Vista previa | GA | Notas |
-|-------- | :-----------: | :-------: | :--: | ----- |
-| [OpenID Connect](openid-connect-technical-profile.md) |  |  | X | Por ejemplo, Google+.  |
-| [OAuth2](oauth2-technical-profile.md) |  |  | X | Por ejemplo, Facebook.  |
-| [OAuth1](oauth1-technical-profile.md) |  | X |  | Por ejemplo, Twitter. |
-| [SAML2](identity-provider-generic-saml.md) |  |   | X | Por ejemplo, Salesforce, ADFS. |
-| WSFED| X |  |  |  |
-
-
-### <a name="rest-api-integration"></a>Integración de API REST
-
-| Característica | Desarrollo | Vista previa | GA | Notas |
-|-------- | :-----------: | :-------: | :--: | ----- |
-| [API REST con autenticación básica](secure-rest-api.md#http-basic-authentication) |  |  | X |  |
-| [API REST con autenticación de certificado de cliente](secure-rest-api.md#https-client-certificate-authentication) |  |  | X |  |
-| [API REST con autenticación de portador de OAuth2](secure-rest-api.md#oauth2-bearer-authentication) |  | X |  |  |
-
-### <a name="component-support"></a>Compatibilidad de componentes
-
-| Característica | Desarrollo | Vista previa | GA | Notas |
-| ------- | :-----------: | :-------: | :--: | ----- |
-| [Autenticación de factor de teléfono](phone-factor-technical-profile.md) |  |  | X |  |
-| [Autenticación de MFA de Azure AD](multi-factor-auth-technical-profile.md) |  | X |  |  |
-| [Contraseña de un solo uso](one-time-password-technical-profile.md) |  |  | X |  |
-| [Azure Active Directory](active-directory-technical-profile.md) como directorio local |  |  | X |  |
-| Subsistema de correo electrónico de Azure para la comprobación de correo electrónico |  |  | X |  |
-| [Proveedores de servicios de correo electrónico de terceros](custom-email-mailjet.md) |  |  | X |  |
-| [Compatibilidad con varios lenguajes](localization.md)|  |  | X |  |
-| [Validaciones de predicado](predicates.md) |  |  | X | Por ejemplo, la complejidad de la contraseña. |
-| [Controles de presentación](display-controls.md) |  |  |X  |  |
-
-
-### <a name="app-ief-integration"></a>Integración de aplicaciones IEF
-
-| Característica | Desarrollo | Vista previa | GA | Notas |
-| ------- | :-----------: | :-------: | :--: | ----- |
-| Parámetro `domain_hint` de cadena de consulta |  |  | X | Disponible como notificación, puede pasarse al IDP. |
-| Parámetro `login_hint` de cadena de consulta |  |  | X | Disponible como notificación, puede pasarse al IDP. |
-| Inserción de JSON en el recorrido del usuario a través de `client_assertion` | X |  |  | En desuso. |
-| Inserción de JSON en el recorrido del usuario como `id_token_hint` |  | X |  | Enfoque de avance para pasar a JSON. |
-| [Paso del token del proveedor de identidades a la aplicación](idp-pass-through-user-flow.md) |  | X |  | Por ejemplo, de Facebook a la aplicación. |
-
-
-### <a name="session-management"></a>Administración de sesiones
-
-| Característica | Desarrollo | Vista previa | GA | Notas |
-| ------- | :-----------: | :-------: | :--: | ----- |
-| [Proveedor predeterminado de sesión de SSO](custom-policy-reference-sso.md#defaultssosessionprovider) |  |  | X |  |
-| [Proveedor externo de sesión de inicio de sesión](custom-policy-reference-sso.md#externalloginssosessionprovider) |  |  | X |  |
-| [Proveedor de sesión de SSO de SAML](custom-policy-reference-sso.md#samlssosessionprovider) |  |  | X |  |
-| [OAuthSSOSessionProvider](custom-policy-reference-sso.md#oauthssosessionprovider)  |  | X |  |  |
-| [Cierre de sesión único](session-behavior.md#sign-out)  |  | X |  |  |
-
-### <a name="security"></a>Seguridad
-
-| Característica | Desarrollo | Vista previa | GA | Notas |
-|-------- | :-----------: | :-------: | :--: | ----- |
-| Claves de directivas: generar, manual, carga |  |  | X |  |
-| Claves de directivas: RSA/Certificado, secretos |  |  | X |  |
-
-
-### <a name="developer-interface"></a>Interfaz del desarrollador
-
-| Característica | Desarrollo | Vista previa | GA | Notas |
-| ------- | :-----------: | :-------: | :--: | ----- |
-| Azure Portal-IEF UX |  |  | X |  |
-| Carga de directiva |  |  | X |  |
-| [Registros de recorridos del usuario de Application Insights](troubleshoot-with-application-insights.md) |  | X |  | Se usa para solucionar problemas durante el desarrollo.  |
-| [Registros de eventos de Application Insights](analytics-with-application-insights.md) |  | X |  | Se usa para supervisar flujos de usuario en producción. |
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

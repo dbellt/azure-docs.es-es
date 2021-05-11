@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 03/20/2021
 ms.author: mathapli
-ms.openlocfilehash: fb5f00cf2e7078ab8d85f0ac1c2a2d54be907f89
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 5b0fcbabfa97312622bc13fbfa4e4bba4b0d847e
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108127180"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108227342"
 ---
-# <a name="azure-hybrid-benefit-for-linux-virtual-machine-scale-set-public-preview"></a>Ventaja híbrida de Azure para los conjuntos de escalado de máquinas virtuales de Linux (versión preliminar pública)
+# <a name="azure-hybrid-benefit-for-linux-virtual-machine-scale-set"></a>Ventaja híbrida de Azure para conjuntos de escalado de máquinas virtuales de Linux
 
-**La Ventaja híbrida de Azure para los conjuntos de escalado de máquinas virtuales de Linux está en versión preliminar pública**. La ventaja de AHB puede ayudarle a reducir el costo que supone la ejecución de los [conjuntos de escalado de máquinas virtuales](./overview.md) de RHEL y SLES.
+La **Ventaja híbrida de Azure para conjuntos de escalado de máquinas virtuales Linux se encuentra ya en disponibilidad general**. La ventaja de AHB puede ayudarle a reducir el costo que supone la ejecución de los [conjuntos de escalado de máquinas virtuales](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview) de RHEL y SLES.
 
 Con esta ventaja, solo paga por el costo de la infraestructura del conjunto de escalado. La ventaja está disponible para todas las imágenes de pago por uso (PAYG) de Marketplace de RHEL y SLES.
 
@@ -71,7 +71,23 @@ Para empezar a usar la ventaja para SUSE:
 
 
 ## <a name="enable-and-disable-the-benefit-on-azure-portal"></a>Habilitación y deshabilitación de la ventaja en Azure Portal 
-La experiencia del portal para habilitar y deshabilitar AHB en el conjunto de escalado de máquinas virtuales **no está disponible actualmente**.
+### <a name="azure-portal-example-to-enable-the-benefit-during-creation"></a>Ejemplo de Azure Portal para habilitar la ventaja durante la creación:
+1. Visite [Microsoft Azure Portal](https://portal.azure.com/)
+1. Vaya a la página "Crear un conjunto de escalado de máquinas virtuales" en el portal.
+ ![AHB al crear VMSS](./media/azure-hybrid-benefit-linux/create-vmss-ahb.png)
+1. Haga clic en la casilla para habilitar la conversión de AHB y usar licencias de acceso a la nube.
+ ![AHB al crear la casilla VMSS](./media/azure-hybrid-benefit-linux/create-vmss-ahb-checkbox.png)
+1. Creación de un conjunto de escalado de máquinas virtuales siguiendo el siguiente conjunto de instrucciones
+1. Compruebe la hoja **Configuración** y verá la opción habilitada. 
+![Hoja del sistema operativo de AHB después de la creación](./media/azure-hybrid-benefit-linux/create-vmss-ahb-os-blade.png)
+
+### <a name="azure-portal-example-to-enable-the-benefit-for-an-existing-virtual-machine-scale-set"></a>Ejemplo de Azure Portal para habilitar la ventaja en un conjunto de escalado de máquinas virtuales existente:
+1. Visite [Microsoft Azure Portal](https://portal.azure.com/)
+1. Abra la página "Conjunto de escalado de máquinas virtuales" en la que quiera aplicar la conversión.
+1. Vaya a la opción **Sistema operativo** de la izquierda. Verá la sección Licencias. Para habilitar la conversión de AHB, active el botón de radio "Sí" y la casilla Confirmación.
+![Hoja de configuración de AHB después de la operación de creación](./media/azure-hybrid-benefit-linux/create-vmss-ahb-os-blade.png)
+
+
 
 ## <a name="enable-and-disable-the-benefit-using-azure-cli"></a>Habilitación y deshabilitación de la ventaja en la CLI de Azure
 

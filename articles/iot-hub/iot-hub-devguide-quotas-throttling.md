@@ -1,22 +1,23 @@
 ---
-title: Información de la limitación y las cuotas de IoT de Azure | Microsoft Docs
+title: Rendimiento del contenido http://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-quotas-throttling
 description: 'Guía del desarrollador: descripción de las cuotas que se aplican a IoT Hub y comportamiento esperado de limitación'
 author: robinsh
 ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 03/18/2021
+ms.date: 04/05/2021
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Operations'
 - 'Role: Technical Support'
-ms.openlocfilehash: 394e4da38f599b9662c8a764cac2a3abbbcad04b
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+- ms.custom:contperf-fy21q4
+ms.openlocfilehash: a18ca18a6e9f7e26c6189cf66322b16f36a42ecb
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108147308"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108277811"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referencia: Cuotas y limitación de IoT Hub
 
@@ -79,7 +80,7 @@ En la tabla siguiente se muestran las limitaciones exigidas. Los valores hacen r
 
 ### <a name="traffic-shaping"></a>Modelado del tráfico
 
-Para dar cabida al tráfico por ráfagas, IoT Hub acepta solicitudes por encima de la limitación durante un tiempo limitado. Las primeras solicitudes se procesan inmediatamente. Pero si el número de solicitudes sigue infringiendo la limitación, IoT Hub empieza a colocar las solicitudes en una cola y las procesa según la tarifa límite de IoT Hub. Este efecto se conoce como *modelado del tráfico*. Además, el tamaño de esta cola es limitado. Si se sigue produciendo una infracción de limitación, la cola acaba llenándose y IoT Hub empieza a rechazar solicitudes con `429 ThrottlingException`.
+Para dar cabida al tráfico por ráfagas, IoT Hub acepta solicitudes por encima de la limitación durante un tiempo limitado. Las primeras solicitudes se procesan inmediatamente. Pero si el número de solicitudes sigue infringiendo la limitación, IoT Hub empieza a colocar las solicitudes en una cola y las procesa según la tarifa límite. Este efecto se conoce como *modelado del tráfico*. Además, el tamaño de esta cola es limitado. Si se sigue produciendo una infracción de limitación, la cola acaba llenándose y IoT Hub empieza a rechazar solicitudes con `429 ThrottlingException`.
 
 Por ejemplo, imagine que usa un dispositivo simulado para enviar 200 mensajes de dispositivo a nube por segundo a S1 IoT Hub (que tiene un límite 100/s envíos D2C.). Durante el primer minuto o dos, los mensajes se procesan inmediatamente. Pero como el dispositivo sigue enviando más mensajes que el límite, IoT Hub empieza a procesar solo 100 mensajes por segundo y pone el resto en cola. Se empieza a notar una mayor latencia. Por último, empieza a recibir la excepción `429 ThrottlingException` a medida que se llena la cola y la [métrica de IoT Hub "Number of throttling errors" (Número de errores de limitación)](monitor-iot-hub-reference.md#device-telemetry-metrics) empieza a aumentar. Para aprender a crear alertas y gráficos basados en métricas, consulte [Supervisión de IoT Hub](monitor-iot-hub.md).
 
@@ -87,7 +88,7 @@ Por ejemplo, imagine que usa un dispositivo simulado para enviar 200 mensajes de
 
 Las operaciones de registro de identidad de dispositivo están diseñadas para usarse en tiempo de ejecución en escenarios de administración y aprovisionamiento de dispositivos. La lectura o actualización de un gran número de identidades de dispositivo se realiza mediante [trabajos de importación y exportación](iot-hub-devguide-identity-registry.md#import-and-export-device-identities).
 
-Al iniciar operaciones de identidad mediante [operaciones de actualización de registro masivo](/rest/api/iothub/service/bulkregistry/updateregistry) (*no* trabajos de importación y exportación en bloque), se aplican los mismos límites. Por ejemplo, si desea enviar una operación masiva para crear 50 dispositivos y tiene una instancia de IoT Hub S1 con 1 unidad, solo se aceptan dos de estas solicitudes masivas por minuto. Esto se debe a que la limitación de la operación de identidad para una instancia de IoT Hub S1 con 1 unidad es 100 min/unidad. También en este caso, se rechazaría una tercera solicitud (y posteriores) en el mismo minuto porque ya se alcanzó el límite. 
+Al iniciar operaciones de identidad mediante [operaciones de actualización de registro masivo](/rest/api/iothub/service/bulkregistry/updateregistry) (*no* trabajos de importación y exportación en bloque), se aplican los mismos límites. Por ejemplo, si desea enviar una operación masiva para crear 50 dispositivos y tiene una instancia de IoT Hub S1 con 1 unidad, solo se aceptan dos de estas solicitudes masivas por minuto. Esto se debe a que la limitación de la operación de identidad para una instancia de IoT Hub S1 con 1 unidad es 100/min/unidad. También en este caso, se rechazaría una tercera solicitud (y posteriores) en el mismo minuto porque ya se alcanzó el límite. 
 
 ### <a name="device-connections-throttle"></a>Limitación de conexiones de dispositivo
 

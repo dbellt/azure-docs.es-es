@@ -4,7 +4,6 @@ description: Este artículo proporciona información general sobre los modelos d
 services: security
 documentationcenter: na
 author: msmbaldwin
-manager: rkarlin
 ms.assetid: 9dcb190e-e534-4787-bf82-8ce73bf47dba
 ms.service: security
 ms.subservice: security-fundamentals
@@ -12,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/09/2020
+ms.date: 04/27/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 95ab5917779a73b7221a5b431126164aef88b494
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 8e39864e2246e175bb9f699f01b78646782d84eb
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107812127"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108315352"
 ---
 # <a name="data-encryption-models"></a>Modelos de cifrado de datos
 
@@ -91,7 +90,7 @@ Cuando se usa el cifrado del lado servidor con las claves administradas del serv
 
 Para escenarios donde el requisito es cifrar los datos en reposo y controlar los clientes de las claves de cifrado, los clientes pueden usar el cifrado de lado servidor mediante las claves almacenadas por el cliente en Key Vault. Algunos servicios solo pueden almacenar la clave de cifrado de clave de raíz en Azure Key Vault y almacenar la clave de cifrado de datos cifrada en una ubicación interna cercana a los datos. En este escenario, los clientes pueden aportar sus propias claves a Key Vault (BYOK: aportar su propia clave), o generar nuevas y usarlas para cifrar los recursos deseados. Mientras que el proveedor de recursos realiza las operaciones de cifrado y descifrado, usa la clave de cifrado de claves configurada como clave raíz para todas las operaciones de cifrado.
 
-La pérdida de claves de cifrado de claves significa también la pérdida de los datos. Por esta razón, no se deben eliminar las claves. Se debe realizar una copia de seguridad de las claves cada vez que se creen o giren. La [eliminación temporal](../../key-vault/general/soft-delete-overview.md) debe estar habilitada en cualquier almacén que almacene claves de cifrado de claves. En lugar de eliminar una clave, establezca la opción Habilitado en "false" o defina la fecha de expiración.
+La pérdida de claves de cifrado de claves significa también la pérdida de los datos. Por esta razón, no se deben eliminar las claves. Se debe realizar una copia de seguridad de las claves cada vez que se creen o giren. La [protección contra eliminación temporal y purga](../../key-vault/general/soft-delete-overview.md) debe habilitarse en cualquier almacén que guarde claves de cifrado de claves a fin de proteger contra el borrado criptográfico accidental o malintencionado. En lugar de eliminar una clave, se recomienda establecer el valor Enabled en false en la clave de cifrado de claves.
 
 ### <a name="key-access"></a>Acceso a la clave
 
@@ -198,9 +197,6 @@ Los servicios de Azure que admiten cada modelo de cifrado:
 | Azure Cosmos DB                  | Sí                | Sí                | -                  |
 | Azure Databricks                 | Sí                | Sí                | -                  |
 | Azure Database Migration Service | Sí                | N/D\*              | -                  |
-| **DevOps**                       |                    |                    |                    |
-| Azure DevOps Services            | Sí                | -                  | -                  |
-| Azure Repos                      | Sí                | -                  | -                  |
 | **Identidad**                     |                    |                    |                    |
 | Azure Active Directory           | Sí                | -                  | -                  |
 | Azure Active Directory Domain Services | Sí          | Sí                | -                  |

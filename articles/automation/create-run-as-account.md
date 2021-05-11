@@ -1,20 +1,22 @@
 ---
 title: Creación de una cuenta de ejecución de Azure Automation
-description: En este artículo se describe cómo crear una cuenta de ejecución con PowerShell o desde Azure Portal.
+description: En este artículo se describe cómo crear una cuenta de ejecución de Azure Automation con PowerShell o desde Azure Portal.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/06/2021
+ms.date: 04/29/2021
 ms.topic: conceptual
-ms.openlocfilehash: ef6afff30da48b79b42e5fb4b3c72c3500f22dd1
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 368bbfd0bc4dd0a3c8c2792487db52e8585c2ea1
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102172310"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108277631"
 ---
 # <a name="how-to-create-an-azure-automation-run-as-account"></a>Creación de una cuenta de ejecución de Azure Automation
 
 Las cuentas de ejecución de Azure Automation proporcionan autenticación para administrar recursos en el modelo de implementación clásico de Azure o Azure Resource Manager mediante runbooks de Automation y otras características de Automation. En este artículo se describe cómo crear una cuenta de ejecución o de ejecución clásica desde Azure Portal o Azure PowerShell.
+
+Al crear la cuenta de ejecución o la cuenta de ejecución clásica en Azure Portal, se usa de forma predeterminada un certificado autofirmado. Si quiere usar un certificado emitido por su entidad de certificación (CA) empresarial o de terceros, puede usar el [script de PowerShell para crear una cuenta de ejecución](#powershell-script-to-create-a-run-as-account).
 
 ## <a name="create-account-in-azure-portal"></a>Creación de una cuenta en Azure Portal
 
@@ -63,9 +65,8 @@ Para obtener los valores de `AutomationAccountName`, `SubscriptionId` y `Resourc
 
 El script de PowerShell incluye compatibilidad con varias configuraciones.
 
-* Creación de una cuenta de ejecución mediante un certificado autofirmado.
 * Creación de una cuenta de ejecución o una cuenta de ejecución clásica mediante un certificado autofirmado.
-* Cree una cuenta de ejecución o una cuenta de ejecución clásica mediante un certificado emitido por su entidad de certificación (CA) empresarial.
+* Cree una cuenta de ejecución o una cuenta de ejecución clásica mediante un certificado emitido por su entidad de certificación (CA) empresarial o de terceros.
 * Creación de una cuenta de ejecución o una cuenta de ejecución clásica mediante un certificado autofirmado en la nube de Azure Government.
 
 1. Descargue y guarde el script en una carpeta local con el siguiente comando.
@@ -108,6 +109,6 @@ El script de PowerShell incluye compatibilidad con varias configuraciones.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para obtener más información sobre la creación de runbooks gráficos, vea [Creación de runbooks gráficos en Azure Automation](automation-graphical-authoring-intro.md).
 * Para empezar a trabajar con runbooks de PowerShell, vea [Tutorial: Creación de un runbook de PowerShell](learn/automation-tutorial-runbook-textual-powershell.md).
+
 * Para empezar a trabajar con un runbook de Python 3, consulte [Tutorial: Creación de un runbook de Python 3](learn/automation-tutorial-runbook-textual-python-3.md).

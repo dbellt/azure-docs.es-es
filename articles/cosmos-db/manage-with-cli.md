@@ -5,14 +5,14 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 10/13/2020
+ms.date: 04/25/2021
 ms.author: mjbrown
-ms.openlocfilehash: b13f5bfffced9afd80663d606e30e028e52643ac
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 04f79c4ab67dc2fa2e1e969bfdff169042f0d576
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94563845"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108227567"
 ---
 # <a name="manage-azure-cosmos-core-sql-api-resources-using-azure-cli"></a>Administración de recursos de API de Azure Cosmos Core (SQL) mediante la CLI de Azure
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -21,7 +21,7 @@ En la siguiente guía, se describen los comandos comunes para automatizar la adm
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-- En este artículo se necesita la versión 2.12.1 de la CLI de Azure, o cualquier versión posterior. Si usa Azure Cloud Shell, ya está instalada la versión más reciente.
+- En este artículo se necesita la versión 2.22.1, o versiones posteriores, de la CLI de Azure. Si usa Azure Cloud Shell, ya está instalada la versión más reciente.
 
 Para obtener ejemplos de la CLI de Azure para otras API, consulte [Ejemplos de la CLI para Cassandra](cli-samples-cassandra.md), [Ejemplos de la CLI para MongoDB API](cli-samples-mongodb.md), [Ejemplos de la CLI para Gremlin](cli-samples-gremlin.md), [Ejemplos de la CLI para Table](cli-samples-table.md).
 
@@ -70,6 +70,8 @@ Cree una cuenta de Azure Cosmos con dos regiones, agregue una región y quite ot
 > En una cuenta de Azure Cosmos no es posible agregar o quitar ubicaciones `locations` y, al mismo tiempo, cambiar otras propiedades. La modificación de regiones debe realizarse como una operación independiente, nunca a la vez que otro cambio en el recurso de la cuenta.
 > [!NOTE]
 > Este comando permite agregar y quitar regiones, pero no permite modificar las prioridades de conmutación por error ni desencadenar una conmutación por error manual. Consulte [Establecimiento de la prioridad de conmutación por error](#set-failover-priority) y [Desencadenamiento de una conmutación por error manual](#trigger-manual-failover).
+> [!TIP]
+> Cuando se agrega una nueva región, todos los datos deben replicarse por completo y estar confirmados en la nueva región antes de que la región se marque como disponible. La cantidad de tiempo que tarde esta operación dependerá de la cantidad de datos almacenados en la cuenta.
 
 ```azurecli-interactive
 resourceGroupName='myResourceGroup'

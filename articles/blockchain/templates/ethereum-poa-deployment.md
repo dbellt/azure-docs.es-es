@@ -5,12 +5,12 @@ ms.date: 03/01/2021
 ms.topic: how-to
 ms.reviewer: ravastra
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: f4b12a9b3b830fcc4f45cb5e957232fee5a756a3
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 0ced84afc47c188dc8f5d911794a90cdbeeebd81
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106078652"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108164928"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Implementación de la solución Consorcio de prueba de autoridad de Ethereum en Azure
 
@@ -97,7 +97,7 @@ Dirección de correo electrónico | Recibirá una notificación por correo elect
 Nombre de usuario de máquina virtual | Nombre de usuario del administrador de cada una de las máquinas virtuales que se ha implementado | 1-64 caracteres alfanuméricos
 Tipo de autenticación | El método de autenticación en la máquina virtual. | Contraseña
 Contraseña | La contraseña de la cuenta de administrador para cada una de las máquinas virtuales implementadas. Inicialmente, todas las VM tienen la misma contraseña. Puede cambiar la contraseña después del aprovisionamiento. | De 12 a 72 caracteres 
-Subscription | La suscripción en la que se va a implementar la red del consorcio. |
+Suscripción | La suscripción en la que se va a implementar la red del consorcio. |
 Grupo de recursos| El grupo de recursos en el que se va a implementar la red del consorcio. | myResourceGroup
 Location | La región de Azure para el grupo de recursos. | Oeste de EE. UU. 2
 
@@ -241,7 +241,7 @@ El miembro existente debe ejecutar el siguiente script de PowerShell para comple
 
 ![cloud shell](./media/ethereum-poa-deployment/cloud-shell.png)
 
-```Powershell
+```powershell
 $MyGatewayResourceId = "<EXISTING_MEMBER_RESOURCEID>"
 $OtherGatewayResourceId = "<NEW_MEMBER_RESOURCEID]"
 $ConnectionName = "Leader2Member"
@@ -288,7 +288,7 @@ Los administradores tienen la capacidad de delegar la participación de consenso
 
 Para realizar cualquier tipo de transacción con la aplicación descentralizada de gobernanza, debe usar una cartera de Ethereum. La estrategia más sencilla es usar una cartera en el explorador, como [MetaMask](https://metamask.io); pero dado que estos contratos inteligentes están implementados en la red, también puede automatizar sus interacciones con el contrato de gobernanza.
 
-Después de instalar MetaMask, vaya a la aplicación descentralizada de gobernanza en el explorador.  Puede buscar la dirección URL a través de Azure Portal en la salida de implementación.  Si no tiene ninguna cartera instalada en el explorador, no podrá realizar ninguna acción, pero podrá ver el estado del administrador.  
+Después de instalar MetaMask, vaya a la aplicación descentralizada de gobernanza en el explorador.  Puede buscar la dirección URL a través de Azure Portal en la salida de implementación.  Si no tiene ninguna cartera instalada en el explorador, no podrá realizar ninguna acción, pero podrá ver el estado del administrador.
 
 ### <a name="becoming-an-admin"></a>Convertirse en administrador
 

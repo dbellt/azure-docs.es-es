@@ -1,18 +1,19 @@
 ---
-title: 'VPN Gateway: modificar la configuración de la dirección IP de puerta de enlace: Portal de Azure'
-description: Este artículo explica paso a paso cómo cambiar los prefijos de direcciones IP de la puerta de enlace de red local con Azure Portal.
+title: 'Modificación de la configuración de la dirección IP de puerta de enlace: Azure Portal'
+titleSuffix: Azure VPN Gateway
+description: Aprenda a cambiar los prefijos de dirección IP de la puerta de enlace de red local mediante Azure Portal.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: cherylmc
-ms.openlocfilehash: 4ff4f1238764d7bdab6e74d29254a6388ea76d78
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: eab7c2d8468d3895f70d954ed3b1ef6dfdb25245
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92143135"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108288425"
 ---
 # <a name="modify-local-network-gateway-settings-using-the-azure-portal"></a>Modificación de la configuración de la puerta de enlace de red local mediante Azure Portal
 

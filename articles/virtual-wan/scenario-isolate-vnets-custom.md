@@ -1,19 +1,19 @@
 ---
 title: 'Escenario: Aislamiento personalizado para redes virtuales'
 titleSuffix: Azure Virtual WAN
-description: 'Escenarios de enrutamiento: impedir que las redes virtuales seleccionadas puedan comunicarse entre sí'
+description: Obtenga información sobre los escenarios de aislamiento personalizado de enrutamiento de Virtual WAN para evitar que un conjunto específico de redes virtuales pueda comunicarse con otro conjunto específico de redes virtuales, pero es necesario que las redes virtuales se comuniquen con todas las ramas.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 04/27/2021
 ms.author: cherylmc
-ms.openlocfilehash: ca1ee8418bc08d70a031d81a15dc1b4ace2f1a3a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 56a0fe561d026f1b01f27cf3015c31820e8110bb
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92461828"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108162048"
 ---
 # <a name="scenario-custom-isolation-for-vnets"></a>Escenario: Aislamiento personalizado para redes virtuales
 

@@ -3,12 +3,12 @@ title: Introducción a Container Insights | Microsoft Docs
 description: En este artículo se describe Container Insights, que supervisa la solución AKS Container Insights y el valor que entrega mediante la supervisión del estado de los clústeres de AKS y Container Instances en Azure.
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: a29890f569c47c48aae7d5d61badee7edeef58a0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 3310be54476a9449188c2b7fbfa5bbb6e21cb005
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102441523"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108177717"
 ---
 # <a name="container-insights-overview"></a>Introducción a Container Insights
 
@@ -39,7 +39,7 @@ Container Insights ofrece una experiencia de supervisión completa con diferente
 * Revisar el uso de recursos de las cargas de trabajo que se ejecutan en el host que no estén relacionadas con los procesos estándar que admite el pod.
 * Conocer el comportamiento del clúster tanto con cargas medias como con las más pesadas. Este conocimiento puede ayudarle a identificar los requisitos de capacidad y determinar la carga máxima que el clúster puede admitir.
 * Configure alertas para que le notifiquen de manera proactiva o registren el hecho de que el uso de la CPU y la memoria en nodos o contenedores supera los umbrales, o cuando se produzca un cambio del estado de mantenimiento en el clúster en la infraestructura o la acumulación de estado de los nodos.
-* Integrarse con [Prometheus](https://prometheus.io/docs/introduction/overview/) para ver las métricas de la aplicación y de la carga de trabajo que recopila de los nodos y Kubernetes mediante [consultas](container-insights-log-search.md) para crear alertas personalizadas y paneles y realizar un análisis detallado.
+* Integrarse en [Prometheus](https://prometheus.io/docs/introduction/overview/) para ver las métricas de aplicaciones y de cargas de trabajo que recopila de los nodos y de Kubernetes mediante [consultas](container-insights-log-search.md) para crear alertas personalizadas y paneles y realizar análisis detallado.
 * Supervise las cargas de trabajo de contenedor [implementadas en AKS Engine](https://github.com/Azure/aks-engine) de manera local y [AKS Engine en Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview).
 * Supervise las cargas de trabajo de contenedor [implementadas en Red Hat OpenShift en Azure](../../openshift/intro-openshift.md).
 

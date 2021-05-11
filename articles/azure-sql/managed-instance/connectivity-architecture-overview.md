@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
-ms.date: 04/24/2021
-ms.openlocfilehash: 99ec792937a85122fc3e6886309f1f9b24eecafc
-ms.sourcegitcommit: aaba99b8b1c545ad5d19f400bcc2d30d59c63f39
+ms.date: 04/29/2021
+ms.openlocfilehash: 8a753d598c55653536284679f2848c24dd571f2a
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/26/2021
-ms.locfileid: "108007527"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108289379"
 ---
 # <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Arquitectura de conectividad de Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -87,7 +87,7 @@ Cuando las conexiones se inician dentro de SQL Managed Instance (como en las cop
 
 Para cumplir los requisitos de manejabilidad y seguridad de los clientes, SQL Managed Instance cambia de una configuración de subred manual a una asistida por servicio.
 
-Con la configuración de subred asistida por servicio, el usuario tiene control total sobre el tráfico de datos (TDS) a la vez que SQL Managed Instance asume la responsabilidad de garantizar el flujo ininterrumpido de tráfico de administración para cumplir el Acuerdo de Nivel de Servicio.
+Con la configuración de subred asistida por servicio, el cliente tiene control total sobre el tráfico de datos (TDS) a la vez que el plano de control de SQL Managed Instance asume la responsabilidad de garantizar el flujo ininterrumpido de tráfico de administración para cumplir el contrato de nivel de servicio.
 
 La configuración de la subred asistida por servicio se basa en la característica de [delegación de subred](../../virtual-network/subnet-delegation-overview.md) de la red virtual para proporcionar administración automática de la configuración de red y habilitar puntos de conexión de servicio. 
 
@@ -100,7 +100,7 @@ Los puntos de conexión de servicio podrían usarse para configurar reglas de fi
 
 Implemente SQL Managed Instance en una subred dedicada dentro de la red virtual. La subred debe tener estas características:
 
-- **Subred dedicada:** la subred de SQL Managed Instance no puede contener ningún otro servicio en la nube asociado a ella ni puede ser una subred de puerta de enlace. La subred no puede contener ningún recurso, a excepción de SQL Managed Instance, ni se le pueden agregar posteriormente otros tipos de recursos.
+- **Subred dedicada:** La subred de la instancia administrada no puede contener ningún otro servicio en la nube asociado a ella, pero otras instancias administradas sí lo tienen permitido, y no puede ser una subred de puerta de enlace. La subred no puede contener ningún recurso, a excepción de las instancias administradas, y no se pueden agregar posteriormente otros tipos de recursos en la subred.
 - **Delegación de subred:** la subred de SQL Managed Instance debe delegarse en el proveedor de recursos `Microsoft.Sql/managedInstances`.
 - **Grupo de seguridad de red (NSG):** se debe asociar un grupo de seguridad de red a la subred de SQL Managed Instance. Puede usar un NSG para controlar el acceso al punto de conexión de datos de SQL Managed Instance mediante el filtrado del tráfico en el puerto 1433 y en los puertos 11000 a 11999 cuando SQL Managed Instance se configura para conexiones de redirección. El servicio aprovisionará y mantendrá automáticamente las [reglas](#mandatory-inbound-security-rules-with-service-aided-subnet-configuration) actuales necesarias para permitir el flujo ininterrumpido de tráfico de administración.
 - **Tabla de rutas definida por el usuario (UDR):** se debe asociar una tabla UDR a la subred de SQL Managed Instance. Puede agregar entradas a la tabla de rutas para enrutar el tráfico que tiene intervalos IP privados locales como destino a través de una puerta de enlace de red virtual o de un dispositivo de red virtual (NVA). El servicio aprovisionará y mantendrá automáticamente las [entradas](#mandatory-user-defined-routes-with-service-aided-subnet-configuration) actuales necesarias para permitir el flujo ininterrumpido de tráfico de administración.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/21/2021
 ms.author: phjensen
-ms.openlocfilehash: 1cd22ad59da4961644c4e4d05150ba8565bf47a0
-ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
+ms.openlocfilehash: 86783df03a395e287a6656b52099cffc579ee31f
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2021
-ms.locfileid: "107929766"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108226289"
 ---
 # <a name="what-is-azure-application-consistent-snapshot-tool"></a>¿Qué es la herramienta Azure Application Consistent Snapshot?
 
@@ -44,7 +44,7 @@ AzAcSnap aprovecha las funcionalidades de replicación e instantánea de volumen
 - **Clonación de volúmenes de almacenamiento**: esta funcionalidad proporciona clones de los volúmenes de almacenamiento con un espacio eficaz para fines de desarrollo y pruebas.
 - **Compatibilidad con la recuperación ante desastres**: AzAcSnap aprovecha la replicación del volumen de almacenamiento para proporcionar opciones para recuperar instantáneas coherentes con la aplicación replicada en un sitio remoto.
 
-AzAcSnap es un binario sencillo.  No necesita agentes o complementos adicionales para interactuar con la base de datos o el almacenamiento (Azure NetApp Files mediante Azure Resource Manager y Azure Large Instance mediante SSH).  AzAcSnap debe estar instalado en un sistema con conectividad con la base de datos y el almacenamiento.  Sin embargo, la flexibilidad de instalación y configuración permite una sola instalación centralizada o una instalación totalmente distribuida con copias instaladas en cada instalación de base de datos.
+AzAcSnap es un binario sencillo.  No necesita agentes o complementos adicionales para interactuar con la base de datos o el almacenamiento (Azure NetApp Files mediante Azure Resource Manager y Azure Large Instance mediante SSH).  AzAcSnap debe estar instalado en un sistema con conectividad con la base de datos y el almacenamiento.  Sin embargo, la flexibilidad de instalación y configuración permite una sola instalación centralizada (solo Azure NetApp Files) o una instalación totalmente distribuida (Azure NetApp Files y Azure, instancias grandes) con copias instaladas en cada instalación de base de datos.
 
 ## <a name="architecture-overview"></a>Información general sobre la arquitectura
 

@@ -1,25 +1,21 @@
 ---
-title: Migración de VPN Gateway (clásico) a Resource Manager | Microsoft Docs
-description: En esta página se proporciona información general sobre la migración de VPN Gateway (clásico) a Resource Manager.
-documentationcenter: na
+title: Migración de puertas de enlace de VPN del modelo clásico a Resource Manager
+titleSuffix: Azure VPN Gateway
+description: Obtenga información sobre cómo migrar recursos de VPN Gateway del modelo de implementación clásica al modelo de implementación de Resource Manager.
 services: vpn-gateway
 author: amsriva
 manager: rossort
-editor: amsriva
-ms.assetid: caa8eb19-825a-4031-8b49-18fbf3ebc04e
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/06/2020
 ms.author: amsriva
-ms.openlocfilehash: c9d7fb8be1894ffa5f8c35e16e1ed3aa0949b3ff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0d7d4dda75fba86bf5d624ea277b8866490ea608
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96488211"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108291197"
 ---
 # <a name="vpn-gateway-classic-to-resource-manager-migration"></a>Migración de VPN Gateway (clásico) a Resource Manager
 Las instancias de VPN Gateway ahora se pueden migrar del modelo de implementación clásica al de Resource Manager. Puede leer más información sobre las [características y ventajas](../azure-resource-manager/management/overview.md) de Azure Resource Manager. En este artículo, se explica cómo migrar desde implementaciones clásicas al nuevo modelo basado en Resource Manager. 

@@ -11,16 +11,16 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 03/02/2021
 ms.custom: devx-track-python, data4ml, synapse-azureml
-ms.openlocfilehash: ec0ceb496d2e6d1b15819aa6b2353e54a5303354
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: f175e8d5c3dd19b212dfbdd04025d12f549667ed
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107889779"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108293303"
 ---
 # <a name="attach-apache-spark-pools-powered-by-azure-synapse-analytics-for-data-wrangling-preview"></a>Conexión de grupos de Apache Spark (con tecnología de Azure Synapse Analytics) para la limpieza y transformación de datos (versión preliminar)
 
-En este artículo, aprenderá a asociar un grupo de Apache Spark con tecnología de [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md) al área de trabajo de Azure Machine Learning para que pueda iniciarlo y realizar la reorganización de datos a escala. 
+En este artículo, aprenderá a asociar un grupo de Apache Spark con tecnología de [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md) al [área de trabajo de Azure Machine Learning](concept-workspace.md) para que pueda iniciarlo y realizar la reorganización de datos a escala. 
 
 Este artículo contiene instrucciones para realizar tareas de limpieza y transformación de datos de forma interactiva en una sesión de Synapse dedicada en un cuaderno de Jupyter Notebook con el [SDK de Azure Machine Learning para Python](/python/api/overview/azure/ml/). Si prefiere usar canalizaciones de Azure Machine Learning, consulte [Uso de Apache Spark (con tecnología de Azure Synapse Analytics) en la canalización de aprendizaje automático (versión preliminar)](how-to-use-synapsesparkstep.md).
 
@@ -306,7 +306,7 @@ Consulte el ejemplo de código siguiente:
 * En él se supone que ya ha creado un almacén de datos que se conecta al servicio de almacenamiento en el que guardó los datos preparados.  
 * Obtiene el almacén de datos existente, `mydatastore`, del área de trabajo, `ws`, con el método get().
 * Crea un objeto [FileDataset](how-to-create-register-datasets.md#filedataset), `train_ds`, que hace referencia a los archivos de datos preparados ubicados en el directorio `training_data` de `mydatastore`.  
-* Crea la variable `input1`, que se puede usar más adelante para que los archivos de datos del conjunto de datos `train_ds` estén disponibles para un destino de proceso.
+* Crea la variable `input1`, que se puede usar más adelante para que los archivos de datos del conjunto de datos `train_ds` estén disponibles para un destino de proceso correspondiente a las tareas de entrenamiento.
 
 ```python
 from azureml.core import Datastore, Dataset
@@ -318,14 +318,36 @@ train_ds = Dataset.File.from_files(path=datastore_paths, validate=True)
 input1 = train_ds.as_mount()
 
 ```
+
 ## <a name="use-a-scriptrunconfig-to-submit-an-experiment-run-to-a-synapse-spark-pool"></a>Uso de `ScriptRunConfig` para enviar una ejecución de experimento a un grupo de Synapse Spark
 
-También puede [aprovechar el clúster de Synapse Spark asociado anteriormente](#attach-a-pool-with-the-python-sdk) como destino de proceso para enviar una ejecución de experimento con un objeto [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig).
+Si está listo para automatizar y enviar a producción las tareas de limpieza y transformación de datos, puede enviar una ejecución de experimento al [grupo de Synapse Spark que asoció anteriormente](#attach-a-pool-with-the-python-sdk) con el objeto [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig).  
+
+De forma similar, si tiene una canalización de Azure Machine Learning, puede usar [SynapseSparkStep para especificar el grupo de Spark de Synapse como destino de proceso para el paso de preparación de datos de la canalización](how-to-use-synapsesparkstep.md).
+
+La disponibilidad de los datos para el grupo de Spark de Synapse depende del tipo del conjunto de datos. 
+
+* En el caso de FileDataset, puede usar el método [`as_hdfs()`](/python/api/azureml-core/azureml.data.filedataset#as-hdfs--). Cuando se envía la ejecución, el conjunto de datos está disponible para el grupo de Spark de Synapse como un sistema de archivos distribuido de Hadoop (HFDS). 
+* Para [TabularDataset](how-to-create-register-datasets.md#tabulardataset), puede usar el método [`as_named_input()`](/python/api/azureml-core/azureml.data.abstract_dataset.abstractdataset#as-named-input-name-). 
+
+El código siguiente: 
+
+* Crea la variable `input2` a partir del objeto FileDataset `train_ds` que se creó en el ejemplo de código anterior.
+* Crea la variable `output` con la clase HDFSOutputDatasetConfiguration. Una vez finalizada la ejecución, esta clase nos permite guardar la salida de la ejecución como el conjunto de datos `test` en el almacén de datos `mydatastore`. En el área de trabajo Azure Machine Learning, el conjunto de datos `test` está registrado con el nombre `registered_dataset`. 
+* Configura los valores que debe usar la ejecución para llevarse a cabo en el grupo de Spark de Synapse. 
+* Define los parámetros ScriptRunConfig para hacer lo siguiente 
+  * Usar `dataprep.py` para la ejecución. 
+  * Especificar qué datos debe usar como entrada y cómo hacer que estén disponibles para el grupo de Spark de Synapse.
+  * Especificar dónde se almacenarán los datos de salida `output`.  
 
 ```Python
+from azureml.core import Dataset, HDFSOutputDatasetConfig
 from azureml.core import RunConfiguration
 from azureml.core import ScriptRunConfig 
 from azureml.core import Experiment
+
+input2 = train_ds.as_hdfs()
+output = HDFSOutputDatasetConfig(destination=(datastore, "test").register_on_complete(name="registered_dataset")
 
 run_config = RunConfiguration(framework="pyspark")
 run_config.target = synapse_compute_name
@@ -340,8 +362,7 @@ run_config.environment.python.conda_dependencies = conda_dep
 
 script_run_config = ScriptRunConfig(source_directory = './code',
                                     script= 'dataprep.py',
-                                    arguments = ["--tabular_input", input1, 
-                                                 "--file_input", input2,
+                                    arguments = ["--file_input", input2,
                                                  "--output_dir", output],
                                     run_config = run_config)
 ```
@@ -355,11 +376,16 @@ exp = Experiment(workspace=ws, name="synapse-spark")
 run = exp.submit(config=script_run_config) 
 run
 ```
-Para obtener más detalles, como el script `dataprep.py` usado en este ejemplo, vea el cuaderno de [ejemplo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-synapse/spark_session_on_synapse_spark_pool.ipynb).
+
+Para obtener más detalles, como el script `dataprep.py` usado en este ejemplo, vea el cuaderno de [ejemplo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-synapse/spark_job_on_synapse_spark_pool.ipynb).
+
+Una vez preparados los datos, puede usarlos como entrada para los trabajos de entrenamiento. En el ejemplo de código mencionado anteriormente, `registered_dataset` es lo que se especificaría como datos de entrada para los trabajos de entrenamiento. 
 
 ## <a name="example-notebooks"></a>Cuadernos de ejemplo
 
-Consulte este [cuaderno de ejemplo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-synapse/spark_session_on_synapse_spark_pool.ipynb) para ver más conceptos y demostraciones de las funcionalidades de integración de Azure Synapse Analytics y Azure Machine Learning.
+Consulte los cuadernos de ejemplo para ver más conceptos y demostraciones de las funcionalidades de integración de Azure Synapse Analytics y Azure Machine Learning.
+* [Ejecute una sesión interactiva de Spark desde un cuaderno en el área de trabajo de Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-synapse/spark_session_on_synapse_spark_pool.ipynb).
+* [Envíe una ejecución de experimento de Azure Machine Learning con un grupo de Spark de Synapse como destino de proceso](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-synapse/spark_job_on_synapse_spark_pool.ipynb).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

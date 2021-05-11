@@ -14,16 +14,19 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 04/21/2021
 ms.author: phjensen
-ms.openlocfilehash: bf3921762c94695f0c03e653c6ea06ebc145501b
-ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
+ms.openlocfilehash: 16e758ac520c8584a11c88c0823fac7cfec43c0b
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2021
-ms.locfileid: "107929784"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108226307"
 ---
 # <a name="install-azure-application-consistent-snapshot-tool"></a>Instalación de la herramienta Azure Application Consistent Snapshot
 
-En este artículo se ofrece una guía de instalación de la herramienta Azure Application Consistent Snapshot que puede usar con Azure NetApp Files.
+En este artículo se ofrece una guía de instalación de la herramienta Azure Application Consistent Snapshot que puede usar con Azure NetApp Files o Azure (instancias grandes).
+
+> [!IMPORTANT]
+> Las instalaciones distribuidas son la única opción para los sistemas de **Azure (instancias grandes)** , ya que se implementan en una red privada.  Por lo tanto, las instalaciones de AzAcSnap deben realizarse en cada sistema para garantizar la conectividad.
 
 ## <a name="introduction"></a>Introducción
 

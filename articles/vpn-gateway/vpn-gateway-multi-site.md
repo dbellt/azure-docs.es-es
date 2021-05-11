@@ -1,6 +1,6 @@
 ---
 title: 'Conexión de una red virtual a varios sitios mediante VPN Gateway: versión clásica'
-description: Conecte varios sitios locales a una red virtual clásica con una instancia de VPN Gateway.
+description: Obtenga información sobre cómo conectar varios sitios locales a una red virtual clásica con una instancia de VPN Gateway.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: yushwang
@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: yushwang
-ms.openlocfilehash: 168bb9e06c73ec27ec1304813023889c9549b8e6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2dc2aad5d5b815c59d7f8add34b9700d7448e091
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94660702"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108292727"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>Agregar una conexión de sitio a sitio a una red virtual con una conexión de VPN Gateway existente (clásico)
 

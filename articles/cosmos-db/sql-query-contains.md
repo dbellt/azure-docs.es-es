@@ -5,15 +5,15 @@ author: ginamr
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 06/02/2020
+ms.date: 04/01/2021
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 4b6835b22e5cfa4ca703b95d70e20112b8723def
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2f897df5be819838d824da1170d92c18ff42a354
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93339179"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108161148"
 ---
 # <a name="contains-azure-cosmos-db"></a>CONTAINS (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -62,23 +62,7 @@ SELECT CONTAINS("abc", "ab", false) AS c1, CONTAINS("abc", "A", false) AS c2, CO
 
 ## <a name="remarks"></a>Observaciones
 
-Esta función del sistema se beneficiará de un [índice de intervalo](index-policy.md#includeexclude-strategy).
-
-El consumo de RU de Contains aumentará a medida que se incremente la cardinalidad de la propiedad en la función del sistema. En otras palabras, si está comprobando si un valor de propiedad contiene una cadena determinada, el cargo de la consulta RU dependerá del número de valores posibles para esa propiedad.
-
-Por ejemplo, considere dos propiedades: ciudad y país. La cardinalidad de ciudad es 5000 y la de país es 200. Aquí se muestran dos consultas de ejemplo:
-
-```sql
-    SELECT * FROM c WHERE CONTAINS(c.town, "Red", false)
-```
-
-```sql
-    SELECT * FROM c WHERE CONTAINS(c.country, "States", false)
-```
-
-La primera consulta probablemente usará más RU que la segunda porque la cardinalidad de ciudad es mayor que la de país.
-
-Si el tamaño de la propiedad en Contains es superior a 1 KB para algunos documentos, el motor de consulta tendrá que cargar esos documentos. En este caso, el motor de consulta no podrá evaluar totalmente Contains con un índice. El cargo de RU para Contains será alto si tiene un gran número de documentos con tamaños de propiedad superiores a 1 KB.
+Obtenga información sobre [cómo esta función del sistema de cadenas usa el índice](sql-query-string-functions.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

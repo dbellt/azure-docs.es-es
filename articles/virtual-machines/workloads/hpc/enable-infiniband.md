@@ -1,19 +1,19 @@
 ---
-title: 'Habilitación de InifinBand en VM de HPC: Microsoft Azure Virtual Machines | Microsoft Docs'
+title: 'Habilitación de InifiniBand en VM de HPC: máquinas virtuales de Azure | Microsoft Docs'
 description: Aprenda a habilitar InfiniBand en VM de Azure HPC.
 author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 03/18/2021
+ms.date: 04/28/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: dba336c8690bba2bb388a8b9ab2d52b651166da5
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: 6f2a9502074543272b69f01b567da89b421f6fa6
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107599611"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108227765"
 ---
 # <a name="enable-infiniband"></a>Habilitar InfiniBand
 
@@ -22,9 +22,7 @@ Las máquinas virtuales de [serie H](../../sizes-hpc.md) y [serie N](../../sizes
 Hay varias maneras de habilitar InfiniBand en los tamaños de máquina virtual compatibles.
 
 ## <a name="vm-images-with-infiniband-drivers"></a>Imágenes de máquinas virtuales con controladores de InfiniBand
-Consulte [Imágenes de máquinas virtuales](configure.md#vm-images) para obtener una lista de imágenes de máquinas virtuales compatibles en Marketplace, que se cargan previamente con los controladores de InfiniBand (para máquinas virtuales SR-IOV o que no son SR-IOV) o se pueden configurar con los controladores adecuados para [VM compatibles con RDMA](../../sizes-hpc.md#rdma-capable-instances).
-- Las imágenes de VM [CentOS-HPC](configure.md#centos-hpc-vm-images) en Marketplace son la forma más fácil de comenzar.
-- Las imágenes de [Ubuntu](configure.md#ubuntu-vm-images) VM se pueden configurar con los controladores IB adecuados.
+Consulte [Imágenes de máquinas virtuales](configure.md#vm-images) para obtener una lista de imágenes de máquinas virtuales compatibles en Marketplace, que se cargan previamente con los controladores de InfiniBand (para máquinas virtuales SR-IOV o que no son SR-IOV) o se pueden configurar con los controladores adecuados para [VM compatibles con RDMA](../../sizes-hpc.md#rdma-capable-instances).  Las imágenes de VM [CentOS-HPC](configure.md#centos-hpc-vm-images) y [Ubuntu-HPC](configure.md#ubuntu-hpc-vm-images) en Marketplace son la forma más fácil de comenzar.
 
 ## <a name="infiniband-driver-vm-extensions"></a>Extensiones de máquina virtual del controlador de InfiniBand
 En Linux, se puede usar la [extensión de máquina virtual InfiniBandDriverLinux](../../extensions/hpc-compute-infiniband-linux.md) para instalar los controladores OFED de Mellanox y habilitar InfiniBand en las máquinas virtuales de serie H y serie N compatibles con SR-IOV.

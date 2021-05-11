@@ -10,17 +10,17 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, sstein
 ms.date: 05/08/2019
-ms.openlocfilehash: d9c1828732b9a4e0e85c3af2263f097edd54437d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7c949579d23e3acfbecde3111534209151ed61ac
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91332855"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108314560"
 ---
 # <a name="use-azure-sql-managed-instance-securely-with-public-endpoints"></a>Use Instancia administrada de Azure SQL de forma segura con puntos de conexión públicos
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Instancia administrada de Azure SQL puede proporcionar conectividad de usuario a través [puntos de conexión públicos](../../virtual-network/virtual-network-service-endpoints-overview.md). En este artículo se explica cómo conseguir que esta configuración sea más segura.
+Instancia administrada de Azure SQL puede proporcionar conectividad de usuario a través [puntos de conexión públicos](public-endpoint-configure.md). En este artículo se explica cómo conseguir que esta configuración sea más segura.
 
 ## <a name="scenarios"></a>Escenarios
 
@@ -44,7 +44,7 @@ En el diagrama siguiente se muestran las configuraciones de seguridad recomendad
 
 ![Configuraciones de seguridad para bloquear la conectividad entrante y saliente](./media/public-endpoint-overview/managed-instance-vnet.png)
 
-Una instancia administrada tiene una [dirección de punto de conexión público dedicada](management-endpoint-find-ip-address.md). En el firewall de salida del lado cliente y en las reglas del grupo de seguridad de red, establezca esta dirección IP de punto de conexión público para limitar la conectividad saliente.
+Una instancia administrada tiene una dirección de punto de conexión público dedicada a un cliente. Este punto de conexión comparte la dirección IP con el [punto de conexión de administración,](management-endpoint-find-ip-address.md), pero usa un puerto diferente. En el firewall de salida del lado cliente y en las reglas del grupo de seguridad de red, establezca esta dirección IP de punto de conexión público para limitar la conectividad saliente.
 
 Para asegurarse de que el tráfico a la instancia administrada procede de orígenes de confianza, se recomienda conectarse desde orígenes con direcciones IP conocidas. Utilice un grupo de seguridad de red para limitar el acceso al punto de conexión público de la instancia administrada a través del puerto 3342.
 
