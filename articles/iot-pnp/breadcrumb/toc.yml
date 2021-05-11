@@ -1,14 +1,14 @@
 - name: Azure
-  tocHref: /azure/
+  tocHref: /azure
   topicHref: /azure/index
   items:
     - name: Internet de las cosas
       tocHref: /azure/iot-fundamentals/
       topicHref: /azure/iot-fundamentals/index
       items:
-        - name: IoT Edge
-          tocHref: /azure/azure-sql-edge/
-          topicHref: /azure/iot-edge/index
-        - name: IoT Edge
+        - name: IoT Plug and Play
+          tocHref: /azure/iot-pnp/
+          topicHref: /azure/iot-pnp/index/
+        - name: IoT Plug and Play
           tocHref: /azure/iot-fundamentals/
-          topicHref: /azure/iot-edge/index
+          topicHref: /azure/iot-pnp/index

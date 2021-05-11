@@ -10,19 +10,19 @@ metadata:
   author: mingshen-ms
   ms.author: mingshen
   ms.date: 09/02/2020
-  ms.openlocfilehash: 95903c1068d64545ae025fb5899a80014b8f26f2
-  ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+  ms.openlocfilehash: 2610013e7f5c2ee856a6fb1cd10fe4aebcbeb4c5
+  ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 12/06/2020
-  ms.locfileid: "96746393"
+  ms.lasthandoff: 04/30/2021
+  ms.locfileid: "108318988"
 landingContent:
 - title: Trabajo en Marketplace comercial
   linkLists:
   - linkListType: get-started
     links:
     - text: Creación de una nueva cuenta
-      url: ./partner-center-portal/create-account.md
+      url: create-account.md
     - text: Determinar la opción de publicación
       url: ./determine-your-listing-type.md
     - text: Términos y directivas
@@ -31,6 +31,8 @@ landingContent:
       url: ./marketplace-faq-publisher-guide.md
     - text: Contrato de publicador de Microsoft
       url: https://go.microsoft.com/fwlink/?LinkID=699560
+    - text: Novedades
+      url: what-is-new.md
 - title: Escenarios y tareas habituales
   linkLists:
   - linkListType: overview
@@ -46,9 +48,9 @@ landingContent:
     - text: Clientes potenciales a partir de la oferta de Marketplace
       url: ./partner-center-portal/commercial-marketplace-get-customer-leads.md
     - text: Opción de venta conjunta en el marketplace comercial
-      url: commercial-marketplace-co-sell.md
+      url: ./co-sell-configure.md
     - text: Participación de asociados de venta conjunta
-      url: ./marketplace-co-sell.md
+      url: ./co-sell-overview.md
     - text: Haga que las soluciones estén disponibles en Microsoft AppSource y en Office
       url: /office/dev/store/submit-to-appsource-via-partner-center
     - text: Participación en Azure Marketplace y en el foro de la comunidad AppSource
@@ -77,17 +79,17 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Ofertas de SaaS
+    - text: SaaS
       url: plan-saas-offer.md
-    - text: Ofertas de máquinas virtuales
+    - text: Máquinas virtuales
       url: ./marketplace-virtual-machines.md
-    - text: Ofertas de la aplicación de Azure
+    - text: Aplicaciones de Azure
       url: ./create-new-azure-apps-offer.md
-    - text: Ofertas de Dynamics 365 for Customer Engagement y PowerApps
-      url: ./partner-center-portal/create-new-customer-engagement-offer.md
-    - text: Ofertas de Dynamics 365 Business Central
+    - text: Dynamics 365 for Customer Engagement y Power Apps
+      url: dynamics-365-customer-engage-offer-setup.md
+    - text: Dynamics 365 Business Central
       url: ./partner-center-portal/create-new-business-central-offer.md
-    - text: Ofertas de Dynamics 365 for Operations
+    - text: Dynamics 365 for Operations
       url: ./partner-center-portal/create-new-operations-offer.md
     - text: Más tipos de ofertas
       url: ./publisher-guide-by-offer-type.md
