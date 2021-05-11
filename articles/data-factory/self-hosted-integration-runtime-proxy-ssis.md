@@ -6,13 +6,13 @@ ms.topic: conceptual
 author: swinarko
 ms.author: sawinark
 ms.custom: seo-lt-2019
-ms.date: 04/25/2021
-ms.openlocfilehash: 24138b1cbdf496f29a4975ebfd19acdc19cddd87
-ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
+ms.date: 04/29/2021
+ms.openlocfilehash: f0a87ef34ac4dfdccba0798a8c47f6ca6421c517
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/26/2021
-ms.locfileid: "108001239"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108227180"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Configuración de IR autohospedado como proxy para Azure-SSIS IR en Azure Data Factory
 
@@ -77,9 +77,9 @@ Si aún no lo ha hecho, cree un servicio vinculado de Azure Blob Storage en la m
 
 Cuando haya preparado el servicio vinculado de Azure Blob Storage e IR autohospedado para el almacenamiento provisional, puede configurar la instancia nueva o existente de Azure-SSIS IR con el IR autohospedado como proxy en el portal o la aplicación de factoría de datos. Sin embargo, antes de hacerlo, si la instancia de Azure-SSIS IR existente ya está en ejecución, puede detenerla, editarla y reiniciarla después.
 
-1. En el panel **Integration runtime setup** (Configuración del entorno de ejecución de integración), omita las secciones **Configuración general** y **Configuración de SQL** seleccionando **Siguiente**. 
+1. En el panel **Configuración de Integration Runtime**, omita las páginas **Configuración general** y **Configuración de implementación** mediante la selección del botón **Continuar**. 
 
-1. En la sección **Configuración avanzada**, haga lo siguiente:
+1. En la página **Configuración avanzada**, haga lo siguiente:
 
    1. Active la casilla **Set up Self-Hosted Integration Runtime as a proxy for your Azure-SSIS Integration Runtime** (Configurar el entorno de ejecución de integración autohospedado como proxy para su instancia de Azure-SSIS Integration Runtime). 
 
@@ -89,7 +89,7 @@ Cuando haya preparado el servicio vinculado de Azure Blob Storage e IR autohospe
 
    1. En **Staging path** (Ruta de acceso provisional), especifique un contenedor de blobs de la cuenta seleccionada de Azure Storage o deje este campo vacío para usar uno predeterminado como almacenamiento provisional.
 
-   1. Seleccione **Continuar**.
+   1. Seleccione el botón **Continue** (Continuar).
 
    ![Configuración avanzada con IR autohospedado](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-shir.png)
 
@@ -133,13 +133,13 @@ Mediante el uso de SSDT más reciente, ya sea como extensión de proyectos SSIS 
 * [Descargar la extensión de proyectos SSIS para Visual Studio](https://marketplace.visualstudio.com/items?itemName=SSIS.SqlServerIntegrationServicesProjects)
 * [Descargar el instalador independiente](/sql/ssdt/download-sql-server-data-tools-ssdt#ssdt-for-vs-2017-standalone-installer)   
 
-Al diseñar paquetes nuevos que contienen tareas Flujo de datos con componentes para acceder a datos en el entorno local, puede habilitar la propiedad `ConnectByProxy` si la establece en *True* en el panel **Propiedades** de los administradores de conexiones correspondientes.  
-
-![Habilitación de la propiedad ConnectByProxy](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-manager-properties.png)
+Al diseñar paquetes nuevos que contienen tareas Flujo de datos con componentes para acceder a datos en el entorno local, puede habilitar la propiedad `ConnectByProxy` si la establece en *True* en el panel **Propiedades** de los administradores de conexiones correspondientes.
 
 Al diseñar paquetes nuevos que contienen tareas Ejecutar SQL que se ejecutan en el entorno local, puede habilitar la propiedad `ExecuteOnProxy` si la establece en *True* en el panel **Propiedades** de las tareas correspondientes.
 
-También puede habilitar las propiedades `ConnectByProxy`/`ExecuteOnProxy` al ejecutar paquetes existentes sin tener que cambiarlos manualmente uno a uno.  Hay dos opciones:
+![Habilitación de la propiedad ConnectByProxy](media/self-hosted-integration-runtime-proxy-ssis/shir-proxy-properties.png)
+
+También puede habilitar las propiedades `ConnectByProxy`/`ExecuteOnProxy` al ejecutar paquetes existentes sin tener que cambiarlos manualmente uno a uno. Hay dos opciones:
 - **Opción A**: Abrir, recompilar y volver a implementar el proyecto que contiene los paquetes con la extensión SSDT más reciente para ejecutarla en Azure-SSIS IR. A continuación, puede habilitar la propiedad `ConnectByProxy` si la establece en *True* para los administradores de conexiones correspondientes que aparecen en la pestaña **Administradores de conexiones** de la ventana emergente **Ejecutar paquete** al ejecutar paquetes de SSMS.
 
   ![Habilitación de la propiedad ConnectByProxy 2](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-managers-tab-ssms.png)
@@ -158,7 +158,7 @@ También puede habilitar las propiedades `ConnectByProxy`/`ExecuteOnProxy` al ej
 
 ## <a name="debug-the-on-premises-tasks-and-cloud-staging-tasks"></a>Depuración de tareas en el entorno local y tareas de almacenamiento provisional en la nube
 
-En la instancia de IR autohospedado, puede encontrar los registros del entorno de ejecución en la carpeta *C:\ProgramData\SSISTelemetry* y los registros de ejecución de las tareas de almacenamiento provisional en el entorno local o de las tareas Ejecutar SQL en la carpeta *C:\ProgramData\SSISTelemetry\ExecutionLog*.  Puede encontrar los registros de ejecución de las tareas de almacenamiento provisional en la nube en la instancia de SSISDB, en las rutas de acceso de registro especificadas o en Azure Monitor, en función de si los paquetes se almacenan en SSISDB, si se habilita la [integración de Azure Monitor](./monitor-using-azure-monitor.md#monitor-ssis-operations-with-azure-monitor), etc. También puede encontrar los identificadores únicos de las tareas de almacenamiento provisional en el entorno local en los registros de ejecución de las tareas de almacenamiento provisional en la nube. 
+En la instancia de IR autohospedado, puede encontrar los registros del entorno de ejecución en la carpeta *C:\ProgramData\SSISTelemetry* y los registros de ejecución de las tareas de almacenamiento provisional en el entorno local o de las tareas Ejecutar SQL en la carpeta *C:\ProgramData\SSISTelemetry\ExecutionLog*. Puede encontrar los registros de ejecución de las tareas de almacenamiento provisional en la nube en la instancia de SSISDB, en las rutas de acceso de registro especificadas o en Azure Monitor, en función de si los paquetes se almacenan en SSISDB, si se habilita la [integración de Azure Monitor](./monitor-using-azure-monitor.md#monitor-ssis-operations-with-azure-monitor), etc. También puede encontrar los identificadores únicos de las tareas de almacenamiento provisional en el entorno local en los registros de ejecución de las tareas de almacenamiento provisional en la nube. 
 
 ![Identificador único de la primera tarea de almacenamiento provisional](media/self-hosted-integration-runtime-proxy-ssis/shir-first-staging-task-guid.png)
 
@@ -192,7 +192,7 @@ Estos son algunos ejemplos de nuestros asociados, [Theobald Software](https://kb
 
 ## <a name="enforce-tls-12"></a>Aplicación de TLS 1.2
 
-Si necesita usar un protocolo de red de alta seguridad y cifrado seguro (TLS 1.2), así como deshabilitar las versiones anteriores de SSL/TLS al mismo tiempo en el entorno de ejecución de integración autohospedado, puede descargar y ejecutar el script *main.cmd* que se encuentra en la carpeta *CustomSetupScript/UserScenarios/TLS 1.2* del contenedor de blobs en versión preliminar pública.  Con el [Explorador de Azure Storage](https://storageexplorer.com/), puede conectarse al contenedor de blobs en versión preliminar pública; para ello, escriba el siguiente URI de SAS:
+Si necesita usar un protocolo de red de alta seguridad y cifrado seguro (TLS 1.2), así como deshabilitar las versiones anteriores de SSL/TLS al mismo tiempo en el entorno de ejecución de integración autohospedado, puede descargar y ejecutar el script *main.cmd* que se encuentra en la carpeta *CustomSetupScript/UserScenarios/TLS 1.2* del contenedor de blobs en versión preliminar pública. Con el [Explorador de Azure Storage](https://storageexplorer.com/), puede conectarse al contenedor de blobs en versión preliminar pública; para ello, escriba el siguiente URI de SAS:
 
 `https://ssisazurefileshare.blob.core.windows.net/publicpreview?sp=rl&st=2020-03-25T04:00:00Z&se=2025-03-25T04:00:00Z&sv=2019-02-02&sr=c&sig=WAD3DATezJjhBCO3ezrQ7TUZ8syEUxZZtGIhhP6Pt4I%3D`
 

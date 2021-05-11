@@ -7,14 +7,14 @@ manager: carmonm
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/20/2021
+ms.date: 04/27/2021
 ms.author: bwren
-ms.openlocfilehash: 3c99002a4f8613ff40a116eeceded4b3bada1c15
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5c8256e453763d9cd2fdc18687df3064552dcf2b
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105936162"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108289541"
 ---
 # <a name="azure-monitor-metrics-overview"></a>Información general sobre las métricas en Microsoft Azure
 Las métricas en Azure Monitor son una característica de Azure Monitor que recopila datos numéricos de [recursos supervisados](../monitor-reference.md) en una base de datos de serie temporal. Las métricas son valores numéricos que se recopilan a intervalos regulares y describen algún aspecto de un sistema en un momento determinado. Las métricas en Azure Monitor son ligeras y capaces de admitir escenarios casi en tiempo real, lo que hace que sean especialmente útiles para las alertas y una detección rápida de problemas. Puede analizarlas de forma interactiva con el explorador de métricas, recibir una notificación de forma proactiva con una alerta cuando un valor cruza un umbral o visualizarlas en un libro o panel.
@@ -100,16 +100,34 @@ Esta métrica no dimensional solo puede responder una pregunta básica, como “
 
 Esta métrica puede responder a preguntas como “¿cuál era el rendimiento de la red para cada dirección IP?” y “¿cuántos datos se enviaron en comparación los datos que se recibieron?”. Las métricas multidimensionales llevan valores analíticos y de diagnóstico adicionales en comparación con las métricas no dimensionales.
 
+### <a name="view-multi-dimensional-performance-counter-metrics-in-metrics-explorer"></a>Visualización de métricas de contadores de rendimiento multidimensionales en el Explorador de métricas 
+No es posible enviar métricas de contadores de rendimiento que contengan un asterisco (\*) a Azure Monitor a través de la API de métricas clásicas de invitado. Esta API no puede mostrar métricas que contengan un asterisco porque es una métrica multidimensional, que las métricas clásicas no admiten.
+A continuación se muestran las instrucciones sobre cómo configurar y ver las métricas de contadores de rendimiento multidimensionales:
+1.  Vaya a la página de configuración de diagnóstico de la máquina virtual.
+2.  Seleccione la pestaña "Contadores de rendimiento". 
+3.  Haga clic en "Personalizado" para configurar los contadores de rendimiento que desea recopilar.
+![Captura de pantalla de la sección contadores de rendimiento de la página de configuración de diagnóstico](media/data-platform-metrics/azure-monitor-perf-counter.png)
+
+4.  Después de configurar los contadores de rendimiento, haga clic en "Receptores". A continuación, seleccione Habilitar para enviar los datos a Azure Monitor.
+![Captura de pantalla de la sección receptores de la página de configuración de diagnóstico](media/data-platform-metrics/azure-monitor-sink.png)
+
+5.  Para ver la métrica en Azure Monitor, seleccione "Máquina virtual invitada" en la lista desplegable del espacio de nombres de la métrica.
+![Captura de pantalla del espacio de nombres de la métrica](media/data-platform-metrics/vm-guest-namespace.png)
+
+6.  Divida la métrica por instancia para ver la métrica desglosada por cada uno de los valores posibles representados por "\*" en la configuración.  En este ejemplo, "\*" representa los diferentes volúmenes de disco lógico más el total.
+![Captura de pantalla de la división de métricas por instancia](media/data-platform-metrics/split-by-instance.png)
+
+
+
 ## <a name="retention-of-metrics"></a>Retención de métricas
-Para la mayoría de los recursos en Azure, las métricas se almacenan durante 93 días. Hay algunas excepciones:
+En la mayoría de los recursos de Azure, las métricas de plataforma se almacenan durante 93 días. Hay algunas excepciones:
 
 **Métricas de SO invitado**
--   **Métricas clásicas de SO invitado**. Estos son los contadores de rendimiento que recopila la [extensión de diagnóstico de Windows (WAD)](../agents/diagnostics-extension-overview.md) o la [extensión de diagnóstico de Linux (LAD)](../../virtual-machines/extensions/diagnostics-linux.md) y que se enrutan a una cuenta de almacenamiento de Azure. La retención garantizada de estas métricas es de al menos 14 días, aunque no se escribe ninguna fecha de expiración real en la cuenta de almacenamiento. Por motivos de rendimiento, el portal limita la cantidad de datos que muestra en función del volumen. Por lo tanto, el número real de días recuperado por el portal puede ser superior a 14 días si el volumen de datos que se escribe no es muy grande.  
--   **Métricas de SO invitado enviadas a las métricas de Azure Monitor**. Estos son los contadores de rendimiento recopilados por [Windows Diagnostic Extension (WAD)](../agents/diagnostics-extension-overview.md) que se envían al [receptor de datos de Azure Monitor](../agents/diagnostics-extension-overview.md#data-destinations) o que se envían mediante el [Agente de InfluxData Telegraf](https://www.influxdata.com/time-series-platform/telegraf/) en las máquinas Linux. La retención de estas métricas es de 93 días.
--   **Métricas de SO invitado que recopila el agente de Log Analytics**. Estos son contadores de rendimiento que recopila el agente de Log Analytics y que se envían a un área de trabajo de Log Analytics. La retención de estas métricas es de 31 días y se puede ampliar a un máximo de 2 años.
+-   **Métricas clásicas de SO invitado**: 14 días y, a veces, más. Estos son los contadores de rendimiento que recopila la [extensión de diagnóstico de Windows (WAD)](../agents/diagnostics-extension-overview.md) o la [extensión de diagnóstico de Linux (LAD)](../../virtual-machines/extensions/diagnostics-linux.md) y que se enrutan a una cuenta de almacenamiento de Azure. La retención garantizada de estas métricas es de al menos 14 días, aunque no se escribe ninguna fecha de expiración real en la cuenta de almacenamiento. Por motivos de rendimiento, el portal limita la cantidad de datos que muestra en función del volumen. Por lo tanto, el número real de días recuperado por el portal puede ser superior a 14 días si el volumen de datos que se escribe no es muy grande.  
+-   **Métricas de SO invitado enviadas a las métricas de Azure Monitor**: 93 días. Son contadores de rendimiento recopilados por [Windows Diagnostic Extension (WAD)](../agents/diagnostics-extension-overview.md) y enviados al [receptor de datos de Azure Monitor](../agents/diagnostics-extension-overview.md#data-destinations), al [Agente de InfluxData Telegraf](https://www.influxdata.com/time-series-platform/telegraf/) en máquinas Linux o al más reciente [agente de Azure Monitor](../agents/azure-monitor-agent-overview.md) (AMA) por medio de reglas de recopilación de datos. La retención de estas métricas es de 93 días.
+-   **Métricas de SO invitado recopiladas por el agente de Log Analytics**: entre 31 días y 2 años. Estos son contadores de rendimiento que recopila el agente de Log Analytics y que se envían a un área de trabajo de Log Analytics. La retención de estas métricas es de 31 días y se puede ampliar a un máximo de 2 años.
 
-**Métricas basadas en registros de Application Insights**. 
-- Entre bastidores, las [métricas basadas en registros](../app/pre-aggregated-metrics-log-metrics.md) se traducen en consultas de registros. Su retención coincide con la retención de eventos en registros subyacentes. Para los recursos de Application Insights, los registros se almacenan durante 90 días.
+**Métricas basadas en registros de Application Insights**. varía. - Entre bastidores, las [métricas basadas en registros](../app/pre-aggregated-metrics-log-metrics.md) se traducen en consultas de registros. Su retención coincide con la de eventos de registros subyacentes (entre 31 días y 2 años). Para los recursos de Application Insights, los registros se almacenan durante 90 días.
 
 
 > [!NOTE]

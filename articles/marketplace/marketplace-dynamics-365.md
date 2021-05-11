@@ -1,24 +1,24 @@
 ---
-title: Planeamiento de ofertas de Dynamics 365 para Microsoft AppSource
+title: Planeamiento de ofertas de Dynamics 365 para Microsoft AppSource
 description: Planeamiento de ofertas de Dynamics 365 para Microsoft AppSource
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
-ms.date: 04/16/2021
-ms.openlocfilehash: c2b4fddc91a9bd24ac1fd4f326d225835180dd78
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.date: 04/30/2021
+ms.openlocfilehash: ca4860bea15c2290b0a3edbaaaed801cd4e36d86
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108144698"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108316036"
 ---
 # <a name="plan-a-microsoft-dynamics-365-offer"></a>Planeamiento de una oferta de Microsoft Dynamics 365
 
-En este artículo se explican las distintas opciones y características de una oferta de Dynamics 365 en el marketplace comercial de Microsoft AppSource. AppSource incluye ofertas que se basan en Microsoft 365, Dynamics 365, Power BI, Power Apps y Power BI. AppSource permite ofertas de pago (*Obtenerla ahora*), de lista (*Ponerse en contacto conmigo*) y de prueba (*Probar ahora*).
+En este artículo se explican las distintas opciones y características de una oferta de Dynamics 365 en el marketplace comercial de Microsoft AppSource. AppSource incluye ofertas que se basan en Microsoft 365, Dynamics 365, Power BI, Power Apps y Power BI.
 
-Antes de empezar, cree una cuenta de marketplace comercial en el [Centro de partners](./create-account.md) y asegúrese de que esté inscrita en el programa del marketplace comercial. Además, revise las [directrices y el proceso de publicación](/office/dev/store/submit-to-appsource-via-partner-center).
+Antes de empezar, cree una cuenta de marketplace comercial en el [Centro de partners](./partner-center-portal/create-account.md) y asegúrese de que esté inscrita en el programa del marketplace comercial. Además, revise las [directrices y el proceso de publicación](/office/dev/store/submit-to-appsource-via-partner-center).
 
 ## <a name="licensing-options"></a>Opciones de licencia
 
@@ -28,10 +28,11 @@ Estas son las opciones de licencia disponibles para las ofertas de Dynamics 365
 
 | Opción de obtención de licencias | Proceso de transacción |
 | --- | --- |
-| Obténgalo ahora (de forma gratuita) | Muestre la oferta a los clientes gratis. |
-| Evaluación gratuita (anuncio) | Ofrezca a sus clientes una evaluación gratuita de uno, tres o seis meses. Las ofertas que incluyen evaluaciones gratuitas se crean, administran y configuran desde su servicio y no tienen suscripciones administradas por Microsoft. |
 | Ponerse en contacto conmigo | Recopile información de contacto de los clientes mediante la conexión de su sistema de Administración de relaciones con los clientes (CRM). El cliente le pedirá permiso para compartir su información. Estos datos del cliente, junto con el nombre e identificador de la oferta y el origen de Marketplace donde la ha encontrado, se envían al sistema CRM que se ha configurado. Para obtener más información sobre cómo configurar CRM, consulte la sección **Clientes potenciales** de la página **Configuración de la oferta** del tipo de oferta. |
-|
+| Evaluación gratuita (anuncio) | Ofrezca a sus clientes una evaluación gratuita de uno, tres o seis meses. Las ofertas que incluyen evaluaciones gratuitas se crean, administran y configuran desde su servicio y no tienen suscripciones administradas por Microsoft. |
+| Obténgalo ahora (de forma gratuita) | Muestre la oferta a los clientes gratis. |
+| Obtenerlo ahora | Permite administrar las licencias de terceros en el Centro de partners.<br>Actualmente solo está disponible para el siguiente tipo de oferta:<ul><li>Dynamics 365 for Customer Engagement y Power Apps</li></ul><br>Para obtener más información sobre esta opción, vea [Administración de licencias de aplicaciones de terceros por medio de Microsoft](third-party-license.md). |
+|||
 
 ## <a name="test-drive"></a>Versión de prueba
 
@@ -76,7 +77,7 @@ Para facilitar la creación de la oferta, prepare estos elementos con antelació
 
 ## <a name="additional-sales-opportunities"></a>Oportunidades de venta adicionales
 
-Puede optar por participar en los canales de marketing y ventas respaldados por Microsoft. Al crear la oferta en el Centro de partners, verá dos pestañas hacia el final del proceso para **realizar una venta conjunta con Microsoft**. esta opción permite que los equipos de ventas de Microsoft consideren la solución idónea para la venta conjunta de IP al evaluar las necesidades de los clientes. Consulte [Opción de venta conjunta en el Centro de partners](./co-sell-configure.md) para información detallada sobre cómo preparar la oferta para la evaluación.
+Puede optar por participar en los canales de marketing y ventas respaldados por Microsoft. Al crear la oferta en el Centro de partners, verá dos pestañas hacia el final del proceso para **realizar una venta conjunta con Microsoft**. esta opción permite que los equipos de ventas de Microsoft consideren la solución idónea para la venta conjunta de IP al evaluar las necesidades de los clientes. Consulte [Opción de venta conjunta en el Centro de partners](commercial-marketplace-co-sell.md) para información detallada sobre cómo preparar la oferta para la evaluación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -88,4 +89,4 @@ Después de analizar los elementos de planeamiento descritos anteriormente, sele
 | [Dynamics 365 for Business Central](partner-center-portal/create-new-business-central-offer.md) |   |
 | [Dynamics 365 for Customer Engagement y Power Apps](dynamics-365-customer-engage-offer-setup.md) | En primer lugar, revise [estos procesos y directrices de publicación](/dynamics365/customer-engagement/developer/publish-app-appsource) adicionales. |
 | [Power BI](/partner-center-portal/create-power-bi-app-offer.md) | En primer lugar, revise [estos procesos y directrices de publicación](/power-bi/developer/office-store) adicionales. |
-|
+|||

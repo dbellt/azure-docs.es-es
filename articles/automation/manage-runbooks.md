@@ -3,15 +3,15 @@ title: Administración de runbooks en Azure Automation
 description: En este artículo se explica cómo administrar runbooks en Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 02/24/2021
+ms.date: 04/22/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a172189d8b52a80fc50e7d8c882859f7855aeca8
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 0226b864ae2f23c8cfaa1e69b4dd31f2800ce171
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107830095"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108164298"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Administración de runbooks en Azure Automation
 
@@ -193,6 +193,16 @@ if (($jobs.Status -contains 'Running' -and $runningCount -gt 1 ) -or ($jobs.Stat
     # Insert Your code here
 }
 ```
+También puede usar la característica de extensión de PowerShell para pasar la información de la conexión a `Connect-AzAccount`. En ese caso, las primeras líneas del ejemplo anterior tendrían este aspecto.
+
+```powershell
+# Authenticate to Azure
+$connection = Get-AutomationConnection -Name AzureRunAsConnection
+Connect-AzAccount @connection
+$AzureContext = Get-AzSubscription -SubscriptionId $connection.SubscriptionID
+```
+
+Consulte [Acerca de la expansión](/powershell/module/microsoft.powershell.core/about/about_splatting) para obtener más información.
 
 ## <a name="handle-transient-errors-in-a-time-dependent-script"></a>Control de errores transitorios en un script dependiente del tiempo
 

@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 03/08/2021
-ms.openlocfilehash: ff938d29d998b6fcf0b2cfae72a9a9e685a10dc5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/23/2021
+ms.openlocfilehash: 3f2dcfd910fac849c668521030f7304fe40c28ce
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102563971"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108164586"
 ---
 # <a name="create-stateful-and-stateless-workflows-in-the-azure-portal-with-azure-logic-apps-preview"></a>Creación de flujos de trabajo con estado y sin estado en Azure Portal con la versión preliminar de Azure Logic Apps
 
@@ -355,9 +355,9 @@ En el caso de un flujo de trabajo con estado, después de cada ejecución del fl
    | **Cancelado** | ![Icono de estado de la acción "Cancelado"][cancelled-icon] | La acción se estaba ejecutando, pero recibió una solicitud de cancelación. |
    | **Erróneo** | ![Icono de estado de la acción "Con error"][failed-icon] | Se produjo un error en la acción. |
    | **Ejecución** | ![Icono de estado de la acción "En ejecución"][running-icon] | La acción se está ejecutando actualmente. |
-   | **Omitido** | ![Icono de estado de la acción "Omitido"][skipped-icon] | La acción se omitió porque se produjo un error en la acción inmediatamente anterior. Una acción tiene una condición `runAfter` que requiere que la acción anterior finalice correctamente antes de que se pueda ejecutar la acción actual. |
+   | **Omitido** | ![Icono de estado de la acción "Omitido"][skipped-icon] | La acción se ha omitido porque no se han cumplido sus condiciones `runAfter`; por ejemplo, no se ha podido completar la acción anterior. Cada acción tiene un objeto `runAfter` donde puede configurar las condiciones que deben cumplirse antes de que se pueda ejecutar la acción actual. |
    | **Correcto** | ![Icono de estado de la acción "Correcto"][succeeded-icon] | La acción se realizó correctamente. |
-   | **Se realizó correctamente con reintentos** | ![Icono de estado de la acción "Correcto con reintentos"][succeeded-with-retries-icon] | La acción se realizó correctamente, pero solo después de uno o varios reintentos. Para revisar el historial de reintentos en la vista de detalles del historial de ejecución, seleccione esa acción para que pueda ver las entradas y salidas. |
+   | **Se realizó correctamente con reintentos** | ![Icono de estado de la acción "Correcto con reintentos"][succeeded-with-retries-icon] | La acción se ha realizado correctamente, pero solo después de uno o más reintentos. Para revisar el historial de reintentos en la vista de detalles del historial de ejecución, seleccione esa acción para que pueda ver las entradas y salidas. |
    | **Tiempo de espera agotado** | ![Icono de estado de la acción "Tiempo de espera agotado"][timed-out-icon] | La acción se detuvo debido al límite de tiempo de espera que especificó la configuración de la acción. |
    | **En espera** | ![Icono de estado de la acción "En espera"][waiting-icon] | Se aplica a una acción de webhook que está esperando una solicitud entrante de un autor de llamada. |
    ||||
@@ -455,6 +455,152 @@ Para eliminar un elemento del flujo de trabajo del diseñador, siga cualquiera d
 
   > [!TIP]
   > Si no está visible el menú de puntos suspensivos, expanda la ventana del explorador el ancho suficiente para que en el panel de detalles se muestre el botón de puntos suspensivos ( **...** ) en la esquina superior derecha.
+
+<a name="restart-stop-start"></a>
+
+## <a name="restart-stop-or-start-logic-apps"></a>Reinicio, detención o inicio de aplicaciones lógicas
+
+Puede iniciar o detener [una sola aplicación lógica](#restart-stop-start-single-logic-app) o [varias a la vez](#stop-start-multiple-logic-apps). También puede reiniciar una sola aplicación lógica sin detenerla primero. Su aplicación lógica de un solo inquilino puede incluir varios flujos de trabajo, por lo que puede detener toda la aplicación lógica o [deshabilitar solo flujos de trabajo](#disable-enable-workflows).
+
+> [!NOTE]
+> Estas dos operaciones tienen efectos diferentes. Para obtener más información, consulte [Consideraciones para detener aplicaciones lógicas](#considerations-stop-logic-apps) y [Consideraciones para deshabilitar flujos de trabajo](#disable-enable-workflows).
+
+<a name="considerations-stop-logic-apps"></a>
+
+### <a name="considerations-for-stopping-logic-apps"></a>Consideraciones para detener aplicaciones lógicas
+
+La detección de una aplicación lógica tiene los siguientes efectos en las instancias de flujo de trabajo:
+
+* El servicio Logic Apps cancela de inmediato todas las ejecuciones en curso y pendientes.
+
+* El servicio Logic Apps no crea ni ejecuta nuevas instancias de flujo de trabajo.
+
+* Los desencadenadores no se activarán la próxima vez que se cumplan las condiciones. Sin embargo, los estados de los desencadenadores recuerdan los puntos donde se ha detenido la aplicación lógica. Por lo tanto, si reinicia la aplicación, se activarán para todos los elementos sin procesar desde la última ejecución.
+
+  Para evitar que cada flujo de trabajo se active con elementos no procesados desde la última ejecución, siga estos pasos para borrar el estado del desencadenador antes de reiniciar la aplicación lógica:
+
+  1. En Azure Portal, busque y abra la aplicación lógica.
+  1. En el menú de la aplicación lógica, en **Flujos de trabajo**, seleccione **Flujos de trabajo**.
+  1. Abra un flujo de trabajo y edite cualquier parte de su desencadenador.
+  1. Guarde los cambios. Este paso restablece el estado actual del desencadenador.
+  1. Repita el procedimiento para cada flujo de trabajo.
+  1. Cuando haya terminado, [reinicie la aplicación lógica](#restart-stop-start-single-logic-app).
+
+<a name="restart-stop-start-single-logic-app"></a>
+
+### <a name="restart-stop-or-start-a-single-logic-app"></a>Reinicio, detención o inicio de una sola aplicación lógica
+
+1. En Azure Portal, busque y abra la aplicación lógica.
+
+1. En el menú de la aplicación lógica, seleccione **Información general**.
+
+   * Para reiniciar una aplicación lógica sin detenerla, seleccione **Reiniciar** en la barra de herramientas del panel "Información general".
+   * Para detener una aplicación lógica en ejecución, seleccione **Detener** en la barra de herramientas del panel "Información general". Confirme la selección.
+   * Para iniciar una aplicación lógica detenida, seleccione **Iniciar** en la barra de herramientas del panel "Información general".
+
+   > [!NOTE]
+   > Si la aplicación lógica ya está detenida, solo aparecerá la opción **Iniciar**. Si ya está en ejecución, solo aparecerá la opción **Detener**.
+   > Puede reiniciar la aplicación lógica en cualquier momento.
+
+1. Para confirmar si la operación se ha realizado correctamente o no, abra la lista **Notificaciones** (icono de campana) en la barra de herramientas principal de Azure.
+
+<a name="stop-start-multiple-logic-apps"></a>
+
+### <a name="stop-or-start-multiple-logic-apps"></a>Detención o inicio de varias aplicaciones lógicas
+
+Puede detener o iniciar varias aplicaciones lógicas a la vez, pero no reiniciar varias aplicaciones lógicas sin detenerlas primero.
+
+1. En el cuadro de búsqueda principal de Azure Portal, escriba `logic apps` y seleccione **Aplicaciones lógicas**.
+
+1. En la página **Aplicaciones lógicas,** revise la columna **Estado** de la aplicación lógica.
+
+1. En la columna de casillas de verificación, seleccione las aplicaciones lógicas que quiera detener o iniciar.
+
+   * Para detener las aplicaciones lógicas en ejecución seleccionadas, haga clic en **Deshabilitar/Detener** en la barra de herramientas del panel "Información general". Confirme la selección.
+   * Para iniciar las aplicaciones lógicas detenidas seleccionadas, haga clic en **Habilitar/Iniciar** en la barra de herramientas del panel "Información general".
+
+1. Para confirmar si la operación se ha realizado correctamente o no, abra la lista **Notificaciones** (icono de campana) en la barra de herramientas principal de Azure.
+
+<a name="disable-enable-workflows"></a>
+
+## <a name="disable-or-enable-workflows"></a>Deshabilitación o habilitación de flujos de trabajo
+
+Para evitar que el desencadenador se active la próxima vez que se cumpla una condición desencadenadora, deshabilite su flujo de trabajo. Únicamente se puede deshabilitar o habilitar un solo flujo de trabajo cada vez. La deshabilitación de un flujo de trabajo tiene los siguientes efectos en sus instancias:
+
+* El servicio Logic Apps continúa todas las ejecuciones en curso y pendientes hasta que finalizan. Según el volumen o el trabajo pendiente, este proceso puede tardar en completarse.
+
+* El servicio Logic Apps no crea ni ejecuta nuevas instancias de flujo de trabajo.
+
+* El desencadenador no se activará la próxima vez que se cumplan sus condiciones. Sin embargo, el estado del desencadenador recuerda el punto en el que se ha deshabilitado el flujo de trabajo. Por lo tanto, si vuelve a habilitar el flujo de trabajo, el desencadenador se activará para todos los elementos sin procesar desde la última ejecución.
+
+  Para evitar que el desencadenador se active con elementos no procesados desde la última ejecución, borre el estado del desencadenador antes de reactivar el flujo de trabajo:
+
+  1. En el flujo de trabajo, edite cualquier parte de su desencadenador.
+  1. Guarde los cambios. Este paso restablece el estado actual del desencadenador.
+  1. [Vuelva a activar el flujo de trabajo](#disable-enable-workflows).
+
+> [!NOTE]
+> Las operaciones de deshabilitación de flujos de trabajo y detención de aplicaciones lógicas tienen efectos diferentes. Para obtener más información, consulte [Consideraciones para detener aplicaciones lógicas](#considerations-stop-logic-apps).
+
+<a name="disable-workflow"></a>
+
+### <a name="disable-workflow"></a>Deshabilitación de un flujo de trabajo
+
+1. En el menú de la aplicación lógica, en **Flujos de trabajo**, seleccione **Flujos de trabajo**. En la columna de casillas de verificación, seleccione el flujo de trabajo que quiera deshabilitar.
+
+1. En la barra de herramientas del panel "Flujos de trabajo", seleccione **Deshabilitar**.
+
+1. Para confirmar si la operación se ha realizado correctamente o no, abra la lista **Notificaciones** (icono de campana) en la barra de herramientas principal de Azure.
+
+<a name="enable-workflow"></a>
+
+### <a name="enable-workflow"></a>Habilitación de un flujo de trabajo
+
+1. En el menú de la aplicación lógica, en **Flujos de trabajo**, seleccione **Flujos de trabajo**. En la columna de casillas de verificación, seleccione el flujo de trabajo que quiera habilitar.
+
+1. En la barra de herramientas del panel "Flujos de trabajo", seleccione **Habilitar**.
+
+1. Para confirmar si la operación se ha realizado correctamente o no, abra la lista **Notificaciones** (icono de campana) en la barra de herramientas principal de Azure.
+
+<a name="delete"></a>
+
+## <a name="delete-logic-apps-or-workflows"></a>Eliminación de aplicaciones lógicas o flujos de trabajo
+
+Puede [eliminar una sola aplicación lógica o varias a la vez](#delete-logic-apps). Su aplicación lógica de un solo inquilino puede incluir varios flujos de trabajo, por lo que puede eliminar toda la aplicación lógica o [solo flujos de trabajo](#delete-workflows).
+
+<a name="delete-logic-apps"></a>
+
+### <a name="delete-logic-apps"></a>Eliminación de aplicaciones lógicas
+
+Al eliminar una aplicación lógica, se cancelan de inmediato las ejecuciones en curso y pendientes, pero no se ejecutan tareas de limpieza en el almacenamiento que usa la aplicación.
+
+1. En el cuadro de búsqueda principal de Azure Portal, escriba `logic apps` y seleccione **Aplicaciones lógicas**.
+
+1. En la columna de casillas de verificación de la lista **Aplicaciones lógicas**, seleccione las aplicaciones que quiera eliminar. En la barra de herramientas, seleccione **Eliminar**.
+
+1. Cuando aparezca el cuadro de confirmación, escriba `yes` y seleccione **Eliminar**.
+
+1. Para confirmar si la operación se ha realizado correctamente o no, abra la lista **Notificaciones** (icono de campana) en la barra de herramientas principal de Azure.
+
+<a name="delete-workflows"></a>
+
+### <a name="delete-workflows"></a>Eliminación de flujos de trabajo
+
+La detección de un flujo de trabajo tiene los siguientes efectos en sus instancias:
+
+* El servicio Logic Apps cancela de inmediato las ejecuciones en curso y pendientes, pero no ejecuta tareas de limpieza en el almacenamiento que usa la aplicación.
+
+* El servicio Logic Apps no crea ni ejecuta nuevas instancias de flujo de trabajo.
+
+* Si elimina un flujo de trabajo y, luego, vuelve a crear el mismo flujo de trabajo, este no tendrá los mismos metadatos que el eliminado. Tiene que volver a guardar cualquier flujo de trabajo que haya llamado al eliminado. De este modo, el autor de la llamada obtiene la información correcta sobre el flujo de trabajo que se ha vuelto a crear. De lo contrario, las llamadas a este flujo de trabajo producirán un error `Unauthorized`. Este comportamiento también se aplica a los flujos de trabajo que usan artefactos en cuentas de integración y a flujos de trabajo que llaman a funciones de Azure.
+
+1. En Azure Portal, busque y abra la aplicación lógica.
+
+1. En el menú de la aplicación lógica, en **Flujos de trabajo**, seleccione **Flujos de trabajo**. En la columna de casillas de verificación, seleccione los flujos de trabajo que quiera eliminar.
+
+1. En la barra de herramientas, seleccione **Eliminar**.
+
+1. Para confirmar si la operación se ha realizado correctamente o no, abra la lista **Notificaciones** (icono de campana) en la barra de herramientas principal de Azure.
 
 <a name="troubleshoot"></a>
 

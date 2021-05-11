@@ -3,12 +3,12 @@ title: Administrar eventos de alerta
 description: Administrar los eventos de alerta detectados en la red.
 ms.date: 12/07/2020
 ms.topic: how-to
-ms.openlocfilehash: 2995ff0d2246929efb534bc21d888bad3a2cf24a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 124584026bd9ee1662ab39130b5b4dea8b61896c
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104781796"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108209074"
 ---
 # <a name="manage-alert-events"></a>Administrar eventos de alerta
 
@@ -23,13 +23,26 @@ Las opciones siguientes están disponibles para administrar eventos de alerta:
 También puede exportar información de alertas.
 ## <a name="about-learning-and-unlearning-events"></a>Acerca del aprendizaje y el no aprendizaje de eventos
 
-Los eventos que indican desviaciones de la red aprendida podrían reflejar cambios de red válidos. Algunos ejemplos podrían incluir un nuevo dispositivo autorizado que se unió a la red o una actualización de firmware autorizada.
+Los eventos que indican desviaciones de la red aprendida podrían reflejar cambios de red válidos. Cuando quiera aprobar estos cambios, puede indicar a Defender para IoT que *aprenda* el comportamiento. Algunos ejemplos pueden incluir:
 
-Al seleccionar **Learn**, el sensor tiene en cuenta el tráfico, las configuraciones o las actividades válidas. Esto significa que ya no se desencadenarán alertas para el evento. También significa que el evento no se calculará cuando el sensor genere la evaluación de riesgos, el vector de ataque y otros informes.
+- Se ha detectado una nueva actividad en el dispositivo existente. Por ejemplo, un dispositivo autorizado ha intentado acceder a un nuevo recurso en otro dispositivo.
 
-Por ejemplo, recibe una alerta que indica la actividad de detección de direcciones en un dispositivo que un escáner de red no definió previamente. Si este dispositivo se ha agregado a la red con el fin de examinarlo, puede indicar al sensor que reconozca el dispositivo como un dispositivo de digitalización.
+- Se ha agregado un nuevo dispositivo a la red.  
+
+- Se han producido cambios en la versión del firmware después de procedimientos de mantenimiento estándar.
+
+- Un nuevo dispositivo ha realizado una operación de lectura o escritura en un controlador de destino.
+
+- Un nuevo dispositivo realiza una operación de lectura o escritura en un controlador de destino y debe definirse como dispositivo de programación.
+
+- Se lleva a cabo una nueva digitalización legítima y el dispositivo debe definirse como dispositivo de digitalización.
+
 
 :::image type="content" source="media/how-to-work-with-alerts-sensor/detected.png" alt-text="La ventana de examen de dirección detectada.":::
+
+La actividad que se refleja en las alertas se calcula al generar informes de minería de datos, evaluación de riesgos y vectores de ataque. Cuando se administran estos eventos, el sensor actualiza los informes en consecuencia.
+
+Al seleccionar **Learn**, el sensor tiene en cuenta el tráfico, las configuraciones o las actividades válidas. Esto significa que ya no se desencadenarán alertas para el evento. También significa que el evento no se calculará cuando el sensor genere la evaluación de riesgos, el vector de ataque y otros informes.
 
 Los eventos aprendidos se pueden dejar de reconocer. Cuando el sensor desconozca los eventos, volverá a desencadenar las alertas relacionadas con dicho evento.
 
@@ -123,5 +136,7 @@ Para realizar la exportación:
 1. Seleccione Export Extended Alerts (Exportar alertas extendidas) para exportar información de alertas de filas independientes para cada alerta que abarque varios dispositivos. Cuando se seleccione esta opción, el archivo. .csv creará una fila duplicada del evento de alerta con los elementos únicos de cada fila. El uso de esta opción facilita la investigación de eventos de alertas exportadas.
 
 ## <a name="see-also"></a>Consulte también
+
+[Tipos y descripciones de alertas](alert-engine-messages.md)
 
 [Control del tráfico que se supervisa](how-to-control-what-traffic-is-monitored.md)

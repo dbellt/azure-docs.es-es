@@ -1,18 +1,19 @@
 ---
-title: 'Azure VPN Gateway: Administración de sesiones de VPN de punto a sitio'
-description: Este artículo le ayuda a ver y desconectar sesiones VPN de punto a sitio.
+title: Administración de sesiones de VPN de punto a sitio
+titleSuffix: Azure VPN Gateway
+description: Aprenda a ver y desconectar sesiones de VPN de punto a sitio.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 04/26/2021
 ms.author: cherylmc
-ms.openlocfilehash: 0b0a4c712333516dcdd20dcde9ef4b9c74b5f228
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.openlocfilehash: 79432bfd65feeae79017a883be990d88134cbb10
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108018662"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108202540"
 ---
 # <a name="point-to-site-vpn-session-management"></a>Administración de sesiones de VPN de punto a sitio
 

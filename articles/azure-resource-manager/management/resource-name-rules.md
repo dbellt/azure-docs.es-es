@@ -3,12 +3,12 @@ title: Restricciones de nomenclatura de recursos
 description: Muestra las reglas y las restricciones de nomenclatura de recursos de Azure.
 ms.topic: conceptual
 ms.date: 04/08/2021
-ms.openlocfilehash: 6402917e280ff1a1789cda0fb9bdb3537d338a9b
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: a7d0d934549d1dd06099bc02105cf2dcfdaa0109
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/28/2021
-ms.locfileid: "108130024"
+ms.locfileid: "108202864"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Reglas y restricciones de nomenclatura para los recursos de Azure
 
@@ -19,7 +19,7 @@ En este artículo se enumeran los recursos por espacio de nombres del proveedor 
 Los nombres de los recursos no distinguen mayúsculas de minúsculas, a menos que se indique en la columna de caracteres válidos.
 
 > [!NOTE]
-> Al recuperar los nombres de los recursos mediante varias API, los valores devueltos pueden mostrar valores de mayúsculas y minúsculas diferentes a los que aparecen en la tabla de caracteres válidos. 
+> Al recuperar los nombres de los recursos con distintas API, los valores devueltos pueden mostrar valores de mayúsculas y minúsculas diferentes a los que aparecen en la tabla de caracteres válidos.
 
 En las tablas siguientes, el término carácter alfanumérico se refiere a:
 

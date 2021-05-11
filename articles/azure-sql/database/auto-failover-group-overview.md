@@ -11,18 +11,21 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
-ms.date: 03/26/2021
-ms.openlocfilehash: f3bc1dfcfeeb6dda110f71ed7a1c53909153cf00
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 04/29/2021
+ms.openlocfilehash: 8c07026681f5381d9c4e54438c9503d170022658
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107762162"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108226793"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Uso de grupos de conmutación por error automática para permitir la conmutación por error de varias bases de datos de manera transparente y coordinada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 La característica de los grupos de conmutación por error automática permite administrar la replicación y la conmutación por error en otra región de un grupo de bases de datos de un servidor o de todas las bases de datos de una instancia administrada. Se trata de una abstracción declarativa sobre la característica de [replicación geográfica activa](active-geo-replication-overview.md) existente, diseñada para simplificar la implementación y administración de bases de datos con replicación geográfica a escala. Puede iniciar la conmutación por error manualmente o puede delegarla en el servicio de Azure según una directiva definida por el usuario. La última opción le permite recuperar automáticamente varias bases de datos relacionadas en una región secundaria después de errores catastróficos u otros eventos no planeados que generen una pérdida total o parcial de la disponibilidad de SQL Database o Instancia administrada de SQL en la región primaria. Un grupo de conmutación por error puede incluir una o varias bases de datos, utilizadas normalmente por la misma aplicación. Además, puede usar las bases de datos secundarias legibles para descargar las cargas de trabajo de consulta de solo lectura. Debido a que los grupos de conmutación por error automática implican varias bases de datos, se deben configurar en el servidor principal. Los grupos de conmutación por error automática admiten la replicación de todas las bases de datos en el grupo solo a una instancia o un servidor secundario en otra región.
+
+>[!NOTE]
+>Los grupos elásticos no se admiten en el nivel de servicio [Hiperescala](service-tier-hyperscale.md). Para la conmutación por error geográfica de una base de datos de Hiperescala, use la [replicación geográfica activa](active-geo-replication-overview.md).
 
 > [!NOTE]
 > Si desea tener varias instancias de Azure SQL Database secundarias en la misma región o en regiones diferentes, use la [replicación geográfica activa](active-geo-replication-overview.md).
@@ -371,7 +374,7 @@ Al configurar un grupo de conmutación por error entre instancias administradas 
 - Las redes virtuales que se usan en las instancias de Instancia administrada de SQL deben estar conectadas mediante [VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md) o [ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md). Si dos redes virtuales se conectan a través de una red local, asegúrese de que no haya ninguna regla de firewall bloqueando los puertos 5022 y 11000-11999. El emparejamiento de VNet global se admite con la limitación descrita en la nota siguiente.
 
    > [!IMPORTANT]
-   > [El 22 de septiembre de 2020, anunciamos el emparejamiento de red virtual global para los clústeres virtuales recién creados](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Esto significa que el emparejamiento de red virtual global se admite en las instancias de SQL Managed Instance creadas en subredes vacías después de la fecha del anuncio, así como en todas las instancias administradas posteriores creadas en esas subredes. En el caso de todas las demás instancias de SQL Managed Instance, la compatibilidad con el emparejamiento se limita a las redes de la misma región debido a las [restricciones del emparejamiento de red virtual global](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Consulte también la sección correspondiente del artículo [Preguntas más frecuentes (P+F) acerca de Azure Virtual Network](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) para más información. 
+   > [El 22 de septiembre de 2020 se anunció el emparejamiento de red virtual global para clústeres virtuales recién creados](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Esto significa que el emparejamiento de red virtual global se admite en las instancias de SQL Managed Instance creadas en subredes vacías después de la fecha del anuncio, así como en todas las instancias administradas posteriores creadas en esas subredes. En el caso de todas las demás instancias de SQL Managed Instance, la compatibilidad con el emparejamiento se limita a las redes de la misma región, debido a las [restricciones del emparejamiento de red virtual global](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Consulte también la sección correspondiente del artículo [Preguntas más frecuentes (P+F) acerca de Azure Virtual Network](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) para más información. Para poder usar el emparejamiento de red virtual global en instancias de SQL Managed Instance desde clústeres virtuales creados antes de la fecha del anuncio, considere la posibilidad de configurar la [ventana de mantenimiento](https://docs.microsoft.com/azure/azure-sql/database/maintenance-window) en las instancias, ya que eso mueve las instancias a nuevos clústeres virtuales que admiten el emparejamiento de red virtual global.
 
 - Las dos redes virtuales de Instancia administrada de SQL no pueden tener direcciones IP superpuestas.
 - Debe configurar sus grupos de seguridad de red (NSG) de forma que los puertos 5022 y el intervalo 11000~12000 estén abiertos a las conexiones entrantes y salientes de la subred de la otra instancia administrada. Esto es para permitir el tráfico de replicación entre las instancias.

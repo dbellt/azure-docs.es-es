@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 04/06/2021
+ms.date: 04/28/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 830119a5b3a7781e8b12e3d4df870f539a2cd63a
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: fa7f62c43f9d015c1ab10a204189ccebc2999ae9
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107364913"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108163020"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Federación directa con AD FS y proveedores de terceros para usuarios invitados (versión preliminar)
 
@@ -26,6 +26,10 @@ ms.locfileid: "107364913"
 
 En este artículo se describe cómo establecer una federación directa con otra organización para la colaboración B2B. Puede establecer una federación directa con cualquier organización cuyo proveedor de identidades (IdP) admita el protocolo SAML 2.0 o WS-Fed.
 Al configurar una federación directa con el proveedor de identidades de un asociado, los nuevos usuarios invitados de ese dominio pueden utilizar su propia cuenta de organización administrada por el proveedor de identidades para iniciar sesión con su inquilino de Azure AD y empezar a colaborar con usted. No es necesario que el usuario invitado cree otra cuenta de Azure AD.
+
+> [!IMPORTANT]
+> - Se ha eliminado la limitación que exigía que el dominio de la dirección URL de autenticación coincidiera con el dominio de destino o procediera de un proveedor de identidades permitido. Para obtener detalles, vea [Paso 1: Determinación de si el asociado necesita actualizar sus registros de texto DNS](#step-1-determine-if-the-partner-needs-to-update-their-dns-text-records).
+>-  Ahora se recomienda que el asociado establezca la audiencia del proveedor de identidades basado en SAML o WS-Fed en una audiencia de inquilinos. Vea las secciones siguientes de atributos y notificaciones necesarios de [SAML 2.0](#required-saml-20-attributes-and-claims) y [WS-Fed](#required-ws-fed-attributes-and-claims).
 
 ## <a name="when-is-a-guest-user-authenticated-with-direct-federation"></a>¿Cuándo se autentica un usuario invitado con la federación directa?
 Después de configurar la federación directa con una organización, cualquier nuevo usuario invitado se autenticará mediante la federación directa. Es importante tener en cuenta que la configuración de la federación directa no cambia el método de autenticación para los usuarios invitados que ya han canjeado una invitación. Estos son algunos ejemplos:
@@ -57,21 +61,6 @@ También puede proporcionar a los usuarios invitados de federación directa un v
 ### <a name="dns-verified-domains-in-azure-ad"></a>Dominios comprobados por DNS en Azure AD
 El dominio con el que desea federarse ***no*** puede estar verificado por DNS en Azure AD. Se puede realizar una federación directa en los inquilinos no administrados (comprobados por correo electrónico o "viral") de Azure AD porque no están comprobados por DNS.
 
-### <a name="authentication-url"></a>Dirección URL de autenticación
-La federación directa solo se permite para las directivas en las que el dominio de la dirección URL de autenticación coincide con el dominio de destino, o en las que la dirección URL de autenticación es uno de estos proveedores de identidades permitidos (esta lista está sujeta a cambios):
-
--   accounts.google.com
--   pingidentity.com
--   login.pingone.com
--   okta.com
--   oktapreview.com
--   okta-emea.com
--   my.salesforce.com
--   federation.exostar.com
--   federation.exostartest.com
-
-Por ejemplo, al configurar la federación directa para **fabrikam.com**, la dirección URL de autenticación `https://fabrikam.com/adfs` pasará la validación. Un host en el mismo dominio también pasará, por ejemplo `https://sts.fabrikam.com/adfs`. Sin embargo, la dirección URL de autenticación `https://fabrikamconglomerate.com/adfs` o `https://fabrikam.com.uk/adfs` para el mismo dominio no pasará.
-
 ### <a name="signing-certificate-renewal"></a>Renovación del certificado de firma
 Si especifica la dirección URL de metadatos en la configuración del proveedor de identidades, Azure AD renovará automáticamente el certificado de firma cuando expire. Sin embargo, si el certificado se gira por cualquier razón antes de la hora de expiración, o si no proporciona una dirección URL de metadatos, Azure AD no podrá renovarlo. En este caso, deberá actualizar manualmente el certificado de firma.
 
@@ -90,8 +79,36 @@ Cuando se establece la federación directa con una organización asociada, tiene
 No, la característica del [código de acceso de un solo uso por correo electrónico](one-time-passcode.md) se debe usar en este escenario. Un "inquilinato parcialmente sincronizado" se refiere a un inquilino de Azure AD asociado en el que las identidades de usuario locales no están completamente sincronizadas con la nube. Un invitado cuya identidad aún no existe en la nube pero que intenta canjear su invitación de B2B no podrá iniciar sesión. La característica del código de acceso de un solo uso permitiría a este invitado iniciar sesión. La función de federación directa aborda escenarios en los que el invitado tiene su propia cuenta de organización administrada por el proveedor de identidades, pero la organización no tiene ninguna presencia de Azure AD.
 ### <a name="once-direct-federation-is-configured-with-an-organization-does-each-guest-need-to-be-sent-and-redeem-an-individual-invitation"></a>Una vez configurada la federación directa con una organización, ¿es necesario enviar cada invitado y canjear una invitación individual?
 La configuración de la federación directa no cambia el método de autenticación para los usuarios invitados que ya han canjeado una invitación. Puede actualizar el método de autenticación de un usuario invitado mediante el [restablecimiento de su estado de canje](reset-redemption-status.md).
-## <a name="step-1-configure-the-partner-organizations-identity-provider"></a>Paso 1: Configuración del proveedor de identidades de la organización del asociado
-En primer lugar, la organización asociada debe configurar el proveedor de identidades con las notificaciones necesarias y las veracidades de los usuarios de confianza. 
+
+## <a name="step-1-determine-if-the-partner-needs-to-update-their-dns-text-records"></a>Paso 1: Determinación de si el asociado necesita actualizar sus registros de texto DNS
+
+Según el proveedor de identidades del asociado, es posible que este tenga que actualizar sus registros DNS para habilitarle la federación directa. Siga estos pasos para determinar si se necesitan actualizaciones DNS.
+
+1. Si el proveedor de identidades del asociado es uno de estos permitidos, no se necesitan cambios de DNS (esta lista está sujeta a cambios):
+
+     - accounts.google.com
+     - pingidentity.com
+     - login.pingone.com
+     - okta.com
+     - oktapreview.com
+     - okta-emea.com
+     - my.salesforce.com
+     - federation.exostar.com
+     - federation.exostartest.com
+     - idaptive.app
+     - idaptive.qa
+
+2. Si el proveedor de identidades no es uno de los permitidos indicados en el paso anterior, compruebe su dirección URL de autenticación para ver si el dominio coincide con el dominio de destino o un host dentro del dominio de destino. Es decir, al configurar la federación directa para `fabrikam.com`:
+
+     - Si la dirección URL de autenticación es `https://fabrikam.com` o `https://sts.fabrikam.com/adfs` (un host del mismo dominio), no se necesita ningún cambio de DNS.
+     - Si la dirección URL de autenticación es `https://fabrikamconglomerate.com/adfs` o  `https://fabrikam.com.uk/adfs`, el dominio no coincide con el dominio fabrikam.com, por lo que el asociado tiene que agregar un registro de texto para la dirección URL de autenticación a su configuración DNS; vaya al paso siguiente.
+
+3. Si se necesitan cambios de DNS en función del paso anterior, pida al asociado que agregue un registro TXT a los registros DNS de su dominio, como en el ejemplo siguiente:
+
+   `fabrikam.com.  IN   TXT   DirectFedAuthUrl=https://fabrikamconglomerate.com/adfs`
+## <a name="step-2-configure-the-partner-organizations-identity-provider"></a>Paso 2: Configuración del proveedor de identidades de la organización asociada
+
+A continuación, la organización asociada debe configurar su proveedor de identidades con las notificaciones necesarias y las confianzas de los usuarios de confianza.
 
 > [!NOTE]
 > Para ilustrar cómo configurar un proveedor de identidades para la federación directa, usaremos los Servicios de federación de Active Directory (AD FS) como ejemplo. Consulte el artículo [Configuración de la federación directa con AD FS](direct-federation-adfs.md), que ofrece ejemplos de cómo configurar AD FS como un proveedor de identidades de SAML 2.0 o WS-Fed en preparación para la federación directa.
@@ -111,7 +128,7 @@ Atributos necesarios para la respuesta de SAML 2.0 desde el proveedor de identi
 |Atributo  |Value  |
 |---------|---------|
 |AssertionConsumerService     |`https://login.microsoftonline.com/login.srf`         |
-|Público     |`urn:federation:MicrosoftOnline`         |
+|Público     |`https://login.microsoftonline.com/<tenant ID>/` (audiencia de inquilinos recomendada). Reemplace `<tenant ID>` por el identificador de inquilino del inquilino de Azure AD en el que está configurando la federación directa.<br><br>`urn:federation:MicrosoftOnline` (Este valor se va a poner en desuso).          |
 |Emisor     |El URI del emisor del asociado IdP, por ejemplo`http://www.example.com/exk10l6w90DHM0yi...`         |
 
 
@@ -137,7 +154,7 @@ Atributos necesarios en el mensaje de WS-Fed desde el proveedor de identidades:
 |Atributo  |Value  |
 |---------|---------|
 |PassiveRequestorEndpoint     |`https://login.microsoftonline.com/login.srf`         |
-|Público     |`urn:federation:MicrosoftOnline`         |
+|Público     |`https://login.microsoftonline.com/<tenant ID>/` (audiencia de inquilinos recomendada). Reemplace `<tenant ID>` por el identificador de inquilino del inquilino de Azure AD en el que está configurando la federación directa.<br><br>`urn:federation:MicrosoftOnline` (Este valor se va a poner en desuso).          |
 |Emisor     |El URI del emisor del asociado IdP, por ejemplo`http://www.example.com/exk10l6w90DHM0yi...`         |
 
 Las notificaciones necesarias para el token de WS-Fed emitido por el proveedor de identidades:
@@ -147,7 +164,7 @@ Las notificaciones necesarias para el token de WS-Fed emitido por el proveedor d
 |ImmutableID     |`http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`         |
 |emailaddress     |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`         |
 
-## <a name="step-2-configure-direct-federation-in-azure-ad"></a>Paso 2: Configuración de la federación directa en Azure AD 
+## <a name="step-3-configure-direct-federation-in-azure-ad"></a>Paso 3: Configuración de la federación directa en Azure AD 
 A continuación, va a configurar la federación con el proveedor de identidades en Azure AD configurado en el paso 1. Puede usar el portal de Azure AD o PowerShell. Pueden pasar de 5 a 10 minutos antes de que la directiva de la federación directa entre en vigor. Durante este tiempo, no intente canjear una invitación por el dominio de la federación directa. Los atributos siguientes son necesarios:
 - URI del emisor del proveedor de identidades del asociado
 - Punto de conexión de la autenticación pasiva del proveedor de identidades del asociado (solo se admite https)
@@ -178,13 +195,13 @@ A continuación, va a configurar la federación con el proveedor de identidades 
 
 ### <a name="to-configure-direct-federation-in-azure-ad-using-powershell"></a>Para configurar la federación directa en Azure AD con PowerShell
 
-1. Instale la versión más reciente de Azure AD PowerShell para el módulo Graph ([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)). (Si necesita conocer pasos detallados, el inicio rápido para agregar un usuario invitado incluye la sección [Instalación del último módulo de AzureADPreview](b2b-quickstart-invite-powershell.md#install-the-latest-azureadpreview-module)). 
+1. Instale la versión más reciente de Azure AD PowerShell para el módulo Graph ([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)). Si necesita pasos detallados, el Inicio rápido incluye la guía [Módulo de Powershell](b2b-quickstart-invite-powershell.md#prerequisites).
 2. Ejecute el siguiente comando: 
    ```powershell
    Connect-AzureAD
    ```
-1. En el símbolo del sistema, inicie sesión con la cuenta de administrador global administrada. 
-2. Ejecute los siguientes comandos, reemplazando los valores del archivo de metadatos de la federación. Para el servidor de AD FS y Okta, el archivo de federación es federationmetadata.xml, por ejemplo: `https://sts.totheclouddemo.com/federationmetadata/2007-06/federationmetadata.xml`. 
+3. En el símbolo del sistema, inicie sesión con la cuenta de administrador global administrada. 
+4. Ejecute los siguientes comandos, reemplazando los valores del archivo de metadatos de la federación. Para el servidor de AD FS y Okta, el archivo de federación es federationmetadata.xml, por ejemplo: `https://sts.totheclouddemo.com/federationmetadata/2007-06/federationmetadata.xml`. 
 
    ```powershell
    $federationSettings = New-Object Microsoft.Open.AzureAD.Model.DomainFederationSettings
@@ -198,7 +215,7 @@ A continuación, va a configurar la federación con el proveedor de identidades 
    New-AzureADExternalDomainFederation -ExternalDomainName $domainName  -FederationSettings $federationSettings
    ```
 
-## <a name="step-3-test-direct-federation-in-azure-ad"></a>Paso 3: Prueba de la federación directa en Azure AD
+## <a name="step-4-test-direct-federation-in-azure-ad"></a>Paso 4: Prueba de la federación directa en Azure AD
 Ahora pruebe la configuración de la federación directa e invite a un nuevo usuario invitado de B2B. Para más información, consulte [Incorporación de usuarios de colaboración B2B de Azure Active Directory en Azure Portal](add-users-administrator.md).
  
 ## <a name="how-do-i-edit-a-direct-federation-relationship"></a>¿Cómo se puede editar una relación de federación directa?

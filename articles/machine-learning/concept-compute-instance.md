@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 309cf3882ade99de3f2e29a037d20ca50e35f490
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: a3677e50d9dab99eaedc88cdd61e8e2ed9a3761b
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106066677"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108321760"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>¿Qué es una instancia de proceso de Azure Machine Learning?
 
@@ -34,7 +34,7 @@ Una instancia de proceso es una estación de trabajo totalmente administrada bas
 
 |Ventajas principales|Descripción|
 |----|----|
-|Productividad|Puede compilar e implementar modelos con cuadernos integrados y las siguientes herramientas en Azure Machine Learning Studio:<br/>-  Jupyter<br/>-  JupyterLab<br/>-RStudio (versión preliminar)<br/>La instancia de proceso está totalmente integrada con el área de trabajo y estudio de Azure Machine Learning. Puede compartir cuadernos y datos con otros científicos de datos en el área de trabajo.<br/> También puede usar [VS Code](https://techcommunity.microsoft.com/t5/azure-ai/power-your-vs-code-notebooks-with-azml-compute-instances/ba-p/1629630) con las instancias de proceso.
+|Productividad|Puede compilar e implementar modelos con cuadernos integrados y las siguientes herramientas en Azure Machine Learning Studio:<br/>-  Jupyter<br/>-  JupyterLab<br/>-  VS Code (versión preliminar)<br/>-RStudio (versión preliminar)<br/>La instancia de proceso está totalmente integrada con el área de trabajo y estudio de Azure Machine Learning. Puede compartir cuadernos y datos con otros científicos de datos en el área de trabajo.<br/> También puede usar [VS Code](https://techcommunity.microsoft.com/t5/azure-ai/power-your-vs-code-notebooks-with-azml-compute-instances/ba-p/1629630) con las instancias de proceso.
 |Administrada y segura|Reduzca la superficie de seguridad y agregue compatibilidad con los requisitos de seguridad empresariales. Las instancias de proceso proporcionan directivas de administración sólidas y configuraciones de red seguras, como:<br/><br/>- Aprovisionamiento automático a partir de plantillas de Resource Manager o del SDK de Azure Machine Learning<br/>- [Control de acceso basado en rol de Azure (RBAC de Azure)](../role-based-access-control/overview.md)<br/>- [Compatibilidad con redes virtuales](./how-to-secure-training-vnet.md#compute-instance)<br/>- Directiva SSH para habilitar o deshabilitar el acceso SSH<br/>TLS 1.2 habilitado |
 |Preconfigurado &nbsp;para&nbsp;ML|Ahorre tiempo en las tareas de configuración con paquetes de ML preconfigurados y actualizados, marcos de aprendizaje profundo y controladores de GPU.|
 |Totalmente personalizable|La amplia compatibilidad con los tipos de máquina virtual de Azure, incluidas las GPU y la personalización de bajo nivel persistente, como la instalación de paquetes y controladores, hace que los escenarios avanzados sean muy sencillos. |
@@ -98,7 +98,7 @@ También puede clonar los ejemplos de Azure Machine Learning más recientes en l
 
 La escritura de archivos pequeños puede ser más lenta en las unidades de red que la escritura en el propio disco local de la instancia de proceso.  Si escribe muchos archivos pequeños, pruebe usar un directorio directamente en la instancia de proceso, como un directorio`/tmp`. Tenga en cuenta que estos archivos no serán accesibles desde otras instancias de proceso. 
 
-Puede usar el directorio `/tmp` en la instancia de proceso para los datos temporales.  Pero no escriba grandes archivos de datos en el disco del sistema operativo de la instancia de proceso.  En su lugar, use [almacenes de datos](concept-azure-machine-learning-architecture.md#datasets-and-datastores). Si ha instalado la extensión .git de JupyterLab, también puede provocar una ralentización en el rendimiento de la instancia de proceso.
+Puede usar el directorio `/tmp` en la instancia de proceso para los datos temporales.  Pero no escriba archivos de datos muy grandes en el disco del sistema operativo de la instancia de proceso. El disco del sistema operativo de la instancia de proceso tiene una capacidad de 128 GB. Además, no almacene un conjunto grande de datos de entrenamiento en el recurso compartido de archivos de los cuadernos. Use [almacenes y conjuntos de datos](concept-azure-machine-learning-architecture.md#datasets-and-datastores) en su lugar. 
 
 ## <a name="managing-a-compute-instance"></a>Administración de una instancia de proceso
 
@@ -148,6 +148,8 @@ Usted también puede crear una instancia
 
 Los núcleos dedicados por región por cuota de familia de máquinas virtuales y cuota regional total, que se aplica a la creación de instancias de proceso, se unifica y comparte con la cuota de clúster de proceso de Azure Machine Learning. La detención de la instancia de proceso no libera la cuota para garantizar que pueda reiniciar la instancia de proceso.
 
+La instancia de proceso viene con el disco del sistema operativo P10. El tipo de disco temporal depende del tamaño de VM elegido. Actualmente, no es posible cambiar el tipo de disco del sistema operativo.
+
 
 ### <a name="create-on-behalf-of-preview"></a>Creación en nombre de alguien (versión preliminar)
 
@@ -180,17 +182,7 @@ Una instancia de proceso:
 Puede usar la instancia de proceso como destino de implementación de inferencia local para escenarios de prueba o depuración.
 
 > [!TIP]
-> La instancia de proceso tiene un disco de SO de 120 GB. Si se queda sin espacio en disco, [use el terminal](how-to-access-terminal.md) para borrar al menos entre 1 y 2 GB antes de [detener o reiniciar](how-to-create-manage-compute-instance.md#manage) la instancia de proceso.
-
-
-## <a name="what-happened-to-notebook-vm"></a><a name="notebookvm"></a>¿Qué ha ocurrido con la VM de cuaderno?
-
-Las instancias de proceso reemplazan la VM de cuaderno.  
-
-Los archivos de cuaderno almacenados en el recurso compartido de archivos del área de trabajo y los almacenes de datos del área de trabajo serán accesibles desde una instancia de proceso. Sin embargo, los paquetes personalizados que se instalaron previamente en una máquina virtual de Notebook deberán volver a instalarse en la instancia de proceso. Las limitaciones de cuota que se aplican a la creación de clústeres de proceso se aplicarán también a la creación de instancias de proceso.
-
-No se pueden crear las nuevas máquinas virtuales de Notebook. Sin embargo, todavía puede tener acceso a las VMs de Notebook que ha creado y utilizarlas con toda funcionalidad. Las instancias de proceso se pueden crear en la misma área de trabajo que las VMs de Notebook existentes.
-
+> La instancia de proceso tiene un disco de SO de 120 GB. Si se queda sin espacio en el disco y entra en un estado inutilizable, borre al menos 5 GB de espacio en el disco del sistema operativo (/dev/sda1/ sistema de archivo en el que está montado /) a través del terminal de JupyterLab eliminando archivos o carpetas; a continuación, reinicie sudo. Para acceder al terminal de JupyterLab, vaya a https://ComputeInstanceName.AzureRegion.instances.azureml.ms/lab y reemplace el nombre de la instancia de proceso y la región de Azure y, a continuación, haga clic en Archivo->Nuevo->Terminal. Borre al menos 5 GB antes de [detener o reiniciar](how-to-create-manage-compute-instance.md#manage) la instancia de proceso. Para comprobar el espacio en disco disponible, ejecute df -h en el terminal.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

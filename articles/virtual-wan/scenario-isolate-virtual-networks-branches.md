@@ -1,19 +1,19 @@
 ---
 title: 'Escenario: Aislamiento personalizado para redes virtuales y sucursales'
 titleSuffix: Azure Virtual WAN
-description: 'Escenarios de enrutamiento: impedir que las redes virtuales y sucursales seleccionadas puedan comunicarse entre sí'
+description: Obtenga información sobre escenarios de enrutamiento de Virtual WAN para evitar que redes virtuales y ramas seleccionadas puedan comunicarse entre sí.
 services: virtual-wan
 author: wellee
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 01/25/2021
+ms.date: 04/27/2021
 ms.author: wellee
-ms.openlocfilehash: 2e57d84ea76fbcfad932654c36ff51b9260ecdd7
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 024d3c34094ac82e158198e569e0b6f3b12bdf4c
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107950806"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108162030"
 ---
 # <a name="scenario-custom-isolation-for-virtual-networks-and-branches"></a>Escenario: Aislamiento personalizado para redes virtuales y sucursales
 

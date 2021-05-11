@@ -1,14 +1,14 @@
 ---
 title: Información sobre cómo auditar el contenido de máquinas virtuales
 description: Obtenga información sobre la forma en que Azure Policy usa el cliente de configuración de invitado para auditar la configuración dentro de las máquinas virtuales.
-ms.date: 01/14/2021
+ms.date: 05/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: 6fb3ed3644ccdb5de8f03bedf56943a91570322b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 863f85c1eeeed381eda12a066a247c2605a1d68f
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105733033"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108326136"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Información sobre Guest Configuration de Azure Policy
 
@@ -29,7 +29,8 @@ Para auditar el estado de las máquinas de su entorno, incluidas las de Azure y 
 
 ## <a name="resource-provider"></a>Proveedor de recursos
 
-Para poder usar Guest Configuration debe registrar el proveedor de recursos. Si la asignación de una directiva de configuración de invitado se realiza en el portal, o si la suscripción está inscrita en Azure Security Center, el proveedor de recursos se registra automáticamente. Puede registrarse manualmente mediante el [portal](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal), [Azure PowerShell](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell) o la [CLI de Azure](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli).
+Para poder usar Guest Configuration debe registrar el proveedor de recursos.
+Si la asignación de una directiva de configuración de invitado se realiza en el portal, o si la suscripción está inscrita en Azure Security Center, el proveedor de recursos se registra automáticamente. Puede registrarse manualmente mediante el [portal](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal), [Azure PowerShell](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell) o la [CLI de Azure](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli).
 
 ## <a name="deploy-requirements-for-azure-virtual-machines"></a>Requisitos de implementación de Azure Virtual Machines
 
@@ -83,19 +84,17 @@ Las máquinas de Azure Arc se conectan mediante la infraestructura de red local 
 
 ### <a name="communicate-over-virtual-networks-in-azure"></a>Comunicación a través de redes virtuales en Azure
 
-Las máquinas virtuales que usan redes virtuales para la comunicación requerirán acceso de salida a los centros de recursos de Azure en el puerto `443`. Si utiliza una red virtual privada en Azure que no permite el tráfico saliente, las excepciones deben configurarse con las reglas del grupo de seguridad de red. La etiqueta del servicio "GuestAndHybridManagement" se puede usar para hacer referencia al servicio de Guest Configuration.
+Para comunicarse con el proveedor de recursos de la configuración de invitado en Azure, las máquinas requieren acceso de salida a los centros de datos Azure en el puerto **443**. Si una red en Azure no permite el tráfico saliente, las excepciones deben configurarse con las reglas del [grupo de seguridad de red](../../../virtual-network/manage-network-security-group.md#create-a-security-rule). La [etiqueta de servicio](../../../virtual-network/service-tags-overview.md) "GuestAndHybridManagement" se puede usar para hacer referencia al servicio de configuración de invitado en lugar de mantener manualmente la [lista de intervalos IP](https://www.microsoft.com/en-us/download/details.aspx?id=56519) para los centros de datos de Azure.
 
 ### <a name="communicate-over-private-link-in-azure"></a>Comunicación a través de un vínculo privado en Azure
 
-Las máquinas virtuales pueden usar un [vínculo privado](../../../private-link/private-link-overview.md) para la comunicación con el servicio de configuración de invitado. Aplique la etiqueta con el nombre `EnablePrivateNeworkGC` (sin la "t" de "Network") y el valor `TRUE` para habilitar esta característica. La etiqueta se puede aplicar antes o después de que se apliquen las definiciones de directivas de configuración de invitado a la máquina.
+Las máquinas virtuales pueden usar un [vínculo privado](../../../private-link/private-link-overview.md) para la comunicación con el servicio de configuración de invitado. Aplique la etiqueta con el nombre `EnablePrivateNetworkGC` y el valor `TRUE` para habilitar esta característica. La etiqueta se puede aplicar antes o después de que se apliquen las definiciones de directivas de configuración de invitado a la máquina.
 
 El tráfico se enruta mediante la [dirección IP pública virtual](../../../virtual-network/what-is-ip-address-168-63-129-16.md) de Azure para establecer un canal seguro y autenticado con recursos de la plataforma Azure.
 
 ### <a name="azure-arc-connected-machines"></a>Máquinas conectadas de Azure Arc
 
 Los nodos que se encuentran fuera de Azure y que están conectados mediante Azure Arc requieren conectividad con el servicio de configuración de invitado. Detalles sobre los requisitos de red y proxy que se proporcionan en la [documentación de Azure Arc](../../../azure-arc/servers/overview.md).
-
-Para comunicarse con el proveedor de recursos de la configuración de invitado en Azure, las máquinas requieren acceso de salida a los centros de datos Azure en el puerto **443**. Si una red en Azure no permite el tráfico saliente, las excepciones deben configurarse con las reglas del [grupo de seguridad de red](../../../virtual-network/manage-network-security-group.md#create-a-security-rule). La [etiqueta del servicio](../../../virtual-network/service-tags-overview.md) "GuestAndHybridManagement" se puede usar para hacer referencia al servicio de Guest Configuration.
 
 En el caso de los servidores conectados a Arc en centros de datos privados, permita el tráfico con los siguientes patrones:
 
@@ -117,7 +116,7 @@ Las definiciones de directivas de invitado deusan el efecto **AuditIfNotExists**
 Las definiciones de directivas **AuditIfNotExists** no devolverán resultados de cumplimiento hasta que se cumplan todos los requisitos en la máquina. Los requisitos se describen en la sección [Requisitos de implementación de Azure Virtual Machines](#deploy-requirements-for-azure-virtual-machines).
 
 > [!IMPORTANT]
-> En una versión anterior de Guest Configuration, una iniciativa debía combinar las definiciones **DeployIfNoteExists** y **AuditIfNotExists**. Las definiciones **DeployIfNotExists** ya no son necesarias. Las definiciones e iniciativas se etiquetan como `[Deprecated]`, pero las asignaciones existentes seguirán funcionando. Para obtener más información, consulte la entrada de blog: [Cambio importante publicado para las directivas de auditoría de configuración de invitado](https://techcommunity.microsoft.com/t5/azure-governance-and-management/important-change-released-for-guest-configuration-audit-policies/ba-p/1655316)
+> En una versión anterior de Guest Configuration, una iniciativa debía combinar las definiciones **DeployIfNotExists** y **AuditIfNotExists**. Las definiciones **DeployIfNotExists** ya no son necesarias. Las definiciones e iniciativas se etiquetan como `[Deprecated]`, pero las asignaciones existentes seguirán funcionando. Para obtener más información, consulte la entrada de blog: [Cambio importante publicado para las directivas de auditoría de configuración de invitado](https://techcommunity.microsoft.com/t5/azure-governance-and-management/important-change-released-for-guest-configuration-audit-policies/ba-p/1655316)
 
 ### <a name="what-is-a-guest-assignment"></a>¿Qué es una asignación de invitado?
 

@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/26/2021
+ms.date: 04/30/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7da93343e7380a327b7d2586b90dd5a5df1e006f
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: f7ccca25bf140a51755c229f8c438e053a7ac7de
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108136866"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108319274"
 ---
 # <a name="audit-logs-in-azure-active-directory"></a>Registros de auditoría en Azure Active Directory 
 
@@ -37,9 +37,9 @@ Para ayudarle a conseguir este objetivo, el portal de Azure Active Directory le 
 En este artículo se proporciona información general de los informes de auditoría.
 
 
-## <a name="what-can-you-do-with-it"></a>¿Para qué sirven el informe?
+## <a name="what-is-it"></a>¿Qué es?
 
-Con los registros de auditoría de Azure AD, puede obtener registros de las actividades del sistema de cara al cumplimiento.
+Con los registros de auditoría de Azure AD, obtiene acceso a registros de actividades del sistema para el cumplimiento.
 Las vistas más comunes de este registro se basan en las siguientes categorías:
 
 - Administración de usuarios
@@ -49,7 +49,7 @@ Las vistas más comunes de este registro se basan en las siguientes categorías:
 - Administración de aplicaciones  
 
 
-Con una vista centrada en usuarios o grupos, puede obtener respuestas a preguntas como:
+Con una vista centrada en los usuarios, puede obtener respuestas a preguntas como:
 
 - ¿Qué tipos de actualizaciones se han aplicado a los usuarios?
 
@@ -59,6 +59,9 @@ Con una vista centrada en usuarios o grupos, puede obtener respuestas a pregunta
 
 - ¿Qué ha hecho un administrador en un directorio?
 
+
+Con una vista centrada en los grupos, puede obtener respuestas a preguntas como:
+
 - ¿Cuáles son los grupos que se han agregado?
 
 - ¿Hay grupos con cambios de pertenencia?
@@ -66,7 +69,6 @@ Con una vista centrada en usuarios o grupos, puede obtener respuestas a pregunta
 - ¿Se han cambiado los propietarios del grupo?
 
 - ¿Qué licencias se han asignado a un grupo o un usuario?
-
 
 Con una vista centrada en la aplicación, puede obtener respuestas a preguntas como:
 
@@ -81,6 +83,10 @@ Con una vista centrada en la aplicación, puede obtener respuestas a preguntas c
 - ¿Quién dio el consentimiento a una aplicación?
 
  
+## <a name="what-license-do-i-need"></a>¿Qué licencia necesito?
+
+El informe de actividad de auditoría está disponible en todas las ediciones de Azure AD.
+
 ## <a name="who-can-access-it"></a>¿Quién puede acceder a ellos?
 
 Para acceder a los registros de auditoría, debe tener uno de los siguientes roles: 
@@ -91,13 +97,16 @@ Para acceder a los registros de auditoría, debe tener uno de los siguientes rol
 - Lector global
 - Administrador global
 
-## <a name="where-can-you-find-it-in-the-azure-portal"></a>¿Dónde puede encontrarlo en Azure Portal?
+## <a name="where-can-i-find-it"></a>¿Dónde se encuentra?
 
 Azure Portal ofrece varias opciones para acceder al registro. Por ejemplo, en el menú Azure Active Directory, puede abrir el registro en la sección **Supervisión**.  
 
-![Apertura de los registros de aprovisionamiento](./media/concept-provisioning-logs/provisioning-logs-menu.png)
+![Apertura de registros de auditoría](./media/concept-audit-logs/audit-logs-menu.png)
 
-Además, puede acceder directamente a los registros de auditoría mediante este vínculo: [https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/ProvisioningEvents](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/ProvisioningEvents).
+Además, puede acceder directamente a los registros de auditoría mediante [este vínculo](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/ProvisioningEvents).
+
+
+También puede acceder al registro de auditoría mediante Microsoft Graph API.
 
 
 ## <a name="what-is-the-default-view"></a>¿Cuál es la vista predeterminada?
@@ -124,7 +133,6 @@ Esto le permite mostrar los campos adicionales o quitar los campos que ya se est
 Seleccione un elemento de la vista de lista para obtener información más detallada.
 
 ![seleccionar elemento](./media/concept-audit-logs/details.png "Seleccionar elemento")
-
 
 ## <a name="filtering-audit-logs"></a>Filtrado de registros de auditoría
 
@@ -211,7 +219,6 @@ Cuando se selecciona un intervalo de tiempo personalizado, puede configurar una 
 También puede descargar los datos filtrados, hasta 250 000 registros, si selecciona el botón **Download** (Descargar). Puede descargar los registros en formato CSV o JSON. El número de registros que se puede descargar también está restringido por las [directivas de retención de informes de Azure Active Directory](reference-reports-data-retention.md).
 
 ![Descarga de datos](./media/concept-audit-logs/download.png "Descarga de datos")
-
 
 
 

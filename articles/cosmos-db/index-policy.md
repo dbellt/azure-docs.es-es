@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 02/10/2021
+ms.date: 04/27/2021
 ms.author: tisande
-ms.openlocfilehash: 26465eb9826c60daad7b44e1c2fe6ae3c19b1ed0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bd77d8fe2e934ebfe9d4fad994e8aa9c6644ef8e
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100378815"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108165666"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Directivas de indexación en Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -337,7 +337,7 @@ Se puede actualizar en cualquier momento una directiva de indexación de un cont
 > La transformación de índice es una operación que consume [unidades de solicitud](request-units.md). Las unidades de solicitud consumidas por una transformación de índice no se facturan actualmente si se usan contenedores [sin servidor](serverless.md). Estas unidades de solicitud se facturarán una vez que el modo sin servidor esté disponible con carácter general.
 
 > [!NOTE]
-> Es posible realizar un seguimiento del progreso de transformación del índice [mediante uno de los SDK](how-to-manage-indexing-policy.md).
+> Puede realizar un seguimiento del progreso de la transformación del índice en Azure Portal o [mediante uno de los SDK](how-to-manage-indexing-policy.md).
 
 No afecta a la disponibilidad de escritura durante las transformaciones del índice. La transformación del índice usa las RU aprovisionadas, pero en una prioridad más baja que las consultas u operaciones de CRUD.
 

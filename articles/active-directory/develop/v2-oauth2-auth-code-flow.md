@@ -13,12 +13,12 @@ ms.date: 03/29/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: d2f4fca7f6b5fe7c6a894f4be3b27788799b422e
-ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
+ms.openlocfilehash: 05426f6f9eb01fa5a23b6bb20a2b1c50b8720ab1
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108064006"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108227729"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Plataforma de identidad y flujo de código de autorización de OAuth 2.0
 
@@ -45,6 +45,8 @@ Si intenta usar el flujo de código de autorización y ve este error:
 `access to XMLHttpRequest at 'https://login.microsoftonline.com/common/v2.0/oauth2/token' from origin 'yourApp.com' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.`
 
 Luego, visite el registro de aplicaciones y actualice el URI de redirección de la aplicación al tipo `spa`.
+
+Las aplicaciones no pueden usar un URI de redirección `spa` con flujos que no son SPA, por ejemplo, flujos de aplicaciones nativas o de credenciales de cliente. Para garantizar la seguridad, Azure AD devuelve un error si se intenta usar un URI de redirección `spa` en estos escenarios, por ejemplo, desde una aplicación nativa que no envía un encabezado `Origin`. 
 
 ## <a name="request-an-authorization-code"></a>Solicitud de un código de autorización
 

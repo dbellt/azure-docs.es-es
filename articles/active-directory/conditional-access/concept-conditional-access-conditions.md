@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab840b46503aed1a318e3b39a4e8fe3e4d11735c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 59664a0b5127e9fde8f2890cd396bec120eff29d
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104579134"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108330664"
 ---
 # <a name="conditional-access-conditions"></a>Acceso condicional: Condiciones
 
@@ -120,7 +120,7 @@ Esta configuración funciona con todos los exploradores. Sin embargo, para satis
 | macOS | Chrome, Safari |
 
 > [!NOTE]
-> Edge 85+ requiere que el usuario inicie sesión en el explorador para pasar correctamente la identidad del dispositivo. De lo contrario, se comporta como Chrome sin la extensión de cuentas. Este inicio de sesión podría no producirse automáticamente en un escenario de Unión a Azure AD híbrido. 
+> Edge 85+ requiere que el usuario inicie sesión en el explorador para pasar correctamente la identidad del dispositivo. De lo contrario, se comporta como Chrome sin la extensión de cuentas. Este inicio de sesión podría no producirse automáticamente en un escenario de Unión a Azure AD híbrido. Safari es compatible con el acceso condicional basado en dispositivos, pero no puede satisfacer las condiciones **Requerir aplicación cliente aprobada** o **Requerir la directiva de protección de aplicaciones**. Un navegador administrado como Microsoft Edge cumple ambos requisitos.
 
 #### <a name="why-do-i-see-a-certificate-prompt-in-the-browser"></a>¿Por qué veo una solicitud de certificado en el explorador?
 

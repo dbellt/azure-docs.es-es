@@ -8,36 +8,44 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/21/2021
+ms.date: 04/28/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ec61610f6304071299a05e248e8cb6a600ed1af0
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+zone_pivot_groups: b2c-policy-type
+ms.openlocfilehash: 55034efe35ae572fb7b2d5d8eeacb6048bcb8e51
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107947202"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108175449"
 ---
-# <a name="secure-your-restful-services"></a>Protección de los servicios RESTful 
+# <a name="secure-your-api-connector"></a>Protección de un conector de API 
 
-[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Al integrar una API REST en un recorrido del usuario de Azure AD B2C, debe proteger el punto de conexión de la API REST con autenticación. Esto garantiza que solo los servicios que tienen credenciales adecuadas, como Azure AD B2C, pueden realizar llamadas al punto de conexión de la API REST.
+Al integrar una API de REST en un flujo de usuario de Azure Active Directory B2C, debe proteger el punto de conexión de la API mediante autenticación. La autenticación de la API de REST garantiza que solo los servicios que tengan credenciales adecuadas, como Azure Active Directory B2C, puedan realizar llamadas al punto de conexión. En este artículo se examina cómo proteger la API de REST. 
 
-Aprenda a integrar una API REST en el recorrido del usuario de Azure AD B2C en los artículos [Validación de entradas del usuario](custom-policy-rest-api-claims-validation.md) y [Adición de intercambios de notificaciones de API de REST a directivas personalizadas](custom-policy-rest-api-claims-exchange.md).
+## <a name="prerequisites"></a>Requisitos previos
 
-En este artículo se explica cómo proteger la API REST con HTTP básico, Basic, un certificado de cliente o autenticación OAuth2. 
-
-## <a name="prerequisites"></a>Prerrequisitos
-
-Complete los pasos de una de las siguientes guías de procedimientos:
-
-- [Integración de intercambios de notificaciones de API REST en el recorrido del usuario de Azure AD B2C para validar la entrada del usuario](custom-policy-rest-api-claims-validation.md).
-- [Adición de intercambios de notificaciones de API de REST a directivas personalizadas](custom-policy-rest-api-claims-exchange.md)
+Complete los pasos que se incluyen en la guía [Tutorial: Incorporación de un conector de API a un flujo de usuario de registro](add-api-connector.md).
 
 ## <a name="http-basic-authentication"></a>Autenticación HTTP básica
 
 La autenticación HTTP básica se define en [RFC 2617](https://tools.ietf.org/html/rfc2617). La autenticación básica funciona de la manera siguiente: Azure AD B2C envía una solicitud HTTP con las credenciales del cliente en el encabezado de autorización. Las credenciales tienen el formato de cadena codificada en Base64 "nombre:contraseña".  
+
+::: zone pivot="b2c-user-flow"
+
+Para configurar un conector de API con autenticación básica HTTP, siga estos pasos:
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
+1. En **Servicios de Azure**, seleccione **Azure AD B2C**.
+1. Seleccione **Conectores de API (versión preliminar)** y, después, el **conector de API** que quiera configurar.
+1. En **Tipo de autenticación**, seleccione **Básica**.
+1. Rellene los campos **Nombre de usuario** y **Contraseña** con relación al punto de conexión de la API de REST.
+1. Seleccione **Guardar**.
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
 
 ### <a name="add-rest-api-username-and-password-policy-keys"></a>Agregar claves de directiva de nombre de usuario y contraseña de la API REST
 
@@ -80,7 +88,7 @@ Después de crear las claves necesarias, configure los metadatos de perfil técn
     </CryptographicKeys>
     ```
 
-A continuación se incluye un ejemplo de un perfil técnico de RESTful configurado con autenticación HTTP básica:
+El siguiente fragmento XML es un ejemplo de perfil técnico de RESTful configurado con autenticación básica HTTP:
 
 ```xml
 <ClaimsProvider>
@@ -104,6 +112,7 @@ A continuación se incluye un ejemplo de un perfil técnico de RESTful configura
   </TechnicalProfiles>
 </ClaimsProvider>
 ```
+::: zone-end
 
 ## <a name="https-client-certificate-authentication"></a>Autenticación con certificados de cliente HTTPS
 
@@ -111,24 +120,25 @@ La autenticación con certificados de cliente es una autenticación mutua basada
 
 ### <a name="prepare-a-self-signed-certificate-optional"></a>Preparación de un certificado autofirmado (opcional)
 
-Para los entornos que no sean de producción, si aún no tiene ningún certificado, puede usar un certificado autofirmado. En Windows, puede usar el cmdlet [New-SelfSignedCertificate](/powershell/module/pki/new-selfsignedcertificate) de PowerShell para generar un certificado.
+[!INCLUDE [active-directory-b2c-create-self-signed-certificate](../../includes/active-directory-b2c-create-self-signed-certificate.md)]
 
-1. Ejecute este comando de PowerShell para generar un certificado autofirmado. Modifique el argumento `-Subject` según corresponda para su aplicación y el nombre del inquilino de Azure AD B2C. También puede ajustar la fecha de `-NotAfter` para especificar una expiración diferente para el certificado.
-    ```powershell
-    New-SelfSignedCertificate `
-        -KeyExportPolicy Exportable `
-        -Subject "CN=yourappname.yourtenant.onmicrosoft.com" `
-        -KeyAlgorithm RSA `
-        -KeyLength 2048 `
-        -KeyUsage DigitalSignature `
-        -NotAfter (Get-Date).AddMonths(12) `
-        -CertStoreLocation "Cert:\CurrentUser\My"
-    ```    
-1. Abra **Administrar certificados de usuario** > **Usuario actual** > **Personal** > **Certificados** > *yourappname.yourtenant.onmicrosoft.com*.
-1. Seleccione el certificado > **Acción** > **Todas las tareas** > **Exportar**.
-1. Seleccione **Sí** > **Siguiente** > **Sí, exportar la clave privada** > **Siguiente**.
-1. Acepte los valores predeterminados para **Formato de archivo de exportación**.
-1. Proporcionar una contraseña para el certificado.
+::: zone pivot="b2c-user-flow"
+
+### <a name="configure-your-api-connector"></a>Configuración de un conector de API
+
+Para configurar un conector de API con autenticación de certificado de cliente, siga estos pasos:
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
+1. En **Servicios de Azure**, seleccione **Azure AD B2C**.
+1. Seleccione **Conectores de API (versión preliminar)** y, después, el **conector de API** que quiera configurar.
+1. En **Tipo de autenticación**, seleccione **Certificado**.
+1. En el cuadro **Cargar certificado**, seleccione el archivo .pfx del certificado con una clave privada.
+1. En el cuadro **Escribir contraseña**, escriba la contraseña del certificado.
+1. Seleccione **Guardar**.
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
 
 ### <a name="add-a-client-certificate-policy-key"></a>Adición de una clave de directiva de certificado de cliente
 
@@ -160,7 +170,7 @@ Después de crear la clave necesaria, configure los metadatos de perfil técnico
     </CryptographicKeys>
     ```
 
-A continuación se incluye un ejemplo de un perfil técnico de RESTful configurado con un certificado de cliente HTTP:
+El siguiente fragmento XML es un ejemplo de perfil técnico de RESTful configurado con un certificado de cliente HTTP:
 
 ```xml
 <ClaimsProvider>
@@ -208,7 +218,7 @@ En los pasos siguientes se muestra cómo usar las credenciales del cliente para 
 
 Una notificación proporciona un almacenamiento temporal de datos durante la ejecución de una directiva de Azure AD B2C. El [esquema de notificaciones](claimsschema.md) es el lugar en el que se declaran las notificaciones. El token de acceso debe almacenarse en una notificación para usarse más tarde. 
 
-1. Abra el archivo de extensiones de la directiva. Por ejemplo, <em>`SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`**</em>.
+1. Abra el archivo de extensiones de la directiva. Por ejemplo, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
 1. Busque el elemento [BuildingBlocks](buildingblocks.md). Si el elemento no existe, agréguelo.
 1. Busque el elemento [ClaimsSchema](claimsschema.md). Si el elemento no existe, agréguelo.
 1. Agregue las notificaciones siguientes al elemento **ClaimsSchema**.  
@@ -382,7 +392,7 @@ Después de crear la clave necesaria, configure los metadatos de perfil técnico
     </CryptographicKeys>
     ```
 
-A continuación se incluye un ejemplo de un perfil técnico de RESTful configurado con autenticación de token de portador:
+El siguiente fragmento XML es un ejemplo de perfil técnico RESTful configurado con autenticación de token de portador:
 
 ```xml
 <ClaimsProvider>
@@ -445,7 +455,7 @@ Después de crear la clave necesaria, configure los metadatos de perfil técnico
 
 El identificador (**Id**) de la clave criptográfica define el encabezado HTTP. En este ejemplo, la clave de API se envía como **x-functions-key**.
 
-A continuación se incluye un ejemplo de un perfil técnico de RESTful configurado para llamar a una función de Azure con la autenticación de clave de API:
+El siguiente fragmento XML es un ejemplo de perfil técnico RESTful configurado para llamar a una función de Azure con autenticación de clave de API:
 
 ```xml
 <ClaimsProvider>
@@ -471,4 +481,6 @@ A continuación se incluye un ejemplo de un perfil técnico de RESTful configura
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga más información sobre el elemento de [perfil técnico de Restful](restful-technical-profile.md) en la referencia de IEF.
+- Obtenga más información sobre el elemento de [perfil técnico RESTful](restful-technical-profile.md) en la referencia de directivas personalizadas.
+
+::: zone-end

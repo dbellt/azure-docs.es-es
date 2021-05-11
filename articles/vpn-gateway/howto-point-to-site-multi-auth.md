@@ -1,19 +1,19 @@
 ---
 title: 'Conexión a una red virtual mediante una VPN P2S y varios tipos de autenticación: portal'
 titleSuffix: Azure VPN Gateway
-description: Conéctese a una red virtual mediante P2S y varios tipos de autenticación en Azure Portal.
+description: Obtenga información sobre cómo conectarse a una red virtual mediante P2S usando varios tipos de autenticación.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: cherylmc
-ms.openlocfilehash: d405f4b10808b7d39c0d116f2c9006c85532b4f9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8141d44aa4da394726d8c45a1f8514bdcaac09aa
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101743846"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108229385"
 ---
 # <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-multiple-authentication-types-azure-portal"></a>Configuración de una conexión VPN de punto a sitio a una red virtual mediante varios tipos de autenticación: Azure Portal
 

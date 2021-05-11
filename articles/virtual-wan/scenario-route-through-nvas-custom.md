@@ -1,20 +1,20 @@
 ---
 title: Enrutamiento del tráfico a través de NVA mediante una configuración personalizada
 titleSuffix: Azure Virtual WAN
-description: Este escenario le ayuda a enrutar el tráfico a través de las NVA mediante una NVA diferente para el tráfico vinculado a Internet.
+description: Obtenga información sobre escenarios de enrutamiento de Virtual WAN con el fin de enrutar tráfico a través de aplicaciones virtuales de red (NVA). En este escenario, el tráfico se enruta a través de NVA usando una NVA diferente para el tráfico de Internet y una configuración personalizada.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 02/25/2021
+ms.date: 04/27/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6291964aff7c215df7f738ab103947dcb9b1b1d4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 153e3dd64546dfa713abefcff106652fc061a6a2
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102036900"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108165828"
 ---
 # <a name="scenario-route-traffic-through-nvas-by-using-custom-settings"></a>Escenario: Enrutamiento del tráfico a través de NVA mediante una configuración personalizada
 

@@ -2,13 +2,13 @@
 title: Eliminación de un almacén de Microsoft Azure Recovery Services
 description: En este artículo, aprenderá a quitar dependencias y, luego, a eliminar un almacén de Azure Backup Recovery Services (MARS).
 ms.topic: conceptual
-ms.date: 06/04/2020
-ms.openlocfilehash: bb6be070ac0fb408ac37c8ae7b003b54da5d6dea
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 04/26/2021
+ms.openlocfilehash: b99422d48e3c5fe633f8fb34366d78d941fef303
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107773664"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108320572"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Eliminación de un almacén de Recovery Services de Azure Backup
 
@@ -162,15 +162,51 @@ Para detener la protección y eliminar los datos de copia de seguridad, siga est
 
     ![Selección de Eliminar datos protegidos desde el panel Detener protección.](./media/backup-azure-delete-vault/delete-storage-online.png)
 
-    Se cambia el estado de miembro protegido a *Réplica inactiva disponible*.
+    En las siguientes versiones, se le pedirá que escriba un PIN (número de identificación personal) de seguridad, que debe generar manualmente.
+    
 
-4. Haga clic en el grupo de protección inactiva y seleccione **Quitar protección inactiva**.
+    - DPM 2019 UR1 y versiones posteriores
+    - DPM 2016 UR9 y versiones posteriores
+    - MABS V3 UR1 y versiones posteriores
+    
+    Para generar el PIN, realice los siguientes pasos:
+    
+    1. Inicie sesión en Azure Portal.
+    1. Vaya a **Almacén de Recovery Services** > **Configuración** > **Propiedades**.
+    1. En **PIN de seguridad**, seleccione **Generar**.
+    1. Copie este código PIN. 
+       >[!NOTE]
+       >Este PIN solo es válido durante cinco minutos.
+    1. En la consola de administración, pegue el código PIN y seleccione **Enviar**.
+       ![Especificación del PIN de seguridad para eliminar elementos de copia de seguridad de la consola de administración de MABS y DPM](./media/backup-azure-delete-vault/enter-security-pin.png)
+
+4. Si había seleccionado **Delete storage online** (eliminar almacenamiento en línea) en el cuadro de diálogo **Detener protección** anteriormente, ignore este paso. Haga clic en el grupo de protección inactiva y seleccione **Quitar protección inactiva**.
 
     ![Retirada de protección inactiva.](./media/backup-azure-delete-vault/remove-inactive-protection.png)
 
 5. Desde la ventana **Eliminar protección inactiva**, active **Eliminar almacenamiento en línea** y seleccione **Aceptar**.
 
     ![Eliminación de almacenamiento en línea.](./media/backup-azure-delete-vault/remove-replica-on-disk-and-online.png)
+
+    En las siguientes versiones, se le pedirá que escriba un PIN (número de identificación personal) de seguridad, que debe generar manualmente.
+    
+
+    - DPM 2019 UR1 y versiones posteriores
+    - DPM 2016 UR9 y versiones posteriores
+    - MABS V3 UR1 y versiones posteriores
+    
+    Para generar el PIN, realice los siguientes pasos:
+    
+    1. Inicie sesión en Azure Portal.
+    1. Vaya a **Almacén de Recovery Services** > **Configuración** > **Propiedades**.
+    1. En **PIN de seguridad**, seleccione **Generar**.
+    1. Copie este código PIN. 
+       >[!NOTE]
+       >Este PIN solo es válido durante cinco minutos.
+    1. En la consola de administración, pegue el código PIN y seleccione **Enviar**.
+       ![Especificación del PIN de seguridad para eliminar elementos de copia de seguridad de la consola de administración de MABS y DPM](./media/backup-azure-delete-vault/enter-security-pin.png)
+ 
+     Se cambia el estado de miembro protegido a *Réplica inactiva disponible*.
 
 #### <a name="method-2"></a>Método 2
 
