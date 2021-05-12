@@ -1,17 +1,17 @@
 ---
 title: Copia de datos de Presto mediante Azure Data Factory
 description: Obtenga información sobre cómo copiar datos de Presto en almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 12/18/2020
-ms.author: jingwang
-ms.openlocfilehash: 33e521d418c219be8eb85b79a0e07d999edb1b08
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: jianleishen
+ms.openlocfilehash: 1759649f7e705d4fe68e156b324280c5bfd3c316
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100374276"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109485682"
 ---
 # <a name="copy-data-from-presto-using-azure-data-factory"></a>Copia de datos de Presto mediante Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -31,7 +31,7 @@ Azure Data Factory proporciona un controlador integrado para habilitar la conect
 
 ## <a name="getting-started"></a>Introducción
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 En las secciones siguientes se proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas del conector de Presto.
 

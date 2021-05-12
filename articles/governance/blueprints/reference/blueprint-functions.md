@@ -3,12 +3,12 @@ title: Funciones de Azure Blueprints
 description: Describe las funciones disponibles que se pueden utilizar con artefactos de plano técnico en las definiciones y asignaciones de Azure Blueprints.
 ms.date: 05/01/2021
 ms.topic: reference
-ms.openlocfilehash: 0712051ef91ad114380f4f51063e31e4fc01f1b2
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 88ccb5bc7c19fb6686a566a12e5a9a5e508b7b12
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108326501"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108757914"
 ---
 # <a name="functions-for-use-with-azure-blueprints"></a>Funciones para usar con Azure Blueprints
 

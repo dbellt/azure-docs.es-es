@@ -1,18 +1,18 @@
 ---
 title: Copia y transformación de datos en Snowflake
 description: Aprenda cómo copiar y transformar datos en Snowflake mediante Data Factory.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/16/2021
-ms.openlocfilehash: c18a48f8e72c28fd39f839566b18528806e7245d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 03dbfc96d0df6ac8539b454177cd8f75cda80193
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103561607"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109482838"
 ---
 # <a name="copy-and-transform-data-in-snowflake-by-using-azure-data-factory"></a>Copia y transformación de datos en Snowflake mediante Azure Data Factory
 
@@ -35,7 +35,7 @@ Para la actividad de copia, este conector Snowflake admite las siguientes funcio
 
 ## <a name="get-started"></a>Introducción
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 En las secciones siguientes se proporcionan detalles sobre las propiedades que definen entidades de Data Factory específicas del conector de Snowflake.
 

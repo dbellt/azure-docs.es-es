@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/25/2020
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 4c2b680f4bc1816e58f37d2633f36792abd6b9e4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b0efe61b33d5946fd09e2e32fe981ac35144cec5
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96615782"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109484653"
 ---
 > [!IMPORTANT]
 > La funcionalidad siguiente para los dispositivos que usan la autenticación de la entidad de certificación X.509 no está disponible con carácter general, y [se debe habilitar el modo de vista previa](../articles/iot-hub/iot-hub-preview-mode.md):
@@ -21,5 +21,5 @@ ms.locfileid: "96615782"
 > - los protocolos HTTPS, MQTT a través de WebSockets y AMQP a través de WebSockets.
 > - Cargas de archivos (todos los protocolos).
 >
-> Está disponible con carácter general en dispositivos que usan la autenticación de huella digital X.509. Para obtener más información acerca de la autenticación X.509 con IoT Hub, consulte [Certificados X.509 compatibles](../articles/iot-hub/iot-hub-devguide-security.md#supported-x509-certificates).  
+> Está disponible con carácter general en dispositivos que usan la autenticación de huella digital X.509. Para obtener más información acerca de la autenticación X.509 con IoT Hub, consulte [Certificados X.509 compatibles](../articles/iot-hub/iot-hub-dev-guide-sas.md#supported-x509-certificates).  
 >

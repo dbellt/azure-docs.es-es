@@ -1,14 +1,14 @@
 ---
 title: Implementación de ejemplo de plano técnico de la norma ISO 27001 sobre servicios compartidos
 description: Pasos de implementación para el ejemplo de plano técnico de servicios compartidos ISO 27001, incluidos los detalles de los parámetros del artefacto de plano técnico.
-ms.date: 02/05/2021
+ms.date: 04/30/2021
 ms.topic: sample
-ms.openlocfilehash: 2eb9ed2199b28ad7cb349e6088c3cc583d8f011d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 872f8ea492d1983f3c527ddb1c0eac7b26406844
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100577327"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108739176"
 ---
 # <a name="deploy-the-iso-27001-shared-services-blueprint-sample"></a>Implementación del ejemplo de plano técnico de servicios compartidos según la norma ISO 27001
 

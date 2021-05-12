@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 02/23/2021
 ms.author: alkemper
-ms.openlocfilehash: 669dd99b24d605953a5bbf99a1612a07874b642f
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: a3b3c8760c3bf7d6bf4bee444bef7ed77134fb5a
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108137768"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108748311"
 ---
 # <a name="push-settings-to-app-configuration-with-azure-pipelines"></a>Envío de configuraciones a App Configuration con Azure Pipelines
 
@@ -27,36 +27,12 @@ La tarea [Azure App Configuration Push](https://marketplace.visualstudio.com/ite
 
 ## <a name="create-a-service-connection"></a>Creación de una conexión de servicio
 
-Una [conexión de servicio](/azure/devops/pipelines/library/service-endpoints) permite acceder a los recursos en la suscripción de Azure desde el proyecto de Azure DevOps.
-
-1. En Azure DevOps, vaya al proyecto que contiene la canalización de destino y abra la **Configuración del proyecto** en la parte inferior izquierda.
-1. En **Canalizaciones**, seleccione **Conexiones de servicio** y seleccione **Nueva conexión de servicio** en la parte superior derecha.
-1. Seleccione **Azure Resource Manager**.
-![Captura de pantalla que muestra la selección de Azure Resource Manager en la lista desplegable Nueva conexión de servicio.](./media/new-service-connection.png)
-1. En el cuadro de diálogo **Método de autenticación**, seleccione **Entidad de servicio (automática)** para crear una nueva entidad de servicio, o seleccione **Entidad de servicio (manual)** para [usar una entidad de servicio existente](/azure/devops/pipelines/library/connect-to-azure?view=azure-devops#use-spn).
-1. Rellene la suscripción y el recurso. Asigne un nombre a la conexión del servicio.
-
-Si ha creado una nueva entidad de servicio, busque el nombre de la entidad de servicio asignada a la conexión del servicio. En el paso siguiente, agregará una nueva asignación de roles a esta entidad de servicio.
-
-1. Vaya a **Configuración del proyecto** > **Conexiones de servicio**.
-1. Seleccione la conexión de servicio que creó en la sección anterior.
-1. Seleccione **Administrar entidad de servicio**.
-1. Tome nota del **nombre para mostrar** que se muestra.
-![Captura de pantalla que muestra el nombre para mostrar de la entidad de servicio.](./media/service-principal-display-name.png)
+[!INCLUDE [azure-app-configuration-service-connection](../../includes/azure-app-configuration-service-connection.md)]
 
 ## <a name="add-role-assignment"></a>Agregar asignación de roles
 
-Asigne las asignaciones de roles de App Configuration adecuadas a las credenciales que se van a usar en la tarea para que esta pueda acceder al almacén de App Configuration.
+[!INCLUDE [azure-app-configuration-role-assignment](../../includes/azure-app-configuration-role-assignment.md)]
 
-1. Navegue al almacén de App Configuration de destino. 
-1. En el lado izquierdo, seleccione **Control de acceso (IAM)** .
-1. En el lado derecho, haga clic en el botón **Agregar asignaciones de roles**.
-![Captura de pantalla que muestra el botón Agregar asignaciones de roles.](./media/add-role-assignment-button.png)
-1. En **Rol**, seleccione **Propietario de los datos de App Configuration**. Este rol permite que la tarea lea y escriba en el almacén de App Configuration. 
-1. Seleccione la entidad de servicio asociada con la conexión de servicio que creó en la sección anterior.
-![Captura de pantalla que muestra el cuadro de diálogo Agregar asignaciones de roles.](./media/add-role-assignment.png)
-
-  
 ## <a name="use-in-builds"></a>Uso en compilaciones
 
 En esta sección se explicará cómo usar la tarea Azure App Configuration Push en una canalización de compilación de Azure DevOps.

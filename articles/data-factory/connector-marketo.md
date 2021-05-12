@@ -1,17 +1,17 @@
 ---
 title: Copia de datos de Marketo con Azure Data Factory (versión preliminar)
 description: Aprenda a copiar datos de Marketo en almacenes de datos receptores compatibles con una actividad de copia de una canalización de Azure Data Factory.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.author: jingwang
-ms.openlocfilehash: aae25536f0ac1d5d3b43b5173d3e5789cd66a774
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: jianleishen
+ms.openlocfilehash: beb1f0a05e8a505e49efe517c970e49ddab6be02
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100385649"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109485790"
 ---
 # <a name="copy-data-from-marketo-using-azure-data-factory-preview"></a>Copia de datos de Marketo con Azure Data Factory (versión preliminar)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -37,7 +37,7 @@ Actualmente, no se admite la instancia de Marketo que está integrada con CRM ex
 
 ## <a name="getting-started"></a>Introducción
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 En las secciones siguientes se proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas del conector de Marketo.
 

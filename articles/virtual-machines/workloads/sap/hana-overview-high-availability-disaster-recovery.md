@@ -3,7 +3,7 @@ title: Alta disponibilidad y recuperación ante desastres de SAP HANA en Azure (
 description: En este documento se explica cómo establecer una estrategia de alta disponibilidad y recuperación ante desastres de SAP HANA en Azure (instancias grandes)
 services: virtual-machines-linux
 documentationcenter: ''
-author: saghorpa
+author: Ajayan1008
 manager: juergent
 editor: ''
 ms.service: virtual-machines-sap
@@ -11,14 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/10/2018
-ms.author: saghorpa
+ms.author: madhukan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3e1fd4d53a642052c55bbe5d31bf80133ae89d35
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: df80e1a6c4d7521aaca96ca3abc32616a9f6c2bb
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101675454"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109736617"
 ---
 # <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>Alta disponibilidad y recuperación ante desastres de SAP HANA para instancias grandes en Azure 
 

@@ -5,22 +5,43 @@ description: Documentación nueva y actualizada de la plataforma de identidad de
 services: active-directory
 author: mmacy
 manager: CelesteDG
-ms.date: 12/15/2020
+ms.date: 04/30/2021
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
 ms.author: marsma
-ms.openlocfilehash: 5e40f7a84b08983c6541a134e75e1f418577fb07
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 05d8e2e9555dbd24a812d626ce4be8900991230a
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108130852"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108748698"
 ---
 # <a name="microsoft-identity-platform-docs-whats-new"></a>Documentos de la plataforma de identidad de Microsoft: Novedades
 
 Estas son las novedades de la documentación de la Plataforma de identidad de Microsoft. En este artículo se enumeran los documentos nuevos que se han agregado y los que han tenido actualizaciones importantes en los últimos tres meses.
+
+## <a name="april-2021"></a>Abril de 2021
+
+### <a name="new-articles"></a>Artículos nuevos
+
+- [Tipo de directiva de asignación de notificaciones](reference-claims-mapping-policy-type.md)
+- [Migración de una aplicación Node.js de ADAL a MSAL](msal-node-migration.md)
+
+### <a name="updated-articles"></a>Artículos actualizados
+
+- [Vigencia de tokens configurable en la Plataforma de identidad de Microsoft (versión preliminar)](active-directory-configurable-token-lifetimes.md)
+- [Configuración de las directivas de vigencia de tokens (versión preliminar)](configure-token-lifetimes.md)
+- [Plataforma de identidad y flujo de código de autorización de OAuth 2.0](v2-oauth2-auth-code-flow.md)
+- [Flujo con derechos delegados de OAuth 2.0 y Plataforma de identidad de Microsoft](v2-oauth2-on-behalf-of-flow.md)
+- [Inicio rápido: Inicio de sesión de los usuarios y obtención de un token de acceso en una aplicación web de Node mediante el flujo de código de autorización](quickstart-v2-nodejs-webapp-msal.md)
+- [Inicio rápido: Inicio de sesión de usuarios y obtención de un token de acceso en un aplicación de página única de Angular](quickstart-v2-angular.md)
+- [Aplicación de página única: Adquisición de un token para llamar a una API](scenario-spa-acquire-token.md)
+- [Aplicación de página única: Configuración del código](scenario-spa-app-configuration.md)
+- [Aplicación de página única: Inicio y cierre de sesión](scenario-spa-sign-in.md)
+- [Uso de MSAL en un entorno de nube nacional](msal-national-cloud.md)
+- [Descripción de las experiencias de consentimiento de la aplicación de Azure AD](application-consent-experience.md)
 
 ## <a name="march-2021"></a>Marzo de 2021
 
@@ -71,26 +92,3 @@ Estas son las novedades de la documentación de la Plataforma de identidad de Mi
 - [Inicio rápido: Configuración de un inquilino](quickstart-create-new-tenant.md)
 - [Inicio rápido: Registro de una aplicación en la plataforma de identidad de Microsoft](quickstart-register-app.md)
 - [Inicio rápido: Adquisición de un token y llamada a Microsoft Graph API desde una aplicación de consola de Java mediante la identidad de la aplicación](quickstart-v2-java-daemon.md)
-
-## <a name="january-2021"></a>Enero de 2021
-
-### <a name="new-articles"></a>Artículos nuevos
-
-- [Inicio de sesión en MSAL para Android](msal-logging-android.md)
-- [Registro en MSAL.NET](msal-logging-dotnet.md)
-- [Inicio de sesión en MSAL para iOS/macOS](msal-logging-ios.md)
-- [Registro en MSAL para Java](msal-logging-java.md)
-- [Registro en MSAL.js](msal-logging-js.md)
-- [Inicio de sesión en MSAL para Python](msal-logging-python.md)
-
-### <a name="updated-articles"></a>Artículos actualizados
-
-- [Solución de problemas de comprobación del publicador (versión preliminar)](troubleshoot-publisher-verification.md)
-- [Modelo de aplicación](application-model.md)
-- [Autenticación frente a autorización](authentication-vs-authorization.md)
-- [Procedimientos: Restricción de la aplicación de Azure AD a un conjunto de usuarios de un inquilino de Azure AD](howto-restrict-your-app-to-a-set-of-users.md)
-- [Permisos y consentimiento en el punto de conexión de la Plataforma de identidad de Microsoft](v2-permissions-and-consent.md)
-- [Vigencia de tokens configurable en la Plataforma de identidad de Microsoft (versión preliminar)](active-directory-configurable-token-lifetimes.md)
-- [Configuración de las directivas de vigencia de tokens (versión preliminar)](configure-token-lifetimes.md)
-- [Bibliotecas de autenticación de la Plataforma de identidad de Microsoft](reference-v2-libraries.md)
-- [Plataforma de identidad y flujo de código de autorización de OAuth 2.0](v2-oauth2-auth-code-flow.md)

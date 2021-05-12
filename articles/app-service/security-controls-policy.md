@@ -1,16 +1,16 @@
 ---
 title: Controles de Cumplimiento normativo de Azure Policy para Azure App Service
 description: En este artículo se enumeran los controles de Cumplimiento normativo de Azure Policy disponibles para Azure App Service. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar el cumplimiento de los recursos de Azure.
-ms.date: 04/28/2021
+ms.date: 05/04/2021
 ms.topic: sample
 ms.service: app-service
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 1eef0b1353df3c1b245e0cf5c9bda899f3767107
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 9613bf64f0e82170807b1099c873f0e0f3267a9c
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108178074"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108746097"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-app-service"></a>Controles de Cumplimiento normativo de Azure Policy para Azure App Service
 

@@ -1,18 +1,18 @@
 ---
 title: Ejecución de un entorno de ejecución de integración autohospedado en un contenedor de Windows
 description: Aprenda a ejecutar un entorno de ejecución de integración autohospedado en un contenedor de Windows.
-ms.author: abnarain
-author: nabhishek
+ms.author: lle
+author: lrtoyou1223
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/05/2020
-ms.openlocfilehash: 2423d6bd29d893f9a27749dcc2b6d2af8a12e941
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: fe951881d2f8fa4c38e529122a96f3ca1ed078bb
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107478138"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109483504"
 ---
 # <a name="how-to-run-self-hosted-integration-runtime-in-windows-container"></a>Ejecución de un entorno de ejecución de integración autohospedado en un contenedor de Windows
 
