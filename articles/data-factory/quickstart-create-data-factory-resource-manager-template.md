@@ -8,13 +8,13 @@ ms.author: susabat
 ms.reviewer: jburchel, jingwang
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 07/16/2020
-ms.openlocfilehash: 14d96e3c8892106f67125bbd3b7bce565de13812
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.date: 05/10/2021
+ms.openlocfilehash: 6e99d0d78b87d68cf5b7a94d3b1b9f576ea4913f
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107904884"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109753964"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-arm-template"></a>Inicio rápido: Creación de una instancia de Azure Data Factory mediante una plantilla de Resource Manager
 
@@ -33,7 +33,7 @@ En esta guía de inicio rápido se describe cómo usar una plantilla de Azure Re
 
 Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
 
-[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-data-factory-v2-blob-to-blob-copy%2Fazuredeploy.json)
+[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.datafactory%2Fdata-factory-v2-blob-to-blob-copy%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -56,7 +56,7 @@ Guarde el archivo en la carpeta **C:\ADFv2QuickStartPSH**. (Si la carpeta no exi
 
 La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-data-factory-v2-blob-to-blob-copy/).
 
-:::code language="json" source="~/quickstart-templates/101-data-factory-v2-blob-to-blob-copy/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.datafactory/data-factory-v2-blob-to-blob-copy/azuredeploy.json":::
 
 Hay recursos de Azure definidos en la plantilla:
 
@@ -72,7 +72,7 @@ Encontrará más ejemplos de plantillas de Azure Data Factory en la [galería de
 
 1. Seleccione la imagen siguiente para iniciar sesión en Azure y abrir una plantilla. La plantilla crea una cuenta de Azure Data Factory, una cuenta de almacenamiento y un contenedor de blobs.
 
-    [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-data-factory-v2-blob-to-blob-copy%2Fazuredeploy.json)
+    [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.datafactory%2Fdata-factory-v2-blob-to-blob-copy%2Fazuredeploy.json)
 
 2. Seleccione o escriba los siguientes valores.
 
@@ -130,9 +130,9 @@ Mantenga abierta la página Contenedor, ya que puede usarla para verificar el re
 
 ### <a name="start-trigger"></a>Inicio del desencadenador
 
-1. Vaya a la página **Factorías de datos**, y seleccione la factoría de datos que ha creado. 
+1. Vaya a la página **Factorías de datos**, y seleccione la factoría de datos que ha creado.
 
-2. Seleccione el icono **Crear y supervisar**. 
+2. Seleccione el icono **Crear y supervisar**.
 
     :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-author-monitor-tile.png" alt-text="Crear y supervisar":::
 
@@ -158,13 +158,13 @@ Mantenga abierta la página Contenedor, ya que puede usarla para verificar el re
 
 ### <a name="verify-the-output-file"></a>Verificación del archivo de salida
 
-La canalización crea automáticamente una carpeta de salida en el contenedor de blobs. A continuación, copia el archivo emp.txt de la carpeta de entrada a la carpeta de salida. 
+La canalización crea automáticamente una carpeta de salida en el contenedor de blobs. A continuación, copia el archivo emp.txt de la carpeta de entrada a la carpeta de salida.
 
-1. En Azure Portal, en la página **Contenedores**, seleccione **Actualizar** para ver la carpeta de salida. 
+1. En Azure Portal, en la página **Contenedores**, seleccione **Actualizar** para ver la carpeta de salida.
 
 2. En la lista de carpetas, seleccione **output**.
 
-3. Confirme que **emp.txt** se ha copiado en la carpeta de salida. 
+3. Confirme que **emp.txt** se ha copiado en la carpeta de salida.
 
     :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-output.png" alt-text="Salida":::
 
@@ -172,13 +172,13 @@ La canalización crea automáticamente una carpeta de salida en el contenedor de
 
 Hay dos forma de eliminar los recursos que ha creado en la guía de inicio rápido. Puede [eliminar el grupo de recursos de Azure](../azure-resource-manager/management/delete-resource-group.md), lo que incluye todos los recursos del grupo de recursos. Si quiere mantener intacto el resto de recursos, elimine solo la factoría de datos que creó en este tutorial.
 
-Al eliminar un grupo de recursos, se eliminan todos los recursos incluidas las factorías de datos. Ejecute el comando siguiente para eliminar el grupo de recursos completo: 
+Al eliminar un grupo de recursos, se eliminan todos los recursos incluidas las factorías de datos. Ejecute el comando siguiente para eliminar el grupo de recursos completo:
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
-Si desea eliminar solo la factoría de datos, no el grupo de recursos completo, ejecute el siguiente comando: 
+Si desea eliminar solo la factoría de datos, no el grupo de recursos completo, ejecute el siguiente comando:
 
 ```azurepowershell-interactive
 Remove-AzDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupName

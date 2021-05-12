@@ -3,7 +3,7 @@ title: Copia de seguridad y restauración del sistema operativo de SAP HANA en A
 description: Realización de la copia de seguridad y restauración del sistema operativo de SAP HANA en Azure (instancias grandes)
 services: virtual-machines-linux
 documentationcenter: ''
-author: saghorpa
+author: Ajayan1008
 manager: juergent
 editor: ''
 ms.service: virtual-machines-sap
@@ -11,14 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/12/2019
-ms.author: juergent
+ms.author: madhukan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c044d09626fe4c1d4409f98fc615b5a7d70c7cc8
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: c624f2cdee61d138722632869901e2c59110b1a9
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108230107"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109735125"
 ---
 # <a name="os-backup-and-restore"></a>Copia de seguridad y restauración del sistema operativo
 
@@ -125,7 +125,7 @@ En el ejemplo siguiente se muestra una programación cron en `/etc/crontab` para
 ```
 
 Referencias adicionales
-- [Configuración de instantáneas de almacenamiento](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-backup-restore#set-up-storage-snapshots)
+- [Configuración de instantáneas de almacenamiento](hana-backup-restore.md#set-up-storage-snapshots)
 - Guía de herramientas de instantáneas de Microsoft para SAP HANA en [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/release.md).
 
 ### <a name="how-to-restore-a-backup"></a>Restauración de una copia de seguridad

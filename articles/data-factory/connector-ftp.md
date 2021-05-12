@@ -1,17 +1,17 @@
 ---
 title: Copia de datos de un servidor FTP mediante Azure Data Factory
 description: Obtenga información sobre cómo copiar datos desde un servidor FTP a almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/17/2021
-ms.author: jingwang
-ms.openlocfilehash: a85f22381ff6d9d4568c2558beb229b4458d940a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.author: jianleishen
+ms.openlocfilehash: 34c484bc596f9f7e5012339ea29ac70408cca402
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104583126"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109485232"
 ---
 # <a name="copy-data-from-ftp-server-by-using-azure-data-factory"></a>Copia de datos desde un servidor FTP mediante Azure Data Factory
 
@@ -41,11 +41,11 @@ El conector de FTP es compatible con el servidor FTP que se ejecuta en modo pasi
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## <a name="get-started"></a>Introducción
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 En las secciones siguientes se proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas de FTP.
 
@@ -121,7 +121,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de FTP:
 
 Si desea ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo sobre [conjuntos de datos](concepts-datasets-linked-services.md). 
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 Las propiedades siguientes se admiten para FTP en la configuración `location` del conjunto de datos basado en formato:
 
@@ -163,7 +163,7 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 ### <a name="ftp-as-source"></a>FTP como origen
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 Las propiedades siguientes se admiten para FTP en la configuración `storeSettings` del origen de copia basado en formato:
 

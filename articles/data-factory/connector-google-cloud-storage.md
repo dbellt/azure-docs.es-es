@@ -1,17 +1,17 @@
 ---
 title: Copia de datos de Google Cloud Storage mediante Azure Data Factory
 description: Obtenga información sobre cómo copiar datos desde Google Cloud Storage a almacenes de datos de receptor compatibles mediante Azure Data Factory.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/17/2021
-ms.author: jingwang
-ms.openlocfilehash: b8e518ba23c877ee80197ad94a6bc01b23b044a3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.author: jianleishen
+ms.openlocfilehash: bb745a7b50a6bcb94367a82b37a4e4e0170b5939
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104589001"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109482226"
 ---
 # <a name="copy-data-from-google-cloud-storage-by-using-azure-data-factory"></a>Copia de datos de Google Cloud Storage mediante Azure Data Factory
 
@@ -51,7 +51,7 @@ Para la lista completa de roles de Google Cloud Storage y los permisos asociad
 
 ## <a name="getting-started"></a>Introducción
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)] 
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)] 
 
 En las secciones siguientes se proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas para el conector de Google Cloud Storage.
 
@@ -92,7 +92,7 @@ Este es un ejemplo:
 
 ## <a name="dataset-properties"></a>Propiedades del conjunto de datos
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 Las propiedades siguientes se admiten para Google Cloud Storage en la configuración `location` de un conjunto de datos basado en formato:
 
@@ -136,7 +136,7 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 ### <a name="google-cloud-storage-as-a-source-type"></a>Google Cloud Storage como tipo de origen
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 Las propiedades siguientes se admiten para Google Cloud Storage en la configuración `storeSettings` de un origen de copia basado en formato:
 

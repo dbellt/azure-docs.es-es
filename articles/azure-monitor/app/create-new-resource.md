@@ -3,13 +3,13 @@ title: Creación de un recurso de Azure Application Insights | Microsoft Docs
 description: Describe la configuración manual de la supervisión de Application Insights para una nueva aplicación activa.
 ms.topic: conceptual
 ms.date: 02/10/2021
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2130872003b1d91661f71468009025fa086af40b
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 7e4c4b0ba4dca9b51f120e6092c13195a061aa87
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108321976"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109754540"
 ---
 # <a name="create-an-application-insights-resource"></a>Creación de recursos en Application Insights
 

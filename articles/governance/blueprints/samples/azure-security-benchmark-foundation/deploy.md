@@ -3,12 +3,12 @@ title: Implementación del ejemplo de plano técnico de Azure Security Benchmark
 description: Pasos de implementación para el ejemplo de plano técnico de Azure Security Benchmark Foundation, incluidos los detalles de los parámetros del artefacto de plano técnico.
 ms.date: 03/12/2021
 ms.topic: sample
-ms.openlocfilehash: af41dd50c976ac6c0570b8a089211fa310ef4ef1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6afdc94624d39ce60b96ad33639721f130a056ef
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103232620"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108765186"
 ---
 # <a name="deploy-the-azure-security-benchmark-foundation-blueprint-sample"></a>Implementación del ejemplo de plano técnico de Azure Security Benchmark Foundation
 
@@ -82,7 +82,7 @@ Una vez que la copia del ejemplo de plano técnico se haya **publicado** correct
    - Parámetros de plano técnico
 
      Muchos de los artefactos de la definición de plano técnico usan los parámetros definidos en esta sección para proporcionar coherencia.
-    
+
      - **Prefix for resources and resource groups** (Prefijo para recursos y grupos de recursos): esta cadena se usa como prefijo para todos los nombres de recursos y grupos de recursos.
      - **Nombre del centro**: nombre del centro.
      - **Log retention (days)** (Retención del registro [días]): número de días que se retienen los registros; si introduce "0", se conservan indefinidamente.
@@ -92,9 +92,9 @@ Una vez que la copia del ejemplo de plano técnico se haya **publicado** correct
      - **Nombre de Network Watcher**: nombre del recurso de Network Watcher.
      - **Network Watcher resource group name** (Nombre del grupo de recursos de Network Watcher): nombre del grupo de recursos de Network Watcher.
      - **Enable DDoS protection** (Habilitar protección contra DDoS): especifique "true" o "false" para indicar si la protección contra DDoS está habilitada o no en la red virtual.
-     
-    > [!NOTE] 
-    > Si Network Watcher ya está habilitado, se recomienda usar el grupo de recursos de Network Watcher existente. También debe proporcionar la ubicación del grupo de recursos de Network Watcher existente para el parámetro de artefacto **Ubicación del grupo de recursos de Network Watcher**.
+
+     > [!NOTE]
+     > Si Network Watcher ya está habilitado, se recomienda usar el grupo de recursos de Network Watcher existente. También debe proporcionar la ubicación del grupo de recursos de Network Watcher existente para el parámetro de artefacto **Ubicación del grupo de recursos de Network Watcher**.
 
    - Parámetros de artefacto
 
@@ -115,7 +115,7 @@ En la tabla siguiente se proporciona una lista de los parámetros del plano téc
 |Grupo de recursos del centro|Resource group|Ubicación del grupo de recursos|Bloqueado: usa la ubicación del centro|
 |Plantilla de Azure Firewall|Plantilla de Resource Manager|Azure Firewall private IP address (Dirección IP privada de Azure Firewall)||
 |Plantillas de Azure Log Analytics y Diagnostics|Plantilla de Resource Manager|Ubicación del área de trabajo de Log Analytics|Ubicación donde se crea el área de trabajo de Log Analytics; ejecute `Get-AzLocation | Where-Object Providers -like 'Microsoft.OperationalInsights' | Select DisplayName` en Azure PowersShell para ver las regiones disponibles|
-|Plantillas de Azure Log Analytics y Diagnostics|Plantilla de Resource Manager|Azure Automation account ID (Id. de cuenta de Azure Automation) (opcional)|Identificador de recurso de la cuenta de Automation; se usa para crear un servicio vinculado entre Log Analytics y una cuenta de Automation|
+|Plantillas de Azure Log Analytics y Diagnostics|Plantilla de Resource Manager|Azure Automation account ID (Id. de cuenta de Azure Automation) (opcional) |Identificador de recurso de la cuenta de Automation; se usa para crear un servicio vinculado entre Log Analytics y una cuenta de Automation|
 |Plantilla del grupo de seguridad de red de Azure|Plantilla de Resource Manager|Enable NSG flow logs (Habilitar registros de flujo del grupo de seguridad de red)|Escriba "true" o "false" para habilitar o deshabilitar los registros de flujo de grupo de seguridad de red|
 |Plantilla de centro de Azure Virtual Network|Plantilla de Resource Manager|Virtual network address prefix (Prefijo de dirección de red virtual)|Prefijo de dirección de red virtual para la red virtual de centro|
 |Plantilla de centro de Azure Virtual Network|Plantilla de Resource Manager|Firewall subnet address prefix (Prefijo de dirección de subred de Firewall)|Prefijo de dirección de subred de Firewall para la red virtual de centro|
