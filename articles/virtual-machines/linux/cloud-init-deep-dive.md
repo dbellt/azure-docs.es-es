@@ -3,17 +3,17 @@ title: Reconocimiento de cloud-init
 description: Profundización para comprender el aprovisionamiento de una VM de Azure con cloud-init.
 author: danielsollondon
 ms.service: virtual-machines
-ms.subservice: imaging
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 94dd57310375febb4bc9a55efa704a5fbf4e80e8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.subservice: cloud-init
+ms.openlocfilehash: 63bc821648348c2936d437fef7fdd89314fad3c5
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102559450"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109783232"
 ---
 # <a name="diving-deeper-into-cloud-init"></a>Profundizar en cloud-init
 Para obtener más información acerca de [cloud-init](https://cloudinit.readthedocs.io/en/latest/index.html) o solucionar problemas en un nivel más profundo, debe entender cómo funciona. En este documento se resaltan las partes importantes y se explican las características específicas de Azure.

@@ -16,14 +16,17 @@ ms.workload: infrastructure-services
 ms.date: 03/18/2018
 ms.author: kaanan
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8e3a56e4a6eb1fb6eb633021178ef78f8ac7287d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 30b506b9577fd2dda3c75711d648b6f1b6d0a45c
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96014795"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108758886"
 ---
 # <a name="work-with-a-virtual-network-tap-using-the-azure-cli"></a>Uso de una instancia de Virtual Network TAP con la CLI de Azure
+
+> [!IMPORTANT]
+> La versión preliminar de TAP de red virtual actualmente está en espera en todas las regiones de Azure. Puede enviarnos un correo electrónico a <azurevnettap@microsoft.com> con su identificador de suscripción y le notificaremos las actualizaciones futuras sobre la versión preliminar. Mientras tanto, puede usar soluciones basadas en agentes o NVA que proporcionen funcionalidad de visibilidad de red o TAP a través de las [soluciones de partners de agentes de paquetes](virtual-network-tap-overview.md#virtual-network-tap-partner-solutions) disponibles en las [ofertas de Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances%3Ball&search=Network%20Traffic&filters=partners).
 
 Azure Virtual Network TAP (punto de acceso del terminal) permite transmitir continuamente el tráfico de red de la máquina virtual a un recopilador de paquetes de red o a una herramienta de análisis. Un asociado de la [aplicación virtual de red](https://azure.microsoft.com/solutions/network-appliances/) proporciona el recopilador o la herramienta de análisis de la herramienta. Para ver una lista de soluciones de asociados que estén validadas para funcionar con Virtual Network TAP, consulte las [soluciones de asociados](virtual-network-tap-overview.md#virtual-network-tap-partner-solutions). 
 

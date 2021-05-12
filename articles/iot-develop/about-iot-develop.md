@@ -6,12 +6,12 @@ ms.author: rywinter
 ms.service: iot-develop
 ms.topic: overview
 ms.date: 01/11/2021
-ms.openlocfilehash: dd4e53eebe6593db457798f009d3d05ddcbd77b8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 38c21ff71971868f6597856c4048ec179faf4e01
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100654825"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108759443"
 ---
 # <a name="what-is-azure-iot-device-and-application-development"></a>¿Qué es el desarrollo de aplicaciones y dispositivos Azure IoT?
 
@@ -74,5 +74,5 @@ Para más información sobre cómo seleccionar una plataforma de aplicaciones y 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Seleccione la series de inicio rápido que sea más importante para el rol de desarrollo. En estos artículos se muestran los aspectos básicos de la creación de una aplicación Azure IoT para hospedar dispositivos, del uso de un SDK, de la conexión de un dispositivo y del envío de datos de telemetría.  
-- Para el desarrollo de aplicaciones de dispositivos: [Inicio rápido: Envío de datos de telemetría desde un dispositivo a Azure IoT Central](quickstart-send-telemetry-python.md)
+- Para el desarrollo de aplicaciones de dispositivos: [Inicio rápido: Envío de datos de telemetría desde un dispositivo a Azure IoT Central](quickstart-send-telemetry-central.md)
 - Para el desarrollo de dispositivos insertados: [Introducción al desarrollo de dispositivos insertados Azure IoT](quickstart-device-development.md)

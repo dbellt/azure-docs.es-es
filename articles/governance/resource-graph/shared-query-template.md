@@ -1,17 +1,17 @@
 ---
 title: 'Inicio rápido: Creación de una consulta compartida con plantillas'
 description: En este inicio rápido, se usa una plantilla de Azure Resource Manager para crear una consulta compartida de Resource Graph que cuenta las máquinas virtuales por sistema operativo.
-ms.date: 05/01/2021
+ms.date: 05/11/2021
 ms.topic: quickstart
 ms.custom:
 - subject-armqs
 - mode-arm
-ms.openlocfilehash: 60df3f4ab005252b392302fd487cd6e927569489
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 970c8633c0b7d5cb62520ad3778626d1423857b5
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108325902"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109750868"
 ---
 # <a name="quickstart-create-a-shared-query-by-using-an-arm-template"></a>Inicio rápido: Creación de una consulta compartida mediante una plantilla de Resource Manager
 
@@ -21,7 +21,7 @@ Las consultas de Resource Graph se pueden guardar como una _consulta privada_ o 
 
 Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
 
-:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Implementar la plantilla de Resource Manager para crear una consulta compartida en Azure" border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fresourcegraph-sharedquery-countos%2Fazuredeploy.json":::
+:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Implementar la plantilla de Resource Manager para crear una consulta compartida en Azure" border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fdemos%2Fresourcegraph-sharedquery-countos%2Fazuredeploy.json":::
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -33,7 +33,7 @@ En este inicio rápido, creará una consulta compartida denominada _Recuento de 
 
 La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/resourcegraph-sharedquery-countos/).
 
-:::code language="json" source="~/quickstart-templates/resourcegraph-sharedquery-countos/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/demos/resourcegraph-sharedquery-countos/azuredeploy.json":::
 
 El recurso definido en la plantilla es el siguiente:
 
@@ -46,7 +46,7 @@ El recurso definido en la plantilla es el siguiente:
 
 1. Seleccione la siguiente imagen para iniciar sesión en Azure Portal y abrir la plantilla:
 
-   :::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Implementar la plantilla de Resource Manager para crear una consulta compartida en Azure" border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fresourcegraph-sharedquery-countos%2Fazuredeploy.json":::
+   :::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Implementar la plantilla de Resource Manager para crear una consulta compartida en Azure" border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fdemos%2Fresourcegraph-sharedquery-countos%2Fazuredeploy.json":::
 
 1. Seleccione o escriba los siguientes valores:
 

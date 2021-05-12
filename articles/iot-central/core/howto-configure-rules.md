@@ -8,16 +8,14 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 378a1dbcfbc89cdf9b24dc2490db583f1135b9a2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c78b95e7651117f85f3cf38f5cbff1b890145dae
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97796795"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108759552"
 ---
 # <a name="configure-rules"></a>Configuración de reglas
-
-*Este artículo se aplica a los administradores, operadores y compiladores.*
 
 Las reglas de IoT Central sirven como herramienta de respuesta personalizable que se desencadena en eventos supervisados activamente desde dispositivos conectados. En las secciones siguientes se describe cómo se evalúan las reglas.
 

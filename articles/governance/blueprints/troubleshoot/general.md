@@ -3,12 +3,12 @@ title: Solución de errores comunes
 description: Obtenga información acerca de cómo solucionar problemas al crear, asignar y eliminar planos técnicos, como infracciones de directivas y funciones de parámetros del plano técnico.
 ms.date: 05/01/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 183d27235ce738d884a02b53a498f77ebed41e66
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: ca86b81f846465c996d05f08d3a721829f8e496f
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108326424"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108733902"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Solución de problemas de errores con instancias de Azure Blueprint
 
@@ -82,5 +82,5 @@ Las asignaciones de plano técnico en un estado no terminal se marcan automátic
 Si su problema no aparece o es incapaz de resolverlo, visite uno de nuestros canales para obtener ayuda adicional:
 
 - Obtenga respuestas de expertos de Azure en los [foros de Azure](https://azure.microsoft.com/support/forums/).
-- Póngase en contacto con [@AzureSupport](https://twitter.com/azuresupport): la cuenta de Microsoft Azure oficial para mejorar la experiencia del cliente, que pone en contacto a la comunidad de Azure con los recursos adecuados: respuestas, soporte técnico y expertos.
+- Póngase en contacto con [@AzureSupport](https://twitter.com/azuresupport), la cuenta oficial de Microsoft Azure para mejorar la experiencia del cliente, que pone en contacto a la comunidad de Azure con los recursos adecuados: respuestas, soporte técnico y expertos.
 - Si necesita más ayuda, puede registrar un incidente de soporte técnico de Azure. Vaya al [sitio de Soporte técnico de Azure](https://azure.microsoft.com/support/options/) y seleccione **Obtener soporte**.

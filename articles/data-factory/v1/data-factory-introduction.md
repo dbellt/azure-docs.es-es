@@ -7,12 +7,12 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: overview
 ms.date: 01/22/2018
-ms.openlocfilehash: 220c1969055ffaa5d1bea41ab547efd4596f8a20
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ea7c5a82a6219e673454d627a4350291c5b3f047
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104786471"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108761658"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Introducción a Azure Data Factory 
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -83,12 +83,12 @@ Una canalización puede tener una o más actividades. Las actividades definen la
 ### <a name="data-movement-activities"></a>Actividades de movimiento de datos
 Copiar actividad en Data Factory realiza una copia de los datos de un almacén de datos de origen a uno receptor. Se pueden escribir datos desde cualquier origen en todos los tipos de receptores. Seleccione un almacén de datos para aprender a copiar datos sus datos o a copiar datos en él. Data Factory admite los siguientes almacenes de datos:
 
-[!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]
+[!INCLUDE [data-factory-supported-data-stores](includes/data-factory-supported-data-stores.md)]
 
 Para más información, consulte [Movimiento de datos con la actividad de copia](data-factory-data-movement-activities.md).
 
 ### <a name="data-transformation-activities"></a>Actividades de transformación de datos
-[!INCLUDE [data-factory-transformation-activities](../../../includes/data-factory-transformation-activities.md)]
+[!INCLUDE [data-factory-transformation-activities](includes/data-factory-transformation-activities.md)]
 
 Para más información, consulte [Movimiento de datos con la actividad de copia](data-factory-data-transformation-activities.md).
 

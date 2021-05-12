@@ -1,17 +1,17 @@
 ---
 title: Formato ORC en Azure Data Factory
 description: En este tema se describe cómo tratar el formato ORC en Azure Data Factory.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/28/2020
-ms.author: jingwang
-ms.openlocfilehash: 8973692b90cc9d6caa852616bf2962371d25abfa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: jianleishen
+ms.openlocfilehash: f274c64e9ab6617315d921e254de7781a4108ce4
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100386465"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109487554"
 ---
 # <a name="orc-format-in-azure-data-factory"></a>Formato ORC en Azure Data Factory
 
@@ -160,7 +160,7 @@ En el caso de las copias que se ejecutan en el IR autohospedado con la serializa
 
 - **Para usar JRE**: el IR de 64 bits necesita JRE de 64 bits. Puede encontrarlo [aquí](https://go.microsoft.com/fwlink/?LinkId=808605).
 - **Para usar OpenJDK**: se admite desde la versión 3.13 de IR. Empaquete jvm.dll con todos los demás ensamblados de OpenJDK necesarios en la máquina del IR autohospedado y establezca la variable de entorno del sistema JAVA_HOME en el valor que corresponda.
-- **Para instalar el paquete Visual C++ 2010 Redistributable**: el paquete Visual C++ 2010 Redistributable no se instala con las instalaciones de IR autohospedadas. Puede encontrarlo [aquí](https://www.microsoft.com/download/details.aspx?id=14632).
+- **Para instalar el paquete Visual C++ 2010 Redistributable**: el paquete Visual C++ 2010 Redistributable no se instala con las instalaciones de IR autohospedadas. Puede encontrarlo [aquí](https://www.microsoft.com/download/details.aspx?id=26999).
 
 > [!TIP]
 > Si copia datos desde o hacia el formato ORC mediante el entorno de ejecución de integración autohospedado y recibe un error que indica que "Se produjo un error al invocar Java, mensaje: **Espacio en el montón java.lang.OutOfMemoryError:Java**", puede agregar una variable de entorno `_JAVA_OPTIONS` en la máquina que hospeda IR autohospedado para ajustar el tamaño del montón mínimo y máximo para JVM a fin de facilitar dicha copia y, a continuación, volver a ejecutar la canalización.

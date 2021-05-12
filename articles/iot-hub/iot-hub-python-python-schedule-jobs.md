@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: robinsh
 ms.custom: devx-track-python
-ms.openlocfilehash: 733e3be21a1a1305b5c7947de1ae54ddce5e0d2f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 55672b5d58c6c1185c6bf6b17ea63302b6f9b891
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "87876689"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109487968"
 ---
 # <a name="schedule-and-broadcast-jobs-python"></a>Programación y difusión de trabajos (Python)
 
@@ -173,7 +173,7 @@ Para crear una directiva de acceso compartido que conceda los permisos **Conexi�
 
     ![Recuperación de la cadena de conexión](./media/iot-hub-python-python-schedule-jobs/get-connection-string.png)
 
-Para obtener más información sobre las directivas de acceso compartido y los permisos de IoT Hub, consulte [Permisos y control del acceso](./iot-hub-devguide-security.md#access-control-and-permissions).
+Para obtener más información sobre las directivas de acceso compartido y los permisos de IoT Hub, consulte [Permisos y control del acceso](./iot-hub-dev-guide-sas.md#access-control-and-permissions).
 
 ## <a name="schedule-jobs-for-calling-a-direct-method-and-updating-a-device-twins-properties"></a>Programación de trabajos para llamar un método directo y actualización de las propiedades de un dispositivo gemelo
 

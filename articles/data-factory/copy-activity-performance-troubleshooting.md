@@ -1,18 +1,18 @@
 ---
 title: Solución de problemas de rendimiento de la actividad de copia
 description: Conozca cómo solucionar problemas de rendimiento de la actividad de copia en Azure Data Factory.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/07/2021
-ms.openlocfilehash: ce7c97abfb879e9298edac5f38540bbc026274da
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: eee68b8cb533763aff0c1cc6a1ebe19db735461e
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104584428"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109488580"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Solución de problemas de rendimiento de la actividad de copia
 

@@ -3,20 +3,20 @@ title: 'Problemas conocidos de cumplimiento del protocolo System for Cross-domai
 description: Cómo solucionar los problemas comunes de compatibilidad de protocolo a los que nos enfrentamos cuando agregamos una aplicación situada fuera de la galería compatible con SCIM 2.0 en Azure AD
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/07/2021
+ms.date: 05/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 268931715500631ac2d10feacebff1d5c65931bf
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 0e369a6ab857b95035b0aaca28525e54e15835e8
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107028798"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109783268"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Problemas conocidos y soluciones con el cumplimiento de protocolo SCIM 2.0 del servicio de aprovisionamiento de usuarios de Azure AD
 

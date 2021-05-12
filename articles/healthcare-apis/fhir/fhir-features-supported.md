@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 4/15/2021
 ms.author: cavoeg
-ms.openlocfilehash: 1ff2a069b7690817c8fc431d920e93a8cb6c3544
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: 92f6f5c449b5f47b0a9a59f432c130446b324091
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109656207"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109783574"
 ---
 # <a name="features"></a>Características
 
@@ -54,9 +54,9 @@ Entre las versiones anteriores también admitidas actualmente se incluye: `3.0.2
 
 
  **Nota 2**
-* Agrega compatibilidad con MVP para búsqueda FHIR encadenada e inversa en CosmosDB. 
+* Agrega compatibilidad con MVP para búsqueda FHIR encadenada y encadenada inversa en CosmosDB. 
 
-  En el Azure API for FHIR servidor FHIR de código abierto con el respaldo de Cosmos, la búsqueda encadenada y la búsqueda encadenada inversa es una implementación de MVP. Para realizar búsquedas encadenadas en Cosmos DB, la implementación recorre la expresión de búsqueda y emite subconsediciones para resolver los recursos coincidentes. Esto se hace para cada nivel de la expresión. Si alguna consulta devuelve más de 100 resultados, se producirá un error. De forma predeterminada, la búsqueda encadenada está detrás de una marca de característica. Para usar la búsqueda encadenada en Cosmos DB, use el encabezado `x-ms-enable-chained-search: true` . Para obtener más información, [vea PR 1695](https://github.com/microsoft/fhir-server/pull/1695).
+  En la Azure API for FHIR servidor de FHIR de código abierto con el respaldo de Cosmos, la búsqueda encadenada y la búsqueda encadenada inversa es una implementación de MVP. Para realizar búsquedas encadenadas en Cosmos DB, la implementación recorre la expresión de búsqueda y emite subconsediciones para resolver los recursos coincidentes. Esto se hace para cada nivel de la expresión. Si alguna consulta devuelve más de 100 resultados, se producirá un error. De forma predeterminada, la búsqueda encadenada está detrás de una marca de características. Para usar la búsqueda encadenada en Cosmos DB, use el encabezado `x-ms-enable-chained-search: true` . Para obtener más información, vea [PR 1695](https://github.com/microsoft/fhir-server/pull/1695).
 
 ## <a name="extended-operations"></a>Operaciones extendidas
 
@@ -94,9 +94,13 @@ Actualmente, las acciones permitidas para un rol determinado se aplican *globalm
 
 * **Tamaño de los datos**: los datos y documentos deben ser ligeramente inferiores a 2 MB.
 
+* **Límite de** suscripción: de forma predeterminada, cada suscripción está limitada a un máximo de 10 instancias de servidor de FHIR. Si necesita más instancias por suscripción, abra una vale de soporte técnico y proporcione detalles sobre sus necesidades.
+
+* **Conexiones simultáneas e** instancias: de forma predeterminada, tiene 15 conexiones simultáneas en dos instancias del clúster (para un total de 30 solicitudes simultáneas). Si necesita más solicitudes simultáneas, abra una vale de soporte técnico y proporcione detalles sobre sus necesidades.
+
 ## <a name="performance-expectations"></a>Expectativas de rendimiento
 
-El rendimiento del sistema depende del número de RU, las conexiones simultáneas y el tipo de operaciones que se van a llevar a cabo (PUT, POST, etc.). A continuación se muestran algunos intervalos generales de lo que puede esperar en función del número de RU configurado. En general, el rendimiento se escala de manera lineal con un aumento en RU:
+El rendimiento del sistema depende del número de RU, las conexiones simultáneas y el tipo de operaciones que se realizan (Put, Post, etc.). A continuación se muestran algunos intervalos generales de lo que puede esperar en función del número de RU configurado. En general, el rendimiento se escala de manera lineal con un aumento en RU:
 
 | N.º de RU | Recursos/segundo |    Almacenamiento máximo (GB)*    |
 |----------|---------------|--------|                 

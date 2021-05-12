@@ -1,17 +1,17 @@
 ---
 title: Actividad de copia en Azure Data Factory
 description: Aprenda sobre la actividad de copia en Azure Data Factory. Puede usarla para copiar datos de un almacén de datos de origen admitido a un almacén de datos receptor compatible.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.author: jingwang
-ms.openlocfilehash: d52a0bba5fddaa865b8fad74b778ba7a3838b2a4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: jianleishen
+ms.openlocfilehash: df26bdcc76b894991393019a12da71df2f893b6b
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100387910"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109488670"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Actividad de copia en Azure Data Factory
 
@@ -42,11 +42,11 @@ Para copiar datos de un origen a un receptor, el servicio que ejecuta la activid
 
 ## <a name="supported-data-stores-and-formats"></a>Almacenes de datos y formatos que se admiten
 
-[!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores.md)]
+[!INCLUDE [data-factory-v2-supported-data-stores](includes/data-factory-v2-supported-data-stores.md)]
 
 ### <a name="supported-file-formats"></a>Formatos de archivos admitidos
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 La actividad de copia se puede usar para copiar archivos tal cual entre dos almacenes de datos basados en archivos, en cuyo caso los datos se copian de manera eficaz sin serialización ni deserialización. Además, también puede analizar o generar archivos con un formato determinado; por ejemplo, puede realizar lo siguiente:
 
@@ -62,7 +62,7 @@ El servicio que permite la actividad de copia está disponible globalmente en la
 
 ## <a name="configuration"></a>Configuración
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 En general, para usar la actividad de copia en Azure Data Factory, debe:
 

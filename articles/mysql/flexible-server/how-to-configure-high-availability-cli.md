@@ -6,13 +6,13 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 04/1/2021
-ms.custom: references_regions
-ms.openlocfilehash: fb53ad309c741fc898bcf3e27347038c0e382ea4
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: 6f441572ea57789f6700194a24e7f1af663d0f4f
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107509018"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109750364"
 ---
 # <a name="manage-zone-redundant-high-availability-in-azure-database-for-mysql-flexible-server-with-azure-cli"></a>Administración de la alta disponibilidad con redundancia de zona en un servidor flexible de Azure Database for MySQL con la CLI de Azure
 
@@ -24,12 +24,12 @@ En este artículo se describe cómo habilitar o deshabilitar la configuración d
 La característica de alta disponibilidad proporciona una réplica principal y una réplica en espera separadas físicamente en distintas zonas. Para más información, consulte la [documentación sobre los conceptos de alta disponibilidad](./concepts/../concepts-high-availability.md). La habilitación o deshabilitación de la alta disponibilidad no cambia las demás opciones, como la configuración de red virtual, la configuración del firewall y la retención de copias de seguridad. La deshabilitación de la alta disponibilidad no afecta a la conectividad ni a las operaciones de las aplicaciones.
 
 > [!IMPORTANT]
-> La alta disponibilidad con redundancia de zona está disponible en un conjunto limitado de regiones. Consulte [aquí](https://docs.microsoft.com/azure/mysql/flexible-server/overview#azure-regions) las regiones admitidas. 
+> La alta disponibilidad con redundancia de zona está disponible en un conjunto limitado de regiones. Consulte [aquí](./overview.md#azure-regions) las regiones admitidas. 
 
 ## <a name="prerequisites"></a>Requisitos previos
 - Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
-- Instale o actualice la CLI de Azure a la versión más reciente. Consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
--  Inicie sesión en la cuenta de Azure mediante el comando [az login](/cli/azure/reference-index#az-login). Tenga en cuenta la propiedad **id**, que hace referencia al **identificador de suscripción** para su cuenta de Azure.
+- Instale la CLI de Azure más reciente o actualice la que ya tiene a la versión más reciente. Consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
+-  Inicie sesión en la cuenta de Azure mediante el comando [az login](/cli/azure/reference-index#az_login). Tenga en cuenta la propiedad **id**, que hace referencia al **identificador de suscripción** para su cuenta de Azure.
 
     ```azurecli-interactive
     az login
