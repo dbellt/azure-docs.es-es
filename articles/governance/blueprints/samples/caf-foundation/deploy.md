@@ -3,12 +3,12 @@ title: Implementación del ejemplo de plano técnico de Fundación CAF
 description: Pasos para implementar el ejemplo de plano técnico de CAF Foundation, incluidos los detalles de los parámetros del artefacto de plano técnico.
 ms.date: 03/12/2021
 ms.topic: sample
-ms.openlocfilehash: a8d41364451bf2ebf1e48b90fad74f4b24c804e1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 281bd0fdae5aa144799499d583b5673a569612b1
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103470156"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108757878"
 ---
 # <a name="deploy-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Implementación del ejemplo de plano técnico de Microsoft Cloud Adoption Framework para Azure Foundation
 
@@ -86,7 +86,7 @@ Una vez que la copia del ejemplo de plano técnico se haya **publicado** correct
      - **Organización**: escriba el nombre de la organización, como Contoso. El nombre debe ser único.
      - **Región de Azure**: seleccione la región de Azure para la implementación.
      - **Ubicaciones permitidas**: ¿en qué regiones de Azure permitirá que se compilen los recursos?
-     
+
    - Parámetros de artefacto
 
      Los parámetros definidos en esta sección se aplican al artefacto en el que se define. Estos parámetros son [parámetros dinámicos](../../concepts/parameters.md#dynamic-parameters), ya que se definen durante la asignación del plano técnico. Para obtener una lista completa de los parámetros de los artefactos y sus descripciones, consulte la [tabla de parámetros de los artefactos](#artifact-parameters-table).
