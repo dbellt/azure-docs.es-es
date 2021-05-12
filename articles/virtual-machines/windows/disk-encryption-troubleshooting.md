@@ -9,12 +9,12 @@ ms.topic: troubleshooting
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 057aba3e49d32694563f412101be499342f2aad0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 09a23e9e1e4508b10003f95f6e8c3502ea214d64
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102550610"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109733774"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Guía de solución de problemas de Azure Disk Encryption
 
@@ -82,10 +82,6 @@ Es posible que el portal muestre que un disco está cifrado incluso después de 
 Para deshabilitar Azure Disk Encryption con PowerShell, use [Disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) seguido de [Remove-AzVMDiskEncryptionExtension](/powershell/module/az.compute/remove-azvmdiskencryptionextension). Si se ejecuta Remove-AzVMDiskEncryptionExtension antes de deshabilitar el cifrado, se producirá un error.
 
 Para deshabilitar Azure Disk Encryption con la CLI, use [az vm encryption disable](/cli/azure/vm/encryption). 
-
-## 
-
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

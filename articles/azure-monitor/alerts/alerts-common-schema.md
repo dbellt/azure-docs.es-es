@@ -3,12 +3,12 @@ title: Esquema de alertas comunes para las alertas de Azure Monitor
 description: Descripción del esquema de alertas comunes, por qué debería usarlo y cómo habilitarlo
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: 39ea469b4109f4715db0d0a73ad069121058a46f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ea05c010ff9ee732302054a07c8157e02e3e0034
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102038264"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108739806"
 ---
 # <a name="common-alert-schema"></a>Esquema de alertas comunes
 
@@ -32,7 +32,6 @@ El esquema de alertas comunes se manifestará principalmente en las notificacion
 
 | Acción | Mejoras|
 |:---|:---|
-| sms | Una plantilla SMS coherente para todos los tipos de alerta. |
 | Email | Una plantilla de correo electrónico detallada y coherente, que le permite diagnosticar fácilmente los problemas de un vistazo. Vínculos profundos insertados en la instancia de alerta en el portal y los recursos afectados garantizan que pueda pasar rápidamente al proceso de corrección. |
 | Webhook/Logic App/Azure Functions/Runbook de Automation | Una estructura JSON coherente para todos los tipos de alerta, que le permite crear fácilmente integraciones entre los diferentes tipos de alerta. |
 

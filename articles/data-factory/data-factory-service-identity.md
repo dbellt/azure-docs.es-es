@@ -1,17 +1,17 @@
 ---
 title: Identidad administrada de Data Factory
 description: Obtenga información sobre la identidad administrada de Azure Data Factory.
-author: linda33wj
+author: nabhishek
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/25/2021
-ms.author: jingwang
-ms.openlocfilehash: 65512f8e46b5545929a798392ac5f19ddeab39ed
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.author: abnarain
+ms.openlocfilehash: 632c5930fdae7a4a7504d57b9cb8f285efad8d0a
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105562467"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109481668"
 ---
 # <a name="managed-identity-for-data-factory"></a>Identidad administrada de Data Factory
 

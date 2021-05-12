@@ -3,12 +3,12 @@ title: Lista de comprobación sobre la preparación de producción de Azure Serv
 description: Prepare la producción del clúster y de la aplicación de Service Fabric mediante los procedimientos recomendados.
 ms.topic: conceptual
 ms.date: 6/05/2019
-ms.openlocfilehash: a03df40a8ce213c5de9ed7017d47713c4de3449d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5872de420b72f9b453c4b64cd7790a14c0d5d305
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87835874"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109732207"
 ---
 # <a name="production-readiness-checklist"></a>Lista de comprobación sobre la preparación de producción
 
@@ -34,7 +34,7 @@ ms.locfileid: "87835874"
 1. Desactive las actualizaciones automáticas en los clústeres de producción y actívelas para los clústeres de desarrollo y ensayo (reviértalo según sea necesario). 
 1. Establezca un objetivo de punto de recuperación (RPO) para el servicio y configure un [proceso de recuperación ante desastres](service-fabric-disaster-recovery.md) y pruébelo.
 1. Planee el [escalado](service-fabric-cluster-scaling.md) del clúster manualmente o mediante programación.
-1. Planee la [revisión](service-fabric-patch-orchestration-application.md) de los nodos de clúster. 
+1. Planee la [revisión](how-to-patch-cluster-nodes-windows.md) de los nodos de clúster. 
 1. Establezca una canalización de CI/CD para que los cambios más recientes se prueben continuamente. Por ejemplo, con [Azure DevOps](service-fabric-tutorial-deploy-app-with-cicd-vsts.md) o [Jenkins](/azure/developer/jenkins/deploy-to-service-fabric-cluster)
 1. Pruebe los clústeres de desarrollo y ensayo con carga con el [servicio de análisis de errores](service-fabric-testability-overview.md) e inducza [caos](service-fabric-controlled-chaos.md) controlado. 
 1. Planee el [escalado](service-fabric-concepts-scalability.md) de las aplicaciones. 

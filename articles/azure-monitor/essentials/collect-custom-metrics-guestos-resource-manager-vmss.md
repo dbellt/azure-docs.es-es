@@ -6,12 +6,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
-ms.openlocfilehash: c5f536295bce07e70606f1ff286b08f8465d59f9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c3a42de2ac948a583f9d2de130626f37658dfc9e
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102048961"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109732261"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Enviar métricas de SO invitado al almacén de métricas de Azure Monitor con una plantilla de Azure Resource Manager para un conjunto de escalado de máquinas virtuales de Windows
 
@@ -35,7 +35,7 @@ Si no está familiarizado con las plantillas de Resource Manager, obtenga inform
 La extensión Azure Diagnostics usa una característica denominada **receptores de datos** para enrutar las métricas y los registros a distintas ubicaciones. En los pasos siguientes se muestra cómo usar una plantilla de Resource Manager y PowerShell para implementar una VM con el nuevo receptor de datos Azure Monitor. 
 
 ## <a name="author-a-resource-manager-template"></a>Creación de una plantilla de Resource Manager 
-En este ejemplo, puede usar una [plantilla de ejemplo](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-autoscale) disponible públicamente.  
+En este ejemplo, puede usar una [plantilla de ejemplo](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vmss-windows-autoscale) disponible públicamente.  
 
 - **Azuredeploy.json** es una plantilla de Resource Manager configurada previamente para la implementación de un conjunto de escalado de máquinas virtuales.
 

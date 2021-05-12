@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/09/2020
+ms.date: 05/10/2021
 ms.author: b-juche
-ms.openlocfilehash: e0b86a7014af42f2ffb067c2de797f270a5b1855
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 695dd379e0b9f02f5ec6a08f2a037d071259d2b7
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105967479"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109734522"
 ---
 # <a name="configure-an-nfs-client-for-azure-netapp-files"></a>Configuración de un cliente NFS para Azure NetApp Files
 
@@ -81,7 +81,26 @@ En los ejemplos de esta sección se usan el nombre de dominio y la dirección IP
     
     Asegúrese de que `default_realm` esté establecido en el dominio kerberos proporcionado en `/etc/krb5.conf`.  Si no es así, agréguelo en la sección `[libdefaults]` del archivo, tal como se muestra en el ejemplo siguiente:
     
-    `default_realm = CONTOSO.COM`
+    ```
+    [libdefaults]
+        default_realm = CONTOSO.COM
+        default_tkt_enctypes = aes256-cts-hmac-sha1-96
+        default_tgs_enctypes = aes256-cts-hmac-sha1-96
+        permitted_enctypes = aes256-cts-hmac-sha1-96
+    [realms]
+        CONTOSO.COM = {
+            kdc = dc01.contoso.com
+            admin_server = dc01.contoso.com
+            master_kdc = dc01.contoso.com
+            default_domain = contoso.com
+        }
+    [domain_realm]
+        .contoso.com = CONTOSO.COM
+        contoso.com = CONTOSO.COM
+    [logging]
+        kdc = SYSLOG:INFO
+        admin_server = FILE=/var/kadm5.log
+    ```
 
 7. Reinicie todos los servicios NFS:  
  

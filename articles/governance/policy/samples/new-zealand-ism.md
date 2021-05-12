@@ -1,15 +1,15 @@
 ---
 title: Detalles del cumplimiento normativo del ISM restringido de Nueva Zelanda
 description: Detalles de la iniciativa integrada del cumplimiento normativo del ISM restringido de Nueva Zelanda. Cada control se corresponde a una o varias definiciones de Azure Policy que ayudan en la evaluación.
-ms.date: 04/28/2021
+ms.date: 05/04/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: f7572f59ead4c14c3bb64da4f77fc7faa35947b0
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 566bcde7a5b5ba5f167e63f62749049d2630932c
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108179913"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108743532"
 ---
 # <a name="details-of-the-new-zealand-ism-restricted-regulatory-compliance-built-in-initiative"></a>Detalles de la iniciativa integrada del cumplimiento normativo del ISM restringido de Nueva Zelanda
 

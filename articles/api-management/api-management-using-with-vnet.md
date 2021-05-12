@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 04/12/2021
 ms.author: apimpm
 ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: 5808cda95cdf9ce6477f47fcdbb8a0421d92e72a
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 39e4661cb4ac664580539aca061fed4eb0f411fa
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107817157"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109737517"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Usar Azure API Management con redes virtuales
 Azure Virtual Network (redes virtuales) le permiten colocar cualquier recurso de Azure en una red distinta de Internet que se pueda enrutar y a la que controle el acceso. Después, estas redes se pueden conectar a sus redes locales mediante diversas tecnologías de VPN. Para más información sobre Azure Virtual Network, vea: [Información general sobre Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
@@ -27,7 +27,7 @@ Azure API Management se puede implementar dentro de la red virtual (VNET), por l
 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para seguir los pasos que se describen en este artículo, debe tener:
 
@@ -51,7 +51,7 @@ Para seguir los pasos que se describen en este artículo, debe tener:
 1. Configure la instancia de API Management que se va a implementar dentro de la red virtual.
 
     :::image type="content" source="media/api-management-using-with-vnet/api-management-menu-vnet.png" alt-text="Seleccione una red virtual en Azure Portal.":::
-    
+
 1. Seleccione el tipo de acceso que prefiera:
 
     * **Off**: Este es el valor predeterminado. API Management no se implementa en una red virtual.
@@ -71,7 +71,7 @@ Para seguir los pasos que se describen en este artículo, debe tener:
 
     > [!IMPORTANT]
     > * Cuando el cliente usa la **versión de API 2020-12-01 o anteriores** para implementar una instancia de Azure API Management en una red virtual de Resource Manager, el servicio debe encontrarse en una subred dedicada que no contenga ningún recurso, excepto instancias de Azure API Management. Si se intenta implementar una instancia de Azure API Management en una subred de VNET de Resource Manager que contiene otros recursos, se producirá un error en la implementación.
-    > * Cuando el cliente usa la **versión de API 2021-01-01-preview o posteriores** para implementar una instancia de Azure API Management en una red virtual, solo se admite una red virtual de Resource Manager. Además, la subred usada puede contener otros recursos. No necesita usar una subred dedicada para las instancias de API Management. 
+    > * Cuando el cliente usa la **versión de API 2021-01-01-preview o posteriores** para implementar una instancia de Azure API Management en una red virtual, solo se admite una red virtual de Resource Manager. Además, la subred usada puede contener otros recursos. No necesita usar una subred dedicada para las instancias de API Management.
 
 1. Seleccione **Aplicar**. La página **Red virtual** de la instancia API Management se actualiza con las opciones de red virtual y subred nueva.
 
@@ -99,9 +99,9 @@ También puede habilitar la conectividad de la red virtual con los siguientes m�
 
 ### <a name="api-version-2020-12-01"></a>Versión de API 2020-12-01
 
-* [Plantilla](https://github.com/Azure/azure-quickstart-templates/tree/master/201-api-management-create-with-external-vnet) de Resource Manager
-    
-     [![Implementar en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-api-management-create-with-external-vnet%2Fazuredeploy.json)
+* [Plantilla](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.apimanagement/api-management-create-with-external-vnet) de Resource Manager
+
+     [![Implementar en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.apimanagement%2Fapi-management-create-with-external-vnet%2Fazuredeploy.json)
 
 * Cmdlets de Azure PowerShell: [creación](/powershell/module/az.apimanagement/new-azapimanagement) o [actualización](/powershell/module/az.apimanagement/update-azapimanagementregion) de una instancia de API Management en una red virtual
 
@@ -170,12 +170,12 @@ A continuación se muestra una lista de problemas de errores de configuración c
 
 + **Azure Load Balancer**: Permitir la solicitud de entrada desde la etiqueta de servicio `AZURE_LOAD_BALANCER` no es un requisito para la SKU `Developer`, ya que solo implementamos una unidad de proceso detrás de ella. Pero la entrada desde [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md) se convierte en crítica al escalar a una SKU superior como `Premium`, ya que un error en el sondeo de estado de Load Balancer produce un error en una implementación.
 
-+ **Application Insights**: Si la supervisión de [Azure Application Insights](api-management-howto-app-insights.md) está habilitada en API Management, tendremos que permitir la conectividad de salida hacia el [punto de conexión de telemetría](../azure-monitor/app/ip-addresses.md#outgoing-ports) desde la red virtual. 
++ **Application Insights**: Si la supervisión de [Azure Application Insights](api-management-howto-app-insights.md) está habilitada en API Management, tendremos que permitir la conectividad de salida hacia el [punto de conexión de telemetría](../azure-monitor/app/ip-addresses.md#outgoing-ports) desde la red virtual.
 
 + **Forzar la tunelización del tráfico al firewall local mediante la aplicación virtual de red o de Express Route**: Una configuración común de los clientes es definir su propia ruta predeterminada (0.0.0.0/0) que fuerza a todo el tráfico de la subred delegada de API Management a pasar a través de un firewall local o a una aplicación virtual de red. El flujo de tráfico interrumpe invariablemente la conectividad con Azure API Management porque el tráfico saliente está bloqueado de forma local o porque se usa NAT para convertirlo en un conjunto de direcciones irreconocibles que no funcionan con varios puntos de conexión de Azure. La solución requiere que se hagan un par de cosas:
 
   * Habilite los puntos de conexión de servicio en la subred en la que se ha implementado el servicio API Management. [Los puntos de conexión de servicio][ServiceEndpoints] deben habilitarse para Azure SQL, Azure Storage, Azure Event Hubs y Azure ServiceBus. La habilitación de los puntos de conexión directamente desde la subred delegada de API Management a estos servicios les permite utilizar la red troncal de Microsoft Azure, que proporciona un enrutamiento óptimo para el tráfico de servicios. Si usa puntos de conexión de servicio con una API Management con túnel forzado, el tráfico de servicios de Azure anterior no se enruta a través de tunelización forzada. El resto del tráfico de dependencia del servicio API Management se enruta con tunelización forzada y no se puede perder o este servicio no funcionaría correctamente.
-    
+
   * Todo el tráfico del plano de control desde Internet al punto de conexión de administración del servicio API Management se enruta a través de un conjunto específico de IP de entrada hospedadas en API Management. Cuando el tráfico se produce con tunelización forzada, no se asignarán simétricamente las respuestas a estas direcciones IP de origen de entrada. Para superar la limitación, necesitamos agregar las siguientes rutas definidas por el usuario ([UDR][UDRs]) para dirigir el tráfico de vuelta a Azure mediante el establecimiento del destino de estas rutas de host a "Internet". El conjunto de direcciones IP de entrada para el tráfico del plano de control está documentado en [Direcciones IP del plano de control](#control-plane-ips).
 
   * Para otras dependencias de servicios API Management con tunelización forzada, debería haber una forma de resolver el nombre de host y llegar hasta el punto de conexión. Entre ellas se incluyen las siguientes:

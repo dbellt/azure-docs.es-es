@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: jpalma
 ms.date: 01/12/2021
 author: palma21
-ms.openlocfilehash: 4c14d77ba87ab4bd3f4465d915b911a1d44aefab
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: bf006c6ade92cc2d1286dc1173d09efea0294f50
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108166459"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108754476"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Control del tráfico de salida de los nodos de clúster en Azure Kubernetes Service (AKS)
 
@@ -209,9 +209,7 @@ Los clústeres de AKS que tienen habilitado Azure Policy necesitan las reglas de
 |-----------------------------------------------|-----------|----------|
 | **`data.policy.core.windows.net`** | **`HTTPS:443`** | Esta dirección se usa para extraer las directivas de Kubernetes y para notificar el estado de cumplimiento del clúster en el servicio de directivas. |
 | **`store.policy.core.windows.net`** | **`HTTPS:443`** | Esta dirección se usa para extraer los artefactos de Gatekeeper de las directivas integradas. |
-| **`gov-prod-policy-data.trafficmanager.net`** | **`HTTPS:443`** | Esta dirección se usa para el funcionamiento correcto de Azure Policy.  |
-| **`raw.githubusercontent.com`**               | **`HTTPS:443`** | Esta dirección se usa para extraer las directivas integradas de GitHub para garantizar el funcionamiento correcto de Azure Policy. |
-| **`dc.services.visualstudio.com`**            | **`HTTPS:443`** | Complemento de Azure Policy que envía datos de telemetría al punto de conexión de Application Insights. |
+| **`dc.services.visualstudio.com`** | **`HTTPS:443`** | Complemento de Azure Policy que envía datos de telemetría al punto de conexión de Application Insights. |
 
 #### <a name="azure-china-21vianet-required-fqdn--application-rules"></a>Reglas de aplicación o FQDN obligatorios para Azure China 21Vianet
 

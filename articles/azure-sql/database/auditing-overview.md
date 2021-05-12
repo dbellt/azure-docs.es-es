@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 03/17/2021
+ms.date: 05/02/2021
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: ee8451365dd6a5d4e8e4b155c081e24e959730af
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 49cd718bc0beb5128980e5e25a01cef94e966221
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108128476"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108754026"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Auditoría para Azure SQL Database y Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -290,9 +290,9 @@ Directiva extendida compatible con la cláusula WHERE para filtrado adicional:
 
 Puede administrar auditorías de Azure SQL Database mediante plantillas de [Azure Resource Manager](../../azure-resource-manager/management/overview.md), como se muestra en estos ejemplos:
 
-- [Implementación de una instancia de Azure SQL Database con la auditoría habilitada para escribir los registros de auditoría en la cuenta de Azure Blob Storage](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
-- [Implementación de una instancia de Azure SQL Database con la auditoría habilitada para escribir los registros de auditoría en Log Analytics](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
-- [Implementación de una instancia de Azure SQL Database con la auditoría habilitada para escribir los registros de auditoría en Event Hubs](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub)
+- [Implementación de una instancia de Azure SQL Database con la auditoría habilitada para escribir los registros de auditoría en la cuenta de Azure Blob Storage](https://azure.microsoft.com/resources/templates/sql-auditing-server-policy-to-blob-storage/)
+- [Implementación de una instancia de Azure SQL Database con la auditoría habilitada para escribir los registros de auditoría en Log Analytics](https://azure.microsoft.com/resources/templates/sql-auditing-server-policy-to-oms/)
+- [Implementación de una instancia de Azure SQL Database con la auditoría habilitada para escribir los registros de auditoría en Event Hubs](https://azure.microsoft.com/resources/templates/sql-auditing-server-policy-to-eventhub/)
 
 > [!NOTE]
 > Los ejemplos vinculados se encuentran en un repositorio público externo y se proporcionan "tal cual", sin ninguna garantía y no se admiten en todos los programas o servicios de soporte técnico de Microsoft.

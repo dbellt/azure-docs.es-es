@@ -6,12 +6,12 @@ author: msangapu-msft
 ms.topic: article
 ms.date: 12/03/2020
 ms.author: msangapu
-ms.openlocfilehash: 73f3caf77bcf1f0e77f7f97ef747d4a8f35033e5
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 3cc8ba29629c36cc9fcb295b1cdd348fbcae1584
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107886647"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109732909"
 ---
 # <a name="monitor-app-service-instances-using-health-check"></a>Supervisión de instancias de App Service mediante la comprobación de estado
 
@@ -68,8 +68,8 @@ Después de proporcionar la ruta de acceso de la comprobación de estado de la a
 No se debe habilitar la comprobación de estado en los sitios de funciones prémium. Debido al rápido escalado de las funciones prémium, las solicitudes de comprobación de estado pueden provocar fluctuaciones innecesarias en el tráfico HTTP. Las funciones prémium tienen sus propios sondeos de estado internos que se usan para informar sobre las decisiones de escalado.
 
 ## <a name="next-steps"></a>Pasos siguientes
-- [Creación de una alerta de registro de actividades para supervisar todas las operaciones del motor de escalado automático en su suscripción](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
-- [Creación de una alerta de registro de actividades para supervisar todas las operaciones erróneas de escalado automático y reducción horizontal en su suscripción](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
+- [Creación de una alerta de registro de actividades para supervisar todas las operaciones del motor de escalado automático en su suscripción](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/monitor-autoscale-alert)
+- [Creación de una alerta de registro de actividades para supervisar todas las operaciones erróneas de escalado automático y reducción horizontal en su suscripción](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/monitor-autoscale-failed-alert)
 
 [1]: ./media/app-service-monitor-instances-health-check/health-check-success-diagram.png
 [2]: ./media/app-service-monitor-instances-health-check/health-check-failure-diagram.png

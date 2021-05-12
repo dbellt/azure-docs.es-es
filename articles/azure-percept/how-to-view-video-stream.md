@@ -1,18 +1,18 @@
 ---
 title: Visualización de la secuencia de vídeo RTSP de Azure Percept DK
 description: Aprenda a ver la secuencia de vídeo RTSP desde Azure Percept DK.
-author: elqu20
-ms.author: v-elqu
+author: mimcco
+ms.author: mimcco
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/12/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 5f77e99dc5c34867fef2b0ac47c709824fa4477d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 678c5520b002f22552a6262fe245783f88ee61eb
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102096010"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108754152"
 ---
 # <a name="view-your-azure-percept-dks-rtsp-video-stream"></a>Visualización de la secuencia de vídeo RTSP de Azure Percept DK
 

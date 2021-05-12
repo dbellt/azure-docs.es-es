@@ -2,7 +2,7 @@
 title: archivo de inclusión
 description: archivo de inclusión
 services: azure-communication-services
-author: pvicencio
+author: paolamvhz
 manager: ankita
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
@@ -10,12 +10,12 @@ ms.date: 03/12/2021
 ms.topic: include
 ms.custom: include file
 ms.author: pvicencio
-ms.openlocfilehash: cdf1267d53abc2214521f584b6cfb4738b808204
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: b11be98718db282e219f3d1d151ceab235efe5e2
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106113270"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109805421"
 ---
 Introducción a Azure Communication Services mediante el SDK de SMS de Communication Services para Java para enviar mensajes SMS.
 
@@ -26,7 +26,7 @@ Este inicio rápido supone un pequeño costo en su cuenta de Azure.
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Kit de desarrollo de Java (JDK)](/java/azure/jdk/), versión 8 o posterior.
 - [Apache Maven](https://maven.apache.org/download.cgi).
-- Un recurso activo de Communication Services y una cadena de conexión. [Creación de un recurso de Communication Services](../../create-communication-resource.md).
+- Un recurso activo de Communication Services y una cadena de conexión. [Cree un recurso de Communication Services](../../create-communication-resource.md).
 - Un número de teléfono habilitado para SMS. [Obtención de un número de teléfono](../get-phone-number.md).
 
 ### <a name="prerequisite-check"></a>Comprobación de requisitos previos
@@ -64,7 +64,7 @@ Abra el archivo **pom.xml** en el editor de texto. Agregue el siguiente elemento
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-core</artifactId>
-    <version>1.13.0</version> <!-- {x-version-update;com.azure:azure-core;dependency} -->
+    <version>1.16.0</version> <!-- {x-version-update;com.azure:azure-core;dependency} -->
 </dependency>
 ```
 

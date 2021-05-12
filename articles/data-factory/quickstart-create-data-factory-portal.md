@@ -1,17 +1,17 @@
 ---
 title: Creación de una factoría de datos de Azure con la interfaz de usuario de Azure Data Factory
 description: Cree una factoría de datos con una canalización que copie los datos de una ubicación de Azure Blob Storage a otra.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: quickstart
 ms.date: 12/14/2020
-ms.author: jingwang
-ms.openlocfilehash: 8b33005b7f0d08e6da963457813b012199d89f5f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.author: jianleishen
+ms.openlocfilehash: 888350dacd2437f585c6571b991ae06eed2d32ab
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104655107"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109482172"
 ---
 # <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Inicio rápido: Creación de una factoría de datos con la interfaz de usuario de Azure Data Factory 
 
@@ -26,7 +26,7 @@ En esta guía de inicio rápido se describe cómo usar la interfaz de usuario de
 > [!NOTE]
 > Si no está familiarizado con Azure Data Factory, consulte [Introduction to Azure Data Factory](introduction.md) antes de seguir los pasos de esta guía de inicio rápido. 
 
-[!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
+[!INCLUDE [data-factory-quickstart-prerequisites](includes/data-factory-quickstart-prerequisites.md)] 
 
 ### <a name="video"></a>Vídeo 
 Ver este vídeo le ayudará a conocer la interfaz de usuario de Data Factory: 

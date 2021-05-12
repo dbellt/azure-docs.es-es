@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 03/13/2021
 ms.custom: mvc
-ms.openlocfilehash: c5d57705ca0d49db1fb1d67e20beb609f21b1d5b
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 5a581652bfd084118b47b5693a2b2ca9e92feda9
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104771437"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109751192"
 ---
 # <a name="tutorial-discover-google-cloud-platform-gcp-instances-with-azure-migrate-discovery-and-assessment"></a>Tutorial: Detección de instancias de Google Cloud Platform (GCP) con Azure Migrate: Discovery and assessment
 
@@ -46,7 +46,7 @@ Antes de empezar este tutorial, compruebe que dispone de estos requisitos previo
 
 ## <a name="prepare-an-azure-user-account"></a>Preparación de una cuenta de usuario de Azure
 
-Para crear un proyecto y registrar el dispositivo de Azure Migrate, necesita una cuenta con los siguientes permisos:
+Para crear un proyecto y registrar el dispositivo de Azure Migrate, necesita una cuenta con:
 
 * Permisos de nivel de colaborador o propietario en una suscripción de Azure.
 * Permisos para registrar aplicaciones de Azure Active Directory (AAD).
@@ -123,7 +123,7 @@ Configure un nuevo proyecto.
 El dispositivo de Azure Migrate es un dispositivo ligero que usa Azure Migrate: Discovery and assessment para hacer lo siguiente:
 
 * Descubrir servidores locales.
-* Enviar metadatos y datos de rendimiento de los servidores detectados a Azure Migrate: Discovery and assessment.
+* Enviar metadatos y datos de rendimiento de los servidores detectados a Azure Migrate: Detección y evaluación.
 
 [Más información](migrate-appliance.md) sobre el dispositivo de Azure Migrate.
 
@@ -133,15 +133,15 @@ Para configurar el dispositivo:
 1. Descargue un archivo comprimido con el script del instalador de Azure Migrate desde Azure Portal.
 1. Extraiga el contenido del archivo comprimido. Inicie la consola de PowerShell con privilegios administrativos.
 1. Ejecute el script de PowerShell para iniciar la aplicación web del dispositivo.
-1. Configure el dispositivo por primera vez y regístrelo en el proyecto, para lo que debe utilizar la clave del proyecto.
+1. Configure el dispositivo por primera vez y regístrelo en el proyecto mediante la clave del proyecto.
 
 ### <a name="1-generate-the-project-key"></a>1. Generación de la clave del proyecto
 
 1. En **Objetivos de migración** > **Windows, Linux y SQL Servers** >  (Servidores Windows, Linux y SQL) **Azure Migrate: Discovery and assessment**, seleccione **Detectar**.
 2. En **Discover Servers** > **Are your servers virtualized?** (Detectar servidores > ¿Están virtualizados sus servidores?), seleccione **Physical or other (AWS, GCP, Xen, etc.)** (Físicos u otros [AWS, GCP, Xen, etc.]).
 3. En **1: Generate project key** (1: Generar la clave de proyecto), proporcione un nombre para el dispositivo de Azure Migrate que configurará para la detección de los servidores virtuales de GCP. Este nombre debe ser alfanumérico y no puede tener más de 14 caracteres.
-4. Haga clic en **Generar clave** para iniciar la creación de los recursos de Azure necesarios. No cierre la página Detectar servidores durante la creación de recursos.
-5. Después de que se han creado correctamente los recursos de Azure, se genera una **clave de proyecto**.
+4. Haga clic en **Generar clave** para iniciar la creación de los recursos de Azure necesarios. No cierre la página Detectar servidores durante la creación de los recursos.
+5. Después de la creación correcta de los recursos de Azure, se genera una **clave de proyecto**.
 6. Copie la clave, ya que la necesitará para completar el registro del dispositivo durante su configuración.
 
 ### <a name="2-download-the-installer-script"></a>2. Descarga del script del instalador
@@ -176,7 +176,7 @@ El script del instalador hace lo siguiente:
 
 - Instala los agentes y una aplicación web para la detección y evaluación de los servidores de GCP.
 - Instala los roles de Windows, incluido el servicio de activación de Windows, IIS y PowerShell ISE.
-- Descarga e instala un módulo de reescritura de IIS. [Más información](https://www.microsoft.com/download/details.aspx?id=7435).
+- Descarga e instala un módulo de reescritura de IIS.
 - Actualiza una clave del registro (HKLM) con detalles de configuración persistentes para Azure Migrate.
 - Crea los siguientes archivos en la ruta de acceso:
     - **Archivos de configuración**:%Programdata%\Microsoft Azure\Config
@@ -223,7 +223,7 @@ Configure el dispositivo por primera vez.
 
 ### <a name="register-the-appliance-with-azure-migrate"></a>Registro del dispositivo en Azure Migrate
 
-1. Pegue la **clave de proyecto** copiada del portal. Si no tiene la clave, vaya a **Azure Migrate: Discovery and assessment > Detectar > Administrar los dispositivos existentes**, seleccione el nombre del dispositivo que proporcionó en el momento de la generación de la clave y copie la clave correspondiente.
+1. Pegue la **clave de proyecto** copiada desde el portal. Si no tiene la clave, vaya a **Azure Migrate: Discovery and assessment> Discover> Manage existing appliances** (Azure Migrate: Discovery and assessment > Detectar > Administrar los dispositivos existentes), seleccione el nombre del dispositivo que proporcionó al generar la clave y copie la clave correspondiente.
 1. Necesitará un código de dispositivo para autenticarse con Azure. Al hacer clic en **Iniciar sesión** se abrirá un modal con el código del dispositivo, tal como se muestra a continuación.
 
     ![Modal que muestra el código del dispositivo](./media/tutorial-discover-vmware/device-code.png)
@@ -242,8 +242,8 @@ Configure el dispositivo por primera vez.
 Ahora, conecte el dispositivo a los servidores de GCP que se van a detectar e inicie la detección.
 
 1. En **Paso 1: proporcionar credenciales para la detección de servidores físicos o virtuales de Windows y Linux**, haga clic en **Agregar credenciales**.
-1. En el servidor de Windows, seleccione el tipo de origen **Windows Server**, especifique un nombre descriptivo para las credenciales y agregue el nombre de usuario y la contraseña. Haga clic en **Guardar**.
-1. Si usa la autenticación basada en contraseña en el servidor Linux, seleccione el tipo de origen **Linux Server (Password-based)** (Servidor Linux [basado en contraseña]), especifique un nombre descriptivo para las credenciales y agregue el nombre de usuario y la contraseña. Haga clic en **Guardar**.
+1. En el caso de Windows Server, seleccione el tipo de origen **Windows Server**, especifique un nombre descriptivo para las credenciales, agregue el nombre de usuario y la contraseña. Haga clic en **Guardar**.
+1. Si usa la autenticación basada en contraseña para el servidor Linux, seleccione el tipo de origen **Servidor Linux (basado en contraseña)** , especifique un nombre descriptivo para las credenciales y agregue el nombre de usuario y la contraseña. Haga clic en **Guardar**.
 1. Si usa la autenticación basada en clave SSH para el servidor Linux, puede seleccionar el tipo de origen como **Servidor Linux (basado en clave SSH)** , especifique un nombre descriptivo para las credenciales, agregue el nombre de usuario. busque el archivo de clave privada SSH y selecciónela. Haga clic en **Guardar**.
 
     - Azure Migrate admite la clave privada SSH generada por el comando ssh-keygen mediante los algoritmos RSA, DSA, ECDSA y ed25519.
@@ -259,7 +259,7 @@ Ahora, conecte el dispositivo a los servidores de GCP que se van a detectar e in
 4. Puede **Agregar un solo elemento** cada vez o **Agregar varios elementos** de una sola vez. También hay una opción para proporcionar los detalles del servidor a través de **Importar CSV**.
 
     - Si elige **Agregar un solo elemento**, puede elegir el tipo de sistema operativo, especificar el nombre descriptivo de las credenciales, agregar la **dirección IP o el FQDN** del servidor y hacer clic en **Guardar**.
-    - Si elige **Add multiple items** (Agregar varios elementos), puede agregar varios registros a la vez mediante la especificación en el cuadro de texto de la **dirección IP o el nombre de dominio completo** del servidor con el nombre descriptivo de las credenciales. Compruebe los registros agregados y haga clic en **Guardar**.
+    - Si elige **Agregar varios elementos**, puede agregar varios registros a la vez mediante la especificación de la **dirección IP o el FQDN** del servidor con el nombre descriptivo de las credenciales en el cuadro de texto. Compruebe los registros agregados y haga clic en **Guardar**.
     - Si elige **importar CSV** _(opción seleccionada de manera predeterminada)_ , puede descargar un archivo de plantilla CSV, rellenar el archivo con la **dirección IP o el FQDN** del servidor y el nombre descriptivo de las credenciales. A continuación, importe el archivo en el dispositivo, **compruebe** los registros del archivo y haga clic en **Guardar**.
 
 5. Al hacer clic en Guardar, el dispositivo intentará validar la conexión a los servidores agregados y mostrar el **estado de validación** en la tabla en cada servidor.
