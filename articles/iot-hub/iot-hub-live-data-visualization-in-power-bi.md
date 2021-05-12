@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 6/08/2020
 ms.author: robinsh
-ms.openlocfilehash: 0b099f4ce91fd24e8d7baec054bcfc5a6cf0b032
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: 6ff0a0bb8bc1ca9b26968d002bb44d206c36e158
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107567118"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109483918"
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Visualización de datos del sensor en tiempo real desde Azure IoT Hub mediante Power BI
 
@@ -74,7 +74,7 @@ Comencemos creando un trabajo de Stream Analytics. Después de crear el trabajo,
 
    **Punto de conexión**: seleccione **Mensajería**.
 
-   **Nombre de directiva de acceso compartido**: seleccione el nombre de la directiva de acceso compartido que quiera que utilice el trabajo de Stream Analytics para su centro de IoT. Para este tutorial, puede seleccionar *service*. La directiva *service* se crea de forma predeterminada en los centros de IoT nuevos y concede permiso de envío y recepción para los puntos de conexión de la nube que expone el centro de IoT. Para obtener más información, consulte el tema sobre [control de acceso y permisos](iot-hub-devguide-security.md#access-control-and-permissions).
+   **Nombre de directiva de acceso compartido**: seleccione el nombre de la directiva de acceso compartido que quiera que utilice el trabajo de Stream Analytics para su centro de IoT. Para este tutorial, puede seleccionar *service*. La directiva *service* se crea de forma predeterminada en los centros de IoT nuevos y concede permiso de envío y recepción para los puntos de conexión de la nube que expone el centro de IoT. Para obtener más información, consulte el tema sobre [control de acceso y permisos](iot-hub-dev-guide-sas.md#access-control-and-permissions).
 
    **Clave de directiva de acceso compartido**: este campo se rellena automáticamente en función de su selección de nombre de directiva de acceso compartido.
 

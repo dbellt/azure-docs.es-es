@@ -1,18 +1,18 @@
 ---
 title: Copia y transformación de datos en Azure Blob Storage
 description: Aprenda a copiar datos en y desde Blob Storage, y a transformar datos en Blob Storage mediante Data Factory.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/17/2021
-ms.openlocfilehash: c1e0dffafafa76e90ec57ce1a00fb8e155ff4edf
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7f3880b74fe570410d24b28752f5b3d4068d978d
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104608102"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109481398"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Copia y transformación de datos en Azure Blob Storage mediante Azure Data Factory
 
@@ -47,7 +47,7 @@ En el caso de la actividad de copia, este conector de Blob Storage admite:
 
 ## <a name="get-started"></a>Introducción
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 En las secciones siguientes se proporcionan detalles acerca de las propiedades que se usan para definir entidades de Data Factory específicas de Blob Storage.
 
@@ -325,7 +325,7 @@ Estas propiedades son compatibles con un servicio vinculado de Azure Blob Storag
 
 Si desea ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo sobre [conjuntos de datos](concepts-datasets-linked-services.md). 
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 Las propiedades siguientes se admiten para Azure Blob Storage en la configuración `location` del conjunto de datos basado en formato:
 
@@ -369,7 +369,7 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 ### <a name="blob-storage-as-a-source-type"></a>Blob Storage como un tipo de origen
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 Las propiedades siguientes se admiten para Azure Blob Storage en la configuración `storeSettings` en un origen de copia basado en formato:
 
@@ -440,7 +440,7 @@ Las propiedades siguientes se admiten para Azure Blob Storage en la configuraci�
 
 ### <a name="blob-storage-as-a-sink-type"></a>Blob Storage como un tipo de receptor
 
-[!INCLUDE [data-factory-v2-file-sink-formats](../../includes/data-factory-v2-file-sink-formats.md)] 
+[!INCLUDE [data-factory-v2-file-sink-formats](includes/data-factory-v2-file-sink-formats.md)] 
 
 Las propiedades siguientes se admiten para Azure Blob Storage en la configuración `storeSettings` en un receptor de copia basado en formato:
 

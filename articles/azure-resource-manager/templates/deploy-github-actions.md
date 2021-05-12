@@ -4,12 +4,12 @@ description: Se describe cómo implementar plantillas de Azure Resource Manager 
 ms.topic: conceptual
 ms.date: 10/13/2020
 ms.custom: github-actions-azure
-ms.openlocfilehash: 020e142788cf2bd31edeada8d051be74132310cf
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: fb14c6e452ea4923ece7561ca8af968626f4af77
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108075436"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108737034"
 ---
 # <a name="deploy-arm-templates-by-using-github-actions"></a>Implementación de plantillas de ARM mediante Acciones de GitHub
 
@@ -88,7 +88,7 @@ Debe crear secretos para las credenciales de Azure, el grupo de recursos y las s
 Agregue una plantilla de Resource Manager al repositorio de GitHub. Esta plantilla crea una cuenta de almacenamiento.
 
 ```url
-https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
+https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json
 ```
 
 Puede colocar el archivo en cualquier parte del repositorio. En el ejemplo de flujo de trabajo de la sección siguiente se supone que el archivo de plantilla se denomina **azuredeploy.json** y se almacena en la raíz del repositorio.

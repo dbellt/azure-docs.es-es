@@ -1,0 +1,66 @@
+- name: Documentación del servicio Azure Web PubSub
+  href: index.yml
+- name: Información general
+  items:
+    - name: Acerca del servicio Azure Web PubSub
+      href: overview.md
+- name: Guías de inicio rápido
+  expanded: true
+  items:
+    - name: Prueba de la demostración en vivo
+      href: quickstart-live-demo.md
+    - name: Inicio con una sencilla aplicación sin servidor de sala de chat
+      href: quickstart-serverless.md
+- name: Guías paso a paso
+  expanded: true
+  items:
+    - name: Desarrollar
+      items:
+        - name: Crear instancia
+          href: howto-develop-create-instance.md
+        - name: Publicación de mensajes y suscripción a ellos
+          href: 'https://azure.github.io/azure-webpubsub/getting-started/publish-messages/js-publish-message'
+        - name: Uso de subprotocolos
+          href: 'https://azure.github.io/azure-webpubsub/getting-started/using-pubsub-subprotocol/js-work-with-subprotocols'
+        - name: Autenticación y permisos
+          href: 'https://azure.github.io/azure-webpubsub/getting-started/auth-and-permissions/js-auth-and-permissions'
+    - name: Seguridad
+      items:
+        - name: Protección de la clave de acceso
+          href: howto-secure-rotate-access-key.md
+    - name: Solucionar problemas
+      items:
+        - name: Recopilación de un seguimiento de red
+          href: howto-troubleshoot-network-trace.md
+        - name: Capturar los registros de diagnóstico
+          href: howto-troubleshoot-diagnostic-logs.md
+- name: Conceptos
+  items:
+    - name: Elementos internos del servicio Azure Web PubSub
+      href: 'https://azure.github.io/azure-webpubsub/concepts/service-internals'
+    - name: Modelo de facturación
+      href: concept-billing-model.md
+- name: Referencia
+  items:
+    - name: API DE REST
+      href: 'https://docs.microsoft.com/rest/api/webpubsub'
+    - name: Subprotocolo WebSocket de PubSub
+      href: 'https://azure.github.io/azure-webpubsub/references/pubsub-websocket-subprotocol'
+    - name: CloudEvents de Web PubSub
+      href: 'https://azure.github.io/azure-webpubsub/references/protocol-cloudevents'
+    - name: SDK de servidor
+      href: choose-server-sdks.md
+- name: Recursos
+  items:
+    - name: Soluciones
+      href: /azure/architecture/
+    - name: Disponibilidad en regiones
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=web-pubsub'
+    - name: Precios
+      href: 'https://azure.microsoft.com/pricing/details/web-pubsub/'
+    - name: Preguntas más frecuentes
+      href: resource-faq.md
+    - name: Preguntas y respuestas acerca de Microsoft
+      href: 'https://docs.microsoft.com/answers/topics/azure-web-pubsub.html'
+    - name: StackOverflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-web-pubsub'

@@ -6,14 +6,14 @@ services: sql-database
 ms.service: sql-database
 ms.topic: quickstart
 ms.author: jukullam
-ms.date: 10/12/2020
+ms.date: 05/05/2021
 ms.custom: github-actions-azure
-ms.openlocfilehash: ceb9f0f9ef2a88532d5af16a03fcfd0282da84f8
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 483763c9d29cc736608dac7907b8f3fa0aa84bac
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107787294"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108753810"
 ---
 # <a name="use-github-actions-to-connect-to-azure-sql-database"></a>Uso de Acciones de GitHub para conectarse a Azure SQL Database
 
@@ -143,7 +143,7 @@ Usará la cadena de conexión como secreto de GitHub.
       with:
         server-name: SQL_SERVER_NAME
         connection-string: ${{ secrets.AZURE_SQL_CONNECTION_STRING }}
-        sql-file: './Database.dacpac'
+        dacpac-package: './Database.dacpac'
     ``` 
 
 1. Complete el flujo de trabajo agregando una acción al cierre de sesión de Azure. Este es el flujo de trabajo completado. El archivo aparecerá en la carpeta `.github/workflows` del repositorio.
@@ -171,7 +171,7 @@ Usará la cadena de conexión como secreto de GitHub.
       with:
         server-name: SQL_SERVER_NAME
         connection-string: ${{ secrets.AZURE_SQL_CONNECTION_STRING }}
-        sql-file: './Database.dacpac'
+        dacpac-package: './Database.dacpac'
 
         # Azure logout 
     - name: logout

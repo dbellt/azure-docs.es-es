@@ -2,13 +2,13 @@
 title: Compatibilidad con la operación de traslado por tipo de recurso
 description: Enumera los tipos de recursos de Azure que se pueden trasladar a un nuevo grupo de recursos, suscripción o región.
 ms.topic: conceptual
-ms.date: 04/16/2021
-ms.openlocfilehash: a56a9e6f04aa800e16bbab0190ce7b41d87da590
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.date: 04/23/2021
+ms.openlocfilehash: 5a347a9041423c7e466499cdd65fe27e6623ab98
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107740095"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108737412"
 ---
 # <a name="move-operation-support-for-resources"></a>Compatibilidad con la operación de traslado para recursos
 
@@ -112,6 +112,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > - [Microsoft.ImportExport](#microsoftimportexport)
 > - [microsoft.insights](#microsoftinsights)
 > - [Microsoft.IoTCentral](#microsoftiotcentral)
+> - [Microsoft.IoTHub](#microsoftiothub)
 > - [Microsoft.IoTSpaces](#microsoftiotspaces)
 > - [Microsoft.KeyVault](#microsoftkeyvault)
 > - [Microsoft.Kubernetes](#microsoftkubernetes)
@@ -399,7 +400,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
-> | batchaccounts | Sí | Sí | Las cuentas de Batch no se pueden migrar directamente de una región a otra, pero puede usar una plantilla para exportar una plantilla, modificarla e implementarla en la nueva región. <br/><br/> Más información sobre [cómo mover una cuenta de Batch entre regiones](../../batch/best-practices.md#moving-batch-accounts-across-regions). |
+> | batchaccounts | Sí | Sí | Las cuentas de Batch no se pueden migrar directamente de una región a otra, pero puede usar una plantilla para exportar una plantilla, modificarla e implementarla en la nueva región. <br/><br/> Más información sobre [cómo mover una cuenta de Batch entre regiones](../../batch/account-move.md). |
 
 ## <a name="microsoftbilling"></a>Microsoft.Billing
 
@@ -586,7 +587,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | accounts | Sí | Sí | No |
-> | Cognitive Search | **pendiente** | **pendiente** | Se admite con pasos manuales.<br/><br/> Más información sobre cómo [mover el servicio Azure Cognitive Search a otra región](../../search/search-howto-move-across-regions.md). |
+> | Cognitive Search | Sí | Sí | Se admite con pasos manuales.<br/><br/> Más información sobre cómo [mover el servicio Azure Cognitive Search a otra región](../../search/search-howto-move-across-regions.md). |
 
 ## <a name="microsoftcommerce"></a>Microsoft.Commerce
 
@@ -1103,7 +1104,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
-> | accounts | **pendiente** | **pendiente** | No. [Más información](../../azure-monitor/faq.md#how-do-i-move-an-application-insights-resource-to-a-new-region). |
+> | accounts | Sí | Sí | No. [Más información](../../azure-monitor/faq.md#how-do-i-move-an-application-insights-resource-to-a-new-region). |
 > | actiongroups | Sí | Sí | No |
 > | activitylogalerts | No | No | No |
 > | alertrules | Sí | Sí | No |
@@ -1155,7 +1156,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
-> | iothub | **pendiente** | **pendiente** | Sí (clonación del centro) <br/><br/> [Clonación de una instancia de IoT Hub en otra región](../../iot-hub/iot-hub-how-to-clone.md) |
+> | iothub | Sí | Sí | Sí (clonación del centro) <br/><br/> [Clonación de una instancia de IoT Hub en otra región](../../iot-hub/iot-hub-how-to-clone.md) |
 
 ## <a name="microsoftiotspaces"></a>Microsoft.IoTSpaces
 

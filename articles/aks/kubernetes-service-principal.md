@@ -4,13 +4,13 @@ description: Cree y administre una entidad de servicio de Azure Active Directory
 services: container-service
 ms.topic: conceptual
 ms.date: 04/22/2021
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f80a16e61760a31683cc81dfa4415aa61ee6d78d
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 637da84073d014effc05a25104c3233ff385b432
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108139766"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109752596"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Entidades de servicio con Azure Kubernetes Service (AKS)
 
@@ -312,16 +312,16 @@ Para obtener información sobre cómo actualizar las credenciales, vea [Actualiz
 <!-- LINKS - internal -->
 [aad-service-principal]:../active-directory/develop/app-objects-and-service-principals.md
 [acr-intro]: ../container-registry/container-registry-intro.md
-[az-ad-sp-create]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
+[az-ad-sp-create]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac
 [az-ad-sp-delete]: /cli/azure/ad/sp#az_ad_sp_delete
 [azure-load-balancer-overview]: ../load-balancer/load-balancer-overview.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [service-principal]:../active-directory/develop/app-objects-and-service-principals.md
 [user-defined-routes]: ../load-balancer/load-balancer-overview.md
-[az-ad-app-list]: /cli/azure/ad/app#az-ad-app-list
-[az-ad-app-delete]: /cli/azure/ad/app#az-ad-app-delete
-[az-aks-create]: /cli/azure/aks#az-aks-create
-[az-aks-update]: /cli/azure/aks#az-aks-update
+[az-ad-app-list]: /cli/azure/ad/app#az_ad_app_list
+[az-ad-app-delete]: /cli/azure/ad/app#az_ad_app_delete
+[az-aks-create]: /cli/azure/aks#az_aks_create
+[az-aks-update]: /cli/azure/aks#az_aks_update
 [rbac-network-contributor]: ../role-based-access-control/built-in-roles.md#network-contributor
 [rbac-custom-role]: ../role-based-access-control/custom-roles.md
 [rbac-storage-contributor]: ../role-based-access-control/built-in-roles.md#storage-account-contributor

@@ -8,18 +8,18 @@ author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.reviewer: anbene
 ms.date: 12/23/2020
-ms.openlocfilehash: f096e53f8054039f361bde1c5f2adffac615c53d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ffa7e35bed1713a5ef9e04b59a8dbdb692b9630f
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100371947"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109790962"
 ---
 # <a name="how-to-plan-a-managed-service-offer-for-the-microsoft-commercial-marketplace"></a>Procedimiento para planear una oferta de servicio administrado en el marketplace comercial de Microsoft
 
 En este artículo se presentan los requisitos para publicar una oferta de servicio administrado en el marketplace comercial de Microsoft por medio del Centro de partners.
 
-Los servicios administrados son ofertas de Azure Marketplace que permiten la administración multiinquilino y entre inquilinos con Azure Lighthouse. Consulte [¿Qué es Azure Lighthouse?](../lighthouse/overview.md) para obtener más información. Cuando un cliente compra una oferta de servicios administrados, estos pueden delegar uno o varios grupos de recursos o suscripciones. A continuación, puede trabajar en esos recursos mediante las funcionalidades de [Administración de recursos delegados de Azure](../lighthouse/concepts/azure-delegated-resource-management.md) de Azure Lighthouse.
+Los servicios administrados son ofertas de Azure Marketplace que permiten la administración multiinquilino y entre inquilinos con Azure Lighthouse. Consulte [¿Qué es Azure Lighthouse?](../lighthouse/overview.md) para obtener más información. Cuando un cliente compra una oferta de servicios administrados, estos pueden delegar uno o varios grupos de recursos o suscripciones. A continuación, puede trabajar en esos recursos mediante las funcionalidades de [Administración de recursos delegados de Azure](../lighthouse/concepts/architecture.md) de Azure Lighthouse.
 
 ## <a name="eligibility-requirements"></a>Requisitos de elegibilidad
 

@@ -7,12 +7,12 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 355d36d58935372e9d8a92599e8f810fec9ebf19
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4c50c7de84f92f1050b88a9c5c7179c69211bb42
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104785349"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108766940"
 ---
 # <a name="datasets-in-azure-data-factory-version-1"></a>Conjuntos de datos en Azure Data Factory (versión  1)
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -140,7 +140,7 @@ Como puede ver, el servicio vinculado define cómo conectarse a una base de dato
 ## <a name="dataset-type"></a><a name="Type"></a> Tipo de conjunto de datos
 El tipo del conjunto de datos depende del almacén de datos que utilice. Vea la tabla siguiente para obtener una lista de almacenes de datos compatibles con Data Factory. Haga clic en un almacén de datos para obtener información sobre cómo crear un servicio vinculado y un conjunto de datos para ese almacén de datos.
 
-[!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]
+[!INCLUDE [data-factory-supported-data-stores](includes/data-factory-supported-data-stores.md)]
 
 > [!NOTE]
 > Los almacenes de datos con * pueden ser locales o de infraestructura como servicio (IaaS) de Azure. Estos almacenes de datos requieren que instale [Data Management Gateway](data-factory-data-management-gateway.md).

@@ -7,12 +7,12 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: f60ff3c8511472ee456d392257b815c0ab64f69c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7919d32326e7cb82720714a2bff574ad21f0d5d9
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104779807"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108753250"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Canalizaciones y actividades en Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -45,7 +45,7 @@ Un conjunto de datos de entrada representa la entrada para una actividad de la c
 ### <a name="data-movement-activities"></a>Actividades de movimiento de datos
 Copiar actividad en Data Factory realiza una copia de los datos de un almacén de datos de origen a uno receptor. Data Factory admite los siguientes almacenes de datos. Se pueden escribir datos desde cualquier origen en todos los tipos de receptores. Haga clic en un almacén de datos para obtener información sobre cómo copiar datos a un almacén como origen o destino.
 
-[!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]
+[!INCLUDE [data-factory-supported-data-stores](includes/data-factory-supported-data-stores.md)]
 
 > [!NOTE]
 > Los almacenes de datos con * pueden ser locales o estar en la IaaS de Azure; además, requieren que instale [Data Management Gateway](data-factory-data-management-gateway.md) en una máquina local o de la IaaS de Azure.
@@ -53,7 +53,7 @@ Copiar actividad en Data Factory realiza una copia de los datos de un almacén d
 Para más información, consulte el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md).
 
 ### <a name="data-transformation-activities"></a>Actividades de transformación de datos
-[!INCLUDE [data-factory-transformation-activities](../../../includes/data-factory-transformation-activities.md)]
+[!INCLUDE [data-factory-transformation-activities](includes/data-factory-transformation-activities.md)]
 
 Para más información, consulte el artículo sobre [actividades de transformación de datos](data-factory-data-transformation-activities.md).
 

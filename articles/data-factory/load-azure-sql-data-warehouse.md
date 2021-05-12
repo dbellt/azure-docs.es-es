@@ -1,18 +1,18 @@
 ---
 title: Carga de datos en Azure Synapse Analytics
 description: Uso de Azure Data Factory para copiar datos en Azure Synapse Analytics
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/29/2020
-ms.openlocfilehash: 0ebbbcd7430a86ee431f67f7b6174b45d60056e5
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 0a83a80ab8be8081e058436115eed82e6f5e7ce6
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104593720"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109485574"
 ---
 # <a name="load-data-into-azure-synapse-analytics-by-using-azure-data-factory"></a>Carga de datos en Azure Synapse Analytics mediante Azure Data Factory
 

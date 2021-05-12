@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/28/2021
 ms.author: v-demjoh
-ms.openlocfilehash: 20c394520e8d4100470c0176c284cf4136e9d3db
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: 3221712fcf74022f2899380b4573ab3a821dce4d
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108227996"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109627276"
 ---
 ## <a name="download-and-install"></a>Descargar e instalar
 
@@ -64,6 +64,9 @@ Escriba `spx` para ver la ayuda de la CLI de Voz.
 
 
 #### <a name="docker-install-windows-linux-macos"></a>[Instalación de Docker (Windows, Linux, macOS)](#tab/dockerinstall)
+
+> [!WARNING]
+> No puede usar el micrófono del equipo al ejecutar la CLI de Voz dentro de un contenedor de Docker. Sin embargo, puede leer y guardar archivos de audio en el directorio montado local. 
 
 Siga estos pasos para instalar la CLI de Voz en un contenedor de Docker:
 
@@ -126,9 +129,6 @@ En Windows, escriba este comando para iniciar un contenedor que muestre una inte
 ```console
 docker run -it --entrypoint=/bin/bash -v c:\spx-data:/data --rm msftspeech/spx
 ```
-
-> [!WARNING]
-> No puede usar el micrófono del equipo al ejecutar la CLI de Voz dentro de un contenedor de Docker. Sin embargo, puede leer y guardar archivos de audio en el directorio montado local. 
 
 <!-- Need to troubleshoot issues with docker pull image
 
