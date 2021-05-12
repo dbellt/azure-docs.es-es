@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 04/22/2021
 ms.topic: how-to
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6271875c368f637140010401cf2ebe21039be9a9
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.openlocfilehash: a9afef0e2616664578e66be3735104c47bfcffa9
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107897368"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108760758"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>Creación y administración de áreas de trabajo de Azure Machine Learning 
 
@@ -134,7 +134,7 @@ Si tiene problemas para obtener acceso a su suscripción, consulte [Configuraci�
    Campo|Descripción 
    ---|---
    Nombre del área de trabajo |Escriba un nombre único que identifique el área de trabajo. En este ejemplo, se usa **docs-ws**. Los nombres deben ser únicos en el grupo de recursos. Utilice un nombre que sea fácil de recordar y que se diferencie del de las áreas de trabajo creadas por otros. El nombre del área de trabajo no distingue mayúsculas de minúsculas.
-   Subscription |Seleccione la suscripción de Azure que quiera usar.
+   Suscripción |Seleccione la suscripción de Azure que quiera usar.
    Resource group | Use un grupo de recursos existente en su suscripción o escriba un nombre para crear un nuevo grupo de recursos. Un grupo de recursos almacena los recursos relacionados con una solución de Azure. En este ejemplo, se usa **docs-aml**. Necesita el rol *colaborador* o *propietario* para usar un grupo de recursos existente.  Para obtener más información sobre el acceso, consulte [Administración del acceso a un área de trabajo de Azure Machine Learning](how-to-assign-roles.md).
    Region | Seleccione la región de Azure más cercana a los usuarios y los recursos de datos para crear el área de trabajo.
    | Cuenta de almacenamiento | Cuenta de almacenamiento predeterminada para el área de trabajo. De manera predeterminada, se crea una nueva. |
@@ -252,7 +252,7 @@ from azureml.core import Workspace
 
 ### <a name="download-a-configuration-file"></a>Descarga de un archivo de configuración
 
-Si va a crear una [instancia de proceso](tutorial-1st-experiment-sdk-setup.md#azure), omita este paso.  La instancia de proceso ya ha creado una copia de este archivo.
+Si va a crear una [instancia de proceso](quickstart-create-resources.md), omita este paso.  La instancia de proceso ya ha creado una copia de este archivo.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -391,8 +391,7 @@ El área de trabajo de Azure Machine Learning usa Azure Container Registry (ACR)
 ## <a name="examples"></a>Ejemplos
 
 Ejemplos de creación de un área de trabajo:
-* Uso de Azure Portal para [crear un área de trabajo y una instancia de proceso](tutorial-1st-experiment-sdk-setup.md).
-* Uso del SDK de Python para [crear un área de trabajo en su propio entorno](tutorial-1st-experiment-sdk-setup-local.md).
+* Uso de Azure Portal para [crear un área de trabajo y una instancia de proceso](quickstart-create-resources.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

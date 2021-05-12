@@ -1,17 +1,17 @@
 ---
 title: Copia de datos de Teradata Vantage mediante Azure Data Factory
 description: El conector Teradata del servicio Data Factory le permite copiar datos desde Teradata Vantage a almacenes de datos compatibles con Data Factory como receptores.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/22/2021
-ms.author: jingwang
-ms.openlocfilehash: c65b295dca16a3453b2ee5472b9a3ee5e8d62df7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: jianleishen
+ms.openlocfilehash: 9ebf320dc92ef8a39bc8b7569272ce2d0e2b2a68
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100381773"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109486762"
 ---
 # <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>Copia de datos de Teradata Vantage mediante Azure Data Factory
 
@@ -41,13 +41,13 @@ En concreto, este conector Teradata admite las siguientes funcionalidades:
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)]
 
 Si utiliza el entorno de ejecución de integración autohospedado, tenga en cuenta que proporciona un controlador de Teradata integrado a partir de la versión 3.18. No es necesario instalar manualmente ninguno. El controlador requiere "Visual C++ Redistributable 2012 Update 4" en la máquina del entorno de ejecución de integración autohospedado. Si aún no está instalada, descárguela de [aquí](https://www.microsoft.com/en-sg/download/details.aspx?id=30679).
 
 ## <a name="getting-started"></a>Introducción
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 Las secciones siguientes proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas del conector de Teradata.
 

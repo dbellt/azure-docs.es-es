@@ -3,22 +3,17 @@ title: Configuración del proxy del Centro de distribución de claves de Kerbero
 description: Cómo configurar un grupo de hosts de Windows Virtual Desktop para usar un servidor proxy del Centro de distribución de claves Kerberos.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/20/2021
+ms.date: 05/04/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 79ae61d21693ae56dff280402c7a3d114822be7f
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 74fc1eeabe8af754d3ac5809818b6d648453ee45
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108132366"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108732732"
 ---
-# <a name="configure-a-kerberos-key-distribution-center-proxy-preview"></a>Configuración de un proxy del Centro de distribución de claves de Kerberos (versión preliminar)
-
-> [!IMPORTANT]
-> Esta característica actualmente está en su versión preliminar pública.
-> Esta versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="configure-a-kerberos-key-distribution-center-proxy"></a>Configuración de un proxy del Centro de distribución de claves de Kerberos
 
 Los clientes conscientes de la seguridad, como las organizaciones financieras o gubernamentales, a menudo inician sesión con tarjetas inteligentes. Las tarjetas inteligentes hacen que las implementaciones sean más seguras, ya que requieren la autenticación multifactor (MFA). Sin embargo, para la parte de RDP de una sesión de Windows Virtual Desktop, las tarjetas inteligentes requieren una conexión directa o "línea de visión" con un controlador de dominio de Active Directory (AD) para la autenticación Kerberos. Sin esta conexión directa, los usuarios no pueden iniciar sesión automáticamente en la red de la organización desde las conexiones remotas. Los usuarios de una implementación de Windows Virtual Desktop pueden usar el servicio de proxy KDC para el proxy de este tráfico de autenticación e iniciar sesión de forma remota. El proxy KDC permite la autenticación para el Protocolo de escritorio remoto de una sesión de Windows Virtual Desktop, lo que permite que el usuario inicie sesión de forma segura. Esto hace que el trabajo desde casa sea mucho más fácil y permite que determinados escenarios de recuperación ante desastres se ejecuten de forma más fluida.
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/20/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 2462b585bb37db769aafafbb0d224557c53ee81d
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: f9518466aacddee9e31d8bc15f3b89c1f214ab58
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108127090"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108738006"
 ---
 # <a name="tutorial-configure-biocatch-with-azure-active-directory-b2c"></a>Tutorial: Configuración Azure Active Directory B2C con BioCatch
 
@@ -74,7 +74,7 @@ Póngase en contacto con [BioCatch](https://www.biocatch.com/contact-us) y cree 
 
 Se recomienda ocultar el campo de identificador de sesión de cliente. Use CSS, JavaScript o cualquier otro método para ocultar el campo. Con fines de pruebas, puede mostrar el campo. Por ejemplo, JavaScript se usa para ocultar el campo de entrada como:
 
-```
+```JavaScript
 document.getElementById("clientSessionId").style.display = 'none';
 ```
 
@@ -84,7 +84,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
 2. Cree un archivo que herede del archivo de extensiones.
 
-    ```
+    ```XML
     <BasePolicy> 
 
         <TenantId>tenant.onmicrosoft.com</TenantId> 
@@ -96,7 +96,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
 3. Cree una referencia a la interfaz de usuario personalizada para ocultar el cuadro de entrada, en el recurso BuildingBlocks.
 
-    ```
+    ```XML
     <ContentDefinitions> 
 
         <ContentDefinition Id="api.selfasserted"> 
@@ -112,7 +112,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
 4. Agregue las siguientes notificaciones en el recurso BuildingBlocks.
 
-    ```
+    ```XML
     <ClaimsSchema> 
 
           <ClaimType Id="riskLevel"> 
@@ -146,7 +146,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
 5. Configure el proveedor de notificaciones autoafirmado para el campo de identificador de sesión de cliente.
 
-    ```
+    ```XML
     <ClaimsProvider> 
 
           <DisplayName>Client Session ID Claims Provider</DisplayName> 
@@ -190,7 +190,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
 6. Configure el proveedor de notificaciones de la API REST para BioCatch. 
 
-    ```
+    ```XML
     <TechnicalProfile Id="BioCatch-API-GETSCORE"> 
 
           <DisplayName>Technical profile for BioCatch API to return session information</DisplayName> 
@@ -247,7 +247,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
    1. Si el valor de *risk* (riesgo) de la notificación devuelta es *low* (bajo), omita el paso de MFA; de lo contrario, fuerce la autenticación multifactor para los usuarios.
 
-    ```
+    ```XML
     <OrchestrationStep Order="8" Type="ClaimsExchange"> 
 
               <ClaimsExchanges> 
@@ -296,7 +296,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
     Resulta útil pasar la información devuelta por BioCatch a la aplicación como notificaciones en el token, específicamente *riskLevel* y *score*.
 
-    ```
+    ```XML
     <RelyingParty> 
 
         <DefaultUserJourney ReferenceId="SignUpOrSignInMfa" /> 
@@ -373,7 +373,7 @@ Siga estos pasos para agregar los archivos de directivas a Azure AD B2C.
 
 4. Recorra el flujo de registro y cree una cuenta. El token devuelto a JWT.MS debería tener dos notificaciones para riskLevel y score. Siga el ejemplo.  
 
-    ```
+    ```JavaScript
     { 
 
       "typ": "JWT", 

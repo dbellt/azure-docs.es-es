@@ -1,16 +1,16 @@
 ---
 title: Administración de usuarios en Azure FarmBeats
 description: En este artículo se describe cómo administrar usuarios en Azure FarmBeats.
-author: uhabiba04
+author: RiyazPishori
 ms.topic: article
 ms.date: 12/02/2019
-ms.author: v-ummehabiba
-ms.openlocfilehash: de9a11cac9856417422bd72579cbca44233ab422
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.author: riyazp
+ms.openlocfilehash: cb9a46dcfe3a99717c78e2401b2d5b69702ffdaf
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102179908"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108759732"
 ---
 # <a name="manage-users"></a>Administrar usuarios
 

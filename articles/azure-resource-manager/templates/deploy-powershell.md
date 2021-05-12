@@ -4,12 +4,12 @@ description: Use Azure Resource Manager y Azure PowerShell para implementar rec
 ms.topic: conceptual
 ms.date: 03/25/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: db43613b1b359e6d6378e081f3f61ee1449bd641
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 2f7d9709a62d7c791296e26d28f391c1eeeab728
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108314650"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108737052"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-powershell"></a>Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell
 
@@ -19,7 +19,7 @@ Para implementar archivos Bicep, necesita [Azure PowerShell versión 5.6.0 o pos
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Necesita una plantilla para implementar. Si aún no tiene ninguna, descargue una [plantilla de ejemplo](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) desde el repositorio Azure Quickstart Templates y guárdela. El nombre de archivo local que se utiliza en este artículo es _C:\MyTemplates\azuredeploy.json_.
+Necesita una plantilla para implementar. Si aún no tiene ninguna, descargue una [plantilla de ejemplo](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json) desde el repositorio Azure Quickstart Templates y guárdela. El nombre de archivo local que se utiliza en este artículo es _C:\MyTemplates\azuredeploy.json_.
 
 Debe instalar Azure PowerShell y conectarse a Azure:
 
@@ -134,7 +134,7 @@ Para implementar una plantilla externa, use el parámetro `-TemplateUri`.
 New-AzResourceGroupDeployment `
   -Name remoteTemplateDeployment `
   -ResourceGroupName ExampleGroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json
 ```
 
 En el ejemplo anterior, se requiere un identificador URI accesible públicamente para la plantilla, que funciona con la mayoría de los escenarios porque la plantilla no debe incluir datos confidenciales. Si tiene que especificar datos confidenciales (por ejemplo, una contraseña de administrador), pase ese valor como un parámetro seguro. Sin embargo, si quiere administrar el acceso a la plantilla, considere la posibilidad de usar [especificaciones de plantilla](#deploy-template-spec).
@@ -243,8 +243,8 @@ Para pasar un archivo de parámetros externo, use el parámetro `TemplateParamet
 
 ```powershell
 New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json `
-  -TemplateParameterUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.parameters.json
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json `
+  -TemplateParameterUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.parameters.json
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

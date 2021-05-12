@@ -11,12 +11,12 @@ ms.author: andzha
 author: Anurzeuii
 ms.date: 12/21/2020
 ms.custom: references_regions
-ms.openlocfilehash: 88240f9b46997d11f1e7c2d93fa880b004615a11
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b0a720b1b51c2f1bafa581e75cb8ab00b15a4b2d
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "97725027"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109750436"
 ---
 # <a name="azure-machine-learning-sovereign-cloud-parity"></a>Paridad de nube soberana de Azure Machine Learning
 
@@ -180,7 +180,7 @@ Nos esforzamos por proporcionar la máxima paridad entre nuestra nube pública y
 | Compatibilidad con Virtual Network (VNet) para aprendizaje                                | Disponibilidad general               | SÍ       | N/D        |
 | Compatibilidad con Virtual Network (VNet) para inferencia                               | Disponibilidad general               | SÍ       | N/D        |
 | Autenticación de puntos de conexión de puntuación                                            | Vista previa pública   | SÍ       | N/D        |
-| Private Link de área de trabajo                                                     | Vista previa pública   | No        | N/D        |
+| Private Link de área de trabajo                                                     | Disponibilidad general               | No        | N/D        |
 | ACI detrás de VNet                                                            | Vista previa pública   | No        | N/D        |
 | ACR detrás de VNet                                                            | Vista previa pública   | No        | N/D        |
 | IP privada de clúster de AKS                                                  | Vista previa pública   | No        | N/D        |

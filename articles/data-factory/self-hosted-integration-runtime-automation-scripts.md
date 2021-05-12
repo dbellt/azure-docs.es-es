@@ -3,16 +3,16 @@ title: Automatización de la instalación del entorno de ejecución de integraci
 description: Para automatizar la instalación del entorno de ejecución de integración autohospedado en máquinas locales.
 ms.service: data-factory
 ms.topic: conceptual
-author: nabhishek
-ms.author: abnarain
+author: lrtoyou1223
+ms.author: lle
 ms.custom: seo-lt-2019
 ms.date: 05/09/2020
-ms.openlocfilehash: 8cbe54a23cb1c8b55afd86a18b51c0e392c3f78a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 54699a5641b98cde5bbff1f55add8b8345d6a1ac
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100376214"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109488292"
 ---
 # <a name="automating-self-hosted-integration-runtime-installation-using-local-powershell-scripts"></a>Automatización de la instalación del entorno de ejecución de integración autohospedado mediante scripts locales de PowerShell
 Para automatizar la instalación del entorno de ejecución de integración autohospedado en máquinas locales (que no sean VM de Azure en las que podamos aprovechar la plantilla de Resource Manager en su lugar), puede usar scripts locales de PowerShell. En este artículo se presentan dos scripts que puede usar.

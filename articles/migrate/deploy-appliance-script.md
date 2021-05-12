@@ -6,12 +6,12 @@ author: vineetvikram
 ms.author: vivikram
 ms.manager: abhemraj
 ms.date: 03/18/2021
-ms.openlocfilehash: ff05a01ad8173923ff614657d0231f743f38ba1c
-ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
+ms.openlocfilehash: dfa96948b7e582457a9f09eed89d5cbe3bbc762d
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107714765"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109750400"
 ---
 # <a name="set-up-an-appliance-with-a-script"></a>Configuración de un dispositivo con un script
 
@@ -62,7 +62,7 @@ Funcionamiento del script:
 
 - Instala agentes y una aplicación web.
 - Instala roles de Windows, como el servicio de activación de Windows, IIS y PowerShell ISE.
-- Descarga e instala un módulo de reescritura de IIS. [Más información](https://www.microsoft.com/download/details.aspx?id=7435).
+- Descarga e instala un módulo de reescritura de IIS.
 - Actualiza una clave del registro (HKLM) con una configuración persistente para Azure Migrate.
 - Crea archivos de registro y de configuración del siguiente modo:
     - **Archivos de configuración**: %ProgramData%\Microsoft Azure\Config
@@ -109,7 +109,7 @@ Funcionamiento del script:
 
 - Instala agentes y una aplicación web.
 - Instala roles de Windows, como el servicio de activación de Windows, IIS y PowerShell ISE.
-- Descarga e instala un módulo de reescritura de IIS. [Más información](https://www.microsoft.com/download/details.aspx?id=7435).
+- Descarga e instala un módulo de reescritura de IIS.
 - Actualiza una clave del registro (HKLM) con una configuración persistente para Azure Migrate.
 - Crea archivos de registro y de configuración del siguiente modo:
     - **Archivos de configuración**: %ProgramData%\Microsoft Azure\Config

@@ -3,17 +3,17 @@ title: Solución de problemas con Cloud-init
 description: Solución de problemas de aprovisionamiento de una VM de Azure con cloud-init.
 author: danielsollondon
 ms.service: virtual-machines
-ms.subservice: imaging
 ms.topic: troubleshooting
 ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 842107245fe26155d53866bf95e11b08d7593ad1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.subservice: cloud-init
+ms.openlocfilehash: fa4381aa21b1565e29db026b43dbc70b457daf5d
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104582160"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109783214"
 ---
 # <a name="troubleshooting-vm-provisioning-with-cloud-init"></a>Solución de problemas de aprovisionamiento de VM con cloud-init
 

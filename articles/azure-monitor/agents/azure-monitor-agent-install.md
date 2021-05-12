@@ -5,13 +5,13 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2020
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8498c3a867a17685432fae7f7613c1e9c0f2cdd1
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: d27a050726d12262d300fba14702503547a43e90
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108321220"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109750940"
 ---
 # <a name="install-the-azure-monitor-agent-preview"></a>Instalación del agente de Azure Monitor (versión preliminar)
 En este artículo se proporcionan las distintas opciones disponibles actualmente para instalar el [agente de Azure Monitor](azure-monitor-agent-overview.md) en máquinas virtuales de Azure y en los servidores habilitados para Azure Arc, así como las opciones para crear [asociaciones con reglas de recopilación de datos](data-collection-rule-azure-monitor-agent.md) que definen qué datos debe recopilar el agente.

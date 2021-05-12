@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/02/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 6f43bbcd83861f7d39de2aa89bbe035c2ff5b809
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 605a0441bd01ab88edb482c0ade22a6f21f4c8ba
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "70050440"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109508405"
 ---
 <!-- This tells how to create a custom shared access policy for your IoT hub and get the connection string for it-->
 
@@ -35,4 +35,4 @@ Para crear una directiva de acceso compartido que conceda los permisos **Conexi�
 
     ![Recuperación de la cadena de conexión](./media/iot-hub-include-find-custom-connection-string/iot-hub-get-connection-string.png)
 
-Para obtener más información sobre las directivas de acceso compartido y los permisos de IoT Hub, consulte [Permisos y control del acceso](../articles/iot-hub/iot-hub-devguide-security.md#access-control-and-permissions).
+Para obtener más información sobre las directivas de acceso compartido y los permisos de IoT Hub, consulte [Permisos y control del acceso](../articles/iot-hub/iot-hub-dev-guide-sas.md#access-control-and-permissions).
