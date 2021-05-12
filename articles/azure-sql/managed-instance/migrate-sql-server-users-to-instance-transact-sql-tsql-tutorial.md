@@ -9,19 +9,16 @@ ms.topic: tutorial
 author: GitHubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 10/30/2019
-ms.openlocfilehash: f2dd34ab7c6ee5be26836e4abb86960605ee44ee
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/10/2021
+ms.openlocfilehash: e8b37dd0f4037f2d348a98f871706c4c67723f24
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84708692"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109715005"
 ---
 # <a name="tutorial-migrate-windows-users-and-groups-in-a-sql-server-instance-to-azure-sql-managed-instance-using-t-sql-ddl-syntax"></a>Tutorial: Migración de los usuarios y los grupos de Windows de una instancia de SQL Server a Instancia administrada de Azure SQL mediante la sintaxis DDL de T-SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
-
-> [!NOTE]
-> La sintaxis que se usa para migrar los usuarios y los grupos Instancia administrada de SQL de este artículo se encuentra en la **versión preliminar pública**.
 
 Este artículo le guiará por el proceso de migración de los usuarios y los grupos locales de Windows de SQL Server a Instancia administrada de Azure SQL mediante la sintaxis de T-SQL.
 

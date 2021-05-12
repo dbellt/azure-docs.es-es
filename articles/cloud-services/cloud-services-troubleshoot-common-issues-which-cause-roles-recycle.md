@@ -1,19 +1,19 @@
 ---
 title: Causas comunes del reciclado de roles del servicio en la nube (clásico) | Microsoft Docs
 description: Un rol del servicio en la nube que se recicla repentinamente puede causar un considerable tiempo de inactividad. A continuación encontrará algunos de los problemas comunes que provocan el reciclaje de los roles, lo que le ayudará a reducir el tiempo de inactividad.
-ms.topic: article
+ms.topic: troubleshooting
 ms.service: cloud-services
 ms.date: 10/14/2020
 ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 9610b32207f8367b9415c0881e49b54e24c49ad7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: daf8bdb0e6729d5e95fdf0e6186f6511c39690f8
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98741169"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108735900"
 ---
 # <a name="common-issues-that-cause-azure-cloud-service-classic-roles-to-recycle"></a>Problemas comunes que hacen que se reciclen los roles del servicio en la nube de Azure (clásico)
 

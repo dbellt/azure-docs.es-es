@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 8/3/2020
 ms.author: baanders
-ms.openlocfilehash: d486b5e8486d2c3c1c343701e0f3f4d474738063
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f0e60d8e947036e709734f7a4795d1efa8e78f49
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "87809055"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "109789948"
 ---
 ## <a name="monitor-event-routes"></a>Supervisión de rutas de eventos
 
@@ -22,4 +22,4 @@ En la página principal del portal, busque la instancia de Azure Digital Twins p
 
 Desde aquí, puede ver las métricas de la instancia y crear vistas personalizadas.
 
-Para más información sobre cómo ver las métricas de Azure Digital Twins, consulte [*Procedimientos: visualización de las métricas con Azure Monitor*](../articles/digital-twins/troubleshoot-metrics.md).
+Para más información sobre cómo ver las métricas de Azure Digital Twins, consulte [Procedimientos: visualización de las métricas con Azure Monitor](../articles/digital-twins/troubleshoot-metrics.md).

@@ -1,19 +1,19 @@
 ---
 title: Solución de errores de las extensiones de máquina virtual de Windows
 description: Más información sobre la solución de problemas de la extensión de máquina virtual de Microsoft Azure
-ms.topic: article
+ms.topic: troubleshooting
 ms.service: virtual-machines
 ms.subservice: extensions
 author: amjads1
 ms.author: amjads
 ms.collection: windows
 ms.date: 03/29/2016
-ms.openlocfilehash: 8cc8a0b5ae0a83a152168b14a2c5577f8f7b48ab
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b79bea4cda89254620244d85f1b7daf8ec2e128e
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102564805"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108738168"
 ---
 # <a name="troubleshooting-azure-windows-vm-extension-failures"></a>Solución de problemas de la extensión de máquina virtual de Microsoft Azure.
 [!INCLUDE [virtual-machines-common-extensions-troubleshoot](../../../includes/virtual-machines-common-extensions-troubleshoot.md)]

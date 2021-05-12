@@ -3,12 +3,12 @@ title: Descubra las propiedades de los recursos
 description: Describe cómo buscar propiedades de recursos.
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: c8bbe0dcb1bc9dc9751a1dc0d0b98a6368473546
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aaa7bb13f49c1c742e44a255d4bbdbd2b1730939
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91327755"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108736692"
 ---
 # <a name="discover-resource-properties"></a>Descubra las propiedades de los recursos
 
@@ -69,7 +69,7 @@ La referencia de plantilla se vincula desde cada uno de los sitios de documentac
 
 El explorador de recursos se incrusta en Azure Portal. Antes de usar este método, necesita una cuenta de almacenamiento. Si no la tiene, seleccione el siguiente botón para crear una:
 
-[![Implementación en Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-storage-account-create%2fazuredeploy.json)
+[![Implementación en Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.storage%2Fstorage-account-create%2Fazuredeploy.json)
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. En el cuadro de búsqueda, introduzca el **explorador de recursos** y, luego, seleccione **Explorador de recursos**.
@@ -97,7 +97,7 @@ Resources.azure.com es un sitio web público al que puede tener acceso cualquier
 
 Para demostrar cómo se recupera la información de esquema mediante esta herramienta, se necesita una cuenta de almacenamiento. Si no la tiene, seleccione el siguiente botón para crear una:
 
-[![Implementación en Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-storage-account-create%2fazuredeploy.json)
+[![Implementación en Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.storage%2Fstorage-account-create%2Fazuredeploy.json)
 
 1. Vaya a [Resources.azure.com](https://resources.azure.com/). La herramienta tarda unos minutos en obtener el panel izquierdo.
 1. Selección de **suscripciones**.
