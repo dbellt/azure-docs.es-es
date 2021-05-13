@@ -1,0 +1,84 @@
+### YamlMime:Landing
+title: Introducción al Contrato de cliente de Microsoft
+summary: Introducción a la administración de la facturación y las suscripciones en su Contrato de cliente de Microsoft. Aprenda a comprender y optimizar los costos al tiempo que garantiza un acceso seguro al entorno de facturación.
+metadata:
+  title: Introducción al Contrato de cliente de Microsoft
+  description: Conoce los primeros pasos con el Contrato de cliente de Microsoft.
+  ms.service: cost-management-billing
+  ms.subservice: billing
+  ms.topic: landing-page
+  ms.collection: collection
+  author: bandersmsft
+  ms.author: banders
+  ms.date: 05/05/2021
+  ms.openlocfilehash: 6a7627fbce3042f23f680c1d0439e50450645082
+  ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 05/06/2021
+  ms.locfileid: "108747834"
+landingContent:
+- title: Introducción
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es un Contrato de cliente de Microsoft?
+      url: ../understand/mca-overview.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+  - linkListType: get-started
+    links:
+    - text: Pasos siguientes importantes después de aceptar el contrato
+      url: microsoft-customer-agreement-get-started.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+  - linkListType: how-to-guide
+    links:
+    - text: Transferencia de la propiedad de facturación de MOSA a MCA
+      url: ../manage/mca-request-billing-ownership.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - text: Transferencia de la propiedad de facturación de EA a MCA
+      url: ../manage/mca-setup-account.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+  - linkListType: reference
+    links:
+    - text: 'Introducción a las API: Migración de EA a MCA'
+      url: ../costs/migrate-cost-management-api.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - text: Diferencias de API entre EA y MCA
+      url: /rest/api/billing/
+- title: Administración de facturas
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Descripción de mi ciclo de facturación
+      url: ../understand/mca-understand-your-invoice.md#billing-period
+  - linkListType: tutorial
+    links:
+    - text: Recepción de una factura de mi contrato
+      url: ../understand/review-customer-agreement-bill.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+  - linkListType: how-to-guide
+    links:
+    - text: ¿Qué es un perfil de facturación y cómo puedo administrarlo?
+      url: ../manage/mca-section-invoice.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - text: Pago de mi factura
+      url: ../understand/pay-bill.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - text: Configuración de un administrador para administrar la facturación
+      url: ../manage/understand-mca-roles.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - text: Inicio de la facturación de mi contrato
+      url: ../manage/mca-request-billing-ownership.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+  - linkListType: video
+    links:
+    - text: Organización de los costos
+      url: https://www.youtube.com/watch?v=7RxTfShGHwU
+    - text: Administración del acceso a la cuenta de facturación
+      url: https://www.youtube.com/watch?v=9sqglBlKkho
+    - text: Descripción de la factura
+      url: https://www.youtube.com/watch?v=e2LGZZ7GubA
+- title: Administrar suscripciones
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: ¿Qué es Active Directory?
+      url: ../../active-directory/fundamentals/active-directory-whatis.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - text: Administración de inquilinos
+      url: manage-tenants.md
+    - text: Adición, cambio o búsqueda de los administradores de la suscripción
+      url: ../manage/add-change-subscription-administrator.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - text: Crear nuevas suscripciones
+      url: ../manage/create-subscription.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - text: Solución de problemas de acceso a la suscripción
+      url: troubleshoot-subscription-access.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json

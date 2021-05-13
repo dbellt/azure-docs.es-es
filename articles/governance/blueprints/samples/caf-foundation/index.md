@@ -1,14 +1,14 @@
 ---
 title: Ejemplo de plano técnico de Fundación CAF, introducción
 description: Introducción y arquitectura del ejemplo de plano técnico de una base de Cloud Adoption Framework (CAF) para Azure.
-ms.date: 09/14/2020
+ms.date: 03/12/2021
 ms.topic: sample
-ms.openlocfilehash: 77e8b79ec7cf217161099808cee4364e31c6d6dd
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: b605c1af5fcb2a37663d71fecceea169692a5ab9
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91950285"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108757842"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Introducción al ejemplo de plano técnico de fundamentos de Microsoft Cloud Adoption Framework para Azure
 
@@ -19,7 +19,7 @@ El plano técnico de fundamentos de Microsoft Cloud Adoption Framework para Azur
 En el ejemplo de plano técnico de fundamentos de CAF se implementan los recursos de infraestructura recomendados en Azure que pueden usar las organizaciones para poner en marcha los controles fundamentales necesarios para administrar su propia nube. En este ejemplo se implementarán y aplicarán los recursos, las directivas y las plantillas que permitirán a una organización comenzar con confianza en Azure.
 
 :::image type="complex" source="../../media/caf-blueprints/caf-foundation-architecture.png" alt-text="Fundación CAF, en la imagen se describe lo que se instala como parte de la guía de CAF para la creación de una base para empezar a trabajar con Azure" border="false":::.
-   Describe una arquitectura de Azure que se consigue mediante la implementación del plano técnico de Fundación CAF.  Se puede aplicar a cualquier suscripción que tenga grupos de recursos y que conste de una cuenta de almacenamiento para almacenar registros y análisis de registros configurados para almacenarse en la cuenta de almacenamiento. También se muestra Azure Key Vault configurado con los valores estándar de Azure Security Center. Para acceder a todas estas infraestructuras principales se debe usar Azure Active Directory, mientras que para aplicarlas se debe usar Azure Policy.     
+   Describe una arquitectura de Azure que se consigue mediante la implementación del plano técnico de Fundación CAF. Se puede aplicar a cualquier suscripción que tenga grupos de recursos y que conste de una cuenta de almacenamiento para almacenar registros y análisis de registros configurados para almacenarse en la cuenta de almacenamiento. También se muestra Azure Key Vault configurado con los valores estándar de Azure Security Center. Para acceder a todas estas infraestructuras principales se debe usar Azure Active Directory, mientras que para aplicarlas se debe usar Azure Policy.
 :::image-end:::
 
 Esta implementación incorpora varios servicios de Azure que se usan para proporcionar una base segura, totalmente supervisada y preparada para la empresa. Este entorno se compone de:
@@ -34,9 +34,9 @@ Esta implementación incorpora varios servicios de Azure que se usan para propor
     - La región de Azure permitida para recursos y grupos de recursos
     - Las SKU de la cuenta de almacenamiento permitida (se eligen durante la implementación)
     - SKU de máquinas virtuales de Azure permitidas (se eligen durante la implementación)
-    - La implementación de Network Watcher requerida 
+    - La implementación de Network Watcher requerida
     - El cifrado de transferencia segura de la cuenta de almacenamiento de Azure requerido
-    - Tipos de recursos denegados (se elige durante la implementación)  
+    - Tipos de recursos denegados (se elige durante la implementación)
   - Iniciativas de Policy:
     - Habilitación de la supervisión en Azure Security Center (definiciones de más de cien directivas)
 

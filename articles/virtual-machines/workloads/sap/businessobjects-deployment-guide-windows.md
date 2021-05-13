@@ -8,19 +8,18 @@ manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-ms.service: virtual-machines-windows
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/08/2021
 ms.author: depadia
-ms.openlocfilehash: a13b62da91e3ce6f18ba4dcda2b3b0f22c815026
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 0eff97ac5aeecf712674bca247bb6305e550f482
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108144392"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108773708"
 ---
 # <a name="sap-businessobjects-bi-platform-deployment-guide-for-windows-on-azure"></a>Guía de implementación de la plataforma de inteligencia empresarial SAP BusinessObjects para Windows en Azure
 

@@ -11,12 +11,12 @@ metadata:
   ms.author: philmea
   manager: philmea
   ms.date: 2/17/2021
-  ms.openlocfilehash: 2b47f8b51cf4150659c1d5b8ed1dc145997252ef
-  ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+  ms.openlocfilehash: c098c6baa5cb976b02c8e736318f6019790ae090
+  ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 03/02/2021
-  ms.locfileid: "101677964"
+  ms.lasthandoff: 05/10/2021
+  ms.locfileid: "109715455"
 landingContent:
 - title: Acerca de Device Update
   linkLists:
@@ -24,6 +24,20 @@ landingContent:
     links:
     - text: ¿Qué es Device Update para IoT Hub?
       url: understand-device-update.md
+- title: Más información
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Creación de una cuenta de Device Update
+      url: create-device-update-account.md
+    - text: Aprovisionamiento de Device Update Agent
+      url: device-update-agent-provisioning.md
+    - text: Incorporación de una actualización
+      url: import-update.md
+    - text: Creación de un grupo de actualización
+      url: create-update-group.md
+    - text: Implementación de una actualización
+      url: deploy-update.md
   - linkListType: concept
     links:
     - text: Cómo usa Device Update la tecnología Plug and Play
@@ -36,41 +50,39 @@ landingContent:
       url: import-concepts.md
     - text: Información sobre los grupos de Device Update
       url: device-update-groups.md
-- title: Exploración con los tutoriales
-  linkLists:
-  - linkListType: tutorial
-    links:
-    - text: Device Update en Raspberry Pi
-      url: device-update-raspberry-pi.md
-  - linkListType: tutorial
-    links:
-    - text: Device Update en un simulador
-      url: device-update-simulator.md
-  - linkListType: tutorial
-    links:
-    - text: Device Update Agent en el paquete de Ubuntu Server 18.04 x64
-      url: device-update-ubuntu-agent.md
-- title: Más información sobre cómo actualizar dispositivos
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: Creación de una cuenta de Device Update
-      url: create-device-update-account.md
-  - linkListType: how-to-guide
-    links:
-    - text: Importación de una actualización
-      url: import-update.md
-  - linkListType: how-to-guide
-    links:
-    - text: Creación de un grupo de actualización
-      url: create-update-group.md
-  - linkListType: how-to-guide
-    links:
-    - text: Implementación de una actualización
-      url: deploy-update.md
 - title: Guía del desarrollador
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Compilación, ejecución y modificación de Device Update Agent
-      url: device-update-agent-provisioning.md
+    - text: Cómo compilar y ejecutar el agente de actualización de dispositivos
+      url: device-update-agent-provisioning.md#how-to-build-and-run-device-update-agent
+- title: Introducción
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Device Update en un simulador
+      url: device-update-simulator.md
+    - text: Device Update en Raspberry Pi
+      url: device-update-raspberry-pi.md
+    - text: Device Update Agent en el paquete de Ubuntu Server 18.04 x64
+      url: device-update-ubuntu-agent.md
+- title: Referencia sobre la API y el SDK
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: API DE REST
+      url: /rest/api/deviceupdate/
+  - linkListType: reference
+    links:
+    - text: 'Plano de control: .NET'
+      url: /dotnet/api/overview/azure/iot/management
+    - text: 'Plano de control: Python'
+      url: /python/api/azure-mgmt-deviceupdate/
+  - linkListType: reference
+    links:
+    - text: 'Plano de datos: JavaScript'
+      url: /javascript/api/@azure/iot-device-update/?view=azure-node-preview&preserve-view=true
+    - text: 'Plano de datos: Java'
+      url: /java/api/com.azure.iot.deviceupdate?view=azure-java-preview&preserve-view=true
+    - text: 'Plano de datos: Python'
+      url: /python/api/azure-mgmt-deviceupdate/azure.mgmt.deviceupdate?view=azure-python-preview&preserve-view=true

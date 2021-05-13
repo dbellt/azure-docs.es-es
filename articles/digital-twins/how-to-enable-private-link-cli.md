@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 02/09/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: c38db60c89b02e932c0a381daff1013b17008f54
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 96a98f4441fca47d53dc9ee54a5586e2b535f96f
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108208840"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109788398"
 ---
 # <a name="enable-private-access-with-private-link-preview-azure-cli"></a>Habilitación del acceso privado con Private Link (versión preliminar): Azure CLI
 
@@ -46,7 +46,7 @@ Para crear un punto de conexión privado y vincularlo a una instancia de Azure D
 Este es un ejemplo que usa el comando para crear un punto de conexión privado, con solo los parámetros necesarios.
 
 ```azurecli-interactive
-az network private-endpoint create --connection-name {private_link_service_connection} -n {name_for_private_endpoint} -g {resource_group} --subnet {subnet_ID} --private-connection-resource-id "/subscriptions/{subscription_ID}/resourceGroups/{resource_group}/providers/Microsoft.DigitalTwins/digitalTwinsInstances/{Azure_Digital_Twins_instance_name}" 
+az network private-endpoint create --connection-name {private_link_service_connection} --name {name_for_private_endpoint} --resource-group {resource_group} --subnet {subnet_ID} --private-connection-resource-id "/subscriptions/{subscription_ID}/resourceGroups/{resource_group}/providers/Microsoft.DigitalTwins/digitalTwinsInstances/{Azure_Digital_Twins_instance_name}" 
 ```
 
 Para obtener una lista completa de los parámetros obligatorios y opcionales, así como más ejemplos de creación de puntos de conexión privados, consulte la documentación de referencia del comando [az network private-endpoint create](/cli/azure/network/private-endpoint#az_network_private_endpoint_create).
@@ -84,13 +84,13 @@ En la CLI de Azure, puede deshabilitar o habilitar el acceso a la red pública a
 Para **deshabilitar** el acceso a la red pública para una instancia de Azure Digital Twins, use el parámetro `--public-network-access` de la siguiente manera:
 
 ```azurecli-interactive
-az dt create -n {name_of_existing_instance} -g {resource_group} --public-network-access Disabled
+az dt create --dt-name {name_of_existing_instance} --resource-group {resource_group} --public-network-access Disabled
 ```
 
 Para **habilitar** el acceso a la red pública en una instancia en la que está deshabilitado, use el siguiente comando parecido:
 
 ```azurecli-interactive
-az dt create -n {name_of_existing_instance} -g {resource_group} --public-network-access Enabled
+az dt create --dt-name {name_of_existing_instance} --resource-group {resource_group} --public-network-access Enabled
 ```
 
 ### <a name="usethe-armclientcommand-tool"></a>Uso de la herramienta de comandos ARMClient 

@@ -83,13 +83,15 @@
     - name: Seguridad
       items:
         - name: Línea de base de seguridad
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/application-gateway-security-baseline?toc=/azure/application-gateway/toc.json
     - name: SSL
       items:
         - name: Terminación SSL y SSL de un extremo a otro
           href: ssl-overview.md
         - name: Introducción a la directiva SSL
           href: application-gateway-ssl-policy-overview.md
+        - name: Autenticación mutua
+          href: mutual-authentication-overview.md
         - name: Uso de Key Vault
           href: key-vault-certs.md
     - name: Entrada para AKS
@@ -140,18 +142,28 @@
               href: end-to-end-ssl-portal.md
             - name: 'SSL de un extremo a otro: PowerShell'
               href: application-gateway-end-to-end-ssl-powershell.md
+        - name: Autenticación mutua
+          items:
+            - name: 'Autenticación mutua: Azure Portal'
+              href: mutual-authentication-portal.md
+            - name: 'Autenticación mutua: PowerShell'
+              href: mutual-authentication-powershell.md
         - name: Administración de certificados
           items:
             - name: Certificados para el back-end
               href: certificates-for-backend-authentication.md
             - name: Renovar certificados
               href: renew-certificates.md
-            - name: Generación de certificados autofirmados
+            - name: Generación de certificados autofirmados para el back-end
               href: self-signed-certificates.md
+            - name: Certificados de cliente de confianza
+              href: mutual-authentication-certificate-management.md
         - name: Directiva SSL
           items:
             - name: Configuración de la directiva SSL
               href: application-gateway-configure-ssl-policy-powershell.md
+            - name: Directiva SSL específica del cliente de escucha
+              href: application-gateway-configure-listener-specific-ssl-policy.md
     - name: Entrada para AKS
       items:
         - name: Entrada para AKS a través de Helm (Brownfield)
@@ -254,6 +266,8 @@
           href: how-to-troubleshoot-application-gateway-session-affinity-issues.md
         - name: Errores de puerta de enlace incorrecta (502)
           href: application-gateway-troubleshooting-502.md
+        - name: Autenticación mutua
+          href: mutual-authentication-troubleshooting.md
         - name: Entrada para AKS
           href: ingress-controller-troubleshoot.md
         - name: Estado de los recursos

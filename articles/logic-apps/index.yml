@@ -9,13 +9,13 @@ metadata:
   ms.topic: landing-page
   author: ecfan
   ms.author: estfan; logicappspm
-  ms.date: 09/18/2019
-  ms.openlocfilehash: c801c46424f7128577e1426ae5f15a8623359d6a
-  ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+  ms.date: 03/24/2021
+  ms.openlocfilehash: 55f2be9b738e91c076d918cf19ddd5d55d445e20
+  ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 12/08/2020
-  ms.locfileid: "96852768"
+  ms.lasthandoff: 04/28/2021
+  ms.locfileid: "108204970"
 landingContent:
 - title: Acerca de Azure Logic Apps
   linkLists:
@@ -25,8 +25,14 @@ landingContent:
       url: logic-apps-overview.md
   - linkListType: concept
     links:
-    - text: Conectores para Azure Logic Apps
+    - text: Introducción a los conectores para Azure Logic Apps
       url: ../connectors/apis-list.md
+    - text: Conectores administrados
+      url: ../connectors/managed.md
+    - text: Conectores disponibles para Azure Logic Apps
+      url: /connectors/connector-reference/connector-reference-logicapps-connectors
+    - text: Acciones y desencadenadores integrados
+      url: ../connectors/built-in.md
     - text: Programación de flujos de trabajo repetitivos
       url: concepts-schedule-automated-recurring-tasks-workflows.md
     - text: Integración empresarial B2B

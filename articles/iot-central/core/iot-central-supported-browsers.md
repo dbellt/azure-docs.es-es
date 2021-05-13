@@ -8,16 +8,14 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 7d9429507e39d975c5534e33052c56d77eeb3eb7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 309497c5ad17bd8c191992d15cb61b07fd8f9348
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "72941277"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108747168"
 ---
 # <a name="supported-browsers-for-azure-iot-central"></a>Exploradores compatibles con Azure IoT Central
-
-*Este artículo se aplica a los administradores, operadores y compiladores.*
 
 Se puede acceder a Azure IoT Central a través de la mayoría de los exploradores, las tabletas y los equipos de escritorio modernos. En el siguiente artículo se describe la lista de exploradores compatibles y la conectividad necesaria.  
 

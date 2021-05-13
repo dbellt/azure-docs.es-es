@@ -7,9 +7,7 @@
       href: overview.md
     - name: ¿Qué opción de MySQL debo elegir?
       href: select-right-deployment-type.md
-    - name: Versiones compatibles
-      href: concepts-supported-versions.md
-    - name: Directiva de control de versiones
+    - name: Directiva de compatibilidad de versiones
       href: concepts-version-policy.md
       displayName: version policy
 - name: Servidor único
@@ -21,6 +19,10 @@
       items:
         - name: ¿Qué es un servidor único?
           href: single-server-overview.md
+        - name: Versiones compatibles
+          href: concepts-supported-versions.md
+        - name: Novedades del servidor único
+          href: single-server-whats-new.md
         - name: Planes de tarifa
           items:
             - name: Planes de tarifa
@@ -97,7 +99,7 @@
               displayName: firewall
         - name: Configuración de parámetros del servidor
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: howto-server-parameters.md
               displayName: server parameters
             - name: Azure CLI
@@ -178,7 +180,7 @@
         - name: Introducción a la seguridad
           href: concepts-security.md
         - name: Línea de base de seguridad
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/mysql-security-baseline?toc=/azure/mysql/TOC.json
         - name: Authentication
           items:
             - name: Autenticación de Azure AD
@@ -376,6 +378,8 @@
         - name: Recomendaciones de rendimiento
           href: concepts-performance-recommendations.md
           displayName: recommendation
+        - name: Recomendaciones de Azure Advisor
+          href: concepts-azure-advisor-recommendations.md
     - name: Prácticas recomendadas
       items:
         - name: Procedimientos recomendados de la supervisión
@@ -387,23 +391,6 @@
           displayName: application
         - name: Procedimientos recomendados operativos
           href: concept-operation-excellence-best-practices.md
-    - name: Solución de problemas
-      items:
-        - name: Solución de problemas del rendimiento de las consultas
-          href: howto-troubleshoot-query-performance.md
-          displayName: 'debug, performance issues, query performance'
-        - name: Uso de vistas en el esquema sys
-          href: howto-troubleshoot-sys-schema.md
-          displayName: 'sys schema, views'
-        - name: Solución de problemas de cifrado de datos
-          href: howto-data-encryption-troubleshoot.md
-          displayName: 'encryption, security'
-        - name: Solución de problemas de latencia de replicación
-          href: howto-troubleshoot-replication-latency.md
-          displayName: 'replication, latency, monitor'
-        - name: Mitigación de los daños en una base de datos
-          href: how-to-fix-corrupt-database.md
-          displayName: corrupt data
 - name: Servidor flexible (versión preliminar)
   items:
     - name: Documentación de servidor flexible
@@ -412,8 +399,6 @@
       items:
         - name: ¿Qué es un servidor flexible?
           href: flexible-server/overview.md
-        - name: Versiones compatibles
-          href: concepts-supported-versions.md
         - name: Proceso y almacenamiento
           href: flexible-server/concepts-compute-storage.md
     - name: Guías de inicio rápido
@@ -446,7 +431,7 @@
           href: flexible-server/how-to-connect-tls-ssl.md
         - name: Configuración de parámetros del servidor
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: flexible-server/how-to-configure-server-parameters-portal.md
               displayName: server parameters
             - name: Azure CLI
@@ -475,7 +460,7 @@
           href: flexible-server/concepts-limitations.md
         - name: Administración de un servicio
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: flexible-server/how-to-manage-server-portal.md
             - name: Azure CLI
               href: flexible-server/how-to-manage-server-cli.md
@@ -483,6 +468,8 @@
           href: flexible-server/how-to-stop-start-server-portal.md
         - name: Reinicio de un servidor mediante Azure Portal
           href: flexible-server/how-to-restart-server-portal.md
+        - name: 'Inicio, detención o reinicio con la CLI de Azure'
+          href: flexible-server/how-to-restart-stop-start-server-cli.md
     - name: Redes
       items:
         - name: Conceptos
@@ -514,6 +501,8 @@
           href: flexible-server/concepts-high-availability.md
         - name: Configuración de alta disponibilidad mediante Azure Portal
           href: flexible-server/how-to-configure-high-availability.md
+        - name: Configuración de alta disponibilidad con la CLI de Azure
+          href: flexible-server/how-to-configure-high-availability-cli.md
     - name: Supervisión y registros
       items:
         - name: Conceptos
@@ -524,12 +513,16 @@
               href: flexible-server/concepts-slow-query-logs.md
             - name: Configuración de registros de consultas lentas mediante Azure Portal
               href: flexible-server/how-to-configure-slow-query-logs-portal.md
+            - name: Configuración de registros de consultas lentas con la CLI de Azure
+              href: flexible-server/how-to-configure-slow-query-log-cli.md
         - name: Registros de auditoría
           items:
             - name: Conceptos
               href: flexible-server/concepts-audit-logs.md
             - name: Configuración de registros de auditoría
               href: flexible-server/how-to-configure-audit-logs-portal.md
+            - name: Configuración de registros de auditoría con la CLI de Azure
+              href: flexible-server/how-to-configure-audit-log-cli.md
     - name: Replicación
       items:
         - name: Réplicas de lectura
@@ -546,6 +539,8 @@
           href: flexible-server/concepts-backup-restore.md
         - name: Restauración de un servidor mediante Azure Portal
           href: flexible-server/how-to-restore-server-portal.md
+        - name: Restauración de un servidor mediante la CLI de Azure
+          href: flexible-server/how-to-restore-server-cli.md
     - name: Solucionar problemas
       items:
         - name: Solución de errores de conexión
@@ -567,6 +562,26 @@
     - name: Solución de errores comunes
       href: howto-troubleshoot-common-errors.md
       displayName: 'SUPER privilege, DBA role, Access is denied'
+- name: Solucionar problemas
+  items:
+    - name: Solución de errores relacionados con la migración
+      href: howto-troubleshoot-common-errors.md
+      displayName: 'SUPER privilege, DBA role, Access is denied'
+    - name: Solución de problemas del rendimiento de las consultas
+      href: howto-troubleshoot-query-performance.md
+      displayName: 'debug, performance issues, query performance'
+    - name: Uso de vistas en el esquema sys
+      href: howto-troubleshoot-sys-schema.md
+      displayName: 'sys schema, views'
+    - name: Solución de problemas de cifrado de datos
+      href: howto-data-encryption-troubleshoot.md
+      displayName: 'encryption, security'
+    - name: Solución de problemas de latencia de replicación
+      href: howto-troubleshoot-replication-latency.md
+      displayName: 'replication, latency, monitor'
+    - name: Solución de problemas con bases de datos dañadas
+      href: how-to-fix-corrupt-database.md
+      displayName: corrupt data
 - name: Referencia
   items:
     - name: Azure CLI

@@ -9,13 +9,13 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 10/26/2020
-  ms.openlocfilehash: 753a2b112929b785526e32df9c9836f48b8675ba
-  ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+  ms.date: 03/16/2021
+  ms.openlocfilehash: 95b9b1d9ea947017f87b209eaa1b9995b08192b4
+  ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 01/08/2021
-  ms.locfileid: "98034958"
+  ms.lasthandoff: 04/02/2021
+  ms.locfileid: "106219219"
 landingContent:
 - title: Acerca de Azure Policy
   linkLists:
@@ -57,6 +57,8 @@ landingContent:
       url: ./assign-policy-rest-api.md
     - text: Asignación de una directiva (plantilla de Resource Manager)
       url: ./assign-policy-template.md
+    - text: Asignación de una directiva (Bicep)
+      url: ./assign-policy-bicep.md
     - text: Asignación de una directiva (Terraform)
       url: ./assign-policy-terraform.md
   - linkListType: tutorial
@@ -131,16 +133,8 @@ landingContent:
       url: /powershell/module/az.resources/#policy
     - text: Azure PowerShell (información de directiva)
       url: /powershell/module/az.policyinsights#policy-insights
-    - text: REST (información de directiva)
-      url: /rest/api/policy-insights/
-    - text: REST (asignaciones)
-      url: /rest/api/resources/policyassignments
-    - text: REST (definiciones)
-      url: /rest/api/resources/policydefinitions
-    - text: REST (exenciones)
-      url: /rest/api/resources/policyexemptions
-    - text: REST (iniciativas)
-      url: /rest/api/resources/policysetdefinitions
+    - text: REST
+      url: /rest/api/policy/
     - text: Plantillas de Resource Manager
       url: /azure/templates/microsoft.authorization/allversions
 - title: Referencia (más)

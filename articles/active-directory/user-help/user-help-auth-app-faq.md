@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 04/28/2021
+ms.date: 04/30/2021
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: e5f7db6b360769b7a3c2e3ffdafe66f94c2582aa
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 6cc64c9b3ad3f177d50f3e659e8ea628ba485159
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108178311"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108764178"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Preguntas frecuentes (P+F) sobre la aplicación Microsoft Authenticator
 
@@ -203,7 +203,13 @@ En Android, Microsoft recomienda permitir que la aplicación acceda a la ubicaci
 
 **P.** : ¿Por qué tengo problemas con Apple Watch en watchOS 7?
 
-**R.** : Hay un problema con la aprobación de notificaciones en watchOS 7 y estamos trabajando con Apple para solucionarlo. Mientras tanto, todas las notificaciones que requieran la aplicación watchOS de Microsoft Authenticator se deben autenticar en el teléfono.
+**R**: En algunas ocasiones, la aprobación o denegación de una sesión en watchOS 7 genera un error con el mensaje "No se pudo comunicar con el teléfono. Asegúrese de mantener la pantalla de Watch activa durante futuras solicitudes. Consulte las preguntas más frecuentes para más información". Hay un problema conocido con las notificaciones cuando se habilita el bloqueo de la aplicación o cuando se requiere la coincidencia de números, y estamos trabajando con Apple para solucionarlo. Mientras tanto, todas las notificaciones que requieran la aplicación watchOS de Microsoft Authenticator se deben autenticar en el teléfono.
+
+### <a name="signing-into-an-ios-app"></a>Inicio de sesión en una aplicación iOS
+
+**P**: Estoy intentando iniciar sesión en una aplicación iOS y necesito aprobar una notificación en la aplicación Authenticator. Cuando vuelvo a la aplicación iOS, me quedo bloqueado. ¿Qué puedo hacer?
+
+**R**: Este es un problema conocido en iOS 13 y versiones posteriores. Para obtener ayuda, puede ponerse en contacto con el administrador de soporte técnico y proporcionar los detalles siguientes: `Use Azure MFA, not MFA server.`
 
 ### <a name="apple-watch-doesnt-show-accounts"></a>Apple Watch no muestra las cuentas
 

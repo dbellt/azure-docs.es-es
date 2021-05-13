@@ -1,0 +1,60 @@
+- name: Documentación de Contrato de cliente de Microsoft
+  href: index.yml?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+- name: Información general
+  expanded: true
+  items:
+    - name: Introducción a Contrato de cliente de Microsoft
+      href: ../understand/mca-overview.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+- name: Conceptos
+  items:
+    - name: Lista de comprobación después de firmar el contrato
+      href: microsoft-customer-agreement-get-started.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - name: Administración de inquilinos en el contrato
+      href: manage-tenants.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - name: Información acerca de la utilización y del período de facturación
+      href: ../understand/mca-understand-your-invoice.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - name: Términos del archivo de utilización y cargos
+      href: ../understand/mca-understand-your-usage.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+- name: Tutoriales
+  items:
+    - name: Revisión de la factura
+      href: ../understand/review-customer-agreement-bill.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - name: Creación y administración de presupuestos
+      href: ../costs/tutorial-acm-create-budgets.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+- name: Guías paso a paso
+  expanded: true
+  items:
+    - name: Configuración de facturación
+      href: ../manage/mca-setup-account.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - name: Primeros pasos con una cuenta de facturación
+      href: ../understand/mca-overview.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - name: Organización de una factura
+      href: ../manage/mca-section-invoice.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - name: Ver las cuentas de facturación
+      href: ../manage/view-all-accounts.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - name: Roles de facturación
+      href: ../manage/understand-mca-roles.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - name: Administración del acceso a la facturación
+      href: ../manage/manage-billing-access.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - name: Configuración del administrador para administrar usuarios de la suscripción
+      href: ../manage/add-change-subscription-administrator.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - name: Crear nuevas suscripciones
+      href: ../manage/create-subscription.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - name: Pago de suscripciones por factura
+      href: ../manage/pay-by-invoice.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - name: Pagar la factura
+      href: ../understand/pay-bill.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - name: Transferencia de la propiedad de la facturación
+      href: ../manage/mca-request-billing-ownership.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - name: Migración de EA API a Contrato de cliente de Microsoft API
+      href: ../costs/migrate-cost-management-api.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - name: Visualización y descarga de los datos de utilización y cargos
+      href: ../understand/download-azure-daily-usage.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - name: Visualización y descarga de precios de Azure
+      href: ../manage/ea-pricing.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - name: 'Tareas de EA en un Contrato de cliente de Microsoft: Azure'
+      href: ../manage/mca-enterprise-operations.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - name: Solución de problemas
+      items:
+        - name: Acceso a la suscripción
+          href: troubleshoot-subscription-access.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json

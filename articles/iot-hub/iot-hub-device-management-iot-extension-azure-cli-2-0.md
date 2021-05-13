@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 01/16/2018
 ms.author: menchi
-ms.openlocfilehash: a5bc7e195efd62f430fdf2aa0cb606dbcff79528
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: a6bf14691e583190c4485ae854de78b187d95211
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107567203"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108773906"
 ---
 # <a name="use-the-iot-extension-for-azure-cli-for-azure-iot-hub-device-management"></a>Usar la extensión de IoT de la CLI de Azure para la administración de dispositivos de Azure IoT Hub
 
@@ -43,7 +43,7 @@ Los dispositivos gemelos son documentos JSON que almacenan información sobre el
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Realice el tutorial del [simulador en línea de Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md), o bien uno de los tutoriales del dispositivo. Por ejemplo, puede acceder a [Raspberry Pi con node.js](iot-hub-raspberry-pi-kit-node-get-started.md) o a uno de los inicios rápidos de [envío de telemetría](quickstart-send-telemetry-dotnet.md). Estos artículos abarcan los requisitos siguientes:
+* Realice el tutorial del [simulador en línea de Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md), o bien uno de los tutoriales del dispositivo. Por ejemplo, puede ir a [Raspberry Pi con node.js](iot-hub-raspberry-pi-kit-node-get-started.md) o a uno de los inicios rápidos de [envío de telemetría](quickstart-send-telemetry-dotnet.md). Estos artículos abarcan los requisitos siguientes:
 
   * Una suscripción de Azure activa.
   * Un centro de Azure IoT en su suscripción.
@@ -82,7 +82,7 @@ Establezca un intervalo de propiedad deseada = 3000 mediante la ejecución del c
 
 ```azurecli
 az iot hub device-twin update -n <your hub name> \
-  -d <your device id> --set properties.desired.interval = 3000
+  -d <your device id> --set properties.desired.interval=3000
 ```
 
 Esta propiedad se puede leer desde el dispositivo.
@@ -111,7 +111,7 @@ Agregue un rol de campo = temperatura y humedad al dispositivo mediante la ejecu
 az iot hub device-twin update \
   --hub-name <your hub name> \
   --device-id <your device id> \
-  --set tags = '{"role":"temperature&humidity"}}'
+  --set tags='{"role":"temperature&humidity"}'
 ```
 
 ## <a name="device-twin-queries"></a>Consultas de dispositivos gemelos

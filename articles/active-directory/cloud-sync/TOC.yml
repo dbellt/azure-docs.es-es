@@ -34,6 +34,8 @@
           href: how-to-prerequisites.md
         - name: "Instalación del agente de aprovisionamiento en la nube de Azure\_AD Connect"
           href: how-to-install.md
+        - name: Instalación del agente de aprovisionamiento mediante la CLI y PowerShell
+          href: how-to-install-pshell.md
         - name: Configuración de la sincronización en la nube
           href: how-to-configure.md
         - name: Aprovisionamiento a petición
@@ -56,14 +58,16 @@
           href: how-to-manage-registry-options.md
         - name: Cmdlets de PowerShell de gMSA de agente
           href: how-to-gmsa-cmdlets.md
-        - name: Instale el agente de aprovisionamiento mediante PowerShell
-          href: how-to-install-pshell.md
+        - name: Procedimiento para asignar usertype con la sincronización en la nube
+          href: how-to-map-usertype.md
     - name: Desarrollar
       items:
         - name: Transformaciones
           href: how-to-transformation.md
         - name: Configuración mediante programación de la sincronización en la nube mediante MS Graph API
           href: how-to-inbound-synch-ms-graph.md
+        - name: Generador de expresiones
+          href: how-to-expression-builder.md
         - name: "API de sincronización de Azure\_AD"
           href: /graph/api/resources/synchronization-overview
     - name: Solución de problemas

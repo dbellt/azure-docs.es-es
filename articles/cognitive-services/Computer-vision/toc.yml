@@ -22,6 +22,18 @@ items:
         href: quickstarts-sdk/client-library.md
       - name: Ejemplos
         href: /samples/browse/?products=azure&terms=computer-vision
+      - name: Uso responsable de la inteligencia artificial
+        items:
+          - name: Notas de transparencia
+            items:
+              - name: Casos de uso del reconocimiento óptico de caracteres
+                href: /legal/cognitive-services/computer-vision/ocr-transparency-note?context=/azure/cognitive-services/computer-vision/context/context
+              - name: Características y limitaciones
+                href: /legal/cognitive-services/computer-vision/ocr-characteristics-and-limitations?context=/azure/cognitive-services/computer-vision/context/context
+          - name: Integración y uso responsable
+            href: /legal/cognitive-services/computer-vision/ocr-guidance-integration-responsible-use?context=/azure/cognitive-services/computer-vision/context/context
+          - name: 'Datos, privacidad y seguridad'
+            href: /legal/cognitive-services/computer-vision/ocr-data-privacy-security?context=/azure/cognitive-services/computer-vision/context/context
       - name: Guías paso a paso
         items:
           - name: Llamada a la API Read

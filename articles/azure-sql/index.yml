@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Documentación de Azure SQL
-summary: 'Encuentre documentación acerca de la familia Azure SQL de productos del motor de base de datos de SQL Server en la nube: Azure SQL Database, Instancia administrada de Azure SQL y SQL Server en una máquina virtual de Azure. '
+summary: 'Encuentre documentación acerca de la familia Azure SQL de productos del motor de base de datos de SQL Server en la nube: Azure SQL Database, Instancia administrada de Azure SQL y SQL Server en una máquina virtual de Azure.'
 metadata:
   title: Documentación de Azure SQL
   description: Azure SQL es una familia de productos del motor de base de datos de SQL Server en la nube, desde una base de datos totalmente administrada de Azure SQL Database, una instancia totalmente administrada de Instancia administrada de Azure SQL o SQL Server instalado a una máquina virtual de Azure.
@@ -14,19 +14,23 @@ metadata:
   ms.author: sstein
   ms.reviewer: 
   ms.date: 10/30/2019
-  ms.openlocfilehash: 91221735001f55974f6aba4b6fcae39a92834da8
-  ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+  ms.openlocfilehash: 8f462fc8b37b3f84d0e74897de76fc92d1c08fb8
+  ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 11/13/2020
-  ms.locfileid: "94593899"
+  ms.lasthandoff: 04/28/2021
+  ms.locfileid: "108147722"
 landingContent:
 - title: Azure SQL Database
   linkLists:
-  - linkListType: overview
+  - linkListType: whats-new
     links:
     - text: Novedades
       url: database/doc-changes-updates-release-notes.md?tabs=single-database
+    - text: Comentarios Realice la encuesta
+      url: https://microsoft.qualtrics.com/jfe/form/SV_ePOznHhP4gDKfGu?channel=456
+  - linkListType: overview
+    links:
     - text: ¿Qué es SQL Database?
       url: database/sql-database-paas-overview.md
     - text: ¿Qué son los grupos elásticos?
@@ -55,6 +59,12 @@ landingContent:
       url: database/transact-sql-tsql-differences-sql-server.md
 - title: Instancia administrada de Azure SQL
   linkLists:
+  - linkListType: whats-new
+    links:
+    - text: Novedades
+      url: database/doc-changes-updates-release-notes.md?tabs=managed-instance
+    - text: Comentarios Realice la encuesta
+      url: https://microsoft.qualtrics.com/jfe/form/SV_ePOznHhP4gDKfGu?channel=456
   - linkListType: overview
     links:
     - text: Novedades
@@ -116,12 +126,12 @@ landingContent:
     - text: Alta disponibilidad y recuperación ante desastres
       url: virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md
     - text: Directrices de rendimiento
-      url: virtual-machines/windows/performance-guidelines-best-practices.md
+      url: ./virtual-machines/windows/performance-guidelines-best-practices-checklist.md
 - title: Migración desde SQL Server
   linkLists:
   - linkListType: deploy
     links:
-    - text: Azure SQL Database
+    - text: Azure SQL Database
       url: migration-guides/database/sql-server-to-sql-database-overview.md
     - text: Instancia administrada de Azure SQL
       url: migration-guides/managed-instance/sql-server-to-managed-instance-overview.md
@@ -173,7 +183,7 @@ landingContent:
       url: https://datamigration.microsoft.com/
     - text: Transact-SQL (T-SQL)
       url: /sql/t-sql/language-reference
-    - text: CLI de Azure
+    - text: Azure CLI
       url: /cli/azure/sql
     - text: PowerShell
       url: /powershell/module/az.sql

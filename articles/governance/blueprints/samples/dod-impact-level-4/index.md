@@ -1,14 +1,14 @@
 ---
 title: Introducción al ejemplo de plano técnico de nivel 4 de impacto del DoD
 description: Introducción al ejemplo de nivel 4 de impacto del DoD. Este ejemplo de plano técnico ayuda a los clientes a evaluar controles concretos del nivel 4 de impacto del DoD.
-ms.date: 01/08/2021
+ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: 3fdb14d1abdac182dceed844fe8b9ab65bed3210
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: e4c4788f1eff4b021de0e5c316ac3fbc5e431015
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98035094"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108757536"
 ---
 # <a name="overview-of-the-dod-impact-level-4-blueprint-sample"></a>Introducción al ejemplo de plano técnico de nivel 4 de impacto del DoD
 

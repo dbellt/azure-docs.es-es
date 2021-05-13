@@ -4,14 +4,6 @@
   items:
     - name: Acerca de Peering Service
       href: about.md
-- name: Tutoriales
-  items:
-    - name: Registro de una conexión de Peering Service
-      href: azure-portal.md
-    - name: Creación de una conexión de Peering Service
-      href: create-connection.md
-    - name: Medición de la telemetría de conexión de Peering Service
-      href: measure-connection-telemetry.md
 - name: Conceptos
   items:
     - name: Ubicaciones y asociados
@@ -20,22 +12,24 @@
       href: connection.md
     - name: Telemetría de conexión
       href: connection-telemetry.md
-    - name: Modelo de incorporación
-      href: onboarding-model.md
 - name: Guías paso a paso
   items:
-    - name: Registro de Peering Service
+    - name: Creación de Peering Service
       items:
+        - name: Azure portal
+          href: azure-portal.md
         - name: Azure PowerShell
           href: powershell.md
         - name: Azure CLI
           href: cli.md
+    - name: Acceso a la telemetría de la conexión de Peering Service
+      href: measure-connection-telemetry.md
 - name: Referencias
   items:
     - name: Azure PowerShell
       href: /powershell/module/az.peering
     - name: Azure CLI
-      href: /cli/azure/ext/peering/peering
+      href: /cli/azure/peering
 - name: Recursos
   items:
     - name: Azure Roadmap

@@ -1,5 +1,5 @@
 ---
-title: Uso de la CLI de Azure para establecer listas de control de acceso (ACL) en Azure Data Lake Storage Gen2
+title: Uso de la CLI de Azure para administrar listas de control de acceso (ACL) en Azure Data Lake Storage Gen2
 description: Use la CLI de Azure para administrar listas de control de acceso (ACL) en cuentas de almacenamiento que tengan un espacio de nombres jerárquico.
 services: storage
 author: normesta
@@ -10,12 +10,12 @@ ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 5ec7d2b243a5eadab2d22dea14ebeac8eabb1722
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1a68ec9868e5a441dbfd11f97bc8f169df246598
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103563171"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109633742"
 ---
 # <a name="use-azure-cli-to-manage-acls-in-azure-data-lake-storage-gen2"></a>Uso de la CLI de Azure para administrar listas de control de acceso (ACL) en Azure Data Lake Storage Gen2
 
