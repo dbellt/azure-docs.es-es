@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/28/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 486bb13b1603f239d04d8805020713aaf3a7333f
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: 7269309a3ed682da4d67e2509508276a3133601e
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108227783"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109516873"
 ---
 # <a name="configure-and-optimize-vms"></a>Configuración y optimización de máquinas virtuales
 
@@ -48,7 +48,7 @@ Además, tenga en cuenta que todos los tamaños de VM anteriores admiten VM de "
 
 #### <a name="sr-iov-enabled-vms"></a>Máquinas virtuales habilitadas para SR-IOV
 Para las [VM habilitadas para RDMA con SR-IOV](../../sizes-hpc.md#rdma-capable-instances), las imágenes de VM de CentOS-HPC versión 7.6 y posteriores son adecuadas. Estas imágenes de VM vienen optimizadas y cargadas previamente con los controladores OFED de Mellanox para RDMA, y con varias bibliotecas de MPI y paquetes de informática científica más usados.
-- Las versiones disponibles o más recientes de las imágenes de VM se pueden enumerar con la siguiente información mediante la [CLI](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list) o [Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/openlogic.centos-hpc?tab=Overview).
+- Las versiones disponibles o más recientes de las imágenes de VM se pueden enumerar con la siguiente información mediante la [CLI](/cli/azure/vm/image#az_vm_image_list) o [Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/openlogic.centos-hpc?tab=Overview).
    ```bash
    "publisher": "OpenLogic",
    "offer": "CentOS-HPC",
@@ -73,7 +73,7 @@ En el caso de las [máquinas virtuales compatibles con RDMA](../../sizes-hpc.md#
 
 ### <a name="ubuntu-hpc-vm-images"></a>Imágenes de VM de Ubuntu-HPC
 Para las [VM compatibles con RDMA](../../sizes-hpc.md#rdma-capable-instances) habilitadas para SR-IOV, las imágenes de VM de Ubuntu-HPC, versión 18.04 y posteriores, son adecuadas. Estas imágenes de VM vienen optimizadas y cargadas previamente con los controladores OFED de Mellanox para RDMA, controladores de GPU de Nvidia, la pila de software de proceso de GPU (CUDA, NCCL), y varias bibliotecas de MPI y paquetes de informática científica más usados.
-- Las versiones disponibles o más recientes de las imágenes de VM se pueden enumerar con la siguiente información mediante la [CLI](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list) o [Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-hpc?tab=overview).
+- Las versiones disponibles o más recientes de las imágenes de VM se pueden enumerar con la siguiente información mediante la [CLI](/cli/azure/vm/image#az_vm_image_list) o [Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-hpc?tab=overview).
    ```bash
    "publisher": "Microsoft-DSVM",
    "offer": "Ubuntu-HPC",

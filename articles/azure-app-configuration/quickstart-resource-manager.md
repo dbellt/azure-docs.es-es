@@ -8,12 +8,12 @@ ms.date: 10/16/2020
 ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell
-ms.openlocfilehash: 92ca80a6c807394c45be8f0187c7add736ba83ce
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 2bdd989f79a8a24e47698e187bfc45559e873237
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107831787"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108763980"
 ---
 # <a name="quickstart-create-an-azure-app-configuration-store-by-using-an-arm-template"></a>Inicio rápido: Creación de un almacén de Azure App Configuration mediante una plantilla de Resource Manager
 
@@ -110,5 +110,5 @@ Write-Host "Press [ENTER] to continue..."
 
 Para obtener información sobre cómo agregar la marca de características y la referencia de Key Vault a un almacén de App Configuration, consulte los siguientes ejemplos de plantilla de ARM.
 
-- [101-app-configuration-store-ff](https://github.com/Azure/azure-quickstart-templates/tree/master/101-app-configuration-store-ff)
-- [101-app-configuration-store-keyvaultref](https://github.com/Azure/azure-quickstart-templates/tree/master/101-app-configuration-store-keyvaultref)
+- [101-app-configuration-store-ff](https://azure.microsoft.com/resources/templates/101-app-configuration-store-ff/)
+- [101-app-configuration-store-keyvaultref](https://azure.microsoft.com/resources/templates/101-app-configuration-store-keyvaultref/)

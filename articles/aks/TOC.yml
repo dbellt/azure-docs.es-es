@@ -51,7 +51,7 @@
     - name: Seguridad
       items:
         - name: Línea de base de seguridad
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/aks-security-baseline?context=/azure/aks/context/aks-context
         - name: Seguridad para aplicaciones y clústeres
           href: concepts-security.md
         - name: Controles de seguridad de Azure Policy
@@ -136,8 +136,10 @@
       items:
         - name: Escalado de un clúster de AKS
           href: scale-cluster.md
-        - name: Detención de un clúster de AKS (versión preliminar)
+        - name: Detención de un clúster de AKS
           href: start-stop-cluster.md
+        - name: Uso del mantenimiento planeado (versión preliminar)
+          href: planned-maintenance.md
         - name: Actualización de un clúster de AKS
           href: upgrade-cluster.md
         - name: Uso del Acuerdo de Nivel de Servicio de tiempo de actividad
@@ -207,6 +209,8 @@
               href: azure-disk-csi.md
             - name: Controladores CSI de Azure Files (versión preliminar)
               href: azure-files-csi.md
+            - name: Controlador del almacén de secretos de CSI (versión preliminar)
+              href: csi-secrets-store-driver.md
     - name: Configuración de las redes
       items:
         - name: Creación o uso de una red virtual existente
@@ -268,7 +272,7 @@
           href: use-pod-security-policies.md
         - name: Definición de intervalos IP de servidor de API autorizado
           href: api-server-authorized-ip-ranges.md
-        - name: Implementaciones de control con Azure Policy (versión preliminar)
+        - name: Control de implementaciones con Azure Policy
           href: ../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/aks/toc.json
         - name: Actualización de credenciales del clúster
           href: update-credentials.md
@@ -293,6 +297,8 @@
           href: enable-host-encryption.md
     - name: Supervisión y registro
       items:
+        - name: Visualización de métricas de clúster
+          href: view-metrics.md
         - name: Azure Monitor para contenedores
           href: ../azure-monitor/containers/container-insights-overview.md
           maintainContext: true
@@ -347,6 +353,8 @@
       items:
         - name: Acerca de las mallas de servicio
           href: servicemesh-about.md
+        - name: Complemento Open Service Mesh (versión preliminar) de AKS
+          href: servicemesh-osm-about.md
         - name: Uso de Istio
           items:
             - name: Acerca de Istio

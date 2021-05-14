@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 08cca67455df4b2d28bba0a7410fccc11446fcdc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 597bcf9d7654b88cb4a3f9b7df32ea1c7b770da2
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96010712"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109508432"
 ---
 En este artículo se proporciona el siguiente nivel de detalle para proteger la infraestructura de Internet de las cosas (IoT) basada en IoT de Azure. Incluye vínculos a detalles de niveles de implementación para configurar e implementar cada componente. También se proporcionan comparaciones y opciones entre diversos métodos que compiten entre sí.
 
@@ -43,13 +43,13 @@ IoT Hub usa tokens de seguridad para autenticar dispositivos y servicios con el 
 
 Puede encontrar más detalles sobre la estructura del token de seguridad y su uso en los siguientes artículos:
 
-* [Estructura del token de seguridad](../articles/iot-hub/iot-hub-devguide-security.md#security-token-structure)
+* [Estructura del token de seguridad](../articles/iot-hub/iot-hub-dev-guide-sas.md#security-token-structure)
 
-* [Uso de tokens de SAS como dispositivo](../articles/iot-hub/iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app)
+* [Uso de tokens de SAS como dispositivo](../articles/iot-hub/iot-hub-dev-guide-sas.md#use-sas-tokens-as-a-device)
 
 Cada instancia de IoT Hub tiene un [Registro de identidad](../articles/iot-hub/iot-hub-devguide-identity-registry.md) que se usa para crear recursos en el servicio para cada dispositivo, como una cola que contiene los mensajes de nube a dispositivo en curso, y para permitir el acceso a los puntos de conexión accesibles desde el dispositivo. El Registro de identidades de IoT Hub proporciona un almacenamiento seguro de las identidades y las claves de seguridad de los dispositivos de una solución. Se pueden agregar identidades de dispositivo individuales o en grupo a una lista de elementos permitidos o bloqueados, de forma que se tiene un completo control sobre el acceso a los dispositivos. En los artículos siguientes se proporcionan más detalles sobre la estructura del Registro de identidad y las operaciones admitidas.
 
-[IoT Hub admite protocolos como MQTT, AMQP y HTTP](../articles//iot-hub/iot-hub-devguide-security.md). Cada uno de estos protocolos usa tokens de seguridad entre el dispositivo IoT y IoT Hub de manera diferente:
+[IoT Hub admite protocolos como MQTT, AMQP y HTTP](../articles//iot-hub/iot-hub-dev-guide-sas.md). Cada uno de estos protocolos usa tokens de seguridad entre el dispositivo IoT y IoT Hub de manera diferente:
 
 * AMQP: seguridad basada en notificaciones SASL PLAIN y AMQP (`{policyName}@sas.root.{iothubName}` con tokens en el nivel de IoT Hub, `{deviceId}` con tokens con ámbito de dispositivo).
 
@@ -57,11 +57,11 @@ Cada instancia de IoT Hub tiene un [Registro de identidad](../articles/iot-hub/i
 
 * HTTP: el token válido está en el encabezado de la solicitud de autorización.
 
-Puede usar el Registro de identidad de IoT Hub para configurar las credenciales de seguridad de cada dispositivo y el control de acceso. Sin embargo, si una solución de IoT ya realizó una inversión importante en un [Registro de identidad del dispositivo o un esquema de autenticación personalizados](../articles/iot-hub/iot-hub-devguide-security.md#custom-device-and-module-authentication), se puede integrar en una infraestructura existente con IoT Hub mediante la creación de un servicio de token.
+Puede usar el Registro de identidad de IoT Hub para configurar las credenciales de seguridad de cada dispositivo y el control de acceso. Sin embargo, si una solución de IoT ya realizó una inversión importante en un [Registro de identidad del dispositivo o un esquema de autenticación personalizados](../articles/iot-hub/iot-hub-dev-guide-sas.md#create-a-token-service-to-integrate-existing-devices), se puede integrar en una infraestructura existente con IoT Hub mediante la creación de un servicio de token.
 
 ### <a name="x509-certificate-based-device-authentication"></a>Autenticación de dispositivos basada en certificados X.509
 
-El uso de un [certificado X.509 basado en un dispositivo](../articles/iot-hub/iot-hub-devguide-security.md) y su par de claves pública y privada asociado permite autenticación adicional en la capa física. La clave privada se almacena de forma segura en el dispositivo y es imposible detectarla fuera de él. El certificado X.509 contiene información sobre el dispositivo, como el identificador y otros detalles de la organización. Mediante la clave privada se genera una firma del certificado.
+El uso de un [certificado X.509 basado en un dispositivo](../articles/iot-hub/iot-hub-dev-guide-sas.md) y su par de claves pública y privada asociado permite autenticación adicional en la capa física. La clave privada se almacena de forma segura en el dispositivo y es imposible detectarla fuera de él. El certificado X.509 contiene información sobre el dispositivo, como el identificador y otros detalles de la organización. Mediante la clave privada se genera una firma del certificado.
 
 Flujo de aprovisionamiento de dispositivos de alto nivel:
 
@@ -81,7 +81,7 @@ La conexión a Internet entre el dispositivo IoT y Azure IoT Hub está protegida
 
 ## <a name="securing-the-cloud"></a>Protección de la nube
 
-Azure IoT Hub permite la definición de [directivas de control de acceso](../articles/iot-hub/iot-hub-devguide-security.md) para cada clave de seguridad. Para conceder acceso a cada uno de los puntos de conexión de IoT Hub, se utiliza el siguiente conjunto de permisos. Los permisos limitan el acceso a una instancia de IoT Hub según la funcionalidad.
+Azure IoT Hub permite la definición de [directivas de control de acceso](../articles/iot-hub/iot-hub-dev-guide-sas.md) para cada clave de seguridad. Para conceder acceso a cada uno de los puntos de conexión de IoT Hub, se utiliza el siguiente conjunto de permisos. Los permisos limitan el acceso a una instancia de IoT Hub según la funcionalidad.
 
 * **RegistryRead**. Concede acceso de lectura al Registro de identidad. Para más información, consulte [Registro de identidades](../articles/iot-hub/iot-hub-devguide-identity-registry.md).
 
@@ -91,9 +91,9 @@ Azure IoT Hub permite la definición de [directivas de control de acceso](../art
 
 * **DeviceConnect**. Concede acceso a los puntos de conexión accesibles desde los dispositivos. Por ejemplo, concede permiso para enviar mensajes de dispositivo a nube y recibir mensajes de nube a dispositivo. Este permiso lo usan los dispositivos.
 
-Existen dos maneras de obtener permisos **DeviceConnect** con IoT Hub con [tokens de seguridad](../articles/iot-hub/iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app): mediante una clave de identidad de dispositivo o una clave de acceso compartido. Además, es importante tener en cuenta que puede acceder a toda la funcionalidad desde los dispositivos expuestos por diseño en los puntos de conexión con el prefijo `/devices/{deviceId}`.
+Existen dos maneras de obtener permisos **DeviceConnect** con IoT Hub con [tokens de seguridad](../articles/iot-hub/iot-hub-dev-guide-sas.md#use-sas-tokens-as-a-device): mediante una clave de identidad de dispositivo o una clave de acceso compartido. Además, es importante tener en cuenta que puede acceder a toda la funcionalidad desde los dispositivos expuestos por diseño en los puntos de conexión con el prefijo `/devices/{deviceId}`.
 
-Los [componentes de servicio solo pueden generar tokens de seguridad](../articles/iot-hub/iot-hub-devguide-security.md#use-security-tokens-from-service-components) mediante directivas de acceso compartido que conceden los permisos apropiados.
+Los [componentes de servicio solo pueden generar tokens de seguridad](../articles/iot-hub/iot-hub-dev-guide-sas.md#use-security-tokens-from-service-components) mediante directivas de acceso compartido que conceden los permisos apropiados.
 
 Azure IoT Hub y otros servicios que pueden formar parte de la solución permiten la administración de usuarios mediante Azure Active Directory.
 

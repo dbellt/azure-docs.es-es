@@ -45,8 +45,14 @@
       href: application-settings.md
     - name: Configuración de bibliotecas y marcos de front-end
       href: front-end-frameworks.md
+    - name: Habilitar supervisión
+      href: monitor.md
+      displayName: Application Insights
     - name: Restablecimiento de tokens de implementación
       href: deployment-token-management.md
+    - name: Solucionar errores
+      href: troubleshooting.md
+      displayName: 'deployment, runtime, errors'
 - name: Tutoriales
   items:
     - name: Publicación desde un generador de sitios estáticos
@@ -67,6 +73,16 @@
           href: deploy-nextjs.md
         - name: Nuxt.js
           href: deploy-nuxtjs.md
+    - name: "Incorporación de una base de datos con Mongoose.js y Cosmos\_DB"
+      href: add-mongoose.md
+    - name: Publicación con Azure DevOps
+      href: publish-devops.md
+    - name: Publicación con una plantilla de Resource Manager
+      href: publish-azure-resource-manager.md
+- name: Referencia
+  items:
+    - name: Azure CLI
+      href: /cli/azure/staticwebapp
 - name: Recursos
   items:
     - name: Desarrollo de aptitudes con Microsoft Learn

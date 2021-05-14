@@ -14,12 +14,12 @@ ms.date: 11/13/2019
 ms.subservice: app-mgmt
 ms.author: iangithinji
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c895d77b9c6ab48c60b7a337dd8c44414d8d9b5
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: e9f77ff371bfb53cff08d860be6cc0160debe491
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108318520"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108765996"
 ---
 # <a name="application-management-best-practices"></a>Procedimientos recomendados de administración de aplicaciones
 
@@ -55,4 +55,3 @@ Este artículo contiene recomendaciones y procedimientos recomendados para admin
 | Ubicar los servidores de conectores cerca de los servidores de aplicaciones y asegurarse de que están en el mismo dominio | Para optimizar el rendimiento, ubique físicamente el servidor de conector cerca de los servidores de aplicación (consulte [Consideraciones sobre la topología de red](../app-proxy/application-proxy-network-topology.md)). También, el servidor del conector y los servidores de aplicaciones web deben pertenecer al mismo dominio de Active Directory o abarcar dominios de confianza. Esta configuración es necesaria para SSO con la autenticación integrada de Windows (IWA) y la delegación restringida de Kerberos (KCD). Si los servidores están en dominios diferentes, deberá utilizar la delegación basada en recursos para SSO (consulte [KCD para el inicio de sesión único con Application Proxy](../app-proxy/application-proxy-configure-single-sign-on-with-kcd.md)). |
 | Habilitar actualizaciones automáticas para conectores | Habilite las actualizaciones automáticas de los conectores para obtener las últimas características y correcciones de errores. Microsoft proporciona soporte técnico directo para la versión más reciente del conector y una versión anterior. (Consulte [Historial de versiones de Application Proxy](../app-proxy/application-proxy-release-version-history.md)). |
 | Omitir el proxy local | Para un mantenimiento más sencillo, configure el conector para omitir el proxy local para que se conecte directamente a los servicios de Azure. (Consulte [Conectores de Application Proxy y servidores proxy](../app-proxy/application-proxy-configure-connectors-with-proxy-servers.md)). |
-| Usar Azure AD Application Proxy sobre Web Application Proxy | Use Azure AD Application Proxy para la mayoría de los escenarios locales. Web Application Proxy solo se prefiere en los escenarios que requieran un servidor proxy para AD FS y donde no pueda usar dominios personalizados en Azure Active Directory. (Consulte [Migración de Application Proxy](../app-proxy/application-proxy-migration.md)). |

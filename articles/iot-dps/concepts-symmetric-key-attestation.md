@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0455fe634b44465b4b16d48145fcf51f733f121d
-ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
+ms.openlocfilehash: 32ad3bb4f9a845ded60694d42d0b2708a61aea6a
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2021
-ms.locfileid: "107929370"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109483306"
 ---
 # <a name="symmetric-key-attestation"></a>Atestación de clave simétrica
 
@@ -37,7 +37,7 @@ También puede proporcionar sus propias claves simétricas para las inscripcione
 
 ## <a name="detailed-attestation-process"></a>Proceso de atestación detallado
 
-La atestación de clave simétrica con el servicio Device Provisioning se realiza con los mismos [tokens de seguridad](../iot-hub/iot-hub-devguide-security.md#security-token-structure) que utilizan los centros de IoT para identificar los dispositivos. Estos tokens de seguridad son [tokens de firma de acceso compartido (SAS)](../service-bus-messaging/service-bus-sas.md). 
+La atestación de clave simétrica con el servicio Device Provisioning se realiza con los mismos [tokens de seguridad](../iot-hub/iot-hub-dev-guide-sas.md#security-token-structure) que utilizan los centros de IoT para identificar los dispositivos. Estos tokens de seguridad son [tokens de firma de acceso compartido (SAS)](../service-bus-messaging/service-bus-sas.md). 
 
 Los tokens de SAS tienen una *firma* hash que se crea mediante la clave simétrica. El servicio Device Provisioning vuelve a crear la firma para comprobar si un token de seguridad presentado durante la atestación es auténtico o no.
 
@@ -57,7 +57,7 @@ Presentamos a continuación los componentes de cada token:
 
 Cuando un dispositivo se atesta con una inscripción individual, el dispositivo usa la clave simétrica que se define en la entrada de inscripción individual para crear la firma hash para el token de SAS.
 
-Para ver ejemplos de código que crea un token de SAS, consulte [Tokens de seguridad](../iot-hub/iot-hub-devguide-security.md#security-token-structure).
+Para ver ejemplos de código que crea un token de SAS, consulte [Tokens de seguridad](../iot-hub/iot-hub-dev-guide-sas.md#security-token-structure).
 
 La creación de tokens de seguridad para la atestación de clave simétrica es compatible con el SDK de Azure IoT para C. Para obtener un ejemplo del uso del SDK de Azure IoT para C para realizar la atestación con una inscripción individual, consulte [Aprovisionamiento de un dispositivo simulado con claves simétricas](quick-create-simulated-device-symm-key.md).
 
