@@ -6,12 +6,12 @@ ms.author: palatter
 ms.date: 01/25/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 331d8eb6ed74880a855934fad4d3e1afc9b29109
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: cbf56f6567c3c7857afcd71ed9f6dc67be48f9d1
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108313515"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108792383"
 ---
 En este inicio rápido, aprenderá cómo unirse a una reunión de Microsoft Teams mediante la biblioteca insertada de Teams de Azure Communication Services para Android.
 
@@ -76,7 +76,7 @@ Actualice los valores del archivo `build.gradle`.
 
 ### <a name="install-the-teams-embed-package"></a>Instalación del paquete de inserción de Teams
 
-Descargue el paquete [`MicrosoftTeamsSDK`.](https://github.com/Azure/communication-teams-embed/releases)
+Descargue el paquete [`MicrosoftTeamsSDK`.](https://github.com/Azure/communication)
 
 Luego, descomprima la carpeta `MicrosoftTeamsSDK` en la carpeta de la aplicación del proyecto. Por ejemplo, `TeamsEmbedAndroidGettingStarted/app/MicrosoftTeamsSDK`.
 

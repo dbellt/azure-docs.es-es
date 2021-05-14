@@ -93,7 +93,7 @@
 - name: Conceptos
   items:
     - name: Preguntas comunes acerca de Site Recovery
-      href: site-recovery-faq.md
+      href: site-recovery-faq.yml
     - name: Acerca de la recuperación ante desastres de máquinas virtuales de Azure
       items:
         - name: Arquitectura de Azure a Azure
@@ -179,7 +179,7 @@
     - name: Seguridad
       items:
         - name: Línea de base de seguridad
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/site-recovery-security-baseline?toc=/azure/site-recovery/toc.json
 - name: Guías de procedimientos
   items:
     - name: Recuperación ante desastres de Azure a Azure
@@ -200,6 +200,8 @@
           items:
             - name: Habilitación de la replicación de Azure a Azure
               href: azure-to-azure-how-to-enable-replication.md
+            - name: Habilitación de la replicación de Azure en Azure mediante Policy
+              href: azure-to-azure-how-to-enable-policy.md
             - name: Habilitamiento de la replicación de Azure en Azure para máquinas virtuales cifradas
               href: azure-to-azure-how-to-enable-replication-ade-vms.md
             - name: Habilitación de la replicación de Azure a Azure para máquinas virtuales con discos habilitados para CMK
@@ -230,6 +232,8 @@
               href: site-recovery-manage-registration-and-protection.md
             - name: Eliminación de un almacén
               href: delete-vault.md
+            - name: Script de limpieza en un servidor VMM
+              href: unregister-vmm-server-script.md
     - name: Recuperación ante desastres de VMware a Azure
       items:
         - name: Configuración de la recuperación ante desastres a escala
@@ -482,6 +486,8 @@
       href: site-recovery-runbook-automation.md
     - name: Plantillas ARM
       href: asr-arm-templates.md
+    - name: 'Desuso de parámetros: New-AzRecoveryServicesAsrVMNicConfig cmdlet'
+      href: site-recovery-ipconfig-cmdlet-parameter-deprecation.md
 - name: Supervisión
   items:
     - name: Preguntas habituales sobre supervisión

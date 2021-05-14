@@ -7,17 +7,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.custom: contperf-fy21q1, data4ml
-ms.author: sihhu
-author: MayMSFT
-manager: cgronlun
+ms.author: yogipandey
+author: ynpandey
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.openlocfilehash: 0125f33bb01d177442bb1da8a1f45e172659c7c2
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 9bfe0ad6e94ea40ad5edc97e8b3259bb817df03f
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107889851"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109788344"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Creación de conjuntos de datos de Azure Machine Learning
 

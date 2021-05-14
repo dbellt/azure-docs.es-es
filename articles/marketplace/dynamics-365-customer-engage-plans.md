@@ -7,12 +7,12 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.date: 04/30/2021
-ms.openlocfilehash: 6c6863c8f044d1354fa1ed6ebea8b679994fc6d2
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 460a2c071fa07e5f7374409f965f0074182c1722
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108322313"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108751146"
 ---
 # <a name="create-dynamics-365-for-customer-engagement--power-apps-plans"></a>Creación de planes de Dynamics 365 for Customer Engagement & Power Apps
 
@@ -51,7 +51,7 @@ Debe copiar el identificador de servicio de cada plan que creó para poder asign
 
 ## <a name="add-service-ids-to-your-solution-package"></a>Agregar los identificadores de servicio al paquete de solución
 
-1. Agregue los identificadores de servicio que copió en el paso anterior al paquete de solución. Para obtener información sobre cómo hacerlo, consulte [Incorporación de metadatos de licencia a la solución](https://go.microsoft.com/fwlink/?linkid=2162161&clcid=0x409) y [Creación de un paquete de AppSource para la aplicación](/powerapps/developer/data-platform/create-package-app-appsource).
+1. Agregue los identificadores de servicio que copió en el paso anterior al paquete de solución. Para obtener información sobre cómo hacerlo, consulte [Incorporación de metadatos de licencia a la solución](/powerapps/developer/data-platform/appendix-add-license-information-to-your-solution) y [Creación de un paquete de AppSource para la aplicación](/powerapps/developer/data-platform/create-package-app-appsource).
 1. Después de crear el archivo ZIP del paquete CRM, cárguelo en Azure Blob Storage. Deberá proporcionar la dirección URL de SAS de la cuenta de Azure Blob Storage que contiene el archivo ZIP del paquete CRM cargado.
 
 ## <a name="next-steps"></a>Pasos siguientes

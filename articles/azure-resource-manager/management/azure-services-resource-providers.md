@@ -4,12 +4,12 @@ description: Se enumeran todos los espacios de nombres de proveedor de recursos 
 ms.topic: conceptual
 ms.date: 03/16/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2264883ed6b7b4d23a6030b93d1aef88816c1fd7
-ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
+ms.openlocfilehash: 40c166a85da1ad5370b6e90096061790f1c77d49
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2021
-ms.locfileid: "108330790"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108745746"
 ---
 # <a name="resource-providers-for-azure-services"></a>Proveedores de recursos para servicios de Azure
 
@@ -81,7 +81,6 @@ Los proveedores de recursos con la marca **registrado** se registran de forma pr
 | Microsoft.DBforMariaDB | [Azure Database for MariaDB](../../mariadb/index.yml) |
 | Microsoft.DBforMySQL | [Azure Database for MySQL](../../mysql/index.yml) |
 | Microsoft.DBforPostgreSQL | [Azure Database para PostgreSQL](../../postgresql/index.yml) |
-| Microsoft.DeploymentManager | [Azure Deployment Manager](../templates/deployment-manager-overview.md) |
 | Microsoft.DesktopVirtualization | [Windows Virtual Desktop](../../virtual-desktop/index.yml) |
 | Microsoft.Devices | [Azure IoT Hub](../../iot-hub/index.yml)<br />[Servicio Azure IoT Hub Device Provisioning](../../iot-dps/index.yml) |
 | Microsoft.DevOps | [Azure DevOps](/azure/devops/) |

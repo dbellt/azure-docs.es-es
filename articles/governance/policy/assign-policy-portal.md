@@ -3,12 +3,12 @@ title: Nueva asignación de directivas con el portal
 description: En este inicio rápido, se usa Azure Portal para crear una asignación de Azure Policy para identificar recursos no compatibles.
 ms.date: 05/01/2021
 ms.topic: quickstart
-ms.openlocfilehash: abceee512fc49922b69b80f0ac292b7fa044b2c7
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: b8b45e0cd2aea1417118f7c485fef2b54d757217
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108326262"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108772484"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources"></a>Creación de una asignación de directiva para identificar recursos no compatibles.
 

@@ -3,12 +3,12 @@ title: 'Patrón: implementación de recursos con una definición de directiva'
 description: Este patrón de Azure Policy proporciona un ejemplo de cómo implementar recursos con una definición de directiva deployIfNotExists.
 ms.date: 03/31/2021
 ms.topic: sample
-ms.openlocfilehash: 1dda3d5f2d4bef57919931ec3c1635310723e0c8
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 2220a0c66cecac3dc9dfd342fe6b802df41c1f10
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106093407"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108752461"
 ---
 # <a name="azure-policy-pattern-deploy-resources"></a>Patrón de Azure Policy: implementación de recursos
 
@@ -43,7 +43,7 @@ La parte **deployment** de la definición de directiva tiene un bloque **propert
 - **template**: esta propiedad incluye la propia plantilla. En este ejemplo, el parámetro de plantilla **location** establece la ubicación del nuevo recurso de monitor de red.
 
   :::code language="json" source="~/policy-templates/patterns/pattern-deploy-resources.json" range="30-44":::
-  
+
 - **parameters**: esta propiedad define los parámetros que se proporcionan a la **plantilla**. Los nombres de parámetro deben coincidir con los definidos en **template**. En este ejemplo, el parámetro se denomina **location** para que coincida. El valor de **location** utiliza de nuevo la función `field()` para obtener el valor del recurso evaluado, que es la red virtual del bloque **policyRule.if**.
 
   :::code language="json" source="~/policy-templates/patterns/pattern-deploy-resources.json" range="45-49":::

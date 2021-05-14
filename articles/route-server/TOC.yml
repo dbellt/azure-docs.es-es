@@ -12,13 +12,21 @@
       href: quickstart-configure-route-server-powershell.md
     - name: 'Configuración de una instancia de Azure Route Server: CLI'
       href: quickstart-configure-route-server-cli.md
+    - name: 'Configuración de una instancia de Azure Route Server: plantilla de Resource Manager'
+      href: quickstart-configure-template.md
   expanded: true
+- name: Ejemplos
+  items:
+    - name: Plantillas de Resource Manager
+      href: resource-manager-template-samples.md
 - name: Conceptos
   items:
     - name: Preguntas frecuentes sobre Azure Route Server
       href: route-server-faq.md
     - name: Compatibilidad de Azure Route Server (versión preliminar) con ExpressRoute y VPN de Azure
       href: expressroute-vpn-support.md
+    - name: Red de base dual
+      href: about-dual-homed-network.md
 - name: Guías paso a paso
   items:
     - name: Solución de problemas de Azure Route Server
@@ -38,7 +46,7 @@
     - name: Blog de redes
       href: 'https://azure.microsoft.com/blog/topics/networking/'
     - name: Precios
-      href: 'https://azure.microsoft.com/pricing/details/routeserver/'
+      href: 'https://azure.microsoft.com/pricing/'
     - name: Calculadora de precios
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Actualizaciones del servicio

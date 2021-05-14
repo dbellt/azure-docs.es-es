@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
 ms.date: 04/30/2021
-ms.openlocfilehash: ca4860bea15c2290b0a3edbaaaed801cd4e36d86
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: c0af6f3045a686f9ef73b7761b41e869d3ce9d6f
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108316036"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108766392"
 ---
 # <a name="plan-a-microsoft-dynamics-365-offer"></a>Planeamiento de una oferta de Microsoft Dynamics 365
 
@@ -88,5 +88,5 @@ Después de analizar los elementos de planeamiento descritos anteriormente, sele
 | [Dynamics 365 for Operations](partner-center-portal/create-new-operations-offer.md) | Al realizar la compilación para Enterprise Edition, revise primero el [proceso y las directrices de publicación](/dynamics365/fin-ops-core/dev-itpro/lcs-solutions/lcs-solutions-app-source) adicionales. |
 | [Dynamics 365 for Business Central](partner-center-portal/create-new-business-central-offer.md) |   |
 | [Dynamics 365 for Customer Engagement y Power Apps](dynamics-365-customer-engage-offer-setup.md) | En primer lugar, revise [estos procesos y directrices de publicación](/dynamics365/customer-engagement/developer/publish-app-appsource) adicionales. |
-| [Power BI](/partner-center-portal/create-power-bi-app-offer.md) | En primer lugar, revise [estos procesos y directrices de publicación](/power-bi/developer/office-store) adicionales. |
+| [Power BI](/azure/marketplace/partner-center-portal/create-power-bi-app-offer) | En primer lugar, revise [estos procesos y directrices de publicación](/power-bi/developer/office-store) adicionales. |
 |||

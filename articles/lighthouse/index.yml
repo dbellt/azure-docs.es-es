@@ -10,12 +10,12 @@ metadata:
   author: JnHs
   ms.author: jenhayes
   ms.date: 01/26/2021
-  ms.openlocfilehash: dae3705f71362cf1ca6ee8005c2c864533b3fbd0
-  ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+  ms.openlocfilehash: ad51b354bde216ced0d4e163a0566a0006e1d6a4
+  ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 03/19/2021
-  ms.locfileid: "104590286"
+  ms.lasthandoff: 05/12/2021
+  ms.locfileid: "109785896"
 landingContent:
 - title: Acerca de Azure Lighthouse
   linkLists:
@@ -25,8 +25,8 @@ landingContent:
       url: ./overview.md
   - linkListType: concept
     links:
-    - text: Administración de recursos delegados de Azure
-      url: ./concepts/azure-delegated-resource-management.md
+    - text: Architecture
+      url: ./concepts/architecture.md
     - text: Experiencias de administración entre inquilinos
       url: ./concepts/cross-tenant-management-experience.md
 - title: Introducción

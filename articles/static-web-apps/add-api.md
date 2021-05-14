@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: wachegha
 ms.custom: devx-track-js
-ms.openlocfilehash: 33adaf33ba15b49b0a7e4d3e8f1b2a8c435a7966
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 215ff68cd560062d15a90c52847c7f1a0ec6b4a0
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106449042"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109684638"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-preview-with-azure-functions"></a>Incorporación de una API en la versión preliminar de Azure Static Web Apps con Azure Functions
 
@@ -251,13 +251,7 @@ A continuación, agregue los siguientes detalles de compilación.
 
 1. Haga clic en el botón **Ir al recurso** para acceder a la página _Información general_ de la aplicación web.
 
-    Mientras que la aplicación se está generando en segundo plano, puede hacer clic en el banner que contiene un vínculo para ver el estado de la compilación.
-
-    :::image type="content" source="media/add-api/github-action-flag.png" alt-text="Flujo de trabajo de GitHub":::
-
-1. Una vez completada la implementación, puede navegar a la aplicación web al hacer clic en el vínculo _URL_ que se muestra en la página _Información general_.
-
-    :::image type="content" source="media/add-api/static-app-url-from-portal.png" alt-text="Acceso a la dirección URL de la aplicación estática desde Azure Portal":::
+[!INCLUDE [view website](../../includes/static-web-apps-get-started-view-website.md)]
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
