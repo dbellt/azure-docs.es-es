@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/26/2019
 ms.author: mathoma
-ms.openlocfilehash: cf41d6f9219397e439e8d89ea011c454662e6903
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: c1b4980c401fd91c589b080e907e651a59c6ab43
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108126496"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108753918"
 ---
 # <a name="configure-storage-for-sql-server-vms"></a>Configuración del almacenamiento para VM con SQL Server
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -40,7 +40,7 @@ Para usar la configuración del almacenamiento automática, la máquina virtual 
 
 En las secciones siguientes se describe cómo configurar el almacenamiento para nuevas máquinas virtuales de SQL Server.
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Portal de Azure
 
 Si aprovisiona una máquina virtual de Azure mediante una imagen de la galería de SQL Server, seleccione **Cambiar configuración** en la pestaña **Configuración de SQL Server** para abrir la página Performance Optimized Storage Configuration (Configuración de almacenamiento optimizada para rendimiento). Puede dejar los valores predeterminados o modificar el tipo de configuración de disco, con el fin de disfrutar la que mejor se adapte a sus necesidades en función de la carga de trabajo. 
 
@@ -89,7 +89,7 @@ Si utiliza las siguientes plantillas de Resource Manager, se asocian dos discos 
 
 Puede usar la siguiente plantilla de inicio rápido para implementar una máquina virtual con SQL Server mediante la optimización de almacenamiento. 
 
-* [Creación de una máquina virtual con optimización de almacenamiento](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-new-storage/)
+* [Creación de una máquina virtual con optimización de almacenamiento](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.sqlvirtualmachine/sql-vm-new-storage/)
 * [Creación de una máquina virtual mediante UltraSSD](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-new-storage-ultrassd)
 
 ## <a name="existing-vms"></a>Máquinas virtuales existentes

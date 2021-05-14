@@ -1,16 +1,16 @@
 ---
 title: Generación de mapas
 description: En este artículo se describe cómo generar mapas en Azure FarmBeats.
-author: uhabiba04
+author: RiyazPishori
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: v-ummehabiba
-ms.openlocfilehash: d0176fd337abd37f97a6dbe5cf7c68ccf94114d0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.author: riyazp
+ms.openlocfilehash: 0b936ecbd80ba0b258cea8b043f4bef789b67a35
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102173871"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108751308"
 ---
 # <a name="generate-maps"></a>Generación de mapas
 

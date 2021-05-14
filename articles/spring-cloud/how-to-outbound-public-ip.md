@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 09/17/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 9a55b32cd511fa3fbcce4b429f7a2d74125b4ab8
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: f2781c159ca79b09afd2f700981a19c59865cce2
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108134957"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109634246"
 ---
 # <a name="how-to-identify-outbound-public-ip-addresses-in-azure-spring-cloud"></a>Procedimiento para identificar las direcciones IP públicas de salida en Azure Spring Cloud
 
@@ -40,7 +40,7 @@ Para buscar las direcciones IP públicas de salida utilizadas actualmente por la
 Puede encontrar la misma información si ejecuta el comando siguiente en Cloud Shell
 
 ```Azure CLI
-az spring-cloud show --resource-group <group_name> --name <service_name> --query properties.networkProfile.outboundIPs.publicIPs --output tsv
+az spring-cloud show --resource-group <group_name> --name <service_name> --query properties.networkProfile.outboundIps.publicIps --output tsv
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

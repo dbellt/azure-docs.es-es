@@ -55,6 +55,10 @@
         - name: Plantilla ARM
           displayName: Resource Manager
           href: functions-create-first-function-resource-manager.md
+    - name: Conectar con una base de datos
+      items:
+        - name: Visual Studio Code
+          href: functions-add-output-binding-cosmos-db-vs-code.md
     - name: Conexión al almacenamiento
       items:
         - name: Visual Studio Code
@@ -71,10 +75,15 @@
       href: /azure/python/tutorial-vs-code-serverless-python-01
     - name: Definición de OpenAPI para API sin servidor
       href: functions-openapi-definition.md
-    - name: Conexión a una red virtual
-      href: functions-create-vnet.md
-    - name: Establecimiento de acceso a sitios privados
-      href: functions-create-private-site-access.md
+    - name: Redes
+      items:
+        - name: Conexión a una red virtual
+          href: functions-create-vnet.md
+          displayName: vnet
+        - name: Establecimiento de acceso a sitios privados
+          href: functions-create-private-site-access.md
+        - name: Uso de una instancia de NAT Gateway de salida
+          href: functions-how-to-use-nat-gateway.md
     - name: Cambio de tamaño de una imagen con Event Grid
       href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
     - name: Creación de una aplicación web sin servidor
@@ -224,7 +233,7 @@
           href: security-concepts.md
           displayName: 'secure, ssl'
         - name: Línea de base de seguridad
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/functions-security-baseline?toc=/azure/azure-functions/TOC.json
     - name: Supervisión
       href: functions-monitoring.md
       displayName: 'App Insights, Application Insights, logs, logging'
@@ -258,11 +267,13 @@
             - name: Desarrollo de Core Tools
               href: functions-run-local.md
               displayName: 'local, runtime'
+            - name: Desarrollo local del desencadenador de blobs de Event Grid
+              href: functions-event-grid-blob-trigger.md
         - name: Creación de funciones
           items:
             - name: Desencadenador HTTP
               items:
-                - name: Azure Portal
+                - name: Azure portal
                   href: functions-create-function-app-portal.md
                 - name: Línea de comandos
                   href: ./create-first-function-cli-csharp.md
@@ -332,6 +343,8 @@
           href: functions-bindings-error-pages.md
         - name: Ejecución manual de una función no desencadenada por HTTP
           href: functions-manually-run-non-http.md
+        - name: Traslado de dependencias a aplicaciones de funciones
+          href: bring-dependency-to-functions.md
     - name: Implementación
       items:
         - name: Implementación continua
@@ -351,8 +364,6 @@
           displayName: 'keda, container, docker'
         - name: Automatización de la implementación de recursos
           href: functions-infrastructure-as-code.md
-        - name: Funciones locales
-          href: functions-runtime-install.md
         - name: Implementación mediante el complemento de Jenkins
           href: /azure/developer/jenkins/deploy-to-azure-functions
           maintainContext: true
@@ -365,6 +376,8 @@
           href: set-runtime-version.md
         - name: Deshabilitar una función
           href: disable-function.md
+        - name: Redes
+          href: configure-networking-how-to.md
         - name: Recuperación ante desastres geográfica
           href: functions-geo-disaster-recovery.md
     - name: Supervisión
@@ -393,8 +406,6 @@
               href: ../app-service/configure-authentication-provider-facebook.md?toc=%2fazure%2fazure-functions%2ftoc.json
             - name: Autenticación con Google
               href: ../app-service/configure-authentication-provider-google.md?toc=%2fazure%2fazure-functions%2ftoc.json
-            - name: Autenticación con la cuenta de Microsoft
-              href: ../app-service/configure-authentication-provider-microsoft.md?toc=%2fazure%2fazure-functions%2ftoc.json
             - name: Autenticación con Twitter
               href: ../app-service/configure-authentication-provider-twitter.md?toc=%2fazure%2fazure-functions%2ftoc.json
             - name: Autenticación con un proveedor de OpenID Connect (versión preliminar)
@@ -425,6 +436,18 @@
               href: functions-add-output-binding-storage-queue-vs-code.md
             - name: 'Almacenamiento: Visual Studio'
               href: functions-add-output-binding-storage-queue-vs.md
+        - name: Inicio o detención de máquinas virtuales
+          items:
+            - name: Información general
+              href: start-stop-vms/overview.md
+            - name: Implementación y configuración
+              href: start-stop-vms/deploy.md
+            - name: Administración y supervisión
+              href: start-stop-vms/manage.md
+            - name: Eliminación de Start/Stop VMs
+              href: start-stop-vms/remove.md
+            - name: Solución de problemas
+              href: start-stop-vms/troubleshoot.md
         - name: Conectarse a SQL Database
           href: functions-scenario-database-table-cleanup.md
         - name: Conexión a una red virtual
@@ -441,10 +464,14 @@
       items:
         - name: Solución de problemas de almacenamiento
           href: functions-recover-storage-account.md
-        - name: Solución de problemas de funciones de Python
-          href: recover-python-functions.md
-        - name: Escalado y rendimiento de las funciones de Python
-          href: python-scale-performance-reference.md
+        - name: Funciones de Python
+          items:
+            - name: Solución general de problemas
+              href: recover-python-functions.md
+            - name: Escala y rendimiento
+              href: python-scale-performance-reference.md
+            - name: Generación de perfiles de memoria
+              href: python-memory-profiler-reference.md
 - name: Referencia
   items:
     - name: Referencias de API

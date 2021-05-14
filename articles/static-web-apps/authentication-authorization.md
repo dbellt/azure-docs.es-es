@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 04/09/2021
 ms.author: cshoe
-ms.openlocfilehash: 0728b45a72f7d4fe67807be5c9c2b5290af11c51
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 8b8f42d75a0d214bdc504c8cc0adb6f234ea036e
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108143474"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108751128"
 ---
 # <a name="authentication-and-authorization-for-azure-static-web-apps-preview"></a>Autenticación y autorización para Azure Static Web Apps (versión preliminar)
 
@@ -20,8 +20,6 @@ Azure Static Web Apps dinamiza la experiencia de autenticación al administrar l
 
 - Azure Active Directory
 - GitHub
-- Facebook
-- Google<sup>1</sup>
 - Twitter
 
 Las [invitaciones](#invitations) específicas de los proveedores asocian los usuarios con roles, y a los usuarios autorizados se les concede acceso a las [rutas](configuration.md#routes) mediante reglas definidas en el archivo _staticwebapp.config.json_.
@@ -56,9 +54,7 @@ Las invitaciones son específicas de los proveedores de autorización individual
 | Proveedor de autorización | Con respecto al usuario, expone |
 | ---------------------- | ---------------- |
 | Azure Active Directory | Dirección de correo electrónico    |
-| Facebook               | Dirección de correo electrónico    |
 | GitHub                 | username         |
-| Google<sup>1</sup>     | Dirección de correo electrónico    |
 | Twitter                | username         |
 
 1. Vaya a un recurso de Static Web Apps en [Azure Portal](https://portal.azure.com).
@@ -132,9 +128,7 @@ Use la tabla siguiente para buscar la ruta de inicio de sesión específica de l
 | Proveedor de autorización | Ruta de inicio de sesión             |
 | ---------------------- | ----------------------- |
 | Azure Active Directory | `/.auth/login/aad`      |
-| Facebook               | `/.auth/login/facebook` |
 | GitHub                 | `/.auth/login/github`   |
-| Google<sup>1</sup>     | `/.auth/login/google`   |
 | Twitter                | `/.auth/login/twitter`  |
 
 Por ejemplo, para iniciar sesión con GitHub, podría incluir un vínculo de inicio de sesión como el siguiente fragmento de código:

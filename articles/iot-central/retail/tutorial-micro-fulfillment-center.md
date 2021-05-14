@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 01/09/2020
-ms.openlocfilehash: ab4d609b1638b47ad73b6f1143adee2870577305
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 78536867efa4894f1041a340b9d6347a4e030a69
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100390477"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109685664"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-micro-fulfillment-center-application-template"></a>Tutorial: Implementación y recorrido por una plantilla de aplicación del centro de micrologística
 
@@ -52,8 +52,6 @@ Para crear una nueva aplicación del centro de micrologística que usa las carac
     >Aunque use un nombre de aplicación descriptivo, debe usar un valor único para la dirección URL de la aplicación.
 
 1. Si tiene una suscripción de Azure, escriba el directorio, la suscripción de Azure y la región. Si no la tiene, puede habilitar la evaluación gratuita de 7 días y completar la información de contacto necesaria.  
-
-    Para más información sobre los directorios y las suscripciones, consulte el inicio rápido [Creación de una aplicación](../core/quick-deploy-iot-central.md).
 
 1. Seleccione **Crear**.
 

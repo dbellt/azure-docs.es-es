@@ -4,12 +4,12 @@ description: Obtenga información acerca de la configuración de interfaces Ethe
 ms.topic: reference
 ms.subservice: workloads
 ms.date: 04/14/2021
-ms.openlocfilehash: c57cbc86d17090d6960a334c2790d80b43420aca
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: c381d06c5f152ef1bfecfb76747bf26dbb24f06e
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107588894"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109516964"
 ---
 # <a name="ethernet-configuration-of-baremetal-for-oracle"></a>Configuración de Ethernet de BareMetal para Oracle
 
@@ -58,7 +58,7 @@ En el caso de las instancias de BareMetal, el valor predeterminado tendrá nueve
 - Ethernet "C" debe tener asignada una dirección IP que se use para la comunicación con el almacenamiento NFS. Este tipo de dirección no se debe mantener en el directorio etc/hosts.
 - Ethernet "D" debe usarse exclusivamente para la configuración de Global Reach con el objetivo de acceder a las instancias de BareMetal en la región de recuperación ante desastres.
 
-## <a name="next-step"></a>Paso siguiente
+## <a name="next-steps"></a>Pasos siguientes
 
 Más información sobre la arquitectura de BareMetal Infrastructure para Oracle.
 
