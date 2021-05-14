@@ -1,18 +1,18 @@
 ---
 title: Copia y transformación de datos en Azure SQL Database
 description: Aprenda a copiar datos con Azure SQL Database como origen o destino y a transformarlos en Azure SQL Database mediante Azure Data Factory.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/17/2021
-ms.openlocfilehash: 75615b4bb8773d0c0b8f72278e5598462c779ceb
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: e72b1c0edf110dc680d76c4451f45dec708467cb
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107365236"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109487536"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Copia y transformación de datos en Azure SQL Database mediante Azure Data Factory
 
@@ -51,7 +51,7 @@ Si usa el [nivel sin servidor](../azure-sql/database/serverless-tier-overview.md
 
 ## <a name="get-started"></a>Introducción
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 En las secciones siguientes se proporciona información acerca de las propiedades que se usan para definir las entidades de Data Factory específicas de un conector de Azure SQL Database.
 

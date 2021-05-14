@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 03/02/2021
-ms.openlocfilehash: 5ca821cb4f85deb77595e4a9029cc10298dbb884
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b0f5bf01080d89e6dc6d6843312d96243b8526ba
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105611980"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109484548"
 ---
 # <a name="scale-agentless-migration-of-vmware-virtual-machines-to-azure"></a>Escalado de la migración sin agentes de máquinas virtuales de VMware a Azure
 
@@ -27,7 +27,7 @@ En este artículo, aprenderá a:
 - Agregar un dispositivo de escalabilidad horizontal para la migración sin agente de máquinas virtuales de VMware.
 - Migrar hasta 500 VM simultáneamente con el dispositivo de escalabilidad horizontal.
 
-##  <a name="prerequisites"></a>Prerrequisitos
+##  <a name="prerequisites"></a>Requisitos previos
 
 Antes de comenzar, debe llevar a cabo los siguientes pasos:
 
@@ -76,7 +76,7 @@ El script del instalador hace lo siguiente:
 
 - Instale el agente de puerta de enlace y el administrador de configuración de dispositivos para realizar más replicaciones de servidor simultáneas.
 - Instala los roles de Windows, incluido el servicio de activación de Windows, IIS y PowerShell ISE.
-- Descarga e instala un módulo de reescritura de IIS. [Más información](https://www.microsoft.com/download/details.aspx?id=7435).
+- Descarga e instala un módulo de reescritura de IIS.
 - Actualiza una clave del registro (HKLM) con detalles de configuración persistentes para Azure Migrate.
 - Crea los siguientes archivos en la ruta de acceso:
     - **Archivos de configuración**:%Programdata%\Microsoft Azure\Config

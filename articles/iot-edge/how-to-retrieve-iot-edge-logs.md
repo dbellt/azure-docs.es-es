@@ -10,12 +10,12 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: c06120d1a2e8aa6aa0c006c6f40fed6fab44c5b7
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 19183da24a3652757626cb37fae96027ed01a8ea
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103200696"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109633184"
 ---
 # <a name="retrieve-logs-from-iot-edge-deployments"></a>Recuperación de registros de implementaciones de IoT Edge
 
@@ -37,7 +37,7 @@ Aunque no es necesario, para mejorar la compatibilidad con esta característica,
 
 `{Timestamp}` debe tener el formato `yyyy-MM-dd hh:mm:ss.fff zzz` y `{Log Level}` debe seguir la tabla siguiente, que deriva sus niveles de gravedad del [código de gravedad del estándar Syslog](https://wikipedia.org/wiki/Syslog#Severity_level).
 
-| Valor | Severity |
+| Value | Severity |
 |-|-|
 | 0 | Emergencia |
 | 1 | Alerta |
@@ -210,7 +210,7 @@ Por ejemplo:
 La invocación siguiente carga las últimas 100 líneas de registro de todos los módulos en formato JSON comprimido:
 
 ```azurecli
-az iot hub invoke-module-method --method-name UploadModuleLogs -n <hub name> -d <device id> -m \$edgeAgent --method-payload \
+az iot hub invoke-module-method --method-name UploadModuleLogs -n <hub name> -d <device id> -m '$edgeAgent' --method-payload \
 '
     {
         "schemaVersion": "1.0",
@@ -232,7 +232,7 @@ az iot hub invoke-module-method --method-name UploadModuleLogs -n <hub name> -d 
 La siguiente invocación carga las últimas 100 líneas de registro de edgeAgent y edgeHub con las últimas 1000 líneas de registro del módulo tempSensor en formato de texto sin comprimir:
 
 ```azurecli
-az iot hub invoke-module-method --method-name UploadModuleLogs -n <hub name> -d <device id> -m \$edgeAgent --method-payload \
+az iot hub invoke-module-method --method-name UploadModuleLogs -n <hub name> -d <device id> -m '$edgeAgent' --method-payload \
 '
     {
         "schemaVersion": "1.0",

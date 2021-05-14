@@ -47,6 +47,8 @@
       href: logs/get-started-queries.md
     - name: Creación de un panel a partir de una consulta de registro
       href: visualize/tutorial-logs-dashboards.md
+    - name: Creación de una alerta a partir de una consulta de registro
+      href: alerts/tutorial-response.md
     - name: Escalado automático del rendimiento y programación
       href: autoscale/tutorial-autoscale-performance-schedule.md
     - name: Application Insights
@@ -209,7 +211,7 @@
           items:
             - name: Crear un área de trabajo
               items:
-                - name: Azure Portal
+                - name: Azure portal
                   href: logs/quick-create-workspace.md
                 - name: Azure CLI
                   href: logs/quick-create-workspace-cli.md

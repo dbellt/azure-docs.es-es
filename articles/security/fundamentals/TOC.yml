@@ -4,6 +4,8 @@
   items:
     - name: Introducción a la seguridad de Azure
       href: overview.md
+    - name: Seguridad de un extremo a otro
+      href: end-to-end.md
     - name: Responsabilidad compartida en la nube
       href: shared-responsibility.md
 - name: Protección de cargas de trabajo en Azure
@@ -62,7 +64,9 @@
     - name: Lista de comprobación de seguridad
       href: steps-secure-identity.md
     - name: Seleccionar inicio de sesión sin contraseña
-      href: ../../active-directory/authentication/concept-authentication-passwordless.md
+      href: ../../active-directory/authentication/concept-authentication-passwordless.md?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - name: Authentication
+      href: /azure/architecture/framework/security/design-identity-authentication?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
 - name: Seguridad de las redes
   items:
     - name: Introducción a la seguridad
@@ -72,11 +76,11 @@
     - name: Procedimientos recomendados de DDoS Protection
       href: ../../ddos-protection/fundamental-best-practices.md
     - name: Línea base de seguridad de DDoS Protection
-      href: ddos-protection-security-baseline.md
+      href: /security/benchmark/azure/baselines/ddos-protection-security-baseline?toc=/azure/security/fundamentals/TOC.json
     - name: Adquisición de DNS y subdominio pendiente
       href: subdomain-takeover.md
     - name: Arquitectura de red híbrida segura
-      href: /azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?bc=%2fazure%2fsecurity%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsecurity%2ftoc.json
+      href: /azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
 - name: Seguridad de IaaS
   items:
     - name: Microsoft Antimalware
@@ -116,11 +120,11 @@
         - name: Lista de comprobación de seguridad
           href: database-security-checklist.md
     - name: Guía de seguridad de Storage
-      href: ../../storage/blobs/security-recommendations.md?bc=%2fazure%2fsecurity%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsecurity%2ftoc.json
+      href: ../../storage/blobs/security-recommendations.md?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Caja de seguridad del cliente
       href: customer-lockbox-overview.md
     - name: Línea de base de seguridad de Caja de seguridad del cliente
-      href: customer-lockbox-security-baseline.md
+      href: /security/benchmark/azure/baselines/lockbox-security-baseline?toc=/azure/security/fundamentals/TOC.json
 - name: Application
   items:
     - name: PaaS
@@ -156,6 +160,8 @@
   items:
     - name: Servicios de seguridad de Azure
       href: services-technologies.md
+    - name: Disponibilidad de las características para nubes de la Administración Pública de Estados Unidos
+      href: feature-availability.md
     - name: Notas del producto de seguridad
       href: 'https://azure.microsoft.com/resources/whitepapers/search/?term=security&type=WhitePaperResource'
     - name: Procedimientos recomendados

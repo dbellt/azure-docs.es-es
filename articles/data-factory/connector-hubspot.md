@@ -1,17 +1,17 @@
 ---
 title: Copiar datos de HubSpot con Azure Data Factory
 description: Obtenga información sobre cómo copiar datos de HubSpot en almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 12/18/2020
-ms.author: jingwang
-ms.openlocfilehash: 7f2ab069be7985376c44f2cd2ae3ccdd728d4e2a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: jianleishen
+ms.openlocfilehash: ff50962baf4337f977406739da16876ab878a2d7
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100385666"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109484944"
 ---
 # <a name="copy-data-from-hubspot-using-azure-data-factory"></a>Copiar datos de HubSpot con Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -32,7 +32,7 @@ Azure Data Factory proporciona un controlador integrado para habilitar la conect
 
 ## <a name="getting-started"></a>Introducción
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 En las secciones siguientes se proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas del conector de HubSpot.
 

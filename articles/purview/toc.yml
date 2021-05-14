@@ -12,6 +12,12 @@ items:
         href: create-catalog-portal.md
       - name: 'Creación de una cuenta de Purview: Azure PowerShell'
         href: create-catalog-powershell.md
+      - name: 'Creación de una cuenta de Purview: SDK de .NET'
+        href: create-purview-dotnet.md
+      - name: 'Creación de una cuenta de Purview: Python'
+        href: create-purview-python.md
+      - name: 'Administración de notificaciones de Kafka: .NET'
+        href: manage-kafka-dotnet.md
   - name: Tutoriales
     items:
       - name: Starter Kit
@@ -71,6 +77,8 @@ items:
             href: manage-integration-runtimes.md
           - name: Solución de problemas de conexión
             href: troubleshoot-connections.md
+          - name: Reglas de patrón de conjunto de recursos
+            href: how-to-resource-set-pattern-rules.md
           - name: Orígenes
             items:
               - name: Administración de orígenes de datos
@@ -79,6 +87,8 @@ items:
                 href: purview-connector-overview.md
               - name: Azure Multiple Source
                 href: register-scan-azure-multiple-sources.md
+              - name: Azure Synapse Analytics (área de trabajo)
+                href: register-scan-synapse-workspace.md
               - name: Azure Blob Storage
                 href: register-scan-azure-blob-storage-source.md
                 displayName: Register and scan azure blob storage
@@ -100,7 +110,7 @@ items:
               - name: Instancia administrada de Azure SQL Database
                 href: register-scan-azure-sql-database-managed-instance.md
                 displayName: Register and scan Azure SQL DB Managed Instance
-              - name: Azure Synapse Analytics
+              - name: "Grupo de SQL dedicado de Azure (antes denominado SQL\_DW)"
                 href: register-scan-azure-synapse-analytics.md
               - name: SQL Server local
                 href: register-scan-on-premises-sql-server.md
@@ -140,7 +150,7 @@ items:
             href: how-to-browse-catalog.md
           - name: Búsqueda en Data Catalog
             href: how-to-search-catalog.md
-      - name: Linaje
+      - name: Lineage
         items:
           - name: Guía de usuario de Lineage
             href: catalog-lineage-user-guide.md
@@ -148,6 +158,10 @@ items:
             href: how-to-link-azure-data-factory.md
           - name: Linaje de Azure Data Share
             href: how-to-link-azure-data-share.md
+          - name: "Linaje de Power\_BI"
+            href: how-to-lineage-powerbi.md
+          - name: Linaje de Spark
+            href: how-to-lineage-spark-atlas-connector.md
       - name: Supervisión
         items:
           - name: Supervisión con Azure Monitor
@@ -170,9 +184,21 @@ items:
         items:
           - name: Administración de puntos de conexión privados
             href: catalog-private-link.md
+      - name: Recuperación ante desastres
+        items:
+          - name: Recuperación ante desastres
+            href: disaster-recovery.md
   - name: Referencia
     items:
       - name: Clasificaciones admitidas
         href: supported-classifications.md
       - name: Guía de implementación de funciones de ABAP
         href: abap-functions-deployment-guide.md
+  - name: Recursos
+    items:
+      - name: Comentarios sobre características (voz del usuario)
+        href: 'https://feedback.azure.com/forums/932437-azure-purview'
+      - name: Calculadora de precios
+        href: 'https://azure.microsoft.com/pricing/details/azure-purview/'
+      - name: Foro de preguntas y respuestas de Microsoft
+        href: /answers/topics/azure-purview.html

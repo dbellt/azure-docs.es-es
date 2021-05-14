@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 03/31/2021
 ms.author: jlian
-ms.openlocfilehash: 3fed568d1e5b85fcfaf5c88eb736e876e9748088
-ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
+ms.openlocfilehash: 834ccc850a3099857dc1b88e45b0c0c3ee3a186c
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2021
-ms.locfileid: "107930720"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109486456"
 ---
 # <a name="transport-layer-security-tls-support-in-iot-hub"></a>Compatibilidad de la Seguridad de la capa de transporte (TLS) con IoT Hub
 
@@ -133,7 +133,7 @@ Los dispositivos de IoT Edge se pueden configurar para que usen TLS 1.2 al com
 
 ## <a name="device-authentication"></a>Autenticación de dispositivos
 
-Después de un protocolo de enlace de TLS correcto, IoT Hub puede autenticar un dispositivo mediante una clave simétrica o un certificado X.509. En el caso de la autenticación basada en certificados, puede tratarse de cualquier certificado X.509, incluido ECC. IoT Hub valida el certificado con la huella digital o la entidad de certificación (CA) que proporcione. Para obtener más información, consulte [Certificados X.509 compatibles](iot-hub-devguide-security.md#supported-x509-certificates).
+Después de un protocolo de enlace de TLS correcto, IoT Hub puede autenticar un dispositivo mediante una clave simétrica o un certificado X.509. En el caso de la autenticación basada en certificados, puede tratarse de cualquier certificado X.509, incluido ECC. IoT Hub valida el certificado con la huella digital o la entidad de certificación (CA) que proporcione. Para obtener más información, consulte [Certificados X.509 compatibles](iot-hub-dev-guide-sas.md#supported-x509-certificates).
 
 ## <a name="tls-maximum-fragment-length-negotiation-preview"></a>Negociación de longitud de fragmento máxima de TLS (versión preliminar)
 

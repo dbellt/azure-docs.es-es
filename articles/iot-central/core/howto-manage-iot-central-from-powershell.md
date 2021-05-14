@@ -9,12 +9,12 @@ ms.date: 03/27/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 manager: philmea
-ms.openlocfilehash: a870b72d1dda04ab29dbb5f056873d47f888b837
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 932b2a5e09c335564273a1161c471182738e40b0
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102501397"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109685340"
 ---
 # <a name="manage-iot-central-from-azure-powershell"></a>Administración de IoT Central desde Azure PowerShell
 
@@ -79,7 +79,11 @@ El script crea primero un grupo de recursos en la región Este de EE. UU. para l
 |Plantilla          | Plantilla de aplicación que se va a usar. Para más información, vea la tabla siguiente. |
 |DisplayName       |Nombre de la aplicación tal como se muestra en la interfaz de usuario. |
 
+### <a name="application-templates"></a>Plantillas de aplicación
+
 [!INCLUDE [iot-central-template-list](../../../includes/iot-central-template-list.md)]
+
+Si ha creado su propia plantilla de aplicación, puede usarla para crear una aplicación. Cuando se le pida una plantilla de aplicación, escriba el identificador de la aplicación que se muestra en el vínculo compartible de la dirección URL de la aplicación exportada en la sección [Exportación de plantillas de la aplicación](howto-use-app-templates.md#create-an-application-template).
 
 ## <a name="view-your-iot-central-applications"></a>Visualización de las aplicaciones de IoT Central
 

@@ -6,12 +6,12 @@ ms.author: valls
 ms.date: 2/16/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 03338033d62d857c5286dc80ed6614aeb8a65ab7
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 58cbc56932e8730e25287e298679995169ed734e
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108133716"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108804077"
 ---
 # <a name="device-update-agent-provisioning"></a>Aprovisionamiento del agente de actualización de dispositivos
 
@@ -154,6 +154,7 @@ Siga estas instrucciones para aprovisionar el agente de actualización de dispos
 ### <a name="other-iot-devices"></a>Otros dispositivos IoT
 
 El agente de actualización de dispositivos también puede configurarse sin el servicio de identidad de IoT para probar o en dispositivos restringidos. Siga los pasos que se indican a continuación para aprovisionar el agente de actualización de dispositivos mediante una cadena de conexión (desde el módulo o el dispositivo).
+
 
 1.  Proporcionamos imágenes de muestra en [Artefactos](https://github.com/Azure/iot-hub-device-update/releases); el archivo swUpdate es la imagen base que puede grabar en la memoria flash de una placa Raspberry Pi B3+ y el archivo .gz es la actualización que se importará mediante Device Update for IoT Hub. Vea un ejemplo de [cómo instalar la imagen en el dispositivo IoT Hub](/azure/iot-hub-device-update/device-update-raspberry-pi#flash-sd-card-with-image).
 
