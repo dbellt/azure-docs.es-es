@@ -11,14 +11,14 @@ metadata:
   ms.author: mbaldwin
   manager: rkarlin
   ms.date: 09/15/2020
-  ms.openlocfilehash: be85f521d1db7cdcad9393de52ef1846989e6245
-  ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+  ms.openlocfilehash: 7e4fa839d4bd85ef6a5d560ee19ddb87fe660ced
+  ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 02/10/2021
-  ms.locfileid: "100097966"
+  ms.lasthandoff: 04/21/2021
+  ms.locfileid: "107817529"
 landingContent:
-- title: Acerca de HSM administrado de Azure Key Vault (versión preliminar)
+- title: Acerca de HSM administrado de Azure Key Vault
   linkLists:
   - linkListType: overview
     links:
@@ -80,7 +80,7 @@ landingContent:
       url: ../general/overview.md
     - text: Conceptos básicos
       url: ../general/basic-concepts.md
-    - text: Introducción a la seguridad
-      url: ../general/security-overview.md
+    - text: Características de seguridad
+      url: ../general/security-features.md
     - text: Introducción a la eliminación temporal
       url: ../general/soft-delete-overview.md

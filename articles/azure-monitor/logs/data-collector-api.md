@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/14/2020
-ms.openlocfilehash: e32bf95ef52fdd081eeaa476f44bf5dab99657d6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 7a2af7a050ec0203c0be6f8919309d0c849e7214
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102452125"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109752236"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Envío de datos de registro a Azure Monitor con HTTP Data Collector API (versión preliminar pública)
 En este artículo se muestra cómo utilizar HTTP Data Collector API para enviar datos de registro a Azure Monitor desde un cliente de API REST.  Describe cómo dar formato a los datos recopilados por el script o la aplicación, incluirlos en una solicitud y hacer que esa solicitud la autorice Azure Monitor.  Se proporcionan ejemplos de PowerShell, C# y Python.
@@ -72,8 +72,8 @@ Use este formato para codificar la cadena de firma **SharedKey**:
 ```
 StringToSign = VERB + "\n" +
                   Content-Length + "\n" +
-               Content-Type + "\n" +
-                  x-ms-date + "\n" +
+                  Content-Type + "\n" +
+                  "x-ms-date:" + x-ms-date + "\n" +
                   "/api/logs";
 ```
 

@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 04/26/2021
 ms.author: rohink
-ms.openlocfilehash: b4c18403574f6c4772d0c6c50e3efa42a118f054
-ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
+ms.openlocfilehash: 9e8ed0e21f1a6a98915dd3db1d5b8c2dcc1d6103
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108065125"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108763296"
 ---
 # <a name="what-is-a-virtual-network-link"></a>¿Qué es un vínculo de red virtual?
 
@@ -54,4 +54,4 @@ Para conocer el número de redes de registro y de resolución que puede vincular
 
 * Obtenga información sobre algunos [escenarios de zona privada](./private-dns-scenarios.md) habituales que pueden realizarse con zonas privadas en Azure DNS.
 
-* Para ver algunas preguntas y respuestas comunes sobre las zonas privadas en Azure DNS, como el comportamiento específico que se puede esperar con determinadas clases de operaciones, consulte [Preguntas frecuentes de DNS privado](./dns-faq-private.md).
+* Para ver algunas preguntas y respuestas comunes sobre las zonas privadas en Azure DNS, como el comportamiento específico que se puede esperar con determinadas clases de operaciones, consulte [Preguntas frecuentes de DNS privado](./dns-faq-private.yml).

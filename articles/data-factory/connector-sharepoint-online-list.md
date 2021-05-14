@@ -1,17 +1,17 @@
 ---
 title: Copia de datos de una lista de SharePoint Online mediante Azure Data Factory
 description: Aprenda a copiar datos de una lista de SharePoint Online en almacenes de datos receptores compatibles mediante una actividad de copia efectuada en una canalización de Azure Data Factory.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.author: jingwang
-ms.openlocfilehash: f8074b69b97a6ef96837e73a1082d2deb67084d9
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.author: jianleishen
+ms.openlocfilehash: 44c60305519c2464df56c3b5a9228161548d4bd6
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102177868"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109482892"
 ---
 # <a name="copy-data-from-sharepoint-online-list-by-using-azure-data-factory"></a>Copia de datos de una lista de SharePoint Online mediante Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -66,7 +66,7 @@ El conector de lista de SharePoint Online usa la autenticación de entidad de se
 
 ## <a name="get-started"></a>Introducción
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 En las secciones siguientes se proporcionan detalles sobre las propiedades que puede usar para definir entidades de Data Factory específicas del conector de lista de SharePoint Online.
 

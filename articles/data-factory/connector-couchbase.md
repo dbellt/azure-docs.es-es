@@ -1,17 +1,17 @@
 ---
 title: Copiar datos de Couchbase con Azure Data Factory (versión preliminar)
 description: Obtenga información sobre cómo copiar datos de Couchbase en almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 08/12/2019
-ms.author: jingwang
-ms.openlocfilehash: e8de7982e99e258f0a72bd507ac0d8de16a7227a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.author: jianleishen
+ms.openlocfilehash: ee4430c03929c9414de7f967db347566f75fa0ce
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100383660"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109487302"
 ---
 # <a name="copy-data-from-couchbase-using-azure-data-factory-preview"></a>Copiar datos de Couchbase con Azure Data Factory (versión preliminar)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -31,13 +31,13 @@ Puede copiar datos de Couchbase en cualquier almacén de datos receptor compatib
 
 Azure Data Factory proporciona un controlador integrado para habilitar la conectividad. Por lo tanto, no es necesario instalar manualmente ningún controlador mediante este conector.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
-[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## <a name="getting-started"></a>Introducción
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 En las secciones siguientes se proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas del conector de Couchbase.
 

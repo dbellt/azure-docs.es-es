@@ -7,13 +7,13 @@ ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell
 ms.author: mbaldwin
-ms.date: 10/16/2020
-ms.openlocfilehash: 7d70f9ebd071d6699412f56e9dca1abcebb38105
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.date: 05/20/2021
+ms.openlocfilehash: 2aa4c1b95677dd2257751fd27270d927d700bdb6
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107834253"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109750562"
 ---
 # <a name="quickstart-create-an-azure-attestation-provider-with-an-arm-template"></a>Inicio rápido: Creación de un proveedor de Azure Attestation con una plantilla de Resource Manager
 
@@ -23,7 +23,7 @@ ms.locfileid: "107834253"
 
 Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
 
-[![Implementar en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-attestation-provider-create%2Fazuredeploy.json)
+[![Implementar en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.attestation%2Fattestation-provider-create%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -33,7 +33,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-attestation-provider-create).
 
-:::code language="json" source="~/quickstart-templates/101-attestation-provider-create/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.attestation/attestation-provider-create/azuredeploy.json":::
 
 Recursos de Azure definidos en la plantilla:
 
@@ -43,7 +43,7 @@ Recursos de Azure definidos en la plantilla:
 
 1. Seleccione la imagen siguiente para iniciar sesión en Azure y abrir la plantilla.
 
-    [![Implementar en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-attestation-provider-create%2Fazuredeploy.json)
+    [![Implementar en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.attestation%2Fattestation-provider-create%2Fazuredeploy.json)
 
 1. Seleccione o escriba los siguientes valores.
 

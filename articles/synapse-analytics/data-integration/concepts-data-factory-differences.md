@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/10/2020
 ms.author: makromer
 ms.reviewer: jrasnick
-ms.openlocfilehash: 144bdf5e94f753090dd73e5839b6c1fd25f11811
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: 638b78f0304a9bbba8521ed523dffa1deda03c7c
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107567645"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109480804"
 ---
 # <a name="data-integration-in-azure-synapse-analytics-versus-azure-data-factory"></a>Integración de datos en Azure Synapse Analytics frente a Azure Data Factory
 
@@ -32,7 +32,7 @@ Consulte la tabla siguiente para ver la disponibilidad de las características:
 |                          | Uso compartido de Integration Runtime | ✓<br><small>*Puede compartirse entre diferentes factorías de datos* | ✗ |
 |                          | Período de vida | ✓ | ✗ |
 | **Actividades de canalizaciones** | Actividad del paquete de SSIS | ✓ | ✗ |
-|                          | Compatibilidad con la actividad de Power Query | ✓ | ✓ |
+|                          | Compatibilidad con la actividad de Power Query | ✓ | ✗ |
 | **Galería de plantillas y centro de conocimientos** | Plantillas de solución | ✓<br><small>*Galería de plantillas de Azure Data Factory* | ✓<br><small>*Centro de conocimientos del área de trabajo de Synapse* |
 | **Integración del repositorio GIT** | Integración de GIT | ✓ | ✓ |
 | **Supervisión**           | Supervisión de trabajos de Spark para el flujo de datos | ✗ | ✓<br><small>*Aproveche los grupos de Spark en Synapse* |
