@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 11/09/2020
-ms.openlocfilehash: c59529db0981a1071b76714c48aacaf675e4b17a
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: eee4d23b17bf852946b31912eb81fd4f897e0f56
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99987900"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108803879"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Inicio rápido: Creación, entrenamiento y publicación de la base de conocimiento de QnA Maker
 
@@ -47,7 +47,7 @@ Puede crear una base de conocimiento (KB) de QnA Maker a partir de contenido pro
     |Configuración|Value|
     |--|--|
     |**Enable multi-turn extraction from URLs, .pdf or .docx files** (Habilitar extracción en varios turnos de direcciones URL, archivos .pdf o .docx).|Activado|
-    |**Texto predeterminado multiturno**| Selección y opción|
+    |**Texto predeterminado multiturno**| Seleccione una opción|
     |**+ Agregar dirección URL**|`https://www.microsoft.com/en-us/software-download/faq`|
     |**Charla**|Seleccione **Professional**|
 
@@ -82,7 +82,7 @@ Puede crear una base de conocimiento (KB) de QnA Maker a partir de contenido pro
     |Configuración|Value|
     |--|--|
     |**Enable multi-turn extraction from URLs, .pdf or .docx files** (Habilitar extracción en varios turnos de direcciones URL, archivos .pdf o .docx).|Activado|
-    |**Texto predeterminado multiturno**| Selección y opción|
+    |**Texto predeterminado multiturno**| Seleccione una opción|
     |**+ Agregar archivo**| Descargue el manual del dispositivo Surface Laptop de: https://download.microsoft.com/download/7/B/1/7B10C82E-F520-4080-8516-5CF0D803EEE0/surface-book-user-guide-EN.pdf 
     |**Charla**|Seleccione **Professional**|
 

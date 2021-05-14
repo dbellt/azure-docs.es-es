@@ -45,6 +45,8 @@
           href: tutorial-desktop-app-webapi.md
         - name: Página única
           href: tutorial-single-page-app-webapi.md
+    - name: 6 - Limpieza y eliminación del inquilino
+      href: tutorial-delete-tenant.md
 - name: Ejemplos
   href: code-samples.md
 - name: Conceptos
@@ -79,22 +81,28 @@
           href: tokens-overview.md
         - name: Solicitud de un token de acceso
           href: access-tokens.md
-    - name: Claves de directiva
-      href: policy-keys-overview.md
-    - name: Flujo de usuario y directiva
+    - name: Experiencia del usuario
+      expanded: true
       items:
-        - name: Flujos de usuario
+        - name: Flujos de usuario y directivas personalizadas
           href: user-flow-overview.md
-        - name: Directivas personalizadas
+        - name: Introducción a las directivas personalizadas
           href: custom-policy-overview.md
+    - name: Conectores de API
+      href: api-connectors-overview.md
+      displayName: 'REST API, web API, API connectors'
     - name: Cuentas de usuario
       href: user-overview.md
     - name: Atributos de perfil de usuario
       href: user-profile-attributes.md
     - name: Identity Protection y acceso condicional
       href: conditional-access-identity-protection-overview.md
+    - name: Claves de directiva
+      href: policy-keys-overview.md
 - name: Guías paso a paso
   items:
+    - name: Administrar tu inquilino
+      href: tenant-management.md
     - name: Integración de la aplicación
       items:
         - name: Registro de una aplicación web
@@ -120,6 +128,9 @@
           href: signin-appauth-ios.md
         - name: Android con App Auth
           href: signin-appauth-android.md
+        - name: Protección de la API de API Management
+          href: secure-api-management.md
+          displayName: 'apim, api management, migrate, b2clogin.com'
     - name: Creación de un flujo
       items:
         - name: Directiva de registro o de inicio de sesión
@@ -163,6 +174,8 @@
           href: identity-provider-azure-ad-multi-tenant.md
         - name: Azure AD B2C
           href: identity-provider-azure-ad-b2c.md
+        - name: eBay
+          href: identity-provider-ebay.md
         - name: Facebook
           href: identity-provider-facebook.md
         - name: OpenId Connect genérico
@@ -221,6 +234,15 @@
           href: password-complexity.md
         - name: Deshabilitación de la comprobación de correo electrónico
           href: disable-email-verification.md
+        - name: Verificación de correo electrónico personalizado
+          items:
+            - name: Mailjet
+              href: custom-email-mailjet.md
+              displayName: 'Custom email, Custom verification email, Verification email'
+            - name: SendGrid
+              href: custom-email-sendgrid.md
+              displayName: 'Custom email, Custom verification email, Verification email'
+          displayName: verification
         - name: Habilitar MFA
           items:
             - name: Multi-Factor Authentication
@@ -260,142 +282,25 @@
           href: conditional-access-user-flow.md
     - name: Configuración de la restricción de acceso por edad
       href: age-gating.md
-    - name: Conectores de API (versión preliminar)
+    - name: Conectores de API
       items:
-        - name: Información general
-          href: api-connectors-overview.md
-        - name: Adición de un conector de API
+        - name: Adición de un conector de API a un flujo de usuario de registro
           href: add-api-connector.md
+          displayName: 'rest claims validation, validate'
+        - name: Adición de un conector de API a un flujo de usuario de registro o inicio de sesión
+          href: custom-policy-rest-api-claims-exchange.md
+          displayName: rest claims exchange
+        - name: Protección de un conector de API
+          href: secure-rest-api.md
     - name: Directiva personalizada
       items:
-        - name: Introducción a las directivas personalizadas
-          href: custom-policy-trust-frameworks.md
-        - name: Introducción a las directivas personalizadas
-          href: custom-policy-get-started.md
-        - name: Verificación de correo electrónico personalizado
-          items:
-            - name: Mailjet
-              href: custom-email-mailjet.md
-              displayName: 'Custom email, Custom verification email, Verification email'
-            - name: SendGrid
-              href: custom-email-sendgrid.md
-              displayName: 'Custom email, Custom verification email, Verification email'
-          displayName: verification
-        - name: Agregar su propia lógica de negocios
-          items:
-            - name: Integración de API REST
-              href: custom-policy-rest-api-intro.md
-            - name: Validación de entradas de usuario
-              href: custom-policy-rest-api-claims-validation.md
-              displayName: 'rest claims validation, validate'
-            - name: Obtención de notificaciones adicionales
-              href: custom-policy-rest-api-claims-exchange.md
-              displayName: rest claims exchange
-            - name: Protección de API REST
-              href: secure-rest-api.md
         - name: Solución de problemas
           items:
             - name: Recopilación de registros con Application Insights
               href: troubleshoot-with-application-insights.md
               displayName: 'troubleshooting, app insights'
-            - name: Validación de directivas
+            - name: Solución de problemas de directivas personalizadas
               href: troubleshoot-custom-policies.md
-              displayName: troubleshooting
-        - name: Referencia
-          items:
-            - name: TrustFrameworkPolicy
-              href: trustframeworkpolicy.md
-            - name: BuildingBlocks
-              href: buildingblocks.md
-              items:
-                - name: ClaimsSchema
-                  href: claimsschema.md
-                - name: ClaimsTransformations
-                  href: claimstransformations.md
-                  items:
-                    - name: Boolean
-                      href: boolean-transformations.md
-                    - name: Date
-                      href: date-transformations.md
-                    - name: General
-                      href: general-transformations.md
-                    - name: Entero
-                      href: integer-transformations.md
-                    - name: JSON
-                      href: json-transformations.md
-                    - name: Número de teléfono
-                      href: phone-number-claims-transformations.md
-                    - name: Cuentas externas
-                      href: social-transformations.md
-                    - name: StringCollection
-                      href: stringcollection-transformations.md
-                    - name: String
-                      href: string-transformations.md
-                - name: Predicados
-                  href: predicates.md
-                - name: ContentDefinitions
-                  href: contentdefinitions.md
-                - name: Localización
-                  href: localization.md
-                  items:
-                    - name: Identificadores de cadenas de localización
-                      href: localization-string-ids.md
-                - name: DisplayControls
-                  href: display-controls.md
-                  items:
-                    - name: Comprobación
-                      href: display-control-verification.md
-            - name: ClaimsProviders
-              href: claimsproviders.md
-              items:
-                - name: Perfiles técnicos
-                  href: technicalprofiles.md
-                  items:
-                    - name: Acerca de los perfiles técnicos de validación
-                      href: validation-technical-profile.md
-                    - name: Azure Active Directory
-                      href: active-directory-technical-profile.md
-                    - name: "Azure\_AD Multi-Factor Authentication"
-                      href: multi-factor-auth-technical-profile.md
-                      displayName: mfa
-                    - name: Autoservicio de restablecimiento de contraseña de Azure AD
-                      href: aad-sspr-technical-profile.md
-                    - name: Transformación de notificaciones
-                      href: claims-transformation-technical-profile.md
-                    - name: Sugerencia de token de identificador
-                      href: id-token-hint.md
-                    - name: Emisor de tokens JWT
-                      href: jwt-issuer-technical-profile.md
-                    - name: OAuth1
-                      href: oauth1-technical-profile.md
-                    - name: OAuth2
-                      href: oauth2-technical-profile.md
-                    - name: Contraseña de un solo uso
-                      href: one-time-password-technical-profile.md
-                      displayName: otp
-                    - name: OpenID Connect
-                      href: openid-connect-technical-profile.md
-                    - name: Factor de teléfono
-                      href: phone-factor-technical-profile.md
-                    - name: REST
-                      href: restful-technical-profile.md
-                    - name: Proveedor de identidades de SAML
-                      href: saml-identity-provider-technical-profile.md
-                    - name: Emisor de tokens SAML
-                      href: saml-issuer-technical-profile.md
-                    - name: Autoafirmado
-                      href: self-asserted-technical-profile.md
-                    - name: Sesión de SSO
-                      href: custom-policy-reference-sso.md
-                      displayName: single sign-on
-            - name: UserJourneys
-              href: userjourneys.md
-            - name: SubJourneys
-              href: subjourneys.md
-            - name: RelyingParty
-              href: relyingparty.md
-            - name: Solucionadores de notificaciones
-              href: claim-resolver-overview.md
     - name: Punto de conexión de UserInfo
       href: userinfo-endpoint.md
     - name: Integración de asociados
@@ -417,15 +322,18 @@
           href: partner-lexisnexis.md
         - name: Onfido
           href: partner-onfido.md
-    - name: Protección contra el fraude
+    - name: Asociados de protección contra fraudes
       items:
-        - name: "Protección contra fraudes de Microsoft Dynamics\_365:"
-          href: partner-dynamics-365-fraud-protection.md
-          displayName: 'm365 dynamics, dynamics fraud protection, fraud, 365 protection'
         - name: Arkose Labs
           href: partner-arkose-labs.md
           displayName: 'fraud protection, fraud, Azure AD b2c, protection, B2Cprotection'
-    - name: Protección de aplicaciones locales y heredadas
+        - name: BioCatch
+          href: partner-biocatch.md
+          displayName: 'fraud protection, fraud, Azure AD b2c, protection, B2Cprotection, user behavior'
+        - name: "Protección contra fraudes de Microsoft Dynamics\_365:"
+          href: partner-dynamics-365-fraud-protection.md
+          displayName: 'm365 dynamics, dynamics fraud protection, fraud, 365 protection'
+    - name: Protección del acceso a aplicaciones locales y heredadas
       items:
         - name: Identidad de ping
           href: partner-ping-identity.md
@@ -441,6 +349,10 @@
           href: b2clogin.md
         - name: Configuración de un dominio personalizado
           href: custom-domain.md
+        - name: Asociados del firewall de aplicaciones web
+          items:
+            - name: Cloudflare
+              href: partner-cloudflare.md
         - name: Configuración de dominios de API web
           href: multiple-token-endpoints.md
           displayName: 'migrate, b2clogin, owin'
@@ -460,15 +372,15 @@
         - name: Portal de Azure
           href: manage-users-portal.md
           displayName: 'create users, add users, delete users'
+        - name: Migración de usuarios
+          href: user-migration.md
+          displayName: bulk import
         - name: Integración de asociados
           items:
             - name: N8identity
               href: partner-n8identity.md
             - name: Saviynt
               href: partner-saviynt.md
-    - name: Protección de la API de API Management
-      href: secure-api-management.md
-      displayName: 'apim, api management, migrate, b2clogin.com'
     - name: Registros y supervisión
       items:
         - name: Registros de auditoría
@@ -491,14 +403,111 @@
         - name: Datos de usuario
           href: manage-user-data.md
           displayName: GDPR
-    - name: Migración
-      items:
-        - name: Migración de usuarios
-          href: user-migration.md
 - name: Referencia
   items:
+    - name: Esquema de directiva personalizada
+      items:
+        - name: TrustFrameworkPolicy
+          href: trustframeworkpolicy.md
+        - name: BuildingBlocks
+          href: buildingblocks.md
+          items:
+            - name: ClaimsSchema
+              href: claimsschema.md
+            - name: ClaimsTransformations
+              href: claimstransformations.md
+              items:
+                - name: Boolean
+                  href: boolean-transformations.md
+                - name: Date
+                  href: date-transformations.md
+                - name: General
+                  href: general-transformations.md
+                - name: Entero
+                  href: integer-transformations.md
+                - name: JSON
+                  href: json-transformations.md
+                - name: Número de teléfono
+                  href: phone-number-claims-transformations.md
+                - name: Cuentas externas
+                  href: social-transformations.md
+                - name: StringCollection
+                  href: stringcollection-transformations.md
+                - name: String
+                  href: string-transformations.md
+            - name: Predicados
+              href: predicates.md
+            - name: ContentDefinitions
+              href: contentdefinitions.md
+            - name: Localización
+              href: localization.md
+              items:
+                - name: Identificadores de cadenas de localización
+                  href: localization-string-ids.md
+            - name: DisplayControls
+              href: display-controls.md
+              items:
+                - name: Comprobación
+                  href: display-control-verification.md
+        - name: ClaimsProviders
+          href: claimsproviders.md
+          items:
+            - name: Perfiles técnicos
+              href: technicalprofiles.md
+              items:
+                - name: Acerca de los perfiles técnicos de validación
+                  href: validation-technical-profile.md
+                - name: Azure Active Directory
+                  href: active-directory-technical-profile.md
+                - name: "Azure\_AD Multi-Factor Authentication"
+                  href: multi-factor-auth-technical-profile.md
+                  displayName: mfa
+                - name: Autoservicio de restablecimiento de contraseña de Azure AD
+                  href: aad-sspr-technical-profile.md
+                - name: Transformación de notificaciones
+                  href: claims-transformation-technical-profile.md
+                - name: Acceso condicional
+                  href: conditional-access-technical-profile.md
+                - name: Sugerencia de token de identificador
+                  href: id-token-hint.md
+                - name: Emisor de tokens JWT
+                  href: jwt-issuer-technical-profile.md
+                - name: OAuth1
+                  href: oauth1-technical-profile.md
+                - name: OAuth2
+                  href: oauth2-technical-profile.md
+                - name: Contraseña de un solo uso
+                  href: one-time-password-technical-profile.md
+                  displayName: otp
+                - name: OpenID Connect
+                  href: openid-connect-technical-profile.md
+                - name: Factor de teléfono
+                  href: phone-factor-technical-profile.md
+                - name: REST
+                  href: restful-technical-profile.md
+                - name: Proveedor de identidades de SAML
+                  href: saml-identity-provider-technical-profile.md
+                - name: Emisor de tokens SAML
+                  href: saml-issuer-technical-profile.md
+                - name: Autoafirmado
+                  href: self-asserted-technical-profile.md
+                - name: Sesión de SSO
+                  href: custom-policy-reference-sso.md
+                  displayName: single sign-on
+        - name: UserJourneys
+          href: userjourneys.md
+        - name: SubJourneys
+          href: subjourneys.md
+        - name: RelyingParty
+          href: relyingparty.md
+        - name: Solucionadores de notificaciones
+          href: claim-resolver-overview.md
+    - name: Notas de la versión
+      href: custom-policy-developer-notes.md
     - name: Restricciones y límites del servicio
       href: service-limits.md
+    - name: Requisitos de TLS y del conjunto de cifrado
+      href: https-cipher-tls-requirements.md
     - name: Registros de aplicaciones
       href: app-registrations-training-guide.md
     - name: Modelo de facturación
@@ -512,8 +521,6 @@
       href: error-codes.md
     - name: Aplicación de extensiones
       href: extensions-app.md
-    - name: Notas de la versión de directivas personalizadas (IEF)
-      href: custom-policy-developer-notes.md
     - name: Versiones de diseño de página
       href: page-layout.md
       displayName: Page version

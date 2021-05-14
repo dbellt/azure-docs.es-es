@@ -1,18 +1,18 @@
 ---
 title: Copia de datos de Square (versión preliminar)
 description: Obtenga información sobre cómo copiar datos de Square en almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/03/2020
-ms.openlocfilehash: ac10e42d338e0ddd44cb3c07709645a69653808d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 481407b54c6a99bca1dbc0f8ea7f8446c8c785c2
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100384799"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109484260"
 ---
 # <a name="copy-data-from-square-using-azure-data-factory-preview"></a>Copiar datos de Square con Azure Data Factory (versión preliminar)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -35,7 +35,7 @@ Azure Data Factory proporciona un controlador integrado para habilitar la conect
 
 ## <a name="getting-started"></a>Introducción
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 En las secciones siguientes se proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas del conector de Square.
 

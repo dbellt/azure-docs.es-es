@@ -7,16 +7,14 @@ ms.date: 04/09/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 6032300bd203db78e8cd147cf79300d6dcd9b1dc
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 87f188b414791636e147a19202b6fcf314d6f307
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107751695"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109683662"
 ---
 # <a name="transform-data-for-iot-central"></a>Transformación de datos para IoT Central
-
-*Este artículo se aplica a los generadores de soluciones.*
 
 Los dispositivos IoT envían datos en varios formatos. Para usar los datos del dispositivo con la aplicación IoT Central, es posible que tenga que usar una transformación para:
 
@@ -41,9 +39,9 @@ En la tabla siguiente se muestran tres tipos de transformaciones de ejemplo:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para completar los pasos de este artículo, deberá tener una suscripción de Azure activa. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+Necesitará lo siguiente para completar los pasos de esta guía:
 
-Para configurar la solución, necesita una aplicación de IoT Central. Para obtener información sobre cómo crear una aplicación de IoT Central, vea [Creación de una aplicación de Azure IoT Central](quick-deploy-iot-central.md).
+[!INCLUDE [iot-central-prerequisites-basic](../../../includes/iot-central-prerequisites-basic.md)]
 
 ## <a name="data-transformation-at-ingress"></a>Transformación de datos en la entrada
 
@@ -87,6 +85,8 @@ Quiere usar un módulo de IoT Edge para transformar los datos al siguiente forma
   }
 }
 ```
+
+[![Examinar el código](media/common/browse-code.svg)](https://github.com/iot-for-all/iot-central-transform-with-iot-edge)
 
 En los pasos siguientes se muestra cómo instalar y configurar este escenario:
 

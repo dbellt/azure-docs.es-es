@@ -2,23 +2,22 @@
 title: Información del registro de identidades de Azure IoT Hub | Microsoft Docs
 description: 'Guía del desarrollador: descripción del registro de identidades de IoT Hub y cómo usarlo para administrar los dispositivos Incluye información sobre la importación y exportación de identidades de dispositivos de forma masiva.'
 author: wesmc7777
-manager: philmea
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 05/06/2021
 ms.custom:
 - amqp
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 42def04db63d81bdb3eff8098daa8c75924bffec
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 2590ffd15ec046d0fc81e73b98577fa9ad91ae41
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107502086"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109712755"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Descripción del registro de identidades de un centro de IoT
 
@@ -32,11 +31,6 @@ Utilice el registro de identidad cuando necesite:
 
 * Aprovisionar dispositivos o módulos que se conectan a la instancia de IoT Hub
 * Controlar el acceso de cada dispositivo o módulo a los puntos de conexión accesibles desde el dispositivo o módulo del centro.
-
-> [!NOTE]
-> * El registro de identidad no contiene metadatos específicos de la aplicación.
-> * La identidad de módulo y el módulo gemelo se encuentran en versión preliminar pública. La siguiente característica se admitirá en el módulo de identidad cuanto esté disponible con carácter general.
->
 
 ## <a name="identity-registry-operations"></a>Operaciones de registro de identidad
 
@@ -58,10 +52,6 @@ Todas estas operaciones pueden usar la simultaneidad optimista, tal como se espe
 Un registro de identidades de un centro de IoT:
 
 * No contiene los metadatos de la aplicación.
-* Se puede acceder a él como si fuera un diccionario, mediante **deviceId** o **moduleId** como clave.
-* No admite consultas expresivas.
-
-Una solución de IoT normalmente tiene un almacén independiente específico de la solución que contiene los metadatos específicos de la aplicación. Por ejemplo, el almacén específico de la solución en una solución de un edificio inteligente puede registrar la sala en la que se implementa un sensor de temperatura.
 
 > [!IMPORTANT]
 > Solo se debe utilizar el registro de identidad para las operaciones de aprovisionamiento y administración de dispositivos. Las operaciones de alto rendimiento en tiempo de ejecución no deben depender de la realización de operaciones en el registro de identidad. Por ejemplo, comprobar el estado de conexión de un dispositivo antes de enviar un comando no es un modelo compatible. Asegúrese de comprobar las [tasas de limitación](iot-hub-devguide-quotas-throttling.md) para el registro de identidad y el patrón de [latido de dispositivo](iot-hub-devguide-identity-registry.md#device-heartbeat).

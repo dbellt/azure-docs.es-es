@@ -1,18 +1,18 @@
 ---
 title: Definiciones de directivas integradas para mensajería de Azure Service Bus
 description: Aquí se enumeran las definiciones de directivas integradas de Azure Policy para mensajería de Azure Service Bus. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar los recursos de Azure.
-ms.date: 04/28/2021
+ms.date: 05/04/2021
 ms.topic: reference
 author: spelluru
 ms.author: spelluru
 ms.service: service-bus-messaging
 ms.custom: subject-policy-reference
-ms.openlocfilehash: c5f74118d0cd245cfa2ea86f681b9e5f30385bf0
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 8d6d404960fff81bbd6e09276d1eb43764e17601
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108181207"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108766336"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-service-bus-messaging"></a>Definiciones de directivas integradas de Azure Policy para mensajería de Azure Service Bus
 

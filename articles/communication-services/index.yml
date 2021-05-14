@@ -1,20 +1,20 @@
 ### YamlMime:Landing
 title: Azure Communication Services
-summary: Azure Communication Services es un servicio de comunicaciones basado en la nube que permite agregar voz, vídeo, chat y telefonía a las aplicaciones. Tenga en cuenta que Azure Communication Services se encuentra actualmente en versión preliminar pública.
+summary: Azure Communication Services es un servicio de comunicaciones basado en la nube que permite agregar voz, vídeo, chat y telefonía a las aplicaciones.
 metadata:
   title: Azure Communication Services
-  description: Azure Communication Services es un servicio de comunicaciones basado en la nube que permite agregar voz, vídeo, chat y telefonía a las aplicaciones. Tenga en cuenta que Azure Communication Services se encuentran actualmente en versión preliminar pública.
+  description: Azure Communication Services es un servicio de comunicaciones basado en la nube que permite agregar voz, vídeo, chat y telefonía a las aplicaciones.
   ms.service: azure-communication-services
   ms.topic: landing-page
   author: mikben
   ms.author: mikben
-  ms.date: 08/10/2020
-  ms.openlocfilehash: 4727e7ca3e0831483811c77be34e69f794cfb576
-  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+  ms.date: 03/10/2021
+  ms.openlocfilehash: b68af98c5b55ddff605bb1c88274daf483f19f35
+  ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 03/03/2021
-  ms.locfileid: "101690522"
+  ms.lasthandoff: 04/30/2021
+  ms.locfileid: "108288407"
 landingContent:
 - title: Acerca de Azure Communication Services
   linkLists:
@@ -24,7 +24,7 @@ landingContent:
       url: overview.md
   - linkListType: concept
     links:
-    - text: Opciones de la biblioteca cliente
+    - text: Opciones de SDK
       url: concepts/sdk-options.md
     - text: Interoperabilidad de equipos
       url: concepts/teams-interop.md
@@ -43,22 +43,24 @@ landingContent:
     - text: Autenticación y autorización
       url: concepts/authentication.md
     - text: Control de eventos
-      url: concepts/event-handling.md
+      url: ../event-grid/event-schema-communication-services.md
     - text: Notificaciones
       url: concepts/notifications.md
+    - text: Solucionar problemas
+      url: concepts/troubleshooting-info.md
 - title: Llamadas de voz y vídeo
   linkLists:
   - linkListType: quickstart
     links:
     - text: Adición de llamadas de voz y vídeo a su aplicación
       url: quickstarts/voice-video-calling/getting-started-with-calling.md
-    - text: Uso de la biblioteca cliente de llamadas
+    - text: Uso de Calling SDK
       url: quickstarts/voice-video-calling/calling-client-samples.md
   - linkListType: concept
     links:
     - text: Conceptos de voz y vídeo
       url: concepts/voice-video-calling/about-call-types.md
-    - text: Introducción a la biblioteca cliente de llamadas
+    - text: Información general de Calling SDK
       url: concepts/voice-video-calling/calling-sdk-features.md
     - text: Flujos de llamadas
       url: concepts/call-flows.md
@@ -76,12 +78,16 @@ landingContent:
     links:
     - text: Conceptos de SMS
       url: concepts/telephony-sms/concepts.md
-    - text: Introducción a la biblioteca cliente de SMS
+    - text: Introducción al SDK de SMS
       url: concepts/telephony-sms/sdk-features.md
     - text: Introducción a las llamadas
       url: concepts/voice-video-calling/calling-sdk-features.md
     - text: Tipos de número de teléfono
       url: concepts/telephony-sms/plan-solution.md
+  - linkListType: learn
+    links:
+    - text: Envío de un SMS mediante C#
+      url: /learn/modules/communication-service-send-sms-console-app/
 - title: Chat
   linkLists:
   - linkListType: quickstart
@@ -92,7 +98,7 @@ landingContent:
     links:
     - text: Conceptos de chat
       url: concepts/chat/concepts.md
-    - text: Introducción a la biblioteca cliente de chat
+    - text: Introducción al SDK de chat
       url: concepts/chat/sdk-features.md
 - title: Ejemplos
   linkLists:

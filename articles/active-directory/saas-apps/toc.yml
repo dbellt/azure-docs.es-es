@@ -19,7 +19,7 @@
           href: 4me-tutorial.md
         - name: 8X8
           href: 8x8virtualoffice-tutorial.md
-    - name: Un
+    - name: A
       items:
         - name: abintegro
           href: abintegro-tutorial.md
@@ -1613,8 +1613,6 @@
           href: samlssojira-tutorial.md
         - name: Azure AD SAML Toolkit
           href: saml-toolkit-tutorial.md
-        - name: Samsara
-          href: samsara-tutorial.md
         - name: Samsung Knox and Business Services
           href: samsung-knox-and-business-services-tutorial.md
         - name: Sansan

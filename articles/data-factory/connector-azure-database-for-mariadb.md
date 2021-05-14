@@ -1,18 +1,18 @@
 ---
 title: Copia de datos desde Azure Database for MariaDB
 description: Obtenga información sobre cómo copiar datos desde Azure Database for MariaDB en almacenes de datos de receptores admitidos mediante una actividad de copia de una canalización de Azure Data Factory.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/04/2019
-ms.openlocfilehash: c25d217a5e2aea8acc91fcc8f6fe5ffd026ab976
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9cdc6432f2eb6f4d39de4df3a8a424991cb80453
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100370876"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109480246"
 ---
 # <a name="copy-data-from-azure-database-for-mariadb-using-azure-data-factory"></a>Copiar datos desde Azure Database for MariaDB mediante Azure Data Factory 
 
@@ -33,7 +33,7 @@ Azure Data Factory proporciona un controlador integrado para habilitar la conect
 
 ## <a name="getting-started"></a>Introducción
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 En las secciones siguientes, se proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas para el conector de Azure Database for MariaDB.
 

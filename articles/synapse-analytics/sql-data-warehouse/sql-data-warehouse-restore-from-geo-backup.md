@@ -11,12 +11,12 @@ ms.date: 11/13/2020
 ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 497a9fdec541640d021d194940b9e688125d188b
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 1d2e741f7f0a98a4b60e94b623afa676423af4c4
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108163435"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108802601"
 ---
 # <a name="geo-restore-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>Restauración geográfica de un grupo de SQL dedicado en Azure Synapse Analytics
 
@@ -58,7 +58,7 @@ $TargetServiceObjective="<YourTargetServiceObjective-DWXXXc>"
 Connect-AzAccount
 Get-AzSubscription
 Select-AzSubscription -SubscriptionName $SubscriptionName
-Get-AzureSqlDatabase -ServerName $ServerName
+Get-AzSqlDatabase -ServerName $ServerName -ResourceGroupName $ResourceGroupName
 
 # Get the data warehouse you want to recover
 $GeoBackup = Get-AzSqlDatabaseGeoBackup -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName

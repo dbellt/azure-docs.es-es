@@ -1,18 +1,18 @@
 ---
 title: Copia de datos hacia y desde Azure Table Storage
 description: Aprenda a copiar datos desde almacenes de origen compatibles a Azure Table Storage o desde Table Storage a almacenes de receptor compatibles mediante Data Factory.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/17/2021
-ms.openlocfilehash: 5674d656385d356f596f96cd7851d2cc05839761
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c5e8d762c90fcb8c050c336131d5fb44483367c5
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104597422"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109487446"
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Copia de datos con Azure Table Storage como origen o destino mediante Azure Data Factory
 
@@ -39,7 +39,7 @@ En concreto, este conector de Azure Table Storage permite copiar datos utilizand
 
 ## <a name="get-started"></a>Introducción
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 En las secciones siguientes se proporciona información acerca de las propiedades que se usan para definir entidades de Data Factory específicas de Table Storage.
 

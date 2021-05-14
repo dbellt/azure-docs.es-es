@@ -1,7 +1,7 @@
 ---
 title: Novedades de la administración de aplicaciones en Azure Active Directory
 description: Documentación nueva y actualizada sobre la administración de aplicaciones de Azure Active Directory.
-ms.date: 04/04/2021
+ms.date: 05/04/2021
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
@@ -9,16 +9,38 @@ ms.workload: identity
 ms.author: iangithinji
 author: iantheninja
 manager: CelesteDG
-ms.openlocfilehash: 9def91dcdf3370a94443dcea33ddf05f0e01e827
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 19fbfbed3a86575eb38fd2651cab9fffeabb673f
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108318462"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108743874"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Administración de aplicaciones en Azure Active Directory: Novedades
 
 Le damos la bienvenida a las novedades sobre la documentación de administración de aplicaciones de Azure Active Directory. En este artículo se enumeran los documentos nuevos que se han agregado y los que han tenido actualizaciones importantes en los últimos tres meses. Para conocer las novedades del servicio de administración de aplicaciones, consulte [Novedades de Azure Active Directory](../fundamentals/whats-new.md).
+
+## <a name="april-2021"></a>Abril de 2021
+
+### <a name="new-articles"></a>Artículos nuevos
+
+- [Preguntas más frecuentes sobre Active Directory (Azure AD) Application Proxy](application-proxy-faq.yml)
+
+### <a name="updated-articles"></a>Artículos actualizados
+
+- [Procedimientos recomendados de administración de aplicaciones](application-management-fundamentals.md)
+- [Documentación sobre la administración de aplicaciones](index.yml)
+- [Traslado de la autenticación de las aplicaciones de los Servicios de federación de Active Directory (AD FS) a Azure Active Directory](migrate-adfs-apps-to-azure.md)
+- [Migración de la autenticación de las aplicaciones a Azure Active Directory](migrate-application-authentication-to-azure-active-directory.md)
+- [Planeamiento de la configuración de Aplicaciones de Azure Active Directory](my-apps-deployment-plan.md)
+- [Opciones de inicio de sesión único en Azure AD](sso-options.md)
+- [Administración de aplicaciones en Azure Active Directory: Novedades](whats-new-docs.md)
+- [Autenticación basada en el encabezado para el inicio de sesión único con el proxy de aplicación y PingAccess](../app-proxy/application-proxy-ping-access-publishing-guide.md)
+- [Administración del consentimiento a las aplicaciones y evaluación de las solicitudes de consentimiento](manage-consent-requests.md)
+- [Configuración del flujo de trabajo de consentimiento del administrador](configure-admin-consent-workflow.md)
+- [Uso de restricciones de inquilino para administrar el acceso a aplicaciones en la nube SaaS](tenant-restrictions.md)
+- [Guía de introducción a la integración de Azure Active Directory con las aplicaciones](plan-an-application-integration.md)
+
 
 ## <a name="march-2021"></a>Marzo de 2021
 
@@ -63,29 +85,3 @@ Le damos la bienvenida a las novedades sobre la documentación de administració
 - [Traslado de la autenticación de las aplicaciones de los Servicios de federación de Active Directory (AD FS) a Azure Active Directory](migrate-adfs-apps-to-azure.md)
 - [Tutorial: Adición de una aplicación local para el acceso remoto mediante el proxy de aplicación en Azure Active Directory](../app-proxy/application-proxy-add-on-premises-application.md)
 - [Uso de restricciones de inquilino para administrar el acceso a aplicaciones en la nube SaaS](tenant-restrictions.md)
-
-## <a name="january-2021"></a>Enero de 2021
-
-### <a name="new-articles"></a>Artículos nuevos
-- [Planeamiento de la configuración de Aplicaciones de Azure Active Directory](my-apps-deployment-plan.md)
-
-### <a name="updated-articles"></a>Artículos actualizados
-- [Problema al instalar el conector de agente del proxy de aplicación](../app-proxy/application-proxy-connector-installation-problem.md)
-- [Solución de problemas de inicio de sesión único basado en contraseña en Azure AD](troubleshoot-password-based-sso.md)
-- [Procedimientos recomendados de administración de aplicaciones](application-management-fundamentals.md)
-- [Guía de introducción a la integración de Azure Active Directory con las aplicaciones](plan-an-application-integration.md)
-- [¿Qué es la administración de aplicaciones?](what-is-application-management.md)
-- [Preguntas más frecuentes sobre Active Directory (Azure AD) Application Proxy](../app-proxy/application-proxy-faq.yml)
-- [Tutorial: Adición de una aplicación local para el acceso remoto mediante el proxy de aplicación en Azure Active Directory](../app-proxy/application-proxy-add-on-premises-application.md)
-- [Trabajo con servidores proxy locales existentes](../app-proxy/application-proxy-configure-connectors-with-proxy-servers.md)
-- [Desarrollo de aplicaciones de línea de negocio para Azure Active Directory](../develop/v2-overview.md)
-- [Descripción de los conectores del Proxy de aplicación de Azure AD](../app-proxy/application-proxy-connectors.md)
-- [Descripción del inicio de sesión vinculado](configure-linked-sign-on.md)
-- [Inicio de sesión único basado en contraseña](configure-password-single-sign-on-non-gallery-applications.md)
-- [Configuración del inicio de sesión único basado en SAML](configure-saml-single-sign-on.md)
-- [Solución de problemas comunes al agregar o eliminar una aplicación en Azure Active Directory](/troubleshoot/azure/active-directory/troubleshoot-adding-apps)
-- [Visualización de las aplicaciones con el inquilino de Azure AD para la administración de identidades](application-types.md)
-- [Explicación del proceso de asignación de usuarios a aplicaciones en Azure Active Directory](ways-users-get-assigned-to-applications.md)
-- [Inicio rápido: Eliminación de una aplicación del inquilino de Azure Active Directory (Azure AD)](delete-application-portal.md)
-- [Publicar el Escritorio remoto con el proxy de aplicación de Azure AD](../app-proxy/application-proxy-integrate-with-remote-desktop-services.md)
-- [Adopción de medidas ante una aplicación con privilegios excesivos o sospechosa en Azure Active Directory](manage-application-permissions.md)
