@@ -3,13 +3,13 @@ title: Implementación de recursos en el inquilino
 description: Se describe cómo implementar recursos en el ámbito de un inquilino en una plantilla de Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 04/27/2021
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2137d71c78a5cb02e0e574be9c38d5bf18180789
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: dfcdd4c9fdf758b0e07c2566c50b45f534133c3c
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108322210"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109751498"
 ---
 # <a name="tenant-deployments-with-arm-templates"></a>Implementaciones de inquilino con plantillas de Resource Manager
 

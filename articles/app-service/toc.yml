@@ -11,10 +11,8 @@
 - name: Guías de inicio rápido
   expanded: true
   items:
-    - name: ASP.NET Core
-      href: quickstart-dotnetcore.md
     - name: ASP.NET
-      href: quickstart-dotnet-framework.md
+      href: quickstart-dotnetcore.md
     - name: Node.js
       href: quickstart-nodejs.md
     - name: PHP
@@ -117,7 +115,7 @@
         - name: Sistema operativo y aplicación de revisiones en el entorno de ejecución
           href: overview-patch-os-runtime.md
         - name: Línea de base de seguridad
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/app-service-security-baseline?toc=/azure/app-service/toc.json
         - name: Controles de seguridad de Azure Policy
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
@@ -187,7 +185,9 @@
               href: deploy-ci-cd-custom-container.md
             - name: Implementación desde Git local
               href: deploy-local-git.md
-            - name: Acción de GitHub para contenedores
+            - name: Acciones de GitHub
+              href: deploy-github-actions.md
+            - name: Acciones de GitHub para Containers
               href: deploy-container-github-action.md
             - name: Implementación con plantilla
               href: deploy-complex-application-predictably.md
@@ -217,8 +217,6 @@
               href: configure-authentication-provider-facebook.md
             - name: Autenticación con Google
               href: configure-authentication-provider-google.md
-            - name: Autenticación con la cuenta de Microsoft
-              href: configure-authentication-provider-microsoft.md
             - name: Autenticación con Twitter
               href: configure-authentication-provider-twitter.md
             - name: Autenticación con un proveedor de OpenID Connect (versión preliminar)
@@ -320,8 +318,10 @@
       href: ../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits
     - name: Actualizaciones del servicio
       href: 'https://azure.microsoft.com/updates/?product=app-service'
-    - name: Guías de Migration Assistant
-      href: 'https://github.com/Azure/App-Service-Migration-Assistant/tree/master/MigrationDocs'
+    - name: Servicio Kudu
+      href: resources-kudu.md
+    - name: Migration Assistant
+      href: app-service-migration-assistant.md
     - name: Procedimientos recomendados
       href: app-service-best-practices.md
     - name: Ejemplos

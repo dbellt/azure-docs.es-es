@@ -1,18 +1,18 @@
 ---
 title: Introducción al ejemplo de plano técnico de Media Framework
 description: Introducción al ejemplo de plano técnico de Media Framework. Este ejemplo de plano técnico ayuda a los clientes a evaluar controles específicos de Media Framework.
-ms.date: 01/08/2021
+ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: f2b9e29d8f5095947587107cc372beb34b18abb7
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 1fb9b611434cba892f94f8a2ccf86acef04cad3c
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98034992"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108757140"
 ---
 # <a name="overview-of-the-media-blueprint-sample"></a>Introducción al ejemplo de plano técnico de Media Framework
 
-El ejemplo de plano técnico de Media Framework proporciona un conjunto de directivas de protección de gobernanza mediante [Azure Policy](../../../policy/overview.md) que ayuda a conseguir la atestación de [Media Framework](https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html). 
+El ejemplo de plano técnico de Media Framework proporciona un conjunto de directivas de protección de gobernanza mediante [Azure Policy](../../../policy/overview.md) que ayuda a conseguir la atestación de [Media Framework](https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html).
 
 ## <a name="blueprint-sample"></a>Ejemplo de plano técnico
 

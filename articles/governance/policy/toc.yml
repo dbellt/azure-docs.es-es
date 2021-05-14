@@ -32,6 +32,8 @@
     - name: 'Asignación de una directiva: plantilla de Resource Manager'
       displayName: 'assign, compliance, resource manager'
       href: ./assign-policy-template.md
+    - name: 'Asignación de una directiva: Bicep'
+      href: ./assign-policy-bicep.md
     - name: 'Asignación de una directiva: Terraform'
       displayName: 'assign, compliance, hcl, provider'
       href: ./assign-policy-terraform.md
@@ -46,6 +48,9 @@
     - name: Administración de gobernanza de etiquetas
       displayName: 'modify, append, effects'
       href: ./tutorials/govern-tags.md
+    - name: Enrutamiento de los eventos de cambio de estado de directivas
+      displayName: 'event grid, subject, topic, subscription'
+      href: ./tutorials/route-state-change-events.md
     - name: Implementación de Azure Policy as Code con GitHub
       displayName: 'devops, infrastructure as code, iac, release, continuous, delivery, deploy'
       href: ./tutorials/policy-as-code-github.md
@@ -87,6 +92,8 @@
           href: ./samples/azure-security-benchmark.md
         - name: "Azure Security Benchmark\_v1"
           href: ./samples/azure-security-benchmarkv1.md
+        - name: Canada Federal PBMM
+          href: ./samples/canada-federal-pbmm.md
         - name: "CIS Microsoft Azure Foundations Benchmark\_1.3.0"
           href: ./samples/cis-azure-1-3-0.md
         - name: "CIS Microsoft Azure Foundations Benchmark\_1.1.0"
@@ -95,6 +102,8 @@
           href: ./samples/cmmc-l3.md
         - name: "HIPAA/HITRUST\_9.2"
           href: ./samples/hipaa-hitrust-9-2.md
+        - name: 'IRS 1075, septiembre de 2016'
+          href: ./samples/irs-1075-sept2016.md
         - name: 'ISO 27001:2013'
           href: ./samples/iso-27001.md
         - name: ISM restringido en Nueva Zelanda
@@ -103,6 +112,14 @@
           href: ./samples/nist-sp-800-53-r4.md
         - name: "NIST\_SP\_800-171\_R2"
           href: ./samples/nist-sp-800-171-r2.md
+        - name: UK OFFICIAL y UK NHS
+          href: ./samples/ukofficial-uknhs.md
+    - name: Líneas base de configuración de invitados
+      items:
+        - name: Base de referencia de Linux para Azure Security Benchmark
+          href: ./samples/guest-configuration-baseline-linux.md
+        - name: Base de referencia de Windows para Azure Security Benchmark
+          href: ./samples/guest-configuration-baseline-windows.md
 - name: Conceptos
   items:
     - name: Estructura de definición
@@ -120,6 +137,9 @@
     - name: Estructura de asignación
       displayName: 'parameters, enforcementmode, policyDefinitionId'
       href: ./concepts/assignment-structure.md
+    - name: Reacción a eventos de cambio de estado de directivas
+      displayName: 'event grid, subject, topic, subscription'
+      href: ./concepts/event-overview.md
     - name: Estructura de exención
       displayName: 'waiver, mitigated, compliance'
       href: ./concepts/exemption-structure.md
@@ -149,7 +169,7 @@
     - name: Seguridad
       items:
         - name: Línea de base de seguridad para Azure Security Benchmark
-          href: ./concepts/azure-security-benchmark-baseline.md
+          href: /security/benchmark/azure/baselines/policy-security-baseline?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
 - name: Guías paso a paso
   items:
     - name: "Extensión de Azure Policy para VS\_Code"
@@ -259,22 +279,8 @@
           href: /python/api/azure-mgmt-policyinsights/azure.mgmt.policyinsights
     - name: REST
       items:
-        - name: Eventos
-          href: /rest/api/policy-insights/policyevents
-        - name: States
-          href: /rest/api/policy-insights/policystates
-        - name: Assignments
-          href: /rest/api/resources/policyassignments
-        - name: Definiciones de directiva
-          href: /rest/api/resources/policydefinitions
-        - name: Exenciones de directiva
-          href: /rest/api/resources/policyexemptions
-        - name: Definiciones de iniciativas
-          href: /rest/api/resources/policysetdefinitions
-        - name: Recursos con seguimiento de directiva
-          href: /rest/api/policy-insights/policytrackedresources
-        - name: Correcciones
-          href: /rest/api/policy-insights/remediations
+        - name: Directiva
+          href: /rest/api/policy/
         - name: Configuración de invitado
           href: /rest/api/guestconfiguration/
     - name: Plantillas de Resource Manager

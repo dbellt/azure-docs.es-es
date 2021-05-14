@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 530ca81cedad06c949323889cc02d2a233dd0c02
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: b0a046441466efeef559544814f5471b5802b1d4
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107778830"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109714843"
 ---
 # <a name="detect-domain-specific-content"></a>Detectar contenido específico del dominio
 
@@ -26,7 +26,7 @@ Hay dos maneras de utilizar los modelos específicos del dominio: solos (anális
 
 ### <a name="scoped-analysis"></a>Análisis con ámbito
 
-Puede analizar una imagen usando solo el modelo específico de dominio elegido mediante una llamada a la API [Models/\<model\>/Analyze](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-ga/operations/56f91f2e778daf14a499f21b).
+Puede analizar una imagen usando solo el modelo específico de dominio elegido mediante una llamada a la API [Models/\<model\>/Analyze](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b).
 
 El siguiente es una muestra de respuesta JSON devuelta por la API **models/celebrities/analyze** para la imagen especificada:
 
@@ -57,7 +57,7 @@ El siguiente es una muestra de respuesta JSON devuelta por la API **models/celeb
 
 ### <a name="enhanced-categorization-analysis"></a>Análisis de categorización mejorada
 
-También puede usar modelos específicos del dominio para complementar los análisis de imágenes generales. Esto forma parte de la [categorización de alto nivel](concept-categorizing-images.md) mediante la especificación de los modelos específicos del dominio en la llamada al parámetro *details* de la llamada a la API [Analyze](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-ga/operations/56f91f2e778daf14a499f21b).
+También puede usar modelos específicos del dominio para complementar los análisis de imágenes generales. Esto forma parte de la [categorización de alto nivel](concept-categorizing-images.md) mediante la especificación de los modelos específicos del dominio en la llamada al parámetro *details* de la llamada a la API [Analyze](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b).
 
 En este caso, se llama primero al clasificador de la taxonomía de las 86 categorías. Si alguna de las categorías detectadas tiene un modelo específico de dominio coincidente, la imagen se pasa por ese modelo y se agregan los resultados.
 
@@ -105,7 +105,7 @@ Actualmente, Computer Vision admite los siguientes modelos específicos de domin
 | celebrities | Reconocimiento de celebridades, compatible con imágenes clasificadas en la categoría `people_`. |
 | landmarks | Reconocimiento de puntos de referencia, compatible con imágenes clasificadas en las categorías `outdoor_` o `building_`. |
 
-Una llamada a la API [Models](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-ga/operations/56f91f2e778daf14a499f20e) devolverá esta información junto con las categorías a las que se puede aplicar cada modelo:
+Una llamada a la API [Models](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f20e) devolverá esta información junto con las categorías a las que se puede aplicar cada modelo:
 
 ```json
 {

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: f1343f900e12bff09c0436ca52d8b091fe48a181
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3d42c7cc6498adad251174db7caea11feec82784
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100393554"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108753574"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Copia de datos hacia Azure Blob Storage o desde él con Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -33,11 +33,11 @@ Puede copiar datos de cualquier almacén de datos de origen compatible a Azure B
 ## <a name="supported-scenarios"></a>Escenarios admitidos
 Puede copiar datos **desde Azure Blob Storage** hacia los siguientes almacenes de datos:
 
-[!INCLUDE [data-factory-supported-sink](../../../includes/data-factory-supported-sinks.md)]
+[!INCLUDE [data-factory-supported-sink](includes/data-factory-supported-sinks.md)]
 
 Puede copiar datos desde los siguientes almacenes de datos **hacia Azure Blob Storage**:
 
-[!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
+[!INCLUDE [data-factory-supported-sources](includes/data-factory-supported-sources.md)]
 
 > [!IMPORTANT]
 > La actividad de copia es compatible con la copia de datos desde y hacia cuentas de Azure Storage de propósito general y el almacenamiento de blobs en frío y en caliente. La actividad admite **leer desde blobs en bloques, en anexos o en páginas**, pero solo permite **escribir en blobs en bloques**. Azure Premium Storage no es compatible como receptor porque está respaldado por blobs en páginas.
@@ -65,7 +65,7 @@ En las secciones siguientes se proporcionan detalles sobre las propiedades JSON 
 ## <a name="linked-service-properties"></a>Propiedades del servicio vinculado
 Hay dos tipos de servicios vinculados que puede usar para vincular una instancia de Azure Storage a una instancia de Azure Data Factory. Son las siguientes: Servicio vinculado **AzureStorage** y servicio vinculado **AzureStorageSas**. El servicio vinculado de Azure Storage proporciona a la factoría de datos acceso global a Azure Storage. Mientras que el servicio vinculado de SAS (firma de acceso compartido) de Azure Storage proporciona a la factoría de datos acceso restringido/controlado por tiempo a Azure Storage. No existen otras diferencias entre estos dos servicios vinculados. Elija el servicio vinculado que se adapte a sus necesidades. En las siguientes secciones se ofrecen más detalles sobre estos dos servicios vinculados.
 
-[!INCLUDE [data-factory-azure-storage-linked-services](../../../includes/data-factory-azure-storage-linked-services.md)]
+[!INCLUDE [data-factory-azure-storage-linked-services](includes/data-factory-azure-storage-linked-services.md)]
 
 ## <a name="dataset-properties"></a>Propiedades del conjunto de datos
 Para especificar un conjunto de datos para representar datos de entrada o salida en Azure Blob Storage, establezca la propiedad de tipo del conjunto de datos en **AzureBlob**. Establezca la propiedad **linkedServiceName** del conjunto de datos en el nombre del servicio vinculado Azure Storage o SAS de Azure Storage.  Las propiedades de tipo del conjunto de datos especifican el **contenedor de blobs** y la **carpeta** en Blob Storage.

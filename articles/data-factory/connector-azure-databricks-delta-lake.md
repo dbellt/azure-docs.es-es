@@ -1,18 +1,18 @@
 ---
 title: Copia de datos en Azure Databricks Delta Lake como origen y destino
 description: Aprenda a copiar datos en Azure Databricks Delta Lake como origen o destino mediante una actividad de copia en una canalización de Azure Data Factory.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/29/2021
-ms.openlocfilehash: fcf533ad95e2567e62d44d6997752df6f3145ecb
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b1aa174645288f5f3024779a0e5b9e8bdbb57452
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105726794"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109480462"
 ---
 # <a name="copy-data-to-and-from-azure-databricks-delta-lake-by-using-azure-data-factory"></a>Copia de datos con Azure Databricks Delta Lake como origen o destino mediante Azure Data Factory
 
@@ -67,7 +67,7 @@ Para obtener detalles sobre la configuración del clúster, consulte [Configurac
 
 ## <a name="get-started"></a>Introducción
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 En las secciones siguientes se proporcionan detalles sobre las propiedades que definen entidades de Data Factory específicas de un conector de Azure Databricks Delta Lake.
 

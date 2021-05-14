@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 04/30/2021
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 97990cb38ae34e0f035f7b5c4e9c897a4973320f
-ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
+ms.openlocfilehash: 1e17d50904ed973b21072211c06343bc880421b2
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2021
-ms.locfileid: "108330501"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109517377"
 ---
 # <a name="explore-data-in-azure-blob-storage-with-pandas"></a>Exploración de datos en Azure Blob Storage con Pandas
 
@@ -63,7 +63,7 @@ Para explorar y manipular un conjunto de datos, primero se debe descargar desde 
     dataframe_blobdata = pd.read_csv(LOCALFILENAME)
     ```
 
-Si necesita información más general sobre la lectura de una instancia de Azure Storage Blob, consulte nuestra documentación [Biblioteca cliente de Azure Storage Blob para Python](https://docs.microsoft.com/python/api/overview/azure/storage-blob-readme?view=azure-python).  
+Si necesita información más general sobre la lectura de una instancia de Azure Storage Blob, consulte nuestra documentación [Biblioteca cliente de Azure Storage Blob para Python](/python/api/overview/azure/storage-blob-readme).  
 
 Ya puede explorar los datos y generar características en este conjunto de datos.  
 

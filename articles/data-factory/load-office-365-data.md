@@ -1,17 +1,17 @@
 ---
 title: Carga de datos de Office 365 mediante Azure Data Factory
 description: Uso de Azure Data Factory para copiar datos de Office 365
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/18/2021
-ms.author: jingwang
-ms.openlocfilehash: 54aa511414695d28e390529af61d484e465f1c19
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: jianleishen
+ms.openlocfilehash: eae3a83a5354c61db27f38b7b73a396923427073
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101710284"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109485628"
 ---
 # <a name="load-data-from-office-365-by-using-azure-data-factory"></a>Carga de datos de Office 365 mediante Azure Data Factory
 

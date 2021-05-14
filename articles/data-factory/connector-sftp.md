@@ -1,18 +1,18 @@
 ---
 title: Copia de datos del servidor SFTP o en este
 description: Aprenda a copiar datos de un servidor SFTP y en este mediante Azure Data Factory.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/17/2021
-ms.openlocfilehash: 19b32bed15a4d292a7427d8401e777c7761e45a3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: bdee163a31c7822aa0eea2ff5900e10796e0c521
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104592037"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109486852"
 ---
 # <a name="copy-data-from-and-to-the-sftp-server-by-using-azure-data-factory"></a>Copia de datos hacia y desde un servidor SFTP mediante Azure Data Factory
 
@@ -39,11 +39,11 @@ En concreto, el conector de SFTP admite:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## <a name="get-started"></a>Introducción
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 En las secciones siguientes se proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas de SFTP.
 
@@ -210,7 +210,7 @@ Para utilizar la autenticación multifactor, que es una combinación de autentic
 
 Para obtener una lista completa de las secciones y las propiedades disponibles para definir conjuntos de datos, consulte el artículo sobre [conjuntos de datos](concepts-datasets-linked-services.md). 
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 Se admiten las siguientes propiedades para SFTP en el valor `location` del conjunto de datos basado en formato:
 
@@ -252,7 +252,7 @@ Para obtener una lista completa de las secciones y propiedades disponibles para 
 
 ### <a name="sftp-as-source"></a>SFTP como origen
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 Se admiten las siguientes propiedades para SFTP en el valor `storeSettings` del origen de copia basado en formato:
 
@@ -316,7 +316,7 @@ Se admiten las siguientes propiedades para SFTP en el valor `storeSettings` del 
 
 ### <a name="sftp-as-a-sink"></a>SFTP como un receptor
 
-[!INCLUDE [data-factory-v2-file-sink-formats](../../includes/data-factory-v2-file-sink-formats.md)]
+[!INCLUDE [data-factory-v2-file-sink-formats](includes/data-factory-v2-file-sink-formats.md)]
 
 Las propiedades siguientes se admiten para SFTP en el valor `storeSettings` del receptor de la copia con formato:
 
