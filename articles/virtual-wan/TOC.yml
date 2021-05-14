@@ -71,6 +71,8 @@
           href: scenario-route-through-nvas-custom.md
         - name: 'Azure Firewall: personalizado'
           href: scenario-route-between-vnets-firewall.md
+        - name: Application Gateway y grupos de back-end
+          href: scenario-secured-hub-app-gateway.md
     - name: Supervisión
       items:
         - name: Acerca de Azure Monitor Insights para Virtual WAN
@@ -88,11 +90,13 @@
     - name: Seguridad
       items:
         - name: Línea de base de seguridad
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/virtual-wan-security-baseline?toc=/azure/virtual-wan/TOC.json
     - name: Conceptos de los precios
       href: pricing-concepts.md
     - name: Acerca de NVA en un centro virtual
       href: about-nva-hub.md
+    - name: Acerca de los centros virtuales protegidos
+      href: ../firewall-manager/secured-virtual-hub.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
 - name: Guías paso a paso
   items:
     - name: Actualización de SKU de Virtual WAN
@@ -113,6 +117,8 @@
           href: virtual-wan-site-to-site-portal.md
         - name: Conexión de una puerta de enlace de red virtual a Virtual WAN
           href: connect-virtual-network-gateway-vwan.md
+        - name: Realización de una captura de paquetes
+          href: virtual-wan-site-to-site-packet-capture.md
         - name: Configuración de una directiva de IPsec personalizada
           href: virtual-wan-custom-ipsec-portal.md
         - name: Configuración de reglas NAT
@@ -184,7 +190,7 @@
     - name: REST
       href: /rest/api/azure
     - name: Azure CLI
-      href: /cli/azure/ext/virtual-wan
+      href: /azure/virtual-wan/
     - name: SDK de Python
       href: 'https://azuresdkdocs.blob.core.windows.net/$web/python/azure-mgmt-network/10.0.0/azure.mgmt.network.v2019_02_01.operations.html#azure.mgmt.network.v2019_02_01.operations.VirtualWansOperations'
 - name: Recursos

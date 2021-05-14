@@ -15,7 +15,7 @@
       items:
         - name: Creación de una cola de Service Bus
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: service-bus-quickstart-portal.md
             - name: Azure PowerShell
               href: service-bus-quickstart-powershell.md
@@ -48,7 +48,7 @@
       items:
         - name: Creación de temas y suscripciones
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: service-bus-quickstart-topics-subscriptions-portal.md
             - name: Azure CLI
               href: service-bus-tutorial-topics-subscriptions-cli.md
@@ -92,14 +92,42 @@
   items:
     - name: 'Colas, temas y suscripciones'
       href: service-bus-queues-topics-subscriptions.md
-    - name: Filtros y acciones de temas
-      href: topic-filters.md
     - name: Mensajería premium
       href: service-bus-premium-messaging.md
     - name: Comparación de colas de Azure con colas de Service Bus
       href: service-bus-azure-and-service-bus-queues-compared-contrasted.md
-    - name: Optimización del rendimiento
-      href: service-bus-performance-improvements.md
+    - name: Características avanzadas
+      items:
+        - name: Sesiones de mensajes
+          href: message-sessions.md
+        - name: Detección de mensajes duplicados
+          href: duplicate-detection.md
+        - name: Filtros y acciones de temas
+          href: topic-filters.md
+        - name: Exploración de mensajes
+          href: message-browsing.md
+        - name: 'Transferencias, bloqueos y liquidación de mensajes'
+          href: message-transfers-locks-settlement.md
+        - name: Colas de mensajes fallidos
+          href: service-bus-dead-letter-queues.md
+        - name: Aplazamiento de mensajes
+          href: message-deferral.md
+        - name: Captura previa de mensajes
+          href: service-bus-prefetch.md
+        - name: Encadenamiento de entidades con reenvío automático
+          href: service-bus-auto-forwarding.md
+        - name: Procesamiento de transacciones
+          href: service-bus-transactions.md
+        - name: Optimización del rendimiento
+          href: service-bus-performance-improvements.md
+        - name: Recuperación ante desastres geográfica y replicación geográfica
+          href: service-bus-geo-dr.md
+        - name: Mensajería asincrónica y alta disponibilidad
+          href: service-bus-async-messaging.md
+        - name: Control de interrupciones y desastres
+          href: service-bus-outages-disasters.md
+        - name: Limitaciones
+          href: service-bus-throttling.md
     - name: Federación
       items:
         - name: Replicación de mensajes y federación entre regiones
@@ -116,27 +144,15 @@
           href: 'https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/ServiceBusCopyToEventHub'
         - name: Adquisición de mensajes de Event Hubs
           href: 'https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopyToServiceBus'
-    - name: Recuperación ante desastres geográfica y replicación geográfica
-      href: service-bus-geo-dr.md
-    - name: Mensajería asincrónica y alta disponibilidad
-      href: service-bus-async-messaging.md
-    - name: Control de interrupciones y desastres
-      href: service-bus-outages-disasters.md
-    - name: Limitaciones
-      href: service-bus-throttling.md
     - name: Seguridad
       items:
         - name: Línea de base de seguridad
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/service-bus-messaging-security-baseline?toc=/azure/service-bus-messaging/TOC.json
         - name: Autenticación y autorización
           href: service-bus-authentication-and-authorization.md
           items:
-            - name: Uso de firmas de acceso compartido
-              items:
-                - name: Migración de ACS a SAS
-                  href: service-bus-migrate-acs-sas.md
-                - name: Autenticación con Firmas de acceso compartido
-                  href: service-bus-sas.md
+            - name: Autenticación con Firmas de acceso compartido
+              href: service-bus-sas.md
             - name: Uso de Azure Active Directory
               items:
                 - name: Autenticación con identidades administradas de recursos de Azure
@@ -154,28 +170,20 @@
           href: service-bus-to-event-grid-integration-concept.md
 - name: Guías paso a paso
   items:
-    - name: Traslado entre regiones
-      href: move-across-regions.md
-    - name: Migración desde las API de Azure Service Manager (clásico) hasta las API de Resource Manager
-      href: deprecate-service-bus-management.md
-    - name: Creación de un espacio de nombres
-      href: service-bus-create-namespace-portal.md
     - name: Desarrollar
       items:
+        - name: Creación de un espacio de nombres
+          href: service-bus-create-namespace-portal.md
         - name: Establecimiento de acciones y filtros de suscripción
           href: service-bus-filter-examples.md
         - name: Administración de mensajes
           items:
-            - name: 'Colas, temas y suscripciones'
-              href: service-bus-queues-topics-subscriptions.md
             - name: "Entidades de Java Message Service (JMS)\_2.0"
               href: java-message-service-20-entities.md
             - name: Guía de desarrolladores de Java Message Service (JMS).md
               href: jms-developer-guide.md
             - name: 'Mensajes, cargas y serialización'
               href: service-bus-messages-payloads.md
-            - name: 'Transferencias, bloqueos y liquidación de mensajes'
-              href: message-transfers-locks-settlement.md
             - name: Secuenciación y marcas de tiempo de los mensajes
               href: message-sequencing.md
             - name: Expiración de mensajes (período de vida)
@@ -184,8 +192,6 @@
           href: service-bus-migrate-standard-premium.md
         - name: Temas y colas con particiones
           href: service-bus-partitioning.md
-        - name: Sesiones de mensajes
-          href: message-sessions.md
         - name: AMQP
           items:
             - name: Introducción a AMQP
@@ -200,30 +206,14 @@
               href: service-bus-amqp-request-response.md
             - name: Errores de AMQP
               href: service-bus-amqp-troubleshoot.md
-        - name: Características avanzadas
-          items:
-            - name: Colas de mensajes fallidos
-              href: service-bus-dead-letter-queues.md
-            - name: Captura previa de mensajes
-              href: service-bus-prefetch.md
-            - name: Detección de mensajes duplicados
-              href: duplicate-detection.md
-            - name: Contadores de mensajes
-              href: message-counters.md
-            - name: Aplazamiento de mensajes
-              href: message-deferral.md
-            - name: Exploración de mensajes
-              href: message-browsing.md
-            - name: Encadenamiento de entidades con reenvío automático
-              href: service-bus-auto-forwarding.md
-            - name: Procesamiento de transacciones
-              href: service-bus-transactions.md
         - name: Compilación de una aplicación de Service Bus de niveles múltiples
           href: service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
     - name: Migrar
       items:
         - name: Migración de ActiveMQ a Azure Service Bus
           href: migrate-jms-activemq-to-servicebus.md
+        - name: Migración desde las API de Azure Service Manager (clásico) hasta las API de Resource Manager
+          href: deprecate-service-bus-management.md
     - name: Supervisión
       items:
         - name: Seguimiento diagnóstico integral
@@ -238,6 +228,20 @@
           href: service-bus-integrate-with-rabbitmq.md
     - name: Administrar
       items:
+        - name: Habilitación de sesiones para una cola o suscripción
+          href: enable-message-sessions.md
+        - name: Habilitación de la detección de duplicados para una cola o tema
+          href: enable-duplicate-detection.md
+        - name: Habilitación de particiones para una cola o tema
+          href: enable-partitions.md
+        - name: Habilitación del reenvío automático para una cola o suscripción
+          href: enable-auto-forward.md
+        - name: Habilitación de una cola de mensajes fallidos para una cola o suscripción
+          href: enable-dead-letter.md
+        - name: Obtención de contadores de mensajes
+          href: message-counters.md
+        - name: Traslado entre regiones
+          href: move-across-regions.md
         - name: Actualización automática de unidades de mensajería
           href: automate-update-messaging-units.md
         - name: Uso de Azure PowerShell para aprovisionar entidades
@@ -292,9 +296,9 @@
         - name: Migración de azure-servicebus a azure-messaging-servicebus
           href: 'https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/migration-guide.md'
         - name: azure-messaging-servicebus (más reciente)
-          href: /java/api/overview/azure/servicebus?view=azure-java-preview
+          href: /java/api/com.azure.messaging.servicebus?view=azure-java-stable
         - name: azure-servicebus
-          href: /java/api/overview/azure/servicebus
+          href: /java/api/com.microsoft.azure.servicebus?view=azure-java-stable
     - name: Python
       items:
         - name: "Migrate de la versión\_0.50 de azure-servicebus a la versión\_7"
@@ -317,6 +321,8 @@
       href: 'https://github.com/Azure/azure-sdk-for-ruby'
     - name: Go
       href: 'https://github.com/Azure/azure-service-bus-go'
+    - name: Azure CLI
+      href: /cli/azure/servicebus
     - name: Azure PowerShell
       href: /powershell/module/az.servicebus
     - name: REST
@@ -335,7 +341,7 @@
 - name: Recursos
   items:
     - name: Preguntas más frecuentes
-      href: service-bus-faq.md
+      href: service-bus-faq.yml
     - name: Desarrollo de aptitudes con Microsoft Learn
       href: /learn/browse/?products=azure-service-bus
     - name: Azure Roadmap

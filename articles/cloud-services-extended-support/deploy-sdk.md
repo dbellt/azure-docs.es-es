@@ -8,19 +8,16 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: d36bae57a9e1609e053326cf7288b5b1bc470cef
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: a91d26139fae80b38383e7f65f7ae2f58358e6f6
+ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106166894"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108795319"
 ---
 # <a name="deploy-cloud-services-extended-support-by-using-the-azure-sdk"></a>Implementación de Cloud Services (soporte extendido) con Azure SDK
 
 En este artículo se muestra cómo usar [Azure SDK](https://azure.microsoft.com/downloads/) para implementar una instancia de Cloud Services (soporte extendido) con varios roles (rol web y rol de trabajo) y la extensión de escritorio remoto. Cloud Services (soporte extendido) es un modelo de implementación de Azure Cloud Services basado en Azure Resource Manager.
-
-> [!IMPORTANT]
-> Cloud Services (soporte extendido) está actualmente en versión preliminar pública. Esta versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="before-you-begin"></a>Antes de comenzar
 
