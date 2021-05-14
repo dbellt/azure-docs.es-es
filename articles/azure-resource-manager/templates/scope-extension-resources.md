@@ -3,13 +3,13 @@ title: Ámbito en tipos de recursos de extensión
 description: Aquí se describe cómo utilizar la propiedad del ámbito al implementar tipos de recursos de extensión.
 ms.topic: conceptual
 ms.date: 01/13/2021
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 505caa23ceff25cc3fe693d40a3ec5e209a0563d
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 0f24c37c69394358e87407245f5db41ce8b6de80
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108314578"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109752056"
 ---
 # <a name="setting-scope-for-extension-resources-in-arm-templates"></a>Establecimiento del ámbito de los recursos de extensión en las plantillas de Resource Manager
 

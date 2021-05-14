@@ -3,12 +3,12 @@ title: Detección de mensajes duplicados de Azure Service Bus | Microsoft Docs
 description: En este artículo se explica cómo puede detectar duplicados en mensajes de Azure Service Bus. El mensaje duplicado se puede omitir y quitar.
 ms.topic: article
 ms.date: 04/19/2021
-ms.openlocfilehash: 0b4c90885c9da817e4f78eea883e2d39e65b2480
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.openlocfilehash: 9e1837d0e8859791e3834519af4a9966d2435b60
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107989295"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108759084"
 ---
 # <a name="duplicate-detection"></a>Detección de duplicados
 
@@ -21,7 +21,7 @@ La detección de duplicados elimina la duda en estas situaciones, ya que permite
 > [!NOTE]
 > El nivel Básico de Service Bus no admite la detección de duplicados. Los niveles Estándar y Premium admiten la detección de duplicados. Para conocer las diferencias entre estos niveles, consulte [Precios de Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
 
-## <a name="how-it-works"></a>¿Cómo funciona? 
+## <a name="how-it-works"></a>Cómo funciona
 La habilitación de la detección de duplicados ayuda a mantener el seguimiento del valor *MessageId* controlado por la aplicación de todos los mensajes enviados a una cola o un tema durante una ventana de tiempo específica. Si se envía algún mensaje nuevo con *MessageId* que se haya registrado durante el periodo de tiempo, se notifica como aceptado (la operación de envío se realiza correctamente), pero el mensaje recién enviado se ignora y descarta al instante. No se tiene en cuenta ninguna otra parte del mensaje que no sea *MessageId*.
 
 El control de aplicación del identificador es esencial, ya que es lo único que permite que la aplicación enlace el valor *MessageId* a un contexto de proceso empresarial desde el que se pueda reconstruir de manera predecible en caso de error.

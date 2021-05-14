@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 07/08/2020
-ms.openlocfilehash: 35ef2ea3f03ca86aea34f736de4317d75a44ae59
-ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
+ms.openlocfilehash: 5d5706738a0d85beed839d324ae3da055cafe39a
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2021
-ms.locfileid: "108330519"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108747528"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Estado de los escenarios de migración que admite Azure Database Migration Service
 
@@ -57,6 +57,7 @@ En la siguiente tabla se muestra la compatibilidad de Azure Database Migration S
 |   | MySQL de RDS | X |   |
 | **Azure DB for PostgreSQL: servidor único** | PostgreSQL | X |
 |  | PostgreSQL de RDS | X |   |
+|  | Oracle | X |   |
 | **Azure DB for PostgreSQL: Hiperescala (Citus)** | PostgreSQL | X |
 |  | PostgreSQL de RDS | X |   |
 
@@ -80,12 +81,9 @@ En la siguiente tabla se muestra la compatibilidad de Azure Database Migration S
 | **Azure DB for PostgreSQL: servidor único** | PostgreSQL | ✔ | Disponibilidad general |
 |   | Azure DB for PostgreSQL: servidor único | ✔ | Disponibilidad general |
 |   | PostgreSQL de RDS | ✔ | Disponibilidad general |
-|   | Oracle | ✔ | Versión preliminar pública (quedará en desuso después del 1 de mayo de 2021) |
+|   | Oracle | X |   |
 | **Azure DB for PostgreSQL: Hiperescala (Citus)** | PostgreSQL | ✔ | Disponibilidad general |
 |   | PostgreSQL de RDS | ✔ | Disponibilidad general |
-
-> [!IMPORTANT]
-> El escenario de migración "Oracle a Azure Database for PostgreSQL" (actualmente en versión preliminar) dejará de estar disponible después del 1 de mayo de 2021. Seguiremos brindando soporte a través de herramientas alternativas (como Ora2pg) y proporcionaremos la mejor experiencia para las migraciones de Oracle a PostgreSQL. Para ver los procedimientos recomendados de migración, consulte la [Guía de migración de Oracle a Azure Database for PostgreSQL](https://aka.ms/OracletoPGguide).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

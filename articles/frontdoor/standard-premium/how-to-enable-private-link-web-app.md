@@ -7,13 +7,13 @@ author: duongau
 ms.service: frontdoor
 ms.topic: how-to
 ms.date: 02/18/2021
-ms.author: tyao
-ms.openlocfilehash: 805c3ba0360fcffe2bfd4217c0ef625fe61e5d64
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.author: duau
+ms.openlocfilehash: d30b73d1e80273d766f4f94224798ddb04763195
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102030586"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109633257"
 ---
 # <a name="connect-azure-front-door-premium-to-a-web-app-origin-with-private-link"></a>Conexión de Azure Front Door Premium a un origen de aplicación web con Private Link
 
@@ -43,7 +43,7 @@ En esta sección, asignará el servicio Private Link a un punto de conexión pri
 
     :::image type="content" source="../media/how-to-enable-private-link-web-app/private-endpoint-web-app.png" alt-text="Captura de pantalla de la habilitación de Private Link a una aplicación web.":::
 
-1. En **Seleccione un recurso de Azure**, seleccione **In my directory** (En mi directorio). Seleccione o escriba los siguientes valores para configurar el sitio al que quiere que Azure Front Door Premium se conecte de forma privada.
+1. En **Seleccione un recurso de Azure**, seleccione **In my directory** (En mi directorio). Seleccione o escriba los siguientes valores para configurar el sitio al que quiere que Azure Front Door Prémium se conecte de forma privada.
 
     | Configuración | Value |
     | ------- | ----- |
@@ -51,7 +51,7 @@ En esta sección, asignará el servicio Private Link a un punto de conexión pri
     | Tipo de recurso | Seleccione **Microsoft.Web/sites**. |
     | Resource | Seleccione **myPrivateLinkService**. |
     | Subrecurso de destino | sites |
-    | Mensaje de solicitud | Personalice el mensaje o elija el valor predeterminado. |
+    | Mensaje de solicitud | Personalice el mensaje o elija el predeterminado. |
 
 1. Después, seleccione **Agregar** para guardar la configuración.
 

@@ -10,12 +10,12 @@ ms.author: robinsh
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 7b3dcfc51df7f0fe4291e9c5babccc1444ad32e9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f0aaa996d6520a69f5546976d89c7cc4aa802d38
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "81730749"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109481362"
 ---
 # <a name="communicate-with-your-iot-hub-by-using-the-amqp-protocol"></a>Comunicación con el centro de IoT mediante el protocolo AMQP
 
@@ -34,7 +34,7 @@ La siguiente información es necesaria para el cliente del servicio:
 | Nombre de host del centro de IoT | `<iot-hub-name>.azure-devices.net` |
 | Nombre de clave | `service` |
 | Clave de acceso | Una clave principal o secundaria asociada al servicio. |
-| Firma de acceso compartido | Una firma de acceso compartido de corta duración en el siguiente formato: `SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`. Para obtener el código para generar esta firma, consulte [Control del acceso a IoT Hub](./iot-hub-devguide-security.md#security-token-structure).
+| Firma de acceso compartido | Una firma de acceso compartido de corta duración en el siguiente formato: `SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`. Para obtener el código para generar esta firma, consulte [Control del acceso a IoT Hub](./iot-hub-dev-guide-sas.md#security-token-structure).
 
 El siguiente fragmento de código utiliza la [biblioteca uAMQP de Python](https://github.com/Azure/azure-uamqp-python) para conectarse a un centro de IoT mediante un vínculo de emisor.
 
@@ -229,7 +229,7 @@ La siguiente información es necesaria para el cliente del dispositivo:
 |-------------|--------------|
 | Nombre de host del centro de IoT | `<iot-hub-name>.azure-devices.net` |
 | Clave de acceso | Una clave principal o secundaria asociada al dispositivo. |
-| Firma de acceso compartido | Una firma de acceso compartido de corta duración en el siguiente formato: `SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`. Para obtener el código para generar esta firma, consulte [Control del acceso a IoT Hub](./iot-hub-devguide-security.md#security-token-structure).
+| Firma de acceso compartido | Una firma de acceso compartido de corta duración en el siguiente formato: `SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`. Para obtener el código para generar esta firma, consulte [Control del acceso a IoT Hub](./iot-hub-dev-guide-sas.md#security-token-structure).
 
 El siguiente fragmento de código utiliza la [biblioteca uAMQP de Python](https://github.com/Azure/azure-uamqp-python) para conectarse a un centro de IoT mediante un vínculo de emisor.
 

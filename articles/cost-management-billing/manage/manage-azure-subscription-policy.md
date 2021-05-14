@@ -8,17 +8,14 @@ ms.topic: how-to
 ms.date: 03/10/2021
 ms.reviewer: banders
 ms.author: andalmia
-ms.openlocfilehash: 105e090655021ed4046f8880ef9816d7f7ff559f
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.openlocfilehash: 4d0ebd73065c538a78c950ab48254cb06d113897
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105631754"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108804527"
 ---
 # <a name="manage-azure-subscription-policies"></a>Administración de las directivas de suscripción de Azure
-
->[!NOTE]
->Esta característica se encuentra actualmente en versión preliminar y se está implantando gradualmente, por lo que es posible que no todos los usuarios vean esta experiencia en Azure Portal todavía.
 
 Este artículo le ayuda a configurar las directivas de suscripción de Azure para que las operaciones de suscripción controlen el movimiento de suscripciones de Azure desde los directorios y hacia estos.
 

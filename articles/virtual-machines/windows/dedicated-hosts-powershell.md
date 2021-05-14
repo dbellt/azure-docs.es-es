@@ -9,18 +9,18 @@ ms.workload: infrastructure
 ms.date: 11/12/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: ed6319d5374db56cfe85e7ef9413480e523d9a34
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9be250fe350313c3f4647bb7c98b0d1743fda20e
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102050892"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109738831"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>Implementación de máquinas virtuales en hosts dedicados mediante Azure PowerShell
 
-En este artículo se ofrecen instrucciones para crear un [host dedicado](../dedicated-hosts.md) de Azure en el que se pueden hospedar máquinas virtuales (VM). 
+En este artículo se ofrecen instrucciones para crear un [host dedicado](../dedicated-hosts.md) de Azure en el que se pueden hospedar máquinas virtuales (VM).
 
-Asegúrese de que tiene instalada la versión 2.8.0 de Azure PowerShell, o cualquier versión posterior, y que inicia sesión en una cuenta de Azure con `Connect-AzAccount`. 
+Asegúrese de que tiene instalada la versión 2.8.0 de Azure PowerShell, o cualquier versión posterior, y que inicia sesión en una cuenta de Azure con `Connect-AzAccount`.
 
 ## <a name="limitations"></a>Limitaciones
 
@@ -28,13 +28,13 @@ Asegúrese de que tiene instalada la versión 2.8.0 de Azure PowerShell, o cualq
 
 ## <a name="create-a-host-group"></a>Creación de un grupo host
 
-Un **grupo host** es un recurso que representa una colección de hosts dedicados. Puede crear un grupo host en una región y una zona de disponibilidad, y agregarle hosts. Al planear la alta disponibilidad, hay otras opciones. Puede usar una o ambas de las dos opciones siguientes con los hosts dedicados: 
+Un **grupo host** es un recurso que representa una colección de hosts dedicados. Puede crear un grupo host en una región y una zona de disponibilidad, y agregarle hosts. Al planear la alta disponibilidad, hay otras opciones. Puede usar una o ambas de las dos opciones siguientes con los hosts dedicados:
 - Abarcar varias zonas de disponibilidad. En este caso, es necesario tener un grupo host en cada una de las zonas que quiera usar.
-- Abarcar varios dominios de error que se asignan a bastidores físicos. 
- 
-En cualquier caso, es necesario proporcionar el número de dominios de error del grupo host. Si no quiere abarcar dominios de error en el grupo, use un número de dominios de error de 1. 
+- Abarcar varios dominios de error que se asignan a bastidores físicos.
 
-También puede usar zonas de disponibilidad y dominios de error a la vez. En este ejemplo se crea en la zona 1 un grupo host con dos dominios de error. 
+En cualquier caso, es necesario proporcionar el número de dominios de error del grupo host. Si no quiere abarcar dominios de error en el grupo, use un número de dominios de error de 1.
+
+También puede usar zonas de disponibilidad y dominios de error a la vez. En este ejemplo se crea en la zona 1 un grupo host con dos dominios de error.
 
 
 ```azurepowershell-interactive
@@ -75,9 +75,9 @@ $dHost = New-AzHost `
 
 ## <a name="create-a-vm"></a>Crear una VM
 
-Cree una máquina virtual en el host dedicado. 
+Cree una máquina virtual en el host dedicado.
 
-Si especificó una zona de disponibilidad al crear el grupo host, debe usar la misma zona al crear la máquina virtual. En este ejemplo, como el grupo host está en la zona 1, es preciso crear la máquina virtual en la zona 1.  
+Si especificó una zona de disponibilidad al crear el grupo host, debe usar la misma zona al crear la máquina virtual. En este ejemplo, como el grupo host está en la zona 1, es preciso crear la máquina virtual en la zona 1.
 
 
 ```azurepowershell-interactive
@@ -94,7 +94,7 @@ New-AzVM `
 ```
 
 > [!WARNING]
-> Si crea una máquina virtual en un host que no tenga suficientes recursos, la máquina virtual se creará en un estado de error. 
+> Si crea una máquina virtual en un host que no tenga suficientes recursos, la máquina virtual se creará en un estado de error.
 
 ## <a name="check-the-status-of-the-host"></a>Comprobación del estado del host
 
@@ -117,49 +117,49 @@ AutoReplaceOnFailure   : True
 HostId                 : 12345678-1234-1234-abcd-abc123456789
 ProvisioningTime       : 7/28/2019 5:31:01 PM
 ProvisioningState      : Succeeded
-InstanceView           : 
+InstanceView           :
   AssetId              : abc45678-abcd-1234-abcd-123456789abc
-  AvailableCapacity    : 
-    AllocatableVMs[0]  : 
+  AvailableCapacity    :
+    AllocatableVMs[0]  :
       VmSize           : Standard_D2s_v3
       Count            : 32
-    AllocatableVMs[1]  : 
+    AllocatableVMs[1]  :
       VmSize           : Standard_D4s_v3
       Count            : 16
-    AllocatableVMs[2]  : 
+    AllocatableVMs[2]  :
       VmSize           : Standard_D8s_v3
       Count            : 8
-    AllocatableVMs[3]  : 
+    AllocatableVMs[3]  :
       VmSize           : Standard_D16s_v3
       Count            : 4
-    AllocatableVMs[4]  : 
+    AllocatableVMs[4]  :
       VmSize           : Standard_D32-8s_v3
       Count            : 2
-    AllocatableVMs[5]  : 
+    AllocatableVMs[5]  :
       VmSize           : Standard_D32-16s_v3
       Count            : 2
-    AllocatableVMs[6]  : 
+    AllocatableVMs[6]  :
       VmSize           : Standard_D32s_v3
       Count            : 2
-    AllocatableVMs[7]  : 
+    AllocatableVMs[7]  :
       VmSize           : Standard_D64-16s_v3
       Count            : 1
-    AllocatableVMs[8]  : 
+    AllocatableVMs[8]  :
       VmSize           : Standard_D64-32s_v3
       Count            : 1
-    AllocatableVMs[9]  : 
+    AllocatableVMs[9]  :
       VmSize           : Standard_D64s_v3
       Count            : 1
-  Statuses[0]          : 
+  Statuses[0]          :
     Code               : ProvisioningState/succeeded
     Level              : Info
     DisplayStatus      : Provisioning succeeded
     Time               : 7/28/2019 5:31:01 PM
-  Statuses[1]          : 
+  Statuses[1]          :
     Code               : HealthState/available
     Level              : Info
     DisplayStatus      : Host available
-Sku                    : 
+Sku                    :
   Name                 : DSv3-Type1
 Id                     : /subscriptions/10101010-1010-1010-1010-101010101010/re
 sourceGroups/myDHResourceGroup/providers/Microsoft.Compute/hostGroups/myHostGroup/hosts
@@ -169,7 +169,7 @@ Location               : eastus
 Tags                   : {}
 ```
 
-## <a name="create-a-scale-set"></a>Creación de un conjunto de escalado 
+## <a name="create-a-scale-set"></a>Creación de un conjunto de escalado
 
 Cuando se implementa un conjunto de escalado, se especifica el grupo host.
 
@@ -190,11 +190,11 @@ Si desea elegir manualmente en qué host se va a implementar el conjunto de esca
 
 
 
-## <a name="add-an-existing-vm"></a>Incorporación de una máquina virtual existente 
+## <a name="add-an-existing-vm"></a>Incorporación de una máquina virtual existente
 
 Puede agregar una máquina virtual existente a un host dedicado, pero antes es necesario detenerla o desasignarla. Antes de mover una máquina virtual a un host dedicado, asegúrese de que se admite su configuración:
 
-- El tamaño de la máquina virtual debe estar en la misma familia de tamaños que el host dedicado. Por ejemplo, si el host dedicado es DSv3, el tamaño de la máquina virtual puede ser Standard_D4s_v3, pero no Standard_A4_v2. 
+- El tamaño de la máquina virtual debe estar en la misma familia de tamaños que el host dedicado. Por ejemplo, si el host dedicado es DSv3, el tamaño de la máquina virtual puede ser Standard_D4s_v3, pero no Standard_A4_v2.
 - Es preciso que la máquina virtual se encuentre en la misma región que el host dedicado.
 - La máquina virtual no puede formar parte de ningún grupo de ubicación por proximidad. Quite la máquina virtual del grupo de ubicación por proximidad antes de moverla a un host dedicado. Para más información, consulte [Traslado de una VM existente fuera de un grupo de selección de ubicación de proximidad](./proximity-placement-groups.md#move-an-existing-vm-out-of-a-proximity-placement-group)
 - La máquina virtual no puede estar en un conjunto de disponibilidad.
@@ -213,11 +213,11 @@ $myDH = Get-AzHost `
    -HostGroupName $dhGroupName `
    -ResourceGroupName $dhRGName `
    -Name $dhName
-   
+
 $myVM = Get-AzVM `
    -ResourceGroupName $vmRGName `
    -Name $vmName
-   
+
 $myVM.Host = New-Object Microsoft.Azure.Management.Compute.Models.SubResource
 
 $myVM.Host.Id = "$myDH.Id"
@@ -225,11 +225,11 @@ $myVM.Host.Id = "$myDH.Id"
 Stop-AzVM `
    -ResourceGroupName $vmRGName `
    -Name $vmName -Force
-   
+
 Update-AzVM `
    -ResourceGroupName $vmRGName `
    -VM $myVM -Debug
-   
+
 Start-AzVM `
    -ResourceGroupName $vmRGName `
    -Name $vmName
@@ -238,7 +238,7 @@ Start-AzVM `
 
 ## <a name="clean-up"></a>Limpieza
 
-Aunque no se implementen máquinas virtuales, se le cobrará por los hosts dedicados. Elimine los hosts que no use actualmente para ahorrar costos.  
+Aunque no se implementen máquinas virtuales, se le cobrará por los hosts dedicados. Elimine los hosts que no use actualmente para ahorrar costos.
 
 Solo se puede eliminar un host cuando no haya ninguna máquina virtual que lo use. Elimine las máquinas virtuales mediante el comando[Remove-AzVM](/powershell/module/az.compute/remove-azvm).
 
@@ -252,14 +252,14 @@ Después de eliminar las máquinas virtuales, puede eliminar el host mediante [R
 Remove-AzHost -ResourceGroupName $rgName -Name myHost
 ```
 
-Una vez que haya eliminado todos los hosts, puede eliminar el grupo host mediante[Remove-AzHostGroup](/powershell/module/az.compute/remove-azhostgroup). 
+Una vez que haya eliminado todos los hosts, puede eliminar el grupo host mediante[Remove-AzHostGroup](/powershell/module/az.compute/remove-azhostgroup).
 
 ```azurepowershell-interactive
 Remove-AzHost -ResourceGroupName $rgName -Name myHost
 ```
 
 También puede eliminar todo el grupo de recursos con un solo comando mediante [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup). Se eliminarán todos los recursos creados en el grupo, lo que incluye las máquinas virtuales, los hosts y los grupos host.
- 
+
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name $rgName
 ```
@@ -267,6 +267,6 @@ Remove-AzResourceGroup -Name $rgName
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Aquí](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md) encontrará una plantilla de ejemplo en la que se usan zonas y dominios de error para obtener la máxima resistencia en una región.
+- [Aquí](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-dedicated-hosts/README.md) encontrará una plantilla de ejemplo en la que se usan zonas y dominios de error para obtener la máxima resistencia en una región.
 
 - También se pueden implementar hosts dedicados desde [Azure Portal](../dedicated-hosts-portal.md).

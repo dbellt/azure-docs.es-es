@@ -4,20 +4,22 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 03/31/2021
-ms.openlocfilehash: d878c7abf025b5c66790a96f9f921f669dcdf1ef
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: 4085213c1eb06815d089d9a5cb3182bb1c27633c
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106491112"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109719136"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para completar los pasos de este artículo, necesitará los siguientes recursos:
 
-* Una aplicación de Azure IoT Central creada a partir de la plantilla **Custom application** (Aplicación personalizada). Para más información, consulte la [guía de inicio rápido para crear una aplicación](../articles/iot-central/core/quick-deploy-iot-central.md). La aplicación se debe haber creado el 14 de julio de 2020 o después.
-* Una máquina de desarrollo que tenga instalada la versión 3.7 de [Python](https://www.python.org/) o una posterior. Puede ejecutar `python --version` en la línea de comandos para comprobar la versión. Python está disponible para una amplia variedad de sistemas operativos. En las instrucciones de este tutorial se da por hecho que se ejecuta el comando **python** en el símbolo del sistema de Windows.
-* Una copia local del repositorio de GitHub de [SDK de IoT de Microsoft Azure para Python](https://github.com/Azure/azure-iot-sdk-python) que contiene el código de ejemplo. Use este vínculo para descargar una copia del repositorio: [Descargar el archivo ZIP](https://github.com/Azure/azure-iot-sdk-python/archive/master.zip). Después, descomprima el archivo en una ubicación conveniente en la máquina local.
+[!INCLUDE [iot-central-prerequisites-basic](iot-central-prerequisites-basic.md)]
+
+- Una máquina de desarrollo que tenga instalada la versión 3.7 de [Python](https://www.python.org/) o una posterior. Puede ejecutar `python --version` en la línea de comandos para comprobar la versión. Python está disponible para una amplia variedad de sistemas operativos. En las instrucciones de este tutorial se da por hecho que se ejecuta el comando **python** en el símbolo del sistema de Windows.
+
+- Una copia local del repositorio de GitHub de [SDK de IoT de Microsoft Azure para Python](https://github.com/Azure/azure-iot-sdk-python) que contiene el código de ejemplo. Use este vínculo para descargar una copia del repositorio: [Descargar el archivo ZIP](https://github.com/Azure/azure-iot-sdk-python/archive/master.zip). Después, descomprima el archivo en una ubicación conveniente en la máquina local.
 
 ## <a name="review-the-code"></a>Revisión del código
 
