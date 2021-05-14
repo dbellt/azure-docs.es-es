@@ -4,7 +4,7 @@ description: Aprenda a analizar los registros de actividad de Azure Active Direc
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: mtillman
 editor: ''
 ms.assetid: 4535ae65-8591-41ba-9a7d-b7f00c574426
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/18/2019
+ms.date: 05/06/2021
 ms.author: markvi
-ms.reviewer: dhanyahk
+ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 905261058c2de0afae18cbc5572c64962bef8834
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0f444fefcd29620d9ccd91f58e1f198cab459f7d
+ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100580019"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108795142"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs"></a>Análisis de registros de actividad de Azure AD con registros de Azure Monitor
 
@@ -61,7 +61,6 @@ Los registros se insertan en las tablas **AuditLogs** y **SigninLogs** del área
 1. En la vista de consulta predeterminada de la sección anterior, seleccione **Esquema** y expanda el área de trabajo. 
 
 2. Expanda la sección **Administración de registros** y, a continuación, expanda **AuditLogs** o **SignInLogs** para ver el esquema de registro.
-    ![Registros de auditoría](./media/howto-analyze-activity-logs-log-analytics/auditlogschema.png) ![Registros de inicio de sesión](./media/howto-analyze-activity-logs-log-analytics/signinlogschema.png)
 
 ## <a name="query-the-azure-ad-activity-logs"></a>Consulta de registros de actividad de Azure AD
 

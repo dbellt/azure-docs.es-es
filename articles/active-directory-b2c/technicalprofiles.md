@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/04/2021
+ms.date: 05/10/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bcff1ffd574db910c3206d82e4da0e9428db788f
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: c555f86113b9a4557e3b5ebc356f63a5e5dc1eb1
+ms.sourcegitcommit: 19dfdfa85e92c6a34933bdd54a7c94e8b00eacfd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102631802"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109664373"
 ---
 # <a name="technical-profiles"></a>Perfiles técnicos
 
@@ -483,10 +483,10 @@ En el siguiente ejemplo se muestra el uso de la instrucción:
     </TechnicalProfile>
 
     <TechnicalProfile Id="REST-UpdateProfile">
-       <Metadata>
+      <DisplayName>Update the user profile</DisplayName>  
+      <Metadata>
         <Item Key="ServiceUrl">https://your-app-name.azurewebsites.NET/api/identity/update</Item>
       </Metadata>
-      <DisplayName>Update the user profile</DisplayName>
       <InputClaims>
         <InputClaim ClaimTypeReferenceId="objectId" />
         <InputClaim ClaimTypeReferenceId="email" />

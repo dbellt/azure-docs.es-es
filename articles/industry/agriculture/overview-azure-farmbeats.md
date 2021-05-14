@@ -1,16 +1,16 @@
 ---
 title: ¿Qué es Azure FarmBeats?
 description: Proporciona información general sobre Azure FarmBeats.
-author: uhabiba04
+author: RiyazPishori
 ms.topic: overview
 ms.date: 11/04/2019
-ms.author: v-ummehabiba
-ms.openlocfilehash: f173dfb055f3d9c75ee63570cd413276ffb6ba37
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.author: riyazp
+ms.openlocfilehash: 1fd204086d9cc039c4e6cafe8dc4c1ebc69e71e7
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102182832"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108750192"
 ---
 # <a name="overview-of-azure-farmbeats-preview"></a>Introducción a Azure FarmBeats (versión preliminar)
 

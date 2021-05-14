@@ -6,15 +6,15 @@ metadata:
   description: Aprenda a usar Azure VMware Solution para implementar una nube privada de VMware en Azure
   ms.service: azure-vmware
   ms.topic: landing-page
-  author: dikamath
-  ms.author: dikamath
-  ms.date: 11/19/2020
-  ms.openlocfilehash: 9412889bef1ababa6d44d5cf3aa48c2231bed08d
-  ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+  author: shortpatti
+  ms.author: v-patsho
+  ms.date: 05/04/2021
+  ms.openlocfilehash: 20d2d685c6ac634a1463669c262f599fb465e05d
+  ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 03/07/2021
-  ms.locfileid: "102436199"
+  ms.lasthandoff: 05/06/2021
+  ms.locfileid: "108803917"
 landingContent:
 - title: Acerca de Azure VMware Solution
   linkLists:
@@ -34,23 +34,47 @@ landingContent:
       url: concepts-storage.md
     - text: Acceso e identidad en nubes privadas
       url: concepts-identity.md
-    - text: Control de acceso basado en rol de vSphere
-      url: concepts-role-based-access-control.md
     - text: Supervisión y reparación de nubes privadas
-      url: concepts-monitor-repair-private-cloud.md
-    - text: Actualizaciones de nube privada
-      url: concepts-upgrades.md
+      url: concepts-private-clouds-clusters.md#host-monitoring-and-remediation
+    - text: API Management
+      url: concepts-api-management.md
+    - text: En estrella tipo hub-and-spoke
+      url: concepts-hub-and-spoke.md
+- title: Preguntas más frecuentes
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: General
+      url: /azure/azure-vmware/faq
+    - text: Comunicación al cliente
+      url: /azure/azure-vmware/faq#customer-communication
+    - text: Instalación y configuración
+      url: /azure/azure-vmware/faq#configuration-and-setup
+    - text: Software de VMware
+      url: /azure/azure-vmware/faq#vmware-software
+    - text: Procesamiento, copia de seguridad y recuperación ante desastres
+      url: /azure/azure-vmware/faq#compute,-backup,-and-disaster-recovery
+    - text: Redes e interconectividad
+      url: /azure/azure-vmware/faq#networking-and-interconnectivity
+    - text: Storage
+      url: /azure/azure-vmware/faq#storage
+    - text: Hosts, clústeres y nubes privadas
+      url: /azure/azure-vmware/faq#hosts,-clusters,-and-private-clouds
+    - text: Administración de identidades
+      url: /azure/azure-vmware/faq#identity-management
+    - text: Facturación y soporte técnico
+      url: /azure/azure-vmware/faq#billing-and-support
 - title: Introducción
   linkLists:
   - linkListType: deploy
     links:
-    - text: 0 - Planeamiento de la implementación
+    - text: 1 - Planeamiento de la implementación
       url: production-ready-deployment-steps.md
-    - text: 1 - Implementación de Azure VMware Solution
+    - text: 2 - Implementación de Azure VMware Solution
       url: deploy-azure-vmware-solution.md
-    - text: 2 - Conexión al entorno local
-      url: azure-vmware-solution-on-premises.md
-    - text: 3 - Implementación y configuración de HCX
+    - text: 3 - Conexión al entorno local
+      url: tutorial-expressroute-global-reach-private-cloud.md
+    - text: 4 - Implementación y configuración de HCX
       url: tutorial-deploy-vmware-hcx.md
   - linkListType: tutorial
     links:
@@ -66,79 +90,113 @@ landingContent:
       url: tutorial-nsx-t-network-segment.md
     - text: Emparejamiento de un entorno local con una nube privada
       url: tutorial-expressroute-global-reach-private-cloud.md
-    - text: Escalado de una nube privada
+    - text: Expansión o reducción de clústeres en una nube privada
       url: tutorial-scale-private-cloud.md
     - text: Eliminación de una nube privada
       url: tutorial-delete-private-cloud.md
 - title: Extensión de Azure VMware Solution
   linkLists:
-  - linkListType: how-to-guide
+  - linkListType: reference
     links:
-    - text: Solicitud de la cuota del host y habilitación de Azure VMware Solution
+    - text: Solicitud de la cuota del host para Azure VMware Solution
       url: enable-azure-vmware-solution.md
     - text: Ahorro de costos con una instancia reservada
       url: reserved-instance.md
-    - text: Evaluación de migraciones
-      url: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=/azure/migrate/context/migrate-context.json
+    - text: Creación de una evaluación de Azure VMware Solution
+      url: /azure/migrate/how-to-create-azure-vmware-solution-assessment?context=/azure/azure-vmware/context/context
+  - linkListType: how-to-guide
+    links:
     - text: Administración de DHCP
       url: manage-dhcp.md
     - text: Configuración de componentes de red de NSX
       url: configure-nsx-network-components-azure-portal.md
-    - text: Implementación de la recuperación ante desastres para máquinas virtuales
-      url: disaster-recovery-for-virtual-machines.md
-    - text: Implementación de una máquina virtual a través de la biblioteca de contenido
-      url: ./deploy-vm-content-library.md
     - text: Configuración del servidor de GitHub Enterprise
       url: github-enterprise-server.md
-    - text: Uso de IP pública
-      url: public-ip-usage.md
-    - text: Creación de un túnel IPSec
-      url: create-ipsec-tunnel.md
+    - text: Habilitación del acceso a través de una red de Internet pública
+      url: enable-public-internet-access.md
+    - text: Configuración de una VPN de sitio a sitio en vWAN
+      url: configure-site-to-site-vpn-gateway.md
+    - text: Configurar los clústeres de conmutación por error de Windows Server
+      url: configure-windows-server-failover-cluster.md
 - title: Integración nativa de Azure
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: API Management
-      url: concepts-api-management.md
-    - text: En estrella tipo hub-and-spoke
-      url: concepts-hub-and-spoke.md
-    - text: Azure Security Center
+    - text: Protección de máquinas virtuales con Azure Security Center
       url: azure-security-integration.md
-    - text: Azure Backup Server
-      url: set-up-backup-server-for-azure-vmware-solution.md
-    - text: Administración del ciclo de vida en máquinas virtuales
+    - text: Supervisión y administración de máquinas virtuales
       url: lifecycle-management-of-azure-vmware-solution-vms.md
-    - text: Application Gateway
+    - text: Integración con Azure NetApp Files
+      url: netapp-files-with-azure-vmware-solution.md
+    - text: Protección de aplicaciones web con Azure Application Gateway
       url: protect-azure-vmware-solution-with-application-gateway.md
-    - text: Traffic Manager
+    - text: Implementación de Traffic Manager para equilibrar cargas de trabajo
       url: deploy-traffic-manager-balance-workloads.md
+    - text: Configuración de alertas y trabajo con métricas
+      url: configure-alerts-for-azure-vmware-solution.md
+- title: Copia de seguridad y restauración con Azure Backup Server
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Copias de seguridad de máquinas virtuales de VMware
+      url: /azure/backup/backup-azure-backup-server-vmware?context=/azure/azure-vmware/context/context
+    - text: Restauración de máquinas virtuales de VMware
+      url: /azure/backup/restore-azure-backup-server-vmware?context=/azure/azure-vmware/context/context
+    - text: Supervisión de las cargas de trabajo de Azure Backup
+      url: /azure/backup/backup-azure-monitoring-built-in-monitor?context=/azure/azure-vmware/context/context
 - title: Soluciones de VMware
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Configuración de vRealize Operations
+    - text: Configuración de operaciones de vRealize
       url: vrealize-operations-for-azure-vmware-solution.md
     - text: Implementación de VMware Horizon
       url: azure-vmware-solution-horizon.md
+    - text: Implementación de máquinas virtuales desde la biblioteca de contenido
+      url: deploy-vm-content-library.md
 - title: Ecosistema de VMware
   linkLists:
   - linkListType: reference
     links:
     - text: Soluciones de copia de seguridad para máquinas virtuales
       url: ecosystem-back-up-vms.md
+    - text: Soluciones de migración para máquinas virtuales
+      url: ecosystem-migration-vms.md
 - title: Recursos
   linkLists:
   - linkListType: reference
     links:
+    - text: API DE REST
+      url: /rest/api/avs
     - text: Azure CLI
-      url: /cli/azure/ext/vmware/vmware
+      url: /cli/azure/vmware
     - text: Azure PowerShell
       url: /powershell/module/az.vmware
-    - text: Preguntas más frecuentes
-      url: faq.yml
+    - text: Proveedor de Azure para Terraform
+      url: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/vmware_private_cloud
+  - linkListType: video
+    links:
+    - text: Lista de reproducción
+      url: https://youtube.com/playlist?list=PL1NLwHeM6ewbZu0dC0guj-OSpIoZnnJin
+    - text: Integración con los servicios de Azure
+      url: https://youtu.be/m26iLu6DHbU
+    - text: Integración con Azure Application Gateway
+      url: https://youtu.be/BoQYvqzb6Y8
+    - text: Migración y planeamiento de capacidad
+      url: https://youtu.be/NoNG-hkksrA
+    - text: Rotación de contraseñas de vCenter y NSX-T mediante Azure Logic App
+      url: https://youtu.be/cK1qY3knj88
+- title: Traslado de recursos de Azure VMware Solution
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Traslado de suscripciones de EA y CSP
+      url: move-ea-csp-subscriptions.md
 - title: Solución de problemas
   linkLists:
   - linkListType: reference
     links:
     - text: Abrir una solicitud de soporte técnico para los errores de implementación
       url: fix-deployment-provisioning-failures.md
+    - text: Código de error vix de las herramientas de VMware = 21009
+      url: https://kb.vmware.com/s/article/2129927

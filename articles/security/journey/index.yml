@@ -1,0 +1,103 @@
+### YamlMime:Landing
+title: Documentación de seguridad de Azure para todas las fases de adopción de la nube
+summary: Tanto si está pensando en pasarse a la nube como si ya ha migrado a ella, aquí encontrará una guía para todas las fases del recorrido de seguridad en la nube.
+metadata:
+  title: Documentación del recorrido de seguridad de Azure
+  description: Búsqueda de instrucciones para cada una de las fases del recorrido de seguridad en Azure.
+  services: security
+  ms.service: security
+  ms.subservice: journey
+  ms.topic: landing-page
+  author: TerryLanfear
+  ms.author: terrylan
+  manager: rkarlin
+  ms.date: 04/30/2021
+  ms.openlocfilehash: 09cef5e5e209b89f3c80b7565fbffb65c3d6eb6d
+  ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 05/06/2021
+  ms.locfileid: "108732948"
+landingContent:
+- title: Descripción de las ventajas, en cuanto a seguridad, de Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Responsabilidad compartida en la nube
+      url: ../fundamentals/shared-responsibility.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - text: Servicios de seguridad de un extremo a otro
+      url: ../fundamentals/end-to-end.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+  - linkListType: concept
+    links:
+    - text: ¿Cómo protege Microsoft la infraestructura de Azure?
+      url: ../fundamentals/infrastructure.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - text: Integridad y seguridad de la plataforma de Azure
+      url: ../fundamentals/platform.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+- title: Preparación para migrar de forma segura a la nube
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Implementación de la seguridad en toda una empresa
+      url: /azure/cloud-adoption-framework/get-started/security?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
+  - linkListType: concept
+    links:
+    - text: Diseño de una arquitectura segura
+      url: /azure/architecture/framework/security/security-principles?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - text: Seguridad, gobernanza y cumplimiento a escala empresarial
+      url: /azure/cloud-adoption-framework/ready/enterprise-scale/security-governance-and-compliance/?tabs=MigrationTools?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
+- title: Migración de una empresa a la nube
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Migración de cargas de trabajo seguras
+      url: /azure/cloud-adoption-framework/migrate/azure-migration-guide/?tabs=MigrationTools?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
+  - linkListType: overview
+    links:
+    - text: Estrategia de cumplimiento o de gobernanza
+      url: /azure/cloud-adoption-framework/migrate/azure-best-practices/governance-or-compliance/?tabs=MigrationTools?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
+- title: Protección de las cargas de trabajo en la nube
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Recomendaciones de seguridad
+      url: ../fundamentals/best-practices-and-patterns.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - text: Controles de seguridad y líneas de base
+      url: ../benchmarks/introduction.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+  - linkListType: concept
+    links:
+    - text: Administración de identidades
+      url: ../fundamentals/identity-management-overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - text: Seguridad de las redes
+      url: ../fundamentals/network-overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - text: Seguridad y cifrado de datos
+      url: ../fundamentals/encryption-overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - text: Microsoft Antimalware
+      url: ../fundamentals/antimalware.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - text: Seguridad de máquina virtual
+      url: ../fundamentals/virtual-machines-overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+- title: Detección, análisis y mitigación de amenazas
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Protección contra amenazas
+      url: ../fundamentals/threat-detection.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - text: Análisis de amenazas
+      url: /azure/architecture/framework/security/design-threat-model?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+- title: Investigación de actividad sospechosa
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Registro de Azure
+      url: ../fundamentals/log-audit.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - text: Revisión y auditoría
+      url: /azure/architecture/framework/security/monitor-audit?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - text: Riesgos de la red y de la identidad
+      url: /azure/architecture/framework/security/monitor-identity-network?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+- title: Optimización de las inversiones en seguridad
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Gobernanza, riesgo y cumplimiento
+      url: /azure/architecture/framework/governance/monitor-audit?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - text: Riesgos de la red y de la identidad
+      url: /azure/architecture/framework/security/monitor-test?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json

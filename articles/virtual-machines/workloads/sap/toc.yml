@@ -62,6 +62,8 @@
           href: hana-concept-preparation.md
         - name: Procedimiento de conmutación por error de recuperación ante desastres
           href: hana-failover-procedure.md
+        - name: Alta disponibilidad de instancias grandes de SAP en RHEL
+          href: large-instance-high-availability-rhel.md
     - name: Solución de problemas y supervisión
       items:
         - name: Supervisión de HLI
@@ -74,8 +76,10 @@
           href: hana-li-portal.md
         - name: Configuración de alta disponibilidad con STONITH
           href: ha-setup-with-stonith.md
-        - name: Copia de seguridad del sistema operativo para SKU de tipo II
-          href: os-backup-type-ii-skus.md
+        - name: Copia de seguridad del sistema operativo
+          href: large-instance-os-backup.md
+        - name: Alta disponibilidad de Azure (instancias grandes) para SAP en RHEL
+          href: large-instance-high-availability-rhel.md
         - name: Habilitación de Kdump para HANA (instancias grandes)
           href: hana-large-instance-enable-kdump.md
         - name: Actualización del sistema operativo para instancias grandes de HANA
@@ -112,6 +116,8 @@
           href: sap-hana-high-availability-rhel.md
         - name: Configuración de la replicación del sistema de SAP HANA con ANF en RHEL
           href: sap-hana-high-availability-netapp-files-red-hat.md
+        - name: Escalado horizontal por parte de SAP HANA de HSR con Pacemaker en SLES
+          href: sap-hana-high-availability-scale-out-hsr-suse.md
         - name: Solución de problemas de escalabilidad horizontal de SAP HANA y Pacemaker en SLES
           href: hana-vm-troubleshoot-scale-out-ha-on-sles.md
         - name: Escalado horizontal por parte de SAP HANA de HSR con Pacemaker en RHEL
@@ -120,11 +126,25 @@
           href: sap-hana-scale-out-standby-netapp-files-suse.md
         - name: Escalado horizontal de SAP HANA con nodo en espera mediante Azure NetApp Files en RHEL
           href: sap-hana-scale-out-standby-netapp-files-rhel.md
-    - name: 'SAP HANA: información general sobre copias de seguridad'
-      href: sap-hana-backup-guide.md
-    - name: 'SAP HANA: copia de seguridad en el nivel de archivo'
-      href: sap-hana-backup-file-level.md
-- name: SAP NetWeaver y Business One en Azure Virtual Machines
+    - name: Copia de seguridad de bases de datos SAP HANA con Azure Backup
+      items:
+        - name: Copia de seguridad de bases de datos SAP HANA en máquinas virtuales de Azure
+          href: ../../../backup/sap-hana-db-about.md
+        - name: Copia de seguridad de bases de datos de SAP HANA en máquinas virtuales de Azure
+          href: ../../../backup/backup-azure-sap-hana-database.md
+        - name: Restauración de bases de datos de SAP HANA en máquinas virtuales de Azure
+          href: ../../../backup/sap-hana-db-restore.md
+        - name: Administración y supervisión
+          href: ../../../backup/sap-hana-db-manage.md
+        - name: Matriz de compatibilidad de la copia de seguridad de bases de datos de SAP HANA
+          href: ../../../backup/sap-hana-backup-support-matrix.md
+        - name: 'Preguntas frecuentes: copia de seguridad de bases de datos de SAP HANA en máquinas virtuales de Azure'
+          href: ../../../backup/sap-hana-faq-backup-azure-vm.yml
+        - name: Solución de problemas al realizar copias de seguridad de bases de datos de SAP HANA en Azure
+          href: ../../../backup/backup-azure-sap-hana-database-troubleshoot.md
+        - name: 'Tutorial: copia de seguridad de bases de datos de SAP HANA en una máquina virtual de Azure'
+          href: ../../../backup/tutorial-backup-sap-hana-db.md
+- name: 'SAP NetWeaver, S/4HANA y Business One en Azure Virtual Machines'
   items:
     - name: Lista de comprobación de planeación e implementación de carga de trabajo de SAP
       href: sap-deployment-checklist.md
@@ -197,8 +217,6 @@
               href: high-availability-guide-rhel.md
             - name: Alta disponibilidad en Red Hat Enterprise Linux para instancias de (A)SCS con Azure NetApp Files
               href: high-availability-guide-rhel-netapp-files.md
-            - name: Alta disponibilidad de instancias grandes de SAP en RHEL
-              href: large-instance-high-availability-rhel.md
         - name: Preparación de la infraestructura de Azure
           items:
             - name: Windows con disco compartido para instancias de (A)SCS
@@ -251,6 +269,8 @@
   items:
     - name: Guía de planificación e implementación de la plataforma de inteligencia empresarial SAP BusinessObjects en Azure
       href: businessobjects-deployment-guide.md
+    - name: Guía de implementación de la plataforma de inteligencia empresarial SAP BusinessObjects para Windows en Azure
+      href: businessobjects-deployment-guide-windows.md
     - name: Guía de implementación de la plataforma de inteligencia empresarial SAP BusinessObjects para Linux en Azure
       href: businessobjects-deployment-guide-linux.md
 - name: "Integración de Azure\_AD con aplicaciones de SAP"
@@ -314,7 +334,7 @@
 - name: Referencia
   items:
     - name: Azure CLI
-      href: /cli/azure/ext/sap-hana/hanainstance
+      href: /cli/azure/hanainstance
     - name: Azure PowerShell
       href: /powershell/module/az.hanaonazure/#sap-hana-on-azure
 - name: Recursos

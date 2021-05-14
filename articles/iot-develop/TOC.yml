@@ -11,18 +11,20 @@
   items:
     - name: Introducción al desarrollo de aplicaciones para dispositivos
       items:
-        - name: Envío de datos de telemetría a IoT Central (Python)
-          href: quickstart-send-telemetry-python.md
-        - name: Envío de datos de telemetría a IoT Hub (Python)
-          href: quickstart-send-telemetry-cli-python.md
-        - name: Envío de datos de telemetría a IoT Hub (Node)
-          href: quickstart-send-telemetry-cli-node.md
+        - name: Envío de datos de telemetría a IoT Central
+          href: quickstart-send-telemetry-central.md
+        - name: Envío de datos de telemetría a IoT Hub
+          href: quickstart-send-telemetry-iot-hub.md
     - name: Introducción al desarrollo insertado
-      href: quickstart-device-development.md
+      items:
+        - name: Inicios rápidos de desarrollo de dispositivos insertados
+          href: quickstart-device-development.md
+        - name: Conexión de un dispositivo MXCHIP AZ3166 a IoT Central
+          href: quickstart-devkit-mxchip-az3166.md
 - name: Tutoriales
   items:
     - name: Conexión segura de dispositivos de IoT a la nube
-      href: /learn/paths/securely-connect-iot-devices/
+      href: /learn/paths/securely-connect-iot-devices/?wt.mc_id=iothub_connect_docs_tutorials
 - name: Conceptos
   items:
     - name: Opciones de conexión para desarrolladores de dispositivos
@@ -76,7 +78,7 @@
 - name: Recursos
   items:
     - name: Opciones de ayuda y soporte técnico
-      href: ../iot-fundamentals/iot-support-help.md
+      href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-develop/toc.json&bc=/azure/iot-develop/breadcrumb/toc.json
     - name: Ejemplos de Azure IoT
       items:
         - name: C# (.NET)
@@ -90,7 +92,7 @@
         - name: Plataforma de iOS
           href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/'
     - name: Catálogo de dispositivos de Azure Certified for IoT
-      href: 'https://catalog.azureiotsolutions.com/'
+      href: 'https://devicecatalog.azure.com/'
     - name: Centro para desarrolladores de Azure
       href: 'https://azure.microsoft.com/develop/iot/'
     - name: Azure Roadmap

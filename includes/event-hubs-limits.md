@@ -34,8 +34,7 @@ En la tabla siguiente se muestran los límites que pueden ser diferentes para lo
 | Número de conexiones de AMQP por espacio de nombres | 100 | 5\.000 | 100 000 incluidos y como máximo |
 | Período de retención máximo de datos de eventos | 1 día | 1-7 días | 90 días, 10 TB incluidas por TU |
 | Número máximo de TU o CU |20 TU | 20 TU | 20 CU |
-| Número de particiones por centro de eventos | 32 | 32 | 1024 por centro de eventos
-2000 por CU |
+| Número de particiones por centro de eventos | 32 | 32 | 1024 por centro de eventos<br/> 2000 por CU |
 | Número de espacios de nombres por suscripción | 100 | 100 | 100 (50 por CU) |
 | Número de centros de eventos por espacio de nombres | 10 | 10 | 1000 |
 | Eventos de entrada | | Pago por millones de eventos | Se incluye|

@@ -8,12 +8,12 @@ ms.service: media-services
 ms.topic: overview
 ms.date: 03/24/2021
 ms.author: inhenkel
-ms.openlocfilehash: 3707516818e54dd251bd470eb9231afc6e3fff67
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: cd82da805538abcddf2f76a20c28cb0a74b5c89b
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108138686"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109685610"
 ---
 # <a name="media-services-v3-samples"></a>Ejemplos de Media Services v3
 
@@ -33,11 +33,11 @@ Encontrará la descripción y los vínculos a los ejemplos que puede encontrar e
 
 | Carpeta | Descripción |
 |-------------|-------------|
-| [VideoEncoding/EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/EncodingWithMESPredefinedPreset)|Cómo enviar un trabajo mediante un valor preestablecido integrado y una entrada de dirección URL HTTP, publicar un recurso de salida para la transmisión y descargar los resultados para su comprobación.|
-| [VideoEncoding/EncodingWithMESCustomPreset_H264](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/EncodingWithMESCustomPreset_H264)|Cómo enviar un trabajo mediante un valor preestablecido de codificación H.264 personalizado y una entrada de dirección URL HTTP, publicar un recurso de salida para la transmisión y descargar los resultados para su comprobación.|
-| [VideoEncoding/EncodingWithMESCustomPreset_HEVC](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/EncodingWithMESCustomPreset_HEVC)|Cómo enviar un trabajo mediante un valor preestablecido de codificación HEVC y una entrada de dirección URL HTTP, publicar un recurso de salida para la transmisión y descargar los resultados para su comprobación.|
-| [VideoEncoding/EncodingWithMESCustomStitchTwoAssets](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/EncodingWithMESCustomStitchTwoAssets)|Cómo enviar un trabajo mediante JobInputSequence para unir 2 o más recursos que se puedan recortar por hora de inicio o de finalización. El archivo codificado resultante es un vídeo único con todos los recursos unidos.  El ejemplo también publicará el recurso de salida para la transmisión y descargará los resultados para su comprobación.|
-| [VideoEncoding/EncodingWithMESCustomPresetAndSprite](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/EncodingWithMESCustomPresetAndSprite)|Cómo enviar un trabajo mediante un valor preestablecido personalizado con un sprite de miniaturas y una entrada de dirección URL HTTP, publicar un recurso de salida para la transmisión y descargar los resultados para su comprobación.|
+| [VideoEncoding/EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/Encoding_PredefinedPreset)|Cómo enviar un trabajo mediante un valor preestablecido integrado y una entrada de dirección URL HTTP, publicar un recurso de salida para la transmisión y descargar los resultados para su comprobación.|
+| [VideoEncoding/EncodingWithMESCustomPreset_H264](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/Encoding_H264)|Cómo enviar un trabajo mediante un valor preestablecido de codificación H.264 personalizado y una entrada de dirección URL HTTP, publicar un recurso de salida para la transmisión y descargar los resultados para su comprobación.|
+| [VideoEncoding/EncodingWithMESCustomPreset_HEVC](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/Encoding_HEVC)|Cómo enviar un trabajo mediante un valor preestablecido de codificación HEVC y una entrada de dirección URL HTTP, publicar un recurso de salida para la transmisión y descargar los resultados para su comprobación.|
+| [VideoEncoding/EncodingWithMESCustomStitchTwoAssets](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/Encoding_StitchTwoAssets)|Cómo enviar un trabajo mediante JobInputSequence para unir 2 o más recursos que se puedan recortar por hora de inicio o de finalización. El archivo codificado resultante es un vídeo único con todos los recursos unidos.  El ejemplo también publicará el recurso de salida para la transmisión y descargará los resultados para su comprobación.|
+| [VideoEncoding/EncodingWithMESCustomPresetAndSprite](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/Encoding_SpriteThumbnail)|Cómo enviar un trabajo mediante un valor preestablecido personalizado con un sprite de miniaturas y una entrada de dirección URL HTTP, publicar un recurso de salida para la transmisión y descargar los resultados para su comprobación.|
 | [Live/LiveEventWithDVR](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/Live/LiveEventWithDVR)|Cómo crear un evento en directo con un archivo completo de hasta 25 horas y un filtro en el recurso con una ventana de 5 minutos de DVR. Cómo usar un filtro para crear un localizador para la transmisión.|
 | [VideoAnalytics/VideoAnalyzer](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoAnalytics/VideoAnalyzer)|Cómo crear una transformación del analizador de vídeo, cargar un archivo de vídeo en un recurso de entrada, enviar un trabajo con la transformación y descargar los resultados para su comprobación.|
 | [AudioAnalytics/AudioAnalyzer](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/AudioAnalytics/AudioAnalyzer)|Cómo crear una transformación del analizador de audio, cargar un archivo multimedia en un recurso de entrada, enviar un trabajo con la transformación y descargar los resultados para su comprobación.|

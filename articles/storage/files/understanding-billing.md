@@ -4,15 +4,15 @@ description: Aprenda a interpretar los modelos de facturación aprovisionado y d
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/27/2021
+ms.date: 05/11/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: efcfabb931b45b8b30e755cf1a9c16d15308f9d4
-ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
+ms.openlocfilehash: 9d0079ac85980f97a0241780b23e639e2359c65d
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108064960"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109787228"
 ---
 # <a name="understand-azure-files-billing"></a>Descripción de la facturación de Azure Files
 Azure Files proporciona dos modelos de facturación distintos: aprovisionado y pago por uso. El modelo aprovisionado solo está disponible para los recursos compartidos de archivos prémium, que son recursos compartidos de archivos implementados en el tipo de cuenta de almacenamiento **FileStorage**. El modelo de pago por uso solo está disponible para los recursos compartidos de archivos estándar, que son recursos compartidos de archivos implementados en el tipo de cuenta de almacenamiento de **uso general, versión 2 (GPv2)** . En este artículo se explica cómo funcionan ambos modelos con el fin de ayudarle a entender la factura mensual de Azure Files.
@@ -114,7 +114,7 @@ Al crear un recurso compartido de archivos estándar, puede elegir entre los niv
 - El acceso frecuente es para cargas de trabajo activas que no implican un gran número de transacciones, y tiene un precio de almacenamiento de datos en reposo ligeramente inferior, pero los precios de transacción son algo mayores, en comparación con la transacción optimizada. Considérelo como el punto medio entre los niveles de transacción optimizada y acceso esporádico.
 - El acceso esporádico optimiza el precio de las cargas de trabajo que no tienen mucha actividad y ofrece el precio más bajo de datos en reposo, pero el más alto en las transacciones.
 
-Si coloca una carga de trabajo a la que se accede con poca frecuencia en el nivel de transacción optimizada, no pagará casi nada por las pocas horas del mes en que realiza transacciones en el recurso compartido, pero pagará una cantidad elevada por los costos de almacenamiento de datos. Si tuviera que trasladar este mismo recurso compartido al nivel de acceso esporádico, tampoco pagaría casi nada por los costos de transacción, simplemente porque no realiza transacciones con mucha frecuencia en esta carga de trabajo, pero el nivel de acceso esporádico ofrece un precio de almacenamiento de datos mucho más barato. La selección del nivel adecuado para su caso de uso le permite reducir considerablemente los costos. La selección del nivel adecuado para su caso de uso le permite reducir considerablemente los costos.
+Si coloca una carga de trabajo a la que se accede con poca frecuencia en el nivel de transacción optimizada, no pagará casi nada por las pocas horas del mes en que realiza transacciones en el recurso compartido, pero pagará una cantidad elevada por los costos de almacenamiento de datos. Si tuviera que trasladar este mismo recurso compartido al nivel de acceso esporádico, tampoco pagaría casi nada por los costos de transacción, simplemente porque no realiza transacciones con mucha frecuencia en esta carga de trabajo, pero el nivel de acceso esporádico ofrece un precio de almacenamiento de datos mucho más barato. La selección del nivel adecuado para su caso de uso le permite reducir considerablemente los costos.
 
 Del mismo modo, si coloca en el nivel de acceso esporádico una carga de trabajo a la que accede con mucha frecuencia, incurrirá en muchos más costos por las transacciones, pero pagará menos por el almacenamiento de datos. Esto puede derivar en una situación en la que el aumento de los costos por los precios de las transacciones sobrepasan el ahorro obtenido por el precio más reducido del almacenamiento de datos, de tal forma que pagará más dinero en el nivel de acceso esporádico en comparación con el de transacción optimizada. Puede que, para algunos niveles de uso, mientras que el nivel de acceso frecuente será el nivel más rentable, el de acceso esporádico será más caro que el de transacción optimizada.
 

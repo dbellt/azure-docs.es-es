@@ -302,6 +302,22 @@ groups:
     title: JavaScript
   - id: programming-language-python
     title: Python
+- id: programming-languages-set-twenty-seven
+  title: Lenguajes de programación
+  prompt: Selección de un lenguaje de programación
+  pivots:
+  - id: programming-language-ansi-c
+    title: C
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-embedded-c
+    title: C insertado
 - id: cogsvcs-text-analytics-features
   title: Características de Text Analytics
   prompt: Elección de una oferta de características de Text Analytics
@@ -342,6 +358,14 @@ groups:
     title: Python
   - id: programming-language-typescript
     title: TypeScript
+- id: programming-languages-set-functions-temp
+  title: Lenguajes de programación
+  prompt: Selección de un lenguaje de programación
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
 - id: programming-languages-set-functions-full
   title: Lenguajes de programación
   prompt: Selección de un lenguaje de programación
@@ -370,6 +394,14 @@ groups:
     title: Línea de comandos
   - id: development-environment-vs
     title: Visual Studio
+- id: bring-third-party-dependency-programming-functions
+  title: Lenguajes de programación
+  prompt: Selección de un lenguaje de programación
+  pivots:
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-java
+    title: Java
 - id: programming-languages-metrics-monitor
   title: Lenguajes de programación
   prompt: Selección de un lenguaje de programación
@@ -447,7 +479,7 @@ groups:
   - id: programming-language-csharp
     title: C#
   - id: programming-language-cpp
-    title: C+
+    title: C++
   - id: programming-language-java
     title: Java
   - id: programming-language-objectivec
@@ -459,7 +491,7 @@ groups:
   - id: programming-language-csharp
     title: C#
   - id: programming-language-cpp
-    title: C+
+    title: C++
   - id: programming-language-java
     title: Java
 - id: code-editors-set-one
@@ -750,6 +782,16 @@ groups:
     title: C#
   - id: programming-language-python
     title: Python
+- id: app-service-ide
+  title: Experiencia de desarrollo
+  prompt: Elección de una experiencia de desarrollo
+  pivots:
+  - id: development-environment-vs
+    title: Visual Studio
+  - id: development-environment-vscode
+    title: Visual Studio Code
+  - id: development-environment-cli
+    title: Interfaz de la línea de comandos
 - id: app-service-platform-windows-linux
   title: Plataforma App Service
   prompt: Elección de una plataforma de hospedaje
@@ -820,6 +862,18 @@ groups:
     title: JavaScript
   - id: programming-language-csharp
     title: C#
+- id: acs-plat-azp-azcli-net-ps
+  title: Apartados de JS y C#
+  prompt: Selección de un lenguaje de programación
+  pivots:
+  - id: platform-azp
+    title: Azure portal
+  - id: platform-azcli
+    title: Azure CLI
+  - id: platform-net
+    title: .NET
+  - id: platform-powershell
+    title: PowerShell
 - id: acs-js-csharp-java-python
   title: Lenguajes de programación
   prompt: Selección de un lenguaje de programación
@@ -928,6 +982,14 @@ groups:
     title: Android
   - id: platform-ios
     title: iOS
+- id: acs-plat-ios-android
+  title: Plataforma
+  prompt: Elección de una plataforma
+  pivots:
+  - id: platform-android
+    title: Android
+  - id: platform-ios
+    title: iOS
 - id: acs-plat-azp-js
   title: Plataforma
   prompt: Elección de una plataforma
@@ -962,6 +1024,20 @@ groups:
     title: Go
   - id: platform-powershell
     title: PowerShell
+- id: acs-azp-java-net-python-csharp-js
+  title: Plataforma
+  prompt: Elección de una plataforma
+  pivots:
+  - id: platform-azp
+    title: Azure portal
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
 - id: non-azure-machines
   title: Máquinas que no son de Azure
   prompt: ¿Cómo va a conectar la máquina que no es de Azure?
@@ -1042,6 +1118,8 @@ groups:
   title: Lenguajes de programación
   prompt: Selección de un lenguaje de programación
   pivots:
+  - id: rest
+    title: REST
   - id: programming-language-csharp
     title: C#
   - id: programming-language-javascript
@@ -1054,8 +1132,6 @@ groups:
     title: Go
   - id: programming-language-ruby
     title: Ruby
-  - id: rest
-    title: Rest
 - id: azure-maps-android
   title: Lenguajes de programación
   prompt: Selección de un lenguaje de programación
@@ -1064,10 +1140,46 @@ groups:
     title: Java (Android)
   - id: programming-language-kotlin
     title: Kotlin (Android)
+- id: immersive-reader-how-to-guides
+  title: Lenguajes de programación
+  prompt: Selección de un lenguaje de programación
+  pivots:
+  - id: programming-language-javascript
+    title: Node.js
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-android
+    title: Android
+  - id: programming-language-ios
+    title: iOS
+- id: anomaly-detector-quickstart-multivariate
+  title: Lenguajes de programación
+  prompt: Selección de un lenguaje de programación
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-java
+    title: Java
+- id: iot-develop-set1
+  title: Lenguajes de programación
+  prompt: Selección de un lenguaje de programación
+  pivots:
+  - id: programming-language-ansi-c
+    title: C
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-nodejs
+    title: Node.js
+  - id: programming-language-python
+    title: Python
 metadata:
-  ms.openlocfilehash: 4075041f3a79138c80c1e020a7410bbc252de6f3
-  ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+  ms.openlocfilehash: 9adce59255aedb463b7908fa084d59f0b19a068f
+  ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 03/10/2021
-  ms.locfileid: "102558175"
+  ms.lasthandoff: 05/10/2021
+  ms.locfileid: "109712737"

@@ -1,19 +1,19 @@
 ---
 title: Detección, conexión y exploración de datos en Synapse con Azure Purview
 description: Guía sobre cómo detectar datos, conectarlos y explorarlos en Synapse
-author: Rodrigossz
+author: Jejiang
 ms.service: synapse-analytics
 ms.subservice: purview
 ms.topic: how-to
 ms.date: 12/16/2020
-ms.author: rosouz
+ms.author: jejiang
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1f326c1caaa019222854741dcc5d8a8e087885f7
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 125855a4efd8c369cf067c64b034cb23d3adde7f
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108138236"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109716085"
 ---
 # <a name="discover-connect-and-explore-data-in-synapse-using-azure-purview"></a>Detección, conexión y exploración de datos en Synapse con Azure Purview 
 

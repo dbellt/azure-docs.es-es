@@ -1,17 +1,17 @@
 ---
 title: Actividad de búsqueda en Azure Data Factory
 description: Más información sobre cómo usar la actividad de búsqueda para buscar un valor desde un origen externo. Además, las actividades posteriores pueden hacer referencia a esta salida.
-author: linda33wj
-ms.author: jingwang
+author: jianleishen
+ms.author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/25/2021
-ms.openlocfilehash: 4b2fb49899b6a676520fe0912dd122dd72cce023
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 14ab6295717777f40677e0bdcd63a46821683658
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101712919"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109480192"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Actividad de búsqueda en Azure Data Factory
 
@@ -32,7 +32,7 @@ Tenga en cuenta lo siguiente:
 
 Se admiten los siguientes orígenes de datos para la actividad de búsqueda. 
 
-[!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-for-lookup-activity.md)]
+[!INCLUDE [data-factory-v2-supported-data-stores](includes/data-factory-v2-supported-data-stores-for-lookup-activity.md)]
 
 ## <a name="syntax"></a>Sintaxis
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/16/2020
 ms.author: jeedes
-ms.openlocfilehash: e74018d4b145f8dec44137ca1a3b0713b1b5cadd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3863e4a6a6429a5ce8d7558d97901b0c0e523dbb
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98728614"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108801719"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mapbox"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Mapbox
 
@@ -27,7 +27,7 @@ En este tutorial, aprenderá a integrar Mapbox con Azure Active Directory (Azur
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -91,7 +91,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     | | |
 
     > [!NOTE]
-    > Para aprender a configurar roles en Azure AD, consulte [este vínculo](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui--preview).
+    > Para aprender a configurar roles en Azure AD, consulte [este vínculo](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui).
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (sin procesar)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
 
