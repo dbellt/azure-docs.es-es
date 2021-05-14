@@ -10,12 +10,12 @@ metadata:
   author: timlt
   ms.author: timlt
   ms.date: 01/11/2021
-  ms.openlocfilehash: bb3bd1766e20fd16fa996eb66008140009f6bd5d
-  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+  ms.openlocfilehash: 29872aa965c7c539cd4e5e4e3c66b90ba63562ed
+  ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 03/03/2021
-  ms.locfileid: "101721453"
+  ms.lasthandoff: 05/06/2021
+  ms.locfileid: "108795680"
 landingContent:
 - title: Acerca del desarrollo de dispositivos IoT
   linkLists:
@@ -23,6 +23,8 @@ landingContent:
     links:
     - text: ¿Qué es el desarrollo de dispositivos de Azure IoT?
       url: about-iot-develop.md
+    - text: Revisión de tipos de dispositivo IoT
+      url: concepts-iot-device-types.md
     - text: ¿Qué SDK debo usar?
       url: about-iot-sdks.md
 - title: Introducción al desarrollo de aplicaciones para dispositivos
@@ -30,9 +32,9 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: Envío de datos de telemetría de dispositivos a IoT Central
-      url: quickstart-send-telemetry-python.md
+      url: quickstart-send-telemetry-central.md
     - text: Envío de datos de telemetría de dispositivos a IoT Hub
-      url: quickstart-send-telemetry-cli-python.md
+      url: quickstart-send-telemetry-iot-hub.md
 - title: Introducción al desarrollo de dispositivos insertados
   linkLists:
   - linkListType: quickstart

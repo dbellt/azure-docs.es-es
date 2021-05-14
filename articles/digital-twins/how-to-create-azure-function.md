@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5dddaabf47a261f741b3b1cb8d3319d589c4e474
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 03917b332d6ce204cda0ec072d213a0844690b94
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107480768"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109787840"
 ---
 # <a name="connect-function-apps-in-azure-for-processing-data"></a>Configuración de aplicaciones de funciones de Azure para procesar datos
 
@@ -132,14 +132,14 @@ Para asegurarse de que se pase el token de portador, configure los permisos de [
 1. Use el siguiente comando para ver los detalles de la identidad administrada por el sistema de la función. Anote el valor del campo `principalId` de la salida.
 
     ```azurecli-interactive 
-    az functionapp identity show -g <your-resource-group> -n <your-App-Service-(function-app)-name> 
+    az functionapp identity show --resource-group <your-resource-group> --name <your-App-Service-(function-app)-name>   
     ```
 
     >[!NOTE]
     > Si el resultado está vacío en lugar de mostrar los detalles de la identidad, cree una nueva identidad administrada por el sistema para la función con este comando:
     > 
     >```azurecli-interactive    
-    >az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>  
+    >az functionapp identity assign --resource-group <your-resource-group> --name <your-App-Service-(function-app)-name>    
     >```
     >
     > La salida muestra los detalles de la identidad, incluido el valor de `principalId` requerido para el siguiente paso. 
@@ -158,7 +158,7 @@ Permita que la función acceda a la dirección URL de la instancia mediante la d
 > Para crear la dirección URL de la instancia de Azure Digital Twins, agregue *https://* al principio del nombre de host de la instancia. Para ver el nombre de host, junto con todas las propiedades de la instancia, ejecute `az dt show --dt-name <your-Azure-Digital-Twins-instance>`.
 
 ```azurecli-interactive 
-az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-host-name>"
+az functionapp config appsettings set --resource-group <your-resource-group> --name <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-host-name>"
 ```
 
 # <a name="azure-portal"></a>[Azure Portal](#tab/portal)

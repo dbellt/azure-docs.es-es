@@ -40,6 +40,10 @@
           items:
             - name: Información general sobre tipos de clase
               href: class-types.md
+            - name: Adobe Creative Cloud
+              href: class-type-adobe-creative-cloud.md
+            - name: Autodesk
+              href: class-type-autodesk.md
             - name: Aprendizaje profundo en el procesamiento del lenguaje natural
               href: class-type-deep-learning-natural-language-processing.md
             - name: Generación de scripts en shell en Linux
@@ -137,6 +141,8 @@
           href: how-to-setup-lab-gpu.md
         - name: Preparación de una plantilla de máquina virtual de Windows
           href: how-to-prepare-windows-template.md
+        - name: Uso del almacenamiento de archivos externo
+          href: how-to-attach-external-storage.md
         - name: Control del comportamiento de apagado de Windows
           href: how-to-windows-shutdown.md
         - name: Visualización de información de soporte técnico (formador)
@@ -177,6 +183,8 @@
       href: /rest/api/labservices/
     - name: Módulo Az.LabServices de PowerShell (versión preliminar)
       href: reference-powershell-module.md
+    - name: Azure CLI
+      href: /cli/azure/hack
 - name: Recursos
   items:
     - name: Blog de Azure Lab Services

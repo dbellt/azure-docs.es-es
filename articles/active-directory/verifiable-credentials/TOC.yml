@@ -1,0 +1,50 @@
+- name: "Documentación sobre las credenciales verificables de Azure\_AD"
+  href: index.yml
+- name: Información general
+  expanded: true
+  items:
+    - name: Introducción a las credenciales verificables de Azure Active Directory (versión preliminar)
+      href: decentralized-identifier-overview.md
+- name: Tutoriales
+  expanded: true
+  items:
+    - name: Introducción a las credenciales verificables
+      href: get-started-verifiable-credentials.md
+    - name: Configuración de las credenciales verificables en el inquilino
+      items:
+        - name: "1 - Configuración del emisor de credenciales verificables en su propia instancia de Azure\_AD"
+          href: enable-your-tenant-verifiable-credentials.md
+        - name: "2 - Conexión del emisor de credenciales verificables a su propia instancia de Azure\_AD"
+          href: issue-verify-verifiable-credentials-your-tenant.md
+- name: Conceptos
+  expanded: true
+  items:
+    - name: Detalles del protocolo OpenID Connect
+      href: issuer-openid.md
+- name: Guías paso a paso
+  expanded: true
+  items:
+    - name: Personalización de credenciales
+      href: credential-design.md
+    - name: Administración de la revocación de credenciales
+      href: how-to-issuer-revoke.md
+    - name: Vinculación del dominio a la identidad descentralizada
+      href: how-to-dnsbind.md
+    - name: Optar por no recibir las credenciales verificables
+      href: how-to-opt-out.md
+- name: Ejemplos
+  expanded: true
+  items:
+    - name: Aplicación de nodo de ejemplo
+      href: 'https://github.com/Azure-Samples/active-directory-verifiable-credentials'
+    - name: Emisor de ejemplo
+      href: 'https://didvc-issuer-sample.azurewebsites.net/'
+    - name: Verificador de ejemplo
+      href: 'https://didvc-verifier-sample.azurewebsites.net/'
+- name: Recursos
+  expanded: true
+  items:
+    - name: Preguntas más frecuentes
+      href: verifiable-credentials-faq.md
+    - name: Creación de una cuenta de desarrollador
+      href: how-to-create-a-free-developer-account.md

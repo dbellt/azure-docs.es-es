@@ -30,24 +30,18 @@
   items:
     - name: Lista de tutoriales de integración de aplicaciones
       href: /azure/active-directory/saas-apps/
-    - name: Incorporación de una aplicación local con Application Proxy
-      href: application-proxy-add-on-premises-application.md
 - name: Ejemplos
   items:
-    - name: Ejemplos de PowerShell para Administración de la aplicación
-      items:
-        - name: Introducción de los ejemplos de Administración de la aplicación
-          href: app-management-powershell-samples.md
-        - name: Exportación de secretos y certificados (registros de aplicaciones)
-          href: ./scripts/powershell-export-all-app-registrations-secrets-and-certs.md
-        - name: Exportación de secretos y certificados (aplicaciones empresariales)
-          href: ./scripts/powershell-export-all-enterprise-apps-secrets-and-certs.md
-        - name: Exportación de secretos y certificados que expiran
-          href: ./scripts/powershell-export-apps-with-expriring-secrets.md
-        - name: Exportación de secretos y certificados que expiran después de la fecha requerida
-          href: ./scripts/powershell-export-apps-with-secrets-beyond-required.md
-    - name: Ejemplos de PowerShell para Proxy de aplicación
-      href: application-proxy-powershell-samples.md
+    - name: Introducción de los ejemplos de Administración de la aplicación
+      href: app-management-powershell-samples.md
+    - name: Exportación de secretos y certificados (registros de aplicaciones)
+      href: ./scripts/powershell-export-all-app-registrations-secrets-and-certs.md
+    - name: Exportación de secretos y certificados (aplicaciones empresariales)
+      href: ./scripts/powershell-export-all-enterprise-apps-secrets-and-certs.md
+    - name: Exportación de secretos y certificados que expiran
+      href: ./scripts/powershell-export-apps-with-expriring-secrets.md
+    - name: Exportación de secretos y certificados que expiran después de la fecha requerida
+      href: ./scripts/powershell-export-apps-with-secrets-beyond-required.md
 - name: Conceptos
   expanded: true
   items:
@@ -59,8 +53,6 @@
       items:
         - name: Introducción a la integración de aplicaciones
           href: plan-an-application-integration.md
-        - name: Planeamiento de las aplicaciones que no se encuentran en la galería
-          href: non-gallery-apps.md
         - name: Planeamiento de una implementación de Aplicaciones
           href: my-apps-deployment-plan.md
     - name: Inicio de sesión único
@@ -69,24 +61,16 @@
           href: plan-sso-deployment.md
         - name: Opciones de inicio de sesión único
           href: sso-options.md
-        - name: Inicio de sesión único con aplicaciones locales
-          href: application-proxy-config-sso-how-to.md
         - name: Inicio de sesión único basado en OIDC
           href: configure-oidc-single-sign-on.md
         - name: SSO basado en SAML
           href: configure-saml-single-sign-on.md
-        - name: Inicio de sesión único basado en SAML (aplicaciones locales)
-          href: application-proxy-configure-single-sign-on-on-premises-apps.md
         - name: Inicio de sesión único basado en contraseñas
           href: configure-password-single-sign-on-non-gallery-applications.md
-        - name: Inicio de sesión único basado en contraseña (aplicaciones locales)
-          href: application-proxy-configure-single-sign-on-password-vaulting.md
         - name: Inicio de sesión único basado en vínculo
           href: configure-linked-sign-on.md
         - name: Inicio de sesión único basado en encabezados (aplicaciones locales)
           href: application-proxy-configure-single-sign-on-with-headers.md
-        - name: Inicio de sesión único basado en Kerberos (aplicaciones locales)
-          href: application-proxy-configure-single-sign-on-with-kcd.md
         - name: Inicio de sesión único con un solo clic
           href: one-click-sso-tutorial.md
     - name: Seguridad de la aplicación
@@ -105,26 +89,6 @@
           href: end-user-experiences.md
         - name: Control y visibilidad de aplicaciones en la nube
           href: cloud-app-security.md
-    - name: Application Proxy para aplicaciones locales
-      items:
-        - name: Proxy de aplicación
-          href: application-proxy.md
-        - name: ¿Qué es un proxy de aplicación para aplicaciones locales?
-          href: what-is-application-proxy.md
-        - name: Planeación de la implementación de un proxy de aplicación
-          href: application-proxy-deployment-plan.md
-        - name: Conectores
-          href: application-proxy-connectors.md
-        - name: Grupos de conectores
-          href: application-proxy-connector-groups.md
-        - name: Seguridad
-          href: application-proxy-security.md
-        - name: Topología de red
-          href: application-proxy-network-topology.md
-        - name: Alta disponibilidad y equilibrio de carga
-          href: application-proxy-high-availability-load-balancing.md
-        - name: Comparación de soluciones de acceso remoto
-          href: application-proxy-migration.md
 - name: Guías paso a paso
   expanded: false
   items:
@@ -140,7 +104,7 @@
               href: configure-permission-classifications.md
             - name: Administración de directivas de consentimiento de aplicaciones
               href: manage-app-consent-policies.md
-            - name: Configuración del flujo de trabajo de consentimiento del administrador (versión preliminar)
+            - name: Configuración del flujo de trabajo de consentimiento del administrador
               href: configure-admin-consent-workflow.md
             - name: Administración y evaluación de solicitudes de consentimiento
               href: manage-consent-requests.md
@@ -174,130 +138,40 @@
           href: migrate-adfs-apps-to-azure.md
         - name: "Migración de la autenticación de las aplicaciones a Azure\_Active\_Directory"
           href: migrate-application-authentication-to-azure-active-directory.md
-        - name: "Uso del informe de actividad de una aplicación de AD\_FS (versión preliminar)"
+        - name: "Uso del informe de actividad de una aplicación de AD\_FS"
           href: migrate-adfs-application-activity.md
-    - name: Configuración de conectores locales
+    - name: Protección de aplicaciones heredadas
       items:
-        - name: Configuración con servidores proxy
-          href: application-proxy-configure-connectors-with-proxy-servers.md
-        - name: 'Registro del conector: instalación silenciosa'
-          href: application-proxy-register-connector-powershell.md
-    - name: Configuración del acceso de las aplicaciones a conectores locales
-      items:
-        - name: Configuración de aplicaciones compatibles con notificaciones
-          href: application-proxy-configure-for-claims-aware-applications.md
-        - name: Concesión de acceso a API locales para aplicaciones móviles y de escritorio
-          href: application-proxy-secure-api-access.md
-        - name: Configuración de aplicaciones cliente móviles y de escritorio
-          href: application-proxy-configure-native-client-application.md
-        - name: Configuración de una página principal personalizada
-          href: application-proxy-configure-custom-home-page.md
-        - name: Traducción de vínculos insertados
-          href: application-proxy-configure-hard-coded-link-translation.md
-        - name: Configuración de cookies
-          href: application-proxy-configure-cookie-settings.md
-        - name: Publicación mediante caracteres comodín
-          href: application-proxy-wildcard.md
-        - name: Eliminación de datos personales
-          href: application-proxy-remove-personal-data.md
-        - name: Configuración de un dominio personalizado
-          href: application-proxy-configure-custom-domain.md
-        - name: Protección de aplicaciones heredadas
-          items:
-            - name: "Protección del acceso híbrido con Azure\_AD"
-              href: secure-hybrid-access.md
-            - name: "Integración de F5 y Azure\_AD"
-              href: f5-aad-integration.md
-            - name: Implementación de F5 BIG-IP VE en IaaS de Azure
-              href: f5-bigip-deployment-guide.md
-            - name: "F5 Big-IP con Azure AD\_para VPN sin contraseña"
-              href: f5-aad-password-less-vpn.md
-        - name: Tutoriales de publicación
-          items:
-            - name: Integración con Application Proxy en un servidor NDES
-              href: active-directory-app-proxy-protect-ndes.md
-            - name: Integración con Application Proxy mediante PingAccess
-              href: application-proxy-ping-access-publishing-guide.md
-            - name: "Integración con Azure\_AD\_Domain\_Services"
-              href: ../../active-directory-domain-services/deploy-azure-app-proxy.md?context=%2fazure%2factive-directory%2fmanage-apps%2fcontext%2fmanage-apps-context
-            - name: Integración con Power BI
-              href: application-proxy-integrate-with-power-bi.md
-            - name: Integración con Cloud App Security
-              href: application-proxy-integrate-with-microsoft-cloud-application-security.md
-            - name: Integración con el Escritorio remoto
-              href: application-proxy-integrate-with-remote-desktop-services.md
-            - name: Integración con SharePoint (Kerberos)
-              href: application-proxy-integrate-with-sharepoint-server.md
-            - name: Integración con SharePoint (SAML)
-              href: application-proxy-integrate-with-sharepoint-server-saml.md
-            - name: Integración con Teams
-              href: application-proxy-integrate-with-teams.md
-            - name: Integración con Tableau
-              href: application-proxy-integrate-with-tableau.md
-            - name: Integración con Qlik
-              href: application-proxy-qlik.md
+        - name: "Protección del acceso híbrido con Azure\_AD"
+          href: secure-hybrid-access.md
+        - name: "Integración de F5 y Azure\_AD"
+          href: f5-aad-integration.md
+        - name: Implementación de F5 BIG-IP VE en IaaS de Azure
+          href: f5-bigip-deployment-guide.md
+        - name: "F5 Big-IP con Azure AD\_para VPN sin contraseña"
+          href: f5-aad-password-less-vpn.md
     - name: Solución de problemas
       items:
-        - name: Solución de problemas de incorporación de aplicaciones
-          href: troubleshoot-adding-apps.md
         - name: Solución de problemas de inicio de sesión único basado en contraseña
           href: troubleshoot-password-based-sso.md
         - name: Solución de problemas del inicio de sesión único basado en SAML
           href: troubleshoot-saml-based-sso.md
         - name: Depuración del inicio de sesión único basado en SAML
           href: debug-saml-sso-issues.md
-        - name: Solución de problemas sobre inicio de sesión del usuario
-          items:
-            - name: Petición de consentimiento inesperada
-              href: application-sign-in-unexpected-user-consent-prompt.md
-            - name: Error de consentimiento del usuario
-              href: application-sign-in-unexpected-user-consent-error.md
-            - name: Problemas al iniciar sesión desde Aplicaciones
-              href: application-sign-in-other-problem-access-panel.md
-            - name: Error en la página de inicio de sesión de la aplicación
-              href: application-sign-in-problem-application-error.md
-            - name: Problema al iniciar sesión en una aplicación de Microsoft
-              href: application-sign-in-problem-first-party-microsoft.md
-            - name: Problema con el inicio de sesión único
-              href: application-sign-in-problem-federated-sso-gallery.md
-        - name: Solución de problemas de aplicaciones locales
-          items:
-            - name: Solución de problemas del proxy de aplicación
-              href: application-proxy-troubleshoot.md
-            - name: Diagrama de flujo de solución de problemas del conector
-              href: application-proxy-debug-connectors.md
-            - name: Diagrama de flujo de solución de problemas de la aplicación
-              href: application-proxy-debug-apps.md
-            - name: Problema al mostrar la página de aplicaciones
-              href: application-proxy-page-appearance-broken-problem.md
-            - name: La carga de la aplicación tarda demasiado
-              href: application-proxy-page-load-speed-problem.md
-            - name: Los vínculos de la página de aplicación no funcionan
-              href: application-proxy-page-links-broken-problem.md
-            - name: No funciona ningún conector en un grupo de conectores para mi aplicación
-              href: application-proxy-connectivity-no-working-connector.md
-            - name: Configuración en el portal de administración
-              href: application-proxy-config-how-to.md
-            - name: Problema al crear una aplicación en el portal de administración
-              href: application-proxy-config-problem.md
-            - name: Configuración de la delegación restringida de Kerberos
-              href: application-proxy-back-end-kerberos-constrained-delegation-how-to.md
-            - name: Configuración con PingAccess
-              href: ./application-proxy-ping-access-publishing-guide.md
-            - name: Error de imposibilidad de acceder a la aplicación corporativa
-              href: application-proxy-sign-in-bad-gateway-timeout-error.md
-            - name: Problema al instalar el conector de agente del proxy de aplicación
-              href: application-proxy-connector-installation-problem.md
-            - name: Problema de inicio de sesión
-              href: application-sign-in-problem-on-premises-application-proxy.md
-            - name: Problemas de CORS en Application Proxy
-              href: application-proxy-understand-cors-issues.md
+        - name: Petición de consentimiento inesperada
+          href: application-sign-in-unexpected-user-consent-prompt.md
+        - name: Error de consentimiento del usuario
+          href: application-sign-in-unexpected-user-consent-error.md
+        - name: Problemas al iniciar sesión desde Aplicaciones
+          href: application-sign-in-other-problem-access-panel.md
+        - name: Error en la página de inicio de sesión de la aplicación
+          href: application-sign-in-problem-application-error.md
+        - name: Problema al iniciar sesión en una aplicación de Microsoft
+          href: application-sign-in-problem-first-party-microsoft.md
 - name: Referencia
   items:
-    - name: Preguntas frecuentes acerca de Application Proxy
-      href: application-proxy-faq.md
-    - name: Historial de versiones de Application Proxy
-      href: application-proxy-release-version-history.md
+    - name: Preguntas frecuentes sobre los certificados de Administración de la aplicación
+      href: application-management-certs-faq.md
     - name: Motivos por los que las aplicaciones aparecen en aplicaciones empresariales
       href: application-types.md
     - name: Motivos por los que los usuarios se asignan a una aplicación

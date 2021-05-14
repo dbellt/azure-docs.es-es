@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 09/02/2020
+ms.date: 05/04/2021
 ms.author: erhopf
 ms.custom: devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-speech-services-one-nomore-no-go
 keywords: reconocimiento de la intención
-ms.openlocfilehash: 821e5d1345e513f9b5deb2ef17cc1d4fb7a3544a
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 0defd5e964245728b8ca2e68d582bbfc0d9ed1e8
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107948678"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108769467"
 ---
 # <a name="get-started-with-intent-recognition"></a>Introducción al reconocimiento de la intención
 

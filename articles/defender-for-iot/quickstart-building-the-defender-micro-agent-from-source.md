@@ -1,14 +1,14 @@
 ---
 title: 'Inicio rápido: Compilación del microagente de Defender a partir del código fuente (versión preliminar)'
 description: En este inicio rápido, obtendrá información sobre el microagente que incluye una infraestructura que se puede usar para personalizar la distribución.
-ms.date: 1/18/2021
+ms.date: 05/10/2021
 ms.topic: quickstart
-ms.openlocfilehash: a3a8f82989d6abbaf2657e4b45638c77b3b2f704
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: b52c985619e317421a1597fee77911d9bc1e81d2
+ms.sourcegitcommit: 19dfdfa85e92c6a34933bdd54a7c94e8b00eacfd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106384604"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109664859"
 ---
 # <a name="quickstart-build-the-defender-micro-agent-from-source-code-preview"></a>Inicio rápido: Compilación del microagente de Defender a partir del código fuente (versión preliminar)
 
@@ -103,4 +103,5 @@ Si necesita una configuración diferente para escenarios de producción, póngas
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Configuración de la solución de Azure Defender para IoT](quickstart-configure-your-solution.md)
+> [!div class="nextstepaction"]
+> [Configuración de la solución de Azure Defender para IoT](quickstart-configure-your-solution.md)
